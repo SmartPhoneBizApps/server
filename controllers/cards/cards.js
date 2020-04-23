@@ -1,0 +1,179 @@
+const ErrorResponse = require("../../utils/errorResponse");
+//const adaptiveCard_card = require('../../cards/adaptiveCard_card.js');
+const adaptiveCard_card = {
+  _version: "1.17.0",
+  "sap.app": {
+    id: "adativecard.embedded",
+    type: "card",
+    title: "Sample of an Adaptive Card",
+    subTitle: "Sample of an Adaptive Card",
+    applicationVersion: {
+      version: "1.0.0",
+    },
+    shortTitle: "A short title for this Card",
+    info: "Additional information about this Card",
+    description: "A long description for this Card",
+    tags: {
+      keywords: ["Adaptive", "Card", "Sample"],
+    },
+  },
+  "sap.card": {
+    type: "AdaptiveCard",
+    content: {
+      data: {
+        json: {
+          firstName: "Donna",
+          lastName: "Moore",
+          position: "Sales Executive",
+          description:
+            "Lorem ipsum dolor st amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.",
+          company: {
+            name: "Robert Brown Entertainment",
+            address: "481 West Street, Anytown OH 45066, USA",
+          },
+        },
+      },
+      $schema: "http://adaptivecards.io/schemas/adaptive-card.json",
+      type: "AdaptiveCard",
+      version: "1.0",
+      body: [
+        {
+          type: "ColumnSet",
+          columns: [
+            {
+              type: "Column",
+              width: "auto",
+              items: [
+                {
+                  type: "Image",
+                  url:
+                    "https://sapui5.hana.ondemand.com/test-resources/sap/ui/integration/demokit/cardExplorer/webapp/topics/images/Woman_avatar_01.png",
+                  size: "small",
+                  style: "person",
+                },
+              ],
+            },
+            {
+              type: "Column",
+              width: "stretch",
+              items: [
+                {
+                  type: "TextBlock",
+                  text: "{firstName} {lastName}",
+                  weight: "bolder",
+                  wrap: true,
+                },
+                {
+                  type: "TextBlock",
+                  spacing: "None",
+                  text: "{position}",
+                  isSubtle: true,
+                  wrap: true,
+                },
+              ],
+            },
+          ],
+        },
+        {
+          type: "TextBlock",
+          text: "{description}",
+          wrap: true,
+        },
+        {
+          type: "FactSet",
+          facts: [
+            {
+              title: "First Name:",
+              value: "{firstName}",
+            },
+            {
+              title: "Last Name:",
+              value: "{lastName}",
+            },
+            {
+              title: "Company:",
+              value: "{company.name}",
+            },
+            {
+              title: "Address:",
+              value: "{company.address}",
+            },
+          ],
+        },
+      ],
+      actions: [
+        {
+          type: "Action.ShowCard",
+          title: "Schedule a meeting",
+          card: {
+            type: "AdaptiveCard",
+            body: [
+              {
+                type: "Input.Date",
+                id: "meetDate",
+              },
+            ],
+            actions: [
+              {
+                type: "Action.Submit",
+                title: "OK",
+              },
+            ],
+          },
+          parameters: {},
+        },
+        {
+          type: "Action.ShowCard",
+          title: "Comment",
+          card: {
+            type: "AdaptiveCard",
+            body: [
+              {
+                type: "Input.Text",
+                id: "comment",
+                isMultiline: true,
+                placeholder: "Enter your comment",
+              },
+            ],
+            actions: [
+              {
+                type: "Action.Submit",
+                title: "OK",
+              },
+            ],
+          },
+          parameters: {},
+        },
+      ],
+    },
+  },
+};
+
+//import adaptiveCard_card from '../../cards/adaptiveCard_card.js';
+//import * as adaptiveCard_card from '../../cardsJson/adaptiveCard_card.json';
+
+// @desc      Get adaptiveCard_card
+// @route     GET /api/v1/adaptiveCard_card/:id
+// @access    Public
+exports.adaptiveCard_card = async (req, res, next) => {
+  const card = adaptiveCard_card;
+  c1 = JSON.stringify(card);
+  console.log(card);
+  //Update Card Header
+  card["sap.app"]["title"] = "SmartApp Adaptive Cards";
+  card["sap.app"]["subTitle"] = "SmartApp Adaptive Card subTitle";
+  card["sap.app"]["shortTitle"] = "Employee Leave Status";
+  card["sap.app"]["info"] = "Track Leave Details";
+  card["sap.app"]["description"] = "Employee Leaves portal";
+
+  console.log(c1);
+  const cardType = "adaptiveCard_card";
+
+  if (!card) {
+    return next(
+      new ErrorResponse(`Card not found with id of ${req.params.id}`, 404)
+    );
+  }
+
+  res.status(200).json({ success: true, cardType: cardType, data: card });
+};
