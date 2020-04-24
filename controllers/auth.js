@@ -57,6 +57,9 @@ exports.register = asyncHandler(async (req, res, next) => {
 // @route     POST /api/v1/auth/login
 // @access    Public
 exports.login = asyncHandler(async (req, res, next) => {
+  console.log("Body:", req.body);
+  console.log("Body:", req.url);
+  console.log("Body:", req.header);
   const { email, password } = req.body;
 
   // Validate emil & password
@@ -176,6 +179,7 @@ exports.forgotPassword = asyncHandler(async (req, res, next) => {
 
     res.status(200).json({ success: true, data: "Email sent" });
   } catch (err) {
+    console.log("Here is the issue");
     console.log(err);
     user.resetPasswordToken = undefined;
     user.resetPasswordExpire = undefined;
@@ -240,3 +244,130 @@ const sendTokenResponse = (user, statusCode, res) => {
     token,
   });
 };
+
+// @desc      send an email
+// @route     POST /api/v1/auth/sendEmail
+// @access    Public
+exports.sendEmail = asyncHandler(async (req, res, next) => {
+  console.log(req.body);
+  emailTo = req.body.emailTo;
+  Subject = req.body.subject;
+  message = req.body.message;
+
+  try {
+    await sendEmail({
+      email: emailTo,
+      subject: Subject,
+      message: message,
+    });
+
+    res.status(200).json({ success: true, data: "Email sent" });
+  } catch (err) {
+    console.log(err);
+    return next(new ErrorResponse("Email could not be sent", 500));
+  }
+});
+
+// @desc      Login Via PIN
+// @route     POST /api/v1/auth/pinLogin
+// @access    Public
+exports.pinLogin = asyncHandler(async (req, res, next) => {
+  const user = await User.findOne({ email: req.body.email });
+
+  if (!user) {
+    return next(new ErrorResponse("There is no user with that email", 404));
+  }
+
+  // Get reset token
+
+  UserPIN = Math.floor(100000 + Math.random() * 900000);
+  console.log(UserPIN);
+
+  user.UserPIN = UserPIN;
+  const resetToken = user.getResetPasswordToken();
+
+  await user.save({ validateBeforeSave: false });
+
+  // Create reset url
+  const resetUrl = `${req.protocol}://${req.get(
+    "host"
+  )}/api/v1/auth/resetpassword/${resetToken}`;
+
+  const message = `Your PIN number is: ${UserPIN} , you are receiving this email because you (or someone else) is performing login to SmartApp. Please make a PUT request to: \n\n ${resetUrl}`;
+
+  try {
+    await sendEmail({
+      email: user.email,
+      subject: "Password reset token",
+      message,
+    });
+
+    res.status(200).json({ success: true, data: "Email sent" });
+  } catch (err) {
+    console.log("Here is the issue");
+    console.log(err);
+    user.resetPasswordToken = undefined;
+    user.resetPasswordExpire = undefined;
+
+    await user.save({ validateBeforeSave: false });
+
+    return next(new ErrorResponse("Email could not be sent", 500));
+  }
+
+  res.status(200).json({
+    success: true,
+    data: user,
+  });
+});
+
+// @desc      Validate PIN
+// @route     PUT /api/v1/auth/checkpin/:resettoken
+// @access    Public
+exports.checkPin = asyncHandler(async (req, res, next) => {
+  // Get hashed token
+  const resetPasswordToken = crypto
+    .createHash("sha256")
+    .update(req.params.resettoken)
+    .digest("hex");
+
+  const user = await User.findOne({
+    resetPasswordToken,
+    resetPasswordExpire: { $gt: Date.now() },
+  });
+
+  if (!user) {
+    return next(new ErrorResponse("Invalid token", 400));
+  }
+  if (user.UserPIN != req.body.pin) {
+    return next(new ErrorResponse("Invalid PIN", 400));
+  }
+  // Set new password
+  //user.password = req.body.password;
+  user.resetPasswordToken = undefined;
+  user.resetPasswordExpire = undefined;
+  await user.save();
+
+  sendTokenResponse(user, 200, res);
+});
+
+/* // Get token from model, create cookie and send response
+const sendTokenResponse = (user, statusCode, res) => {
+  // Create token
+  const token = user.getSignedJwtToken();
+
+  const options = {
+    expires: new Date(
+      Date.now() + process.env.JWT_COOKIE_EXPIRE * 24 * 60 * 60 * 1000
+    ),
+    httpOnly: true,
+  };
+
+  if (process.env.NODE_ENV === "production") {
+    options.secure = true;
+  }
+
+  res.status(statusCode).cookie("token", token, options).json({
+    success: true,
+    token,
+  });
+}; */

@@ -7,6 +7,10 @@ const ApproleSchema = new mongoose.Schema({
     required: [true, "Please add RoleID"],
     unique: true,
   },
+  role: {
+    type: String,
+    default: true,
+  },
   inUse: {
     type: String,
     default: true,

@@ -80,6 +80,7 @@ app.use("/api/v1/areas", require("./routes/orgSetup/areas"));
 app.use("/api/v1/apps", require("./routes/appSetup/apps"));
 app.use("/api/v1/roles", require("./routes/appSetup/roles"));
 app.use("/api/v1/approles", require("./routes/appSetup/approles"));
+app.use("/api/v1/userapps", require("./routes/appSetup/userapps"));
 
 //Business Data (Overview Cards)
 app.use("/api/v1/cards", require("./routes/cards/cards"));

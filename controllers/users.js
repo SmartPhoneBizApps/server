@@ -1,6 +1,7 @@
-const ErrorResponse = require('../utils/errorResponse');
-const asyncHandler = require('../middleware/async');
-const User = require('../models/User');
+const ErrorResponse = require("../utils/errorResponse");
+const asyncHandler = require("../middleware/async");
+const User = require("../models/User");
+const Role = require("../models/appSetup/Role");
 
 // @desc      Get all users
 // @route     GET /api/v1/auth/users
@@ -17,7 +18,7 @@ exports.getUser = asyncHandler(async (req, res, next) => {
 
   res.status(200).json({
     success: true,
-    data: user
+    data: user,
   });
 });
 
@@ -29,7 +30,7 @@ exports.createUser = asyncHandler(async (req, res, next) => {
 
   res.status(201).json({
     success: true,
-    data: user
+    data: user,
   });
 });
 
@@ -37,14 +38,38 @@ exports.createUser = asyncHandler(async (req, res, next) => {
 // @route     PUT /api/v1/auth/users/:id
 // @access    Private/Admin
 exports.updateUser = asyncHandler(async (req, res, next) => {
+  console.log(req.params);
+
+  if (req.body.businessRoles.length > 0) {
+    let roleTemp = {
+      role: "",
+      roleId: "",
+    };
+    roleArray = [];
+    for (i = 0; i < req.body.businessRoles.length; i++) {
+      roleTemp.role = req.body.businessRoles[i];
+      console.log(req.body.businessRoles[i]);
+      const roleX = await Role.findOne({ role: req.body.businessRoles[i] });
+
+      roleTemp.roleId = roleX.id;
+      req.body.businessRoles[i] = roleTemp;
+
+      roleArray.push(roleTemp);
+      console.log(roleArray);
+      roleTemp = {};
+    }
+    console.log(roleArray);
+    req.body.businessRoles = roleArray;
+  }
+
   const user = await User.findByIdAndUpdate(req.params.id, req.body, {
     new: true,
-    runValidators: true
+    runValidators: true,
   });
 
   res.status(200).json({
     success: true,
-    data: user
+    data: user,
   });
 });
 
@@ -56,6 +81,6 @@ exports.deleteUser = asyncHandler(async (req, res, next) => {
 
   res.status(200).json({
     success: true,
-    data: {}
+    data: {},
   });
 });

@@ -17,6 +17,9 @@ const UserSchema = new mongoose.Schema({
       "Please add a valid email",
     ],
   },
+  UserPIN: {
+    type: String,
+  },
   userType: {
     type: String,
   },
@@ -48,6 +51,7 @@ const UserSchema = new mongoose.Schema({
     ],
     default: "user",
   },
+  businessRoles: [],
   password: {
     type: String,
     required: [true, "Please add a password"],
