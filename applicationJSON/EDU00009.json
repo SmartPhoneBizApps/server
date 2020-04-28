@@ -1,0 +1,209 @@
+{
+  "ID": {
+    "type": "String",
+    "unique": true,
+    "required": [true, "Please add mandatory field :ID"],
+    "maxlength": [20, "ID can not be more than 20 characters"]
+  },
+  "StudentName": {
+    "type": "String",
+    "unique": false,
+    "required": [true, "Please add mandatory field :StudentName"],
+    "maxlength": [50, "StudentName can not be more than 50 characters"]
+  },
+  "Email": {
+    "type": "String",
+    "unique": false,
+    "required": [true, "Please add mandatory field :Email"],
+    "maxlength": [50, "Email can not be more than 50 characters"],
+    "match": ["EMAIL_V1", "Invalid EmailID for field :Email"]
+  },
+  "PhoneNumber": {
+    "type": "String",
+    "unique": false,
+    "maxlength": [20, "PhoneNumber can not be more than 20 characters"],
+    "match": [
+      "UK_PHONE_V1",
+      "Please provide valid UK Phone number in field :PhoneNumber"
+    ]
+  },
+  "GradeLevel": {
+    "type": "String",
+    "unique": false,
+    "maxlength": [20, "GradeLevel can not be more than 20 characters"]
+  },
+  "GuidanceName": {
+    "type": "String",
+    "unique": false,
+    "maxlength": [50, "GuidanceName can not be more than 50 characters"]
+  },
+  "AdviserName": {
+    "type": "String",
+    "unique": false,
+    "maxlength": [50, "AdviserName can not be more than 50 characters"]
+  },
+  "MotherName": {
+    "type": "String",
+    "unique": false,
+    "maxlength": [50, "MotherName can not be more than 50 characters"]
+  },
+  "MotherEmail": {
+    "type": "String",
+    "unique": false,
+    "required": [true, "Please add mandatory field :MotherEmail"],
+    "maxlength": [50, "MotherEmail can not be more than 50 characters"],
+    "match": ["EMAIL_V1", "Invalid EmailID for field :MotherEmail"]
+  },
+  "MotherPhoneNo": {
+    "type": "String",
+    "unique": false,
+    "maxlength": [20, "MotherPhoneNo can not be more than 20 characters"],
+    "match": [
+      "UK_PHONE_V1",
+      "Please provide valid UK Phone number in field :MotherPhoneNo"
+    ]
+  },
+  "FatherEmail": {
+    "type": "String",
+    "unique": false,
+    "required": [true, "Please add mandatory field :FatherEmail"],
+    "maxlength": [50, "FatherEmail can not be more than 50 characters"],
+    "match": ["EMAIL_V1", "Invalid EmailID for field :FatherEmail"]
+  },
+  "FatherPhoneNo": {
+    "type": "String",
+    "unique": false,
+    "maxlength": [20, "FatherPhoneNo can not be more than 20 characters"],
+    "match": [
+      "UK_PHONE_V1",
+      "Please provide valid UK Phone number in field :FatherPhoneNo"
+    ]
+  },
+  "Q1": {
+    "type": "String",
+    "unique": false,
+    "maxlength": [50, "Q1 can not be more than 50 characters"]
+  },
+  "A1": {
+    "type": "String",
+    "unique": false,
+    "maxlength": [50, "A1 can not be more than 50 characters"]
+  },
+  "Q2": {
+    "type": "String",
+    "unique": false,
+    "maxlength": [50, "Q2 can not be more than 50 characters"]
+  },
+  "A2": {
+    "type": "String",
+    "unique": false,
+    "maxlength": [100, "A2 can not be more than 100 characters"]
+  },
+  "Q3": {
+    "type": "String",
+    "unique": false,
+    "maxlength": [500, "Q3 can not be more than 500 characters"]
+  },
+  "A3": {
+    "type": "String",
+    "unique": false,
+    "maxlength": [500, "A3 can not be more than 500 characters"]
+  },
+  "Q4": {
+    "type": "String",
+    "unique": false,
+    "maxlength": [500, "Q4 can not be more than 500 characters"]
+  },
+  "A4": {
+    "type": "String",
+    "unique": false,
+    "maxlength": [500, "A4 can not be more than 500 characters"]
+  },
+  "Q5": {
+    "type": "String",
+    "unique": false,
+    "maxlength": [500, "Q5 can not be more than 500 characters"]
+  },
+  "A5": {
+    "type": "String",
+    "unique": false,
+    "maxlength": [500, "A5 can not be more than 500 characters"]
+  },
+  "Q6": {
+    "type": "String",
+    "unique": false,
+    "maxlength": [500, "Q6 can not be more than 500 characters"]
+  },
+  "A6": {
+    "type": "String",
+    "unique": false,
+    "maxlength": [500, "A6 can not be more than 500 characters"]
+  },
+  "Image": {
+    "type": "String",
+    "unique": false,
+    "maxlength": [100, "Image can not be more than 100 characters"]
+  },
+  "Status": {
+    "type": "String",
+    "unique": false,
+    "required": [true, "Please add mandatory field :Status"],
+    "maxlength": [20, "Status can not be more than 20 characters"]
+  },
+  "FatherName": {
+    "type": "String",
+    "unique": false,
+    "maxlength": [50, "FatherName can not be more than 50 characters"]
+  },
+  "ParentName": {
+    "type": "String",
+    "unique": false,
+    "maxlength": [50, "ParentName can not be more than 50 characters"]
+  },
+  "ParentEmail": {
+    "type": "String",
+    "unique": false,
+    "required": [true, "Please add mandatory field :ParentEmail"],
+    "maxlength": [50, "ParentEmail can not be more than 50 characters"],
+    "match": ["EMAIL_V1", "Invalid EmailID for field :ParentEmail"]
+  },
+  "ParentPhoneNo": {
+    "type": "String",
+    "unique": false,
+    "maxlength": [20, "ParentPhoneNo can not be more than 20 characters"],
+    "match": [
+      "UK_PHONE_V1",
+      "Please provide valid UK Phone number in field :ParentPhoneNo"
+    ]
+  },
+  "Question_Response": {
+    "type": "String",
+    "unique": false,
+    "maxlength": [500, "Question_Response can not be more than 500 characters"]
+  },
+  "PostCode": {
+    "type": "String",
+    "unique": false,
+    "required": [true, "Please add mandatory field :PostCode"],
+    "maxlength": [100, "PostCode can not be more than 100 characters"],
+    "match": [
+      "UK_POSTCODE_V1",
+      "Please provide valid UK Post Code in field :PostCode"
+    ]
+  },
+  "Address": {
+    "type": "String",
+    "unique": false,
+    "required": [true, "Please add mandatory field :Address"],
+    "maxlength": [500, "Address can not be more than 500 characters"]
+  },
+  "BirthDate": {
+    "type": "Date",
+    "unique": false,
+    "maxlength": [10, "BirthDate can not be more than 10 characters"],
+    "match": [
+      "DATE_V1",
+      "Please provide date in YYYY-MM-DD format for field :BirthDate"
+    ]
+  }
+}

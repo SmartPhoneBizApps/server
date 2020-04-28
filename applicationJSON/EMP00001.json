@@ -1,0 +1,132 @@
+{
+  "ID": {
+    "type": "String",
+    "unique": true,
+    "required": [true, "Please add mandatory field :ID"],
+    "maxlength": [20, "ID can not be more than 20 characters"]
+  },
+  "EmployeeID": {
+    "type": "String",
+    "unique": false,
+    "required": [true, "Please add mandatory field :EmployeeID"],
+    "maxlength": [20, "EmployeeID can not be more than 20 characters"]
+  },
+  "EmpName": {
+    "type": "String",
+    "unique": false,
+    "required": [true, "Please add mandatory field :EmpName"],
+    "maxlength": [50, "EmpName can not be more than 50 characters"]
+  },
+  "EmpAddress": {
+    "type": "String",
+    "unique": false,
+    "required": [true, "Please add mandatory field :EmpAddress"],
+    "maxlength": [200, "EmpAddress can not be more than 200 characters"]
+  },
+  "EmpPostCode": {
+    "type": "String",
+    "unique": false,
+    "required": [true, "Please add mandatory field :EmpPostCode"],
+    "maxlength": [20, "EmpPostCode can not be more than 20 characters"],
+    "match": [
+      "UK_POSTCODE_V1",
+      "Please provide valid UK Post Code in field :EmpPostCode"
+    ]
+  },
+  "EmpDesignation": {
+    "type": "String",
+    "unique": false,
+    "required": [true, "Please add mandatory field :EmpDesignation"],
+    "maxlength": [50, "EmpDesignation can not be more than 50 characters"]
+  },
+  "EmpTelephone": {
+    "type": "String",
+    "unique": false,
+    "required": [true, "Please add mandatory field :EmpTelephone"],
+    "maxlength": [20, "EmpTelephone can not be more than 20 characters"],
+    "match": [
+      "UK_PHONE_V1",
+      "Please provide valid UK Phone number in field :EmpTelephone"
+    ]
+  },
+  "CostCentre": {
+    "type": "String",
+    "unique": false,
+    "maxlength": [50, "CostCentre can not be more than 50 characters"]
+  },
+  "EmpEmail": {
+    "type": "String",
+    "unique": false,
+    "required": [true, "Please add mandatory field :EmpEmail"],
+    "maxlength": [50, "EmpEmail can not be more than 50 characters"],
+    "match": ["EMAIL_V1", "Invalid EmailID for field :EmpEmail"]
+  },
+  "Location": {
+    "type": "String",
+    "unique": false,
+    "maxlength": [100, "Location can not be more than 100 characters"]
+  },
+  "LeaveType": {
+    "type": "String",
+    "unique": false,
+    "required": [true, "Please add mandatory field :LeaveType"],
+    "maxlength": [100, "LeaveType can not be more than 100 characters"]
+  },
+  "LeaveReason": {
+    "type": "String",
+    "unique": false,
+    "required": [true, "Please add mandatory field :LeaveReason"],
+    "maxlength": [500, "LeaveReason can not be more than 500 characters"]
+  },
+  "Approver": {
+    "type": "String",
+    "unique": false,
+    "maxlength": [50, "Approver can not be more than 50 characters"]
+  },
+  "Status": {
+    "type": "String",
+    "unique": false,
+    "required": [true, "Please add mandatory field :Status"],
+    "maxlength": [20, "Status can not be more than 20 characters"]
+  },
+  "Comment": {
+    "type": "String",
+    "unique": false,
+    "maxlength": [1000, "Comment can not be more than 1000 characters"]
+  },
+  "ProcessingLog": {
+    "type": "String",
+    "unique": false,
+    "maxlength": [1000, "ProcessingLog can not be more than 1000 characters"]
+  },
+  "LeaveFrom": {
+    "type": "Date",
+    "unique": false,
+    "required": [true, "Please add mandatory field :LeaveFrom"],
+    "maxlength": [10, "LeaveFrom can not be more than 10 characters"],
+    "match": [
+      "DATE_V1",
+      "Please provide date in YYYY-MM-DD format for field :LeaveFrom"
+    ]
+  },
+  "LeaveTo": {
+    "type": "Date",
+    "unique": false,
+    "required": [true, "Please add mandatory field :LeaveTo"],
+    "maxlength": [10, "LeaveTo can not be more than 10 characters"],
+    "match": [
+      "DATE_V1",
+      "Please provide date in YYYY-MM-DD format for field :LeaveTo"
+    ]
+  },
+  "LeaveDays": {
+    "type": "Number",
+    "unique": false,
+    "required": [true, "Please add mandatory field :LeaveDays"],
+    "maxlength": [10, "LeaveDays can not be more than 10 characters"],
+    "match": [
+      "NUM_INT_MAX_10D_V1",
+      "Please provide an Integer value for field :LeaveDays"
+    ]
+  }
+}

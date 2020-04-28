@@ -31,16 +31,12 @@ exports.getApp = asyncHandler(async (req, res, next) => {
 exports.createApp = asyncHandler(async (req, res, next) => {
   // Add user to req,body
   req.body.user = req.user.id;
-  console.log(req.user.id);
-  console.log(req.user.role);
-  // Check for published app
-  //const publishedApp = await App.findOne({ user: req.user.id });
 
   // If the user is not an SuperAdmin, they can only add one app
   if (req.user.role !== "SuperAdmin") {
     return next(
       new ErrorResponse(
-        `The user with ID ${req.user.id} has already published a app`,
+        `The user with ID ${req.user.id} can't create a new App`,
         400
       )
     );

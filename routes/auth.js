@@ -11,6 +11,8 @@ const {
   sendEmail,
   pinLogin,
   checkPin,
+  updateArea,
+  updateBranch,
 } = require("../controllers/auth");
 
 const router = express.Router();
@@ -22,6 +24,8 @@ router.post("/login", login);
 router.get("/logout", logout);
 router.get("/me", protect, getMe);
 router.put("/updatedetails", protect, updateDetails);
+router.put("/updatebranch", protect, updateBranch);
+router.put("/updatearea", protect, updateArea);
 router.put("/updatepassword", protect, updatePassword);
 router.post("/forgotpassword", forgotPassword);
 router.put("/resetpassword/:resettoken", resetPassword);

@@ -1,0 +1,45 @@
+{
+  "ID": {
+    "type": "String",
+    "unique": true,
+    "required": [true, "Please add mandatory field :ID"],
+    "maxlength": [20, "ID can not be more than 20 characters"]
+  },
+  "StudentName": {
+    "type": "String",
+    "unique": false,
+    "required": [true, "Please add mandatory field :StudentName"],
+    "maxlength": [50, "StudentName can not be more than 50 characters"]
+  },
+  "Status": {
+    "type": "String",
+    "unique": false,
+    "required": [true, "Please add mandatory field :Status"],
+    "maxlength": [20, "Status can not be more than 20 characters"]
+  },
+  "StudyYear": {
+    "type": "String",
+    "unique": false,
+    "required": [true, "Please add mandatory field :StudyYear"],
+    "maxlength": [20, "StudyYear can not be more than 20 characters"]
+  },
+  "Section": {
+    "type": "String",
+    "unique": false,
+    "maxlength": [10, "Section can not be more than 10 characters"]
+  },
+  "Term": {
+    "type": "String",
+    "unique": false,
+    "maxlength": [20, "Term can not be more than 20 characters"]
+  },
+  "SubmissionDate": {
+    "type": "Date",
+    "unique": false,
+    "maxlength": [10, "SubmissionDate can not be more than 10 characters"],
+    "match": [
+      "DATE_V1",
+      "Please provide date in YYYY-MM-DD format for field :SubmissionDate"
+    ]
+  }
+}

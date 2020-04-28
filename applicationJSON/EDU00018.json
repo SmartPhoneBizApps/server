@@ -1,0 +1,95 @@
+{
+  "ID": {
+    "type": "String",
+    "unique": true,
+    "required": [true, "Please add mandatory field :ID"],
+    "maxlength": [20, "ID can not be more than 20 characters"]
+  },
+  "StudentName": {
+    "type": "String",
+    "unique": false,
+    "required": [true, "Please add mandatory field :StudentName"],
+    "maxlength": [20, "StudentName can not be more than 20 characters"]
+  },
+  "Surname": {
+    "type": "String",
+    "unique": false,
+    "required": [true, "Please add mandatory field :Surname"],
+    "maxlength": [20, "Surname can not be more than 20 characters"]
+  },
+  "StudyYear": {
+    "type": "String",
+    "unique": false,
+    "required": [true, "Please add mandatory field :StudyYear"],
+    "maxlength": [10, "StudyYear can not be more than 10 characters"]
+  },
+  "TermReport": {
+    "type": "String",
+    "unique": false,
+    "maxlength": [50, "TermReport can not be more than 50 characters"]
+  },
+  "Status": {
+    "type": "String",
+    "unique": false,
+    "required": [true, "Please add mandatory field :Status"],
+    "maxlength": [20, "Status can not be more than 20 characters"]
+  },
+  "Email": {
+    "type": "String",
+    "unique": false,
+    "required": [true, "Please add mandatory field :Email"],
+    "maxlength": [50, "Email can not be more than 50 characters"],
+    "match": ["EMAIL_V1", "Invalid EmailID for field :Email"]
+  },
+  "Question_Response": {
+    "type": "String",
+    "unique": false,
+    "maxlength": [500, "Question_Response can not be more than 500 characters"]
+  },
+  "Behaviour": {
+    "type": "String",
+    "unique": false,
+    "maxlength": [500, "Behaviour can not be more than 500 characters"]
+  },
+  "StudentID": {
+    "type": "String",
+    "unique": false,
+    "required": [true, "Please add mandatory field :StudentID"],
+    "maxlength": [50, "StudentID can not be more than 50 characters"]
+  },
+  "Attendance": {
+    "type": "String",
+    "unique": false,
+    "maxlength": [100, "Attendance can not be more than 100 characters"]
+  },
+  "Section": {
+    "type": "String",
+    "unique": false,
+    "maxlength": [10, "Section can not be more than 10 characters"]
+  },
+  "ParentEmail": {
+    "type": "String",
+    "unique": false,
+    "required": [true, "Please add mandatory field :ParentEmail"],
+    "maxlength": [50, "ParentEmail can not be more than 50 characters"],
+    "match": ["EMAIL_V1", "Invalid EmailID for field :ParentEmail"]
+  },
+  "MeritPoints": {
+    "type": "Number",
+    "unique": false,
+    "maxlength": [50, "MeritPoints can not be more than 50 characters"],
+    "match": [
+      "NUM_INT_MAX_10D_V1",
+      "Please provide an Integer value for field :MeritPoints"
+    ]
+  },
+  "ReportDate": {
+    "type": "Date",
+    "unique": false,
+    "maxlength": [10, "ReportDate can not be more than 10 characters"],
+    "match": [
+      "DATE_V1",
+      "Please provide date in YYYY-MM-DD format for field :ReportDate"
+    ]
+  }
+}

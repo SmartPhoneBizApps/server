@@ -1,0 +1,79 @@
+{
+  "ID": {
+    "type": "String",
+    "unique": true,
+    "required": [true, "Please add mandatory field :ID"],
+    "maxlength": [20, "ID can not be more than 20 characters"]
+  },
+  "CampPlacement": {
+    "type": "String",
+    "unique": false,
+    "maxlength": [100, "CampPlacement can not be more than 100 characters"]
+  },
+  "Status": {
+    "type": "String",
+    "unique": false,
+    "required": [true, "Please add mandatory field :Status"],
+    "maxlength": [20, "Status can not be more than 20 characters"]
+  },
+  "CourseName": {
+    "type": "String",
+    "unique": false,
+    "maxlength": [100, "CourseName can not be more than 100 characters"]
+  },
+  "CourseType": {
+    "type": "String",
+    "unique": false,
+    "required": [true, "Please add mandatory field :CourseType"],
+    "maxlength": [500, "CourseType can not be more than 500 characters"]
+  },
+  "College": {
+    "type": "String",
+    "unique": false,
+    "maxlength": [100, "College can not be more than 100 characters"]
+  },
+  "Town": {
+    "type": "String",
+    "unique": false,
+    "maxlength": [100, "Town can not be more than 100 characters"]
+  },
+  "Hostel": {
+    "type": "String",
+    "unique": false,
+    "maxlength": [100, "Hostel can not be more than 100 characters"]
+  },
+  "CourseLevel": {
+    "type": "String",
+    "unique": false,
+    "maxlength": [500, "CourseLevel can not be more than 500 characters"]
+  },
+  "Duration": {
+    "type": "Number",
+    "unique": false,
+    "maxlength": [100, "Duration can not be more than 100 characters"],
+    "match": [
+      "NUM_INT_MAX_10D_V1",
+      "Please provide an Integer value for field :Duration"
+    ]
+  },
+  "StartDate": {
+    "type": "Date",
+    "unique": false,
+    "required": [true, "Please add mandatory field :StartDate"],
+    "maxlength": [10, "StartDate can not be more than 10 characters"],
+    "match": [
+      "DATE_V1",
+      "Please provide date in YYYY-MM-DD format for field :StartDate"
+    ]
+  },
+  "AvailableSeats": {
+    "type": "Number",
+    "unique": false,
+    "required": [true, "Please add mandatory field :AvailableSeats"],
+    "maxlength": [5, "AvailableSeats can not be more than 5 characters"],
+    "match": [
+      "NUM_INT_MAX_10D_V1",
+      "Please provide an Integer value for field :AvailableSeats"
+    ]
+  }
+}

@@ -35,6 +35,10 @@ const UserSchema = new mongoose.Schema({
     type: mongoose.Schema.ObjectId,
     ref: "Branch",
   },
+  area: {
+    type: mongoose.Schema.ObjectId,
+    ref: "Branch",
+  },
   role: {
     type: String,
     enum: [

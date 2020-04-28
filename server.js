@@ -81,10 +81,13 @@ app.use("/api/v1/apps", require("./routes/appSetup/apps"));
 app.use("/api/v1/roles", require("./routes/appSetup/roles"));
 app.use("/api/v1/approles", require("./routes/appSetup/approles"));
 app.use("/api/v1/userapps", require("./routes/appSetup/userapps"));
+app.use("/api/v1/appschema", require("./routes/appSetup/appschema"));
+app.use("/api/v1/validationrule", require("./routes/appSetup/validationrules"));
 
 //Business Data (Overview Cards)
 app.use("/api/v1/cards", require("./routes/cards/cards"));
 app.use("/api/v1/smartapps", require("./routes/smartApp/smartapps"));
+app.use("/api/v1/datarecords", require("./routes/smartApp/datarecords"));
 
 app.use(errorHandler);
 

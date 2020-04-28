@@ -1,0 +1,251 @@
+{
+  "ID": {
+    "type": "String",
+    "unique": true,
+    "required": [true, "Please add mandatory field :ID"],
+    "maxlength": [20, "ID can not be more than 20 characters"]
+  },
+  "StudentName": {
+    "type": "String",
+    "unique": false,
+    "required": [true, "Please add mandatory field :StudentName"],
+    "maxlength": [50, "StudentName can not be more than 50 characters"]
+  },
+  "RequestFor": {
+    "type": "String",
+    "unique": false,
+    "maxlength": [50, "RequestFor can not be more than 50 characters"]
+  },
+  "Status": {
+    "type": "String",
+    "unique": false,
+    "required": [true, "Please add mandatory field :Status"],
+    "maxlength": [20, "Status can not be more than 20 characters"]
+  },
+  "StudentID": {
+    "type": "String",
+    "unique": false,
+    "required": [true, "Please add mandatory field :StudentID"],
+    "maxlength": [20, "StudentID can not be more than 20 characters"]
+  },
+  "Email": {
+    "type": "String",
+    "unique": false,
+    "required": [true, "Please add mandatory field :Email"],
+    "maxlength": [50, "Email can not be more than 50 characters"],
+    "match": ["EMAIL_V1", "Invalid EmailID for field :Email"]
+  },
+  "GuestName": {
+    "type": "String",
+    "unique": false,
+    "required": [true, "Please add mandatory field :GuestName"],
+    "maxlength": [50, "GuestName can not be more than 50 characters"]
+  },
+  "GuestEmail": {
+    "type": "String",
+    "unique": false,
+    "required": [true, "Please add mandatory field :GuestEmail"],
+    "maxlength": [50, "GuestEmail can not be more than 50 characters"],
+    "match": ["EMAIL_V1", "Invalid EmailID for field :GuestEmail"]
+  },
+  "StudentPhone": {
+    "type": "String",
+    "unique": false,
+    "maxlength": [50, "StudentPhone can not be more than 50 characters"],
+    "match": [
+      "UK_PHONE_V1",
+      "Please provide valid UK Phone number in field :StudentPhone"
+    ]
+  },
+  "GuestPhone": {
+    "type": "String",
+    "unique": false,
+    "required": [true, "Please add mandatory field :GuestPhone"],
+    "maxlength": [50, "GuestPhone can not be more than 50 characters"],
+    "match": [
+      "UK_PHONE_V1",
+      "Please provide valid UK Phone number in field :GuestPhone"
+    ]
+  },
+  "Question_Response": {
+    "type": "String",
+    "unique": false,
+    "maxlength": [500, "Question_Response can not be more than 500 characters"]
+  },
+  "AnyComment": {
+    "type": "String",
+    "unique": false,
+    "maxlength": [1000, "AnyComment can not be more than 1000 characters"]
+  },
+  "Address": {
+    "type": "String",
+    "unique": false,
+    "required": [true, "Please add mandatory field :Address"],
+    "maxlength": [200, "Address can not be more than 200 characters"]
+  },
+  "PostCode": {
+    "type": "String",
+    "unique": false,
+    "required": [true, "Please add mandatory field :PostCode"],
+    "maxlength": [100, "PostCode can not be more than 100 characters"],
+    "match": [
+      "UK_POSTCODE_V1",
+      "Please provide valid UK Post Code in field :PostCode"
+    ]
+  },
+  "StudyLevel": {
+    "type": "String",
+    "unique": false,
+    "maxlength": [100, "StudyLevel can not be more than 100 characters"]
+  },
+  "Subject": {
+    "type": "String",
+    "unique": false,
+    "maxlength": [200, "Subject can not be more than 200 characters"]
+  },
+  "EquipmentName": {
+    "type": "String",
+    "unique": false,
+    "maxlength": [200, "EquipmentName can not be more than 200 characters"]
+  },
+  "NINumber": {
+    "type": "String",
+    "unique": false,
+    "maxlength": [20, "NINumber can not be more than 20 characters"],
+    "match": [
+      "UK_NI_NUMBER_V1",
+      "Please provide valid NI number in field :NINumber"
+    ]
+  },
+  "EthnicOrigin": {
+    "type": "String",
+    "unique": false,
+    "maxlength": [50, "EthnicOrigin can not be more than 50 characters"]
+  },
+  "Q1": {
+    "type": "String",
+    "unique": false,
+    "maxlength": [200, "Q1 can not be more than 200 characters"]
+  },
+  "A1": {
+    "type": "String",
+    "unique": false,
+    "maxlength": [200, "A1 can not be more than 200 characters"]
+  },
+  "Q2": {
+    "type": "String",
+    "unique": false,
+    "maxlength": [200, "Q2 can not be more than 200 characters"]
+  },
+  "A2": {
+    "type": "String",
+    "unique": false,
+    "maxlength": [200, "A2 can not be more than 200 characters"]
+  },
+  "Q3": {
+    "type": "String",
+    "unique": false,
+    "maxlength": [200, "Q3 can not be more than 200 characters"]
+  },
+  "A3": {
+    "type": "String",
+    "unique": false,
+    "maxlength": [200, "A3 can not be more than 200 characters"]
+  },
+  "Q4": {
+    "type": "String",
+    "unique": false,
+    "maxlength": [100, "Q4 can not be more than 100 characters"]
+  },
+  "A4": {
+    "type": "String",
+    "unique": false,
+    "maxlength": [100, "A4 can not be more than 100 characters"]
+  },
+  "Essay": {
+    "type": "String",
+    "unique": false,
+    "maxlength": [1000, "Essay can not be more than 1000 characters"]
+  },
+  "LeaveReason": {
+    "type": "String",
+    "unique": false,
+    "maxlength": [100, "LeaveReason can not be more than 100 characters"]
+  },
+  "DegreePursuing": {
+    "type": "String",
+    "unique": false,
+    "maxlength": [100, "DegreePursuing can not be more than 100 characters"]
+  },
+  "ParentEmail": {
+    "type": "String",
+    "unique": false,
+    "required": [true, "Please add mandatory field :ParentEmail"],
+    "maxlength": [100, "ParentEmail can not be more than 100 characters"],
+    "match": ["EMAIL_V1", "Invalid EmailID for field :ParentEmail"]
+  },
+  "ProcessingLog": {
+    "type": "String",
+    "unique": false,
+    "maxlength": [500, "ProcessingLog can not be more than 500 characters"]
+  },
+  "EntryDate": {
+    "type": "Date",
+    "unique": false,
+    "required": [true, "Please add mandatory field :EntryDate"],
+    "maxlength": [10, "EntryDate can not be more than 10 characters"],
+    "match": [
+      "DATE_V1",
+      "Please provide date in YYYY-MM-DD format for field :EntryDate"
+    ]
+  },
+  "RequestDate": {
+    "type": "Date",
+    "unique": false,
+    "required": [true, "Please add mandatory field :RequestDate"],
+    "maxlength": [10, "RequestDate can not be more than 10 characters"],
+    "match": [
+      "DATE_V1",
+      "Please provide date in YYYY-MM-DD format for field :RequestDate"
+    ]
+  },
+  "RequiredDate": {
+    "type": "Date",
+    "unique": false,
+    "maxlength": [10, "RequiredDate can not be more than 10 characters"],
+    "match": [
+      "DATE_V1",
+      "Please provide date in YYYY-MM-DD format for field :RequiredDate"
+    ]
+  },
+  "LeaveFrom": {
+    "type": "Date",
+    "unique": false,
+    "required": [true, "Please add mandatory field :LeaveFrom"],
+    "maxlength": [10, "LeaveFrom can not be more than 10 characters"],
+    "match": [
+      "DATE_V1",
+      "Please provide date in YYYY-MM-DD format for field :LeaveFrom"
+    ]
+  },
+  "LeaveTo": {
+    "type": "Date",
+    "unique": false,
+    "required": [true, "Please add mandatory field :LeaveTo"],
+    "maxlength": [10, "LeaveTo can not be more than 10 characters"],
+    "match": [
+      "DATE_V1",
+      "Please provide date in YYYY-MM-DD format for field :LeaveTo"
+    ]
+  },
+  "LeaveDays": {
+    "type": "Number",
+    "unique": false,
+    "required": [true, "Please add mandatory field :LeaveDays"],
+    "maxlength": [10, "LeaveDays can not be more than 10 characters"],
+    "match": [
+      "NUM_INT_MAX_10D_V1",
+      "Please provide an Integer value for field :LeaveDays"
+    ]
+  }
+}

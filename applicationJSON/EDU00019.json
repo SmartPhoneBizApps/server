@@ -1,0 +1,121 @@
+{
+  "ID": {
+    "type": "String",
+    "unique": true,
+    "required": [true, "Please add mandatory field :ID"],
+    "maxlength": [20, "ID can not be more than 20 characters"]
+  },
+  "StudentName": {
+    "type": "String",
+    "unique": false,
+    "required": [true, "Please add mandatory field :StudentName"],
+    "maxlength": [20, "StudentName can not be more than 20 characters"]
+  },
+  "Surname": {
+    "type": "String",
+    "unique": false,
+    "required": [true, "Please add mandatory field :Surname"],
+    "maxlength": [20, "Surname can not be more than 20 characters"]
+  },
+  "YearGroup": {
+    "type": "String",
+    "unique": false,
+    "required": [true, "Please add mandatory field :YearGroup"],
+    "maxlength": [10, "YearGroup can not be more than 10 characters"]
+  },
+  "Section": {
+    "type": "String",
+    "unique": false,
+    "maxlength": [20, "Section can not be more than 20 characters"]
+  },
+  "DueFor": {
+    "type": "String",
+    "unique": false,
+    "maxlength": [200, "DueFor can not be more than 200 characters"]
+  },
+  "DueReason": {
+    "type": "String",
+    "unique": false,
+    "maxlength": [500, "DueReason can not be more than 500 characters"]
+  },
+  "Status": {
+    "type": "String",
+    "unique": false,
+    "required": [true, "Please add mandatory field :Status"],
+    "maxlength": [20, "Status can not be more than 20 characters"]
+  },
+  "StudyYear": {
+    "type": "String",
+    "unique": false,
+    "required": [true, "Please add mandatory field :StudyYear"],
+    "maxlength": [10, "StudyYear can not be more than 10 characters"]
+  },
+  "Question_Response": {
+    "type": "String",
+    "unique": false,
+    "maxlength": [500, "Question_Response can not be more than 500 characters"]
+  },
+  "Email": {
+    "type": "String",
+    "unique": false,
+    "required": [true, "Please add mandatory field :Email"],
+    "maxlength": [50, "Email can not be more than 50 characters"],
+    "match": ["EMAIL_V1", "Invalid EmailID for field :Email"]
+  },
+  "ParentEmail": {
+    "type": "String",
+    "unique": false,
+    "required": [true, "Please add mandatory field :ParentEmail"],
+    "maxlength": [100, "ParentEmail can not be more than 100 characters"],
+    "match": ["EMAIL_V1", "Invalid EmailID for field :ParentEmail"]
+  },
+  "StudentID": {
+    "type": "String",
+    "unique": false,
+    "required": [true, "Please add mandatory field :StudentID"],
+    "maxlength": [20, "StudentID can not be more than 20 characters"]
+  },
+  "ProcessingLog": {
+    "type": "String",
+    "unique": false,
+    "maxlength": [500, "ProcessingLog can not be more than 500 characters"]
+  },
+  "DateOfBirth": {
+    "type": "Date",
+    "unique": false,
+    "maxlength": [10, "DateOfBirth can not be more than 10 characters"],
+    "match": [
+      "DATE_V1",
+      "Please provide date in YYYY-MM-DD format for field :DateOfBirth"
+    ]
+  },
+  "DueAmt": {
+    "type": "Number",
+    "unique": false,
+    "maxlength": [20, "DueAmt can not be more than 20 characters"],
+    "match": [
+      "NUM_2_DEC_PLACE_V1",
+      "Please provide value with 2 decimal places in the field :DueAmt"
+    ]
+  },
+  "DueDate": {
+    "type": "Date",
+    "unique": false,
+    "required": [true, "Please add mandatory field :DueDate"],
+    "maxlength": [10, "DueDate can not be more than 10 characters"],
+    "match": [
+      "DATE_V1",
+      "Please provide date in YYYY-MM-DD format for field :DueDate"
+    ]
+  },
+  "Balance": {
+    "type": "Number",
+    "unique": false,
+    "required": [true, "Please add mandatory field :Balance"],
+    "maxlength": [20, "Balance can not be more than 20 characters"],
+    "match": [
+      "NUM_2_DEC_PLACE_V1",
+      "Please provide value with 2 decimal places in the field :Balance"
+    ]
+  }
+}

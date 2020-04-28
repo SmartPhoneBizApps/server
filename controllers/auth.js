@@ -112,6 +112,42 @@ exports.getMe = asyncHandler(async (req, res, next) => {
 });
 
 // @desc      Update user details
+// @route     PUT /api/v1/auth/updatearea
+// @access    Private
+exports.updateArea = asyncHandler(async (req, res, next) => {
+  const fieldsToUpdate = {
+    area: req.body.area,
+  };
+
+  const user = await User.findByIdAndUpdate(req.user.id, fieldsToUpdate, {
+    new: true,
+    runValidators: true,
+  });
+
+  res.status(200).json({
+    success: true,
+    data: user,
+  });
+});
+// @desc      Update user details
+// @route     PUT /api/v1/auth/updatebranch
+// @access    Private
+exports.updateBranch = asyncHandler(async (req, res, next) => {
+  const fieldsToUpdate = {
+    branch: req.body.branch,
+  };
+
+  const user = await User.findByIdAndUpdate(req.user.id, fieldsToUpdate, {
+    new: true,
+    runValidators: true,
+  });
+
+  res.status(200).json({
+    success: true,
+    data: user,
+  });
+});
+// @desc      Update user details
 // @route     PUT /api/v1/auth/updatedetails
 // @access    Private
 exports.updateDetails = asyncHandler(async (req, res, next) => {

@@ -1,0 +1,226 @@
+{
+  "ID": {
+    "type": "String",
+    "unique": true,
+    "required": [true, "Please add mandatory field :ID"],
+    "maxlength": [20, "ID can not be more than 20 characters"]
+  },
+  "Name": {
+    "type": "String",
+    "unique": false,
+    "required": [true, "Please add mandatory field :Name"],
+    "maxlength": [100, "Name can not be more than 100 characters"]
+  },
+  "Surname": {
+    "type": "String",
+    "unique": false,
+    "required": [true, "Please add mandatory field :Surname"],
+    "maxlength": [100, "Surname can not be more than 100 characters"]
+  },
+  "RegCentre": {
+    "type": "String",
+    "unique": false,
+    "maxlength": [100, "RegCentre can not be more than 100 characters"]
+  },
+  "Street": {
+    "type": "String",
+    "unique": false,
+    "maxlength": [100, "Street can not be more than 100 characters"]
+  },
+  "City": {
+    "type": "String",
+    "unique": false,
+    "maxlength": [100, "City can not be more than 100 characters"]
+  },
+  "PostCode": {
+    "type": "String",
+    "unique": false,
+    "required": [true, "Please add mandatory field :PostCode"],
+    "maxlength": [100, "PostCode can not be more than 100 characters"],
+    "match": [
+      "UK_POSTCODE_V1",
+      "Please provide valid UK Post Code in field :PostCode"
+    ]
+  },
+  "State": {
+    "type": "String",
+    "unique": false,
+    "maxlength": [100, "State can not be more than 100 characters"]
+  },
+  "Country": {
+    "type": "String",
+    "unique": false,
+    "maxlength": [100, "Country can not be more than 100 characters"]
+  },
+  "ExamCentre": {
+    "type": "String",
+    "unique": false,
+    "maxlength": [100, "ExamCentre can not be more than 100 characters"]
+  },
+  "Status": {
+    "type": "String",
+    "unique": false,
+    "required": [true, "Please add mandatory field :Status"],
+    "maxlength": [20, "Status can not be more than 20 characters"]
+  },
+  "StudyYear": {
+    "type": "String",
+    "unique": false,
+    "required": [true, "Please add mandatory field :StudyYear"],
+    "maxlength": [20, "StudyYear can not be more than 20 characters"]
+  },
+  "Exam": {
+    "type": "String",
+    "unique": false,
+    "maxlength": [50, "Exam can not be more than 50 characters"]
+  },
+  "ExamYear": {
+    "type": "String",
+    "unique": false,
+    "maxlength": [20, "ExamYear can not be more than 20 characters"]
+  },
+  "StudentName": {
+    "type": "String",
+    "unique": false,
+    "required": [true, "Please add mandatory field :StudentName"],
+    "maxlength": [50, "StudentName can not be more than 50 characters"]
+  },
+  "StudentID": {
+    "type": "String",
+    "unique": false,
+    "required": [true, "Please add mandatory field :StudentID"],
+    "maxlength": [20, "StudentID can not be more than 20 characters"]
+  },
+  "RollNumber": {
+    "type": "String",
+    "unique": false,
+    "maxlength": [20, "RollNumber can not be more than 20 characters"]
+  },
+  "ResultStatus": {
+    "type": "String",
+    "unique": false,
+    "maxlength": [50, "ResultStatus can not be more than 50 characters"]
+  },
+  "Email": {
+    "type": "String",
+    "unique": false,
+    "required": [true, "Please add mandatory field :Email"],
+    "maxlength": [50, "Email can not be more than 50 characters"],
+    "match": ["EMAIL_V1", "Invalid EmailID for field :Email"]
+  },
+  "ParentEmail": {
+    "type": "String",
+    "unique": false,
+    "required": [true, "Please add mandatory field :ParentEmail"],
+    "maxlength": [100, "ParentEmail can not be more than 100 characters"],
+    "match": ["EMAIL_V1", "Invalid EmailID for field :ParentEmail"]
+  },
+  "DoB": {
+    "type": "Date",
+    "unique": false,
+    "maxlength": [10, "DoB can not be more than 10 characters"],
+    "match": [
+      "DATE_V1",
+      "Please provide date in YYYY-MM-DD format for field :DoB"
+    ]
+  },
+  "DateOfReg": {
+    "type": "Date",
+    "unique": false,
+    "maxlength": [10, "DateOfReg can not be more than 10 characters"],
+    "match": [
+      "DATE_V1",
+      "Please provide date in YYYY-MM-DD format for field :DateOfReg"
+    ]
+  },
+  "ResultDate": {
+    "type": "Date",
+    "unique": false,
+    "maxlength": [10, "ResultDate can not be more than 10 characters"],
+    "match": [
+      "DATE_V1",
+      "Please provide date in YYYY-MM-DD format for field :ResultDate"
+    ]
+  },
+  "Rank": {
+    "type": "Number",
+    "unique": false,
+    "maxlength": [100, "Rank can not be more than 100 characters"],
+    "match": [
+      "NUM_INT_MAX_10D_V1",
+      "Please provide an Integer value for field :Rank"
+    ]
+  },
+  "ScoreMaths": {
+    "type": "Number",
+    "unique": false,
+    "maxlength": [100, "ScoreMaths can not be more than 100 characters"],
+    "match": [
+      "NUM_INT_MAX_10D_V1",
+      "Please provide an Integer value for field :ScoreMaths"
+    ]
+  },
+  "ScorePhysics": {
+    "type": "Number",
+    "unique": false,
+    "maxlength": [100, "ScorePhysics can not be more than 100 characters"],
+    "match": [
+      "NUM_INT_MAX_10D_V1",
+      "Please provide an Integer value for field :ScorePhysics"
+    ]
+  },
+  "ScoreChemistry": {
+    "type": "Number",
+    "unique": false,
+    "maxlength": [100, "ScoreChemistry can not be more than 100 characters"],
+    "match": [
+      "NUM_INT_MAX_10D_V1",
+      "Please provide an Integer value for field :ScoreChemistry"
+    ]
+  },
+  "FeePaymentDate": {
+    "type": "Date",
+    "unique": false,
+    "maxlength": [10, "FeePaymentDate can not be more than 10 characters"],
+    "match": [
+      "DATE_V1",
+      "Please provide date in YYYY-MM-DD format for field :FeePaymentDate"
+    ]
+  },
+  "ChoiceLockDate": {
+    "type": "Date",
+    "unique": false,
+    "maxlength": [10, "ChoiceLockDate can not be more than 10 characters"],
+    "match": [
+      "DATE_V1",
+      "Please provide date in YYYY-MM-DD format for field :ChoiceLockDate"
+    ]
+  },
+  "Score": {
+    "type": "Number",
+    "unique": false,
+    "maxlength": [10, "Score can not be more than 10 characters"],
+    "match": [
+      "NUM_INT_MAX_10D_V1",
+      "Please provide an Integer value for field :Score"
+    ]
+  },
+  "Percentage": {
+    "type": "Number",
+    "unique": false,
+    "maxlength": [20, "Percentage can not be more than 20 characters"],
+    "match": [
+      "NUM_2_DEC_PLACE_V1",
+      "Please provide value with 2 decimal places in the field :Percentage"
+    ]
+  },
+  "MeritNo": {
+    "type": "Number",
+    "unique": false,
+    "maxlength": [10, "MeritNo can not be more than 10 characters"],
+    "match": [
+      "NUM_INT_MAX_10D_V1",
+      "Please provide an Integer value for field :MeritNo"
+    ]
+  }
+}
