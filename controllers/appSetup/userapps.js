@@ -22,11 +22,13 @@ exports.getUserapps = asyncHandler(async (req, res, next) => {
     icon: "",
     tileName: "",
     subTileName: "",
+    applicationID: "",
     info: "",
     extraInfo: "",
     frameType: "",
     backgroundImage: "",
     footer: "",
+    tileType: "",
   };
   roleTemp = {
     tabId: 0,
@@ -60,12 +62,14 @@ exports.getUserapps = asyncHandler(async (req, res, next) => {
     appTemp["id"] = 0;
     appTemp["icon"] = "sap-icon://customer-view";
     appTemp["tileName"] = "Overview Page";
-    appTemp["subTileName"] = userX.businessRoles[i];
+    appTemp["subTileName"] = userX.businessRoles[i].role;
     appTemp["info"] = "Overview Cards";
     appTemp["extraInfo"] = "Data Card based access";
     appTemp["frameType"] = "TwoByOne";
     appTemp["backgroundImage"] = "";
     appTemp["footer"] = "Quick Access";
+    appTemp["applicationID"] = "Overview";
+    appTemp["tileType"] = "Overview";
     tile[0] = { ...appTemp };
 
     for (j = 0; j < approleX.Apps.length; j++) {
@@ -80,6 +84,8 @@ exports.getUserapps = asyncHandler(async (req, res, next) => {
       appTemp["backgroundImage"] = "";
       appTemp["footer"] = approleX.Apps[j].applicationID;
       appTemp["userSpecific"] = approleX.Apps[j].userSpecific;
+      appTemp["applicationID"] = approleX.Apps[j].applicationID;
+      appTemp["tileType"] = "MasterDetail";
       console.log(appTemp);
       tile[j + 1] = { ...appTemp };
     }
