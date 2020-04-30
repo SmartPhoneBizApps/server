@@ -1,1 +1,458 @@
-{"Title": {"ApplicationTitle": "Goods Receipt", "DetailTitle": "Goods Receipt"}, "ListFields": {"IntroField": "ID", "TitleField": "", "fStatus": "Status", "sStatus": "", "numberField": "", "LFields": ["ID", "Vendor", "PONumber", "Details", "Status"]}, "MButtons": [{"type": "DOWNLOAD", "name": "Download File", "icon": "sap-icon://download"}, {"type": "APPHELP", "name": "Get App Help", "icon": "sap-icon://sys-help-2"}, {"type": "BOT", "name": "Launch Assistant", "icon": "sap-icon://travel-request"}, {"type": "VIEW", "name": "Change App View", "icon": "chart-table-view"}, {"type": "ADD", "name": "Add Record", "icon": "sap-icon://add"}, {"type": "UPLOAD", "name": "Upload Record", "icon": "sap-icon://upload"}], "DButtons": [{"type": "ATTACHMENT", "name": "View Attachments", "icon": "sap-icon://attachment"}, {"type": "UPDATE", "name": "Update Record", "icon": "sap-icon://update"}, {"type": "ADD", "name": "Add Record", "icon": "sap-icon://add"}], "Tabs": [{"value": "Tab1", "name": "GR", "type": "Field", "fioriicon": "cargo-train"}, {"value": "Tab2", "name": "PO", "type": "Field", "fioriicon": "document"}, {"value": "Tab3", "name": "Attachment", "fioriicon": "attachment", "type": "Attachment", "download": "No"}], "DetailFields": {"None": ["ID", "Requsitioner", "Plant", "Status"], "Tab1": ["Vendor", "StorageLoc", "GRQty", "DeliveryNote", "Quality", "Packaging", "ReturnQty", "Reason"], "Tab2": ["PODate", "POItem", "Category", "POQty", "UoM", "Price", "NetValue", "VATRate", "GrossValue", "Currency"], "Tab3": ["Attachment"]}, "ControlDisplay": {"ControlField": "BookingFor", "Fields": [[{"ALL": ["ID", "FirstName", "LastName", "PhoneNo", "Status", "Email", "Comments", "BookingFor", "Price", "Quantity", "NetValue", "VATPer", "VATRate", "VATVal", "GrossValue", "MoreInfo", "Attachment1", "Attachment2", "PostCode", "Emailid", "HouseNo", "Address", "TotalGrossValue"]}, {"CarPark": ["CarPark", "CarRegistration", "Building", "HotDeskNo", "NoOfPeople", "RoomLayout", "Slot", "LunchRequired", "DietaryRequirement", "MeetingDate", "VisitorCompany", "VisitorName", "VisitorPhone", "VisitorEmail"]}, {"HotDesk": ["CarPark", "CarRegistration", "Building", "HotDeskNo", "NoOfPeople", "RoomLayout", "Slot", "LunchRequired", "DietaryRequirement", "MeetingDate", "VisitorCompany", "VisitorName", "VisitorPhone", "VisitorEmail"]}, {"MeetingRoom": ["CarPark", "CarRegistration", "Building", "HotDeskNo", "NoOfPeople", "RoomLayout", "Slot", "LunchRequired", "DietaryRequirement", "MeetingDate", "VisitorCompany", "VisitorName", "VisitorPhone", "VisitorEmail"]}, {"Visitor": ["CarPark", "CarRegistration", "Building", "HotDeskNo", "NoOfPeople", "RoomLayout", "Slot", "LunchRequired", "DietaryRequirement", "MeetingDate", "VisitorCompany", "VisitorName", "VisitorPhone", "VisitorEmail"]}]]}, "FieldDef": [{"name": "ID", "type": "string", "width": "20", "Option": "", "SLabel": "Identification", "LLabel": "", "Currency": "No"}, {"name": "Requsitioner", "type": "string", "width": "50", "Option": "", "SLabel": "Requsitioner", "LLabel": "", "Currency": "No"}, {"name": "Plant", "type": "string", "width": "50", "Option": "", "SLabel": "Plant ", "LLabel": "", "Currency": "No"}, {"name": "Vendor", "type": "string", "width": "50", "Option": "", "SLabel": "Vendor", "LLabel": "", "Currency": "No"}, {"name": "PODate", "type": "Date", "width": "10", "Option": "", "SLabel": "Purchase Order Date", "LLabel": "", "Currency": "No"}, {"name": "POItem", "type": "string", "width": "100", "Option": "", "SLabel": "Purchase Order Item", "LLabel": "", "Currency": "No"}, {"name": "Category", "type": "string", "width": "20", "Option": "", "SLabel": "Category", "LLabel": "", "Currency": "No"}, {"name": "Details", "type": "string", "width": "500", "Option": "", "SLabel": "Details", "LLabel": "", "Currency": "No"}, {"name": "POQty", "type": "string", "width": "20", "Option": "", "SLabel": "Purchase Order Quantity", "LLabel": "", "Currency": "No"}, {"name": "UoM", "type": "string", "width": "100", "Option": "", "SLabel": "Unit Of Measurement", "LLabel": "", "Currency": "No"}, {"name": "Price", "type": "string", "width": "20", "Option": "", "SLabel": "Price", "LLabel": "", "Currency": "No"}, {"name": "NetValue", "type": "string", "width": "20", "Option": "", "SLabel": "Net Value", "LLabel": "", "Currency": "No"}, {"name": "VATVal", "type": "string", "width": "20", "Option": "", "SLabel": "VAT value", "LLabel": "", "Currency": "No"}, {"name": "GrossValue", "type": "string", "width": "50", "Option": "", "SLabel": "Gross Value", "LLabel": "", "Currency": "No"}, {"name": "GRQtyHistory", "type": "string", "width": "50", "Option": "", "SLabel": "Goods Received Quantity History", "LLabel": "", "Currency": "No"}, {"name": "InvQtyHistory", "type": "string", "width": "50", "Option": "", "SLabel": "Invoice Quantity History", "LLabel": "", "Currency": "No"}, {"name": "Currency", "type": "string", "width": "100", "Option": "", "SLabel": "Currency", "LLabel": "", "Currency": "No"}, {"name": "StorageLoc", "type": "string", "width": "50", "Option": "", "SLabel": "Storage Location", "LLabel": "", "Currency": "No"}, {"name": "GRQty", "type": "string", "width": "50", "Option": "", "SLabel": "Goods Received Quantity", "LLabel": "", "Currency": "No"}, {"name": "DeliveryNote", "type": "string", "width": "50", "Option": "", "SLabel": "Delivery Note", "LLabel": "", "Currency": "No"}, {"name": "Quality", "type": "string", "width": "50", "Option": "", "SLabel": "Quality", "LLabel": "", "Currency": "No"}, {"name": "Packaging", "type": "string", "width": "50", "Option": "", "SLabel": "Packaging", "LLabel": "", "Currency": "No"}, {"name": "ReturnQty", "type": "string", "width": "50", "Option": "", "SLabel": "Return Quantity", "LLabel": "", "Currency": "No"}, {"name": "Reason", "type": "string", "width": "500", "Option": "", "SLabel": "Reason", "LLabel": "", "Currency": "No"}, {"name": "Status", "type": "string", "width": "20", "Option": "", "SLabel": "Status", "LLabel": "", "Currency": "No"}, {"name": "Attachment", "type": "attachment", "width": "100", "Option": "", "SLabel": "Attachment", "LLabel": "", "Currency": "No"}, {"name": "ItemImage", "type": "string", "width": "100", "Option": "", "SLabel": "Item Image", "LLabel": "", "Currency": "No"}, {"name": "VATRate", "type": "string", "width": "100", "Option": "", "SLabel": "VAT Rate", "LLabel": "", "Currency": "No"}, {"name": "PONumber", "type": "string", "width": "50", "Option": "", "SLabel": "Purchase Order Number", "LLabel": "", "Currency": "No"}]}
+{
+  "Title": {
+    "ApplicationTitle": "Goods Receipt",
+    "DetailTitle": "Goods Receipt"
+  },
+  "ListFields": {
+    "IntroField": "ID",
+    "TitleField": "",
+    "fStatus": "Status",
+    "sStatus": "",
+    "numberField": "",
+    "LFields": ["ID", "Vendor", "PONumber", "Details", "Status"]
+  },
+  "MButtons": [
+    {
+      "type": "DOWNLOAD",
+      "name": "Download File",
+      "icon": "sap-icon://download"
+    },
+    {
+      "type": "APPHELP",
+      "name": "Get App Help",
+      "icon": "sap-icon://sys-help-2"
+    },
+    {
+      "type": "BOT",
+      "name": "Launch Assistant",
+      "icon": "sap-icon://travel-request"
+    },
+    {
+      "type": "VIEW",
+      "name": "Change App View",
+      "icon": "sap-icon://chart-table-view"
+    },
+    { "type": "ADD", "name": "Add Record", "icon": "sap-icon://add" },
+    { "type": "UPLOAD", "name": "Upload Record", "icon": "sap-icon://upload" }
+  ],
+  "DButtons": [
+    {
+      "type": "ATTACHMENT",
+      "name": "View Attachments",
+      "icon": "sap-icon://attachment"
+    },
+    { "type": "UPDATE", "name": "Update Record", "icon": "sap-icon://update" },
+    { "type": "ADD", "name": "Add Record", "icon": "sap-icon://add" }
+  ],
+  "Tabs": [
+    {
+      "value": "Tab1",
+      "name": "GR",
+      "type": "Field",
+      "fioriicon": "cargo-train"
+    },
+    { "value": "Tab2", "name": "PO", "type": "Field", "fioriicon": "document" },
+    {
+      "value": "Tab3",
+      "name": "Attachment",
+      "fioriicon": "attachment",
+      "type": "Attachment",
+      "download": "No"
+    }
+  ],
+  "DetailFields": {
+    "None": ["ID", "Requsitioner", "Plant", "Status"],
+    "Tab1": [
+      "Vendor",
+      "StorageLoc",
+      "GRQty",
+      "DeliveryNote",
+      "Quality",
+      "Packaging",
+      "ReturnQty",
+      "Reason"
+    ],
+    "Tab2": [
+      "PODate",
+      "POItem",
+      "Category",
+      "POQty",
+      "UoM",
+      "Price",
+      "NetValue",
+      "VATRate",
+      "GrossValue",
+      "Currency"
+    ],
+    "Tab3": ["Attachment"]
+  },
+  "ControlDisplay": {
+    "ControlField": "BookingFor",
+    "Fields": [
+      [
+        {
+          "ALL": [
+            "ID",
+            "FirstName",
+            "LastName",
+            "PhoneNo",
+            "Status",
+            "Email",
+            "Comments",
+            "BookingFor",
+            "Price",
+            "Quantity",
+            "NetValue",
+            "VATPer",
+            "VATRate",
+            "VATVal",
+            "GrossValue",
+            "MoreInfo",
+            "Attachment1",
+            "Attachment2",
+            "PostCode",
+            "Emailid",
+            "HouseNo",
+            "Address",
+            "TotalGrossValue"
+          ]
+        },
+        {
+          "CarPark": [
+            "CarPark",
+            "CarRegistration",
+            "Building",
+            "HotDeskNo",
+            "NoOfPeople",
+            "RoomLayout",
+            "Slot",
+            "LunchRequired",
+            "DietaryRequirement",
+            "MeetingDate",
+            "VisitorCompany",
+            "VisitorName",
+            "VisitorPhone",
+            "VisitorEmail"
+          ]
+        },
+        {
+          "HotDesk": [
+            "CarPark",
+            "CarRegistration",
+            "Building",
+            "HotDeskNo",
+            "NoOfPeople",
+            "RoomLayout",
+            "Slot",
+            "LunchRequired",
+            "DietaryRequirement",
+            "MeetingDate",
+            "VisitorCompany",
+            "VisitorName",
+            "VisitorPhone",
+            "VisitorEmail"
+          ]
+        },
+        {
+          "MeetingRoom": [
+            "CarPark",
+            "CarRegistration",
+            "Building",
+            "HotDeskNo",
+            "NoOfPeople",
+            "RoomLayout",
+            "Slot",
+            "LunchRequired",
+            "DietaryRequirement",
+            "MeetingDate",
+            "VisitorCompany",
+            "VisitorName",
+            "VisitorPhone",
+            "VisitorEmail"
+          ]
+        },
+        {
+          "Visitor": [
+            "CarPark",
+            "CarRegistration",
+            "Building",
+            "HotDeskNo",
+            "NoOfPeople",
+            "RoomLayout",
+            "Slot",
+            "LunchRequired",
+            "DietaryRequirement",
+            "MeetingDate",
+            "VisitorCompany",
+            "VisitorName",
+            "VisitorPhone",
+            "VisitorEmail"
+          ]
+        }
+      ]
+    ]
+  },
+  "FieldDef": [
+    {
+      "name": "ID",
+      "type": "string",
+      "width": "20",
+      "Option": "",
+      "SLabel": "Identification",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "Requsitioner",
+      "type": "string",
+      "width": "50",
+      "Option": "",
+      "SLabel": "Requsitioner",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "Plant",
+      "type": "string",
+      "width": "50",
+      "Option": "",
+      "SLabel": "Plant ",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "Vendor",
+      "type": "string",
+      "width": "50",
+      "Option": "",
+      "SLabel": "Vendor",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "PODate",
+      "type": "Date",
+      "width": "10",
+      "Option": "",
+      "SLabel": "Purchase Order Date",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "POItem",
+      "type": "string",
+      "width": "100",
+      "Option": "",
+      "SLabel": "Purchase Order Item",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "Category",
+      "type": "string",
+      "width": "20",
+      "Option": "",
+      "SLabel": "Category",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "Details",
+      "type": "string",
+      "width": "500",
+      "Option": "",
+      "SLabel": "Details",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "POQty",
+      "type": "string",
+      "width": "20",
+      "Option": "",
+      "SLabel": "Purchase Order Quantity",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "UoM",
+      "type": "string",
+      "width": "100",
+      "Option": "",
+      "SLabel": "Unit Of Measurement",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "Price",
+      "type": "string",
+      "width": "20",
+      "Option": "",
+      "SLabel": "Price",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "NetValue",
+      "type": "string",
+      "width": "20",
+      "Option": "",
+      "SLabel": "Net Value",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "VATVal",
+      "type": "string",
+      "width": "20",
+      "Option": "",
+      "SLabel": "VAT value",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "GrossValue",
+      "type": "string",
+      "width": "50",
+      "Option": "",
+      "SLabel": "Gross Value",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "GRQtyHistory",
+      "type": "string",
+      "width": "50",
+      "Option": "",
+      "SLabel": "Goods Received Quantity History",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "InvQtyHistory",
+      "type": "string",
+      "width": "50",
+      "Option": "",
+      "SLabel": "Invoice Quantity History",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "Currency",
+      "type": "string",
+      "width": "100",
+      "Option": "",
+      "SLabel": "Currency",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "StorageLoc",
+      "type": "string",
+      "width": "50",
+      "Option": "",
+      "SLabel": "Storage Location",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "GRQty",
+      "type": "string",
+      "width": "50",
+      "Option": "",
+      "SLabel": "Goods Received Quantity",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "DeliveryNote",
+      "type": "string",
+      "width": "50",
+      "Option": "",
+      "SLabel": "Delivery Note",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "Quality",
+      "type": "string",
+      "width": "50",
+      "Option": "",
+      "SLabel": "Quality",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "Packaging",
+      "type": "string",
+      "width": "50",
+      "Option": "",
+      "SLabel": "Packaging",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "ReturnQty",
+      "type": "string",
+      "width": "50",
+      "Option": "",
+      "SLabel": "Return Quantity",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "Reason",
+      "type": "string",
+      "width": "500",
+      "Option": "",
+      "SLabel": "Reason",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "Status",
+      "type": "string",
+      "width": "20",
+      "Option": "",
+      "SLabel": "Status",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "Attachment",
+      "type": "attachment",
+      "width": "100",
+      "Option": "",
+      "SLabel": "Attachment",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "ItemImage",
+      "type": "string",
+      "width": "100",
+      "Option": "",
+      "SLabel": "Item Image",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "VATRate",
+      "type": "string",
+      "width": "100",
+      "Option": "",
+      "SLabel": "VAT Rate",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "PONumber",
+      "type": "string",
+      "width": "50",
+      "Option": "",
+      "SLabel": "Purchase Order Number",
+      "LLabel": "",
+      "Currency": "No"
+    }
+  ]
+}

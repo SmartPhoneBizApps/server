@@ -1,1 +1,471 @@
-{"Title": {"ApplicationTitle": "Book Lessons", "DetailTitle": "Book for Lessons"}, "ListFields": {"IntroField": "ID", "TitleField": "", "fStatus": "Status", "sStatus": "", "numberField": "", "LFields": ["ID", "ParticipantFirstName", "ParticipantLastName", "ParticipantGender", "BookingFor", "Status", "ApplicationDate"]}, "MButtons": [{"type": "DOWNLOAD", "name": "Download File", "icon": "sap-icon://download"}, {"type": "APPHELP", "name": "Get App Help", "icon": "sap-icon://sys-help-2"}, {"type": "BOT", "name": "Launch Assistant", "icon": "sap-icon://travel-request"}, {"type": "VIEW", "name": "Change App View", "icon": "chart-table-view"}, {"type": "ADD", "name": "Add Record", "icon": "sap-icon://add"}, {"type": "UPLOAD", "name": "Upload Record", "icon": "sap-icon://upload"}], "DButtons": [{"type": "ATTACHMENT", "name": "View Attachments", "icon": "sap-icon://attachment"}, {"type": "UPDATE", "name": "Update Record", "icon": "sap-icon://update"}, {"type": "ADD", "name": "Add Record", "icon": "sap-icon://add"}], "Tabs": [{"value": "Tab1", "name": "Participant Details", "type": "Field", "fioriicon": "notes", "download": "Yes"}, {"value": "Tab2", "name": "Applicant Details", "type": "Field", "fioriicon": "citizen-connect", "download": "Yes"}, {"value": "Tab3", "name": "Additional Info", "fioriicon": "hint", "type": "Field", "download": "Yes"}, {"value": "Tab4", "name": "Chat", "fioriicon": "comment", "type": "Chat", "download": "Yes"}, {"value": "Tab5", "name": "Processing Log", "fioriicon": "comment", "type": "Chat", "download": "Yes"}], "DetailFields": {"None": ["ID", "Status", "BookingFor", "ApplicationDate", "Approver"], "Tab1": ["ParticipantLastName", "ParticipantFirstName", "BirthDate", "ParticipantGender", "Q1", "A1", "Q2", "A2"], "Tab2": ["ApplicantName", "ContactNo", "Email", "Address", "Postcode"], "Tab3": ["PreferredStartDate", "PreferredDay", "PreferredTime", "PreferredCenter"], "Tab4": ["Question_Response"], "Tab5": ["ProcessingLog"]}, "ControlDisplay": {"ControlField": "RegisterFor", "Fields": [[{"ALL": ["ID", "Name", "ContactNo", "EmailID", "Address", "Postcode", "ApplicationDate", "RegisterFor", "Status", "Approver", "Question_Response", "ProcessingLog"]}, {"BirthCertificate": ["ChildName", "Surname", "Nationality", "MotherAddress", "MotherNationality", "FatherAddress", "FatherNationality", "DeceasedName", "DeathPlace", "DeathDate", "LastAddress", "WasDeath", "DeathCause", "SpouseName", "BrideName", "BrideSurname", "GroomName", "GroomSurname", "MarriagePlace", "BrideFatherName", "GroomFatherName", "PreferName1", "PreferName2", "PreferName3", "AdditionalInfo"]}, {"DeathCertificate": ["ChildName", "Surname", "Nationality", "MotherAddress", "MotherNationality", "FatherAddress", "FatherNationality", "DeceasedName", "DeathPlace", "DeathDate", "LastAddress", "WasDeath", "DeathCause", "SpouseName", "BrideName", "BrideSurname", "GroomName", "GroomSurname", "MarriagePlace", "BrideFatherName", "GroomFatherName", "PreferName1", "PreferName2", "PreferName3", "AdditionalInfo"]}, {"MarriageRegistration": ["ChildName", "Surname", "Nationality", "MotherAddress", "MotherNationality", "FatherAddress", "FatherNationality", "DeceasedName", "DeathPlace", "DeathDate", "LastAddress", "WasDeath", "DeathCause", "SpouseName", "BrideName", "BrideSurname", "GroomName", "GroomSurname", "MarriagePlace", "BrideFatherName", "GroomFatherName", "PreferName1", "PreferName2", "PreferName3", "AdditionalInfo"]}, {"NewHouseName": ["ChildName", "Surname", "Nationality", "MotherAddress", "MotherNationality", "FatherAddress", "FatherNationality", "DeceasedName", "DeathPlace", "DeathDate", "LastAddress", "WasDeath", "DeathCause", "SpouseName", "BrideName", "BrideSurname", "GroomName", "GroomSurname", "MarriagePlace", "BrideFatherName", "GroomFatherName", "PreferName1", "PreferName2", "PreferName3", "AdditionalInfo"]}]]}, "FieldDef": [{"name": "ID", "type": "string", "width": "20", "Option": "", "SLabel": "Identification", "LLabel": "", "Currency": "No"}, {"name": "ApplicantName", "type": "string", "width": "50", "Option": "", "SLabel": "Applicant Name", "LLabel": "ApplicantName", "Currency": "No"}, {"name": "ContactNo", "type": "string", "width": "50", "Option": "", "SLabel": "Contact No", "LLabel": "ContactNo", "Currency": "No"}, {"name": "Email", "type": "string", "width": "50", "Option": "", "SLabel": "Email", "LLabel": "Email", "Currency": "No"}, {"name": "Address", "type": "string", "width": "200", "Option": "", "SLabel": "Address", "LLabel": "Address", "Currency": "No"}, {"name": "Postcode", "type": "string", "width": "20", "Option": "", "SLabel": "Postcode", "LLabel": "Postcode", "Currency": "No"}, {"name": "ParticipantLastName", "type": "string", "width": "50", "Option": "", "SLabel": "Participant Last Name", "LLabel": "", "Currency": "No"}, {"name": "ParticipantFirstName", "type": "string", "width": "50", "Option": "", "SLabel": "Participant First Name", "LLabel": "", "Currency": "No"}, {"name": "BirthDate", "type": "string", "width": "20", "Option": "", "SLabel": "Age", "LLabel": "Age", "Currency": "No"}, {"name": "ParticipantGender", "type": "string", "width": "10", "Option": "", "SLabel": "Participant Gender", "LLabel": "", "Currency": "No"}, {"name": "PreferredStartDate", "type": "Date", "width": "10", "Option": "", "SLabel": "Preferred Start Date", "LLabel": "", "Currency": "No"}, {"name": "PreferredDay", "type": "string", "width": "50", "Option": "", "SLabel": "Preferred Day", "LLabel": "", "Currency": "No"}, {"name": "PreferredTime", "type": "string", "width": "100", "Option": "", "SLabel": "When would you like to have lessons", "LLabel": "PreferredTime", "Currency": "No"}, {"name": "PreferredCenter", "type": "string", "width": "200", "Option": "", "SLabel": "Preferred Center", "LLabel": "", "Currency": "No"}, {"name": "Status", "type": "string", "width": "20", "Option": "", "SLabel": "Status", "LLabel": "", "Currency": "No"}, {"name": "BookingFor", "type": "string", "width": "200", "Option": "mandatory", "SLabel": "You are booking for", "LLabel": "You are booking for", "Currency": "No"}, {"name": "Q1", "type": "string", "width": "200", "Option": "", "SLabel": "Question 1", "LLabel": "Q", "Currency": "No"}, {"name": "A1", "type": "string", "width": "500", "Option": "", "SLabel": "Answer 1", "LLabel": "A", "Currency": "No"}, {"name": "Q2", "type": "string", "width": "200", "Option": "", "SLabel": "Question 2", "LLabel": "Q", "Currency": "No"}, {"name": "A2", "type": "string", "width": "100", "Option": "", "SLabel": "Answer 2", "LLabel": "A", "Currency": "No"}, {"name": "ApplicationDate", "type": "Date", "width": "10", "Option": "", "SLabel": "Application Date", "LLabel": "ApplicationDate", "Currency": "No"}, {"name": "Approver", "type": "string", "width": "100", "Option": "", "SLabel": "Approver", "LLabel": "Approver", "Currency": "No"}, {"name": "Question_Response", "type": "string", "width": "500", "Option": "", "SLabel": "Here Is Chat Details", "LLabel": "Question_Response", "Currency": "No"}, {"name": "ProcessingLog", "type": "string", "width": "500", "Option": "", "SLabel": "Processing Log", "LLabel": "Processing Log", "Currency": "No"}]}
+{
+  "Title": {
+    "ApplicationTitle": "Book Lessons",
+    "DetailTitle": "Book for Lessons"
+  },
+  "ListFields": {
+    "IntroField": "ID",
+    "TitleField": "",
+    "fStatus": "Status",
+    "sStatus": "",
+    "numberField": "",
+    "LFields": [
+      "ID",
+      "ParticipantFirstName",
+      "ParticipantLastName",
+      "ParticipantGender",
+      "BookingFor",
+      "Status",
+      "ApplicationDate"
+    ]
+  },
+  "MButtons": [
+    {
+      "type": "DOWNLOAD",
+      "name": "Download File",
+      "icon": "sap-icon://download"
+    },
+    {
+      "type": "APPHELP",
+      "name": "Get App Help",
+      "icon": "sap-icon://sys-help-2"
+    },
+    {
+      "type": "BOT",
+      "name": "Launch Assistant",
+      "icon": "sap-icon://travel-request"
+    },
+    {
+      "type": "VIEW",
+      "name": "Change App View",
+      "icon": "sap-icon://chart-table-view"
+    },
+    { "type": "ADD", "name": "Add Record", "icon": "sap-icon://add" },
+    { "type": "UPLOAD", "name": "Upload Record", "icon": "sap-icon://upload" }
+  ],
+  "DButtons": [
+    {
+      "type": "ATTACHMENT",
+      "name": "View Attachments",
+      "icon": "sap-icon://attachment"
+    },
+    { "type": "UPDATE", "name": "Update Record", "icon": "sap-icon://update" },
+    { "type": "ADD", "name": "Add Record", "icon": "sap-icon://add" }
+  ],
+  "Tabs": [
+    {
+      "value": "Tab1",
+      "name": "Participant Details",
+      "type": "Field",
+      "fioriicon": "notes",
+      "download": "Yes"
+    },
+    {
+      "value": "Tab2",
+      "name": "Applicant Details",
+      "type": "Field",
+      "fioriicon": "citizen-connect",
+      "download": "Yes"
+    },
+    {
+      "value": "Tab3",
+      "name": "Additional Info",
+      "fioriicon": "hint",
+      "type": "Field",
+      "download": "Yes"
+    },
+    {
+      "value": "Tab4",
+      "name": "Chat",
+      "fioriicon": "comment",
+      "type": "Chat",
+      "download": "Yes"
+    },
+    {
+      "value": "Tab5",
+      "name": "Processing Log",
+      "fioriicon": "comment",
+      "type": "Chat",
+      "download": "Yes"
+    }
+  ],
+  "DetailFields": {
+    "None": ["ID", "Status", "BookingFor", "ApplicationDate", "Approver"],
+    "Tab1": [
+      "ParticipantLastName",
+      "ParticipantFirstName",
+      "BirthDate",
+      "ParticipantGender",
+      "Q1",
+      "A1",
+      "Q2",
+      "A2"
+    ],
+    "Tab2": ["ApplicantName", "ContactNo", "Email", "Address", "Postcode"],
+    "Tab3": [
+      "PreferredStartDate",
+      "PreferredDay",
+      "PreferredTime",
+      "PreferredCenter"
+    ],
+    "Tab4": ["Question_Response"],
+    "Tab5": ["ProcessingLog"]
+  },
+  "ControlDisplay": {
+    "ControlField": "RegisterFor",
+    "Fields": [
+      [
+        {
+          "ALL": [
+            "ID",
+            "Name",
+            "ContactNo",
+            "EmailID",
+            "Address",
+            "Postcode",
+            "ApplicationDate",
+            "RegisterFor",
+            "Status",
+            "Approver",
+            "Question_Response",
+            "ProcessingLog"
+          ]
+        },
+        {
+          "BirthCertificate": [
+            "ChildName",
+            "Surname",
+            "Nationality",
+            "MotherAddress",
+            "MotherNationality",
+            "FatherAddress",
+            "FatherNationality",
+            "DeceasedName",
+            "DeathPlace",
+            "DeathDate",
+            "LastAddress",
+            "WasDeath",
+            "DeathCause",
+            "SpouseName",
+            "BrideName",
+            "BrideSurname",
+            "GroomName",
+            "GroomSurname",
+            "MarriagePlace",
+            "BrideFatherName",
+            "GroomFatherName",
+            "PreferName1",
+            "PreferName2",
+            "PreferName3",
+            "AdditionalInfo"
+          ]
+        },
+        {
+          "DeathCertificate": [
+            "ChildName",
+            "Surname",
+            "Nationality",
+            "MotherAddress",
+            "MotherNationality",
+            "FatherAddress",
+            "FatherNationality",
+            "DeceasedName",
+            "DeathPlace",
+            "DeathDate",
+            "LastAddress",
+            "WasDeath",
+            "DeathCause",
+            "SpouseName",
+            "BrideName",
+            "BrideSurname",
+            "GroomName",
+            "GroomSurname",
+            "MarriagePlace",
+            "BrideFatherName",
+            "GroomFatherName",
+            "PreferName1",
+            "PreferName2",
+            "PreferName3",
+            "AdditionalInfo"
+          ]
+        },
+        {
+          "MarriageRegistration": [
+            "ChildName",
+            "Surname",
+            "Nationality",
+            "MotherAddress",
+            "MotherNationality",
+            "FatherAddress",
+            "FatherNationality",
+            "DeceasedName",
+            "DeathPlace",
+            "DeathDate",
+            "LastAddress",
+            "WasDeath",
+            "DeathCause",
+            "SpouseName",
+            "BrideName",
+            "BrideSurname",
+            "GroomName",
+            "GroomSurname",
+            "MarriagePlace",
+            "BrideFatherName",
+            "GroomFatherName",
+            "PreferName1",
+            "PreferName2",
+            "PreferName3",
+            "AdditionalInfo"
+          ]
+        },
+        {
+          "NewHouseName": [
+            "ChildName",
+            "Surname",
+            "Nationality",
+            "MotherAddress",
+            "MotherNationality",
+            "FatherAddress",
+            "FatherNationality",
+            "DeceasedName",
+            "DeathPlace",
+            "DeathDate",
+            "LastAddress",
+            "WasDeath",
+            "DeathCause",
+            "SpouseName",
+            "BrideName",
+            "BrideSurname",
+            "GroomName",
+            "GroomSurname",
+            "MarriagePlace",
+            "BrideFatherName",
+            "GroomFatherName",
+            "PreferName1",
+            "PreferName2",
+            "PreferName3",
+            "AdditionalInfo"
+          ]
+        }
+      ]
+    ]
+  },
+  "FieldDef": [
+    {
+      "name": "ID",
+      "type": "string",
+      "width": "20",
+      "Option": "",
+      "SLabel": "Identification",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "ApplicantName",
+      "type": "string",
+      "width": "50",
+      "Option": "",
+      "SLabel": "Applicant Name",
+      "LLabel": "ApplicantName",
+      "Currency": "No"
+    },
+    {
+      "name": "ContactNo",
+      "type": "string",
+      "width": "50",
+      "Option": "",
+      "SLabel": "Contact No",
+      "LLabel": "ContactNo",
+      "Currency": "No"
+    },
+    {
+      "name": "Email",
+      "type": "string",
+      "width": "50",
+      "Option": "",
+      "SLabel": "Email",
+      "LLabel": "Email",
+      "Currency": "No"
+    },
+    {
+      "name": "Address",
+      "type": "string",
+      "width": "200",
+      "Option": "",
+      "SLabel": "Address",
+      "LLabel": "Address",
+      "Currency": "No"
+    },
+    {
+      "name": "Postcode",
+      "type": "string",
+      "width": "20",
+      "Option": "",
+      "SLabel": "Postcode",
+      "LLabel": "Postcode",
+      "Currency": "No"
+    },
+    {
+      "name": "ParticipantLastName",
+      "type": "string",
+      "width": "50",
+      "Option": "",
+      "SLabel": "Participant Last Name",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "ParticipantFirstName",
+      "type": "string",
+      "width": "50",
+      "Option": "",
+      "SLabel": "Participant First Name",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "BirthDate",
+      "type": "string",
+      "width": "20",
+      "Option": "",
+      "SLabel": "Age",
+      "LLabel": "Age",
+      "Currency": "No"
+    },
+    {
+      "name": "ParticipantGender",
+      "type": "string",
+      "width": "10",
+      "Option": "",
+      "SLabel": "Participant Gender",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "PreferredStartDate",
+      "type": "Date",
+      "width": "10",
+      "Option": "",
+      "SLabel": "Preferred Start Date",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "PreferredDay",
+      "type": "string",
+      "width": "50",
+      "Option": "",
+      "SLabel": "Preferred Day",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "PreferredTime",
+      "type": "string",
+      "width": "100",
+      "Option": "",
+      "SLabel": "When would you like to have lessons",
+      "LLabel": "PreferredTime",
+      "Currency": "No"
+    },
+    {
+      "name": "PreferredCenter",
+      "type": "string",
+      "width": "200",
+      "Option": "",
+      "SLabel": "Preferred Center",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "Status",
+      "type": "string",
+      "width": "20",
+      "Option": "",
+      "SLabel": "Status",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "BookingFor",
+      "type": "string",
+      "width": "200",
+      "Option": "mandatory",
+      "SLabel": "You are booking for",
+      "LLabel": "You are booking for",
+      "Currency": "No"
+    },
+    {
+      "name": "Q1",
+      "type": "string",
+      "width": "200",
+      "Option": "",
+      "SLabel": "Question 1",
+      "LLabel": "Q",
+      "Currency": "No"
+    },
+    {
+      "name": "A1",
+      "type": "string",
+      "width": "500",
+      "Option": "",
+      "SLabel": "Answer 1",
+      "LLabel": "A",
+      "Currency": "No"
+    },
+    {
+      "name": "Q2",
+      "type": "string",
+      "width": "200",
+      "Option": "",
+      "SLabel": "Question 2",
+      "LLabel": "Q",
+      "Currency": "No"
+    },
+    {
+      "name": "A2",
+      "type": "string",
+      "width": "100",
+      "Option": "",
+      "SLabel": "Answer 2",
+      "LLabel": "A",
+      "Currency": "No"
+    },
+    {
+      "name": "ApplicationDate",
+      "type": "Date",
+      "width": "10",
+      "Option": "",
+      "SLabel": "Application Date",
+      "LLabel": "ApplicationDate",
+      "Currency": "No"
+    },
+    {
+      "name": "Approver",
+      "type": "string",
+      "width": "100",
+      "Option": "",
+      "SLabel": "Approver",
+      "LLabel": "Approver",
+      "Currency": "No"
+    },
+    {
+      "name": "Question_Response",
+      "type": "string",
+      "width": "500",
+      "Option": "",
+      "SLabel": "Here Is Chat Details",
+      "LLabel": "Question_Response",
+      "Currency": "No"
+    },
+    {
+      "name": "ProcessingLog",
+      "type": "string",
+      "width": "500",
+      "Option": "",
+      "SLabel": "Processing Log",
+      "LLabel": "Processing Log",
+      "Currency": "No"
+    }
+  ]
+}

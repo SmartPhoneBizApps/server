@@ -1,1 +1,256 @@
-{"Title": {"ApplicationTitle": "Supplier Performance", "DetailTitle": "Supplier Performance"}, "ListFields": {"IntroField": "ID", "TitleField": "", "fStatus": "Status", "sStatus": "", "numberField": "", "LFields": ["ID", "SupplierName", "SurveyDate", "OverallRating", "Status"]}, "MButtons": [{"type": "DOWNLOAD", "name": "Download File", "icon": "sap-icon://download"}, {"type": "APPHELP", "name": "Get App Help", "icon": "sap-icon://sys-help-2"}, {"type": "BOT", "name": "Launch Assistant", "icon": "sap-icon://travel-request"}, {"type": "VIEW", "name": "Change App View", "icon": "chart-table-view"}, {"type": "ADD", "name": "Add Record", "icon": "sap-icon://add"}, {"type": "UPLOAD", "name": "Upload Record", "icon": "sap-icon://upload"}], "DButtons": [{"type": "ATTACHMENT", "name": "View Attachments", "icon": "sap-icon://attachment"}, {"type": "UPDATE", "name": "Update Record", "icon": "sap-icon://update"}, {"type": "ADD", "name": "Add Record", "icon": "sap-icon://add"}], "Tabs": [{"value": "Tab1", "name": "Detail", "type": "Field", "fioriicon": "notes"}, {"value": "Tab2", "name": "Assessment", "type": "Field", "fioriicon": "settings"}, {"value": "Tab3", "name": "Rating", "type": "Field", "fioriicon": "action-settings"}], "DetailFields": {"None": ["ID", "SupplierID", "SupplierName", "Status"], "Tab1": ["SurveyDate", "Customer", "Assesse", "Phone", "EMail", "Assessor"], "Tab2": ["AbilityToSolveProblems", "UnderstandingOfMyNeeds", "Responsiveness", "Professionalism", "Courtesy", "Friendliness", "PresentationOfNewProductsAndPackage", "TimelinessOfDeliveries", "ConditionOfDeliveredProduct"], "Tab3": ["AccuracyOfOrderFill", "AccuracyOfInvoices", "DriverProfessionalism", "PromotionalEffectiveness", "DiscountingPolicies", "ClarityOfPriceListInformation", "SeeSalesRepresentative", "OverallServicePerformanceCompareToLastYear", "FurtherComments", "OverallRating"]}, "ControlDisplay": {"ControlField": "BookingFor", "Fields": [[{"ALL": ["ID", "FirstName", "LastName", "PhoneNo", "Status", "Email", "Comments", "BookingFor", "Price", "Quantity", "NetValue", "VATPer", "VATRate", "VATVal", "GrossValue", "MoreInfo", "Attachment1", "Attachment2", "PostCode", "Emailid", "HouseNo", "Address", "TotalGrossValue"]}, {"CarPark": ["CarPark", "CarRegistration", "Building", "HotDeskNo", "NoOfPeople", "RoomLayout", "Slot", "LunchRequired", "DietaryRequirement", "MeetingDate", "VisitorCompany", "VisitorName", "VisitorPhone", "VisitorEmail"]}, {"HotDesk": ["CarPark", "CarRegistration", "Building", "HotDeskNo", "NoOfPeople", "RoomLayout", "Slot", "LunchRequired", "DietaryRequirement", "MeetingDate", "VisitorCompany", "VisitorName", "VisitorPhone", "VisitorEmail"]}, {"MeetingRoom": ["CarPark", "CarRegistration", "Building", "HotDeskNo", "NoOfPeople", "RoomLayout", "Slot", "LunchRequired", "DietaryRequirement", "MeetingDate", "VisitorCompany", "VisitorName", "VisitorPhone", "VisitorEmail"]}, {"Visitor": ["CarPark", "CarRegistration", "Building", "HotDeskNo", "NoOfPeople", "RoomLayout", "Slot", "LunchRequired", "DietaryRequirement", "MeetingDate", "VisitorCompany", "VisitorName", "VisitorPhone", "VisitorEmail"]}]]}, "FieldDef": [{"name": "ID", "type": "string", "width": "20", "Option": "", "SLabel": "", "LLabel": ""}, {"name": "SupplierID", "type": "string", "width": "50"}, {"name": "SupplierName", "type": "string", "width": "50"}, {"name": "SurveyDate", "type": "Date", "width": "10"}, {"name": "Customer", "type": "string", "width": "50"}, {"name": "Assesse", "type": "string", "width": "50"}, {"name": "Phone", "type": "string", "width": "50"}, {"name": "EMail", "type": "string", "width": "50"}, {"name": "Assessor", "type": "string", "width": "50"}, {"name": "AbilityToSolveProblems", "type": "string", "width": "50"}, {"name": "UnderstandingOfMyNeeds", "type": "string", "width": "50"}, {"name": "Responsiveness", "type": "string", "width": "50"}, {"name": "Professionalism", "type": "string", "width": "50"}, {"name": "Courtesy", "type": "string", "width": "50"}, {"name": "Friendliness", "type": "string", "width": "50"}, {"name": "PresentationOfNewProductsAndPackage", "type": "string", "width": "50", "Option": "", "SLabel": "", "LLabel": ""}, {"name": "TimelinessOfDeliveries", "type": "string", "width": "50"}, {"name": "ConditionOfDeliveredProduct", "type": "string", "width": "50"}, {"name": "AccuracyOfOrderFill", "type": "string", "width": "50"}, {"name": "AccuracyOfInvoices", "type": "string", "width": "50"}, {"name": "DriverProfessionalism", "type": "string", "width": "50"}, {"name": "PromotionalEffectiveness", "type": "string", "width": "50"}, {"name": "DiscountingPolicies", "type": "string", "width": "50"}, {"name": "ClarityOfPriceListInformation", "type": "string", "width": "50"}, {"name": "SeeSalesRepresentative", "type": "string", "width": "50"}, {"name": "OverallServicePerformanceCompareToLastYear", "type": "string", "width": "100", "Option": "", "SLabel": "", "LLabel": ""}, {"name": "FurtherComments", "type": "string", "width": "50"}, {"name": "OverallRating", "type": "string", "width": "50"}, {"name": "Status", "type": "string", "width": "50"}]}
+{
+  "Title": {
+    "ApplicationTitle": "Supplier Performance",
+    "DetailTitle": "Supplier Performance"
+  },
+  "ListFields": {
+    "IntroField": "ID",
+    "TitleField": "",
+    "fStatus": "Status",
+    "sStatus": "",
+    "numberField": "",
+    "LFields": ["ID", "SupplierName", "SurveyDate", "OverallRating", "Status"]
+  },
+  "MButtons": [
+    {
+      "type": "DOWNLOAD",
+      "name": "Download File",
+      "icon": "sap-icon://download"
+    },
+    {
+      "type": "APPHELP",
+      "name": "Get App Help",
+      "icon": "sap-icon://sys-help-2"
+    },
+    {
+      "type": "BOT",
+      "name": "Launch Assistant",
+      "icon": "sap-icon://travel-request"
+    },
+    {
+      "type": "VIEW",
+      "name": "Change App View",
+      "icon": "sap-icon://chart-table-view"
+    },
+    { "type": "ADD", "name": "Add Record", "icon": "sap-icon://add" },
+    { "type": "UPLOAD", "name": "Upload Record", "icon": "sap-icon://upload" }
+  ],
+  "DButtons": [
+    {
+      "type": "ATTACHMENT",
+      "name": "View Attachments",
+      "icon": "sap-icon://attachment"
+    },
+    { "type": "UPDATE", "name": "Update Record", "icon": "sap-icon://update" },
+    { "type": "ADD", "name": "Add Record", "icon": "sap-icon://add" }
+  ],
+  "Tabs": [
+    {
+      "value": "Tab1",
+      "name": "Detail",
+      "type": "Field",
+      "fioriicon": "notes"
+    },
+    {
+      "value": "Tab2",
+      "name": "Assessment",
+      "type": "Field",
+      "fioriicon": "settings"
+    },
+    {
+      "value": "Tab3",
+      "name": "Rating",
+      "type": "Field",
+      "fioriicon": "action-settings"
+    }
+  ],
+  "DetailFields": {
+    "None": ["ID", "SupplierID", "SupplierName", "Status"],
+    "Tab1": ["SurveyDate", "Customer", "Assesse", "Phone", "EMail", "Assessor"],
+    "Tab2": [
+      "AbilityToSolveProblems",
+      "UnderstandingOfMyNeeds",
+      "Responsiveness",
+      "Professionalism",
+      "Courtesy",
+      "Friendliness",
+      "PresentationOfNewProductsAndPackage",
+      "TimelinessOfDeliveries",
+      "ConditionOfDeliveredProduct"
+    ],
+    "Tab3": [
+      "AccuracyOfOrderFill",
+      "AccuracyOfInvoices",
+      "DriverProfessionalism",
+      "PromotionalEffectiveness",
+      "DiscountingPolicies",
+      "ClarityOfPriceListInformation",
+      "SeeSalesRepresentative",
+      "OverallServicePerformanceCompareToLastYear",
+      "FurtherComments",
+      "OverallRating"
+    ]
+  },
+  "ControlDisplay": {
+    "ControlField": "BookingFor",
+    "Fields": [
+      [
+        {
+          "ALL": [
+            "ID",
+            "FirstName",
+            "LastName",
+            "PhoneNo",
+            "Status",
+            "Email",
+            "Comments",
+            "BookingFor",
+            "Price",
+            "Quantity",
+            "NetValue",
+            "VATPer",
+            "VATRate",
+            "VATVal",
+            "GrossValue",
+            "MoreInfo",
+            "Attachment1",
+            "Attachment2",
+            "PostCode",
+            "Emailid",
+            "HouseNo",
+            "Address",
+            "TotalGrossValue"
+          ]
+        },
+        {
+          "CarPark": [
+            "CarPark",
+            "CarRegistration",
+            "Building",
+            "HotDeskNo",
+            "NoOfPeople",
+            "RoomLayout",
+            "Slot",
+            "LunchRequired",
+            "DietaryRequirement",
+            "MeetingDate",
+            "VisitorCompany",
+            "VisitorName",
+            "VisitorPhone",
+            "VisitorEmail"
+          ]
+        },
+        {
+          "HotDesk": [
+            "CarPark",
+            "CarRegistration",
+            "Building",
+            "HotDeskNo",
+            "NoOfPeople",
+            "RoomLayout",
+            "Slot",
+            "LunchRequired",
+            "DietaryRequirement",
+            "MeetingDate",
+            "VisitorCompany",
+            "VisitorName",
+            "VisitorPhone",
+            "VisitorEmail"
+          ]
+        },
+        {
+          "MeetingRoom": [
+            "CarPark",
+            "CarRegistration",
+            "Building",
+            "HotDeskNo",
+            "NoOfPeople",
+            "RoomLayout",
+            "Slot",
+            "LunchRequired",
+            "DietaryRequirement",
+            "MeetingDate",
+            "VisitorCompany",
+            "VisitorName",
+            "VisitorPhone",
+            "VisitorEmail"
+          ]
+        },
+        {
+          "Visitor": [
+            "CarPark",
+            "CarRegistration",
+            "Building",
+            "HotDeskNo",
+            "NoOfPeople",
+            "RoomLayout",
+            "Slot",
+            "LunchRequired",
+            "DietaryRequirement",
+            "MeetingDate",
+            "VisitorCompany",
+            "VisitorName",
+            "VisitorPhone",
+            "VisitorEmail"
+          ]
+        }
+      ]
+    ]
+  },
+  "FieldDef": [
+    {
+      "name": "ID",
+      "type": "string",
+      "width": "20",
+      "Option": "",
+      "SLabel": "",
+      "LLabel": ""
+    },
+    { "name": "SupplierID", "type": "string", "width": "50" },
+    { "name": "SupplierName", "type": "string", "width": "50" },
+    { "name": "SurveyDate", "type": "Date", "width": "10" },
+    { "name": "Customer", "type": "string", "width": "50" },
+    { "name": "Assesse", "type": "string", "width": "50" },
+    { "name": "Phone", "type": "string", "width": "50" },
+    { "name": "EMail", "type": "string", "width": "50" },
+    { "name": "Assessor", "type": "string", "width": "50" },
+    { "name": "AbilityToSolveProblems", "type": "string", "width": "50" },
+    { "name": "UnderstandingOfMyNeeds", "type": "string", "width": "50" },
+    { "name": "Responsiveness", "type": "string", "width": "50" },
+    { "name": "Professionalism", "type": "string", "width": "50" },
+    { "name": "Courtesy", "type": "string", "width": "50" },
+    { "name": "Friendliness", "type": "string", "width": "50" },
+    {
+      "name": "PresentationOfNewProductsAndPackage",
+      "type": "string",
+      "width": "50",
+      "Option": "",
+      "SLabel": "",
+      "LLabel": ""
+    },
+    { "name": "TimelinessOfDeliveries", "type": "string", "width": "50" },
+    { "name": "ConditionOfDeliveredProduct", "type": "string", "width": "50" },
+    { "name": "AccuracyOfOrderFill", "type": "string", "width": "50" },
+    { "name": "AccuracyOfInvoices", "type": "string", "width": "50" },
+    { "name": "DriverProfessionalism", "type": "string", "width": "50" },
+    { "name": "PromotionalEffectiveness", "type": "string", "width": "50" },
+    { "name": "DiscountingPolicies", "type": "string", "width": "50" },
+    {
+      "name": "ClarityOfPriceListInformation",
+      "type": "string",
+      "width": "50"
+    },
+    { "name": "SeeSalesRepresentative", "type": "string", "width": "50" },
+    {
+      "name": "OverallServicePerformanceCompareToLastYear",
+      "type": "string",
+      "width": "100",
+      "Option": "",
+      "SLabel": "",
+      "LLabel": ""
+    },
+    { "name": "FurtherComments", "type": "string", "width": "50" },
+    { "name": "OverallRating", "type": "string", "width": "50" },
+    { "name": "Status", "type": "string", "width": "50" }
+  ]
+}

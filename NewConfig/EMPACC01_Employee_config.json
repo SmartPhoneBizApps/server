@@ -1,1 +1,667 @@
-{"Title": {"ApplicationTitle": "Access to Office Buildings", "DetailTitle": "Access to Office Buildings"}, "ListFields": {"IntroField": "ID", "TitleField": "", "fStatus": "Status", "sStatus": "", "numberField": "", "LFields": ["ID", "EmployeeID", "Name", "RequestType", "DateOfRequest", "Status"]}, "MButtons": [{"type": "DOWNLOAD", "name": "Download File", "icon": "sap-icon://download"}, {"type": "APPHELP", "name": "Get App Help", "icon": "sap-icon://sys-help-2"}, {"type": "BOT", "name": "Launch Assistant", "icon": "sap-icon://travel-request"}, {"type": "VIEW", "name": "Change App View", "icon": "chart-table-view"}, {"type": "ADD", "name": "Add Record", "icon": "sap-icon://add"}, {"type": "UPLOAD", "name": "Upload Record", "icon": "sap-icon://upload"}], "DButtons": [{"type": "ATTACHMENT", "name": "View Attachments", "icon": "sap-icon://attachment"}, {"type": "UPDATE", "name": "Update Record", "icon": "sap-icon://update"}, {"type": "ADD", "name": "Add Record", "icon": "sap-icon://add"}], "Tabs": [{"value": "Tab1", "name": "Requester", "fioriicon": "person-placeholder", "type": "Field"}, {"value": "Tab2", "name": "Details", "fioriicon": "zoom-in", "type": "Field"}, {"value": "Tab3", "name": "Approval", "fioriicon": "approvals", "type": "Field"}, {"value": "Tab4", "name": "Admin", "fioriicon": "customer-and-supplier", "type": "Field"}, {"value": "Tab5", "name": "AdditionalInfo", "fioriicon": "message-information", "type": "Field", "download": "Yes"}], "DetailFields": {"None": ["ID", "Status", "RequestType"], "Tab1": ["EmployeeID", "Name", "Surname", "EmailID", "PhoneNo"], "Tab2": ["DateOfRequest", "StartDate", "EndDate", "Reason"], "Tab3": ["Approver", "ApprovalDate", "ApproverComment"], "Tab4": ["Officer"], "Tab5": ["AccessCardNo", "BuildingName", "Application", "CostCentre", "Hardware", "AssetID", "Processor", "HardDrive", "KeyBoard", "OS", "RAM", "HDMIPort", "USBPort", "CDDrive", "DockingStation", "Bag", "Mouse", "Software", "System", "Environment", "CloneUser", "RolesRequired", "TransactionsRequired"]}, "ControlDisplay": {"ControlField": "RequestType", "Fields": [[{"ALL": ["ID", "EmployeeID", "Name", "Surname", "PhoneNo", "DateOfRequest", "StartDate", "EndDate", "Reason", "RequestType", "Status", "ApproverComment", "ApprovalDate", "Officer", "Approver", "EmailID"]}, {"AccessCard": ["AccessCardNo", "Application", "Hardware", "Processor", "HardDrive", "KeyBoard", "OS", "RAM", "HDMIPort", "USBPort", "CDDrive", "DockingStation", "Bag", "Mouse", "Software", "System", "Environment", "CloneUser", "RolesRequired", "TransactionsRequired"]}, {"ApplicationLogin": ["AccessCardNo", "Application", "Hardware", "Processor", "HardDrive", "KeyBoard", "OS", "RAM", "HDMIPort", "USBPort", "CDDrive", "DockingStation", "Bag", "Mouse", "Software", "System", "Environment", "CloneUser", "RolesRequired", "TransactionsRequired"]}, {"HardwareUpgrade": ["AccessCardNo", "Application", "Hardware", "Processor", "HardDrive", "KeyBoard", "OS", "RAM", "HDMIPort", "USBPort", "CDDrive", "DockingStation", "Bag", "Mouse", "Software", "System", "Environment", "CloneUser", "RolesRequired", "TransactionsRequired"]}, {"LaptopRequest": ["AccessCardNo", "Application", "Hardware", "Processor", "HardDrive", "KeyBoard", "OS", "RAM", "HDMIPort", "USBPort", "CDDrive", "DockingStation", "Bag", "Mouse", "Software", "System", "Environment", "CloneUser", "RolesRequired", "TransactionsRequired"]}, {"OfficeBuilding": ["AccessCardNo", "Application", "Hardware", "Processor", "HardDrive", "KeyBoard", "OS", "RAM", "HDMIPort", "USBPort", "CDDrive", "DockingStation", "Bag", "Mouse", "Software", "System", "Environment", "CloneUser", "RolesRequired", "TransactionsRequired"]}, {"SoftwareRequest": ["AccessCardNo", "Application", "Hardware", "Processor", "HardDrive", "KeyBoard", "OS", "RAM", "HDMIPort", "USBPort", "CDDrive", "DockingStation", "Bag", "Mouse", "Software", "System", "Environment", "CloneUser", "RolesRequired", "TransactionsRequired"]}, {"UserAccount": ["AccessCardNo", "Application", "Hardware", "Processor", "HardDrive", "KeyBoard", "OS", "RAM", "HDMIPort", "USBPort", "CDDrive", "DockingStation", "Bag", "Mouse", "Software", "System", "Environment", "CloneUser", "RolesRequired", "TransactionsRequired"]}]]}, "FieldDef": [{"name": "ID", "type": "string", "width": "20", "Option": "mandatory", "SLabel": "Identification", "LLabel": "", "Currency": "No"}, {"name": "EmployeeID", "type": "string", "width": "50", "Option": "mandatory", "SLabel": "Employee ID", "LLabel": "", "Currency": "No"}, {"name": "Name", "type": "string", "width": "50", "Option": "mandatory", "SLabel": "Name", "LLabel": "", "Currency": "No"}, {"name": "Surname", "type": "string", "width": "50", "Option": "mandatory", "SLabel": "Surname", "LLabel": "", "Currency": "No"}, {"name": "EmailID", "type": "string", "width": "50", "Option": "", "SLabel": "Email", "LLabel": "", "Currency": "No"}, {"name": "PhoneNo", "type": "string", "width": "50", "Option": "", "SLabel": "Phone Number", "LLabel": "", "Currency": "No"}, {"name": "DateOfRequest", "type": "Date", "width": "10", "Option": "", "SLabel": "Date Of Request", "LLabel": "", "Currency": "No"}, {"name": "AccessCardNo", "type": "string", "width": "50", "Option": "mandatory", "SLabel": "Access Card Number", "LLabel": "", "Currency": "No"}, {"name": "BuildingName", "type": "string", "width": "50", "Option": "mandatory", "SLabel": "Building Name", "LLabel": "", "Currency": "No"}, {"name": "Approver", "type": "string", "width": "50", "Option": "", "SLabel": "Approver", "LLabel": "", "Currency": "No"}, {"name": "StartDate", "type": "Date", "width": "10", "Option": "", "SLabel": "Start Date", "LLabel": "", "Currency": "No"}, {"name": "EndDate", "type": "Date", "width": "10", "Option": "", "SLabel": "End Date", "LLabel": "", "Currency": "No"}, {"name": "Reason", "type": "string", "width": "500", "Option": "", "SLabel": "Reason", "LLabel": "", "Currency": "No"}, {"name": "Status", "type": "string", "width": "20", "Option": "", "SLabel": "Status", "LLabel": "", "Currency": "No"}, {"name": "ApprovalDate", "type": "Date", "width": "10", "Option": "", "SLabel": "Approval Date", "LLabel": "", "Currency": "No"}, {"name": "ApproverComment", "type": "string", "width": "500", "Option": "", "SLabel": "Approver Comment", "LLabel": "", "Currency": "No"}, {"name": "Officer", "type": "string", "width": "50", "Option": "", "SLabel": "Officer", "LLabel": "", "Currency": "No"}, {"name": "RequestType", "type": "string", "width": "100", "Option": "mandatory", "SLabel": "Request Type", "LLabel": "Request Type", "Currency": "No"}, {"name": "Application", "type": "string", "width": "100", "Option": "", "SLabel": "Application Name", "LLabel": "Application Name", "Currency": "No"}, {"name": "CostCentre", "type": "string", "width": "100", "Option": "", "SLabel": "Cost Centre", "LLabel": "Cost Centre", "Currency": "No"}, {"name": "Hardware", "type": "string", "width": "100", "Option": "", "SLabel": "Details of Hardware upgrade", "LLabel": "Details of Hardware upgrade", "Currency": "No"}, {"name": "AssetID", "type": "string", "width": "100", "Option": "", "SLabel": "Asset / Laptop ID", "LLabel": "Asset / Laptop ID", "Currency": "No"}, {"name": "Processor", "type": "string", "width": "100", "Option": "", "SLabel": "Processor", "LLabel": "Processor", "Currency": "No"}, {"name": "HardDrive", "type": "string", "width": "100", "Option": "", "SLabel": "Hard Drive", "LLabel": "Hard Drive", "Currency": "No"}, {"name": "KeyBoard", "type": "string", "width": "100", "Option": "", "SLabel": "KeyBoard", "LLabel": "KeyBoard", "Currency": "No"}, {"name": "OS", "type": "string", "width": "100", "Option": "", "SLabel": "Operating System", "LLabel": "Operating System", "Currency": "No"}, {"name": "RAM", "type": "string", "width": "100", "Option": "", "SLabel": "RAM", "LLabel": "RAM", "Currency": "No"}, {"name": "HDMIPort", "type": "string", "width": "100", "Option": "", "SLabel": "HDMI Port", "LLabel": "HDMI Port", "Currency": "No"}, {"name": "USBPort", "type": "string", "width": "100", "Option": "", "SLabel": "USB Port", "LLabel": "USB Port", "Currency": "No"}, {"name": "CDDrive", "type": "string", "width": "100", "Option": "", "SLabel": "CD Drive", "LLabel": "CD Drive", "Currency": "No"}, {"name": "DockingStation", "type": "string", "width": "100", "Option": "", "SLabel": "Docking Station", "LLabel": "Docking Station", "Currency": "No"}, {"name": "Bag", "type": "string", "width": "100", "Option": "", "SLabel": "Bag", "LLabel": "Bag", "Currency": "No"}, {"name": "Mouse", "type": "string", "width": "100", "Option": "", "SLabel": "Mouse", "LLabel": "Mouse", "Currency": "No"}, {"name": "Software", "type": "string", "width": "100", "Option": "", "SLabel": "Software", "LLabel": "Software", "Currency": "No"}, {"name": "System", "type": "string", "width": "100", "Option": "", "SLabel": "System", "LLabel": "System", "Currency": "No"}, {"name": "Environment", "type": "string", "width": "100", "Option": "", "SLabel": "Environment", "LLabel": "Environment", "Currency": "No"}, {"name": "CloneUser", "type": "string", "width": "100", "Option": "", "SLabel": "CloneUser", "LLabel": "CloneUser", "Currency": "No"}, {"name": "RolesRequired", "type": "string", "width": "100", "Option": "", "SLabel": "Roles Required", "LLabel": "Roles Required", "Currency": "No"}, {"name": "TransactionsRequired", "type": "string", "width": "100", "Option": "", "SLabel": "Transactions Required", "LLabel": "Transactions Required", "Currency": "No"}]}
+{
+  "Title": {
+    "ApplicationTitle": "Access to Office Buildings",
+    "DetailTitle": "Access to Office Buildings"
+  },
+  "ListFields": {
+    "IntroField": "ID",
+    "TitleField": "",
+    "fStatus": "Status",
+    "sStatus": "",
+    "numberField": "",
+    "LFields": [
+      "ID",
+      "EmployeeID",
+      "Name",
+      "RequestType",
+      "DateOfRequest",
+      "Status"
+    ]
+  },
+  "MButtons": [
+    {
+      "type": "DOWNLOAD",
+      "name": "Download File",
+      "icon": "sap-icon://download"
+    },
+    {
+      "type": "APPHELP",
+      "name": "Get App Help",
+      "icon": "sap-icon://sys-help-2"
+    },
+    {
+      "type": "BOT",
+      "name": "Launch Assistant",
+      "icon": "sap-icon://travel-request"
+    },
+    {
+      "type": "VIEW",
+      "name": "Change App View",
+      "icon": "sap-icon://chart-table-view"
+    },
+    { "type": "ADD", "name": "Add Record", "icon": "sap-icon://add" },
+    { "type": "UPLOAD", "name": "Upload Record", "icon": "sap-icon://upload" }
+  ],
+  "DButtons": [
+    {
+      "type": "ATTACHMENT",
+      "name": "View Attachments",
+      "icon": "sap-icon://attachment"
+    },
+    { "type": "UPDATE", "name": "Update Record", "icon": "sap-icon://update" },
+    { "type": "ADD", "name": "Add Record", "icon": "sap-icon://add" }
+  ],
+  "Tabs": [
+    {
+      "value": "Tab1",
+      "name": "Requester",
+      "fioriicon": "person-placeholder",
+      "type": "Field"
+    },
+    {
+      "value": "Tab2",
+      "name": "Details",
+      "fioriicon": "zoom-in",
+      "type": "Field"
+    },
+    {
+      "value": "Tab3",
+      "name": "Approval",
+      "fioriicon": "approvals",
+      "type": "Field"
+    },
+    {
+      "value": "Tab4",
+      "name": "Admin",
+      "fioriicon": "customer-and-supplier",
+      "type": "Field"
+    },
+    {
+      "value": "Tab5",
+      "name": "AdditionalInfo",
+      "fioriicon": "message-information",
+      "type": "Field",
+      "download": "Yes"
+    }
+  ],
+  "DetailFields": {
+    "None": ["ID", "Status", "RequestType"],
+    "Tab1": ["EmployeeID", "Name", "Surname", "EmailID", "PhoneNo"],
+    "Tab2": ["DateOfRequest", "StartDate", "EndDate", "Reason"],
+    "Tab3": ["Approver", "ApprovalDate", "ApproverComment"],
+    "Tab4": ["Officer"],
+    "Tab5": [
+      "AccessCardNo",
+      "BuildingName",
+      "Application",
+      "CostCentre",
+      "Hardware",
+      "AssetID",
+      "Processor",
+      "HardDrive",
+      "KeyBoard",
+      "OS",
+      "RAM",
+      "HDMIPort",
+      "USBPort",
+      "CDDrive",
+      "DockingStation",
+      "Bag",
+      "Mouse",
+      "Software",
+      "System",
+      "Environment",
+      "CloneUser",
+      "RolesRequired",
+      "TransactionsRequired"
+    ]
+  },
+  "ControlDisplay": {
+    "ControlField": "RequestType",
+    "Fields": [
+      [
+        {
+          "ALL": [
+            "ID",
+            "EmployeeID",
+            "Name",
+            "Surname",
+            "PhoneNo",
+            "DateOfRequest",
+            "StartDate",
+            "EndDate",
+            "Reason",
+            "RequestType",
+            "Status",
+            "ApproverComment",
+            "ApprovalDate",
+            "Officer",
+            "Approver",
+            "EmailID"
+          ]
+        },
+        {
+          "AccessCard": [
+            "AccessCardNo",
+            "Application",
+            "Hardware",
+            "Processor",
+            "HardDrive",
+            "KeyBoard",
+            "OS",
+            "RAM",
+            "HDMIPort",
+            "USBPort",
+            "CDDrive",
+            "DockingStation",
+            "Bag",
+            "Mouse",
+            "Software",
+            "System",
+            "Environment",
+            "CloneUser",
+            "RolesRequired",
+            "TransactionsRequired"
+          ]
+        },
+        {
+          "ApplicationLogin": [
+            "AccessCardNo",
+            "Application",
+            "Hardware",
+            "Processor",
+            "HardDrive",
+            "KeyBoard",
+            "OS",
+            "RAM",
+            "HDMIPort",
+            "USBPort",
+            "CDDrive",
+            "DockingStation",
+            "Bag",
+            "Mouse",
+            "Software",
+            "System",
+            "Environment",
+            "CloneUser",
+            "RolesRequired",
+            "TransactionsRequired"
+          ]
+        },
+        {
+          "HardwareUpgrade": [
+            "AccessCardNo",
+            "Application",
+            "Hardware",
+            "Processor",
+            "HardDrive",
+            "KeyBoard",
+            "OS",
+            "RAM",
+            "HDMIPort",
+            "USBPort",
+            "CDDrive",
+            "DockingStation",
+            "Bag",
+            "Mouse",
+            "Software",
+            "System",
+            "Environment",
+            "CloneUser",
+            "RolesRequired",
+            "TransactionsRequired"
+          ]
+        },
+        {
+          "LaptopRequest": [
+            "AccessCardNo",
+            "Application",
+            "Hardware",
+            "Processor",
+            "HardDrive",
+            "KeyBoard",
+            "OS",
+            "RAM",
+            "HDMIPort",
+            "USBPort",
+            "CDDrive",
+            "DockingStation",
+            "Bag",
+            "Mouse",
+            "Software",
+            "System",
+            "Environment",
+            "CloneUser",
+            "RolesRequired",
+            "TransactionsRequired"
+          ]
+        },
+        {
+          "OfficeBuilding": [
+            "AccessCardNo",
+            "Application",
+            "Hardware",
+            "Processor",
+            "HardDrive",
+            "KeyBoard",
+            "OS",
+            "RAM",
+            "HDMIPort",
+            "USBPort",
+            "CDDrive",
+            "DockingStation",
+            "Bag",
+            "Mouse",
+            "Software",
+            "System",
+            "Environment",
+            "CloneUser",
+            "RolesRequired",
+            "TransactionsRequired"
+          ]
+        },
+        {
+          "SoftwareRequest": [
+            "AccessCardNo",
+            "Application",
+            "Hardware",
+            "Processor",
+            "HardDrive",
+            "KeyBoard",
+            "OS",
+            "RAM",
+            "HDMIPort",
+            "USBPort",
+            "CDDrive",
+            "DockingStation",
+            "Bag",
+            "Mouse",
+            "Software",
+            "System",
+            "Environment",
+            "CloneUser",
+            "RolesRequired",
+            "TransactionsRequired"
+          ]
+        },
+        {
+          "UserAccount": [
+            "AccessCardNo",
+            "Application",
+            "Hardware",
+            "Processor",
+            "HardDrive",
+            "KeyBoard",
+            "OS",
+            "RAM",
+            "HDMIPort",
+            "USBPort",
+            "CDDrive",
+            "DockingStation",
+            "Bag",
+            "Mouse",
+            "Software",
+            "System",
+            "Environment",
+            "CloneUser",
+            "RolesRequired",
+            "TransactionsRequired"
+          ]
+        }
+      ]
+    ]
+  },
+  "FieldDef": [
+    {
+      "name": "ID",
+      "type": "string",
+      "width": "20",
+      "Option": "mandatory",
+      "SLabel": "Identification",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "EmployeeID",
+      "type": "string",
+      "width": "50",
+      "Option": "mandatory",
+      "SLabel": "Employee ID",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "Name",
+      "type": "string",
+      "width": "50",
+      "Option": "mandatory",
+      "SLabel": "Name",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "Surname",
+      "type": "string",
+      "width": "50",
+      "Option": "mandatory",
+      "SLabel": "Surname",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "EmailID",
+      "type": "string",
+      "width": "50",
+      "Option": "",
+      "SLabel": "Email",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "PhoneNo",
+      "type": "string",
+      "width": "50",
+      "Option": "",
+      "SLabel": "Phone Number",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "DateOfRequest",
+      "type": "Date",
+      "width": "10",
+      "Option": "",
+      "SLabel": "Date Of Request",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "AccessCardNo",
+      "type": "string",
+      "width": "50",
+      "Option": "mandatory",
+      "SLabel": "Access Card Number",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "BuildingName",
+      "type": "string",
+      "width": "50",
+      "Option": "mandatory",
+      "SLabel": "Building Name",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "Approver",
+      "type": "string",
+      "width": "50",
+      "Option": "",
+      "SLabel": "Approver",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "StartDate",
+      "type": "Date",
+      "width": "10",
+      "Option": "",
+      "SLabel": "Start Date",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "EndDate",
+      "type": "Date",
+      "width": "10",
+      "Option": "",
+      "SLabel": "End Date",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "Reason",
+      "type": "string",
+      "width": "500",
+      "Option": "",
+      "SLabel": "Reason",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "Status",
+      "type": "string",
+      "width": "20",
+      "Option": "",
+      "SLabel": "Status",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "ApprovalDate",
+      "type": "Date",
+      "width": "10",
+      "Option": "",
+      "SLabel": "Approval Date",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "ApproverComment",
+      "type": "string",
+      "width": "500",
+      "Option": "",
+      "SLabel": "Approver Comment",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "Officer",
+      "type": "string",
+      "width": "50",
+      "Option": "",
+      "SLabel": "Officer",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "RequestType",
+      "type": "string",
+      "width": "100",
+      "Option": "mandatory",
+      "SLabel": "Request Type",
+      "LLabel": "Request Type",
+      "Currency": "No"
+    },
+    {
+      "name": "Application",
+      "type": "string",
+      "width": "100",
+      "Option": "",
+      "SLabel": "Application Name",
+      "LLabel": "Application Name",
+      "Currency": "No"
+    },
+    {
+      "name": "CostCentre",
+      "type": "string",
+      "width": "100",
+      "Option": "",
+      "SLabel": "Cost Centre",
+      "LLabel": "Cost Centre",
+      "Currency": "No"
+    },
+    {
+      "name": "Hardware",
+      "type": "string",
+      "width": "100",
+      "Option": "",
+      "SLabel": "Details of Hardware upgrade",
+      "LLabel": "Details of Hardware upgrade",
+      "Currency": "No"
+    },
+    {
+      "name": "AssetID",
+      "type": "string",
+      "width": "100",
+      "Option": "",
+      "SLabel": "Asset / Laptop ID",
+      "LLabel": "Asset / Laptop ID",
+      "Currency": "No"
+    },
+    {
+      "name": "Processor",
+      "type": "string",
+      "width": "100",
+      "Option": "",
+      "SLabel": "Processor",
+      "LLabel": "Processor",
+      "Currency": "No"
+    },
+    {
+      "name": "HardDrive",
+      "type": "string",
+      "width": "100",
+      "Option": "",
+      "SLabel": "Hard Drive",
+      "LLabel": "Hard Drive",
+      "Currency": "No"
+    },
+    {
+      "name": "KeyBoard",
+      "type": "string",
+      "width": "100",
+      "Option": "",
+      "SLabel": "KeyBoard",
+      "LLabel": "KeyBoard",
+      "Currency": "No"
+    },
+    {
+      "name": "OS",
+      "type": "string",
+      "width": "100",
+      "Option": "",
+      "SLabel": "Operating System",
+      "LLabel": "Operating System",
+      "Currency": "No"
+    },
+    {
+      "name": "RAM",
+      "type": "string",
+      "width": "100",
+      "Option": "",
+      "SLabel": "RAM",
+      "LLabel": "RAM",
+      "Currency": "No"
+    },
+    {
+      "name": "HDMIPort",
+      "type": "string",
+      "width": "100",
+      "Option": "",
+      "SLabel": "HDMI Port",
+      "LLabel": "HDMI Port",
+      "Currency": "No"
+    },
+    {
+      "name": "USBPort",
+      "type": "string",
+      "width": "100",
+      "Option": "",
+      "SLabel": "USB Port",
+      "LLabel": "USB Port",
+      "Currency": "No"
+    },
+    {
+      "name": "CDDrive",
+      "type": "string",
+      "width": "100",
+      "Option": "",
+      "SLabel": "CD Drive",
+      "LLabel": "CD Drive",
+      "Currency": "No"
+    },
+    {
+      "name": "DockingStation",
+      "type": "string",
+      "width": "100",
+      "Option": "",
+      "SLabel": "Docking Station",
+      "LLabel": "Docking Station",
+      "Currency": "No"
+    },
+    {
+      "name": "Bag",
+      "type": "string",
+      "width": "100",
+      "Option": "",
+      "SLabel": "Bag",
+      "LLabel": "Bag",
+      "Currency": "No"
+    },
+    {
+      "name": "Mouse",
+      "type": "string",
+      "width": "100",
+      "Option": "",
+      "SLabel": "Mouse",
+      "LLabel": "Mouse",
+      "Currency": "No"
+    },
+    {
+      "name": "Software",
+      "type": "string",
+      "width": "100",
+      "Option": "",
+      "SLabel": "Software",
+      "LLabel": "Software",
+      "Currency": "No"
+    },
+    {
+      "name": "System",
+      "type": "string",
+      "width": "100",
+      "Option": "",
+      "SLabel": "System",
+      "LLabel": "System",
+      "Currency": "No"
+    },
+    {
+      "name": "Environment",
+      "type": "string",
+      "width": "100",
+      "Option": "",
+      "SLabel": "Environment",
+      "LLabel": "Environment",
+      "Currency": "No"
+    },
+    {
+      "name": "CloneUser",
+      "type": "string",
+      "width": "100",
+      "Option": "",
+      "SLabel": "CloneUser",
+      "LLabel": "CloneUser",
+      "Currency": "No"
+    },
+    {
+      "name": "RolesRequired",
+      "type": "string",
+      "width": "100",
+      "Option": "",
+      "SLabel": "Roles Required",
+      "LLabel": "Roles Required",
+      "Currency": "No"
+    },
+    {
+      "name": "TransactionsRequired",
+      "type": "string",
+      "width": "100",
+      "Option": "",
+      "SLabel": "Transactions Required",
+      "LLabel": "Transactions Required",
+      "Currency": "No"
+    }
+  ]
+}

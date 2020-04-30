@@ -1,1 +1,332 @@
-{"Title": {"ApplicationTitle": "Time Table", "DetailTitle": "Time Table"}, "ListFields": {"IntroField": "", "TitleField": "", "fStatus": "", "sStatus": "", "numberField": "", "LFields": ["Class", "Section", "Day", "TimeSlot", "Subject"]}, "MButtons": [{"type": "DOWNLOAD", "name": "Download File", "icon": "sap-icon://download"}, {"type": "APPHELP", "name": "Get App Help", "icon": "sap-icon://sys-help-2"}, {"type": "BOT", "name": "Launch Assistant", "icon": "sap-icon://travel-request"}, {"type": "VIEW", "name": "Change App View", "icon": "chart-table-view"}, {"type": "ADD", "name": "Add Record", "icon": "sap-icon://add"}, {"type": "UPLOAD", "name": "Upload Record", "icon": "sap-icon://upload"}], "DButtons": [{"type": "ATTACHMENT", "name": "View Attachments", "icon": "sap-icon://attachment"}, {"type": "UPDATE", "name": "Update Record", "icon": "sap-icon://update"}, {"type": "ADD", "name": "Add Record", "icon": "sap-icon://add"}], "Tabs": [{"value": "Tab1", "name": "Subject", "type": "Field", "fioriicon": "hello-world", "download": "Yes"}, {"value": "Tab2", "name": "Timeline", "type": "Field", "fioriicon": "time-account", "download": "Yes"}], "DetailFields": {"None": ["ID", "Class", "Section", "Term", "Status"], "Tab1": ["Subject", "Room", "Type", "AnyChange"], "Tab2": ["Day", "Period", "TimeSlot"]}, "ControlDisplay": {"ControlField": "RegisterFor", "Fields": [[{"ALL": ["ID", "Name", "ContactNo", "EmailID", "Address", "Postcode", "ApplicationDate", "RegisterFor", "Status", "Approver", "Question_Response", "ProcessingLog"]}, {"BirthCertificate": ["ChildName", "Surname", "Nationality", "MotherAddress", "MotherNationality", "FatherAddress", "FatherNationality", "DeceasedName", "DeathPlace", "DeathDate", "LastAddress", "WasDeath", "DeathCause", "SpouseName", "BrideName", "BrideSurname", "GroomName", "GroomSurname", "MarriagePlace", "BrideFatherName", "GroomFatherName", "PreferName1", "PreferName2", "PreferName3", "AdditionalInfo"]}, {"DeathCertificate": ["ChildName", "Surname", "Nationality", "MotherAddress", "MotherNationality", "FatherAddress", "FatherNationality", "DeceasedName", "DeathPlace", "DeathDate", "LastAddress", "WasDeath", "DeathCause", "SpouseName", "BrideName", "BrideSurname", "GroomName", "GroomSurname", "MarriagePlace", "BrideFatherName", "GroomFatherName", "PreferName1", "PreferName2", "PreferName3", "AdditionalInfo"]}, {"MarriageRegistration": ["ChildName", "Surname", "Nationality", "MotherAddress", "MotherNationality", "FatherAddress", "FatherNationality", "DeceasedName", "DeathPlace", "DeathDate", "LastAddress", "WasDeath", "DeathCause", "SpouseName", "BrideName", "BrideSurname", "GroomName", "GroomSurname", "MarriagePlace", "BrideFatherName", "GroomFatherName", "PreferName1", "PreferName2", "PreferName3", "AdditionalInfo"]}, {"NewHouseName": ["ChildName", "Surname", "Nationality", "MotherAddress", "MotherNationality", "FatherAddress", "FatherNationality", "DeceasedName", "DeathPlace", "DeathDate", "LastAddress", "WasDeath", "DeathCause", "SpouseName", "BrideName", "BrideSurname", "GroomName", "GroomSurname", "MarriagePlace", "BrideFatherName", "GroomFatherName", "PreferName1", "PreferName2", "PreferName3", "AdditionalInfo"]}]]}, "FieldDef": [{"name": "ID", "type": "string", "width": "20", "Option": "", "SLabel": "ID", "LLabel": "", "Currency": "No"}, {"name": "Class", "type": "string", "width": "50", "Option": "", "SLabel": "Class", "LLabel": "", "Currency": "No"}, {"name": "Section", "type": "string", "width": "50", "Option": "", "SLabel": "Section", "LLabel": "", "Currency": "No"}, {"name": "Term", "type": "string", "width": "50", "Option": "", "SLabel": "Term", "LLabel": "", "Currency": "No"}, {"name": "Subject", "type": "string", "width": "50", "Option": "", "SLabel": "Subject", "LLabel": "", "Currency": "No"}, {"name": "Day", "type": "string", "width": "50", "Option": "", "SLabel": "Day", "LLabel": "", "Currency": "No"}, {"name": "Period", "type": "string", "width": "50", "Option": "", "SLabel": "Period", "LLabel": "", "Currency": "No"}, {"name": "TimeSlot", "type": "string", "width": "50", "Option": "", "SLabel": "Time Slot", "LLabel": "", "Currency": "No"}, {"name": "Room", "type": "string", "width": "50", "Option": "", "SLabel": "Room", "LLabel": "", "Currency": "No"}, {"name": "Type", "type": "string", "width": "50", "Option": "", "SLabel": "Type", "LLabel": "", "Currency": "No"}, {"name": "AnyChange", "type": "string", "width": "1000", "Option": "", "SLabel": "Any Change", "LLabel": "", "Currency": "No"}, {"name": "Status", "type": "string", "width": "20", "Option": "", "SLabel": "Status", "LLabel": "", "Currency": "No"}, {"name": "Test", "type": "string", "width": "50", "Option": "", "SLabel": "Test", "LLabel": "", "Currency": "No"}, {"name": "Date", "type": "Date", "width": "10", "Option": "", "SLabel": "Date", "LLabel": "", "Currency": "No"}]}
+{
+  "Title": { "ApplicationTitle": "Time Table", "DetailTitle": "Time Table" },
+  "ListFields": {
+    "IntroField": "",
+    "TitleField": "",
+    "fStatus": "",
+    "sStatus": "",
+    "numberField": "",
+    "LFields": ["Class", "Section", "Day", "TimeSlot", "Subject"]
+  },
+  "MButtons": [
+    {
+      "type": "DOWNLOAD",
+      "name": "Download File",
+      "icon": "sap-icon://download"
+    },
+    {
+      "type": "APPHELP",
+      "name": "Get App Help",
+      "icon": "sap-icon://sys-help-2"
+    },
+    {
+      "type": "BOT",
+      "name": "Launch Assistant",
+      "icon": "sap-icon://travel-request"
+    },
+    {
+      "type": "VIEW",
+      "name": "Change App View",
+      "icon": "sap-icon://chart-table-view"
+    },
+    { "type": "ADD", "name": "Add Record", "icon": "sap-icon://add" },
+    { "type": "UPLOAD", "name": "Upload Record", "icon": "sap-icon://upload" }
+  ],
+  "DButtons": [
+    {
+      "type": "ATTACHMENT",
+      "name": "View Attachments",
+      "icon": "sap-icon://attachment"
+    },
+    { "type": "UPDATE", "name": "Update Record", "icon": "sap-icon://update" },
+    { "type": "ADD", "name": "Add Record", "icon": "sap-icon://add" }
+  ],
+  "Tabs": [
+    {
+      "value": "Tab1",
+      "name": "Subject",
+      "type": "Field",
+      "fioriicon": "hello-world",
+      "download": "Yes"
+    },
+    {
+      "value": "Tab2",
+      "name": "Timeline",
+      "type": "Field",
+      "fioriicon": "time-account",
+      "download": "Yes"
+    }
+  ],
+  "DetailFields": {
+    "None": ["ID", "Class", "Section", "Term", "Status"],
+    "Tab1": ["Subject", "Room", "Type", "AnyChange"],
+    "Tab2": ["Day", "Period", "TimeSlot"]
+  },
+  "ControlDisplay": {
+    "ControlField": "RegisterFor",
+    "Fields": [
+      [
+        {
+          "ALL": [
+            "ID",
+            "Name",
+            "ContactNo",
+            "EmailID",
+            "Address",
+            "Postcode",
+            "ApplicationDate",
+            "RegisterFor",
+            "Status",
+            "Approver",
+            "Question_Response",
+            "ProcessingLog"
+          ]
+        },
+        {
+          "BirthCertificate": [
+            "ChildName",
+            "Surname",
+            "Nationality",
+            "MotherAddress",
+            "MotherNationality",
+            "FatherAddress",
+            "FatherNationality",
+            "DeceasedName",
+            "DeathPlace",
+            "DeathDate",
+            "LastAddress",
+            "WasDeath",
+            "DeathCause",
+            "SpouseName",
+            "BrideName",
+            "BrideSurname",
+            "GroomName",
+            "GroomSurname",
+            "MarriagePlace",
+            "BrideFatherName",
+            "GroomFatherName",
+            "PreferName1",
+            "PreferName2",
+            "PreferName3",
+            "AdditionalInfo"
+          ]
+        },
+        {
+          "DeathCertificate": [
+            "ChildName",
+            "Surname",
+            "Nationality",
+            "MotherAddress",
+            "MotherNationality",
+            "FatherAddress",
+            "FatherNationality",
+            "DeceasedName",
+            "DeathPlace",
+            "DeathDate",
+            "LastAddress",
+            "WasDeath",
+            "DeathCause",
+            "SpouseName",
+            "BrideName",
+            "BrideSurname",
+            "GroomName",
+            "GroomSurname",
+            "MarriagePlace",
+            "BrideFatherName",
+            "GroomFatherName",
+            "PreferName1",
+            "PreferName2",
+            "PreferName3",
+            "AdditionalInfo"
+          ]
+        },
+        {
+          "MarriageRegistration": [
+            "ChildName",
+            "Surname",
+            "Nationality",
+            "MotherAddress",
+            "MotherNationality",
+            "FatherAddress",
+            "FatherNationality",
+            "DeceasedName",
+            "DeathPlace",
+            "DeathDate",
+            "LastAddress",
+            "WasDeath",
+            "DeathCause",
+            "SpouseName",
+            "BrideName",
+            "BrideSurname",
+            "GroomName",
+            "GroomSurname",
+            "MarriagePlace",
+            "BrideFatherName",
+            "GroomFatherName",
+            "PreferName1",
+            "PreferName2",
+            "PreferName3",
+            "AdditionalInfo"
+          ]
+        },
+        {
+          "NewHouseName": [
+            "ChildName",
+            "Surname",
+            "Nationality",
+            "MotherAddress",
+            "MotherNationality",
+            "FatherAddress",
+            "FatherNationality",
+            "DeceasedName",
+            "DeathPlace",
+            "DeathDate",
+            "LastAddress",
+            "WasDeath",
+            "DeathCause",
+            "SpouseName",
+            "BrideName",
+            "BrideSurname",
+            "GroomName",
+            "GroomSurname",
+            "MarriagePlace",
+            "BrideFatherName",
+            "GroomFatherName",
+            "PreferName1",
+            "PreferName2",
+            "PreferName3",
+            "AdditionalInfo"
+          ]
+        }
+      ]
+    ]
+  },
+  "FieldDef": [
+    {
+      "name": "ID",
+      "type": "string",
+      "width": "20",
+      "Option": "",
+      "SLabel": "ID",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "Class",
+      "type": "string",
+      "width": "50",
+      "Option": "",
+      "SLabel": "Class",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "Section",
+      "type": "string",
+      "width": "50",
+      "Option": "",
+      "SLabel": "Section",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "Term",
+      "type": "string",
+      "width": "50",
+      "Option": "",
+      "SLabel": "Term",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "Subject",
+      "type": "string",
+      "width": "50",
+      "Option": "",
+      "SLabel": "Subject",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "Day",
+      "type": "string",
+      "width": "50",
+      "Option": "",
+      "SLabel": "Day",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "Period",
+      "type": "string",
+      "width": "50",
+      "Option": "",
+      "SLabel": "Period",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "TimeSlot",
+      "type": "string",
+      "width": "50",
+      "Option": "",
+      "SLabel": "Time Slot",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "Room",
+      "type": "string",
+      "width": "50",
+      "Option": "",
+      "SLabel": "Room",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "Type",
+      "type": "string",
+      "width": "50",
+      "Option": "",
+      "SLabel": "Type",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "AnyChange",
+      "type": "string",
+      "width": "1000",
+      "Option": "",
+      "SLabel": "Any Change",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "Status",
+      "type": "string",
+      "width": "20",
+      "Option": "",
+      "SLabel": "Status",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "Test",
+      "type": "string",
+      "width": "50",
+      "Option": "",
+      "SLabel": "Test",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "Date",
+      "type": "Date",
+      "width": "10",
+      "Option": "",
+      "SLabel": "Date",
+      "LLabel": "",
+      "Currency": "No"
+    }
+  ]
+}

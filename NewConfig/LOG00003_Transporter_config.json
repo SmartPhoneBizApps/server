@@ -1,1 +1,248 @@
-{"Title": {"ApplicationTitle": "Packaging", "DetailTitle": "Packaging"}, "ListFields": {"IntroField": "ID", "TitleField": "", "fStatus": "Status", "sStatus": "", "numberField": "", "LFields": ["ID", "YourName", "ContactNo", "DateReq", "Status"]}, "MButtons": [{"type": "DOWNLOAD", "name": "Download File", "icon": "sap-icon://download"}, {"type": "APPHELP", "name": "Get App Help", "icon": "sap-icon://sys-help-2"}, {"type": "BOT", "name": "Launch Assistant", "icon": "sap-icon://travel-request"}, {"type": "VIEW", "name": "Change App View", "icon": "chart-table-view"}, {"type": "ADD", "name": "Add Record", "icon": "sap-icon://add"}, {"type": "UPLOAD", "name": "Upload Record", "icon": "sap-icon://upload"}], "DButtons": [{"type": "ATTACHMENT", "name": "View Attachments", "icon": "sap-icon://attachment"}, {"type": "UPDATE", "name": "Update Record", "icon": "sap-icon://update"}, {"type": "ADD", "name": "Add Record", "icon": "sap-icon://add"}], "Tabs": [{"value": "Tab1", "name": "YourDetail", "fioriicon": "detail-view", "type": "Field"}, {"value": "Tab2", "name": "ItemDetail", "fioriicon": "activity-items", "type": "Field"}, {"value": "Tab3", "name": "Comms", "fioriicon": "customer-and-contacts", "type": "Field"}], "DetailFields": {"None": ["ID", "DateReq", "Status"], "Tab1": ["YourName", "Surname", "Email", "ContactNo"], "Tab2": ["ProductType", "ItemDetails", "Weight", "Volume", "NoOfItems", "PackagingOption"], "Tab3": ["UserComm", "PackComm", "Quote"]}, "ControlDisplay": {"ControlField": "BookingFor", "Fields": [[{"ALL": ["ID", "FirstName", "LastName", "PhoneNo", "Status", "Email", "Comments", "BookingFor", "Price", "Quantity", "NetValue", "VATPer", "VATRate", "VATVal", "GrossValue", "MoreInfo", "Attachment1", "Attachment2", "PostCode", "Emailid", "HouseNo", "Address", "TotalGrossValue"]}, {"CarPark": ["CarPark", "CarRegistration", "Building", "HotDeskNo", "NoOfPeople", "RoomLayout", "Slot", "LunchRequired", "DietaryRequirement", "MeetingDate", "VisitorCompany", "VisitorName", "VisitorPhone", "VisitorEmail"]}, {"HotDesk": ["CarPark", "CarRegistration", "Building", "HotDeskNo", "NoOfPeople", "RoomLayout", "Slot", "LunchRequired", "DietaryRequirement", "MeetingDate", "VisitorCompany", "VisitorName", "VisitorPhone", "VisitorEmail"]}, {"MeetingRoom": ["CarPark", "CarRegistration", "Building", "HotDeskNo", "NoOfPeople", "RoomLayout", "Slot", "LunchRequired", "DietaryRequirement", "MeetingDate", "VisitorCompany", "VisitorName", "VisitorPhone", "VisitorEmail"]}, {"Visitor": ["CarPark", "CarRegistration", "Building", "HotDeskNo", "NoOfPeople", "RoomLayout", "Slot", "LunchRequired", "DietaryRequirement", "MeetingDate", "VisitorCompany", "VisitorName", "VisitorPhone", "VisitorEmail"]}]]}, "FieldDef": [{"name": "ID", "type": "string", "width": "20", "Option": "mandatory", "SLabel": "", "LLabel": ""}, {"name": "YourName", "type": "string", "width": "20", "Option": "mandatory"}, {"name": "Surname", "type": "string", "width": "20", "Option": ""}, {"name": "Email", "type": "string", "width": "20", "Option": ""}, {"name": "ContactNo", "type": "string", "width": "20", "Option": "mandatory"}, {"name": "ProductType", "type": "string", "width": "100", "Option": "mandatory"}, {"name": "ItemDetails", "type": "string", "width": "500", "Option": "mandatory"}, {"name": "Weight", "type": "string", "width": "100", "Option": "mandatory"}, {"name": "Volume", "type": "string", "width": "100", "Option": "mandatory"}, {"name": "NoOfItems", "type": "string", "width": "100", "Option": "mandatory"}, {"name": "PackagingOption", "type": "string", "width": "100", "Option": "mandatory"}, {"name": "DateReq", "type": "Date", "width": "10", "Option": "mandatory"}, {"name": "UserComm", "type": "string", "width": "1000", "Option": ""}, {"name": "PackComm", "type": "string", "width": "1000", "Option": ""}, {"name": "Quote", "type": "string", "width": "200", "Option": ""}, {"name": "Status", "type": "string", "width": "20", "Option": ""}]}
+{
+  "Title": { "ApplicationTitle": "Packaging", "DetailTitle": "Packaging" },
+  "ListFields": {
+    "IntroField": "ID",
+    "TitleField": "",
+    "fStatus": "Status",
+    "sStatus": "",
+    "numberField": "",
+    "LFields": ["ID", "YourName", "ContactNo", "DateReq", "Status"]
+  },
+  "MButtons": [
+    {
+      "type": "DOWNLOAD",
+      "name": "Download File",
+      "icon": "sap-icon://download"
+    },
+    {
+      "type": "APPHELP",
+      "name": "Get App Help",
+      "icon": "sap-icon://sys-help-2"
+    },
+    {
+      "type": "BOT",
+      "name": "Launch Assistant",
+      "icon": "sap-icon://travel-request"
+    },
+    {
+      "type": "VIEW",
+      "name": "Change App View",
+      "icon": "sap-icon://chart-table-view"
+    },
+    { "type": "ADD", "name": "Add Record", "icon": "sap-icon://add" },
+    { "type": "UPLOAD", "name": "Upload Record", "icon": "sap-icon://upload" }
+  ],
+  "DButtons": [
+    {
+      "type": "ATTACHMENT",
+      "name": "View Attachments",
+      "icon": "sap-icon://attachment"
+    },
+    { "type": "UPDATE", "name": "Update Record", "icon": "sap-icon://update" },
+    { "type": "ADD", "name": "Add Record", "icon": "sap-icon://add" }
+  ],
+  "Tabs": [
+    {
+      "value": "Tab1",
+      "name": "YourDetail",
+      "fioriicon": "detail-view",
+      "type": "Field"
+    },
+    {
+      "value": "Tab2",
+      "name": "ItemDetail",
+      "fioriicon": "activity-items",
+      "type": "Field"
+    },
+    {
+      "value": "Tab3",
+      "name": "Comms",
+      "fioriicon": "customer-and-contacts",
+      "type": "Field"
+    }
+  ],
+  "DetailFields": {
+    "None": ["ID", "DateReq", "Status"],
+    "Tab1": ["YourName", "Surname", "Email", "ContactNo"],
+    "Tab2": [
+      "ProductType",
+      "ItemDetails",
+      "Weight",
+      "Volume",
+      "NoOfItems",
+      "PackagingOption"
+    ],
+    "Tab3": ["UserComm", "PackComm", "Quote"]
+  },
+  "ControlDisplay": {
+    "ControlField": "BookingFor",
+    "Fields": [
+      [
+        {
+          "ALL": [
+            "ID",
+            "FirstName",
+            "LastName",
+            "PhoneNo",
+            "Status",
+            "Email",
+            "Comments",
+            "BookingFor",
+            "Price",
+            "Quantity",
+            "NetValue",
+            "VATPer",
+            "VATRate",
+            "VATVal",
+            "GrossValue",
+            "MoreInfo",
+            "Attachment1",
+            "Attachment2",
+            "PostCode",
+            "Emailid",
+            "HouseNo",
+            "Address",
+            "TotalGrossValue"
+          ]
+        },
+        {
+          "CarPark": [
+            "CarPark",
+            "CarRegistration",
+            "Building",
+            "HotDeskNo",
+            "NoOfPeople",
+            "RoomLayout",
+            "Slot",
+            "LunchRequired",
+            "DietaryRequirement",
+            "MeetingDate",
+            "VisitorCompany",
+            "VisitorName",
+            "VisitorPhone",
+            "VisitorEmail"
+          ]
+        },
+        {
+          "HotDesk": [
+            "CarPark",
+            "CarRegistration",
+            "Building",
+            "HotDeskNo",
+            "NoOfPeople",
+            "RoomLayout",
+            "Slot",
+            "LunchRequired",
+            "DietaryRequirement",
+            "MeetingDate",
+            "VisitorCompany",
+            "VisitorName",
+            "VisitorPhone",
+            "VisitorEmail"
+          ]
+        },
+        {
+          "MeetingRoom": [
+            "CarPark",
+            "CarRegistration",
+            "Building",
+            "HotDeskNo",
+            "NoOfPeople",
+            "RoomLayout",
+            "Slot",
+            "LunchRequired",
+            "DietaryRequirement",
+            "MeetingDate",
+            "VisitorCompany",
+            "VisitorName",
+            "VisitorPhone",
+            "VisitorEmail"
+          ]
+        },
+        {
+          "Visitor": [
+            "CarPark",
+            "CarRegistration",
+            "Building",
+            "HotDeskNo",
+            "NoOfPeople",
+            "RoomLayout",
+            "Slot",
+            "LunchRequired",
+            "DietaryRequirement",
+            "MeetingDate",
+            "VisitorCompany",
+            "VisitorName",
+            "VisitorPhone",
+            "VisitorEmail"
+          ]
+        }
+      ]
+    ]
+  },
+  "FieldDef": [
+    {
+      "name": "ID",
+      "type": "string",
+      "width": "20",
+      "Option": "mandatory",
+      "SLabel": "",
+      "LLabel": ""
+    },
+    {
+      "name": "YourName",
+      "type": "string",
+      "width": "20",
+      "Option": "mandatory"
+    },
+    { "name": "Surname", "type": "string", "width": "20", "Option": "" },
+    { "name": "Email", "type": "string", "width": "20", "Option": "" },
+    {
+      "name": "ContactNo",
+      "type": "string",
+      "width": "20",
+      "Option": "mandatory"
+    },
+    {
+      "name": "ProductType",
+      "type": "string",
+      "width": "100",
+      "Option": "mandatory"
+    },
+    {
+      "name": "ItemDetails",
+      "type": "string",
+      "width": "500",
+      "Option": "mandatory"
+    },
+    {
+      "name": "Weight",
+      "type": "string",
+      "width": "100",
+      "Option": "mandatory"
+    },
+    {
+      "name": "Volume",
+      "type": "string",
+      "width": "100",
+      "Option": "mandatory"
+    },
+    {
+      "name": "NoOfItems",
+      "type": "string",
+      "width": "100",
+      "Option": "mandatory"
+    },
+    {
+      "name": "PackagingOption",
+      "type": "string",
+      "width": "100",
+      "Option": "mandatory"
+    },
+    { "name": "DateReq", "type": "Date", "width": "10", "Option": "mandatory" },
+    { "name": "UserComm", "type": "string", "width": "1000", "Option": "" },
+    { "name": "PackComm", "type": "string", "width": "1000", "Option": "" },
+    { "name": "Quote", "type": "string", "width": "200", "Option": "" },
+    { "name": "Status", "type": "string", "width": "20", "Option": "" }
+  ]
+}

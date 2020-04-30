@@ -2,7 +2,13 @@ const advancedDataList = (model, AppID, populate) => async (req, res, next) => {
   console.log("AppID is:", AppID);
   console.log("BusinessRole:", req.headers.businessrole);
 
-  // Read List screen Configuration from File......
+  // Read New Configuration from File......
+
+  const newConfig =
+    "../NewConfig/" + AppID + "_" + req.headers.businessrole + "_config.json";
+  var config = require(newConfig);
+
+  /*   // Read List screen Configuration from File......
   const AppRole =
     "../applicationJSON/" + AppID + "_" + req.headers.businessrole + "_LS.json";
 
@@ -13,9 +19,9 @@ const advancedDataList = (model, AppID, populate) => async (req, res, next) => {
     }
   } catch (error) {
     return next(new ErrorResponse(`ListScreen Config Missing`, 400));
-  }
+  } */
 
-  // Read Old Config File...
+  /* // Read Old Config File...
   var filepath =
     "../JSONOUT/" + AppID + "_" + req.headers.businessrole + "_config.json";
   console.log("FilePath:", filepath);
@@ -156,14 +162,14 @@ const advancedDataList = (model, AppID, populate) => async (req, res, next) => {
     TabArr.push(TabTab9);
   }
 
-  console.log(TabArr);
-  config = {};
+  console.log(TabArr); */
+  /*   config = {};
   config.Title = TitleOut;
   config.ListFields = ListField2;
   config.MButtons = [];
   config.DButtons = [];
   config.Tabs = Tab;
-  config.DetailFields = TabArr;
+  config.DetailFields = TabArr; */
 
   let query;
   // Copy req.query

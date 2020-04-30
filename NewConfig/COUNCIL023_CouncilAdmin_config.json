@@ -1,1 +1,898 @@
-{"Title": {"ApplicationTitle": "Fault Reporting", "DetailTitle": "Fault Reporting"}, "ListFields": {"IntroField": "ID", "TitleField": "", "fStatus": "Status", "sStatus": "", "numberField": "", "LFields": ["ID", "Name", "RequestType", "RequestDate", "Status", "ContactNo"]}, "MButtons": [{"type": "DOWNLOAD", "name": "Download File", "icon": "sap-icon://download"}, {"type": "APPHELP", "name": "Get App Help", "icon": "sap-icon://sys-help-2"}, {"type": "BOT", "name": "Launch Assistant", "icon": "sap-icon://travel-request"}, {"type": "VIEW", "name": "Change App View", "icon": "chart-table-view"}, {"type": "ADD", "name": "Add Record", "icon": "sap-icon://add"}, {"type": "UPLOAD", "name": "Upload Record", "icon": "sap-icon://upload"}], "DButtons": [{"type": "ATTACHMENT", "name": "View Attachments", "icon": "sap-icon://attachment"}, {"type": "UPDATE", "name": "Update Record", "icon": "sap-icon://update"}, {"type": "ADD", "name": "Add Record", "icon": "sap-icon://add"}], "Tabs": [{"value": "Tab1", "name": "Request Details", "type": "Field", "fioriicon": "request", "download": "Yes"}, {"value": "Tab2", "name": "Other Details", "type": "Field", "fioriicon": "action-settings", "download": "Yes"}, {"value": "Tab3", "name": "Location", "type": "Field", "fioriicon": "locate-me", "download": "Yes"}, {"value": "Tab4", "name": "Your Details", "fioriicon": "notes", "type": "Field", "download": "Yes"}, {"value": "Tab5", "name": "Chat", "fioriicon": "comment", "type": "Chat", "download": "Yes"}, {"value": "Tab6", "name": "Processing Log", "fioriicon": "comment", "type": "Chat", "download": "Yes"}], "DetailFields": {"None": ["ID", "RequestDate", "Status"], "Tab1": ["RequestType", "NoOfFlats", "Count", "CareTaker", "RequiredDate", "CollectionDate", "CollectionItems", "ItemType", "Condition", "ItemLocation", "NoOfBags", "PestLocation", "TypeOfPest", "IfOther", "VisitDate", "Q1", "A1", "Q2", "A2", "Q3", "A3", "Q4", "A4", "Q5", "A5", "Q6", "A6", "Q7", "A7", "Q8", "A8", "Q9", "A9", "Q10", "A10", "Q11", "A11"], "Tab2": ["Attachment", "AdditionalInfo", "RejectReason"], "Tab3": ["Postcode1", "Address1"], "Tab4": ["Name", "ContactNo", "EmailID", "YourAddress"], "Tab5": ["Question_Response"], "Tab6": ["ProcessingLog"]}, "ControlDisplay": {"ControlField": "RequestType", "Fields": [[{"ALL": ["ID", "Name", "ContactNo", "EmailID", "YourAddress", "RequestDate", "RequestType", "AdditionalInfo", "Status", "RejectReason", "Approver", "Question_Response", "ProcessingLog"]}, {"BulkyCollection": ["CollectionItems", "ItemType", "Condition", "Q6", "Q7", "Q8", "A6", "A7", "A8", "NoOfBags", "NoOfFlats", "Count", "CareTaker", "Q1", "Q2", "Q3", "Q4", "Q5", "A1", "A2", "A3", "A4", "A5", "PestLocation", "TypeOfPest", "IfOther", "VisitDate", "Q9", "Q10", "Q11", "A9", "A10", "A11"]}, {"FOI": ["CollectionItems", "ItemType", "Condition", "Q6", "Q7", "Q8", "A6", "A7", "A8", "NoOfBags", "NoOfFlats", "Count", "CareTaker", "Q1", "Q2", "Q3", "Q4", "Q5", "A1", "A2", "A3", "A4", "A5", "PestLocation", "TypeOfPest", "IfOther", "VisitDate", "Q9", "Q10", "Q11", "A9", "A10", "A11"]}, {"GardenWaste": ["CollectionItems", "ItemType", "Condition", "Q6", "Q7", "Q8", "A6", "A7", "A8", "NoOfBags", "NoOfFlats", "Count", "CareTaker", "Q1", "Q2", "Q3", "Q4", "Q5", "A1", "A2", "A3", "A4", "A5", "PestLocation", "TypeOfPest", "IfOther", "VisitDate", "Q9", "Q10", "Q11", "A9", "A10", "A11"]}, {"MiniRecyclingCenter": ["CollectionItems", "ItemType", "Condition", "Q6", "Q7", "Q8", "A6", "A7", "A8", "NoOfBags", "NoOfFlats", "Count", "CareTaker", "Q1", "Q2", "Q3", "Q4", "Q5", "A1", "A2", "A3", "A4", "A5", "PestLocation", "TypeOfPest", "IfOther", "VisitDate", "Q9", "Q10", "Q11", "A9", "A10", "A11"]}, {"NewBins": ["CollectionItems", "ItemType", "Condition", "Q6", "Q7", "Q8", "A6", "A7", "A8", "NoOfBags", "NoOfFlats", "Count", "CareTaker", "Q1", "Q2", "Q3", "Q4", "Q5", "A1", "A2", "A3", "A4", "A5", "PestLocation", "TypeOfPest", "IfOther", "VisitDate", "Q9", "Q10", "Q11", "A9", "A10", "A11"]}, {"PestProblem": ["CollectionItems", "ItemType", "Condition", "Q6", "Q7", "Q8", "A6", "A7", "A8", "NoOfBags", "NoOfFlats", "Count", "CareTaker", "Q1", "Q2", "Q3", "Q4", "Q5", "A1", "A2", "A3", "A4", "A5", "PestLocation", "TypeOfPest", "IfOther", "VisitDate", "Q9", "Q10", "Q11", "A9", "A10", "A11"]}, {"RepairCouncilHouse": ["CollectionItems", "ItemType", "Condition", "Q6", "Q7", "Q8", "A6", "A7", "A8", "NoOfBags", "NoOfFlats", "Count", "CareTaker", "Q1", "Q2", "Q3", "Q4", "Q5", "A1", "A2", "A3", "A4", "A5", "PestLocation", "TypeOfPest", "IfOther", "VisitDate", "Q9", "Q10", "Q11", "A9", "A10", "A11"]}]]}, "FieldDef": [{"name": "ID", "type": "string", "width": "20", "Option": "", "SLabel": "Identification ", "LLabel": "", "Currency": "No"}, {"name": "Name", "type": "string", "width": "20", "Option": "", "SLabel": "Your Name", "LLabel": "Your Name", "Currency": "No"}, {"name": "ContactNo", "type": "PhoneNumber", "width": "20", "Option": "", "SLabel": "Contact Number", "LLabel": "Contact Number", "Currency": "No"}, {"name": "EmailID", "type": "Email", "width": "100", "Option": "", "SLabel": "Your Email", "LLabel": "Your Email", "Currency": "No"}, {"name": "YourAddress", "type": "string", "width": "500", "Option": "", "SLabel": "Your Address", "LLabel": "Your Address", "Currency": "No"}, {"name": "RequestDate", "type": "Date", "width": "10", "Option": "", "SLabel": "Request Date", "LLabel": "Request Date", "Currency": "No"}, {"name": "RequestType", "type": "string", "width": "200", "Option": "mandatory", "SLabel": "Your request is for", "LLabel": "RequestType", "Currency": "No"}, {"name": "Attachment", "type": "attachment", "width": "500", "Option": "", "SLabel": "Upload Image", "LLabel": "Upload Image", "Currency": "No"}, {"name": "AdditionalInfo", "type": "string", "width": "1000", "Option": "", "SLabel": "Any Additional Information", "LLabel": "Any Additional Information", "Currency": "No"}, {"name": "Status", "type": "string", "width": "20", "Option": "", "SLabel": "Request Status", "LLabel": "", "Currency": "No"}, {"name": "NoOfFlats", "type": "string", "width": "100", "Option": "", "SLabel": "No Of Flats", "LLabel": "NoOfFlats", "Currency": "No"}, {"name": "Count", "type": "Num,0", "width": "10", "Option": "", "SLabel": "How Many Centers Required", "LLabel": "How Many Required", "Currency": "No"}, {"name": "CareTaker", "type": "string", "width": "100", "Option": "", "SLabel": "Who is your Care Taker", "LLabel": "CareTaker", "Currency": "No"}, {"name": "RequiredDate", "type": "Date", "width": "10", "Option": "", "SLabel": "Required Date", "LLabel": "RequiredDate", "Currency": "No"}, {"name": "Postcode1", "type": "string", "width": "100", "Option": "", "SLabel": "Property Postcode", "LLabel": "Postcode", "Currency": "No"}, {"name": "Address1", "type": "string", "width": "200", "Option": "", "SLabel": "Property Address", "LLabel": "Property Address", "Currency": "No"}, {"name": "CollectionDate", "type": "Date", "width": "10", "Option": "", "SLabel": "Collection Date", "LLabel": "CollectionDate", "Currency": "No"}, {"name": "CollectionItems", "type": "string", "width": "200", "Option": "", "SLabel": "Collection Items", "LLabel": "CollectionItems", "Currency": "No"}, {"name": "ItemType", "type": "string", "width": "200", "Option": "", "SLabel": "Item Type", "LLabel": "ItemType", "Currency": "No"}, {"name": "Condition", "type": "string", "width": "200", "Option": "", "SLabel": "Item Condition", "LLabel": "Condition", "Currency": "No"}, {"name": "ItemLocation", "type": "string", "width": "200", "Option": "", "SLabel": "Item Location", "LLabel": "ItemLocation", "Currency": "No"}, {"name": "NoOfBags", "type": "string", "width": "20", "Option": "", "SLabel": "No Of Bags", "LLabel": "NoOfBags", "Currency": "No"}, {"name": "RejectReason", "type": "string", "width": "1000", "Option": "", "SLabel": "Reject Reason", "LLabel": "RejectReason", "Currency": "No"}, {"name": "PestLocation", "type": "string", "width": "100", "Option": "", "SLabel": "Pest Location", "LLabel": "PestLocation", "Currency": "No"}, {"name": "TypeOfPest", "type": "string", "width": "100", "Option": "", "SLabel": "Type Of Pest", "LLabel": "TypeOfPest", "Currency": "No"}, {"name": "IfOther", "type": "string", "width": "200", "Option": "", "SLabel": "If Other", "LLabel": "IfOther", "Currency": "No"}, {"name": "VisitDate", "type": "Date", "width": "10", "Option": "", "SLabel": "Visit Date", "LLabel": "VisitDate", "Currency": "No"}, {"name": "Q1", "type": "string", "width": "200", "Option": "", "SLabel": "Question", "LLabel": "Question", "Currency": "No"}, {"name": "Q2", "type": "string", "width": "200", "Option": "", "SLabel": "Question", "LLabel": "Question", "Currency": "No"}, {"name": "Q3", "type": "string", "width": "200", "Option": "", "SLabel": "Question", "LLabel": "Question", "Currency": "No"}, {"name": "Q4", "type": "string", "width": "200", "Option": "", "SLabel": "Question", "LLabel": "Question", "Currency": "No"}, {"name": "Q5", "type": "string", "width": "200", "Option": "", "SLabel": "Question", "LLabel": "Question", "Currency": "No"}, {"name": "Q6", "type": "string", "width": "200", "Option": "", "SLabel": "Question", "LLabel": "Question", "Currency": "No"}, {"name": "Q7", "type": "string", "width": "200", "Option": "", "SLabel": "Question", "LLabel": "Question", "Currency": "No"}, {"name": "Q8", "type": "string", "width": "200", "Option": "", "SLabel": "Question", "LLabel": "Question", "Currency": "No"}, {"name": "Q9", "type": "string", "width": "200", "Option": "", "SLabel": "Question", "LLabel": "Question", "Currency": "No"}, {"name": "Q10", "type": "string", "width": "200", "Option": "", "SLabel": "Question", "LLabel": "Question", "Currency": "No"}, {"name": "Q11", "type": "string", "width": "200", "Option": "", "SLabel": "Question", "LLabel": "Question", "Currency": "No"}, {"name": "A1", "type": "string", "width": "200", "Option": "", "SLabel": "Answer", "LLabel": "Answer", "Currency": "No"}, {"name": "A2", "type": "string", "width": "200", "Option": "", "SLabel": "Answer", "LLabel": "Answer", "Currency": "No"}, {"name": "A3", "type": "string", "width": "200", "Option": "", "SLabel": "Answer", "LLabel": "Answer", "Currency": "No"}, {"name": "A4", "type": "string", "width": "200", "Option": "", "SLabel": "Answer", "LLabel": "Answer", "Currency": "No"}, {"name": "A5", "type": "string", "width": "200", "Option": "", "SLabel": "Answer", "LLabel": "Answer", "Currency": "No"}, {"name": "A6", "type": "string", "width": "200", "Option": "", "SLabel": "Answer", "LLabel": "Answer", "Currency": "No"}, {"name": "A7", "type": "string", "width": "200", "Option": "", "SLabel": "Answer", "LLabel": "Answer", "Currency": "No"}, {"name": "A8", "type": "string", "width": "200", "Option": "", "SLabel": "Answer", "LLabel": "Answer", "Currency": "No"}, {"name": "A9", "type": "string", "width": "200", "Option": "", "SLabel": "Answer", "LLabel": "Answer", "Currency": "No"}, {"name": "A10", "type": "string", "width": "200", "Option": "", "SLabel": "Answer", "LLabel": "Answer", "Currency": "No"}, {"name": "A11", "type": "string", "width": "200", "Option": "", "SLabel": "Answer", "LLabel": "Answer", "Currency": "No"}, {"name": "Approver", "type": "string", "width": "100", "Option": "", "SLabel": "Approver", "LLabel": "Approver", "Currency": "No"}, {"name": "Question_Response", "type": "string", "width": "500", "Option": "", "SLabel": "Here Is Chat Details", "LLabel": "Question_Responce", "Currency": "No"}, {"name": "ProcessingLog", "type": "string", "width": "500", "Option": "", "SLabel": "Processing Log", "LLabel": "Processing Log", "Currency": "No"}]}
+{
+  "Title": {
+    "ApplicationTitle": "Fault Reporting",
+    "DetailTitle": "Fault Reporting"
+  },
+  "ListFields": {
+    "IntroField": "ID",
+    "TitleField": "",
+    "fStatus": "Status",
+    "sStatus": "",
+    "numberField": "",
+    "LFields": [
+      "ID",
+      "Name",
+      "RequestType",
+      "RequestDate",
+      "Status",
+      "ContactNo"
+    ]
+  },
+  "MButtons": [
+    {
+      "type": "DOWNLOAD",
+      "name": "Download File",
+      "icon": "sap-icon://download"
+    },
+    {
+      "type": "APPHELP",
+      "name": "Get App Help",
+      "icon": "sap-icon://sys-help-2"
+    },
+    {
+      "type": "BOT",
+      "name": "Launch Assistant",
+      "icon": "sap-icon://travel-request"
+    },
+    {
+      "type": "VIEW",
+      "name": "Change App View",
+      "icon": "sap-icon://chart-table-view"
+    },
+    { "type": "ADD", "name": "Add Record", "icon": "sap-icon://add" },
+    { "type": "UPLOAD", "name": "Upload Record", "icon": "sap-icon://upload" }
+  ],
+  "DButtons": [
+    {
+      "type": "ATTACHMENT",
+      "name": "View Attachments",
+      "icon": "sap-icon://attachment"
+    },
+    { "type": "UPDATE", "name": "Update Record", "icon": "sap-icon://update" },
+    { "type": "ADD", "name": "Add Record", "icon": "sap-icon://add" }
+  ],
+  "Tabs": [
+    {
+      "value": "Tab1",
+      "name": "Request Details",
+      "type": "Field",
+      "fioriicon": "request",
+      "download": "Yes"
+    },
+    {
+      "value": "Tab2",
+      "name": "Other Details",
+      "type": "Field",
+      "fioriicon": "action-settings",
+      "download": "Yes"
+    },
+    {
+      "value": "Tab3",
+      "name": "Location",
+      "type": "Field",
+      "fioriicon": "locate-me",
+      "download": "Yes"
+    },
+    {
+      "value": "Tab4",
+      "name": "Your Details",
+      "fioriicon": "notes",
+      "type": "Field",
+      "download": "Yes"
+    },
+    {
+      "value": "Tab5",
+      "name": "Chat",
+      "fioriicon": "comment",
+      "type": "Chat",
+      "download": "Yes"
+    },
+    {
+      "value": "Tab6",
+      "name": "Processing Log",
+      "fioriicon": "comment",
+      "type": "Chat",
+      "download": "Yes"
+    }
+  ],
+  "DetailFields": {
+    "None": ["ID", "RequestDate", "Status"],
+    "Tab1": [
+      "RequestType",
+      "NoOfFlats",
+      "Count",
+      "CareTaker",
+      "RequiredDate",
+      "CollectionDate",
+      "CollectionItems",
+      "ItemType",
+      "Condition",
+      "ItemLocation",
+      "NoOfBags",
+      "PestLocation",
+      "TypeOfPest",
+      "IfOther",
+      "VisitDate",
+      "Q1",
+      "A1",
+      "Q2",
+      "A2",
+      "Q3",
+      "A3",
+      "Q4",
+      "A4",
+      "Q5",
+      "A5",
+      "Q6",
+      "A6",
+      "Q7",
+      "A7",
+      "Q8",
+      "A8",
+      "Q9",
+      "A9",
+      "Q10",
+      "A10",
+      "Q11",
+      "A11"
+    ],
+    "Tab2": ["Attachment", "AdditionalInfo", "RejectReason"],
+    "Tab3": ["Postcode1", "Address1"],
+    "Tab4": ["Name", "ContactNo", "EmailID", "YourAddress"],
+    "Tab5": ["Question_Response"],
+    "Tab6": ["ProcessingLog"]
+  },
+  "ControlDisplay": {
+    "ControlField": "RequestType",
+    "Fields": [
+      [
+        {
+          "ALL": [
+            "ID",
+            "Name",
+            "ContactNo",
+            "EmailID",
+            "YourAddress",
+            "RequestDate",
+            "RequestType",
+            "AdditionalInfo",
+            "Status",
+            "RejectReason",
+            "Approver",
+            "Question_Response",
+            "ProcessingLog"
+          ]
+        },
+        {
+          "BulkyCollection": [
+            "CollectionItems",
+            "ItemType",
+            "Condition",
+            "Q6",
+            "Q7",
+            "Q8",
+            "A6",
+            "A7",
+            "A8",
+            "NoOfBags",
+            "NoOfFlats",
+            "Count",
+            "CareTaker",
+            "Q1",
+            "Q2",
+            "Q3",
+            "Q4",
+            "Q5",
+            "A1",
+            "A2",
+            "A3",
+            "A4",
+            "A5",
+            "PestLocation",
+            "TypeOfPest",
+            "IfOther",
+            "VisitDate",
+            "Q9",
+            "Q10",
+            "Q11",
+            "A9",
+            "A10",
+            "A11"
+          ]
+        },
+        {
+          "FOI": [
+            "CollectionItems",
+            "ItemType",
+            "Condition",
+            "Q6",
+            "Q7",
+            "Q8",
+            "A6",
+            "A7",
+            "A8",
+            "NoOfBags",
+            "NoOfFlats",
+            "Count",
+            "CareTaker",
+            "Q1",
+            "Q2",
+            "Q3",
+            "Q4",
+            "Q5",
+            "A1",
+            "A2",
+            "A3",
+            "A4",
+            "A5",
+            "PestLocation",
+            "TypeOfPest",
+            "IfOther",
+            "VisitDate",
+            "Q9",
+            "Q10",
+            "Q11",
+            "A9",
+            "A10",
+            "A11"
+          ]
+        },
+        {
+          "GardenWaste": [
+            "CollectionItems",
+            "ItemType",
+            "Condition",
+            "Q6",
+            "Q7",
+            "Q8",
+            "A6",
+            "A7",
+            "A8",
+            "NoOfBags",
+            "NoOfFlats",
+            "Count",
+            "CareTaker",
+            "Q1",
+            "Q2",
+            "Q3",
+            "Q4",
+            "Q5",
+            "A1",
+            "A2",
+            "A3",
+            "A4",
+            "A5",
+            "PestLocation",
+            "TypeOfPest",
+            "IfOther",
+            "VisitDate",
+            "Q9",
+            "Q10",
+            "Q11",
+            "A9",
+            "A10",
+            "A11"
+          ]
+        },
+        {
+          "MiniRecyclingCenter": [
+            "CollectionItems",
+            "ItemType",
+            "Condition",
+            "Q6",
+            "Q7",
+            "Q8",
+            "A6",
+            "A7",
+            "A8",
+            "NoOfBags",
+            "NoOfFlats",
+            "Count",
+            "CareTaker",
+            "Q1",
+            "Q2",
+            "Q3",
+            "Q4",
+            "Q5",
+            "A1",
+            "A2",
+            "A3",
+            "A4",
+            "A5",
+            "PestLocation",
+            "TypeOfPest",
+            "IfOther",
+            "VisitDate",
+            "Q9",
+            "Q10",
+            "Q11",
+            "A9",
+            "A10",
+            "A11"
+          ]
+        },
+        {
+          "NewBins": [
+            "CollectionItems",
+            "ItemType",
+            "Condition",
+            "Q6",
+            "Q7",
+            "Q8",
+            "A6",
+            "A7",
+            "A8",
+            "NoOfBags",
+            "NoOfFlats",
+            "Count",
+            "CareTaker",
+            "Q1",
+            "Q2",
+            "Q3",
+            "Q4",
+            "Q5",
+            "A1",
+            "A2",
+            "A3",
+            "A4",
+            "A5",
+            "PestLocation",
+            "TypeOfPest",
+            "IfOther",
+            "VisitDate",
+            "Q9",
+            "Q10",
+            "Q11",
+            "A9",
+            "A10",
+            "A11"
+          ]
+        },
+        {
+          "PestProblem": [
+            "CollectionItems",
+            "ItemType",
+            "Condition",
+            "Q6",
+            "Q7",
+            "Q8",
+            "A6",
+            "A7",
+            "A8",
+            "NoOfBags",
+            "NoOfFlats",
+            "Count",
+            "CareTaker",
+            "Q1",
+            "Q2",
+            "Q3",
+            "Q4",
+            "Q5",
+            "A1",
+            "A2",
+            "A3",
+            "A4",
+            "A5",
+            "PestLocation",
+            "TypeOfPest",
+            "IfOther",
+            "VisitDate",
+            "Q9",
+            "Q10",
+            "Q11",
+            "A9",
+            "A10",
+            "A11"
+          ]
+        },
+        {
+          "RepairCouncilHouse": [
+            "CollectionItems",
+            "ItemType",
+            "Condition",
+            "Q6",
+            "Q7",
+            "Q8",
+            "A6",
+            "A7",
+            "A8",
+            "NoOfBags",
+            "NoOfFlats",
+            "Count",
+            "CareTaker",
+            "Q1",
+            "Q2",
+            "Q3",
+            "Q4",
+            "Q5",
+            "A1",
+            "A2",
+            "A3",
+            "A4",
+            "A5",
+            "PestLocation",
+            "TypeOfPest",
+            "IfOther",
+            "VisitDate",
+            "Q9",
+            "Q10",
+            "Q11",
+            "A9",
+            "A10",
+            "A11"
+          ]
+        }
+      ]
+    ]
+  },
+  "FieldDef": [
+    {
+      "name": "ID",
+      "type": "string",
+      "width": "20",
+      "Option": "",
+      "SLabel": "Identification ",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "Name",
+      "type": "string",
+      "width": "20",
+      "Option": "",
+      "SLabel": "Your Name",
+      "LLabel": "Your Name",
+      "Currency": "No"
+    },
+    {
+      "name": "ContactNo",
+      "type": "PhoneNumber",
+      "width": "20",
+      "Option": "",
+      "SLabel": "Contact Number",
+      "LLabel": "Contact Number",
+      "Currency": "No"
+    },
+    {
+      "name": "EmailID",
+      "type": "Email",
+      "width": "100",
+      "Option": "",
+      "SLabel": "Your Email",
+      "LLabel": "Your Email",
+      "Currency": "No"
+    },
+    {
+      "name": "YourAddress",
+      "type": "string",
+      "width": "500",
+      "Option": "",
+      "SLabel": "Your Address",
+      "LLabel": "Your Address",
+      "Currency": "No"
+    },
+    {
+      "name": "RequestDate",
+      "type": "Date",
+      "width": "10",
+      "Option": "",
+      "SLabel": "Request Date",
+      "LLabel": "Request Date",
+      "Currency": "No"
+    },
+    {
+      "name": "RequestType",
+      "type": "string",
+      "width": "200",
+      "Option": "mandatory",
+      "SLabel": "Your request is for",
+      "LLabel": "RequestType",
+      "Currency": "No"
+    },
+    {
+      "name": "Attachment",
+      "type": "attachment",
+      "width": "500",
+      "Option": "",
+      "SLabel": "Upload Image",
+      "LLabel": "Upload Image",
+      "Currency": "No"
+    },
+    {
+      "name": "AdditionalInfo",
+      "type": "string",
+      "width": "1000",
+      "Option": "",
+      "SLabel": "Any Additional Information",
+      "LLabel": "Any Additional Information",
+      "Currency": "No"
+    },
+    {
+      "name": "Status",
+      "type": "string",
+      "width": "20",
+      "Option": "",
+      "SLabel": "Request Status",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "NoOfFlats",
+      "type": "string",
+      "width": "100",
+      "Option": "",
+      "SLabel": "No Of Flats",
+      "LLabel": "NoOfFlats",
+      "Currency": "No"
+    },
+    {
+      "name": "Count",
+      "type": "Num,0",
+      "width": "10",
+      "Option": "",
+      "SLabel": "How Many Centers Required",
+      "LLabel": "How Many Required",
+      "Currency": "No"
+    },
+    {
+      "name": "CareTaker",
+      "type": "string",
+      "width": "100",
+      "Option": "",
+      "SLabel": "Who is your Care Taker",
+      "LLabel": "CareTaker",
+      "Currency": "No"
+    },
+    {
+      "name": "RequiredDate",
+      "type": "Date",
+      "width": "10",
+      "Option": "",
+      "SLabel": "Required Date",
+      "LLabel": "RequiredDate",
+      "Currency": "No"
+    },
+    {
+      "name": "Postcode1",
+      "type": "string",
+      "width": "100",
+      "Option": "",
+      "SLabel": "Property Postcode",
+      "LLabel": "Postcode",
+      "Currency": "No"
+    },
+    {
+      "name": "Address1",
+      "type": "string",
+      "width": "200",
+      "Option": "",
+      "SLabel": "Property Address",
+      "LLabel": "Property Address",
+      "Currency": "No"
+    },
+    {
+      "name": "CollectionDate",
+      "type": "Date",
+      "width": "10",
+      "Option": "",
+      "SLabel": "Collection Date",
+      "LLabel": "CollectionDate",
+      "Currency": "No"
+    },
+    {
+      "name": "CollectionItems",
+      "type": "string",
+      "width": "200",
+      "Option": "",
+      "SLabel": "Collection Items",
+      "LLabel": "CollectionItems",
+      "Currency": "No"
+    },
+    {
+      "name": "ItemType",
+      "type": "string",
+      "width": "200",
+      "Option": "",
+      "SLabel": "Item Type",
+      "LLabel": "ItemType",
+      "Currency": "No"
+    },
+    {
+      "name": "Condition",
+      "type": "string",
+      "width": "200",
+      "Option": "",
+      "SLabel": "Item Condition",
+      "LLabel": "Condition",
+      "Currency": "No"
+    },
+    {
+      "name": "ItemLocation",
+      "type": "string",
+      "width": "200",
+      "Option": "",
+      "SLabel": "Item Location",
+      "LLabel": "ItemLocation",
+      "Currency": "No"
+    },
+    {
+      "name": "NoOfBags",
+      "type": "string",
+      "width": "20",
+      "Option": "",
+      "SLabel": "No Of Bags",
+      "LLabel": "NoOfBags",
+      "Currency": "No"
+    },
+    {
+      "name": "RejectReason",
+      "type": "string",
+      "width": "1000",
+      "Option": "",
+      "SLabel": "Reject Reason",
+      "LLabel": "RejectReason",
+      "Currency": "No"
+    },
+    {
+      "name": "PestLocation",
+      "type": "string",
+      "width": "100",
+      "Option": "",
+      "SLabel": "Pest Location",
+      "LLabel": "PestLocation",
+      "Currency": "No"
+    },
+    {
+      "name": "TypeOfPest",
+      "type": "string",
+      "width": "100",
+      "Option": "",
+      "SLabel": "Type Of Pest",
+      "LLabel": "TypeOfPest",
+      "Currency": "No"
+    },
+    {
+      "name": "IfOther",
+      "type": "string",
+      "width": "200",
+      "Option": "",
+      "SLabel": "If Other",
+      "LLabel": "IfOther",
+      "Currency": "No"
+    },
+    {
+      "name": "VisitDate",
+      "type": "Date",
+      "width": "10",
+      "Option": "",
+      "SLabel": "Visit Date",
+      "LLabel": "VisitDate",
+      "Currency": "No"
+    },
+    {
+      "name": "Q1",
+      "type": "string",
+      "width": "200",
+      "Option": "",
+      "SLabel": "Question",
+      "LLabel": "Question",
+      "Currency": "No"
+    },
+    {
+      "name": "Q2",
+      "type": "string",
+      "width": "200",
+      "Option": "",
+      "SLabel": "Question",
+      "LLabel": "Question",
+      "Currency": "No"
+    },
+    {
+      "name": "Q3",
+      "type": "string",
+      "width": "200",
+      "Option": "",
+      "SLabel": "Question",
+      "LLabel": "Question",
+      "Currency": "No"
+    },
+    {
+      "name": "Q4",
+      "type": "string",
+      "width": "200",
+      "Option": "",
+      "SLabel": "Question",
+      "LLabel": "Question",
+      "Currency": "No"
+    },
+    {
+      "name": "Q5",
+      "type": "string",
+      "width": "200",
+      "Option": "",
+      "SLabel": "Question",
+      "LLabel": "Question",
+      "Currency": "No"
+    },
+    {
+      "name": "Q6",
+      "type": "string",
+      "width": "200",
+      "Option": "",
+      "SLabel": "Question",
+      "LLabel": "Question",
+      "Currency": "No"
+    },
+    {
+      "name": "Q7",
+      "type": "string",
+      "width": "200",
+      "Option": "",
+      "SLabel": "Question",
+      "LLabel": "Question",
+      "Currency": "No"
+    },
+    {
+      "name": "Q8",
+      "type": "string",
+      "width": "200",
+      "Option": "",
+      "SLabel": "Question",
+      "LLabel": "Question",
+      "Currency": "No"
+    },
+    {
+      "name": "Q9",
+      "type": "string",
+      "width": "200",
+      "Option": "",
+      "SLabel": "Question",
+      "LLabel": "Question",
+      "Currency": "No"
+    },
+    {
+      "name": "Q10",
+      "type": "string",
+      "width": "200",
+      "Option": "",
+      "SLabel": "Question",
+      "LLabel": "Question",
+      "Currency": "No"
+    },
+    {
+      "name": "Q11",
+      "type": "string",
+      "width": "200",
+      "Option": "",
+      "SLabel": "Question",
+      "LLabel": "Question",
+      "Currency": "No"
+    },
+    {
+      "name": "A1",
+      "type": "string",
+      "width": "200",
+      "Option": "",
+      "SLabel": "Answer",
+      "LLabel": "Answer",
+      "Currency": "No"
+    },
+    {
+      "name": "A2",
+      "type": "string",
+      "width": "200",
+      "Option": "",
+      "SLabel": "Answer",
+      "LLabel": "Answer",
+      "Currency": "No"
+    },
+    {
+      "name": "A3",
+      "type": "string",
+      "width": "200",
+      "Option": "",
+      "SLabel": "Answer",
+      "LLabel": "Answer",
+      "Currency": "No"
+    },
+    {
+      "name": "A4",
+      "type": "string",
+      "width": "200",
+      "Option": "",
+      "SLabel": "Answer",
+      "LLabel": "Answer",
+      "Currency": "No"
+    },
+    {
+      "name": "A5",
+      "type": "string",
+      "width": "200",
+      "Option": "",
+      "SLabel": "Answer",
+      "LLabel": "Answer",
+      "Currency": "No"
+    },
+    {
+      "name": "A6",
+      "type": "string",
+      "width": "200",
+      "Option": "",
+      "SLabel": "Answer",
+      "LLabel": "Answer",
+      "Currency": "No"
+    },
+    {
+      "name": "A7",
+      "type": "string",
+      "width": "200",
+      "Option": "",
+      "SLabel": "Answer",
+      "LLabel": "Answer",
+      "Currency": "No"
+    },
+    {
+      "name": "A8",
+      "type": "string",
+      "width": "200",
+      "Option": "",
+      "SLabel": "Answer",
+      "LLabel": "Answer",
+      "Currency": "No"
+    },
+    {
+      "name": "A9",
+      "type": "string",
+      "width": "200",
+      "Option": "",
+      "SLabel": "Answer",
+      "LLabel": "Answer",
+      "Currency": "No"
+    },
+    {
+      "name": "A10",
+      "type": "string",
+      "width": "200",
+      "Option": "",
+      "SLabel": "Answer",
+      "LLabel": "Answer",
+      "Currency": "No"
+    },
+    {
+      "name": "A11",
+      "type": "string",
+      "width": "200",
+      "Option": "",
+      "SLabel": "Answer",
+      "LLabel": "Answer",
+      "Currency": "No"
+    },
+    {
+      "name": "Approver",
+      "type": "string",
+      "width": "100",
+      "Option": "",
+      "SLabel": "Approver",
+      "LLabel": "Approver",
+      "Currency": "No"
+    },
+    {
+      "name": "Question_Response",
+      "type": "string",
+      "width": "500",
+      "Option": "",
+      "SLabel": "Here Is Chat Details",
+      "LLabel": "Question_Responce",
+      "Currency": "No"
+    },
+    {
+      "name": "ProcessingLog",
+      "type": "string",
+      "width": "500",
+      "Option": "",
+      "SLabel": "Processing Log",
+      "LLabel": "Processing Log",
+      "Currency": "No"
+    }
+  ]
+}

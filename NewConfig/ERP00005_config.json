@@ -1,1 +1,372 @@
-{"Title": {"ApplicationTitle": "Stock Report", "DetailTitle": "Stock Report"}, "ListFields": {"IntroField": "", "TitleField": "", "fStatus": "Status", "sStatus": "", "numberField": "", "LFields": ["Material", "Description", "TotalStock", "Location", "Status"]}, "MButtons": [{"type": "DOWNLOAD", "name": "Download File", "icon": "sap-icon://download"}, {"type": "APPHELP", "name": "Get App Help", "icon": "sap-icon://sys-help-2"}, {"type": "BOT", "name": "Launch Assistant", "icon": "sap-icon://travel-request"}, {"type": "VIEW", "name": "Change App View", "icon": "chart-table-view"}, {"type": "ADD", "name": "Add Record", "icon": "sap-icon://add"}, {"type": "UPLOAD", "name": "Upload Record", "icon": "sap-icon://upload"}], "DButtons": [{"type": "ATTACHMENT", "name": "View Attachments", "icon": "sap-icon://attachment"}, {"type": "UPDATE", "name": "Update Record", "icon": "sap-icon://update"}, {"type": "ADD", "name": "Add Record", "icon": "sap-icon://add"}], "Tabs": [{"value": "Tab1", "name": "Location", "type": "Field", "fioriicon": "map"}, {"value": "Tab2", "name": "Breakup", "type": "Field", "fioriicon": "notes"}], "DetailFields": {"None": ["ID", "Material", "Description", "Status"], "Tab1": ["Location", "StorageLoc", "PostCode", "Street", "City", "Country"], "Tab2": ["TotalStock", "UnRestricted", "Quality", "Returns", "Blocked", "Reserved", "Sales", "StockDate"]}, "ControlDisplay": {"ControlField": "BookingFor", "Fields": [[{"ALL": ["ID", "FirstName", "LastName", "PhoneNo", "Status", "Email", "Comments", "BookingFor", "Price", "Quantity", "NetValue", "VATPer", "VATRate", "VATVal", "GrossValue", "MoreInfo", "Attachment1", "Attachment2", "PostCode", "Emailid", "HouseNo", "Address", "TotalGrossValue"]}, {"CarPark": ["CarPark", "CarRegistration", "Building", "HotDeskNo", "NoOfPeople", "RoomLayout", "Slot", "LunchRequired", "DietaryRequirement", "MeetingDate", "VisitorCompany", "VisitorName", "VisitorPhone", "VisitorEmail"]}, {"HotDesk": ["CarPark", "CarRegistration", "Building", "HotDeskNo", "NoOfPeople", "RoomLayout", "Slot", "LunchRequired", "DietaryRequirement", "MeetingDate", "VisitorCompany", "VisitorName", "VisitorPhone", "VisitorEmail"]}, {"MeetingRoom": ["CarPark", "CarRegistration", "Building", "HotDeskNo", "NoOfPeople", "RoomLayout", "Slot", "LunchRequired", "DietaryRequirement", "MeetingDate", "VisitorCompany", "VisitorName", "VisitorPhone", "VisitorEmail"]}, {"Visitor": ["CarPark", "CarRegistration", "Building", "HotDeskNo", "NoOfPeople", "RoomLayout", "Slot", "LunchRequired", "DietaryRequirement", "MeetingDate", "VisitorCompany", "VisitorName", "VisitorPhone", "VisitorEmail"]}]]}, "FieldDef": [{"name": "ID", "type": "string", "width": "20", "Option": "", "SLabel": "Identification", "LLabel": "", "Currency": "No"}, {"name": "Material", "type": "string", "width": "20", "Option": "", "SLabel": "Material", "LLabel": "", "Currency": "No"}, {"name": "Description", "type": "string", "width": "20", "Option": "", "SLabel": "Description", "LLabel": "", "Currency": "No"}, {"name": "Location", "type": "string", "width": "20", "Option": "", "SLabel": "Location", "LLabel": "", "Currency": "No"}, {"name": "StorageLoc", "type": "string", "width": "20", "Option": "", "SLabel": "Storage Location", "LLabel": "", "Currency": "No"}, {"name": "TotalStock", "type": "string", "width": "10", "Option": "", "SLabel": "Total Stock", "LLabel": "", "Currency": "No"}, {"name": "UnRestricted", "type": "string", "width": "10", "Option": "", "SLabel": "Unrestricted  ", "LLabel": "", "Currency": "No"}, {"name": "Quality", "type": "string", "width": "10", "Option": "", "SLabel": "Quality", "LLabel": "", "Currency": "No"}, {"name": "Returns", "type": "string", "width": "10", "Option": "", "SLabel": "Returns", "LLabel": "", "Currency": "No"}, {"name": "Blocked", "type": "string", "width": "10", "Option": "", "SLabel": "Blocked", "LLabel": "", "Currency": "No"}, {"name": "Reserved", "type": "string", "width": "50", "Option": "", "SLabel": "Reserved", "LLabel": "", "Currency": "No"}, {"name": "Sales", "type": "string", "width": "10", "Option": "", "SLabel": "Sales", "LLabel": "", "Currency": "No"}, {"name": "StockDate", "type": "Date", "width": "10", "Option": "", "SLabel": "Stock Date", "LLabel": "", "Currency": "No"}, {"name": "Status", "type": "string", "width": "20", "Option": "", "SLabel": "Status", "LLabel": "", "Currency": "No"}, {"name": "City", "type": "string", "width": "50", "Option": "", "SLabel": "City", "LLabel": "", "Currency": "No"}, {"name": "Street", "type": "string", "width": "50", "Option": "", "SLabel": "Street", "LLabel": "", "Currency": "No"}, {"name": "PostCode", "type": "string", "width": "50", "Option": "", "SLabel": "Post Code", "LLabel": "", "Currency": "No"}, {"name": "Country", "type": "string", "width": "50", "Option": "", "SLabel": "Country", "LLabel": "", "Currency": "No"}, {"name": "Plant", "type": "string", "width": "20", "Option": "", "SLabel": "Plant", "LLabel": "", "Currency": "No"}, {"name": "Seller", "type": "string", "width": "100", "Option": "", "SLabel": "Seller", "LLabel": "", "Currency": "No"}, {"name": "SpecialStock", "type": "string", "width": "100", "Option": "", "SLabel": "Special Stock", "LLabel": "", "Currency": "No"}]}
+{
+  "Title": {
+    "ApplicationTitle": "Stock Report",
+    "DetailTitle": "Stock Report"
+  },
+  "ListFields": {
+    "IntroField": "",
+    "TitleField": "",
+    "fStatus": "Status",
+    "sStatus": "",
+    "numberField": "",
+    "LFields": ["Material", "Description", "TotalStock", "Location", "Status"]
+  },
+  "MButtons": [
+    {
+      "type": "DOWNLOAD",
+      "name": "Download File",
+      "icon": "sap-icon://download"
+    },
+    {
+      "type": "APPHELP",
+      "name": "Get App Help",
+      "icon": "sap-icon://sys-help-2"
+    },
+    {
+      "type": "BOT",
+      "name": "Launch Assistant",
+      "icon": "sap-icon://travel-request"
+    },
+    {
+      "type": "VIEW",
+      "name": "Change App View",
+      "icon": "sap-icon://chart-table-view"
+    },
+    { "type": "ADD", "name": "Add Record", "icon": "sap-icon://add" },
+    { "type": "UPLOAD", "name": "Upload Record", "icon": "sap-icon://upload" }
+  ],
+  "DButtons": [
+    {
+      "type": "ATTACHMENT",
+      "name": "View Attachments",
+      "icon": "sap-icon://attachment"
+    },
+    { "type": "UPDATE", "name": "Update Record", "icon": "sap-icon://update" },
+    { "type": "ADD", "name": "Add Record", "icon": "sap-icon://add" }
+  ],
+  "Tabs": [
+    {
+      "value": "Tab1",
+      "name": "Location",
+      "type": "Field",
+      "fioriicon": "map"
+    },
+    {
+      "value": "Tab2",
+      "name": "Breakup",
+      "type": "Field",
+      "fioriicon": "notes"
+    }
+  ],
+  "DetailFields": {
+    "None": ["ID", "Material", "Description", "Status"],
+    "Tab1": ["Location", "StorageLoc", "PostCode", "Street", "City", "Country"],
+    "Tab2": [
+      "TotalStock",
+      "UnRestricted",
+      "Quality",
+      "Returns",
+      "Blocked",
+      "Reserved",
+      "Sales",
+      "StockDate"
+    ]
+  },
+  "ControlDisplay": {
+    "ControlField": "BookingFor",
+    "Fields": [
+      [
+        {
+          "ALL": [
+            "ID",
+            "FirstName",
+            "LastName",
+            "PhoneNo",
+            "Status",
+            "Email",
+            "Comments",
+            "BookingFor",
+            "Price",
+            "Quantity",
+            "NetValue",
+            "VATPer",
+            "VATRate",
+            "VATVal",
+            "GrossValue",
+            "MoreInfo",
+            "Attachment1",
+            "Attachment2",
+            "PostCode",
+            "Emailid",
+            "HouseNo",
+            "Address",
+            "TotalGrossValue"
+          ]
+        },
+        {
+          "CarPark": [
+            "CarPark",
+            "CarRegistration",
+            "Building",
+            "HotDeskNo",
+            "NoOfPeople",
+            "RoomLayout",
+            "Slot",
+            "LunchRequired",
+            "DietaryRequirement",
+            "MeetingDate",
+            "VisitorCompany",
+            "VisitorName",
+            "VisitorPhone",
+            "VisitorEmail"
+          ]
+        },
+        {
+          "HotDesk": [
+            "CarPark",
+            "CarRegistration",
+            "Building",
+            "HotDeskNo",
+            "NoOfPeople",
+            "RoomLayout",
+            "Slot",
+            "LunchRequired",
+            "DietaryRequirement",
+            "MeetingDate",
+            "VisitorCompany",
+            "VisitorName",
+            "VisitorPhone",
+            "VisitorEmail"
+          ]
+        },
+        {
+          "MeetingRoom": [
+            "CarPark",
+            "CarRegistration",
+            "Building",
+            "HotDeskNo",
+            "NoOfPeople",
+            "RoomLayout",
+            "Slot",
+            "LunchRequired",
+            "DietaryRequirement",
+            "MeetingDate",
+            "VisitorCompany",
+            "VisitorName",
+            "VisitorPhone",
+            "VisitorEmail"
+          ]
+        },
+        {
+          "Visitor": [
+            "CarPark",
+            "CarRegistration",
+            "Building",
+            "HotDeskNo",
+            "NoOfPeople",
+            "RoomLayout",
+            "Slot",
+            "LunchRequired",
+            "DietaryRequirement",
+            "MeetingDate",
+            "VisitorCompany",
+            "VisitorName",
+            "VisitorPhone",
+            "VisitorEmail"
+          ]
+        }
+      ]
+    ]
+  },
+  "FieldDef": [
+    {
+      "name": "ID",
+      "type": "string",
+      "width": "20",
+      "Option": "",
+      "SLabel": "Identification",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "Material",
+      "type": "string",
+      "width": "20",
+      "Option": "",
+      "SLabel": "Material",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "Description",
+      "type": "string",
+      "width": "20",
+      "Option": "",
+      "SLabel": "Description",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "Location",
+      "type": "string",
+      "width": "20",
+      "Option": "",
+      "SLabel": "Location",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "StorageLoc",
+      "type": "string",
+      "width": "20",
+      "Option": "",
+      "SLabel": "Storage Location",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "TotalStock",
+      "type": "string",
+      "width": "10",
+      "Option": "",
+      "SLabel": "Total Stock",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "UnRestricted",
+      "type": "string",
+      "width": "10",
+      "Option": "",
+      "SLabel": "Unrestricted  ",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "Quality",
+      "type": "string",
+      "width": "10",
+      "Option": "",
+      "SLabel": "Quality",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "Returns",
+      "type": "string",
+      "width": "10",
+      "Option": "",
+      "SLabel": "Returns",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "Blocked",
+      "type": "string",
+      "width": "10",
+      "Option": "",
+      "SLabel": "Blocked",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "Reserved",
+      "type": "string",
+      "width": "50",
+      "Option": "",
+      "SLabel": "Reserved",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "Sales",
+      "type": "string",
+      "width": "10",
+      "Option": "",
+      "SLabel": "Sales",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "StockDate",
+      "type": "Date",
+      "width": "10",
+      "Option": "",
+      "SLabel": "Stock Date",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "Status",
+      "type": "string",
+      "width": "20",
+      "Option": "",
+      "SLabel": "Status",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "City",
+      "type": "string",
+      "width": "50",
+      "Option": "",
+      "SLabel": "City",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "Street",
+      "type": "string",
+      "width": "50",
+      "Option": "",
+      "SLabel": "Street",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "PostCode",
+      "type": "string",
+      "width": "50",
+      "Option": "",
+      "SLabel": "Post Code",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "Country",
+      "type": "string",
+      "width": "50",
+      "Option": "",
+      "SLabel": "Country",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "Plant",
+      "type": "string",
+      "width": "20",
+      "Option": "",
+      "SLabel": "Plant",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "Seller",
+      "type": "string",
+      "width": "100",
+      "Option": "",
+      "SLabel": "Seller",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "SpecialStock",
+      "type": "string",
+      "width": "100",
+      "Option": "",
+      "SLabel": "Special Stock",
+      "LLabel": "",
+      "Currency": "No"
+    }
+  ]
+}

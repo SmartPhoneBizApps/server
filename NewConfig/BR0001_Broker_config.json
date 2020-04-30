@@ -1,1 +1,102 @@
-{"Title": {"ApplicationTitle": "Historical Stock Information", "DetailTitle": "Historical Stock Information"}, "ListFields": {"IntroField": "ID", "TitleField": "", "fStatus": "Status", "sStatus": "", "numberField": "", "LFields": ["ID", "StockPriceHigh", "StockPriceLow", "Date", "Status"]}, "MButtons": [{"type": "DOWNLOAD", "name": "Download File", "icon": "sap-icon://download"}, {"type": "APPHELP", "name": "Get App Help", "icon": "sap-icon://sys-help-2"}, {"type": "BOT", "name": "Launch Assistant", "icon": "sap-icon://travel-request"}, {"type": "VIEW", "name": "Change App View", "icon": "chart-table-view"}, {"type": "ADD", "name": "Add Record", "icon": "sap-icon://add"}, {"type": "UPLOAD", "name": "Upload Record", "icon": "sap-icon://upload"}], "DButtons": [{"type": "ATTACHMENT", "name": "View Attachments", "icon": "sap-icon://attachment"}, {"type": "UPDATE", "name": "Update Record", "icon": "sap-icon://update"}, {"type": "ADD", "name": "Add Record", "icon": "sap-icon://add"}], "Tabs": [], "DetailFields": {"None": ["ID", "Exchange", "StockPriceHigh", "StockPriceLow", "StockSymbol", "StockPriceOpen", "StockPriceClose", "StockVolume", "StockPriceAdjClose", "Date", "Status"]}, "ControlDisplay": {}, "FieldDef": [{"name": "ID", "type": "string", "width": "20", "Option": "", "SLabel": "", "LLabel": ""}, {"name": "Exchange", "type": "string", "width": "50", "Option": ""}, {"name": "StockPriceHigh", "type": "string", "width": "50", "Option": ""}, {"name": "StockPriceLow", "type": "string", "width": "50", "Option": ""}, {"name": "StockSymbol", "type": "string", "width": "50", "Option": ""}, {"name": "StockPriceOpen", "type": "string", "width": "50", "Option": ""}, {"name": "StockPriceClose", "type": "string", "width": "50", "Option": ""}, {"name": "StockVolume", "type": "string", "width": "50", "Option": ""}, {"name": "StockPriceAdjClose", "type": "string", "width": "50", "Option": ""}, {"name": "Date", "type": "Date", "width": "10", "Option": "", "SLabel": "", "LLabel": "", "Currency": "No"}, {"name": "Status", "type": "string", "width": "20", "Option": ""}]}
+{
+  "Title": {
+    "ApplicationTitle": "Historical Stock Information",
+    "DetailTitle": "Historical Stock Information"
+  },
+  "ListFields": {
+    "IntroField": "ID",
+    "TitleField": "",
+    "fStatus": "Status",
+    "sStatus": "",
+    "numberField": "",
+    "LFields": ["ID", "StockPriceHigh", "StockPriceLow", "Date", "Status"]
+  },
+  "MButtons": [
+    {
+      "type": "DOWNLOAD",
+      "name": "Download File",
+      "icon": "sap-icon://download"
+    },
+    {
+      "type": "APPHELP",
+      "name": "Get App Help",
+      "icon": "sap-icon://sys-help-2"
+    },
+    {
+      "type": "BOT",
+      "name": "Launch Assistant",
+      "icon": "sap-icon://travel-request"
+    },
+    {
+      "type": "VIEW",
+      "name": "Change App View",
+      "icon": "sap-icon://chart-table-view"
+    },
+    { "type": "ADD", "name": "Add Record", "icon": "sap-icon://add" },
+    { "type": "UPLOAD", "name": "Upload Record", "icon": "sap-icon://upload" }
+  ],
+  "DButtons": [
+    {
+      "type": "ATTACHMENT",
+      "name": "View Attachments",
+      "icon": "sap-icon://attachment"
+    },
+    { "type": "UPDATE", "name": "Update Record", "icon": "sap-icon://update" },
+    { "type": "ADD", "name": "Add Record", "icon": "sap-icon://add" }
+  ],
+  "Tabs": [],
+  "DetailFields": {
+    "None": [
+      "ID",
+      "Exchange",
+      "StockPriceHigh",
+      "StockPriceLow",
+      "StockSymbol",
+      "StockPriceOpen",
+      "StockPriceClose",
+      "StockVolume",
+      "StockPriceAdjClose",
+      "Date",
+      "Status"
+    ]
+  },
+  "ControlDisplay": {},
+  "FieldDef": [
+    {
+      "name": "ID",
+      "type": "string",
+      "width": "20",
+      "Option": "",
+      "SLabel": "",
+      "LLabel": ""
+    },
+    { "name": "Exchange", "type": "string", "width": "50", "Option": "" },
+    { "name": "StockPriceHigh", "type": "string", "width": "50", "Option": "" },
+    { "name": "StockPriceLow", "type": "string", "width": "50", "Option": "" },
+    { "name": "StockSymbol", "type": "string", "width": "50", "Option": "" },
+    { "name": "StockPriceOpen", "type": "string", "width": "50", "Option": "" },
+    {
+      "name": "StockPriceClose",
+      "type": "string",
+      "width": "50",
+      "Option": ""
+    },
+    { "name": "StockVolume", "type": "string", "width": "50", "Option": "" },
+    {
+      "name": "StockPriceAdjClose",
+      "type": "string",
+      "width": "50",
+      "Option": ""
+    },
+    {
+      "name": "Date",
+      "type": "Date",
+      "width": "10",
+      "Option": "",
+      "SLabel": "",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    { "name": "Status", "type": "string", "width": "20", "Option": "" }
+  ]
+}

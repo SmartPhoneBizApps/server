@@ -1,1 +1,421 @@
-{"Title": {"ApplicationTitle": "Scholarship Application Form", "DetailTitle": "Scholarship Application Form"}, "ListFields": {"IntroField": "ID", "TitleField": "", "fStatus": "Status", "sStatus": "", "numberField": "", "LFields": ["ID", "StudentName", "Status", "NINumber"]}, "MButtons": [{"type": "DOWNLOAD", "name": "Download File", "icon": "sap-icon://download"}, {"type": "APPHELP", "name": "Get App Help", "icon": "sap-icon://sys-help-2"}, {"type": "BOT", "name": "Launch Assistant", "icon": "sap-icon://travel-request"}, {"type": "VIEW", "name": "Change App View", "icon": "chart-table-view"}, {"type": "ADD", "name": "Add Record", "icon": "sap-icon://add"}, {"type": "UPLOAD", "name": "Upload Record", "icon": "sap-icon://upload"}], "DButtons": [{"type": "ATTACHMENT", "name": "View Attachments", "icon": "sap-icon://attachment"}, {"type": "UPDATE", "name": "Update Record", "icon": "sap-icon://update"}, {"type": "ADD", "name": "Add Record", "icon": "sap-icon://add"}], "Tabs": [{"value": "Tab1", "name": "Personal Data", "fioriicon": "notes", "type": "Field"}, {"value": "Tab2", "name": "Additional Information", "fioriicon": "action-settings", "type": "Field", "download": "Yes"}, {"value": "Tab3", "name": "More Information", "fioriicon": "enter-more", "type": "Field", "download": "Yes"}, {"value": "Tab4", "name": "Chat Details", "fioriicon": "discussion-2", "type": "Chat", "download": "Yes"}], "DetailFields": {"None": ["ID", "StudentName", "NINumber", "Status"], "Tab1": ["BirthDate", "Email", "Address", "Gender", "EthnicOrigin", "MobileNo", "PostCode"], "Tab2": ["Q3", "A3", "Q4", "A4", "Q5", "A5", "Q7", "A7"], "Tab3": ["Essay"], "Tab4": ["Question_Response"]}, "ControlDisplay": {"ControlField": "RegisterFor", "Fields": [[{"ALL": ["ID", "Name", "ContactNo", "EmailID", "Address", "Postcode", "ApplicationDate", "RegisterFor", "Status", "Approver", "Question_Response", "ProcessingLog"]}, {"BirthCertificate": ["ChildName", "Surname", "Nationality", "MotherAddress", "MotherNationality", "FatherAddress", "FatherNationality", "DeceasedName", "DeathPlace", "DeathDate", "LastAddress", "WasDeath", "DeathCause", "SpouseName", "BrideName", "BrideSurname", "GroomName", "GroomSurname", "MarriagePlace", "BrideFatherName", "GroomFatherName", "PreferName1", "PreferName2", "PreferName3", "AdditionalInfo"]}, {"DeathCertificate": ["ChildName", "Surname", "Nationality", "MotherAddress", "MotherNationality", "FatherAddress", "FatherNationality", "DeceasedName", "DeathPlace", "DeathDate", "LastAddress", "WasDeath", "DeathCause", "SpouseName", "BrideName", "BrideSurname", "GroomName", "GroomSurname", "MarriagePlace", "BrideFatherName", "GroomFatherName", "PreferName1", "PreferName2", "PreferName3", "AdditionalInfo"]}, {"MarriageRegistration": ["ChildName", "Surname", "Nationality", "MotherAddress", "MotherNationality", "FatherAddress", "FatherNationality", "DeceasedName", "DeathPlace", "DeathDate", "LastAddress", "WasDeath", "DeathCause", "SpouseName", "BrideName", "BrideSurname", "GroomName", "GroomSurname", "MarriagePlace", "BrideFatherName", "GroomFatherName", "PreferName1", "PreferName2", "PreferName3", "AdditionalInfo"]}, {"NewHouseName": ["ChildName", "Surname", "Nationality", "MotherAddress", "MotherNationality", "FatherAddress", "FatherNationality", "DeceasedName", "DeathPlace", "DeathDate", "LastAddress", "WasDeath", "DeathCause", "SpouseName", "BrideName", "BrideSurname", "GroomName", "GroomSurname", "MarriagePlace", "BrideFatherName", "GroomFatherName", "PreferName1", "PreferName2", "PreferName3", "AdditionalInfo"]}]]}, "FieldDef": [{"name": "ID", "type": "string", "width": "20", "Option": "", "SLabel": "ID", "LLabel": "", "Currency": "No"}, {"name": "StudentName", "type": "string", "width": "20", "Option": "", "SLabel": "Student Name", "LLabel": "", "Currency": "No"}, {"name": "NINumber", "type": "string", "width": "20", "Option": "", "SLabel": "National Insurance number", "LLabel": "", "Currency": "No"}, {"name": "BirthDate", "type": "Date", "width": "10", "Option": "", "SLabel": "Birth Date", "LLabel": "", "Currency": "No"}, {"name": "Email", "type": "string", "width": "50", "Option": "", "SLabel": "Email ID", "LLabel": "", "Currency": "No"}, {"name": "Address", "type": "string", "width": "200", "Option": "", "SLabel": "Address", "LLabel": "", "Currency": "No"}, {"name": "Gender", "type": "string", "width": "10", "Option": "", "SLabel": "Gender", "LLabel": "", "Currency": "No"}, {"name": "EthnicOrigin", "type": "string", "width": "50", "Option": "", "SLabel": "Ethnic Origin", "LLabel": "", "Currency": "No"}, {"name": "Q3", "type": "string", "width": "200", "Option": "", "SLabel": "Question", "LLabel": "", "Currency": "No"}, {"name": "A3", "type": "string", "width": "10", "Option": "", "SLabel": "Answer", "LLabel": "", "Currency": "No"}, {"name": "Q4", "type": "string", "width": "200", "Option": "", "SLabel": "Question", "LLabel": "", "Currency": "No"}, {"name": "A4", "type": "string", "width": "200", "Option": "", "SLabel": "Answer", "LLabel": "", "Currency": "No"}, {"name": "Q5", "type": "string", "width": "200", "Option": "", "SLabel": "Question", "LLabel": "", "Currency": "No"}, {"name": "A5", "type": "string", "width": "200", "Option": "", "SLabel": "Answer", "LLabel": "", "Currency": "No"}, {"name": "Q7", "type": "string", "width": "200", "Option": "", "SLabel": "Question", "LLabel": "", "Currency": "No"}, {"name": "A7", "type": "string", "width": "200", "Option": "", "SLabel": "Answer", "LLabel": "", "Currency": "No"}, {"name": "Essay", "type": "attachment", "width": "1000", "Option": "", "SLabel": "Essay / CVS Attachment", "LLabel": "", "Currency": "No"}, {"name": "Status", "type": "string", "width": "20", "Option": "", "SLabel": "Status", "LLabel": "", "Currency": "No"}, {"name": "MobileNo", "type": "string", "width": "100", "Option": "", "SLabel": "Contact Number", "LLabel": "", "Currency": "No"}, {"name": "Question_Response", "type": "string", "width": "500", "Option": "", "SLabel": "Chat Details", "LLabel": "", "Currency": "No"}, {"name": "PostCode", "type": "string", "width": "100", "Option": "", "SLabel": "Post Code", "LLabel": "", "Currency": "No"}]}
+{
+  "Title": {
+    "ApplicationTitle": "Scholarship Application Form",
+    "DetailTitle": "Scholarship Application Form"
+  },
+  "ListFields": {
+    "IntroField": "ID",
+    "TitleField": "",
+    "fStatus": "Status",
+    "sStatus": "",
+    "numberField": "",
+    "LFields": ["ID", "StudentName", "Status", "NINumber"]
+  },
+  "MButtons": [
+    {
+      "type": "DOWNLOAD",
+      "name": "Download File",
+      "icon": "sap-icon://download"
+    },
+    {
+      "type": "APPHELP",
+      "name": "Get App Help",
+      "icon": "sap-icon://sys-help-2"
+    },
+    {
+      "type": "BOT",
+      "name": "Launch Assistant",
+      "icon": "sap-icon://travel-request"
+    },
+    {
+      "type": "VIEW",
+      "name": "Change App View",
+      "icon": "sap-icon://chart-table-view"
+    },
+    { "type": "ADD", "name": "Add Record", "icon": "sap-icon://add" },
+    { "type": "UPLOAD", "name": "Upload Record", "icon": "sap-icon://upload" }
+  ],
+  "DButtons": [
+    {
+      "type": "ATTACHMENT",
+      "name": "View Attachments",
+      "icon": "sap-icon://attachment"
+    },
+    { "type": "UPDATE", "name": "Update Record", "icon": "sap-icon://update" },
+    { "type": "ADD", "name": "Add Record", "icon": "sap-icon://add" }
+  ],
+  "Tabs": [
+    {
+      "value": "Tab1",
+      "name": "Personal Data",
+      "fioriicon": "notes",
+      "type": "Field"
+    },
+    {
+      "value": "Tab2",
+      "name": "Additional Information",
+      "fioriicon": "action-settings",
+      "type": "Field",
+      "download": "Yes"
+    },
+    {
+      "value": "Tab3",
+      "name": "More Information",
+      "fioriicon": "enter-more",
+      "type": "Field",
+      "download": "Yes"
+    },
+    {
+      "value": "Tab4",
+      "name": "Chat Details",
+      "fioriicon": "discussion-2",
+      "type": "Chat",
+      "download": "Yes"
+    }
+  ],
+  "DetailFields": {
+    "None": ["ID", "StudentName", "NINumber", "Status"],
+    "Tab1": [
+      "BirthDate",
+      "Email",
+      "Address",
+      "Gender",
+      "EthnicOrigin",
+      "MobileNo",
+      "PostCode"
+    ],
+    "Tab2": ["Q3", "A3", "Q4", "A4", "Q5", "A5", "Q7", "A7"],
+    "Tab3": ["Essay"],
+    "Tab4": ["Question_Response"]
+  },
+  "ControlDisplay": {
+    "ControlField": "RegisterFor",
+    "Fields": [
+      [
+        {
+          "ALL": [
+            "ID",
+            "Name",
+            "ContactNo",
+            "EmailID",
+            "Address",
+            "Postcode",
+            "ApplicationDate",
+            "RegisterFor",
+            "Status",
+            "Approver",
+            "Question_Response",
+            "ProcessingLog"
+          ]
+        },
+        {
+          "BirthCertificate": [
+            "ChildName",
+            "Surname",
+            "Nationality",
+            "MotherAddress",
+            "MotherNationality",
+            "FatherAddress",
+            "FatherNationality",
+            "DeceasedName",
+            "DeathPlace",
+            "DeathDate",
+            "LastAddress",
+            "WasDeath",
+            "DeathCause",
+            "SpouseName",
+            "BrideName",
+            "BrideSurname",
+            "GroomName",
+            "GroomSurname",
+            "MarriagePlace",
+            "BrideFatherName",
+            "GroomFatherName",
+            "PreferName1",
+            "PreferName2",
+            "PreferName3",
+            "AdditionalInfo"
+          ]
+        },
+        {
+          "DeathCertificate": [
+            "ChildName",
+            "Surname",
+            "Nationality",
+            "MotherAddress",
+            "MotherNationality",
+            "FatherAddress",
+            "FatherNationality",
+            "DeceasedName",
+            "DeathPlace",
+            "DeathDate",
+            "LastAddress",
+            "WasDeath",
+            "DeathCause",
+            "SpouseName",
+            "BrideName",
+            "BrideSurname",
+            "GroomName",
+            "GroomSurname",
+            "MarriagePlace",
+            "BrideFatherName",
+            "GroomFatherName",
+            "PreferName1",
+            "PreferName2",
+            "PreferName3",
+            "AdditionalInfo"
+          ]
+        },
+        {
+          "MarriageRegistration": [
+            "ChildName",
+            "Surname",
+            "Nationality",
+            "MotherAddress",
+            "MotherNationality",
+            "FatherAddress",
+            "FatherNationality",
+            "DeceasedName",
+            "DeathPlace",
+            "DeathDate",
+            "LastAddress",
+            "WasDeath",
+            "DeathCause",
+            "SpouseName",
+            "BrideName",
+            "BrideSurname",
+            "GroomName",
+            "GroomSurname",
+            "MarriagePlace",
+            "BrideFatherName",
+            "GroomFatherName",
+            "PreferName1",
+            "PreferName2",
+            "PreferName3",
+            "AdditionalInfo"
+          ]
+        },
+        {
+          "NewHouseName": [
+            "ChildName",
+            "Surname",
+            "Nationality",
+            "MotherAddress",
+            "MotherNationality",
+            "FatherAddress",
+            "FatherNationality",
+            "DeceasedName",
+            "DeathPlace",
+            "DeathDate",
+            "LastAddress",
+            "WasDeath",
+            "DeathCause",
+            "SpouseName",
+            "BrideName",
+            "BrideSurname",
+            "GroomName",
+            "GroomSurname",
+            "MarriagePlace",
+            "BrideFatherName",
+            "GroomFatherName",
+            "PreferName1",
+            "PreferName2",
+            "PreferName3",
+            "AdditionalInfo"
+          ]
+        }
+      ]
+    ]
+  },
+  "FieldDef": [
+    {
+      "name": "ID",
+      "type": "string",
+      "width": "20",
+      "Option": "",
+      "SLabel": "ID",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "StudentName",
+      "type": "string",
+      "width": "20",
+      "Option": "",
+      "SLabel": "Student Name",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "NINumber",
+      "type": "string",
+      "width": "20",
+      "Option": "",
+      "SLabel": "National Insurance number",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "BirthDate",
+      "type": "Date",
+      "width": "10",
+      "Option": "",
+      "SLabel": "Birth Date",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "Email",
+      "type": "string",
+      "width": "50",
+      "Option": "",
+      "SLabel": "Email ID",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "Address",
+      "type": "string",
+      "width": "200",
+      "Option": "",
+      "SLabel": "Address",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "Gender",
+      "type": "string",
+      "width": "10",
+      "Option": "",
+      "SLabel": "Gender",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "EthnicOrigin",
+      "type": "string",
+      "width": "50",
+      "Option": "",
+      "SLabel": "Ethnic Origin",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "Q3",
+      "type": "string",
+      "width": "200",
+      "Option": "",
+      "SLabel": "Question",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "A3",
+      "type": "string",
+      "width": "10",
+      "Option": "",
+      "SLabel": "Answer",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "Q4",
+      "type": "string",
+      "width": "200",
+      "Option": "",
+      "SLabel": "Question",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "A4",
+      "type": "string",
+      "width": "200",
+      "Option": "",
+      "SLabel": "Answer",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "Q5",
+      "type": "string",
+      "width": "200",
+      "Option": "",
+      "SLabel": "Question",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "A5",
+      "type": "string",
+      "width": "200",
+      "Option": "",
+      "SLabel": "Answer",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "Q7",
+      "type": "string",
+      "width": "200",
+      "Option": "",
+      "SLabel": "Question",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "A7",
+      "type": "string",
+      "width": "200",
+      "Option": "",
+      "SLabel": "Answer",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "Essay",
+      "type": "attachment",
+      "width": "1000",
+      "Option": "",
+      "SLabel": "Essay / CVS Attachment",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "Status",
+      "type": "string",
+      "width": "20",
+      "Option": "",
+      "SLabel": "Status",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "MobileNo",
+      "type": "string",
+      "width": "100",
+      "Option": "",
+      "SLabel": "Contact Number",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "Question_Response",
+      "type": "string",
+      "width": "500",
+      "Option": "",
+      "SLabel": "Chat Details",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "PostCode",
+      "type": "string",
+      "width": "100",
+      "Option": "",
+      "SLabel": "Post Code",
+      "LLabel": "",
+      "Currency": "No"
+    }
+  ]
+}

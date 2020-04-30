@@ -1,1 +1,219 @@
-{"Title": {"ApplicationTitle": "Test Equipment Calib", "DetailTitle": "Test Equipment Calib"}, "ListFields": {"IntroField": "ID", "TitleField": "", "fStatus": "Status", "sStatus": "", "numberField": "", "LFields": ["ID", "ReferenceNo", "CalibDate", "Equipment", "Result", "Status"]}, "MButtons": [{"type": "DOWNLOAD", "name": "Download File", "icon": "sap-icon://download"}, {"type": "APPHELP", "name": "Get App Help", "icon": "sap-icon://sys-help-2"}, {"type": "BOT", "name": "Launch Assistant", "icon": "sap-icon://travel-request"}, {"type": "VIEW", "name": "Change App View", "icon": "chart-table-view"}, {"type": "ADD", "name": "Add Record", "icon": "sap-icon://add"}, {"type": "UPLOAD", "name": "Upload Record", "icon": "sap-icon://upload"}], "DButtons": [{"type": "ATTACHMENT", "name": "View Attachments", "icon": "sap-icon://attachment"}, {"type": "UPDATE", "name": "Update Record", "icon": "sap-icon://update"}, {"type": "ADD", "name": "Add Record", "icon": "sap-icon://add"}], "Tabs": [{"value": "Tab1", "name": "Calib", "type": "Field", "fioriicon": "inspection"}, {"value": "Tab2", "name": "Document", "type": "Field", "fioriicon": "document"}, {"value": "Tab3", "name": "Attachment", "type": "Attachment", "fioriicon": "attachment"}], "DetailFields": {"None": ["ID", "ReferenceNo", "InvoiceNo", "Equipment"], "Tab1": ["CalibDate", "CalibStartDate", "CalibExpireDate", "Model", "SerialNumber", "Result", "Status", "Comment"], "Tab2": ["Remark"], "Tab3": ["CertificateAtt", "ReportAtt"]}, "ControlDisplay": {"ControlField": "BookingFor", "Fields": [[{"ALL": ["ID", "FirstName", "LastName", "PhoneNo", "Status", "Email", "Comments", "BookingFor", "Price", "Quantity", "NetValue", "VATPer", "VATRate", "VATVal", "GrossValue", "MoreInfo", "Attachment1", "Attachment2", "PostCode", "Emailid", "HouseNo", "Address", "TotalGrossValue"]}, {"CarPark": ["CarPark", "CarRegistration", "Building", "HotDeskNo", "NoOfPeople", "RoomLayout", "Slot", "LunchRequired", "DietaryRequirement", "MeetingDate", "VisitorCompany", "VisitorName", "VisitorPhone", "VisitorEmail"]}, {"HotDesk": ["CarPark", "CarRegistration", "Building", "HotDeskNo", "NoOfPeople", "RoomLayout", "Slot", "LunchRequired", "DietaryRequirement", "MeetingDate", "VisitorCompany", "VisitorName", "VisitorPhone", "VisitorEmail"]}, {"MeetingRoom": ["CarPark", "CarRegistration", "Building", "HotDeskNo", "NoOfPeople", "RoomLayout", "Slot", "LunchRequired", "DietaryRequirement", "MeetingDate", "VisitorCompany", "VisitorName", "VisitorPhone", "VisitorEmail"]}, {"Visitor": ["CarPark", "CarRegistration", "Building", "HotDeskNo", "NoOfPeople", "RoomLayout", "Slot", "LunchRequired", "DietaryRequirement", "MeetingDate", "VisitorCompany", "VisitorName", "VisitorPhone", "VisitorEmail"]}]]}, "FieldDef": [{"name": "ID", "type": "string", "width": "20", "Option": "", "SLabel": "", "LLabel": ""}, {"name": "ReferenceNo", "type": "string", "width": "20"}, {"name": "InvoiceNo", "type": "string", "width": "20"}, {"name": "CalibDate", "type": "Date", "width": "10"}, {"name": "CalibStartDate", "type": "Date", "width": "10"}, {"name": "CalibExpireDate", "type": "Date", "width": "10"}, {"name": "Equipment", "type": "string", "width": "50"}, {"name": "Model", "type": "string", "width": "50"}, {"name": "SerialNumber", "type": "string", "width": "50"}, {"name": "CertificateAtt", "type": "attachment", "width": "50"}, {"name": "ReportAtt", "type": "attachment", "width": "50"}, {"name": "Result", "type": "string", "width": "20"}, {"name": "Status", "type": "string", "width": "20"}, {"name": "Comment", "type": "string", "width": "50"}, {"name": "Remark", "type": "string", "width": "50"}]}
+{
+  "Title": {
+    "ApplicationTitle": "Test Equipment Calib",
+    "DetailTitle": "Test Equipment Calib"
+  },
+  "ListFields": {
+    "IntroField": "ID",
+    "TitleField": "",
+    "fStatus": "Status",
+    "sStatus": "",
+    "numberField": "",
+    "LFields": [
+      "ID",
+      "ReferenceNo",
+      "CalibDate",
+      "Equipment",
+      "Result",
+      "Status"
+    ]
+  },
+  "MButtons": [
+    {
+      "type": "DOWNLOAD",
+      "name": "Download File",
+      "icon": "sap-icon://download"
+    },
+    {
+      "type": "APPHELP",
+      "name": "Get App Help",
+      "icon": "sap-icon://sys-help-2"
+    },
+    {
+      "type": "BOT",
+      "name": "Launch Assistant",
+      "icon": "sap-icon://travel-request"
+    },
+    {
+      "type": "VIEW",
+      "name": "Change App View",
+      "icon": "sap-icon://chart-table-view"
+    },
+    { "type": "ADD", "name": "Add Record", "icon": "sap-icon://add" },
+    { "type": "UPLOAD", "name": "Upload Record", "icon": "sap-icon://upload" }
+  ],
+  "DButtons": [
+    {
+      "type": "ATTACHMENT",
+      "name": "View Attachments",
+      "icon": "sap-icon://attachment"
+    },
+    { "type": "UPDATE", "name": "Update Record", "icon": "sap-icon://update" },
+    { "type": "ADD", "name": "Add Record", "icon": "sap-icon://add" }
+  ],
+  "Tabs": [
+    {
+      "value": "Tab1",
+      "name": "Calib",
+      "type": "Field",
+      "fioriicon": "inspection"
+    },
+    {
+      "value": "Tab2",
+      "name": "Document",
+      "type": "Field",
+      "fioriicon": "document"
+    },
+    {
+      "value": "Tab3",
+      "name": "Attachment",
+      "type": "Attachment",
+      "fioriicon": "attachment"
+    }
+  ],
+  "DetailFields": {
+    "None": ["ID", "ReferenceNo", "InvoiceNo", "Equipment"],
+    "Tab1": [
+      "CalibDate",
+      "CalibStartDate",
+      "CalibExpireDate",
+      "Model",
+      "SerialNumber",
+      "Result",
+      "Status",
+      "Comment"
+    ],
+    "Tab2": ["Remark"],
+    "Tab3": ["CertificateAtt", "ReportAtt"]
+  },
+  "ControlDisplay": {
+    "ControlField": "BookingFor",
+    "Fields": [
+      [
+        {
+          "ALL": [
+            "ID",
+            "FirstName",
+            "LastName",
+            "PhoneNo",
+            "Status",
+            "Email",
+            "Comments",
+            "BookingFor",
+            "Price",
+            "Quantity",
+            "NetValue",
+            "VATPer",
+            "VATRate",
+            "VATVal",
+            "GrossValue",
+            "MoreInfo",
+            "Attachment1",
+            "Attachment2",
+            "PostCode",
+            "Emailid",
+            "HouseNo",
+            "Address",
+            "TotalGrossValue"
+          ]
+        },
+        {
+          "CarPark": [
+            "CarPark",
+            "CarRegistration",
+            "Building",
+            "HotDeskNo",
+            "NoOfPeople",
+            "RoomLayout",
+            "Slot",
+            "LunchRequired",
+            "DietaryRequirement",
+            "MeetingDate",
+            "VisitorCompany",
+            "VisitorName",
+            "VisitorPhone",
+            "VisitorEmail"
+          ]
+        },
+        {
+          "HotDesk": [
+            "CarPark",
+            "CarRegistration",
+            "Building",
+            "HotDeskNo",
+            "NoOfPeople",
+            "RoomLayout",
+            "Slot",
+            "LunchRequired",
+            "DietaryRequirement",
+            "MeetingDate",
+            "VisitorCompany",
+            "VisitorName",
+            "VisitorPhone",
+            "VisitorEmail"
+          ]
+        },
+        {
+          "MeetingRoom": [
+            "CarPark",
+            "CarRegistration",
+            "Building",
+            "HotDeskNo",
+            "NoOfPeople",
+            "RoomLayout",
+            "Slot",
+            "LunchRequired",
+            "DietaryRequirement",
+            "MeetingDate",
+            "VisitorCompany",
+            "VisitorName",
+            "VisitorPhone",
+            "VisitorEmail"
+          ]
+        },
+        {
+          "Visitor": [
+            "CarPark",
+            "CarRegistration",
+            "Building",
+            "HotDeskNo",
+            "NoOfPeople",
+            "RoomLayout",
+            "Slot",
+            "LunchRequired",
+            "DietaryRequirement",
+            "MeetingDate",
+            "VisitorCompany",
+            "VisitorName",
+            "VisitorPhone",
+            "VisitorEmail"
+          ]
+        }
+      ]
+    ]
+  },
+  "FieldDef": [
+    {
+      "name": "ID",
+      "type": "string",
+      "width": "20",
+      "Option": "",
+      "SLabel": "",
+      "LLabel": ""
+    },
+    { "name": "ReferenceNo", "type": "string", "width": "20" },
+    { "name": "InvoiceNo", "type": "string", "width": "20" },
+    { "name": "CalibDate", "type": "Date", "width": "10" },
+    { "name": "CalibStartDate", "type": "Date", "width": "10" },
+    { "name": "CalibExpireDate", "type": "Date", "width": "10" },
+    { "name": "Equipment", "type": "string", "width": "50" },
+    { "name": "Model", "type": "string", "width": "50" },
+    { "name": "SerialNumber", "type": "string", "width": "50" },
+    { "name": "CertificateAtt", "type": "attachment", "width": "50" },
+    { "name": "ReportAtt", "type": "attachment", "width": "50" },
+    { "name": "Result", "type": "string", "width": "20" },
+    { "name": "Status", "type": "string", "width": "20" },
+    { "name": "Comment", "type": "string", "width": "50" },
+    { "name": "Remark", "type": "string", "width": "50" }
+  ]
+}

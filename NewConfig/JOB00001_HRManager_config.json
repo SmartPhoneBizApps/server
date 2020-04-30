@@ -1,1 +1,226 @@
-{"Title": {"ApplicationTitle": "Job Listing", "DetailTitle": "Job Listing"}, "ListFields": {"IntroField": "ID", "TitleField": "", "fStatus": "Status", "sStatus": "", "numberField": "", "LFields": ["ID", "Title", "Location", "JobType", "StartDate", "Rate", "Status"]}, "MButtons": [{"type": "DOWNLOAD", "name": "Download File", "icon": "sap-icon://download"}, {"type": "APPHELP", "name": "Get App Help", "icon": "sap-icon://sys-help-2"}, {"type": "BOT", "name": "Launch Assistant", "icon": "sap-icon://travel-request"}, {"type": "VIEW", "name": "Change App View", "icon": "chart-table-view"}, {"type": "ADD", "name": "Add Record", "icon": "sap-icon://add"}, {"type": "UPLOAD", "name": "Upload Record", "icon": "sap-icon://upload"}], "DButtons": [{"type": "ATTACHMENT", "name": "View Attachments", "icon": "sap-icon://attachment"}, {"type": "UPDATE", "name": "Update Record", "icon": "sap-icon://update"}, {"type": "ADD", "name": "Add Record", "icon": "sap-icon://add"}], "Tabs": [{"value": "Tab1", "name": "Job", "type": "Field", "fioriicon": "work-history"}, {"value": "Tab2", "name": "Contact", "type": "Field", "fioriicon": "contacts"}], "DetailFields": {"None": ["ID", "Title", "Location", "Industry", "Status"], "Tab1": ["Summary", "Details", "EssentialExp", "PreferredExp", "Duration", "JobType", "StartDate", "Rate", "Salary"], "Tab2": ["EmpBusiness", "Contact", "Telephone", "Fax", "Email", "WebLink", "PostedDate"]}, "ControlDisplay": {"ControlField": "BookingFor", "Fields": [[{"ALL": ["ID", "FirstName", "LastName", "PhoneNo", "Status", "Email", "Comments", "BookingFor", "Price", "Quantity", "NetValue", "VATPer", "VATRate", "VATVal", "GrossValue", "MoreInfo", "Attachment1", "Attachment2", "PostCode", "Emailid", "HouseNo", "Address", "TotalGrossValue"]}, {"CarPark": ["CarPark", "CarRegistration", "Building", "HotDeskNo", "NoOfPeople", "RoomLayout", "Slot", "LunchRequired", "DietaryRequirement", "MeetingDate", "VisitorCompany", "VisitorName", "VisitorPhone", "VisitorEmail"]}, {"HotDesk": ["CarPark", "CarRegistration", "Building", "HotDeskNo", "NoOfPeople", "RoomLayout", "Slot", "LunchRequired", "DietaryRequirement", "MeetingDate", "VisitorCompany", "VisitorName", "VisitorPhone", "VisitorEmail"]}, {"MeetingRoom": ["CarPark", "CarRegistration", "Building", "HotDeskNo", "NoOfPeople", "RoomLayout", "Slot", "LunchRequired", "DietaryRequirement", "MeetingDate", "VisitorCompany", "VisitorName", "VisitorPhone", "VisitorEmail"]}, {"Visitor": ["CarPark", "CarRegistration", "Building", "HotDeskNo", "NoOfPeople", "RoomLayout", "Slot", "LunchRequired", "DietaryRequirement", "MeetingDate", "VisitorCompany", "VisitorName", "VisitorPhone", "VisitorEmail"]}]]}, "FieldDef": [{"name": "ID", "type": "string", "width": "20", "Option": "", "SLabel": "Identification", "LLabel": "", "Currency": "No"}, {"name": "Title", "type": "string", "width": "500"}, {"name": "Summary", "type": "string", "width": "500"}, {"name": "Details", "type": "string", "width": "1000"}, {"name": "EssentialExp", "type": "string", "width": "1000"}, {"name": "PreferredExp", "type": "string", "width": "500"}, {"name": "Location", "type": "string", "width": "100"}, {"name": "Industry", "type": "string", "width": "100"}, {"name": "Duration", "type": "string", "width": "100"}, {"name": "JobType", "type": "string", "width": "50"}, {"name": "StartDate", "type": "Date", "width": "10"}, {"name": "Rate", "type": "string", "width": "50"}, {"name": "Salary", "type": "string", "width": "50"}, {"name": "EmpBusiness", "type": "string", "width": "100"}, {"name": "Contact", "type": "string", "width": "100"}, {"name": "Telephone", "type": "string", "width": "100"}, {"name": "Fax", "type": "string", "width": "100"}, {"name": "Email", "type": "string", "width": "100"}, {"name": "WebLink", "type": "string", "width": "100"}, {"name": "PostedDate", "type": "Date", "width": "10"}, {"name": "Status", "type": "string", "width": "20"}]}
+{
+  "Title": { "ApplicationTitle": "Job Listing", "DetailTitle": "Job Listing" },
+  "ListFields": {
+    "IntroField": "ID",
+    "TitleField": "",
+    "fStatus": "Status",
+    "sStatus": "",
+    "numberField": "",
+    "LFields": [
+      "ID",
+      "Title",
+      "Location",
+      "JobType",
+      "StartDate",
+      "Rate",
+      "Status"
+    ]
+  },
+  "MButtons": [
+    {
+      "type": "DOWNLOAD",
+      "name": "Download File",
+      "icon": "sap-icon://download"
+    },
+    {
+      "type": "APPHELP",
+      "name": "Get App Help",
+      "icon": "sap-icon://sys-help-2"
+    },
+    {
+      "type": "BOT",
+      "name": "Launch Assistant",
+      "icon": "sap-icon://travel-request"
+    },
+    {
+      "type": "VIEW",
+      "name": "Change App View",
+      "icon": "sap-icon://chart-table-view"
+    },
+    { "type": "ADD", "name": "Add Record", "icon": "sap-icon://add" },
+    { "type": "UPLOAD", "name": "Upload Record", "icon": "sap-icon://upload" }
+  ],
+  "DButtons": [
+    {
+      "type": "ATTACHMENT",
+      "name": "View Attachments",
+      "icon": "sap-icon://attachment"
+    },
+    { "type": "UPDATE", "name": "Update Record", "icon": "sap-icon://update" },
+    { "type": "ADD", "name": "Add Record", "icon": "sap-icon://add" }
+  ],
+  "Tabs": [
+    {
+      "value": "Tab1",
+      "name": "Job",
+      "type": "Field",
+      "fioriicon": "work-history"
+    },
+    {
+      "value": "Tab2",
+      "name": "Contact",
+      "type": "Field",
+      "fioriicon": "contacts"
+    }
+  ],
+  "DetailFields": {
+    "None": ["ID", "Title", "Location", "Industry", "Status"],
+    "Tab1": [
+      "Summary",
+      "Details",
+      "EssentialExp",
+      "PreferredExp",
+      "Duration",
+      "JobType",
+      "StartDate",
+      "Rate",
+      "Salary"
+    ],
+    "Tab2": [
+      "EmpBusiness",
+      "Contact",
+      "Telephone",
+      "Fax",
+      "Email",
+      "WebLink",
+      "PostedDate"
+    ]
+  },
+  "ControlDisplay": {
+    "ControlField": "BookingFor",
+    "Fields": [
+      [
+        {
+          "ALL": [
+            "ID",
+            "FirstName",
+            "LastName",
+            "PhoneNo",
+            "Status",
+            "Email",
+            "Comments",
+            "BookingFor",
+            "Price",
+            "Quantity",
+            "NetValue",
+            "VATPer",
+            "VATRate",
+            "VATVal",
+            "GrossValue",
+            "MoreInfo",
+            "Attachment1",
+            "Attachment2",
+            "PostCode",
+            "Emailid",
+            "HouseNo",
+            "Address",
+            "TotalGrossValue"
+          ]
+        },
+        {
+          "CarPark": [
+            "CarPark",
+            "CarRegistration",
+            "Building",
+            "HotDeskNo",
+            "NoOfPeople",
+            "RoomLayout",
+            "Slot",
+            "LunchRequired",
+            "DietaryRequirement",
+            "MeetingDate",
+            "VisitorCompany",
+            "VisitorName",
+            "VisitorPhone",
+            "VisitorEmail"
+          ]
+        },
+        {
+          "HotDesk": [
+            "CarPark",
+            "CarRegistration",
+            "Building",
+            "HotDeskNo",
+            "NoOfPeople",
+            "RoomLayout",
+            "Slot",
+            "LunchRequired",
+            "DietaryRequirement",
+            "MeetingDate",
+            "VisitorCompany",
+            "VisitorName",
+            "VisitorPhone",
+            "VisitorEmail"
+          ]
+        },
+        {
+          "MeetingRoom": [
+            "CarPark",
+            "CarRegistration",
+            "Building",
+            "HotDeskNo",
+            "NoOfPeople",
+            "RoomLayout",
+            "Slot",
+            "LunchRequired",
+            "DietaryRequirement",
+            "MeetingDate",
+            "VisitorCompany",
+            "VisitorName",
+            "VisitorPhone",
+            "VisitorEmail"
+          ]
+        },
+        {
+          "Visitor": [
+            "CarPark",
+            "CarRegistration",
+            "Building",
+            "HotDeskNo",
+            "NoOfPeople",
+            "RoomLayout",
+            "Slot",
+            "LunchRequired",
+            "DietaryRequirement",
+            "MeetingDate",
+            "VisitorCompany",
+            "VisitorName",
+            "VisitorPhone",
+            "VisitorEmail"
+          ]
+        }
+      ]
+    ]
+  },
+  "FieldDef": [
+    {
+      "name": "ID",
+      "type": "string",
+      "width": "20",
+      "Option": "",
+      "SLabel": "Identification",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    { "name": "Title", "type": "string", "width": "500" },
+    { "name": "Summary", "type": "string", "width": "500" },
+    { "name": "Details", "type": "string", "width": "1000" },
+    { "name": "EssentialExp", "type": "string", "width": "1000" },
+    { "name": "PreferredExp", "type": "string", "width": "500" },
+    { "name": "Location", "type": "string", "width": "100" },
+    { "name": "Industry", "type": "string", "width": "100" },
+    { "name": "Duration", "type": "string", "width": "100" },
+    { "name": "JobType", "type": "string", "width": "50" },
+    { "name": "StartDate", "type": "Date", "width": "10" },
+    { "name": "Rate", "type": "string", "width": "50" },
+    { "name": "Salary", "type": "string", "width": "50" },
+    { "name": "EmpBusiness", "type": "string", "width": "100" },
+    { "name": "Contact", "type": "string", "width": "100" },
+    { "name": "Telephone", "type": "string", "width": "100" },
+    { "name": "Fax", "type": "string", "width": "100" },
+    { "name": "Email", "type": "string", "width": "100" },
+    { "name": "WebLink", "type": "string", "width": "100" },
+    { "name": "PostedDate", "type": "Date", "width": "10" },
+    { "name": "Status", "type": "string", "width": "20" }
+  ]
+}

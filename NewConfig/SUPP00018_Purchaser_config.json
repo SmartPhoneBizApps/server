@@ -1,1 +1,607 @@
-{"Title": {"ApplicationTitle": "Suplier Purchase Orders\"i\"", "DetailTitle": "Suplier Purchase Orders\"i\""}, "ListFields": {"IntroField": "ID", "TitleField": "", "fStatus": "", "sStatus": "", "numberField": "", "LFields": ["PONumber", "Company", "VendorName", "PODate", "TotalGrossVal", "DelAddress", "DelPostCode", "CurrentStatus", "ID"]}, "MButtons": [{"type": "DOWNLOAD", "name": "Download File", "icon": "sap-icon://download"}, {"type": "APPHELP", "name": "Get App Help", "icon": "sap-icon://sys-help-2"}, {"type": "BOT", "name": "Launch Assistant", "icon": "sap-icon://travel-request"}, {"type": "VIEW", "name": "Change App View", "icon": "chart-table-view"}, {"type": "ADD", "name": "Add Record", "icon": "sap-icon://add"}, {"type": "UPLOAD", "name": "Upload Record", "icon": "sap-icon://upload"}], "DButtons": [{"type": "ATTACHMENT", "name": "View Attachments", "icon": "sap-icon://attachment"}, {"type": "UPDATE", "name": "Update Record", "icon": "sap-icon://update"}, {"type": "ADD", "name": "Add Record", "icon": "sap-icon://add"}], "Tabs": [{"value": "Tab2", "name": "Purchase Order", "type": "Field", "fioriicon": "sales-order", "download": "Yes"}, {"value": "Tab1", "name": "Delivery Details", "type": "Field", "fioriicon": "shipping-status", "download": "Yes"}, {"value": "Tab3", "name": "ItemDetails", "type": "Items", "fioriicon": "notes"}, {"value": "Tab6", "name": "Shipping Details", "fioriicon": "flight", "type": "Field", "download": "Yes"}, {"value": "Tab7", "name": "Invoice Details", "fioriicon": "collections-insight", "type": "Field", "download": "Yes"}, {"value": "Tab4", "name": "Attachment", "fioriicon": "attachment", "type": "Attachment", "download": "No"}, {"value": "Tab5", "name": "Status Details", "fioriicon": "question-mark", "type": "Field", "download": "Yes"}, {"value": "Tab8", "name": "Supplier Query", "fioriicon": "sys-help", "type": "Field", "download": "Yes"}, {"value": "Tab9", "name": "Supplier Chat", "fioriicon": "comment", "type": "Chat", "download": "No"}, {"value": "Tab10", "name": "Process log", "fioriicon": "comment", "type": "Chat", "download": "No"}], "DetailFields": {"None": ["ID", "VendorName", "PONumber", "VendorNumber", "VendorEmail"], "Tab1": ["DelTo", "DelCountry", "DelAddress", "DelPostCode", "DelPhone", "DelEmail", "DeliveryInstr"], "Tab2": ["Company", "PaymentTerm", "PODate", "Currency", "TotalNetVal", "TotalTax", "TotalGrossVal", "AddDetails"], "Tab4": ["Attachment"], "Tab5": ["Status", "AcceptanceStatus", "AcceptanceComment", "CurrentStatus"], "Tab6": ["ShippingStatus"], "Tab7": ["InvoiceStatus", "PaymentStatus", "TotalInvNetVal", "TotalInvGrossVal"], "Tab8": ["QuestionCategory"], "Tab9": ["CommsDetails"]}, "ControlDisplay": {"ControlField": "BookingFor", "Fields": [[{"ALL": ["ID", "FirstName", "LastName", "PhoneNo", "Status", "Email", "Comments", "BookingFor", "Price", "Quantity", "NetValue", "VATPer", "VATRate", "VATVal", "GrossValue", "MoreInfo", "Attachment1", "Attachment2", "PostCode", "Emailid", "HouseNo", "Address", "TotalGrossValue"]}, {"CarPark": ["CarPark", "CarRegistration", "Building", "HotDeskNo", "NoOfPeople", "RoomLayout", "Slot", "LunchRequired", "DietaryRequirement", "MeetingDate", "VisitorCompany", "VisitorName", "VisitorPhone", "VisitorEmail"]}, {"HotDesk": ["CarPark", "CarRegistration", "Building", "HotDeskNo", "NoOfPeople", "RoomLayout", "Slot", "LunchRequired", "DietaryRequirement", "MeetingDate", "VisitorCompany", "VisitorName", "VisitorPhone", "VisitorEmail"]}, {"MeetingRoom": ["CarPark", "CarRegistration", "Building", "HotDeskNo", "NoOfPeople", "RoomLayout", "Slot", "LunchRequired", "DietaryRequirement", "MeetingDate", "VisitorCompany", "VisitorName", "VisitorPhone", "VisitorEmail"]}, {"Visitor": ["CarPark", "CarRegistration", "Building", "HotDeskNo", "NoOfPeople", "RoomLayout", "Slot", "LunchRequired", "DietaryRequirement", "MeetingDate", "VisitorCompany", "VisitorName", "VisitorPhone", "VisitorEmail"]}]]}, "FieldDef": [{"name": "ID", "type": "string", "width": "20", "Option": "", "SLabel": "Identification", "LLabel": "", "Currency": "No"}, {"name": "VendorName", "type": "string", "width": "50", "Option": "", "SLabel": "Vendor Name", "LLabel": "", "Currency": "No"}, {"name": "Company", "type": "string", "width": "50", "Option": "", "SLabel": "Company", "LLabel": "Company", "Currency": "No"}, {"name": "PaymentTerm", "type": "string", "width": "20", "Option": "", "SLabel": "Payment Term", "LLabel": "", "Currency": "No"}, {"name": "PODate", "type": "Date", "width": "10", "Option": "", "SLabel": "PO Date", "LLabel": "", "Currency": "No"}, {"name": "Currency", "type": "string", "width": "10", "Option": "", "SLabel": "Currency", "LLabel": "", "Currency": "No"}, {"name": "PODeliveryDt", "type": "Date", "width": "10", "Option": "", "SLabel": "PO Delivery Date", "LLabel": "", "Currency": "No"}, {"name": "DelTo", "type": "string", "width": "100", "Option": "", "SLabel": "Deliver To", "LLabel": "", "Currency": "No"}, {"name": "DelCountry", "type": "string", "width": "100", "Option": "", "SLabel": "Delivery Country", "LLabel": "", "Currency": "No"}, {"name": "DelAddress", "type": "string", "width": "100", "Option": "", "SLabel": "Delivery Address", "LLabel": "", "Currency": "No"}, {"name": "DelPostCode", "type": "string", "width": "100", "Option": "", "SLabel": "Delivery Post Code", "LLabel": "", "Currency": "No"}, {"name": "DelPhone", "type": "string", "width": "100", "Option": "", "SLabel": "Delivery Phone", "LLabel": "", "Currency": "No"}, {"name": "DelEmail", "type": "string", "width": "100", "Option": "", "SLabel": "Delivery Email", "LLabel": "", "Currency": "No"}, {"name": "DeliveryInstr", "type": "string", "width": "500", "Option": "", "SLabel": "Delivery Instruction", "LLabel": "", "Currency": "No"}, {"name": "AddDetails", "type": "string", "width": "500", "Option": "", "SLabel": "Add Details", "LLabel": "", "Currency": "No"}, {"name": "Attachment", "type": "attachment", "width": "500", "Option": "", "SLabel": "Attachment", "LLabel": "", "Currency": "No"}, {"name": "Status", "type": "string", "width": "20", "Option": "", "SLabel": "Status", "LLabel": "", "Currency": "No"}, {"name": "TotalNetVal", "type": "Num,2", "width": "20", "Option": "", "SLabel": "Total Net Value", "LLabel": "Total Net Value", "Currency": "Yes"}, {"name": "TotalTax", "type": "Num,2", "width": "20", "Option": "", "SLabel": "Total Tax", "LLabel": "Total Tax", "Currency": "Yes"}, {"name": "TotalGrossVal", "type": "Num,2", "width": "20", "Option": "", "SLabel": "Total Gross Value", "LLabel": "Total Gross Value", "Currency": "Yes"}, {"name": "AcceptanceStatus", "type": "string", "width": "50", "Option": "", "SLabel": "Acceptance Status", "LLabel": "Acceptance Status", "Currency": "No"}, {"name": "ShippingStatus", "type": "string", "width": "50", "Option": "", "SLabel": "Shipping Status", "LLabel": "Shipping Status", "Currency": "No"}, {"name": "InvoiceStatus", "type": "string", "width": "50", "Option": "", "SLabel": "Invoice Status", "LLabel": "Invoice Status", "Currency": "No"}, {"name": "CurrentStatus", "type": "string", "width": "50", "Option": "mandatory", "SLabel": "Current Status", "LLabel": "Current Status", "Currency": "No"}, {"name": "PaymentStatus", "type": "string", "width": "50", "Option": "", "SLabel": "Payment Status", "LLabel": "Payment Status", "Currency": "No"}, {"name": "PONumber", "type": "string", "width": "20", "Option": "", "SLabel": "PO Number", "LLabel": "PO Number", "Currency": "No"}, {"name": "AcceptanceComment", "type": "string", "width": "20", "Option": "", "SLabel": "Acceptance Comment", "LLabel": "Acceptance Comment", "Currency": "No"}, {"name": "QuestionCategory", "type": "string", "width": "100", "Option": "", "SLabel": "Question Category", "LLabel": "Question Category", "Currency": "No"}, {"name": "CommsDetails", "type": "string", "width": "1000", "Option": "", "SLabel": "Question Details", "LLabel": "Question Details", "Currency": "No"}, {"name": "VendorNumber", "type": "string", "width": "20", "Option": "", "SLabel": "Vendor Number", "LLabel": "Vendor Number", "Currency": "No"}, {"name": "EmployeeEmail", "type": "Email", "width": "200", "Option": "", "SLabel": "Employee/Shopper Email", "LLabel": "Employee/Shopper Email", "Currency": "No"}, {"name": "TotalInvNetVal", "type": "string", "width": "20", "Option": "", "SLabel": "Total Invoice Net Value", "LLabel": "Total Invoice Net Value", "Currency": "No"}, {"name": "TotalInvGrossVal", "type": "string", "width": "20", "Option": "", "SLabel": "Total Invoice Gross Value", "LLabel": "Total Invoice Gross Value", "Currency": "No"}, {"name": "GRStatus", "type": "string", "width": "100", "Option": "", "SLabel": "GR Status", "LLabel": "GR Status", "Currency": "No"}, {"name": "GRComments", "type": "string", "width": "500", "Option": "", "SLabel": "GR Comments", "LLabel": "GR Comments", "Currency": "No"}, {"name": "ProcessingLog", "type": "string", "width": "500", "Option": "", "SLabel": "Processing Log", "LLabel": "Processing Log", "Currency": "No"}, {"name": "VendorEmail", "type": "string", "width": "50", "Option": "", "SLabel": "Vendor Email", "LLabel": "VendorEmail", "Currency": "No"}]}
+{
+  "Title": {
+    "ApplicationTitle": "Suplier Purchase Orders\"i\"",
+    "DetailTitle": "Suplier Purchase Orders\"i\""
+  },
+  "ListFields": {
+    "IntroField": "ID",
+    "TitleField": "",
+    "fStatus": "",
+    "sStatus": "",
+    "numberField": "",
+    "LFields": [
+      "PONumber",
+      "Company",
+      "VendorName",
+      "PODate",
+      "TotalGrossVal",
+      "DelAddress",
+      "DelPostCode",
+      "CurrentStatus",
+      "ID"
+    ]
+  },
+  "MButtons": [
+    {
+      "type": "DOWNLOAD",
+      "name": "Download File",
+      "icon": "sap-icon://download"
+    },
+    {
+      "type": "APPHELP",
+      "name": "Get App Help",
+      "icon": "sap-icon://sys-help-2"
+    },
+    {
+      "type": "BOT",
+      "name": "Launch Assistant",
+      "icon": "sap-icon://travel-request"
+    },
+    {
+      "type": "VIEW",
+      "name": "Change App View",
+      "icon": "sap-icon://chart-table-view"
+    },
+    { "type": "ADD", "name": "Add Record", "icon": "sap-icon://add" },
+    { "type": "UPLOAD", "name": "Upload Record", "icon": "sap-icon://upload" }
+  ],
+  "DButtons": [
+    {
+      "type": "ATTACHMENT",
+      "name": "View Attachments",
+      "icon": "sap-icon://attachment"
+    },
+    { "type": "UPDATE", "name": "Update Record", "icon": "sap-icon://update" },
+    { "type": "ADD", "name": "Add Record", "icon": "sap-icon://add" }
+  ],
+  "Tabs": [
+    {
+      "value": "Tab2",
+      "name": "Purchase Order",
+      "type": "Field",
+      "fioriicon": "sales-order",
+      "download": "Yes"
+    },
+    {
+      "value": "Tab1",
+      "name": "Delivery Details",
+      "type": "Field",
+      "fioriicon": "shipping-status",
+      "download": "Yes"
+    },
+    {
+      "value": "Tab3",
+      "name": "ItemDetails",
+      "type": "Items",
+      "fioriicon": "notes"
+    },
+    {
+      "value": "Tab6",
+      "name": "Shipping Details",
+      "fioriicon": "flight",
+      "type": "Field",
+      "download": "Yes"
+    },
+    {
+      "value": "Tab7",
+      "name": "Invoice Details",
+      "fioriicon": "collections-insight",
+      "type": "Field",
+      "download": "Yes"
+    },
+    {
+      "value": "Tab4",
+      "name": "Attachment",
+      "fioriicon": "attachment",
+      "type": "Attachment",
+      "download": "No"
+    },
+    {
+      "value": "Tab5",
+      "name": "Status Details",
+      "fioriicon": "question-mark",
+      "type": "Field",
+      "download": "Yes"
+    },
+    {
+      "value": "Tab8",
+      "name": "Supplier Query",
+      "fioriicon": "sys-help",
+      "type": "Field",
+      "download": "Yes"
+    },
+    {
+      "value": "Tab9",
+      "name": "Supplier Chat",
+      "fioriicon": "comment",
+      "type": "Chat",
+      "download": "No"
+    },
+    {
+      "value": "Tab10",
+      "name": "Process log",
+      "fioriicon": "comment",
+      "type": "Chat",
+      "download": "No"
+    }
+  ],
+  "DetailFields": {
+    "None": ["ID", "VendorName", "PONumber", "VendorNumber", "VendorEmail"],
+    "Tab1": [
+      "DelTo",
+      "DelCountry",
+      "DelAddress",
+      "DelPostCode",
+      "DelPhone",
+      "DelEmail",
+      "DeliveryInstr"
+    ],
+    "Tab2": [
+      "Company",
+      "PaymentTerm",
+      "PODate",
+      "Currency",
+      "TotalNetVal",
+      "TotalTax",
+      "TotalGrossVal",
+      "AddDetails"
+    ],
+    "Tab4": ["Attachment"],
+    "Tab5": [
+      "Status",
+      "AcceptanceStatus",
+      "AcceptanceComment",
+      "CurrentStatus"
+    ],
+    "Tab6": ["ShippingStatus"],
+    "Tab7": [
+      "InvoiceStatus",
+      "PaymentStatus",
+      "TotalInvNetVal",
+      "TotalInvGrossVal"
+    ],
+    "Tab8": ["QuestionCategory"],
+    "Tab9": ["CommsDetails"]
+  },
+  "ControlDisplay": {
+    "ControlField": "BookingFor",
+    "Fields": [
+      [
+        {
+          "ALL": [
+            "ID",
+            "FirstName",
+            "LastName",
+            "PhoneNo",
+            "Status",
+            "Email",
+            "Comments",
+            "BookingFor",
+            "Price",
+            "Quantity",
+            "NetValue",
+            "VATPer",
+            "VATRate",
+            "VATVal",
+            "GrossValue",
+            "MoreInfo",
+            "Attachment1",
+            "Attachment2",
+            "PostCode",
+            "Emailid",
+            "HouseNo",
+            "Address",
+            "TotalGrossValue"
+          ]
+        },
+        {
+          "CarPark": [
+            "CarPark",
+            "CarRegistration",
+            "Building",
+            "HotDeskNo",
+            "NoOfPeople",
+            "RoomLayout",
+            "Slot",
+            "LunchRequired",
+            "DietaryRequirement",
+            "MeetingDate",
+            "VisitorCompany",
+            "VisitorName",
+            "VisitorPhone",
+            "VisitorEmail"
+          ]
+        },
+        {
+          "HotDesk": [
+            "CarPark",
+            "CarRegistration",
+            "Building",
+            "HotDeskNo",
+            "NoOfPeople",
+            "RoomLayout",
+            "Slot",
+            "LunchRequired",
+            "DietaryRequirement",
+            "MeetingDate",
+            "VisitorCompany",
+            "VisitorName",
+            "VisitorPhone",
+            "VisitorEmail"
+          ]
+        },
+        {
+          "MeetingRoom": [
+            "CarPark",
+            "CarRegistration",
+            "Building",
+            "HotDeskNo",
+            "NoOfPeople",
+            "RoomLayout",
+            "Slot",
+            "LunchRequired",
+            "DietaryRequirement",
+            "MeetingDate",
+            "VisitorCompany",
+            "VisitorName",
+            "VisitorPhone",
+            "VisitorEmail"
+          ]
+        },
+        {
+          "Visitor": [
+            "CarPark",
+            "CarRegistration",
+            "Building",
+            "HotDeskNo",
+            "NoOfPeople",
+            "RoomLayout",
+            "Slot",
+            "LunchRequired",
+            "DietaryRequirement",
+            "MeetingDate",
+            "VisitorCompany",
+            "VisitorName",
+            "VisitorPhone",
+            "VisitorEmail"
+          ]
+        }
+      ]
+    ]
+  },
+  "FieldDef": [
+    {
+      "name": "ID",
+      "type": "string",
+      "width": "20",
+      "Option": "",
+      "SLabel": "Identification",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "VendorName",
+      "type": "string",
+      "width": "50",
+      "Option": "",
+      "SLabel": "Vendor Name",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "Company",
+      "type": "string",
+      "width": "50",
+      "Option": "",
+      "SLabel": "Company",
+      "LLabel": "Company",
+      "Currency": "No"
+    },
+    {
+      "name": "PaymentTerm",
+      "type": "string",
+      "width": "20",
+      "Option": "",
+      "SLabel": "Payment Term",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "PODate",
+      "type": "Date",
+      "width": "10",
+      "Option": "",
+      "SLabel": "PO Date",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "Currency",
+      "type": "string",
+      "width": "10",
+      "Option": "",
+      "SLabel": "Currency",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "PODeliveryDt",
+      "type": "Date",
+      "width": "10",
+      "Option": "",
+      "SLabel": "PO Delivery Date",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "DelTo",
+      "type": "string",
+      "width": "100",
+      "Option": "",
+      "SLabel": "Deliver To",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "DelCountry",
+      "type": "string",
+      "width": "100",
+      "Option": "",
+      "SLabel": "Delivery Country",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "DelAddress",
+      "type": "string",
+      "width": "100",
+      "Option": "",
+      "SLabel": "Delivery Address",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "DelPostCode",
+      "type": "string",
+      "width": "100",
+      "Option": "",
+      "SLabel": "Delivery Post Code",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "DelPhone",
+      "type": "string",
+      "width": "100",
+      "Option": "",
+      "SLabel": "Delivery Phone",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "DelEmail",
+      "type": "string",
+      "width": "100",
+      "Option": "",
+      "SLabel": "Delivery Email",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "DeliveryInstr",
+      "type": "string",
+      "width": "500",
+      "Option": "",
+      "SLabel": "Delivery Instruction",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "AddDetails",
+      "type": "string",
+      "width": "500",
+      "Option": "",
+      "SLabel": "Add Details",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "Attachment",
+      "type": "attachment",
+      "width": "500",
+      "Option": "",
+      "SLabel": "Attachment",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "Status",
+      "type": "string",
+      "width": "20",
+      "Option": "",
+      "SLabel": "Status",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "TotalNetVal",
+      "type": "Num,2",
+      "width": "20",
+      "Option": "",
+      "SLabel": "Total Net Value",
+      "LLabel": "Total Net Value",
+      "Currency": "Yes"
+    },
+    {
+      "name": "TotalTax",
+      "type": "Num,2",
+      "width": "20",
+      "Option": "",
+      "SLabel": "Total Tax",
+      "LLabel": "Total Tax",
+      "Currency": "Yes"
+    },
+    {
+      "name": "TotalGrossVal",
+      "type": "Num,2",
+      "width": "20",
+      "Option": "",
+      "SLabel": "Total Gross Value",
+      "LLabel": "Total Gross Value",
+      "Currency": "Yes"
+    },
+    {
+      "name": "AcceptanceStatus",
+      "type": "string",
+      "width": "50",
+      "Option": "",
+      "SLabel": "Acceptance Status",
+      "LLabel": "Acceptance Status",
+      "Currency": "No"
+    },
+    {
+      "name": "ShippingStatus",
+      "type": "string",
+      "width": "50",
+      "Option": "",
+      "SLabel": "Shipping Status",
+      "LLabel": "Shipping Status",
+      "Currency": "No"
+    },
+    {
+      "name": "InvoiceStatus",
+      "type": "string",
+      "width": "50",
+      "Option": "",
+      "SLabel": "Invoice Status",
+      "LLabel": "Invoice Status",
+      "Currency": "No"
+    },
+    {
+      "name": "CurrentStatus",
+      "type": "string",
+      "width": "50",
+      "Option": "mandatory",
+      "SLabel": "Current Status",
+      "LLabel": "Current Status",
+      "Currency": "No"
+    },
+    {
+      "name": "PaymentStatus",
+      "type": "string",
+      "width": "50",
+      "Option": "",
+      "SLabel": "Payment Status",
+      "LLabel": "Payment Status",
+      "Currency": "No"
+    },
+    {
+      "name": "PONumber",
+      "type": "string",
+      "width": "20",
+      "Option": "",
+      "SLabel": "PO Number",
+      "LLabel": "PO Number",
+      "Currency": "No"
+    },
+    {
+      "name": "AcceptanceComment",
+      "type": "string",
+      "width": "20",
+      "Option": "",
+      "SLabel": "Acceptance Comment",
+      "LLabel": "Acceptance Comment",
+      "Currency": "No"
+    },
+    {
+      "name": "QuestionCategory",
+      "type": "string",
+      "width": "100",
+      "Option": "",
+      "SLabel": "Question Category",
+      "LLabel": "Question Category",
+      "Currency": "No"
+    },
+    {
+      "name": "CommsDetails",
+      "type": "string",
+      "width": "1000",
+      "Option": "",
+      "SLabel": "Question Details",
+      "LLabel": "Question Details",
+      "Currency": "No"
+    },
+    {
+      "name": "VendorNumber",
+      "type": "string",
+      "width": "20",
+      "Option": "",
+      "SLabel": "Vendor Number",
+      "LLabel": "Vendor Number",
+      "Currency": "No"
+    },
+    {
+      "name": "EmployeeEmail",
+      "type": "Email",
+      "width": "200",
+      "Option": "",
+      "SLabel": "Employee/Shopper Email",
+      "LLabel": "Employee/Shopper Email",
+      "Currency": "No"
+    },
+    {
+      "name": "TotalInvNetVal",
+      "type": "string",
+      "width": "20",
+      "Option": "",
+      "SLabel": "Total Invoice Net Value",
+      "LLabel": "Total Invoice Net Value",
+      "Currency": "No"
+    },
+    {
+      "name": "TotalInvGrossVal",
+      "type": "string",
+      "width": "20",
+      "Option": "",
+      "SLabel": "Total Invoice Gross Value",
+      "LLabel": "Total Invoice Gross Value",
+      "Currency": "No"
+    },
+    {
+      "name": "GRStatus",
+      "type": "string",
+      "width": "100",
+      "Option": "",
+      "SLabel": "GR Status",
+      "LLabel": "GR Status",
+      "Currency": "No"
+    },
+    {
+      "name": "GRComments",
+      "type": "string",
+      "width": "500",
+      "Option": "",
+      "SLabel": "GR Comments",
+      "LLabel": "GR Comments",
+      "Currency": "No"
+    },
+    {
+      "name": "ProcessingLog",
+      "type": "string",
+      "width": "500",
+      "Option": "",
+      "SLabel": "Processing Log",
+      "LLabel": "Processing Log",
+      "Currency": "No"
+    },
+    {
+      "name": "VendorEmail",
+      "type": "string",
+      "width": "50",
+      "Option": "",
+      "SLabel": "Vendor Email",
+      "LLabel": "VendorEmail",
+      "Currency": "No"
+    }
+  ]
+}

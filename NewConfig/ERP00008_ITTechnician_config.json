@@ -1,1 +1,367 @@
-{"Title": {"ApplicationTitle": "IT Asset Tracking", "DetailTitle": "IT Asset Tracking"}, "ListFields": {"IntroField": "ID", "TitleField": "", "fStatus": "Status", "sStatus": "", "numberField": "", "LFields": ["ID", "AssetType", "Make", "Model", "Description", "Status"]}, "MButtons": [{"type": "DOWNLOAD", "name": "Download File", "icon": "sap-icon://download"}, {"type": "APPHELP", "name": "Get App Help", "icon": "sap-icon://sys-help-2"}, {"type": "BOT", "name": "Launch Assistant", "icon": "sap-icon://travel-request"}, {"type": "VIEW", "name": "Change App View", "icon": "chart-table-view"}, {"type": "ADD", "name": "Add Record", "icon": "sap-icon://add"}, {"type": "UPLOAD", "name": "Upload Record", "icon": "sap-icon://upload"}], "DButtons": [{"type": "ATTACHMENT", "name": "View Attachments", "icon": "sap-icon://attachment"}, {"type": "UPDATE", "name": "Update Record", "icon": "sap-icon://update"}, {"type": "ADD", "name": "Add Record", "icon": "sap-icon://add"}], "Tabs": [{"value": "Tab1", "name": "Fleet", "type": "Field"}, {"value": "Tab2", "name": "IssuesTo", "type": "Field"}, {"value": "Tab4", "name": "Attachment", "fioriicon": "attachment", "type": "Attachment", "download": "Yes"}], "DetailFields": {"None": ["ID", "AssetType", "SerialNo", "Status"], "Tab1": ["Make", "Model", "RAM", "Processor", "Frequency", "Description", "WarrantyEnd"], "Tab2": ["IssuedTo", "IssueDate", "EmpMobile", "Email", "Location", "Notes"], "Tab4": ["Image"]}, "ControlDisplay": {"ControlField": "BookingFor", "Fields": [[{"ALL": ["ID", "FirstName", "LastName", "PhoneNo", "Status", "Email", "Comments", "BookingFor", "Price", "Quantity", "NetValue", "VATPer", "VATRate", "VATVal", "GrossValue", "MoreInfo", "Attachment1", "Attachment2", "PostCode", "Emailid", "HouseNo", "Address", "TotalGrossValue"]}, {"CarPark": ["CarPark", "CarRegistration", "Building", "HotDeskNo", "NoOfPeople", "RoomLayout", "Slot", "LunchRequired", "DietaryRequirement", "MeetingDate", "VisitorCompany", "VisitorName", "VisitorPhone", "VisitorEmail"]}, {"HotDesk": ["CarPark", "CarRegistration", "Building", "HotDeskNo", "NoOfPeople", "RoomLayout", "Slot", "LunchRequired", "DietaryRequirement", "MeetingDate", "VisitorCompany", "VisitorName", "VisitorPhone", "VisitorEmail"]}, {"MeetingRoom": ["CarPark", "CarRegistration", "Building", "HotDeskNo", "NoOfPeople", "RoomLayout", "Slot", "LunchRequired", "DietaryRequirement", "MeetingDate", "VisitorCompany", "VisitorName", "VisitorPhone", "VisitorEmail"]}, {"Visitor": ["CarPark", "CarRegistration", "Building", "HotDeskNo", "NoOfPeople", "RoomLayout", "Slot", "LunchRequired", "DietaryRequirement", "MeetingDate", "VisitorCompany", "VisitorName", "VisitorPhone", "VisitorEmail"]}]]}, "FieldDef": [{"name": "ID", "type": "string", "width": "20", "Option": "", "SLabel": "Identification", "LLabel": "", "Currency": "No"}, {"name": "AssetType", "type": "string", "width": "50", "Option": "", "SLabel": "Asset Type", "LLabel": "", "Currency": "No"}, {"name": "SerialNo", "type": "string", "width": "50", "Option": "", "SLabel": "Serial No", "LLabel": "", "Currency": "No"}, {"name": "Make", "type": "string", "width": "50", "Option": "", "SLabel": "Manufacturing Date", "LLabel": "", "Currency": "No"}, {"name": "Model", "type": "string", "width": "50", "Option": "", "SLabel": "Model", "LLabel": "", "Currency": "No"}, {"name": "RAM", "type": "string", "width": "50", "Option": "", "SLabel": "RAM", "LLabel": "", "Currency": "No"}, {"name": "Processor", "type": "string", "width": "50", "Option": "", "SLabel": "Processor", "LLabel": "", "Currency": "No"}, {"name": "Frequency", "type": "string", "width": "50", "Option": "", "SLabel": "Frequency", "LLabel": "", "Currency": "No"}, {"name": "Description", "type": "string", "width": "50", "Option": "", "SLabel": "Description", "LLabel": "", "Currency": "No"}, {"name": "Latitude", "type": "Geocode", "width": "50", "Option": "", "SLabel": "Latitude", "LLabel": "", "Currency": "No"}, {"name": "Longitude", "type": "Geocode", "width": "50", "Option": "", "SLabel": "Longitude", "LLabel": "", "Currency": "No"}, {"name": "Image", "type": "attachment", "width": "200", "Option": "", "SLabel": "Image", "LLabel": "", "Currency": "No"}, {"name": "WarrantyEnd", "type": "Date", "width": "10", "Option": "", "SLabel": "Warranty End Date", "LLabel": "", "Currency": "No"}, {"name": "IssuedTo", "type": "string", "width": "50", "Option": "", "SLabel": "Issued To", "LLabel": "", "Currency": "No"}, {"name": "IssueDate", "type": "Date", "width": "10", "Option": "", "SLabel": "Issue Date", "LLabel": "", "Currency": "No"}, {"name": "EmpMobile", "type": "string", "width": "50", "Option": "", "SLabel": "Employee Mobile no.", "LLabel": "", "Currency": "No"}, {"name": "Email", "type": "string", "width": "50", "Option": "", "SLabel": "Email ID", "LLabel": "", "Currency": "No"}, {"name": "Location", "type": "string", "width": "200", "Option": "", "SLabel": "Location", "LLabel": "", "Currency": "No"}, {"name": "Notes", "type": "string", "width": "200", "Option": "", "SLabel": "Notes", "LLabel": "", "Currency": "No"}, {"name": "Status", "type": "string", "width": "20", "Option": "", "SLabel": "Status", "LLabel": "", "Currency": "No"}]}
+{
+  "Title": {
+    "ApplicationTitle": "IT Asset Tracking",
+    "DetailTitle": "IT Asset Tracking"
+  },
+  "ListFields": {
+    "IntroField": "ID",
+    "TitleField": "",
+    "fStatus": "Status",
+    "sStatus": "",
+    "numberField": "",
+    "LFields": ["ID", "AssetType", "Make", "Model", "Description", "Status"]
+  },
+  "MButtons": [
+    {
+      "type": "DOWNLOAD",
+      "name": "Download File",
+      "icon": "sap-icon://download"
+    },
+    {
+      "type": "APPHELP",
+      "name": "Get App Help",
+      "icon": "sap-icon://sys-help-2"
+    },
+    {
+      "type": "BOT",
+      "name": "Launch Assistant",
+      "icon": "sap-icon://travel-request"
+    },
+    {
+      "type": "VIEW",
+      "name": "Change App View",
+      "icon": "sap-icon://chart-table-view"
+    },
+    { "type": "ADD", "name": "Add Record", "icon": "sap-icon://add" },
+    { "type": "UPLOAD", "name": "Upload Record", "icon": "sap-icon://upload" }
+  ],
+  "DButtons": [
+    {
+      "type": "ATTACHMENT",
+      "name": "View Attachments",
+      "icon": "sap-icon://attachment"
+    },
+    { "type": "UPDATE", "name": "Update Record", "icon": "sap-icon://update" },
+    { "type": "ADD", "name": "Add Record", "icon": "sap-icon://add" }
+  ],
+  "Tabs": [
+    { "value": "Tab1", "name": "Fleet", "type": "Field" },
+    { "value": "Tab2", "name": "IssuesTo", "type": "Field" },
+    {
+      "value": "Tab4",
+      "name": "Attachment",
+      "fioriicon": "attachment",
+      "type": "Attachment",
+      "download": "Yes"
+    }
+  ],
+  "DetailFields": {
+    "None": ["ID", "AssetType", "SerialNo", "Status"],
+    "Tab1": [
+      "Make",
+      "Model",
+      "RAM",
+      "Processor",
+      "Frequency",
+      "Description",
+      "WarrantyEnd"
+    ],
+    "Tab2": [
+      "IssuedTo",
+      "IssueDate",
+      "EmpMobile",
+      "Email",
+      "Location",
+      "Notes"
+    ],
+    "Tab4": ["Image"]
+  },
+  "ControlDisplay": {
+    "ControlField": "BookingFor",
+    "Fields": [
+      [
+        {
+          "ALL": [
+            "ID",
+            "FirstName",
+            "LastName",
+            "PhoneNo",
+            "Status",
+            "Email",
+            "Comments",
+            "BookingFor",
+            "Price",
+            "Quantity",
+            "NetValue",
+            "VATPer",
+            "VATRate",
+            "VATVal",
+            "GrossValue",
+            "MoreInfo",
+            "Attachment1",
+            "Attachment2",
+            "PostCode",
+            "Emailid",
+            "HouseNo",
+            "Address",
+            "TotalGrossValue"
+          ]
+        },
+        {
+          "CarPark": [
+            "CarPark",
+            "CarRegistration",
+            "Building",
+            "HotDeskNo",
+            "NoOfPeople",
+            "RoomLayout",
+            "Slot",
+            "LunchRequired",
+            "DietaryRequirement",
+            "MeetingDate",
+            "VisitorCompany",
+            "VisitorName",
+            "VisitorPhone",
+            "VisitorEmail"
+          ]
+        },
+        {
+          "HotDesk": [
+            "CarPark",
+            "CarRegistration",
+            "Building",
+            "HotDeskNo",
+            "NoOfPeople",
+            "RoomLayout",
+            "Slot",
+            "LunchRequired",
+            "DietaryRequirement",
+            "MeetingDate",
+            "VisitorCompany",
+            "VisitorName",
+            "VisitorPhone",
+            "VisitorEmail"
+          ]
+        },
+        {
+          "MeetingRoom": [
+            "CarPark",
+            "CarRegistration",
+            "Building",
+            "HotDeskNo",
+            "NoOfPeople",
+            "RoomLayout",
+            "Slot",
+            "LunchRequired",
+            "DietaryRequirement",
+            "MeetingDate",
+            "VisitorCompany",
+            "VisitorName",
+            "VisitorPhone",
+            "VisitorEmail"
+          ]
+        },
+        {
+          "Visitor": [
+            "CarPark",
+            "CarRegistration",
+            "Building",
+            "HotDeskNo",
+            "NoOfPeople",
+            "RoomLayout",
+            "Slot",
+            "LunchRequired",
+            "DietaryRequirement",
+            "MeetingDate",
+            "VisitorCompany",
+            "VisitorName",
+            "VisitorPhone",
+            "VisitorEmail"
+          ]
+        }
+      ]
+    ]
+  },
+  "FieldDef": [
+    {
+      "name": "ID",
+      "type": "string",
+      "width": "20",
+      "Option": "",
+      "SLabel": "Identification",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "AssetType",
+      "type": "string",
+      "width": "50",
+      "Option": "",
+      "SLabel": "Asset Type",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "SerialNo",
+      "type": "string",
+      "width": "50",
+      "Option": "",
+      "SLabel": "Serial No",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "Make",
+      "type": "string",
+      "width": "50",
+      "Option": "",
+      "SLabel": "Manufacturing Date",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "Model",
+      "type": "string",
+      "width": "50",
+      "Option": "",
+      "SLabel": "Model",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "RAM",
+      "type": "string",
+      "width": "50",
+      "Option": "",
+      "SLabel": "RAM",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "Processor",
+      "type": "string",
+      "width": "50",
+      "Option": "",
+      "SLabel": "Processor",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "Frequency",
+      "type": "string",
+      "width": "50",
+      "Option": "",
+      "SLabel": "Frequency",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "Description",
+      "type": "string",
+      "width": "50",
+      "Option": "",
+      "SLabel": "Description",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "Latitude",
+      "type": "Geocode",
+      "width": "50",
+      "Option": "",
+      "SLabel": "Latitude",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "Longitude",
+      "type": "Geocode",
+      "width": "50",
+      "Option": "",
+      "SLabel": "Longitude",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "Image",
+      "type": "attachment",
+      "width": "200",
+      "Option": "",
+      "SLabel": "Image",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "WarrantyEnd",
+      "type": "Date",
+      "width": "10",
+      "Option": "",
+      "SLabel": "Warranty End Date",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "IssuedTo",
+      "type": "string",
+      "width": "50",
+      "Option": "",
+      "SLabel": "Issued To",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "IssueDate",
+      "type": "Date",
+      "width": "10",
+      "Option": "",
+      "SLabel": "Issue Date",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "EmpMobile",
+      "type": "string",
+      "width": "50",
+      "Option": "",
+      "SLabel": "Employee Mobile no.",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "Email",
+      "type": "string",
+      "width": "50",
+      "Option": "",
+      "SLabel": "Email ID",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "Location",
+      "type": "string",
+      "width": "200",
+      "Option": "",
+      "SLabel": "Location",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "Notes",
+      "type": "string",
+      "width": "200",
+      "Option": "",
+      "SLabel": "Notes",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "Status",
+      "type": "string",
+      "width": "20",
+      "Option": "",
+      "SLabel": "Status",
+      "LLabel": "",
+      "Currency": "No"
+    }
+  ]
+}

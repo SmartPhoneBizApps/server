@@ -1,1 +1,232 @@
-{"Title": {"ApplicationTitle": "Incident Management", "DetailTitle": "Incident Management"}, "ListFields": {"IntroField": "ID", "TitleField": "", "fStatus": "Status", "sStatus": "", "numberField": "", "LFields": ["ID", "Status", "Problem", "Area"]}, "MButtons": [{"type": "DOWNLOAD", "name": "Download File", "icon": "sap-icon://download"}, {"type": "APPHELP", "name": "Get App Help", "icon": "sap-icon://sys-help-2"}, {"type": "BOT", "name": "Launch Assistant", "icon": "sap-icon://travel-request"}, {"type": "VIEW", "name": "Change App View", "icon": "chart-table-view"}, {"type": "ADD", "name": "Add Record", "icon": "sap-icon://add"}, {"type": "UPLOAD", "name": "Upload Record", "icon": "sap-icon://upload"}], "DButtons": [{"type": "ATTACHMENT", "name": "View Attachments", "icon": "sap-icon://attachment"}, {"type": "UPDATE", "name": "Update Record", "icon": "sap-icon://update"}, {"type": "ADD", "name": "Add Record", "icon": "sap-icon://add"}], "Tabs": [{"value": "Tab1", "name": "Details", "type": "Field", "fioriicon": "notes"}, {"value": "Tab2", "name": "Action", "type": "Field", "fioriicon": "action"}, {"value": "Tab3", "name": "Location", "type": "Field", "fioriicon": "map"}], "DetailFields": {"None": ["ID", "Status", "Problem", "Details"], "Tab1": ["Area", "Priority", "Name", "Address", "Company"], "Tab2": ["StartDate", "StartTime", "Agent", "WorkLog", "FinishDate", "FinishTime", "Resolution"]}, "ControlDisplay": {"ControlField": "BookingFor", "Fields": [[{"ALL": ["ID", "FirstName", "LastName", "PhoneNo", "Status", "Email", "Comments", "BookingFor", "Price", "Quantity", "NetValue", "VATPer", "VATRate", "VATVal", "GrossValue", "MoreInfo", "Attachment1", "Attachment2", "PostCode", "Emailid", "HouseNo", "Address", "TotalGrossValue"]}, {"CarPark": ["CarPark", "CarRegistration", "Building", "HotDeskNo", "NoOfPeople", "RoomLayout", "Slot", "LunchRequired", "DietaryRequirement", "MeetingDate", "VisitorCompany", "VisitorName", "VisitorPhone", "VisitorEmail"]}, {"HotDesk": ["CarPark", "CarRegistration", "Building", "HotDeskNo", "NoOfPeople", "RoomLayout", "Slot", "LunchRequired", "DietaryRequirement", "MeetingDate", "VisitorCompany", "VisitorName", "VisitorPhone", "VisitorEmail"]}, {"MeetingRoom": ["CarPark", "CarRegistration", "Building", "HotDeskNo", "NoOfPeople", "RoomLayout", "Slot", "LunchRequired", "DietaryRequirement", "MeetingDate", "VisitorCompany", "VisitorName", "VisitorPhone", "VisitorEmail"]}, {"Visitor": ["CarPark", "CarRegistration", "Building", "HotDeskNo", "NoOfPeople", "RoomLayout", "Slot", "LunchRequired", "DietaryRequirement", "MeetingDate", "VisitorCompany", "VisitorName", "VisitorPhone", "VisitorEmail"]}]]}, "FieldDef": [{"name": "ID", "type": "string", "width": "20", "Option": "", "SLabel": "", "LLabel": ""}, {"name": "Longitude", "type": "Geocode", "width": "50"}, {"name": "StartDate", "type": "Date", "width": "10"}, {"name": "StartTime", "type": "Time", "width": "10"}, {"name": "Agent", "type": "string", "width": "100"}, {"name": "WorkLog", "type": "string", "width": "100"}, {"name": "FinishDate", "type": "Date", "width": "10"}, {"name": "FinishTime", "type": "Time", "width": "10"}, {"name": "Resolution", "type": "string", "width": "100"}, {"name": "Status", "type": "string", "width": "20"}, {"name": "Problem", "type": "string", "width": "50"}, {"name": "Details", "type": "string", "width": "100"}, {"name": "Area", "type": "string", "width": "100"}, {"name": "Priority", "type": "string", "width": "100"}, {"name": "Name", "type": "string", "width": "100"}, {"name": "Address", "type": "string", "width": "100"}, {"name": "Company", "type": "string", "width": "100"}, {"name": "Latitude", "type": "Geocode", "width": "50"}, {"name": "IncidentType", "type": "string", "width": "50", "Option": "", "SLabel": "", "LLabel": ""}, {"name": "Urgency", "type": "string", "width": "50", "Option": "", "SLabel": "", "LLabel": ""}, {"name": "Impact", "type": "string", "width": "50", "Option": "", "SLabel": "", "LLabel": ""}]}
+{
+  "Title": {
+    "ApplicationTitle": "Incident Management",
+    "DetailTitle": "Incident Management"
+  },
+  "ListFields": {
+    "IntroField": "ID",
+    "TitleField": "",
+    "fStatus": "Status",
+    "sStatus": "",
+    "numberField": "",
+    "LFields": ["ID", "Status", "Problem", "Area"]
+  },
+  "MButtons": [
+    {
+      "type": "DOWNLOAD",
+      "name": "Download File",
+      "icon": "sap-icon://download"
+    },
+    {
+      "type": "APPHELP",
+      "name": "Get App Help",
+      "icon": "sap-icon://sys-help-2"
+    },
+    {
+      "type": "BOT",
+      "name": "Launch Assistant",
+      "icon": "sap-icon://travel-request"
+    },
+    {
+      "type": "VIEW",
+      "name": "Change App View",
+      "icon": "sap-icon://chart-table-view"
+    },
+    { "type": "ADD", "name": "Add Record", "icon": "sap-icon://add" },
+    { "type": "UPLOAD", "name": "Upload Record", "icon": "sap-icon://upload" }
+  ],
+  "DButtons": [
+    {
+      "type": "ATTACHMENT",
+      "name": "View Attachments",
+      "icon": "sap-icon://attachment"
+    },
+    { "type": "UPDATE", "name": "Update Record", "icon": "sap-icon://update" },
+    { "type": "ADD", "name": "Add Record", "icon": "sap-icon://add" }
+  ],
+  "Tabs": [
+    {
+      "value": "Tab1",
+      "name": "Details",
+      "type": "Field",
+      "fioriicon": "notes"
+    },
+    {
+      "value": "Tab2",
+      "name": "Action",
+      "type": "Field",
+      "fioriicon": "action"
+    },
+    { "value": "Tab3", "name": "Location", "type": "Field", "fioriicon": "map" }
+  ],
+  "DetailFields": {
+    "None": ["ID", "Status", "Problem", "Details"],
+    "Tab1": ["Area", "Priority", "Name", "Address", "Company"],
+    "Tab2": [
+      "StartDate",
+      "StartTime",
+      "Agent",
+      "WorkLog",
+      "FinishDate",
+      "FinishTime",
+      "Resolution"
+    ]
+  },
+  "ControlDisplay": {
+    "ControlField": "BookingFor",
+    "Fields": [
+      [
+        {
+          "ALL": [
+            "ID",
+            "FirstName",
+            "LastName",
+            "PhoneNo",
+            "Status",
+            "Email",
+            "Comments",
+            "BookingFor",
+            "Price",
+            "Quantity",
+            "NetValue",
+            "VATPer",
+            "VATRate",
+            "VATVal",
+            "GrossValue",
+            "MoreInfo",
+            "Attachment1",
+            "Attachment2",
+            "PostCode",
+            "Emailid",
+            "HouseNo",
+            "Address",
+            "TotalGrossValue"
+          ]
+        },
+        {
+          "CarPark": [
+            "CarPark",
+            "CarRegistration",
+            "Building",
+            "HotDeskNo",
+            "NoOfPeople",
+            "RoomLayout",
+            "Slot",
+            "LunchRequired",
+            "DietaryRequirement",
+            "MeetingDate",
+            "VisitorCompany",
+            "VisitorName",
+            "VisitorPhone",
+            "VisitorEmail"
+          ]
+        },
+        {
+          "HotDesk": [
+            "CarPark",
+            "CarRegistration",
+            "Building",
+            "HotDeskNo",
+            "NoOfPeople",
+            "RoomLayout",
+            "Slot",
+            "LunchRequired",
+            "DietaryRequirement",
+            "MeetingDate",
+            "VisitorCompany",
+            "VisitorName",
+            "VisitorPhone",
+            "VisitorEmail"
+          ]
+        },
+        {
+          "MeetingRoom": [
+            "CarPark",
+            "CarRegistration",
+            "Building",
+            "HotDeskNo",
+            "NoOfPeople",
+            "RoomLayout",
+            "Slot",
+            "LunchRequired",
+            "DietaryRequirement",
+            "MeetingDate",
+            "VisitorCompany",
+            "VisitorName",
+            "VisitorPhone",
+            "VisitorEmail"
+          ]
+        },
+        {
+          "Visitor": [
+            "CarPark",
+            "CarRegistration",
+            "Building",
+            "HotDeskNo",
+            "NoOfPeople",
+            "RoomLayout",
+            "Slot",
+            "LunchRequired",
+            "DietaryRequirement",
+            "MeetingDate",
+            "VisitorCompany",
+            "VisitorName",
+            "VisitorPhone",
+            "VisitorEmail"
+          ]
+        }
+      ]
+    ]
+  },
+  "FieldDef": [
+    {
+      "name": "ID",
+      "type": "string",
+      "width": "20",
+      "Option": "",
+      "SLabel": "",
+      "LLabel": ""
+    },
+    { "name": "Longitude", "type": "Geocode", "width": "50" },
+    { "name": "StartDate", "type": "Date", "width": "10" },
+    { "name": "StartTime", "type": "Time", "width": "10" },
+    { "name": "Agent", "type": "string", "width": "100" },
+    { "name": "WorkLog", "type": "string", "width": "100" },
+    { "name": "FinishDate", "type": "Date", "width": "10" },
+    { "name": "FinishTime", "type": "Time", "width": "10" },
+    { "name": "Resolution", "type": "string", "width": "100" },
+    { "name": "Status", "type": "string", "width": "20" },
+    { "name": "Problem", "type": "string", "width": "50" },
+    { "name": "Details", "type": "string", "width": "100" },
+    { "name": "Area", "type": "string", "width": "100" },
+    { "name": "Priority", "type": "string", "width": "100" },
+    { "name": "Name", "type": "string", "width": "100" },
+    { "name": "Address", "type": "string", "width": "100" },
+    { "name": "Company", "type": "string", "width": "100" },
+    { "name": "Latitude", "type": "Geocode", "width": "50" },
+    {
+      "name": "IncidentType",
+      "type": "string",
+      "width": "50",
+      "Option": "",
+      "SLabel": "",
+      "LLabel": ""
+    },
+    {
+      "name": "Urgency",
+      "type": "string",
+      "width": "50",
+      "Option": "",
+      "SLabel": "",
+      "LLabel": ""
+    },
+    {
+      "name": "Impact",
+      "type": "string",
+      "width": "50",
+      "Option": "",
+      "SLabel": "",
+      "LLabel": ""
+    }
+  ]
+}

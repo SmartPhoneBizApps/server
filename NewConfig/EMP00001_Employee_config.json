@@ -1,1 +1,426 @@
-{"Title": {"ApplicationTitle": "Leave Application", "DetailTitle": "Leave Application"}, "ListFields": {"IntroField": "ID", "TitleField": "", "fStatus": "Status", "sStatus": "", "numberField": "", "LFields": ["ID", "LeaveType", "LeaveFrom", "LeaveTo", "EmpName", "Status"]}, "MButtons": [{"type": "DOWNLOAD", "name": "Download File", "icon": "sap-icon://download"}, {"type": "APPHELP", "name": "Get App Help", "icon": "sap-icon://sys-help-2"}, {"type": "BOT", "name": "Launch Assistant", "icon": "sap-icon://travel-request"}, {"type": "VIEW", "name": "Change App View", "icon": "chart-table-view"}, {"type": "ADD", "name": "Add Record", "icon": "sap-icon://add"}, {"type": "UPLOAD", "name": "Upload Record", "icon": "sap-icon://upload"}], "DButtons": [{"type": "ATTACHMENT", "name": "View Attachments", "icon": "sap-icon://attachment"}, {"type": "UPDATE", "name": "Update Record", "icon": "sap-icon://update"}, {"type": "ADD", "name": "Add Record", "icon": "sap-icon://add"}], "Tabs": [{"value": "Tab1", "name": "Leave", "type": "Field", "fioriicon": "employee"}, {"value": "Tab2", "name": "Employee", "type": "Field", "fioriicon": "employee"}, {"value": "Tab3", "name": "Address", "fioriicon": "addresses", "type": "Field"}, {"value": "Tab4", "name": "Contact", "fioriicon": "business-card", "type": "Field"}, {"value": "Tab5", "name": "Approval", "fioriicon": "accept", "type": "Field", "download": "No"}, {"value": "Tab6", "name": "ProcessLog", "fioriicon": "step", "type": "Chat", "download": "No"}], "DetailFields": {"None": ["ID", "Status"], "Tab1": ["LeaveType", "LeaveFrom", "LeaveTo", "LeaveDays", "LeaveReason"], "Tab2": ["EmpName", "EmployeeID", "EmpDesignation"], "Tab3": ["EmpAddress", "EmpPostCode"], "Tab4": ["EmpTelephone", "EmpEmail"], "Tab5": ["CostCentre", "Approver", "Comment"], "Tab6": ["ProcessingLog"]}, "ControlDisplay": {"ControlField": "RequestFor", "Fields": [[{"ALL": ["ID", "StudentName", "RequestFor", "Status", "StudentID", "Email", "Question_Response", "AnyComment", "RequestDate", "ParentEmail", "ProcessingLog"]}, {"BusRequest": ["RequiredDate", "GuestName", "GuestEmail", "GuestPhone", "EntryDate", "Subject", "EquipmentName", "LeaveFrom", "LeaveTo", "LeaveDays", "LeaveReason", "NINumber", "EthnicOrigin", "Q1", "A1", "Q2", "A2", "Q3", "A3", "Q4", "A4", "Essay", "DegreePursuing"]}, {"GuestPassFormRequest": ["RequiredDate", "GuestName", "GuestEmail", "GuestPhone", "EntryDate", "Subject", "EquipmentName", "LeaveFrom", "LeaveTo", "LeaveDays", "LeaveReason", "NINumber", "EthnicOrigin", "Q1", "A1", "Q2", "A2", "Q3", "A3", "Q4", "A4", "Essay", "DegreePursuing"]}, {"LabEquipmentRequest": ["RequiredDate", "GuestName", "GuestEmail", "GuestPhone", "EntryDate", "Subject", "EquipmentName", "LeaveFrom", "LeaveTo", "LeaveDays", "LeaveReason", "NINumber", "EthnicOrigin", "Q1", "A1", "Q2", "A2", "Q3", "A3", "Q4", "A4", "Essay", "DegreePursuing"]}, {"LeaveRequest": ["RequiredDate", "GuestName", "GuestEmail", "GuestPhone", "EntryDate", "Subject", "EquipmentName", "LeaveFrom", "LeaveTo", "LeaveDays", "LeaveReason", "NINumber", "EthnicOrigin", "Q1", "A1", "Q2", "A2", "Q3", "A3", "Q4", "A4", "Essay", "DegreePursuing"]}, {"ScholarshipGrant": ["RequiredDate", "GuestName", "GuestEmail", "GuestPhone", "EntryDate", "Subject", "EquipmentName", "LeaveFrom", "LeaveTo", "LeaveDays", "LeaveReason", "NINumber", "EthnicOrigin", "Q1", "A1", "Q2", "A2", "Q3", "A3", "Q4", "A4", "Essay", "DegreePursuing"]}]]}, "FieldDef": [{"name": "ID", "type": "string", "width": "20", "Option": "", "SLabel": "ID", "LLabel": "", "Currency": "No"}, {"name": "EmployeeID", "type": "string", "width": "20", "Option": "", "SLabel": "Employee ID", "LLabel": "", "Currency": "No"}, {"name": "EmpName", "type": "string", "width": "50", "Option": "", "SLabel": "Employee Full Name", "LLabel": "", "Currency": "No"}, {"name": "EmpAddress", "type": "string", "width": "200", "Option": "", "SLabel": "Address", "LLabel": "", "Currency": "No"}, {"name": "EmpPostCode", "type": "string", "width": "20", "Option": "", "SLabel": "PostCode", "LLabel": "", "Currency": "No"}, {"name": "EmpDesignation", "type": "string", "width": "50", "Option": "", "SLabel": "Designation", "LLabel": "", "Currency": "No"}, {"name": "EmpTelephone", "type": "string", "width": "20", "Option": "", "SLabel": "Telephone No.", "LLabel": "", "Currency": "No"}, {"name": "CostCentre", "type": "string", "width": "50", "Option": "", "SLabel": "Cost Centre", "LLabel": "", "Currency": "No"}, {"name": "EmpEmail", "type": "string", "width": "50", "Option": "", "SLabel": "Email ID", "LLabel": "", "Currency": "No"}, {"name": "Location", "type": "string", "width": "100", "Option": "", "SLabel": "Location", "LLabel": "", "Currency": "No"}, {"name": "LeaveType", "type": "string", "width": "100", "Option": "", "SLabel": "LeaveType", "LLabel": "", "Currency": "No"}, {"name": "LeaveFrom", "type": "Date", "width": "10", "Option": "", "SLabel": "LeaveFrom", "LLabel": "", "Currency": "No"}, {"name": "LeaveTo", "type": "Date", "width": "10", "Option": "", "SLabel": "LeaveTo", "LLabel": "", "Currency": "No"}, {"name": "LeaveDays", "type": "string", "width": "10", "Option": "", "SLabel": "Total no. of leave days ", "LLabel": "", "Currency": "No"}, {"name": "LeaveReason", "type": "string", "width": "500", "Option": "", "SLabel": "Reason For Leave", "LLabel": "", "Currency": "No"}, {"name": "Approver", "type": "string", "width": "50", "Option": "", "SLabel": "Approver", "LLabel": "", "Currency": "No"}, {"name": "Status", "type": "string", "width": "20", "Option": "mandatory", "SLabel": "Request Status", "LLabel": "", "Currency": "No"}, {"name": "Comment", "type": "string", "width": "1000", "Option": "", "SLabel": "Comment", "LLabel": "Comment", "Currency": "No"}, {"name": "ProcessingLog", "type": "string", "width": "1000", "Option": "", "SLabel": "Processing Log", "LLabel": "Processing Log", "Currency": "No"}]}
+{
+  "Title": {
+    "ApplicationTitle": "Leave Application",
+    "DetailTitle": "Leave Application"
+  },
+  "ListFields": {
+    "IntroField": "ID",
+    "TitleField": "",
+    "fStatus": "Status",
+    "sStatus": "",
+    "numberField": "",
+    "LFields": ["ID", "LeaveType", "LeaveFrom", "LeaveTo", "EmpName", "Status"]
+  },
+  "MButtons": [
+    {
+      "type": "DOWNLOAD",
+      "name": "Download File",
+      "icon": "sap-icon://download"
+    },
+    {
+      "type": "APPHELP",
+      "name": "Get App Help",
+      "icon": "sap-icon://sys-help-2"
+    },
+    {
+      "type": "BOT",
+      "name": "Launch Assistant",
+      "icon": "sap-icon://travel-request"
+    },
+    {
+      "type": "VIEW",
+      "name": "Change App View",
+      "icon": "sap-icon://chart-table-view"
+    },
+    { "type": "ADD", "name": "Add Record", "icon": "sap-icon://add" },
+    { "type": "UPLOAD", "name": "Upload Record", "icon": "sap-icon://upload" }
+  ],
+  "DButtons": [
+    {
+      "type": "ATTACHMENT",
+      "name": "View Attachments",
+      "icon": "sap-icon://attachment"
+    },
+    { "type": "UPDATE", "name": "Update Record", "icon": "sap-icon://update" },
+    { "type": "ADD", "name": "Add Record", "icon": "sap-icon://add" }
+  ],
+  "Tabs": [
+    {
+      "value": "Tab1",
+      "name": "Leave",
+      "type": "Field",
+      "fioriicon": "employee"
+    },
+    {
+      "value": "Tab2",
+      "name": "Employee",
+      "type": "Field",
+      "fioriicon": "employee"
+    },
+    {
+      "value": "Tab3",
+      "name": "Address",
+      "fioriicon": "addresses",
+      "type": "Field"
+    },
+    {
+      "value": "Tab4",
+      "name": "Contact",
+      "fioriicon": "business-card",
+      "type": "Field"
+    },
+    {
+      "value": "Tab5",
+      "name": "Approval",
+      "fioriicon": "accept",
+      "type": "Field",
+      "download": "No"
+    },
+    {
+      "value": "Tab6",
+      "name": "ProcessLog",
+      "fioriicon": "step",
+      "type": "Chat",
+      "download": "No"
+    }
+  ],
+  "DetailFields": {
+    "None": ["ID", "Status"],
+    "Tab1": ["LeaveType", "LeaveFrom", "LeaveTo", "LeaveDays", "LeaveReason"],
+    "Tab2": ["EmpName", "EmployeeID", "EmpDesignation"],
+    "Tab3": ["EmpAddress", "EmpPostCode"],
+    "Tab4": ["EmpTelephone", "EmpEmail"],
+    "Tab5": ["CostCentre", "Approver", "Comment"],
+    "Tab6": ["ProcessingLog"]
+  },
+  "ControlDisplay": {
+    "ControlField": "RequestFor",
+    "Fields": [
+      [
+        {
+          "ALL": [
+            "ID",
+            "StudentName",
+            "RequestFor",
+            "Status",
+            "StudentID",
+            "Email",
+            "Question_Response",
+            "AnyComment",
+            "RequestDate",
+            "ParentEmail",
+            "ProcessingLog"
+          ]
+        },
+        {
+          "BusRequest": [
+            "RequiredDate",
+            "GuestName",
+            "GuestEmail",
+            "GuestPhone",
+            "EntryDate",
+            "Subject",
+            "EquipmentName",
+            "LeaveFrom",
+            "LeaveTo",
+            "LeaveDays",
+            "LeaveReason",
+            "NINumber",
+            "EthnicOrigin",
+            "Q1",
+            "A1",
+            "Q2",
+            "A2",
+            "Q3",
+            "A3",
+            "Q4",
+            "A4",
+            "Essay",
+            "DegreePursuing"
+          ]
+        },
+        {
+          "GuestPassFormRequest": [
+            "RequiredDate",
+            "GuestName",
+            "GuestEmail",
+            "GuestPhone",
+            "EntryDate",
+            "Subject",
+            "EquipmentName",
+            "LeaveFrom",
+            "LeaveTo",
+            "LeaveDays",
+            "LeaveReason",
+            "NINumber",
+            "EthnicOrigin",
+            "Q1",
+            "A1",
+            "Q2",
+            "A2",
+            "Q3",
+            "A3",
+            "Q4",
+            "A4",
+            "Essay",
+            "DegreePursuing"
+          ]
+        },
+        {
+          "LabEquipmentRequest": [
+            "RequiredDate",
+            "GuestName",
+            "GuestEmail",
+            "GuestPhone",
+            "EntryDate",
+            "Subject",
+            "EquipmentName",
+            "LeaveFrom",
+            "LeaveTo",
+            "LeaveDays",
+            "LeaveReason",
+            "NINumber",
+            "EthnicOrigin",
+            "Q1",
+            "A1",
+            "Q2",
+            "A2",
+            "Q3",
+            "A3",
+            "Q4",
+            "A4",
+            "Essay",
+            "DegreePursuing"
+          ]
+        },
+        {
+          "LeaveRequest": [
+            "RequiredDate",
+            "GuestName",
+            "GuestEmail",
+            "GuestPhone",
+            "EntryDate",
+            "Subject",
+            "EquipmentName",
+            "LeaveFrom",
+            "LeaveTo",
+            "LeaveDays",
+            "LeaveReason",
+            "NINumber",
+            "EthnicOrigin",
+            "Q1",
+            "A1",
+            "Q2",
+            "A2",
+            "Q3",
+            "A3",
+            "Q4",
+            "A4",
+            "Essay",
+            "DegreePursuing"
+          ]
+        },
+        {
+          "ScholarshipGrant": [
+            "RequiredDate",
+            "GuestName",
+            "GuestEmail",
+            "GuestPhone",
+            "EntryDate",
+            "Subject",
+            "EquipmentName",
+            "LeaveFrom",
+            "LeaveTo",
+            "LeaveDays",
+            "LeaveReason",
+            "NINumber",
+            "EthnicOrigin",
+            "Q1",
+            "A1",
+            "Q2",
+            "A2",
+            "Q3",
+            "A3",
+            "Q4",
+            "A4",
+            "Essay",
+            "DegreePursuing"
+          ]
+        }
+      ]
+    ]
+  },
+  "FieldDef": [
+    {
+      "name": "ID",
+      "type": "string",
+      "width": "20",
+      "Option": "",
+      "SLabel": "ID",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "EmployeeID",
+      "type": "string",
+      "width": "20",
+      "Option": "",
+      "SLabel": "Employee ID",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "EmpName",
+      "type": "string",
+      "width": "50",
+      "Option": "",
+      "SLabel": "Employee Full Name",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "EmpAddress",
+      "type": "string",
+      "width": "200",
+      "Option": "",
+      "SLabel": "Address",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "EmpPostCode",
+      "type": "string",
+      "width": "20",
+      "Option": "",
+      "SLabel": "PostCode",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "EmpDesignation",
+      "type": "string",
+      "width": "50",
+      "Option": "",
+      "SLabel": "Designation",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "EmpTelephone",
+      "type": "string",
+      "width": "20",
+      "Option": "",
+      "SLabel": "Telephone No.",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "CostCentre",
+      "type": "string",
+      "width": "50",
+      "Option": "",
+      "SLabel": "Cost Centre",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "EmpEmail",
+      "type": "string",
+      "width": "50",
+      "Option": "",
+      "SLabel": "Email ID",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "Location",
+      "type": "string",
+      "width": "100",
+      "Option": "",
+      "SLabel": "Location",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "LeaveType",
+      "type": "string",
+      "width": "100",
+      "Option": "",
+      "SLabel": "LeaveType",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "LeaveFrom",
+      "type": "Date",
+      "width": "10",
+      "Option": "",
+      "SLabel": "LeaveFrom",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "LeaveTo",
+      "type": "Date",
+      "width": "10",
+      "Option": "",
+      "SLabel": "LeaveTo",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "LeaveDays",
+      "type": "string",
+      "width": "10",
+      "Option": "",
+      "SLabel": "Total no. of leave days ",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "LeaveReason",
+      "type": "string",
+      "width": "500",
+      "Option": "",
+      "SLabel": "Reason For Leave",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "Approver",
+      "type": "string",
+      "width": "50",
+      "Option": "",
+      "SLabel": "Approver",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "Status",
+      "type": "string",
+      "width": "20",
+      "Option": "mandatory",
+      "SLabel": "Request Status",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "Comment",
+      "type": "string",
+      "width": "1000",
+      "Option": "",
+      "SLabel": "Comment",
+      "LLabel": "Comment",
+      "Currency": "No"
+    },
+    {
+      "name": "ProcessingLog",
+      "type": "string",
+      "width": "1000",
+      "Option": "",
+      "SLabel": "Processing Log",
+      "LLabel": "Processing Log",
+      "Currency": "No"
+    }
+  ]
+}

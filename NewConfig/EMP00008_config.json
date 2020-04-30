@@ -1,1 +1,404 @@
-{"Title": {"ApplicationTitle": "Expense", "DetailTitle": "Expense"}, "ListFields": {"IntroField": "ID", "TitleField": "", "fStatus": "Status", "sStatus": "", "numberField": "", "LFields": ["ID", "EmployeeName", "ProjectCode", "Status"]}, "MButtons": [{"type": "DOWNLOAD", "name": "Download File", "icon": "sap-icon://download"}, {"type": "APPHELP", "name": "Get App Help", "icon": "sap-icon://sys-help-2"}, {"type": "BOT", "name": "Launch Assistant", "icon": "sap-icon://travel-request"}, {"type": "VIEW", "name": "Change App View", "icon": "chart-table-view"}, {"type": "ADD", "name": "Add Record", "icon": "sap-icon://add"}, {"type": "UPLOAD", "name": "Upload Record", "icon": "sap-icon://upload"}], "DButtons": [{"type": "ATTACHMENT", "name": "View Attachments", "icon": "sap-icon://attachment"}, {"type": "UPDATE", "name": "Update Record", "icon": "sap-icon://update"}, {"type": "ADD", "name": "Add Record", "icon": "sap-icon://add"}], "Tabs": [{"value": "Tab1", "name": "Detail", "type": "Field", "fioriicon": "notes"}, {"value": "Tab2", "name": "Expenses", "type": "Field", "fioriicon": "expense-report"}, {"value": "Tab3", "name": "Attachments", "type": "Field", "fioriicon": "attachment"}], "DetailFields": {"None": ["ID", "EmployeeCode", "EmployeeName", "TotalAmount", "Currency", "Status"], "Tab1": ["EntryDate", "ExpenseStDate", "ExpenseEndDt", "ProjectCode", "CostCentre", "TravelRequest", "MileageStLoc", "MileageEndLoc", "TotalMilage", "TravelDetail", "Relocation", "StayDetail"], "Tab2": ["AirFare", "TrainBusFare", "CarRentalCost", "Parking", "TollCharge", "CongestionChg", "Meals", "Tips", "Hotel", "RentAccomCost", "VisaCost", "BusEntertain", "EyeTest", "MobileBill", "MiscAmount"], "Tab3": ["Receipt1", "Receipt2", "Receipt3", "Receipt4", "Receipt5"]}, "ControlDisplay": {"ControlField": "RequestFor", "Fields": [[{"ALL": ["ID", "StudentName", "RequestFor", "Status", "StudentID", "Email", "Question_Response", "AnyComment", "RequestDate", "ParentEmail", "ProcessingLog"]}, {"BusRequest": ["RequiredDate", "GuestName", "GuestEmail", "GuestPhone", "EntryDate", "Subject", "EquipmentName", "LeaveFrom", "LeaveTo", "LeaveDays", "LeaveReason", "NINumber", "EthnicOrigin", "Q1", "A1", "Q2", "A2", "Q3", "A3", "Q4", "A4", "Essay", "DegreePursuing"]}, {"GuestPassFormRequest": ["RequiredDate", "GuestName", "GuestEmail", "GuestPhone", "EntryDate", "Subject", "EquipmentName", "LeaveFrom", "LeaveTo", "LeaveDays", "LeaveReason", "NINumber", "EthnicOrigin", "Q1", "A1", "Q2", "A2", "Q3", "A3", "Q4", "A4", "Essay", "DegreePursuing"]}, {"LabEquipmentRequest": ["RequiredDate", "GuestName", "GuestEmail", "GuestPhone", "EntryDate", "Subject", "EquipmentName", "LeaveFrom", "LeaveTo", "LeaveDays", "LeaveReason", "NINumber", "EthnicOrigin", "Q1", "A1", "Q2", "A2", "Q3", "A3", "Q4", "A4", "Essay", "DegreePursuing"]}, {"LeaveRequest": ["RequiredDate", "GuestName", "GuestEmail", "GuestPhone", "EntryDate", "Subject", "EquipmentName", "LeaveFrom", "LeaveTo", "LeaveDays", "LeaveReason", "NINumber", "EthnicOrigin", "Q1", "A1", "Q2", "A2", "Q3", "A3", "Q4", "A4", "Essay", "DegreePursuing"]}, {"ScholarshipGrant": ["RequiredDate", "GuestName", "GuestEmail", "GuestPhone", "EntryDate", "Subject", "EquipmentName", "LeaveFrom", "LeaveTo", "LeaveDays", "LeaveReason", "NINumber", "EthnicOrigin", "Q1", "A1", "Q2", "A2", "Q3", "A3", "Q4", "A4", "Essay", "DegreePursuing"]}]]}, "FieldDef": [{"name": "ID", "type": "string", "width": "20", "Option": "", "SLabel": "", "LLabel": ""}, {"name": "EmployeeCode", "type": "string", "width": "20"}, {"name": "EmployeeName", "type": "string", "width": "50"}, {"name": "TotalAmount", "type": "string", "width": "20"}, {"name": "Currency", "type": "string", "width": "5"}, {"name": "EntryDate", "type": "Date", "width": "10"}, {"name": "ExpenseStDate", "type": "Date", "width": "10"}, {"name": "ExpenseEndDt", "type": "Date", "width": "10"}, {"name": "ProjectCode", "type": "string", "width": "50"}, {"name": "CostCentre", "type": "string", "width": "50"}, {"name": "TravelRequest", "type": "string", "width": "50"}, {"name": "AirFare", "type": "string", "width": "50"}, {"name": "TrainBusFare", "type": "string", "width": "50"}, {"name": "MileageStLoc", "type": "string", "width": "20"}, {"name": "MileageEndLoc", "type": "string", "width": "20"}, {"name": "TotalMilage", "type": "string", "width": "20"}, {"name": "CarRentalCost", "type": "string", "width": "50"}, {"name": "Parking", "type": "string", "width": "50"}, {"name": "TollCharge", "type": "string", "width": "50"}, {"name": "CongestionChg", "type": "string", "width": "50"}, {"name": "Meals", "type": "string", "width": "50"}, {"name": "Tips", "type": "string", "width": "50"}, {"name": "Hotel", "type": "string", "width": "100"}, {"name": "RentAccomCost", "type": "string", "width": "100"}, {"name": "TravelDetail", "type": "string", "width": "500"}, {"name": "Relocation", "type": "string", "width": "50"}, {"name": "VisaCost", "type": "string", "width": "50", "Option": "", "SLabel": "", "LLabel": ""}, {"name": "Receipt1", "type": "attachment", "width": "100"}, {"name": "Receipt2", "type": "attachment", "width": "100"}, {"name": "Receipt3", "type": "attachment", "width": "100"}, {"name": "Receipt4", "type": "attachment", "width": "100"}, {"name": "Receipt5", "type": "attachment", "width": "100"}, {"name": "BusEntertain", "type": "string", "width": "100"}, {"name": "EyeTest", "type": "string", "width": "100", "Option": "", "SLabel": "", "LLabel": ""}, {"name": "MobileBill", "type": "string", "width": "100"}, {"name": "MiscAmount", "type": "string", "width": "100"}, {"name": "StayDetail", "type": "string", "width": "500"}, {"name": "Status", "type": "string", "width": "20"}, {"name": "Paid", "type": "string", "width": "50", "Option": "", "SLabel": "", "LLabel": ""}, {"name": "LMRefferBack", "type": "string", "width": "10", "Option": "", "SLabel": "", "LLabel": ""}, {"name": "APRejected", "type": "string", "width": "10", "Option": "", "SLabel": "", "LLabel": ""}, {"name": "LMRejected", "type": "string", "width": "10", "Option": "", "SLabel": "", "LLabel": ""}, {"name": "APQuery", "type": "string", "width": "10", "Option": "", "SLabel": "", "LLabel": ""}, {"name": "LMApproved", "type": "string", "width": "10", "Option": "", "SLabel": "", "LLabel": ""}, {"name": "APResponse", "type": "string", "width": "10", "Option": "", "SLabel": "", "LLabel": ""}, {"name": "RemittanceAdvice", "type": "string", "width": "100", "Option": "", "SLabel": "", "LLabel": ""}, {"name": "APReadyForPayment", "type": "string", "width": "100", "Option": "", "SLabel": "", "LLabel": ""}, {"name": "Archived", "type": "string", "width": "1000", "Option": "", "SLabel": "", "LLabel": ""}]}
+{
+  "Title": { "ApplicationTitle": "Expense", "DetailTitle": "Expense" },
+  "ListFields": {
+    "IntroField": "ID",
+    "TitleField": "",
+    "fStatus": "Status",
+    "sStatus": "",
+    "numberField": "",
+    "LFields": ["ID", "EmployeeName", "ProjectCode", "Status"]
+  },
+  "MButtons": [
+    {
+      "type": "DOWNLOAD",
+      "name": "Download File",
+      "icon": "sap-icon://download"
+    },
+    {
+      "type": "APPHELP",
+      "name": "Get App Help",
+      "icon": "sap-icon://sys-help-2"
+    },
+    {
+      "type": "BOT",
+      "name": "Launch Assistant",
+      "icon": "sap-icon://travel-request"
+    },
+    {
+      "type": "VIEW",
+      "name": "Change App View",
+      "icon": "sap-icon://chart-table-view"
+    },
+    { "type": "ADD", "name": "Add Record", "icon": "sap-icon://add" },
+    { "type": "UPLOAD", "name": "Upload Record", "icon": "sap-icon://upload" }
+  ],
+  "DButtons": [
+    {
+      "type": "ATTACHMENT",
+      "name": "View Attachments",
+      "icon": "sap-icon://attachment"
+    },
+    { "type": "UPDATE", "name": "Update Record", "icon": "sap-icon://update" },
+    { "type": "ADD", "name": "Add Record", "icon": "sap-icon://add" }
+  ],
+  "Tabs": [
+    {
+      "value": "Tab1",
+      "name": "Detail",
+      "type": "Field",
+      "fioriicon": "notes"
+    },
+    {
+      "value": "Tab2",
+      "name": "Expenses",
+      "type": "Field",
+      "fioriicon": "expense-report"
+    },
+    {
+      "value": "Tab3",
+      "name": "Attachments",
+      "type": "Field",
+      "fioriicon": "attachment"
+    }
+  ],
+  "DetailFields": {
+    "None": [
+      "ID",
+      "EmployeeCode",
+      "EmployeeName",
+      "TotalAmount",
+      "Currency",
+      "Status"
+    ],
+    "Tab1": [
+      "EntryDate",
+      "ExpenseStDate",
+      "ExpenseEndDt",
+      "ProjectCode",
+      "CostCentre",
+      "TravelRequest",
+      "MileageStLoc",
+      "MileageEndLoc",
+      "TotalMilage",
+      "TravelDetail",
+      "Relocation",
+      "StayDetail"
+    ],
+    "Tab2": [
+      "AirFare",
+      "TrainBusFare",
+      "CarRentalCost",
+      "Parking",
+      "TollCharge",
+      "CongestionChg",
+      "Meals",
+      "Tips",
+      "Hotel",
+      "RentAccomCost",
+      "VisaCost",
+      "BusEntertain",
+      "EyeTest",
+      "MobileBill",
+      "MiscAmount"
+    ],
+    "Tab3": ["Receipt1", "Receipt2", "Receipt3", "Receipt4", "Receipt5"]
+  },
+  "ControlDisplay": {
+    "ControlField": "RequestFor",
+    "Fields": [
+      [
+        {
+          "ALL": [
+            "ID",
+            "StudentName",
+            "RequestFor",
+            "Status",
+            "StudentID",
+            "Email",
+            "Question_Response",
+            "AnyComment",
+            "RequestDate",
+            "ParentEmail",
+            "ProcessingLog"
+          ]
+        },
+        {
+          "BusRequest": [
+            "RequiredDate",
+            "GuestName",
+            "GuestEmail",
+            "GuestPhone",
+            "EntryDate",
+            "Subject",
+            "EquipmentName",
+            "LeaveFrom",
+            "LeaveTo",
+            "LeaveDays",
+            "LeaveReason",
+            "NINumber",
+            "EthnicOrigin",
+            "Q1",
+            "A1",
+            "Q2",
+            "A2",
+            "Q3",
+            "A3",
+            "Q4",
+            "A4",
+            "Essay",
+            "DegreePursuing"
+          ]
+        },
+        {
+          "GuestPassFormRequest": [
+            "RequiredDate",
+            "GuestName",
+            "GuestEmail",
+            "GuestPhone",
+            "EntryDate",
+            "Subject",
+            "EquipmentName",
+            "LeaveFrom",
+            "LeaveTo",
+            "LeaveDays",
+            "LeaveReason",
+            "NINumber",
+            "EthnicOrigin",
+            "Q1",
+            "A1",
+            "Q2",
+            "A2",
+            "Q3",
+            "A3",
+            "Q4",
+            "A4",
+            "Essay",
+            "DegreePursuing"
+          ]
+        },
+        {
+          "LabEquipmentRequest": [
+            "RequiredDate",
+            "GuestName",
+            "GuestEmail",
+            "GuestPhone",
+            "EntryDate",
+            "Subject",
+            "EquipmentName",
+            "LeaveFrom",
+            "LeaveTo",
+            "LeaveDays",
+            "LeaveReason",
+            "NINumber",
+            "EthnicOrigin",
+            "Q1",
+            "A1",
+            "Q2",
+            "A2",
+            "Q3",
+            "A3",
+            "Q4",
+            "A4",
+            "Essay",
+            "DegreePursuing"
+          ]
+        },
+        {
+          "LeaveRequest": [
+            "RequiredDate",
+            "GuestName",
+            "GuestEmail",
+            "GuestPhone",
+            "EntryDate",
+            "Subject",
+            "EquipmentName",
+            "LeaveFrom",
+            "LeaveTo",
+            "LeaveDays",
+            "LeaveReason",
+            "NINumber",
+            "EthnicOrigin",
+            "Q1",
+            "A1",
+            "Q2",
+            "A2",
+            "Q3",
+            "A3",
+            "Q4",
+            "A4",
+            "Essay",
+            "DegreePursuing"
+          ]
+        },
+        {
+          "ScholarshipGrant": [
+            "RequiredDate",
+            "GuestName",
+            "GuestEmail",
+            "GuestPhone",
+            "EntryDate",
+            "Subject",
+            "EquipmentName",
+            "LeaveFrom",
+            "LeaveTo",
+            "LeaveDays",
+            "LeaveReason",
+            "NINumber",
+            "EthnicOrigin",
+            "Q1",
+            "A1",
+            "Q2",
+            "A2",
+            "Q3",
+            "A3",
+            "Q4",
+            "A4",
+            "Essay",
+            "DegreePursuing"
+          ]
+        }
+      ]
+    ]
+  },
+  "FieldDef": [
+    {
+      "name": "ID",
+      "type": "string",
+      "width": "20",
+      "Option": "",
+      "SLabel": "",
+      "LLabel": ""
+    },
+    { "name": "EmployeeCode", "type": "string", "width": "20" },
+    { "name": "EmployeeName", "type": "string", "width": "50" },
+    { "name": "TotalAmount", "type": "string", "width": "20" },
+    { "name": "Currency", "type": "string", "width": "5" },
+    { "name": "EntryDate", "type": "Date", "width": "10" },
+    { "name": "ExpenseStDate", "type": "Date", "width": "10" },
+    { "name": "ExpenseEndDt", "type": "Date", "width": "10" },
+    { "name": "ProjectCode", "type": "string", "width": "50" },
+    { "name": "CostCentre", "type": "string", "width": "50" },
+    { "name": "TravelRequest", "type": "string", "width": "50" },
+    { "name": "AirFare", "type": "string", "width": "50" },
+    { "name": "TrainBusFare", "type": "string", "width": "50" },
+    { "name": "MileageStLoc", "type": "string", "width": "20" },
+    { "name": "MileageEndLoc", "type": "string", "width": "20" },
+    { "name": "TotalMilage", "type": "string", "width": "20" },
+    { "name": "CarRentalCost", "type": "string", "width": "50" },
+    { "name": "Parking", "type": "string", "width": "50" },
+    { "name": "TollCharge", "type": "string", "width": "50" },
+    { "name": "CongestionChg", "type": "string", "width": "50" },
+    { "name": "Meals", "type": "string", "width": "50" },
+    { "name": "Tips", "type": "string", "width": "50" },
+    { "name": "Hotel", "type": "string", "width": "100" },
+    { "name": "RentAccomCost", "type": "string", "width": "100" },
+    { "name": "TravelDetail", "type": "string", "width": "500" },
+    { "name": "Relocation", "type": "string", "width": "50" },
+    {
+      "name": "VisaCost",
+      "type": "string",
+      "width": "50",
+      "Option": "",
+      "SLabel": "",
+      "LLabel": ""
+    },
+    { "name": "Receipt1", "type": "attachment", "width": "100" },
+    { "name": "Receipt2", "type": "attachment", "width": "100" },
+    { "name": "Receipt3", "type": "attachment", "width": "100" },
+    { "name": "Receipt4", "type": "attachment", "width": "100" },
+    { "name": "Receipt5", "type": "attachment", "width": "100" },
+    { "name": "BusEntertain", "type": "string", "width": "100" },
+    {
+      "name": "EyeTest",
+      "type": "string",
+      "width": "100",
+      "Option": "",
+      "SLabel": "",
+      "LLabel": ""
+    },
+    { "name": "MobileBill", "type": "string", "width": "100" },
+    { "name": "MiscAmount", "type": "string", "width": "100" },
+    { "name": "StayDetail", "type": "string", "width": "500" },
+    { "name": "Status", "type": "string", "width": "20" },
+    {
+      "name": "Paid",
+      "type": "string",
+      "width": "50",
+      "Option": "",
+      "SLabel": "",
+      "LLabel": ""
+    },
+    {
+      "name": "LMRefferBack",
+      "type": "string",
+      "width": "10",
+      "Option": "",
+      "SLabel": "",
+      "LLabel": ""
+    },
+    {
+      "name": "APRejected",
+      "type": "string",
+      "width": "10",
+      "Option": "",
+      "SLabel": "",
+      "LLabel": ""
+    },
+    {
+      "name": "LMRejected",
+      "type": "string",
+      "width": "10",
+      "Option": "",
+      "SLabel": "",
+      "LLabel": ""
+    },
+    {
+      "name": "APQuery",
+      "type": "string",
+      "width": "10",
+      "Option": "",
+      "SLabel": "",
+      "LLabel": ""
+    },
+    {
+      "name": "LMApproved",
+      "type": "string",
+      "width": "10",
+      "Option": "",
+      "SLabel": "",
+      "LLabel": ""
+    },
+    {
+      "name": "APResponse",
+      "type": "string",
+      "width": "10",
+      "Option": "",
+      "SLabel": "",
+      "LLabel": ""
+    },
+    {
+      "name": "RemittanceAdvice",
+      "type": "string",
+      "width": "100",
+      "Option": "",
+      "SLabel": "",
+      "LLabel": ""
+    },
+    {
+      "name": "APReadyForPayment",
+      "type": "string",
+      "width": "100",
+      "Option": "",
+      "SLabel": "",
+      "LLabel": ""
+    },
+    {
+      "name": "Archived",
+      "type": "string",
+      "width": "1000",
+      "Option": "",
+      "SLabel": "",
+      "LLabel": ""
+    }
+  ]
+}
