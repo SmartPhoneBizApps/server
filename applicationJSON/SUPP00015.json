@@ -1,0 +1,194 @@
+{
+  "ID": {
+    "type": "String",
+    "unique": true,
+    "required": [true, "Please add mandatory field :ID"],
+    "maxlength": [20, "ID can not be more than 20 characters"]
+  },
+  "SupplierID": {
+    "type": "String",
+
+    "maxlength": [50, "SupplierID can not be more than 50 characters"]
+  },
+  "SupplierName": {
+    "type": "String",
+
+    "maxlength": [50, "SupplierName can not be more than 50 characters"],
+    "match": [
+      "UK_COMPANYNAME_V1",
+      "Please provide valid company name in field :SupplierName"
+    ]
+  },
+  "Customer": {
+    "type": "String",
+
+    "maxlength": [50, "Customer can not be more than 50 characters"]
+  },
+  "Assesse": {
+    "type": "String",
+
+    "maxlength": [50, "Assesse can not be more than 50 characters"]
+  },
+  "Phone": {
+    "type": "String",
+
+    "required": [true, "Please add mandatory field :Phone"],
+    "maxlength": [50, "Phone can not be more than 50 characters"],
+    "match": [
+      "UK_PHONE_V1",
+      "Please provide valid UK Phone number in field :Phone"
+    ]
+  },
+  "EMail": {
+    "type": "String",
+
+    "required": [true, "Please add mandatory field :EMail"],
+    "maxlength": [50, "EMail can not be more than 50 characters"],
+    "match": ["EMAIL_V1", "Invalid EmailID for field :EMail"]
+  },
+  "Assessor": {
+    "type": "String",
+
+    "maxlength": [50, "Assessor can not be more than 50 characters"]
+  },
+  "AbilityToSolveProblems": {
+    "type": "String",
+
+    "maxlength": [
+      50,
+      "AbilityToSolveProblems can not be more than 50 characters"
+    ]
+  },
+  "UnderstandingOfMyNeeds": {
+    "type": "String",
+
+    "maxlength": [
+      50,
+      "UnderstandingOfMyNeeds can not be more than 50 characters"
+    ]
+  },
+  "Responsiveness": {
+    "type": "String",
+
+    "maxlength": [50, "Responsiveness can not be more than 50 characters"]
+  },
+  "Professionalism": {
+    "type": "String",
+
+    "maxlength": [50, "Professionalism can not be more than 50 characters"]
+  },
+  "Courtesy": {
+    "type": "String",
+
+    "maxlength": [50, "Courtesy can not be more than 50 characters"]
+  },
+  "Friendliness": {
+    "type": "String",
+
+    "maxlength": [50, "Friendliness can not be more than 50 characters"]
+  },
+  "PresentationOfNewProductsAndPackage": {
+    "type": "String",
+
+    "maxlength": [
+      100,
+      "PresentationOfNewProductsAndPackage can not be more than 100 characters"
+    ]
+  },
+  "TimelinessOfDeliveries": {
+    "type": "String",
+
+    "maxlength": [
+      50,
+      "TimelinessOfDeliveries can not be more than 50 characters"
+    ]
+  },
+  "ConditionOfDeliveredProduct": {
+    "type": "String",
+
+    "maxlength": [
+      50,
+      "ConditionOfDeliveredProduct can not be more than 50 characters"
+    ]
+  },
+  "AccuracyOfOrderFill": {
+    "type": "String",
+
+    "maxlength": [50, "AccuracyOfOrderFill can not be more than 50 characters"]
+  },
+  "AccuracyOfInvoices": {
+    "type": "String",
+
+    "maxlength": [50, "AccuracyOfInvoices can not be more than 50 characters"]
+  },
+  "DriverProfessionalism": {
+    "type": "String",
+
+    "maxlength": [
+      50,
+      "DriverProfessionalism can not be more than 50 characters"
+    ]
+  },
+  "PromotionalEffectiveness": {
+    "type": "String",
+
+    "maxlength": [
+      50,
+      "PromotionalEffectiveness can not be more than 50 characters"
+    ]
+  },
+  "DiscountingPolicies": {
+    "type": "String",
+
+    "maxlength": [50, "DiscountingPolicies can not be more than 50 characters"]
+  },
+  "ClarityOfPriceListInformation": {
+    "type": "String",
+
+    "maxlength": [
+      50,
+      "ClarityOfPriceListInformation can not be more than 50 characters"
+    ]
+  },
+  "SeeSalesRepresentative": {
+    "type": "String",
+
+    "maxlength": [
+      50,
+      "SeeSalesRepresentative can not be more than 50 characters"
+    ]
+  },
+  "OverallServicePerformanceCompareToLastYear": {
+    "type": "String",
+
+    "maxlength": [
+      100,
+      "OverallServicePerformanceCompareToLastYear can not be more than 100 characters"
+    ]
+  },
+  "FurtherComments": {
+    "type": "String",
+
+    "maxlength": [50, "FurtherComments can not be more than 50 characters"]
+  },
+  "OverallRating": {
+    "type": "String",
+
+    "maxlength": [50, "OverallRating can not be more than 50 characters"]
+  },
+  "Status": {
+    "type": "String",
+
+    "required": [true, "Please add mandatory field :Status"],
+    "maxlength": [50, "Status can not be more than 50 characters"]
+  },
+  "SurveyDate": {
+    "type": "Date",
+
+    "maxlength": [10, "SurveyDate can not be more than 10 characters"],
+    "match": [
+      "DATE_V1",
+      "Please provide date in YYYY-MM-DD format for field :SurveyDate"
+    ]
+  }
+}

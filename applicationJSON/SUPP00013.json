@@ -1,0 +1,87 @@
+{
+  "ID": {
+    "type": "String",
+    "unique": true,
+    "required": [true, "Please add mandatory field :ID"],
+    "maxlength": [20, "ID can not be more than 20 characters"]
+  },
+  "ContractType": {
+    "type": "String",
+
+    "required": [true, "Please add mandatory field :ContractType"],
+    "maxlength": [50, "ContractType can not be more than 50 characters"]
+  },
+  "Status": {
+    "type": "String",
+
+    "required": [true, "Please add mandatory field :Status"],
+    "maxlength": [20, "Status can not be more than 20 characters"]
+  },
+  "Details": {
+    "type": "String",
+
+    "maxlength": [50, "Details can not be more than 50 characters"]
+  },
+  "Category": {
+    "type": "String",
+
+    "maxlength": [50, "Category can not be more than 50 characters"]
+  },
+  "Price": {
+    "type": "Number",
+
+    "maxlength": [50, "Price can not be more than 50 characters"],
+    "match": [
+      "NUM_2_DEC_PLACE_V1",
+      "Please provide value with 2 decimal places in the field :Price"
+    ]
+  },
+  "NetValue": {
+    "type": "Number",
+
+    "maxlength": [50, "NetValue can not be more than 50 characters"],
+    "match": [
+      "NUM_2_DEC_PLACE_V1",
+      "Please provide value with 2 decimal places in the field :NetValue"
+    ]
+  },
+  "CreationDate": {
+    "type": "Date",
+
+    "required": [true, "Please add mandatory field :CreationDate"],
+    "maxlength": [10, "CreationDate can not be more than 10 characters"],
+    "match": [
+      "DATE_V1",
+      "Please provide date in YYYY-MM-DD format for field :CreationDate"
+    ]
+  },
+  "StartDate": {
+    "type": "Date",
+
+    "required": [true, "Please add mandatory field :StartDate"],
+    "maxlength": [10, "StartDate can not be more than 10 characters"],
+    "match": [
+      "DATE_V1",
+      "Please provide date in YYYY-MM-DD format for field :StartDate"
+    ]
+  },
+  "EndDate": {
+    "type": "Date",
+
+    "required": [true, "Please add mandatory field :EndDate"],
+    "maxlength": [10, "EndDate can not be more than 10 characters"],
+    "match": [
+      "DATE_V1",
+      "Please provide date in YYYY-MM-DD format for field :EndDate"
+    ]
+  },
+  "RenewalDate": {
+    "type": "Date",
+
+    "maxlength": [10, "RenewalDate can not be more than 10 characters"],
+    "match": [
+      "DATE_V1",
+      "Please provide date in YYYY-MM-DD format for field :RenewalDate"
+    ]
+  }
+}

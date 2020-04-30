@@ -1,0 +1,134 @@
+{
+  "ID": {
+    "type": "String",
+    "unique": true,
+    "required": [true, "Please add mandatory field :ID"],
+    "maxlength": [20, "ID can not be more than 20 characters"]
+  },
+  "AssetType": {
+    "type": "String",
+
+    "required": [true, "Please add mandatory field :AssetType"],
+    "maxlength": [50, "AssetType can not be more than 50 characters"]
+  },
+  "SerialNo": {
+    "type": "String",
+
+    "maxlength": [50, "SerialNo can not be more than 50 characters"]
+  },
+  "Make": {
+    "type": "String",
+
+    "maxlength": [50, "Make can not be more than 50 characters"]
+  },
+  "Model": {
+    "type": "String",
+
+    "maxlength": [50, "Model can not be more than 50 characters"]
+  },
+  "RAM": {
+    "type": "String",
+
+    "maxlength": [50, "RAM can not be more than 50 characters"]
+  },
+  "Processor": {
+    "type": "String",
+
+    "maxlength": [50, "Processor can not be more than 50 characters"]
+  },
+  "LapFrequency": {
+    "type": "String",
+
+    "maxlength": [50, "LapFrequency can not be more than 50 characters"]
+  },
+  "Description": {
+    "type": "String",
+
+    "maxlength": [50, "Description can not be more than 50 characters"]
+  },
+  "Latitude": {
+    "type": "String",
+
+    "maxlength": [50, "Latitude can not be more than 50 characters"],
+    "match": ["LATITUDE_V1", "Invalid Lat/Long values for field :Latitude"]
+  },
+  "Longitude": {
+    "type": "String",
+
+    "maxlength": [50, "Longitude can not be more than 50 characters"],
+    "match": ["LONGITUDE_V1", "Invalid Lat/Long values for field :Longitude"]
+  },
+  "Image": {
+    "type": "String",
+
+    "maxlength": [200, "Image can not be more than 200 characters"]
+  },
+  "IssuedTo": {
+    "type": "String",
+
+    "maxlength": [50, "IssuedTo can not be more than 50 characters"]
+  },
+  "EmpMobile": {
+    "type": "String",
+
+    "required": [true, "Please add mandatory field :EmpMobile"],
+    "maxlength": [50, "EmpMobile can not be more than 50 characters"],
+    "match": [
+      "UK_MOBILE_V1",
+      "Please provide valid UK Mobile number in field : EmpMobile"
+    ]
+  },
+  "ContactEmail": {
+    "type": "String",
+
+    "required": [true, "Please add mandatory field :ContactEmail"],
+    "maxlength": [50, "ContactEmail can not be more than 50 characters"],
+    "match": ["EMAIL_V1", "Invalid EmailID for field :ContactEmail"]
+  },
+  "Location": {
+    "type": "String",
+
+    "maxlength": [200, "Location can not be more than 200 characters"]
+  },
+  "Notes": {
+    "type": "String",
+
+    "maxlength": [200, "Notes can not be more than 200 characters"]
+  },
+  "Status": {
+    "type": "String",
+
+    "required": [true, "Please add mandatory field :Status"],
+    "maxlength": [20, "Status can not be more than 20 characters"]
+  },
+  "Frequency": {
+    "type": "String",
+
+    "maxlength": [50, "Frequency can not be more than 50 characters"]
+  },
+  "Email": {
+    "type": "String",
+
+    "required": [true, "Please add mandatory field :Email"],
+    "maxlength": [50, "Email can not be more than 50 characters"],
+    "match": ["EMAIL_V1", "Invalid EmailID for field :Email"]
+  },
+  "WarrantyEnd": {
+    "type": "Date",
+
+    "maxlength": [10, "WarrantyEnd can not be more than 10 characters"],
+    "match": [
+      "DATE_V1",
+      "Please provide date in YYYY-MM-DD format for field :WarrantyEnd"
+    ]
+  },
+  "IssueDate": {
+    "type": "Date",
+
+    "maxlength": [10, "IssueDate can not be more than 10 characters"],
+    "match": [
+      "DATE_V1",
+      "Please provide date in YYYY-MM-DD format for field :IssueDate"
+    ]
+  }
+}

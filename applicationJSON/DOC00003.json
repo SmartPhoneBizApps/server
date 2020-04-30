@@ -1,0 +1,144 @@
+{
+  "ID": {
+    "type": "String",
+    "unique": true,
+    "required": [true, "Please add mandatory field :ID"],
+    "maxlength": [20, "ID can not be more than 20 characters"]
+  },
+  "S1": {
+    "type": "String",
+
+    "maxlength": [50, "S1 can not be more than 50 characters"]
+  },
+  "ReferringPhysician": {
+    "type": "String",
+
+    "required": [true, "Please add mandatory field :ReferringPhysician"],
+    "maxlength": [50, "ReferringPhysician can not be more than 50 characters"]
+  },
+  "Fax": {
+    "type": "String",
+
+    "maxlength": [50, "Fax can not be more than 50 characters"],
+    "match": [
+      "UK_PHONE_V1",
+      "Please provide valid UK Phone number in field :Fax"
+    ]
+  },
+  "ReferralTo": {
+    "type": "String",
+
+    "required": [true, "Please add mandatory field :ReferralTo"],
+    "maxlength": [50, "ReferralTo can not be more than 50 characters"]
+  },
+  "S2": {
+    "type": "String",
+
+    "maxlength": [50, "S2 can not be more than 50 characters"]
+  },
+  "PatientName": {
+    "type": "String",
+
+    "required": [true, "Please add mandatory field :PatientName"],
+    "maxlength": [50, "PatientName can not be more than 50 characters"]
+  },
+  "Address": {
+    "type": "String",
+
+    "required": [true, "Please add mandatory field :Address"],
+    "maxlength": [200, "Address can not be more than 200 characters"]
+  },
+  "HomePhoneNo": {
+    "type": "String",
+
+    "required": [true, "Please add mandatory field :HomePhoneNo"],
+    "maxlength": [50, "HomePhoneNo can not be more than 50 characters"],
+    "match": [
+      "UK_PHONE_V1",
+      "Please provide valid UK Phone number in field :HomePhoneNo"
+    ]
+  },
+  "ContactNo": {
+    "type": "String",
+
+    "required": [true, "Please add mandatory field :ContactNo"],
+    "maxlength": [50, "ContactNo can not be more than 50 characters"]
+  },
+  "Gender": {
+    "type": "String",
+
+    "required": [true, "Please add mandatory field :Gender"],
+    "maxlength": [20, "Gender can not be more than 20 characters"],
+    "match": ["GENDER_V1", "Invalid Gender value in field : Gender"]
+  },
+  "Employer": {
+    "type": "String",
+
+    "required": [true, "Please add mandatory field :Employer"],
+    "maxlength": [50, "Employer can not be more than 50 characters"]
+  },
+  "Insurance": {
+    "type": "String",
+
+    "maxlength": [50, "Insurance can not be more than 50 characters"]
+  },
+  "SubscribeName": {
+    "type": "String",
+
+    "maxlength": [50, "SubscribeName can not be more than 50 characters"]
+  },
+  "MemberID": {
+    "type": "String",
+
+    "maxlength": [50, "MemberID can not be more than 50 characters"]
+  },
+  "S3": {
+    "type": "String",
+
+    "maxlength": [50, "S3 can not be more than 50 characters"]
+  },
+  "Problem": {
+    "type": "String",
+
+    "required": [true, "Please add mandatory field :Problem"],
+    "maxlength": [50, "Problem can not be more than 50 characters"]
+  },
+  "Status": {
+    "type": "String",
+
+    "required": [true, "Please add mandatory field :Status"],
+    "maxlength": [20, "Status can not be more than 20 characters"]
+  },
+  "Attachment": {
+    "type": "String",
+
+    "maxlength": [200, "Attachment can not be more than 200 characters"]
+  },
+  "DOB": {
+    "type": "Date",
+
+    "maxlength": [10, "DOB can not be more than 10 characters"],
+    "match": [
+      "DATE_V1",
+      "Please provide date in YYYY-MM-DD format for field :DOB"
+    ]
+  },
+  "ReqAppointmentDate": {
+    "type": "Date",
+
+    "maxlength": [10, "ReqAppointmentDate can not be more than 10 characters"],
+    "match": [
+      "DATE_V1",
+      "Please provide date in YYYY-MM-DD format for field :ReqAppointmentDate"
+    ]
+  },
+  "AppointmentTime": {
+    "type": "Date",
+
+    "maxlength": [10, "AppointmentTime can not be more than 10 characters"],
+    "match": [
+      "DATE_V1",
+      "Please provide date in YYYY-MM-DD format for field :AppointmentTime"
+    ]
+  }
+}

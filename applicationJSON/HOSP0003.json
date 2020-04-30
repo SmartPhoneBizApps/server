@@ -1,0 +1,138 @@
+{
+  "ID": {
+    "type": "String",
+    "unique": true,
+    "required": [true, "Please add mandatory field :ID"],
+    "maxlength": [20, "ID can not be more than 20 characters"]
+  },
+  "FirstName": {
+    "type": "String",
+
+    "required": [true, "Please add mandatory field :FirstName"],
+    "maxlength": [20, "FirstName can not be more than 20 characters"]
+  },
+  "LastName": {
+    "type": "String",
+
+    "required": [true, "Please add mandatory field :LastName"],
+    "maxlength": [20, "LastName can not be more than 20 characters"]
+  },
+  "StreetAdd": {
+    "type": "String",
+
+    "maxlength": [100, "StreetAdd can not be more than 100 characters"]
+  },
+  "City": {
+    "type": "String",
+
+    "maxlength": [100, "City can not be more than 100 characters"]
+  },
+  "PostCode": {
+    "type": "String",
+
+    "required": [true, "Please add mandatory field :PostCode"],
+    "maxlength": [100, "PostCode can not be more than 100 characters"],
+    "match": [
+      "UK_POSTCODE_V1",
+      "Please provide valid UK Post Code in field :PostCode"
+    ]
+  },
+  "Country": {
+    "type": "String",
+
+    "maxlength": [100, "Country can not be more than 100 characters"]
+  },
+  "Email": {
+    "type": "String",
+
+    "required": [true, "Please add mandatory field :Email"],
+    "maxlength": [100, "Email can not be more than 100 characters"],
+    "match": ["EMAIL_V1", "Invalid EmailID for field :Email"]
+  },
+  "Gender": {
+    "type": "String",
+
+    "required": [true, "Please add mandatory field :Gender"],
+    "maxlength": [100, "Gender can not be more than 100 characters"],
+    "match": ["GENDER_V1", "Invalid Gender value in field : Gender"]
+  },
+  "HomePh": {
+    "type": "String",
+
+    "required": [true, "Please add mandatory field :HomePh"],
+    "maxlength": [100, "HomePh can not be more than 100 characters"],
+    "match": [
+      "UK_PHONE_V1",
+      "Please provide valid UK Phone number in field :HomePh"
+    ]
+  },
+  "MobileNo": {
+    "type": "String",
+
+    "required": [true, "Please add mandatory field :MobileNo"],
+    "maxlength": [100, "MobileNo can not be more than 100 characters"],
+    "match": [
+      "UK_MOBILE_V1",
+      "Please provide valid UK Mobile number in field : MobileNo"
+    ]
+  },
+  "ReasonForVisit": {
+    "type": "String",
+
+    "required": [true, "Please add mandatory field :ReasonForVisit"],
+    "maxlength": [1000, "ReasonForVisit can not be more than 1000 characters"]
+  },
+  "GP": {
+    "type": "String",
+
+    "required": [true, "Please add mandatory field :GP"],
+    "maxlength": [200, "GP can not be more than 200 characters"]
+  },
+  "GPOffice": {
+    "type": "String",
+
+    "required": [true, "Please add mandatory field :GPOffice"],
+    "maxlength": [200, "GPOffice can not be more than 200 characters"]
+  },
+  "CurrentHealthIssues": {
+    "type": "String",
+
+    "required": [true, "Please add mandatory field :CurrentHealthIssues"],
+    "maxlength": [
+      1000,
+      "CurrentHealthIssues can not be more than 1000 characters"
+    ]
+  },
+  "AnyAllergy": {
+    "type": "String",
+
+    "required": [true, "Please add mandatory field :AnyAllergy"],
+    "maxlength": [1000, "AnyAllergy can not be more than 1000 characters"]
+  },
+  "AnyMedication": {
+    "type": "String",
+
+    "required": [true, "Please add mandatory field :AnyMedication"],
+    "maxlength": [50, "AnyMedication can not be more than 50 characters"]
+  },
+  "PlsList": {
+    "type": "String",
+
+    "maxlength": [500, "PlsList can not be more than 500 characters"]
+  },
+  "Status": {
+    "type": "String",
+
+    "required": [true, "Please add mandatory field :Status"],
+    "maxlength": [20, "Status can not be more than 20 characters"]
+  },
+  "DOB": {
+    "type": "Date",
+
+    "maxlength": [10, "DOB can not be more than 10 characters"],
+    "match": [
+      "DATE_V1",
+      "Please provide date in YYYY-MM-DD format for field :DOB"
+    ]
+  }
+}

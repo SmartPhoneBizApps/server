@@ -1,0 +1,165 @@
+{
+  "ID": {
+    "type": "String",
+    "unique": true,
+    "required": [true, "Please add mandatory field :ID"],
+    "maxlength": [20, "ID can not be more than 20 characters"]
+  },
+  "YourName": {
+    "type": "String",
+
+    "maxlength": [50, "YourName can not be more than 50 characters"]
+  },
+  "ContactNo": {
+    "type": "String",
+
+    "maxlength": [20, "ContactNo can not be more than 20 characters"]
+  },
+  "EmailID": {
+    "type": "String",
+
+    "required": [true, "Please add mandatory field :EmailID"],
+    "maxlength": [100, "EmailID can not be more than 100 characters"],
+    "match": ["EMAIL_V1", "Invalid EmailID for field :EmailID"]
+  },
+  "Address": {
+    "type": "String",
+
+    "required": [true, "Please add mandatory field :Address"],
+    "maxlength": [500, "Address can not be more than 500 characters"]
+  },
+  "BusinessName": {
+    "type": "String",
+
+    "maxlength": [100, "BusinessName can not be more than 100 characters"]
+  },
+  "SubjectAddress": {
+    "type": "String",
+
+    "maxlength": [500, "SubjectAddress can not be more than 500 characters"]
+  },
+  "ComplaintType": {
+    "type": "String",
+
+    "required": [true, "Please add mandatory field :ComplaintType"],
+    "maxlength": [100, "ComplaintType can not be more than 100 characters"]
+  },
+  "Q1": {
+    "type": "String",
+
+    "maxlength": [200, "Q1 can not be more than 200 characters"]
+  },
+  "A1": {
+    "type": "String",
+
+    "maxlength": [1000, "A1 can not be more than 1000 characters"]
+  },
+  "FoodType": {
+    "type": "String",
+
+    "required": [true, "Please add mandatory field :FoodType"],
+    "maxlength": [100, "FoodType can not be more than 100 characters"]
+  },
+  "Q2": {
+    "type": "String",
+
+    "maxlength": [100, "Q2 can not be more than 100 characters"]
+  },
+  "A2": {
+    "type": "String",
+
+    "maxlength": [50, "A2 can not be more than 50 characters"]
+  },
+  "Q3": {
+    "type": "String",
+
+    "maxlength": [50, "Q3 can not be more than 50 characters"]
+  },
+  "A3": {
+    "type": "String",
+
+    "maxlength": [10, "A3 can not be more than 10 characters"]
+  },
+  "Q4": {
+    "type": "String",
+
+    "maxlength": [50, "Q4 can not be more than 50 characters"]
+  },
+  "Q5": {
+    "type": "String",
+
+    "maxlength": [100, "Q5 can not be more than 100 characters"]
+  },
+  "A5": {
+    "type": "String",
+
+    "maxlength": [50, "A5 can not be more than 50 characters"]
+  },
+  "Q6": {
+    "type": "String",
+
+    "maxlength": [100, "Q6 can not be more than 100 characters"]
+  },
+  "A6": {
+    "type": "String",
+
+    "maxlength": [500, "A6 can not be more than 500 characters"]
+  },
+  "Q7": {
+    "type": "String",
+
+    "maxlength": [100, "Q7 can not be more than 100 characters"]
+  },
+  "A7": {
+    "type": "String",
+
+    "maxlength": [500, "A7 can not be more than 500 characters"]
+  },
+  "AdditionalInfo": {
+    "type": "String",
+
+    "maxlength": [1000, "AdditionalInfo can not be more than 1000 characters"]
+  },
+  "Status": {
+    "type": "String",
+
+    "required": [true, "Please add mandatory field :Status"],
+    "maxlength": [20, "Status can not be more than 20 characters"]
+  },
+  "ReportDate": {
+    "type": "Date",
+
+    "maxlength": [10, "ReportDate can not be more than 10 characters"],
+    "match": [
+      "DATE_V1",
+      "Please provide date in YYYY-MM-DD format for field :ReportDate"
+    ]
+  },
+  "PurchaseDate": {
+    "type": "Date",
+
+    "maxlength": [10, "PurchaseDate can not be more than 10 characters"],
+    "match": [
+      "DATE_V1",
+      "Please provide date in YYYY-MM-DD format for field :PurchaseDate"
+    ]
+  },
+  "A4": {
+    "type": "Date",
+
+    "maxlength": [10, "A4 can not be more than 10 characters"],
+    "match": [
+      "DATE_V1",
+      "Please provide date in YYYY-MM-DD format for field :A4"
+    ]
+  },
+  "UseByDate": {
+    "type": "Date",
+
+    "maxlength": [10, "UseByDate can not be more than 10 characters"],
+    "match": [
+      "DATE_V1",
+      "Please provide date in YYYY-MM-DD format for field :UseByDate"
+    ]
+  }
+}

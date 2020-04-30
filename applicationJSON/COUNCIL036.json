@@ -1,0 +1,151 @@
+{
+  "ID": {
+    "type": "String",
+    "unique": true,
+    "required": [true, "Please add mandatory field :ID"],
+    "maxlength": [20, "ID can not be more than 20 characters"]
+  },
+  "ApplicantName": {
+    "type": "String",
+
+    "maxlength": [50, "ApplicantName can not be more than 50 characters"]
+  },
+  "ContactNo": {
+    "type": "String",
+
+    "maxlength": [50, "ContactNo can not be more than 50 characters"]
+  },
+  "Email": {
+    "type": "String",
+
+    "required": [true, "Please add mandatory field :Email"],
+    "maxlength": [50, "Email can not be more than 50 characters"],
+    "match": ["EMAIL_V1", "Invalid EmailID for field :Email"]
+  },
+  "Address": {
+    "type": "String",
+
+    "required": [true, "Please add mandatory field :Address"],
+    "maxlength": [200, "Address can not be more than 200 characters"]
+  },
+  "Postcode": {
+    "type": "String",
+
+    "required": [true, "Please add mandatory field :Postcode"],
+    "maxlength": [20, "Postcode can not be more than 20 characters"],
+    "match": [
+      "UK_POSTCODE_V1",
+      "Please provide valid UK Post Code in field :Postcode"
+    ]
+  },
+  "ParticipantLastName": {
+    "type": "String",
+
+    "maxlength": [50, "ParticipantLastName can not be more than 50 characters"]
+  },
+  "ParticipantFirstName": {
+    "type": "String",
+
+    "maxlength": [50, "ParticipantFirstName can not be more than 50 characters"]
+  },
+  "ParticipantGender": {
+    "type": "String",
+
+    "maxlength": [10, "ParticipantGender can not be more than 10 characters"],
+    "match": ["GENDER_V1", "Invalid Gender value in field : ParticipantGender"]
+  },
+  "PreferredDay": {
+    "type": "String",
+
+    "maxlength": [50, "PreferredDay can not be more than 50 characters"]
+  },
+  "PreferredCenter": {
+    "type": "String",
+
+    "maxlength": [200, "PreferredCenter can not be more than 200 characters"]
+  },
+  "Status": {
+    "type": "String",
+
+    "required": [true, "Please add mandatory field :Status"],
+    "maxlength": [20, "Status can not be more than 20 characters"]
+  },
+  "BookingFor": {
+    "type": "String",
+
+    "required": [true, "Please add mandatory field :BookingFor"],
+    "maxlength": [200, "BookingFor can not be more than 200 characters"]
+  },
+  "Q1": {
+    "type": "String",
+
+    "maxlength": [200, "Q1 can not be more than 200 characters"]
+  },
+  "A1": {
+    "type": "String",
+
+    "maxlength": [500, "A1 can not be more than 500 characters"]
+  },
+  "Q2": {
+    "type": "String",
+
+    "maxlength": [200, "Q2 can not be more than 200 characters"]
+  },
+  "A2": {
+    "type": "String",
+
+    "maxlength": [100, "A2 can not be more than 100 characters"]
+  },
+  "Approver": {
+    "type": "String",
+
+    "maxlength": [100, "Approver can not be more than 100 characters"]
+  },
+  "Question_Response": {
+    "type": "String",
+
+    "maxlength": [500, "Question_Response can not be more than 500 characters"]
+  },
+  "ProcessingLog": {
+    "type": "String",
+
+    "maxlength": [500, "ProcessingLog can not be more than 500 characters"]
+  },
+  "BirthDate": {
+    "type": "Date",
+
+    "maxlength": [20, "BirthDate can not be more than 20 characters"],
+    "match": [
+      "DATE_V1",
+      "Please provide date in YYYY-MM-DD format for field :BirthDate"
+    ]
+  },
+  "PreferredStartDate": {
+    "type": "Date",
+
+    "required": [true, "Please add mandatory field :PreferredStartDate"],
+    "maxlength": [10, "PreferredStartDate can not be more than 10 characters"],
+    "match": [
+      "DATE_V1",
+      "Please provide date in YYYY-MM-DD format for field :PreferredStartDate"
+    ]
+  },
+  "PreferredTime": {
+    "type": "Date",
+
+    "maxlength": [100, "PreferredTime can not be more than 100 characters"],
+    "match": [
+      "DATE_V1",
+      "Please provide date in YYYY-MM-DD format for field :PreferredTime"
+    ]
+  },
+  "ApplicationDate": {
+    "type": "Date",
+
+    "maxlength": [10, "ApplicationDate can not be more than 10 characters"],
+    "match": [
+      "DATE_V1",
+      "Please provide date in YYYY-MM-DD format for field :ApplicationDate"
+    ]
+  }
+}

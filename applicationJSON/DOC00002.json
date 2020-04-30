@@ -1,0 +1,202 @@
+{
+  "ID": {
+    "type": "String",
+    "unique": true,
+    "required": [true, "Please add mandatory field :ID"],
+    "maxlength": [20, "ID can not be more than 20 characters"]
+  },
+  "ReferringDentist": {
+    "type": "String",
+
+    "required": [true, "Please add mandatory field :ReferringDentist"],
+    "maxlength": [50, "ReferringDentist can not be more than 50 characters"]
+  },
+  "ReferralTo": {
+    "type": "String",
+
+    "required": [true, "Please add mandatory field :ReferralTo"],
+    "maxlength": [50, "ReferralTo can not be more than 50 characters"]
+  },
+  "PatientFirstName": {
+    "type": "String",
+
+    "required": [true, "Please add mandatory field :PatientFirstName"],
+    "maxlength": [50, "PatientFirstName can not be more than 50 characters"]
+  },
+  "PostCode": {
+    "type": "String",
+
+    "required": [true, "Please add mandatory field :PostCode"],
+    "maxlength": [20, "PostCode can not be more than 20 characters"],
+    "match": [
+      "UK_POSTCODE_V1",
+      "Please provide valid UK Post Code in field :PostCode"
+    ]
+  },
+  "ContactNo": {
+    "type": "String",
+
+    "required": [true, "Please add mandatory field :ContactNo"],
+    "maxlength": [50, "ContactNo can not be more than 50 characters"]
+  },
+  "Address": {
+    "type": "String",
+
+    "required": [true, "Please add mandatory field :Address"],
+    "maxlength": [200, "Address can not be more than 200 characters"]
+  },
+  "Problem": {
+    "type": "String",
+
+    "required": [true, "Please add mandatory field :Problem"],
+    "maxlength": [500, "Problem can not be more than 500 characters"]
+  },
+  "Status": {
+    "type": "String",
+
+    "required": [true, "Please add mandatory field :Status"],
+    "maxlength": [20, "Status can not be more than 20 characters"]
+  },
+  "Attachment": {
+    "type": "String",
+
+    "maxlength": [200, "Attachment can not be more than 200 characters"]
+  },
+  "PatientLastName": {
+    "type": "String",
+
+    "required": [true, "Please add mandatory field :PatientLastName"],
+    "maxlength": [50, "PatientLastName can not be more than 50 characters"]
+  },
+  "NHS_Number": {
+    "type": "String",
+
+    "required": [true, "Please add mandatory field :NHS_Number"],
+    "maxlength": [20, "NHS_Number can not be more than 20 characters"]
+  },
+  "Patient_Email": {
+    "type": "String",
+
+    "required": [true, "Please add mandatory field :Patient_Email"],
+    "maxlength": [200, "Patient_Email can not be more than 200 characters"],
+    "match": ["EMAIL_V1", "Invalid EmailID for field :Patient_Email"]
+  },
+  "X_Ray": {
+    "type": "String",
+
+    "maxlength": [200, "X_Ray can not be more than 200 characters"]
+  },
+  "Reason": {
+    "type": "String",
+
+    "required": [true, "Please add mandatory field :Reason"],
+    "maxlength": [50, "Reason can not be more than 50 characters"]
+  },
+  "IOTN": {
+    "type": "String",
+
+    "maxlength": [200, "IOTN can not be more than 200 characters"]
+  },
+  "ReasonForReferral": {
+    "type": "String",
+
+    "required": [true, "Please add mandatory field :ReasonForReferral"],
+    "maxlength": [500, "ReasonForReferral can not be more than 500 characters"]
+  },
+  "OtherProblems": {
+    "type": "String",
+
+    "required": [true, "Please add mandatory field :OtherProblems"],
+    "maxlength": [500, "OtherProblems can not be more than 500 characters"]
+  },
+  "TreatmentOptions": {
+    "type": "String",
+
+    "maxlength": [500, "TreatmentOptions can not be more than 500 characters"]
+  },
+  "DentistEmail": {
+    "type": "String",
+
+    "required": [true, "Please add mandatory field :DentistEmail"],
+    "maxlength": [100, "DentistEmail can not be more than 100 characters"],
+    "match": ["EMAIL_V1", "Invalid EmailID for field :DentistEmail"]
+  },
+  "DentistAddress": {
+    "type": "String",
+
+    "maxlength": [200, "DentistAddress can not be more than 200 characters"]
+  },
+  "DentistPhone": {
+    "type": "String",
+
+    "required": [true, "Please add mandatory field :DentistPhone"],
+    "maxlength": [50, "DentistPhone can not be more than 50 characters"],
+    "match": [
+      "UK_PHONE_V1",
+      "Please provide valid UK Phone number in field :DentistPhone"
+    ]
+  },
+  "HouseNo": {
+    "type": "String",
+
+    "required": [true, "Please add mandatory field :HouseNo"],
+    "maxlength": [100, "HouseNo can not be more than 100 characters"]
+  },
+  "Title": {
+    "type": "String",
+
+    "maxlength": [20, "Title can not be more than 20 characters"]
+  },
+  "HomePhNo": {
+    "type": "String",
+
+    "required": [true, "Please add mandatory field :HomePhNo"],
+    "maxlength": [50, "HomePhNo can not be more than 50 characters"],
+    "match": [
+      "UK_PHONE_V1",
+      "Please provide valid UK Phone number in field :HomePhNo"
+    ]
+  },
+  "DentistName": {
+    "type": "String",
+
+    "required": [true, "Please add mandatory field :DentistName"],
+    "maxlength": [100, "DentistName can not be more than 100 characters"]
+  },
+  "ReqAppointmentDate": {
+    "type": "Date",
+
+    "maxlength": [10, "ReqAppointmentDate can not be more than 10 characters"],
+    "match": [
+      "DATE_V1",
+      "Please provide date in YYYY-MM-DD format for field :ReqAppointmentDate"
+    ]
+  },
+  "AppointmentTime": {
+    "type": "Date",
+
+    "maxlength": [50, "AppointmentTime can not be more than 50 characters"],
+    "match": [
+      "DATE_V1",
+      "Please provide date in YYYY-MM-DD format for field :AppointmentTime"
+    ]
+  },
+  "DOB": {
+    "type": "Date",
+
+    "maxlength": [10, "DOB can not be more than 10 characters"],
+    "match": [
+      "DATE_V1",
+      "Please provide date in YYYY-MM-DD format for field :DOB"
+    ]
+  },
+  "ReferralDate": {
+    "type": "Date",
+
+    "maxlength": [10, "ReferralDate can not be more than 10 characters"],
+    "match": [
+      "DATE_V1",
+      "Please provide date in YYYY-MM-DD format for field :ReferralDate"
+    ]
+  }
+}

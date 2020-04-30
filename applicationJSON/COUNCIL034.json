@@ -1,0 +1,474 @@
+{
+  "ID": {
+    "type": "String",
+    "unique": true,
+    "required": [true, "Please add mandatory field :ID"],
+    "maxlength": [20, "ID can not be more than 20 characters"]
+  },
+  "Name": {
+    "type": "String",
+
+    "maxlength": [20, "Name can not be more than 20 characters"]
+  },
+  "ContactNo": {
+    "type": "String",
+
+    "maxlength": [20, "ContactNo can not be more than 20 characters"]
+  },
+  "EmailID": {
+    "type": "String",
+
+    "required": [true, "Please add mandatory field :EmailID"],
+    "maxlength": [100, "EmailID can not be more than 100 characters"],
+    "match": ["EMAIL_V1", "Invalid EmailID for field :EmailID"]
+  },
+  "YourAddress": {
+    "type": "String",
+
+    "maxlength": [500, "YourAddress can not be more than 500 characters"]
+  },
+  "InfoAbout": {
+    "type": "String",
+
+    "maxlength": [200, "InfoAbout can not be more than 200 characters"]
+  },
+  "Attachment": {
+    "type": "String",
+
+    "maxlength": [500, "Attachment can not be more than 500 characters"]
+  },
+  "AdditionalInfo": {
+    "type": "String",
+
+    "maxlength": [1000, "AdditionalInfo can not be more than 1000 characters"]
+  },
+  "Status": {
+    "type": "String",
+
+    "required": [true, "Please add mandatory field :Status"],
+    "maxlength": [20, "Status can not be more than 20 characters"]
+  },
+  "BriefDetails": {
+    "type": "String",
+
+    "maxlength": [500, "BriefDetails can not be more than 500 characters"]
+  },
+  "SitePostcode": {
+    "type": "String",
+
+    "maxlength": [100, "SitePostcode can not be more than 100 characters"],
+    "match": [
+      "UK_POSTCODE_V1",
+      "Please provide valid UK Post Code in field :SitePostcode"
+    ]
+  },
+  "SiteAddress": {
+    "type": "String",
+
+    "maxlength": [200, "SiteAddress can not be more than 200 characters"]
+  },
+  "TheirName": {
+    "type": "String",
+
+    "maxlength": [200, "TheirName can not be more than 200 characters"]
+  },
+  "TheirAddress": {
+    "type": "String",
+
+    "maxlength": [200, "TheirAddress can not be more than 200 characters"]
+  },
+  "VehicleMake": {
+    "type": "String",
+
+    "maxlength": [200, "VehicleMake can not be more than 200 characters"]
+  },
+  "VehicleModel": {
+    "type": "String",
+
+    "maxlength": [200, "VehicleModel can not be more than 200 characters"]
+  },
+  "VehicleColour": {
+    "type": "String",
+
+    "maxlength": [50, "VehicleColour can not be more than 50 characters"]
+  },
+  "VehicleRegNo": {
+    "type": "String",
+
+    "maxlength": [50, "VehicleRegNo can not be more than 50 characters"],
+    "match": [
+      "UK_CAR_REG_V1",
+      "Please provide valid Reg Number for field : VehicleRegNo"
+    ]
+  },
+  "VehicleLocation": {
+    "type": "String",
+
+    "maxlength": [200, "VehicleLocation can not be more than 200 characters"]
+  },
+  "VehicleCondition": {
+    "type": "String",
+
+    "maxlength": [100, "VehicleCondition can not be more than 100 characters"]
+  },
+  "DevDescription": {
+    "type": "String",
+
+    "maxlength": [500, "DevDescription can not be more than 500 characters"]
+  },
+  "Q1": {
+    "type": "String",
+
+    "maxlength": [200, "Q1 can not be more than 200 characters"]
+  },
+  "Q2": {
+    "type": "String",
+
+    "maxlength": [200, "Q2 can not be more than 200 characters"]
+  },
+  "Q3": {
+    "type": "String",
+
+    "maxlength": [200, "Q3 can not be more than 200 characters"]
+  },
+  "Q4": {
+    "type": "String",
+
+    "maxlength": [200, "Q4 can not be more than 200 characters"]
+  },
+  "Q5": {
+    "type": "String",
+
+    "maxlength": [200, "Q5 can not be more than 200 characters"]
+  },
+  "Q6": {
+    "type": "String",
+
+    "maxlength": [200, "Q6 can not be more than 200 characters"]
+  },
+  "Q7": {
+    "type": "String",
+
+    "maxlength": [200, "Q7 can not be more than 200 characters"]
+  },
+  "Q8": {
+    "type": "String",
+
+    "maxlength": [200, "Q8 can not be more than 200 characters"]
+  },
+  "Q9": {
+    "type": "String",
+
+    "maxlength": [200, "Q9 can not be more than 200 characters"]
+  },
+  "Q10": {
+    "type": "String",
+
+    "maxlength": [200, "Q10 can not be more than 200 characters"]
+  },
+  "Q11": {
+    "type": "String",
+
+    "maxlength": [200, "Q11 can not be more than 200 characters"]
+  },
+  "A1": {
+    "type": "String",
+
+    "maxlength": [200, "A1 can not be more than 200 characters"]
+  },
+  "A2": {
+    "type": "String",
+
+    "maxlength": [200, "A2 can not be more than 200 characters"]
+  },
+  "A3": {
+    "type": "String",
+
+    "maxlength": [200, "A3 can not be more than 200 characters"]
+  },
+  "A4": {
+    "type": "String",
+
+    "maxlength": [200, "A4 can not be more than 200 characters"]
+  },
+  "A5": {
+    "type": "String",
+
+    "maxlength": [200, "A5 can not be more than 200 characters"]
+  },
+  "A6": {
+    "type": "String",
+
+    "maxlength": [200, "A6 can not be more than 200 characters"]
+  },
+  "A7": {
+    "type": "String",
+
+    "maxlength": [200, "A7 can not be more than 200 characters"]
+  },
+  "A8": {
+    "type": "String",
+
+    "maxlength": [200, "A8 can not be more than 200 characters"]
+  },
+  "A9": {
+    "type": "String",
+
+    "maxlength": [200, "A9 can not be more than 200 characters"]
+  },
+  "A10": {
+    "type": "String",
+
+    "maxlength": [200, "A10 can not be more than 200 characters"]
+  },
+  "A11": {
+    "type": "String",
+
+    "maxlength": [500, "A11 can not be more than 500 characters"]
+  },
+  "Q12": {
+    "type": "String",
+
+    "maxlength": [200, "Q12 can not be more than 200 characters"]
+  },
+  "AgentName": {
+    "type": "String",
+
+    "maxlength": [50, "AgentName can not be more than 50 characters"]
+  },
+  "AgentAddress": {
+    "type": "String",
+
+    "maxlength": [200, "AgentAddress can not be more than 200 characters"]
+  },
+  "AgentPhNo": {
+    "type": "String",
+
+    "maxlength": [20, "AgentPhNo can not be more than 20 characters"],
+    "match": [
+      "UK_PHONE_V1",
+      "Please provide valid UK Phone number in field :AgentPhNo"
+    ]
+  },
+  "ApplicationNo": {
+    "type": "String",
+
+    "maxlength": [20, "ApplicationNo can not be more than 20 characters"]
+  },
+  "WorkDesc": {
+    "type": "String",
+
+    "maxlength": [200, "WorkDesc can not be more than 200 characters"]
+  },
+  "BuilderName": {
+    "type": "String",
+
+    "required": [true, "Please add mandatory field :BuilderName"],
+    "maxlength": [200, "BuilderName can not be more than 200 characters"]
+  },
+  "CompanyName": {
+    "type": "String",
+
+    "maxlength": [200, "CompanyName can not be more than 200 characters"],
+    "match": [
+      "UK_COMPANYNAME_V1",
+      "Please provide valid company name in field :CompanyName"
+    ]
+  },
+  "BuilderAddress": {
+    "type": "String",
+
+    "maxlength": [200, "BuilderAddress can not be more than 200 characters"]
+  },
+  "BuilderPhNo": {
+    "type": "String",
+
+    "maxlength": [20, "BuilderPhNo can not be more than 20 characters"],
+    "match": [
+      "UK_PHONE_V1",
+      "Please provide valid UK Phone number in field :BuilderPhNo"
+    ]
+  },
+  "BuilderEmail": {
+    "type": "String",
+
+    "required": [true, "Please add mandatory field :BuilderEmail"],
+    "maxlength": [50, "BuilderEmail can not be more than 50 characters"],
+    "match": ["EMAIL_V1", "Invalid EmailID for field :BuilderEmail"]
+  },
+  "NoticePeriod": {
+    "type": "String",
+
+    "maxlength": [500, "NoticePeriod can not be more than 500 characters"]
+  },
+  "Note": {
+    "type": "String",
+
+    "maxlength": [500, "Note can not be more than 500 characters"]
+  },
+  "BreachType": {
+    "type": "String",
+
+    "required": [true, "Please add mandatory field :BreachType"],
+    "maxlength": [200, "BreachType can not be more than 200 characters"]
+  },
+  "BreachLocation": {
+    "type": "String",
+
+    "maxlength": [200, "BreachLocation can not be more than 200 characters"]
+  },
+  "PropertyType": {
+    "type": "String",
+
+    "required": [true, "Please add mandatory field :PropertyType"],
+    "maxlength": [200, "PropertyType can not be more than 200 characters"]
+  },
+  "Q13": {
+    "type": "String",
+
+    "maxlength": [200, "Q13 can not be more than 200 characters"]
+  },
+  "Q14": {
+    "type": "String",
+
+    "maxlength": [200, "Q14 can not be more than 200 characters"]
+  },
+  "Q15": {
+    "type": "String",
+
+    "maxlength": [200, "Q15 can not be more than 200 characters"]
+  },
+  "Q16": {
+    "type": "String",
+
+    "maxlength": [200, "Q16 can not be more than 200 characters"]
+  },
+  "Q17": {
+    "type": "String",
+
+    "maxlength": [200, "Q17 can not be more than 200 characters"]
+  },
+  "A13": {
+    "type": "String",
+
+    "maxlength": [200, "A13 can not be more than 200 characters"]
+  },
+  "A14": {
+    "type": "String",
+
+    "maxlength": [200, "A14 can not be more than 200 characters"]
+  },
+  "A15": {
+    "type": "String",
+
+    "maxlength": [200, "A15 can not be more than 200 characters"]
+  },
+  "A16": {
+    "type": "String",
+
+    "maxlength": [200, "A16 can not be more than 200 characters"]
+  },
+  "A17": {
+    "type": "String",
+
+    "maxlength": [200, "A17 can not be more than 200 characters"]
+  },
+  "ProblemDetails": {
+    "type": "String",
+
+    "maxlength": [500, "ProblemDetails can not be more than 500 characters"]
+  },
+  "PAddress": {
+    "type": "String",
+
+    "maxlength": [200, "PAddress can not be more than 200 characters"]
+  },
+  "Approver": {
+    "type": "String",
+
+    "maxlength": [500, "Approver can not be more than 500 characters"]
+  },
+  "ProcessingLog": {
+    "type": "String",
+
+    "maxlength": [1000, "ProcessingLog can not be more than 1000 characters"]
+  },
+  "Question_Response": {
+    "type": "String",
+
+    "maxlength": [500, "Question_Response can not be more than 500 characters"]
+  },
+  "ReportDate": {
+    "type": "Date",
+
+    "maxlength": [10, "ReportDate can not be more than 10 characters"],
+    "match": [
+      "DATE_V1",
+      "Please provide date in YYYY-MM-DD format for field :ReportDate"
+    ]
+  },
+  "CommDate": {
+    "type": "Date",
+
+    "maxlength": [10, "CommDate can not be more than 10 characters"],
+    "match": [
+      "DATE_V1",
+      "Please provide date in YYYY-MM-DD format for field :CommDate"
+    ]
+  },
+  "InspDate": {
+    "type": "Date",
+
+    "maxlength": [10, "InspDate can not be more than 10 characters"],
+    "match": [
+      "DATE_V1",
+      "Please provide date in YYYY-MM-DD format for field :InspDate"
+    ]
+  },
+  "BreachDate": {
+    "type": "Date",
+
+    "maxlength": [10, "BreachDate can not be more than 10 characters"],
+    "match": [
+      "DATE_V1",
+      "Please provide date in YYYY-MM-DD format for field :BreachDate"
+    ]
+  },
+  "A12": {
+    "type": "Date",
+
+    "maxlength": [10, "A12 can not be more than 10 characters"],
+    "match": [
+      "DATE_V1",
+      "Please provide date in YYYY-MM-DD format for field :A12"
+    ]
+  },
+  "BreachTime": {
+    "type": "Date",
+
+    "maxlength": [10, "BreachTime can not be more than 10 characters"],
+    "match": [
+      "DATE_V1",
+      "Please provide date in YYYY-MM-DD format for field :BreachTime"
+    ]
+  },
+  "IncidentDate": {
+    "type": "Date",
+
+    "required": [true, "Please add mandatory field :IncidentDate"],
+    "maxlength": [10, "IncidentDate can not be more than 10 characters"],
+    "match": [
+      "DATE_V1",
+      "Please provide date in YYYY-MM-DD format for field :IncidentDate"
+    ]
+  },
+  "IncidentTime": {
+    "type": "Date",
+
+    "maxlength": [10, "IncidentTime can not be more than 10 characters"],
+    "match": [
+      "DATE_V1",
+      "Please provide date in YYYY-MM-DD format for field :IncidentTime"
+    ]
+  }
+}

@@ -88,6 +88,7 @@ app.use("/api/v1/validationrule", require("./routes/appSetup/validationrules"));
 app.use("/api/v1/cards", require("./routes/cards/cards"));
 app.use("/api/v1/smartapps", require("./routes/smartApp/smartapps"));
 app.use("/api/v1/datarecords", require("./routes/smartApp/datarecords"));
+app.use("/api/v1/listrecords", require("./routes/smartApp/listrecords"));
 
 app.use(errorHandler);
 

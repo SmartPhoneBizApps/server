@@ -1,0 +1,423 @@
+{
+  "Identification": { "Object": "COUNCIL003", "PartnerNo": "SmartPhone" },
+  "ApplicationControls": {
+    "CreateNewItems": true,
+    "CreateNewFields": [
+      { "Field": "ID", "Attr": { "Attribute": "D" } },
+      { "Field": "YourName", "Attr": { "Attribute": "E" } },
+      { "Field": "Address", "Attr": { "Attribute": "E" } },
+      { "Field": "PostCode", "Attr": { "Attribute": "E" } },
+      { "Field": "ContactNo", "Attr": { "Attribute": "E" } },
+      { "Field": "EmailID", "Attr": { "Attribute": "E" } },
+      { "Field": "PropertyAddress", "Attr": { "Attribute": "E" } },
+      { "Field": "NoOfFlats", "Attr": { "Attribute": "E" } },
+      { "Field": "Count", "Attr": { "Attribute": "E" } },
+      { "Field": "Caretaker", "Attr": { "Attribute": "E" } },
+      { "Field": "RequiredDate", "Attr": { "Attribute": "E" } },
+      { "Field": "AdditionalInfo", "Attr": { "Attribute": "E" } },
+      { "Field": "Status", "Attr": { "Attribute": "E" } },
+      { "Field": "MobileNo", "Attr": { "Attribute": "E" } }
+    ],
+    "PossibleValue": true,
+    "PossibleValueFields": ["Status"],
+    "AttachmentFunction": false,
+    "ServerUpdate": true,
+    "ColorCoding": true,
+    "ColorCodedFields": ["Status"],
+    "ApplicationFilters": [],
+    "ReadGeoCode": false,
+    "GoogleMap": true,
+    "GoogleMapTab": "Tab3",
+    "MapFields": ["Address", "PostCode"],
+    "SimpleValFileUpload": true,
+    "CalculatedFieldsItem": [],
+    "CalculatedFieldsHeaderItem": [],
+    "CalculatedFieldsHeader": [],
+    "RecordDownload": false,
+    "CurrencySymbol": "",
+    "BOTSetup": [],
+    "FieldLabel": "SLabel",
+    "PDFDownload": "",
+    "ViewDesktopType": true,
+    "ConfirmationEmail": "",
+    "FileUpload": "",
+    "DupChkUpload": []
+  },
+  "ListScreenControls": [],
+  "Filters": {
+    "Sorting": {
+      "DataField": [
+        "ID",
+        "YourName",
+        "Address",
+        "PostCode",
+        "ContactNo",
+        "EmailID",
+        "PropertyAddress",
+        "NoOfFlats",
+        "Count",
+        "Caretaker",
+        "RequiredDate",
+        "AdditionalInfo",
+        "Status"
+      ]
+    },
+    "DateFilter": {
+      "DataField": "RequiredDate",
+      "Sequence": "2",
+      "Options": [
+        "In Last 1 day",
+        "In Last 3 day",
+        "In Last 7 day",
+        "In Last 15 day",
+        "In Last 30 day",
+        "In Next 30 day"
+      ]
+    },
+    "DataFilter": []
+  },
+  "Graph": {
+    "Dimension": [
+      {
+        "DropDownValue": "NoOfFlats",
+        "Title": "Analysis based on Document Number Of Flats"
+      },
+      {
+        "DropDownValue": "NoOfFlats",
+        "Title": "Analysis based on Document Number Of Flats"
+      }
+    ],
+    "KeyFigures": [
+      {
+        "DropDownValue": "Number of Record",
+        "Action": "Count",
+        "DataField": "ID",
+        "SLabel": "Identification"
+      },
+      {
+        "DropDownValue": "Number of Record",
+        "Action": "Count",
+        "DataField": "ID",
+        "SLabel": "Identification"
+      },
+      {
+        "DropDownValue": "Number of Record",
+        "Action": "Count",
+        "DataField": "ID",
+        "SLabel": "Identification"
+      },
+      {
+        "DropDownValue": "Number of Record",
+        "Action": "Count",
+        "DataField": "ID",
+        "SLabel": "Identification"
+      }
+    ]
+  },
+  "DetailPageControl": {
+    "DetailPageTab": "Active",
+    "TabDetails": [
+      [
+        {
+          "value": "Tab1",
+          "name": "Property Details",
+          "type": "Field",
+          "fioriicon": "notes",
+          "download": "No"
+        },
+        {
+          "value": "Tab2",
+          "name": "Your Details",
+          "type": "Field",
+          "fioriicon": "notes",
+          "download": "Yes"
+        },
+        {
+          "value": "Tab3",
+          "name": "Map",
+          "type": "Field",
+          "fioriicon": "map",
+          "download": "Yes"
+        },
+        {
+          "value": "Tab1",
+          "name": "Property Details",
+          "type": "Field",
+          "fioriicon": "notes",
+          "download": "No"
+        },
+        {
+          "value": "Tab2",
+          "name": "Your Details",
+          "type": "Field",
+          "fioriicon": "notes",
+          "download": "Yes"
+        },
+        {
+          "value": "Tab3",
+          "name": "Map",
+          "type": "Field",
+          "fioriicon": "map",
+          "download": "Yes"
+        }
+      ]
+    ]
+  },
+  "Title": {
+    "ApplicationTitle": "Apply for mini recycling centre for flats",
+    "DetailTitle": "Apply for mini recycling centre for flats"
+  },
+  "FieldDefinition": {
+    "FieldDefinition": [
+      {
+        "name": "ID",
+        "type": "string",
+        "width": "20",
+        "Option": "",
+        "SLabel": "Identification",
+        "LLabel": "",
+        "Currency": "No"
+      },
+      {
+        "name": "YourName",
+        "type": "string",
+        "width": "50",
+        "Option": "",
+        "SLabel": "Your Name",
+        "LLabel": "",
+        "Currency": "No"
+      },
+      {
+        "name": "Address",
+        "type": "string",
+        "width": "500",
+        "Option": "",
+        "SLabel": "Your Address",
+        "LLabel": "",
+        "Currency": "No"
+      },
+      {
+        "name": "PostCode",
+        "type": "string",
+        "width": "10",
+        "Option": "",
+        "SLabel": "Postal Code",
+        "LLabel": "",
+        "Currency": "No"
+      },
+      {
+        "name": "ContactNo",
+        "type": "string",
+        "width": "20",
+        "Option": "",
+        "SLabel": "Contact Number",
+        "LLabel": "",
+        "Currency": "No"
+      },
+      {
+        "name": "EmailID",
+        "type": "string",
+        "width": "20",
+        "Option": "",
+        "SLabel": "Email ID",
+        "LLabel": "",
+        "Currency": "No"
+      },
+      {
+        "name": "PropertyAddress",
+        "type": "string",
+        "width": "500",
+        "Option": "",
+        "SLabel": "Property Address",
+        "LLabel": "Property Address",
+        "Currency": "No"
+      },
+      {
+        "name": "NoOfFlats",
+        "type": "string",
+        "width": "10",
+        "Option": "",
+        "SLabel": "Number Of Flats",
+        "LLabel": "",
+        "Currency": "No"
+      },
+      {
+        "name": "Count",
+        "type": "string",
+        "width": "100",
+        "Option": "",
+        "SLabel": "Count",
+        "LLabel": "",
+        "Currency": "No"
+      },
+      {
+        "name": "Caretaker",
+        "type": "string",
+        "width": "500",
+        "Option": "",
+        "SLabel": "Care Taker",
+        "LLabel": "",
+        "Currency": "No"
+      },
+      {
+        "name": "RequiredDate",
+        "type": "Date",
+        "width": "10",
+        "Option": "",
+        "SLabel": "Required Date",
+        "LLabel": "",
+        "Currency": "No"
+      },
+      {
+        "name": "AdditionalInfo",
+        "type": "string",
+        "width": "1000",
+        "Option": "",
+        "SLabel": "Additional Information",
+        "LLabel": "",
+        "Currency": "No"
+      },
+      {
+        "name": "Status",
+        "type": "string",
+        "width": "20",
+        "Option": "",
+        "SLabel": "Request Status",
+        "LLabel": "Request Status",
+        "Currency": "No"
+      },
+      {
+        "name": "MobileNo",
+        "type": "string",
+        "width": "20",
+        "Option": "",
+        "SLabel": "Mobile No",
+        "LLabel": "Mobile No",
+        "Currency": "No"
+      },
+      {
+        "name": "Latitude",
+        "type": "Geocode",
+        "width": "50",
+        "Option": "",
+        "SLabel": "Latitude",
+        "LLabel": "",
+        "Currency": "No"
+      },
+      {
+        "name": "Longitude",
+        "type": "Geocode",
+        "width": "50",
+        "Option": "",
+        "SLabel": "Longitude",
+        "LLabel": "",
+        "Currency": "No"
+      }
+    ]
+  },
+  "ListField": {
+    "ListField": [
+      { "name": "ID", "ListField": "Display", "Sequence": "1" },
+      { "name": "YourName", "ListField": "Display", "Sequence": "2" },
+      { "name": "ContactNo", "ListField": "Display", "Sequence": "3" },
+      { "name": "EmailID", "ListField": "Display", "Sequence": "4" },
+      { "name": "PostCode", "ListField": "Display", "Sequence": "1" },
+      { "name": "RequiredDate", "ListField": "Display", "Sequence": "1" },
+      { "name": "Status", "ListField": "Display", "Sequence": "1" },
+      { "name": "Address", "ListField": "Display", "Sequence": "1" }
+    ]
+  },
+  "DetailScreen": {
+    "DetailScreen": [
+      { "name": "ID", "Tab": "None", "Sequence": "1", "Mode": "Display" },
+      { "name": "Address", "Tab": "Tab2", "Sequence": "3", "Mode": "Edit" },
+      { "name": "PostCode", "Tab": "Tab2", "Sequence": "4", "Mode": "Edit" },
+      { "name": "ContactNo", "Tab": "None", "Sequence": "5", "Mode": "Edit" },
+      { "name": "EmailID", "Tab": "Tab2", "Sequence": "6", "Mode": "Edit" },
+      {
+        "name": "PropertyAddress",
+        "Tab": "Tab1",
+        "Sequence": "7",
+        "Mode": "Edit"
+      },
+      { "name": "NoOfFlats", "Tab": "Tab1", "Sequence": "8", "Mode": "Edit" },
+      { "name": "Count", "Tab": "Tab1", "Sequence": "9", "Mode": "Edit" },
+      { "name": "Caretaker", "Tab": "Tab1", "Sequence": "10", "Mode": "Edit" },
+      {
+        "name": "RequiredDate",
+        "Tab": "Tab1",
+        "Sequence": "11",
+        "Mode": "Edit"
+      },
+      {
+        "name": "AdditionalInfo",
+        "Tab": "Tab1",
+        "Sequence": "12",
+        "Mode": "Edit"
+      },
+      { "name": "YourName", "Tab": "Tab1", "Sequence": "1", "Mode": "Edit" },
+      { "name": "Status", "Tab": "None", "Sequence": "1", "Mode": "Edit" },
+      { "name": "MobileNo", "Tab": "Tab2", "Sequence": "1", "Mode": "Edit" }
+    ]
+  },
+  "Item": [],
+  "WizardStep": [
+    {
+      "id": "Step1",
+      "name": "Request Details",
+      "stepType": "FieldList",
+      "intro": "Mini Recycling center(Flats) : Request Details",
+      "fields": [{ "name": "AdditionalInfo", "Sequence": "1", "Mode": "Edit" }]
+    },
+    {
+      "id": "Step2",
+      "fields": [
+        { "name": "YourName", "Sequence": "1", "Mode": "Edit" },
+        { "name": "EmailID", "Sequence": "1", "Mode": "Edit" },
+        { "name": "ContactNo", "Sequence": "1", "Mode": "Edit" },
+        { "name": "Caretaker", "Sequence": "1", "Mode": "Edit" }
+      ],
+      "name": "Contact Details",
+      "stepType": "FieldList",
+      "intro": "Mini Recycling center(Flats) : Contact Details"
+    },
+    {
+      "id": "Step3",
+      "fields": [
+        { "name": "PropertyAddress", "Sequence": "1", "Mode": "Edit" },
+        { "name": "Address", "Sequence": "1", "Mode": "Edit" },
+        { "name": "PostCode", "Sequence": "1", "Mode": "Edit" }
+      ],
+      "name": "Address",
+      "stepType": "FieldList",
+      "intro": "Mini Recycling center(Flats) : Address"
+    },
+    {
+      "id": "Step4",
+      "fields": [
+        { "name": "Count", "Sequence": "1", "Mode": "Edit" },
+        { "name": "NoOfFlats", "Sequence": "1", "Mode": "Edit" }
+      ],
+      "name": "Additional Details",
+      "stepType": "FieldList",
+      "intro": "Mini Recycling center(Flats) : Additional Details"
+    },
+    {
+      "id": "Step5",
+      "fields": [{ "name": "RequiredDate", "Sequence": "1", "Mode": "Edit" }],
+      "name": "Dates",
+      "stepType": "FieldList",
+      "intro": "Mini Recycling center(Flats) : Dates"
+    },
+    {
+      "id": "Step6",
+      "fields": [
+        { "name": "Status", "Sequence": "1", "Mode": "Edit" },
+        { "name": "MobileNo", "Sequence": "1", "Mode": "Edit" }
+      ],
+      "name": "Admin",
+      "stepType": "FieldList",
+      "intro": "Mini Recycling center(Flats) : Admin"
+    }
+  ]
+}

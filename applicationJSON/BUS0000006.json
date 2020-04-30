@@ -1,0 +1,71 @@
+{
+  "ID": {
+    "type": "String",
+    "unique": true,
+    "required": [true, "Please add mandatory field :ID"],
+    "maxlength": [20, "ID can not be more than 20 characters"]
+  },
+  "Status": {
+    "type": "String",
+
+    "required": [true, "Please add mandatory field :Status"],
+    "maxlength": [20, "Status can not be more than 20 characters"]
+  },
+  "Name": {
+    "type": "String",
+
+    "maxlength": [50, "Name can not be more than 50 characters"]
+  },
+  "Email": {
+    "type": "String",
+
+    "required": [true, "Please add mandatory field :Email"],
+    "maxlength": [50, "Email can not be more than 50 characters"],
+    "match": ["EMAIL_V1", "Invalid EmailID for field :Email"]
+  },
+  "Phone": {
+    "type": "String",
+
+    "required": [true, "Please add mandatory field :Phone"],
+    "maxlength": [20, "Phone can not be more than 20 characters"],
+    "match": [
+      "UK_PHONE_V1",
+      "Please provide valid UK Phone number in field :Phone"
+    ]
+  },
+  "Supervisor": {
+    "type": "String",
+
+    "maxlength": [50, "Supervisor can not be more than 50 characters"]
+  },
+  "AgainstWhom": {
+    "type": "String",
+
+    "maxlength": [100, "AgainstWhom can not be more than 100 characters"]
+  },
+  "DescribeIncident": {
+    "type": "String",
+
+    "required": [true, "Please add mandatory field :DescribeIncident"],
+    "maxlength": [200, "DescribeIncident can not be more than 200 characters"]
+  },
+  "AdditionalComments": {
+    "type": "String",
+
+    "maxlength": [500, "AdditionalComments can not be more than 500 characters"]
+  },
+  "SupervisorComment": {
+    "type": "String",
+
+    "maxlength": [500, "SupervisorComment can not be more than 500 characters"]
+  },
+  "DateOfComplaint": {
+    "type": "Date",
+
+    "maxlength": [10, "DateOfComplaint can not be more than 10 characters"],
+    "match": [
+      "DATE_V1",
+      "Please provide date in YYYY-MM-DD format for field :DateOfComplaint"
+    ]
+  }
+}

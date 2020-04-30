@@ -7,12 +7,12 @@
   },
   "StudyLevel": {
     "type": "String",
-    "unique": false,
+
     "maxlength": [200, "StudyLevel can not be more than 200 characters"]
   },
   "ApplicableStudyYear": {
     "type": "String",
-    "unique": false,
+
     "maxlength": [
       200,
       "ApplicableStudyYear can not be more than 200 characters"
@@ -20,38 +20,38 @@
   },
   "Subject": {
     "type": "String",
-    "unique": false,
+
     "maxlength": [200, "Subject can not be more than 200 characters"]
   },
   "BookTitle": {
     "type": "String",
-    "unique": false,
+
     "maxlength": [500, "BookTitle can not be more than 500 characters"]
   },
   "Author": {
     "type": "String",
-    "unique": false,
+
     "maxlength": [500, "Author can not be more than 500 characters"]
   },
   "ISBN": {
     "type": "String",
-    "unique": false,
+
     "maxlength": [50, "ISBN can not be more than 50 characters"]
   },
   "Language": {
     "type": "String",
-    "unique": false,
+
     "maxlength": [20, "Language can not be more than 20 characters"]
   },
   "Status": {
     "type": "String",
-    "unique": false,
+
     "required": [true, "Please add mandatory field :Status"],
     "maxlength": [100, "Status can not be more than 100 characters"]
   },
   "AvailableQuantity": {
     "type": "Number",
-    "unique": false,
+
     "maxlength": [10, "AvailableQuantity can not be more than 10 characters"],
     "match": [
       "NUM_INT_MAX_10D_V1",
@@ -60,7 +60,7 @@
   },
   "Date": {
     "type": "Date",
-    "unique": false,
+
     "required": [true, "Please add mandatory field :Date"],
     "maxlength": [10, "Date can not be more than 10 characters"],
     "match": [

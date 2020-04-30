@@ -1,0 +1,69 @@
+{
+  "ID": {
+    "type": "String",
+    "unique": true,
+    "required": [true, "Please add mandatory field :ID"],
+    "maxlength": [20, "ID can not be more than 20 characters"]
+  },
+  "Status": {
+    "type": "String",
+
+    "required": [true, "Please add mandatory field :Status"],
+    "maxlength": [20, "Status can not be more than 20 characters"]
+  },
+  "YourName": {
+    "type": "String",
+
+    "required": [true, "Please add mandatory field :YourName"],
+    "maxlength": [50, "YourName can not be more than 50 characters"]
+  },
+  "YourEmail": {
+    "type": "String",
+
+    "required": [true, "Please add mandatory field :YourEmail"],
+    "maxlength": [50, "YourEmail can not be more than 50 characters"],
+    "match": ["EMAIL_V1", "Invalid EmailID for field :YourEmail"]
+  },
+  "YourPhone": {
+    "type": "String",
+
+    "required": [true, "Please add mandatory field :YourPhone"],
+    "maxlength": [20, "YourPhone can not be more than 20 characters"],
+    "match": [
+      "UK_PHONE_V1",
+      "Please provide valid UK Phone number in field :YourPhone"
+    ]
+  },
+  "YourDepartment": {
+    "type": "String",
+
+    "maxlength": [50, "YourDepartment can not be more than 50 characters"]
+  },
+  "YourBusiness": {
+    "type": "String",
+
+    "required": [true, "Please add mandatory field :YourBusiness"],
+    "maxlength": [50, "YourBusiness can not be more than 50 characters"]
+  },
+  "Subject": {
+    "type": "String",
+
+    "maxlength": [100, "Subject can not be more than 100 characters"]
+  },
+  "YourMessage": {
+    "type": "String",
+
+    "required": [true, "Please add mandatory field :YourMessage"],
+    "maxlength": [1000, "YourMessage can not be more than 1000 characters"]
+  },
+  "ContactDate": {
+    "type": "Date",
+
+    "required": [true, "Please add mandatory field :ContactDate"],
+    "maxlength": [10, "ContactDate can not be more than 10 characters"],
+    "match": [
+      "DATE_V1",
+      "Please provide date in YYYY-MM-DD format for field :ContactDate"
+    ]
+  }
+}

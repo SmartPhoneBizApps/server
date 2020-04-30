@@ -1,0 +1,127 @@
+{
+  "ID": {
+    "type": "String",
+    "unique": true,
+    "required": [true, "Please add mandatory field :ID"],
+    "maxlength": [20, "ID can not be more than 20 characters"]
+  },
+  "RequesterName": {
+    "type": "String",
+
+    "required": [true, "Please add mandatory field :RequesterName"],
+    "maxlength": [50, "RequesterName can not be more than 50 characters"]
+  },
+  "RequesterPosition": {
+    "type": "String",
+
+    "maxlength": [50, "RequesterPosition can not be more than 50 characters"]
+  },
+  "Division": {
+    "type": "String",
+
+    "maxlength": [50, "Division can not be more than 50 characters"]
+  },
+  "RequesterUserID": {
+    "type": "String",
+
+    "required": [true, "Please add mandatory field :RequesterUserID"],
+    "maxlength": [20, "RequesterUserID can not be more than 20 characters"]
+  },
+  "AccountType": {
+    "type": "String",
+
+    "required": [true, "Please add mandatory field :AccountType"],
+    "maxlength": [20, "AccountType can not be more than 20 characters"]
+  },
+  "Details": {
+    "type": "String",
+
+    "maxlength": [200, "Details can not be more than 200 characters"]
+  },
+  "ApproverName": {
+    "type": "String",
+
+    "maxlength": [50, "ApproverName can not be more than 50 characters"]
+  },
+  "ApproverUserID": {
+    "type": "String",
+
+    "maxlength": [20, "ApproverUserID can not be more than 20 characters"]
+  },
+  "ApproverComments": {
+    "type": "String",
+
+    "maxlength": [500, "ApproverComments can not be more than 500 characters"]
+  },
+  "ApproverPosition": {
+    "type": "String",
+
+    "maxlength": [50, "ApproverPosition can not be more than 50 characters"]
+  },
+  "CopyUserID": {
+    "type": "String",
+
+    "maxlength": [20, "CopyUserID can not be more than 20 characters"]
+  },
+  "RequestedRoles": {
+    "type": "String",
+
+    "maxlength": [1000, "RequestedRoles can not be more than 1000 characters"]
+  },
+  "Systems": {
+    "type": "String",
+
+    "maxlength": [100, "Systems can not be more than 100 characters"]
+  },
+  "Client": {
+    "type": "String",
+
+    "maxlength": [10, "Client can not be more than 10 characters"]
+  },
+  "Status": {
+    "type": "String",
+
+    "required": [true, "Please add mandatory field :Status"],
+    "maxlength": [20, "Status can not be more than 20 characters"]
+  },
+  "UserAccount": {
+    "type": "String",
+
+    "maxlength": [20, "UserAccount can not be more than 20 characters"]
+  },
+  "Signature": {
+    "type": "String",
+
+    "maxlength": [50, "Signature can not be more than 50 characters"]
+  },
+  "StartDate": {
+    "type": "Date",
+
+    "required": [true, "Please add mandatory field :StartDate"],
+    "maxlength": [10, "StartDate can not be more than 10 characters"]
+  },
+  "ExpiryDate": {
+    "type": "Date",
+
+    "maxlength": [10, "ExpiryDate can not be more than 10 characters"],
+    "match": [
+      "DATE_V1",
+      "Please provide date in YYYY-MM-DD format for field :ExpiryDate"
+    ]
+  },
+  "ApprovalDate": {
+    "type": "Date",
+
+    "maxlength": [10, "ApprovalDate can not be more than 10 characters"],
+    "match": [
+      "DATE_V1",
+      "Please provide date in YYYY-MM-DD format for field :ApprovalDate"
+    ]
+  },
+  "RequestedDate": {
+    "type": "Date",
+
+    "required": [true, "Please add mandatory field :RequestedDate"],
+    "maxlength": [10, "RequestedDate can not be more than 10 characters"]
+  }
+}

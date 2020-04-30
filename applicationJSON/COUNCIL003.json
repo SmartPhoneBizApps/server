@@ -1,0 +1,116 @@
+{
+  "ID": {
+    "type": "String",
+    "unique": true,
+    "required": [true, "Please add mandatory field :ID"],
+    "maxlength": [20, "ID can not be more than 20 characters"]
+  },
+  "YourName": {
+    "type": "String",
+
+    "maxlength": [50, "YourName can not be more than 50 characters"]
+  },
+  "Address": {
+    "type": "String",
+
+    "required": [true, "Please add mandatory field :Address"],
+    "maxlength": [500, "Address can not be more than 500 characters"]
+  },
+  "PostCode": {
+    "type": "String",
+
+    "required": [true, "Please add mandatory field :PostCode"],
+    "maxlength": [10, "PostCode can not be more than 10 characters"],
+    "match": [
+      "UK_POSTCODE_V1",
+      "Please provide valid UK Post Code in field :PostCode"
+    ]
+  },
+  "ContactNo": {
+    "type": "String",
+
+    "maxlength": [20, "ContactNo can not be more than 20 characters"]
+  },
+  "EmailID": {
+    "type": "String",
+
+    "required": [true, "Please add mandatory field :EmailID"],
+    "maxlength": [20, "EmailID can not be more than 20 characters"],
+    "match": ["EMAIL_V1", "Invalid EmailID for field :EmailID"]
+  },
+  "PropertyAddress": {
+    "type": "String",
+
+    "maxlength": [500, "PropertyAddress can not be more than 500 characters"]
+  },
+  "Caretaker": {
+    "type": "String",
+
+    "maxlength": [500, "Caretaker can not be more than 500 characters"]
+  },
+  "AdditionalInfo": {
+    "type": "String",
+
+    "maxlength": [1000, "AdditionalInfo can not be more than 1000 characters"]
+  },
+  "Status": {
+    "type": "String",
+
+    "required": [true, "Please add mandatory field :Status"],
+    "maxlength": [20, "Status can not be more than 20 characters"]
+  },
+  "MobileNo": {
+    "type": "String",
+
+    "required": [true, "Please add mandatory field :MobileNo"],
+    "maxlength": [20, "MobileNo can not be more than 20 characters"],
+    "match": [
+      "UK_MOBILE_V1",
+      "Please provide valid UK Mobile number in field : MobileNo"
+    ]
+  },
+  "Latitude": {
+    "type": "String",
+
+    "maxlength": [50, "Latitude can not be more than 50 characters"],
+    "match": ["LATITUDE_V1", "Invalid Lat/Long values for field :Latitude"]
+  },
+  "Longitude": {
+    "type": "String",
+
+    "maxlength": [50, "Longitude can not be more than 50 characters"],
+    "match": ["LONGITUDE_V1", "Invalid Lat/Long values for field :Longitude"]
+  },
+  "YourAddress": {
+    "type": "String",
+
+    "maxlength": [500, "YourAddress can not be more than 500 characters"]
+  },
+  "NoOfFlats": {
+    "type": "Number",
+
+    "maxlength": [10, "NoOfFlats can not be more than 10 characters"],
+    "match": [
+      "NUM_INT_MAX_10D_V1",
+      "Please provide an Integer value for field :NoOfFlats"
+    ]
+  },
+  "Count": {
+    "type": "Number",
+
+    "maxlength": [100, "Count can not be more than 100 characters"],
+    "match": [
+      "NUM_INT_MAX_10D_V1",
+      "Please provide an Integer value for field :Count"
+    ]
+  },
+  "RequiredDate": {
+    "type": "Date",
+
+    "maxlength": [10, "RequiredDate can not be more than 10 characters"],
+    "match": [
+      "DATE_V1",
+      "Please provide date in YYYY-MM-DD format for field :RequiredDate"
+    ]
+  }
+}

@@ -1,0 +1,109 @@
+{
+  "ID": {
+    "type": "String",
+    "unique": true,
+    "required": [true, "Please add mandatory field :ID"],
+    "maxlength": [20, "ID can not be more than 20 characters"]
+  },
+  "Name": {
+    "type": "String",
+
+    "maxlength": [50, "Name can not be more than 50 characters"]
+  },
+  "Email": {
+    "type": "String",
+
+    "required": [true, "Please add mandatory field :Email"],
+    "maxlength": [50, "Email can not be more than 50 characters"],
+    "match": ["EMAIL_V1", "Invalid EmailID for field :Email"]
+  },
+  "Phone": {
+    "type": "String",
+
+    "required": [true, "Please add mandatory field :Phone"],
+    "maxlength": [20, "Phone can not be more than 20 characters"],
+    "match": [
+      "UK_PHONE_V1",
+      "Please provide valid UK Phone number in field :Phone"
+    ]
+  },
+  "UserAccount": {
+    "type": "String",
+
+    "maxlength": [20, "UserAccount can not be more than 20 characters"]
+  },
+  "From": {
+    "type": "String",
+
+    "maxlength": [50, "From can not be more than 50 characters"]
+  },
+  "To": {
+    "type": "String",
+
+    "maxlength": [50, "To can not be more than 50 characters"]
+  },
+  "ReturnJourney": {
+    "type": "String",
+
+    "maxlength": [20, "ReturnJourney can not be more than 20 characters"]
+  },
+  "TaxiFare": {
+    "type": "String",
+
+    "maxlength": [10, "TaxiFare can not be more than 10 characters"]
+  },
+  "Currency": {
+    "type": "String",
+
+    "maxlength": [20, "Currency can not be more than 20 characters"]
+  },
+  "CostCentre": {
+    "type": "String",
+
+    "maxlength": [20, "CostCentre can not be more than 20 characters"]
+  },
+  "Status": {
+    "type": "String",
+
+    "required": [true, "Please add mandatory field :Status"],
+    "maxlength": [20, "Status can not be more than 20 characters"]
+  },
+  "StartDate": {
+    "type": "Date",
+
+    "required": [true, "Please add mandatory field :StartDate"],
+    "maxlength": [10, "StartDate can not be more than 10 characters"],
+    "match": [
+      "DATE_V1",
+      "Please provide date in YYYY-MM-DD format for field :StartDate"
+    ]
+  },
+  "StartTime": {
+    "type": "Date",
+
+    "required": [true, "Please add mandatory field :StartTime"],
+    "maxlength": [10, "StartTime can not be more than 10 characters"],
+    "match": [
+      "DATE_V1",
+      "Please provide date in YYYY-MM-DD format for field :StartTime"
+    ]
+  },
+  "ReturnDate": {
+    "type": "Date",
+
+    "maxlength": [10, "ReturnDate can not be more than 10 characters"],
+    "match": [
+      "DATE_V1",
+      "Please provide date in YYYY-MM-DD format for field :ReturnDate"
+    ]
+  },
+  "ReturnTime": {
+    "type": "Date",
+
+    "maxlength": [10, "ReturnTime can not be more than 10 characters"],
+    "match": [
+      "DATE_V1",
+      "Please provide date in YYYY-MM-DD format for field :ReturnTime"
+    ]
+  }
+}

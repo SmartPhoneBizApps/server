@@ -1,0 +1,95 @@
+{
+  "ID": {
+    "type": "String",
+    "unique": true,
+    "required": [true, "Please add mandatory field :ID"],
+    "maxlength": [20, "ID can not be more than 20 characters"]
+  },
+  "EmployeeCode": {
+    "type": "String",
+
+    "required": [true, "Please add mandatory field :EmployeeCode"],
+    "maxlength": [20, "EmployeeCode can not be more than 20 characters"]
+  },
+  "EmployeeName": {
+    "type": "String",
+
+    "required": [true, "Please add mandatory field :EmployeeName"],
+    "maxlength": [50, "EmployeeName can not be more than 50 characters"]
+  },
+  "Currency": {
+    "type": "String",
+
+    "maxlength": [10, "Currency can not be more than 10 characters"]
+  },
+  "ProjectCode": {
+    "type": "String",
+
+    "maxlength": [50, "ProjectCode can not be more than 50 characters"]
+  },
+  "CostCentre": {
+    "type": "String",
+
+    "maxlength": [50, "CostCentre can not be more than 50 characters"]
+  },
+  "Receipt": {
+    "type": "String",
+
+    "maxlength": [100, "Receipt can not be more than 100 characters"]
+  },
+  "ExpType": {
+    "type": "String",
+
+    "required": [true, "Please add mandatory field :ExpType"],
+    "maxlength": [100, "ExpType can not be more than 100 characters"]
+  },
+  "ExpenseDetails": {
+    "type": "String",
+
+    "maxlength": [200, "ExpenseDetails can not be more than 200 characters"]
+  },
+  "Status": {
+    "type": "String",
+
+    "required": [true, "Please add mandatory field :Status"],
+    "maxlength": [20, "Status can not be more than 20 characters"]
+  },
+  "ProcessingLog": {
+    "type": "String",
+
+    "maxlength": [1000, "ProcessingLog can not be more than 1000 characters"]
+  },
+  "Approver": {
+    "type": "String",
+
+    "maxlength": [100, "Approver can not be more than 100 characters"]
+  },
+  "TotalAmount": {
+    "type": "Number",
+
+    "maxlength": [20, "TotalAmount can not be more than 20 characters"],
+    "match": [
+      "NUM_2_DEC_PLACE_V1",
+      "Please provide value with 2 decimal places in the field :TotalAmount"
+    ]
+  },
+  "EntryDate": {
+    "type": "Date",
+
+    "required": [true, "Please add mandatory field :EntryDate"],
+    "maxlength": [10, "EntryDate can not be more than 10 characters"],
+    "match": [
+      "DATE_V1",
+      "Please provide date in YYYY-MM-DD format for field :EntryDate"
+    ]
+  },
+  "ExpenseDate": {
+    "type": "Date",
+
+    "maxlength": [10, "ExpenseDate can not be more than 10 characters"],
+    "match": [
+      "DATE_V1",
+      "Please provide date in YYYY-MM-DD format for field :ExpenseDate"
+    ]
+  }
+}

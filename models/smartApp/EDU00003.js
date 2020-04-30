@@ -194,28 +194,22 @@ for (let prop in json) {
   }
 }
 
-var fixed = {
-  applicationID: { type: "String" },
+var fixed1 = {
   appId: {
     type: mongoose.Schema.ObjectId,
     ref: "App",
     required: true,
   },
-
-  areaName: { type: "String" },
   area: {
     type: mongoose.Schema.ObjectId,
     ref: "Area",
     required: true,
   },
-
-  branchName: { type: "String" },
   branch: {
     type: mongoose.Schema.ObjectId,
     ref: "Branch",
     required: true,
   },
-  companyName: { type: "String" },
   company: {
     type: mongoose.Schema.ObjectId,
     ref: "Company",
@@ -226,15 +220,26 @@ var fixed = {
     ref: "User",
     required: true,
   },
+};
+
+var fixed2 = {
+  applicationID: { type: "String" },
+  areaName: { type: "String" },
+  branchName: { type: "String" },
+  companyName: { type: "String" },
+  userName: { type: "String" },
+  userEmail: { type: "String" },
   createdAt: {
     type: "Date",
     default: Date.now,
   },
 };
-
+MyOrg = { OrgData: "" };
+MyOrg.OrgData = fixed1;
 scmc = [];
 scmc.push(json);
-scmc.push(fixed);
+scmc.push(fixed2);
+scmc.push(fixed1);
 
 const EducationSchema = new mongoose.Schema(scmc);
 

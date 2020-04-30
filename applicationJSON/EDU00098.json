@@ -7,13 +7,13 @@
   },
   "StudentName": {
     "type": "String",
-    "unique": false,
+
     "required": [true, "Please add mandatory field :StudentName"],
     "maxlength": [50, "StudentName can not be more than 50 characters"]
   },
   "PhoneNumber": {
     "type": "String",
-    "unique": false,
+
     "maxlength": [50, "PhoneNumber can not be more than 50 characters"],
     "match": [
       "UK_PHONE_V1",
@@ -22,20 +22,20 @@
   },
   "Email": {
     "type": "String",
-    "unique": false,
+
     "required": [true, "Please add mandatory field :Email"],
     "maxlength": [50, "Email can not be more than 50 characters"],
     "match": ["EMAIL_V1", "Invalid EmailID for field :Email"]
   },
   "Address": {
     "type": "String",
-    "unique": false,
+
     "required": [true, "Please add mandatory field :Address"],
     "maxlength": [200, "Address can not be more than 200 characters"]
   },
   "PostCode": {
     "type": "String",
-    "unique": false,
+
     "required": [true, "Please add mandatory field :PostCode"],
     "maxlength": [100, "PostCode can not be more than 100 characters"],
     "match": [
@@ -45,47 +45,47 @@
   },
   "Status": {
     "type": "String",
-    "unique": false,
+
     "required": [true, "Please add mandatory field :Status"],
     "maxlength": [20, "Status can not be more than 20 characters"]
   },
   "StudyYear": {
     "type": "String",
-    "unique": false,
+
     "required": [true, "Please add mandatory field :StudyYear"],
     "maxlength": [50, "StudyYear can not be more than 50 characters"]
   },
   "Section": {
     "type": "String",
-    "unique": false,
+
     "maxlength": [50, "Section can not be more than 50 characters"]
   },
   "ClassTeacher": {
     "type": "String",
-    "unique": false,
+
     "required": [true, "Please add mandatory field :ClassTeacher"],
     "maxlength": [50, "ClassTeacher can not be more than 50 characters"]
   },
   "AdviserName": {
     "type": "String",
-    "unique": false,
+
     "maxlength": [50, "AdviserName can not be more than 50 characters"]
   },
   "ParentName": {
     "type": "String",
-    "unique": false,
+
     "maxlength": [50, "ParentName can not be more than 50 characters"]
   },
   "ParentEmail": {
     "type": "String",
-    "unique": false,
+
     "required": [true, "Please add mandatory field :ParentEmail"],
     "maxlength": [50, "ParentEmail can not be more than 50 characters"],
     "match": ["EMAIL_V1", "Invalid EmailID for field :ParentEmail"]
   },
   "ParentPhoneNo": {
     "type": "String",
-    "unique": false,
+
     "maxlength": [20, "ParentPhoneNo can not be more than 20 characters"],
     "match": [
       "UK_PHONE_V1",
@@ -94,64 +94,64 @@
   },
   "Question1": {
     "type": "String",
-    "unique": false,
+
     "maxlength": [100, "Question1 can not be more than 100 characters"]
   },
   "Answer1": {
     "type": "String",
-    "unique": false,
+
     "maxlength": [500, "Answer1 can not be more than 500 characters"]
   },
   "Question2": {
     "type": "String",
-    "unique": false,
+
     "maxlength": [100, "Question2 can not be more than 100 characters"]
   },
   "Answer2": {
     "type": "String",
-    "unique": false,
+
     "maxlength": [500, "Answer2 can not be more than 500 characters"]
   },
   "Question3": {
     "type": "String",
-    "unique": false,
+
     "maxlength": [100, "Question3 can not be more than 100 characters"]
   },
   "Answer3": {
     "type": "String",
-    "unique": false,
+
     "maxlength": [500, "Answer3 can not be more than 500 characters"]
   },
   "Question4": {
     "type": "String",
-    "unique": false,
+
     "maxlength": [100, "Question4 can not be more than 100 characters"]
   },
   "Answer4": {
     "type": "String",
-    "unique": false,
+
     "maxlength": [500, "Answer4 can not be more than 500 characters"]
   },
   "Image": {
     "type": "String",
-    "unique": false,
+
     "maxlength": [500, "Image can not be more than 500 characters"]
   },
   "SchoolNo": {
     "type": "String",
-    "unique": false,
+
     "required": [true, "Please add mandatory field :SchoolNo"],
     "maxlength": [20, "SchoolNo can not be more than 20 characters"]
   },
   "SchoolName": {
     "type": "String",
-    "unique": false,
+
     "required": [true, "Please add mandatory field :SchoolName"],
     "maxlength": [100, "SchoolName can not be more than 100 characters"]
   },
   "DOB": {
     "type": "Date",
-    "unique": false,
+
     "maxlength": [10, "DOB can not be more than 10 characters"],
     "match": [
       "DATE_V1",
@@ -160,7 +160,7 @@
   },
   "RegDate": {
     "type": "Date",
-    "unique": false,
+
     "maxlength": [10, "RegDate can not be more than 10 characters"],
     "match": [
       "DATE_V1",
@@ -169,7 +169,7 @@
   },
   "WaitListNo": {
     "type": "Number",
-    "unique": false,
+
     "maxlength": [50, "WaitListNo can not be more than 50 characters"],
     "match": [
       "NUM_INT_MAX_10D_V1",

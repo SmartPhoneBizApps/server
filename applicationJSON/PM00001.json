@@ -1,0 +1,134 @@
+{
+  "ID": {
+    "type": "String",
+    "unique": true,
+    "required": [true, "Please add mandatory field :ID"],
+    "maxlength": [20, "ID can not be more than 20 characters"]
+  },
+  "RegNo": {
+    "type": "String",
+
+    "maxlength": [50, "RegNo can not be more than 50 characters"],
+    "match": [
+      "UK_CAR_REG_V1",
+      "Please provide valid Reg Number for field : RegNo"
+    ]
+  },
+  "Vehicle": {
+    "type": "String",
+
+    "maxlength": [50, "Vehicle can not be more than 50 characters"]
+  },
+  "Model": {
+    "type": "String",
+
+    "maxlength": [50, "Model can not be more than 50 characters"]
+  },
+  "RegYear": {
+    "type": "String",
+
+    "maxlength": [50, "RegYear can not be more than 50 characters"]
+  },
+  "ChassisNo": {
+    "type": "String",
+
+    "maxlength": [50, "ChassisNo can not be more than 50 characters"]
+  },
+  "IssuesTo": {
+    "type": "String",
+
+    "maxlength": [50, "IssuesTo can not be more than 50 characters"]
+  },
+  "PhotoID": {
+    "type": "String",
+
+    "maxlength": [50, "PhotoID can not be more than 50 characters"]
+  },
+  "EmpID": {
+    "type": "String",
+
+    "required": [true, "Please add mandatory field :EmpID"],
+    "maxlength": [50, "EmpID can not be more than 50 characters"]
+  },
+  "Phone": {
+    "type": "String",
+
+    "maxlength": [50, "Phone can not be more than 50 characters"],
+    "match": [
+      "UK_PHONE_V1",
+      "Please provide valid UK Phone number in field :Phone"
+    ]
+  },
+  "Email": {
+    "type": "String",
+
+    "required": [true, "Please add mandatory field :Email"],
+    "maxlength": [50, "Email can not be more than 50 characters"],
+    "match": ["EMAIL_V1", "Invalid EmailID for field :Email"]
+  },
+  "Millage": {
+    "type": "String",
+
+    "maxlength": [50, "Millage can not be more than 50 characters"]
+  },
+  "Status": {
+    "type": "String",
+
+    "required": [true, "Please add mandatory field :Status"],
+    "maxlength": [20, "Status can not be more than 20 characters"]
+  },
+  "PurchaseDate": {
+    "type": "Date",
+
+    "maxlength": [10, "PurchaseDate can not be more than 10 characters"],
+    "match": [
+      "DATE_V1",
+      "Please provide date in YYYY-MM-DD format for field :PurchaseDate"
+    ]
+  },
+  "IssueDate": {
+    "type": "Date",
+
+    "maxlength": [10, "IssueDate can not be more than 10 characters"],
+    "match": [
+      "DATE_V1",
+      "Please provide date in YYYY-MM-DD format for field :IssueDate"
+    ]
+  },
+  "MOTDueDate": {
+    "type": "Date",
+
+    "maxlength": [10, "MOTDueDate can not be more than 10 characters"],
+    "match": [
+      "DATE_V1",
+      "Please provide date in YYYY-MM-DD format for field :MOTDueDate"
+    ]
+  },
+  "LastService": {
+    "type": "Date",
+
+    "maxlength": [10, "LastService can not be more than 10 characters"],
+    "match": [
+      "DATE_V1",
+      "Please provide date in YYYY-MM-DD format for field :LastService"
+    ]
+  },
+  "NextService": {
+    "type": "Date",
+
+    "maxlength": [10, "NextService can not be more than 10 characters"],
+    "match": [
+      "DATE_V1",
+      "Please provide date in YYYY-MM-DD format for field :NextService"
+    ]
+  },
+  "MillageDate": {
+    "type": "Date",
+
+    "maxlength": [10, "MillageDate can not be more than 10 characters"],
+    "match": [
+      "DATE_V1",
+      "Please provide date in YYYY-MM-DD format for field :MillageDate"
+    ]
+  }
+}

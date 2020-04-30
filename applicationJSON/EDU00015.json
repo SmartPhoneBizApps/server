@@ -7,44 +7,44 @@
   },
   "StudyYear": {
     "type": "String",
-    "unique": false,
+
     "required": [true, "Please add mandatory field :StudyYear"],
     "maxlength": [100, "StudyYear can not be more than 100 characters"]
   },
   "Batch": {
     "type": "String",
-    "unique": false,
+
     "maxlength": [100, "Batch can not be more than 100 characters"]
   },
   "Subject": {
     "type": "String",
-    "unique": false,
+
     "maxlength": [200, "Subject can not be more than 200 characters"]
   },
   "Topic": {
     "type": "String",
-    "unique": false,
+
     "maxlength": [200, "Topic can not be more than 200 characters"]
   },
   "LectureBrief": {
     "type": "String",
-    "unique": false,
+
     "maxlength": [500, "LectureBrief can not be more than 500 characters"]
   },
   "StudyMaterial": {
     "type": "String",
-    "unique": false,
+
     "maxlength": [500, "StudyMaterial can not be more than 500 characters"]
   },
   "Status": {
     "type": "String",
-    "unique": false,
+
     "required": [true, "Please add mandatory field :Status"],
     "maxlength": [20, "Status can not be more than 20 characters"]
   },
   "StudyMaterialLink": {
     "type": "String",
-    "unique": false,
+
     "maxlength": [
       1000,
       "StudyMaterialLink can not be more than 1000 characters"
@@ -52,12 +52,12 @@
   },
   "Term": {
     "type": "String",
-    "unique": false,
+
     "maxlength": [50, "Term can not be more than 50 characters"]
   },
   "LectureDate": {
     "type": "Date",
-    "unique": false,
+
     "maxlength": [10, "LectureDate can not be more than 10 characters"],
     "match": [
       "DATE_V1",

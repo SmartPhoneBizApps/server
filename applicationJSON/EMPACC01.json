@@ -1,0 +1,232 @@
+{
+  "ID": {
+    "type": "String",
+    "unique": true,
+    "required": [true, "Please add mandatory field :ID"],
+    "maxlength": [20, "ID can not be more than 20 characters"]
+  },
+  "EmployeeID": {
+    "type": "String",
+
+    "required": [true, "Please add mandatory field :EmployeeID"],
+    "maxlength": [50, "EmployeeID can not be more than 50 characters"]
+  },
+  "Name": {
+    "type": "String",
+
+    "maxlength": [50, "Name can not be more than 50 characters"]
+  },
+  "Surname": {
+    "type": "String",
+
+    "maxlength": [50, "Surname can not be more than 50 characters"]
+  },
+  "EmailID": {
+    "type": "String",
+
+    "required": [true, "Please add mandatory field :EmailID"],
+    "maxlength": [50, "EmailID can not be more than 50 characters"],
+    "match": ["EMAIL_V1", "Invalid EmailID for field :EmailID"]
+  },
+  "PhoneNo": {
+    "type": "String",
+
+    "maxlength": [50, "PhoneNo can not be more than 50 characters"],
+    "match": [
+      "UK_PHONE_V1",
+      "Please provide valid UK Phone number in field :PhoneNo"
+    ]
+  },
+  "AccessCardNo": {
+    "type": "String",
+
+    "maxlength": [50, "AccessCardNo can not be more than 50 characters"]
+  },
+  "BuildingName": {
+    "type": "String",
+
+    "maxlength": [50, "BuildingName can not be more than 50 characters"]
+  },
+  "Approver": {
+    "type": "String",
+
+    "maxlength": [50, "Approver can not be more than 50 characters"]
+  },
+  "Reason": {
+    "type": "String",
+
+    "maxlength": [500, "Reason can not be more than 500 characters"]
+  },
+  "Status": {
+    "type": "String",
+
+    "required": [true, "Please add mandatory field :Status"],
+    "maxlength": [20, "Status can not be more than 20 characters"]
+  },
+  "ApproverComment": {
+    "type": "String",
+
+    "maxlength": [500, "ApproverComment can not be more than 500 characters"]
+  },
+  "Officer": {
+    "type": "String",
+
+    "maxlength": [50, "Officer can not be more than 50 characters"]
+  },
+  "RequestType": {
+    "type": "String",
+
+    "required": [true, "Please add mandatory field :RequestType"],
+    "maxlength": [100, "RequestType can not be more than 100 characters"]
+  },
+  "Application": {
+    "type": "String",
+
+    "maxlength": [100, "Application can not be more than 100 characters"]
+  },
+  "CostCentre": {
+    "type": "String",
+
+    "maxlength": [100, "CostCentre can not be more than 100 characters"]
+  },
+  "Hardware": {
+    "type": "String",
+
+    "maxlength": [100, "Hardware can not be more than 100 characters"]
+  },
+  "AssetID": {
+    "type": "String",
+
+    "maxlength": [100, "AssetID can not be more than 100 characters"]
+  },
+  "RequestFor": {
+    "type": "String",
+
+    "maxlength": [100, "RequestFor can not be more than 100 characters"]
+  },
+  "Processor": {
+    "type": "String",
+
+    "maxlength": [100, "Processor can not be more than 100 characters"]
+  },
+  "HardDrive": {
+    "type": "String",
+
+    "maxlength": [100, "HardDrive can not be more than 100 characters"]
+  },
+  "KeyBoard": {
+    "type": "String",
+
+    "maxlength": [100, "KeyBoard can not be more than 100 characters"]
+  },
+  "OS": {
+    "type": "String",
+
+    "maxlength": [100, "OS can not be more than 100 characters"]
+  },
+  "RAM": {
+    "type": "String",
+
+    "maxlength": [100, "RAM can not be more than 100 characters"]
+  },
+  "HDMIPort": {
+    "type": "String",
+
+    "maxlength": [100, "HDMIPort can not be more than 100 characters"]
+  },
+  "USBPort": {
+    "type": "String",
+
+    "maxlength": [100, "USBPort can not be more than 100 characters"]
+  },
+  "CDDrive": {
+    "type": "String",
+
+    "maxlength": [100, "CDDrive can not be more than 100 characters"]
+  },
+  "DockingStation": {
+    "type": "String",
+
+    "maxlength": [100, "DockingStation can not be more than 100 characters"]
+  },
+  "Mouse": {
+    "type": "String",
+
+    "maxlength": [100, "Mouse can not be more than 100 characters"]
+  },
+  "Software": {
+    "type": "String",
+
+    "maxlength": [100, "Software can not be more than 100 characters"]
+  },
+  "System": {
+    "type": "String",
+
+    "maxlength": [100, "System can not be more than 100 characters"]
+  },
+  "Environment": {
+    "type": "String",
+
+    "maxlength": [100, "Environment can not be more than 100 characters"]
+  },
+  "CloneUser": {
+    "type": "String",
+
+    "maxlength": [100, "CloneUser can not be more than 100 characters"]
+  },
+  "RolesRequired": {
+    "type": "String",
+
+    "maxlength": [100, "RolesRequired can not be more than 100 characters"]
+  },
+  "TransactionsRequired": {
+    "type": "String",
+
+    "maxlength": [
+      100,
+      "TransactionsRequired can not be more than 100 characters"
+    ]
+  },
+  "DateOfRequest": {
+    "type": "Date",
+
+    "required": [true, "Please add mandatory field :DateOfRequest"],
+    "maxlength": [10, "DateOfRequest can not be more than 10 characters"],
+    "match": [
+      "DATE_V1",
+      "Please provide date in YYYY-MM-DD format for field :DateOfRequest"
+    ]
+  },
+  "StartDate": {
+    "type": "Date",
+
+    "maxlength": [10, "StartDate can not be more than 10 characters"],
+    "match": [
+      "DATE_V1",
+      "Please provide date in YYYY-MM-DD format for field :StartDate"
+    ]
+  },
+  "EndDate": {
+    "type": "Date",
+
+    "maxlength": [10, "EndDate can not be more than 10 characters"],
+    "match": [
+      "DATE_V1",
+      "Please provide date in YYYY-MM-DD format for field :EndDate"
+    ]
+  },
+  "ApprovalDate": {
+    "type": "Date",
+
+    "maxlength": [10, "ApprovalDate can not be more than 10 characters"],
+    "match": [
+      "DATE_V1",
+      "Please provide date in YYYY-MM-DD format for field :ApprovalDate"
+    ]
+  },
+  "Bag": {
+    "type": "String",
+
+    "maxlength": [100, "Bag can not be more than 100 characters"]
+  }
+}

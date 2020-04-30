@@ -1,0 +1,156 @@
+{
+  "ID": {
+    "type": "String",
+    "unique": true,
+    "required": [true, "Please add mandatory field :ID"],
+    "maxlength": [20, "ID can not be more than 20 characters"]
+  },
+  "EmpName": {
+    "type": "String",
+
+    "required": [true, "Please add mandatory field :EmpName"],
+    "maxlength": [50, "EmpName can not be more than 50 characters"]
+  },
+  "EmpCode": {
+    "type": "String",
+
+    "required": [true, "Please add mandatory field :EmpCode"],
+    "maxlength": [50, "EmpCode can not be more than 50 characters"]
+  },
+  "Status": {
+    "type": "String",
+
+    "required": [true, "Please add mandatory field :Status"],
+    "maxlength": [20, "Status can not be more than 20 characters"]
+  },
+  "ProcessingLog": {
+    "type": "String",
+
+    "maxlength": [1000, "ProcessingLog can not be more than 1000 characters"]
+  },
+  "Approver": {
+    "type": "String",
+
+    "maxlength": [50, "Approver can not be more than 50 characters"]
+  },
+  "StartDate": {
+    "type": "Date",
+
+    "required": [true, "Please add mandatory field :StartDate"],
+    "maxlength": [10, "StartDate can not be more than 10 characters"],
+    "match": [
+      "DATE_V1",
+      "Please provide date in YYYY-MM-DD format for field :StartDate"
+    ]
+  },
+  "EndDate": {
+    "type": "Date",
+
+    "required": [true, "Please add mandatory field :EndDate"],
+    "maxlength": [10, "EndDate can not be more than 10 characters"],
+    "match": [
+      "DATE_V1",
+      "Please provide date in YYYY-MM-DD format for field :EndDate"
+    ]
+  },
+  "TotalRegHours": {
+    "type": "Number",
+
+    "maxlength": [20, "TotalRegHours can not be more than 20 characters"],
+    "match": [
+      "NUM_2_DEC_PLACE_V1",
+      "Please provide value with 2 decimal places in the field :TotalRegHours"
+    ]
+  },
+  "HourlyRate": {
+    "type": "Number",
+
+    "maxlength": [50, "HourlyRate can not be more than 50 characters"],
+    "match": [
+      "NUM_2_DEC_PLACE_V1",
+      "Please provide value with 2 decimal places in the field :HourlyRate"
+    ]
+  },
+  "RegularNetAmount": {
+    "type": "Number",
+
+    "maxlength": [50, "RegularNetAmount can not be more than 50 characters"],
+    "match": [
+      "NUM_2_DEC_PLACE_V1",
+      "Please provide value with 2 decimal places in the field :RegularNetAmount"
+    ]
+  },
+  "TotalOvertimeHours": {
+    "type": "Number",
+
+    "maxlength": [50, "TotalOvertimeHours can not be more than 50 characters"],
+    "match": [
+      "NUM_2_DEC_PLACE_V1",
+      "Please provide value with 2 decimal places in the field :TotalOvertimeHours"
+    ]
+  },
+  "OvertimeRate": {
+    "type": "Number",
+
+    "maxlength": [50, "OvertimeRate can not be more than 50 characters"],
+    "match": [
+      "NUM_2_DEC_PLACE_V1",
+      "Please provide value with 2 decimal places in the field :OvertimeRate"
+    ]
+  },
+  "OvertimeNetAmount": {
+    "type": "Number",
+
+    "maxlength": [50, "OvertimeNetAmount can not be more than 50 characters"],
+    "match": [
+      "NUM_2_DEC_PLACE_V1",
+      "Please provide value with 2 decimal places in the field :OvertimeNetAmount"
+    ]
+  },
+  "NetAmount": {
+    "type": "Number",
+
+    "maxlength": [50, "NetAmount can not be more than 50 characters"],
+    "match": [
+      "NUM_2_DEC_PLACE_V1",
+      "Please provide value with 2 decimal places in the field :NetAmount"
+    ]
+  },
+  "VATRate": {
+    "type": "Number",
+
+    "maxlength": [50, "VATRate can not be more than 50 characters"],
+    "match": [
+      "NUM_2_DEC_PLACE_V1",
+      "Please provide value with 2 decimal places in the field :VATRate"
+    ]
+  },
+  "VATAmount": {
+    "type": "Number",
+
+    "maxlength": [50, "VATAmount can not be more than 50 characters"],
+    "match": [
+      "NUM_2_DEC_PLACE_V1",
+      "Please provide value with 2 decimal places in the field :VATAmount"
+    ]
+  },
+  "GrossAmount": {
+    "type": "Number",
+
+    "required": [true, "Please add mandatory field :GrossAmount"],
+    "maxlength": [50, "GrossAmount can not be more than 50 characters"],
+    "match": [
+      "NUM_2_DEC_PLACE_V1",
+      "Please provide value with 2 decimal places in the field :GrossAmount"
+    ]
+  },
+  "VATPer": {
+    "type": "Number",
+
+    "maxlength": [20, "VATPer can not be more than 20 characters"],
+    "match": [
+      "NUM_2_DEC_PLACE_V1",
+      "Please provide value with 2 decimal places in the field :VATPer"
+    ]
+  }
+}

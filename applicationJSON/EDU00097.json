@@ -1,80 +1,80 @@
 {
   "ID": {
     "type": "String",
-    "unique": true,
+
     "required": [true, "Please add mandatory field :ID"],
     "maxlength": [20, "ID can not be more than 20 characters"]
   },
   "StudentName": {
     "type": "String",
-    "unique": false,
+
     "required": [true, "Please add mandatory field :StudentName"],
     "maxlength": [50, "StudentName can not be more than 50 characters"]
   },
   "StudentID": {
     "type": "String",
-    "unique": false,
+
     "required": [true, "Please add mandatory field :StudentID"],
     "maxlength": [20, "StudentID can not be more than 20 characters"]
   },
   "Email": {
     "type": "String",
-    "unique": false,
+
     "required": [true, "Please add mandatory field :Email"],
     "maxlength": [50, "Email can not be more than 50 characters"],
     "match": ["EMAIL_V1", "Invalid EmailID for field :Email"]
   },
   "Status": {
     "type": "String",
-    "unique": false,
+
     "required": [true, "Please add mandatory field :Status"],
     "maxlength": [20, "Status can not be more than 20 characters"]
   },
   "BookingFor": {
     "type": "String",
-    "unique": false,
+
     "required": [true, "Please add mandatory field :BookingFor"],
     "maxlength": [50, "BookingFor can not be more than 50 characters"]
   },
   "StudyYear": {
     "type": "String",
-    "unique": false,
+
     "required": [true, "Please add mandatory field :StudyYear"],
     "maxlength": [10, "StudyYear can not be more than 10 characters"]
   },
   "Section": {
     "type": "String",
-    "unique": false,
+
     "maxlength": [10, "Section can not be more than 10 characters"]
   },
   "TeacherName": {
     "type": "String",
-    "unique": false,
+
     "maxlength": [50, "TeacherName can not be more than 50 characters"]
   },
   "TripCharges": {
     "type": "String",
-    "unique": false,
+
     "maxlength": [20, "TripCharges can not be more than 20 characters"]
   },
   "Comment": {
     "type": "String",
-    "unique": false,
+
     "maxlength": [500, "Comment can not be more than 500 characters"]
   },
   "Question_Response": {
     "type": "String",
-    "unique": false,
+
     "maxlength": [500, "Question_Response can not be more than 500 characters"]
   },
   "ParentName": {
     "type": "String",
-    "unique": false,
+
     "maxlength": [50, "ParentName can not be more than 50 characters"]
   },
   "PhoneNumber": {
     "type": "String",
-    "unique": false,
+
     "maxlength": [50, "PhoneNumber can not be more than 50 characters"],
     "match": [
       "UK_PHONE_V1",
@@ -83,34 +83,34 @@
   },
   "AnyAllergy": {
     "type": "String",
-    "unique": false,
+
     "maxlength": [200, "AnyAllergy can not be more than 200 characters"]
   },
   "TripPlace": {
     "type": "String",
-    "unique": false,
+
     "maxlength": [200, "TripPlace can not be more than 200 characters"]
   },
   "ParentConsent": {
     "type": "String",
-    "unique": false,
+
     "maxlength": [10, "ParentConsent can not be more than 10 characters"]
   },
   "ParentEmail": {
     "type": "String",
-    "unique": false,
+
     "required": [true, "Please add mandatory field :ParentEmail"],
     "maxlength": [50, "ParentEmail can not be more than 50 characters"],
     "match": ["EMAIL_V1", "Invalid EmailID for field :ParentEmail"]
   },
   "ProcessingLog": {
     "type": "String",
-    "unique": false,
+
     "maxlength": [500, "ProcessingLog can not be more than 500 characters"]
   },
   "DateOfBirth": {
     "type": "Date",
-    "unique": false,
+
     "maxlength": [10, "DateOfBirth can not be more than 10 characters"],
     "match": [
       "DATE_V1",
@@ -119,7 +119,7 @@
   },
   "Date": {
     "type": "Date",
-    "unique": false,
+
     "required": [true, "Please add mandatory field :Date"],
     "maxlength": [10, "Date can not be more than 10 characters"],
     "match": [
@@ -129,7 +129,7 @@
   },
   "Time1": {
     "type": "Date",
-    "unique": false,
+
     "maxlength": [10, "Time1 can not be more than 10 characters"],
     "match": [
       "DATE_V1",
@@ -138,7 +138,7 @@
   },
   "Time2": {
     "type": "Date",
-    "unique": false,
+
     "maxlength": [10, "Time2 can not be more than 10 characters"],
     "match": [
       "DATE_V1",
@@ -147,7 +147,7 @@
   },
   "Time3": {
     "type": "Date",
-    "unique": false,
+
     "maxlength": [10, "Time3 can not be more than 10 characters"],
     "match": [
       "DATE_V1",
@@ -156,7 +156,7 @@
   },
   "AllocatedTime": {
     "type": "Date",
-    "unique": false,
+
     "maxlength": [10, "AllocatedTime can not be more than 10 characters"],
     "match": [
       "DATE_V1",
@@ -165,7 +165,7 @@
   },
   "TripTime": {
     "type": "Date",
-    "unique": false,
+
     "maxlength": [200, "TripTime can not be more than 200 characters"],
     "match": [
       "DATE_V1",
@@ -174,7 +174,7 @@
   },
   "TripDate": {
     "type": "Date",
-    "unique": false,
+
     "maxlength": [10, "TripDate can not be more than 10 characters"],
     "match": [
       "DATE_V1",

@@ -1,0 +1,355 @@
+{
+  "ID": {
+    "type": "String",
+    "unique": true,
+    "required": [true, "Please add mandatory field :ID"],
+    "maxlength": [20, "ID can not be more than 20 characters"]
+  },
+  "FirstName": {
+    "type": "String",
+
+    "required": [true, "Please add mandatory field :FirstName"],
+    "maxlength": [20, "FirstName can not be more than 20 characters"]
+  },
+  "LastName": {
+    "type": "String",
+
+    "required": [true, "Please add mandatory field :LastName"],
+    "maxlength": [20, "LastName can not be more than 20 characters"]
+  },
+  "Gender": {
+    "type": "String",
+
+    "required": [true, "Please add mandatory field :Gender"],
+    "maxlength": [20, "Gender can not be more than 20 characters"],
+    "match": ["GENDER_V1", "Invalid Gender value in field : Gender"]
+  },
+  "Email": {
+    "type": "String",
+
+    "required": [true, "Please add mandatory field :Email"],
+    "maxlength": [20, "Email can not be more than 20 characters"],
+    "match": ["EMAIL_V1", "Invalid EmailID for field :Email"]
+  },
+  "PhoneNo": {
+    "type": "String",
+
+    "required": [true, "Please add mandatory field :PhoneNo"],
+    "maxlength": [20, "PhoneNo can not be more than 20 characters"],
+    "match": [
+      "UK_PHONE_V1",
+      "Please provide valid UK Phone number in field :PhoneNo"
+    ]
+  },
+  "Q1": {
+    "type": "String",
+
+    "maxlength": [100, "Q1 can not be more than 100 characters"]
+  },
+  "A1": {
+    "type": "String",
+
+    "maxlength": [100, "A1 can not be more than 100 characters"]
+  },
+  "Q2": {
+    "type": "String",
+
+    "maxlength": [200, "Q2 can not be more than 200 characters"]
+  },
+  "A2": {
+    "type": "String",
+
+    "maxlength": [200, "A2 can not be more than 200 characters"]
+  },
+  "AnyotherReason": {
+    "type": "String",
+
+    "required": [true, "Please add mandatory field :AnyotherReason"],
+    "maxlength": [500, "AnyotherReason can not be more than 500 characters"]
+  },
+  "Q3": {
+    "type": "String",
+
+    "maxlength": [200, "Q3 can not be more than 200 characters"]
+  },
+  "A3": {
+    "type": "String",
+
+    "maxlength": [200, "A3 can not be more than 200 characters"]
+  },
+  "Q4": {
+    "type": "String",
+
+    "maxlength": [200, "Q4 can not be more than 200 characters"]
+  },
+  "A4": {
+    "type": "String",
+
+    "maxlength": [200, "A4 can not be more than 200 characters"]
+  },
+  "Q5": {
+    "type": "String",
+
+    "maxlength": [200, "Q5 can not be more than 200 characters"]
+  },
+  "A5": {
+    "type": "String",
+
+    "maxlength": [200, "A5 can not be more than 200 characters"]
+  },
+  "Q6": {
+    "type": "String",
+
+    "maxlength": [200, "Q6 can not be more than 200 characters"]
+  },
+  "A6": {
+    "type": "String",
+
+    "maxlength": [200, "A6 can not be more than 200 characters"]
+  },
+  "Q7": {
+    "type": "String",
+
+    "maxlength": [200, "Q7 can not be more than 200 characters"]
+  },
+  "A7": {
+    "type": "String",
+
+    "maxlength": [200, "A7 can not be more than 200 characters"]
+  },
+  "Q8": {
+    "type": "String",
+
+    "maxlength": [200, "Q8 can not be more than 200 characters"]
+  },
+  "A8": {
+    "type": "String",
+
+    "maxlength": [200, "A8 can not be more than 200 characters"]
+  },
+  "Q9": {
+    "type": "String",
+
+    "maxlength": [200, "Q9 can not be more than 200 characters"]
+  },
+  "A9": {
+    "type": "String",
+
+    "maxlength": [200, "A9 can not be more than 200 characters"]
+  },
+  "Q10": {
+    "type": "String",
+
+    "maxlength": [200, "Q10 can not be more than 200 characters"]
+  },
+  "A10": {
+    "type": "String",
+
+    "maxlength": [200, "A10 can not be more than 200 characters"]
+  },
+  "Q11": {
+    "type": "String",
+
+    "maxlength": [200, "Q11 can not be more than 200 characters"]
+  },
+  "A11": {
+    "type": "String",
+
+    "maxlength": [200, "A11 can not be more than 200 characters"]
+  },
+  "PlsListAllergies": {
+    "type": "String",
+
+    "maxlength": [500, "PlsListAllergies can not be more than 500 characters"]
+  },
+  "Q12": {
+    "type": "String",
+
+    "maxlength": [200, "Q12 can not be more than 200 characters"]
+  },
+  "A12": {
+    "type": "String",
+
+    "maxlength": [200, "A12 can not be more than 200 characters"]
+  },
+  "Q13": {
+    "type": "String",
+
+    "maxlength": [200, "Q13 can not be more than 200 characters"]
+  },
+  "A13": {
+    "type": "String",
+
+    "maxlength": [200, "A13 can not be more than 200 characters"]
+  },
+  "Q14": {
+    "type": "String",
+
+    "maxlength": [200, "Q14 can not be more than 200 characters"]
+  },
+  "A14": {
+    "type": "String",
+
+    "maxlength": [200, "A14 can not be more than 200 characters"]
+  },
+  "Q15": {
+    "type": "String",
+
+    "maxlength": [200, "Q15 can not be more than 200 characters"]
+  },
+  "A15": {
+    "type": "String",
+
+    "maxlength": [200, "A15 can not be more than 200 characters"]
+  },
+  "AnyOther": {
+    "type": "String",
+
+    "maxlength": [500, "AnyOther can not be more than 500 characters"]
+  },
+  "HowFrequently": {
+    "type": "String",
+
+    "maxlength": [100, "HowFrequently can not be more than 100 characters"]
+  },
+  "WhatExercise": {
+    "type": "String",
+
+    "maxlength": [500, "WhatExercise can not be more than 500 characters"]
+  },
+  "AnyAllergies": {
+    "type": "String",
+
+    "required": [true, "Please add mandatory field :AnyAllergies"],
+    "maxlength": [200, "AnyAllergies can not be more than 200 characters"]
+  },
+  "Q16": {
+    "type": "String",
+
+    "maxlength": [200, "Q16 can not be more than 200 characters"]
+  },
+  "A16": {
+    "type": "String",
+
+    "maxlength": [200, "A16 can not be more than 200 characters"]
+  },
+  "PregOrBreastFeeding": {
+    "type": "String",
+
+    "maxlength": [
+      200,
+      "PregOrBreastFeeding can not be more than 200 characters"
+    ]
+  },
+  "Q17": {
+    "type": "String",
+
+    "maxlength": [200, "Q17 can not be more than 200 characters"]
+  },
+  "A17": {
+    "type": "String",
+
+    "maxlength": [200, "A17 can not be more than 200 characters"]
+  },
+  "Q18": {
+    "type": "String",
+
+    "maxlength": [200, "Q18 can not be more than 200 characters"]
+  },
+  "A18": {
+    "type": "String",
+
+    "maxlength": [200, "A18 can not be more than 200 characters"]
+  },
+  "Q19": {
+    "type": "String",
+
+    "maxlength": [200, "Q19 can not be more than 200 characters"]
+  },
+  "A19": {
+    "type": "String",
+
+    "maxlength": [200, "A19 can not be more than 200 characters"]
+  },
+  "Status": {
+    "type": "String",
+
+    "required": [true, "Please add mandatory field :Status"],
+    "maxlength": [20, "Status can not be more than 20 characters"]
+  },
+  "DOB": {
+    "type": "Date",
+
+    "maxlength": [10, "DOB can not be more than 10 characters"],
+    "match": [
+      "DATE_V1",
+      "Please provide date in YYYY-MM-DD format for field :DOB"
+    ]
+  },
+  "Height": {
+    "type": "Number",
+
+    "maxlength": [50, "Height can not be more than 50 characters"],
+    "match": [
+      "NUM_2_DEC_PLACE_V1",
+      "Please provide value with 2 decimal places in the field :Height"
+    ]
+  },
+  "Weight": {
+    "type": "Number",
+
+    "maxlength": [50, "Weight can not be more than 50 characters"],
+    "match": [
+      "NUM_2_DEC_PLACE_V1",
+      "Please provide value with 2 decimal places in the field :Weight"
+    ]
+  },
+  "DoYouExercise": {
+    "type": "Boolean",
+
+    "maxlength": [50, "DoYouExercise can not be more than 50 characters"]
+  },
+  "DoYouSmoke": {
+    "type": "Boolean",
+
+    "maxlength": [50, "DoYouSmoke can not be more than 50 characters"]
+  },
+  "DrinkAlcohal": {
+    "type": "Boolean",
+
+    "maxlength": [200, "DrinkAlcohal can not be more than 200 characters"]
+  },
+  "HowMany": {
+    "type": "Number",
+
+    "maxlength": [200, "HowMany can not be more than 200 characters"],
+    "match": [
+      "NUM_INT_MAX_10D_V1",
+      "Please provide an Integer value for field :HowMany"
+    ]
+  },
+  "Age": {
+    "type": "Number",
+
+    "required": [true, "Please add mandatory field :Age"],
+    "maxlength": [50, "Age can not be more than 50 characters"],
+    "match": [
+      "NUM_INT_MAX_10D_V1",
+      "Please provide an Integer value for field :Age"
+    ]
+  },
+  "DoYouDiet": {
+    "type": "Boolean",
+
+    "maxlength": [200, "DoYouDiet can not be more than 200 characters"]
+  },
+  "DateOfReg": {
+    "type": "Date",
+
+    "maxlength": [10, "DateOfReg can not be more than 10 characters"],
+    "match": [
+      "DATE_V1",
+      "Please provide date in YYYY-MM-DD format for field :DateOfReg"
+    ]
+  }
+}

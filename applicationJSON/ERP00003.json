@@ -1,0 +1,209 @@
+{
+  "ID": {
+    "type": "String",
+    "unique": true,
+    "required": [true, "Please add mandatory field :ID"],
+    "maxlength": [20, "ID can not be more than 20 characters"]
+  },
+  "Requsitioner": {
+    "type": "String",
+
+    "maxlength": [50, "Requsitioner can not be more than 50 characters"]
+  },
+  "Plant": {
+    "type": "String",
+
+    "maxlength": [50, "Plant can not be more than 50 characters"]
+  },
+  "Vendor": {
+    "type": "String",
+
+    "required": [true, "Please add mandatory field :Vendor"],
+    "maxlength": [50, "Vendor can not be more than 50 characters"]
+  },
+  "POItem": {
+    "type": "String",
+
+    "maxlength": [100, "POItem can not be more than 100 characters"]
+  },
+  "Category": {
+    "type": "String",
+
+    "maxlength": [20, "Category can not be more than 20 characters"]
+  },
+  "Details": {
+    "type": "String",
+
+    "maxlength": [500, "Details can not be more than 500 characters"]
+  },
+  "UoM": {
+    "type": "String",
+
+    "maxlength": [100, "UoM can not be more than 100 characters"]
+  },
+  "Currency": {
+    "type": "String",
+
+    "maxlength": [100, "Currency can not be more than 100 characters"]
+  },
+  "StorageLoc": {
+    "type": "String",
+
+    "maxlength": [50, "StorageLoc can not be more than 50 characters"]
+  },
+  "DeliveryNote": {
+    "type": "String",
+
+    "maxlength": [50, "DeliveryNote can not be more than 50 characters"]
+  },
+  "Quality": {
+    "type": "String",
+
+    "maxlength": [50, "Quality can not be more than 50 characters"]
+  },
+  "Packaging": {
+    "type": "String",
+
+    "maxlength": [50, "Packaging can not be more than 50 characters"]
+  },
+  "Reason": {
+    "type": "String",
+
+    "maxlength": [500, "Reason can not be more than 500 characters"]
+  },
+  "Status": {
+    "type": "String",
+
+    "required": [true, "Please add mandatory field :Status"],
+    "maxlength": [20, "Status can not be more than 20 characters"]
+  },
+  "Attachment": {
+    "type": "String",
+
+    "maxlength": [100, "Attachment can not be more than 100 characters"]
+  },
+  "ItemImage": {
+    "type": "String",
+
+    "maxlength": [100, "ItemImage can not be more than 100 characters"]
+  },
+  "PONumber": {
+    "type": "String",
+
+    "maxlength": [50, "PONumber can not be more than 50 characters"]
+  },
+  "Requisitioner": {
+    "type": "String",
+
+    "maxlength": [50, "Requisitioner can not be more than 50 characters"]
+  },
+  "PODate": {
+    "type": "Date",
+
+    "maxlength": [10, "PODate can not be more than 10 characters"],
+    "match": [
+      "DATE_V1",
+      "Please provide date in YYYY-MM-DD format for field :PODate"
+    ]
+  },
+  "POQty": {
+    "type": "Number",
+
+    "maxlength": [20, "POQty can not be more than 20 characters"],
+    "match": [
+      "NUM_INT_MAX_10D_V1",
+      "Please provide an Integer value for field :POQty"
+    ]
+  },
+  "Price": {
+    "type": "Number",
+
+    "maxlength": [20, "Price can not be more than 20 characters"],
+    "match": [
+      "NUM_2_DEC_PLACE_V1",
+      "Please provide value with 2 decimal places in the field :Price"
+    ]
+  },
+  "NetValue": {
+    "type": "Number",
+
+    "maxlength": [20, "NetValue can not be more than 20 characters"],
+    "match": [
+      "NUM_2_DEC_PLACE_V1",
+      "Please provide value with 2 decimal places in the field :NetValue"
+    ]
+  },
+  "VATVal": {
+    "type": "Number",
+
+    "maxlength": [20, "VATVal can not be more than 20 characters"],
+    "match": [
+      "NUM_2_DEC_PLACE_V1",
+      "Please provide value with 2 decimal places in the field :VATVal"
+    ]
+  },
+  "GrossValue": {
+    "type": "Number",
+
+    "maxlength": [50, "GrossValue can not be more than 50 characters"],
+    "match": [
+      "NUM_2_DEC_PLACE_V1",
+      "Please provide value with 2 decimal places in the field :GrossValue"
+    ]
+  },
+  "GRQtyHistory": {
+    "type": "Number",
+
+    "maxlength": [50, "GRQtyHistory can not be more than 50 characters"],
+    "match": [
+      "NUM_INT_MAX_10D_V1",
+      "Please provide an Integer value for field :GRQtyHistory"
+    ]
+  },
+  "InvQtyHistory": {
+    "type": "Number",
+
+    "maxlength": [50, "InvQtyHistory can not be more than 50 characters"],
+    "match": [
+      "NUM_INT_MAX_10D_V1",
+      "Please provide an Integer value for field :InvQtyHistory"
+    ]
+  },
+  "GRQty": {
+    "type": "Number",
+
+    "maxlength": [50, "GRQty can not be more than 50 characters"],
+    "match": [
+      "NUM_INT_MAX_10D_V1",
+      "Please provide an Integer value for field :GRQty"
+    ]
+  },
+  "ReturnQty": {
+    "type": "Number",
+
+    "maxlength": [50, "ReturnQty can not be more than 50 characters"],
+    "match": [
+      "NUM_INT_MAX_10D_V1",
+      "Please provide an Integer value for field :ReturnQty"
+    ]
+  },
+  "VATRate": {
+    "type": "Number",
+
+    "maxlength": [100, "VATRate can not be more than 100 characters"],
+    "match": [
+      "NUM_2_DEC_PLACE_V1",
+      "Please provide value with 2 decimal places in the field :VATRate"
+    ]
+  },
+  "Date": {
+    "type": "Date",
+
+    "required": [true, "Please add mandatory field :Date"],
+    "maxlength": [10, "Date can not be more than 10 characters"],
+    "match": [
+      "DATE_V1",
+      "Please provide date in YYYY-MM-DD format for field :Date"
+    ]
+  }
+}

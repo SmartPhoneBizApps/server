@@ -1,0 +1,52 @@
+{
+  "ID": {
+    "type": "String",
+    "unique": true,
+    "required": [true, "Please add mandatory field :ID"],
+    "maxlength": [20, "ID can not be more than 20 characters"]
+  },
+  "Category": {
+    "type": "String",
+
+    "maxlength": [500, "Category can not be more than 500 characters"]
+  },
+  "Material": {
+    "type": "String",
+
+    "maxlength": [500, "Material can not be more than 500 characters"]
+  },
+  "Attachment1": {
+    "type": "String",
+
+    "maxlength": [100, "Attachment1 can not be more than 100 characters"]
+  },
+  "Attachment2": {
+    "type": "String",
+
+    "maxlength": [100, "Attachment2 can not be more than 100 characters"]
+  },
+  "Status": {
+    "type": "String",
+
+    "required": [true, "Please add mandatory field :Status"],
+    "maxlength": [20, "Status can not be more than 20 characters"]
+  },
+  "BidInvDate": {
+    "type": "Date",
+
+    "maxlength": [10, "BidInvDate can not be more than 10 characters"],
+    "match": [
+      "DATE_V1",
+      "Please provide date in YYYY-MM-DD format for field :BidInvDate"
+    ]
+  },
+  "BidDate": {
+    "type": "Date",
+
+    "maxlength": [10, "BidDate can not be more than 10 characters"],
+    "match": [
+      "DATE_V1",
+      "Please provide date in YYYY-MM-DD format for field :BidDate"
+    ]
+  }
+}

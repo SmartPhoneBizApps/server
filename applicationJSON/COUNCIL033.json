@@ -1,0 +1,459 @@
+{
+  "ID": {
+    "type": "String",
+    "unique": true,
+    "required": [true, "Please add mandatory field :ID"],
+    "maxlength": [20, "ID can not be more than 20 characters"]
+  },
+  "Name": {
+    "type": "String",
+
+    "maxlength": [20, "Name can not be more than 20 characters"]
+  },
+  "EmailID": {
+    "type": "String",
+
+    "required": [true, "Please add mandatory field :EmailID"],
+    "maxlength": [100, "EmailID can not be more than 100 characters"],
+    "match": ["EMAIL_V1", "Invalid EmailID for field :EmailID"]
+  },
+  "YourAddress": {
+    "type": "String",
+
+    "maxlength": [500, "YourAddress can not be more than 500 characters"]
+  },
+  "ComplaintType": {
+    "type": "String",
+
+    "required": [true, "Please add mandatory field :ComplaintType"],
+    "maxlength": [200, "ComplaintType can not be more than 200 characters"]
+  },
+  "Attachment": {
+    "type": "String",
+
+    "maxlength": [500, "Attachment can not be more than 500 characters"]
+  },
+  "AdditionalInfo": {
+    "type": "String",
+
+    "maxlength": [1000, "AdditionalInfo can not be more than 1000 characters"]
+  },
+  "Status": {
+    "type": "String",
+
+    "required": [true, "Please add mandatory field :Status"],
+    "maxlength": [20, "Status can not be more than 20 characters"]
+  },
+  "BusinessName": {
+    "type": "String",
+
+    "maxlength": [100, "BusinessName can not be more than 100 characters"]
+  },
+  "BusinessAddress": {
+    "type": "String",
+
+    "maxlength": [100, "BusinessAddress can not be more than 100 characters"]
+  },
+  "IncidentLocation": {
+    "type": "String",
+
+    "maxlength": [100, "IncidentLocation can not be more than 100 characters"]
+  },
+  "IssueDescription": {
+    "type": "String",
+
+    "maxlength": [500, "IssueDescription can not be more than 500 characters"]
+  },
+  "Center": {
+    "type": "String",
+
+    "maxlength": [200, "Center can not be more than 200 characters"]
+  },
+  "FoodType": {
+    "type": "String",
+
+    "required": [true, "Please add mandatory field :FoodType"],
+    "maxlength": [200, "FoodType can not be more than 200 characters"]
+  },
+  "ComplaintCategory": {
+    "type": "String",
+
+    "maxlength": [200, "ComplaintCategory can not be more than 200 characters"]
+  },
+  "Location": {
+    "type": "String",
+
+    "maxlength": [200, "Location can not be more than 200 characters"]
+  },
+  "AnyWitness": {
+    "type": "String",
+
+    "maxlength": [20, "AnyWitness can not be more than 20 characters"]
+  },
+  "WitnessDetails": {
+    "type": "String",
+
+    "maxlength": [500, "WitnessDetails can not be more than 500 characters"]
+  },
+  "NearestStreet": {
+    "type": "String",
+
+    "maxlength": [100, "NearestStreet can not be more than 100 characters"]
+  },
+  "PrivateProperty": {
+    "type": "String",
+
+    "maxlength": [100, "PrivateProperty can not be more than 100 characters"]
+  },
+  "OwnerInfo": {
+    "type": "String",
+
+    "maxlength": [200, "OwnerInfo can not be more than 200 characters"]
+  },
+  "Q1": {
+    "type": "String",
+
+    "maxlength": [200, "Q1 can not be more than 200 characters"]
+  },
+  "Q2": {
+    "type": "String",
+
+    "maxlength": [200, "Q2 can not be more than 200 characters"]
+  },
+  "Q3": {
+    "type": "String",
+
+    "maxlength": [200, "Q3 can not be more than 200 characters"]
+  },
+  "Q4": {
+    "type": "String",
+
+    "maxlength": [200, "Q4 can not be more than 200 characters"]
+  },
+  "Q5": {
+    "type": "String",
+
+    "maxlength": [200, "Q5 can not be more than 200 characters"]
+  },
+  "Q6": {
+    "type": "String",
+
+    "maxlength": [200, "Q6 can not be more than 200 characters"]
+  },
+  "Q7": {
+    "type": "String",
+
+    "maxlength": [200, "Q7 can not be more than 200 characters"]
+  },
+  "Q8": {
+    "type": "String",
+
+    "maxlength": [200, "Q8 can not be more than 200 characters"]
+  },
+  "Q9": {
+    "type": "String",
+
+    "maxlength": [200, "Q9 can not be more than 200 characters"]
+  },
+  "Q10": {
+    "type": "String",
+
+    "maxlength": [200, "Q10 can not be more than 200 characters"]
+  },
+  "Q11": {
+    "type": "String",
+
+    "maxlength": [200, "Q11 can not be more than 200 characters"]
+  },
+  "A1": {
+    "type": "String",
+
+    "maxlength": [200, "A1 can not be more than 200 characters"]
+  },
+  "A2": {
+    "type": "String",
+
+    "maxlength": [200, "A2 can not be more than 200 characters"]
+  },
+  "A4": {
+    "type": "String",
+
+    "maxlength": [200, "A4 can not be more than 200 characters"]
+  },
+  "A5": {
+    "type": "String",
+
+    "maxlength": [200, "A5 can not be more than 200 characters"]
+  },
+  "A6": {
+    "type": "String",
+
+    "maxlength": [200, "A6 can not be more than 200 characters"]
+  },
+  "A7": {
+    "type": "String",
+
+    "maxlength": [200, "A7 can not be more than 200 characters"]
+  },
+  "A8": {
+    "type": "String",
+
+    "maxlength": [200, "A8 can not be more than 200 characters"]
+  },
+  "A9": {
+    "type": "String",
+
+    "maxlength": [200, "A9 can not be more than 200 characters"]
+  },
+  "A10": {
+    "type": "String",
+
+    "maxlength": [200, "A10 can not be more than 200 characters"]
+  },
+  "A11": {
+    "type": "String",
+
+    "maxlength": [200, "A11 can not be more than 200 characters"]
+  },
+  "Q12": {
+    "type": "String",
+
+    "maxlength": [100, "Q12 can not be more than 100 characters"]
+  },
+  "Q13": {
+    "type": "String",
+
+    "maxlength": [100, "Q13 can not be more than 100 characters"]
+  },
+  "Q14": {
+    "type": "String",
+
+    "maxlength": [100, "Q14 can not be more than 100 characters"]
+  },
+  "Q15": {
+    "type": "String",
+
+    "maxlength": [100, "Q15 can not be more than 100 characters"]
+  },
+  "Q16": {
+    "type": "String",
+
+    "maxlength": [100, "Q16 can not be more than 100 characters"]
+  },
+  "Q17": {
+    "type": "String",
+
+    "maxlength": [100, "Q17 can not be more than 100 characters"]
+  },
+  "Q18": {
+    "type": "String",
+
+    "maxlength": [100, "Q18 can not be more than 100 characters"]
+  },
+  "Q19": {
+    "type": "String",
+
+    "maxlength": [100, "Q19 can not be more than 100 characters"]
+  },
+  "Q20": {
+    "type": "String",
+
+    "maxlength": [100, "Q20 can not be more than 100 characters"]
+  },
+  "Q21": {
+    "type": "String",
+
+    "maxlength": [100, "Q21 can not be more than 100 characters"]
+  },
+  "Q22": {
+    "type": "String",
+
+    "maxlength": [100, "Q22 can not be more than 100 characters"]
+  },
+  "Q23": {
+    "type": "String",
+
+    "maxlength": [100, "Q23 can not be more than 100 characters"]
+  },
+  "Q24": {
+    "type": "String",
+
+    "maxlength": [100, "Q24 can not be more than 100 characters"]
+  },
+  "Q25": {
+    "type": "String",
+
+    "maxlength": [100, "Q25 can not be more than 100 characters"]
+  },
+  "Q26": {
+    "type": "String",
+
+    "maxlength": [100, "Q26 can not be more than 100 characters"]
+  },
+  "Q27": {
+    "type": "String",
+
+    "maxlength": [100, "Q27 can not be more than 100 characters"]
+  },
+  "A12": {
+    "type": "String",
+
+    "maxlength": [100, "A12 can not be more than 100 characters"]
+  },
+  "A13": {
+    "type": "String",
+
+    "maxlength": [100, "A13 can not be more than 100 characters"]
+  },
+  "A14": {
+    "type": "String",
+
+    "maxlength": [100, "A14 can not be more than 100 characters"]
+  },
+  "A15": {
+    "type": "String",
+
+    "maxlength": [100, "A15 can not be more than 100 characters"]
+  },
+  "A16": {
+    "type": "String",
+
+    "maxlength": [100, "A16 can not be more than 100 characters"]
+  },
+  "A17": {
+    "type": "String",
+
+    "maxlength": [100, "A17 can not be more than 100 characters"]
+  },
+  "A18": {
+    "type": "String",
+
+    "maxlength": [100, "A18 can not be more than 100 characters"]
+  },
+  "A19": {
+    "type": "String",
+
+    "maxlength": [100, "A19 can not be more than 100 characters"]
+  },
+  "A20": {
+    "type": "String",
+
+    "maxlength": [100, "A20 can not be more than 100 characters"]
+  },
+  "A21": {
+    "type": "String",
+
+    "maxlength": [100, "A21 can not be more than 100 characters"]
+  },
+  "A22": {
+    "type": "String",
+
+    "maxlength": [100, "A22 can not be more than 100 characters"]
+  },
+  "A23": {
+    "type": "String",
+
+    "maxlength": [100, "A23 can not be more than 100 characters"]
+  },
+  "A24": {
+    "type": "String",
+
+    "maxlength": [100, "A24 can not be more than 100 characters"]
+  },
+  "A25": {
+    "type": "String",
+
+    "maxlength": [100, "A25 can not be more than 100 characters"]
+  },
+  "A26": {
+    "type": "String",
+
+    "maxlength": [100, "A26 can not be more than 100 characters"]
+  },
+  "A27": {
+    "type": "String",
+
+    "maxlength": [100, "A27 can not be more than 100 characters"]
+  },
+  "WantCallBack": {
+    "type": "String",
+
+    "maxlength": [200, "WantCallBack can not be more than 200 characters"]
+  },
+  "FoodCompType": {
+    "type": "String",
+
+    "required": [true, "Please add mandatory field :FoodCompType"],
+    "maxlength": [200, "FoodCompType can not be more than 200 characters"]
+  },
+  "Approver": {
+    "type": "String",
+
+    "maxlength": [50, "Approver can not be more than 50 characters"]
+  },
+  "ProcessingLog": {
+    "type": "String",
+
+    "maxlength": [1000, "ProcessingLog can not be more than 1000 characters"]
+  },
+  "Question_Response": {
+    "type": "String",
+
+    "maxlength": [100, "Question_Response can not be more than 100 characters"]
+  },
+  "PurchaseDate": {
+    "type": "Date",
+
+    "maxlength": [10, "PurchaseDate can not be more than 10 characters"],
+    "match": [
+      "DATE_V1",
+      "Please provide date in YYYY-MM-DD format for field :PurchaseDate"
+    ]
+  },
+  "UseByDate": {
+    "type": "Date",
+
+    "maxlength": [10, "UseByDate can not be more than 10 characters"],
+    "match": [
+      "DATE_V1",
+      "Please provide date in YYYY-MM-DD format for field :UseByDate"
+    ]
+  },
+  "IncidentDate": {
+    "type": "Date",
+
+    "required": [true, "Please add mandatory field :IncidentDate"],
+    "maxlength": [10, "IncidentDate can not be more than 10 characters"],
+    "match": [
+      "DATE_V1",
+      "Please provide date in YYYY-MM-DD format for field :IncidentDate"
+    ]
+  },
+  "A3": {
+    "type": "Date",
+
+    "maxlength": [10, "A3 can not be more than 10 characters"],
+    "match": [
+      "DATE_V1",
+      "Please provide date in YYYY-MM-DD format for field :A3"
+    ]
+  },
+  "MissedDate": {
+    "type": "Date",
+
+    "maxlength": [10, "MissedDate can not be more than 10 characters"],
+    "match": [
+      "DATE_V1",
+      "Please provide date in YYYY-MM-DD format for field :MissedDate"
+    ]
+  },
+  "ComplaintDate": {
+    "type": "Date",
+
+    "maxlength": [10, "ComplaintDate can not be more than 10 characters"],
+    "match": [
+      "DATE_V1",
+      "Please provide date in YYYY-MM-DD format for field :ComplaintDate"
+    ]
+  }
+}

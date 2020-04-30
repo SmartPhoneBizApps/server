@@ -1,0 +1,301 @@
+{
+  "ID": {
+    "type": "String",
+    "unique": true,
+    "required": [true, "Please add mandatory field :ID"],
+    "maxlength": [20, "ID can not be more than 20 characters"]
+  },
+  "InvoiceType": {
+    "type": "String",
+
+    "required": [true, "Please add mandatory field :InvoiceType"],
+    "maxlength": [20, "InvoiceType can not be more than 20 characters"]
+  },
+  "PONumber": {
+    "type": "String",
+
+    "maxlength": [20, "PONumber can not be more than 20 characters"]
+  },
+  "VendorName": {
+    "type": "String",
+
+    "required": [true, "Please add mandatory field :VendorName"],
+    "maxlength": [50, "VendorName can not be more than 50 characters"],
+    "match": [
+      "UK_COMPANYNAME_V1",
+      "Please provide valid company name in field :VendorName"
+    ]
+  },
+  "VendorNumber": {
+    "type": "String",
+
+    "required": [true, "Please add mandatory field :VendorNumber"],
+    "maxlength": [20, "VendorNumber can not be more than 20 characters"]
+  },
+  "SuppInvoiceNumber": {
+    "type": "String",
+
+    "maxlength": [50, "SuppInvoiceNumber can not be more than 50 characters"]
+  },
+  "Company": {
+    "type": "String",
+
+    "maxlength": [100, "Company can not be more than 100 characters"]
+  },
+  "PaymentTerm": {
+    "type": "String",
+
+    "maxlength": [10, "PaymentTerm can not be more than 10 characters"]
+  },
+  "Details": {
+    "type": "String",
+
+    "maxlength": [50, "Details can not be more than 50 characters"]
+  },
+  "Currency": {
+    "type": "String",
+
+    "maxlength": [50, "Currency can not be more than 50 characters"]
+  },
+  "Status": {
+    "type": "String",
+
+    "required": [true, "Please add mandatory field :Status"],
+    "maxlength": [20, "Status can not be more than 20 characters"]
+  },
+  "Attachment": {
+    "type": "String",
+
+    "maxlength": [500, "Attachment can not be more than 500 characters"]
+  },
+  "TaxInvoice": {
+    "type": "String",
+
+    "required": [true, "Please add mandatory field :TaxInvoice"],
+    "maxlength": [3, "TaxInvoice can not be more than 3 characters"]
+  },
+  "PaymentStatus": {
+    "type": "String",
+
+    "maxlength": [50, "PaymentStatus can not be more than 50 characters"]
+  },
+  "InvoiceStatus": {
+    "type": "String",
+
+    "maxlength": [50, "InvoiceStatus can not be more than 50 characters"]
+  },
+  "BuyerInvoiceNumber": {
+    "type": "String",
+
+    "maxlength": [20, "BuyerInvoiceNumber can not be more than 20 characters"]
+  },
+  "BuyerInvoiceYear": {
+    "type": "String",
+
+    "maxlength": [4, "BuyerInvoiceYear can not be more than 4 characters"],
+    "match": [
+      "YEAR_V1",
+      "Please provide 4 digit year in field :BuyerInvoiceYear"
+    ]
+  },
+  "BuyerInvoiceStatus": {
+    "type": "String",
+
+    "maxlength": [20, "BuyerInvoiceStatus can not be more than 20 characters"]
+  },
+  "BuyerPaymentStatus": {
+    "type": "String",
+
+    "maxlength": [50, "BuyerPaymentStatus can not be more than 50 characters"]
+  },
+  "Comment": {
+    "type": "String",
+
+    "maxlength": [200, "Comment can not be more than 200 characters"]
+  },
+  "CurrentStatus": {
+    "type": "String",
+
+    "maxlength": [50, "CurrentStatus can not be more than 50 characters"]
+  },
+  "ConfidenceScore": {
+    "type": "String",
+
+    "maxlength": [10, "ConfidenceScore can not be more than 10 characters"]
+  },
+  "OverallMatching": {
+    "type": "String",
+
+    "maxlength": [100, "OverallMatching can not be more than 100 characters"]
+  },
+  "ProcessingLog": {
+    "type": "String",
+
+    "maxlength": [500, "ProcessingLog can not be more than 500 characters"]
+  },
+  "EventID": {
+    "type": "String",
+
+    "maxlength": [20, "EventID can not be more than 20 characters"]
+  },
+  "StudyID": {
+    "type": "String",
+
+    "maxlength": [20, "StudyID can not be more than 20 characters"]
+  },
+  "EventName": {
+    "type": "String",
+
+    "maxlength": [200, "EventName can not be more than 200 characters"]
+  },
+  "EventType": {
+    "type": "String",
+
+    "required": [true, "Please add mandatory field :EventType"],
+    "maxlength": [200, "EventType can not be more than 200 characters"]
+  },
+  "PharmaContactEmail": {
+    "type": "String",
+
+    "required": [true, "Please add mandatory field :PharmaContactEmail"],
+    "maxlength": [
+      100,
+      "PharmaContactEmail can not be more than 100 characters"
+    ],
+    "match": ["EMAIL_V1", "Invalid EmailID for field :PharmaContactEmail"]
+  },
+  "StudyType": {
+    "type": "String",
+
+    "required": [true, "Please add mandatory field :StudyType"],
+    "maxlength": [200, "StudyType can not be more than 200 characters"]
+  },
+  "StudyName": {
+    "type": "String",
+
+    "maxlength": [200, "StudyName can not be more than 200 characters"]
+  },
+  "Phase": {
+    "type": "String",
+
+    "maxlength": [200, "Phase can not be more than 200 characters"]
+  },
+  "ContractName": {
+    "type": "String",
+
+    "maxlength": [200, "ContractName can not be more than 200 characters"]
+  },
+  "ContractType": {
+    "type": "String",
+
+    "required": [true, "Please add mandatory field :ContractType"],
+    "maxlength": [200, "ContractType can not be more than 200 characters"]
+  },
+  "ContractID": {
+    "type": "String",
+
+    "maxlength": [200, "ContractID can not be more than 200 characters"]
+  },
+  "PODate": {
+    "type": "Date",
+
+    "maxlength": [10, "PODate can not be more than 10 characters"],
+    "match": [
+      "DATE_V1",
+      "Please provide date in YYYY-MM-DD format for field :PODate"
+    ]
+  },
+  "InvoiceDate": {
+    "type": "Date",
+
+    "required": [true, "Please add mandatory field :InvoiceDate"],
+    "maxlength": [10, "InvoiceDate can not be more than 10 characters"],
+    "match": [
+      "DATE_V1",
+      "Please provide date in YYYY-MM-DD format for field :InvoiceDate"
+    ]
+  },
+  "NetValue": {
+    "type": "Number",
+
+    "maxlength": [20, "NetValue can not be more than 20 characters"],
+    "match": [
+      "NUM_2_DEC_PLACE_V1",
+      "Please provide value with 2 decimal places in the field :NetValue"
+    ]
+  },
+  "GrossValue": {
+    "type": "Number",
+
+    "maxlength": [20, "GrossValue can not be more than 20 characters"],
+    "match": [
+      "NUM_2_DEC_PLACE_V1",
+      "Please provide value with 2 decimal places in the field :GrossValue"
+    ]
+  },
+  "TotInvNetValue": {
+    "type": "Number",
+
+    "maxlength": [20, "TotInvNetValue can not be more than 20 characters"],
+    "match": [
+      "NUM_2_DEC_PLACE_V1",
+      "Please provide value with 2 decimal places in the field :TotInvNetValue"
+    ]
+  },
+  "TotInvGrossVal": {
+    "type": "Number",
+
+    "maxlength": [20, "TotInvGrossVal can not be more than 20 characters"],
+    "match": [
+      "NUM_2_DEC_PLACE_V1",
+      "Please provide value with 2 decimal places in the field :TotInvGrossVal"
+    ]
+  },
+  "BuyerPaymentDate": {
+    "type": "Date",
+
+    "maxlength": [10, "BuyerPaymentDate can not be more than 10 characters"],
+    "match": [
+      "DATE_V1",
+      "Please provide date in YYYY-MM-DD format for field :BuyerPaymentDate"
+    ]
+  },
+  "BuyerInvoiceDueDt": {
+    "type": "Date",
+
+    "maxlength": [10, "BuyerInvoiceDueDt can not be more than 10 characters"],
+    "match": [
+      "DATE_V1",
+      "Please provide date in YYYY-MM-DD format for field :BuyerInvoiceDueDt"
+    ]
+  },
+  "TotInvTax": {
+    "type": "Number",
+
+    "maxlength": [20, "TotInvTax can not be more than 20 characters"],
+    "match": [
+      "NUM_2_DEC_PLACE_V1",
+      "Please provide value with 2 decimal places in the field :TotInvTax"
+    ]
+  },
+  "ContractStartDate": {
+    "type": "Date",
+
+    "required": [true, "Please add mandatory field :ContractStartDate"],
+    "maxlength": [10, "ContractStartDate can not be more than 10 characters"],
+    "match": [
+      "DATE_V1",
+      "Please provide date in YYYY-MM-DD format for field :ContractStartDate"
+    ]
+  },
+  "EventStartDate": {
+    "type": "Date",
+
+    "required": [true, "Please add mandatory field :EventStartDate"],
+    "maxlength": [10, "EventStartDate can not be more than 10 characters"],
+    "match": [
+      "DATE_V1",
+      "Please provide date in YYYY-MM-DD format for field :EventStartDate"
+    ]
+  }
+}

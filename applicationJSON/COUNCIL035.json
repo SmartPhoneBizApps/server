@@ -1,0 +1,251 @@
+{
+  "ID": {
+    "type": "String",
+    "unique": true,
+    "required": [true, "Please add mandatory field :ID"],
+    "maxlength": [20, "ID can not be more than 20 characters"]
+  },
+  "Name": {
+    "type": "String",
+
+    "maxlength": [20, "Name can not be more than 20 characters"]
+  },
+  "ContactNo": {
+    "type": "String",
+
+    "maxlength": [20, "ContactNo can not be more than 20 characters"]
+  },
+  "EmailID": {
+    "type": "String",
+
+    "required": [true, "Please add mandatory field :EmailID"],
+    "maxlength": [100, "EmailID can not be more than 100 characters"],
+    "match": ["EMAIL_V1", "Invalid EmailID for field :EmailID"]
+  },
+  "Address": {
+    "type": "String",
+
+    "required": [true, "Please add mandatory field :Address"],
+    "maxlength": [500, "Address can not be more than 500 characters"]
+  },
+  "Postcode": {
+    "type": "String",
+
+    "required": [true, "Please add mandatory field :Postcode"],
+    "maxlength": [20, "Postcode can not be more than 20 characters"],
+    "match": [
+      "UK_POSTCODE_V1",
+      "Please provide valid UK Post Code in field :Postcode"
+    ]
+  },
+  "RegisterFor": {
+    "type": "String",
+
+    "maxlength": [200, "RegisterFor can not be more than 200 characters"]
+  },
+  "Status": {
+    "type": "String",
+
+    "required": [true, "Please add mandatory field :Status"],
+    "maxlength": [20, "Status can not be more than 20 characters"]
+  },
+  "ChildName": {
+    "type": "String",
+
+    "maxlength": [50, "ChildName can not be more than 50 characters"]
+  },
+  "Surname": {
+    "type": "String",
+
+    "maxlength": [50, "Surname can not be more than 50 characters"]
+  },
+  "BirthPlace": {
+    "type": "String",
+
+    "maxlength": [50, "BirthPlace can not be more than 50 characters"]
+  },
+  "Gender": {
+    "type": "String",
+
+    "maxlength": [20, "Gender can not be more than 20 characters"],
+    "match": ["GENDER_V1", "Invalid Gender value in field : Gender"]
+  },
+  "Nationality": {
+    "type": "String",
+
+    "maxlength": [50, "Nationality can not be more than 50 characters"]
+  },
+  "MotherName": {
+    "type": "String",
+
+    "maxlength": [50, "MotherName can not be more than 50 characters"]
+  },
+  "MotherAddress": {
+    "type": "String",
+
+    "maxlength": [200, "MotherAddress can not be more than 200 characters"]
+  },
+  "MotherNationality": {
+    "type": "String",
+
+    "maxlength": [200, "MotherNationality can not be more than 200 characters"]
+  },
+  "FatherName": {
+    "type": "String",
+
+    "maxlength": [200, "FatherName can not be more than 200 characters"]
+  },
+  "FatherAddress": {
+    "type": "String",
+
+    "maxlength": [200, "FatherAddress can not be more than 200 characters"]
+  },
+  "FatherNationality": {
+    "type": "String",
+
+    "maxlength": [200, "FatherNationality can not be more than 200 characters"]
+  },
+  "PreferName1": {
+    "type": "String",
+
+    "maxlength": [200, "PreferName1 can not be more than 200 characters"]
+  },
+  "PreferName2": {
+    "type": "String",
+
+    "maxlength": [200, "PreferName2 can not be more than 200 characters"]
+  },
+  "PreferName3": {
+    "type": "String",
+
+    "maxlength": [200, "PreferName3 can not be more than 200 characters"]
+  },
+  "DeceasedName": {
+    "type": "String",
+
+    "maxlength": [200, "DeceasedName can not be more than 200 characters"]
+  },
+  "DeathPlace": {
+    "type": "String",
+
+    "maxlength": [200, "DeathPlace can not be more than 200 characters"]
+  },
+  "LastAddress": {
+    "type": "String",
+
+    "maxlength": [200, "LastAddress can not be more than 200 characters"]
+  },
+  "WasDeath": {
+    "type": "String",
+
+    "maxlength": [200, "WasDeath can not be more than 200 characters"]
+  },
+  "DeathCause": {
+    "type": "String",
+
+    "maxlength": [200, "DeathCause can not be more than 200 characters"]
+  },
+  "NHSNumber": {
+    "type": "String",
+
+    "maxlength": [200, "NHSNumber can not be more than 200 characters"]
+  },
+  "SpouseName": {
+    "type": "String",
+
+    "maxlength": [200, "SpouseName can not be more than 200 characters"]
+  },
+  "BrideName": {
+    "type": "String",
+
+    "required": [true, "Please add mandatory field :BrideName"],
+    "maxlength": [200, "BrideName can not be more than 200 characters"]
+  },
+  "BrideSurname": {
+    "type": "String",
+
+    "required": [true, "Please add mandatory field :BrideSurname"],
+    "maxlength": [200, "BrideSurname can not be more than 200 characters"]
+  },
+  "GroomName": {
+    "type": "String",
+
+    "maxlength": [200, "GroomName can not be more than 200 characters"]
+  },
+  "GroomSurname": {
+    "type": "String",
+
+    "maxlength": [200, "GroomSurname can not be more than 200 characters"]
+  },
+  "MarriagePlace": {
+    "type": "String",
+
+    "maxlength": [200, "MarriagePlace can not be more than 200 characters"]
+  },
+  "BrideFatherName": {
+    "type": "String",
+
+    "maxlength": [200, "BrideFatherName can not be more than 200 characters"]
+  },
+  "GroomFatherName": {
+    "type": "String",
+
+    "maxlength": [200, "GroomFatherName can not be more than 200 characters"]
+  },
+  "AdditionalInfo": {
+    "type": "String",
+
+    "maxlength": [200, "AdditionalInfo can not be more than 200 characters"]
+  },
+  "Approver": {
+    "type": "String",
+
+    "maxlength": [100, "Approver can not be more than 100 characters"]
+  },
+  "Question_Response": {
+    "type": "String",
+
+    "maxlength": [500, "Question_Response can not be more than 500 characters"]
+  },
+  "ProcessingLog": {
+    "type": "String",
+
+    "maxlength": [500, "ProcessingLog can not be more than 500 characters"]
+  },
+  "ApplicationDate": {
+    "type": "Date",
+
+    "maxlength": [10, "ApplicationDate can not be more than 10 characters"],
+    "match": [
+      "DATE_V1",
+      "Please provide date in YYYY-MM-DD format for field :ApplicationDate"
+    ]
+  },
+  "DOB": {
+    "type": "Date",
+
+    "maxlength": [10, "DOB can not be more than 10 characters"],
+    "match": [
+      "DATE_V1",
+      "Please provide date in YYYY-MM-DD format for field :DOB"
+    ]
+  },
+  "MarriageDate": {
+    "type": "Date",
+
+    "maxlength": [10, "MarriageDate can not be more than 10 characters"],
+    "match": [
+      "DATE_V1",
+      "Please provide date in YYYY-MM-DD format for field :MarriageDate"
+    ]
+  },
+  "DeathDate": {
+    "type": "Date",
+
+    "maxlength": [10, "DeathDate can not be more than 10 characters"],
+    "match": [
+      "DATE_V1",
+      "Please provide date in YYYY-MM-DD format for field :DeathDate"
+    ]
+  }
+}

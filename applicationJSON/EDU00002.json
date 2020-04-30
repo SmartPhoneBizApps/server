@@ -7,63 +7,63 @@
   },
   "Area": {
     "type": "String",
-    "unique": false,
+
     "maxlength": [100, "Area can not be more than 100 characters"]
   },
   "Topic": {
     "type": "String",
-    "unique": false,
+
     "maxlength": [100, "Topic can not be more than 100 characters"]
   },
   "Question": {
     "type": "String",
-    "unique": false,
+
     "maxlength": [100, "Question can not be more than 100 characters"]
   },
   "A": {
     "type": "String",
-    "unique": false,
+
     "maxlength": [100, "A can not be more than 100 characters"]
   },
   "B": {
     "type": "String",
-    "unique": false,
+
     "maxlength": [100, "B can not be more than 100 characters"]
   },
   "C": {
     "type": "String",
-    "unique": false,
+
     "maxlength": [100, "C can not be more than 100 characters"]
   },
   "D": {
     "type": "String",
-    "unique": false,
+
     "maxlength": [100, "D can not be more than 100 characters"]
   },
   "E": {
     "type": "String",
-    "unique": false,
+
     "maxlength": [100, "E can not be more than 100 characters"]
   },
   "Answer": {
     "type": "String",
-    "unique": false,
+
     "maxlength": [100, "Answer can not be more than 100 characters"]
   },
   "Reasoning": {
     "type": "String",
-    "unique": false,
+
     "maxlength": [500, "Reasoning can not be more than 500 characters"]
   },
   "Status": {
     "type": "String",
-    "unique": false,
+
     "required": [true, "Please add mandatory field :Status"],
     "maxlength": [20, "Status can not be more than 20 characters"]
   },
   "ExamDate": {
     "type": "Date",
-    "unique": false,
+
     "required": [true, "Please add mandatory field :ExamDate"],
     "maxlength": [10, "ExamDate can not be more than 10 characters"],
     "match": [

@@ -1,0 +1,88 @@
+{
+  "ID": {
+    "type": "String",
+    "unique": true,
+    "required": [true, "Please add mandatory field :ID"],
+    "maxlength": [20, "ID can not be more than 20 characters"]
+  },
+  "YourName": {
+    "type": "String",
+
+    "maxlength": [50, "YourName can not be more than 50 characters"]
+  },
+  "ContactNo": {
+    "type": "String",
+
+    "maxlength": [20, "ContactNo can not be more than 20 characters"]
+  },
+  "EmailID": {
+    "type": "String",
+
+    "required": [true, "Please add mandatory field :EmailID"],
+    "maxlength": [100, "EmailID can not be more than 100 characters"],
+    "match": ["EMAIL_V1", "Invalid EmailID for field :EmailID"]
+  },
+  "YourAddress": {
+    "type": "String",
+
+    "maxlength": [500, "YourAddress can not be more than 500 characters"]
+  },
+  "PestLocation": {
+    "type": "String",
+
+    "maxlength": [50, "PestLocation can not be more than 50 characters"]
+  },
+  "Latitude": {
+    "type": "String",
+
+    "maxlength": [50, "Latitude can not be more than 50 characters"],
+    "match": ["LATITUDE_V1", "Invalid Lat/Long values for field :Latitude"]
+  },
+  "Longitude": {
+    "type": "String",
+
+    "maxlength": [50, "Longitude can not be more than 50 characters"],
+    "match": ["LONGITUDE_V1", "Invalid Lat/Long values for field :Longitude"]
+  },
+  "TypeOfPest": {
+    "type": "String",
+
+    "required": [true, "Please add mandatory field :TypeOfPest"],
+    "maxlength": [50, "TypeOfPest can not be more than 50 characters"]
+  },
+  "IfOther": {
+    "type": "String",
+
+    "maxlength": [50, "IfOther can not be more than 50 characters"]
+  },
+  "Image": {
+    "type": "String",
+
+    "maxlength": [500, "Image can not be more than 500 characters"]
+  },
+  "Attachment": {
+    "type": "String",
+
+    "maxlength": [200, "Attachment can not be more than 200 characters"]
+  },
+  "AdditionalInfo": {
+    "type": "String",
+
+    "maxlength": [1000, "AdditionalInfo can not be more than 1000 characters"]
+  },
+  "Status": {
+    "type": "String",
+
+    "required": [true, "Please add mandatory field :Status"],
+    "maxlength": [20, "Status can not be more than 20 characters"]
+  },
+  "VisitDate": {
+    "type": "Date",
+
+    "maxlength": [10, "VisitDate can not be more than 10 characters"],
+    "match": [
+      "DATE_V1",
+      "Please provide date in YYYY-MM-DD format for field :VisitDate"
+    ]
+  }
+}

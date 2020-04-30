@@ -12,19 +12,6 @@ const { protect, authorize } = require("../../middleware/auth");
 
 router
   .route("/")
-  .get(
-    protect,
-    authorize(
-      "CompanyAdmin",
-      "BranchAdmin",
-      "AreaAdmin",
-      "CompanyUser",
-      "BranchUser",
-      "AreaUser",
-      "user"
-    ),
-    getRecords
-  )
   .post(
     protect,
     authorize(

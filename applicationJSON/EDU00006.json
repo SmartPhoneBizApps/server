@@ -7,106 +7,106 @@
   },
   "Status": {
     "type": "String",
-    "unique": false,
+
     "required": [true, "Please add mandatory field :Status"],
     "maxlength": [20, "Status can not be more than 20 characters"]
   },
   "ExamCentre": {
     "type": "String",
-    "unique": false,
+
     "maxlength": [500, "ExamCentre can not be more than 500 characters"]
   },
   "RegCentre": {
     "type": "String",
-    "unique": false,
+
     "maxlength": [100, "RegCentre can not be more than 100 characters"]
   },
   "Name": {
     "type": "String",
-    "unique": false,
+
     "required": [true, "Please add mandatory field :Name"],
     "maxlength": [100, "Name can not be more than 100 characters"]
   },
   "FeeReference": {
     "type": "String",
-    "unique": false,
+
     "maxlength": [100, "FeeReference can not be more than 100 characters"]
   },
   "CollegeChoice1": {
     "type": "String",
-    "unique": false,
+
     "maxlength": [100, "CollegeChoice1 can not be more than 100 characters"]
   },
   "CollegeChoice2": {
     "type": "String",
-    "unique": false,
+
     "maxlength": [100, "CollegeChoice2 can not be more than 100 characters"]
   },
   "CollegeChoice3": {
     "type": "String",
-    "unique": false,
+
     "maxlength": [100, "CollegeChoice3 can not be more than 100 characters"]
   },
   "CollegeChoice4": {
     "type": "String",
-    "unique": false,
+
     "maxlength": [100, "CollegeChoice4 can not be more than 100 characters"]
   },
   "CollegeChoice5": {
     "type": "String",
-    "unique": false,
+
     "maxlength": [100, "CollegeChoice5 can not be more than 100 characters"]
   },
   "CollegeChoice6": {
     "type": "String",
-    "unique": false,
+
     "maxlength": [100, "CollegeChoice6 can not be more than 100 characters"]
   },
   "CollegeChoice7": {
     "type": "String",
-    "unique": false,
+
     "maxlength": [100, "CollegeChoice7 can not be more than 100 characters"]
   },
   "Surname": {
     "type": "String",
-    "unique": false,
+
     "required": [true, "Please add mandatory field :Surname"],
     "maxlength": [100, "Surname can not be more than 100 characters"]
   },
   "CollegeChoice8": {
     "type": "String",
-    "unique": false,
+
     "maxlength": [100, "CollegeChoice8 can not be more than 100 characters"]
   },
   "BranchPrefer1": {
     "type": "String",
-    "unique": false,
+
     "maxlength": [50, "BranchPrefer1 can not be more than 50 characters"]
   },
   "BranchPrefer2": {
     "type": "String",
-    "unique": false,
+
     "maxlength": [50, "BranchPrefer2 can not be more than 50 characters"]
   },
   "Gender": {
     "type": "String",
-    "unique": false,
+
     "maxlength": [50, "Gender can not be more than 50 characters"],
     "match": ["GENDER_V1", "Invalid Gender value in field : Gender"]
   },
   "Street": {
     "type": "String",
-    "unique": false,
+
     "maxlength": [100, "Street can not be more than 100 characters"]
   },
   "City": {
     "type": "String",
-    "unique": false,
+
     "maxlength": [100, "City can not be more than 100 characters"]
   },
   "PostCode": {
     "type": "String",
-    "unique": false,
+
     "required": [true, "Please add mandatory field :PostCode"],
     "maxlength": [100, "PostCode can not be more than 100 characters"],
     "match": [
@@ -116,67 +116,67 @@
   },
   "State": {
     "type": "String",
-    "unique": false,
+
     "maxlength": [100, "State can not be more than 100 characters"]
   },
   "Country": {
     "type": "String",
-    "unique": false,
+
     "maxlength": [100, "Country can not be more than 100 characters"]
   },
   "Quota": {
     "type": "String",
-    "unique": false,
+
     "maxlength": [100, "Quota can not be more than 100 characters"]
   },
   "AllocatedBranch": {
     "type": "String",
-    "unique": false,
+
     "maxlength": [100, "AllocatedBranch can not be more than 100 characters"]
   },
   "AllocatedCollege": {
     "type": "String",
-    "unique": false,
+
     "maxlength": [50, "AllocatedCollege can not be more than 50 characters"]
   },
   "StudentName": {
     "type": "String",
-    "unique": false,
+
     "required": [true, "Please add mandatory field :StudentName"],
     "maxlength": [50, "StudentName can not be more than 50 characters"]
   },
   "Address": {
     "type": "String",
-    "unique": false,
+
     "required": [true, "Please add mandatory field :Address"],
     "maxlength": [500, "Address can not be more than 500 characters"]
   },
   "Question_Response": {
     "type": "String",
-    "unique": false,
+
     "maxlength": [500, "Question_Response can not be more than 500 characters"]
   },
   "Email": {
     "type": "String",
-    "unique": false,
+
     "required": [true, "Please add mandatory field :Email"],
     "maxlength": [50, "Email can not be more than 50 characters"],
     "match": ["EMAIL_V1", "Invalid EmailID for field :Email"]
   },
   "StudentID": {
     "type": "String",
-    "unique": false,
+
     "required": [true, "Please add mandatory field :StudentID"],
     "maxlength": [20, "StudentID can not be more than 20 characters"]
   },
   "AllocatedCourse": {
     "type": "String",
-    "unique": false,
+
     "maxlength": [50, "AllocatedCourse can not be more than 50 characters"]
   },
   "DoB": {
     "type": "Date",
-    "unique": false,
+
     "maxlength": [10, "DoB can not be more than 10 characters"],
     "match": [
       "DATE_V1",
@@ -185,7 +185,7 @@
   },
   "ScoreMaths": {
     "type": "Number",
-    "unique": false,
+
     "maxlength": [100, "ScoreMaths can not be more than 100 characters"],
     "match": [
       "NUM_INT_MAX_10D_V1",
@@ -194,7 +194,7 @@
   },
   "ScorePhysics": {
     "type": "Number",
-    "unique": false,
+
     "maxlength": [100, "ScorePhysics can not be more than 100 characters"],
     "match": [
       "NUM_INT_MAX_10D_V1",
@@ -203,7 +203,7 @@
   },
   "ScoreChemistry": {
     "type": "Number",
-    "unique": false,
+
     "maxlength": [20, "ScoreChemistry can not be more than 20 characters"],
     "match": [
       "NUM_INT_MAX_10D_V1",
@@ -212,7 +212,7 @@
   },
   "DateOfReg": {
     "type": "Date",
-    "unique": false,
+
     "maxlength": [10, "DateOfReg can not be more than 10 characters"],
     "match": [
       "DATE_V1",
@@ -221,7 +221,7 @@
   },
   "FeePaymentDate": {
     "type": "Date",
-    "unique": false,
+
     "maxlength": [10, "FeePaymentDate can not be more than 10 characters"],
     "match": [
       "DATE_V1",
@@ -230,7 +230,7 @@
   },
   "ChoiceLockDate": {
     "type": "Date",
-    "unique": false,
+
     "maxlength": [10, "ChoiceLockDate can not be more than 10 characters"],
     "match": [
       "DATE_V1",
@@ -239,7 +239,7 @@
   },
   "ResultDate": {
     "type": "Date",
-    "unique": false,
+
     "maxlength": [10, "ResultDate can not be more than 10 characters"],
     "match": [
       "DATE_V1",
@@ -248,7 +248,7 @@
   },
   "FeeAmount": {
     "type": "Number",
-    "unique": false,
+
     "maxlength": [100, "FeeAmount can not be more than 100 characters"],
     "match": [
       "NUM_2_DEC_PLACE_V1",
@@ -257,7 +257,7 @@
   },
   "SubmitDate": {
     "type": "Date",
-    "unique": false,
+
     "maxlength": [10, "SubmitDate can not be more than 10 characters"],
     "match": [
       "DATE_V1",
@@ -266,7 +266,7 @@
   },
   "Rank": {
     "type": "Number",
-    "unique": false,
+
     "maxlength": [100, "Rank can not be more than 100 characters"],
     "match": [
       "NUM_INT_MAX_10D_V1",

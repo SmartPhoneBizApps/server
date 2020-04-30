@@ -1,0 +1,212 @@
+{
+  "ID": {
+    "type": "String",
+    "unique": true,
+    "required": [true, "Please add mandatory field :ID"],
+    "maxlength": [20, "ID can not be more than 20 characters"]
+  },
+  "CompanyName": {
+    "type": "String",
+
+    "maxlength": [50, "CompanyName can not be more than 50 characters"],
+    "match": [
+      "UK_COMPANYNAME_V1",
+      "Please provide valid company name in field :CompanyName"
+    ]
+  },
+  "CompanyType": {
+    "type": "String",
+
+    "required": [true, "Please add mandatory field :CompanyType"],
+    "maxlength": [50, "CompanyType can not be more than 50 characters"]
+  },
+  "CompanyRegistrationNumber": {
+    "type": "String",
+
+    "maxlength": [
+      50,
+      "CompanyRegistrationNumber can not be more than 50 characters"
+    ],
+    "match": [
+      "UK_COMPANY_REG_V1",
+      "Please provide valid company Registration Number in field : CompanyRegistrationNumber"
+    ]
+  },
+  "WebSiteURL": {
+    "type": "String",
+
+    "maxlength": [50, "WebSiteURL can not be more than 50 characters"],
+    "match": ["WEBSITE_V1", "Invalid web address in field :WebSiteURL"]
+  },
+  "VATRegistration": {
+    "type": "String",
+
+    "maxlength": [50, "VATRegistration can not be more than 50 characters"],
+    "match": [
+      "UK_VATREGNO_V1",
+      "Please provide valid VAT Registration number in field : VATRegistration"
+    ]
+  },
+  "DUNSNumber": {
+    "type": "String",
+
+    "maxlength": [50, "DUNSNumber can not be more than 50 characters"],
+    "match": ["DUNS_NUM_V1", "Invalid DUNS Number for Field :DUNSNumber"]
+  },
+  "AnnualTurnover": {
+    "type": "String",
+
+    "maxlength": [50, "AnnualTurnover can not be more than 50 characters"]
+  },
+  "YearEstablish": {
+    "type": "String",
+
+    "maxlength": [100, "YearEstablish can not be more than 100 characters"],
+    "match": ["YEAR_V1", "Please provide 4 digit year in field :YearEstablish"]
+  },
+  "HouseNo": {
+    "type": "String",
+
+    "maxlength": [50, "HouseNo can not be more than 50 characters"]
+  },
+  "Street": {
+    "type": "String",
+
+    "maxlength": [50, "Street can not be more than 50 characters"]
+  },
+  "City": {
+    "type": "String",
+
+    "maxlength": [50, "City can not be more than 50 characters"]
+  },
+  "POBox": {
+    "type": "String",
+
+    "maxlength": [50, "POBox can not be more than 50 characters"]
+  },
+  "PostCode": {
+    "type": "String",
+
+    "required": [true, "Please add mandatory field :PostCode"],
+    "maxlength": [50, "PostCode can not be more than 50 characters"],
+    "match": [
+      "UK_POSTCODE_V1",
+      "Please provide valid UK Post Code in field :PostCode"
+    ]
+  },
+  "State": {
+    "type": "String",
+
+    "maxlength": [50, "State can not be more than 50 characters"]
+  },
+  "Country": {
+    "type": "String",
+
+    "maxlength": [50, "Country can not be more than 50 characters"]
+  },
+  "GeographicalCoverage": {
+    "type": "String",
+
+    "maxlength": [
+      100,
+      "GeographicalCoverage can not be more than 100 characters"
+    ]
+  },
+  "BusinessType": {
+    "type": "String",
+
+    "required": [true, "Please add mandatory field :BusinessType"],
+    "maxlength": [100, "BusinessType can not be more than 100 characters"]
+  },
+  "IntrestArea": {
+    "type": "String",
+
+    "maxlength": [100, "IntrestArea can not be more than 100 characters"]
+  },
+  "DetailsOfServices": {
+    "type": "String",
+
+    "maxlength": [100, "DetailsOfServices can not be more than 100 characters"]
+  },
+  "DetailsOfProducts": {
+    "type": "String",
+
+    "maxlength": [100, "DetailsOfProducts can not be more than 100 characters"]
+  },
+  "ContactPerson": {
+    "type": "String",
+
+    "maxlength": [100, "ContactPerson can not be more than 100 characters"]
+  },
+  "JobTitle": {
+    "type": "String",
+
+    "maxlength": [100, "JobTitle can not be more than 100 characters"]
+  },
+  "EMail": {
+    "type": "String",
+
+    "required": [true, "Please add mandatory field :EMail"],
+    "maxlength": [100, "EMail can not be more than 100 characters"],
+    "match": ["EMAIL_V1", "Invalid EmailID for field :EMail"]
+  },
+  "Phone": {
+    "type": "String",
+
+    "required": [true, "Please add mandatory field :Phone"],
+    "maxlength": [100, "Phone can not be more than 100 characters"],
+    "match": [
+      "UK_PHONE_V1",
+      "Please provide valid UK Phone number in field :Phone"
+    ]
+  },
+  "Fax": {
+    "type": "String",
+
+    "maxlength": [100, "Fax can not be more than 100 characters"],
+    "match": [
+      "UK_PHONE_V1",
+      "Please provide valid UK Phone number in field :Fax"
+    ]
+  },
+  "Language": {
+    "type": "String",
+
+    "maxlength": [100, "Language can not be more than 100 characters"]
+  },
+  "Status": {
+    "type": "String",
+
+    "required": [true, "Please add mandatory field :Status"],
+    "maxlength": [20, "Status can not be more than 20 characters"]
+  },
+  "GoogleProfile": {
+    "type": "String",
+
+    "maxlength": [200, "GoogleProfile can not be more than 200 characters"],
+    "match": ["WEBSITE_V1", "Invalid web address in field :GoogleProfile"]
+  },
+  "PastSupplier": {
+    "type": "Boolean",
+
+    "maxlength": [100, "PastSupplier can not be more than 100 characters"]
+  },
+  "DateOfRegistration": {
+    "type": "Date",
+
+    "maxlength": [10, "DateOfRegistration can not be more than 10 characters"],
+    "match": [
+      "DATE_V1",
+      "Please provide date in YYYY-MM-DD format for field :DateOfRegistration"
+    ]
+  },
+  "NumberOfEmployees": {
+    "type": "Number",
+
+    "maxlength": [50, "NumberOfEmployees can not be more than 50 characters"],
+    "match": [
+      "NUM_INT_MAX_10D_V1",
+      "Please provide an Integer value for field :NumberOfEmployees"
+    ]
+  }
+}

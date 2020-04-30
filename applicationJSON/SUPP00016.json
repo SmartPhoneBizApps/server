@@ -1,0 +1,241 @@
+{
+  "ID": {
+    "type": "String",
+    "unique": true,
+    "required": [true, "Please add mandatory field :ID"],
+    "maxlength": [20, "ID can not be more than 20 characters"]
+  },
+  "VendorName": {
+    "type": "String",
+
+    "required": [true, "Please add mandatory field :VendorName"],
+    "maxlength": [50, "VendorName can not be more than 50 characters"],
+    "match": [
+      "UK_COMPANYNAME_V1",
+      "Please provide valid company name in field :VendorName"
+    ]
+  },
+  "Plant": {
+    "type": "String",
+
+    "maxlength": [100, "Plant can not be more than 100 characters"]
+  },
+  "PaymentTerm": {
+    "type": "String",
+
+    "maxlength": [20, "PaymentTerm can not be more than 20 characters"]
+  },
+  "POItem": {
+    "type": "String",
+
+    "maxlength": [10, "POItem can not be more than 10 characters"]
+  },
+  "Category": {
+    "type": "String",
+
+    "maxlength": [50, "Category can not be more than 50 characters"]
+  },
+  "Details": {
+    "type": "String",
+
+    "maxlength": [50, "Details can not be more than 50 characters"]
+  },
+  "UoM": {
+    "type": "String",
+
+    "maxlength": [50, "UoM can not be more than 50 characters"]
+  },
+  "InvQtyHistory": {
+    "type": "String",
+
+    "maxlength": [10, "InvQtyHistory can not be more than 10 characters"]
+  },
+  "Currency": {
+    "type": "String",
+
+    "maxlength": [50, "Currency can not be more than 50 characters"]
+  },
+  "StorageLoc": {
+    "type": "String",
+
+    "maxlength": [10, "StorageLoc can not be more than 10 characters"]
+  },
+  "VendorInvoice": {
+    "type": "String",
+
+    "required": [true, "Please add mandatory field :VendorInvoice"],
+    "maxlength": [50, "VendorInvoice can not be more than 50 characters"]
+  },
+  "Status": {
+    "type": "String",
+
+    "required": [true, "Please add mandatory field :Status"],
+    "maxlength": [20, "Status can not be more than 20 characters"]
+  },
+  "InvoiceRemark": {
+    "type": "String",
+
+    "maxlength": [500, "InvoiceRemark can not be more than 500 characters"]
+  },
+  "Attachment": {
+    "type": "String",
+
+    "maxlength": [500, "Attachment can not be more than 500 characters"]
+  },
+  "PODate": {
+    "type": "Date",
+
+    "maxlength": [10, "PODate can not be more than 10 characters"],
+    "match": [
+      "DATE_V1",
+      "Please provide date in YYYY-MM-DD format for field :PODate"
+    ]
+  },
+  "POQty": {
+    "type": "Number",
+
+    "maxlength": [10, "POQty can not be more than 10 characters"],
+    "match": [
+      "NUM_INT_MAX_10D_V1",
+      "Please provide an Integer value for field :POQty"
+    ]
+  },
+  "Price": {
+    "type": "Number",
+
+    "maxlength": [2, "Price can not be more than 2 characters"],
+    "match": [
+      "NUM_2_DEC_PLACE_V1",
+      "Please provide value with 2 decimal places in the field :Price"
+    ]
+  },
+  "NetValue": {
+    "type": "Number",
+
+    "maxlength": [2, "NetValue can not be more than 2 characters"],
+    "match": [
+      "NUM_2_DEC_PLACE_V1",
+      "Please provide value with 2 decimal places in the field :NetValue"
+    ]
+  },
+  "VATRate": {
+    "type": "Number",
+
+    "maxlength": [50, "VATRate can not be more than 50 characters"],
+    "match": [
+      "NUM_2_DEC_PLACE_V1",
+      "Please provide value with 2 decimal places in the field :VATRate"
+    ]
+  },
+  "VATVal": {
+    "type": "Number",
+
+    "maxlength": [50, "VATVal can not be more than 50 characters"],
+    "match": [
+      "NUM_2_DEC_PLACE_V1",
+      "Please provide value with 2 decimal places in the field :VATVal"
+    ]
+  },
+  "GrossValue": {
+    "type": "Number",
+
+    "maxlength": [2, "GrossValue can not be more than 2 characters"],
+    "match": [
+      "NUM_2_DEC_PLACE_V1",
+      "Please provide value with 2 decimal places in the field :GrossValue"
+    ]
+  },
+  "GRQtyHistory": {
+    "type": "Number",
+
+    "maxlength": [10, "GRQtyHistory can not be more than 10 characters"],
+    "match": [
+      "NUM_INT_MAX_10D_V1",
+      "Please provide an Integer value for field :GRQtyHistory"
+    ]
+  },
+  "InvQty": {
+    "type": "Number",
+
+    "maxlength": [10, "InvQty can not be more than 10 characters"],
+    "match": [
+      "NUM_INT_MAX_10D_V1",
+      "Please provide an Integer value for field :InvQty"
+    ]
+  },
+  "InvPrice": {
+    "type": "Number",
+
+    "maxlength": [50, "InvPrice can not be more than 50 characters"],
+    "match": [
+      "NUM_2_DEC_PLACE_V1",
+      "Please provide value with 2 decimal places in the field :InvPrice"
+    ]
+  },
+  "InvNetValue": {
+    "type": "Number",
+
+    "required": [true, "Please add mandatory field :InvNetValue"],
+    "maxlength": [50, "InvNetValue can not be more than 50 characters"],
+    "match": [
+      "NUM_2_DEC_PLACE_V1",
+      "Please provide value with 2 decimal places in the field :InvNetValue"
+    ]
+  },
+  "InvVATRate": {
+    "type": "Number",
+
+    "maxlength": [100, "InvVATRate can not be more than 100 characters"],
+    "match": [
+      "NUM_2_DEC_PLACE_V1",
+      "Please provide value with 2 decimal places in the field :InvVATRate"
+    ]
+  },
+  "InvVATVal": {
+    "type": "Number",
+
+    "maxlength": [50, "InvVATVal can not be more than 50 characters"],
+    "match": [
+      "NUM_2_DEC_PLACE_V1",
+      "Please provide value with 2 decimal places in the field :InvVATVal"
+    ]
+  },
+  "InvGrossVal": {
+    "type": "Number",
+
+    "required": [true, "Please add mandatory field :InvGrossVal"],
+    "maxlength": [2, "InvGrossVal can not be more than 2 characters"],
+    "match": [
+      "NUM_2_DEC_PLACE_V1",
+      "Please provide value with 2 decimal places in the field :InvGrossVal"
+    ]
+  },
+  "InvoiceDate": {
+    "type": "Date",
+
+    "required": [true, "Please add mandatory field :InvoiceDate"],
+    "maxlength": [10, "InvoiceDate can not be more than 10 characters"],
+    "match": [
+      "DATE_V1",
+      "Please provide date in YYYY-MM-DD format for field :InvoiceDate"
+    ]
+  },
+  "VATPer": {
+    "type": "Number",
+
+    "maxlength": [100, "VATPer can not be more than 100 characters"],
+    "match": [
+      "NUM_2_DEC_PLACE_V1",
+      "Please provide value with 2 decimal places in the field :VATPer"
+    ]
+  },
+  "InvVATPer": {
+    "type": "Number",
+
+    "maxlength": [100, "InvVATPer can not be more than 100 characters"],
+    "match": [
+      "NUM_2_DEC_PLACE_V1",
+      "Please provide value with 2 decimal places in the field :InvVATPer"
+    ]
+  }
+}

@@ -1,0 +1,115 @@
+{
+  "ID": {
+    "type": "String",
+    "unique": true,
+    "required": [true, "Please add mandatory field :ID"],
+    "maxlength": [20, "ID can not be more than 20 characters"]
+  },
+  "Material": {
+    "type": "String",
+
+    "maxlength": [20, "Material can not be more than 20 characters"]
+  },
+  "Description": {
+    "type": "String",
+
+    "maxlength": [20, "Description can not be more than 20 characters"]
+  },
+  "Location": {
+    "type": "String",
+
+    "maxlength": [20, "Location can not be more than 20 characters"]
+  },
+  "StorageLoc": {
+    "type": "String",
+
+    "maxlength": [20, "StorageLoc can not be more than 20 characters"]
+  },
+  "Returns": {
+    "type": "String",
+
+    "maxlength": [10, "Returns can not be more than 10 characters"]
+  },
+  "Blocked": {
+    "type": "String",
+
+    "maxlength": [10, "Blocked can not be more than 10 characters"]
+  },
+  "Reserved": {
+    "type": "String",
+
+    "maxlength": [50, "Reserved can not be more than 50 characters"]
+  },
+  "Status": {
+    "type": "String",
+
+    "required": [true, "Please add mandatory field :Status"],
+    "maxlength": [20, "Status can not be more than 20 characters"]
+  },
+  "City": {
+    "type": "String",
+
+    "maxlength": [50, "City can not be more than 50 characters"]
+  },
+  "Street": {
+    "type": "String",
+
+    "maxlength": [50, "Street can not be more than 50 characters"]
+  },
+  "PostCode": {
+    "type": "String",
+
+    "maxlength": [50, "PostCode can not be more than 50 characters"],
+    "match": [
+      "UK_POSTCODE_V1",
+      "Please provide valid UK Post Code in field :PostCode"
+    ]
+  },
+  "Country": {
+    "type": "String",
+
+    "maxlength": [50, "Country can not be more than 50 characters"]
+  },
+  "Plant": {
+    "type": "String",
+
+    "maxlength": [20, "Plant can not be more than 20 characters"]
+  },
+  "Seller": {
+    "type": "String",
+
+    "maxlength": [100, "Seller can not be more than 100 characters"]
+  },
+  "SpecialStock": {
+    "type": "String",
+
+    "maxlength": [100, "SpecialStock can not be more than 100 characters"]
+  },
+  "TotalStock": {
+    "type": "Number",
+
+    "maxlength": [10, "TotalStock can not be more than 10 characters"],
+    "match": [
+      "NUM_2_DEC_PLACE_V1",
+      "Please provide value with 2 decimal places in the field :TotalStock"
+    ]
+  },
+  "Sales": {
+    "type": "Number",
+
+    "maxlength": [10, "Sales can not be more than 10 characters"],
+    "match": [
+      "NUM_2_DEC_PLACE_V1",
+      "Please provide value with 2 decimal places in the field :Sales"
+    ]
+  },
+  "StockDate": {
+    "type": "Date",
+
+    "maxlength": [10, "StockDate can not be more than 10 characters"],
+    "match": [
+      "DATE_V1",
+      "Please provide date in YYYY-MM-DD format for field :StockDate"
+    ]
+  }
+}

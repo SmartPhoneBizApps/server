@@ -1,0 +1,118 @@
+{
+  "ID": {
+    "type": "String",
+    "unique": true,
+    "required": [true, "Please add mandatory field :ID"],
+    "maxlength": [20, "ID can not be more than 20 characters"]
+  },
+  "Shift": {
+    "type": "String",
+
+    "maxlength": [50, "Shift can not be more than 50 characters"]
+  },
+  "Operator": {
+    "type": "String",
+
+    "maxlength": [20, "Operator can not be more than 20 characters"]
+  },
+  "Material": {
+    "type": "String",
+
+    "maxlength": [20, "Material can not be more than 20 characters"]
+  },
+  "UoM": {
+    "type": "String",
+
+    "maxlength": [50, "UoM can not be more than 50 characters"]
+  },
+  "PostCode": {
+    "type": "String",
+
+    "maxlength": [50, "PostCode can not be more than 50 characters"],
+    "match": [
+      "UK_POSTCODE_V1",
+      "Please provide valid UK Post Code in field :PostCode"
+    ]
+  },
+  "Address": {
+    "type": "String",
+
+    "maxlength": [50, "Address can not be more than 50 characters"]
+  },
+  "Reason": {
+    "type": "String",
+
+    "maxlength": [50, "Reason can not be more than 50 characters"]
+  },
+  "Status": {
+    "type": "String",
+
+    "required": [true, "Please add mandatory field :Status"],
+    "maxlength": [20, "Status can not be more than 20 characters"]
+  },
+  "Date": {
+    "type": "Date",
+
+    "required": [true, "Please add mandatory field :Date"],
+    "maxlength": [10, "Date can not be more than 10 characters"],
+    "match": [
+      "DATE_V1",
+      "Please provide date in YYYY-MM-DD format for field :Date"
+    ]
+  },
+  "Qty": {
+    "type": "Number",
+
+    "maxlength": [50, "Qty can not be more than 50 characters"],
+    "match": [
+      "NUM_INT_MAX_10D_V1",
+      "Please provide an Integer value for field :Qty"
+    ]
+  },
+  "CummQty": {
+    "type": "Number",
+
+    "maxlength": [50, "CummQty can not be more than 50 characters"],
+    "match": [
+      "NUM_INT_MAX_10D_V1",
+      "Please provide an Integer value for field :CummQty"
+    ]
+  },
+  "TargetQty": {
+    "type": "Number",
+
+    "maxlength": [50, "TargetQty can not be more than 50 characters"],
+    "match": [
+      "NUM_INT_MAX_10D_V1",
+      "Please provide an Integer value for field :TargetQty"
+    ]
+  },
+  "QtyPercent": {
+    "type": "Number",
+
+    "required": [true, "Please add mandatory field :QtyPercent"],
+    "maxlength": [50, "QtyPercent can not be more than 50 characters"],
+    "match": [
+      "NUM_2_DEC_PLACE_V1",
+      "Please provide value with 2 decimal places in the field :QtyPercent"
+    ]
+  },
+  "CummPercent": {
+    "type": "Number",
+
+    "maxlength": [50, "CummPercent can not be more than 50 characters"],
+    "match": [
+      "NUM_2_DEC_PLACE_V1",
+      "Please provide value with 2 decimal places in the field :CummPercent"
+    ]
+  },
+  "Time": {
+    "type": "Date",
+
+    "maxlength": [10, "Time can not be more than 10 characters"],
+    "match": [
+      "DATE_V1",
+      "Please provide date in YYYY-MM-DD format for field :Time"
+    ]
+  }
+}
