@@ -9,14 +9,7 @@
     "fStatus": "Status",
     "sStatus": "",
     "numberField": "",
-    "LFields": [
-      "FirstName",
-      "LastName",
-      "BookingFor",
-      "PhoneNo",
-      "Status",
-      "GrossValue"
-    ]
+    "LFields": ["Name", "BookingFor", "PhoneNo", "Status"]
   },
   "MButtons": [
     {
@@ -56,33 +49,19 @@
       "value": "Tab1",
       "name": "Booking",
       "type": "Field",
-      "fioriicon": "hint",
+      "fioriicon": "sap-icon://hint",
       "download": "Yes"
     },
     {
       "value": "Tab2",
       "name": "Contact",
       "type": "Field",
-      "fioriicon": "hint",
-      "download": "Yes"
-    },
-    {
-      "value": "Tab3",
-      "name": "Calculate",
-      "fioriicon": "notes",
-      "type": "Field",
-      "download": "Yes"
-    },
-    {
-      "value": "Tab4",
-      "name": "Items",
-      "fioriicon": "Notes",
-      "type": "Items",
+      "fioriicon": "sap-icon://hint",
       "download": "Yes"
     }
   ],
   "DetailFields": {
-    "None": ["ID", "Status", "TotalGrossValue"],
+    "None": ["ID", "Status"],
     "Tab1": [
       "StartDate",
       "StartTime",
@@ -107,19 +86,7 @@
       "BookingFor",
       "Comments"
     ],
-    "Tab2": [
-      "FirstName",
-      "LastName",
-      "PhoneNo",
-      "Email",
-      "MoreInfo",
-      "Attachment1",
-      "Attachment2",
-      "PostCode",
-      "HouseNo",
-      "Address"
-    ],
-    "Tab3": ["Price", "Quantity", "NetValue", "VATRate", "VATVal", "GrossValue"]
+    "Tab2": ["Name", "PhoneNo", "Email"]
   },
   "ControlDisplay": {
     "ControlField": "BookingFor",
@@ -128,28 +95,13 @@
         {
           "ALL": [
             "ID",
-            "FirstName",
-            "LastName",
+
+            "Name",
             "PhoneNo",
             "Status",
             "Email",
             "Comments",
-            "BookingFor",
-            "Price",
-            "Quantity",
-            "NetValue",
-            "VATPer",
-            "VATRate",
-            "VATVal",
-            "GrossValue",
-            "MoreInfo",
-            "Attachment1",
-            "Attachment2",
-            "PostCode",
-            "Emailid",
-            "HouseNo",
-            "Address",
-            "TotalGrossValue"
+            "BookingFor"
           ]
         },
         {
@@ -273,21 +225,13 @@
       "LLabel": "",
       "Currency": "No"
     },
+
     {
-      "name": "FirstName",
-      "type": "string",
-      "width": "50",
-      "Option": "",
-      "SLabel": "First Name",
-      "LLabel": "",
-      "Currency": "No"
-    },
-    {
-      "name": "LastName",
+      "name": "Name",
       "type": "string",
       "width": "10",
       "Option": "",
-      "SLabel": "Last Name",
+      "SLabel": "Name",
       "LLabel": "",
       "Currency": "No"
     },
@@ -320,7 +264,7 @@
     },
     {
       "name": "CarPark",
-      "type": "combobox",
+      "type": "checkbox",
       "width": "50",
       "Option": "",
       "SLabel": "Car Park",
@@ -347,7 +291,7 @@
     },
     {
       "name": "VisitorPhone",
-      "type": "Num,0",
+      "type": "Num,1",
       "width": "50",
       "Option": "",
       "SLabel": "Visitor Phone",
@@ -428,7 +372,7 @@
     },
     {
       "name": "ParkingRequired",
-      "type": "checkbox",
+      "type": "combobox",
       "width": "10",
       "Option": "",
       "SLabel": "Parking Required",
@@ -478,411 +422,6 @@
       "Option": "",
       "SLabel": "Slot",
       "LLabel": "Slot",
-      "Currency": "No"
-    },
-    {
-      "name": "Price",
-      "type": "Num,2",
-      "width": "100",
-      "Option": "",
-      "SLabel": "Price",
-      "LLabel": "",
-      "Currency": "No"
-    },
-    {
-      "name": "Quantity",
-      "type": "Num,2",
-      "width": "100",
-      "Option": "",
-      "SLabel": "Quantity",
-      "LLabel": "",
-      "Currency": "No"
-    },
-    {
-      "name": "NetValue",
-      "type": "Num,2",
-      "width": "100",
-      "Option": "",
-      "SLabel": "Net Value",
-      "LLabel": "",
-      "Currency": "No"
-    },
-    {
-      "name": "VATPer",
-      "type": "Num,2",
-      "width": "100",
-      "Option": "",
-      "SLabel": "VAT Percentage",
-      "LLabel": "",
-      "Currency": "No"
-    },
-    {
-      "name": "VATRate",
-      "type": "Num,2",
-      "width": "100",
-      "Option": "",
-      "SLabel": "VAT Rate",
-      "LLabel": "",
-      "Currency": "No"
-    },
-    {
-      "name": "VATVal",
-      "type": "Num,2",
-      "width": "100",
-      "Option": "",
-      "SLabel": "VAT Value",
-      "LLabel": "",
-      "Currency": "No"
-    },
-    {
-      "name": "GrossValue",
-      "type": "Num,2",
-      "width": "100",
-      "Option": "",
-      "SLabel": "Gross Value",
-      "LLabel": "",
-      "Currency": "No"
-    },
-    {
-      "name": "MoreInfo",
-      "type": "hyperlink",
-      "width": "100",
-      "Option": "",
-      "SLabel": "More Information",
-      "LLabel": "",
-      "Currency": "No"
-    },
-    {
-      "name": "Attachment1",
-      "type": "attachment",
-      "width": "100",
-      "Option": "",
-      "SLabel": "Attachment 1",
-      "LLabel": "",
-      "Currency": "No"
-    },
-    {
-      "name": "Attachment2",
-      "type": "attachment",
-      "width": "100",
-      "Option": "",
-      "SLabel": "Attachment 2",
-      "LLabel": "",
-      "Currency": "No"
-    },
-    {
-      "name": "PostCode",
-      "type": "string",
-      "width": "100",
-      "Option": "",
-      "SLabel": "Post Code",
-      "LLabel": "",
-      "Currency": "No"
-    },
-    {
-      "name": "HouseNo",
-      "type": "string",
-      "width": "100",
-      "Option": "",
-      "SLabel": "House Number",
-      "LLabel": "",
-      "Currency": "No"
-    },
-    {
-      "name": "Address",
-      "type": "string",
-      "width": "200",
-      "Option": "",
-      "SLabel": "Address",
-      "LLabel": "",
-      "Currency": "No"
-    },
-    {
-      "name": "TotalGrossValue",
-      "type": "Num,3",
-      "width": "100",
-      "Option": "",
-      "SLabel": "Total Gross Value",
-      "LLabel": "",
-      "Currency": "No"
-    },
-    {
-      "name": "GreaterThan",
-      "type": "string",
-      "width": "20",
-      "Option": "",
-      "SLabel": "Greater Than",
-      "LLabel": "",
-      "Currency": "No"
-    },
-    {
-      "name": "LessThan",
-      "type": "string",
-      "width": "20",
-      "Option": "",
-      "SLabel": "Less Than",
-      "LLabel": "",
-      "Currency": "No"
-    },
-    {
-      "name": "LessThanEqualTo",
-      "type": "string",
-      "width": "20",
-      "Option": "",
-      "SLabel": "Less Than Equal To",
-      "LLabel": "",
-      "Currency": "No"
-    },
-    {
-      "name": "EqualTo",
-      "type": "string",
-      "width": "20",
-      "Option": "",
-      "SLabel": "EqualTo",
-      "LLabel": "",
-      "Currency": "No"
-    },
-    {
-      "name": "DAY",
-      "type": "string",
-      "width": "50",
-      "Option": "",
-      "SLabel": "DAY",
-      "LLabel": "",
-      "Currency": "No"
-    },
-    {
-      "name": "MONTH",
-      "type": "string",
-      "width": "50",
-      "Option": "",
-      "SLabel": "MONTH",
-      "LLabel": "",
-      "Currency": "No"
-    },
-    {
-      "name": "YEAR",
-      "type": "string",
-      "width": "50",
-      "Option": "",
-      "SLabel": "YEAR",
-      "LLabel": "",
-      "Currency": "No"
-    },
-    {
-      "name": "WEEK",
-      "type": "string",
-      "width": "200",
-      "Option": "",
-      "SLabel": "WEEK",
-      "LLabel": "",
-      "Currency": "No"
-    },
-    {
-      "name": "HOUR",
-      "type": "string",
-      "width": "200",
-      "Option": "",
-      "SLabel": "HOUR",
-      "LLabel": "",
-      "Currency": "No"
-    },
-    {
-      "name": "MINUTES",
-      "type": "string",
-      "width": "200",
-      "Option": "",
-      "SLabel": "MINUTES",
-      "LLabel": "",
-      "Currency": "No"
-    },
-    {
-      "name": "SECONDS",
-      "type": "string",
-      "width": "200",
-      "Option": "",
-      "SLabel": "SECONDS",
-      "LLabel": "",
-      "Currency": "No"
-    },
-    {
-      "name": "CHECK_WORKDAY",
-      "type": "string",
-      "width": "500",
-      "Option": "",
-      "SLabel": "CHECK_WORKDAY",
-      "LLabel": "",
-      "Currency": "No"
-    },
-    {
-      "name": "CHECK_WEEKEND",
-      "type": "string",
-      "width": "500",
-      "Option": "",
-      "SLabel": "CHECK_WEEKEND",
-      "LLabel": "",
-      "Currency": "No"
-    },
-    {
-      "name": "DURATION_DAYS",
-      "type": "string",
-      "width": "500",
-      "Option": "",
-      "SLabel": "DURATION_DAYS",
-      "LLabel": "",
-      "Currency": "No"
-    },
-    {
-      "name": "DURATION_TIME",
-      "type": "string",
-      "width": "10",
-      "Option": "",
-      "SLabel": "DURATION_TIME",
-      "LLabel": "",
-      "Currency": "No"
-    },
-    {
-      "name": "LEFT",
-      "type": "string",
-      "width": "500",
-      "Option": "",
-      "SLabel": "LEFT",
-      "LLabel": "",
-      "Currency": "No"
-    },
-    {
-      "name": "RIGHT",
-      "type": "string",
-      "width": "500",
-      "Option": "",
-      "SLabel": "RIGHT",
-      "LLabel": "",
-      "Currency": "No"
-    },
-    {
-      "name": "LENGTH",
-      "type": "string",
-      "width": "500",
-      "Option": "",
-      "SLabel": "LENGTH",
-      "LLabel": "",
-      "Currency": "No"
-    },
-    {
-      "name": "FIND",
-      "type": "string",
-      "width": "500",
-      "Option": "",
-      "SLabel": "FIND",
-      "LLabel": "",
-      "Currency": "No"
-    },
-    {
-      "name": "UPPER",
-      "type": "string",
-      "width": "500",
-      "Option": "",
-      "SLabel": "UPPER",
-      "LLabel": "",
-      "Currency": "No"
-    },
-    {
-      "name": "LOWER",
-      "type": "string",
-      "width": "500",
-      "Option": "",
-      "SLabel": "LOWER",
-      "LLabel": "",
-      "Currency": "No"
-    },
-    {
-      "name": "CURRENT_DATE",
-      "type": "Date",
-      "width": "10",
-      "Option": "",
-      "SLabel": "CURRENT_DATE",
-      "LLabel": "",
-      "Currency": "No"
-    },
-    {
-      "name": "CURRENT_TIME",
-      "type": "Time",
-      "width": "10",
-      "Option": "",
-      "SLabel": "CURRENT_TIME",
-      "LLabel": "",
-      "Currency": "No"
-    },
-    {
-      "name": "CURRENT_DATETIME",
-      "type": "string",
-      "width": "500",
-      "Option": "",
-      "SLabel": "CURRENT_DATETIME",
-      "LLabel": "",
-      "Currency": "No"
-    },
-    {
-      "name": "CURRENT_USER",
-      "type": "string",
-      "width": "200",
-      "Option": "",
-      "SLabel": "CURRENT_USER",
-      "LLabel": "",
-      "Currency": "No"
-    },
-    {
-      "name": "CURRENT_ROLE",
-      "type": "string",
-      "width": "200",
-      "Option": "",
-      "SLabel": "CURRENT_ROLE",
-      "LLabel": "",
-      "Currency": "No"
-    },
-    {
-      "name": "CURRENT_APP",
-      "type": "string",
-      "width": "200",
-      "Option": "",
-      "SLabel": "CURRENT_APP",
-      "LLabel": "",
-      "Currency": "No"
-    },
-    {
-      "name": "CURRENT_CHANNEL",
-      "type": "string",
-      "width": "200",
-      "Option": "",
-      "SLabel": "CURRENT_CHANNEL",
-      "LLabel": "",
-      "Currency": "No"
-    },
-    {
-      "name": "CURRENT_LOCATION",
-      "type": "string",
-      "width": "200",
-      "Option": "",
-      "SLabel": "CURRENT_LOCATION",
-      "LLabel": "",
-      "Currency": "No"
-    },
-    {
-      "name": "CURRENT_ADDRESS",
-      "type": "string",
-      "width": "500",
-      "Option": "",
-      "SLabel": "CURRENT_ADDRESS",
-      "LLabel": "",
-      "Currency": "No"
-    },
-    {
-      "name": "GreaterThanEqualTo",
-      "type": "string",
-      "width": "500",
-      "Option": "",
-      "SLabel": "Greater Than Equal To",
-      "LLabel": "",
       "Currency": "No"
     }
   ]

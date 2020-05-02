@@ -1,0 +1,29 @@
+{
+  "sap.app": {
+    "type": "card",
+    "id": "smartphoneapps"
+  },
+  "cardColumn": 4,
+  "sap.card": {
+    "type": "List",
+    "header": {},
+    "content": {
+      "data": {},
+      "item": {
+        "icon": {
+          "src": "{icon}"
+        },
+        "title": {
+          "value": "{name}"
+        },
+        "description": {
+          "value": "{description}"
+        },
+        "info": {
+          "value": "{info}",
+          "state": "{infoState}"
+        }
+      }
+    }
+  }
+}

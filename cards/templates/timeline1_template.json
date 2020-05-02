@@ -1,0 +1,31 @@
+{
+  "sap.app": {
+    "type": "card",
+    "id": "smartphoneapps"
+  },
+  "cardMinRows": 4,
+  "cardColumn": 4,
+  "sap.card": {
+    "type": "Timeline",
+    "header": {
+      "actions": []
+    },
+    "content": {
+      "data": {},
+      "item": {
+        "dateTime": {
+          "value": "{Time}"
+        },
+        "description": {
+          "value": "{Description}"
+        },
+        "title": {
+          "value": "{Title}"
+        },
+        "icon": {
+          "src": "{Icon}"
+        }
+      }
+    }
+  }
+}

@@ -4,19 +4,11 @@
     "DetailTitle": "Access to Office Buildings"
   },
   "ListFields": {
-    "IntroField": "ID",
-    "TitleField": "",
+    "IntroField": "DateOfRequest",
+    "TitleField": "Name",
     "fStatus": "Status",
-    "sStatus": "",
-    "numberField": "",
-    "LFields": [
-      "ID",
-      "EmployeeID",
-      "Name",
-      "RequestType",
-      "DateOfRequest",
-      "Status"
-    ]
+    "sStatus": "RequestType",
+    "LFields": ["ID", "EmployeeID"]
   },
   "MButtons": [
     {
@@ -55,31 +47,31 @@
     {
       "value": "Tab1",
       "name": "Requester",
-      "fioriicon": "person-placeholder",
+      "fioriicon": "sap-icon://person-placeholder",
       "type": "Field"
     },
     {
       "value": "Tab2",
       "name": "Details",
-      "fioriicon": "zoom-in",
+      "fioriicon": "sap-icon://zoom-in",
       "type": "Field"
     },
     {
       "value": "Tab3",
       "name": "Approval",
-      "fioriicon": "approvals",
+      "fioriicon": "sap-icon://approvals",
       "type": "Field"
     },
     {
       "value": "Tab4",
       "name": "Admin",
-      "fioriicon": "customer-and-supplier",
+      "fioriicon": "sap-icon://customer-and-supplier",
       "type": "Field"
     },
     {
       "value": "Tab5",
       "name": "AdditionalInfo",
-      "fioriicon": "message-information",
+      "fioriicon": "sap-icon://message-information",
       "type": "Field",
       "download": "Yes"
     }

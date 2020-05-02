@@ -9,7 +9,7 @@
     "fStatus": "Status",
     "sStatus": "",
     "numberField": "",
-    "LFields": ["FirstName", "LastName", "BookingFor", "PhoneNo", "Status"]
+    "LFields": ["Name", "BookingFor", "PhoneNo", "Status"]
   },
   "MButtons": [
     {
@@ -49,14 +49,14 @@
       "value": "Tab1",
       "name": "Booking",
       "type": "Field",
-      "fioriicon": "hint",
+      "fioriicon": "sap-icon://hint",
       "download": "Yes"
     },
     {
       "value": "Tab2",
       "name": "Contact",
       "type": "Field",
-      "fioriicon": "hint",
+      "fioriicon": "sap-icon://hint",
       "download": "Yes"
     }
   ],
@@ -86,7 +86,7 @@
       "BookingFor",
       "Comments"
     ],
-    "Tab2": ["FirstName", "LastName", "PhoneNo", "Email"]
+    "Tab2": ["Name", "PhoneNo", "Email"]
   },
   "ControlDisplay": {
     "ControlField": "BookingFor",
@@ -95,8 +95,8 @@
         {
           "ALL": [
             "ID",
-            "FirstName",
-            "LastName",
+
+            "Name",
             "PhoneNo",
             "Status",
             "Email",
@@ -225,21 +225,13 @@
       "LLabel": "",
       "Currency": "No"
     },
+
     {
-      "name": "FirstName",
-      "type": "string",
-      "width": "50",
-      "Option": "",
-      "SLabel": "First Name",
-      "LLabel": "",
-      "Currency": "No"
-    },
-    {
-      "name": "LastName",
+      "name": "Name",
       "type": "string",
       "width": "10",
       "Option": "",
-      "SLabel": "Last Name",
+      "SLabel": "Name",
       "LLabel": "",
       "Currency": "No"
     },

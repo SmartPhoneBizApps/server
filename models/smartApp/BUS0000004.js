@@ -95,8 +95,6 @@ var json = require(file);
 
 for (let prop in json) {
   if (json[prop].match) {
-    console.log(json[prop].match[0]);
-
     if (json[prop].match[0] == "EMAIL_V1") {
       json[prop].match[0] = EMAIL_V1;
     }

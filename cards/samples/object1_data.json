@@ -1,0 +1,55 @@
+{
+  "header": {
+    "icon": {
+      "text": "DM"
+    },
+    "title": "{firstName} {lastName}",
+    "subTitle": "{position}",
+    "actions": [
+      {
+        "type": "Navigation",
+        "parameters": {
+          "url": "users/donnaMendez"
+        }
+      }
+    ]
+  },
+  "json": {
+    "firstName": "Donna",
+    "lastName": "Mendez",
+    "position": "Managing Partner",
+    "mobile": "+1 202 34869-0",
+    "phone": "+1 202 555 5555",
+    "email": "donna@peachvalley.com"
+  },
+  "groups": [
+    {
+      "title": "Peach Valley Inc.",
+      "items": [
+        {
+          "label": "Mobile",
+          "value": "{mobile}",
+          "type": "phone"
+        },
+        {
+          "label": "Phone",
+          "value": "{phone}",
+          "type": "phone"
+        },
+        {
+          "label": "Email",
+          "value": "{email}",
+          "type": "email"
+        }
+      ]
+    }
+  ],
+  "actions": [
+    {
+      "type": "Navigation",
+      "parameters": {
+        "url": "users/donnaMendez"
+      }
+    }
+  ]
+}

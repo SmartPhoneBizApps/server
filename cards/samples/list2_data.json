@@ -1,0 +1,39 @@
+{
+  "header": {
+    "title": "Incidents in the last 24 hours",
+    "subTitle": "Suddent storm wind damaged 3 polinating hives",
+    "icon": {
+      "src": "http://localhost/smartphonebizapps/appattachment/158644357443.png"
+    }
+  },
+  "json": [
+    {
+      "name": "Alain Chevalier",
+      "icon": "sap-icon://sap-ui5",
+      "description": "On Site"
+    },
+    {
+      "name": "Yolanda Barrueco",
+      "icon": "sap-icon://sap-ui5",
+      "description": "Travelling to Idaho"
+    },
+    {
+      "name": "Arend Pellewever",
+      "icon": "sap-icon://sap-ui5",
+      "description": "Travelling to Idaho"
+    },
+    {
+      "name": "Lean Pulp",
+      "icon": "sap-icon://sap-ui5",
+      "description": "Headquaters Support"
+    }
+  ],
+  "actions": [
+    {
+      "type": "Navigation",
+      "parameters": {
+        "url": "/users/{name}"
+      }
+    }
+  ]
+}

@@ -1,22 +1,14 @@
 {
   "Title": {
-    "ApplicationTitle": "Access to Office Buildings",
-    "DetailTitle": "Access to Office Buildings"
+    "ApplicationTitle": "My Request",
+    "DetailTitle": "Request for Laptops, Access cards, Software etc.."
   },
   "ListFields": {
-    "IntroField": "ID",
-    "TitleField": "",
+    "IntroField": "DateOfRequest",
+    "TitleField": "ID",
     "fStatus": "Status",
-    "sStatus": "",
-    "numberField": "",
-    "LFields": [
-      "ID",
-      "EmployeeID",
-      "Name",
-      "RequestType",
-      "DateOfRequest",
-      "Status"
-    ]
+    "sStatus": "RequestType",
+    "LFields": ["Name", "EmployeeID"]
   },
   "MButtons": [
     {
@@ -55,38 +47,38 @@
     {
       "value": "Tab1",
       "name": "Requester",
-      "fioriicon": "person-placeholder",
+      "fioriicon": "sap-icon://person-placeholder",
       "type": "Field"
     },
     {
       "value": "Tab2",
       "name": "Details",
-      "fioriicon": "zoom-in",
+      "fioriicon": "sap-icon://zoom-in",
       "type": "Field"
     },
     {
       "value": "Tab3",
       "name": "Approval",
-      "fioriicon": "approvals",
+      "fioriicon": "sap-icon://approvals",
       "type": "Field"
     },
     {
       "value": "Tab4",
       "name": "Admin",
-      "fioriicon": "customer-and-supplier",
+      "fioriicon": "sap-icon://customer-and-supplier",
       "type": "Field"
     },
     {
       "value": "Tab5",
       "name": "AdditionalInfo",
-      "fioriicon": "message-information",
+      "fioriicon": "sap-icon://message-information",
       "type": "Field",
       "download": "Yes"
     }
   ],
   "DetailFields": {
     "None": ["ID", "Status", "RequestType"],
-    "Tab1": ["EmployeeID", "Name", "Surname", "EmailID", "PhoneNo"],
+    "Tab1": ["EmployeeID", "Name", "EmailID", "PhoneNo"],
     "Tab2": ["DateOfRequest", "StartDate", "EndDate", "Reason"],
     "Tab3": ["Approver", "ApprovalDate", "ApproverComment"],
     "Tab4": ["Officer"],
@@ -125,11 +117,8 @@
             "ID",
             "EmployeeID",
             "Name",
-            "Surname",
             "PhoneNo",
             "DateOfRequest",
-            "StartDate",
-            "EndDate",
             "Reason",
             "RequestType",
             "Status",
@@ -141,82 +130,16 @@
           ]
         },
         {
-          "AccessCard": [
-            "AccessCardNo",
-            "Application",
-            "Hardware",
-            "Processor",
-            "HardDrive",
-            "KeyBoard",
-            "OS",
-            "RAM",
-            "HDMIPort",
-            "USBPort",
-            "CDDrive",
-            "DockingStation",
-            "Bag",
-            "Mouse",
-            "Software",
-            "System",
-            "Environment",
-            "CloneUser",
-            "RolesRequired",
-            "TransactionsRequired"
-          ]
+          "AccessCard": ["AccessCardNo", "BuildingName", "StartDate", "EndDate"]
         },
         {
-          "ApplicationLogin": [
-            "AccessCardNo",
-            "Application",
-            "Hardware",
-            "Processor",
-            "HardDrive",
-            "KeyBoard",
-            "OS",
-            "RAM",
-            "HDMIPort",
-            "USBPort",
-            "CDDrive",
-            "DockingStation",
-            "Bag",
-            "Mouse",
-            "Software",
-            "System",
-            "Environment",
-            "CloneUser",
-            "RolesRequired",
-            "TransactionsRequired"
-          ]
+          "ApplicationLogin": ["Application"]
         },
         {
-          "HardwareUpgrade": [
-            "AccessCardNo",
-            "Application",
-            "Hardware",
-            "Processor",
-            "HardDrive",
-            "KeyBoard",
-            "OS",
-            "RAM",
-            "HDMIPort",
-            "USBPort",
-            "CDDrive",
-            "DockingStation",
-            "Bag",
-            "Mouse",
-            "Software",
-            "System",
-            "Environment",
-            "CloneUser",
-            "RolesRequired",
-            "TransactionsRequired"
-          ]
+          "HardwareUpgrade": ["AssetID", "Hardware"]
         },
         {
           "LaptopRequest": [
-            "AccessCardNo",
-            "Application",
-            "Hardware",
             "Processor",
             "HardDrive",
             "KeyBoard",
@@ -227,85 +150,25 @@
             "CDDrive",
             "DockingStation",
             "Bag",
-            "Mouse",
-            "Software",
-            "System",
-            "Environment",
-            "CloneUser",
-            "RolesRequired",
-            "TransactionsRequired"
+            "Mouse"
           ]
         },
         {
-          "OfficeBuilding": [
-            "AccessCardNo",
-            "Application",
-            "Hardware",
-            "Processor",
-            "HardDrive",
-            "KeyBoard",
-            "OS",
-            "RAM",
-            "HDMIPort",
-            "USBPort",
-            "CDDrive",
-            "DockingStation",
-            "Bag",
-            "Mouse",
-            "Software",
-            "System",
-            "Environment",
-            "CloneUser",
-            "RolesRequired",
-            "TransactionsRequired"
-          ]
+          "OfficeBuilding": ["BuildingName", "StartDate", "EndDate", "Reason"]
         },
         {
-          "SoftwareRequest": [
-            "AccessCardNo",
-            "Application",
-            "Hardware",
-            "Processor",
-            "HardDrive",
-            "KeyBoard",
-            "OS",
-            "RAM",
-            "HDMIPort",
-            "USBPort",
-            "CDDrive",
-            "DockingStation",
-            "Bag",
-            "Mouse",
-            "Software",
-            "System",
-            "Environment",
-            "CloneUser",
-            "RolesRequired",
-            "TransactionsRequired"
-          ]
+          "SoftwareRequest": ["AssetID", "Software"]
         },
         {
           "UserAccount": [
-            "AccessCardNo",
-            "Application",
-            "Hardware",
-            "Processor",
-            "HardDrive",
-            "KeyBoard",
-            "OS",
-            "RAM",
-            "HDMIPort",
-            "USBPort",
-            "CDDrive",
-            "DockingStation",
-            "Bag",
-            "Mouse",
-            "Software",
             "System",
             "Environment",
             "CloneUser",
             "RolesRequired",
-            "TransactionsRequired"
+            "TransactionsRequired",
+            "StartDate",
+            "EndDate",
+            "Reason"
           ]
         }
       ]
@@ -336,15 +199,6 @@
       "width": "50",
       "Option": "mandatory",
       "SLabel": "Name",
-      "LLabel": "",
-      "Currency": "No"
-    },
-    {
-      "name": "Surname",
-      "type": "string",
-      "width": "50",
-      "Option": "mandatory",
-      "SLabel": "Surname",
       "LLabel": "",
       "Currency": "No"
     },

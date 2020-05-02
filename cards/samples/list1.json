@@ -1,0 +1,58 @@
+{
+  "sap.app": {
+    "type": "card",
+    "id": "smartphoneapps"
+  },
+  "cardColumn": 4,
+  "sap.card": {
+    "type": "List",
+    "header": {
+      "title": "Incidents in the last 24 hours",
+      "status": {
+        "text": "3 of 3"
+      }
+    },
+    "content": {
+      "data": {
+        "json": [
+          {
+            "name": "Teico Inc.",
+            "icon": "sap-icon://inbox",
+            "description": "Sun Valley, Idaho",
+            "info": "2456",
+            "infoState": "Error"
+          },
+          {
+            "name": "Freshhh LTD.",
+            "icon": "sap-icon://sap-ui5",
+            "description": "Dayville, Oregon",
+            "info": "1264",
+            "infoState": "Warning"
+          },
+          {
+            "name": "Lean Pulp",
+            "icon": "http://localhost/smartphonebizapps/appattachment/158644357443.png",
+            "description": "Raymond, Callifornia",
+            "info": "236",
+            "infoState": "None"
+          }
+        ]
+      },
+      "item": {
+        "icon": {
+          "src": "{icon}"
+        },
+        "title": {
+          "value": "{name}"
+        },
+        "description": {
+          "value": "{description}"
+        },
+        "info": {
+          "value": "{info}",
+          "state": "{infoState}"
+        }
+      }
+    }
+  }
+}

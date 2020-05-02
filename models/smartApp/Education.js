@@ -135,7 +135,7 @@ for (let prop in sch) {
   for (let prop in json) {
     console.log(prop);
     if (json[prop].match) {
-      //console.log(json[prop].match[0]);
+      //
 
       if (json[prop].match[0] == "EMAIL_V1") {
         json[prop].match[0] = EMAIL_V1;
