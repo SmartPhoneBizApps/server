@@ -12,7 +12,7 @@
           "Type": "object1",
           "header": {
             "icon": {
-              "text": "DM"
+              "text": "AG"
             },
             "title": "{name}",
             "subTitle": "{position}",
@@ -20,7 +20,7 @@
               {
                 "type": "Navigation",
                 "parameters": {
-                  "url": "users/donnaMendez"
+                  "url": "users/atulGupta"
                 }
               }
             ]
@@ -35,7 +35,7 @@
           },
           "groups": [
             {
-              "title": "Peach Valley Inc.",
+              "title": "SmartPhone Biz Apps Ltd",
               "items": [
                 {
                   "label": "Mobile",
@@ -59,7 +59,7 @@
             {
               "type": "Navigation",
               "parameters": {
-                "url": "users/donnaMendez"
+                "url": "users/atulGupta"
               }
             }
           ]
@@ -73,7 +73,7 @@
           "fieldList": "ID Software AssetID DateOfRequest Status",
           "sortBy": "ID Status",
           "limit": 5,
-          "Type": "table1",
+          "Type": "table1A",
           "header": {
             "title": "Recent Software Requests",
             "subTitle": "Today",
@@ -111,7 +111,7 @@
           },
           "limit": 5,
           "fieldList": "ID Processor HardDrive OS RAM DateOfRequest Status",
-          "Type": "table1",
+          "Type": "table1B",
           "header": {
             "title": "Recent Laptop Requests",
             "subTitle": "Today",
@@ -157,7 +157,13 @@
           },
           "limit": 5,
           "fieldList": "ID System Environment Test DateOfRequest Status",
-          "Type": "list1",
+          "fieldMap": {
+            "name": "ID",
+            "description": "System",
+            "info": "Status",
+            "icon": "sap-icon://add-employee"
+          },
+          "Type": "list1A",
           "header": {
             "title": "New Users Creation Requests",
             "status": {
@@ -181,7 +187,12 @@
           },
           "limit": 5,
           "fieldList": "ID Hardware AssetID DateOfRequest Status",
-          "Type": "list2",
+          "fieldMap": {
+            "name": "ID",
+            "description": "Hardware",
+            "icon": "sap-icon://laptop"
+          },
+          "Type": "list2A",
           "header": {
             "title": "Hardware upgrade Requests",
             "subTitle": "Recent Requests...",
@@ -219,7 +230,7 @@
           },
           "limit": 5,
           "fieldList": "ID Application DateOfRequest Status",
-          "Type": "list2",
+          "Type": "list2A",
           "header": {
             "title": "New Application Login Requests",
             "subTitle": "Recent Requests..",
