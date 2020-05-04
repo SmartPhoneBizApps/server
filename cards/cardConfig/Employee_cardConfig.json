@@ -92,12 +92,8 @@
               "value": "{Software}"
             },
             {
-              "title": "Asset ID",
-              "value": "{AssetID}"
-            },
-            {
               "title": "Status",
-              "value": "{status}",
+              "value": "{Status}",
               "state": "{statusState}"
             }
           ],
@@ -121,11 +117,6 @@
           },
           "columns": [
             {
-              "title": "ID",
-              "value": "{ID}",
-              "identifier": true
-            },
-            {
               "title": "Processor",
               "value": "{Processor}"
             },
@@ -143,7 +134,7 @@
             },
             {
               "title": "Status",
-              "value": "{status}",
+              "value": "{Status}",
               "state": "{statusState}"
             }
           ],
@@ -230,6 +221,11 @@
           },
           "limit": 5,
           "fieldList": "ID Application DateOfRequest Status",
+          "fieldMap": {
+            "name": "ID",
+            "description": "Application",
+            "icon": "sap-icon://my-view"
+          },
           "Type": "list2A",
           "header": {
             "title": "New Application Login Requests",
@@ -251,61 +247,6 @@
               }
             }
           ],
-          "json": []
-        },
-        {
-          "CardID": "EMPACC01_quicklinks1",
-          "applicationID": "MYDATA",
-          "filters": {},
-          "Type": "quicklinks1",
-          "header": {
-            "title": "Quick Links",
-            "actions": [
-              {
-                "type": "Navigation",
-                "parameters": {
-                  "url": "/quickLinks"
-                }
-              }
-            ]
-          },
-          "json": [],
-          "item": {
-            "icon": {
-              "src": "{icon}"
-            },
-            "title": "{Name}",
-            "actions": [
-              {
-                "type": "Navigation",
-                "enabled": "{= ${url}}",
-                "parameters": {
-                  "url": "{url}"
-                }
-              }
-            ]
-          }
-        },
-        {
-          "CardID": "EMPACC01_TimeLine",
-          "applicationID": "MYDATA",
-          "filters": {},
-          "Type": "timeline1",
-          "header": {
-            "title": "Schedule for today",
-            "subTitle": "9:32 AM",
-            "status": {
-              "text": "3 of 3"
-            },
-            "actions": [
-              {
-                "type": "Navigation",
-                "parameters": {
-                  "url": "/quickLinks"
-                }
-              }
-            ]
-          },
           "json": []
         }
       ]

@@ -111,6 +111,10 @@ exports.adaptiveCard_card = async (req, res, next) => {
   // Read Card Configuration for the Role (X1)
   let fileName = "../../cards/cardConfig/" + role + "_cardConfig.json";
   var cardConfig = require(fileName);
+
+  // Read Color Configuration
+  let fileNameColor = "../../cards/cardConfig/colorConfig.json";
+  var colorConfig = require(fileNameColor);
   //console.log(cardConfig);
 
   // Read card User Settings  for the Role
@@ -146,7 +150,7 @@ exports.adaptiveCard_card = async (req, res, next) => {
           for (const key4 in myData) {
             if (myData.hasOwnProperty(key4) & (myData[key4] == true)) {
               if (key4 == configCardID) {
-                console.log(key4, " >>> ", myData[key4]);
+                //console.log(key4, " >>> ", myData[key4]);
                 //////////////////////////////////////////////////////////////////////////////
                 // Here user setup is matched with the card setup... Build the card output
                 //////////////////////////////////////////////////////////////////////////////
@@ -582,20 +586,24 @@ exports.adaptiveCard_card = async (req, res, next) => {
                   ] = tabCX[tab].Tiles[key3].columns.slice(0);
 
                   /// Add JSON Data
+                  jl1 = {};
+                  jsonArray["json" + con].forEach((ex2) => {
+                    // console.log(colorConfig["Status"][ex2["Status"]]);
+                    jl1 = ex2;
+                    jl1["statusState"] = colorConfig["Status"][ex2["Status"]];
+                    //console.log("OutJson", jl1);
+                  });
+
+                  /*                   for (const kk1 in jsonArray["json" + con]) {
+                    if (jsonArray["json" + con].hasOwnProperty(kk1)) {
+                      const element = jsonArray["json" + con][kk1];
+                    }
+                  } */
+
+                  // console.log(jl1);
                   key["con" + con]["sap.card"]["data"]["json"] = jsonArray[
                     "json" + con
                   ].slice(0);
-
-                  /*                   console.log(
-                    "Table1A Data:",
-                    jsonArray["json" + con].slice(0)
-                  ); */
-                  // myD["json"] = jsonArray;
-                  //cardTemp["sap.card"]["data"] = { ...myD };
-                  //key["con" + con]["sap.card"]["data"] = Object.assign({}, myD);
-                  //console.log("Console Table : ", myD);
-                  //myD = {};
-                  // jsonArray["json" + con] = [];
                 }
                 //--------------------
                 //set group for action card
@@ -621,12 +629,13 @@ exports.adaptiveCard_card = async (req, res, next) => {
                     jsonOut["name"] = eln1[name1];
                     jsonOut["description"] = eln1[description1];
                     jsonOut["icon"] = icon1;
+                    jsonOut["statusState"] =
+                      colorConfig["Status"][eln1["Status"]];
                     jsonOutArray.push({ ...jsonOut });
                   });
 
                   /// Add Data
                   myD["json"] = jsonOutArray;
-
                   key["con" + con]["sap.card"]["content"]["data"] = {
                     ...myD,
                   };
@@ -638,6 +647,7 @@ exports.adaptiveCard_card = async (req, res, next) => {
                     tabCX[tab].Tiles[key3].actions;
 
                   /// Add Data
+
                   myD["json"] = jsonArray["json" + con];
                   key["con" + con]["sap.card"]["content"]["data"] = {
                     ...myD,
@@ -659,6 +669,8 @@ exports.adaptiveCard_card = async (req, res, next) => {
                     jsonOut["description"] = eln1[description1];
                     jsonOut["info"] = eln1[info1];
                     jsonOut["icon"] = icon1;
+                    jsonOut["infoState"] =
+                      colorConfig["Status"][eln1["Status"]];
                     jsonOutArray.push({ ...jsonOut });
                   });
 
@@ -672,8 +684,25 @@ exports.adaptiveCard_card = async (req, res, next) => {
 
                 //list1 - Data
                 if (tabCX[tab].Tiles[key3].Type == "list1B") {
+                  jsonOut = {};
+                  jsonOutArray = [];
+                  name1 = tabCX[tab].Tiles[key3].fieldMap["name"];
+                  description1 = tabCX[tab].Tiles[key3].fieldMap["description"];
+                  info1 = tabCX[tab].Tiles[key3].fieldMap["info"];
+                  icon1 = tabCX[tab].Tiles[key3].fieldMap["icon"];
+                  k = 0;
+                  jsonArray["json" + con].forEach((eln1) => {
+                    jsonOut["name"] = eln1[name1];
+                    jsonOut["description"] = eln1[description1];
+                    jsonOut["info"] = eln1[info1];
+                    jsonOut["icon"] = icon1;
+                    jsonOut["infoState"] =
+                      colorConfig["Status"][eln1["Status"]];
+                    jsonOutArray.push({ ...jsonOut });
+                  });
+
                   /// Add Data
-                  myD["json"] = jsonArray["json" + con];
+                  myD["json"] = jsonOutArray;
                   key["con" + con]["sap.card"]["content"]["data"] = {
                     ...myD,
                   };
@@ -708,11 +737,12 @@ exports.adaptiveCard_card = async (req, res, next) => {
             }
           }
         }
-        console.log("------------------");
+        //console.log("------------------");
       }
       /// Add Tiles in the output........
       if (tab != "tab1") {
         cardTemplate = { ...myTiles };
+        myTiles = {};
       } else {
         for (const l1 in cardTemplate["Tabs"]) {
           if (
@@ -726,5 +756,14 @@ exports.adaptiveCard_card = async (req, res, next) => {
       }
     }
   }
+  if (tab == "tab1") {
+    cardTemplate["Tabs"].forEach((element) => {
+      console.log("API Output : ", cardTemplate["Tabs"]);
+    });
+  } else {
+    console.log("API Output : ", cardTemplate);
+  }
+
   res.status(200).json({ success: true, data: cardTemplate });
+  cardTemplate = [];
 };
