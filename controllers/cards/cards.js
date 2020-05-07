@@ -101,39 +101,40 @@ const cardTemplate = {};
 exports.adaptiveCard_card = async (req, res, next) => {
   // Some Global variables....
   // Read Role from Parameter..
+
   role = req.params.role;
   tab = req.params.tab;
-  // Get user details..
-  const userRecord = await User.findById(req.user.id);
+  console.log("Role : ", role, " / Tab : ", tab, " / User :", req.user.email);
+
   //Validate Data...
-  if (userRecord.userAccess == "External") {
+  if (req.user.userAccess == "External") {
   } else {
-    if (!userRecord.company) {
+    if (!req.user.company) {
       return next(
         new ErrorResponse(
-          `User setup for Company is not complete ${userRecord.email}`,
+          `User setup for Company is not complete ${req.user.email}`,
           404
         )
       );
     }
     if (
-      !userRecord.branch &
-      (userRecord.role == "BranchAdmin" || userRecord.role == "BranchUser")
+      !req.user.branch &
+      (req.user.role == "BranchAdmin" || req.user.role == "BranchUser")
     ) {
       return next(
         new ErrorResponse(
-          `User setup for Branch is not complete ${userRecord.email}`,
+          `User setup for Branch is not complete ${req.user.email}`,
           404
         )
       );
     }
     if (
-      !userRecord.area &
-      (userRecord.role == "AreaAdmin" || userRecord.role == "AreaUser")
+      !req.user.area &
+      (req.user.role == "AreaAdmin" || req.user.role == "AreaUser")
     ) {
       return next(
         new ErrorResponse(
-          `User setup for Area is not complete ${userRecord.email}`,
+          `User setup for Area is not complete ${req.user.email}`,
           404
         )
       );
@@ -150,10 +151,10 @@ exports.adaptiveCard_card = async (req, res, next) => {
   var colorConfig = require(fileNameColor);
   //console.log(cardConfig);
   // Read card User Settings  for the Role
-  let fileName2 = "../../userSettings/" + userRecord.email + "_cardsSetup.json";
+  let fileName2 = "../../userSettings/" + req.user.email + "_cardsSetup.json";
   var userSetCards = require(fileName2);
-  // When tab is "tab1" full template with tab1 data will be returned, for all other cases on data for that tab
-  if (tab == "tab1") {
+  // When tab is "Tab1" full template with Tab1 data will be returned, for all other cases on data for that tab
+  if (tab == "Tab1") {
     let fileName1 = "../../cards/cardConfig/" + role + "_cardTabs.json";
     var cardTemplate = require(fileName1);
   } else {
@@ -161,7 +162,8 @@ exports.adaptiveCard_card = async (req, res, next) => {
   }
   // Loop Card Configuration for the Role (X1)
   for (const k2 in cardConfig.Tabs) {
-    // Filter the Card Configuration data for the request tab (tab1, tab2 etc..)
+    // Filter the Card Configuration data for the request tab (Tab1, tab2 etc..)
+    console.log("Tabs : ", cardConfig.Tabs[k2].TabID);
     if (
       cardConfig.Tabs.hasOwnProperty(k2) &
       (cardConfig.Tabs[k2].TabID == tab)
@@ -169,8 +171,8 @@ exports.adaptiveCard_card = async (req, res, next) => {
       tabCX[tab] = { ...cardConfig.Tabs[k2] };
       // data for the requested tab is found in the Card Configuration
       // Now loop through Tiles... in Card Configuration
+      console.log("Tabs : ", tabCX[tab]);
       for (const key3 in tabCX[tab].Tiles) {
-        // console.log(tabCX["tab"+con1].Tiles[key3].CardID);
         if (tabCX[tab].Tiles.hasOwnProperty(key3)) {
           // Card / Tile found
           const configCardID = tabCX[tab].Tiles[key3].CardID;
@@ -178,9 +180,10 @@ exports.adaptiveCard_card = async (req, res, next) => {
           myData = userSetCards[role][tabCX[tab].Tiles[key3].applicationID];
           // Looping the USers Settings data
           for (const key4 in myData) {
+            console.log("Role : ", role, "Card : ", key4, ">>", myData[key4]);
             if (myData.hasOwnProperty(key4) & (myData[key4] == true)) {
               if (key4 == configCardID) {
-                //console.log(key4, " >>> ", myData[key4]);
+                console.log("Card : ", configCardID);
                 //////////////////////////////////////////////////////////////////////////////
                 // Here user setup is matched with the card setup... Build the card output
                 //////////////////////////////////////////////////////////////////////////////
@@ -189,36 +192,36 @@ exports.adaptiveCard_card = async (req, res, next) => {
                 qx1 = {};
                 qx1 = { ...tabCX[tab].Tiles[key3].filters };
                 // User can see data only for there own company (User Specific is TRUE)
-                //qx1["company"] = userRecord.company;
+                //qx1["company"] = req.user.company;
 
-                switch (userRecord.role) {
+                switch (req.user.role) {
                   case "CompanyAdmin":
-                    qx1["company"] = userRecord.company;
+                    qx1["company"] = req.user.company;
 
                     break;
                   case "CompanyUser":
-                    qx1["company"] = userRecord.company;
+                    qx1["company"] = req.user.company;
                     break;
                   case "BranchAdmin":
-                    qx1["company"] = userRecord.company;
-                    qx1["branch"] = userRecord.branch;
+                    qx1["company"] = req.user.company;
+                    qx1["branch"] = req.user.branch;
                     break;
                   case "BranchUser":
-                    qx1["company"] = userRecord.company;
-                    qx1["branch"] = userRecord.branch;
+                    qx1["company"] = req.user.company;
+                    qx1["branch"] = req.user.branch;
                     break;
                   case "AreaAdmin":
-                    qx1["company"] = userRecord.company;
-                    qx1["area"] = userRecord.area;
+                    qx1["company"] = req.user.company;
+                    qx1["area"] = req.user.area;
                     break;
                   case "AreaUser":
-                    qx1["company"] = userRecord.company;
-                    qx1["area"] = userRecord.area;
+                    qx1["company"] = req.user.company;
+                    qx1["area"] = req.user.area;
                     break;
                   default:
-                    qx1["company"] = userRecord.company;
-                    qx1["area"] = userRecord.area;
-                    qx1["branch"] = userRecord.branch;
+                    qx1["company"] = req.user.company;
+                    qx1["area"] = req.user.area;
+                    qx1["branch"] = req.user.branch;
                 }
 
                 roleApp["Apps"].forEach((roleApp1) => {
@@ -770,7 +773,7 @@ exports.adaptiveCard_card = async (req, res, next) => {
         }
       }
       /// Add Tiles in the output........
-      if (tab != "tab1") {
+      if (tab != "Tab1") {
         cardTemplate = { ...myTiles };
         myTiles = {};
       } else {
@@ -786,12 +789,12 @@ exports.adaptiveCard_card = async (req, res, next) => {
       }
     }
   }
-  if (tab == "tab1") {
+  if (tab == "Tab1") {
     cardTemplate["Tabs"].forEach((element) => {
-      console.log("API Output for tab1.....: ", cardTemplate["Tabs"]);
+      //console.log("API Output for Tab1.....: ", cardTemplate["Tabs"]);
     });
   } else {
-    console.log("API Output for other tabs... : ", cardTemplate);
+    //console.log("API Output for other tabs... : ", cardTemplate);
   }
   res.status(200).json({ success: true, data: cardTemplate });
   cardTemplate = [];
