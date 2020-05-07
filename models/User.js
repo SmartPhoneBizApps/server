@@ -52,6 +52,8 @@ const UserSchema = new mongoose.Schema({
       "CompanyUser",
       "BranchUser",
       "AreaUser",
+      "Supplier",
+      "Patient",
     ],
     default: "user",
   },

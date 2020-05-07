@@ -86,6 +86,7 @@ const SUPP00018 = require("../../models/smartApp/SUPP00018");
 const SUPP00028 = require("../../models/smartApp/SUPP00028");
 let myD = { json: [] };
 let myO = { json: {} };
+let myX = { json: {}, path: "/measures" };
 let measures = [];
 function getData(Model, q1) {
   let qg1 = JSON.parse(q1);
@@ -649,9 +650,9 @@ exports.getDetailCards = async (req, res, next) => {
                   jsonOut["measureName"] = "Invoice Value";
                   jsonOut["value"] = 270;
                   measures.push({ ...jsonOut });
-                  myO["json"]["measures"] = measures;
-                  key["con" + con]["sap.card"]["content"]["data"] = { ...myO };
-                  myO = { json: {} };
+                  myX["json"]["measures"] = measures;
+                  key["con" + con]["sap.card"]["content"]["data"] = { ...myX };
+                  myX = { json: {}, path: "/measures" };
                   measures = [];
 
                   /// Add Data

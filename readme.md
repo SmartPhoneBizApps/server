@@ -1,6 +1,6 @@
-# DevCamper API
+# SmartApp API
 
-> Backend API for DevCamper application, which is a bootcamp directory website
+> Backend API for SmartApp application
 
 ## Usage
 
@@ -36,7 +36,7 @@ node seeder -i
 
 ## Demo
 
-The API is live at [devcamper.io](https://devcamper.io)
+The API is live at [smartphonebizapps.com](https://smartphonebizapps.com)
 
 Extensive documentation with examples [here](https://documenter.getpostman.com/view/8923145/SVtVVTzd?version=latest)
 

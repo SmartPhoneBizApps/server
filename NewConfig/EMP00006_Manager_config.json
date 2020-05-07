@@ -4,12 +4,13 @@
     "DetailTitle": "Training Details"
   },
   "ListFields": {
-    "IntroField": "ID",
-    "TitleField": "",
+    "IntroField": "Name",
+    "TitleField": "Detail",
     "fStatus": "Status",
-    "sStatus": "",
-    "numberField": "",
-    "LFields": ["ID", "Name", "ProjectCode", "Status"]
+    "sStatus": "Area",
+    "numberField": "Cost",
+    "numberUnitField": "Currency",
+    "LFields": ["ID", "Detail", "EmployeeID", "DateRequested", "Duration"]
   },
   "MButtons": [
     {
@@ -90,127 +91,21 @@
             "ProcessingLog"
           ]
         },
-        {
-          "BusRequest": [
-            "RequiredDate",
-            "GuestName",
-            "GuestEmail",
-            "GuestPhone",
-            "EntryDate",
-            "Subject",
-            "EquipmentName",
-            "LeaveFrom",
-            "LeaveTo",
-            "LeaveDays",
-            "LeaveReason",
-            "NINumber",
-            "EthnicOrigin",
-            "Q1",
-            "A1",
-            "Q2",
-            "A2",
-            "Q3",
-            "A3",
-            "Q4",
-            "A4",
-            "Essay",
-            "DegreePursuing"
-          ]
-        },
+        { "BusRequest": ["RequiredDate"] },
         {
           "GuestPassFormRequest": [
-            "RequiredDate",
             "GuestName",
             "GuestEmail",
             "GuestPhone",
-            "EntryDate",
-            "Subject",
-            "EquipmentName",
-            "LeaveFrom",
-            "LeaveTo",
-            "LeaveDays",
-            "LeaveReason",
-            "NINumber",
-            "EthnicOrigin",
-            "Q1",
-            "A1",
-            "Q2",
-            "A2",
-            "Q3",
-            "A3",
-            "Q4",
-            "A4",
-            "Essay",
-            "DegreePursuing"
+            "EntryDate"
           ]
         },
+        { "LabEquipmentRequest": ["Subject", "EquipmentName"] },
         {
-          "LabEquipmentRequest": [
-            "RequiredDate",
-            "GuestName",
-            "GuestEmail",
-            "GuestPhone",
-            "EntryDate",
-            "Subject",
-            "EquipmentName",
-            "LeaveFrom",
-            "LeaveTo",
-            "LeaveDays",
-            "LeaveReason",
-            "NINumber",
-            "EthnicOrigin",
-            "Q1",
-            "A1",
-            "Q2",
-            "A2",
-            "Q3",
-            "A3",
-            "Q4",
-            "A4",
-            "Essay",
-            "DegreePursuing"
-          ]
-        },
-        {
-          "LeaveRequest": [
-            "RequiredDate",
-            "GuestName",
-            "GuestEmail",
-            "GuestPhone",
-            "EntryDate",
-            "Subject",
-            "EquipmentName",
-            "LeaveFrom",
-            "LeaveTo",
-            "LeaveDays",
-            "LeaveReason",
-            "NINumber",
-            "EthnicOrigin",
-            "Q1",
-            "A1",
-            "Q2",
-            "A2",
-            "Q3",
-            "A3",
-            "Q4",
-            "A4",
-            "Essay",
-            "DegreePursuing"
-          ]
+          "LeaveRequest": ["LeaveFrom", "LeaveTo", "LeaveDays", "LeaveReason"]
         },
         {
           "ScholarshipGrant": [
-            "RequiredDate",
-            "GuestName",
-            "GuestEmail",
-            "GuestPhone",
-            "EntryDate",
-            "Subject",
-            "EquipmentName",
-            "LeaveFrom",
-            "LeaveTo",
-            "LeaveDays",
-            "LeaveReason",
             "NINumber",
             "EthnicOrigin",
             "Q1",
@@ -409,5 +304,118 @@
       "LLabel": "Approver",
       "Currency": "No"
     }
-  ]
+  ],
+  "itemConfig": {
+    "ItemFieldDefinition": [
+      {
+        "name": "ItemNumber",
+        "type": "string",
+        "width": "20",
+        "SLabel": "ItemNumber"
+      },
+      { "name": "ID", "type": "string", "width": "20", "SLabel": "ID" },
+      {
+        "name": "iPrice",
+        "type": "Num,3",
+        "width": "100",
+        "SLabel": "Item Price"
+      },
+      {
+        "name": "iQuantity",
+        "type": "Num,2",
+        "width": "100",
+        "SLabel": "Item Quantity"
+      },
+      {
+        "name": "iValues",
+        "type": "Num,2",
+        "width": "100",
+        "SLabel": "Item Value"
+      },
+      {
+        "name": "iVAT",
+        "type": "Num,2",
+        "width": "100",
+        "SLabel": "Item Value Added Tax"
+      },
+      {
+        "name": "iGrossValue",
+        "type": "string",
+        "width": "100",
+        "SLabel": "Item Gross Value"
+      },
+      {
+        "name": "iTaxRate",
+        "type": "string",
+        "width": "100",
+        "SLabel": "Item Tax Rate"
+      },
+      {
+        "name": "iVATValue",
+        "type": "Num,2",
+        "width": "20",
+        "SLabel": "Item VAT Value"
+      },
+      {
+        "name": "itemName",
+        "type": "string",
+        "width": "100",
+        "SLabel": "Item Name"
+      },
+      {
+        "name": "Test",
+        "type": "attachment",
+        "width": "500",
+        "SLabel": "Test",
+        "Option": "",
+        "Currency": "No"
+      }
+    ],
+    "DisplayFields": [
+      "ItemNumber",
+      "iValues",
+      "iVATValue",
+      "iGrossValue",
+      "itemName",
+      "Test"
+    ],
+    "ItemButtons": {
+      "itemDisplay": true,
+      "itemAdd": true,
+      "itemEdit": true,
+      "itemDelete": true
+    },
+    "CreateFields": [
+      "iPrice",
+      "iQuantity",
+      "iValues",
+      "iTaxRate",
+      "iVAT",
+      "iGrossValue",
+      "iVATValue",
+      "itemName",
+      "Test"
+    ],
+    "ItemDetails": [
+      {
+        "name": "ItemNumber",
+        "Tab": "Tab3",
+        "Sequence": "1",
+        "Mode": "Display"
+      },
+      { "name": "iPrice", "Tab": "Tab3", "Sequence": "1", "Mode": "Edit" },
+      { "name": "iQuantity", "Tab": "Tab3", "Sequence": "1", "Mode": "Edit" },
+      { "name": "iValues", "Tab": "Tab3", "Sequence": "1", "Mode": "Display" },
+      { "name": "iVAT", "Tab": "Tab3", "Sequence": "1", "Mode": "Display" },
+      {
+        "name": "iGrossValue",
+        "Tab": "Tab3",
+        "Sequence": "1",
+        "Mode": "Display"
+      },
+      { "name": "iVATValue", "Tab": "Tab3", "Sequence": "1", "Mode": "Edit" },
+      { "name": "itemName", "Tab": "Tab3", "Sequence": "1", "Mode": "Edit" },
+      { "name": "Test", "Tab": "Tab3", "Sequence": "1", "Mode": "Edit" }
+    ]
+  }
 }
