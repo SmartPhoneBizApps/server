@@ -1,7 +1,7 @@
 const ErrorResponse = require("../../utils/errorResponse");
-const Approle = require("../../models/appSetup/Approle");
-const User = require("../../models/User");
 
+const User = require("../../models/User");
+const Approle = require("../../models/appSetup/Approle");
 const BUS0000001 = require("../../models/smartApp/BUS0000002");
 const BUS0000002 = require("../../models/smartApp/BUS0000002");
 const BUS0000003 = require("../../models/smartApp/BUS0000003");
@@ -89,46 +89,76 @@ function getData(Model, q1) {
   return query;
 }
 con = 0;
-
 jsonArray = [];
 jsonObject = {};
 myTiles = {};
 counter = 0;
 tabCX = {};
+const cardTemplate = {};
 // @desc      Get adaptiveCard_card
 // @route     GET /api/v1/adaptiveCard_card/:id
 // @access    Public
 exports.adaptiveCard_card = async (req, res, next) => {
   // Some Global variables....
-
   // Read Role from Parameter..
   role = req.params.role;
   tab = req.params.tab;
-
   // Get user details..
   const userRecord = await User.findById(req.user.id);
+  //Validate Data...
+  if (userRecord.userAccess == "External") {
+  } else {
+    if (!userRecord.company) {
+      return next(
+        new ErrorResponse(
+          `User setup for Company is not complete ${userRecord.email}`,
+          404
+        )
+      );
+    }
+    if (
+      !userRecord.branch &
+      (userRecord.role == "BranchAdmin" || userRecord.role == "BranchUser")
+    ) {
+      return next(
+        new ErrorResponse(
+          `User setup for Branch is not complete ${userRecord.email}`,
+          404
+        )
+      );
+    }
+    if (
+      !userRecord.area &
+      (userRecord.role == "AreaAdmin" || userRecord.role == "AreaUser")
+    ) {
+      return next(
+        new ErrorResponse(
+          `User setup for Area is not complete ${userRecord.email}`,
+          404
+        )
+      );
+    }
+  }
 
+  // Get Role/App details..
+  const roleApp = await Approle.findOne({ role: role });
   // Read Card Configuration for the Role (X1)
   let fileName = "../../cards/cardConfig/" + role + "_cardConfig.json";
   var cardConfig = require(fileName);
-
   // Read Color Configuration
   let fileNameColor = "../../cards/cardConfig/colorConfig.json";
   var colorConfig = require(fileNameColor);
   //console.log(cardConfig);
-
   // Read card User Settings  for the Role
   let fileName2 = "../../userSettings/" + userRecord.email + "_cardsSetup.json";
   var userSetCards = require(fileName2);
-
   // When tab is "tab1" full template with tab1 data will be returned, for all other cases on data for that tab
   if (tab == "tab1") {
     let fileName1 = "../../cards/cardConfig/" + role + "_cardTabs.json";
     var cardTemplate = require(fileName1);
   } else {
-    const cardTemplate = {};
+    cardTemplate = {};
   }
-
   // Loop Card Configuration for the Role (X1)
   for (const k2 in cardConfig.Tabs) {
     // Filter the Card Configuration data for the request tab (tab1, tab2 etc..)
@@ -156,7 +186,54 @@ exports.adaptiveCard_card = async (req, res, next) => {
                 //////////////////////////////////////////////////////////////////////////////
                 con = con + 1;
                 let applicationID = tabCX[tab].Tiles[key3].applicationID;
-                let q1 = JSON.stringify(tabCX[tab].Tiles[key3].filters);
+                qx1 = {};
+                qx1 = { ...tabCX[tab].Tiles[key3].filters };
+                // User can see data only for there own company (User Specific is TRUE)
+                //qx1["company"] = userRecord.company;
+
+                switch (userRecord.role) {
+                  case "CompanyAdmin":
+                    qx1["company"] = userRecord.company;
+
+                    break;
+                  case "CompanyUser":
+                    qx1["company"] = userRecord.company;
+                    break;
+                  case "BranchAdmin":
+                    qx1["company"] = userRecord.company;
+                    qx1["branch"] = userRecord.branch;
+                    break;
+                  case "BranchUser":
+                    qx1["company"] = userRecord.company;
+                    qx1["branch"] = userRecord.branch;
+                    break;
+                  case "AreaAdmin":
+                    qx1["company"] = userRecord.company;
+                    qx1["area"] = userRecord.area;
+                    break;
+                  case "AreaUser":
+                    qx1["company"] = userRecord.company;
+                    qx1["area"] = userRecord.area;
+                    break;
+                  default:
+                    qx1["company"] = userRecord.company;
+                    qx1["area"] = userRecord.area;
+                    qx1["branch"] = userRecord.branch;
+                }
+
+                roleApp["Apps"].forEach((roleApp1) => {
+                  if (roleApp1["applicationID"] == applicationID) {
+                    console.log(roleApp1["userSpecific"]);
+                    if (roleApp1["userSpecific"]) {
+                      // User can see only there own data (User Specific is TRUE)
+                      qx1["user"] = req.user.id;
+                      console.log("User Specific True: ", qx1);
+                    }
+                  }
+                });
+                let q1 = { ...qx1 };
+                q1 = JSON.stringify(q1);
+                console.log(q1);
                 let query;
                 //let results;
 
@@ -491,7 +568,6 @@ exports.adaptiveCard_card = async (req, res, next) => {
                     const fields = tabCX[tab].Tiles[key3].fieldList;
                     query = query.select(fields);
                     const fList = tabCX[tab].Tiles[key3].fieldList.split(" ");
-                    //  console.log(fList);
                   }
                   //Sorting
                   if (tabCX[tab].Tiles[key3].sortBy) {
@@ -514,7 +590,6 @@ exports.adaptiveCard_card = async (req, res, next) => {
                   // Get data
                   let results = await query;
                   jsonArray["json" + con] = results;
-                  // console.log("MyResults:", jsonArray);
                 }
 
                 // Read Card Template
@@ -522,20 +597,12 @@ exports.adaptiveCard_card = async (req, res, next) => {
                   "../../cards/templates/" +
                   tabCX[tab].Tiles[key3].Type +
                   "_template.json";
-
-                //console.log(con);
                 key = {};
                 key["con" + con] = require(fileName3);
-                //console.log("my Key:", key["con" + con]);
-                //var key["con" + con] = require(fileName3);
-                //console.log(key["con" + con]);
-                // var cardTemp = require(fileName3);
-
                 //-------------------------------------------------
                 //Set Header ... All Cards
                 key["con" + con]["sap.card"]["header"] =
                   tabCX[tab].Tiles[key3].header;
-
                 //-------------------------------------------------
                 //object1 : set group
                 if (tabCX[tab].Tiles[key3].Type == "object1") {
@@ -565,17 +632,6 @@ exports.adaptiveCard_card = async (req, res, next) => {
                   key["con" + con]["sap.card"]["data"]["json"] = jsonArray[
                     "json" + con
                   ].slice(0);
-
-                  /*                   console.log(
-                    "Table1A Data:",
-                    jsonArray["json" + con].slice(0)
-                  ); */
-                  // myD["json"] = jsonArray;
-                  //cardTemp["sap.card"]["data"] = { ...myD };
-                  //key["con" + con]["sap.card"]["data"] = Object.assign({}, myD);
-                  //console.log("Console Table : ", myD);
-                  //myD = {};
-                  //jsonArray["json" + con] = [];
                 }
                 //-------------------------------------------------
                 //table1
@@ -584,22 +640,12 @@ exports.adaptiveCard_card = async (req, res, next) => {
                   key["con" + con]["sap.card"]["content"]["row"][
                     "columns"
                   ] = tabCX[tab].Tiles[key3].columns.slice(0);
-
                   /// Add JSON Data
                   jl1 = {};
                   jsonArray["json" + con].forEach((ex2) => {
-                    // console.log(colorConfig["Status"][ex2["Status"]]);
                     jl1 = ex2;
                     jl1["statusState"] = colorConfig["Status"][ex2["Status"]];
-                    //console.log("OutJson", jl1);
                   });
-
-                  /*                   for (const kk1 in jsonArray["json" + con]) {
-                    if (jsonArray["json" + con].hasOwnProperty(kk1)) {
-                      const element = jsonArray["json" + con][kk1];
-                    }
-                  } */
-
                   // console.log(jl1);
                   key["con" + con]["sap.card"]["data"]["json"] = jsonArray[
                     "json" + con
@@ -612,12 +658,10 @@ exports.adaptiveCard_card = async (req, res, next) => {
                   key["con" + con]["sap.card"]["content"]["actions"] =
                     tabCX[tab].Tiles[key3].actions;
                 }
-
                 //list2 - Actions
                 if (tabCX[tab].Tiles[key3].Type == "list2A") {
                   key["con" + con]["sap.card"]["content"]["item"]["actions"] =
                     tabCX[tab].Tiles[key3].actions;
-
                   /// Add Data
                   jsonOut = {};
                   jsonOutArray = [];
@@ -633,7 +677,6 @@ exports.adaptiveCard_card = async (req, res, next) => {
                       colorConfig["Status"][eln1["Status"]];
                     jsonOutArray.push({ ...jsonOut });
                   });
-
                   /// Add Data
                   myD["json"] = jsonOutArray;
                   key["con" + con]["sap.card"]["content"]["data"] = {
@@ -645,16 +688,13 @@ exports.adaptiveCard_card = async (req, res, next) => {
                 if (tabCX[tab].Tiles[key3].Type == "list2B") {
                   key["con" + con]["sap.card"]["content"]["item"]["actions"] =
                     tabCX[tab].Tiles[key3].actions;
-
                   /// Add Data
-
                   myD["json"] = jsonArray["json" + con];
                   key["con" + con]["sap.card"]["content"]["data"] = {
                     ...myD,
                   };
                   jsonArray["json" + con] = [];
                 }
-
                 //list1 - Data
                 if (tabCX[tab].Tiles[key3].Type == "list1A") {
                   jsonOut = {};
@@ -673,7 +713,6 @@ exports.adaptiveCard_card = async (req, res, next) => {
                       colorConfig["Status"][eln1["Status"]];
                     jsonOutArray.push({ ...jsonOut });
                   });
-
                   /// Add Data
                   myD["json"] = jsonOutArray;
                   key["con" + con]["sap.card"]["content"]["data"] = {
@@ -681,7 +720,6 @@ exports.adaptiveCard_card = async (req, res, next) => {
                   };
                   jsonArray["json" + con] = [];
                 }
-
                 //list1 - Data
                 if (tabCX[tab].Tiles[key3].Type == "list1B") {
                   jsonOut = {};
@@ -700,7 +738,6 @@ exports.adaptiveCard_card = async (req, res, next) => {
                       colorConfig["Status"][eln1["Status"]];
                     jsonOutArray.push({ ...jsonOut });
                   });
-
                   /// Add Data
                   myD["json"] = jsonOutArray;
                   key["con" + con]["sap.card"]["content"]["data"] = {
@@ -720,16 +757,10 @@ exports.adaptiveCard_card = async (req, res, next) => {
                   };
                   jsonArray["json" + con] = [];
                 }
-
                 counter = counter + 1;
                 let TileID = tabCX[tab].Tiles[key3].Type + "_" + counter;
-                //console.log("AG01", key["con" + con]);
-                //myTiles[TileID] = key["con" + con];
                 myTiles[TileID] = Object.assign({}, key["con" + con]);
-
-                //console.log("Keys", key["con" + con]);
                 key["con" + con] = {};
-
                 //////////////////////////////////////////////////////////////////////////////
                 // Ends
                 //////////////////////////////////////////////////////////////////////////////
@@ -737,7 +768,6 @@ exports.adaptiveCard_card = async (req, res, next) => {
             }
           }
         }
-        //console.log("------------------");
       }
       /// Add Tiles in the output........
       if (tab != "tab1") {
@@ -758,12 +788,11 @@ exports.adaptiveCard_card = async (req, res, next) => {
   }
   if (tab == "tab1") {
     cardTemplate["Tabs"].forEach((element) => {
-      console.log("API Output : ", cardTemplate["Tabs"]);
+      console.log("API Output for tab1.....: ", cardTemplate["Tabs"]);
     });
   } else {
-    console.log("API Output : ", cardTemplate);
+    console.log("API Output for other tabs... : ", cardTemplate);
   }
-
   res.status(200).json({ success: true, data: cardTemplate });
   cardTemplate = [];
 };

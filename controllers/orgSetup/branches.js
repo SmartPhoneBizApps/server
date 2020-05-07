@@ -5,6 +5,26 @@ const Company = require("../../models/orgSetup/Company");
 const geocoder = require("../../utils/geocoder");
 const path = require("path");
 
+// @desc      Get branches /getCompanyBranches
+// @route     GET /api/v1/branches
+// @route     GET /api/v1/companies/:companyId/branches
+// @access    Public
+exports.getCompanyBranches = asyncHandler(async (req, res, next) => {
+  console.log(req.params);
+  if (req.params.companyId) {
+    console.log(req.params.companyId);
+    const branches = await Branch.find({ companyId: req.params.companyId });
+
+    return res.status(200).json({
+      success: true,
+      count: branches.length,
+      data: branches,
+    });
+  } else {
+    res.status(200).json(res.advancedResults);
+  }
+});
+
 // @desc      Get branches
 // @route     GET /api/v1/branches
 // @route     GET /api/v1/companies/:companyId/branches
@@ -12,6 +32,7 @@ const path = require("path");
 exports.getBranches = asyncHandler(async (req, res, next) => {
   console.log(req.params);
   if (req.params.companyId) {
+    console.log(req.params.companyId);
     const branches = await Branch.find({ companyId: req.params.companyId });
 
     return res.status(200).json({

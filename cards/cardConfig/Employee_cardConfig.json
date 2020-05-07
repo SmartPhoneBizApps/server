@@ -2,70 +2,10 @@
   "Tabs": [
     {
       "TabName": "My Requests",
-      "TabID": "tab1",
+      "TabID": "Tab1",
       "Tiles": [
         {
-          "CardID": "My_Profile",
-          "applicationID": "MYDATA",
-          "filters": {},
-          "fieldList": ["name"],
-          "Type": "object1",
-          "header": {
-            "icon": {
-              "text": "AG"
-            },
-            "title": "{name}",
-            "subTitle": "{position}",
-            "actions": [
-              {
-                "type": "Navigation",
-                "parameters": {
-                  "url": "users/atulGupta"
-                }
-              }
-            ]
-          },
-          "json": {
-            "firstName": "Donna",
-            "lastName": "Mendez",
-            "position": "Managing Partner",
-            "mobile": "+1 202 34869-0",
-            "phone": "+1 202 555 5555",
-            "email": "donna@peachvalley.com"
-          },
-          "groups": [
-            {
-              "title": "SmartPhone Biz Apps Ltd",
-              "items": [
-                {
-                  "label": "Mobile",
-                  "value": "{mobile}",
-                  "type": "phone"
-                },
-                {
-                  "label": "Phone",
-                  "value": "{phone}",
-                  "type": "phone"
-                },
-                {
-                  "label": "Email",
-                  "value": "{email}",
-                  "type": "email"
-                }
-              ]
-            }
-          ],
-          "actions": [
-            {
-              "type": "Navigation",
-              "parameters": {
-                "url": "users/atulGupta"
-              }
-            }
-          ]
-        },
-        {
-          "CardID": "EMPACC01_table1_RequestType_SoftwareRequest",
+          "CardID": "EMPACC01_Table1_RequestType_SoftwareRequest",
           "applicationID": "EMPACC01",
           "filters": {
             "RequestType": "SoftwareRequest"
@@ -211,7 +151,7 @@
 
     {
       "TabName": "Tab 2",
-      "TabID": "tab2",
+      "TabID": "Tab2",
       "Tiles": [
         {
           "CardID": "EMPACC01_list2_RequestType_ApplicationLogin",

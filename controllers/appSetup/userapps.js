@@ -11,11 +11,11 @@ const App = require("../../models/appSetup/App");
 // @access    Public
 exports.getUserapps = asyncHandler(async (req, res, next) => {
   req.body.user = req.user.id;
-  console.log("Ag 01:", req.user.id);
+  //console.log("Ag 01:", req.user.id);
   // Finding Roles
   userX = await User.findById(req.body.user);
 
-  console.log("Ag 02:", userX);
+  //console.log("Ag 02:", userX);
   i = 0;
   appTemp = {
     id: 0,

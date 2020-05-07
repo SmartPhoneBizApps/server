@@ -65,8 +65,6 @@
   },
   "DelEmail": {
     "type": "String",
-
-    "required": [true, "Please add mandatory field :DelEmail"],
     "maxlength": [100, "DelEmail can not be more than 100 characters"],
     "match": ["EMAIL_V1", "Invalid EmailID for field :DelEmail"]
   },
@@ -144,8 +142,6 @@
   },
   "EmployeeEmail": {
     "type": "String",
-
-    "required": [true, "Please add mandatory field :EmployeeEmail"],
     "maxlength": [200, "EmployeeEmail can not be more than 200 characters"],
     "match": ["EMAIL_V1", "Invalid EmailID for field :EmployeeEmail"]
   },
@@ -219,8 +215,6 @@
   },
   "Type": {
     "type": "String",
-
-    "required": [true, "Please add mandatory field :Type"],
     "maxlength": [500, "Type can not be more than 500 characters"]
   },
   "ReportingRegime": {
@@ -342,8 +336,6 @@
   },
   "ContractStDate": {
     "type": "Date",
-
-    "required": [true, "Please add mandatory field :ContractStDate"],
     "maxlength": [10, "ContractStDate can not be more than 10 characters"],
     "match": [
       "DATE_V1",
@@ -352,12 +344,11 @@
   },
   "ContractEndDate": {
     "type": "Date",
-
-    "required": [true, "Please add mandatory field :ContractEndDate"],
     "maxlength": [10, "ContractEndDate can not be more than 10 characters"],
     "match": [
       "DATE_V1",
       "Please provide date in YYYY-MM-DD format for field :ContractEndDate"
     ]
-  }
+  },
+  "ItemData": []
 }

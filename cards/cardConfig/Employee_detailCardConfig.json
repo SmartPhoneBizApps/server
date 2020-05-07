@@ -1,0 +1,60 @@
+{
+  "Tabs": [
+    {
+      "TabName": "Flow",
+      "TabID": "Tab4",
+      "Tiles": [
+        {
+          "CardID": "EMPACC01_TimeLine1",
+          "applicationID": "EMPACC01",
+          "filters": {},
+          "fieldList": "ID Software AssetID DateOfRequest Status",
+          "sortBy": "ID Status",
+          "limit": 5,
+          "Type": "timeline1A",
+          "header": {
+            "title": "Document Flow",
+            "subTitle": "Status Change of Request",
+            "status": {
+              "text": "Current status"
+            },
+            "actions": [
+              {
+                "type": "Navigation",
+                "parameters": {
+                  "url": "/quickLinks"
+                }
+              }
+            ]
+          },
+          "item": {
+            "dateTime": {
+              "value": "{Time}"
+            },
+            "description": {
+              "value": "{Description}"
+            },
+            "title": {
+              "value": "{Title}"
+            },
+            "icon": {
+              "src": "{Icon}"
+            }
+          },
+
+          "json": []
+        },
+        {
+          "CardID": "EMPACC01_Donut1",
+          "applicationID": "EMPACC01",
+          "filters": {},
+          "fieldList": "ID Software AssetID DateOfRequest Status",
+          "sortBy": "ID Status",
+          "limit": 5,
+          "Type": "donut1A",
+          "measures": []
+        }
+      ]
+    }
+  ]
+}

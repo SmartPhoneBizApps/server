@@ -74,6 +74,10 @@ app.use("/api/v1/users", require("./routes/users"));
 //Organization Setup
 app.use("/api/v1/companies", require("./routes/orgSetup/companies"));
 app.use("/api/v1/branches", require("./routes/orgSetup/branches"));
+app.use(
+  "/api/v1/companybranches",
+  require("./routes/orgSetup/companybranches")
+);
 app.use("/api/v1/areas", require("./routes/orgSetup/areas"));
 
 //App Setup
@@ -86,6 +90,9 @@ app.use("/api/v1/validationrule", require("./routes/appSetup/validationrules"));
 
 //Business Data (Overview Cards)
 app.use("/api/v1/cards", require("./routes/cards/cards"));
+app.use("/api/v1/detailcards/", require("./routes/smartApp/detailcards"));
+app.use("/api/v1/detaillist/", require("./routes/smartApp/detaillist"));
+
 app.use("/api/v1/smartapps", require("./routes/smartApp/smartapps"));
 app.use("/api/v1/datarecords", require("./routes/smartApp/datarecords"));
 app.use("/api/v1/listrecords", require("./routes/smartApp/listrecords"));
