@@ -1,31 +1,49 @@
 {
   "sap.app": {
-    "type": "card",
-    "id": "smartphoneapps"
+    "id": "smartphoneapp",
+    "type": "card"
   },
   "cardMinRows": 4,
   "cardColumn": 4,
   "sap.card": {
-    "type": "Timeline",
+    "type": "Analytical",
     "header": {
-      "actions": []
+      "title": "Weather Failures"
     },
     "content": {
-      "data": {},
-      "item": {
-        "dateTime": {
-          "value": "{Time}"
-        },
-        "description": {
-          "value": "{Description}"
-        },
-        "title": {
-          "value": "{Title}"
-        },
-        "icon": {
-          "src": "{Icon}"
+      "chartType": "Donut",
+      "legend": {
+        "visible": true,
+        "position": "Bottom",
+        "alignment": "Left"
+      },
+      "plotArea": {
+        "dataLabel": {
+          "visible": true,
+          "showTotal": true
         }
-      }
+      },
+      "title": {
+        "visible": false
+      },
+      "measureAxis": "size",
+      "dimensionAxis": "color",
+      "data": {
+        "json": {},
+        "path": "/measures"
+      },
+      "dimensions": [
+        {
+          "label": "Measure Name",
+          "value": "{measureName}"
+        }
+      ],
+      "measures": [
+        {
+          "label": "Value",
+          "value": "{value}"
+        }
+      ]
     }
   }
 }

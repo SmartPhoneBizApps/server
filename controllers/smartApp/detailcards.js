@@ -4,7 +4,7 @@ const geocoder = require("../../utils/geocoder");
 const path = require("path");
 
 const User = require("../../models/User");
-const Approle = require("../../models/appSetup/Approle");
+//const Approle = require("../../models/appSetup/Approle");
 const BUS0000001 = require("../../models/smartApp/BUS0000002");
 const BUS0000002 = require("../../models/smartApp/BUS0000002");
 const BUS0000003 = require("../../models/smartApp/BUS0000003");
@@ -399,24 +399,19 @@ exports.getDetailCards = async (req, res, next) => {
     default:
     // code block
   }
-
   // Get Cards Details....
   // Loop Card Configuration for the Role (X1)
   for (const k2 in cardConfig.Tabs) {
     // Filter the Card Configuration data for the request tab (Tab1, tab2 etc..)
-    if (
-      cardConfig.Tabs.hasOwnProperty(k2)
-      //&
-      //(cardConfig.Tabs[k2].TabID == tab)
-    ) {
+    if (cardConfig.Tabs.hasOwnProperty(k2)) {
       tab = tabCX[tab];
       tabCX[tab] = { ...cardConfig.Tabs[k2] };
-      // data for the requested tab is found in the Card Configuration
       // Now loop through Tiles... in Card Configuration
+      console.log("Card Setup", tabCX[tab].Tiles);
       for (const key3 in tabCX[tab].Tiles) {
         if (tabCX[tab].Tiles.hasOwnProperty(key3)) {
-          // Card / Tile found
           let configCardID = tabCX[tab].Tiles[key3].CardID;
+          console.log("FielName", configCardID);
           // Filtering the userSettings data based on application ID
           app_detail = applicationID + "_Detail";
           myData = userSetCards[role][app_detail];
@@ -430,13 +425,18 @@ exports.getDetailCards = async (req, res, next) => {
                 con = con + 1;
                 jsonArray["json" + con] = rec;
                 // Read Card Template
-                let fileName3 =
+                let fileName3 = [];
+
+                fileName3[con] =
                   "../../cards/templates/" +
                   tabCX[tab].Tiles[key3].Type +
                   "_template.json";
                 key = {};
-                key["con" + con] = require(fileName3);
+                key["con" + con] = require(fileName3[con]);
+                console.log("FielName", fileName3[con]);
+                console.log("Template", tabCX[tab].Tiles[key3].Type);
                 console.log("Template", key["con" + con]);
+
                 //-------------------------------------------------
                 //Set Header ... All Cards
                 key["con" + con]["sap.card"]["header"] =
@@ -650,7 +650,7 @@ exports.getDetailCards = async (req, res, next) => {
                   jsonOut["value"] = 270;
                   measures.push({ ...jsonOut });
                   myO["json"]["measures"] = measures;
-                  key["con" + con]["sap.card"]["data"] = { ...myO };
+                  key["con" + con]["sap.card"]["content"]["data"] = { ...myO };
                   myO = { json: {} };
                   measures = [];
 
