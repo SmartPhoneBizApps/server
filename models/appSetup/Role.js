@@ -25,7 +25,24 @@ const RoleSchema = new mongoose.Schema({
       },
     },
   ],
-
+  roleAccess: {
+    type: String,
+    enum: ["Internal", "External"],
+  },
+  partnerType: {
+    type: String,
+    enum: [
+      "Supplier",
+      "Patient",
+      "Parent",
+      "Customer",
+      "Candidate",
+      "Citizen",
+      "Transporter",
+      "Visitor",
+      "HCP",
+    ],
+  },
   icon: {
     type: String,
   },

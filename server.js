@@ -60,42 +60,68 @@ app.use(cors());
 
 // Set static folder
 app.use(express.static(path.join(__dirname, "public")));
-
-// Mount routers
-//Course
-app.use("/api/v1/bootcamps", require("./routes/bootcamps"));
-app.use("/api/v1/courses", require("./routes/courses"));
-app.use("/api/v1/reviews", require("./routes/reviews"));
-
+//  -------------------------------------------------
+//  ----------  ***** BUSINESS USERS *****  ---------
+//  -------------------------------------------------
 //Users and Authorizations
-app.use("/api/v1/auth", require("./routes/auth"));
-app.use("/api/v1/users", require("./routes/users"));
-
-//Organization Setup
+app.use("/api/v1/auth", require("./routes/access/auth"));
+app.use("/api/v1/users", require("./routes/access/users"));
+app.use("/api/v1/socialmedia", require("./routes/access/socialmedia"));
+app.use(
+  "/api/v1/socialmediacheck",
+  require("./routes/access/socialmediacheck")
+);
+//  ----------------------------------------------------------
+//  ----------  ***** ORGNIZATION SETUP DATA *****  ----------
+//  ----------------------------------------------------------
+// Setup Company
 app.use("/api/v1/companies", require("./routes/orgSetup/companies"));
+// Setup Branch
 app.use("/api/v1/branches", require("./routes/orgSetup/branches"));
+// Setup Company / Branches
 app.use(
   "/api/v1/companybranches",
   require("./routes/orgSetup/companybranches")
 );
+// Setup Area
 app.use("/api/v1/areas", require("./routes/orgSetup/areas"));
+// Setup Company / Area
+//???????????????
 
+//  --------------------------------------------------
+//  ----------  ***** APP SETUP DATA *****  ----------
+//  --------------------------------------------------
 //App Setup
 app.use("/api/v1/apps", require("./routes/appSetup/apps"));
+// Roles
 app.use("/api/v1/roles", require("./routes/appSetup/roles"));
+// App and Roles
 app.use("/api/v1/approles", require("./routes/appSetup/approles"));
+// Users >> Roles >> Apps
 app.use("/api/v1/userapps", require("./routes/appSetup/userapps"));
-app.use("/api/v1/appschema", require("./routes/appSetup/appschema"));
-app.use("/api/v1/validationrule", require("./routes/appSetup/validationrules"));
 
-//Business Data (Overview Cards)
-app.use("/api/v1/cards", require("./routes/cards/cards"));
-app.use("/api/v1/detailcards/", require("./routes/smartApp/detailcards"));
-app.use("/api/v1/detaillist/", require("./routes/smartApp/detaillist"));
-
-app.use("/api/v1/smartapps", require("./routes/smartApp/smartapps"));
-app.use("/api/v1/datarecords", require("./routes/smartApp/datarecords"));
+//  -------------------------------------------------
+//  ----------  ***** BUSINESS DATA *****  ----------
+//  -------------------------------------------------
+// Listing of Data Records with Config Data
 app.use("/api/v1/listrecords", require("./routes/smartApp/listrecords"));
+// Create a new Record
+app.use("/api/v1/datarecords", require("./routes/smartApp/datarecords"));
+// Route to get the Overview Cards (a Seperate Tile for every role)
+app.use("/api/v1/cards", require("./routes/smartApp/overviewcard"));
+// Route to get the cards for application Tab (only one tab can have cards)
+app.use("/api/v1/detailcards/", require("./routes/smartApp/detailcards"));
+// Route to get the Item data for a header record of an application
+app.use("/api/v1/detaillist/", require("./routes/smartApp/detaillist"));
+// Upload Data
+app.use("/api/v1/uploaddata/", require("./routes/smartApp/uploaddata"));
+
+//  -------------------------------------------------
+//  ----------  ***** IGNORE *****  ---------
+//  -------------------------------------------------
+app.use("/api/v1/bootcamps", require("./routes/bootcamps"));
+app.use("/api/v1/courses", require("./routes/courses"));
+app.use("/api/v1/reviews", require("./routes/reviews"));
 
 app.use(errorHandler);
 

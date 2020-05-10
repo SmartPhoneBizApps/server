@@ -1,1 +1,197 @@
-{"Title": {"ApplicationTitle": "Help page", "DetailTitle": "Help page"}, "ListFields": {"IntroField": "ID", "TitleField": "", "fStatus": "Status", "sStatus": "", "numberField": "", "LFields": ["ID", "Area", "Language", "Title", "Status"]}, "MButtons": [{"type": "DOWNLOAD", "name": "Download File", "icon": "sap-icon://download"}, {"type": "APPHELP", "name": "Get App Help", "icon": "sap-icon://sys-help-2"}, {"type": "BOT", "name": "Launch Assistant", "icon": "sap-icon://travel-request"}, {"type": "VIEW", "name": "Change App View", "icon": "sap-icon://chart-table-view"}, {"type": "ADD", "name": "Add Record", "icon": "sap-icon://add"}, {"type": "UPLOAD", "name": "Upload Record", "icon": "sap-icon://upload"}], "DButtons": [{"type": "ATTACHMENT", "name": "View Attachments", "icon": "sap-icon://attachment"}, {"type": "UPDATE", "name": "Update Record", "icon": "sap-icon://update"}, {"type": "ADD", "name": "Add Record", "icon": "sap-icon://add"}], "Tabs": [{"value": "Tab1", "name": "Help", "fioriicon": "sys-help", "type": "Field"}, {"value": "Tab2", "name": "Help link", "fioriicon": "chain-link", "type": "Field"}, {"value": "Tab3", "name": "Admin", "fioriicon": "log", "type": "Field"}], "DetailFields": {"None": ["ID"], "Tab1": ["Title", "Area", "Finfo", "Language", "Status", "Crdate"], "Tab2": ["Url"], "Tab3": ["gstin"]}, "ControlDisplay": {"ControlField": "InvoiceType", "Fields": [[{"ALL": ["InvoiceType", "ID", "VendorName", "SuppInvoiceNumber", "PaymentTerm", "Status", "VendorNumber", "InvoiceDate", "Company", "Details", "Currency", "NetValue", "GrossValue", "TotInvNetValue", "TotInvGrossVal", "Attachment", "TaxInvoice", "PaymentStatus", "InvoiceStatus", "BuyerInvoiceNumber", "BuyerInvoiceYear", "BuyerInvoiceStatus", "BuyerPaymentStatus", "BuyerPaymentDate", "Comment", "CurrentStatus", "BuyerInvoiceDueDt", "TotInvTax", "ConfidenceScore", "OverallMatching"]}, {"ContractInvoice": []}, {"EventInvoice": []}, {"NonPOInvoice": []}, {"POInvoice": ["PONumber", "PODate"]}, {"StudyInvoice": []}]]}, "FieldDef": [{"name": "ID", "type": "string", "width": "20", "Option": "", "SLabel": "Identification", "LLabel": "Identification"}, {"name": "Area", "type": "string", "width": "20", "Option": "", "SLabel": "Area", "LLabel": "Area"}, {"name": "Language", "type": "string", "width": "20", "Option": "", "SLabel": "Language", "LLabel": "User Language"}, {"name": "Title", "type": "string", "width": "50", "Option": "", "SLabel": "Title", "LLabel": "Title"}, {"name": "Finfo", "type": "string", "width": "1000", "Option": "", "SLabel": "Further information", "LLabel": "Further information"}, {"name": "Url", "type": "hyperlink", "width": "100", "Option": "", "SLabel": "Help link", "LLabel": "Help link"}, {"name": "Status", "type": "string", "width": "20", "Option": "", "SLabel": "Status", "LLabel": "Status"}, {"name": "Crdate", "type": "Date", "width": "10", "Option": "", "SLabel": "Created on", "LLabel": "Created on date"}, {"name": "gstin", "type": "string", "width": "50", "Option": "", "SLabel": "GSTIN Number", "LLabel": "GSTIN of the taxpayer"}], "itemConfig": {"ItemFieldDefinition": [], "DisplayFields": [], "ItemButtons": {"itemDisplay": true, "itemAdd": true, "itemEdit": true, "itemDelete": true}, "CreateFields": [], "ItemDetails": []}}
+{
+  "Title": { "ApplicationTitle": "Help page", "DetailTitle": "Help page" },
+  "ListFields": {
+    "IntroField": "ID",
+    "TitleField": "",
+    "fStatus": "Status",
+    "sStatus": "",
+    "numberField": "",
+    "LFields": ["ID", "Area", "Language", "Title", "Status"]
+  },
+  "MButtons": [
+    {
+      "type": "DOWNLOAD",
+      "name": "Download File",
+      "icon": "sap-icon://download"
+    },
+    {
+      "type": "APPHELP",
+      "name": "Get App Help",
+      "icon": "sap-icon://sys-help-2"
+    },
+    {
+      "type": "BOT",
+      "name": "Launch Assistant",
+      "icon": "sap-icon://travel-request"
+    },
+    {
+      "type": "VIEW",
+      "name": "Change App View",
+      "icon": "sap-icon://chart-table-view"
+    },
+    { "type": "ADD", "name": "Add Record", "icon": "sap-icon://add" },
+    { "type": "UPLOAD", "name": "Upload Record", "icon": "sap-icon://upload" }
+  ],
+  "DButtons": [
+    {
+      "type": "ATTACHMENT",
+      "name": "View Attachments",
+      "icon": "sap-icon://attachment"
+    },
+    { "type": "UPDATE", "name": "Update Record", "icon": "sap-icon://update" },
+    { "type": "ADD", "name": "Add Record", "icon": "sap-icon://add" }
+  ],
+  "Tabs": [
+    {
+      "value": "Tab1",
+      "name": "Help",
+      "fioriicon": "sys-help",
+      "type": "Field"
+    },
+    {
+      "value": "Tab2",
+      "name": "Help link",
+      "fioriicon": "chain-link",
+      "type": "Field"
+    },
+    { "value": "Tab3", "name": "Admin", "fioriicon": "log", "type": "Field" }
+  ],
+  "DetailFields": {
+    "None": ["ID"],
+    "Tab1": ["Title", "Area", "Finfo", "Language", "Status", "Crdate"],
+    "Tab2": ["Url"],
+    "Tab3": ["gstin"]
+  },
+  "ControlDisplay": {
+    "ControlField": "InvoiceType",
+    "Fields": [
+      [
+        {
+          "ALL": [
+            "InvoiceType",
+            "ID",
+            "VendorName",
+            "SuppInvoiceNumber",
+            "PaymentTerm",
+            "Status",
+            "VendorNumber",
+            "InvoiceDate",
+            "Company",
+            "Details",
+            "Currency",
+            "NetValue",
+            "GrossValue",
+            "TotInvNetValue",
+            "TotInvGrossVal",
+            "Attachment",
+            "TaxInvoice",
+            "PaymentStatus",
+            "InvoiceStatus",
+            "BuyerInvoiceNumber",
+            "BuyerInvoiceYear",
+            "BuyerInvoiceStatus",
+            "BuyerPaymentStatus",
+            "BuyerPaymentDate",
+            "Comment",
+            "CurrentStatus",
+            "BuyerInvoiceDueDt",
+            "TotInvTax",
+            "ConfidenceScore",
+            "OverallMatching"
+          ]
+        },
+        { "ContractInvoice": [] },
+        { "EventInvoice": [] },
+        { "NonPOInvoice": [] },
+        { "POInvoice": ["PONumber", "PODate"] },
+        { "StudyInvoice": [] }
+      ]
+    ]
+  },
+  "FieldDef": [
+    {
+      "name": "ID",
+      "type": "string",
+      "width": "20",
+      "Option": "",
+      "SLabel": "Identification",
+      "LLabel": "Identification"
+    },
+    {
+      "name": "Area",
+      "type": "string",
+      "width": "20",
+      "Option": "",
+      "SLabel": "Area",
+      "LLabel": "Area"
+    },
+    {
+      "name": "Language",
+      "type": "string",
+      "width": "20",
+      "Option": "",
+      "SLabel": "Language",
+      "LLabel": "User Language"
+    },
+    {
+      "name": "Title",
+      "type": "string",
+      "width": "50",
+      "Option": "",
+      "SLabel": "Title",
+      "LLabel": "Title"
+    },
+    {
+      "name": "Finfo",
+      "type": "string",
+      "width": "1000",
+      "Option": "",
+      "SLabel": "Further information",
+      "LLabel": "Further information"
+    },
+    {
+      "name": "Url",
+      "type": "hyperlink",
+      "width": "100",
+      "Option": "",
+      "SLabel": "Help link",
+      "LLabel": "Help link"
+    },
+    {
+      "name": "Status",
+      "type": "string",
+      "width": "20",
+      "Option": "",
+      "SLabel": "Status",
+      "LLabel": "Status"
+    },
+    {
+      "name": "Crdate",
+      "type": "Date",
+      "width": "10",
+      "Option": "",
+      "SLabel": "Created on",
+      "LLabel": "Created on date"
+    },
+    {
+      "name": "gstin",
+      "type": "string",
+      "width": "50",
+      "Option": "",
+      "SLabel": "GSTIN Number",
+      "LLabel": "GSTIN of the taxpayer"
+    }
+  ],
+  "itemConfig": {
+    "ItemFieldDefinition": [],
+    "DisplayFields": [],
+    "ItemButtons": {
+      "itemDisplay": true,
+      "itemAdd": true,
+      "itemEdit": true,
+      "itemDelete": true
+    },
+    "CreateFields": [],
+    "ItemDetails": []
+  }
+}

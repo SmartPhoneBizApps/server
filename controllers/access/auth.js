@@ -1,8 +1,8 @@
 const crypto = require("crypto");
-const ErrorResponse = require("../utils/errorResponse");
-const asyncHandler = require("../middleware/async");
-const sendEmail = require("../utils/sendEmail");
-const User = require("../models/User");
+const ErrorResponse = require("../../utils/errorResponse");
+const asyncHandler = require("../../middleware/async");
+const sendEmail = require("../../utils/sendEmail");
+const User = require("../../models/access/User");
 
 // @desc      Register user
 // @route     POST /api/v1/auth/register
@@ -329,7 +329,7 @@ exports.pinLogin = asyncHandler(async (req, res, next) => {
     "host"
   )}/api/v1/auth/resetpassword/${resetToken}`;
 
-  const message = `Your PIN number is: ${UserPIN} , you are receiving this email because you (or someone else) is performing login to SmartApp. Please make a PUT request to: \n\n ${resetUrl}`;
+  const message = `Your PIN number is: ${UserPIN} , you are receiving this email because you (or someone else) is performing login to SmartApp`;
 
   try {
     await sendEmail({
@@ -338,7 +338,9 @@ exports.pinLogin = asyncHandler(async (req, res, next) => {
       message,
     });
 
-    res.status(200).json({ success: true, data: "Email sent" });
+    res
+      .status(200)
+      .json({ success: true, data: "Email sent", resetURL: resetUrl });
   } catch (err) {
     console.log("Here is the issue");
     console.log(err);

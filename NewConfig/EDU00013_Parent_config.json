@@ -1,1 +1,320 @@
-{"Title": {"ApplicationTitle": "List of Open Days for College and Courses", "DetailTitle": "Details of College and Courses"}, "ListFields": {"IntroField": "ID", "TitleField": "", "fStatus": "Status", "sStatus": "", "numberField": "", "LFields": ["ID", "CollegeName", "CourseName", "OpenDayDate", "Status", "CourseGroup"]}, "MButtons": [{"type": "DOWNLOAD", "name": "Download File", "icon": "sap-icon://download"}, {"type": "APPHELP", "name": "Get App Help", "icon": "sap-icon://sys-help-2"}, {"type": "BOT", "name": "Launch Assistant", "icon": "sap-icon://travel-request"}, {"type": "VIEW", "name": "Change App View", "icon": "sap-icon://chart-table-view"}, {"type": "ADD", "name": "Add Record", "icon": "sap-icon://add"}, {"type": "UPLOAD", "name": "Upload Record", "icon": "sap-icon://upload"}], "DButtons": [{"type": "ATTACHMENT", "name": "View Attachments", "icon": "sap-icon://attachment"}, {"type": "UPDATE", "name": "Update Record", "icon": "sap-icon://update"}, {"type": "ADD", "name": "Add Record", "icon": "sap-icon://add"}], "Tabs": [{"value": "Tab1", "name": "Overview", "fioriicon": "attachment-e-pub", "type": "Field", "download": "Yes"}, {"value": "Tab2", "name": "Venue", "fioriicon": "building", "type": "Field", "download": "Yes"}, {"value": "Tab4", "name": "BookAppointment", "fioriicon": "calendar", "type": "Field", "download": "Yes"}, {"value": "Tab5", "name": "ContactUs", "fioriicon": "call", "type": "Field", "download": "Yes"}], "DetailFields": {"None": ["ID", "Status", "CollegeName"], "Tab1": ["CourseName", "OpenDayDate", "OpenDayStTime", "OpenDayETime", "StudyLevel", "CourseGroup"], "Tab2": ["Address", "PostCode"], "Tab4": ["HomePage", "OpenDayPage", "BookingPage"], "Tab5": ["ContactEmail", "PhoneNo"]}, "ControlDisplay": {"ControlField": "RegisterFor", "Fields": [[{"ALL": ["ID", "Name", "ContactNo", "EmailID", "Address", "Postcode", "ApplicationDate", "RegisterFor", "Status", "Approver", "Question_Response", "ProcessingLog"]}, {"BirthCertificate": ["ChildName", "Surname", "Nationality", "MotherAddress", "MotherNationality", "FatherAddress", "FatherNationality"]}, {"DeathCertificate": ["DeceasedName", "DeathPlace", "DeathDate", "LastAddress", "WasDeath", "DeathCause", "SpouseName"]}, {"MarriageRegistration": ["BrideName", "BrideSurname", "GroomName", "GroomSurname", "MarriagePlace", "BrideFatherName", "GroomFatherName"]}, {"NewHouseName": ["PreferName1", "PreferName2", "PreferName3", "AdditionalInfo"]}]]}, "FieldDef": [{"name": "ID", "type": "string", "width": "20", "Option": "", "SLabel": "Identification", "LLabel": "Identification", "Currency": "No"}, {"name": "CollegeName", "type": "string", "width": "200", "Option": "", "SLabel": "College Name", "LLabel": "College Name", "Currency": "No"}, {"name": "CourseName", "type": "string", "width": "200", "Option": "", "SLabel": "Course Name", "LLabel": "Course Name", "Currency": "No"}, {"name": "OpenDayDate", "type": "Date", "width": "10", "Option": "mandatory", "SLabel": "Open day Date", "LLabel": "Open day Date", "Currency": "No"}, {"name": "OpenDayStTime", "type": "Time", "width": "10", "Option": "mandatory", "SLabel": "Open Day Start Time", "LLabel": "OpenDayStTime", "Currency": "No"}, {"name": "OpenDayETime", "type": "Time", "width": "10", "Option": "mandatory", "SLabel": "Open Day End Time", "LLabel": "Open Day End Time", "Currency": "No"}, {"name": "Address", "type": "string", "width": "500", "Option": "mandatory", "SLabel": "College Address", "LLabel": "College Address", "Currency": "No"}, {"name": "ContactEmail", "type": "string", "width": "100", "Option": "mandatory", "SLabel": "Contact Email", "LLabel": "Contact Email", "Currency": "No"}, {"name": "PhoneNo", "type": "string", "width": "20", "Option": "mandatory", "SLabel": "Phone No", "LLabel": "Phone No", "Currency": "No"}, {"name": "StudyLevel", "type": "string", "width": "200", "Option": "", "SLabel": "Study Level", "LLabel": "Study Level", "Currency": "No"}, {"name": "Status", "type": "string", "width": "20", "Option": "", "SLabel": "Status", "LLabel": "Status", "Currency": "No"}, {"name": "HomePage", "type": "hyperlink", "width": "200", "Option": "", "SLabel": "HomePage", "LLabel": "HomePage", "Currency": "No"}, {"name": "OpenDayPage", "type": "hyperlink", "width": "200", "Option": "", "SLabel": "Open Day Page", "LLabel": "Open Day Page", "Currency": "No"}, {"name": "BookingPage", "type": "hyperlink", "width": "200", "Option": "", "SLabel": "Booking Page", "LLabel": "Booking Page", "Currency": "No"}, {"name": "PostCode", "type": "string", "width": "100", "Option": "", "SLabel": "PostCode", "LLabel": "PostCode", "Currency": "No"}, {"name": "CourseGroup", "type": "string", "width": "100", "Option": "", "SLabel": "Course Group", "LLabel": "", "Currency": "No"}], "itemConfig": {"ItemFieldDefinition": [], "DisplayFields": [], "ItemButtons": {"itemDisplay": false, "itemAdd": false, "itemEdit": false, "itemDelete": false}, "CreateFields": [], "ItemDetails": []}}
+{
+  "Title": {
+    "ApplicationTitle": "List of Open Days for College and Courses",
+    "DetailTitle": "Details of College and Courses"
+  },
+  "ListFields": {
+    "IntroField": "ID",
+    "TitleField": "",
+    "fStatus": "Status",
+    "sStatus": "",
+    "numberField": "",
+    "LFields": [
+      "ID",
+      "CollegeName",
+      "CourseName",
+      "OpenDayDate",
+      "Status",
+      "CourseGroup"
+    ]
+  },
+  "MButtons": [
+    {
+      "type": "DOWNLOAD",
+      "name": "Download File",
+      "icon": "sap-icon://download"
+    },
+    {
+      "type": "APPHELP",
+      "name": "Get App Help",
+      "icon": "sap-icon://sys-help-2"
+    },
+    {
+      "type": "BOT",
+      "name": "Launch Assistant",
+      "icon": "sap-icon://travel-request"
+    },
+    {
+      "type": "VIEW",
+      "name": "Change App View",
+      "icon": "sap-icon://chart-table-view"
+    },
+    { "type": "ADD", "name": "Add Record", "icon": "sap-icon://add" },
+    { "type": "UPLOAD", "name": "Upload Record", "icon": "sap-icon://upload" }
+  ],
+  "DButtons": [
+    {
+      "type": "ATTACHMENT",
+      "name": "View Attachments",
+      "icon": "sap-icon://attachment"
+    },
+    { "type": "UPDATE", "name": "Update Record", "icon": "sap-icon://update" },
+    { "type": "ADD", "name": "Add Record", "icon": "sap-icon://add" }
+  ],
+  "Tabs": [
+    {
+      "value": "Tab1",
+      "name": "Overview",
+      "fioriicon": "attachment-e-pub",
+      "type": "Field",
+      "download": "Yes"
+    },
+    {
+      "value": "Tab2",
+      "name": "Venue",
+      "fioriicon": "building",
+      "type": "Field",
+      "download": "Yes"
+    },
+    {
+      "value": "Tab4",
+      "name": "BookAppointment",
+      "fioriicon": "calendar",
+      "type": "Field",
+      "download": "Yes"
+    },
+    {
+      "value": "Tab5",
+      "name": "ContactUs",
+      "fioriicon": "call",
+      "type": "Field",
+      "download": "Yes"
+    }
+  ],
+  "DetailFields": {
+    "None": ["ID", "Status", "CollegeName"],
+    "Tab1": [
+      "CourseName",
+      "OpenDayDate",
+      "OpenDayStTime",
+      "OpenDayETime",
+      "StudyLevel",
+      "CourseGroup"
+    ],
+    "Tab2": ["Address", "PostCode"],
+    "Tab4": ["HomePage", "OpenDayPage", "BookingPage"],
+    "Tab5": ["ContactEmail", "PhoneNo"]
+  },
+  "ControlDisplay": {
+    "ControlField": "RegisterFor",
+    "Fields": [
+      [
+        {
+          "ALL": [
+            "ID",
+            "Name",
+            "ContactNo",
+            "EmailID",
+            "Address",
+            "Postcode",
+            "ApplicationDate",
+            "RegisterFor",
+            "Status",
+            "Approver",
+            "Question_Response",
+            "ProcessingLog"
+          ]
+        },
+        {
+          "BirthCertificate": [
+            "ChildName",
+            "Surname",
+            "Nationality",
+            "MotherAddress",
+            "MotherNationality",
+            "FatherAddress",
+            "FatherNationality"
+          ]
+        },
+        {
+          "DeathCertificate": [
+            "DeceasedName",
+            "DeathPlace",
+            "DeathDate",
+            "LastAddress",
+            "WasDeath",
+            "DeathCause",
+            "SpouseName"
+          ]
+        },
+        {
+          "MarriageRegistration": [
+            "BrideName",
+            "BrideSurname",
+            "GroomName",
+            "GroomSurname",
+            "MarriagePlace",
+            "BrideFatherName",
+            "GroomFatherName"
+          ]
+        },
+        {
+          "NewHouseName": [
+            "PreferName1",
+            "PreferName2",
+            "PreferName3",
+            "AdditionalInfo"
+          ]
+        }
+      ]
+    ]
+  },
+  "FieldDef": [
+    {
+      "name": "ID",
+      "type": "string",
+      "width": "20",
+      "Option": "",
+      "SLabel": "Identification",
+      "LLabel": "Identification",
+      "Currency": "No"
+    },
+    {
+      "name": "CollegeName",
+      "type": "string",
+      "width": "200",
+      "Option": "",
+      "SLabel": "College Name",
+      "LLabel": "College Name",
+      "Currency": "No"
+    },
+    {
+      "name": "CourseName",
+      "type": "string",
+      "width": "200",
+      "Option": "",
+      "SLabel": "Course Name",
+      "LLabel": "Course Name",
+      "Currency": "No"
+    },
+    {
+      "name": "OpenDayDate",
+      "type": "Date",
+      "width": "10",
+      "Option": "mandatory",
+      "SLabel": "Open day Date",
+      "LLabel": "Open day Date",
+      "Currency": "No"
+    },
+    {
+      "name": "OpenDayStTime",
+      "type": "Time",
+      "width": "10",
+      "Option": "mandatory",
+      "SLabel": "Open Day Start Time",
+      "LLabel": "OpenDayStTime",
+      "Currency": "No"
+    },
+    {
+      "name": "OpenDayETime",
+      "type": "Time",
+      "width": "10",
+      "Option": "mandatory",
+      "SLabel": "Open Day End Time",
+      "LLabel": "Open Day End Time",
+      "Currency": "No"
+    },
+    {
+      "name": "Address",
+      "type": "string",
+      "width": "500",
+      "Option": "mandatory",
+      "SLabel": "College Address",
+      "LLabel": "College Address",
+      "Currency": "No"
+    },
+    {
+      "name": "ContactEmail",
+      "type": "string",
+      "width": "100",
+      "Option": "mandatory",
+      "SLabel": "Contact Email",
+      "LLabel": "Contact Email",
+      "Currency": "No"
+    },
+    {
+      "name": "PhoneNo",
+      "type": "string",
+      "width": "20",
+      "Option": "mandatory",
+      "SLabel": "Phone No",
+      "LLabel": "Phone No",
+      "Currency": "No"
+    },
+    {
+      "name": "StudyLevel",
+      "type": "string",
+      "width": "200",
+      "Option": "",
+      "SLabel": "Study Level",
+      "LLabel": "Study Level",
+      "Currency": "No"
+    },
+    {
+      "name": "Status",
+      "type": "string",
+      "width": "20",
+      "Option": "",
+      "SLabel": "Status",
+      "LLabel": "Status",
+      "Currency": "No"
+    },
+    {
+      "name": "HomePage",
+      "type": "hyperlink",
+      "width": "200",
+      "Option": "",
+      "SLabel": "HomePage",
+      "LLabel": "HomePage",
+      "Currency": "No"
+    },
+    {
+      "name": "OpenDayPage",
+      "type": "hyperlink",
+      "width": "200",
+      "Option": "",
+      "SLabel": "Open Day Page",
+      "LLabel": "Open Day Page",
+      "Currency": "No"
+    },
+    {
+      "name": "BookingPage",
+      "type": "hyperlink",
+      "width": "200",
+      "Option": "",
+      "SLabel": "Booking Page",
+      "LLabel": "Booking Page",
+      "Currency": "No"
+    },
+    {
+      "name": "PostCode",
+      "type": "string",
+      "width": "100",
+      "Option": "",
+      "SLabel": "PostCode",
+      "LLabel": "PostCode",
+      "Currency": "No"
+    },
+    {
+      "name": "CourseGroup",
+      "type": "string",
+      "width": "100",
+      "Option": "",
+      "SLabel": "Course Group",
+      "LLabel": "",
+      "Currency": "No"
+    }
+  ],
+  "itemConfig": {
+    "ItemFieldDefinition": [],
+    "DisplayFields": [],
+    "ItemButtons": {
+      "itemDisplay": false,
+      "itemAdd": false,
+      "itemEdit": false,
+      "itemDelete": false
+    },
+    "CreateFields": [],
+    "ItemDetails": []
+  }
+}

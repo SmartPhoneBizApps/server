@@ -8,11 +8,8 @@ const {
   getBranchesInRadius,
   branchPhotoUpload,
 } = require("../../controllers/orgSetup/branches");
-
 const Branch = require("../../models/orgSetup/Branch");
-
 const router = express.Router({ mergeParams: true });
-
 const advancedResults = require("../../middleware/advancedResults");
 const { protect, authorize } = require("../../middleware/auth");
 

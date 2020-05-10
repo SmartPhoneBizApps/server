@@ -3,7 +3,7 @@ const ErrorResponse = require("../../utils/errorResponse");
 const asyncHandler = require("../../middleware/async");
 const Approle = require("../../models/appSetup/Approle");
 const Role = require("../../models/appSetup/Role");
-const User = require("../../models/User");
+const User = require("../../models/access/User");
 const App = require("../../models/appSetup/App");
 
 // @desc      Get all approles

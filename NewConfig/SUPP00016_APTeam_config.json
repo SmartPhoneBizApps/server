@@ -1,1 +1,192 @@
-{"Title": {"ApplicationTitle": "Suplier Invoice", "DetailTitle": "Suplier Invoice"}, "ListFields": {"IntroField": "", "TitleField": "", "fStatus": "Status", "sStatus": "", "numberField": "", "LFields": ["PONumber", "PODate", "Details", "GrossValue", "Status"]}, "MButtons": [{"type": "DOWNLOAD", "name": "Download File", "icon": "sap-icon://download"}, {"type": "APPHELP", "name": "Get App Help", "icon": "sap-icon://sys-help-2"}, {"type": "BOT", "name": "Launch Assistant", "icon": "sap-icon://travel-request"}, {"type": "VIEW", "name": "Change App View", "icon": "sap-icon://chart-table-view"}, {"type": "ADD", "name": "Add Record", "icon": "sap-icon://add"}, {"type": "UPLOAD", "name": "Upload Record", "icon": "sap-icon://upload"}], "DButtons": [{"type": "ATTACHMENT", "name": "View Attachments", "icon": "sap-icon://attachment"}, {"type": "UPDATE", "name": "Update Record", "icon": "sap-icon://update"}, {"type": "ADD", "name": "Add Record", "icon": "sap-icon://add"}], "Tabs": [{"value": "Tab1", "name": "Invoice", "type": "Field", "fioriicon": "customer-financial-fact-sheet"}, {"value": "Tab2", "name": "PO", "type": "Field", "fioriicon": "document"}, {"value": "Tab3", "name": "History", "type": "Graph"}, {"value": "Tab4", "name": "Attachment", "type": "Attachment", "fioriicon": "attachment"}], "DetailFields": {"None": ["InvoiceNo", "VendorName", "PaymentTerm"], "Tab1": ["VendorInvoice", "InvQty", "InvPrice", "InvNetValue", "InvVATRate", "InvVATVal", "InvGrossVal", "Currency", "Status", "InvoiceRemark", "InvoiceDate"], "Tab2": ["PONumber", "PODate", "Category", "Details", "POQty", "UoM", "Price", "NetValue", "VATRate", "VATVal", "GrossValue"], "Tab4": ["Attachment"]}, "ControlDisplay": {"ControlField": "BookingFor", "Fields": [[{"ALL": ["ID", "FirstName", "LastName", "PhoneNo", "Status", "Email", "Comments", "BookingFor", "Price", "Quantity", "NetValue", "VATPer", "VATRate", "VATVal", "GrossValue", "MoreInfo", "Attachment1", "Attachment2", "PostCode", "Emailid", "HouseNo", "Address", "TotalGrossValue"]}, {"CarPark": ["CarPark", "CarRegistration"]}, {"HotDesk": ["Building", "HotDeskNo"]}, {"MeetingRoom": ["NoOfPeople", "RoomLayout", "Slot", "LunchRequired", "DietaryRequirement", "MeetingDate"]}, {"Visitor": ["VisitorCompany", "VisitorName", "VisitorPhone", "VisitorEmail"]}]]}, "FieldDef": [{"name": "InvoiceNo", "type": "string", "width": "20"}, {"name": "PONumber", "type": "string", "width": "20"}, {"name": "VendorName", "type": "string", "width": "50"}, {"name": "Plant", "type": "string", "width": "10"}, {"name": "PaymentTerm", "type": "string", "width": "10"}, {"name": "PODate", "type": "Date", "width": "10"}, {"name": "POItem", "type": "string", "width": "5"}, {"name": "Category", "type": "string", "width": "50"}, {"name": "Details", "type": "string", "width": "50"}, {"name": "POQty", "type": "Num,2", "width": "10"}, {"name": "UoM", "type": "string", "width": "5"}, {"name": "Price", "type": "Num,2", "width": "50"}, {"name": "NetValue", "type": "Num,2", "width": "50"}, {"name": "VATRate", "type": "string", "width": "4"}, {"name": "VATVal", "type": "Num,2", "width": "50"}, {"name": "GrossValue", "type": "Num,2", "width": "50"}, {"name": "GRQtyHistory", "type": "string", "width": "10"}, {"name": "InvQtyHistory", "type": "string", "width": "10"}, {"name": "Currency", "type": "string", "width": "5"}, {"name": "StorageLoc", "type": "string", "width": "10"}, {"name": "InvQty", "type": "Num,2", "width": "10"}, {"name": "InvPrice", "type": "Num,2", "width": "50"}, {"name": "InvNetValue", "type": "Num,2", "width": "50"}, {"name": "InvVATRate", "type": "string", "width": "4"}, {"name": "InvVATVal", "type": "Num,2", "width": "50"}, {"name": "InvGrossVal", "type": "Num,2", "width": "50"}, {"name": "VendorInvoice", "type": "string", "width": "50"}, {"name": "Status", "type": "string", "width": "50"}, {"name": "InvoiceRemark", "type": "string", "width": "500"}, {"name": "InvoiceDate", "type": "Date", "width": "10"}, {"name": "Attachment", "type": "attachment", "width": "500"}], "itemConfig": {"ItemFieldDefinition": [], "DisplayFields": [], "ItemButtons": {"itemDisplay": false, "itemAdd": false, "itemEdit": false, "itemDelete": false}, "CreateFields": [null], "ItemDetails": []}}
+{
+  "Title": {
+    "ApplicationTitle": "Suplier Invoice",
+    "DetailTitle": "Suplier Invoice"
+  },
+  "ListFields": {
+    "IntroField": "",
+    "TitleField": "",
+    "fStatus": "Status",
+    "sStatus": "",
+    "numberField": "",
+    "LFields": ["PONumber", "PODate", "Details", "GrossValue", "Status"]
+  },
+  "MButtons": [
+    {
+      "type": "DOWNLOAD",
+      "name": "Download File",
+      "icon": "sap-icon://download"
+    },
+    {
+      "type": "APPHELP",
+      "name": "Get App Help",
+      "icon": "sap-icon://sys-help-2"
+    },
+    {
+      "type": "BOT",
+      "name": "Launch Assistant",
+      "icon": "sap-icon://travel-request"
+    },
+    {
+      "type": "VIEW",
+      "name": "Change App View",
+      "icon": "sap-icon://chart-table-view"
+    },
+    { "type": "ADD", "name": "Add Record", "icon": "sap-icon://add" },
+    { "type": "UPLOAD", "name": "Upload Record", "icon": "sap-icon://upload" }
+  ],
+  "DButtons": [
+    {
+      "type": "ATTACHMENT",
+      "name": "View Attachments",
+      "icon": "sap-icon://attachment"
+    },
+    { "type": "UPDATE", "name": "Update Record", "icon": "sap-icon://update" },
+    { "type": "ADD", "name": "Add Record", "icon": "sap-icon://add" }
+  ],
+  "Tabs": [
+    {
+      "value": "Tab1",
+      "name": "Invoice",
+      "type": "Field",
+      "fioriicon": "customer-financial-fact-sheet"
+    },
+    { "value": "Tab2", "name": "PO", "type": "Field", "fioriicon": "document" },
+    { "value": "Tab3", "name": "History", "type": "Graph" },
+    {
+      "value": "Tab4",
+      "name": "Attachment",
+      "type": "Attachment",
+      "fioriicon": "attachment"
+    }
+  ],
+  "DetailFields": {
+    "None": ["InvoiceNo", "VendorName", "PaymentTerm"],
+    "Tab1": [
+      "VendorInvoice",
+      "InvQty",
+      "InvPrice",
+      "InvNetValue",
+      "InvVATRate",
+      "InvVATVal",
+      "InvGrossVal",
+      "Currency",
+      "Status",
+      "InvoiceRemark",
+      "InvoiceDate"
+    ],
+    "Tab2": [
+      "PONumber",
+      "PODate",
+      "Category",
+      "Details",
+      "POQty",
+      "UoM",
+      "Price",
+      "NetValue",
+      "VATRate",
+      "VATVal",
+      "GrossValue"
+    ],
+    "Tab4": ["Attachment"]
+  },
+  "ControlDisplay": {
+    "ControlField": "BookingFor",
+    "Fields": [
+      [
+        {
+          "ALL": [
+            "ID",
+            "FirstName",
+            "LastName",
+            "PhoneNo",
+            "Status",
+            "Email",
+            "Comments",
+            "BookingFor",
+            "Price",
+            "Quantity",
+            "NetValue",
+            "VATPer",
+            "VATRate",
+            "VATVal",
+            "GrossValue",
+            "MoreInfo",
+            "Attachment1",
+            "Attachment2",
+            "PostCode",
+            "Emailid",
+            "HouseNo",
+            "Address",
+            "TotalGrossValue"
+          ]
+        },
+        { "CarPark": ["CarPark", "CarRegistration"] },
+        { "HotDesk": ["Building", "HotDeskNo"] },
+        {
+          "MeetingRoom": [
+            "NoOfPeople",
+            "RoomLayout",
+            "Slot",
+            "LunchRequired",
+            "DietaryRequirement",
+            "MeetingDate"
+          ]
+        },
+        {
+          "Visitor": [
+            "VisitorCompany",
+            "VisitorName",
+            "VisitorPhone",
+            "VisitorEmail"
+          ]
+        }
+      ]
+    ]
+  },
+  "FieldDef": [
+    { "name": "InvoiceNo", "type": "string", "width": "20" },
+    { "name": "PONumber", "type": "string", "width": "20" },
+    { "name": "VendorName", "type": "string", "width": "50" },
+    { "name": "Plant", "type": "string", "width": "10" },
+    { "name": "PaymentTerm", "type": "string", "width": "10" },
+    { "name": "PODate", "type": "Date", "width": "10" },
+    { "name": "POItem", "type": "string", "width": "5" },
+    { "name": "Category", "type": "string", "width": "50" },
+    { "name": "Details", "type": "string", "width": "50" },
+    { "name": "POQty", "type": "Num,2", "width": "10" },
+    { "name": "UoM", "type": "string", "width": "5" },
+    { "name": "Price", "type": "Num,2", "width": "50" },
+    { "name": "NetValue", "type": "Num,2", "width": "50" },
+    { "name": "VATRate", "type": "string", "width": "4" },
+    { "name": "VATVal", "type": "Num,2", "width": "50" },
+    { "name": "GrossValue", "type": "Num,2", "width": "50" },
+    { "name": "GRQtyHistory", "type": "string", "width": "10" },
+    { "name": "InvQtyHistory", "type": "string", "width": "10" },
+    { "name": "Currency", "type": "string", "width": "5" },
+    { "name": "StorageLoc", "type": "string", "width": "10" },
+    { "name": "InvQty", "type": "Num,2", "width": "10" },
+    { "name": "InvPrice", "type": "Num,2", "width": "50" },
+    { "name": "InvNetValue", "type": "Num,2", "width": "50" },
+    { "name": "InvVATRate", "type": "string", "width": "4" },
+    { "name": "InvVATVal", "type": "Num,2", "width": "50" },
+    { "name": "InvGrossVal", "type": "Num,2", "width": "50" },
+    { "name": "VendorInvoice", "type": "string", "width": "50" },
+    { "name": "Status", "type": "string", "width": "50" },
+    { "name": "InvoiceRemark", "type": "string", "width": "500" },
+    { "name": "InvoiceDate", "type": "Date", "width": "10" },
+    { "name": "Attachment", "type": "attachment", "width": "500" }
+  ],
+  "itemConfig": {
+    "ItemFieldDefinition": [],
+    "DisplayFields": [],
+    "ItemButtons": {
+      "itemDisplay": false,
+      "itemAdd": false,
+      "itemEdit": false,
+      "itemDelete": false
+    },
+    "CreateFields": [null],
+    "ItemDetails": []
+  }
+}

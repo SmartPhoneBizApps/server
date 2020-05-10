@@ -1,12 +1,12 @@
 const express = require("express");
-const { adaptiveCard_card } = require("../../controllers/cards/cards");
+const { upLoadData } = require("../../controllers/smartApp/uploaddata");
 
 const router = express.Router({ mergeParams: true });
 const { protect, authorize } = require("../../middleware/auth");
 
 router
-  .route("/:role/:tab")
-  .get(
+  .route("/")
+  .post(
     protect,
     authorize(
       "CompanyAdmin",
@@ -17,6 +17,6 @@ router
       "AreaUser",
       "user"
     ),
-    adaptiveCard_card
+    upLoadData
   );
 module.exports = router;

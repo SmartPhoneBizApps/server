@@ -35,19 +35,8 @@ exports.createRole = asyncHandler(async (req, res, next) => {
   console.log(req.user.role);
   // Check for published role
   //const publishedRole = await Role.findOne({ user: req.user.id });
-
   // If the user is not an SuperAdmin, they can't add a role
-  /*   if (req.user.role !== "SuperAdmin") {
-    return next(
-      new ErrorResponse(
-        `The user with ID ${req.user.id} has already published a role`,
-        400
-      )
-    );
-  } */
-
   const role = await Role.create(req.body);
-
   res.status(201).json({
     success: true,
     data: role,
@@ -58,29 +47,19 @@ exports.createRole = asyncHandler(async (req, res, next) => {
 // @route     PUT /api/v1/roles/:id
 // @access    Private
 exports.updateRole = asyncHandler(async (req, res, next) => {
-  let role = await Role.findById(req.params.id);
-
-  if (!role) {
+  let role1 = await Role.find({ role: req.params.role });
+  console.log("Role", role1);
+  if (!role1) {
     return next(
-      new ErrorResponse(`Role not found with id of ${req.params.id}`, 404)
+      new ErrorResponse(`Role not found with id of ${req.params.role}`, 404)
     );
   }
-
+  console.log(req.params.role);
   // If the user is not an SuperAdmin, they can't update a role
-  /*   if (req.user.role !== "SuperAdmin") {
-    return next(
-      new ErrorResponse(
-        `User ${req.params.id} is not authorized to update this role`,
-        401
-      )
-    );
-  } */
-
-  role = await Role.findOneAndUpdate(req.params.id, req.body, {
+  role = await Role.findOneAndUpdate({ role: req.params.role }, req.body, {
     new: true,
     runValidators: true,
   });
-
   res.status(200).json({ success: true, data: role });
 });
 
@@ -89,23 +68,12 @@ exports.updateRole = asyncHandler(async (req, res, next) => {
 // @access    Private
 exports.deleteRole = asyncHandler(async (req, res, next) => {
   const role = await Role.findById(req.params.id);
-
   if (!role) {
     return next(
       new ErrorResponse(`Role not found with id of ${req.params.id}`, 404)
     );
   }
-
   // If the user is not an SuperAdmin, they can't delete a role
-  /*   if (req.user.role !== "SuperAdmin") {
-    return next(
-      new ErrorResponse(
-        `User ${req.params.id} is not authorized to delete this role`,
-        401
-      )
-    );
-  } */
-
   role.remove();
 
   res.status(200).json({ success: true, data: {} });

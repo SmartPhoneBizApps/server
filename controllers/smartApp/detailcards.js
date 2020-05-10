@@ -3,7 +3,7 @@ const asyncHandler = require("../../middleware/async");
 const geocoder = require("../../utils/geocoder");
 const path = require("path");
 
-const User = require("../../models/User");
+const User = require("../../models/access/User");
 //const Approle = require("../../models/appSetup/Approle");
 const BUS0000001 = require("../../models/smartApp/BUS0000002");
 const BUS0000002 = require("../../models/smartApp/BUS0000002");
@@ -116,7 +116,7 @@ exports.getDetailCards = async (req, res, next) => {
   var appconfig = require(fn1);
 
   //Validate Data...
-  if (req.user.userAccess != "External") {
+  if (role.roleAccess != "External") {
     if (!req.user.company) {
       return next(
         new ErrorResponse(

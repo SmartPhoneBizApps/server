@@ -1,1 +1,630 @@
-{"Title": {"ApplicationTitle": "Shopping Cart", "DetailTitle": "Shopping Cart"}, "ListFields": {"IntroField": "ID", "TitleField": "", "fStatus": "Status", "sStatus": "", "numberField": "", "LFields": ["ID", "VendorName", "GrossValue", "Price", "NetValue", "Status"]}, "MButtons": [{"type": "DOWNLOAD", "name": "Download File", "icon": "sap-icon://download"}, {"type": "APPHELP", "name": "Get App Help", "icon": "sap-icon://sys-help-2"}, {"type": "BOT", "name": "Launch Assistant", "icon": "sap-icon://travel-request"}, {"type": "VIEW", "name": "Change App View", "icon": "sap-icon://chart-table-view"}, {"type": "ADD", "name": "Add Record", "icon": "sap-icon://add"}, {"type": "UPLOAD", "name": "Upload Record", "icon": "sap-icon://upload"}], "DButtons": [{"type": "ATTACHMENT", "name": "View Attachments", "icon": "sap-icon://attachment"}, {"type": "UPDATE", "name": "Update Record", "icon": "sap-icon://update"}, {"type": "ADD", "name": "Add Record", "icon": "sap-icon://add"}], "Tabs": [{"value": "Tab1", "name": "SC", "type": "Field", "fioriicon": "notes", "download": "Yes"}, {"value": "Tab2", "name": "Delivery", "type": "Field", "fioriicon": "calendar", "download": "No"}, {"value": "Tab3", "name": "Item", "fioriicon": "notes", "type": "Items", "download": "No"}, {"value": "Tab4", "name": "Process Log", "fioriicon": "step", "type": "Chat", "download": "No"}], "DetailFields": {"None": ["ID", "VendorName", "Status"], "Tab1": ["SCDate", "Category", "Details", "SCQty", "UoM", "Price", "NetValue", "VATRate", "VATVal", "GrossValue"], "Tab2": ["DeliveryDt", "DelTo", "DelStreet", "DelCity", "State", "DelPostCode", "Country", "DelPhone", "OtherInfo"], "Tab4": ["ProcessingLog"]}, "ControlDisplay": {"ControlField": "RequestFor", "Fields": [[{"ALL": ["ID", "StudentName", "RequestFor", "Status", "StudentID", "Email", "Question_Response", "AnyComment", "RequestDate", "ParentEmail", "ProcessingLog"]}, {"BusRequest": ["RequiredDate"]}, {"GuestPassFormRequest": ["GuestName", "GuestEmail", "GuestPhone", "EntryDate"]}, {"LabEquipmentRequest": ["Subject", "EquipmentName"]}, {"LeaveRequest": ["LeaveFrom", "LeaveTo", "LeaveDays", "LeaveReason"]}, {"ScholarshipGrant": ["NINumber", "EthnicOrigin", "Q1", "A1", "Q2", "A2", "Q3", "A3", "Q4", "A4", "Essay", "DegreePursuing"]}]]}, "FieldDef": [{"name": "ID", "type": "string", "width": "20", "Option": "", "SLabel": "ID", "LLabel": "", "Currency": "No"}, {"name": "VendorName", "type": "string", "width": "50", "Option": "mandatory", "SLabel": "Vendor Name", "LLabel": "", "Currency": "No"}, {"name": "Plant", "type": "string", "width": "20", "Option": "", "SLabel": "Plant", "LLabel": "", "Currency": "No"}, {"name": "PaymentTerm", "type": "string", "width": "20", "Option": "", "SLabel": "Payment Term", "LLabel": "", "Currency": "No"}, {"name": "SCDate", "type": "Date", "width": "10", "Option": "", "SLabel": "Shopping Cart Date", "LLabel": "", "Currency": "No"}, {"name": "Category", "type": "string", "width": "50", "Option": "", "SLabel": "Category", "LLabel": "", "Currency": "No"}, {"name": "Details", "type": "string", "width": "50", "Option": "", "SLabel": "Item Details", "LLabel": "", "Currency": "No"}, {"name": "SCQty", "type": "Num,1", "width": "10", "Option": "", "SLabel": "Shopping Cart Quantity", "LLabel": "", "Currency": "No"}, {"name": "UoM", "type": "string", "width": "10", "Option": "mandatory", "SLabel": "Unit of Measurement", "LLabel": "", "Currency": "No"}, {"name": "Price", "type": "Num,2", "width": "50", "Option": "", "SLabel": "Price", "LLabel": "", "Currency": "No"}, {"name": "NetValue", "type": "Num,3", "width": "50", "Option": "", "SLabel": "Net Value", "LLabel": "", "Currency": "No"}, {"name": "VATRate", "type": "Num,0", "width": "10", "Option": "", "SLabel": "VAT Rate", "LLabel": "", "Currency": "No"}, {"name": "VATVal", "type": "Num,3", "width": "50", "Option": "", "SLabel": "VAT Value", "LLabel": "", "Currency": "No"}, {"name": "GrossValue", "type": "Num,3", "width": "50", "Option": "", "SLabel": "Gross Value", "LLabel": "", "Currency": "No"}, {"name": "Budget", "type": "string", "width": "10", "Option": "", "SLabel": "Budget", "LLabel": "", "Currency": "No"}, {"name": "Status", "type": "string", "width": "20", "Option": "", "SLabel": "Status", "LLabel": "", "Currency": "No"}, {"name": "Office", "type": "string", "width": "50", "Option": "", "SLabel": "Office", "LLabel": "", "Currency": "No"}, {"name": "CostObject", "type": "string", "width": "50", "Option": "", "SLabel": "Cost Object", "LLabel": "", "Currency": "No"}, {"name": "CostType", "type": "string", "width": "50", "Option": "", "SLabel": "Cost Type", "LLabel": "", "Currency": "No"}, {"name": "GLAccount", "type": "string", "width": "20", "Option": "", "SLabel": "GL Account", "LLabel": "", "Currency": "No"}, {"name": "OtherInfo", "type": "string", "width": "500", "Option": "", "SLabel": "Other Information", "LLabel": "", "Currency": "No"}, {"name": "DeliveryDt", "type": "Date", "width": "10", "Option": "", "SLabel": "Req Delivery Date ", "LLabel": "", "Currency": "No"}, {"name": "DelTo", "type": "string", "width": "100", "Option": "", "SLabel": "Delivery To", "LLabel": "", "Currency": "No"}, {"name": "DelStreet", "type": "string", "width": "100", "Option": "", "SLabel": "Delivery Street", "LLabel": "", "Currency": "No"}, {"name": "DelCity", "type": "string", "width": "100", "Option": "", "SLabel": "Delivery City", "LLabel": "", "Currency": "No"}, {"name": "State", "type": "string", "width": "100", "Option": "", "SLabel": "State", "LLabel": "", "Currency": "No"}, {"name": "DelPostCode", "type": "string", "width": "100", "Option": "", "SLabel": "Delivery PostCode", "LLabel": "Delivery PostCode", "Currency": "No"}, {"name": "Country", "type": "string", "width": "100", "Option": "", "SLabel": "Country", "LLabel": "", "Currency": "No"}, {"name": "DelPhone", "type": "string", "width": "100", "Option": "", "SLabel": "Delivery Phone", "LLabel": "", "Currency": "No"}, {"name": "DelEmail", "type": "string", "width": "100", "Option": "", "SLabel": "Delivery Email", "LLabel": "", "Currency": "No"}, {"name": "DeliveryInstr", "type": "string", "width": "500", "Option": "", "SLabel": "Delivery Instructor", "LLabel": "", "Currency": "No"}, {"name": "BudgetUsed", "type": "string", "width": "10", "Option": "", "SLabel": "Budget Used", "LLabel": "", "Currency": "No"}, {"name": "PaymentAmount", "type": "string", "width": "50", "Option": "", "SLabel": "Payment Amount", "LLabel": "", "Currency": "No"}, {"name": "Currency", "type": "string", "width": "50", "Option": "", "SLabel": "Currency", "LLabel": "", "Currency": "No"}, {"name": "PaymentOption", "type": "string", "width": "50", "Option": "", "SLabel": "Payment Option", "LLabel": "", "Currency": "No"}, {"name": "TransactionID", "type": "string", "width": "50", "Option": "", "SLabel": "Transaction ID", "LLabel": "", "Currency": "No"}, {"name": "TransactionStatus", "type": "string", "width": "50", "Option": "", "SLabel": "Transaction Status", "LLabel": "", "Currency": "No"}, {"name": "VATPer", "type": "Num,3", "width": "100", "Option": "", "SLabel": "VAT Percentage", "LLabel": "VAT Percentage", "Currency": "No"}, {"name": "Approver", "type": "string", "width": "50", "Option": "", "SLabel": "Approver", "LLabel": "Approver", "Currency": "No"}, {"name": "ProcessingLog", "type": "string", "width": "1000", "Option": "", "SLabel": "Processing Log", "LLabel": "Processing Log", "Currency": "No"}, {"name": "MutiItems", "type": "string", "width": "3", "Option": "", "SLabel": "MutiItems", "LLabel": "MutiItems", "Currency": "No"}], "itemConfig": {"ItemFieldDefinition": [{"name": "ItemNumber", "type": "string", "width": "20", "SLabel": "Item Number"}, {"name": "ID", "type": "string", "width": "20", "SLabel": "ID"}, {"name": "itemName", "type": "string", "width": "100", "SLabel": "item Name"}, {"name": "iPrice", "type": "Num,2", "width": "100", "SLabel": "Item Price"}, {"name": "iQuantity", "type": "Num,2", "width": "100", "SLabel": "Item Quantity"}, {"name": "iValue", "type": "Num,2", "width": "100", "SLabel": "Item Value"}, {"name": "iVAT", "type": "Num,2", "width": "100", "SLabel": "Item Value Added Tax"}, {"name": "iGrossValue", "type": "Num,2", "width": "100", "SLabel": "Item Gross Value"}, {"name": "iTaxRate", "type": "Num,2", "width": "100", "SLabel": "Item Tax Rate"}, {"name": "iVATValue", "type": "Num,3", "width": "20", "SLabel": "Item VAT Value"}], "DisplayFields": ["ItemNumber", "itemName", "iValue", "iVAT", "iVATValue", "iGrossValue"], "ItemButtons": {"itemDisplay": false, "itemAdd": true, "itemEdit": true, "itemDelete": true}, "CreateFields": ["itemName", "iPrice", "iQuantity", "iValue", "iTaxRate", "iVAT", "iGrossValue", "iVATValue"], "ItemDetails": [{"name": "ItemNumber", "Tab": "Tab3", "Sequence": "1", "Mode": "Display"}, {"name": "itemName", "Tab": "Tab3", "Sequence": "1", "Mode": "Edit"}, {"name": "iPrice", "Tab": "Tab3", "Sequence": "1", "Mode": "Edit"}, {"name": "iQuantity", "Tab": "Tab3", "Sequence": "1", "Mode": "Edit"}, {"name": "iValue", "Tab": "Tab3", "Sequence": "1", "Mode": "Display"}, {"name": "iVAT", "Tab": "Tab3", "Sequence": "1", "Mode": "Edit"}, {"name": "iGrossValue", "Tab": "Tab3", "Sequence": "1", "Mode": "Display"}, {"name": "iVATValue", "Tab": "Tab3", "Sequence": "1", "Mode": "Edit"}, {"name": "iTaxRate", "Tab": "Tab3", "Sequence": "1", "Mode": "Display"}]}}
+{
+  "Title": {
+    "ApplicationTitle": "Shopping Cart",
+    "DetailTitle": "Shopping Cart"
+  },
+  "ListFields": {
+    "IntroField": "ID",
+    "TitleField": "",
+    "fStatus": "Status",
+    "sStatus": "",
+    "numberField": "",
+    "LFields": ["ID", "VendorName", "GrossValue", "Price", "NetValue", "Status"]
+  },
+  "MButtons": [
+    {
+      "type": "DOWNLOAD",
+      "name": "Download File",
+      "icon": "sap-icon://download"
+    },
+    {
+      "type": "APPHELP",
+      "name": "Get App Help",
+      "icon": "sap-icon://sys-help-2"
+    },
+    {
+      "type": "BOT",
+      "name": "Launch Assistant",
+      "icon": "sap-icon://travel-request"
+    },
+    {
+      "type": "VIEW",
+      "name": "Change App View",
+      "icon": "sap-icon://chart-table-view"
+    },
+    { "type": "ADD", "name": "Add Record", "icon": "sap-icon://add" },
+    { "type": "UPLOAD", "name": "Upload Record", "icon": "sap-icon://upload" }
+  ],
+  "DButtons": [
+    {
+      "type": "ATTACHMENT",
+      "name": "View Attachments",
+      "icon": "sap-icon://attachment"
+    },
+    { "type": "UPDATE", "name": "Update Record", "icon": "sap-icon://update" },
+    { "type": "ADD", "name": "Add Record", "icon": "sap-icon://add" }
+  ],
+  "Tabs": [
+    {
+      "value": "Tab1",
+      "name": "SC",
+      "type": "Field",
+      "fioriicon": "notes",
+      "download": "Yes"
+    },
+    {
+      "value": "Tab2",
+      "name": "Delivery",
+      "type": "Field",
+      "fioriicon": "calendar",
+      "download": "No"
+    },
+    {
+      "value": "Tab3",
+      "name": "Item",
+      "fioriicon": "notes",
+      "type": "Items",
+      "download": "No"
+    },
+    {
+      "value": "Tab4",
+      "name": "Process Log",
+      "fioriicon": "step",
+      "type": "Chat",
+      "download": "No"
+    }
+  ],
+  "DetailFields": {
+    "None": ["ID", "VendorName", "Status"],
+    "Tab1": [
+      "SCDate",
+      "Category",
+      "Details",
+      "SCQty",
+      "UoM",
+      "Price",
+      "NetValue",
+      "VATRate",
+      "VATVal",
+      "GrossValue"
+    ],
+    "Tab2": [
+      "DeliveryDt",
+      "DelTo",
+      "DelStreet",
+      "DelCity",
+      "State",
+      "DelPostCode",
+      "Country",
+      "DelPhone",
+      "OtherInfo"
+    ],
+    "Tab4": ["ProcessingLog"]
+  },
+  "ControlDisplay": {
+    "ControlField": "RequestFor",
+    "Fields": [
+      [
+        {
+          "ALL": [
+            "ID",
+            "StudentName",
+            "RequestFor",
+            "Status",
+            "StudentID",
+            "Email",
+            "Question_Response",
+            "AnyComment",
+            "RequestDate",
+            "ParentEmail",
+            "ProcessingLog"
+          ]
+        },
+        { "BusRequest": ["RequiredDate"] },
+        {
+          "GuestPassFormRequest": [
+            "GuestName",
+            "GuestEmail",
+            "GuestPhone",
+            "EntryDate"
+          ]
+        },
+        { "LabEquipmentRequest": ["Subject", "EquipmentName"] },
+        {
+          "LeaveRequest": ["LeaveFrom", "LeaveTo", "LeaveDays", "LeaveReason"]
+        },
+        {
+          "ScholarshipGrant": [
+            "NINumber",
+            "EthnicOrigin",
+            "Q1",
+            "A1",
+            "Q2",
+            "A2",
+            "Q3",
+            "A3",
+            "Q4",
+            "A4",
+            "Essay",
+            "DegreePursuing"
+          ]
+        }
+      ]
+    ]
+  },
+  "FieldDef": [
+    {
+      "name": "ID",
+      "type": "string",
+      "width": "20",
+      "Option": "",
+      "SLabel": "ID",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "VendorName",
+      "type": "string",
+      "width": "50",
+      "Option": "mandatory",
+      "SLabel": "Vendor Name",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "Plant",
+      "type": "string",
+      "width": "20",
+      "Option": "",
+      "SLabel": "Plant",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "PaymentTerm",
+      "type": "string",
+      "width": "20",
+      "Option": "",
+      "SLabel": "Payment Term",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "SCDate",
+      "type": "Date",
+      "width": "10",
+      "Option": "",
+      "SLabel": "Shopping Cart Date",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "Category",
+      "type": "string",
+      "width": "50",
+      "Option": "",
+      "SLabel": "Category",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "Details",
+      "type": "string",
+      "width": "50",
+      "Option": "",
+      "SLabel": "Item Details",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "SCQty",
+      "type": "Num,1",
+      "width": "10",
+      "Option": "",
+      "SLabel": "Shopping Cart Quantity",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "UoM",
+      "type": "string",
+      "width": "10",
+      "Option": "mandatory",
+      "SLabel": "Unit of Measurement",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "Price",
+      "type": "Num,2",
+      "width": "50",
+      "Option": "",
+      "SLabel": "Price",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "NetValue",
+      "type": "Num,3",
+      "width": "50",
+      "Option": "",
+      "SLabel": "Net Value",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "VATRate",
+      "type": "Num,0",
+      "width": "10",
+      "Option": "",
+      "SLabel": "VAT Rate",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "VATVal",
+      "type": "Num,3",
+      "width": "50",
+      "Option": "",
+      "SLabel": "VAT Value",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "GrossValue",
+      "type": "Num,3",
+      "width": "50",
+      "Option": "",
+      "SLabel": "Gross Value",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "Budget",
+      "type": "string",
+      "width": "10",
+      "Option": "",
+      "SLabel": "Budget",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "Status",
+      "type": "string",
+      "width": "20",
+      "Option": "",
+      "SLabel": "Status",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "Office",
+      "type": "string",
+      "width": "50",
+      "Option": "",
+      "SLabel": "Office",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "CostObject",
+      "type": "string",
+      "width": "50",
+      "Option": "",
+      "SLabel": "Cost Object",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "CostType",
+      "type": "string",
+      "width": "50",
+      "Option": "",
+      "SLabel": "Cost Type",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "GLAccount",
+      "type": "string",
+      "width": "20",
+      "Option": "",
+      "SLabel": "GL Account",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "OtherInfo",
+      "type": "string",
+      "width": "500",
+      "Option": "",
+      "SLabel": "Other Information",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "DeliveryDt",
+      "type": "Date",
+      "width": "10",
+      "Option": "",
+      "SLabel": "Req Delivery Date ",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "DelTo",
+      "type": "string",
+      "width": "100",
+      "Option": "",
+      "SLabel": "Delivery To",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "DelStreet",
+      "type": "string",
+      "width": "100",
+      "Option": "",
+      "SLabel": "Delivery Street",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "DelCity",
+      "type": "string",
+      "width": "100",
+      "Option": "",
+      "SLabel": "Delivery City",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "State",
+      "type": "string",
+      "width": "100",
+      "Option": "",
+      "SLabel": "State",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "DelPostCode",
+      "type": "string",
+      "width": "100",
+      "Option": "",
+      "SLabel": "Delivery PostCode",
+      "LLabel": "Delivery PostCode",
+      "Currency": "No"
+    },
+    {
+      "name": "Country",
+      "type": "string",
+      "width": "100",
+      "Option": "",
+      "SLabel": "Country",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "DelPhone",
+      "type": "string",
+      "width": "100",
+      "Option": "",
+      "SLabel": "Delivery Phone",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "DelEmail",
+      "type": "string",
+      "width": "100",
+      "Option": "",
+      "SLabel": "Delivery Email",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "DeliveryInstr",
+      "type": "string",
+      "width": "500",
+      "Option": "",
+      "SLabel": "Delivery Instructor",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "BudgetUsed",
+      "type": "string",
+      "width": "10",
+      "Option": "",
+      "SLabel": "Budget Used",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "PaymentAmount",
+      "type": "string",
+      "width": "50",
+      "Option": "",
+      "SLabel": "Payment Amount",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "Currency",
+      "type": "string",
+      "width": "50",
+      "Option": "",
+      "SLabel": "Currency",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "PaymentOption",
+      "type": "string",
+      "width": "50",
+      "Option": "",
+      "SLabel": "Payment Option",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "TransactionID",
+      "type": "string",
+      "width": "50",
+      "Option": "",
+      "SLabel": "Transaction ID",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "TransactionStatus",
+      "type": "string",
+      "width": "50",
+      "Option": "",
+      "SLabel": "Transaction Status",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "VATPer",
+      "type": "Num,3",
+      "width": "100",
+      "Option": "",
+      "SLabel": "VAT Percentage",
+      "LLabel": "VAT Percentage",
+      "Currency": "No"
+    },
+    {
+      "name": "Approver",
+      "type": "string",
+      "width": "50",
+      "Option": "",
+      "SLabel": "Approver",
+      "LLabel": "Approver",
+      "Currency": "No"
+    },
+    {
+      "name": "ProcessingLog",
+      "type": "string",
+      "width": "1000",
+      "Option": "",
+      "SLabel": "Processing Log",
+      "LLabel": "Processing Log",
+      "Currency": "No"
+    },
+    {
+      "name": "MutiItems",
+      "type": "string",
+      "width": "3",
+      "Option": "",
+      "SLabel": "MutiItems",
+      "LLabel": "MutiItems",
+      "Currency": "No"
+    }
+  ],
+  "itemConfig": {
+    "ItemFieldDefinition": [
+      {
+        "name": "ItemNumber",
+        "type": "string",
+        "width": "20",
+        "SLabel": "Item Number"
+      },
+      { "name": "ID", "type": "string", "width": "20", "SLabel": "ID" },
+      {
+        "name": "itemName",
+        "type": "string",
+        "width": "100",
+        "SLabel": "item Name"
+      },
+      {
+        "name": "iPrice",
+        "type": "Num,2",
+        "width": "100",
+        "SLabel": "Item Price"
+      },
+      {
+        "name": "iQuantity",
+        "type": "Num,2",
+        "width": "100",
+        "SLabel": "Item Quantity"
+      },
+      {
+        "name": "iValue",
+        "type": "Num,2",
+        "width": "100",
+        "SLabel": "Item Value"
+      },
+      {
+        "name": "iVAT",
+        "type": "Num,2",
+        "width": "100",
+        "SLabel": "Item Value Added Tax"
+      },
+      {
+        "name": "iGrossValue",
+        "type": "Num,2",
+        "width": "100",
+        "SLabel": "Item Gross Value"
+      },
+      {
+        "name": "iTaxRate",
+        "type": "Num,2",
+        "width": "100",
+        "SLabel": "Item Tax Rate"
+      },
+      {
+        "name": "iVATValue",
+        "type": "Num,3",
+        "width": "20",
+        "SLabel": "Item VAT Value"
+      }
+    ],
+    "DisplayFields": [
+      "ItemNumber",
+      "itemName",
+      "iValue",
+      "iVAT",
+      "iVATValue",
+      "iGrossValue"
+    ],
+    "ItemButtons": {
+      "itemDisplay": false,
+      "itemAdd": true,
+      "itemEdit": true,
+      "itemDelete": true
+    },
+    "CreateFields": [
+      "itemName",
+      "iPrice",
+      "iQuantity",
+      "iValue",
+      "iTaxRate",
+      "iVAT",
+      "iGrossValue",
+      "iVATValue"
+    ],
+    "ItemDetails": [
+      {
+        "name": "ItemNumber",
+        "Tab": "Tab3",
+        "Sequence": "1",
+        "Mode": "Display"
+      },
+      { "name": "itemName", "Tab": "Tab3", "Sequence": "1", "Mode": "Edit" },
+      { "name": "iPrice", "Tab": "Tab3", "Sequence": "1", "Mode": "Edit" },
+      { "name": "iQuantity", "Tab": "Tab3", "Sequence": "1", "Mode": "Edit" },
+      { "name": "iValue", "Tab": "Tab3", "Sequence": "1", "Mode": "Display" },
+      { "name": "iVAT", "Tab": "Tab3", "Sequence": "1", "Mode": "Edit" },
+      {
+        "name": "iGrossValue",
+        "Tab": "Tab3",
+        "Sequence": "1",
+        "Mode": "Display"
+      },
+      { "name": "iVATValue", "Tab": "Tab3", "Sequence": "1", "Mode": "Edit" },
+      { "name": "iTaxRate", "Tab": "Tab3", "Sequence": "1", "Mode": "Display" }
+    ]
+  }
+}

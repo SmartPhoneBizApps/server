@@ -4,7 +4,7 @@ const advancedCreate = (model, app, BusinessRole) => async (req, res, next) => {
   const Company = require("../models/orgSetup/Company");
   const Branch = require("../models/orgSetup/Branch");
   const Area = require("../models/orgSetup/Area");
-  const User = require("../models/User");
+  const User = require("../models/access/User");
   const App = require("../models/appSetup/App");
 
   // Get Login User Details

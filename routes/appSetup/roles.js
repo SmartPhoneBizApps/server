@@ -41,10 +41,11 @@ router
   //Atul (Link to Roles Later) - End
   .post(protect, authorize("SuperAdmin"), createRole);
 
+router.route("/:role").put(protect, authorize("SuperAdmin"), updateRole);
+
 router
   .route("/:id")
   .get(getRole)
-  .put(protect, authorize("SuperAdmin"), updateRole)
   .delete(protect, authorize("SuperAdmin"), deleteRole);
 
 module.exports = router;

@@ -5,9 +5,9 @@ const {
   createUser,
   updateUser,
   deleteUser,
-} = require("../controllers/users");
+} = require("../controllers/access/users");
 
-const User = require("../models/User");
+const User = require("../models/access/User");
 
 const router = express.Router({ mergeParams: true });
 

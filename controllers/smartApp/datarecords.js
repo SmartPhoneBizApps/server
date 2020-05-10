@@ -7,11 +7,8 @@ const mongoose = require("mongoose");
 const Company = require("../../models/orgSetup/Company");
 const Branch = require("../../models/orgSetup/Branch");
 const Area = require("../../models/orgSetup/Area");
-const User = require("../../models/User");
 const App = require("../../models/appSetup/App");
-//const Employee = require("../../models/smartApp/Employee");
-//const Education = require("../../models/smartApp/Education");
-const Appschema = require("../../models/appSetup/Appschema");
+const Role = require("../../models/appSetup/Role");
 
 const BUS0000002 = require("../../models/smartApp/BUS0000002");
 const BUS0000003 = require("../../models/smartApp/BUS0000003");
@@ -100,10 +97,14 @@ var sch = require("../../applicationJSON/Schema_Master.json");
 // @access    Private
 exports.addDataRecords = asyncHandler(async (req, res, next) => {
   //let myorg = {};
-
-  // Get App from Body
+  console.log("Headers....", req.headers);
+  // Get App from Header
   const BodyApp = await App.findOne({
     applicationID: req.headers.applicationid,
+  });
+  // Get Role from the Header
+  const BusinessRole = await Role.findOne({
+    applicationID: req.headers.businessRole,
   });
   req.body.appId = BodyApp.id;
   req.body.applicationId = req.headers.applicationid;
@@ -111,19 +112,17 @@ exports.addDataRecords = asyncHandler(async (req, res, next) => {
     return next(new ErrorResponse(`Please provide App ID`, 400));
   }
 
-  // Get Login User Details
-  const userRecord = await User.findById(req.user.id);
   req.body.user = req.user.id;
-  //myorg.businessRole = userRecord.role;
-  req.body.userName = userRecord.name;
-  req.body.userEmail = userRecord.email;
+  //myorg.businessRole = req.user.role;
+  req.body.userName = req.user.name;
+  req.body.userEmail = req.user.email;
   console.log(req.body.userEmail);
   // Get Company Details
-  const CompanyDetails = await Company.findById(userRecord.company);
+  const CompanyDetails = await Company.findById(req.user.company);
 
   ///  +++++++++++  VALIDATIONS STARTS +++++++++++++++++++++++ /////////
   // Check if user setup has company (Pass)
-  if (!userRecord.company) {
+  if (!req.user.company) {
     return next(
       new ErrorResponse(
         `The user with ID ${req.user.email} is not setup for any company, please contact administrator`,
@@ -171,7 +170,7 @@ exports.addDataRecords = asyncHandler(async (req, res, next) => {
 
   // Validate if user has provided Branch details (Pass)
   if (!req.headers.branch) {
-    if (!userRecord.branch) {
+    if (!req.user.branch) {
       return next(
         new ErrorResponse(
           `The user with ID ${req.user.email} can't create document as branch is not provided`,
@@ -181,15 +180,15 @@ exports.addDataRecords = asyncHandler(async (req, res, next) => {
     }
   }
   // If user record has got Branch then validate is it matches with body Branch
-  if (userRecord.branch) {
+  if (req.user.branch) {
     // if no Area in body but user has area then use it
     if (!req.headers.branch) {
       console.log("branch is picked from User Record");
-      req.body.branch = userRecord.branch;
+      req.body.branch = req.user.branch;
       // myorg.branchName = BodyBranch.branchName;
     }
 
-    if (req.body.branch != userRecord.branch) {
+    if (req.body.branch != req.user.branch) {
       console.log("Branch in body and user record are different");
       return next(
         new ErrorResponse(
@@ -207,7 +206,7 @@ exports.addDataRecords = asyncHandler(async (req, res, next) => {
   }
 
   if (!req.headers.area) {
-    if (!userRecord.area) {
+    if (!req.user.area) {
       return next(
         new ErrorResponse(
           `The user with ID ${req.user.email} can't create document as business area can't be determined`,
@@ -218,15 +217,15 @@ exports.addDataRecords = asyncHandler(async (req, res, next) => {
   }
 
   // If user record has got Area then validate is it matches with body Area
-  if (userRecord.area) {
+  if (req.user.area) {
     // if no Area in body but user has area then use it
     if (!req.headers.area) {
       console.log("Area is picked from User Record");
-      req.body.area = userRecord.area;
+      req.body.area = req.user.area;
     }
 
     // if body and user both have area then they should be same (Validation  - Pass)
-    if (req.body.area != userRecord.area) {
+    if (req.body.area != req.user.area) {
       console.log("Area in body and user record are different");
       return next(
         new ErrorResponse(
@@ -245,247 +244,285 @@ exports.addDataRecords = asyncHandler(async (req, res, next) => {
   ///  +++++++++++  VALIDATIONS ENDS +++++++++++++++++++++++ /////////
 
   //req.body.OrgData = myorg;
+  mydata = req.body;
+  // Read Card Configuration for the Role (X1)
+  if (req.headers.fieldnames == "X") {
+    mydata = {};
+    mydata.appId = req.body.appId;
+    mydata.applicationId = req.body.applicationId;
+    mydata.user = req.body.user;
+    mydata.userName = req.body.userName;
+    mydata.userEmail = req.body.userEmail;
+    mydata.company = req.body.company;
+    mydata.companyName = req.body.companyName;
+    mydata.branch = req.body.branch;
+    mydata.branchName = req.body.branchName;
+    mydata.area = req.body.area;
+    mydata.areaName = req.body.areaName;
+    let fileName =
+      "../../NewConfig/" +
+      req.headers.applicationid +
+      "_" +
+      req.headers.businessrole +
+      "_config.json";
+    var cardConfig = require(fileName);
+    /*     cardConfig["FieldDef"].forEach((element1) => {
+      for (const key in req.body) {
+        if (req.body.hasOwnProperty(key) & (element1["SLabel"] == key)) {
+          mydata[element1["name"]] = req.body[key];
+        }
+      }
+    }); */
+    for (const key in req.body) {
+      cardConfig["FieldDef"].forEach((element1) => {
+        if (req.body.hasOwnProperty(key) & (element1["SLabel"] == key)) {
+          mydata[element1["name"]] = req.body[key];
+        }
+      });
+    }
+  }
+
+  //console.log("Config", cardConfig["FieldDef"]);
 
   let result;
   if (req.headers.applicationid == "EDU00001") {
-    result = await EDU00001.create(req.body);
+    result = await EDU00001.create(mydata);
   }
   if (req.headers.applicationid == "EDU00002") {
-    result = await EDU00002.create(req.body);
+    result = await EDU00002.create(mydata);
   }
   if (req.headers.applicationid == "EDU00003") {
-    result = await EDU00003.create(req.body);
+    result = await EDU00003.create(mydata);
   }
   if (req.headers.applicationid == "EDU00004") {
-    result = await EDU00004.create(req.body);
+    result = await EDU00004.create(mydata);
   }
   if (req.headers.applicationid == "EDU00005") {
-    result = await EDU00005.create(req.body);
+    result = await EDU00005.create(mydata);
   }
   if (req.headers.applicationid == "EDU00006") {
-    result = await EDU00006.create(req.body);
+    result = await EDU00006.create(mydata);
   }
   if (req.headers.applicationid == "EDU00007") {
-    result = await EDU00007.create(req.body);
+    result = await EDU00007.create(mydata);
   }
   if (req.headers.applicationid == "EDU00008") {
-    result = await EDU00008.create(req.body);
+    result = await EDU00008.create(mydata);
   }
   if (req.headers.applicationid == "EDU00009") {
-    result = await EDU00009.create(req.body);
+    result = await EDU00009.create(mydata);
   }
   if (req.headers.applicationid == "EDU00010") {
-    result = await EDU00010.create(req.body);
+    result = await EDU00010.create(mydata);
   }
   if (req.headers.applicationid == "EDU00011") {
-    result = await EDU00011.create(req.body);
+    result = await EDU00011.create(mydata);
   }
   if (req.headers.applicationid == "EDU00013") {
-    result = await EDU00013.create(req.body);
+    result = await EDU00013.create(mydata);
   }
   if (req.headers.applicationid == "EDU00014") {
-    result = await EDU00014.create(req.body);
+    result = await EDU00014.create(mydata);
   }
   if (req.headers.applicationid == "EDU00015") {
-    result = await EDU00015.create(req.body);
+    result = await EDU00015.create(mydata);
   }
   if (req.headers.applicationid == "EDU00016") {
-    result = await EDU00016.create(req.body);
+    result = await EDU00016.create(mydata);
   }
   if (req.headers.applicationid == "EDU00018") {
-    result = await EDU00018.create(req.body);
+    result = await EDU00018.create(mydata);
   }
   if (req.headers.applicationid == "EDU00019") {
-    result = await EDU00019.create(req.body);
+    result = await EDU00019.create(mydata);
   }
   if (req.headers.applicationid == "EDU00021") {
-    result = await EDU00021.create(req.body);
+    result = await EDU00021.create(mydata);
   }
 
   if (req.headers.applicationid == "EDU00097") {
     const EDU00097 = require("../../models/smartApp/EDU00097");
-    result = await EDU00097.create(req.body);
+    result = await EDU00097.create(mydata);
   }
   if (req.headers.applicationid == "EDU00098") {
-    result = await EDU00098.create(req.body);
+    result = await EDU00098.create(mydata);
   }
   if (req.headers.applicationid == "EDU0100") {
-    result = await EDU0100.create(req.body);
+    result = await EDU0100.create(mydata);
   }
 
   if (req.headers.applicationid == "BUS0000002") {
-    result = await BUS0000002.create(req.body);
+    result = await BUS0000002.create(mydata);
   }
   if (req.headers.applicationid == "BUS0000003") {
-    result = await BUS0000003.create(req.body);
+    result = await BUS0000003.create(mydata);
   }
   if (req.headers.applicationid == "BUS0000004") {
-    result = await BUS0000004.create(req.body);
+    result = await BUS0000004.create(mydata);
   }
   if (req.headers.applicationid == "BUS0000005") {
-    result = await BUS0000005.create(req.body);
+    result = await BUS0000005.create(mydata);
   }
   if (req.headers.applicationid == "COUNCIL002") {
-    result = await COUNCIL002.create(req.body);
+    result = await COUNCIL002.create(mydata);
   }
   if (req.headers.applicationid == "COUNCIL003") {
-    result = await COUNCIL003.create(req.body);
+    result = await COUNCIL003.create(mydata);
   }
   if (req.headers.applicationid == "COUNCIL007") {
-    result = await COUNCIL007.create(req.body);
+    result = await COUNCIL007.create(mydata);
   }
   if (req.headers.applicationid == "COUNCIL012") {
-    result = await COUNCIL012.create(req.body);
+    result = await COUNCIL012.create(mydata);
   }
   if (req.headers.applicationid == "COUNCIL015") {
-    result = await COUNCIL015.create(req.body);
+    result = await COUNCIL015.create(mydata);
   }
   if (req.headers.applicationid == "COUNCIL022") {
-    result = await COUNCIL022.create(req.body);
+    result = await COUNCIL022.create(mydata);
   }
   if (req.headers.applicationid == "COUNCIL023") {
-    result = await COUNCIL023.create(req.body);
+    result = await COUNCIL023.create(mydata);
   }
   if (req.headers.applicationid == "COUNCIL026") {
-    result = await COUNCIL026.create(req.body);
+    result = await COUNCIL026.create(mydata);
   }
   if (req.headers.applicationid == "COUNCIL029") {
-    result = await COUNCIL029.create(req.body);
+    result = await COUNCIL029.create(mydata);
   }
   if (req.headers.applicationid == "COUNCIL033") {
-    result = await COUNCIL033.create(req.body);
+    result = await COUNCIL033.create(mydata);
   }
   if (req.headers.applicationid == "COUNCIL034") {
-    result = await COUNCIL034.create(req.body);
+    result = await COUNCIL034.create(mydata);
   }
   if (req.headers.applicationid == "COUNCIL035") {
-    result = await COUNCIL035.create(req.body);
+    result = await COUNCIL035.create(mydata);
   }
   if (req.headers.applicationid == "COUNCIL036") {
-    result = await COUNCIL036.create(req.body);
+    result = await COUNCIL036.create(mydata);
   }
   if (req.headers.applicationid == "DOC00001") {
-    result = await DOC00001.create(req.body);
+    result = await DOC00001.create(mydata);
   }
   if (req.headers.applicationid == "DOC00002") {
-    result = await DOC00002.create(req.body);
+    result = await DOC00002.create(mydata);
   }
   if (req.headers.applicationid == "DOC00003") {
-    result = await DOC00003.create(req.body);
+    result = await DOC00003.create(mydata);
   }
 
   if (req.headers.applicationid == "EMP00001") {
-    result = await EMP00001.create(req.body);
+    result = await EMP00001.create(mydata);
   }
   if (req.headers.applicationid == "EMP00002") {
-    result = await EMP00002.create(req.body);
+    result = await EMP00002.create(mydata);
   }
   if (req.headers.applicationid == "EMP00004") {
-    result = await EMP00004.create(req.body);
+    result = await EMP00004.create(mydata);
   }
   if (req.headers.applicationid == "EMP00006") {
-    result = await EMP00006.create(req.body);
+    result = await EMP00006.create(mydata);
   }
   if (req.headers.applicationid == "EMP00006OLD") {
-    result = await EMP00006OLD.create(req.body);
+    result = await EMP00006OLD.create(mydata);
   }
   if (req.headers.applicationid == "EMP00008") {
-    result = await EMP00008.create(req.body);
+    result = await EMP00008.create(mydata);
   }
   if (req.headers.applicationid == "EMP00013") {
-    result = await EMP00013.create(req.body);
+    result = await EMP00013.create(mydata);
   }
   if (req.headers.applicationid == "EMP00021") {
-    result = await EMP00021.create(req.body);
+    result = await EMP00021.create(mydata);
   }
   if (req.headers.applicationid == "EMPACC01") {
-    result = await EMPACC01.create(req.body);
+    result = await EMPACC01.create(mydata);
   }
   if (req.headers.applicationid == "EMPBOK01") {
-    result = await EMPBOK01.create(req.body);
+    result = await EMPBOK01.create(mydata);
   }
   if (req.headers.applicationid == "ERP00002") {
-    result = await ERP00002.create(req.body);
+    result = await ERP00002.create(mydata);
   }
   if (req.headers.applicationid == "ERP00003") {
-    result = await ERP00003.create(req.body);
+    result = await ERP00003.create(mydata);
   }
   if (req.headers.applicationid == "ERP00004") {
-    result = await ERP00004.create(req.body);
+    result = await ERP00004.create(mydata);
   }
   if (req.headers.applicationid == "ERP00005") {
-    result = await ERP00005.create(req.body);
+    result = await ERP00005.create(mydata);
   }
   if (req.headers.applicationid == "ERP00008") {
-    result = await ERP00008.create(req.body);
+    result = await ERP00008.create(mydata);
   }
   if (req.headers.applicationid == "ERP00009") {
-    result = await ERP00009.create(req.body);
+    result = await ERP00009.create(mydata);
   }
   if (req.headers.applicationid == "ERP00010") {
-    result = await ERP00010.create(req.body);
+    result = await ERP00010.create(mydata);
   }
   if (req.headers.applicationid == "ERP00014") {
-    result = await ERP00014.create(req.body);
+    result = await ERP00014.create(mydata);
   }
   if (req.headers.applicationid == "HOSP0003") {
-    result = await HOSP0003.create(req.body);
+    result = await HOSP0003.create(mydata);
   }
   if (req.headers.applicationid == "HOSP0004") {
-    result = await HOSP0004.create(req.body);
+    result = await HOSP0004.create(mydata);
   }
   if (req.headers.applicationid == "ITPROJ002") {
-    result = await ITPROJ002.create(req.body);
+    result = await ITPROJ002.create(mydata);
   }
   if (req.headers.applicationid == "JOB00001") {
-    result = await JOB00001.create(req.body);
+    result = await JOB00001.create(mydata);
   }
   if (req.headers.applicationid == "LOG00001") {
-    result = await LOG00001.create(req.body);
+    result = await LOG00001.create(mydata);
   }
   if (req.headers.applicationid == "LOG00002") {
-    result = await LOG00002.create(req.body);
+    result = await LOG00002.create(mydata);
   }
   if (req.headers.applicationid == "LOG00003") {
-    result = await LOG00003.create(req.body);
+    result = await LOG00003.create(mydata);
   }
   if (req.headers.applicationid == "LOG00004") {
-    result = await LOG00004.create(req.body);
+    result = await LOG00004.create(mydata);
   }
   if (req.headers.applicationid == "PM00001") {
-    result = await PM00001.create(req.body);
+    result = await PM00001.create(mydata);
   }
   if (req.headers.applicationid == "SUPP00011") {
-    result = await SUPP00011.create(req.body);
+    result = await SUPP00011.create(mydata);
   }
   if (req.headers.applicationid == "SUPP00012") {
-    result = await SUPP00012.create(req.body);
+    result = await SUPP00012.create(mydata);
   }
   if (req.headers.applicationid == "SUPP00013") {
-    result = await SUPP00013.create(req.body);
+    result = await SUPP00013.create(mydata);
   }
   if (req.headers.applicationid == "SUPP00014") {
-    result = await SUPP00014.create(req.body);
+    result = await SUPP00014.create(mydata);
   }
   if (req.headers.applicationid == "SUPP00015") {
-    result = await SUPP00015.create(req.body);
+    result = await SUPP00015.create(mydata);
   }
   if (req.headers.applicationid == "SUPP00016") {
-    result = await SUPP00016.create(req.body);
+    result = await SUPP00016.create(mydata);
   }
   if (req.headers.applicationid == "SUPP00018") {
-    result = await SUPP00018.create(req.body);
+    result = await SUPP00018.create(mydata);
   }
   if (req.headers.applicationid == "SUPP00028") {
-    result = await SUPP00028.create(req.body);
+    result = await SUPP00028.create(mydata);
   }
 
   console.log(result);
-
+  mydata = {};
   res.status(201).json({
     success: true,
     data: result,
-    app: req.body.applicationid,
   });
 });
 

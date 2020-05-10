@@ -1,1 +1,175 @@
-{"Title": {"ApplicationTitle": "Contact Us", "DetailTitle": "Contact Us"}, "ListFields": {"IntroField": "ID", "TitleField": "", "fStatus": "Status", "sStatus": "", "numberField": "", "LFields": ["ID", "Subject", "YourName", "YourEmail", "YourPhone", "Status"]}, "MButtons": [{"type": "DOWNLOAD", "name": "Download File", "icon": "sap-icon://download"}, {"type": "APPHELP", "name": "Get App Help", "icon": "sap-icon://sys-help-2"}, {"type": "BOT", "name": "Launch Assistant", "icon": "sap-icon://travel-request"}, {"type": "VIEW", "name": "Change App View", "icon": "sap-icon://chart-table-view"}, {"type": "ADD", "name": "Add Record", "icon": "sap-icon://add"}, {"type": "UPLOAD", "name": "Upload Record", "icon": "sap-icon://upload"}], "DButtons": [{"type": "ATTACHMENT", "name": "View Attachments", "icon": "sap-icon://attachment"}, {"type": "UPDATE", "name": "Update Record", "icon": "sap-icon://update"}, {"type": "ADD", "name": "Add Record", "icon": "sap-icon://add"}], "Tabs": [{"value": "Tab2", "name": "YourMessage", "fioriicon": "message-popup", "type": "Field"}, {"value": "Tab1", "name": "AboutYou", "fioriicon": "employee", "type": "Field"}], "DetailFields": {"None": ["ID", "Status"], "Tab1": ["YourName", "YourEmail", "YourPhone", "YourDepartment", "YourBusiness"], "Tab2": ["Subject", "YourMessage", "ContactDate"]}, "ControlDisplay": {}, "FieldDef": [{"name": "ID", "type": "string", "width": "20", "Option": "", "SLabel": "Identification", "LLabel": "", "Currency": "No"}, {"name": "Status", "type": "string", "width": "20", "Option": "", "SLabel": "Status", "LLabel": "", "Currency": "No"}, {"name": "YourName", "type": "string", "width": "50", "Option": "", "SLabel": "Your Name", "LLabel": "", "Currency": "No"}, {"name": "YourEmail", "type": "string", "width": "50", "Option": "", "SLabel": "Your Email", "LLabel": "", "Currency": "No"}, {"name": "YourPhone", "type": "string", "width": "20", "Option": "", "SLabel": "Your Phone", "LLabel": "", "Currency": "No"}, {"name": "YourDepartment", "type": "string", "width": "50", "Option": "", "SLabel": "Your Department", "LLabel": "", "Currency": "No"}, {"name": "YourBusiness", "type": "string", "width": "50", "Option": "", "SLabel": "Your Business", "LLabel": "", "Currency": "No"}, {"name": "Subject", "type": "string", "width": "100", "Option": "", "SLabel": "Subject", "LLabel": "", "Currency": "No"}, {"name": "YourMessage", "type": "string", "width": "1000", "Option": "", "SLabel": "Your Message", "LLabel": "", "Currency": "No"}, {"name": "ContactDate", "type": "Date", "width": "10", "Option": "", "SLabel": "Contact Date", "LLabel": "", "Currency": "No"}], "itemConfig": {"ItemFieldDefinition": [], "DisplayFields": [], "itemButton": {}, "CreateFields": [], "ItemDetails": [], "ItemButtons": {"itemDisplay": true, "itemAdd": true, "itemEdit": true, "itemDelete": true}}}
+{
+  "Title": { "ApplicationTitle": "Contact Us", "DetailTitle": "Contact Us" },
+  "ListFields": {
+    "IntroField": "ID",
+    "TitleField": "",
+    "fStatus": "Status",
+    "sStatus": "",
+    "numberField": "",
+    "LFields": ["ID", "Subject", "YourName", "YourEmail", "YourPhone", "Status"]
+  },
+  "MButtons": [
+    {
+      "type": "DOWNLOAD",
+      "name": "Download File",
+      "icon": "sap-icon://download"
+    },
+    {
+      "type": "APPHELP",
+      "name": "Get App Help",
+      "icon": "sap-icon://sys-help-2"
+    },
+    {
+      "type": "BOT",
+      "name": "Launch Assistant",
+      "icon": "sap-icon://travel-request"
+    },
+    {
+      "type": "VIEW",
+      "name": "Change App View",
+      "icon": "sap-icon://chart-table-view"
+    },
+    { "type": "ADD", "name": "Add Record", "icon": "sap-icon://add" },
+    { "type": "UPLOAD", "name": "Upload Record", "icon": "sap-icon://upload" }
+  ],
+  "DButtons": [
+    {
+      "type": "ATTACHMENT",
+      "name": "View Attachments",
+      "icon": "sap-icon://attachment"
+    },
+    { "type": "UPDATE", "name": "Update Record", "icon": "sap-icon://update" },
+    { "type": "ADD", "name": "Add Record", "icon": "sap-icon://add" }
+  ],
+  "Tabs": [
+    {
+      "value": "Tab2",
+      "name": "YourMessage",
+      "fioriicon": "message-popup",
+      "type": "Field"
+    },
+    {
+      "value": "Tab1",
+      "name": "AboutYou",
+      "fioriicon": "employee",
+      "type": "Field"
+    }
+  ],
+  "DetailFields": {
+    "None": ["ID", "Status"],
+    "Tab1": [
+      "YourName",
+      "YourEmail",
+      "YourPhone",
+      "YourDepartment",
+      "YourBusiness"
+    ],
+    "Tab2": ["Subject", "YourMessage", "ContactDate"]
+  },
+  "ControlDisplay": {},
+  "FieldDef": [
+    {
+      "name": "ID",
+      "type": "string",
+      "width": "20",
+      "Option": "",
+      "SLabel": "Identification",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "Status",
+      "type": "string",
+      "width": "20",
+      "Option": "",
+      "SLabel": "Status",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "YourName",
+      "type": "string",
+      "width": "50",
+      "Option": "",
+      "SLabel": "Your Name",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "YourEmail",
+      "type": "string",
+      "width": "50",
+      "Option": "",
+      "SLabel": "Your Email",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "YourPhone",
+      "type": "string",
+      "width": "20",
+      "Option": "",
+      "SLabel": "Your Phone",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "YourDepartment",
+      "type": "string",
+      "width": "50",
+      "Option": "",
+      "SLabel": "Your Department",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "YourBusiness",
+      "type": "string",
+      "width": "50",
+      "Option": "",
+      "SLabel": "Your Business",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "Subject",
+      "type": "string",
+      "width": "100",
+      "Option": "",
+      "SLabel": "Subject",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "YourMessage",
+      "type": "string",
+      "width": "1000",
+      "Option": "",
+      "SLabel": "Your Message",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "ContactDate",
+      "type": "Date",
+      "width": "10",
+      "Option": "",
+      "SLabel": "Contact Date",
+      "LLabel": "",
+      "Currency": "No"
+    }
+  ],
+  "itemConfig": {
+    "ItemFieldDefinition": [],
+    "DisplayFields": [],
+    "itemButton": {},
+    "CreateFields": [],
+    "ItemDetails": [],
+    "ItemButtons": {
+      "itemDisplay": true,
+      "itemAdd": true,
+      "itemEdit": true,
+      "itemDelete": true
+    }
+  }
+}
