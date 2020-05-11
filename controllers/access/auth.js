@@ -3,6 +3,7 @@ const ErrorResponse = require("../../utils/errorResponse");
 const asyncHandler = require("../../middleware/async");
 const sendEmail = require("../../utils/sendEmail");
 const User = require("../../models/access/User");
+const Socialmedia = require("../../models/access/Socialmedia");
 
 // @desc      Register user
 // @route     POST /api/v1/auth/register
@@ -309,6 +310,7 @@ exports.sendEmail = asyncHandler(async (req, res, next) => {
 // @access    Public
 exports.pinLogin = asyncHandler(async (req, res, next) => {
   const user = await User.findOne({ email: req.body.email });
+  console.log(req.body.mode);
 
   if (!user) {
     return next(new ErrorResponse("There is no user with that email", 404));
@@ -323,11 +325,17 @@ exports.pinLogin = asyncHandler(async (req, res, next) => {
   const resetToken = user.getResetPasswordToken();
 
   await user.save({ validateBeforeSave: false });
-
+  let resetUrl = "";
   // Create reset url
-  const resetUrl = `${req.protocol}://${req.get(
-    "host"
-  )}/api/v1/auth/resetpassword/${resetToken}`;
+  if (req.body.mode === "bot") {
+    resetUrl = `${req.protocol}://${req.get(
+      "host"
+    )}/api/v1/auth/checkbotpin/${resetToken}`;
+  } else {
+    resetUrl = `${req.protocol}://${req.get(
+      "host"
+    )}/api/v1/auth/checkpin/${resetToken}`;
+  }
 
   const message = `Your PIN number is: ${UserPIN} , you are receiving this email because you (or someone else) is performing login to SmartApp`;
 
@@ -379,13 +387,84 @@ exports.checkPin = asyncHandler(async (req, res, next) => {
   if (user.UserPIN != req.body.pin) {
     return next(new ErrorResponse("Invalid PIN", 400));
   }
-  // Set new password
-  //user.password = req.body.password;
+  console.log(user.UserPIN, "/", req.body.pin);
+  sendTokenResponse(user, 200, res);
+});
+
+// @desc      Validate PIN
+// @route     PUT /api/v1/auth/checkpin/:resettoken
+// @access    Public
+exports.checkBotPin = asyncHandler(async (req, res, next) => {
+  // Get hashed token
+  const resetPasswordToken = crypto
+    .createHash("sha256")
+    .update(req.params.resettoken)
+    .digest("hex");
+
+  console.log("SM", req.body.socialmedia);
+  var base64data = req.body.socialmedia;
+  newSmedia = base64data.substring(9);
+  let buff1 = new Buffer(newSmedia, "base64");
+  let SMediaAccountID = buff1.toString("ascii");
+  console.log("SM", SMediaAccountID);
+
+  const user = await User.findOne({
+    resetPasswordToken,
+    resetPasswordExpire: { $gt: Date.now() },
+  });
+
+  if (!user) {
+    return next(new ErrorResponse("Invalid token", 400));
+  }
+  if (user.UserPIN != req.body.pin) {
+    return next(new ErrorResponse("Invalid PIN", 400));
+  }
+  console.log(user.UserPIN, "/", req.body.pin);
+  //sendTokenResponse(user, 200, res);
+  // Atul added on 11/05
+  // Create token
+  const token = user.getSignedJwtToken();
+
+  const options = {
+    expires: new Date(
+      Date.now() + process.env.JWT_COOKIE_EXPIRE * 24 * 60 * 60 * 1000
+    ),
+    httpOnly: true,
+  };
+
+  if (process.env.NODE_ENV === "production") {
+    options.secure = true;
+  }
+  let sm = await Socialmedia.find(
+    {
+      email: user.email,
+      SocialMediaAccountID: SMediaAccountID,
+    },
+    { _id: 0 }
+  );
+  console.log(sm);
+  console.log("token:", token);
+
+  const filter = {
+    email: user.email,
+    SocialMediaAccountID: SMediaAccountID,
+  };
+  const update = { accessToken: token };
+
+  let skg = await Socialmedia.findOneAndUpdate(filter, update, {
+    returnOriginal: false,
+  });
+
+  console.log(skg);
+
   user.resetPasswordToken = undefined;
   user.resetPasswordExpire = undefined;
   await user.save();
 
-  sendTokenResponse(user, 200, res);
+  res.status(200).cookie("token", token, options).json({
+    success: true,
+    token,
+  });
 });
 
 /* // Get token from model, create cookie and send response

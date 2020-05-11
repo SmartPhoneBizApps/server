@@ -6,36 +6,32 @@ const Socialmedia = require("../../models/access/Socialmedia");
 // @route     GET /api/v1/auth/socialmedias
 // @access    Private/Admin
 exports.checkSocialmedia = asyncHandler(async (req, res, next) => {
-  const smedia = await Socialmedia.findOne({
-    SocialMediaAccountID: req.params.socialmedia,
-  });
-  console.log(req.user);
-  console.log(smedia);
+  var base64data = req.params.socialmedia;
+  newSmedia = base64data.substring(9);
+  let buff1 = new Buffer(newSmedia, "base64");
+  let SMediaAccountID = buff1.toString("ascii");
+  console.log(SMediaAccountID);
 
-  if (smedia) {
-    if (smedia.email != req.user.email) {
-      return next(
-        new ErrorResponse(
-          `Social Media ID is not registered for the login user  ${req.body.email}`
-        ),
-        404
-      );
-    }
-  } else {
-    return next(
-      new ErrorResponse(
-        `Social Media ID for ${req.params.socialmedia} is not setup yet`
-      ),
-      404
-    );
+  const smedia = await Socialmedia.findOne({
+    SocialMediaAccountID: SMediaAccountID,
+  });
+
+  if (!smedia) {
+    return next(new ErrorResponse(`CREATE_SOCIALMEDIA`), 405);
   }
 
   outdata = {};
-  outdata["SocialMediaAccountID"] = smedia.SocialMediaAccountID;
-  outdata["email"] = smedia.email;
-  outdata["SocialMediaType"] = smedia.SocialMediaType;
-  outdata["businessRoleName"] = smedia.businessRoleName;
-  outdata["name"] = req.user.name;
+
+  if (smedia.accessToken) {
+    outdata["SocialMediaAccountID"] = SMediaAccountID;
+    outdata["email"] = smedia.email;
+    outdata["SocialMediaType"] = smedia.SocialMediaType;
+    outdata["businessRoleName"] = smedia.businessRoleName;
+    outdata["token"] = smedia.accessToken;
+    // outdata["name"] = req.user.name;
+  } else {
+    return next(new ErrorResponse(`USER_LOGIN`), 404);
+  }
 
   res.status(201).json({
     success: true,

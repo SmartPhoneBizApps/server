@@ -1,10 +1,8 @@
 const express = require("express");
-const {
-  checkSocialmedia,
-} = require("../../controllers/access/socialmediacheck");
+const { checkBotPin } = require("../../controllers/access/auth");
 const router = express.Router({ mergeParams: true });
 const { protect, authorize } = require("../../middleware/auth");
 
-router.route("/:socialmedia").get(checkSocialmedia);
+router.route("/:resettoken").put(checkBotPin);
 
 module.exports = router;
