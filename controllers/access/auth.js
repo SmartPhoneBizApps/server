@@ -18,8 +18,6 @@ exports.register = asyncHandler(async (req, res, next) => {
     userAccess,
     company,
   } = req.body;
-  //console.log(userType);
-  //console.log(userAccess);
   // Validate userType and
   if (userType === "") {
     return next(
@@ -58,33 +56,23 @@ exports.register = asyncHandler(async (req, res, next) => {
 // @route     POST /api/v1/auth/login
 // @access    Public
 exports.login = asyncHandler(async (req, res, next) => {
-  console.log("Body:", req.body);
-  console.log("Body:", req.url);
-  console.log("Body:", req.header);
   const { email, password } = req.body;
-
   // Validate emil & password
   if (!email || !password) {
     return next(new ErrorResponse("Please provide an email and password", 400));
   }
-
   // Check for user
   const user = await User.findOne({ email }).select("+password");
-
   if (!user) {
     return next(new ErrorResponse("Invalid credentials", 401));
   }
-
   // Check if password matches
   const isMatch = await user.matchPassword(password);
-
   if (!isMatch) {
     return next(new ErrorResponse("Invalid credentials", 401));
   }
-
   sendTokenResponse(user, 200, res);
 });
-
 // @desc      Log user out / clear cookie
 // @route     GET /api/v1/auth/logout
 // @access    Private
@@ -93,25 +81,21 @@ exports.logout = asyncHandler(async (req, res, next) => {
     expires: new Date(Date.now() + 10 * 1000),
     httpOnly: true,
   });
-
   res.status(200).json({
     success: true,
     data: {},
   });
 });
-
 // @desc      Get current logged in user
 // @route     POST /api/v1/auth/me
 // @access    Private
 exports.getMe = asyncHandler(async (req, res, next) => {
   const user = await User.findById(req.user.id);
-
   res.status(200).json({
     success: true,
     data: user,
   });
 });
-
 // @desc      Update user details
 // @route     PUT /api/v1/auth/updatearea
 // @access    Private
@@ -119,12 +103,10 @@ exports.updateArea = asyncHandler(async (req, res, next) => {
   const fieldsToUpdate = {
     area: req.body.area,
   };
-
   const user = await User.findByIdAndUpdate(req.user.id, fieldsToUpdate, {
     new: true,
     runValidators: true,
   });
-
   res.status(200).json({
     success: true,
     data: user,
@@ -216,7 +198,6 @@ exports.forgotPassword = asyncHandler(async (req, res, next) => {
 
     res.status(200).json({ success: true, data: "Email sent" });
   } catch (err) {
-    console.log("Here is the issue");
     console.log(err);
     user.resetPasswordToken = undefined;
     user.resetPasswordExpire = undefined;
@@ -286,18 +267,15 @@ const sendTokenResponse = (user, statusCode, res) => {
 // @route     POST /api/v1/auth/sendEmail
 // @access    Public
 exports.sendEmail = asyncHandler(async (req, res, next) => {
-  console.log(req.body);
   emailTo = req.body.emailTo;
   Subject = req.body.subject;
   message = req.body.message;
-
   try {
     await sendEmail({
       email: emailTo,
       subject: Subject,
       message: message,
     });
-
     res.status(200).json({ success: true, data: "Email sent" });
   } catch (err) {
     console.log(err);
@@ -310,20 +288,13 @@ exports.sendEmail = asyncHandler(async (req, res, next) => {
 // @access    Public
 exports.pinLogin = asyncHandler(async (req, res, next) => {
   const user = await User.findOne({ email: req.body.email });
-  console.log(req.body.mode);
-
   if (!user) {
     return next(new ErrorResponse("There is no user with that email", 404));
   }
-
   // Get reset token
-
   UserPIN = Math.floor(100000 + Math.random() * 900000);
-  console.log(UserPIN);
-
   user.UserPIN = UserPIN;
   const resetToken = user.getResetPasswordToken();
-
   await user.save({ validateBeforeSave: false });
   let resetUrl = "";
   // Create reset url
@@ -336,34 +307,27 @@ exports.pinLogin = asyncHandler(async (req, res, next) => {
       "host"
     )}/api/v1/auth/checkpin/${resetToken}`;
   }
-
   const message = `Your PIN number is: ${UserPIN} , you are receiving this email because you (or someone else) is performing login to SmartApp`;
-
   try {
     await sendEmail({
       email: user.email,
       subject: "Password reset token",
       message,
     });
-
-    res
-      .status(200)
-      .json({ success: true, data: "Email sent", resetURL: resetUrl });
+    res.status(200).json({
+      success: true,
+      data: "Email sent",
+      resetURL: resetUrl,
+      resetToken: resetToken,
+      body: req.body,
+    });
   } catch (err) {
-    console.log("Here is the issue");
     console.log(err);
     user.resetPasswordToken = undefined;
     user.resetPasswordExpire = undefined;
-
     await user.save({ validateBeforeSave: false });
-
     return next(new ErrorResponse("Email could not be sent", 500));
   }
-
-  res.status(200).json({
-    success: true,
-    data: user,
-  });
 });
 
 // @desc      Validate PIN
@@ -400,19 +364,14 @@ exports.checkBotPin = asyncHandler(async (req, res, next) => {
     .createHash("sha256")
     .update(req.params.resettoken)
     .digest("hex");
-
-  console.log("SM", req.body.socialmedia);
   var base64data = req.body.socialmedia;
   newSmedia = base64data.substring(9);
   let buff1 = new Buffer(newSmedia, "base64");
   let SMediaAccountID = buff1.toString("ascii");
-  console.log("SM", SMediaAccountID);
-
   const user = await User.findOne({
     resetPasswordToken,
     resetPasswordExpire: { $gt: Date.now() },
   });
-
   if (!user) {
     return next(new ErrorResponse("Invalid token", 400));
   }
@@ -454,37 +413,11 @@ exports.checkBotPin = asyncHandler(async (req, res, next) => {
   let skg = await Socialmedia.findOneAndUpdate(filter, update, {
     returnOriginal: false,
   });
-
-  console.log(skg);
-
   user.resetPasswordToken = undefined;
   user.resetPasswordExpire = undefined;
   await user.save();
-
   res.status(200).cookie("token", token, options).json({
     success: true,
     token,
   });
 });
-
-/* // Get token from model, create cookie and send response
-const sendTokenResponse = (user, statusCode, res) => {
-  // Create token
-  const token = user.getSignedJwtToken();
-
-  const options = {
-    expires: new Date(
-      Date.now() + process.env.JWT_COOKIE_EXPIRE * 24 * 60 * 60 * 1000
-    ),
-    httpOnly: true,
-  };
-
-  if (process.env.NODE_ENV === "production") {
-    options.secure = true;
-  }
-
-  res.status(statusCode).cookie("token", token, options).json({
-    success: true,
-    token,
-  });
-}; */
