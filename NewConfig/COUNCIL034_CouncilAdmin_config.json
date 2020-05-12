@@ -1,1 +1,1045 @@
-{"Title": {"ApplicationTitle": "Inform your council", "DetailTitle": "Inform your council"}, "ListFields": {"IntroField": "ID", "TitleField": "", "fStatus": "Status", "sStatus": "", "numberField": "", "LFields": ["ID", "Name", "InfoAbout", "ReportDate", "Status"]}, "MButtons": [{"type": "DOWNLOAD", "name": "Download File", "icon": "sap-icon://download"}, {"type": "APPHELP", "name": "Get App Help", "icon": "sap-icon://sys-help-2"}, {"type": "BOT", "name": "Launch Assistant", "icon": "sap-icon://travel-request"}, {"type": "VIEW", "name": "Change App View", "icon": "sap-icon://chart-table-view"}, {"type": "ADD", "name": "Add Record", "icon": "sap-icon://add"}, {"type": "UPLOAD", "name": "Upload Record", "icon": "sap-icon://upload"}], "DButtons": [{"type": "ATTACHMENT", "name": "View Attachments", "icon": "sap-icon://attachment"}, {"type": "UPDATE", "name": "Update Record", "icon": "sap-icon://update"}, {"type": "ADD", "name": "Add Record", "icon": "sap-icon://add"}], "Tabs": [{"value": "Tab1", "name": "Information Details", "type": "Field", "fioriicon": "request", "download": "Yes"}, {"value": "Tab2", "name": "Other Details", "type": "Field", "fioriicon": "action-settings", "download": "Yes"}, {"value": "Tab3", "name": "Address", "type": "Field", "fioriicon": "locate-me", "download": "Yes"}, {"value": "Tab4", "name": "Your Details", "fioriicon": "notes", "type": "Field", "download": "Yes"}, {"value": "Tab5", "name": "Chat", "fioriicon": "comment", "type": "Chat", "download": "No"}, {"value": "Tab6", "name": "Processing Log", "fioriicon": "comment", "type": "Chat", "download": "No"}], "DetailFields": {"None": ["ID", "ReportDate", "Status"], "Tab1": ["InfoAbout", "BriefDetails", "CommDate", "TheirName", "VehicleRegNo", "DevDescription", "BreachDate", "Q1", "A1", "Q2", "A2", "Q3", "A3", "Q4", "A4", "Q5", "A5", "Q6", "A6", "Q7", "A7", "Q8", "A8", "Q9", "A9", "Q10", "A10", "Q11", "A11", "Q12", "A12", "WorkDesc", "BreachType", "PropertyType", "BreachTime", "Q13", "A13", "Q14", "A14", "Q15", "A15", "Q17", "A17", "ProblemDetails", "IncidentDate", "IncidentTime"], "Tab2": ["Attachment", "AdditionalInfo", "InspDate", "VehicleMake", "VehicleModel", "VehicleColour", "VehicleCondition", "AgentName", "AgentPhNo", "ApplicationNo", "BuilderName", "CompanyName", "BuilderPhNo", "BuilderEmail", "Note", "NoticePeriod"], "Tab3": ["SitePostcode", "SiteAddress", "TheirAddress", "VehicleLocation", "AgentAddress", "BuilderAddress", "BreachLocation", "Q16", "A16", "PAddress"], "Tab4": ["Name", "ContactNo", "EmailID", "YourAddress"], "Tab5": ["Question_Response"], "Tab6": ["ProcessingLog"]}, "ControlDisplay": {"ControlField": "InfoAbout", "Fields": [[{"ALL": ["ID", "Name", "ContactNo", "EmailID", "YourAddress", "ReportDate", "InfoAbout", "AdditionalInfo", "Status", "BriefDetails", "Approver", "ProcessingLog", "Question_Response"]}, {"Abandonedvehicle": ["VehicleMake", "VehicleModel", "VehicleColour", "VehicleRegNo", "VehicleLocation", "VehicleCondition", "Q6", "Q7", "Q8", "A6", "A7", "A8"]}, {"Benefitfraud": ["TheirName", "TheirAddress", "Q1", "Q2", "Q3", "Q4", "Q5", "A1", "A2", "A3", "A4", "A5"]}, {"breachofbuildingreg": ["BreachTime", "Q16", "Q17", "A16", "A17"]}, {"Buildingwork": ["DevDescription", "AgentName", "AgentAddress", "AgentPhNo", "Q13", "A13"]}, {"Changeincircumstance": ["Q9", "Q10", "Q11", "A9", "A10", "A11", "Q12", "A12"]}, {"CommencementWork": ["InspDate", "ApplicationNo", "WorkDesc", "BuilderName", "CompanyName", "BuilderAddress", "BuilderPhNo", "BuilderEmail", "NoticePeriod", "Note"]}, {"Planningbreach": ["BreachType", "BreachLocation", "PropertyType", "Q14", "Q15", "A14", "A15"]}, {"ProblemInPlayArea": ["IncidentDate", "IncidentTime", "ProblemDetails", "PAddress"]}]]}, "FieldDef": [{"name": "ID", "type": "string", "width": "20", "Option": "", "SLabel": "Identification ", "LLabel": "", "Currency": "No"}, {"name": "Name", "type": "string", "width": "20", "Option": "", "SLabel": "Your Name", "LLabel": "Your Name", "Currency": "No"}, {"name": "ContactNo", "type": "PhoneNumber", "width": "20", "Option": "", "SLabel": "Contact Number", "LLabel": "Contact Number", "Currency": "No"}, {"name": "EmailID", "type": "Email", "width": "100", "Option": "", "SLabel": "Your Email", "LLabel": "Your Email", "Currency": "No"}, {"name": "YourAddress", "type": "string", "width": "500", "Option": "", "SLabel": "Your Address", "LLabel": "Your Address", "Currency": "No"}, {"name": "ReportDate", "type": "Date", "width": "10", "Option": "", "SLabel": "Report Date", "LLabel": "Report Date", "Currency": "No"}, {"name": "InfoAbout", "type": "string", "width": "200", "Option": "mandatory", "SLabel": "You are informing about", "LLabel": "InfoAbout", "Currency": "No"}, {"name": "Attachment", "type": "attachment", "width": "500", "Option": "", "SLabel": "Upload Image", "LLabel": "Upload Image", "Currency": "No"}, {"name": "AdditionalInfo", "type": "string", "width": "1000", "Option": "", "SLabel": "Any Additional Information", "LLabel": "Any Additional Information", "Currency": "No"}, {"name": "Status", "type": "string", "width": "20", "Option": "", "SLabel": "Status", "LLabel": "", "Currency": "No"}, {"name": "BriefDetails", "type": "string", "width": "500", "Option": "", "SLabel": "Brief Details", "LLabel": "BriefDetails", "Currency": "No"}, {"name": "CommDate", "type": "Date", "width": "10", "Option": "", "SLabel": "Commencement Date", "LLabel": "CommDate", "Currency": "No"}, {"name": "SitePostcode", "type": "string", "width": "100", "Option": "", "SLabel": "Site Postcode", "LLabel": "Site Postcode", "Currency": "No"}, {"name": "SiteAddress", "type": "string", "width": "200", "Option": "", "SLabel": "Site Address", "LLabel": "Site Address", "Currency": "No"}, {"name": "InspDate", "type": "Date", "width": "10", "Option": "", "SLabel": "Inspection Date", "LLabel": "InspectionDate", "Currency": "No"}, {"name": "TheirName", "type": "string", "width": "200", "Option": "", "SLabel": "Their Names", "LLabel": "TheirName", "Currency": "No"}, {"name": "TheirAddress", "type": "string", "width": "200", "Option": "", "SLabel": "Their Address", "LLabel": "TheirAddress", "Currency": "No"}, {"name": "VehicleMake", "type": "string", "width": "200", "Option": "", "SLabel": "Vehicle Make", "LLabel": "VehicleMake", "Currency": "No"}, {"name": "VehicleModel", "type": "string", "width": "200", "Option": "", "SLabel": "Vehicle Model", "LLabel": "VehicleModel", "Currency": "No"}, {"name": "VehicleColour", "type": "string", "width": "50", "Option": "", "SLabel": "Vehicle Colour", "LLabel": "VehicleColour", "Currency": "No"}, {"name": "VehicleRegNo", "type": "string", "width": "50", "Option": "", "SLabel": "Vehicle Registration No", "LLabel": "VehicleRegNo", "Currency": "No"}, {"name": "VehicleLocation", "type": "string", "width": "200", "Option": "", "SLabel": "Vehicle Location", "LLabel": "VehicleLocation", "Currency": "No"}, {"name": "VehicleCondition", "type": "string", "width": "100", "Option": "", "SLabel": "Vehicle Condition", "LLabel": "VehicleCondition", "Currency": "No"}, {"name": "DevDescription", "type": "string", "width": "500", "Option": "", "SLabel": "Development details", "LLabel": "DevDescription", "Currency": "No"}, {"name": "BreachDate", "type": "Date", "width": "10", "Option": "", "SLabel": "Breach Date", "LLabel": "BreachDate", "Currency": "No"}, {"name": "Q1", "type": "string", "width": "200", "Option": "", "SLabel": "Question", "LLabel": "Question", "Currency": "No"}, {"name": "Q2", "type": "string", "width": "200", "Option": "", "SLabel": "Question", "LLabel": "Question", "Currency": "No"}, {"name": "Q3", "type": "string", "width": "200", "Option": "", "SLabel": "Question", "LLabel": "Question", "Currency": "No"}, {"name": "Q4", "type": "string", "width": "200", "Option": "", "SLabel": "Question", "LLabel": "Question", "Currency": "No"}, {"name": "Q5", "type": "string", "width": "200", "Option": "", "SLabel": "Question", "LLabel": "Question", "Currency": "No"}, {"name": "Q6", "type": "string", "width": "200", "Option": "", "SLabel": "Question", "LLabel": "Question", "Currency": "No"}, {"name": "Q7", "type": "string", "width": "200", "Option": "", "SLabel": "Question", "LLabel": "Question", "Currency": "No"}, {"name": "Q8", "type": "string", "width": "200", "Option": "", "SLabel": "Question", "LLabel": "Question", "Currency": "No"}, {"name": "Q9", "type": "string", "width": "200", "Option": "", "SLabel": "Question", "LLabel": "Question", "Currency": "No"}, {"name": "Q10", "type": "string", "width": "200", "Option": "", "SLabel": "Question", "LLabel": "Question", "Currency": "No"}, {"name": "Q11", "type": "string", "width": "200", "Option": "", "SLabel": "Question", "LLabel": "Question", "Currency": "No"}, {"name": "A1", "type": "string", "width": "200", "Option": "", "SLabel": "Answer", "LLabel": "Answer", "Currency": "No"}, {"name": "A2", "type": "string", "width": "200", "Option": "", "SLabel": "Answer", "LLabel": "Answer", "Currency": "No"}, {"name": "A3", "type": "string", "width": "200", "Option": "", "SLabel": "Answer", "LLabel": "Answer", "Currency": "No"}, {"name": "A4", "type": "string", "width": "200", "Option": "", "SLabel": "Answer", "LLabel": "Answer", "Currency": "No"}, {"name": "A5", "type": "string", "width": "200", "Option": "", "SLabel": "Answer", "LLabel": "Answer", "Currency": "No"}, {"name": "A6", "type": "string", "width": "200", "Option": "", "SLabel": "Answer", "LLabel": "Answer", "Currency": "No"}, {"name": "A7", "type": "string", "width": "200", "Option": "", "SLabel": "Answer", "LLabel": "Answer", "Currency": "No"}, {"name": "A8", "type": "string", "width": "200", "Option": "", "SLabel": "Answer", "LLabel": "Answer", "Currency": "No"}, {"name": "A9", "type": "string", "width": "200", "Option": "", "SLabel": "Answer", "LLabel": "Answer", "Currency": "No"}, {"name": "A10", "type": "string", "width": "200", "Option": "", "SLabel": "Answer", "LLabel": "Answer", "Currency": "No"}, {"name": "A11", "type": "string", "width": "500", "Option": "", "SLabel": "Answer", "LLabel": "Answer", "Currency": "No"}, {"name": "Q12", "type": "string", "width": "200", "Option": "", "SLabel": "Question", "LLabel": "Question", "Currency": "No"}, {"name": "A12", "type": "Date", "width": "10", "Option": "", "SLabel": "Answer", "LLabel": "Answer", "Currency": "No"}, {"name": "AgentName", "type": "string", "width": "50", "Option": "", "SLabel": "Agent Name", "LLabel": "AgentName", "Currency": "No"}, {"name": "AgentAddress", "type": "string", "width": "200", "Option": "", "SLabel": "Agent Address", "LLabel": "AgentAddress", "Currency": "No"}, {"name": "AgentPhNo", "type": "string", "width": "20", "Option": "", "SLabel": "Agent Phone No", "LLabel": "AgentPhNo", "Currency": "No"}, {"name": "ApplicationNo", "type": "string", "width": "20", "Option": "", "SLabel": "Building Regulations application number", "LLabel": "Building Regulations application number", "Currency": "No"}, {"name": "WorkDesc", "type": "string", "width": "200", "Option": "", "SLabel": "Description of works", "LLabel": "Description of building works", "Currency": "No"}, {"name": "BuilderName", "type": "string", "width": "200", "Option": "", "SLabel": "Builder Name", "LLabel": "BuilderName", "Currency": "No"}, {"name": "CompanyName", "type": "string", "width": "200", "Option": "", "SLabel": "Construction Company Name", "LLabel": "CompanyName", "Currency": "No"}, {"name": "BuilderAddress", "type": "string", "width": "200", "Option": "", "SLabel": "Builder Address", "LLabel": "BuilderAddress", "Currency": "No"}, {"name": "BuilderPhNo", "type": "string", "width": "20", "Option": "", "SLabel": "Builder Phone No", "LLabel": "BuilderPhNo", "Currency": "No"}, {"name": "BuilderEmail", "type": "string", "width": "50", "Option": "", "SLabel": "Builder Email", "LLabel": "BuilderEmail", "Currency": "No"}, {"name": "NoticePeriod", "type": "string", "width": "500", "Option": "", "SLabel": "Notice Period", "LLabel": "NoticePeriod", "Currency": "No"}, {"name": "Note", "type": "string", "width": "500", "Option": "", "SLabel": "Note", "LLabel": "Note", "Currency": "No"}, {"name": "BreachType", "type": "string", "width": "200", "Option": "", "SLabel": "Breach Type", "LLabel": "BreachType", "Currency": "No"}, {"name": "BreachLocation", "type": "string", "width": "200", "Option": "", "SLabel": "Breach Location", "LLabel": "BreachLocation", "Currency": "No"}, {"name": "PropertyType", "type": "string", "width": "200", "Option": "", "SLabel": "Property Type", "LLabel": "PropertyType", "Currency": "No"}, {"name": "BreachTime", "type": "Time", "width": "10", "Option": "", "SLabel": "Breach Time", "LLabel": "BreachTime", "Currency": "No"}, {"name": "Q13", "type": "string", "width": "200", "Option": "", "SLabel": "Question", "LLabel": "Question", "Currency": "No"}, {"name": "Q14", "type": "string", "width": "200", "Option": "", "SLabel": "Question", "LLabel": "Question", "Currency": "No"}, {"name": "Q15", "type": "string", "width": "200", "Option": "", "SLabel": "Question", "LLabel": "Question", "Currency": "No"}, {"name": "Q16", "type": "string", "width": "200", "Option": "", "SLabel": "Question", "LLabel": "Question", "Currency": "No"}, {"name": "Q17", "type": "string", "width": "200", "Option": "", "SLabel": "Question", "LLabel": "Question", "Currency": "No"}, {"name": "A13", "type": "string", "width": "200", "Option": "", "SLabel": "Answer", "LLabel": "Answer", "Currency": "No"}, {"name": "A14", "type": "string", "width": "200", "Option": "", "SLabel": "Answer", "LLabel": "Answer", "Currency": "No"}, {"name": "A15", "type": "string", "width": "200", "Option": "", "SLabel": "Answer", "LLabel": "Answer", "Currency": "No"}, {"name": "A16", "type": "string", "width": "200", "Option": "", "SLabel": "Answer", "LLabel": "Answer", "Currency": "No"}, {"name": "A17", "type": "string", "width": "200", "Option": "", "SLabel": "Answer", "LLabel": "Answer", "Currency": "No"}, {"name": "IncidentDate", "type": "Date", "width": "10", "Option": "", "SLabel": "Incident Date", "LLabel": "IncidentDate", "Currency": "No"}, {"name": "IncidentTime", "type": "Time", "width": "10", "Option": "", "SLabel": "Incident Time", "LLabel": "IncidentTime", "Currency": "No"}, {"name": "ProblemDetails", "type": "string", "width": "500", "Option": "", "SLabel": "Problem Details", "LLabel": "ProblemDetails", "Currency": "No"}, {"name": "PAddress", "type": "string", "width": "200", "Option": "", "SLabel": "Play Area Address", "LLabel": "PAddress", "Currency": "No"}, {"name": "Approver", "type": "string", "width": "500", "Option": "", "SLabel": "Approver", "LLabel": "Approver", "Currency": "No"}, {"name": "ProcessingLog", "type": "string", "width": "1000", "Option": "", "SLabel": "Processing Log", "LLabel": "Processing Log", "Currency": "No"}, {"name": "Question_Response", "type": "string", "width": "500", "Option": "", "SLabel": "Here Is Chat Details", "LLabel": "Question_Response", "Currency": "No"}], "itemConfig": {"ItemFieldDefinition": [], "DisplayFields": [], "ItemButtons": {"itemDisplay": false, "itemAdd": false, "itemEdit": false, "itemDelete": false}, "CreateFields": [], "ItemDetails": []}}
+{
+  "Title": {
+    "ApplicationTitle": "Inform your council",
+    "DetailTitle": "Inform your council"
+  },
+  "ListFields": {
+    "IntroField": "InfoAbout",
+    "TitleField": "Name",
+    "fStatus": "Status",
+    "sStatus": "",
+    "numberField": "",
+    "LFields": ["ID"],
+    "numberUnitField": ""
+  },
+  "ListBOTFields": {
+    "Title": ["ID", "Status"],
+    "SubTitle": ["Name", "ReportDate"],
+    "Description": ["InfoAbout"]
+  },
+  "MButtons": [
+    {
+      "type": "DOWNLOAD",
+      "name": "Download File",
+      "icon": "sap-icon://download"
+    },
+    {
+      "type": "APPHELP",
+      "name": "Get App Help",
+      "icon": "sap-icon://sys-help-2"
+    },
+    {
+      "type": "BOT",
+      "name": "Launch Assistant",
+      "icon": "sap-icon://travel-request"
+    },
+    {
+      "type": "VIEW",
+      "name": "Change App View",
+      "icon": "sap-icon://chart-table-view"
+    },
+    { "type": "ADD", "name": "Add Record", "icon": "sap-icon://add" },
+    { "type": "UPLOAD", "name": "Upload Record", "icon": "sap-icon://upload" }
+  ],
+  "DButtons": [
+    {
+      "type": "ATTACHMENT",
+      "name": "View Attachments",
+      "icon": "sap-icon://attachment"
+    },
+    { "type": "UPDATE", "name": "Update Record", "icon": "sap-icon://update" },
+    { "type": "ADD", "name": "Add Record", "icon": "sap-icon://add" }
+  ],
+  "Tabs": [
+    {
+      "value": "Tab1",
+      "name": "Information Details",
+      "type": "Field",
+      "fioriicon": "request",
+      "download": "Yes"
+    },
+    {
+      "value": "Tab2",
+      "name": "Other Details",
+      "type": "Field",
+      "fioriicon": "action-settings",
+      "download": "Yes"
+    },
+    {
+      "value": "Tab3",
+      "name": "Address",
+      "type": "Field",
+      "fioriicon": "locate-me",
+      "download": "Yes"
+    },
+    {
+      "value": "Tab4",
+      "name": "Your Details",
+      "fioriicon": "notes",
+      "type": "Field",
+      "download": "Yes"
+    },
+    {
+      "value": "Tab5",
+      "name": "Chat",
+      "fioriicon": "comment",
+      "type": "Chat",
+      "download": "No"
+    },
+    {
+      "value": "Tab6",
+      "name": "Processing Log",
+      "fioriicon": "comment",
+      "type": "Chat",
+      "download": "No"
+    }
+  ],
+  "DetailFields": {
+    "None": ["ID", "ReportDate", "Status"],
+    "Tab1": [
+      "InfoAbout",
+      "BriefDetails",
+      "CommDate",
+      "TheirName",
+      "VehicleRegNo",
+      "DevDescription",
+      "BreachDate",
+      "Q1",
+      "A1",
+      "Q2",
+      "A2",
+      "Q3",
+      "A3",
+      "Q4",
+      "A4",
+      "Q5",
+      "A5",
+      "Q6",
+      "A6",
+      "Q7",
+      "A7",
+      "Q8",
+      "A8",
+      "Q9",
+      "A9",
+      "Q10",
+      "A10",
+      "Q11",
+      "A11",
+      "Q12",
+      "A12",
+      "WorkDesc",
+      "BreachType",
+      "PropertyType",
+      "BreachTime",
+      "Q13",
+      "A13",
+      "Q14",
+      "A14",
+      "Q15",
+      "A15",
+      "Q17",
+      "A17",
+      "ProblemDetails",
+      "IncidentDate",
+      "IncidentTime"
+    ],
+    "Tab2": [
+      "Attachment",
+      "AdditionalInfo",
+      "InspDate",
+      "VehicleMake",
+      "VehicleModel",
+      "VehicleColour",
+      "VehicleCondition",
+      "AgentName",
+      "AgentPhNo",
+      "ApplicationNo",
+      "BuilderName",
+      "CompanyName",
+      "BuilderPhNo",
+      "BuilderEmail",
+      "Note",
+      "NoticePeriod"
+    ],
+    "Tab3": [
+      "SitePostcode",
+      "SiteAddress",
+      "TheirAddress",
+      "VehicleLocation",
+      "AgentAddress",
+      "BuilderAddress",
+      "BreachLocation",
+      "Q16",
+      "A16",
+      "PAddress"
+    ],
+    "Tab4": ["Name", "ContactNo", "EmailID", "YourAddress"],
+    "Tab5": ["Question_Response"],
+    "Tab6": ["ProcessingLog"]
+  },
+  "ControlDisplay": {
+    "ControlField": "InfoAbout",
+    "Fields": [
+      [
+        {
+          "ALL": [
+            "ID",
+            "Name",
+            "ContactNo",
+            "EmailID",
+            "YourAddress",
+            "ReportDate",
+            "InfoAbout",
+            "AdditionalInfo",
+            "Status",
+            "BriefDetails",
+            "Approver",
+            "ProcessingLog",
+            "Question_Response"
+          ]
+        },
+        {
+          "Abandonedvehicle": [
+            "VehicleMake",
+            "VehicleModel",
+            "VehicleColour",
+            "VehicleRegNo",
+            "VehicleLocation",
+            "VehicleCondition",
+            "Q6",
+            "Q7",
+            "Q8",
+            "A6",
+            "A7",
+            "A8"
+          ]
+        },
+        {
+          "Benefitfraud": [
+            "TheirName",
+            "TheirAddress",
+            "Q1",
+            "Q2",
+            "Q3",
+            "Q4",
+            "Q5",
+            "A1",
+            "A2",
+            "A3",
+            "A4",
+            "A5"
+          ]
+        },
+        { "breachofbuildingreg": ["BreachTime", "Q16", "Q17", "A16", "A17"] },
+        {
+          "Buildingwork": [
+            "DevDescription",
+            "AgentName",
+            "AgentAddress",
+            "AgentPhNo",
+            "Q13",
+            "A13"
+          ]
+        },
+        {
+          "Changeincircumstance": [
+            "Q9",
+            "Q10",
+            "Q11",
+            "A9",
+            "A10",
+            "A11",
+            "Q12",
+            "A12"
+          ]
+        },
+        {
+          "CommencementWork": [
+            "InspDate",
+            "ApplicationNo",
+            "WorkDesc",
+            "BuilderName",
+            "CompanyName",
+            "BuilderAddress",
+            "BuilderPhNo",
+            "BuilderEmail",
+            "NoticePeriod",
+            "Note"
+          ]
+        },
+        {
+          "Planningbreach": [
+            "BreachType",
+            "BreachLocation",
+            "PropertyType",
+            "Q14",
+            "Q15",
+            "A14",
+            "A15"
+          ]
+        },
+        {
+          "ProblemInPlayArea": [
+            "IncidentDate",
+            "IncidentTime",
+            "ProblemDetails",
+            "PAddress"
+          ]
+        }
+      ]
+    ]
+  },
+  "FieldDef": [
+    {
+      "name": "ID",
+      "type": "string",
+      "width": "20",
+      "Option": "",
+      "SLabel": "Identification ",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "Name",
+      "type": "string",
+      "width": "20",
+      "Option": "",
+      "SLabel": "Your Name",
+      "LLabel": "Your Name",
+      "Currency": "No"
+    },
+    {
+      "name": "ContactNo",
+      "type": "PhoneNumber",
+      "width": "20",
+      "Option": "",
+      "SLabel": "Contact Number",
+      "LLabel": "Contact Number",
+      "Currency": "No"
+    },
+    {
+      "name": "EmailID",
+      "type": "Email",
+      "width": "100",
+      "Option": "",
+      "SLabel": "Your Email",
+      "LLabel": "Your Email",
+      "Currency": "No"
+    },
+    {
+      "name": "YourAddress",
+      "type": "string",
+      "width": "500",
+      "Option": "",
+      "SLabel": "Your Address",
+      "LLabel": "Your Address",
+      "Currency": "No"
+    },
+    {
+      "name": "ReportDate",
+      "type": "Date",
+      "width": "10",
+      "Option": "",
+      "SLabel": "Report Date",
+      "LLabel": "Report Date",
+      "Currency": "No"
+    },
+    {
+      "name": "InfoAbout",
+      "type": "string",
+      "width": "200",
+      "Option": "mandatory",
+      "SLabel": "You are informing about",
+      "LLabel": "InfoAbout",
+      "Currency": "No"
+    },
+    {
+      "name": "Attachment",
+      "type": "attachment",
+      "width": "500",
+      "Option": "",
+      "SLabel": "Upload Image",
+      "LLabel": "Upload Image",
+      "Currency": "No"
+    },
+    {
+      "name": "AdditionalInfo",
+      "type": "string",
+      "width": "1000",
+      "Option": "",
+      "SLabel": "Any Additional Information",
+      "LLabel": "Any Additional Information",
+      "Currency": "No"
+    },
+    {
+      "name": "Status",
+      "type": "string",
+      "width": "20",
+      "Option": "",
+      "SLabel": "Status",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "BriefDetails",
+      "type": "string",
+      "width": "500",
+      "Option": "",
+      "SLabel": "Brief Details",
+      "LLabel": "BriefDetails",
+      "Currency": "No"
+    },
+    {
+      "name": "CommDate",
+      "type": "Date",
+      "width": "10",
+      "Option": "",
+      "SLabel": "Commencement Date",
+      "LLabel": "CommDate",
+      "Currency": "No"
+    },
+    {
+      "name": "SitePostcode",
+      "type": "string",
+      "width": "100",
+      "Option": "",
+      "SLabel": "Site Postcode",
+      "LLabel": "Site Postcode",
+      "Currency": "No"
+    },
+    {
+      "name": "SiteAddress",
+      "type": "string",
+      "width": "200",
+      "Option": "",
+      "SLabel": "Site Address",
+      "LLabel": "Site Address",
+      "Currency": "No"
+    },
+    {
+      "name": "InspDate",
+      "type": "Date",
+      "width": "10",
+      "Option": "",
+      "SLabel": "Inspection Date",
+      "LLabel": "InspectionDate",
+      "Currency": "No"
+    },
+    {
+      "name": "TheirName",
+      "type": "string",
+      "width": "200",
+      "Option": "",
+      "SLabel": "Their Names",
+      "LLabel": "TheirName",
+      "Currency": "No"
+    },
+    {
+      "name": "TheirAddress",
+      "type": "string",
+      "width": "200",
+      "Option": "",
+      "SLabel": "Their Address",
+      "LLabel": "TheirAddress",
+      "Currency": "No"
+    },
+    {
+      "name": "VehicleMake",
+      "type": "string",
+      "width": "200",
+      "Option": "",
+      "SLabel": "Vehicle Make",
+      "LLabel": "VehicleMake",
+      "Currency": "No"
+    },
+    {
+      "name": "VehicleModel",
+      "type": "string",
+      "width": "200",
+      "Option": "",
+      "SLabel": "Vehicle Model",
+      "LLabel": "VehicleModel",
+      "Currency": "No"
+    },
+    {
+      "name": "VehicleColour",
+      "type": "string",
+      "width": "50",
+      "Option": "",
+      "SLabel": "Vehicle Colour",
+      "LLabel": "VehicleColour",
+      "Currency": "No"
+    },
+    {
+      "name": "VehicleRegNo",
+      "type": "string",
+      "width": "50",
+      "Option": "",
+      "SLabel": "Vehicle Registration No",
+      "LLabel": "VehicleRegNo",
+      "Currency": "No"
+    },
+    {
+      "name": "VehicleLocation",
+      "type": "string",
+      "width": "200",
+      "Option": "",
+      "SLabel": "Vehicle Location",
+      "LLabel": "VehicleLocation",
+      "Currency": "No"
+    },
+    {
+      "name": "VehicleCondition",
+      "type": "string",
+      "width": "100",
+      "Option": "",
+      "SLabel": "Vehicle Condition",
+      "LLabel": "VehicleCondition",
+      "Currency": "No"
+    },
+    {
+      "name": "DevDescription",
+      "type": "string",
+      "width": "500",
+      "Option": "",
+      "SLabel": "Development details",
+      "LLabel": "DevDescription",
+      "Currency": "No"
+    },
+    {
+      "name": "BreachDate",
+      "type": "Date",
+      "width": "10",
+      "Option": "",
+      "SLabel": "Breach Date",
+      "LLabel": "BreachDate",
+      "Currency": "No"
+    },
+    {
+      "name": "Q1",
+      "type": "string",
+      "width": "200",
+      "Option": "",
+      "SLabel": "Question",
+      "LLabel": "Question",
+      "Currency": "No"
+    },
+    {
+      "name": "Q2",
+      "type": "string",
+      "width": "200",
+      "Option": "",
+      "SLabel": "Question",
+      "LLabel": "Question",
+      "Currency": "No"
+    },
+    {
+      "name": "Q3",
+      "type": "string",
+      "width": "200",
+      "Option": "",
+      "SLabel": "Question",
+      "LLabel": "Question",
+      "Currency": "No"
+    },
+    {
+      "name": "Q4",
+      "type": "string",
+      "width": "200",
+      "Option": "",
+      "SLabel": "Question",
+      "LLabel": "Question",
+      "Currency": "No"
+    },
+    {
+      "name": "Q5",
+      "type": "string",
+      "width": "200",
+      "Option": "",
+      "SLabel": "Question",
+      "LLabel": "Question",
+      "Currency": "No"
+    },
+    {
+      "name": "Q6",
+      "type": "string",
+      "width": "200",
+      "Option": "",
+      "SLabel": "Question",
+      "LLabel": "Question",
+      "Currency": "No"
+    },
+    {
+      "name": "Q7",
+      "type": "string",
+      "width": "200",
+      "Option": "",
+      "SLabel": "Question",
+      "LLabel": "Question",
+      "Currency": "No"
+    },
+    {
+      "name": "Q8",
+      "type": "string",
+      "width": "200",
+      "Option": "",
+      "SLabel": "Question",
+      "LLabel": "Question",
+      "Currency": "No"
+    },
+    {
+      "name": "Q9",
+      "type": "string",
+      "width": "200",
+      "Option": "",
+      "SLabel": "Question",
+      "LLabel": "Question",
+      "Currency": "No"
+    },
+    {
+      "name": "Q10",
+      "type": "string",
+      "width": "200",
+      "Option": "",
+      "SLabel": "Question",
+      "LLabel": "Question",
+      "Currency": "No"
+    },
+    {
+      "name": "Q11",
+      "type": "string",
+      "width": "200",
+      "Option": "",
+      "SLabel": "Question",
+      "LLabel": "Question",
+      "Currency": "No"
+    },
+    {
+      "name": "A1",
+      "type": "string",
+      "width": "200",
+      "Option": "",
+      "SLabel": "Answer",
+      "LLabel": "Answer",
+      "Currency": "No"
+    },
+    {
+      "name": "A2",
+      "type": "string",
+      "width": "200",
+      "Option": "",
+      "SLabel": "Answer",
+      "LLabel": "Answer",
+      "Currency": "No"
+    },
+    {
+      "name": "A3",
+      "type": "string",
+      "width": "200",
+      "Option": "",
+      "SLabel": "Answer",
+      "LLabel": "Answer",
+      "Currency": "No"
+    },
+    {
+      "name": "A4",
+      "type": "string",
+      "width": "200",
+      "Option": "",
+      "SLabel": "Answer",
+      "LLabel": "Answer",
+      "Currency": "No"
+    },
+    {
+      "name": "A5",
+      "type": "string",
+      "width": "200",
+      "Option": "",
+      "SLabel": "Answer",
+      "LLabel": "Answer",
+      "Currency": "No"
+    },
+    {
+      "name": "A6",
+      "type": "string",
+      "width": "200",
+      "Option": "",
+      "SLabel": "Answer",
+      "LLabel": "Answer",
+      "Currency": "No"
+    },
+    {
+      "name": "A7",
+      "type": "string",
+      "width": "200",
+      "Option": "",
+      "SLabel": "Answer",
+      "LLabel": "Answer",
+      "Currency": "No"
+    },
+    {
+      "name": "A8",
+      "type": "string",
+      "width": "200",
+      "Option": "",
+      "SLabel": "Answer",
+      "LLabel": "Answer",
+      "Currency": "No"
+    },
+    {
+      "name": "A9",
+      "type": "string",
+      "width": "200",
+      "Option": "",
+      "SLabel": "Answer",
+      "LLabel": "Answer",
+      "Currency": "No"
+    },
+    {
+      "name": "A10",
+      "type": "string",
+      "width": "200",
+      "Option": "",
+      "SLabel": "Answer",
+      "LLabel": "Answer",
+      "Currency": "No"
+    },
+    {
+      "name": "A11",
+      "type": "string",
+      "width": "500",
+      "Option": "",
+      "SLabel": "Answer",
+      "LLabel": "Answer",
+      "Currency": "No"
+    },
+    {
+      "name": "Q12",
+      "type": "string",
+      "width": "200",
+      "Option": "",
+      "SLabel": "Question",
+      "LLabel": "Question",
+      "Currency": "No"
+    },
+    {
+      "name": "A12",
+      "type": "Date",
+      "width": "10",
+      "Option": "",
+      "SLabel": "Answer",
+      "LLabel": "Answer",
+      "Currency": "No"
+    },
+    {
+      "name": "AgentName",
+      "type": "string",
+      "width": "50",
+      "Option": "",
+      "SLabel": "Agent Name",
+      "LLabel": "AgentName",
+      "Currency": "No"
+    },
+    {
+      "name": "AgentAddress",
+      "type": "string",
+      "width": "200",
+      "Option": "",
+      "SLabel": "Agent Address",
+      "LLabel": "AgentAddress",
+      "Currency": "No"
+    },
+    {
+      "name": "AgentPhNo",
+      "type": "string",
+      "width": "20",
+      "Option": "",
+      "SLabel": "Agent Phone No",
+      "LLabel": "AgentPhNo",
+      "Currency": "No"
+    },
+    {
+      "name": "ApplicationNo",
+      "type": "string",
+      "width": "20",
+      "Option": "",
+      "SLabel": "Building Regulations application number",
+      "LLabel": "Building Regulations application number",
+      "Currency": "No"
+    },
+    {
+      "name": "WorkDesc",
+      "type": "string",
+      "width": "200",
+      "Option": "",
+      "SLabel": "Description of works",
+      "LLabel": "Description of building works",
+      "Currency": "No"
+    },
+    {
+      "name": "BuilderName",
+      "type": "string",
+      "width": "200",
+      "Option": "",
+      "SLabel": "Builder Name",
+      "LLabel": "BuilderName",
+      "Currency": "No"
+    },
+    {
+      "name": "CompanyName",
+      "type": "string",
+      "width": "200",
+      "Option": "",
+      "SLabel": "Construction Company Name",
+      "LLabel": "CompanyName",
+      "Currency": "No"
+    },
+    {
+      "name": "BuilderAddress",
+      "type": "string",
+      "width": "200",
+      "Option": "",
+      "SLabel": "Builder Address",
+      "LLabel": "BuilderAddress",
+      "Currency": "No"
+    },
+    {
+      "name": "BuilderPhNo",
+      "type": "string",
+      "width": "20",
+      "Option": "",
+      "SLabel": "Builder Phone No",
+      "LLabel": "BuilderPhNo",
+      "Currency": "No"
+    },
+    {
+      "name": "BuilderEmail",
+      "type": "string",
+      "width": "50",
+      "Option": "",
+      "SLabel": "Builder Email",
+      "LLabel": "BuilderEmail",
+      "Currency": "No"
+    },
+    {
+      "name": "NoticePeriod",
+      "type": "string",
+      "width": "500",
+      "Option": "",
+      "SLabel": "Notice Period",
+      "LLabel": "NoticePeriod",
+      "Currency": "No"
+    },
+    {
+      "name": "Note",
+      "type": "string",
+      "width": "500",
+      "Option": "",
+      "SLabel": "Note",
+      "LLabel": "Note",
+      "Currency": "No"
+    },
+    {
+      "name": "BreachType",
+      "type": "string",
+      "width": "200",
+      "Option": "",
+      "SLabel": "Breach Type",
+      "LLabel": "BreachType",
+      "Currency": "No"
+    },
+    {
+      "name": "BreachLocation",
+      "type": "string",
+      "width": "200",
+      "Option": "",
+      "SLabel": "Breach Location",
+      "LLabel": "BreachLocation",
+      "Currency": "No"
+    },
+    {
+      "name": "PropertyType",
+      "type": "string",
+      "width": "200",
+      "Option": "",
+      "SLabel": "Property Type",
+      "LLabel": "PropertyType",
+      "Currency": "No"
+    },
+    {
+      "name": "BreachTime",
+      "type": "Time",
+      "width": "10",
+      "Option": "",
+      "SLabel": "Breach Time",
+      "LLabel": "BreachTime",
+      "Currency": "No"
+    },
+    {
+      "name": "Q13",
+      "type": "string",
+      "width": "200",
+      "Option": "",
+      "SLabel": "Question",
+      "LLabel": "Question",
+      "Currency": "No"
+    },
+    {
+      "name": "Q14",
+      "type": "string",
+      "width": "200",
+      "Option": "",
+      "SLabel": "Question",
+      "LLabel": "Question",
+      "Currency": "No"
+    },
+    {
+      "name": "Q15",
+      "type": "string",
+      "width": "200",
+      "Option": "",
+      "SLabel": "Question",
+      "LLabel": "Question",
+      "Currency": "No"
+    },
+    {
+      "name": "Q16",
+      "type": "string",
+      "width": "200",
+      "Option": "",
+      "SLabel": "Question",
+      "LLabel": "Question",
+      "Currency": "No"
+    },
+    {
+      "name": "Q17",
+      "type": "string",
+      "width": "200",
+      "Option": "",
+      "SLabel": "Question",
+      "LLabel": "Question",
+      "Currency": "No"
+    },
+    {
+      "name": "A13",
+      "type": "string",
+      "width": "200",
+      "Option": "",
+      "SLabel": "Answer",
+      "LLabel": "Answer",
+      "Currency": "No"
+    },
+    {
+      "name": "A14",
+      "type": "string",
+      "width": "200",
+      "Option": "",
+      "SLabel": "Answer",
+      "LLabel": "Answer",
+      "Currency": "No"
+    },
+    {
+      "name": "A15",
+      "type": "string",
+      "width": "200",
+      "Option": "",
+      "SLabel": "Answer",
+      "LLabel": "Answer",
+      "Currency": "No"
+    },
+    {
+      "name": "A16",
+      "type": "string",
+      "width": "200",
+      "Option": "",
+      "SLabel": "Answer",
+      "LLabel": "Answer",
+      "Currency": "No"
+    },
+    {
+      "name": "A17",
+      "type": "string",
+      "width": "200",
+      "Option": "",
+      "SLabel": "Answer",
+      "LLabel": "Answer",
+      "Currency": "No"
+    },
+    {
+      "name": "IncidentDate",
+      "type": "Date",
+      "width": "10",
+      "Option": "",
+      "SLabel": "Incident Date",
+      "LLabel": "IncidentDate",
+      "Currency": "No"
+    },
+    {
+      "name": "IncidentTime",
+      "type": "Time",
+      "width": "10",
+      "Option": "",
+      "SLabel": "Incident Time",
+      "LLabel": "IncidentTime",
+      "Currency": "No"
+    },
+    {
+      "name": "ProblemDetails",
+      "type": "string",
+      "width": "500",
+      "Option": "",
+      "SLabel": "Problem Details",
+      "LLabel": "ProblemDetails",
+      "Currency": "No"
+    },
+    {
+      "name": "PAddress",
+      "type": "string",
+      "width": "200",
+      "Option": "",
+      "SLabel": "Play Area Address",
+      "LLabel": "PAddress",
+      "Currency": "No"
+    },
+    {
+      "name": "Approver",
+      "type": "string",
+      "width": "500",
+      "Option": "",
+      "SLabel": "Approver",
+      "LLabel": "Approver",
+      "Currency": "No"
+    },
+    {
+      "name": "ProcessingLog",
+      "type": "string",
+      "width": "1000",
+      "Option": "",
+      "SLabel": "Processing Log",
+      "LLabel": "Processing Log",
+      "Currency": "No"
+    },
+    {
+      "name": "Question_Response",
+      "type": "string",
+      "width": "500",
+      "Option": "",
+      "SLabel": "Here Is Chat Details",
+      "LLabel": "Question_Response",
+      "Currency": "No"
+    }
+  ],
+  "itemConfig": {
+    "ItemFieldDefinition": [],
+    "DisplayFields": [],
+    "ItemButtons": {
+      "itemDisplay": false,
+      "itemAdd": false,
+      "itemEdit": false,
+      "itemDelete": false
+    },
+    "CreateFields": [],
+    "ItemDetails": []
+  }
+}

@@ -4,13 +4,15 @@
     "DetailTitle": "Employee Feedback"
   },
   "ListFields": {
-    "IntroField": "",
-    "TitleField": "",
+    "IntroField": "Area",
+    "TitleField": "Name",
     "fStatus": "Status",
-    "sStatus": "",
+    "sStatus": "Band",
     "numberField": "",
-    "LFields": ["Name", "Area", "FeedbackDate", "Status"]
+    "LFields": ["EmpRef", "DevManager"],
+    "numberUnitField": ""
   },
+  "ListBOTFields": { "Title": [], "SubTitle": [], "Description": [] },
   "MButtons": [
     {
       "type": "DOWNLOAD",

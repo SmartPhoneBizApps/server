@@ -1,0 +1,487 @@
+{
+  "Title": {
+    "ApplicationTitle": "Car Park Booking",
+    "DetailTitle": "Car Park Booking"
+  },
+  "ListFields": {
+    "IntroField": "",
+    "TitleField": "",
+    "fStatus": "Status",
+    "sStatus": "",
+    "numberField": "",
+    "LFields": ["FirstName", "LastName", "BookingFor", "PhoneNo", "Status"]
+  },
+  "MButtons": [
+    {
+      "type": "DOWNLOAD",
+      "name": "Download File",
+      "icon": "sap-icon://download"
+    },
+    {
+      "type": "APPHELP",
+      "name": "Get App Help",
+      "icon": "sap-icon://sys-help-2"
+    },
+    {
+      "type": "BOT",
+      "name": "Launch Assistant",
+      "icon": "sap-icon://travel-request"
+    },
+    {
+      "type": "VIEW",
+      "name": "Change App View",
+      "icon": "sap-icon://chart-table-view"
+    },
+    { "type": "ADD", "name": "Add Record", "icon": "sap-icon://add" },
+    { "type": "UPLOAD", "name": "Upload Record", "icon": "sap-icon://upload" }
+  ],
+  "DButtons": [
+    {
+      "type": "ATTACHMENT",
+      "name": "View Attachments",
+      "icon": "sap-icon://attachment"
+    },
+    { "type": "UPDATE", "name": "Update Record", "icon": "sap-icon://update" },
+    { "type": "ADD", "name": "Add Record", "icon": "sap-icon://add" }
+  ],
+  "Tabs": [
+    {
+      "value": "Tab1",
+      "name": "Booking",
+      "type": "Field",
+      "fioriicon": "hint",
+      "download": "Yes"
+    },
+    {
+      "value": "Tab2",
+      "name": "Contact",
+      "type": "Field",
+      "fioriicon": "hint",
+      "download": "Yes"
+    }
+  ],
+  "DetailFields": {
+    "None": ["ID", "Status"],
+    "Tab1": [
+      "StartDate",
+      "StartTime",
+      "EndDate",
+      "EndTime",
+      "CarRegistration",
+      "CarPark",
+      "MeetingDate",
+      "NoOfPeople",
+      "Slot",
+      "RoomLayout",
+      "LunchRequired",
+      "DietaryRequirement",
+      "VisitorName",
+      "VisitorCompany",
+      "VisitorPhone",
+      "VisitorEmail",
+      "HotDeskNo",
+      "Building",
+      "Emailid",
+      "ParkingRequired",
+      "BookingFor",
+      "Comments"
+    ],
+    "Tab2": ["FirstName", "LastName", "PhoneNo", "Email"]
+  },
+  "ControlDisplay": {
+    "ControlField": "BookingFor",
+    "Fields": [
+      [
+        {
+          "ALL": [
+            "ID",
+            "FirstName",
+            "LastName",
+            "PhoneNo",
+            "Status",
+            "Email",
+            "Comments",
+            "BookingFor"
+          ]
+        },
+        { "CarPark": ["CarPark", "CarRegistration"] },
+        { "HotDesk": ["Building", "HotDeskNo"] },
+        {
+          "MeetingRoom": [
+            "NoOfPeople",
+            "RoomLayout",
+            "Slot",
+            "LunchRequired",
+            "DietaryRequirement",
+            "MeetingDate"
+          ]
+        },
+        {
+          "Visitor": [
+            "VisitorCompany",
+            "VisitorName",
+            "VisitorPhone",
+            "VisitorEmail"
+          ]
+        }
+      ]
+    ]
+  },
+  "FieldDef": [
+    {
+      "name": "ID",
+      "type": "string",
+      "width": "20",
+      "Option": "",
+      "SLabel": "Identification",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "StartDate",
+      "type": "Date",
+      "width": "10",
+      "Option": "",
+      "SLabel": "Start Date",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "StartTime",
+      "type": "Time",
+      "width": "10",
+      "Option": "",
+      "SLabel": "Start Time",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "EndDate",
+      "type": "Date",
+      "width": "10",
+      "Option": "",
+      "SLabel": "End Date",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "EndTime",
+      "type": "Time",
+      "width": "10",
+      "Option": "",
+      "SLabel": "End Time",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "FirstName",
+      "type": "string",
+      "width": "50",
+      "Option": "",
+      "SLabel": "First Name",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "LastName",
+      "type": "string",
+      "width": "10",
+      "Option": "",
+      "SLabel": "Last Name",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "PhoneNo",
+      "type": "PhoneNumber",
+      "width": "50",
+      "Option": "",
+      "SLabel": "Phone Number",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "Email",
+      "type": "Email",
+      "width": "50",
+      "Option": "",
+      "SLabel": "Email",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "CarRegistration",
+      "type": "string",
+      "width": "50",
+      "Option": "",
+      "SLabel": "Car Registration",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "CarPark",
+      "type": "checkbox",
+      "width": "50",
+      "Option": "",
+      "SLabel": "Car Park",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "Status",
+      "type": "string",
+      "width": "20",
+      "Option": "",
+      "SLabel": "Status",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "LunchRequired",
+      "type": "string",
+      "width": "50",
+      "Option": "",
+      "SLabel": "Lunch Required",
+      "LLabel": "Lunch Required",
+      "Currency": "No"
+    },
+    {
+      "name": "VisitorPhone",
+      "type": "Num,1",
+      "width": "50",
+      "Option": "",
+      "SLabel": "Visitor Phone",
+      "LLabel": "Visitor Phone Number",
+      "Currency": "No"
+    },
+    {
+      "name": "DietaryRequirement",
+      "type": "string",
+      "width": "100",
+      "Option": "",
+      "SLabel": "Dietary Requirement",
+      "LLabel": "Dietary Requirement",
+      "Currency": "No"
+    },
+    {
+      "name": "Building",
+      "type": "string",
+      "width": "100",
+      "Option": "",
+      "SLabel": "Building",
+      "LLabel": "Building",
+      "Currency": "No"
+    },
+    {
+      "name": "Emailid",
+      "type": "Email",
+      "width": "100",
+      "Option": "",
+      "SLabel": "Email ID",
+      "LLabel": "Email ID",
+      "Currency": "No"
+    },
+    {
+      "name": "HotDeskNo",
+      "type": "string",
+      "width": "50",
+      "Option": "",
+      "SLabel": "Hot Desk No",
+      "LLabel": "Hot Desk No",
+      "Currency": "No"
+    },
+    {
+      "name": "Comments",
+      "type": "string",
+      "width": "1000",
+      "Option": "",
+      "SLabel": "Comments / Reason",
+      "LLabel": "Comments / Reason",
+      "Currency": "No"
+    },
+    {
+      "name": "VisitorCompany",
+      "type": "string",
+      "width": "100",
+      "Option": "",
+      "SLabel": "Visitor Company",
+      "LLabel": "Visitor Company",
+      "Currency": "No"
+    },
+    {
+      "name": "VisitorEmail",
+      "type": "string",
+      "width": "100",
+      "Option": "",
+      "SLabel": "Visitor Email ID",
+      "LLabel": "Visitor Email ID",
+      "Currency": "No"
+    },
+    {
+      "name": "VisitorName",
+      "type": "string",
+      "width": "100",
+      "Option": "",
+      "SLabel": "Visitor Name",
+      "LLabel": "Visitor Name",
+      "Currency": "No"
+    },
+    {
+      "name": "ParkingRequired",
+      "type": "combobox",
+      "width": "10",
+      "Option": "",
+      "SLabel": "Parking Required",
+      "LLabel": "Parking Required",
+      "Currency": "No"
+    },
+    {
+      "name": "MeetingDate",
+      "type": "Date",
+      "width": "10",
+      "Option": "",
+      "SLabel": "Meeting Date",
+      "LLabel": "Meeting Date",
+      "Currency": "No"
+    },
+    {
+      "name": "BookingFor",
+      "type": "string",
+      "width": "10",
+      "Option": "mandatory",
+      "SLabel": "Booking For",
+      "LLabel": "Booking For",
+      "Currency": "No"
+    },
+    {
+      "name": "NoOfPeople",
+      "type": "string",
+      "width": "50",
+      "Option": "",
+      "SLabel": "No Of People",
+      "LLabel": "No Of People",
+      "Currency": "No"
+    },
+    {
+      "name": "RoomLayout",
+      "type": "string",
+      "width": "50",
+      "Option": "",
+      "SLabel": "Room Layout",
+      "LLabel": "Room Layout",
+      "Currency": "No"
+    },
+    {
+      "name": "Slot",
+      "type": "string",
+      "width": "100",
+      "Option": "",
+      "SLabel": "Slot",
+      "LLabel": "Slot",
+      "Currency": "No"
+    }
+  ],
+  "itemConfig": {
+    "ItemFieldDefinition": [
+      {
+        "name": "ItemNumber",
+        "type": "string",
+        "width": "20",
+        "SLabel": "ItemNumber",
+        "Option": "",
+        "Currency": "No"
+      },
+      {
+        "name": "ID",
+        "type": "string",
+        "width": "20",
+        "SLabel": "Identification",
+        "Option": "",
+        "Currency": "No"
+      },
+      {
+        "name": "ProjectCode",
+        "type": "string",
+        "width": "50",
+        "SLabel": "Project Code",
+        "Option": "mandatory",
+        "Currency": "No"
+      },
+      {
+        "name": "Date",
+        "type": "Date",
+        "width": "10",
+        "SLabel": "Timesheet Date",
+        "Option": "mandatory",
+        "Currency": "No"
+      },
+      {
+        "name": "TotalRegWorkHours",
+        "type": "Num,1",
+        "width": "50",
+        "SLabel": "Regular work hours",
+        "Option": "mandatory",
+        "Currency": "No"
+      },
+      {
+        "name": "OvertimeHours",
+        "type": "Num,1",
+        "width": "50",
+        "SLabel": "Overtime Hours",
+        "Option": "",
+        "Currency": "No"
+      },
+      {
+        "name": "Comment",
+        "type": "string",
+        "width": "1000",
+        "SLabel": "Comment",
+        "Option": "",
+        "Currency": "No"
+      }
+    ],
+    "DisplayFields": [
+      "ItemNumber",
+      "ProjectCode",
+      "Date",
+      "TotalRegWorkHours",
+      "OvertimeHours"
+    ],
+    "ItemButtons": {
+      "itemDisplay": true,
+      "itemAdd": false,
+      "itemEdit": false,
+      "itemDelete": false
+    },
+    "CreateFields": [
+      "ProjectCode",
+      "Date",
+      "TotalRegWorkHours",
+      "OvertimeHours",
+      "Comment"
+    ],
+    "ItemDetails": [
+      {
+        "name": "ItemNumber",
+        "Tab": "Tab4",
+        "Sequence": "1",
+        "Mode": "Display"
+      },
+      { "name": "ProjectCode", "Tab": "Tab4", "Sequence": "1", "Mode": "Edit" },
+      { "name": "Date", "Tab": "Tab4", "Sequence": "1", "Mode": "Edit" },
+      {
+        "name": "TotalRegWorkHours",
+        "Tab": "Tab4",
+        "Sequence": "1",
+        "Mode": "Edit"
+      },
+      {
+        "name": "OvertimeHours",
+        "Tab": "Tab4",
+        "Sequence": "1",
+        "Mode": "Edit"
+      },
+      { "name": "Comment", "Tab": "Tab4", "Sequence": "1", "Mode": "Edit" }
+    ]
+  }
+}

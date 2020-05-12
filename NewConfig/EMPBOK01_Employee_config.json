@@ -4,13 +4,15 @@
     "DetailTitle": "Car Park Booking"
   },
   "ListFields": {
-    "IntroField": "",
-    "TitleField": "",
+    "IntroField": "FirstName",
+    "TitleField": "LastName",
     "fStatus": "Status",
-    "sStatus": "",
+    "sStatus": "BookingFor",
     "numberField": "",
-    "LFields": ["FirstName", "LastName", "BookingFor", "PhoneNo", "Status"]
+    "LFields": ["ID", "Email"],
+    "numberUnitField": ""
   },
+  "ListBOTFields": { "Title": [], "SubTitle": [], "Description": [] },
   "MButtons": [
     {
       "type": "DOWNLOAD",

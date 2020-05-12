@@ -4,19 +4,15 @@
     "DetailTitle": "Supplier Registration"
   },
   "ListFields": {
-    "IntroField": "ID",
-    "TitleField": "",
-    "fStatus": "",
-    "sStatus": "",
+    "IntroField": "CompanyRegistrationNumber",
+    "TitleField": "CompanyName",
+    "fStatus": "Status",
+    "sStatus": "CompanyType",
     "numberField": "",
-    "LFields": [
-      "ID",
-      "CompanyName",
-      "IntrestArea",
-      "CompanyType",
-      "CompanyRegistrationNumber"
-    ]
+    "LFields": ["IntrestArea", "ID", "AnnualTurnover", "BusinessType"],
+    "numberUnitField": ""
   },
+  "ListBOTFields": { "Title": [], "SubTitle": [], "Description": [] },
   "MButtons": [
     {
       "type": "DOWNLOAD",

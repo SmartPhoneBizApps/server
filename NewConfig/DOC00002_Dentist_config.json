@@ -4,19 +4,15 @@
     "DetailTitle": "Dental Referral Form"
   },
   "ListFields": {
-    "IntroField": "ID",
-    "TitleField": "",
-    "fStatus": "",
-    "sStatus": "",
+    "IntroField": "PatientFirstName",
+    "TitleField": "PatientLastName",
+    "fStatus": "Status",
+    "sStatus": "NHS_Number",
     "numberField": "",
-    "LFields": [
-      "ID",
-      "PatientFirstName",
-      "PatientLastName",
-      "ReferralTo",
-      "ReferringDentist"
-    ]
+    "LFields": ["ID", "ReferringDentist", "ReferralTo", "Patient_Email"],
+    "numberUnitField": ""
   },
+  "ListBOTFields": { "Title": [], "SubTitle": [], "Description": [] },
   "MButtons": [
     {
       "type": "DOWNLOAD",

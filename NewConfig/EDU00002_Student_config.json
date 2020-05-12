@@ -1,1 +1,264 @@
-{"Title": {"ApplicationTitle": "Test", "DetailTitle": "Test"}, "ListFields": {"IntroField": "ID", "TitleField": "", "fStatus": "Status", "sStatus": "", "numberField": "", "LFields": ["ID", "Area", "Topic", "Status"]}, "MButtons": [{"type": "DOWNLOAD", "name": "Download File", "icon": "sap-icon://download"}, {"type": "APPHELP", "name": "Get App Help", "icon": "sap-icon://sys-help-2"}, {"type": "BOT", "name": "Launch Assistant", "icon": "sap-icon://travel-request"}, {"type": "VIEW", "name": "Change App View", "icon": "sap-icon://chart-table-view"}, {"type": "ADD", "name": "Add Record", "icon": "sap-icon://add"}, {"type": "UPLOAD", "name": "Upload Record", "icon": "sap-icon://upload"}], "DButtons": [{"type": "ATTACHMENT", "name": "View Attachments", "icon": "sap-icon://attachment"}, {"type": "UPDATE", "name": "Update Record", "icon": "sap-icon://update"}, {"type": "ADD", "name": "Add Record", "icon": "sap-icon://add"}], "Tabs": [{"value": "Tab1", "name": "Question", "type": "Field", "fioriicon": "question-mark"}, {"value": "Tab2", "name": "Answer", "type": "Field", "fioriicon": "accept"}], "DetailFields": {"None": ["ID", "ExamDate", "Area", "Topic", "Status"], "Tab1": ["Question", "A", "B", "C", "D", "E"], "Tab2": ["Answer", "Reasoning"]}, "ControlDisplay": {"ControlField": "RegisterFor", "Fields": [[{"ALL": ["ID", "Name", "ContactNo", "EmailID", "Address", "Postcode", "ApplicationDate", "RegisterFor", "Status", "Approver", "Question_Response", "ProcessingLog"]}, {"BirthCertificate": ["ChildName", "Surname", "Nationality", "MotherAddress", "MotherNationality", "FatherAddress", "FatherNationality"]}, {"DeathCertificate": ["DeceasedName", "DeathPlace", "DeathDate", "LastAddress", "WasDeath", "DeathCause", "SpouseName"]}, {"MarriageRegistration": ["BrideName", "BrideSurname", "GroomName", "GroomSurname", "MarriagePlace", "BrideFatherName", "GroomFatherName"]}, {"NewHouseName": ["PreferName1", "PreferName2", "PreferName3", "AdditionalInfo"]}]]}, "FieldDef": [{"name": "ID", "type": "string", "width": "20", "Option": "", "SLabel": "ID", "LLabel": "", "Currency": "No"}, {"name": "Area", "type": "string", "width": "100", "Option": "", "SLabel": "Area", "LLabel": "", "Currency": "No"}, {"name": "Topic", "type": "string", "width": "100", "Option": "", "SLabel": "Topic", "LLabel": "", "Currency": "No"}, {"name": "ExamDate", "type": "Date", "width": "10", "Option": "", "SLabel": "Exam Date", "LLabel": "", "Currency": "No"}, {"name": "Question", "type": "string", "width": "100", "Option": "", "SLabel": "Questions", "LLabel": "", "Currency": "No"}, {"name": "A", "type": "string", "width": "100", "Option": "", "SLabel": "Option A", "LLabel": "", "Currency": "No"}, {"name": "B", "type": "string", "width": "100", "Option": "", "SLabel": " Option B", "LLabel": "", "Currency": "No"}, {"name": "C", "type": "string", "width": "100", "Option": "", "SLabel": "Option C", "LLabel": "", "Currency": "No"}, {"name": "D", "type": "string", "width": "100", "Option": "", "SLabel": "Option D", "LLabel": "", "Currency": "No"}, {"name": "E", "type": "string", "width": "100", "Option": "", "SLabel": "Option E", "LLabel": "", "Currency": "No"}, {"name": "Answer", "type": "string", "width": "100", "Option": "", "SLabel": "Answer", "LLabel": "", "Currency": "No"}, {"name": "Reasoning", "type": "string", "width": "500", "Option": "", "SLabel": "Reasoning", "LLabel": "", "Currency": "No"}, {"name": "Status", "type": "string", "width": "20", "Option": "", "SLabel": "Status", "LLabel": "", "Currency": "No"}], "itemConfig": {"ItemFieldDefinition": [], "DisplayFields": [], "ItemButtons": {"itemDisplay": false, "itemAdd": false, "itemEdit": false, "itemDelete": false}, "CreateFields": [], "ItemDetails": []}}
+{
+  "Title": { "ApplicationTitle": "Test", "DetailTitle": "Test" },
+  "ListFields": {
+    "IntroField": "Area",
+    "TitleField": "Topic",
+    "fStatus": "Status",
+    "sStatus": "",
+    "numberField": "",
+    "LFields": ["ID"],
+    "numberUnitField": ""
+  },
+  "ListBOTFields": {
+    "Title": ["ID"],
+    "SubTitle": ["Topic"],
+    "Description": ["Area", "Status"]
+  },
+  "MButtons": [
+    {
+      "type": "DOWNLOAD",
+      "name": "Download File",
+      "icon": "sap-icon://download"
+    },
+    {
+      "type": "APPHELP",
+      "name": "Get App Help",
+      "icon": "sap-icon://sys-help-2"
+    },
+    {
+      "type": "BOT",
+      "name": "Launch Assistant",
+      "icon": "sap-icon://travel-request"
+    },
+    {
+      "type": "VIEW",
+      "name": "Change App View",
+      "icon": "sap-icon://chart-table-view"
+    },
+    { "type": "ADD", "name": "Add Record", "icon": "sap-icon://add" },
+    { "type": "UPLOAD", "name": "Upload Record", "icon": "sap-icon://upload" }
+  ],
+  "DButtons": [
+    {
+      "type": "ATTACHMENT",
+      "name": "View Attachments",
+      "icon": "sap-icon://attachment"
+    },
+    { "type": "UPDATE", "name": "Update Record", "icon": "sap-icon://update" },
+    { "type": "ADD", "name": "Add Record", "icon": "sap-icon://add" }
+  ],
+  "Tabs": [
+    {
+      "value": "Tab1",
+      "name": "Question",
+      "type": "Field",
+      "fioriicon": "question-mark"
+    },
+    {
+      "value": "Tab2",
+      "name": "Answer",
+      "type": "Field",
+      "fioriicon": "accept"
+    }
+  ],
+  "DetailFields": {
+    "None": ["ID", "ExamDate", "Area", "Topic", "Status"],
+    "Tab1": ["Question", "A", "B", "C", "D", "E"],
+    "Tab2": ["Answer", "Reasoning"]
+  },
+  "ControlDisplay": {
+    "ControlField": "RegisterFor",
+    "Fields": [
+      [
+        {
+          "ALL": [
+            "ID",
+            "Name",
+            "ContactNo",
+            "EmailID",
+            "Address",
+            "Postcode",
+            "ApplicationDate",
+            "RegisterFor",
+            "Status",
+            "Approver",
+            "Question_Response",
+            "ProcessingLog"
+          ]
+        },
+        {
+          "BirthCertificate": [
+            "ChildName",
+            "Surname",
+            "Nationality",
+            "MotherAddress",
+            "MotherNationality",
+            "FatherAddress",
+            "FatherNationality"
+          ]
+        },
+        {
+          "DeathCertificate": [
+            "DeceasedName",
+            "DeathPlace",
+            "DeathDate",
+            "LastAddress",
+            "WasDeath",
+            "DeathCause",
+            "SpouseName"
+          ]
+        },
+        {
+          "MarriageRegistration": [
+            "BrideName",
+            "BrideSurname",
+            "GroomName",
+            "GroomSurname",
+            "MarriagePlace",
+            "BrideFatherName",
+            "GroomFatherName"
+          ]
+        },
+        {
+          "NewHouseName": [
+            "PreferName1",
+            "PreferName2",
+            "PreferName3",
+            "AdditionalInfo"
+          ]
+        }
+      ]
+    ]
+  },
+  "FieldDef": [
+    {
+      "name": "ID",
+      "type": "string",
+      "width": "20",
+      "Option": "",
+      "SLabel": "ID",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "Area",
+      "type": "string",
+      "width": "100",
+      "Option": "",
+      "SLabel": "Area",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "Topic",
+      "type": "string",
+      "width": "100",
+      "Option": "",
+      "SLabel": "Topic",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "ExamDate",
+      "type": "Date",
+      "width": "10",
+      "Option": "",
+      "SLabel": "Exam Date",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "Question",
+      "type": "string",
+      "width": "100",
+      "Option": "",
+      "SLabel": "Questions",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "A",
+      "type": "string",
+      "width": "100",
+      "Option": "",
+      "SLabel": "Option A",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "B",
+      "type": "string",
+      "width": "100",
+      "Option": "",
+      "SLabel": " Option B",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "C",
+      "type": "string",
+      "width": "100",
+      "Option": "",
+      "SLabel": "Option C",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "D",
+      "type": "string",
+      "width": "100",
+      "Option": "",
+      "SLabel": "Option D",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "E",
+      "type": "string",
+      "width": "100",
+      "Option": "",
+      "SLabel": "Option E",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "Answer",
+      "type": "string",
+      "width": "100",
+      "Option": "",
+      "SLabel": "Answer",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "Reasoning",
+      "type": "string",
+      "width": "500",
+      "Option": "",
+      "SLabel": "Reasoning",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "Status",
+      "type": "string",
+      "width": "20",
+      "Option": "",
+      "SLabel": "Status",
+      "LLabel": "",
+      "Currency": "No"
+    }
+  ],
+  "itemConfig": {
+    "ItemFieldDefinition": [],
+    "DisplayFields": [],
+    "ItemButtons": {
+      "itemDisplay": false,
+      "itemAdd": false,
+      "itemEdit": false,
+      "itemDelete": false
+    },
+    "CreateFields": [],
+    "ItemDetails": []
+  }
+}

@@ -4,13 +4,15 @@
     "DetailTitle": "Shopping Cart"
   },
   "ListFields": {
-    "IntroField": "ID",
-    "TitleField": "",
+    "IntroField": "VendorName",
+    "TitleField": "Details",
     "fStatus": "Status",
     "sStatus": "",
-    "numberField": "",
-    "LFields": ["ID", "VendorName", "GrossValue", "Price", "NetValue", "Status"]
+    "numberField": "GrossValue",
+    "LFields": ["ID", "SCDate"],
+    "numberUnitField": "Currency"
   },
+  "ListBOTFields": { "Title": [], "SubTitle": [], "Description": [] },
   "MButtons": [
     {
       "type": "DOWNLOAD",

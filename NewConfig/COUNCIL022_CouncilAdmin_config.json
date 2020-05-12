@@ -1,1 +1,359 @@
-{"Title": {"ApplicationTitle": "Fault Reporting", "DetailTitle": "Fault Reporting"}, "ListFields": {"IntroField": "ID", "TitleField": "", "fStatus": "Status", "sStatus": "", "numberField": "", "LFields": ["ID", "Name", "ReportType", "ReportDate", "Status", "ContactNo"]}, "MButtons": [{"type": "DOWNLOAD", "name": "Download File", "icon": "sap-icon://download"}, {"type": "APPHELP", "name": "Get App Help", "icon": "sap-icon://sys-help-2"}, {"type": "BOT", "name": "Launch Assistant", "icon": "sap-icon://travel-request"}, {"type": "VIEW", "name": "Change App View", "icon": "sap-icon://chart-table-view"}, {"type": "ADD", "name": "Add Record", "icon": "sap-icon://add"}, {"type": "UPLOAD", "name": "Upload Record", "icon": "sap-icon://upload"}], "DButtons": [{"type": "ATTACHMENT", "name": "View Attachments", "icon": "sap-icon://attachment"}, {"type": "UPDATE", "name": "Update Record", "icon": "sap-icon://update"}, {"type": "ADD", "name": "Add Record", "icon": "sap-icon://add"}], "Tabs": [{"value": "Tab1", "name": "Fault Details", "type": "Field", "fioriicon": "request", "download": "Yes"}, {"value": "Tab2", "name": "Fault Location", "type": "Field", "fioriicon": "action-settings", "download": "Yes"}, {"value": "Tab3", "name": "Attachment", "type": "Attachment", "fioriicon": "attachment", "download": "Yes"}, {"value": "Tab4", "name": "Contact Details", "fioriicon": "notes", "type": "Field", "download": "Yes"}, {"value": "Tab5", "name": "Chat", "fioriicon": "comment", "type": "Chat", "download": "No"}, {"value": "Tab6", "name": "Processing Log", "fioriicon": "comment", "type": "Chat", "download": "Yes"}], "DetailFields": {"None": ["ID", "ReportDate", "Status"], "Tab1": ["ReportType", "FaultDetails", "AdditionalInfo", "Site", "StreetLightNo", "TrafficLightNo", "PayDisplayMachineNo"], "Tab2": ["FaultLocation", "StreetName", "NearestLandmark"], "Tab3": ["Attachment"], "Tab4": ["Name", "ContactNo", "EmailID", "Address", "Postcode"], "Tab5": ["Question_Response"], "Tab6": ["ProcessingLog"]}, "ControlDisplay": {"ControlField": "ReportType", "Fields": [[{"ALL": ["ID", "Name", "ContactNo", "EmailID", "Address", "Postcode", "FaultLocation", "ReportDate", "ReportType", "FaultDetails", "Attachment", "AdditionalInfo", "Status", "NearestLandmark", "Question_Response", "ProcessingLog", "Approver"]}, {"FaultyPayAndDisplay": ["PayDisplayMachineNo"]}, {"FaultyStreetLight": ["StreetLightNo"]}, {"FaultyTrafficLight": ["TrafficLightNo"]}, {"HighwayProblems": []}, {"StreetFault": ["StreetName", "Site"]}]]}, "FieldDef": [{"name": "ID", "type": "string", "width": "20", "Option": "", "SLabel": "Identification ", "LLabel": "", "Currency": "No"}, {"name": "Name", "type": "string", "width": "20", "Option": "", "SLabel": "Your Name", "LLabel": "Your Name", "Currency": "No"}, {"name": "ContactNo", "type": "PhoneNumber", "width": "20", "Option": "", "SLabel": "Contact Number", "LLabel": "Contact Number", "Currency": "No"}, {"name": "EmailID", "type": "Email", "width": "100", "Option": "", "SLabel": "Your Email", "LLabel": "Your Email", "Currency": "No"}, {"name": "Address", "type": "string", "width": "500", "Option": "", "SLabel": "Your Address", "LLabel": "Your Address", "Currency": "No"}, {"name": "Postcode", "type": "string", "width": "20", "Option": "", "SLabel": "Postcode", "LLabel": "Postcode", "Currency": "No"}, {"name": "FaultLocation", "type": "string", "width": "50", "Option": "", "SLabel": "Fault Location", "LLabel": "Fault Location", "Currency": "No"}, {"name": "ReportDate", "type": "Date", "width": "10", "Option": "", "SLabel": "Report Date", "LLabel": "Report Date", "Currency": "No"}, {"name": "ReportType", "type": "string", "width": "200", "Option": "mandatory", "SLabel": "Your report is about", "LLabel": "ReportType", "Currency": "No"}, {"name": "FaultDetails", "type": "string", "width": "500", "Option": "mandatory", "SLabel": "Fault/Problem Details", "LLabel": "Fault/Problem Details", "Currency": "No"}, {"name": "Attachment", "type": "attachment", "width": "500", "Option": "", "SLabel": "Upload Image", "LLabel": "Upload Image", "Currency": "No"}, {"name": "AdditionalInfo", "type": "string", "width": "1000", "Option": "", "SLabel": "Any Additional Information", "LLabel": "Any Additional Information", "Currency": "No"}, {"name": "Status", "type": "string", "width": "20", "Option": "", "SLabel": "Complaint Status", "LLabel": "", "Currency": "No"}, {"name": "StreetName", "type": "string", "width": "100", "Option": "", "SLabel": "Street Name", "LLabel": "StreetName", "Currency": "No"}, {"name": "Site", "type": "string", "width": "100", "Option": "", "SLabel": "Site", "LLabel": "Site", "Currency": "No"}, {"name": "StreetLightNo", "type": "string", "width": "20", "Option": "", "SLabel": "Street Light No", "LLabel": "StreetLightNo", "Currency": "No"}, {"name": "NearestLandmark", "type": "string", "width": "100", "Option": "", "SLabel": "Nearest Landmark", "LLabel": "NearestLandmark", "Currency": "No"}, {"name": "TrafficLightNo", "type": "string", "width": "50", "Option": "", "SLabel": "Traffic Light No", "LLabel": "TrafficLightNo", "Currency": "No"}, {"name": "PayDisplayMachineNo", "type": "string", "width": "100", "Option": "", "SLabel": "Pay Display Machine No", "LLabel": "PayDisplayMachineNo", "Currency": "No"}, {"name": "Question_Response", "type": "string", "width": "500", "Option": "", "SLabel": "Here Is Chat Details", "LLabel": "Question_Response", "Currency": "No"}, {"name": "ProcessingLog", "type": "string", "width": "500", "Option": "", "SLabel": "Processing Log", "LLabel": "ProcessingLog", "Currency": "No"}, {"name": "Approver", "type": "string", "width": "50", "Option": "", "SLabel": "Approver", "LLabel": "Approver", "Currency": "No"}], "itemConfig": {"ItemFieldDefinition": [], "DisplayFields": [], "ItemButtons": {"itemDisplay": false, "itemAdd": false, "itemEdit": false, "itemDelete": false}, "CreateFields": [], "ItemDetails": []}}
+{
+  "Title": {
+    "ApplicationTitle": "Fault Reporting",
+    "DetailTitle": "Fault Reporting"
+  },
+  "ListFields": {
+    "IntroField": "ReportType",
+    "TitleField": "Name",
+    "fStatus": "Status",
+    "sStatus": "",
+    "numberField": "",
+    "LFields": ["ID"],
+    "numberUnitField": ""
+  },
+  "ListBOTFields": {
+    "Title": ["ID", "Status"],
+    "SubTitle": ["Name", "ContactNo"],
+    "Description": ["ReportType", "ReportDate"]
+  },
+  "MButtons": [
+    {
+      "type": "DOWNLOAD",
+      "name": "Download File",
+      "icon": "sap-icon://download"
+    },
+    {
+      "type": "APPHELP",
+      "name": "Get App Help",
+      "icon": "sap-icon://sys-help-2"
+    },
+    {
+      "type": "BOT",
+      "name": "Launch Assistant",
+      "icon": "sap-icon://travel-request"
+    },
+    {
+      "type": "VIEW",
+      "name": "Change App View",
+      "icon": "sap-icon://chart-table-view"
+    },
+    { "type": "ADD", "name": "Add Record", "icon": "sap-icon://add" },
+    { "type": "UPLOAD", "name": "Upload Record", "icon": "sap-icon://upload" }
+  ],
+  "DButtons": [
+    {
+      "type": "ATTACHMENT",
+      "name": "View Attachments",
+      "icon": "sap-icon://attachment"
+    },
+    { "type": "UPDATE", "name": "Update Record", "icon": "sap-icon://update" },
+    { "type": "ADD", "name": "Add Record", "icon": "sap-icon://add" }
+  ],
+  "Tabs": [
+    {
+      "value": "Tab1",
+      "name": "Fault Details",
+      "type": "Field",
+      "fioriicon": "request",
+      "download": "Yes"
+    },
+    {
+      "value": "Tab2",
+      "name": "Fault Location",
+      "type": "Field",
+      "fioriicon": "action-settings",
+      "download": "Yes"
+    },
+    {
+      "value": "Tab3",
+      "name": "Attachment",
+      "type": "Attachment",
+      "fioriicon": "attachment",
+      "download": "Yes"
+    },
+    {
+      "value": "Tab4",
+      "name": "Contact Details",
+      "fioriicon": "notes",
+      "type": "Field",
+      "download": "Yes"
+    },
+    {
+      "value": "Tab5",
+      "name": "Chat",
+      "fioriicon": "comment",
+      "type": "Chat",
+      "download": "No"
+    },
+    {
+      "value": "Tab6",
+      "name": "Processing Log",
+      "fioriicon": "comment",
+      "type": "Chat",
+      "download": "Yes"
+    }
+  ],
+  "DetailFields": {
+    "None": ["ID", "ReportDate", "Status"],
+    "Tab1": [
+      "ReportType",
+      "FaultDetails",
+      "AdditionalInfo",
+      "Site",
+      "StreetLightNo",
+      "TrafficLightNo",
+      "PayDisplayMachineNo"
+    ],
+    "Tab2": ["FaultLocation", "StreetName", "NearestLandmark"],
+    "Tab3": ["Attachment"],
+    "Tab4": ["Name", "ContactNo", "EmailID", "Address", "Postcode"],
+    "Tab5": ["Question_Response"],
+    "Tab6": ["ProcessingLog"]
+  },
+  "ControlDisplay": {
+    "ControlField": "ReportType",
+    "Fields": [
+      [
+        {
+          "ALL": [
+            "ID",
+            "Name",
+            "ContactNo",
+            "EmailID",
+            "Address",
+            "Postcode",
+            "FaultLocation",
+            "ReportDate",
+            "ReportType",
+            "FaultDetails",
+            "Attachment",
+            "AdditionalInfo",
+            "Status",
+            "NearestLandmark",
+            "Question_Response",
+            "ProcessingLog",
+            "Approver"
+          ]
+        },
+        { "FaultyPayAndDisplay": ["PayDisplayMachineNo"] },
+        { "FaultyStreetLight": ["StreetLightNo"] },
+        { "FaultyTrafficLight": ["TrafficLightNo"] },
+        { "HighwayProblems": [] },
+        { "StreetFault": ["StreetName", "Site"] }
+      ]
+    ]
+  },
+  "FieldDef": [
+    {
+      "name": "ID",
+      "type": "string",
+      "width": "20",
+      "Option": "",
+      "SLabel": "Identification ",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "Name",
+      "type": "string",
+      "width": "20",
+      "Option": "",
+      "SLabel": "Your Name",
+      "LLabel": "Your Name",
+      "Currency": "No"
+    },
+    {
+      "name": "ContactNo",
+      "type": "PhoneNumber",
+      "width": "20",
+      "Option": "",
+      "SLabel": "Contact Number",
+      "LLabel": "Contact Number",
+      "Currency": "No"
+    },
+    {
+      "name": "EmailID",
+      "type": "Email",
+      "width": "100",
+      "Option": "",
+      "SLabel": "Your Email",
+      "LLabel": "Your Email",
+      "Currency": "No"
+    },
+    {
+      "name": "Address",
+      "type": "string",
+      "width": "500",
+      "Option": "",
+      "SLabel": "Your Address",
+      "LLabel": "Your Address",
+      "Currency": "No"
+    },
+    {
+      "name": "Postcode",
+      "type": "string",
+      "width": "20",
+      "Option": "",
+      "SLabel": "Postcode",
+      "LLabel": "Postcode",
+      "Currency": "No"
+    },
+    {
+      "name": "FaultLocation",
+      "type": "string",
+      "width": "50",
+      "Option": "",
+      "SLabel": "Fault Location",
+      "LLabel": "Fault Location",
+      "Currency": "No"
+    },
+    {
+      "name": "ReportDate",
+      "type": "Date",
+      "width": "10",
+      "Option": "",
+      "SLabel": "Report Date",
+      "LLabel": "Report Date",
+      "Currency": "No"
+    },
+    {
+      "name": "ReportType",
+      "type": "string",
+      "width": "200",
+      "Option": "mandatory",
+      "SLabel": "Your report is about",
+      "LLabel": "ReportType",
+      "Currency": "No"
+    },
+    {
+      "name": "FaultDetails",
+      "type": "string",
+      "width": "500",
+      "Option": "mandatory",
+      "SLabel": "Fault/Problem Details",
+      "LLabel": "Fault/Problem Details",
+      "Currency": "No"
+    },
+    {
+      "name": "Attachment",
+      "type": "attachment",
+      "width": "500",
+      "Option": "",
+      "SLabel": "Upload Image",
+      "LLabel": "Upload Image",
+      "Currency": "No"
+    },
+    {
+      "name": "AdditionalInfo",
+      "type": "string",
+      "width": "1000",
+      "Option": "",
+      "SLabel": "Any Additional Information",
+      "LLabel": "Any Additional Information",
+      "Currency": "No"
+    },
+    {
+      "name": "Status",
+      "type": "string",
+      "width": "20",
+      "Option": "",
+      "SLabel": "Complaint Status",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "StreetName",
+      "type": "string",
+      "width": "100",
+      "Option": "",
+      "SLabel": "Street Name",
+      "LLabel": "StreetName",
+      "Currency": "No"
+    },
+    {
+      "name": "Site",
+      "type": "string",
+      "width": "100",
+      "Option": "",
+      "SLabel": "Site",
+      "LLabel": "Site",
+      "Currency": "No"
+    },
+    {
+      "name": "StreetLightNo",
+      "type": "string",
+      "width": "20",
+      "Option": "",
+      "SLabel": "Street Light No",
+      "LLabel": "StreetLightNo",
+      "Currency": "No"
+    },
+    {
+      "name": "NearestLandmark",
+      "type": "string",
+      "width": "100",
+      "Option": "",
+      "SLabel": "Nearest Landmark",
+      "LLabel": "NearestLandmark",
+      "Currency": "No"
+    },
+    {
+      "name": "TrafficLightNo",
+      "type": "string",
+      "width": "50",
+      "Option": "",
+      "SLabel": "Traffic Light No",
+      "LLabel": "TrafficLightNo",
+      "Currency": "No"
+    },
+    {
+      "name": "PayDisplayMachineNo",
+      "type": "string",
+      "width": "100",
+      "Option": "",
+      "SLabel": "Pay Display Machine No",
+      "LLabel": "PayDisplayMachineNo",
+      "Currency": "No"
+    },
+    {
+      "name": "Question_Response",
+      "type": "string",
+      "width": "500",
+      "Option": "",
+      "SLabel": "Here Is Chat Details",
+      "LLabel": "Question_Response",
+      "Currency": "No"
+    },
+    {
+      "name": "ProcessingLog",
+      "type": "string",
+      "width": "500",
+      "Option": "",
+      "SLabel": "Processing Log",
+      "LLabel": "ProcessingLog",
+      "Currency": "No"
+    },
+    {
+      "name": "Approver",
+      "type": "string",
+      "width": "50",
+      "Option": "",
+      "SLabel": "Approver",
+      "LLabel": "Approver",
+      "Currency": "No"
+    }
+  ],
+  "itemConfig": {
+    "ItemFieldDefinition": [],
+    "DisplayFields": [],
+    "ItemButtons": {
+      "itemDisplay": false,
+      "itemAdd": false,
+      "itemEdit": false,
+      "itemDelete": false
+    },
+    "CreateFields": [],
+    "ItemDetails": []
+  }
+}

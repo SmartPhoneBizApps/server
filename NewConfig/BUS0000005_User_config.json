@@ -1,13 +1,15 @@
 {
   "Title": { "ApplicationTitle": "Contact Us", "DetailTitle": "Contact Us" },
   "ListFields": {
-    "IntroField": "ID",
-    "TitleField": "",
+    "IntroField": "YourBusiness",
+    "TitleField": "YourName",
     "fStatus": "Status",
-    "sStatus": "",
+    "sStatus": "Subject",
     "numberField": "",
-    "LFields": ["ID", "Subject", "YourName", "YourEmail", "YourPhone", "Status"]
+    "LFields": ["ID", "YourEmail"],
+    "numberUnitField": ""
   },
+  "ListBOTFields": { "Title": [], "SubTitle": [], "Description": [] },
   "MButtons": [
     {
       "type": "DOWNLOAD",

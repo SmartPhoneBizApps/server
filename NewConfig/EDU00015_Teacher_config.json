@@ -1,1 +1,251 @@
-{"Title": {"ApplicationTitle": "Course Material Access", "DetailTitle": "Access to the course material covered in specific lecture"}, "ListFields": {"IntroField": "ID", "TitleField": "", "fStatus": "", "sStatus": "", "numberField": "", "LFields": ["ID", "Subject", "Topic", "Term", "StudyYear"]}, "MButtons": [{"type": "DOWNLOAD", "name": "Download File", "icon": "sap-icon://download"}, {"type": "APPHELP", "name": "Get App Help", "icon": "sap-icon://sys-help-2"}, {"type": "BOT", "name": "Launch Assistant", "icon": "sap-icon://travel-request"}, {"type": "VIEW", "name": "Change App View", "icon": "sap-icon://chart-table-view"}, {"type": "ADD", "name": "Add Record", "icon": "sap-icon://add"}, {"type": "UPLOAD", "name": "Upload Record", "icon": "sap-icon://upload"}], "DButtons": [{"type": "ATTACHMENT", "name": "View Attachments", "icon": "sap-icon://attachment"}, {"type": "UPDATE", "name": "Update Record", "icon": "sap-icon://update"}, {"type": "ADD", "name": "Add Record", "icon": "sap-icon://add"}], "Tabs": [{"value": "Tab1", "name": "Study Material", "fioriicon": "course-program", "type": "Field", "download": "Yes"}, {"value": "Tab2", "name": "Attachment", "fioriicon": "attachment", "type": "Attachment", "download": "Yes"}], "DetailFields": {"None": ["ID", "StudyYear", "Batch", "Subject", "Status", "Term"], "Tab1": ["Topic", "LectureDate", "LectureBrief"], "Tab2": ["StudyMaterial", "StudyMaterialLink"]}, "ControlDisplay": {"ControlField": "RegisterFor", "Fields": [[{"ALL": ["ID", "Name", "ContactNo", "EmailID", "Address", "Postcode", "ApplicationDate", "RegisterFor", "Status", "Approver", "Question_Response", "ProcessingLog"]}, {"BirthCertificate": ["ChildName", "Surname", "Nationality", "MotherAddress", "MotherNationality", "FatherAddress", "FatherNationality"]}, {"DeathCertificate": ["DeceasedName", "DeathPlace", "DeathDate", "LastAddress", "WasDeath", "DeathCause", "SpouseName"]}, {"MarriageRegistration": ["BrideName", "BrideSurname", "GroomName", "GroomSurname", "MarriagePlace", "BrideFatherName", "GroomFatherName"]}, {"NewHouseName": ["PreferName1", "PreferName2", "PreferName3", "AdditionalInfo"]}]]}, "FieldDef": [{"name": "ID", "type": "string", "width": "20", "Option": "mandatory", "SLabel": "Identification", "LLabel": "Identification", "Currency": "No"}, {"name": "StudyYear", "type": "string", "width": "100", "Option": "mandatory", "SLabel": "Study year", "LLabel": "Study year", "Currency": "No"}, {"name": "Batch", "type": "string", "width": "100", "Option": "", "SLabel": "Section", "LLabel": "Section", "Currency": "No"}, {"name": "Subject", "type": "string", "width": "200", "Option": "", "SLabel": "Subject", "LLabel": "Subject", "Currency": "No"}, {"name": "Topic", "type": "string", "width": "200", "Option": "", "SLabel": "Topic", "LLabel": "Topic", "Currency": "No"}, {"name": "LectureDate", "type": "Date", "width": "10", "Option": "", "SLabel": "Lecture Date", "LLabel": "Lecture Date", "Currency": "No"}, {"name": "LectureBrief", "type": "string", "width": "500", "Option": "", "SLabel": "Lecture Brief", "LLabel": "Lecture Brief", "Currency": "No"}, {"name": "StudyMaterial", "type": "attachment", "width": "500", "Option": "", "SLabel": "Study Material", "LLabel": "Study Material", "Currency": "No"}, {"name": "Status", "type": "string", "width": "20", "Option": "", "SLabel": "Status", "LLabel": "Status", "Currency": "No"}, {"name": "StudyMaterialLink", "type": "hyperlink", "width": "1000", "Option": "", "SLabel": "Study Material Link", "LLabel": "Study Material Link", "Currency": "No"}, {"name": "Term", "type": "string", "width": "50", "Option": "", "SLabel": "Term", "LLabel": "Term", "Currency": "No"}], "itemConfig": {"ItemFieldDefinition": [], "DisplayFields": [], "ItemButtons": {"itemDisplay": false, "itemAdd": false, "itemEdit": false, "itemDelete": false}, "CreateFields": [], "ItemDetails": []}}
+{
+  "Title": {
+    "ApplicationTitle": "Course Material Access",
+    "DetailTitle": "Access to the course material covered in specific lecture"
+  },
+  "ListFields": {
+    "IntroField": "Subject",
+    "TitleField": "Topic",
+    "fStatus": "Status",
+    "sStatus": "",
+    "numberField": "",
+    "LFields": ["ID", "StudyYear"],
+    "numberUnitField": ""
+  },
+  "ListBOTFields": {
+    "Title": ["Subject"],
+    "SubTitle": ["ID"],
+    "Description": ["Topic", "Term"]
+  },
+  "MButtons": [
+    {
+      "type": "DOWNLOAD",
+      "name": "Download File",
+      "icon": "sap-icon://download"
+    },
+    {
+      "type": "APPHELP",
+      "name": "Get App Help",
+      "icon": "sap-icon://sys-help-2"
+    },
+    {
+      "type": "BOT",
+      "name": "Launch Assistant",
+      "icon": "sap-icon://travel-request"
+    },
+    {
+      "type": "VIEW",
+      "name": "Change App View",
+      "icon": "sap-icon://chart-table-view"
+    },
+    { "type": "ADD", "name": "Add Record", "icon": "sap-icon://add" },
+    { "type": "UPLOAD", "name": "Upload Record", "icon": "sap-icon://upload" }
+  ],
+  "DButtons": [
+    {
+      "type": "ATTACHMENT",
+      "name": "View Attachments",
+      "icon": "sap-icon://attachment"
+    },
+    { "type": "UPDATE", "name": "Update Record", "icon": "sap-icon://update" },
+    { "type": "ADD", "name": "Add Record", "icon": "sap-icon://add" }
+  ],
+  "Tabs": [
+    {
+      "value": "Tab1",
+      "name": "Study Material",
+      "fioriicon": "course-program",
+      "type": "Field",
+      "download": "Yes"
+    },
+    {
+      "value": "Tab2",
+      "name": "Attachment",
+      "fioriicon": "attachment",
+      "type": "Attachment",
+      "download": "Yes"
+    }
+  ],
+  "DetailFields": {
+    "None": ["ID", "StudyYear", "Batch", "Subject", "Status", "Term"],
+    "Tab1": ["Topic", "LectureDate", "LectureBrief"],
+    "Tab2": ["StudyMaterial", "StudyMaterialLink"]
+  },
+  "ControlDisplay": {
+    "ControlField": "RegisterFor",
+    "Fields": [
+      [
+        {
+          "ALL": [
+            "ID",
+            "Name",
+            "ContactNo",
+            "EmailID",
+            "Address",
+            "Postcode",
+            "ApplicationDate",
+            "RegisterFor",
+            "Status",
+            "Approver",
+            "Question_Response",
+            "ProcessingLog"
+          ]
+        },
+        {
+          "BirthCertificate": [
+            "ChildName",
+            "Surname",
+            "Nationality",
+            "MotherAddress",
+            "MotherNationality",
+            "FatherAddress",
+            "FatherNationality"
+          ]
+        },
+        {
+          "DeathCertificate": [
+            "DeceasedName",
+            "DeathPlace",
+            "DeathDate",
+            "LastAddress",
+            "WasDeath",
+            "DeathCause",
+            "SpouseName"
+          ]
+        },
+        {
+          "MarriageRegistration": [
+            "BrideName",
+            "BrideSurname",
+            "GroomName",
+            "GroomSurname",
+            "MarriagePlace",
+            "BrideFatherName",
+            "GroomFatherName"
+          ]
+        },
+        {
+          "NewHouseName": [
+            "PreferName1",
+            "PreferName2",
+            "PreferName3",
+            "AdditionalInfo"
+          ]
+        }
+      ]
+    ]
+  },
+  "FieldDef": [
+    {
+      "name": "ID",
+      "type": "string",
+      "width": "20",
+      "Option": "mandatory",
+      "SLabel": "Identification",
+      "LLabel": "Identification",
+      "Currency": "No"
+    },
+    {
+      "name": "StudyYear",
+      "type": "string",
+      "width": "100",
+      "Option": "mandatory",
+      "SLabel": "Study year",
+      "LLabel": "Study year",
+      "Currency": "No"
+    },
+    {
+      "name": "Batch",
+      "type": "string",
+      "width": "100",
+      "Option": "",
+      "SLabel": "Section",
+      "LLabel": "Section",
+      "Currency": "No"
+    },
+    {
+      "name": "Subject",
+      "type": "string",
+      "width": "200",
+      "Option": "",
+      "SLabel": "Subject",
+      "LLabel": "Subject",
+      "Currency": "No"
+    },
+    {
+      "name": "Topic",
+      "type": "string",
+      "width": "200",
+      "Option": "",
+      "SLabel": "Topic",
+      "LLabel": "Topic",
+      "Currency": "No"
+    },
+    {
+      "name": "LectureDate",
+      "type": "Date",
+      "width": "10",
+      "Option": "",
+      "SLabel": "Lecture Date",
+      "LLabel": "Lecture Date",
+      "Currency": "No"
+    },
+    {
+      "name": "LectureBrief",
+      "type": "string",
+      "width": "500",
+      "Option": "",
+      "SLabel": "Lecture Brief",
+      "LLabel": "Lecture Brief",
+      "Currency": "No"
+    },
+    {
+      "name": "StudyMaterial",
+      "type": "attachment",
+      "width": "500",
+      "Option": "",
+      "SLabel": "Study Material",
+      "LLabel": "Study Material",
+      "Currency": "No"
+    },
+    {
+      "name": "Status",
+      "type": "string",
+      "width": "20",
+      "Option": "",
+      "SLabel": "Status",
+      "LLabel": "Status",
+      "Currency": "No"
+    },
+    {
+      "name": "StudyMaterialLink",
+      "type": "hyperlink",
+      "width": "1000",
+      "Option": "",
+      "SLabel": "Study Material Link",
+      "LLabel": "Study Material Link",
+      "Currency": "No"
+    },
+    {
+      "name": "Term",
+      "type": "string",
+      "width": "50",
+      "Option": "",
+      "SLabel": "Term",
+      "LLabel": "Term",
+      "Currency": "No"
+    }
+  ],
+  "itemConfig": {
+    "ItemFieldDefinition": [],
+    "DisplayFields": [],
+    "ItemButtons": {
+      "itemDisplay": false,
+      "itemAdd": false,
+      "itemEdit": false,
+      "itemDelete": false
+    },
+    "CreateFields": [],
+    "ItemDetails": []
+  }
+}

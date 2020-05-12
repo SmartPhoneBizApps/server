@@ -1,1 +1,244 @@
-{"Title": {"ApplicationTitle": "HomeWork", "DetailTitle": "HomeWork"}, "ListFields": {"IntroField": "ID", "TitleField": "", "fStatus": "", "sStatus": "", "numberField": "", "LFields": ["ID", "StudyYear", "Section", "Date"]}, "MButtons": [{"type": "DOWNLOAD", "name": "Download File", "icon": "sap-icon://download"}, {"type": "APPHELP", "name": "Get App Help", "icon": "sap-icon://sys-help-2"}, {"type": "BOT", "name": "Launch Assistant", "icon": "sap-icon://travel-request"}, {"type": "VIEW", "name": "Change App View", "icon": "sap-icon://chart-table-view"}, {"type": "ADD", "name": "Add Record", "icon": "sap-icon://add"}, {"type": "UPLOAD", "name": "Upload Record", "icon": "sap-icon://upload"}], "DButtons": [{"type": "ATTACHMENT", "name": "View Attachments", "icon": "sap-icon://attachment"}, {"type": "UPDATE", "name": "Update Record", "icon": "sap-icon://update"}, {"type": "ADD", "name": "Add Record", "icon": "sap-icon://add"}], "Tabs": [{"value": "Tab1", "name": "Class Info", "type": "Field", "fioriicon": "hello-world", "download": "Yes"}, {"value": "Tab2", "name": "Item", "fioriicon": "notes", "type": "Items", "download": "Yes"}], "DetailFields": {"None": ["ID", "Date", "Status"], "Tab1": ["StudyYear", "Section"]}, "ControlDisplay": {"ControlField": "RegisterFor", "Fields": [[{"ALL": ["ID", "Name", "ContactNo", "EmailID", "Address", "Postcode", "ApplicationDate", "RegisterFor", "Status", "Approver", "Question_Response", "ProcessingLog"]}, {"BirthCertificate": ["ChildName", "Surname", "Nationality", "MotherAddress", "MotherNationality", "FatherAddress", "FatherNationality"]}, {"DeathCertificate": ["DeceasedName", "DeathPlace", "DeathDate", "LastAddress", "WasDeath", "DeathCause", "SpouseName"]}, {"MarriageRegistration": ["BrideName", "BrideSurname", "GroomName", "GroomSurname", "MarriagePlace", "BrideFatherName", "GroomFatherName"]}, {"NewHouseName": ["PreferName1", "PreferName2", "PreferName3", "AdditionalInfo"]}]]}, "FieldDef": [{"name": "ID", "type": "string", "width": "20", "Option": "", "SLabel": "ID", "LLabel": "", "Currency": "No"}, {"name": "StudyYear", "type": "string", "width": "20", "Option": "", "SLabel": "Study Year", "LLabel": "StudyYear", "Currency": "No"}, {"name": "Section", "type": "string", "width": "50", "Option": "", "SLabel": "Section", "LLabel": "Section", "Currency": "No"}, {"name": "Date", "type": "Date", "width": "10", "Option": "", "SLabel": "Homework Date", "LLabel": "Homework Date", "Currency": "No"}, {"name": "Status", "type": "string", "width": "20", "Option": "", "SLabel": "Status", "LLabel": "", "Currency": "No"}], "itemConfig": {"ItemFieldDefinition": [{"name": "ItemNumber", "type": "string", "width": "20", "SLabel": "Item Number", "Option": "", "Currency": "No"}, {"name": "ID", "type": "string", "width": "20", "SLabel": "ID", "Option": "", "Currency": "No"}, {"name": "Subject", "type": "string", "width": "50", "SLabel": "Subject", "Option": "", "Currency": "No"}, {"name": "Homework", "type": "string", "width": "1000", "SLabel": "Homework", "Option": "", "Currency": "No"}, {"name": "DueDate", "type": "Date", "width": "10", "SLabel": "Homework Due Date", "Option": "", "Currency": "No"}], "DisplayFields": ["ItemNumber", "Subject", "Homework", "DueDate"], "ItemButtons": {"itemDisplay": true, "itemAdd": false, "itemEdit": false, "itemDelete": false}, "CreateFields": [], "ItemDetails": [{"name": "ItemNumber", "Tab": "Tab2", "Sequence": "1", "Mode": "Display"}, {"name": "Subject", "Tab": "Tab2", "Sequence": "1", "Mode": "Edit"}, {"name": "Homework", "Tab": "Tab2", "Sequence": "1", "Mode": "Edit"}, {"name": "DueDate", "Tab": "Tab2", "Sequence": "1", "Mode": "Edit"}]}}
+{
+  "Title": { "ApplicationTitle": "HomeWork", "DetailTitle": "HomeWork" },
+  "ListFields": {
+    "IntroField": "Section",
+    "TitleField": "StudyYear",
+    "fStatus": "Status",
+    "sStatus": "",
+    "numberField": "",
+    "LFields": ["ID"],
+    "numberUnitField": ""
+  },
+  "ListBOTFields": {
+    "Title": ["Section"],
+    "SubTitle": ["ID", "StudyYear"],
+    "Description": []
+  },
+  "MButtons": [
+    {
+      "type": "DOWNLOAD",
+      "name": "Download File",
+      "icon": "sap-icon://download"
+    },
+    {
+      "type": "APPHELP",
+      "name": "Get App Help",
+      "icon": "sap-icon://sys-help-2"
+    },
+    {
+      "type": "BOT",
+      "name": "Launch Assistant",
+      "icon": "sap-icon://travel-request"
+    },
+    {
+      "type": "VIEW",
+      "name": "Change App View",
+      "icon": "sap-icon://chart-table-view"
+    },
+    { "type": "ADD", "name": "Add Record", "icon": "sap-icon://add" },
+    { "type": "UPLOAD", "name": "Upload Record", "icon": "sap-icon://upload" }
+  ],
+  "DButtons": [
+    {
+      "type": "ATTACHMENT",
+      "name": "View Attachments",
+      "icon": "sap-icon://attachment"
+    },
+    { "type": "UPDATE", "name": "Update Record", "icon": "sap-icon://update" },
+    { "type": "ADD", "name": "Add Record", "icon": "sap-icon://add" }
+  ],
+  "Tabs": [
+    {
+      "value": "Tab1",
+      "name": "Class Info",
+      "type": "Field",
+      "fioriicon": "hello-world",
+      "download": "Yes"
+    },
+    {
+      "value": "Tab2",
+      "name": "Item",
+      "fioriicon": "notes",
+      "type": "Items",
+      "download": "Yes"
+    }
+  ],
+  "DetailFields": {
+    "None": ["ID", "Date", "Status"],
+    "Tab1": ["StudyYear", "Section"]
+  },
+  "ControlDisplay": {
+    "ControlField": "RegisterFor",
+    "Fields": [
+      [
+        {
+          "ALL": [
+            "ID",
+            "Name",
+            "ContactNo",
+            "EmailID",
+            "Address",
+            "Postcode",
+            "ApplicationDate",
+            "RegisterFor",
+            "Status",
+            "Approver",
+            "Question_Response",
+            "ProcessingLog"
+          ]
+        },
+        {
+          "BirthCertificate": [
+            "ChildName",
+            "Surname",
+            "Nationality",
+            "MotherAddress",
+            "MotherNationality",
+            "FatherAddress",
+            "FatherNationality"
+          ]
+        },
+        {
+          "DeathCertificate": [
+            "DeceasedName",
+            "DeathPlace",
+            "DeathDate",
+            "LastAddress",
+            "WasDeath",
+            "DeathCause",
+            "SpouseName"
+          ]
+        },
+        {
+          "MarriageRegistration": [
+            "BrideName",
+            "BrideSurname",
+            "GroomName",
+            "GroomSurname",
+            "MarriagePlace",
+            "BrideFatherName",
+            "GroomFatherName"
+          ]
+        },
+        {
+          "NewHouseName": [
+            "PreferName1",
+            "PreferName2",
+            "PreferName3",
+            "AdditionalInfo"
+          ]
+        }
+      ]
+    ]
+  },
+  "FieldDef": [
+    {
+      "name": "ID",
+      "type": "string",
+      "width": "20",
+      "Option": "",
+      "SLabel": "ID",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "StudyYear",
+      "type": "string",
+      "width": "20",
+      "Option": "",
+      "SLabel": "Study Year",
+      "LLabel": "StudyYear",
+      "Currency": "No"
+    },
+    {
+      "name": "Section",
+      "type": "string",
+      "width": "50",
+      "Option": "",
+      "SLabel": "Section",
+      "LLabel": "Section",
+      "Currency": "No"
+    },
+    {
+      "name": "Date",
+      "type": "Date",
+      "width": "10",
+      "Option": "",
+      "SLabel": "Homework Date",
+      "LLabel": "Homework Date",
+      "Currency": "No"
+    },
+    {
+      "name": "Status",
+      "type": "string",
+      "width": "20",
+      "Option": "",
+      "SLabel": "Status",
+      "LLabel": "",
+      "Currency": "No"
+    }
+  ],
+  "itemConfig": {
+    "ItemFieldDefinition": [
+      {
+        "name": "ItemNumber",
+        "type": "string",
+        "width": "20",
+        "SLabel": "Item Number",
+        "Option": "",
+        "Currency": "No"
+      },
+      {
+        "name": "ID",
+        "type": "string",
+        "width": "20",
+        "SLabel": "ID",
+        "Option": "",
+        "Currency": "No"
+      },
+      {
+        "name": "Subject",
+        "type": "string",
+        "width": "50",
+        "SLabel": "Subject",
+        "Option": "",
+        "Currency": "No"
+      },
+      {
+        "name": "Homework",
+        "type": "string",
+        "width": "1000",
+        "SLabel": "Homework",
+        "Option": "",
+        "Currency": "No"
+      },
+      {
+        "name": "DueDate",
+        "type": "Date",
+        "width": "10",
+        "SLabel": "Homework Due Date",
+        "Option": "",
+        "Currency": "No"
+      }
+    ],
+    "DisplayFields": ["ItemNumber", "Subject", "Homework", "DueDate"],
+    "ItemButtons": {
+      "itemDisplay": true,
+      "itemAdd": false,
+      "itemEdit": false,
+      "itemDelete": false
+    },
+    "CreateFields": [],
+    "ItemDetails": [
+      {
+        "name": "ItemNumber",
+        "Tab": "Tab2",
+        "Sequence": "1",
+        "Mode": "Display"
+      },
+      { "name": "Subject", "Tab": "Tab2", "Sequence": "1", "Mode": "Edit" },
+      { "name": "Homework", "Tab": "Tab2", "Sequence": "1", "Mode": "Edit" },
+      { "name": "DueDate", "Tab": "Tab2", "Sequence": "1", "Mode": "Edit" }
+    ]
+  }
+}

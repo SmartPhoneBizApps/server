@@ -4,19 +4,18 @@
     "DetailTitle": "Details of College and Courses"
   },
   "ListFields": {
-    "IntroField": "ID",
-    "TitleField": "",
+    "IntroField": "CourseName",
+    "TitleField": "CourseName",
     "fStatus": "Status",
     "sStatus": "",
     "numberField": "",
-    "LFields": [
-      "ID",
-      "CollegeName",
-      "CourseName",
-      "OpenDayDate",
-      "Status",
-      "CourseGroup"
-    ]
+    "LFields": ["ID", "CollegeName"],
+    "numberUnitField": ""
+  },
+  "ListBOTFields": {
+    "Title": ["ID"],
+    "SubTitle": ["CollegeName", "Status"],
+    "Description": ["CourseName", "OpenDayDate"]
   },
   "MButtons": [
     {

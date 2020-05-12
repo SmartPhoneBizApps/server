@@ -4,13 +4,15 @@
     "DetailTitle": "Supplier Performance"
   },
   "ListFields": {
-    "IntroField": "ID",
-    "TitleField": "",
+    "IntroField": "SurveyDate",
+    "TitleField": "SupplierName",
     "fStatus": "Status",
-    "sStatus": "",
+    "sStatus": "OverallRating",
     "numberField": "",
-    "LFields": ["ID", "SupplierName", "SurveyDate", "OverallRating", "Status"]
+    "LFields": ["SupplierID", "Customer", "Assesse"],
+    "numberUnitField": ""
   },
+  "ListBOTFields": { "Title": [], "SubTitle": [], "Description": [] },
   "MButtons": [
     {
       "type": "DOWNLOAD",

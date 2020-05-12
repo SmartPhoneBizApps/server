@@ -4,13 +4,15 @@
     "DetailTitle": "Orthopaedic Evaluation"
   },
   "ListFields": {
-    "IntroField": "ID",
-    "TitleField": "",
+    "IntroField": "PatientFirstName",
+    "TitleField": "PatientLastName",
     "fStatus": "Status",
-    "sStatus": "",
+    "sStatus": "NHS_Number",
     "numberField": "",
-    "LFields": ["ID", "PatientName", "ReferringPhysician", "Status"]
+    "LFields": ["ReferringPhysician", "ReferralTo", "Patient_Email"],
+    "numberUnitField": ""
   },
+  "ListBOTFields": { "Title": [], "SubTitle": [], "Description": [] },
   "MButtons": [
     {
       "type": "DOWNLOAD",

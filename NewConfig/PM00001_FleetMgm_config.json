@@ -1,1 +1,214 @@
-{"Title": {"ApplicationTitle": "Fleet Tracking", "DetailTitle": "Fleet Tracking"}, "ListFields": {"IntroField": "ID", "TitleField": "", "fStatus": "Status", "sStatus": "", "numberField": "", "LFields": ["ID", "RegNo", "Vehicle", "Model", "RegYear", "ChassisNo", "PurchaseDate", "Status"]}, "MButtons": [{"type": "DOWNLOAD", "name": "Download File", "icon": "sap-icon://download"}, {"type": "APPHELP", "name": "Get App Help", "icon": "sap-icon://sys-help-2"}, {"type": "BOT", "name": "Launch Assistant", "icon": "sap-icon://travel-request"}, {"type": "VIEW", "name": "Change App View", "icon": "sap-icon://chart-table-view"}, {"type": "ADD", "name": "Add Record", "icon": "sap-icon://add"}, {"type": "UPLOAD", "name": "Upload Record", "icon": "sap-icon://upload"}], "DButtons": [{"type": "ATTACHMENT", "name": "View Attachments", "icon": "sap-icon://attachment"}, {"type": "UPDATE", "name": "Update Record", "icon": "sap-icon://update"}, {"type": "ADD", "name": "Add Record", "icon": "sap-icon://add"}], "Tabs": [{"value": "Tab1", "name": "Fleet", "type": "Field"}, {"value": "Tab2", "name": "IssuesTo", "type": "Field"}, {"value": "Tab3", "name": "Maintenance", "type": "Field"}, {"value": "Tab4", "name": "Attachment", "fioriicon": "attachment", "type": "Attachment"}], "DetailFields": {"None": ["ID", "RegNo"], "Tab1": ["Vehicle", "Model", "RegYear", "ChassisNo", "PurchaseDate", "Status"], "Tab2": ["IssueDate", "IssuesTo", "EmpID", "Phone", "Email"], "Tab3": ["MOTDueDate", "LastService", "NextService", "Millage", "MillageDate"], "Tab4": ["PhotoID"]}, "ControlDisplay": {"ControlField": "BookingFor", "Fields": [[{"ALL": ["ID", "FirstName", "LastName", "PhoneNo", "Status", "Email", "Comments", "BookingFor", "Price", "Quantity", "NetValue", "VATPer", "VATRate", "VATVal", "GrossValue", "MoreInfo", "Attachment1", "Attachment2", "PostCode", "Emailid", "HouseNo", "Address", "TotalGrossValue"]}, {"CarPark": ["CarPark", "CarRegistration"]}, {"HotDesk": ["Building", "HotDeskNo"]}, {"MeetingRoom": ["NoOfPeople", "RoomLayout", "Slot", "LunchRequired", "DietaryRequirement", "MeetingDate"]}, {"Visitor": ["VisitorCompany", "VisitorName", "VisitorPhone", "VisitorEmail"]}]]}, "FieldDef": [{"name": "ID", "type": "string", "width": "20", "Option": "", "SLabel": "", "LLabel": ""}, {"name": "RegNo", "type": "string", "width": "50"}, {"name": "Vehicle", "type": "string", "width": "50"}, {"name": "Model", "type": "string", "width": "50"}, {"name": "RegYear", "type": "string", "width": "50"}, {"name": "ChassisNo", "Option": "", "type": "barcode", "width": "50", "SLabel": "", "LLabel": ""}, {"name": "PurchaseDate", "type": "Date", "width": "10"}, {"name": "IssueDate", "type": "Date", "width": "10"}, {"name": "IssuesTo", "type": "string", "width": "50"}, {"name": "PhotoID", "type": "attachment", "width": "50"}, {"name": "EmpID", "type": "string", "width": "50"}, {"name": "Phone", "type": "string", "width": "50"}, {"name": "Email", "type": "string", "width": "50"}, {"name": "MOTDueDate", "type": "Date", "width": "10"}, {"name": "LastService", "type": "Date", "width": "10"}, {"name": "NextService", "type": "Date", "width": "10"}, {"name": "Millage", "type": "string", "width": "50"}, {"name": "MillageDate", "type": "Date", "width": "10"}, {"name": "Status", "type": "string", "width": "20"}], "itemConfig": {"ItemFieldDefinition": [{"name": "ItemNumber", "type": "string", "width": "1", "SLabel": "Item Number", "Option": "", "Currency": "No"}, {"name": "ItemNumber", "type": "string", "width": "1", "SLabel": "Item Number", "Option": "", "Currency": "No"}, {"name": "Name", "type": "string", "width": "1", "SLabel": "Name", "Option": "", "Currency": "No"}, {"name": "City", "type": "string", "width": "1", "SLabel": "City", "Option": "", "Currency": "No"}], "DisplayFields": [], "ItemButtons": {"itemDisplay": false, "itemAdd": false, "itemEdit": false, "itemDelete": false}, "CreateFields": [], "ItemDetails": []}}
+{
+  "Title": {
+    "ApplicationTitle": "Fleet Tracking",
+    "DetailTitle": "Fleet Tracking"
+  },
+  "ListFields": {
+    "IntroField": "Vehicle",
+    "TitleField": "RegNo",
+    "fStatus": "Status",
+    "sStatus": "",
+    "numberField": "",
+    "LFields": ["ID", "Model", "RegYear"],
+    "numberUnitField": ""
+  },
+  "ListBOTFields": { "Title": [], "SubTitle": [], "Description": [] },
+  "MButtons": [
+    {
+      "type": "DOWNLOAD",
+      "name": "Download File",
+      "icon": "sap-icon://download"
+    },
+    {
+      "type": "APPHELP",
+      "name": "Get App Help",
+      "icon": "sap-icon://sys-help-2"
+    },
+    {
+      "type": "BOT",
+      "name": "Launch Assistant",
+      "icon": "sap-icon://travel-request"
+    },
+    {
+      "type": "VIEW",
+      "name": "Change App View",
+      "icon": "sap-icon://chart-table-view"
+    },
+    { "type": "ADD", "name": "Add Record", "icon": "sap-icon://add" },
+    { "type": "UPLOAD", "name": "Upload Record", "icon": "sap-icon://upload" }
+  ],
+  "DButtons": [
+    {
+      "type": "ATTACHMENT",
+      "name": "View Attachments",
+      "icon": "sap-icon://attachment"
+    },
+    { "type": "UPDATE", "name": "Update Record", "icon": "sap-icon://update" },
+    { "type": "ADD", "name": "Add Record", "icon": "sap-icon://add" }
+  ],
+  "Tabs": [
+    { "value": "Tab1", "name": "Fleet", "type": "Field" },
+    { "value": "Tab2", "name": "IssuesTo", "type": "Field" },
+    { "value": "Tab3", "name": "Maintenance", "type": "Field" },
+    {
+      "value": "Tab4",
+      "name": "Attachment",
+      "fioriicon": "attachment",
+      "type": "Attachment"
+    }
+  ],
+  "DetailFields": {
+    "None": ["ID", "RegNo"],
+    "Tab1": [
+      "Vehicle",
+      "Model",
+      "RegYear",
+      "ChassisNo",
+      "PurchaseDate",
+      "Status"
+    ],
+    "Tab2": ["IssueDate", "IssuesTo", "EmpID", "Phone", "Email"],
+    "Tab3": [
+      "MOTDueDate",
+      "LastService",
+      "NextService",
+      "Millage",
+      "MillageDate"
+    ],
+    "Tab4": ["PhotoID"]
+  },
+  "ControlDisplay": {
+    "ControlField": "BookingFor",
+    "Fields": [
+      [
+        {
+          "ALL": [
+            "ID",
+            "FirstName",
+            "LastName",
+            "PhoneNo",
+            "Status",
+            "Email",
+            "Comments",
+            "BookingFor",
+            "Price",
+            "Quantity",
+            "NetValue",
+            "VATPer",
+            "VATRate",
+            "VATVal",
+            "GrossValue",
+            "MoreInfo",
+            "Attachment1",
+            "Attachment2",
+            "PostCode",
+            "Emailid",
+            "HouseNo",
+            "Address",
+            "TotalGrossValue"
+          ]
+        },
+        { "CarPark": ["CarPark", "CarRegistration"] },
+        { "HotDesk": ["Building", "HotDeskNo"] },
+        {
+          "MeetingRoom": [
+            "NoOfPeople",
+            "RoomLayout",
+            "Slot",
+            "LunchRequired",
+            "DietaryRequirement",
+            "MeetingDate"
+          ]
+        },
+        {
+          "Visitor": [
+            "VisitorCompany",
+            "VisitorName",
+            "VisitorPhone",
+            "VisitorEmail"
+          ]
+        }
+      ]
+    ]
+  },
+  "FieldDef": [
+    {
+      "name": "ID",
+      "type": "string",
+      "width": "20",
+      "Option": "",
+      "SLabel": "",
+      "LLabel": ""
+    },
+    { "name": "RegNo", "type": "string", "width": "50" },
+    { "name": "Vehicle", "type": "string", "width": "50" },
+    { "name": "Model", "type": "string", "width": "50" },
+    { "name": "RegYear", "type": "string", "width": "50" },
+    {
+      "name": "ChassisNo",
+      "Option": "",
+      "type": "barcode",
+      "width": "50",
+      "SLabel": "",
+      "LLabel": ""
+    },
+    { "name": "PurchaseDate", "type": "Date", "width": "10" },
+    { "name": "IssueDate", "type": "Date", "width": "10" },
+    { "name": "IssuesTo", "type": "string", "width": "50" },
+    { "name": "PhotoID", "type": "attachment", "width": "50" },
+    { "name": "EmpID", "type": "string", "width": "50" },
+    { "name": "Phone", "type": "string", "width": "50" },
+    { "name": "Email", "type": "string", "width": "50" },
+    { "name": "MOTDueDate", "type": "Date", "width": "10" },
+    { "name": "LastService", "type": "Date", "width": "10" },
+    { "name": "NextService", "type": "Date", "width": "10" },
+    { "name": "Millage", "type": "string", "width": "50" },
+    { "name": "MillageDate", "type": "Date", "width": "10" },
+    { "name": "Status", "type": "string", "width": "20" }
+  ],
+  "itemConfig": {
+    "ItemFieldDefinition": [
+      {
+        "name": "ItemNumber",
+        "type": "string",
+        "width": "1",
+        "SLabel": "Item Number",
+        "Option": "",
+        "Currency": "No"
+      },
+      {
+        "name": "ItemNumber",
+        "type": "string",
+        "width": "1",
+        "SLabel": "Item Number",
+        "Option": "",
+        "Currency": "No"
+      },
+      {
+        "name": "Name",
+        "type": "string",
+        "width": "1",
+        "SLabel": "Name",
+        "Option": "",
+        "Currency": "No"
+      },
+      {
+        "name": "City",
+        "type": "string",
+        "width": "1",
+        "SLabel": "City",
+        "Option": "",
+        "Currency": "No"
+      }
+    ],
+    "DisplayFields": [],
+    "ItemButtons": {
+      "itemDisplay": false,
+      "itemAdd": false,
+      "itemEdit": false,
+      "itemDelete": false
+    },
+    "CreateFields": [],
+    "ItemDetails": []
+  }
+}

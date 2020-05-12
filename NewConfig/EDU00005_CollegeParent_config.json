@@ -1,1 +1,345 @@
-{"Title": {"ApplicationTitle": "Merit List", "DetailTitle": "Merit List"}, "ListFields": {"IntroField": "ID", "TitleField": "", "fStatus": "Status", "sStatus": "", "numberField": "", "LFields": ["ID", "Name", "Surname", "Rank", "Status"]}, "MButtons": [{"type": "DOWNLOAD", "name": "Download File", "icon": "sap-icon://download"}, {"type": "APPHELP", "name": "Get App Help", "icon": "sap-icon://sys-help-2"}, {"type": "BOT", "name": "Launch Assistant", "icon": "sap-icon://travel-request"}, {"type": "VIEW", "name": "Change App View", "icon": "sap-icon://chart-table-view"}, {"type": "ADD", "name": "Add Record", "icon": "sap-icon://add"}, {"type": "UPLOAD", "name": "Upload Record", "icon": "sap-icon://upload"}], "DButtons": [{"type": "ATTACHMENT", "name": "View Attachments", "icon": "sap-icon://attachment"}, {"type": "UPDATE", "name": "Update Record", "icon": "sap-icon://update"}, {"type": "ADD", "name": "Add Record", "icon": "sap-icon://add"}], "Tabs": [{"value": "Tab1", "name": "Details", "type": "Field", "fioriicon": "notes"}, {"value": "Tab2", "name": "Merit", "type": "Field", "fioriicon": "chalkboard"}, {"value": "Tab3", "name": "KeyDates", "type": "Field", "fioriicon": "database"}], "DetailFields": {"None": ["ID", "Status", "ExamCentre"], "Tab1": ["DoB", "Name", "Surname", "Street", "City", "PostCode", "State", "Country"], "Tab2": ["ScoreMaths", "ScorePhysics", "ScoreChemistry", "Rank"], "Tab3": ["DateOfReg", "RegCentre", "FeePaymentDate", "ChoiceLockDate", "ResultDate"]}, "ControlDisplay": {"ControlField": "RegisterFor", "Fields": [[{"ALL": ["ID", "Name", "ContactNo", "EmailID", "Address", "Postcode", "ApplicationDate", "RegisterFor", "Status", "Approver", "Question_Response", "ProcessingLog"]}, {"BirthCertificate": ["ChildName", "Surname", "Nationality", "MotherAddress", "MotherNationality", "FatherAddress", "FatherNationality"]}, {"DeathCertificate": ["DeceasedName", "DeathPlace", "DeathDate", "LastAddress", "WasDeath", "DeathCause", "SpouseName"]}, {"MarriageRegistration": ["BrideName", "BrideSurname", "GroomName", "GroomSurname", "MarriagePlace", "BrideFatherName", "GroomFatherName"]}, {"NewHouseName": ["PreferName1", "PreferName2", "PreferName3", "AdditionalInfo"]}]]}, "FieldDef": [{"name": "ID", "type": "string", "width": "20", "Option": "", "SLabel": "ID", "LLabel": "", "Currency": "No"}, {"name": "Name", "type": "string", "width": "100", "Option": "", "SLabel": "Name", "LLabel": "", "Currency": "No"}, {"name": "Surname", "type": "string", "width": "100", "Option": "", "SLabel": "Surname", "LLabel": "", "Currency": "No"}, {"name": "DoB", "type": "Date", "width": "10", "Option": "", "SLabel": "Date of birth", "LLabel": "", "Currency": "No"}, {"name": "DateOfReg", "type": "Date", "width": "10", "Option": "", "SLabel": "Date of Registration", "LLabel": "", "Currency": "No"}, {"name": "RegCentre", "type": "string", "width": "100", "Option": "", "SLabel": "Registration Center", "LLabel": "", "Currency": "No"}, {"name": "Street", "type": "string", "width": "100", "Option": "", "SLabel": "Street", "LLabel": "", "Currency": "No"}, {"name": "City", "type": "string", "width": "100", "Option": "", "SLabel": "City", "LLabel": "", "Currency": "No"}, {"name": "PostCode", "type": "string", "width": "100", "Option": "", "SLabel": "Post Code", "LLabel": "", "Currency": "No"}, {"name": "State", "type": "string", "width": "100", "Option": "", "SLabel": "State", "LLabel": "", "Currency": "No"}, {"name": "Country", "type": "string", "width": "100", "Option": "", "SLabel": "Country", "LLabel": "", "Currency": "No"}, {"name": "ExamCentre", "type": "string", "width": "100", "Option": "", "SLabel": "Exam Centre", "LLabel": "", "Currency": "No"}, {"name": "ResultDate", "type": "Date", "width": "10", "Option": "", "SLabel": "Result Date", "LLabel": "", "Currency": "No"}, {"name": "Rank", "type": "string", "width": "100", "Option": "", "SLabel": "Rank", "LLabel": "", "Currency": "No"}, {"name": "ScoreMaths", "type": "string", "width": "100", "Option": "", "SLabel": "Math Score", "LLabel": "", "Currency": "No"}, {"name": "ScorePhysics", "type": "string", "width": "100", "Option": "", "SLabel": "Physics Score", "LLabel": "", "Currency": "No"}, {"name": "ScoreChemistry", "type": "string", "width": "20", "Option": "", "SLabel": "Chemistry Score", "LLabel": "", "Currency": "No"}, {"name": "FeePaymentDate", "type": "Date", "width": "10", "Option": "", "SLabel": "Fee payment Date", "LLabel": "", "Currency": "No"}, {"name": "ChoiceLockDate", "type": "Date", "width": "10", "Option": "", "SLabel": "Lock date fro choices", "LLabel": "", "Currency": "No"}, {"name": "Status", "type": "string", "width": "20", "Option": "", "SLabel": "Status", "LLabel": "", "Currency": "No"}], "itemConfig": {"ItemFieldDefinition": [], "DisplayFields": [], "ItemButtons": {"itemDisplay": false, "itemAdd": false, "itemEdit": false, "itemDelete": false}, "CreateFields": [], "ItemDetails": []}}
+{
+  "Title": { "ApplicationTitle": "Merit List", "DetailTitle": "Merit List" },
+  "ListFields": {
+    "IntroField": "Name",
+    "TitleField": "Surname",
+    "fStatus": "Status",
+    "sStatus": "",
+    "numberField": "",
+    "LFields": ["ID", "Rank"],
+    "numberUnitField": ""
+  },
+  "ListBOTFields": { "Title": [], "SubTitle": [], "Description": [] },
+  "MButtons": [
+    {
+      "type": "DOWNLOAD",
+      "name": "Download File",
+      "icon": "sap-icon://download"
+    },
+    {
+      "type": "APPHELP",
+      "name": "Get App Help",
+      "icon": "sap-icon://sys-help-2"
+    },
+    {
+      "type": "BOT",
+      "name": "Launch Assistant",
+      "icon": "sap-icon://travel-request"
+    },
+    {
+      "type": "VIEW",
+      "name": "Change App View",
+      "icon": "sap-icon://chart-table-view"
+    },
+    { "type": "ADD", "name": "Add Record", "icon": "sap-icon://add" },
+    { "type": "UPLOAD", "name": "Upload Record", "icon": "sap-icon://upload" }
+  ],
+  "DButtons": [
+    {
+      "type": "ATTACHMENT",
+      "name": "View Attachments",
+      "icon": "sap-icon://attachment"
+    },
+    { "type": "UPDATE", "name": "Update Record", "icon": "sap-icon://update" },
+    { "type": "ADD", "name": "Add Record", "icon": "sap-icon://add" }
+  ],
+  "Tabs": [
+    {
+      "value": "Tab1",
+      "name": "Details",
+      "type": "Field",
+      "fioriicon": "notes"
+    },
+    {
+      "value": "Tab2",
+      "name": "Merit",
+      "type": "Field",
+      "fioriicon": "chalkboard"
+    },
+    {
+      "value": "Tab3",
+      "name": "KeyDates",
+      "type": "Field",
+      "fioriicon": "database"
+    }
+  ],
+  "DetailFields": {
+    "None": ["ID", "Status", "ExamCentre"],
+    "Tab1": [
+      "DoB",
+      "Name",
+      "Surname",
+      "Street",
+      "City",
+      "PostCode",
+      "State",
+      "Country"
+    ],
+    "Tab2": ["ScoreMaths", "ScorePhysics", "ScoreChemistry", "Rank"],
+    "Tab3": [
+      "DateOfReg",
+      "RegCentre",
+      "FeePaymentDate",
+      "ChoiceLockDate",
+      "ResultDate"
+    ]
+  },
+  "ControlDisplay": {
+    "ControlField": "RegisterFor",
+    "Fields": [
+      [
+        {
+          "ALL": [
+            "ID",
+            "Name",
+            "ContactNo",
+            "EmailID",
+            "Address",
+            "Postcode",
+            "ApplicationDate",
+            "RegisterFor",
+            "Status",
+            "Approver",
+            "Question_Response",
+            "ProcessingLog"
+          ]
+        },
+        {
+          "BirthCertificate": [
+            "ChildName",
+            "Surname",
+            "Nationality",
+            "MotherAddress",
+            "MotherNationality",
+            "FatherAddress",
+            "FatherNationality"
+          ]
+        },
+        {
+          "DeathCertificate": [
+            "DeceasedName",
+            "DeathPlace",
+            "DeathDate",
+            "LastAddress",
+            "WasDeath",
+            "DeathCause",
+            "SpouseName"
+          ]
+        },
+        {
+          "MarriageRegistration": [
+            "BrideName",
+            "BrideSurname",
+            "GroomName",
+            "GroomSurname",
+            "MarriagePlace",
+            "BrideFatherName",
+            "GroomFatherName"
+          ]
+        },
+        {
+          "NewHouseName": [
+            "PreferName1",
+            "PreferName2",
+            "PreferName3",
+            "AdditionalInfo"
+          ]
+        }
+      ]
+    ]
+  },
+  "FieldDef": [
+    {
+      "name": "ID",
+      "type": "string",
+      "width": "20",
+      "Option": "",
+      "SLabel": "ID",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "Name",
+      "type": "string",
+      "width": "100",
+      "Option": "",
+      "SLabel": "Name",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "Surname",
+      "type": "string",
+      "width": "100",
+      "Option": "",
+      "SLabel": "Surname",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "DoB",
+      "type": "Date",
+      "width": "10",
+      "Option": "",
+      "SLabel": "Date of birth",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "DateOfReg",
+      "type": "Date",
+      "width": "10",
+      "Option": "",
+      "SLabel": "Date of Registration",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "RegCentre",
+      "type": "string",
+      "width": "100",
+      "Option": "",
+      "SLabel": "Registration Center",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "Street",
+      "type": "string",
+      "width": "100",
+      "Option": "",
+      "SLabel": "Street",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "City",
+      "type": "string",
+      "width": "100",
+      "Option": "",
+      "SLabel": "City",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "PostCode",
+      "type": "string",
+      "width": "100",
+      "Option": "",
+      "SLabel": "Post Code",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "State",
+      "type": "string",
+      "width": "100",
+      "Option": "",
+      "SLabel": "State",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "Country",
+      "type": "string",
+      "width": "100",
+      "Option": "",
+      "SLabel": "Country",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "ExamCentre",
+      "type": "string",
+      "width": "100",
+      "Option": "",
+      "SLabel": "Exam Centre",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "ResultDate",
+      "type": "Date",
+      "width": "10",
+      "Option": "",
+      "SLabel": "Result Date",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "Rank",
+      "type": "string",
+      "width": "100",
+      "Option": "",
+      "SLabel": "Rank",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "ScoreMaths",
+      "type": "string",
+      "width": "100",
+      "Option": "",
+      "SLabel": "Math Score",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "ScorePhysics",
+      "type": "string",
+      "width": "100",
+      "Option": "",
+      "SLabel": "Physics Score",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "ScoreChemistry",
+      "type": "string",
+      "width": "20",
+      "Option": "",
+      "SLabel": "Chemistry Score",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "FeePaymentDate",
+      "type": "Date",
+      "width": "10",
+      "Option": "",
+      "SLabel": "Fee payment Date",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "ChoiceLockDate",
+      "type": "Date",
+      "width": "10",
+      "Option": "",
+      "SLabel": "Lock date fro choices",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "Status",
+      "type": "string",
+      "width": "20",
+      "Option": "",
+      "SLabel": "Status",
+      "LLabel": "",
+      "Currency": "No"
+    }
+  ],
+  "itemConfig": {
+    "ItemFieldDefinition": [],
+    "DisplayFields": [],
+    "ItemButtons": {
+      "itemDisplay": false,
+      "itemAdd": false,
+      "itemEdit": false,
+      "itemDelete": false
+    },
+    "CreateFields": [],
+    "ItemDetails": []
+  }
+}

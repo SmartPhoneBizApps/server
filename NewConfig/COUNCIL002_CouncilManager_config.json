@@ -1,1 +1,130 @@
-{"Title": {"ApplicationTitle": "Change in Circumstances", "DetailTitle": "Change in Circumstances"}, "ListFields": {"IntroField": "", "TitleField": "", "fStatus": "Status", "sStatus": "", "numberField": "", "LFields": ["ReportNo", "YourName", "ContactNo", "EmailID", "Status"]}, "MButtons": [{"type": "DOWNLOAD", "name": "Download File", "icon": "sap-icon://download"}, {"type": "APPHELP", "name": "Get App Help", "icon": "sap-icon://sys-help-2"}, {"type": "BOT", "name": "Launch Assistant", "icon": "sap-icon://travel-request"}, {"type": "VIEW", "name": "Change App View", "icon": "sap-icon://chart-table-view"}, {"type": "ADD", "name": "Add Record", "icon": "sap-icon://add"}, {"type": "UPLOAD", "name": "Upload Record", "icon": "sap-icon://upload"}], "DButtons": [{"type": "ATTACHMENT", "name": "View Attachments", "icon": "sap-icon://attachment"}, {"type": "UPDATE", "name": "Update Record", "icon": "sap-icon://update"}, {"type": "ADD", "name": "Add Record", "icon": "sap-icon://add"}], "Tabs": [{"value": "Tab1", "name": "Report It", "type": "Field"}, {"value": "Tab2", "name": "Additional Info", "type": "Field"}], "DetailFields": {"None": ["ReportNo", "YourName", "ContactNo", "EmailID", "Status"], "Tab1": ["Address", "Q1", "A1", "Q2", "A2", "Q3", "A3", "Q4", "A4"], "Tab2": ["AdditionalInfo"]}, "ControlDisplay": {}, "FieldDef": [{"name": "ReportNo", "type": "string", "width": "20"}, {"name": "YourName", "type": "string", "width": "50"}, {"name": "ContactNo", "type": "string", "width": "20"}, {"name": "EmailID", "type": "string", "width": "100"}, {"name": "Address", "type": "string", "width": "500"}, {"name": "Q1", "type": "string", "width": "500"}, {"name": "A1", "type": "string", "width": "500"}, {"name": "Q2", "type": "string", "width": "500"}, {"name": "A2", "type": "string", "width": "500"}, {"name": "Q3", "type": "string", "width": "500"}, {"name": "A3", "type": "string", "width": "500"}, {"name": "Q4", "type": "string", "width": "500"}, {"name": "A4", "type": "Date", "width": "10"}, {"name": "AdditionalInfo", "type": "string", "width": "1000"}, {"name": "Status", "type": "string", "width": "20"}], "itemConfig": {"ItemFieldDefinition": [{"name": "ItemNumber", "type": "string", "width": "20", "SLabel": "Item Number", "Option": "", "Currency": "No"}, {"name": "ID", "type": "string", "width": "20", "SLabel": "Identification", "Option": "", "Currency": "No"}, {"name": "Test", "type": "string", "width": "20", "SLabel": "Test", "Option": "", "Currency": "No"}, {"name": "Test2", "type": "string", "width": "20", "SLabel": "Test 2", "Option": "", "Currency": "No"}], "DisplayFields": ["ItemNumber", "Test", "Test2"], "ItemButtons": {"itemDisplay": true, "itemAdd": true, "itemEdit": true, "itemDelete": true}, "CreateFields": ["Test", "Test2"], "ItemDetails": [{"name": "ItemNumber", "Tab": "Tab3", "Sequence": "1", "Mode": "Display"}, {"name": "Test", "Tab": "Tab3", "Sequence": "1", "Mode": "Edit"}, {"name": "Test2", "Tab": "Tab3", "Sequence": "1", "Mode": "Edit"}]}}
+{
+  "Title": {
+    "ApplicationTitle": "Change in Circumstances",
+    "DetailTitle": "Change in Circumstances"
+  },
+  "ListFields": {
+    "IntroField": "ReportNo",
+    "TitleField": "YourName",
+    "fStatus": "Status",
+    "sStatus": "",
+    "numberField": "",
+    "LFields": ["EmailID"],
+    "numberUnitField": ""
+  },
+  "ListBOTFields": { "Title": [], "SubTitle": [], "Description": [] },
+  "MButtons": [
+    {
+      "type": "DOWNLOAD",
+      "name": "Download File",
+      "icon": "sap-icon://download"
+    },
+    {
+      "type": "APPHELP",
+      "name": "Get App Help",
+      "icon": "sap-icon://sys-help-2"
+    },
+    {
+      "type": "BOT",
+      "name": "Launch Assistant",
+      "icon": "sap-icon://travel-request"
+    },
+    {
+      "type": "VIEW",
+      "name": "Change App View",
+      "icon": "sap-icon://chart-table-view"
+    },
+    { "type": "ADD", "name": "Add Record", "icon": "sap-icon://add" },
+    { "type": "UPLOAD", "name": "Upload Record", "icon": "sap-icon://upload" }
+  ],
+  "DButtons": [
+    {
+      "type": "ATTACHMENT",
+      "name": "View Attachments",
+      "icon": "sap-icon://attachment"
+    },
+    { "type": "UPDATE", "name": "Update Record", "icon": "sap-icon://update" },
+    { "type": "ADD", "name": "Add Record", "icon": "sap-icon://add" }
+  ],
+  "Tabs": [
+    { "value": "Tab1", "name": "Report It", "type": "Field" },
+    { "value": "Tab2", "name": "Additional Info", "type": "Field" }
+  ],
+  "DetailFields": {
+    "None": ["ReportNo", "YourName", "ContactNo", "EmailID", "Status"],
+    "Tab1": ["Address", "Q1", "A1", "Q2", "A2", "Q3", "A3", "Q4", "A4"],
+    "Tab2": ["AdditionalInfo"]
+  },
+  "ControlDisplay": {},
+  "FieldDef": [
+    { "name": "ReportNo", "type": "string", "width": "20" },
+    { "name": "YourName", "type": "string", "width": "50" },
+    { "name": "ContactNo", "type": "string", "width": "20" },
+    { "name": "EmailID", "type": "string", "width": "100" },
+    { "name": "Address", "type": "string", "width": "500" },
+    { "name": "Q1", "type": "string", "width": "500" },
+    { "name": "A1", "type": "string", "width": "500" },
+    { "name": "Q2", "type": "string", "width": "500" },
+    { "name": "A2", "type": "string", "width": "500" },
+    { "name": "Q3", "type": "string", "width": "500" },
+    { "name": "A3", "type": "string", "width": "500" },
+    { "name": "Q4", "type": "string", "width": "500" },
+    { "name": "A4", "type": "Date", "width": "10" },
+    { "name": "AdditionalInfo", "type": "string", "width": "1000" },
+    { "name": "Status", "type": "string", "width": "20" }
+  ],
+  "itemConfig": {
+    "ItemFieldDefinition": [
+      {
+        "name": "ItemNumber",
+        "type": "string",
+        "width": "20",
+        "SLabel": "Item Number",
+        "Option": "",
+        "Currency": "No"
+      },
+      {
+        "name": "ID",
+        "type": "string",
+        "width": "20",
+        "SLabel": "Identification",
+        "Option": "",
+        "Currency": "No"
+      },
+      {
+        "name": "Test",
+        "type": "string",
+        "width": "20",
+        "SLabel": "Test",
+        "Option": "",
+        "Currency": "No"
+      },
+      {
+        "name": "Test2",
+        "type": "string",
+        "width": "20",
+        "SLabel": "Test 2",
+        "Option": "",
+        "Currency": "No"
+      }
+    ],
+    "DisplayFields": ["ItemNumber", "Test", "Test2"],
+    "ItemButtons": {
+      "itemDisplay": true,
+      "itemAdd": true,
+      "itemEdit": true,
+      "itemDelete": true
+    },
+    "CreateFields": ["Test", "Test2"],
+    "ItemDetails": [
+      {
+        "name": "ItemNumber",
+        "Tab": "Tab3",
+        "Sequence": "1",
+        "Mode": "Display"
+      },
+      { "name": "Test", "Tab": "Tab3", "Sequence": "1", "Mode": "Edit" },
+      { "name": "Test2", "Tab": "Tab3", "Sequence": "1", "Mode": "Edit" }
+    ]
+  }
+}

@@ -1,1 +1,385 @@
-{"Title": {"ApplicationTitle": "Leave Approval", "DetailTitle": "Leave Details"}, "ListFields": {"IntroField": "ID", "TitleField": "", "fStatus": "Status", "sStatus": "", "numberField": "", "LFields": ["ID", "LeaveType", "LeaveFrom", "LeaveTo", "LeaveDays", "Status"]}, "MButtons": [{"type": "DOWNLOAD", "name": "Download File", "icon": "sap-icon://download"}, {"type": "APPHELP", "name": "Get App Help", "icon": "sap-icon://sys-help-2"}, {"type": "BOT", "name": "Launch Assistant", "icon": "sap-icon://travel-request"}, {"type": "VIEW", "name": "Change App View", "icon": "sap-icon://chart-table-view"}, {"type": "ADD", "name": "Add Record", "icon": "sap-icon://add"}, {"type": "UPLOAD", "name": "Upload Record", "icon": "sap-icon://upload"}], "DButtons": [{"type": "ATTACHMENT", "name": "View Attachments", "icon": "sap-icon://attachment"}, {"type": "UPDATE", "name": "Update Record", "icon": "sap-icon://update"}, {"type": "ADD", "name": "Add Record", "icon": "sap-icon://add"}], "Tabs": [{"value": "Tab1", "name": "Leave details", "type": "Field", "fioriicon": "create-leave-request", "download": "Yes"}, {"value": "Tab2", "name": "Employee details", "type": "Field", "fioriicon": "employee", "download": "Yes"}, {"value": "Tab3", "name": "ProcessingLog", "fioriicon": "step", "type": "Chat", "download": "No"}], "DetailFields": {"None": ["ID", "EmpName", "CostCentre", "Status"], "Tab1": ["LeaveType", "LeaveFrom", "LeaveTo", "LeaveDays", "LeaveReason"], "Tab2": ["EmpAddress", "EmpPostCode", "EmpDesignation", "EmpTelephone", "EmpEmail", "Comment"], "Tab3": ["ProcessingLog"]}, "ControlDisplay": {"ControlField": "RequestFor", "Fields": [[{"ALL": ["ID", "StudentName", "RequestFor", "Status", "StudentID", "Email", "Question_Response", "AnyComment", "RequestDate", "ParentEmail", "ProcessingLog"]}, {"BusRequest": ["RequiredDate"]}, {"GuestPassFormRequest": ["GuestName", "GuestEmail", "GuestPhone", "EntryDate"]}, {"LabEquipmentRequest": ["Subject", "EquipmentName"]}, {"LeaveRequest": ["LeaveFrom", "LeaveTo", "LeaveDays", "LeaveReason"]}, {"ScholarshipGrant": ["NINumber", "EthnicOrigin", "Q1", "A1", "Q2", "A2", "Q3", "A3", "Q4", "A4", "Essay", "DegreePursuing"]}]]}, "FieldDef": [{"name": "ID", "type": "string", "width": "20", "Option": "", "SLabel": "Identification Number", "LLabel": "Identification Number"}, {"name": "EmpName", "type": "string", "width": "50", "Option": "mandatory", "SLabel": "Employee Full Name", "LLabel": "Employee Name", "Currency": "No"}, {"name": "EmpAddress", "type": "string", "width": "200", "Option": "", "SLabel": "Employee Address", "LLabel": "Employee Address", "Currency": "No"}, {"name": "EmpPostCode", "type": "string", "width": "20", "Option": "", "SLabel": "Employee Post Code", "LLabel": "Employee Post Code"}, {"name": "EmpDesignation", "type": "string", "width": "50", "Option": "", "SLabel": "Employee Designation", "LLabel": "Employee Designation"}, {"name": "EmpTelephone", "type": "string", "width": "20", "Option": "", "SLabel": "Employee Telephone", "LLabel": "Employee Telephone"}, {"name": "CostCentre", "type": "string", "width": "50", "Option": "", "SLabel": "Cost Centre", "LLabel": "Cost Centre"}, {"name": "EmpEmail", "type": "string", "width": "50", "Option": "", "SLabel": "Employee Email", "LLabel": "Employee Email"}, {"name": "Location", "type": "string", "width": "20", "Option": "", "SLabel": "Location", "LLabel": "Location"}, {"name": "LeaveType", "type": "string", "width": "50", "Option": "", "SLabel": "Leave Type", "LLabel": "Leave Type"}, {"name": "LeaveFrom", "type": "Date", "width": "10", "Option": "", "SLabel": "Leave From", "LLabel": "Leave From"}, {"name": "LeaveTo", "type": "Date", "width": "10", "Option": "", "SLabel": "Leave To", "LLabel": "Leave To"}, {"name": "LeaveDays", "type": "string", "width": "10", "Option": "", "SLabel": "Leave Days", "LLabel": "Leave Days"}, {"name": "LeaveReason", "type": "string", "width": "500", "Option": "", "SLabel": "Leave Reason", "LLabel": "Leave Reason"}, {"name": "Approver", "type": "string", "width": "50", "Option": "", "SLabel": "Approver", "LLabel": "Approver"}, {"name": "Status", "type": "string", "width": "20", "Option": "", "SLabel": "Status", "LLabel": "Status"}, {"name": "Comment", "type": "string", "width": "1000", "Option": "", "SLabel": "Comment", "LLabel": "Comment", "Currency": "No"}, {"name": "EmployeeID", "type": "string", "width": "20", "Option": "", "SLabel": "Employee ID", "LLabel": "EmployeeID", "Currency": "No"}, {"name": "ProcessingLog", "type": "string", "width": "1000", "Option": "", "SLabel": "Processing Log", "LLabel": "Processing Log", "Currency": "No"}], "itemConfig": {"ItemFieldDefinition": [{"name": "ItemNumber", "type": "string", "width": "20", "SLabel": "Item Number"}, {"name": "ID", "type": "string", "width": "20", "SLabel": "Identification"}, {"name": "POItem", "type": "string", "width": "20", "SLabel": "PO Item"}, {"name": "Category", "type": "string", "width": "20", "SLabel": "Category"}, {"name": "Details", "type": "string", "width": "20", "SLabel": "Details"}, {"name": "POQty", "type": "string", "width": "50", "SLabel": "PO Quantity"}, {"name": "UoM", "type": "string", "width": "50", "SLabel": "Unit of Measurement"}, {"name": "Price", "type": "Num,2", "width": "50", "SLabel": "Price"}, {"name": "NetValue", "type": "Num,2", "width": "50", "SLabel": "NetValue"}, {"name": "VATRate", "type": "Num,2", "width": "50", "SLabel": "VAT Rate"}, {"name": "VATValue", "type": "Num,2", "width": "50", "SLabel": "VAT Value"}, {"name": "GrossValue", "type": "Num,2", "width": "50", "SLabel": "Gross Value"}, {"name": "StorageLoc", "type": "string", "width": "50", "SLabel": "Storage Location"}], "DisplayFields": [], "ItemButtons": {"itemDisplay": false, "itemAdd": false, "itemEdit": false, "itemDelete": false}, "CreateFields": [], "ItemDetails": []}}
+{
+  "Title": {
+    "ApplicationTitle": "Leave Approval",
+    "DetailTitle": "Leave Details"
+  },
+  "ListFields": {
+    "IntroField": "LeaveFrom",
+    "TitleField": "EmpName",
+    "fStatus": "Status",
+    "sStatus": "LeaveType",
+    "numberField": "LeaveDays",
+    "LFields": ["ID", "LeaveTo", "LeaveReason", "EmployeeID"],
+    "numberUnitField": ""
+  },
+  "ListBOTFields": {
+    "Title": ["ID", "LeaveType"],
+    "SubTitle": ["LeaveFrom", "LeaveTo"],
+    "Description": ["LeaveDays", "Status"]
+  },
+  "MButtons": [
+    {
+      "type": "DOWNLOAD",
+      "name": "Download File",
+      "icon": "sap-icon://download"
+    },
+    {
+      "type": "APPHELP",
+      "name": "Get App Help",
+      "icon": "sap-icon://sys-help-2"
+    },
+    {
+      "type": "BOT",
+      "name": "Launch Assistant",
+      "icon": "sap-icon://travel-request"
+    },
+    {
+      "type": "VIEW",
+      "name": "Change App View",
+      "icon": "sap-icon://chart-table-view"
+    },
+    { "type": "ADD", "name": "Add Record", "icon": "sap-icon://add" },
+    { "type": "UPLOAD", "name": "Upload Record", "icon": "sap-icon://upload" }
+  ],
+  "DButtons": [
+    {
+      "type": "ATTACHMENT",
+      "name": "View Attachments",
+      "icon": "sap-icon://attachment"
+    },
+    { "type": "UPDATE", "name": "Update Record", "icon": "sap-icon://update" },
+    { "type": "ADD", "name": "Add Record", "icon": "sap-icon://add" }
+  ],
+  "Tabs": [
+    {
+      "value": "Tab1",
+      "name": "Leave details",
+      "type": "Field",
+      "fioriicon": "create-leave-request",
+      "download": "Yes"
+    },
+    {
+      "value": "Tab2",
+      "name": "Employee details",
+      "type": "Field",
+      "fioriicon": "employee",
+      "download": "Yes"
+    },
+    {
+      "value": "Tab3",
+      "name": "ProcessingLog",
+      "fioriicon": "step",
+      "type": "Chat",
+      "download": "No"
+    }
+  ],
+  "DetailFields": {
+    "None": ["ID", "EmpName", "CostCentre", "Status"],
+    "Tab1": ["LeaveType", "LeaveFrom", "LeaveTo", "LeaveDays", "LeaveReason"],
+    "Tab2": [
+      "EmpAddress",
+      "EmpPostCode",
+      "EmpDesignation",
+      "EmpTelephone",
+      "EmpEmail",
+      "Comment"
+    ],
+    "Tab3": ["ProcessingLog"]
+  },
+  "ControlDisplay": {
+    "ControlField": "RequestFor",
+    "Fields": [
+      [
+        {
+          "ALL": [
+            "ID",
+            "StudentName",
+            "RequestFor",
+            "Status",
+            "StudentID",
+            "Email",
+            "Question_Response",
+            "AnyComment",
+            "RequestDate",
+            "ParentEmail",
+            "ProcessingLog"
+          ]
+        },
+        { "BusRequest": ["RequiredDate"] },
+        {
+          "GuestPassFormRequest": [
+            "GuestName",
+            "GuestEmail",
+            "GuestPhone",
+            "EntryDate"
+          ]
+        },
+        { "LabEquipmentRequest": ["Subject", "EquipmentName"] },
+        {
+          "LeaveRequest": ["LeaveFrom", "LeaveTo", "LeaveDays", "LeaveReason"]
+        },
+        {
+          "ScholarshipGrant": [
+            "NINumber",
+            "EthnicOrigin",
+            "Q1",
+            "A1",
+            "Q2",
+            "A2",
+            "Q3",
+            "A3",
+            "Q4",
+            "A4",
+            "Essay",
+            "DegreePursuing"
+          ]
+        }
+      ]
+    ]
+  },
+  "FieldDef": [
+    {
+      "name": "ID",
+      "type": "string",
+      "width": "20",
+      "Option": "",
+      "SLabel": "Identification Number",
+      "LLabel": "Identification Number"
+    },
+    {
+      "name": "EmpName",
+      "type": "string",
+      "width": "50",
+      "Option": "mandatory",
+      "SLabel": "Employee Full Name",
+      "LLabel": "Employee Name",
+      "Currency": "No"
+    },
+    {
+      "name": "EmpAddress",
+      "type": "string",
+      "width": "200",
+      "Option": "",
+      "SLabel": "Employee Address",
+      "LLabel": "Employee Address",
+      "Currency": "No"
+    },
+    {
+      "name": "EmpPostCode",
+      "type": "string",
+      "width": "20",
+      "Option": "",
+      "SLabel": "Employee Post Code",
+      "LLabel": "Employee Post Code"
+    },
+    {
+      "name": "EmpDesignation",
+      "type": "string",
+      "width": "50",
+      "Option": "",
+      "SLabel": "Employee Designation",
+      "LLabel": "Employee Designation"
+    },
+    {
+      "name": "EmpTelephone",
+      "type": "string",
+      "width": "20",
+      "Option": "",
+      "SLabel": "Employee Telephone",
+      "LLabel": "Employee Telephone"
+    },
+    {
+      "name": "CostCentre",
+      "type": "string",
+      "width": "50",
+      "Option": "",
+      "SLabel": "Cost Centre",
+      "LLabel": "Cost Centre"
+    },
+    {
+      "name": "EmpEmail",
+      "type": "string",
+      "width": "50",
+      "Option": "",
+      "SLabel": "Employee Email",
+      "LLabel": "Employee Email"
+    },
+    {
+      "name": "Location",
+      "type": "string",
+      "width": "20",
+      "Option": "",
+      "SLabel": "Location",
+      "LLabel": "Location"
+    },
+    {
+      "name": "LeaveType",
+      "type": "string",
+      "width": "50",
+      "Option": "",
+      "SLabel": "Leave Type",
+      "LLabel": "Leave Type"
+    },
+    {
+      "name": "LeaveFrom",
+      "type": "Date",
+      "width": "10",
+      "Option": "",
+      "SLabel": "Leave From",
+      "LLabel": "Leave From"
+    },
+    {
+      "name": "LeaveTo",
+      "type": "Date",
+      "width": "10",
+      "Option": "",
+      "SLabel": "Leave To",
+      "LLabel": "Leave To"
+    },
+    {
+      "name": "LeaveDays",
+      "type": "string",
+      "width": "10",
+      "Option": "",
+      "SLabel": "Leave Days",
+      "LLabel": "Leave Days"
+    },
+    {
+      "name": "LeaveReason",
+      "type": "string",
+      "width": "500",
+      "Option": "",
+      "SLabel": "Leave Reason",
+      "LLabel": "Leave Reason"
+    },
+    {
+      "name": "Approver",
+      "type": "string",
+      "width": "50",
+      "Option": "",
+      "SLabel": "Approver",
+      "LLabel": "Approver"
+    },
+    {
+      "name": "Status",
+      "type": "string",
+      "width": "20",
+      "Option": "",
+      "SLabel": "Status",
+      "LLabel": "Status"
+    },
+    {
+      "name": "Comment",
+      "type": "string",
+      "width": "1000",
+      "Option": "",
+      "SLabel": "Comment",
+      "LLabel": "Comment",
+      "Currency": "No"
+    },
+    {
+      "name": "EmployeeID",
+      "type": "string",
+      "width": "20",
+      "Option": "",
+      "SLabel": "Employee ID",
+      "LLabel": "EmployeeID",
+      "Currency": "No"
+    },
+    {
+      "name": "ProcessingLog",
+      "type": "string",
+      "width": "1000",
+      "Option": "",
+      "SLabel": "Processing Log",
+      "LLabel": "Processing Log",
+      "Currency": "No"
+    }
+  ],
+  "itemConfig": {
+    "ItemFieldDefinition": [
+      {
+        "name": "ItemNumber",
+        "type": "string",
+        "width": "20",
+        "SLabel": "Item Number"
+      },
+      {
+        "name": "ID",
+        "type": "string",
+        "width": "20",
+        "SLabel": "Identification"
+      },
+      {
+        "name": "POItem",
+        "type": "string",
+        "width": "20",
+        "SLabel": "PO Item"
+      },
+      {
+        "name": "Category",
+        "type": "string",
+        "width": "20",
+        "SLabel": "Category"
+      },
+      {
+        "name": "Details",
+        "type": "string",
+        "width": "20",
+        "SLabel": "Details"
+      },
+      {
+        "name": "POQty",
+        "type": "string",
+        "width": "50",
+        "SLabel": "PO Quantity"
+      },
+      {
+        "name": "UoM",
+        "type": "string",
+        "width": "50",
+        "SLabel": "Unit of Measurement"
+      },
+      { "name": "Price", "type": "Num,2", "width": "50", "SLabel": "Price" },
+      {
+        "name": "NetValue",
+        "type": "Num,2",
+        "width": "50",
+        "SLabel": "NetValue"
+      },
+      {
+        "name": "VATRate",
+        "type": "Num,2",
+        "width": "50",
+        "SLabel": "VAT Rate"
+      },
+      {
+        "name": "VATValue",
+        "type": "Num,2",
+        "width": "50",
+        "SLabel": "VAT Value"
+      },
+      {
+        "name": "GrossValue",
+        "type": "Num,2",
+        "width": "50",
+        "SLabel": "Gross Value"
+      },
+      {
+        "name": "StorageLoc",
+        "type": "string",
+        "width": "50",
+        "SLabel": "Storage Location"
+      }
+    ],
+    "DisplayFields": [],
+    "ItemButtons": {
+      "itemDisplay": false,
+      "itemAdd": false,
+      "itemEdit": false,
+      "itemDelete": false
+    },
+    "CreateFields": [],
+    "ItemDetails": []
+  }
+}

@@ -5,12 +5,14 @@
   },
   "ListFields": {
     "IntroField": "ID",
-    "TitleField": "",
+    "TitleField": "Exchange",
     "fStatus": "Status",
-    "sStatus": "",
+    "sStatus": "StockSymbol",
     "numberField": "",
-    "LFields": ["ID", "StockPriceHigh", "StockPriceLow", "Date", "Status"]
+    "LFields": ["StockPriceHigh", "StockPriceLow", "Date"],
+    "numberUnitField": ""
   },
+  "ListBOTFields": { "Title": [], "SubTitle": [], "Description": [] },
   "MButtons": [
     {
       "type": "DOWNLOAD",

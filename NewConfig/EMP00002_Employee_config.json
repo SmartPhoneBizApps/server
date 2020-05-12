@@ -4,20 +4,18 @@
     "DetailTitle": "Travel Request"
   },
   "ListFields": {
-    "IntroField": "ID",
-    "TitleField": "",
+    "IntroField": "EmployeeName",
+    "TitleField": "TravelMode",
     "fStatus": "Status",
-    "sStatus": "",
-    "numberField": "",
-    "LFields": [
-      "ID",
-      "EmployeeName",
-      "TotalAmount",
-      "Status",
-      "TravelDtFrom",
-      "TravelDateTo",
-      "Justification"
-    ]
+    "sStatus": "CostCentre",
+    "numberField": "TotalAmount",
+    "LFields": ["TravelDtFrom", "TravelDateTo", "TravelMode"],
+    "numberUnitField": "Currency"
+  },
+  "ListBOTFields": {
+    "Title": ["ID"],
+    "SubTitle": ["EmployeeName", "TotalAmount", "Status"],
+    "Description": ["TravelDtFrom", "TravelDateTo", "Justification"]
   },
   "MButtons": [
     {

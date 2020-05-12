@@ -4,12 +4,18 @@
     "DetailTitle": "Access to the course material covered in specific lecture"
   },
   "ListFields": {
-    "IntroField": "ID",
-    "TitleField": "",
-    "fStatus": "",
+    "IntroField": "Subject",
+    "TitleField": "Topic",
+    "fStatus": "Status",
     "sStatus": "",
     "numberField": "",
-    "LFields": ["ID", "Subject", "Topic", "Term", "StudyYear"]
+    "LFields": ["ID", "StudyYear"],
+    "numberUnitField": ""
+  },
+  "ListBOTFields": {
+    "Title": ["Subject"],
+    "SubTitle": ["ID"],
+    "Description": ["Topic", "Term"]
   },
   "MButtons": [
     {

@@ -1,1 +1,200 @@
-{"Title": {"ApplicationTitle": "Book Shipment", "DetailTitle": "Book Shipment"}, "ListFields": {"IntroField": "ID", "TitleField": "", "fStatus": "Status", "sStatus": "", "numberField": "", "LFields": ["ID", "YourName", "PickUpDate", "ContactNo", "Status"]}, "MButtons": [{"type": "DOWNLOAD", "name": "Download File", "icon": "sap-icon://download"}, {"type": "APPHELP", "name": "Get App Help", "icon": "sap-icon://sys-help-2"}, {"type": "BOT", "name": "Launch Assistant", "icon": "sap-icon://travel-request"}, {"type": "VIEW", "name": "Change App View", "icon": "sap-icon://chart-table-view"}, {"type": "ADD", "name": "Add Record", "icon": "sap-icon://add"}, {"type": "UPLOAD", "name": "Upload Record", "icon": "sap-icon://upload"}], "DButtons": [{"type": "ATTACHMENT", "name": "View Attachments", "icon": "sap-icon://attachment"}, {"type": "UPDATE", "name": "Update Record", "icon": "sap-icon://update"}, {"type": "ADD", "name": "Add Record", "icon": "sap-icon://add"}], "Tabs": [{"value": "Tab1", "name": "ContactDetail", "fioriicon": "customer-and-contacts", "type": "Field"}, {"value": "Tab2", "name": "ProductDetail", "fioriicon": "product", "type": "Field"}, {"value": "Tab3", "name": "DeliveryDetail", "fioriicon": "cargo-train", "type": "Field"}, {"value": "Tab4", "name": "CommsDetail", "fioriicon": "comment", "type": "Field"}, {"value": "Tab5", "name": "Attachment", "fioriicon": "hint", "type": "Attachment"}], "DetailFields": {"None": ["ID", "Status"], "Tab1": ["YourName", "Surname", "ContactNo", "Email"], "Tab2": ["ProductType", "ProdDetail", "Weight", "Volume", "NoOfItems"], "Tab3": ["PickUpAdd", "DelAdd", "PickUpDate", "PickUpTime", "DelAdd"], "Tab4": ["Price", "UserComm", "TransporterComm"], "Tab5": ["Photos"]}, "ControlDisplay": {"ControlField": "BookingFor", "Fields": [[{"ALL": ["ID", "FirstName", "LastName", "PhoneNo", "Status", "Email", "Comments", "BookingFor", "Price", "Quantity", "NetValue", "VATPer", "VATRate", "VATVal", "GrossValue", "MoreInfo", "Attachment1", "Attachment2", "PostCode", "Emailid", "HouseNo", "Address", "TotalGrossValue"]}, {"CarPark": ["CarPark", "CarRegistration"]}, {"HotDesk": ["Building", "HotDeskNo"]}, {"MeetingRoom": ["NoOfPeople", "RoomLayout", "Slot", "LunchRequired", "DietaryRequirement", "MeetingDate"]}, {"Visitor": ["VisitorCompany", "VisitorName", "VisitorPhone", "VisitorEmail"]}]]}, "FieldDef": [{"name": "ID", "type": "string", "width": "20", "Option": "", "SLabel": "", "LLabel": ""}, {"name": "YourName", "type": "string", "width": "20"}, {"name": "Surname", "type": "string", "width": "20"}, {"name": "ContactNo", "type": "string", "width": "20", "Option": ""}, {"name": "Email", "type": "string", "width": "20"}, {"name": "ProductType", "type": "string", "width": "100"}, {"name": "ProdDetail", "type": "string", "width": "100"}, {"name": "Weight", "type": "string", "width": "50"}, {"name": "Volume", "type": "string", "width": "100"}, {"name": "NoOfItems", "type": "string", "width": "100"}, {"name": "Photos", "type": "attachment", "width": "200"}, {"name": "PickUpAdd", "type": "string", "width": "500"}, {"name": "PickUpDate", "type": "Date", "width": "10"}, {"name": "PickUpTime", "type": "Time", "width": "10"}, {"name": "DelAdd", "type": "string", "width": "500"}, {"name": "UserComm", "type": "string", "width": "1000"}, {"name": "TransporterComm", "type": "string", "width": "1000"}, {"name": "Price", "type": "string", "width": "20"}, {"name": "Status", "type": "string", "width": "20"}], "itemConfig": {"ItemFieldDefinition": [{"name": "ItemNumber", "type": "string", "width": "1", "SLabel": "Item Number", "Option": "", "Currency": "No"}, {"name": "ID", "type": "string", "width": "1", "SLabel": "ID", "Option": "", "Currency": "No"}], "DisplayFields": [], "ItemButtons": {"itemDisplay": true, "itemAdd": true, "itemEdit": true, "itemDelete": true}, "CreateFields": [], "ItemDetails": []}}
+{
+  "Title": {
+    "ApplicationTitle": "Book Shipment",
+    "DetailTitle": "Book Shipment"
+  },
+  "ListFields": {
+    "IntroField": "PickUpDate",
+    "TitleField": "YourName",
+    "fStatus": "Status",
+    "sStatus": "",
+    "numberField": "",
+    "LFields": ["ID", "ContactNo"],
+    "numberUnitField": ""
+  },
+  "ListBOTFields": { "Title": [], "SubTitle": [], "Description": [] },
+  "MButtons": [
+    {
+      "type": "DOWNLOAD",
+      "name": "Download File",
+      "icon": "sap-icon://download"
+    },
+    {
+      "type": "APPHELP",
+      "name": "Get App Help",
+      "icon": "sap-icon://sys-help-2"
+    },
+    {
+      "type": "BOT",
+      "name": "Launch Assistant",
+      "icon": "sap-icon://travel-request"
+    },
+    {
+      "type": "VIEW",
+      "name": "Change App View",
+      "icon": "sap-icon://chart-table-view"
+    },
+    { "type": "ADD", "name": "Add Record", "icon": "sap-icon://add" },
+    { "type": "UPLOAD", "name": "Upload Record", "icon": "sap-icon://upload" }
+  ],
+  "DButtons": [
+    {
+      "type": "ATTACHMENT",
+      "name": "View Attachments",
+      "icon": "sap-icon://attachment"
+    },
+    { "type": "UPDATE", "name": "Update Record", "icon": "sap-icon://update" },
+    { "type": "ADD", "name": "Add Record", "icon": "sap-icon://add" }
+  ],
+  "Tabs": [
+    {
+      "value": "Tab1",
+      "name": "ContactDetail",
+      "fioriicon": "customer-and-contacts",
+      "type": "Field"
+    },
+    {
+      "value": "Tab2",
+      "name": "ProductDetail",
+      "fioriicon": "product",
+      "type": "Field"
+    },
+    {
+      "value": "Tab3",
+      "name": "DeliveryDetail",
+      "fioriicon": "cargo-train",
+      "type": "Field"
+    },
+    {
+      "value": "Tab4",
+      "name": "CommsDetail",
+      "fioriicon": "comment",
+      "type": "Field"
+    },
+    {
+      "value": "Tab5",
+      "name": "Attachment",
+      "fioriicon": "hint",
+      "type": "Attachment"
+    }
+  ],
+  "DetailFields": {
+    "None": ["ID", "Status"],
+    "Tab1": ["YourName", "Surname", "ContactNo", "Email"],
+    "Tab2": ["ProductType", "ProdDetail", "Weight", "Volume", "NoOfItems"],
+    "Tab3": ["PickUpAdd", "DelAdd", "PickUpDate", "PickUpTime", "DelAdd"],
+    "Tab4": ["Price", "UserComm", "TransporterComm"],
+    "Tab5": ["Photos"]
+  },
+  "ControlDisplay": {
+    "ControlField": "BookingFor",
+    "Fields": [
+      [
+        {
+          "ALL": [
+            "ID",
+            "FirstName",
+            "LastName",
+            "PhoneNo",
+            "Status",
+            "Email",
+            "Comments",
+            "BookingFor",
+            "Price",
+            "Quantity",
+            "NetValue",
+            "VATPer",
+            "VATRate",
+            "VATVal",
+            "GrossValue",
+            "MoreInfo",
+            "Attachment1",
+            "Attachment2",
+            "PostCode",
+            "Emailid",
+            "HouseNo",
+            "Address",
+            "TotalGrossValue"
+          ]
+        },
+        { "CarPark": ["CarPark", "CarRegistration"] },
+        { "HotDesk": ["Building", "HotDeskNo"] },
+        {
+          "MeetingRoom": [
+            "NoOfPeople",
+            "RoomLayout",
+            "Slot",
+            "LunchRequired",
+            "DietaryRequirement",
+            "MeetingDate"
+          ]
+        },
+        {
+          "Visitor": [
+            "VisitorCompany",
+            "VisitorName",
+            "VisitorPhone",
+            "VisitorEmail"
+          ]
+        }
+      ]
+    ]
+  },
+  "FieldDef": [
+    {
+      "name": "ID",
+      "type": "string",
+      "width": "20",
+      "Option": "",
+      "SLabel": "",
+      "LLabel": ""
+    },
+    { "name": "YourName", "type": "string", "width": "20" },
+    { "name": "Surname", "type": "string", "width": "20" },
+    { "name": "ContactNo", "type": "string", "width": "20", "Option": "" },
+    { "name": "Email", "type": "string", "width": "20" },
+    { "name": "ProductType", "type": "string", "width": "100" },
+    { "name": "ProdDetail", "type": "string", "width": "100" },
+    { "name": "Weight", "type": "string", "width": "50" },
+    { "name": "Volume", "type": "string", "width": "100" },
+    { "name": "NoOfItems", "type": "string", "width": "100" },
+    { "name": "Photos", "type": "attachment", "width": "200" },
+    { "name": "PickUpAdd", "type": "string", "width": "500" },
+    { "name": "PickUpDate", "type": "Date", "width": "10" },
+    { "name": "PickUpTime", "type": "Time", "width": "10" },
+    { "name": "DelAdd", "type": "string", "width": "500" },
+    { "name": "UserComm", "type": "string", "width": "1000" },
+    { "name": "TransporterComm", "type": "string", "width": "1000" },
+    { "name": "Price", "type": "string", "width": "20" },
+    { "name": "Status", "type": "string", "width": "20" }
+  ],
+  "itemConfig": {
+    "ItemFieldDefinition": [
+      {
+        "name": "ItemNumber",
+        "type": "string",
+        "width": "1",
+        "SLabel": "Item Number",
+        "Option": "",
+        "Currency": "No"
+      },
+      {
+        "name": "ID",
+        "type": "string",
+        "width": "1",
+        "SLabel": "ID",
+        "Option": "",
+        "Currency": "No"
+      }
+    ],
+    "DisplayFields": [],
+    "ItemButtons": {
+      "itemDisplay": true,
+      "itemAdd": true,
+      "itemEdit": true,
+      "itemDelete": true
+    },
+    "CreateFields": [],
+    "ItemDetails": []
+  }
+}

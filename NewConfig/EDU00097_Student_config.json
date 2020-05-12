@@ -1,19 +1,18 @@
 {
   "Title": { "ApplicationTitle": "Booking For", "DetailTitle": "Booking For" },
   "ListFields": {
-    "IntroField": "ID",
-    "TitleField": "",
+    "IntroField": "StudentName",
+    "TitleField": "BookingFor",
     "fStatus": "Status",
     "sStatus": "",
     "numberField": "",
-    "LFields": [
-      "ID",
-      "BookingFor",
-      "StudentName",
-      "StudyYear",
-      "Status",
-      "Section"
-    ]
+    "LFields": ["ID", "StudyYear"],
+    "numberUnitField": ""
+  },
+  "ListBOTFields": {
+    "Title": ["ID"],
+    "SubTitle": ["BookingFor", "StudyYear"],
+    "Description": ["StudentName", "Status"]
   },
   "MButtons": [
     {
@@ -388,7 +387,7 @@
       "width": "50",
       "Option": "mandatory",
       "SLabel": "Parent Email",
-      "LLabel": "Parent Email",
+      "LLabel": "ParentEmail",
       "Currency": "No"
     },
     {

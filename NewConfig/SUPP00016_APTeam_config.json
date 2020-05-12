@@ -4,13 +4,15 @@
     "DetailTitle": "Suplier Invoice"
   },
   "ListFields": {
-    "IntroField": "",
-    "TitleField": "",
+    "IntroField": "Details",
+    "TitleField": "VendorInvoice",
     "fStatus": "Status",
     "sStatus": "",
-    "numberField": "",
-    "LFields": ["PONumber", "PODate", "Details", "GrossValue", "Status"]
+    "numberField": "InvGrossVal",
+    "LFields": ["InvoiceDate", "VendorName", "PaymentTerm", "InvoiceNo"],
+    "numberUnitField": "Currency"
   },
+  "ListBOTFields": { "Title": [], "SubTitle": [], "Description": [] },
   "MButtons": [
     {
       "type": "DOWNLOAD",

@@ -1,1 +1,404 @@
-{"Title": {"ApplicationTitle": "Stock Report", "DetailTitle": "Stock Report"}, "ListFields": {"IntroField": "ID", "TitleField": "", "fStatus": "Status", "sStatus": "", "numberField": "", "LFields": ["ID", "Material", "TotalStock", "StorageLoc", "Description", "Plant", "Status"]}, "MButtons": [{"type": "DOWNLOAD", "name": "Download File", "icon": "sap-icon://download"}, {"type": "APPHELP", "name": "Get App Help", "icon": "sap-icon://sys-help-2"}, {"type": "BOT", "name": "Launch Assistant", "icon": "sap-icon://travel-request"}, {"type": "VIEW", "name": "Change App View", "icon": "sap-icon://chart-table-view"}, {"type": "ADD", "name": "Add Record", "icon": "sap-icon://add"}, {"type": "UPLOAD", "name": "Upload Record", "icon": "sap-icon://upload"}], "DButtons": [{"type": "ATTACHMENT", "name": "View Attachments", "icon": "sap-icon://attachment"}, {"type": "UPDATE", "name": "Update Record", "icon": "sap-icon://update"}, {"type": "ADD", "name": "Add Record", "icon": "sap-icon://add"}], "Tabs": [{"value": "Tab1", "name": "Location", "type": "Field", "fioriicon": "map"}, {"value": "Tab2", "name": "Breakup", "type": "Field", "fioriicon": "notes"}, {"value": "Tab3", "name": "Stock", "type": "Graph", "fioriicon": "vertical-bar-chart"}], "DetailFields": {"None": ["ID", "Material", "Description", "StockDate", "Status"], "Tab1": ["Location", "StorageLoc"], "Tab2": ["TotalStock", "Returns", "Reserved", "Sales", "Blocked"]}, "ControlDisplay": {"ControlField": "BookingFor", "Fields": [[{"ALL": ["ID", "FirstName", "LastName", "PhoneNo", "Status", "Email", "Comments", "BookingFor", "Price", "Quantity", "NetValue", "VATPer", "VATRate", "VATVal", "GrossValue", "MoreInfo", "Attachment1", "Attachment2", "PostCode", "Emailid", "HouseNo", "Address", "TotalGrossValue"]}, {"CarPark": ["CarPark", "CarRegistration"]}, {"HotDesk": ["Building", "HotDeskNo"]}, {"MeetingRoom": ["NoOfPeople", "RoomLayout", "Slot", "LunchRequired", "DietaryRequirement", "MeetingDate"]}, {"Visitor": ["VisitorCompany", "VisitorName", "VisitorPhone", "VisitorEmail"]}]]}, "FieldDef": [{"name": "ID", "type": "string", "width": "20", "Option": "", "SLabel": "Identification", "LLabel": "", "Currency": "No"}, {"name": "Material", "type": "string", "width": "20", "Option": "", "SLabel": "Material/Item", "LLabel": "", "Currency": "No"}, {"name": "Description", "type": "string", "width": "20", "Option": "", "SLabel": "Description", "LLabel": "", "Currency": "No"}, {"name": "Location", "type": "string", "width": "20", "Option": "", "SLabel": "Location", "LLabel": "", "Currency": "No"}, {"name": "StorageLoc", "type": "string", "width": "20", "Option": "", "SLabel": "Storage Location", "LLabel": "", "Currency": "No"}, {"name": "TotalStock", "type": "string", "width": "10", "Option": "", "SLabel": "Total Stock", "LLabel": "", "Currency": "No"}, {"name": "Returns", "type": "string", "width": "10", "Option": "", "SLabel": "Return Items", "LLabel": "", "Currency": "No"}, {"name": "Blocked", "type": "string", "width": "10", "Option": "", "SLabel": "Blocked items", "LLabel": "", "Currency": "No"}, {"name": "Reserved", "type": "string", "width": "50", "Option": "", "SLabel": "Reserved items", "LLabel": "", "Currency": "No"}, {"name": "Sales", "type": "string", "width": "10", "Option": "", "SLabel": "Sold items", "LLabel": "", "Currency": "No"}, {"name": "StockDate", "type": "Date", "width": "10", "Option": "", "SLabel": "Stock Date", "LLabel": "", "Currency": "No"}, {"name": "Status", "type": "string", "width": "20", "Option": "", "SLabel": "Status", "LLabel": "", "Currency": "No"}, {"name": "City", "type": "string", "width": "50", "Option": "", "SLabel": "City", "LLabel": "", "Currency": "No"}, {"name": "Street", "type": "string", "width": "50", "Option": "", "SLabel": "Street", "LLabel": "", "Currency": "No"}, {"name": "PostCode", "type": "string", "width": "50", "Option": "", "SLabel": "Post Code", "LLabel": "", "Currency": "No"}, {"name": "Country", "type": "string", "width": "50", "Option": "", "SLabel": "Country", "LLabel": "", "Currency": "No"}, {"name": "Plant", "type": "string", "width": "20", "Option": "", "SLabel": "Plant", "LLabel": "", "Currency": "No"}, {"name": "Seller", "type": "string", "width": "100", "Option": "", "SLabel": "Seller", "LLabel": "", "Currency": "No"}, {"name": "SpecialStock", "type": "string", "width": "100", "Option": "", "SLabel": "Special Stock", "LLabel": "", "Currency": "No"}], "itemConfig": {"ItemFieldDefinition": [{"name": "ItemNumber", "type": "string", "width": "20", "SLabel": "Item Number"}, {"name": "ID", "type": "string", "width": "20", "SLabel": "ID"}, {"name": "itemName", "type": "string", "width": "100", "SLabel": "Item Name"}, {"name": "iPrice", "type": "Num,2", "width": "100", "SLabel": "Item Price"}, {"name": "iQuantity", "type": "Num,0", "width": "100", "SLabel": "Item Quantity"}, {"name": "iValue", "type": "Num,3", "width": "100", "SLabel": "Item Value"}, {"name": "iVAT", "type": "Num,3", "width": "100", "SLabel": "Item Value Added Tax"}, {"name": "iGrossValue", "type": "Num,3", "width": "100", "SLabel": "Item Gross Value"}, {"name": "iTaxRate", "type": "Num,2", "width": "100", "SLabel": "Item Tax Rate"}, {"name": "iVATValue", "type": "Num,3", "width": "100", "SLabel": "Item VAT Value"}], "DisplayFields": ["ItemNumber", "itemName", "iVAT", "iVATValue", "iGrossValue"], "ItemButtons": {"itemDisplay": true, "itemAdd": true, "itemEdit": true, "itemDelete": true}, "CreateFields": ["iPrice", "itemName", "iQuantity", "iValue", "iVAT", "iGrossValue", "iTaxRate", "iVATValue"], "ItemDetails": [{"name": "ItemNumber", "Tab": "Tab4", "Sequence": "1", "Mode": "Display"}, {"name": "itemName", "Tab": "Tab4", "Sequence": "1", "Mode": "Edit"}, {"name": "iPrice", "Tab": "Tab4", "Sequence": "1", "Mode": "Edit"}, {"name": "iQuantity", "Tab": "Tab4", "Sequence": "1", "Mode": "Edit"}, {"name": "iValue", "Tab": "Tab4", "Sequence": "1", "Mode": "Display"}, {"name": "iVAT", "Tab": "Tab4", "Sequence": "1", "Mode": "Edit"}, {"name": "iGrossValue", "Tab": "Tab4", "Sequence": "1", "Mode": "Display"}, {"name": "iTaxRate", "Tab": "Tab4", "Sequence": "1", "Mode": "Display"}, {"name": "iVATValue", "Tab": "Tab4", "Sequence": "1", "Mode": "Edit"}]}}
+{
+  "Title": {
+    "ApplicationTitle": "Stock Report",
+    "DetailTitle": "Stock Report"
+  },
+  "ListFields": {
+    "IntroField": "Material",
+    "TitleField": "TotalStock",
+    "fStatus": "Status",
+    "sStatus": "",
+    "numberField": "",
+    "LFields": ["ID"],
+    "numberUnitField": ""
+  },
+  "ListBOTFields": { "Title": [], "SubTitle": [], "Description": [] },
+  "MButtons": [
+    {
+      "type": "DOWNLOAD",
+      "name": "Download File",
+      "icon": "sap-icon://download"
+    },
+    {
+      "type": "APPHELP",
+      "name": "Get App Help",
+      "icon": "sap-icon://sys-help-2"
+    },
+    {
+      "type": "BOT",
+      "name": "Launch Assistant",
+      "icon": "sap-icon://travel-request"
+    },
+    {
+      "type": "VIEW",
+      "name": "Change App View",
+      "icon": "sap-icon://chart-table-view"
+    },
+    { "type": "ADD", "name": "Add Record", "icon": "sap-icon://add" },
+    { "type": "UPLOAD", "name": "Upload Record", "icon": "sap-icon://upload" }
+  ],
+  "DButtons": [
+    {
+      "type": "ATTACHMENT",
+      "name": "View Attachments",
+      "icon": "sap-icon://attachment"
+    },
+    { "type": "UPDATE", "name": "Update Record", "icon": "sap-icon://update" },
+    { "type": "ADD", "name": "Add Record", "icon": "sap-icon://add" }
+  ],
+  "Tabs": [
+    {
+      "value": "Tab1",
+      "name": "Location",
+      "type": "Field",
+      "fioriicon": "map"
+    },
+    {
+      "value": "Tab2",
+      "name": "Breakup",
+      "type": "Field",
+      "fioriicon": "notes"
+    },
+    {
+      "value": "Tab3",
+      "name": "Stock",
+      "type": "Graph",
+      "fioriicon": "vertical-bar-chart"
+    }
+  ],
+  "DetailFields": {
+    "None": ["ID", "Material", "Description", "StockDate", "Status"],
+    "Tab1": ["Location", "StorageLoc"],
+    "Tab2": ["TotalStock", "Returns", "Reserved", "Sales", "Blocked"]
+  },
+  "ControlDisplay": {
+    "ControlField": "BookingFor",
+    "Fields": [
+      [
+        {
+          "ALL": [
+            "ID",
+            "FirstName",
+            "LastName",
+            "PhoneNo",
+            "Status",
+            "Email",
+            "Comments",
+            "BookingFor",
+            "Price",
+            "Quantity",
+            "NetValue",
+            "VATPer",
+            "VATRate",
+            "VATVal",
+            "GrossValue",
+            "MoreInfo",
+            "Attachment1",
+            "Attachment2",
+            "PostCode",
+            "Emailid",
+            "HouseNo",
+            "Address",
+            "TotalGrossValue"
+          ]
+        },
+        { "CarPark": ["CarPark", "CarRegistration"] },
+        { "HotDesk": ["Building", "HotDeskNo"] },
+        {
+          "MeetingRoom": [
+            "NoOfPeople",
+            "RoomLayout",
+            "Slot",
+            "LunchRequired",
+            "DietaryRequirement",
+            "MeetingDate"
+          ]
+        },
+        {
+          "Visitor": [
+            "VisitorCompany",
+            "VisitorName",
+            "VisitorPhone",
+            "VisitorEmail"
+          ]
+        }
+      ]
+    ]
+  },
+  "FieldDef": [
+    {
+      "name": "ID",
+      "type": "string",
+      "width": "20",
+      "Option": "",
+      "SLabel": "Identification",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "Material",
+      "type": "string",
+      "width": "20",
+      "Option": "",
+      "SLabel": "Material/Item",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "Description",
+      "type": "string",
+      "width": "20",
+      "Option": "",
+      "SLabel": "Description",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "Location",
+      "type": "string",
+      "width": "20",
+      "Option": "",
+      "SLabel": "Location",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "StorageLoc",
+      "type": "string",
+      "width": "20",
+      "Option": "",
+      "SLabel": "Storage Location",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "TotalStock",
+      "type": "string",
+      "width": "10",
+      "Option": "",
+      "SLabel": "Total Stock",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "Returns",
+      "type": "string",
+      "width": "10",
+      "Option": "",
+      "SLabel": "Return Items",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "Blocked",
+      "type": "string",
+      "width": "10",
+      "Option": "",
+      "SLabel": "Blocked items",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "Reserved",
+      "type": "string",
+      "width": "50",
+      "Option": "",
+      "SLabel": "Reserved items",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "Sales",
+      "type": "string",
+      "width": "10",
+      "Option": "",
+      "SLabel": "Sold items",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "StockDate",
+      "type": "Date",
+      "width": "10",
+      "Option": "",
+      "SLabel": "Stock Date",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "Status",
+      "type": "string",
+      "width": "20",
+      "Option": "",
+      "SLabel": "Status",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "City",
+      "type": "string",
+      "width": "50",
+      "Option": "",
+      "SLabel": "City",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "Street",
+      "type": "string",
+      "width": "50",
+      "Option": "",
+      "SLabel": "Street",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "PostCode",
+      "type": "string",
+      "width": "50",
+      "Option": "",
+      "SLabel": "Post Code",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "Country",
+      "type": "string",
+      "width": "50",
+      "Option": "",
+      "SLabel": "Country",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "Plant",
+      "type": "string",
+      "width": "20",
+      "Option": "",
+      "SLabel": "Plant",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "Seller",
+      "type": "string",
+      "width": "100",
+      "Option": "",
+      "SLabel": "Seller",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "SpecialStock",
+      "type": "string",
+      "width": "100",
+      "Option": "",
+      "SLabel": "Special Stock",
+      "LLabel": "",
+      "Currency": "No"
+    }
+  ],
+  "itemConfig": {
+    "ItemFieldDefinition": [
+      {
+        "name": "ItemNumber",
+        "type": "string",
+        "width": "20",
+        "SLabel": "Item Number"
+      },
+      { "name": "ID", "type": "string", "width": "20", "SLabel": "ID" },
+      {
+        "name": "itemName",
+        "type": "string",
+        "width": "100",
+        "SLabel": "Item Name"
+      },
+      {
+        "name": "iPrice",
+        "type": "Num,2",
+        "width": "100",
+        "SLabel": "Item Price"
+      },
+      {
+        "name": "iQuantity",
+        "type": "Num,0",
+        "width": "100",
+        "SLabel": "Item Quantity"
+      },
+      {
+        "name": "iValue",
+        "type": "Num,3",
+        "width": "100",
+        "SLabel": "Item Value"
+      },
+      {
+        "name": "iVAT",
+        "type": "Num,3",
+        "width": "100",
+        "SLabel": "Item Value Added Tax"
+      },
+      {
+        "name": "iGrossValue",
+        "type": "Num,3",
+        "width": "100",
+        "SLabel": "Item Gross Value"
+      },
+      {
+        "name": "iTaxRate",
+        "type": "Num,2",
+        "width": "100",
+        "SLabel": "Item Tax Rate"
+      },
+      {
+        "name": "iVATValue",
+        "type": "Num,3",
+        "width": "100",
+        "SLabel": "Item VAT Value"
+      }
+    ],
+    "DisplayFields": [
+      "ItemNumber",
+      "itemName",
+      "iVAT",
+      "iVATValue",
+      "iGrossValue"
+    ],
+    "ItemButtons": {
+      "itemDisplay": true,
+      "itemAdd": true,
+      "itemEdit": true,
+      "itemDelete": true
+    },
+    "CreateFields": [
+      "iPrice",
+      "itemName",
+      "iQuantity",
+      "iValue",
+      "iVAT",
+      "iGrossValue",
+      "iTaxRate",
+      "iVATValue"
+    ],
+    "ItemDetails": [
+      {
+        "name": "ItemNumber",
+        "Tab": "Tab4",
+        "Sequence": "1",
+        "Mode": "Display"
+      },
+      { "name": "itemName", "Tab": "Tab4", "Sequence": "1", "Mode": "Edit" },
+      { "name": "iPrice", "Tab": "Tab4", "Sequence": "1", "Mode": "Edit" },
+      { "name": "iQuantity", "Tab": "Tab4", "Sequence": "1", "Mode": "Edit" },
+      { "name": "iValue", "Tab": "Tab4", "Sequence": "1", "Mode": "Display" },
+      { "name": "iVAT", "Tab": "Tab4", "Sequence": "1", "Mode": "Edit" },
+      {
+        "name": "iGrossValue",
+        "Tab": "Tab4",
+        "Sequence": "1",
+        "Mode": "Display"
+      },
+      { "name": "iTaxRate", "Tab": "Tab4", "Sequence": "1", "Mode": "Display" },
+      { "name": "iVATValue", "Tab": "Tab4", "Sequence": "1", "Mode": "Edit" }
+    ]
+  }
+}

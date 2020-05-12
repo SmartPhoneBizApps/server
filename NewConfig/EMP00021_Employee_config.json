@@ -1,19 +1,18 @@
 {
   "Title": { "ApplicationTitle": "Time Sheet", "DetailTitle": "Time Sheet" },
   "ListFields": {
-    "IntroField": "",
-    "TitleField": "",
+    "IntroField": "ID",
+    "TitleField": "EmpName",
     "fStatus": "Status",
     "sStatus": "",
-    "numberField": "",
-    "LFields": [
-      "EmpName",
-      "StartDate",
-      "EndDate",
-      "TotalRegHours",
-      "TotalOvertimeHours",
-      "Status"
-    ]
+    "numberField": "GrossAmount",
+    "LFields": ["EmpCode", "StartDate", "EndDate"],
+    "numberUnitField": "Currency"
+  },
+  "ListBOTFields": {
+    "Title": ["EmpName", "Status"],
+    "SubTitle": ["StartDate", "EndDate"],
+    "Description": ["TotalRegHours", "TotalOvertimeHours"]
   },
   "MButtons": [
     {

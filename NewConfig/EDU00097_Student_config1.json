@@ -1,0 +1,416 @@
+{
+  "Title": { "ApplicationTitle": "Booking For", "DetailTitle": "Booking For" },
+  "ListFields": {
+    "IntroField": "ID",
+    "TitleField": "",
+    "fStatus": "Status",
+    "sStatus": "",
+    "numberField": "",
+    "LFields": [
+      "ID",
+      "BookingFor",
+      "StudentName",
+      "StudyYear",
+      "Status",
+      "Section"
+    ]
+  },
+  "MButtons": [
+    {
+      "type": "DOWNLOAD",
+      "name": "Download File",
+      "icon": "sap-icon://download"
+    },
+    {
+      "type": "APPHELP",
+      "name": "Get App Help",
+      "icon": "sap-icon://sys-help-2"
+    },
+    {
+      "type": "BOT",
+      "name": "Launch Assistant",
+      "icon": "sap-icon://travel-request"
+    },
+    {
+      "type": "VIEW",
+      "name": "Change App View",
+      "icon": "sap-icon://chart-table-view"
+    },
+    { "type": "ADD", "name": "Add Record", "icon": "sap-icon://add" },
+    { "type": "UPLOAD", "name": "Upload Record", "icon": "sap-icon://upload" }
+  ],
+  "DButtons": [
+    {
+      "type": "ATTACHMENT",
+      "name": "View Attachments",
+      "icon": "sap-icon://attachment"
+    },
+    { "type": "UPDATE", "name": "Update Record", "icon": "sap-icon://update" },
+    { "type": "ADD", "name": "Add Record", "icon": "sap-icon://add" }
+  ],
+  "Tabs": [
+    {
+      "value": "Tab1",
+      "name": "Student Details",
+      "fioriicon": "notes",
+      "type": "Field",
+      "download": "Yes"
+    },
+    {
+      "value": "Tab2",
+      "name": "Booking Details",
+      "fioriicon": "hint",
+      "type": "Field",
+      "download": "Yes"
+    },
+    {
+      "value": "Tab3",
+      "name": "Chat Details",
+      "fioriicon": "discussion-2",
+      "type": "Chat",
+      "download": "Yes"
+    },
+    {
+      "value": "Tab4",
+      "name": "Process Log",
+      "fioriicon": "comment",
+      "type": "Chat",
+      "download": "Yes"
+    }
+  ],
+  "DetailFields": {
+    "None": ["ID", "Status"],
+    "Tab1": [
+      "StudentName",
+      "StudentID",
+      "Email",
+      "DateOfBirth",
+      "StudyYear",
+      "Section",
+      "ParentName",
+      "PhoneNumber",
+      "ParentEmail"
+    ],
+    "Tab2": [
+      "BookingFor",
+      "TeacherName",
+      "Date",
+      "Time1",
+      "Time2",
+      "TripCharges",
+      "AnyAllergy",
+      "Time3",
+      "AllocatedTime",
+      "TripPlace",
+      "TripDate",
+      "TripTime",
+      "ParentConsent",
+      "Comment"
+    ],
+    "Tab3": ["Question_Response"],
+    "Tab4": ["ProcessingLog"]
+  },
+  "ControlDisplay": {
+    "ControlField": "BookingFor",
+    "Fields": [
+      [
+        {
+          "ALL": [
+            "ID",
+            "StudentName",
+            "StudentID",
+            "Email",
+            "Status",
+            "BookingFor",
+            "StudyYear",
+            "Section",
+            "Comment",
+            "Question_Response",
+            "ParentName",
+            "PhoneNumber",
+            "ParentEmail",
+            "ProcessingLog"
+          ]
+        },
+        {
+          "ParentAppointment": [
+            "TeacherName",
+            "Date",
+            "Time1",
+            "Time2",
+            "Time3",
+            "AllocatedTime"
+          ]
+        },
+        {
+          "TripBookiing": [
+            "TripCharges",
+            "AnyAllergy",
+            "DateOfBirth",
+            "TripTime",
+            "TripDate",
+            "TripPlace",
+            "ParentConsent"
+          ]
+        }
+      ]
+    ]
+  },
+  "FieldDef": [
+    {
+      "name": "ID",
+      "type": "string",
+      "width": "20",
+      "Option": "",
+      "SLabel": "Identification",
+      "LLabel": "Identification",
+      "Currency": "No"
+    },
+    {
+      "name": "StudentName",
+      "type": "string",
+      "width": "50",
+      "Option": "",
+      "SLabel": "Student Name",
+      "LLabel": "Student Name",
+      "Currency": "No"
+    },
+    {
+      "name": "StudentID",
+      "type": "string",
+      "width": "20",
+      "Option": "",
+      "SLabel": "Student ID",
+      "LLabel": "Student ID",
+      "Currency": "No"
+    },
+    {
+      "name": "Email",
+      "type": "string",
+      "width": "50",
+      "Option": "",
+      "SLabel": "Email",
+      "LLabel": "Email",
+      "Currency": "No"
+    },
+    {
+      "name": "Status",
+      "type": "string",
+      "width": "20",
+      "Option": "",
+      "SLabel": "Status",
+      "LLabel": "Status",
+      "Currency": "No"
+    },
+    {
+      "name": "BookingFor",
+      "type": "string",
+      "width": "50",
+      "Option": "mandatory",
+      "SLabel": "Booking For",
+      "LLabel": "Booking For",
+      "Currency": "No"
+    },
+    {
+      "name": "DateOfBirth",
+      "type": "Date",
+      "width": "10",
+      "Option": "",
+      "SLabel": "Date Of Birth",
+      "LLabel": "Date Of Birth",
+      "Currency": "No"
+    },
+    {
+      "name": "StudyYear",
+      "type": "string",
+      "width": "10",
+      "Option": "",
+      "SLabel": "Student Study Year",
+      "LLabel": "Student Study Year",
+      "Currency": "No"
+    },
+    {
+      "name": "Section",
+      "type": "string",
+      "width": "10",
+      "Option": "",
+      "SLabel": "Section",
+      "LLabel": "Section",
+      "Currency": "No"
+    },
+    {
+      "name": "TeacherName",
+      "type": "string",
+      "width": "50",
+      "Option": "",
+      "SLabel": "Teacher Name",
+      "LLabel": "Teacher Name",
+      "Currency": "No"
+    },
+    {
+      "name": "Date",
+      "type": "Date",
+      "width": "10",
+      "Option": "",
+      "SLabel": "Appointment Date",
+      "LLabel": "Date",
+      "Currency": "No"
+    },
+    {
+      "name": "Time1",
+      "type": "Time",
+      "width": "10",
+      "Option": "",
+      "SLabel": "First Preferred Time",
+      "LLabel": "Time From",
+      "Currency": "No"
+    },
+    {
+      "name": "Time2",
+      "type": "Time",
+      "width": "10",
+      "Option": "",
+      "SLabel": "Second Preferred Time",
+      "LLabel": "Time To",
+      "Currency": "No"
+    },
+    {
+      "name": "TripCharges",
+      "type": "string",
+      "width": "20",
+      "Option": "",
+      "SLabel": "Trip Charges",
+      "LLabel": "Trip Charges",
+      "Currency": "No"
+    },
+    {
+      "name": "Comment",
+      "type": "string",
+      "width": "500",
+      "Option": "",
+      "SLabel": "Any Comment",
+      "LLabel": "Any Comment",
+      "Currency": "No"
+    },
+    {
+      "name": "Question_Response",
+      "type": "string",
+      "width": "500",
+      "Option": "",
+      "SLabel": "Chat Details",
+      "LLabel": "Chat Details",
+      "Currency": "No"
+    },
+    {
+      "name": "ParentName",
+      "type": "string",
+      "width": "50",
+      "Option": "",
+      "SLabel": "Parent Name",
+      "LLabel": "Parent Name",
+      "Currency": "No"
+    },
+    {
+      "name": "PhoneNumber",
+      "type": "string",
+      "width": "50",
+      "Option": "",
+      "SLabel": "Parent Phone Number",
+      "LLabel": "Parent Phone Number",
+      "Currency": "No"
+    },
+    {
+      "name": "AnyAllergy",
+      "type": "string",
+      "width": "200",
+      "Option": "",
+      "SLabel": "Any Known Allergy",
+      "LLabel": "Any Know Allergy",
+      "Currency": "No"
+    },
+    {
+      "name": "Time3",
+      "type": "Time",
+      "width": "10",
+      "Option": "",
+      "SLabel": "Third Preferred Time",
+      "LLabel": "Preferred Time",
+      "Currency": "No"
+    },
+    {
+      "name": "AllocatedTime",
+      "type": "Time",
+      "width": "10",
+      "Option": "",
+      "SLabel": "Allocated Time",
+      "LLabel": "AllocatedTime",
+      "Currency": "No"
+    },
+    {
+      "name": "TripTime",
+      "type": "string",
+      "width": "200",
+      "Option": "",
+      "SLabel": "Trip Day and Time",
+      "LLabel": "TripTime",
+      "Currency": "No"
+    },
+    {
+      "name": "TripDate",
+      "type": "Date",
+      "width": "10",
+      "Option": "",
+      "SLabel": "Trip Date",
+      "LLabel": "Trip Date",
+      "Currency": "No"
+    },
+    {
+      "name": "TripPlace",
+      "type": "string",
+      "width": "200",
+      "Option": "",
+      "SLabel": "Trip Place",
+      "LLabel": "TripPlace",
+      "Currency": "No"
+    },
+    {
+      "name": "ParentConsent",
+      "type": "string",
+      "width": "10",
+      "Option": "",
+      "SLabel": "Parent Consent For Trip",
+      "LLabel": "ParentConsent",
+      "Currency": "No"
+    },
+    {
+      "name": "ParentEmail",
+      "type": "string",
+      "width": "50",
+      "Option": "mandatory",
+      "SLabel": "Parent Email",
+      "LLabel": "Parent Email",
+      "Currency": "No"
+    },
+    {
+      "name": "ProcessingLog",
+      "type": "string",
+      "width": "500",
+      "Option": "",
+      "SLabel": "Processing Log",
+      "LLabel": "ProcessingLog",
+      "Currency": "No"
+    }
+  ],
+  "itemConfig": {
+    "ItemFieldDefinition": [],
+    "DisplayFields": [],
+    "ItemButtons": {
+      "itemDisplay": false,
+      "itemAdd": false,
+      "itemEdit": false,
+      "itemDelete": false
+    },
+    "CreateFields": [],
+    "ItemDetails": []
+  }
+}

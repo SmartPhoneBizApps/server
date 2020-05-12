@@ -1,1 +1,275 @@
-{"Title": {"ApplicationTitle": "Guest Pass Request Form", "DetailTitle": "Guest Pass Request Form"}, "ListFields": {"IntroField": "ID", "TitleField": "", "fStatus": "Status", "sStatus": "", "numberField": "", "LFields": ["ID", "StudentName", "GuestName", "EntryDate", "Status"]}, "MButtons": [{"type": "DOWNLOAD", "name": "Download File", "icon": "sap-icon://download"}, {"type": "APPHELP", "name": "Get App Help", "icon": "sap-icon://sys-help-2"}, {"type": "BOT", "name": "Launch Assistant", "icon": "sap-icon://travel-request"}, {"type": "VIEW", "name": "Change App View", "icon": "sap-icon://chart-table-view"}, {"type": "ADD", "name": "Add Record", "icon": "sap-icon://add"}, {"type": "UPLOAD", "name": "Upload Record", "icon": "sap-icon://upload"}], "DButtons": [{"type": "ATTACHMENT", "name": "View Attachments", "icon": "sap-icon://attachment"}, {"type": "UPDATE", "name": "Update Record", "icon": "sap-icon://update"}, {"type": "ADD", "name": "Add Record", "icon": "sap-icon://add"}], "Tabs": [{"value": "Tab1", "name": "Student Information", "fioriicon": "notes", "type": "Field", "download": "Yes"}, {"value": "Tab2", "name": "Guest Information", "fioriicon": "Guest Information", "type": "Field", "download": "Yes"}, {"value": "Tab4", "name": "Chat Details", "fioriicon": "discussion-2", "type": "Chat", "download": "Yes"}, {"value": "Tab3", "name": "AnyComment", "fioriicon": "notes", "type": "Field", "download": "Yes"}], "DetailFields": {"None": ["ID", "EntryDate", "Status"], "Tab1": ["StudentName", "StudentID", "Email", "StudPhone"], "Tab2": ["GuestName", "GuestEmail", "GuestPhone"], "Tab3": ["Question_Response", "AnyComment"]}, "ControlDisplay": {"ControlField": "RegisterFor", "Fields": [[{"ALL": ["ID", "Name", "ContactNo", "EmailID", "Address", "Postcode", "ApplicationDate", "RegisterFor", "Status", "Approver", "Question_Response", "ProcessingLog"]}, {"BirthCertificate": ["ChildName", "Surname", "Nationality", "MotherAddress", "MotherNationality", "FatherAddress", "FatherNationality"]}, {"DeathCertificate": ["DeceasedName", "DeathPlace", "DeathDate", "LastAddress", "WasDeath", "DeathCause", "SpouseName"]}, {"MarriageRegistration": ["BrideName", "BrideSurname", "GroomName", "GroomSurname", "MarriagePlace", "BrideFatherName", "GroomFatherName"]}, {"NewHouseName": ["PreferName1", "PreferName2", "PreferName3", "AdditionalInfo"]}]]}, "FieldDef": [{"name": "ID", "type": "string", "width": "20", "Option": "mandatory", "SLabel": "ID", "LLabel": "", "Currency": "No"}, {"name": "StudentName", "type": "string", "width": "50", "Option": "mandatory", "SLabel": "Student Name", "LLabel": "", "Currency": "No"}, {"name": "StudentID", "type": "string", "width": "50", "Option": "mandatory", "SLabel": "Student ID", "LLabel": "", "Currency": "No"}, {"name": "Email", "type": "string", "width": "50", "Option": "", "SLabel": "Student Email", "LLabel": "", "Currency": "No"}, {"name": "GuestName", "type": "string", "width": "50", "Option": "mandatory", "SLabel": "Guest Name", "LLabel": "", "Currency": "No"}, {"name": "GuestEmail", "type": "string", "width": "50", "Option": "", "SLabel": "Guest Email ID", "LLabel": "", "Currency": "No"}, {"name": "StudPhone", "type": "string", "width": "50", "Option": "", "SLabel": "Student Phone No.", "LLabel": "", "Currency": "No"}, {"name": "GuestPhone", "type": "string", "width": "50", "Option": "", "SLabel": "Guest Phone No.", "LLabel": "", "Currency": "No"}, {"name": "Status", "type": "string", "width": "20", "Option": "mandatory", "SLabel": "Status", "LLabel": "", "Currency": "No"}, {"name": "EntryDate", "type": "Date", "width": "10", "Option": "mandatory", "SLabel": "Visit Date", "LLabel": "", "Currency": "No"}, {"name": "Question_Response", "type": "string", "width": "500", "Option": "", "SLabel": "Chat Details", "LLabel": "", "Currency": "No"}, {"name": "AnyComment", "type": "string", "width": "1000", "Option": "", "SLabel": "Any Comment", "LLabel": "", "Currency": "No"}], "itemConfig": {"ItemFieldDefinition": [], "DisplayFields": [], "ItemButtons": {"itemDisplay": false, "itemAdd": false, "itemEdit": false, "itemDelete": false}, "CreateFields": [], "ItemDetails": []}}
+{
+  "Title": {
+    "ApplicationTitle": "Guest Pass Request Form",
+    "DetailTitle": "Guest Pass Request Form"
+  },
+  "ListFields": {
+    "IntroField": "StudentName",
+    "TitleField": "GuestName",
+    "fStatus": "Status",
+    "sStatus": "",
+    "numberField": "",
+    "LFields": ["ID"],
+    "numberUnitField": ""
+  },
+  "ListBOTFields": {
+    "Title": ["ID"],
+    "SubTitle": ["StudentName", "Status"],
+    "Description": ["GuestName", "EntryDate"]
+  },
+  "MButtons": [
+    {
+      "type": "DOWNLOAD",
+      "name": "Download File",
+      "icon": "sap-icon://download"
+    },
+    {
+      "type": "APPHELP",
+      "name": "Get App Help",
+      "icon": "sap-icon://sys-help-2"
+    },
+    {
+      "type": "BOT",
+      "name": "Launch Assistant",
+      "icon": "sap-icon://travel-request"
+    },
+    {
+      "type": "VIEW",
+      "name": "Change App View",
+      "icon": "sap-icon://chart-table-view"
+    },
+    { "type": "ADD", "name": "Add Record", "icon": "sap-icon://add" },
+    { "type": "UPLOAD", "name": "Upload Record", "icon": "sap-icon://upload" }
+  ],
+  "DButtons": [
+    {
+      "type": "ATTACHMENT",
+      "name": "View Attachments",
+      "icon": "sap-icon://attachment"
+    },
+    { "type": "UPDATE", "name": "Update Record", "icon": "sap-icon://update" },
+    { "type": "ADD", "name": "Add Record", "icon": "sap-icon://add" }
+  ],
+  "Tabs": [
+    {
+      "value": "Tab1",
+      "name": "Student Information",
+      "fioriicon": "notes",
+      "type": "Field",
+      "download": "Yes"
+    },
+    {
+      "value": "Tab2",
+      "name": "Guest Information",
+      "fioriicon": "Guest Information",
+      "type": "Field",
+      "download": "Yes"
+    },
+    {
+      "value": "Tab4",
+      "name": "Chat Details",
+      "fioriicon": "discussion-2",
+      "type": "Chat",
+      "download": "Yes"
+    },
+    {
+      "value": "Tab3",
+      "name": "AnyComment",
+      "fioriicon": "notes",
+      "type": "Field",
+      "download": "Yes"
+    }
+  ],
+  "DetailFields": {
+    "None": ["ID", "EntryDate", "Status"],
+    "Tab1": ["StudentName", "StudentID", "Email", "StudPhone"],
+    "Tab2": ["GuestName", "GuestEmail", "GuestPhone"],
+    "Tab3": ["Question_Response", "AnyComment"]
+  },
+  "ControlDisplay": {
+    "ControlField": "RegisterFor",
+    "Fields": [
+      [
+        {
+          "ALL": [
+            "ID",
+            "Name",
+            "ContactNo",
+            "EmailID",
+            "Address",
+            "Postcode",
+            "ApplicationDate",
+            "RegisterFor",
+            "Status",
+            "Approver",
+            "Question_Response",
+            "ProcessingLog"
+          ]
+        },
+        {
+          "BirthCertificate": [
+            "ChildName",
+            "Surname",
+            "Nationality",
+            "MotherAddress",
+            "MotherNationality",
+            "FatherAddress",
+            "FatherNationality"
+          ]
+        },
+        {
+          "DeathCertificate": [
+            "DeceasedName",
+            "DeathPlace",
+            "DeathDate",
+            "LastAddress",
+            "WasDeath",
+            "DeathCause",
+            "SpouseName"
+          ]
+        },
+        {
+          "MarriageRegistration": [
+            "BrideName",
+            "BrideSurname",
+            "GroomName",
+            "GroomSurname",
+            "MarriagePlace",
+            "BrideFatherName",
+            "GroomFatherName"
+          ]
+        },
+        {
+          "NewHouseName": [
+            "PreferName1",
+            "PreferName2",
+            "PreferName3",
+            "AdditionalInfo"
+          ]
+        }
+      ]
+    ]
+  },
+  "FieldDef": [
+    {
+      "name": "ID",
+      "type": "string",
+      "width": "20",
+      "Option": "mandatory",
+      "SLabel": "ID",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "StudentName",
+      "type": "string",
+      "width": "50",
+      "Option": "mandatory",
+      "SLabel": "Student Name",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "StudentID",
+      "type": "string",
+      "width": "50",
+      "Option": "mandatory",
+      "SLabel": "Student ID",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "Email",
+      "type": "string",
+      "width": "50",
+      "Option": "",
+      "SLabel": "Student Email",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "GuestName",
+      "type": "string",
+      "width": "50",
+      "Option": "mandatory",
+      "SLabel": "Guest Name",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "GuestEmail",
+      "type": "string",
+      "width": "50",
+      "Option": "",
+      "SLabel": "Guest Email ID",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "StudPhone",
+      "type": "string",
+      "width": "50",
+      "Option": "",
+      "SLabel": "Student Phone No.",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "GuestPhone",
+      "type": "string",
+      "width": "50",
+      "Option": "",
+      "SLabel": "Guest Phone No.",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "Status",
+      "type": "string",
+      "width": "20",
+      "Option": "mandatory",
+      "SLabel": "Status",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "EntryDate",
+      "type": "Date",
+      "width": "10",
+      "Option": "mandatory",
+      "SLabel": "Visit Date",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "Question_Response",
+      "type": "string",
+      "width": "500",
+      "Option": "",
+      "SLabel": "Chat Details",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "AnyComment",
+      "type": "string",
+      "width": "1000",
+      "Option": "",
+      "SLabel": "Any Comment",
+      "LLabel": "",
+      "Currency": "No"
+    }
+  ],
+  "itemConfig": {
+    "ItemFieldDefinition": [],
+    "DisplayFields": [],
+    "ItemButtons": {
+      "itemDisplay": false,
+      "itemAdd": false,
+      "itemEdit": false,
+      "itemDelete": false
+    },
+    "CreateFields": [],
+    "ItemDetails": []
+  }
+}

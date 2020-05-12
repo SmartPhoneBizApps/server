@@ -4,12 +4,18 @@
     "DetailTitle": "Leave Application"
   },
   "ListFields": {
-    "IntroField": "ID",
-    "TitleField": "",
+    "IntroField": "LeaveFrom",
+    "TitleField": "EmpName",
     "fStatus": "Status",
-    "sStatus": "",
-    "numberField": "",
-    "LFields": ["ID", "LeaveType", "LeaveFrom", "LeaveTo", "EmpName", "Status"]
+    "sStatus": "LeaveType",
+    "numberField": "LeaveDays",
+    "LFields": ["ID", "LeaveTo", "LeaveReason", "EmployeeID"],
+    "numberUnitField": ""
+  },
+  "ListBOTFields": {
+    "Title": ["ID"],
+    "SubTitle": ["LeaveType"],
+    "Description": ["LeaveFrom"]
   },
   "MButtons": [
     {

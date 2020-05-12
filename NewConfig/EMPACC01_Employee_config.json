@@ -1,15 +1,18 @@
 {
   "Title": {
-    "ApplicationTitle": "My Request",
-    "DetailTitle": "Request for Laptops, Access cards, Software etc.."
+    "ApplicationTitle": "Access to Office Buildings",
+    "DetailTitle": "Access to Office Buildings"
   },
   "ListFields": {
-    "IntroField": "DateOfRequest",
-    "TitleField": "ID",
+    "IntroField": "Name",
+    "TitleField": "Surname",
     "fStatus": "Status",
     "sStatus": "RequestType",
-    "LFields": ["Name", "EmployeeID"]
+    "numberField": "",
+    "LFields": ["ID", "DateOfRequest", "EmployeeID"],
+    "numberUnitField": ""
   },
+  "ListBOTFields": { "Title": [], "SubTitle": [], "Description": [] },
   "MButtons": [
     {
       "type": "DOWNLOAD",
@@ -47,41 +50,41 @@
     {
       "value": "Tab1",
       "name": "Requester",
-      "fioriicon": "sap-icon://person-placeholder",
+      "fioriicon": "person-placeholder",
       "type": "Field"
     },
     {
       "value": "Tab2",
       "name": "Details",
-      "fioriicon": "sap-icon://zoom-in",
+      "fioriicon": "zoom-in",
       "type": "Field"
     },
     {
       "value": "Tab3",
       "name": "Approval",
-      "fioriicon": "sap-icon://approvals",
+      "fioriicon": "approvals",
       "type": "Field"
     },
     {
       "value": "Tab4",
-      "name": "Flow",
-      "fioriicon": "sap-icon://customer-and-supplier",
-      "type": "Cards"
+      "name": "Admin",
+      "fioriicon": "customer-and-supplier",
+      "type": "Field"
     },
     {
       "value": "Tab5",
       "name": "AdditionalInfo",
-      "fioriicon": "sap-icon://message-information",
+      "fioriicon": "message-information",
       "type": "Field",
       "download": "Yes"
     }
   ],
   "DetailFields": {
     "None": ["ID", "Status", "RequestType"],
-    "Tab1": ["EmployeeID", "Name", "EmailID", "PhoneNo"],
+    "Tab1": ["EmployeeID", "Name", "Surname", "EmailID", "PhoneNo"],
     "Tab2": ["DateOfRequest", "StartDate", "EndDate", "Reason"],
-    "Tab3": ["Approver", "ApprovalDate", "ApproverComment", "Officer"],
-    "Tab4": [],
+    "Tab3": ["Approver", "ApprovalDate", "ApproverComment"],
+    "Tab4": ["Officer"],
     "Tab5": [
       "AccessCardNo",
       "BuildingName",
@@ -117,8 +120,11 @@
             "ID",
             "EmployeeID",
             "Name",
+            "Surname",
             "PhoneNo",
             "DateOfRequest",
+            "StartDate",
+            "EndDate",
             "Reason",
             "RequestType",
             "Status",
@@ -129,15 +135,9 @@
             "EmailID"
           ]
         },
-        {
-          "AccessCard": ["AccessCardNo", "BuildingName", "StartDate", "EndDate"]
-        },
-        {
-          "ApplicationLogin": ["Application"]
-        },
-        {
-          "HardwareUpgrade": ["AssetID", "Hardware"]
-        },
+        { "AccessCard": ["AccessCardNo"] },
+        { "ApplicationLogin": ["Application"] },
+        { "HardwareUpgrade": ["Hardware"] },
         {
           "LaptopRequest": [
             "Processor",
@@ -153,22 +153,15 @@
             "Mouse"
           ]
         },
-        {
-          "OfficeBuilding": ["BuildingName", "StartDate", "EndDate", "Reason"]
-        },
-        {
-          "SoftwareRequest": ["AssetID", "Software"]
-        },
+        { "OfficeBuilding": [] },
+        { "SoftwareRequest": ["Software"] },
         {
           "UserAccount": [
             "System",
             "Environment",
             "CloneUser",
             "RolesRequired",
-            "TransactionsRequired",
-            "StartDate",
-            "EndDate",
-            "Reason"
+            "TransactionsRequired"
           ]
         }
       ]
@@ -199,6 +192,15 @@
       "width": "50",
       "Option": "mandatory",
       "SLabel": "Name",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "Surname",
+      "type": "string",
+      "width": "50",
+      "Option": "mandatory",
+      "SLabel": "Surname",
       "LLabel": "",
       "Currency": "No"
     },
@@ -517,5 +519,108 @@
       "LLabel": "Transactions Required",
       "Currency": "No"
     }
-  ]
+  ],
+  "itemConfig": {
+    "ItemFieldDefinition": [
+      {
+        "name": "ItemNumber",
+        "type": "string",
+        "width": "20",
+        "SLabel": "ItemNumber",
+        "Option": "",
+        "Currency": "No"
+      },
+      {
+        "name": "ID",
+        "type": "string",
+        "width": "20",
+        "SLabel": "Identification",
+        "Option": "",
+        "Currency": "No"
+      },
+      {
+        "name": "ProjectCode",
+        "type": "string",
+        "width": "50",
+        "SLabel": "Project Code",
+        "Option": "mandatory",
+        "Currency": "No"
+      },
+      {
+        "name": "Date",
+        "type": "Date",
+        "width": "10",
+        "SLabel": "Timesheet Date",
+        "Option": "mandatory",
+        "Currency": "No"
+      },
+      {
+        "name": "TotalRegWorkHours",
+        "type": "Num,1",
+        "width": "50",
+        "SLabel": "Regular work hours",
+        "Option": "mandatory",
+        "Currency": "No"
+      },
+      {
+        "name": "OvertimeHours",
+        "type": "Num,1",
+        "width": "50",
+        "SLabel": "Overtime Hours",
+        "Option": "",
+        "Currency": "No"
+      },
+      {
+        "name": "Comment",
+        "type": "string",
+        "width": "1000",
+        "SLabel": "Comment",
+        "Option": "",
+        "Currency": "No"
+      }
+    ],
+    "DisplayFields": [
+      "ItemNumber",
+      "ProjectCode",
+      "Date",
+      "TotalRegWorkHours",
+      "OvertimeHours"
+    ],
+    "ItemButtons": {
+      "itemDisplay": true,
+      "itemAdd": false,
+      "itemEdit": false,
+      "itemDelete": false
+    },
+    "CreateFields": [
+      "ProjectCode",
+      "Date",
+      "TotalRegWorkHours",
+      "OvertimeHours",
+      "Comment"
+    ],
+    "ItemDetails": [
+      {
+        "name": "ItemNumber",
+        "Tab": "Tab4",
+        "Sequence": "1",
+        "Mode": "Display"
+      },
+      { "name": "ProjectCode", "Tab": "Tab4", "Sequence": "1", "Mode": "Edit" },
+      { "name": "Date", "Tab": "Tab4", "Sequence": "1", "Mode": "Edit" },
+      {
+        "name": "TotalRegWorkHours",
+        "Tab": "Tab4",
+        "Sequence": "1",
+        "Mode": "Edit"
+      },
+      {
+        "name": "OvertimeHours",
+        "Tab": "Tab4",
+        "Sequence": "1",
+        "Mode": "Edit"
+      },
+      { "name": "Comment", "Tab": "Tab4", "Sequence": "1", "Mode": "Edit" }
+    ]
+  }
 }

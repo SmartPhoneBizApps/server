@@ -4,14 +4,15 @@
     "DetailTitle": "Training Details"
   },
   "ListFields": {
-    "IntroField": "Name",
-    "TitleField": "Detail",
+    "IntroField": "Area",
+    "TitleField": "Name",
     "fStatus": "Status",
-    "sStatus": "Area",
-    "numberField": "Cost",
-    "numberUnitField": "Currency",
-    "LFields": ["ID", "Detail", "EmployeeID", "DateRequested", "Duration"]
+    "sStatus": "Duration",
+    "numberField": "",
+    "LFields": ["ID", "EmployeeID", "DateRequested", "Detail", "External"],
+    "numberUnitField": ""
   },
+  "ListBOTFields": { "Title": [], "SubTitle": [], "Description": [] },
   "MButtons": [
     {
       "type": "DOWNLOAD",
