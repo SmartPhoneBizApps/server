@@ -37,9 +37,9 @@ exports.checkSocialmedia = asyncHandler(async (req, res, next) => {
 
       // user already exist
       userAccount = "USER_CREATED";
-      if (user[req.body.businessRoleName]) {
+      if (user[smedia.businessRoleName]) {
         userRegistered = "USER_REGISTERED";
-        regQuestion = user[req.body.businessRoleName];
+        regQuestion = user[smedia.businessRoleName];
       }
       // Get reset token
       UserPIN = Math.floor(100000 + Math.random() * 900000);
