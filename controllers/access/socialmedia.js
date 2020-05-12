@@ -135,8 +135,16 @@ exports.updateSocialmedia = asyncHandler(async (req, res, next) => {
 // @route     DELETE /api/v1/auth/socialmedias/:id
 // @access    Private/Admin
 exports.deleteSocialmedia = asyncHandler(async (req, res, next) => {
-  await Socialmedia.findByIdAndDelete(req.params.id);
+  var base64data = req.params.id;
+  newSmedia = base64data.substring(9);
+  let buff1 = new Buffer(newSmedia, "base64");
+  let SMediaAccountID = buff1.toString("ascii");
 
+  const smedia = await Socialmedia.findOne({
+    SocialMediaAccountID: SMediaAccountID,
+  });
+
+  await Socialmedia.findByIdAndDelete(smedia.id);
   res.status(200).json({
     success: true,
     data: {},
