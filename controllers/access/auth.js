@@ -139,7 +139,7 @@ exports.updateDetails = asyncHandler(async (req, res, next) => {
     email: req.body.email,
   };
 
-  const user = await User.findByIdAndUpdate(req.user.id, fieldsToUpdate, {
+  const user = await User.findByIdAndUpdate(req.user.id, req.body, {
     new: true,
     runValidators: true,
   });
@@ -351,10 +351,8 @@ exports.checkPin = asyncHandler(async (req, res, next) => {
   if (user.UserPIN != req.body.pin) {
     return next(new ErrorResponse("Invalid PIN", 400));
   }
-  console.log(user.UserPIN, "/", req.body.pin);
   sendTokenResponse(user, 200, res);
 });
-
 // @desc      Validate PIN
 // @route     PUT /api/v1/auth/checkpin/:resettoken
 // @access    Public
@@ -378,7 +376,6 @@ exports.checkBotPin = asyncHandler(async (req, res, next) => {
   if (user.UserPIN != req.body.pin) {
     return next(new ErrorResponse("Invalid PIN", 400));
   }
-  console.log(user.UserPIN, "/", req.body.pin);
   //sendTokenResponse(user, 200, res);
   // Atul added on 11/05
   // Create token
@@ -401,9 +398,6 @@ exports.checkBotPin = asyncHandler(async (req, res, next) => {
     },
     { _id: 0 }
   );
-  console.log(sm);
-  console.log("token:", token);
-
   const filter = {
     email: user.email,
     SocialMediaAccountID: SMediaAccountID,

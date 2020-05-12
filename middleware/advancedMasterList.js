@@ -3,11 +3,10 @@ const advancedDataList = (model, AppID, populate) => async (req, res, next) => {
   console.log("BusinessRole:", req.headers.businessrole);
 
   // Read New Configuration from File......
-
   const newConfig =
     "../NewConfig/" + AppID + "_" + req.headers.businessrole + "_config.json";
   var config = require(newConfig);
-  console.log(config["ListFields"]);
+
   let query;
   // Copy req.query
   const reqQuery = { ...req.query };

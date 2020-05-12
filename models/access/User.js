@@ -70,6 +70,16 @@ const UserSchema = new mongoose.Schema({
     type: Date,
     default: Date.now,
   },
+  Employee: {},
+  User: {},
+  Student: {},
+  Teacher: {},
+  Parent: {},
+  Supplier: {},
+  Purchaser: {},
+  APTeam: {},
+  Manager: {},
+  Approver: {},
 });
 
 // Encrypt password using bcrypt

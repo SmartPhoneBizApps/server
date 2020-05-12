@@ -49,11 +49,11 @@ const SocialmediaSchema = new mongoose.Schema({
   user: {
     type: mongoose.Schema.ObjectId,
     ref: "User",
-    required: true,
   },
   accessToken: {
     type: String,
   },
+
   createdAt: {
     type: Date,
     default: Date.now,
