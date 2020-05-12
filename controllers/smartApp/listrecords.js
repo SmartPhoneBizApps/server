@@ -100,7 +100,6 @@ var sch = require("../../applicationJSON/Schema_Master.json");
 // @access    Public
 exports.getMaterListrecords = asyncHandler(async (req, res, next) => {
   outData = res.advancedMasterList;
-
   res.status(200).json(outData);
 });
 
@@ -109,7 +108,6 @@ exports.getMaterListrecords = asyncHandler(async (req, res, next) => {
 // @access    Public
 exports.getListrecords = asyncHandler(async (req, res, next) => {
   outData = res.advancedDataList;
-
   res.status(200).json(outData);
 });
 // @desc      Get all bootcamps
