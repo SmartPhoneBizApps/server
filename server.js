@@ -118,6 +118,12 @@ app.use("/api/v1/detaillist/", require("./routes/smartApp/detaillist"));
 app.use("/api/v1/uploaddata/", require("./routes/smartApp/uploaddata"));
 
 //  -------------------------------------------------
+//  ----------  ***** UTILITIES *****  ----------
+//  -------------------------------------------------
+// Route to get the Overview Cards (a Seperate Tile for every role)
+app.use("/api/v1/util/encode", require("./routes/utilities/utilities"));
+
+//  -------------------------------------------------
 //  ----------  ***** IGNORE *****  ---------
 //  -------------------------------------------------
 app.use("/api/v1/bootcamps", require("./routes/bootcamps"));

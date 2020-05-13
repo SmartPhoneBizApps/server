@@ -346,7 +346,7 @@ const sendPINTokenResponse = asyncHandler(async (user, statusCode, res) => {
       message,
     });
     user.resetPasswordToken = resetToken;
-    user.resetPasswordExpire = options.expires;
+    user.resetPasswordExpire = Date.now() + 10 * 60 * 1000;
     await user.save({ validateBeforeSave: false });
     res.status(200).json({
       success: true,
