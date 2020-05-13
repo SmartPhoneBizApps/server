@@ -345,6 +345,9 @@ const sendPINTokenResponse = asyncHandler(async (user, statusCode, res) => {
       subject: "Password reset token",
       message,
     });
+    user.resetPasswordToken = resetToken;
+    user.resetPasswordExpire = options.expires;
+    await user.save({ validateBeforeSave: false });
     res.status(200).json({
       success: true,
       data: "Email sent",
@@ -477,9 +480,12 @@ exports.checkBotPin = asyncHandler(async (req, res, next) => {
     resetPasswordToken,
     resetPasswordExpire: { $gt: Date.now() },
   });
+  console.log("user", user);
   if (!user) {
     return next(new ErrorResponse("Invalid token", 400));
   }
+  console.log("Pin1", user.UserPIN);
+  console.log("Pin2", req.body.pin);
   if (user.UserPIN != req.body.pin) {
     return next(new ErrorResponse("Invalid PIN", 400));
   }
