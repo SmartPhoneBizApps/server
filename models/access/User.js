@@ -117,6 +117,7 @@ UserSchema.methods.matchPassword = async function (enteredPassword) {
 UserSchema.methods.getResetPasswordToken = function () {
   // Generate token
   const resetToken = crypto.randomBytes(20).toString("hex");
+  console.log("tkn-01", resetToken);
   // Hash token and set to resetPasswordToken field
   this.resetPasswordToken = crypto
     .createHash("sha256")
@@ -124,6 +125,7 @@ UserSchema.methods.getResetPasswordToken = function () {
     .digest("hex");
   // Set expire
   this.resetPasswordExpire = Date.now() + 10 * 60 * 1000;
+  console.log("tkn-02", resetToken);
   return resetToken;
 };
 

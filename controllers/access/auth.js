@@ -43,8 +43,6 @@ exports.register = asyncHandler(async (req, res, next) => {
     });
   }
 
-  url = `${req.protocol}://${req.get("host")}/api/v1/auth/checkbotpin/`;
-
   sendPINTokenResponse(user, 200, res);
 });
 
@@ -326,11 +324,13 @@ const sendPINTokenResponse = asyncHandler(async (user, statusCode, res) => {
   user.UserPIN = UserPIN;
   const options = {
     expires: new Date(
-      Date.now() + process.env.JWT_COOKIE_EXPIRE * 24 * 60 * 60 * 1000
+      Date.now() + process.env.JWT_COOKIE_EXPIRE * 10 * 60 * 1000
     ),
     httpOnly: true,
   };
+
   const resetToken = user.getResetPasswordToken();
+  console.log("tkn-03", resetToken);
   //await user.save({ validateBeforeSave: false });
   if (process.env.NODE_ENV === "production") {
     options.secure = true;
@@ -346,8 +346,8 @@ const sendPINTokenResponse = asyncHandler(async (user, statusCode, res) => {
       subject: "Password reset token",
       message,
     });
-    rt = user.getResetPasswordToken();
-    user.resetPasswordToken = rt;
+
+    user.resetPasswordToken = resetToken;
     user.resetPasswordExpire = Date.now() + 10 * 60 * 1000;
     await user.save({ validateBeforeSave: false });
     res.status(200).json({
@@ -470,16 +470,17 @@ exports.checkPin = asyncHandler(async (req, res, next) => {
 // @access    Public
 exports.checkBotPin = asyncHandler(async (req, res, next) => {
   // Get hashed token
-  const resetPasswordToken = crypto
-    .createHash("sha256")
-    .update(req.params.resettoken)
-    .digest("hex");
+  console.log("tkn-chk-01", req.params.resettoken);
+  resetPasswordToken = req.params.resettoken;
+  console.log("tkn-chk-02", resetPasswordToken);
+
   var base64data = req.body.SocialMediaAccountID;
   newSmedia = base64data.substring(9);
   let buff1 = new Buffer(newSmedia, "base64");
   let SMediaAccountID = buff1.toString("ascii");
-  console.log(resetPasswordToken);
-  console.log(Date.now());
+
+  console.log("date-chk-03", Date.now());
+
   const user = await User.findOne({
     resetPasswordToken,
     resetPasswordExpire: { $gt: Date.now() },
