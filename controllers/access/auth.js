@@ -99,7 +99,8 @@ exports.register2 = asyncHandler(async (req, res, next) => {
 // @route     DELETE /api/v1/courses/:id
 // @access    Private
 exports.deleteUser = asyncHandler(async (req, res, next) => {
-  await User.find({ email: req.params.id });
+  await User.findOneAndDelete({ email: req.params.email });
+  console.log(req.params.email);
 
   res.status(200).json({
     success: true,
@@ -345,7 +346,8 @@ const sendPINTokenResponse = asyncHandler(async (user, statusCode, res) => {
       subject: "Password reset token",
       message,
     });
-    user.resetPasswordToken = resetToken;
+    rt = user.getResetPasswordToken();
+    user.resetPasswordToken = rt;
     user.resetPasswordExpire = Date.now() + 10 * 60 * 1000;
     await user.save({ validateBeforeSave: false });
     res.status(200).json({
@@ -476,6 +478,8 @@ exports.checkBotPin = asyncHandler(async (req, res, next) => {
   newSmedia = base64data.substring(9);
   let buff1 = new Buffer(newSmedia, "base64");
   let SMediaAccountID = buff1.toString("ascii");
+  console.log(resetPasswordToken);
+  console.log(Date.now());
   const user = await User.findOne({
     resetPasswordToken,
     resetPasswordExpire: { $gt: Date.now() },
