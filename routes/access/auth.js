@@ -13,6 +13,7 @@ const {
   checkPin,
   updateArea,
   updateBranch,
+  deleteUser,
 } = require("../../controllers/access/auth");
 
 const router = express.Router();
@@ -32,5 +33,6 @@ router.put("/resetpassword/:resettoken", resetPassword);
 router.post("/sendemail", protect, sendEmail);
 router.post("/pinLogin", pinLogin);
 router.put("/checkpin/:resettoken", checkPin);
+router.delete("/:email", deleteUser);
 
 module.exports = router;

@@ -15,7 +15,17 @@ exports.checkSocialmedia = asyncHandler(async (req, res, next) => {
   userRegistered = "USER_NOT_REGISTERED";
   regQuestion = {};
   userAccount = "";
-
+  status = {
+    userAccount: "USER_NOT_CREATED",
+    userRegistered: "USER_NOT_REGISTERED",
+    loginRequired: "USER_LOGIN_REQUIRED",
+    emailStatus: "EMAIL_NOT_SENT_USER",
+  };
+  tokens = {
+    accessToken: "",
+    resetToken: "",
+    resetURL: "",
+  };
   const smedia = await Socialmedia.findOne({
     SocialMediaAccountID: SMediaAccountID,
   });
@@ -23,21 +33,37 @@ exports.checkSocialmedia = asyncHandler(async (req, res, next) => {
   if (!smedia) {
     return next(new ErrorResponse(`CREATE_SOCIALMEDIA`), 405);
   } else {
+    data = {
+      SocialMediaAccountID: smedia.SocialMediaAccountID,
+      email: smedia.email,
+      SocialMediaType: smedia.SocialMediaType,
+      businessRoleName: smedia.businessRoleName,
+      businessRole: smedia.businessRole,
+      regQuestion: {},
+      userName: "",
+    };
+
+    tokens = {
+      accessToken: "",
+      resetToken: "",
+      resetURL: "",
+    };
+
     const user = await User.findOne({ email: smedia.email });
     if (user) {
-      userAccount = "USER_CREATED";
-      userName = user.name;
+      status["userAccount"] = "USER_CREATED";
+      data["userName"] = user.name;
       if (user[smedia.businessRoleName]) {
-        userRegistered = "USER_REGISTERED";
-        regQuestion = user[smedia.businessRoleName];
+        status["userRegistered"] = "USER_REGISTERED";
+        data["regQuestion"] = user[smedia.businessRoleName];
       } else {
-        userRegistered = "USER_NOT_REGISTERED";
-        regQuestion = {};
+        status["userRegistered"] = "USER_NOT_REGISTERED";
+        data["regQuestion"] = {};
       }
       if (!smedia.accessToken) {
         // Situation User Already created and No access Token
-        loginRequired = "USER_LOGIN_REQUIRED";
-        accessToken = "";
+        status["loginRequired"] = "USER_LOGIN_REQUIRED";
+        tokens["accessToken"] = "";
         // Get reset token
         UserPIN = Math.floor(100000 + Math.random() * 900000);
         user.UserPIN = UserPIN;
@@ -47,6 +73,9 @@ exports.checkSocialmedia = asyncHandler(async (req, res, next) => {
         resetUrl = `${req.protocol}://${req.get(
           "host"
         )}/api/v1/auth/checkbotpin/${resetToken}`;
+        tokens["resetURL"] = resetUrl;
+        tokens["resetToken"] = resetToken;
+        status["emailStatus"] = "EMAIL_SENT_USER";
         const message = `Your PIN number is: ${UserPIN} , you are receiving this email because you (or someone else) is performing login to SmartApp`;
         try {
           await sendEmail({
@@ -56,14 +85,9 @@ exports.checkSocialmedia = asyncHandler(async (req, res, next) => {
           });
           res.status(200).json({
             success: true,
-            resetURL: resetUrl,
-            resetToken: resetToken,
-            userAccount: userAccount,
-            userName: userName,
-            userRegistered: userRegistered,
-            regQuestion: regQuestion,
-            email: "EMAIL_SENT_USER",
-            body: req.body,
+            data: data,
+            tokens: tokens,
+            status: status,
           });
         } catch (err) {
           console.log(err);
@@ -74,30 +98,23 @@ exports.checkSocialmedia = asyncHandler(async (req, res, next) => {
         }
       } else {
         // Situation User Already created and access Token already there..
-        loginRequired = "USER_LOGIN_NOT_REQUIRED";
-        accessToken = smedia.accessToken;
+        status["loginRequired"] = "USER_LOGIN_NOT_REQUIRED";
+        tokens["accessToken"] = smedia.accessToken;
         res.status(200).json({
           success: true,
-          loginRequired: loginRequired,
-          accessToken: accessToken,
-          userAccount: userAccount,
-          userName: userName,
-          userRegistered: userRegistered,
-          regQuestion: regQuestion,
-          email: "EMAIL_NOT_SENT_USER",
-          body: req.body,
+          data: data,
+          tokens: tokens,
+          status: status,
         });
       }
     } else {
       // Situation User not created ..
-      userAccount = "USER_NOT_CREATED";
-      userRegistered = "USER_NOT_REGISTERED";
+      status["userAccount"] = "USER_NOT_CREATED";
+      status["userRegistered"] = "USER_NOT_REGISTERED";
       res.status(200).json({
         success: true,
-        userAccount: userAccount,
-        userRegistered: userRegistered,
-        email: "EMAIL_NOT_SENT_USER",
-        body: req.body,
+        data: data,
+        status: status,
       });
     }
   }

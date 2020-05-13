@@ -5,10 +5,53 @@ const sendEmail = require("../../utils/sendEmail");
 const User = require("../../models/access/User");
 const Socialmedia = require("../../models/access/Socialmedia");
 
-// @desc      Register user
+// @desc      Register user(PIN)
 // @route     POST /api/v1/auth/register
 // @access    Public
 exports.register = asyncHandler(async (req, res, next) => {
+  businessRoles = [];
+  let user = await User.find({ email: req.body.email });
+  const { name, email, role, regQuestion, businessRole } = req.body;
+  // Create user
+  if (businessRole == "Supplier") {
+    Supplier = regQuestion;
+    user = await User.create({
+      name,
+      email,
+      role,
+      Supplier,
+    });
+  }
+  // Create user
+  if (businessRole == "Employee") {
+    Employee = regQuestion;
+    user = await User.create({
+      name,
+      email,
+      role,
+      Employee,
+    });
+  }
+  // Create user
+  if (businessRole == "Student") {
+    Student = regQuestion;
+    user = await User.create({
+      name,
+      email,
+      role,
+      Student,
+    });
+  }
+
+  url = `${req.protocol}://${req.get("host")}/api/v1/auth/checkbotpin/`;
+
+  sendPINTokenResponse(user, 200, res);
+});
+
+// @desc      Register user (Password)
+// @route     POST /api/v1/auth/register
+// @access    Public
+exports.register2 = asyncHandler(async (req, res, next) => {
   const {
     name,
     email,
@@ -50,6 +93,18 @@ exports.register = asyncHandler(async (req, res, next) => {
   });
 
   sendTokenResponse(user, 200, res);
+});
+
+// @desc      Delete user
+// @route     DELETE /api/v1/courses/:id
+// @access    Private
+exports.deleteUser = asyncHandler(async (req, res, next) => {
+  await User.find({ email: req.params.id });
+
+  res.status(200).json({
+    success: true,
+    data: "User Removed",
+  });
 });
 
 // @desc      Login user
@@ -263,6 +318,58 @@ const sendTokenResponse = (user, statusCode, res) => {
   });
 };
 
+// Get token from model, create cookie and send response
+const sendPINTokenResponse = asyncHandler(async (user, statusCode, res) => {
+  // Get reset token
+  UserPIN = Math.floor(100000 + Math.random() * 900000);
+  user.UserPIN = UserPIN;
+  const options = {
+    expires: new Date(
+      Date.now() + process.env.JWT_COOKIE_EXPIRE * 24 * 60 * 60 * 1000
+    ),
+    httpOnly: true,
+  };
+  const resetToken = user.getResetPasswordToken();
+  //await user.save({ validateBeforeSave: false });
+  if (process.env.NODE_ENV === "production") {
+    options.secure = true;
+  }
+
+  // let resetUrl = url;
+  // Create reset url
+
+  const message = `Your PIN number is: ${UserPIN} , you are receiving this email because you (or someone else) is performing login to SmartApp`;
+  try {
+    await sendEmail({
+      email: user.email,
+      subject: "Password reset token",
+      message,
+    });
+    res.status(200).json({
+      success: true,
+      data: "Email sent",
+      //   resetURL: resetUrl,
+      resetToken: resetToken,
+    });
+  } catch (err) {
+    console.log(err);
+    user.resetPasswordToken = undefined;
+    user.resetPasswordExpire = undefined;
+    await user.save({ validateBeforeSave: false });
+    res.status(500).json({
+      success: false,
+      error: "Email could not be sent",
+    });
+  }
+  res.status(200).cookie("resetToken", resetToken, options).json({
+    success: true,
+    UserPIN,
+    resetToken,
+    //    resetUrl,
+    message,
+  });
+});
+
 // @desc      send an email
 // @route     POST /api/v1/auth/sendEmail
 // @access    Public
@@ -362,7 +469,7 @@ exports.checkBotPin = asyncHandler(async (req, res, next) => {
     .createHash("sha256")
     .update(req.params.resettoken)
     .digest("hex");
-  var base64data = req.body.socialmedia;
+  var base64data = req.body.SocialMediaAccountID;
   newSmedia = base64data.substring(9);
   let buff1 = new Buffer(newSmedia, "base64");
   let SMediaAccountID = buff1.toString("ascii");
