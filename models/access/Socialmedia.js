@@ -53,6 +53,9 @@ const SocialmediaSchema = new mongoose.Schema({
   accessToken: {
     type: String,
   },
+  agent: {
+    type: String,
+  },
 
   createdAt: {
     type: Date,

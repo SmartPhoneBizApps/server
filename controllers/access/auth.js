@@ -12,7 +12,7 @@ exports.register = asyncHandler(async (req, res, next) => {
   businessRoles = [];
   let user = await User.find({ email: req.body.email });
   const { name, email, role, regQuestion, businessRole } = req.body;
-  // Create user
+  /*   // Create user
   if (businessRole == "Supplier") {
     Supplier = regQuestion;
     user = await User.create({
@@ -41,6 +41,241 @@ exports.register = asyncHandler(async (req, res, next) => {
       role,
       Student,
     });
+  }
+
+  // Create user
+  if (businessRole == "Manager") {
+    Manager = regQuestion;
+    user = await User.create({
+      name,
+      email,
+      role,
+      Manager,
+    });
+  }
+
+  // Create user
+  if (businessRole == "Approver") {
+    Approver = regQuestion;
+    user = await User.create({
+      name,
+      email,
+      role,
+      Approver,
+    });
+  } */
+  if (businessRole == "User") {
+    Userq = regQuestion;
+    user = await User.create({ name, email, role, Userq });
+  }
+
+  if (businessRole == "Purchaser") {
+    Purchaser = regQuestion;
+    user = await User.create({ name, email, role, Purchaser });
+  }
+  if (businessRole == "Project") {
+    Project = regQuestion;
+    user = await User.create({ name, email, role, Project });
+  }
+  if (businessRole == "Finance") {
+    Finance = regQuestion;
+    user = await User.create({ name, email, role, Finance });
+  }
+  if (businessRole == "Approver") {
+    Approver = regQuestion;
+    user = await User.create({ name, email, role, Approver });
+  }
+  if (businessRole == "Manager") {
+    Manager = regQuestion;
+    user = await User.create({ name, email, role, Manager });
+  }
+  if (businessRole == "Student") {
+    Student = regQuestion;
+    user = await User.create({ name, email, role, Student });
+  }
+  if (businessRole == "Employee") {
+    Employee = regQuestion;
+    user = await User.create({ name, email, role, Employee });
+  }
+  if (businessRole == "Technician") {
+    Technician = regQuestion;
+    user = await User.create({ name, email, role, Technician });
+  }
+  if (businessRole == "Operator") {
+    Operator = regQuestion;
+    user = await User.create({ name, email, role, Operator });
+  }
+  if (businessRole == "Candidate") {
+    Candidate = regQuestion;
+    user = await User.create({ name, email, role, Candidate });
+  }
+  if (businessRole == "HRManager") {
+    HRManager = regQuestion;
+    user = await User.create({ name, email, role, HRManager });
+  }
+  if (businessRole == "Interviewer") {
+    Interviewer = regQuestion;
+    user = await User.create({ name, email, role, Interviewer });
+  }
+  if (businessRole == "Citizen") {
+    Citizen = regQuestion;
+    user = await User.create({ name, email, role, Citizen });
+  }
+  if (businessRole == "ITManager") {
+    ITManager = regQuestion;
+    user = await User.create({ name, email, role, ITManager });
+  }
+  if (businessRole == "ITTechnician") {
+    ITTechnician = regQuestion;
+    user = await User.create({ name, email, role, ITTechnician });
+  }
+  if (businessRole == "Coder") {
+    Coder = regQuestion;
+    user = await User.create({ name, email, role, Coder });
+  }
+  if (businessRole == "APTeam") {
+    APTeam = regQuestion;
+    user = await User.create({ name, email, role, APTeam });
+  }
+  if (businessRole == "System") {
+    System = regQuestion;
+    user = await User.create({ name, email, role, System });
+  }
+  if (businessRole == "Stores") {
+    Stores = regQuestion;
+    user = await User.create({ name, email, role, Stores });
+  }
+  if (businessRole == "Shopper") {
+    Shopper = regQuestion;
+    user = await User.create({ name, email, role, Shopper });
+  }
+  if (businessRole == "FleetSup") {
+    FleetSup = regQuestion;
+    user = await User.create({ name, email, role, FleetSup });
+  }
+  if (businessRole == "SchoolAdmin") {
+    SchoolAdmin = regQuestion;
+    user = await User.create({ name, email, role, SchoolAdmin });
+  }
+  if (businessRole == "ITSupervisor") {
+    ITSupervisor = regQuestion;
+    user = await User.create({ name, email, role, ITSupervisor });
+  }
+  if (businessRole == "FleetMgm") {
+    FleetMgm = regQuestion;
+    user = await User.create({ name, email, role, FleetMgm });
+  }
+  if (businessRole == "CouncilAdmin") {
+    CouncilAdmin = regQuestion;
+    user = await User.create({ name, email, role, CouncilAdmin });
+  }
+  if (businessRole == "CouncilManager") {
+    CouncilManager = regQuestion;
+    user = await User.create({ name, email, role, CouncilManager });
+  }
+  if (businessRole == "Teacher") {
+    Teacher = regQuestion;
+    user = await User.create({ name, email, role, Teacher });
+  }
+  if (businessRole == "HR") {
+    HR = regQuestion;
+    user = await User.create({ name, email, role, HR });
+  }
+  if (businessRole == "HealthcareAdmin") {
+    HealthcareAdmin = regQuestion;
+    user = await User.create({ name, email, role, HealthcareAdmin });
+  }
+  if (businessRole == "Patient") {
+    Patient = regQuestion;
+    user = await User.create({ name, email, role, Patient });
+  }
+  if (businessRole == "Park") {
+    Park = regQuestion;
+    user = await User.create({ name, email, role, Park });
+  }
+  if (businessRole == "Transporter") {
+    Transporter = regQuestion;
+    user = await User.create({ name, email, role, Transporter });
+  }
+  if (businessRole == "LogisticUser") {
+    LogisticUser = regQuestion;
+    user = await User.create({ name, email, role, LogisticUser });
+  }
+  if (businessRole == "Broker") {
+    Broker = regQuestion;
+    user = await User.create({ name, email, role, Broker });
+  }
+  if (businessRole == "PApprover") {
+    PApprover = regQuestion;
+    user = await User.create({ name, email, role, PApprover });
+  }
+  if (businessRole == "Supplier") {
+    Supplier = regQuestion;
+    user = await User.create({ name, email, role, Supplier });
+  }
+  if (businessRole == "DocManager") {
+    DocManager = regQuestion;
+    user = await User.create({ name, email, role, DocManager });
+  }
+  if (businessRole == "GST_CLERK") {
+    GST_CLERK = regQuestion;
+    user = await User.create({ name, email, role, GST_CLERK });
+  }
+  if (businessRole == "Receptionist") {
+    Receptionist = regQuestion;
+    user = await User.create({ name, email, role, Receptionist });
+  }
+  if (businessRole == "Testing") {
+    Testing = regQuestion;
+    user = await User.create({ name, email, role, Testing });
+  }
+  if (businessRole == "OrthopaedicDoctor") {
+    OrthopaedicDoctor = regQuestion;
+    user = await User.create({ name, email, role, OrthopaedicDoctor });
+  }
+  if (businessRole == "Dentist") {
+    Dentist = regQuestion;
+    user = await User.create({ name, email, role, Dentist });
+  }
+  if (businessRole == "Orthodontist") {
+    Orthodontist = regQuestion;
+    user = await User.create({ name, email, role, Orthodontist });
+  }
+  if (businessRole == "Parent") {
+    Parent = regQuestion;
+    user = await User.create({ name, email, role, Parent });
+  }
+  if (businessRole == "Visitor") {
+    Visitor = regQuestion;
+    user = await User.create({ name, email, role, Visitor });
+  }
+  if (businessRole == "AccessAdmin") {
+    AccessAdmin = regQuestion;
+    user = await User.create({ name, email, role, AccessAdmin });
+  }
+  if (businessRole == "CollegeTeacher") {
+    CollegeTeacher = regQuestion;
+    user = await User.create({ name, email, role, CollegeTeacher });
+  }
+  if (businessRole == "CollegeStudent") {
+    CollegeStudent = regQuestion;
+    user = await User.create({ name, email, role, CollegeStudent });
+  }
+  if (businessRole == "CollegeAdmin") {
+    CollegeAdmin = regQuestion;
+    user = await User.create({ name, email, role, CollegeAdmin });
+  }
+  if (businessRole == "CollegeParent") {
+    CollegeParent = regQuestion;
+    user = await User.create({ name, email, role, CollegeParent });
+  }
+  if (businessRole == "ScrumMaster") {
+    ScrumMaster = regQuestion;
+    user = await User.create({ name, email, role, ScrumMaster });
+  }
+  if (businessRole == "HealthCareProfessional") {
+    HealthCareProfessional = regQuestion;
+    user = await User.create({ name, email, role, HealthCareProfessional });
   }
 
   sendPINTokenResponse(user, 200, res);
