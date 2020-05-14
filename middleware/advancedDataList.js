@@ -37,7 +37,7 @@ const advancedDataList = (model, AppID, populate) => async (req, res, next) => {
           }
         });
       });
-
+      config["Title"] = config1["Title"];
       config["ListBOTFields"] = config1["ListBOTFields"];
       config["FieldDef"] = fl2;
       break;
