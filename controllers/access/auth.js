@@ -330,7 +330,10 @@ const sendPINTokenResponse = asyncHandler(async (user, statusCode, res) => {
   };
 
   const resetToken = user.getResetPasswordToken();
-  console.log("tkn-03", resetToken);
+
+  nToken = crypto.createHash("sha256").update(resetToken).digest("hex");
+
+  console.log("tkn-03", nToken);
   //await user.save({ validateBeforeSave: false });
   if (process.env.NODE_ENV === "production") {
     options.secure = true;
@@ -346,8 +349,7 @@ const sendPINTokenResponse = asyncHandler(async (user, statusCode, res) => {
       subject: "Password reset token",
       message,
     });
-
-    user.resetPasswordToken = resetToken;
+    user.resetPasswordToken = nToken;
     user.resetPasswordExpire = Date.now() + 10 * 60 * 1000;
     await user.save({ validateBeforeSave: false });
     res.status(200).json({
@@ -469,18 +471,20 @@ exports.checkPin = asyncHandler(async (req, res, next) => {
 // @route     PUT /api/v1/auth/checkpin/:resettoken
 // @access    Public
 exports.checkBotPin = asyncHandler(async (req, res, next) => {
-  // Get hashed token
-  console.log("tkn-chk-01", req.params.resettoken);
-  resetPasswordToken = req.params.resettoken;
-  console.log("tkn-chk-02", resetPasswordToken);
-
   var base64data = req.body.SocialMediaAccountID;
   newSmedia = base64data.substring(9);
   let buff1 = new Buffer(newSmedia, "base64");
   let SMediaAccountID = buff1.toString("ascii");
-
+  // Get hashed token
+  console.log("tkn-chk-01", req.params.resettoken);
+  //resetPasswordToken = req.params.resettoken;
+  // Get hashed token
+  const resetPasswordToken = crypto
+    .createHash("sha256")
+    .update(req.params.resettoken)
+    .digest("hex");
+  console.log("tkn-chk-02", resetPasswordToken);
   console.log("date-chk-03", Date.now());
-
   const user = await User.findOne({
     resetPasswordToken,
     resetPasswordExpire: { $gt: Date.now() },
