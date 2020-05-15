@@ -105,7 +105,6 @@ let cardTemplate = {};
 // @route     GET /api/v1/adaptiveCard_card/:id
 // @access    Public
 exports.getDetailCards = async (req, res, next) => {
-  console.log("Hello");
   // Read Role from Parameter..
   role = req.params.role;
   // Read RecordID from Parameter..

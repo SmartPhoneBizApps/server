@@ -1,5 +1,5 @@
 const ErrorResponse = require("../../utils/errorResponse");
-
+const Role = require("../../models/appSetup/Role");
 const User = require("../../models/access/User");
 const Approle = require("../../models/appSetup/Approle");
 const BUS0000001 = require("../../models/smartApp/BUS0000002");
@@ -101,13 +101,15 @@ const cardTemplate = {};
 exports.adaptiveCard_card = async (req, res, next) => {
   // Some Global variables....
   // Read Role from Parameter..
+  const role = await Role.findOne({
+    role: req.params.role,
+  });
 
-  role = req.params.role;
+  //role = req.params.role;
   tab = req.params.tab;
-  //console.log("Role : ", role, " / Tab : ", tab, " / User :", req.user.email);
 
   //Validate Data...
-  if (req.user.userAccess != "External") {
+  if (role.roleAccess != "External") {
     if (!req.user.company) {
       return next(
         new ErrorResponse(
@@ -141,10 +143,11 @@ exports.adaptiveCard_card = async (req, res, next) => {
   }
 
   // Get Role/App details..
-  const roleApp = await Approle.findOne({ role: role });
+  const roleApp = await Approle.findOne({ role: req.params.role });
   // Read Card Configuration for the Role (X1)
-  let fileName = "../../cards/cardConfig/" + role + "_cardConfig.json";
+  let fileName = "../../cards/cardConfig/" + role.role + "_cardConfig.json";
   var cardConfig = require(fileName);
+  //console.log(cardConfig);
   // Read Color Configuration
   let fileNameColor = "../../cards/cardConfig/colorConfig.json";
   var colorConfig = require(fileNameColor);
@@ -152,38 +155,44 @@ exports.adaptiveCard_card = async (req, res, next) => {
   // Read card User Settings  for the Role
   let fileName2 = "../../userSettings/" + req.user.email + "_cardsSetup.json";
   var userSetCards = require(fileName2);
+  //console.log(userSetCards);
   // When tab is "Tab1" full template with Tab1 data will be returned, for all other cases on data for that tab
   if (tab == "Tab1") {
-    let fileName1 = "../../cards/cardConfig/" + role + "_cardTabs.json";
+    let fileName1 = "../../cards/cardConfig/" + role.role + "_cardTabs.json";
     var cardTemplate = require(fileName1);
   } else {
     cardTemplate = {};
   }
-
+  //console.log(cardTemplate);
   // Loop Card Configuration for the Role (X1)
   for (const k2 in cardConfig.Tabs) {
     // Filter the Card Configuration data for the request tab (Tab1, tab2 etc..)
-    console.log("Tabs : ", cardConfig.Tabs[k2].TabID);
+    // console.log("Tabs : ", cardConfig.Tabs[k2].TabID);
     if (
       cardConfig.Tabs.hasOwnProperty(k2) &
       (cardConfig.Tabs[k2].TabID == tab)
     ) {
       tabCX[tab] = { ...cardConfig.Tabs[k2] };
+
       // data for the requested tab is found in the Card Configuration
       // Now loop through Tiles... in Card Configuration
-      console.log("Tabs : ", tabCX[tab]);
+      //  console.log("Tabs : ", tabCX[tab]);
       for (const key3 in tabCX[tab].Tiles) {
         if (tabCX[tab].Tiles.hasOwnProperty(key3)) {
           // Card / Tile found
+
           const configCardID = tabCX[tab].Tiles[key3].CardID;
+
           // Filtering the userSettings data based on application ID
-          myData = userSetCards[role][tabCX[tab].Tiles[key3].applicationID];
+          myData =
+            userSetCards[role.role][tabCX[tab].Tiles[key3].applicationID];
+
           // Looping the USers Settings data
           for (const key4 in myData) {
-            console.log("Role : ", role, "Card : ", key4, ">>", myData[key4]);
+            //      console.log("Role : ", role, "Card : ", key4, ">>", myData[key4]);
             if (myData.hasOwnProperty(key4) & (myData[key4] == true)) {
               if (key4 == configCardID) {
-                console.log("Card : ", configCardID);
+                //         console.log("Card : ", configCardID);
 
                 //////////////////////////////////////////////////////////////////////////////
                 // Here user setup is matched with the card setup... Build the card output
@@ -191,10 +200,12 @@ exports.adaptiveCard_card = async (req, res, next) => {
                 con = con + 1;
                 let applicationID = tabCX[tab].Tiles[key3].applicationID;
                 qx1 = {};
-                qx1 = { ...tabCX[tab].Tiles[key3].filters };
+
                 // User can see data only for there own company (User Specific is TRUE)
                 //qx1["company"] = req.user.company;
-                if (req.user.userAccess != "External") {
+
+                if (role.roleAccess != "External") {
+                  qx1 = { ...tabCX[tab].Tiles[key3].filters };
                   switch (req.user.role) {
                     case "CompanyAdmin":
                       qx1["company"] = req.user.company;
@@ -223,29 +234,27 @@ exports.adaptiveCard_card = async (req, res, next) => {
                       qx1["area"] = req.user.area;
                       qx1["branch"] = req.user.branch;
                   }
+                  console.log("Qurey3", qx1);
                 }
 
                 roleApp["Apps"].forEach((roleApp1) => {
                   if (roleApp1["applicationID"] == applicationID) {
-                    console.log(roleApp1["userSpecific"]);
+                    console.log("USer Spec", roleApp1["userSpecific"]);
                     if (roleApp1["userSpecific"]) {
                       // User can see only there own data (User Specific is TRUE)
                       qx1["user"] = req.user.id;
-                      console.log("User Specific True: ", qx1);
+                      //        console.log("User Specific True: ", qx1);
                     }
                     if (req.user.userAccess == "External") {
                       qx1["partner"] = req.user.id;
-                      console.log("External User filtered as partner: ", qx1);
+                      //        console.log("External User filtered as partner: ", qx1);
                     }
                   }
                 });
+                console.log("MyData", qx1);
                 let q1 = { ...qx1 };
-
                 q1 = JSON.stringify(q1);
-                console.log(q1);
                 let query;
-                //let results;
-                console.log("Query", q1);
                 if (applicationID == "MYDATA") {
                 } else {
                   switch (applicationID) {
@@ -571,6 +580,7 @@ exports.adaptiveCard_card = async (req, res, next) => {
                     default:
                     // code block
                   }
+
                   // Select Fields
                   const fList = [];
                   if (tabCX[tab].Tiles[key3].fieldList) {
@@ -597,6 +607,7 @@ exports.adaptiveCard_card = async (req, res, next) => {
                     query = query.populate(populate);
                   }
                   // Get data
+                  console.log("MyData", query);
                   let results = await query;
                   jsonArray["json" + con] = results;
                 }
