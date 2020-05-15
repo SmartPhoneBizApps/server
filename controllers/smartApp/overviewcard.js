@@ -104,7 +104,7 @@ exports.adaptiveCard_card = async (req, res, next) => {
 
   role = req.params.role;
   tab = req.params.tab;
-  console.log("Role : ", role, " / Tab : ", tab, " / User :", req.user.email);
+  //console.log("Role : ", role, " / Tab : ", tab, " / User :", req.user.email);
 
   //Validate Data...
   if (req.user.userAccess != "External") {
@@ -159,6 +159,7 @@ exports.adaptiveCard_card = async (req, res, next) => {
   } else {
     cardTemplate = {};
   }
+
   // Loop Card Configuration for the Role (X1)
   for (const k2 in cardConfig.Tabs) {
     // Filter the Card Configuration data for the request tab (Tab1, tab2 etc..)
@@ -183,6 +184,7 @@ exports.adaptiveCard_card = async (req, res, next) => {
             if (myData.hasOwnProperty(key4) & (myData[key4] == true)) {
               if (key4 == configCardID) {
                 console.log("Card : ", configCardID);
+
                 //////////////////////////////////////////////////////////////////////////////
                 // Here user setup is matched with the card setup... Build the card output
                 //////////////////////////////////////////////////////////////////////////////
@@ -192,35 +194,35 @@ exports.adaptiveCard_card = async (req, res, next) => {
                 qx1 = { ...tabCX[tab].Tiles[key3].filters };
                 // User can see data only for there own company (User Specific is TRUE)
                 //qx1["company"] = req.user.company;
-
-                switch (req.user.role) {
-                  case "CompanyAdmin":
-                    qx1["company"] = req.user.company;
-
-                    break;
-                  case "CompanyUser":
-                    qx1["company"] = req.user.company;
-                    break;
-                  case "BranchAdmin":
-                    qx1["company"] = req.user.company;
-                    qx1["branch"] = req.user.branch;
-                    break;
-                  case "BranchUser":
-                    qx1["company"] = req.user.company;
-                    qx1["branch"] = req.user.branch;
-                    break;
-                  case "AreaAdmin":
-                    qx1["company"] = req.user.company;
-                    qx1["area"] = req.user.area;
-                    break;
-                  case "AreaUser":
-                    qx1["company"] = req.user.company;
-                    qx1["area"] = req.user.area;
-                    break;
-                  default:
-                    qx1["company"] = req.user.company;
-                    qx1["area"] = req.user.area;
-                    qx1["branch"] = req.user.branch;
+                if (req.user.userAccess != "External") {
+                  switch (req.user.role) {
+                    case "CompanyAdmin":
+                      qx1["company"] = req.user.company;
+                      break;
+                    case "CompanyUser":
+                      qx1["company"] = req.user.company;
+                      break;
+                    case "BranchAdmin":
+                      qx1["company"] = req.user.company;
+                      qx1["branch"] = req.user.branch;
+                      break;
+                    case "BranchUser":
+                      qx1["company"] = req.user.company;
+                      qx1["branch"] = req.user.branch;
+                      break;
+                    case "AreaAdmin":
+                      qx1["company"] = req.user.company;
+                      qx1["area"] = req.user.area;
+                      break;
+                    case "AreaUser":
+                      qx1["company"] = req.user.company;
+                      qx1["area"] = req.user.area;
+                      break;
+                    default:
+                      qx1["company"] = req.user.company;
+                      qx1["area"] = req.user.area;
+                      qx1["branch"] = req.user.branch;
+                  }
                 }
 
                 roleApp["Apps"].forEach((roleApp1) => {
@@ -238,11 +240,12 @@ exports.adaptiveCard_card = async (req, res, next) => {
                   }
                 });
                 let q1 = { ...qx1 };
+
                 q1 = JSON.stringify(q1);
                 console.log(q1);
                 let query;
                 //let results;
-
+                console.log("Query", q1);
                 if (applicationID == "MYDATA") {
                 } else {
                   switch (applicationID) {

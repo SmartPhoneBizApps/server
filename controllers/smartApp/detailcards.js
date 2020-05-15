@@ -105,6 +105,7 @@ let cardTemplate = {};
 // @route     GET /api/v1/adaptiveCard_card/:id
 // @access    Public
 exports.getDetailCards = async (req, res, next) => {
+  console.log("Hello");
   // Read Role from Parameter..
   role = req.params.role;
   // Read RecordID from Parameter..
@@ -166,7 +167,7 @@ exports.getDetailCards = async (req, res, next) => {
   // Read card User Settings  for the Role
   let fileName2 = "../../userSettings/" + req.user.email + "_cardsSetup.json";
   var userSetCards = require(fileName2);
-
+  console.log("App:", applicationID);
   // Get App Record Data
   switch (applicationID) {
     case "User":
@@ -393,13 +394,16 @@ exports.getDetailCards = async (req, res, next) => {
       break;
     case "SUPP00018":
       rec = await SUPP00018.findById(req.params.record);
+      console.log("Records", rec);
       break;
     case "SUPP00028":
       rec = await SUPP00028.findById(req.params.record);
+      console.log("Records", rec);
       break;
     default:
     // code block
   }
+
   // Get Cards Details....
   // Loop Card Configuration for the Role (X1)
   for (const k2 in cardConfig.Tabs) {
