@@ -259,6 +259,8 @@ exports.addDataRecords = asyncHandler(async (req, res, next) => {
     mydata.branchName = req.body.branchName;
     mydata.area = req.body.area;
     mydata.areaName = req.body.areaName;
+    mydata.ItemData = req.body.ItemData;
+
     let fileName =
       "../../NewConfig/" +
       req.headers.applicationid +
@@ -281,7 +283,7 @@ exports.addDataRecords = asyncHandler(async (req, res, next) => {
       });
     }
   }
-
+  //// Add similar Logic for Items as well
   //console.log("Config", cardConfig["FieldDef"]);
 
   let result;

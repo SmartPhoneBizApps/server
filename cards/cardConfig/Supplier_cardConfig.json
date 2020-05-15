@@ -1,0 +1,91 @@
+{
+  "Tabs": [
+    {
+      "TabName": "My Orders",
+      "TabID": "Tab1",
+      "Tiles": [
+        {
+          "CardID": "SUPP00018_Table1_Orders",
+          "applicationID": "SUPP00018",
+          "filters": {},
+          "fieldList": "ID TotalGrossValue CurrentStatus Company",
+          "sortBy": "ID",
+          "limit": 5,
+          "Type": "table1A",
+          "header": {
+            "title": "My Orders",
+            "subTitle": "Latest Orders",
+            "status": {
+              "text": "Status text"
+            }
+          },
+          "columns": [
+            {
+              "title": "ID",
+              "value": "{ID}",
+              "identifier": true
+            },
+            {
+              "title": "GrossValue",
+              "value": "{TotalGrossValue}"
+            },
+            {
+              "title": "Company",
+              "value": "{Company}"
+            },
+            {
+              "title": "CurrentStatus",
+              "value": "{CurrentStatus}",
+              "state": "{statusState}"
+            }
+          ],
+          "json": []
+        }
+      ]
+    },
+
+    {
+      "TabName": "Tab 2",
+      "TabID": "Tab2",
+      "Tiles": [
+        {
+          "CardID": "SUPP00028_Table1_Invoices",
+          "applicationID": "SUPP00028",
+          "filters": {},
+          "fieldList": "ID TotInvGrossVal SupplierInvoiceNumber InvoiceType",
+          "sortBy": "ID",
+          "limit": 5,
+          "Type": "table1A",
+          "header": {
+            "title": "My Invoices",
+            "subTitle": "Latest Invoices",
+            "status": {
+              "text": "Status text"
+            }
+          },
+          "columns": [
+            {
+              "title": "ID",
+              "value": "{ID}",
+              "identifier": true
+            },
+            {
+              "title": "Gross Val",
+              "value": "{TotInvGrossVal}"
+            },
+            {
+              "title": "SupplierInvoiceNumber",
+              "value": "{SupplierInvoiceNumber}"
+            },
+            {
+              "title": "CurrentStatus",
+              "value": "{CurrentStatus}",
+              "state": "{statusState}"
+            }
+          ],
+          "json": []
+        }
+      ]
+    }
+  ]
+}
