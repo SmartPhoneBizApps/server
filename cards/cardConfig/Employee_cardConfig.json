@@ -236,6 +236,34 @@
             "infoState": "Error"
           },
           "json": []
+        },
+        {
+          "CardID": "EMP00004_Employee_list2A_01",
+          "applicationID": "EMP00004",
+          "filters": {},
+          "limit": 5,
+          "fieldList": "ID Hardware AssetID DateOfRequest Status",
+          "fieldMap": {
+            "name": "Details",
+            "description": "VendorName",
+            "icon": "sap-icon://add-employee"
+          },
+          "Type": "list2A",
+          "header": {
+            "title": "Shopping Cart",
+            "subTitle": "My Procurement",
+            "icon": { "src": "sap-icon://add-employee" }
+          },
+          "ListTemplate": {
+            "name": "Details",
+            "icon": "sap-icon://add-employee",
+            "description": "VendorName",
+            "infoState": "Error"
+          },
+          "actions": [
+            { "type": "Navigation", "parameters": { "url": "/{EMP00004}" } }
+          ],
+          "json": []
         }
       ]
     }
