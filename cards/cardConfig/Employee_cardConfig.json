@@ -52,7 +52,7 @@
             "title": "Recent Laptop Requests",
             "subTitle": "Today",
             "status": {
-              "text": "Status text"
+              "text": "Status"
             }
           },
           "columns": [
@@ -102,10 +102,10 @@
             }
           },
           "ListTemplate": {
-            "name": "",
+            "name": "ID",
             "icon": "sap-icon://add-employee",
-            "description": "",
-            "info": "",
+            "description": "System",
+            "info": "Status",
             "infoState": "Error"
           },
           "json": []
@@ -208,6 +208,33 @@
             { "title": "GrossValue", "value": "{GrossValue}" },
             { "title": "Status", "value": "{Status}", "state": "{statusState}" }
           ],
+          "json": []
+        },
+        {
+          "CardID": "EMP00004_Employee_list1A_01",
+          "applicationID": "EMP00004",
+          "filters": {},
+          "limit": 5,
+          "fieldList": "",
+          "fieldMap": {
+            "name": "Details",
+            "description": "VendorName",
+            "info": "Status",
+            "icon": "sap-icon://add-employee"
+          },
+          "Type": "list1A",
+          "header": {
+            "title": "Shopping Cart",
+            "status": { "text": "Employee" },
+            "subTitle": "My Procurement"
+          },
+          "ListTemplate": {
+            "name": "Details",
+            "icon": "sap-icon://add-employee",
+            "description": "VendorName",
+            "info": "Status",
+            "infoState": "Error"
+          },
           "json": []
         }
       ]
