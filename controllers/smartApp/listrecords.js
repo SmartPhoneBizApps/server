@@ -93,6 +93,8 @@ const SUPP00016 = require("../../models/smartApp/SUPP00016");
 const SUPP00018 = require("../../models/smartApp/SUPP00018");
 const SUPP00028 = require("../../models/smartApp/SUPP00028");
 
+const Possval = require("../../models/appSetup/Possval");
+
 var sch = require("../../applicationJSON/Schema_Master.json");
 
 // @desc      Get all bootcamps
@@ -107,8 +109,46 @@ exports.getMaterListrecords = asyncHandler(async (req, res, next) => {
 // @route     GET /api/v1/bootcamps
 // @access    Public
 exports.getListrecords = asyncHandler(async (req, res, next) => {
-  outData = res.advancedDataList;
-  res.status(200).json(outData);
+  let outData = res.advancedDataList;
+  if (req.headers.possiblevalue == "Yes") {
+    app1 = req.headers.applicationid;
+    app2 = "GLOBAL";
+    role1 = req.headers.businessrole;
+    role2 = "ALL";
+    const fields = "PossibleValues Value Description ColorSAP Score EditLock";
+    const newPv =
+      "../../PossibleValues/" +
+      req.headers.applicationid +
+      "_" +
+      req.headers.businessrole +
+      "_pv.json";
+    var pvconfig1 = require(newPv);
+    let query;
+    // console.log("PV", pvconfig1);
+    query = Possval.find(
+      {
+        PossibleValues: { $in: pvconfig1.PossFields },
+        ApplicationID: { $in: [app1, app2] },
+        Role: { $in: [role1, role2] },
+      },
+      { _id: 0 }
+    );
+    query = query.select(fields);
+    //  console.log("Query:", app1, app2, role1, role2, pvconfig1);
+    // Executing query
+    let results = await query;
+    //  console.log(results);
+    res.status(200).json({
+      success: true,
+      data: outData,
+      possibleValues: results,
+    });
+  } else {
+    res.status(200).json({
+      success: true,
+      data: outData,
+    });
+  }
 });
 // @desc      Get all bootcamps
 // @route     GET /api/v1/bootcamps
@@ -126,13 +166,13 @@ exports.getRecord = asyncHandler(async (req, res, next) => {});
 // @access    Private
 exports.addDataRecords = asyncHandler(async (req, res, next) => {
   // Get App from Body
-  console.log("Authorization:", req.headers.authorization);
-  console.log("App", req.body.appplicationID);
+  // console.log("Authorization:", req.headers.authorization);
+  // console.log("App", req.body.appplicationID);
   //console.log(req.body.appplicationID);
   const BodyApp = await App.findOne({ applicationID: req.body.appplicationID });
 
   req.body.appId = BodyApp.id;
-  console.log(req.body.appId);
+  // console.log(req.body.appId);
 
   if (!req.body.appId) {
     return next(new ErrorResponse(`Please provide App ID`, 400));
@@ -206,12 +246,12 @@ exports.addDataRecords = asyncHandler(async (req, res, next) => {
   if (userRecord.branch) {
     // if no Area in body but user has area then use it
     if (!req.body.branch) {
-      console.log("branch is picked from User Record");
+      //    console.log("branch is picked from User Record");
       req.body.branch = userRecord.branch;
     }
 
     if (req.body.branch != userRecord.branch) {
-      console.log("Branch in body and user record are different");
+      //    console.log("Branch in body and user record are different");
       return next(
         new ErrorResponse(
           `The user with ID ${req.user.email} can't create document for other branches`,
@@ -241,13 +281,13 @@ exports.addDataRecords = asyncHandler(async (req, res, next) => {
   if (userRecord.area) {
     // if no Area in body but user has area then use it
     if (!req.body.area) {
-      console.log("Area is picked from User Record");
+      //   console.log("Area is picked from User Record");
       req.body.area = userRecord.area;
     }
 
     // if body and user both have area then they should be same (Validation  - Pass)
     if (req.body.area != userRecord.area) {
-      console.log("Area in body and user record are different");
+      //   console.log("Area in body and user record are different");
       return next(
         new ErrorResponse(
           `The user with ID ${req.user.email} can't create document for other business area`,

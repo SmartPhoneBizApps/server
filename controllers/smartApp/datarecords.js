@@ -30,7 +30,6 @@ const COUNCIL036 = require("../../models/smartApp/COUNCIL036");
 const DOC00001 = require("../../models/smartApp/DOC00001");
 const DOC00002 = require("../../models/smartApp/DOC00002");
 const DOC00003 = require("../../models/smartApp/DOC00003");
-
 const EDU00001 = require("../../models/smartApp/EDU00001");
 const EDU00002 = require("../../models/smartApp/EDU00002");
 const EDU00003 = require("../../models/smartApp/EDU00003");
@@ -52,7 +51,6 @@ const EDU00021 = require("../../models/smartApp/EDU00021");
 const EDU00097 = require("../../models/smartApp/EDU00097");
 const EDU00098 = require("../../models/smartApp/EDU00098");
 const EDU0100 = require("../../models/smartApp/EDU0100");
-
 const EMP00001 = require("../../models/smartApp/EMP00001");
 const EMP00002 = require("../../models/smartApp/EMP00002");
 const EMP00004 = require("../../models/smartApp/EMP00004");
@@ -63,7 +61,6 @@ const EMP00013 = require("../../models/smartApp/EMP00013");
 const EMP00021 = require("../../models/smartApp/EMP00021");
 const EMPBOK01 = require("../../models/smartApp/EMPBOK01");
 const EMPACC01 = require("../../models/smartApp/EMPACC01");
-
 const ERP00002 = require("../../models/smartApp/ERP00002");
 const ERP00003 = require("../../models/smartApp/ERP00003");
 const ERP00004 = require("../../models/smartApp/ERP00004");
@@ -89,7 +86,6 @@ const SUPP00015 = require("../../models/smartApp/SUPP00015");
 const SUPP00016 = require("../../models/smartApp/SUPP00016");
 const SUPP00018 = require("../../models/smartApp/SUPP00018");
 const SUPP00028 = require("../../models/smartApp/SUPP00028");
-
 var sch = require("../../applicationJSON/Schema_Master.json");
 
 // @desc      Add record
@@ -97,7 +93,7 @@ var sch = require("../../applicationJSON/Schema_Master.json");
 // @access    Private
 exports.addDataRecords = asyncHandler(async (req, res, next) => {
   //let myorg = {};
-  console.log("Headers....", req.headers);
+
   // Get App from Header
   const BodyApp = await App.findOne({
     applicationID: req.headers.applicationid,
@@ -116,7 +112,7 @@ exports.addDataRecords = asyncHandler(async (req, res, next) => {
   //myorg.businessRole = req.user.role;
   req.body.userName = req.user.name;
   req.body.userEmail = req.user.email;
-  console.log(req.body.userEmail);
+
   // Get Company Details
   const CompanyDetails = await Company.findById(req.user.company);
 
@@ -183,13 +179,11 @@ exports.addDataRecords = asyncHandler(async (req, res, next) => {
   if (req.user.branch) {
     // if no Area in body but user has area then use it
     if (!req.headers.branch) {
-      console.log("branch is picked from User Record");
       req.body.branch = req.user.branch;
       // myorg.branchName = BodyBranch.branchName;
     }
 
     if (req.body.branch != req.user.branch) {
-      console.log("Branch in body and user record are different");
       return next(
         new ErrorResponse(
           `The user with ID ${req.user.email} can't create document for other branches`,
@@ -220,13 +214,11 @@ exports.addDataRecords = asyncHandler(async (req, res, next) => {
   if (req.user.area) {
     // if no Area in body but user has area then use it
     if (!req.headers.area) {
-      console.log("Area is picked from User Record");
       req.body.area = req.user.area;
     }
 
     // if body and user both have area then they should be same (Validation  - Pass)
     if (req.body.area != req.user.area) {
-      console.log("Area in body and user record are different");
       return next(
         new ErrorResponse(
           `The user with ID ${req.user.email} can't create document for other business area`,
@@ -242,7 +234,19 @@ exports.addDataRecords = asyncHandler(async (req, res, next) => {
     req.body.area = AreaDetails.id;
   }
   ///  +++++++++++  VALIDATIONS ENDS +++++++++++++++++++++++ /////////
-
+  // Set Processing/Transaction Log
+  let pLog = {};
+  let pg1 = [];
+  pLog["Type"] = "NEW_RECORD";
+  pLog["User"] = req.body.user;
+  pLog["UserName"] = req.body.userName;
+  pLog["Status"] = req.body.Status;
+  pLog["TimeStamp"] = Date.now();
+  pLog["ID"] = req.body.ID;
+  pLog["applicationId"] = req.body.applicationId;
+  pg1.push(pLog);
+  req.body.TransLog = pg1;
+  console.log(req.body.TransLog);
   //req.body.OrgData = myorg;
   mydata = req.body;
   // Read Card Configuration for the Role (X1)
@@ -260,7 +264,7 @@ exports.addDataRecords = asyncHandler(async (req, res, next) => {
     mydata.area = req.body.area;
     mydata.areaName = req.body.areaName;
     mydata.ItemData = req.body.ItemData;
-
+    mydata.TransLog = req.body.TransLog;
     let fileName =
       "../../NewConfig/" +
       req.headers.applicationid +
@@ -268,13 +272,7 @@ exports.addDataRecords = asyncHandler(async (req, res, next) => {
       req.headers.businessrole +
       "_config.json";
     var cardConfig = require(fileName);
-    /*     cardConfig["FieldDef"].forEach((element1) => {
-      for (const key in req.body) {
-        if (req.body.hasOwnProperty(key) & (element1["SLabel"] == key)) {
-          mydata[element1["name"]] = req.body[key];
-        }
-      }
-    }); */
+
     for (const key in req.body) {
       cardConfig["FieldDef"].forEach((element1) => {
         if (req.body.hasOwnProperty(key) & (element1["SLabel"] == key)) {
@@ -283,9 +281,8 @@ exports.addDataRecords = asyncHandler(async (req, res, next) => {
       });
     }
   }
+  console.log("Data Added1 : ", mydata);
   //// Add similar Logic for Items as well
-  //console.log("Config", cardConfig["FieldDef"]);
-
   let result;
   if (req.headers.applicationid == "EDU00001") {
     result = await EDU00001.create(mydata);
@@ -519,8 +516,7 @@ exports.addDataRecords = asyncHandler(async (req, res, next) => {
   if (req.headers.applicationid == "SUPP00028") {
     result = await SUPP00028.create(mydata);
   }
-
-  console.log(result);
+  console.log("Data Added : ", mydata);
   mydata = {};
   res.status(201).json({
     success: true,

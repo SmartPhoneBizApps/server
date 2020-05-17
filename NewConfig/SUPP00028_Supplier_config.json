@@ -12,7 +12,11 @@
     "LFields": ["ID", "InvoiceType", "InvoiceDate", "PaymentTerm"],
     "numberUnitField": "Currency"
   },
-  "ListBOTFields": { "Title": [], "SubTitle": [], "Description": [] },
+  "ListBOTFields": {
+    "Title": ["VendorName", "InvoiceType"],
+    "SubTitle": ["SuppInvoiceNumber", "InvoiceStatus"],
+    "Description": ["InvoiceDate", "PaymentTerm", "TotInvGrossVal"]
+  },
   "MButtons": [
     {
       "type": "DOWNLOAD",

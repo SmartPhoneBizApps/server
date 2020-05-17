@@ -1,8 +1,8 @@
 const advancedDataList = (model, AppID, populate) => async (req, res, next) => {
-  console.log("AppID is:", AppID);
-  console.log("BusinessRole:", req.headers.businessrole);
-
   // Read New Configuration from File......
+  const App = require("../models/appSetup/App");
+  let app = await App.findOne({ applicationID: AppID });
+  var button = require("../bot/Supplier_button.json");
 
   const newConfig =
     "../NewConfig/" + AppID + "_" + req.headers.businessrole + "_config.json";
@@ -11,7 +11,7 @@ const advancedDataList = (model, AppID, populate) => async (req, res, next) => {
   fl1 = {};
   fl2 = [];
   lf = [];
-
+  console.log("ConfigFile:", newConfig);
   if (req.headers.mode == "BOTList") {
     config1["ListBOTFields"]["Title"].forEach((element1) => {
       lf.push(element1);
@@ -23,8 +23,7 @@ const advancedDataList = (model, AppID, populate) => async (req, res, next) => {
       lf.push(element1);
     });
   }
-
-  console.log(config1);
+  console.log("Config1:", lf);
   switch (req.headers.mode) {
     case "BOTList":
       config1["FieldDef"].forEach((element) => {
@@ -40,6 +39,7 @@ const advancedDataList = (model, AppID, populate) => async (req, res, next) => {
       config["Title"] = config1["Title"];
       config["ListBOTFields"] = config1["ListBOTFields"];
       config["FieldDef"] = fl2;
+      config["Buttons"] = button[AppID];
       break;
 
     case "BOTDetail":
@@ -73,13 +73,7 @@ const advancedDataList = (model, AppID, populate) => async (req, res, next) => {
 
   // Finding resource
   query = model.find(JSON.parse(queryStr));
-
-  /*   // Select Fields
-  if (req.query.select) {
-    const fields = req.query.select.split(",").join(" ");
-    query = query.select(fields);
-  } */
-
+  console.log("Config1:", lf);
   if (req.headers.mode == "BOTList") {
     const fields = lf.join(" ");
     query = query.select(fields);
@@ -107,7 +101,7 @@ const advancedDataList = (model, AppID, populate) => async (req, res, next) => {
   }
 
   // Executing query
-  const results = await query;
+  let results = await query;
 
   // Pagination result
   const pagination = {};
@@ -131,6 +125,7 @@ const advancedDataList = (model, AppID, populate) => async (req, res, next) => {
     count: results.length,
     pagination,
     data: results,
+    cardImage: app["photo"],
     config: config,
   };
 

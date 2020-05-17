@@ -5,10 +5,15 @@
     "required": [true, "Please add mandatory field :ID"],
     "maxlength": [20, "ID can not be more than 20 characters"]
   },
-  "Name": {
+  "FirstName": {
     "type": "String",
     "required": [true, "Please add mandatory field :FirstName"],
     "maxlength": [50, "FirstName can not be more than 50 characters"]
+  },
+  "LastName": {
+    "type": "String",
+    "required": [true, "Please add mandatory field :LastName"],
+    "maxlength": [50, "LastName can not be more than 50 characters"]
   },
 
   "PhoneNo": {
@@ -110,8 +115,9 @@
   },
   "BookingFor": {
     "type": "String",
-
-    "maxlength": [10, "BookingFor can not be more than 10 characters"]
+    "required": [true, "Please add mandatory field :BookingFor"],
+    "maxlength": [10, "BookingFor can not be more than 10 characters"],
+    "enum": ["HotDesk", "CarPark", "Visitor", "MeetingRoom"]
   },
   "RoomLayout": {
     "type": "String",
@@ -178,5 +184,7 @@
       "NUM_INT_MAX_10D_V1",
       "Please provide an Integer value for field :NoOfPeople"
     ]
-  }
+  },
+  "TransLog": [],
+  "ItemData": []
 }
