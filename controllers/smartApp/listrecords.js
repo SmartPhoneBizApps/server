@@ -135,15 +135,13 @@ exports.getListrecords = asyncHandler(async (req, res, next) => {
       { _id: 0 }
     );
     query = query.select(fields);
-    buttonData = [];
+    buttonData = {};
 
     buttonVal = {};
     // Executing query
     let results = await query;
     results.forEach((element) => {
       if (element.PossibleValues == "CurrentStatus") {
-        console.log("Log1:", [element.Value]);
-        console.log("Log1:", button[req.headers.applicationid][element.Value]);
         for (const key in button[req.headers.applicationid][element.Value]) {
           if (
             button[req.headers.applicationid][element.Value].hasOwnProperty(key)
@@ -151,9 +149,7 @@ exports.getListrecords = asyncHandler(async (req, res, next) => {
             const element1 =
               button[req.headers.applicationid][element.Value][key];
             if (key == role1) {
-              buttonVal[element.Value] = element1;
-              buttonData.push(buttonVal);
-              buttonVal = {};
+              buttonData[element.Value] = element1;
             }
           }
         }
