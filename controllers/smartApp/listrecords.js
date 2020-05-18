@@ -96,6 +96,7 @@ const SUPP00028 = require("../../models/smartApp/SUPP00028");
 const Possval = require("../../models/appSetup/Possval");
 
 var sch = require("../../applicationJSON/Schema_Master.json");
+var button = require("../../bot/Supplier_button.json");
 
 // @desc      Get all bootcamps
 // @route     GET /api/v1/bootcamps
@@ -134,14 +135,39 @@ exports.getListrecords = asyncHandler(async (req, res, next) => {
       { _id: 0 }
     );
     query = query.select(fields);
-    //  console.log("Query:", app1, app2, role1, role2, pvconfig1);
+    buttonData = [];
+    buttonVal = {};
     // Executing query
     let results = await query;
-    //  console.log(results);
+    results.forEach((element) => {
+      if (element.PossibleValues == "CurrentStatus") {
+        console.log("Log1:", [element.Value]);
+        console.log("Log1:", button[req.headers.applicationid][element.Value]);
+        for (const key in button[req.headers.applicationid][element.Value]) {
+          if (
+            button[req.headers.applicationid][element.Value].hasOwnProperty(key)
+          ) {
+            const element1 =
+              button[req.headers.applicationid][element.Value][key];
+            if (key == role1) {
+              buttonVal["Value"] = element.Value;
+              buttonVal["Buttons"] = element1;
+
+              console.log("Key", key);
+              console.log(element1);
+              buttonData.push({ ...buttonVal });
+              buttonVal = {};
+            }
+          }
+        }
+      }
+    });
+
     res.status(200).json({
       success: true,
       data: outData,
       possibleValues: results,
+      buttons: buttonData,
     });
   } else {
     res.status(200).json({

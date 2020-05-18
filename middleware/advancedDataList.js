@@ -2,7 +2,7 @@ const advancedDataList = (model, AppID, populate) => async (req, res, next) => {
   // Read New Configuration from File......
   const App = require("../models/appSetup/App");
   let app = await App.findOne({ applicationID: AppID });
-  var button = require("../bot/Supplier_button.json");
+  //var button = require("../bot/Supplier_button.json");
 
   const newConfig =
     "../NewConfig/" + AppID + "_" + req.headers.businessrole + "_config.json";
@@ -39,7 +39,7 @@ const advancedDataList = (model, AppID, populate) => async (req, res, next) => {
       config["Title"] = config1["Title"];
       config["ListBOTFields"] = config1["ListBOTFields"];
       config["FieldDef"] = fl2;
-      config["Buttons"] = button[AppID];
+      // config["Buttons"] = button[AppID];
       break;
 
     case "BOTDetail":

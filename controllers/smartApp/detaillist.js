@@ -152,10 +152,6 @@ exports.getDetailList = async (req, res, next) => {
       // console.log(element);
       tab = element.value;
     }
-    /*     if (element["type"] == "Items") {
-      //   console.log(element);
-      tabItem = element.value;
-    } */
   });
 
   // Read Color Configuration
