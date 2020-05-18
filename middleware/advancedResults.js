@@ -19,15 +19,15 @@ const advancedResults = (model, populate) => async (req, res, next) => {
     /\b(gt|gte|lt|lte|in)\b/g,
     (match) => `$${match}`
   );
-
+  const fields_count = "ID";
   // Finding resource
   query = model.find(JSON.parse(queryStr));
+  queryCount = model.find(JSON.parse(queryStr));
 
   //Get Count....
-  queryCount = query;
-  const fields_count = "ID";
+  let results_count = 0;
   queryCount = queryCount.select(fields_count);
-  const results_count = await queryCount;
+  const result2 = await queryCount;
 
   // Select Fields
   if (req.query.select) {
@@ -76,6 +76,11 @@ const advancedResults = (model, populate) => async (req, res, next) => {
     };
   }
 
+  if (result2.length > results.length) {
+    results_count = result2.length;
+  } else {
+    results_count = results.length;
+  }
   res.advancedResults = {
     success: true,
     count: results_count,
