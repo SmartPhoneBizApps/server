@@ -136,6 +136,7 @@ exports.getListrecords = asyncHandler(async (req, res, next) => {
     );
     query = query.select(fields);
     buttonData = [];
+
     buttonVal = {};
     // Executing query
     let results = await query;
@@ -150,12 +151,8 @@ exports.getListrecords = asyncHandler(async (req, res, next) => {
             const element1 =
               button[req.headers.applicationid][element.Value][key];
             if (key == role1) {
-              buttonVal["Value"] = element.Value;
-              buttonVal["Buttons"] = element1;
-
-              console.log("Key", key);
-              console.log(element1);
-              buttonData.push({ ...buttonVal });
+              buttonVal[element.Value] = element1;
+              buttonData.push(buttonVal);
               buttonVal = {};
             }
           }
