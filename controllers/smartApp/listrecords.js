@@ -164,15 +164,13 @@ exports.getListrecords = asyncHandler(async (req, res, next) => {
     });
 
     res.status(200).json({
-      success: true,
-      data: outData,
+      outData,
       possibleValues: results,
       buttons: buttonData,
     });
   } else {
     res.status(200).json({
-      success: true,
-      data: outData,
+      outData,
     });
   }
 });
