@@ -6,8 +6,8 @@
   "ListFields": {
     "IntroField": "VendorName",
     "TitleField": "SuppInvoiceNumber",
-    "fStatus": "InvoiceStatus",
     "sStatus": "PaymentStatus",
+    "fStatus": "InvoiceStatus",
     "numberField": "TotInvGrossVal",
     "LFields": ["ID", "InvoiceType", "InvoiceDate", "PaymentTerm"],
     "numberUnitField": "Currency"
@@ -23,6 +23,18 @@
     ],
     "None": []
   },
+  "PossibleValues": [
+    "Currency",
+    "PaymentTerm",
+    "Status",
+    "InvVATRate",
+    "POVATRate",
+    "InvoiceType",
+    "InvoiceStatus",
+    "BuyerPaymentStatus",
+    "BuyerInvoiceStatus",
+    "CurrentStatus"
+  ],
   "MButtons": [
     {
       "type": "DOWNLOAD",
@@ -58,6 +70,12 @@
   ],
   "Tabs": [
     {
+      "value": "Tab0",
+      "name": "Cards",
+      "type": "Cards",
+      "fioriicon": "responsive"
+    },
+    {
       "value": "Tab1",
       "name": "Invoice",
       "type": "Field",
@@ -73,8 +91,8 @@
     },
     {
       "value": "Tab4",
-      "name": "Cards",
-      "type": "Cards",
+      "name": "Attachment",
+      "type": "Attachment",
       "fioriicon": "attachment"
     },
     {
@@ -342,8 +360,8 @@
       "type": "string",
       "width": "3",
       "Option": "",
-      "SLabel": "Tax Invoice",
-      "LLabel": "Tax Invoice",
+      "SLabel": "Tax Invoice (Y/N)",
+      "LLabel": "Tax Invoice (Y/N)",
       "Currency": "No"
     },
     {
@@ -648,5 +666,213 @@
       },
       { "name": "InvVATPer", "Tab": "Tab3", "Sequence": "1", "Mode": "Display" }
     ]
-  }
+  },
+  "CalculatedFields": {
+    "Item": [
+      {
+        "CalculatedFormula": {
+          "name": "Multiplication",
+          "function": "MUL",
+          "Target": "ItemNetValue",
+          "type": "Item"
+        },
+        "Fields": [
+          { "Source": "InvQty", "Type": { "type": "Item" } },
+          { "Source": "InvPrice", "Type": { "type": "Item" } },
+          { "Source": "InvNetValue", "Type": {} }
+        ]
+      },
+      {
+        "CalculatedFormula": {
+          "name": "Percentage",
+          "function": "PAR",
+          "Target": "ItemVATPer",
+          "type": "Item"
+        },
+        "Fields": [
+          { "Source": "InvVATRate", "Type": { "type": "Item" } },
+          { "Source": "InvVATPer", "Type": {} }
+        ]
+      },
+      {
+        "CalculatedFormula": {
+          "name": "Multiplication",
+          "function": "MUL",
+          "Target": "ItemVATVal",
+          "type": "Item"
+        },
+        "Fields": [
+          { "Source": "InvNetValue", "Type": { "type": "Item" } },
+          { "Source": "InvVATPer", "Type": { "type": "Item" } },
+          { "Source": "InvVATVal", "Type": {} }
+        ]
+      },
+      {
+        "CalculatedFormula": {
+          "name": "Addition",
+          "function": "ADD",
+          "Target": "ItemGrossVal",
+          "type": "Item"
+        },
+        "Fields": [
+          { "Source": "InvNetValue", "Type": { "type": "Item" } },
+          { "Source": "InvVATVal", "Type": { "type": "Item" } },
+          { "Source": "InvGrossVal", "Type": {} }
+        ]
+      },
+      {
+        "CalculatedFormula": {
+          "name": "Multiplication",
+          "function": "MUL",
+          "Target": "PONetValue",
+          "type": "Item"
+        },
+        "Fields": [
+          { "Source": "POPrice", "Type": { "type": "Item" } },
+          { "Source": "POQty", "Type": { "type": "Item" } }
+        ]
+      },
+      {
+        "CalculatedFormula": {
+          "name": "Percentage",
+          "function": "PAR",
+          "Target": "POVATPer",
+          "type": "Item"
+        },
+        "Fields": [{ "Source": "POVATRate", "Type": { "type": "Item" } }]
+      },
+      {
+        "CalculatedFormula": {
+          "name": "Multiplication",
+          "function": "MUL",
+          "Target": "POVATVal",
+          "type": "Item"
+        },
+        "Fields": [
+          { "Source": "PONetValue", "Type": { "type": "Item" } },
+          { "Source": "POVATPer", "Type": { "type": "Item" } }
+        ]
+      },
+      {
+        "CalculatedFormula": {
+          "name": "Addition",
+          "function": "ADD",
+          "Target": "POGrossVal",
+          "type": "Item"
+        },
+        "Fields": [
+          { "Source": "PONetValue", "Type": { "type": "Item" } },
+          { "Source": "POVATVal", "Type": { "type": "Item" } }
+        ]
+      }
+    ],
+    "HeaderItem": [
+      { "CalculatedFormula": { "type": "HeaderItem" }, "Fields": [] },
+      {
+        "CalculatedFormula": {
+          "name": "ITEMSUM",
+          "function": "ITEMSUM",
+          "Target": "TotInvNetValue",
+          "type": "HeaderItem"
+        },
+        "Fields": [
+          { "Source": "InvNetValue", "Type": { "type": "HeaderItem" } }
+        ]
+      },
+      {
+        "CalculatedFormula": {
+          "name": "ITEMSUM",
+          "function": "ITEMSUM",
+          "Target": "TotInvGrossVal",
+          "type": "HeaderItem"
+        },
+        "Fields": [
+          { "Source": "InvGrossVal", "Type": { "type": "HeaderItem" } }
+        ]
+      },
+      {
+        "CalculatedFormula": {
+          "name": "ITEMSUM",
+          "function": "ITEMSUM",
+          "Target": "NetValue",
+          "type": "HeaderItem"
+        },
+        "Fields": [{ "Source": "PONetValue", "Type": { "type": "HeaderItem" } }]
+      },
+      {
+        "CalculatedFormula": {
+          "name": "ITEMSUM",
+          "function": "ITEMSUM",
+          "Target": "GrossValue",
+          "type": "HeaderItem"
+        },
+        "Fields": [{ "Source": "POGrossVal", "Type": { "type": "HeaderItem" } }]
+      },
+      {
+        "CalculatedFormula": {
+          "name": "ITEMSUM",
+          "function": "ITEMSUM",
+          "Target": "TotInvTax",
+          "type": "HeaderItem"
+        },
+        "Fields": [{ "Source": "InvVATVal", "Type": { "type": "HeaderItem" } }]
+      }
+    ],
+    "Header": []
+  },
+  "Wizard": [
+    {
+      "id": "Step1",
+      "fields": [
+        { "name": "InvoiceType", "Sequence": "1", "Mode": "Display" },
+        { "name": "VendorName", "Sequence": "1", "Mode": "Edit" },
+        { "name": "VendorNumber", "Sequence": "1", "Mode": "Edit" }
+      ],
+      "name": "Vendor Details",
+      "stepType": "FieldList",
+      "intro": "Supplier Invoice (PO)  : Vendor Details"
+    },
+    {
+      "id": "Step2",
+      "fields": [
+        { "name": "PONumber", "Sequence": "1", "Mode": "Edit" },
+        { "name": "PODate", "Sequence": "1", "Mode": "Edit" },
+        { "name": "TaxInvoice", "Sequence": "1", "Mode": "Edit" },
+        { "name": "PaymentTerm", "Sequence": "1", "Mode": "Edit" },
+        { "name": "Details", "Sequence": "1", "Mode": "Edit" },
+        { "name": "Company", "Sequence": "1", "Mode": "Edit" }
+      ],
+      "name": "Purchaser Order Details",
+      "stepType": "FieldList",
+      "intro": "Supplier Incvoice (PO) : Purchaser Order Details"
+    },
+    {
+      "id": "Step3",
+      "fields": [
+        { "name": "SuppInvoiceNumber", "Sequence": "1", "Mode": "Edit" },
+        { "name": "TotInvNetValue", "Sequence": "1", "Mode": "Edit" },
+        { "name": "TotInvGrossVal", "Sequence": "1", "Mode": "Edit" },
+        { "name": "InvoiceDate", "Sequence": "1", "Mode": "Edit" },
+        { "name": "NetValue", "Sequence": "1", "Mode": "Display" },
+        { "name": "GrossValue", "Sequence": "1", "Mode": "Display" },
+        { "name": "Currency", "Sequence": "1", "Mode": "Display" }
+      ],
+      "name": "Invoice Details",
+      "stepType": "FieldList",
+      "intro": "Supplier Invoice(PO) : Invoice Details"
+    },
+    {
+      "id": "Step4",
+      "fields": [
+        { "name": "Attachment", "Sequence": "1", "Mode": "Edit" },
+        { "name": "Status", "Sequence": "1", "Mode": "Edit" },
+        { "name": "InvoiceStatus", "Sequence": "1", "Mode": "Edit" },
+        { "name": "PaymentStatus", "Sequence": "1", "Mode": "Edit" },
+        { "name": "CurrentStatus", "Sequence": "1", "Mode": "Edit" }
+      ],
+      "name": "Admin",
+      "stepType": "FieldList",
+      "intro": "Supplier Invoice (PO) : Admin"
+    }
+  ]
 }
