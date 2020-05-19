@@ -18,7 +18,10 @@
     "type": "String",
     "required": [true, "Please add mandatory field :VendorName"],
     "maxlength": [50, "VendorName can not be more than 50 characters"],
-    "match": [{}, "Please provide valid company name in field :VendorName"]
+    "match": [
+      "UK_COMPANYNAME_V1",
+      "Please provide valid company name in field :VendorName"
+    ]
   },
   "VendorNumber": {
     "type": "String",
@@ -74,7 +77,10 @@
   "BuyerInvoiceYear": {
     "type": "String",
     "maxlength": [4, "BuyerInvoiceYear can not be more than 4 characters"],
-    "match": [{}, "Please provide 4 digit year in field :BuyerInvoiceYear"]
+    "match": [
+      "YEAR_V1",
+      "Please provide 4 digit year in field :BuyerInvoiceYear"
+    ]
   },
   "BuyerInvoiceStatus": {
     "type": "String",
@@ -126,7 +132,7 @@
       100,
       "PharmaContactEmail can not be more than 100 characters"
     ],
-    "match": [{}, "Invalid EmailID for field :PharmaContactEmail"]
+    "match": ["EMAIL_V1", "Invalid EmailID for field :PharmaContactEmail"]
   },
   "StudyType": {
     "type": "String",
@@ -155,14 +161,17 @@
   "PODate": {
     "type": "Date",
     "maxlength": [10, "PODate can not be more than 10 characters"],
-    "match": [{}, "Please provide date in YYYY-MM-DD format for field :PODate"]
+    "match": [
+      "DATE_V1",
+      "Please provide date in YYYY-MM-DD format for field :PODate"
+    ]
   },
   "InvoiceDate": {
     "type": "Date",
     "required": [true, "Please add mandatory field :InvoiceDate"],
     "maxlength": [10, "InvoiceDate can not be more than 10 characters"],
     "match": [
-      {},
+      "DATE_V1",
       "Please provide date in YYYY-MM-DD format for field :InvoiceDate"
     ]
   },
@@ -170,7 +179,7 @@
     "type": "Number",
     "maxlength": [20, "NetValue can not be more than 20 characters"],
     "match": [
-      {},
+      "NUM_2_DEC_PLACE_V1",
       "Please provide value with 2 decimal places in the field :NetValue"
     ]
   },
@@ -178,7 +187,7 @@
     "type": "Number",
     "maxlength": [20, "GrossValue can not be more than 20 characters"],
     "match": [
-      {},
+      "NUM_2_DEC_PLACE_V1",
       "Please provide value with 2 decimal places in the field :GrossValue"
     ]
   },
@@ -186,7 +195,7 @@
     "type": "Number",
     "maxlength": [20, "TotInvNetValue can not be more than 20 characters"],
     "match": [
-      {},
+      "NUM_2_DEC_PLACE_V1",
       "Please provide value with 2 decimal places in the field :TotInvNetValue"
     ]
   },
@@ -194,7 +203,7 @@
     "type": "Number",
     "maxlength": [20, "TotInvGrossVal can not be more than 20 characters"],
     "match": [
-      {},
+      "NUM_2_DEC_PLACE_V1",
       "Please provide value with 2 decimal places in the field :TotInvGrossVal"
     ]
   },
@@ -202,7 +211,7 @@
     "type": "Date",
     "maxlength": [10, "BuyerPaymentDate can not be more than 10 characters"],
     "match": [
-      {},
+      "DATE_V1",
       "Please provide date in YYYY-MM-DD format for field :BuyerPaymentDate"
     ]
   },
@@ -210,7 +219,7 @@
     "type": "Date",
     "maxlength": [10, "BuyerInvoiceDueDt can not be more than 10 characters"],
     "match": [
-      {},
+      "DATE_V1",
       "Please provide date in YYYY-MM-DD format for field :BuyerInvoiceDueDt"
     ]
   },
@@ -218,7 +227,7 @@
     "type": "Number",
     "maxlength": [20, "TotInvTax can not be more than 20 characters"],
     "match": [
-      {},
+      "NUM_2_DEC_PLACE_V1",
       "Please provide value with 2 decimal places in the field :TotInvTax"
     ]
   },
@@ -226,7 +235,7 @@
     "type": "Date",
     "maxlength": [10, "ContractStartDate can not be more than 10 characters"],
     "match": [
-      {},
+      "DATE_V1",
       "Please provide date in YYYY-MM-DD format for field :ContractStartDate"
     ]
   },
@@ -234,10 +243,11 @@
     "type": "Date",
     "maxlength": [10, "EventStartDate can not be more than 10 characters"],
     "match": [
-      {},
+      "DATE_V1",
       "Please provide date in YYYY-MM-DD format for field :EventStartDate"
     ]
   },
+
   "TransLog": [],
   "ItemData": []
 }

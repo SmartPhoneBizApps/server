@@ -1,7 +1,7 @@
 const express = require("express");
 const {
   addDataRecords,
-  getRecords,
+  updateDataRecords,
 } = require("../../controllers/smartApp/datarecords");
 //const reviewRouter = require("../reviews");
 const router = express.Router();
@@ -24,6 +24,19 @@ router
       "user"
     ),
     addDataRecords
+  )
+  .put(
+    protect,
+    authorize(
+      "CompanyAdmin",
+      "BranchAdmin",
+      "AreaAdmin",
+      "CompanyUser",
+      "BranchUser",
+      "AreaUser",
+      "user"
+    ),
+    updateDataRecords
   );
 
 module.exports = router;

@@ -1,8 +1,5 @@
 const ErrorResponse = require("../../utils/errorResponse");
 const asyncHandler = require("../../middleware/async");
-const geocoder = require("../../utils/geocoder");
-const path = require("path");
-const mongoose = require("mongoose");
 
 const Company = require("../../models/orgSetup/Company");
 const Branch = require("../../models/orgSetup/Branch");
@@ -92,8 +89,6 @@ var sch = require("../../applicationJSON/Schema_Master.json");
 // @route     POST /api/v1/datarecords/
 // @access    Private
 exports.addDataRecords = asyncHandler(async (req, res, next) => {
-  //let myorg = {};
-
   // Get App from Header
   const BodyApp = await App.findOne({
     applicationID: req.headers.applicationid,
@@ -107,9 +102,7 @@ exports.addDataRecords = asyncHandler(async (req, res, next) => {
   if (!req.body.appId) {
     return next(new ErrorResponse(`Please provide App ID`, 400));
   }
-
   req.body.user = req.user.id;
-  //myorg.businessRole = req.user.role;
   req.body.userName = req.user.name;
   req.body.userEmail = req.user.email;
 
@@ -246,7 +239,6 @@ exports.addDataRecords = asyncHandler(async (req, res, next) => {
   pLog["applicationId"] = req.body.applicationId;
   pg1.push(pLog);
   req.body.TransLog = pg1;
-  console.log(req.body.TransLog);
   //req.body.OrgData = myorg;
   mydata = req.body;
   // Read Card Configuration for the Role (X1)
@@ -281,7 +273,6 @@ exports.addDataRecords = asyncHandler(async (req, res, next) => {
       });
     }
   }
-  console.log("Data Added1 : ", mydata);
   //// Add similar Logic for Items as well
   let result;
   if (req.headers.applicationid == "EDU00001") {
@@ -516,9 +507,220 @@ exports.addDataRecords = asyncHandler(async (req, res, next) => {
   if (req.headers.applicationid == "SUPP00028") {
     result = await SUPP00028.create(mydata);
   }
-  console.log("Data Added : ", mydata);
   mydata = {};
   res.status(201).json({
+    success: true,
+    data: result,
+  });
+});
+
+// @desc      Update record
+// @route     POST /api/v1/datarecords/
+// @access    Private
+exports.updateDataRecords = asyncHandler(async (req, res, next) => {
+  // Get App from Header
+  const BodyApp = await App.findOne({
+    applicationID: req.headers.applicationid,
+  });
+  // Get Role from the Header
+  const BusinessRole = await Role.findOne({
+    applicationID: req.headers.businessRole,
+  });
+  req.body.appId = BodyApp.id;
+  req.body.applicationId = req.headers.applicationid;
+  if (!req.body.appId) {
+    return next(new ErrorResponse(`Please provide App ID`, 400));
+  }
+  req.body.user = req.user.id;
+  req.body.userName = req.user.name;
+  req.body.userEmail = req.user.email;
+
+  // Get Company Details
+  const CompanyDetails = await Company.findById(req.user.company);
+
+  ///  +++++++++++  VALIDATIONS STARTS +++++++++++++++++++++++ /////////
+  // Check if user setup has company (Pass)
+  if (!req.user.company) {
+    return next(
+      new ErrorResponse(
+        `The user with ID ${req.user.email} is not setup for any company, please contact administrator`,
+        400
+      )
+    );
+  }
+  // Validate if user is creating documents in their own company (Pass)
+  if (req.headers.company) {
+    if (req.headers.company != CompanyDetails.id) {
+      return next(
+        new ErrorResponse(
+          `The user with ID ${req.user.email} can't create any documents for others companies`,
+          400
+        )
+      );
+    }
+  }
+  // Company validation passed, now USER company can be used!!
+  req.body.company = CompanyDetails.id;
+  req.body.companyName = CompanyDetails.companyName;
+
+  // Get Branch from Header
+  if (req.headers.branchname) {
+    const BodyBranch = await Branch.findOne({
+      branchName: req.headers.branchname,
+      companyId: req.body.company,
+    });
+    if (BodyBranch) {
+      req.body.branch = BodyBranch.id;
+      req.body.branchName = BodyBranch.branchName;
+    }
+  }
+  // Get Area from Body
+  if (req.headers.areaname) {
+    const BodyArea = await Area.findOne({
+      areaName: req.headers.areaname,
+      companyId: req.body.company,
+    });
+    if (BodyArea) {
+      req.body.area = BodyArea.id;
+      req.body.areaName = BodyArea.areaName;
+    }
+  }
+
+  // Validate if user has provided Branch details (Pass)
+  if (!req.headers.branch) {
+    if (!req.user.branch) {
+      return next(
+        new ErrorResponse(
+          `The user with ID ${req.user.email} can't create document as branch is not provided`,
+          400
+        )
+      );
+    }
+  }
+  // If user record has got Branch then validate is it matches with body Branch
+  if (req.user.branch) {
+    // if no Area in body but user has area then use it
+    if (!req.headers.branch) {
+      req.body.branch = req.user.branch;
+      // myorg.branchName = BodyBranch.branchName;
+    }
+
+    if (req.body.branch != req.user.branch) {
+      return next(
+        new ErrorResponse(
+          `The user with ID ${req.user.email} can't create document for other branches`,
+          400
+        )
+      );
+    }
+  }
+  // Branch validation passed, now get Branch details and set Body
+  const BranchDetails = await Branch.findById(req.headers.branch);
+  if (BranchDetails) {
+    req.body.branch = BranchDetails.branch;
+    req.body.branchName = BranchDetails.branchName;
+  }
+
+  if (!req.headers.area) {
+    if (!req.user.area) {
+      return next(
+        new ErrorResponse(
+          `The user with ID ${req.user.email} can't create document as business area can't be determined`,
+          400
+        )
+      );
+    }
+  }
+
+  // If user record has got Area then validate is it matches with body Area
+  if (req.user.area) {
+    // if no Area in body but user has area then use it
+    if (!req.headers.area) {
+      req.body.area = req.user.area;
+    }
+
+    // if body and user both have area then they should be same (Validation  - Pass)
+    if (req.body.area != req.user.area) {
+      return next(
+        new ErrorResponse(
+          `The user with ID ${req.user.email} can't create document for other business area`,
+          400
+        )
+      );
+    }
+  }
+  // Area validation passed, now get Area details and set Body
+  const AreaDetails = await Area.findById(req.headers.area);
+  if (AreaDetails) {
+    req.body.areaName = AreaDetails.areaName;
+    req.body.area = AreaDetails.id;
+  }
+  ///  +++++++++++  VALIDATIONS ENDS +++++++++++++++++++++++ /////////
+  // Set Processing/Transaction Log
+  let pLog = {};
+  let pg1 = [];
+  pLog["Type"] = "DATA_UPDATE";
+  pLog["User"] = req.body.user;
+  pLog["UserName"] = req.body.userName;
+  pLog["Status"] = req.body.Status;
+  pLog["TimeStamp"] = Date.now();
+  pLog["ID"] = req.body.ID;
+  pLog["applicationId"] = req.body.applicationId;
+  pg1.push(pLog);
+  req.body.TransLog = pg1;
+  //req.body.OrgData = myorg;
+  //mydata = req.body;
+  // Read Card Configuration for the Role (X1)
+  /*   if (req.headers.fieldnames == "X") {
+    mydata = {};
+    mydata.appId = req.body.appId;
+    mydata.applicationId = req.body.applicationId;
+    mydata.user = req.body.user;
+    mydata.userName = req.body.userName;
+    mydata.userEmail = req.body.userEmail;
+    mydata.company = req.body.company;
+    mydata.companyName = req.body.companyName;
+    mydata.branch = req.body.branch;
+    mydata.branchName = req.body.branchName;
+    mydata.area = req.body.area;
+    mydata.areaName = req.body.areaName;
+    mydata.ItemData = req.body.ItemData;
+    mydata.TransLog = req.body.TransLog;
+    let fileName =
+      "../../NewConfig/" +
+      req.headers.applicationid +
+      "_" +
+      req.headers.businessrole +
+      "_config.json";
+    var cardConfig = require(fileName);
+
+    for (const key in req.body) {
+      cardConfig["FieldDef"].forEach((element1) => {
+        if (req.body.hasOwnProperty(key) & (element1["SLabel"] == key)) {
+          mydata[element1["name"]] = req.body[key];
+        }
+      });
+    }
+  } */
+
+  if (req.headers.applicationid == "SUPP00018") {
+    let myData = await SUPP00018.find({ ID: req.body.ID });
+    req.body.TransLog.push(myData.TransLog);
+    result = await SUPP00018.findByIdAndUpdate(myData.id, req.body, {
+      new: true,
+      runValidators: true,
+    });
+  }
+  if (req.headers.applicationid == "SUPP00028") {
+    let myData = await SUPP00028.find({ ID: req.body.ID });
+    req.body.TransLog.push(myData.TransLog);
+    result = await SUPP00028.findByIdAndUpdate(myData.id, req.body, {
+      new: true,
+      runValidators: true,
+    });
+  }
+
+  res.status(200).json({
     success: true,
     data: result,
   });
