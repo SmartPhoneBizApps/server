@@ -2,7 +2,6 @@
 const ErrorResponse = require("../../utils/errorResponse");
 const asyncHandler = require("../../middleware/async");
 const Possval = require("../../models/appSetup/Possval");
-const updateJsonFile = require("update-json-file");
 const fs = require("fs");
 
 // @desc      Get getPossVal
@@ -110,6 +109,5 @@ exports.addPossValFile = asyncHandler(async (req, res, next) => {
   // }
   res.status(200).json({
     success: true,
-    //  data: afterupdate,
   });
 });

@@ -529,7 +529,10 @@ exports.updateDataRecords = asyncHandler(async (req, res, next) => {
   req.body.appId = BodyApp.id;
   req.body.applicationId = req.headers.applicationid;
   if (!req.body.appId) {
-    return next(new ErrorResponse(`Please provide App ID`, 400));
+    return next(new ErrorResponse(`Please provide App ID(Header)`, 400));
+  }
+  if (!req.headers.businessRole) {
+    return next(new ErrorResponse(`Please provide Role(Header)`, 400));
   }
   req.body.user = req.user.id;
   req.body.userName = req.user.name;
@@ -702,10 +705,14 @@ exports.updateDataRecords = asyncHandler(async (req, res, next) => {
       });
     }
   } */
-
+  let nTrans = [];
   if (req.headers.applicationid == "SUPP00018") {
-    let myData = await SUPP00018.find({ ID: req.body.ID });
-    req.body.TransLog.push(myData.TransLog);
+    let myData = await SUPP00018.findOne({ ID: req.body.ID });
+    console.log(myData.TransLog);
+    nTrans.push(req.body.TransLog);
+    nTrans.push(myData.TransLog);
+    req.body.TransLog = nTrans;
+    console.log(req.body.TransLog);
     result = await SUPP00018.findByIdAndUpdate(myData.id, req.body, {
       new: true,
       runValidators: true,
@@ -713,7 +720,9 @@ exports.updateDataRecords = asyncHandler(async (req, res, next) => {
   }
   if (req.headers.applicationid == "SUPP00028") {
     let myData = await SUPP00028.find({ ID: req.body.ID });
-    req.body.TransLog.push(myData.TransLog);
+    nTrans.push(req.body.TransLog);
+    nTrans.push(myData.TransLog);
+    req.body.TransLog = nTrans;
     result = await SUPP00028.findByIdAndUpdate(myData.id, req.body, {
       new: true,
       runValidators: true,

@@ -122,6 +122,9 @@ app.use("/api/v1/uploaddata/", require("./routes/smartApp/uploaddata"));
 //  -------------------------------------------------
 // Route to get the Overview Cards (a Seperate Tile for every role)
 app.use("/api/v1/util/encode", require("./routes/utilities/utilities"));
+app.use("/api/v1/util/calculation", require("./routes/utilities/calculation"));
+app.use("/api/v1/util/validations", require("./routes/utilities/validations"));
+app.use("/api/v1/util/address", require("./routes/utilities/address"));
 app.use("/api/v1/util/possval", require("./routes/utilities/possVals"));
 
 //  -------------------------------------------------

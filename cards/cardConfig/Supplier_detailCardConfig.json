@@ -1,0 +1,76 @@
+{
+  "Tabs": [
+    {
+      "TabName": "Flow",
+      "TabID": "Tab4",
+      "Tiles": [
+        {
+          "CardID": "SUPP00018_TimeLine1",
+          "applicationID": "SUPP00018",
+          "filters": {},
+          "fieldList": "ID Software AssetID DateOfRequest Status",
+          "sortBy": "ID Status",
+          "limit": 5,
+          "Type": "timeline1A",
+          "header": {
+            "title": "Document Flow",
+            "subTitle": "Status Change of Request",
+            "status": {
+              "text": "Current status"
+            },
+            "actions": [
+              {
+                "type": "Navigation",
+                "parameters": {
+                  "url": "/quickLinks"
+                }
+              }
+            ]
+          },
+          "item": {
+            "dateTime": {
+              "value": "{Time}"
+            },
+            "description": {
+              "value": "{Description}"
+            },
+            "title": {
+              "value": "{Title}"
+            },
+            "icon": {
+              "src": "{Icon}"
+            }
+          },
+
+          "json": []
+        },
+        {
+          "CardID": "SUPP00018_Donut1",
+          "applicationID": "SUPP00018",
+          "filters": {},
+          "fieldList": "ID Software AssetID DateOfRequest Status",
+          "sortBy": "ID Status",
+          "limit": 5,
+          "Type": "donut1A",
+          "header": {
+            "title": "Spend Analysis"
+          },
+          "measures": []
+        },
+        {
+          "CardID": "SUPP00028_Donut1",
+          "applicationID": "SUPP00028",
+          "filters": {},
+          "fieldList": "ID Software AssetID DateOfRequest Status",
+          "sortBy": "ID Status",
+          "limit": 5,
+          "Type": "donut1A",
+          "header": {
+            "title": "Spend Analysis"
+          },
+          "measures": []
+        }
+      ]
+    }
+  ]
+}
