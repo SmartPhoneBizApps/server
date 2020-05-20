@@ -6,6 +6,7 @@ const Branch = require("../../models/orgSetup/Branch");
 const Area = require("../../models/orgSetup/Area");
 const App = require("../../models/appSetup/App");
 const Role = require("../../models/appSetup/Role");
+//const functions = require("../../models/utilities/functions.js");
 
 const BUS0000002 = require("../../models/smartApp/BUS0000002");
 const BUS0000003 = require("../../models/smartApp/BUS0000003");
@@ -84,11 +85,14 @@ const SUPP00016 = require("../../models/smartApp/SUPP00016");
 const SUPP00018 = require("../../models/smartApp/SUPP00018");
 const SUPP00028 = require("../../models/smartApp/SUPP00028");
 var sch = require("../../applicationJSON/Schema_Master.json");
-
+const Possval = require("../../models/appSetup/Possval");
 // @desc      Add record
 // @route     POST /api/v1/datarecords/
 // @access    Private
 exports.addDataRecords = asyncHandler(async (req, res, next) => {
+  /// --------------------------------- ///
+  ///        Get inputs ..........
+  /// --------------------------------- ///
   // Get App from Header
   const BodyApp = await App.findOne({
     applicationID: req.headers.applicationid,
@@ -97,6 +101,141 @@ exports.addDataRecords = asyncHandler(async (req, res, next) => {
   const BusinessRole = await Role.findOne({
     applicationID: req.headers.businessRole,
   });
+  /// --------------------------------- ///
+  ///        Read Config ..........
+  /// --------------------------------- ///
+  let fileName =
+    "../../NewConfig/" +
+    req.headers.applicationid +
+    "_" +
+    req.headers.businessrole +
+    "_config.json";
+  var cardConfig = require(fileName);
+
+  /// -------------------------------------------- ///
+  ///        Collect Field Names ..........
+  /// --------------------------------------------- ///
+  myFieldArray = [];
+  myPossValArray = [];
+  pvalObj = {};
+  pvalArr = [];
+
+  for (let index = 0; index < cardConfig.FieldDef.length; index++) {
+    const element1 = cardConfig.FieldDef[index].name;
+    myFieldArray.push(element1);
+  }
+  /// -------------------------------------------- ///
+  ///        Check input Fields with Config ..........
+  /// --------------------------------------------- ///
+  for (let index = 0; index < myFieldArray.length; index++) {
+    const el1 = myFieldArray[index];
+    app1 = req.headers.applicationid;
+    app2 = "GLOBAL";
+    role1 = req.headers.businessrole;
+    role2 = "ALL";
+    pVal1 = el1;
+    let query;
+    query = Possval.find(
+      {
+        PossibleValues: pVal1,
+        ApplicationID: { $in: [app1, app2] },
+        Role: { $in: [role1, role2] },
+      },
+      { _id: 0 }
+    );
+    const fields = "Value";
+    query = query.select(fields);
+    const rslt = await query;
+
+    if (rslt.length > 0) {
+      myPossValArray.push(el1);
+      pvalObj[el1] = rslt;
+      // Note: append only values
+      pvalArr.push(pvalObj);
+      console.log("val", pvalObj);
+    }
+  }
+  //  console.log("Pvalue", myPossValArray);
+  for (const key in req.body) {
+    if (req.body.hasOwnProperty(key)) {
+      //    const element = req.body[key];
+      // Comapre Config fields and input values
+      var resField = myFieldArray.includes(key);
+      /// -------------------------------------------- ///
+      ///        Config Fields Vs Input Fields ..........
+      /// --------------------------------------------- ///
+      /// Header Validations....
+      if (resField === false && key !== "ItemData") {
+        return next(
+          new ErrorResponse(
+            `Header Field ${key} can't be used with this transaction`,
+            400
+          )
+        );
+      }
+      /// Item Validations....
+      if (key === "ItemData") {
+        myItemArray = [];
+        for (
+          let index = 0;
+          index < cardConfig.itemConfig.ItemFieldDefinition.length;
+          index++
+        ) {
+          const element2 =
+            cardConfig.itemConfig.ItemFieldDefinition[index].name;
+          myItemArray.push(element2);
+        }
+        for (const key2 in req.body.ItemData) {
+          for (const key3 in req.body.ItemData[key2]) {
+            if (req.body.ItemData[key2].hasOwnProperty(key3)) {
+              const element3 = req.body.ItemData[key2][key3];
+              var resItemField = myItemArray.includes(key3);
+              /// Item Validations....
+              if (
+                resItemField === false &&
+                key3 !== "Edit" &&
+                key3 !== "Display" &&
+                key3 !== "Delete"
+              ) {
+                return next(
+                  new ErrorResponse(
+                    `Item Field ${key3} can't be used with this transaction`,
+                    400
+                  )
+                );
+              }
+            }
+          }
+        }
+      }
+
+      /// -------------------------------------------- ///
+      ///        Possible value check ..........
+      /// --------------------------------------------- ///
+      // Comapre Possible Value fields and input values
+      var resPV = myPossValArray.includes(key);
+      //  console.log("PossVal1", key, ">>", resPV);
+      if (resPV === true) {
+        for (const k1 in pvalArr) {
+          //    console.log("PossValX", pvalArr[k1][key], ">>", key);
+
+          for (const b1 in pvalArr[k1][key]) {
+            const element = pvalArr[k1][key][b1];
+            //      console.log("Element", element["Value"]);
+          }
+          //    var chkPV = pvalArr.k1.includes(req.body.key);
+        }
+
+        pvalArr.forEach((element) => {
+          var resVal = myPossValArray.includes(key);
+        });
+      }
+    }
+  }
+
+  /// --------------------------------- ///
+  ////// Other Validations......
+  /// --------------------------------- ///
   req.body.appId = BodyApp.id;
   req.body.applicationId = req.headers.applicationid;
   if (!req.body.appId) {
@@ -105,11 +244,8 @@ exports.addDataRecords = asyncHandler(async (req, res, next) => {
   req.body.user = req.user.id;
   req.body.userName = req.user.name;
   req.body.userEmail = req.user.email;
-
   // Get Company Details
   const CompanyDetails = await Company.findById(req.user.company);
-
-  ///  +++++++++++  VALIDATIONS STARTS +++++++++++++++++++++++ /////////
   // Check if user setup has company (Pass)
   if (!req.user.company) {
     return next(
@@ -133,7 +269,6 @@ exports.addDataRecords = asyncHandler(async (req, res, next) => {
   // Company validation passed, now USER company can be used!!
   req.body.company = CompanyDetails.id;
   req.body.companyName = CompanyDetails.companyName;
-
   // Get Branch from Header
   if (req.headers.branchname) {
     const BodyBranch = await Branch.findOne({
@@ -156,7 +291,6 @@ exports.addDataRecords = asyncHandler(async (req, res, next) => {
       req.body.areaName = BodyArea.areaName;
     }
   }
-
   // Validate if user has provided Branch details (Pass)
   if (!req.headers.branch) {
     if (!req.user.branch) {
@@ -175,7 +309,6 @@ exports.addDataRecords = asyncHandler(async (req, res, next) => {
       req.body.branch = req.user.branch;
       // myorg.branchName = BodyBranch.branchName;
     }
-
     if (req.body.branch != req.user.branch) {
       return next(
         new ErrorResponse(
@@ -191,7 +324,6 @@ exports.addDataRecords = asyncHandler(async (req, res, next) => {
     req.body.branch = BranchDetails.branch;
     req.body.branchName = BranchDetails.branchName;
   }
-
   if (!req.headers.area) {
     if (!req.user.area) {
       return next(
@@ -202,7 +334,6 @@ exports.addDataRecords = asyncHandler(async (req, res, next) => {
       );
     }
   }
-
   // If user record has got Area then validate is it matches with body Area
   if (req.user.area) {
     // if no Area in body but user has area then use it
@@ -227,6 +358,7 @@ exports.addDataRecords = asyncHandler(async (req, res, next) => {
     req.body.area = AreaDetails.id;
   }
   ///  +++++++++++  VALIDATIONS ENDS +++++++++++++++++++++++ /////////
+
   // Set Processing/Transaction Log
   let pLog = {};
   let pg1 = [];
@@ -257,14 +389,6 @@ exports.addDataRecords = asyncHandler(async (req, res, next) => {
     mydata.areaName = req.body.areaName;
     mydata.ItemData = req.body.ItemData;
     mydata.TransLog = req.body.TransLog;
-    let fileName =
-      "../../NewConfig/" +
-      req.headers.applicationid +
-      "_" +
-      req.headers.businessrole +
-      "_config.json";
-    var cardConfig = require(fileName);
-
     for (const key in req.body) {
       cardConfig["FieldDef"].forEach((element1) => {
         if (req.body.hasOwnProperty(key) & (element1["SLabel"] == key)) {
@@ -513,25 +637,58 @@ exports.addDataRecords = asyncHandler(async (req, res, next) => {
     data: result,
   });
 });
-
+// -----------------------------------------------------
+// -----------------------------------------------------
 // @desc      Update record
 // @route     POST /api/v1/datarecords/
 // @access    Private
+// -----------------------------------------------------
+// -----------------------------------------------------
 exports.updateDataRecords = asyncHandler(async (req, res, next) => {
+  // -----------------------------------------------------
+  // Read Config File...
+  // -----------------------------------------------------
+  let fileName =
+    "../../NewConfig/" +
+    req.headers.applicationid +
+    "_" +
+    req.headers.businessrole +
+    "_config.json";
+  var cardConfig = require(fileName);
+  // -----------------------------------------------------
+  // Validate input Field Names
+  // -----------------------------------------------------
+  myFieldArray = [];
+  for (let index = 0; index < cardConfig.FieldDef.length; index++) {
+    const element1 = cardConfig.FieldDef[index].name;
+    myFieldArray.push(element1);
+  }
+  for (const key in req.body) {
+    if (req.body.hasOwnProperty(key)) {
+      var resField = myFieldArray.includes(key);
+      if (resField === false && key !== "ItemData") {
+        return next(
+          new ErrorResponse(`Field ${key} can't be used with this App`, 400)
+        );
+      }
+    }
+  }
+  // -----------------------------------------------------
   // Get App from Header
+  // -----------------------------------------------------
   const BodyApp = await App.findOne({
     applicationID: req.headers.applicationid,
   });
   // Get Role from the Header
   const BusinessRole = await Role.findOne({
-    applicationID: req.headers.businessRole,
+    applicationID: req.headers.businessrole,
   });
   req.body.appId = BodyApp.id;
   req.body.applicationId = req.headers.applicationid;
   if (!req.body.appId) {
     return next(new ErrorResponse(`Please provide App ID(Header)`, 400));
   }
-  if (!req.headers.businessRole) {
+  if (!req.headers.businessrole) {
     return next(new ErrorResponse(`Please provide Role(Header)`, 400));
   }
   req.body.user = req.user.id;
@@ -659,60 +816,83 @@ exports.updateDataRecords = asyncHandler(async (req, res, next) => {
     req.body.area = AreaDetails.id;
   }
   ///  +++++++++++  VALIDATIONS ENDS +++++++++++++++++++++++ /////////
-  // Set Processing/Transaction Log
+
+  // -----------------------------------------------------
+  // Processing Log
+  // -----------------------------------------------------
   let pLog = {};
   let pg1 = [];
-  pLog["Type"] = "DATA_UPDATE";
+  if (req.headers.mode) {
+    pLog["Type"] = "DATA_UPDATE";
+  } else {
+    return next(new ErrorResponse(`Please provide update mode`, 400));
+  }
   pLog["User"] = req.body.user;
   pLog["UserName"] = req.body.userName;
-  pLog["Status"] = req.body.Status;
+  if (req.body.Status) {
+    pLog["Status"] = req.body.Status;
+  }
   pLog["TimeStamp"] = Date.now();
   pLog["ID"] = req.body.ID;
   pLog["applicationId"] = req.body.applicationId;
   pg1.push(pLog);
-  req.body.TransLog = pg1;
-  //req.body.OrgData = myorg;
-  //mydata = req.body;
-  // Read Card Configuration for the Role (X1)
-  /*   if (req.headers.fieldnames == "X") {
-    mydata = {};
-    mydata.appId = req.body.appId;
-    mydata.applicationId = req.body.applicationId;
-    mydata.user = req.body.user;
-    mydata.userName = req.body.userName;
-    mydata.userEmail = req.body.userEmail;
-    mydata.company = req.body.company;
-    mydata.companyName = req.body.companyName;
-    mydata.branch = req.body.branch;
-    mydata.branchName = req.body.branchName;
-    mydata.area = req.body.area;
-    mydata.areaName = req.body.areaName;
-    mydata.ItemData = req.body.ItemData;
-    mydata.TransLog = req.body.TransLog;
-    let fileName =
-      "../../NewConfig/" +
-      req.headers.applicationid +
-      "_" +
-      req.headers.businessrole +
-      "_config.json";
-    var cardConfig = require(fileName);
-
-    for (const key in req.body) {
-      cardConfig["FieldDef"].forEach((element1) => {
-        if (req.body.hasOwnProperty(key) & (element1["SLabel"] == key)) {
-          mydata[element1["name"]] = req.body[key];
-        }
-      });
-    }
-  } */
+  req.body.TransLog = pLog;
   let nTrans = [];
   if (req.headers.applicationid == "SUPP00018") {
+    // -----------------------------------------------------
+    // Read data from DB
+    // -----------------------------------------------------
     let myData = await SUPP00018.findOne({ ID: req.body.ID });
-    console.log(myData.TransLog);
+    let ItemUpdate = false;
+    for (const b1 in req.body) {
+      for (const db1 in myData) {
+        if (db1 === "ItemData" && b1 == "ItemData") {
+          for (let b2 = 0; b2 < req.body[b1].length; b2++) {
+            for (const b3 in req.body[b1][b2]) {
+              for (let db2 = 0; db2 < myData[db1].length; db2++) {
+                for (const db3 in myData[db1][db2]) {
+                  if (b3 === "ItemNumber" && db3 === "ItemNumber") {
+                    console.log(
+                      "Click-01",
+                      req.body[b1][b2][b3],
+                      myData[db1][db2][db3]
+                    );
+                    if (req.body[b1][b2][b3] == myData[db1][db2][db3]) {
+                      ItemUpdate = true;
+                      console.log("Click-01", b3);
+                    } else {
+                      ItemUpdate = false;
+                    }
+                  }
+                  if (b3 === db3 && ItemUpdate === true) {
+                    console.log("Click-02A", b3);
+                    console.log("Click-02B", db3, ">>", myData[db1][db2][db3]);
+                    console.log("Click-02C", b3, ">>", req.body[b1][b2][b3]);
+                    myData[db1][db2][db3] = req.body[b1][b2][b3];
+                  }
+                }
+              }
+            }
+          }
+        }
+        //    console.log("Click-03", myData["ItemData"]);
+        if (db1 == b1 && b1 !== "ItemData") {
+          console.log("db1>>", db1, "b1>>");
+          //   console.log("Test", req.body[db1]);
+          myData[db1] = req.body[b1];
+        }
+      }
+    }
+    //console.log(myData["ItemData"]);
+
+    // Update Transaction Log
+    myData.TransLog.forEach((ex1) => {
+      nTrans.push(ex1);
+    });
     nTrans.push(req.body.TransLog);
-    nTrans.push(myData.TransLog);
     req.body.TransLog = nTrans;
-    console.log(req.body.TransLog);
+    req.body["ItemData"] = myData["ItemData"];
+
     result = await SUPP00018.findByIdAndUpdate(myData.id, req.body, {
       new: true,
       runValidators: true,
