@@ -18,7 +18,7 @@ exports.getcalculation = asyncHandler(async (req, res, next) => {
   });
   // req.body.appId = BodyApp.id;
   // req.body.applicationId = req.headers.applicationid;
-  if (!req.body.appId) {
+  if (!req.headers.applicationid) {
     return next(new ErrorResponse(`Please provide App ID(Header)`, 400));
   }
 

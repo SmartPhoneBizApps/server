@@ -117,6 +117,10 @@ exports.getListrecords = asyncHandler(async (req, res, next) => {
 
   console.log(outData);
   if (req.headers.possiblevalue == "Yes") {
+    //   results = fcGetPossibleValues(
+    //    req.headers.applicationid,
+    //    req.headers.businessrole
+    //  );
     app1 = req.headers.applicationid;
     app2 = "GLOBAL";
     role1 = req.headers.businessrole;
