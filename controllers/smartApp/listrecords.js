@@ -93,6 +93,9 @@ const SUPP00016 = require("../../models/smartApp/SUPP00016");
 const SUPP00018 = require("../../models/smartApp/SUPP00018");
 const SUPP00028 = require("../../models/smartApp/SUPP00028");
 
+const { sum } = require("../utilities/functions.js");
+const { isEven } = require("../utilities/functions.js");
+
 const Possval = require("../../models/appSetup/Possval");
 
 var sch = require("../../applicationJSON/Schema_Master.json");
@@ -111,6 +114,8 @@ exports.getMaterListrecords = asyncHandler(async (req, res, next) => {
 // @access    Public
 exports.getListrecords = asyncHandler(async (req, res, next) => {
   let outData = res.advancedDataList;
+
+  console.log(outData);
   if (req.headers.possiblevalue == "Yes") {
     app1 = req.headers.applicationid;
     app2 = "GLOBAL";
@@ -154,8 +159,16 @@ exports.getListrecords = asyncHandler(async (req, res, next) => {
           }
         }
       }
+      for (const key in outData.data) {
+        if (outData.data.hasOwnProperty(key)) {
+          const element = outData.data[key];
+          if (element.PossibleValues == key) {
+            console.log("Pval", key);
+          }
+        }
+      }
     });
-
+    console.log("MyOut", isEven(10));
     res.status(200).json({
       outData,
       possibleValues: results,
