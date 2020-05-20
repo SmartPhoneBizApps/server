@@ -16,8 +16,8 @@ exports.getcalculation = asyncHandler(async (req, res, next) => {
   const BodyApp = await App.findOne({
     applicationID: req.headers.applicationid,
   });
-  req.body.appId = BodyApp.id;
-  req.body.applicationId = req.headers.applicationid;
+  // req.body.appId = BodyApp.id;
+  // req.body.applicationId = req.headers.applicationid;
   if (!req.body.appId) {
     return next(new ErrorResponse(`Please provide App ID(Header)`, 400));
   }
@@ -132,8 +132,5 @@ exports.getcalculation = asyncHandler(async (req, res, next) => {
   res.status(201).json({
     success: true,
     data: outdata,
-    config: config,
-    app: req.headers.applicationid,
-    role: req.headers.businessrole,
   });
 });
