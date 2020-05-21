@@ -843,6 +843,9 @@ exports.updateDataRecords = asyncHandler(async (req, res, next) => {
     // Read data from DB
     // -----------------------------------------------------
     let myData = await SUPP00018.findOne({ ID: req.body.ID });
+    if (!myData) {
+      return next(new ErrorResponse(`Record with ${ID} Not found`, 400));
+    }
     let ItemUpdate = false;
     for (const b1 in req.body) {
       for (const db1 in myData) {
@@ -899,10 +902,63 @@ exports.updateDataRecords = asyncHandler(async (req, res, next) => {
     });
   }
   if (req.headers.applicationid == "SUPP00028") {
-    let myData = await SUPP00028.find({ ID: req.body.ID });
+    // -----------------------------------------------------
+    // Read data from DB
+    // -----------------------------------------------------
+    let myData = await SUPP00028.findOne({ ID: req.body.ID });
+    if (!myData) {
+      return next(new ErrorResponse(`Record with ${ID} Not found`, 400));
+    }
+    let ItemUpdate = false;
+    for (const b1 in req.body) {
+      for (const db1 in myData) {
+        if (db1 === "ItemData" && b1 == "ItemData") {
+          for (let b2 = 0; b2 < req.body[b1].length; b2++) {
+            for (const b3 in req.body[b1][b2]) {
+              for (let db2 = 0; db2 < myData[db1].length; db2++) {
+                for (const db3 in myData[db1][db2]) {
+                  if (b3 === "ItemNumber" && db3 === "ItemNumber") {
+                    console.log(
+                      "Click-01",
+                      req.body[b1][b2][b3],
+                      myData[db1][db2][db3]
+                    );
+                    if (req.body[b1][b2][b3] == myData[db1][db2][db3]) {
+                      ItemUpdate = true;
+                      console.log("Click-01", b3);
+                    } else {
+                      ItemUpdate = false;
+                    }
+                  }
+                  if (b3 === db3 && ItemUpdate === true) {
+                    console.log("Click-02A", b3);
+                    console.log("Click-02B", db3, ">>", myData[db1][db2][db3]);
+                    console.log("Click-02C", b3, ">>", req.body[b1][b2][b3]);
+                    myData[db1][db2][db3] = req.body[b1][b2][b3];
+                  }
+                }
+              }
+            }
+          }
+        }
+        //    console.log("Click-03", myData["ItemData"]);
+        if (db1 == b1 && b1 !== "ItemData") {
+          console.log("db1>>", db1, "b1>>");
+          //   console.log("Test", req.body[db1]);
+          myData[db1] = req.body[b1];
+        }
+      }
+    }
+    //console.log(myData["ItemData"]);
+
+    // Update Transaction Log
+    myData.TransLog.forEach((ex1) => {
+      nTrans.push(ex1);
+    });
     nTrans.push(req.body.TransLog);
-    nTrans.push(myData.TransLog);
     req.body.TransLog = nTrans;
+    req.body["ItemData"] = myData["ItemData"];
+
     result = await SUPP00028.findByIdAndUpdate(myData.id, req.body, {
       new: true,
       runValidators: true,

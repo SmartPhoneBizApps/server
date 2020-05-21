@@ -11,7 +11,6 @@ const advancedDataList = (model, AppID, populate) => async (req, res, next) => {
   fl1 = {};
   fl2 = [];
   lf = [];
-  console.log("ConfigFile:", newConfig);
   if (req.headers.mode == "BOTList") {
     config1["ListBOTFields"]["Title"].forEach((element1) => {
       lf.push(element1);
@@ -23,7 +22,6 @@ const advancedDataList = (model, AppID, populate) => async (req, res, next) => {
       lf.push(element1);
     });
   }
-  console.log("Config1:", lf);
   switch (req.headers.mode) {
     case "BOTList":
       config1["FieldDef"].forEach((element) => {
@@ -73,7 +71,6 @@ const advancedDataList = (model, AppID, populate) => async (req, res, next) => {
 
   // Finding resource
   query = model.find(JSON.parse(queryStr));
-  console.log("Config1:", lf);
   if (req.headers.mode == "BOTList") {
     const fields = lf.join(" ");
     query = query.select(fields);

@@ -1,9 +1,5 @@
 const ErrorResponse = require("../../utils/errorResponse");
 const asyncHandler = require("../../middleware/async");
-const geocoder = require("../../utils/geocoder");
-const path = require("path");
-const mongoose = require("mongoose");
-
 const Company = require("../../models/orgSetup/Company");
 const Branch = require("../../models/orgSetup/Branch");
 const Area = require("../../models/orgSetup/Area");
@@ -95,6 +91,7 @@ const SUPP00028 = require("../../models/smartApp/SUPP00028");
 
 const { sum } = require("../utilities/functions.js");
 const { isEven } = require("../utilities/functions.js");
+const { fcGetPossibleValues } = require("../utilities/functions.js");
 
 const Possval = require("../../models/appSetup/Possval");
 
@@ -114,13 +111,15 @@ exports.getMaterListrecords = asyncHandler(async (req, res, next) => {
 // @access    Public
 exports.getListrecords = asyncHandler(async (req, res, next) => {
   let outData = res.advancedDataList;
+  let outData2 = outData;
 
-  console.log(outData);
   if (req.headers.possiblevalue == "Yes") {
-    //   results = fcGetPossibleValues(
-    //    req.headers.applicationid,
-    //    req.headers.businessrole
-    //  );
+    // Get Possible values
+    /*     let results = {};
+    results = fcGetPossibleValues(
+      req.headers.applicationid,
+      req.headers.businessrole
+    ); */
     app1 = req.headers.applicationid;
     app2 = "GLOBAL";
     role1 = req.headers.businessrole;
@@ -134,7 +133,7 @@ exports.getListrecords = asyncHandler(async (req, res, next) => {
       "_pv.json";
     var pvconfig1 = require(newPv);
     let query;
-    // console.log("PV", pvconfig1);
+
     query = Possval.find(
       {
         PossibleValues: { $in: pvconfig1.PossFields },
@@ -144,11 +143,10 @@ exports.getListrecords = asyncHandler(async (req, res, next) => {
       { _id: 0 }
     );
     query = query.select(fields);
-    buttonData = {};
-
-    buttonVal = {};
     // Executing query
     let results = await query;
+    buttonData = {};
+    buttonVal = {};
     results.forEach((element) => {
       if (element.PossibleValues == "CurrentStatus") {
         for (const key in button[req.headers.applicationid][element.Value]) {
@@ -163,16 +161,33 @@ exports.getListrecords = asyncHandler(async (req, res, next) => {
           }
         }
       }
-      for (const key in outData.data) {
-        if (outData.data.hasOwnProperty(key)) {
-          const element = outData.data[key];
-          if (element.PossibleValues == key) {
-            console.log("Pval", key);
+      l1 = {};
+      // Loop Data
+      for (let index = 0; index < outData.data.length; index++) {
+        const e1 = outData.data[index];
+        for (const kl in outData.data[index]) {
+          const e2 = outData.data[index][kl];
+          //   l1[kl] = outData.data[index][kl];
+          //  console.log("e2", e2);
+
+          if (element.PossibleValues == kl && e2 == element.Value) {
+            kx = element.PossibleValues + "_key";
+            ky = element.PossibleValues + "State";
+            l1["PossibleValues"] = element.PossibleValues;
+            l1[element.PossibleValues] = element["Description"];
+            console.log("Description:", element["Description"]);
+            l1[kx] = element["Value"];
+            l1[ky] = element["ColorSAP"];
+            l1["EditLock"] = element["EditLock"];
+            l1["Score"] = element["Score"];
+            // console.log(l1);
+            outData.data[index][kl][element.Value] = { ...l1 };
+            console.log(outData2.data[index]);
           }
         }
       }
     });
-    console.log("MyOut", isEven(10));
+
     res.status(200).json({
       outData,
       possibleValues: results,
@@ -200,13 +215,8 @@ exports.getRecord = asyncHandler(async (req, res, next) => {});
 // @access    Private
 exports.addDataRecords = asyncHandler(async (req, res, next) => {
   // Get App from Body
-  // console.log("Authorization:", req.headers.authorization);
-  // console.log("App", req.body.appplicationID);
-  //console.log(req.body.appplicationID);
   const BodyApp = await App.findOne({ applicationID: req.body.appplicationID });
-
   req.body.appId = BodyApp.id;
-  // console.log(req.body.appId);
 
   if (!req.body.appId) {
     return next(new ErrorResponse(`Please provide App ID`, 400));
@@ -245,6 +255,7 @@ exports.addDataRecords = asyncHandler(async (req, res, next) => {
   req.body.companyName = CompanyDetails.companyName;
 
   // Get Branch from Body
+
   if (req.body.branchName) {
     const BodyBranch = await Branch.findOne({
       branchName: req.body.branchName,
@@ -280,12 +291,10 @@ exports.addDataRecords = asyncHandler(async (req, res, next) => {
   if (userRecord.branch) {
     // if no Area in body but user has area then use it
     if (!req.body.branch) {
-      //    console.log("branch is picked from User Record");
       req.body.branch = userRecord.branch;
     }
 
     if (req.body.branch != userRecord.branch) {
-      //    console.log("Branch in body and user record are different");
       return next(
         new ErrorResponse(
           `The user with ID ${req.user.email} can't create document for other branches`,
@@ -315,13 +324,11 @@ exports.addDataRecords = asyncHandler(async (req, res, next) => {
   if (userRecord.area) {
     // if no Area in body but user has area then use it
     if (!req.body.area) {
-      //   console.log("Area is picked from User Record");
       req.body.area = userRecord.area;
     }
 
     // if body and user both have area then they should be same (Validation  - Pass)
     if (req.body.area != userRecord.area) {
-      //   console.log("Area in body and user record are different");
       return next(
         new ErrorResponse(
           `The user with ID ${req.user.email} can't create document for other business area`,
