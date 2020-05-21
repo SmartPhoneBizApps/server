@@ -175,14 +175,14 @@ exports.getListrecords = asyncHandler(async (req, res, next) => {
             ky = element.PossibleValues + "State";
             l1["PossibleValues"] = element.PossibleValues;
             l1[element.PossibleValues] = element["Description"];
-            //       console.log("Description:", element["Description"]);
+            console.log("Description:", element["Description"]);
             l1[kx] = element["Value"];
             l1[ky] = element["ColorSAP"];
             l1["EditLock"] = element["EditLock"];
             l1["Score"] = element["Score"];
             // console.log(l1);
             outData.data[index][kl][element.Value] = { ...l1 };
-            //          console.log(outData2.data[index]);
+            console.log(outData2.data[index]);
           }
         }
       }

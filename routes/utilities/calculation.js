@@ -5,6 +5,6 @@ const {
 const router = express.Router({ mergeParams: true });
 const { protect, authorize } = require("../../middleware/auth");
 
-router.route("/").get(getcalculation);
+router.route("/").post(getcalculation);
 
 module.exports = router;

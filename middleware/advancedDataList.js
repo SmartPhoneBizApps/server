@@ -101,17 +101,46 @@ const advancedDataList = (model, AppID, populate) => async (req, res, next) => {
   let results = await query;
 
   if (req.body.ItemFilter) {
-    // console.log("ItemFilter", req.body.ItemFilter);
+    // Loop of Request....
     for (let index = 0; index < req.body.ItemFilter.length; index++) {
-      const element = req.body.ItemFilter[index]["field"];
+      const field1 = req.body.ItemFilter[index]["field"];
+      const value1 = req.body.ItemFilter[index]["value"];
+      const operator1 = req.body.ItemFilter[index]["operator"];
+      console.log("API", field1);
+      console.log("API", value1);
+      console.log("API", operator1);
 
-      for (const kk in results.ItemData) {
-        if (results.ItemData.hasOwnProperty(kk)) {
-          const ee = results.ItemData[kk];
-          console.log(ee);
+      ItemData2 = [];
+
+      // Loop Results....
+      results.forEach((resData) => {
+        for (let i1 = 0; i1 < resData.ItemData.length; i1++) {
+          ItemData2 = [];
+          ItemUpdate = true;
+          console.log("Item - Data", i1);
+          const item = resData.ItemData[i1];
+          console.log("ItemNumber", item["ItemNumber"]);
+
+          if (operator1 == "NE") {
+            for (const itemElKey in item) {
+              const itemElement = item[itemElKey];
+              if (itemElKey == field1 && itemElement == value1) {
+                ItemUpdate = false;
+                console.log(ItemUpdate);
+                console.log(item["ItemNumber"]);
+                console.log(resData["ID"]);
+              }
+            }
+            // We need to add remove item here
+            if (ItemUpdate === true) {
+              console.log(item["ItemNumber"]);
+              ItemData2.push(item);
+            }
+            //  resData.ItemData = ItemData2;
+          }
         }
-      }
-      console.log(element);
+        console.log("NewItem", ItemData2);
+      });
     }
   }
   // Pagination result

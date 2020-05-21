@@ -41,7 +41,7 @@ const advancedCreate = (model, app, BusinessRole) => async (req, res, next) => {
   if (!userRecord.company) {
     return next(
       new ErrorResponse(
-        `The user with ID ${req.user.email} is not setup for any company, please contact administrator`,
+        `The user with ID ${req.user.email} is not setup for any company`,
         400
       )
     );

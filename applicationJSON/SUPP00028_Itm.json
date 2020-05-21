@@ -1,0 +1,91 @@
+{
+  "ItemNumber": {
+    "type": "String",
+    "required": [true, "Please add mandatory field :ItemNumber"],
+    "maxlength": [20, "ID can not be more than 20 characters"]
+  },
+  "ID": {
+    "type": "String",
+    "required": [true, "Please add mandatory field :ID"],
+    "maxlength": [20, "ID can not be more than 20 characters"]
+  },
+  "POItemNumber": {
+    "type": "String",
+    "maxlength": [10, "POItemNumber can not be more than 10 characters"]
+  },
+  "ItemDetails": {
+    "type": "String",
+    "required": [true, "Please add mandatory field :ItemDetails"],
+    "maxlength": [100, "ItemDetails can not be more than 100 characters"]
+  },
+  "InvQty": {
+    "type": "String",
+    "maxlength": [10, "InvQty can not be more than 10 characters"]
+  },
+  "InvUOM": {
+    "type": "String",
+    "maxlength": [10, "InvUOM can not be more than 10 characters"]
+  },
+  "InvPrice": {
+    "type": "String",
+    "maxlength": [10, "InvPrice can not be more than 10 characters"]
+  },
+  "InvNetValue": {
+    "type": "String",
+    "maxlength": [20, "InvNetValue can not be more than 20 characters"]
+  },
+  "InvVATRate": {
+    "type": "String",
+    "maxlength": [10, "InvVATRate can not be more than 10 characters"]
+  },
+  "InvVATVal": {
+    "type": "String",
+    "maxlength": [20, "InvVATVal can not be more than 20 characters"]
+  },
+  "InvGrossVal": {
+    "type": "String",
+    "maxlength": [20, "InvGrossVal can not be more than 20 characters"]
+  },
+  "InvVATPer": {
+    "type": "String",
+    "maxlength": [10, "InvVATPer can not be more than 10 characters"]
+  },
+  "POQty": {
+    "type": "String",
+    "maxlength": [10, "POQty can not be more than 10 characters"]
+  },
+  "POUOM": {
+    "type": "String",
+    "maxlength": [10, "POUOM can not be more than 10 characters"]
+  },
+  "POPrice": {
+    "type": "String",
+    "maxlength": [10, "POPrice can not be more than 10 characters"]
+  },
+  "PONetValue": {
+    "type": "String",
+    "maxlength": [20, "PONetValue can not be more than 20 characters"]
+  },
+  "POVATRate": {
+    "type": "String",
+    "maxlength": [10, "POVATRate can not be more than 10 characters"]
+  },
+  "POVATVal": {
+    "type": "String",
+    "maxlength": [20, "POVATVal can not be more than 20 characters"]
+  },
+  "POGrossVal": {
+    "type": "String",
+    "maxlength": [20, "POGrossVal can not be more than 20 characters"]
+  },
+  "POVATPer": {
+    "type": "String",
+    "maxlength": [10, "POVATPer can not be more than 10 characters"]
+  },
+  "ItemInvoiceStatus": {
+    "type": "String",
+    "maxlength": [50, "ItemInvoiceStatus can not be more than 10 characters"]
+  },
+
+  "TransLog": []
+}

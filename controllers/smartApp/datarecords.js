@@ -1,13 +1,11 @@
 const ErrorResponse = require("../../utils/errorResponse");
 const asyncHandler = require("../../middleware/async");
-
 const Company = require("../../models/orgSetup/Company");
 const Branch = require("../../models/orgSetup/Branch");
 const Area = require("../../models/orgSetup/Area");
 const App = require("../../models/appSetup/App");
 const Role = require("../../models/appSetup/Role");
-//const functions = require("../../models/utilities/functions.js");
-
+const calfunction = require("../../models/utilities/calfunction.js");
 const BUS0000002 = require("../../models/smartApp/BUS0000002");
 const BUS0000003 = require("../../models/smartApp/BUS0000003");
 const BUS0000004 = require("../../models/smartApp/BUS0000004");
@@ -83,7 +81,9 @@ const SUPP00014 = require("../../models/smartApp/SUPP00014");
 const SUPP00015 = require("../../models/smartApp/SUPP00015");
 const SUPP00016 = require("../../models/smartApp/SUPP00016");
 const SUPP00018 = require("../../models/smartApp/SUPP00018");
+const SUPP00018_Itm = require("../../models/smartApp/SUPP00018_Itm");
 const SUPP00028 = require("../../models/smartApp/SUPP00028");
+const SUPP00028_Itm = require("../../models/smartApp/SUPP00028_Itm");
 var sch = require("../../applicationJSON/Schema_Master.json");
 const Possval = require("../../models/appSetup/Possval");
 // @desc      Add record
@@ -119,11 +119,26 @@ exports.addDataRecords = asyncHandler(async (req, res, next) => {
   myPossValArray = [];
   pvalObj = {};
   pvalArr = [];
-
   for (let index = 0; index < cardConfig.FieldDef.length; index++) {
     const element1 = cardConfig.FieldDef[index].name;
     myFieldArray.push(element1);
   }
+  exclude_array = [
+    "appId",
+    "applicationId",
+    "user",
+    "userName",
+    "userEmail",
+    "company",
+    "companyName",
+    "branch",
+    "branchName",
+    "area",
+    "areaName",
+    "ItemData",
+    "TransLog",
+  ];
+  myFieldArray.push.apply(myFieldArray, exclude_array);
   /// -------------------------------------------- ///
   ///        Check input Fields with Config ..........
   /// --------------------------------------------- ///
@@ -146,96 +161,16 @@ exports.addDataRecords = asyncHandler(async (req, res, next) => {
     const fields = "Value";
     query = query.select(fields);
     const rslt = await query;
-
     if (rslt.length > 0) {
       myPossValArray.push(el1);
       pvalObj[el1] = rslt;
       // Note: append only values
       pvalArr.push(pvalObj);
-      console.log("val", pvalObj);
     }
   }
-  //  console.log("Pvalue", myPossValArray);
-  for (const key in req.body) {
-    if (req.body.hasOwnProperty(key)) {
-      //    const element = req.body[key];
-      // Comapre Config fields and input values
-      var resField = myFieldArray.includes(key);
-      /// -------------------------------------------- ///
-      ///        Config Fields Vs Input Fields ..........
-      /// --------------------------------------------- ///
-      /// Header Validations....
-      if (resField === false && key !== "ItemData") {
-        return next(
-          new ErrorResponse(
-            `Header Field ${key} can't be used with this transaction`,
-            400
-          )
-        );
-      }
-      /// Item Validations....
-      if (key === "ItemData") {
-        myItemArray = [];
-        for (
-          let index = 0;
-          index < cardConfig.itemConfig.ItemFieldDefinition.length;
-          index++
-        ) {
-          const element2 =
-            cardConfig.itemConfig.ItemFieldDefinition[index].name;
-          myItemArray.push(element2);
-        }
-        for (const key2 in req.body.ItemData) {
-          for (const key3 in req.body.ItemData[key2]) {
-            if (req.body.ItemData[key2].hasOwnProperty(key3)) {
-              const element3 = req.body.ItemData[key2][key3];
-              var resItemField = myItemArray.includes(key3);
-              /// Item Validations....
-              if (
-                resItemField === false &&
-                key3 !== "Edit" &&
-                key3 !== "Display" &&
-                key3 !== "Delete"
-              ) {
-                return next(
-                  new ErrorResponse(
-                    `Item Field ${key3} can't be used with this transaction`,
-                    400
-                  )
-                );
-              }
-            }
-          }
-        }
-      }
-
-      /// -------------------------------------------- ///
-      ///        Possible value check ..........
-      /// --------------------------------------------- ///
-      // Comapre Possible Value fields and input values
-      var resPV = myPossValArray.includes(key);
-      //  console.log("PossVal1", key, ">>", resPV);
-      if (resPV === true) {
-        for (const k1 in pvalArr) {
-          //    console.log("PossValX", pvalArr[k1][key], ">>", key);
-
-          for (const b1 in pvalArr[k1][key]) {
-            const element = pvalArr[k1][key][b1];
-            //      console.log("Element", element["Value"]);
-          }
-          //    var chkPV = pvalArr.k1.includes(req.body.key);
-        }
-
-        pvalArr.forEach((element) => {
-          var resVal = myPossValArray.includes(key);
-        });
-      }
-    }
-  }
-
-  /// --------------------------------- ///
-  ////// Other Validations......
-  /// --------------------------------- ///
+  // ---------------------
+  // App ID and Validate
+  // ---------------------
   req.body.appId = BodyApp.id;
   req.body.applicationId = req.headers.applicationid;
   if (!req.body.appId) {
@@ -244,13 +179,15 @@ exports.addDataRecords = asyncHandler(async (req, res, next) => {
   req.body.user = req.user.id;
   req.body.userName = req.user.name;
   req.body.userEmail = req.user.email;
-  // Get Company Details
+  // ---------------------------------
+  // Get Company Details and Validate
+  // ---------------------------------
   const CompanyDetails = await Company.findById(req.user.company);
   // Check if user setup has company (Pass)
   if (!req.user.company) {
     return next(
       new ErrorResponse(
-        `The user with ID ${req.user.email} is not setup for any company, please contact administrator`,
+        `The user with ID ${req.user.email} is not setup for any company`,
         400
       )
     );
@@ -269,7 +206,10 @@ exports.addDataRecords = asyncHandler(async (req, res, next) => {
   // Company validation passed, now USER company can be used!!
   req.body.company = CompanyDetails.id;
   req.body.companyName = CompanyDetails.companyName;
-  // Get Branch from Header
+
+  // ---------------------------------
+  // Get Branch Details and Validate
+  // ---------------------------------
   if (req.headers.branchname) {
     const BodyBranch = await Branch.findOne({
       branchName: req.headers.branchname,
@@ -280,7 +220,9 @@ exports.addDataRecords = asyncHandler(async (req, res, next) => {
       req.body.branchName = BodyBranch.branchName;
     }
   }
-  // Get Area from Body
+  // ---------------------------------
+  // Get Area Details and Validate
+  // ---------------------------------
   if (req.headers.areaname) {
     const BodyArea = await Area.findOne({
       areaName: req.headers.areaname,
@@ -357,7 +299,8 @@ exports.addDataRecords = asyncHandler(async (req, res, next) => {
     req.body.areaName = AreaDetails.areaName;
     req.body.area = AreaDetails.id;
   }
-  ///  +++++++++++  VALIDATIONS ENDS +++++++++++++++++++++++ /////////
+
+  // Field Translation..
 
   // Set Processing/Transaction Log
   let pLog = {};
@@ -372,6 +315,12 @@ exports.addDataRecords = asyncHandler(async (req, res, next) => {
   pg1.push(pLog);
   req.body.TransLog = pg1;
   //req.body.OrgData = myorg;
+
+  for (let index = 0; index < req.body.ItemData.length; index++) {
+    const element = req.body.ItemData[index];
+    req.body.ItemData[index]["ID"] = req.body.ID;
+  }
+
   mydata = req.body;
   // Read Card Configuration for the Role (X1)
   if (req.headers.fieldnames == "X") {
@@ -392,13 +341,100 @@ exports.addDataRecords = asyncHandler(async (req, res, next) => {
     for (const key in req.body) {
       cardConfig["FieldDef"].forEach((element1) => {
         if (req.body.hasOwnProperty(key) & (element1["SLabel"] == key)) {
+          console.log(key);
+          console.log(element1["SLabel"]);
+          console.log(req.body[key]);
+          console.log(element1["name"]);
           mydata[element1["name"]] = req.body[key];
         }
       });
     }
   }
+  console.log("After Trans", mydata);
+  req.body = mydata;
+
+  for (const key in req.body) {
+    if (req.body.hasOwnProperty(key)) {
+      var resField = myFieldArray.includes(key);
+
+      /// Header Validations....
+      if (resField === false && key !== "ItemData") {
+        return next(
+          new ErrorResponse(
+            `Header Field ${key} can't be used with this transaction`,
+            400
+          )
+        );
+      }
+      /// Item Validations....
+      if (key === "ItemData") {
+        myItemArray = [];
+        for (
+          let index = 0;
+          index < cardConfig.itemConfig.ItemFieldDefinition.length;
+          index++
+        ) {
+          const element2 =
+            cardConfig.itemConfig.ItemFieldDefinition[index].name;
+          myItemArray.push(element2);
+        }
+        for (const key2 in req.body.ItemData) {
+          for (const key3 in req.body.ItemData[key2]) {
+            if (req.body.ItemData[key2].hasOwnProperty(key3)) {
+              const element3 = req.body.ItemData[key2][key3];
+              var resItemField = myItemArray.includes(key3);
+              /// Item Validations....
+              if (
+                resItemField === false &&
+                key3 !== "Edit" &&
+                key3 !== "Display" &&
+                key3 !== "Delete"
+              ) {
+                return next(
+                  new ErrorResponse(
+                    `Item Field ${key3} can't be used with this transaction`,
+                    400
+                  )
+                );
+              }
+            }
+          }
+        }
+      }
+
+      /// -------------------------------------------- ///
+      ///        Possible value check ..........
+      /// --------------------------------------------- ///
+      // Comapre Possible Value fields and input values
+      var resPV = myPossValArray.includes(key);
+      //  console.log("PossVal1", key, ">>", resPV);
+      if (resPV === true) {
+        for (const k1 in pvalArr) {
+          //    console.log("PossValX", pvalArr[k1][key], ">>", key);
+
+          for (const b1 in pvalArr[k1][key]) {
+            const element = pvalArr[k1][key][b1];
+            //      console.log("Element", element["Value"]);
+          }
+          //    var chkPV = pvalArr.k1.includes(req.body.key);
+        }
+
+        pvalArr.forEach((element) => {
+          var resVal = myPossValArray.includes(key);
+        });
+      }
+    }
+  }
+
+  /// --------------------------------- ///
+  ////// Other Validations......
+  /// --------------------------------- ///
+
+  ///  +++++++++++  VALIDATIONS ENDS +++++++++++++++++++++++ /////////
+
   //// Add similar Logic for Items as well
   let result;
+  let result2;
   if (req.headers.applicationid == "EDU00001") {
     result = await EDU00001.create(mydata);
   }
@@ -627,14 +663,21 @@ exports.addDataRecords = asyncHandler(async (req, res, next) => {
   }
   if (req.headers.applicationid == "SUPP00018") {
     result = await SUPP00018.create(mydata);
+    result2 = await SUPP00018_Itm.create(mydata.ItemData);
   }
   if (req.headers.applicationid == "SUPP00028") {
+    console.log("mydata2", mydata);
     result = await SUPP00028.create(mydata);
+    result2 = await SUPP00028_Itm.create(mydata.ItemData);
+
+    try {
+    } catch (error) {}
   }
   mydata = {};
   res.status(201).json({
     success: true,
     data: result,
+    items: result2,
   });
 });
 // -----------------------------------------------------
@@ -703,7 +746,7 @@ exports.updateDataRecords = asyncHandler(async (req, res, next) => {
   if (!req.user.company) {
     return next(
       new ErrorResponse(
-        `The user with ID ${req.user.email} is not setup for any company, please contact administrator`,
+        `The user with ID ${req.user.email} is not setup for any company`,
         400
       )
     );
@@ -855,22 +898,13 @@ exports.updateDataRecords = asyncHandler(async (req, res, next) => {
               for (let db2 = 0; db2 < myData[db1].length; db2++) {
                 for (const db3 in myData[db1][db2]) {
                   if (b3 === "ItemNumber" && db3 === "ItemNumber") {
-                    console.log(
-                      "Click-01",
-                      req.body[b1][b2][b3],
-                      myData[db1][db2][db3]
-                    );
                     if (req.body[b1][b2][b3] == myData[db1][db2][db3]) {
                       ItemUpdate = true;
-                      console.log("Click-01", b3);
                     } else {
                       ItemUpdate = false;
                     }
                   }
                   if (b3 === db3 && ItemUpdate === true) {
-                    console.log("Click-02A", b3);
-                    console.log("Click-02B", db3, ">>", myData[db1][db2][db3]);
-                    console.log("Click-02C", b3, ">>", req.body[b1][b2][b3]);
                     myData[db1][db2][db3] = req.body[b1][b2][b3];
                   }
                 }
@@ -878,16 +912,11 @@ exports.updateDataRecords = asyncHandler(async (req, res, next) => {
             }
           }
         }
-        //    console.log("Click-03", myData["ItemData"]);
         if (db1 == b1 && b1 !== "ItemData") {
-          console.log("db1>>", db1, "b1>>");
-          //   console.log("Test", req.body[db1]);
           myData[db1] = req.body[b1];
         }
       }
     }
-    //console.log(myData["ItemData"]);
-
     // Update Transaction Log
     myData.TransLog.forEach((ex1) => {
       nTrans.push(ex1);
@@ -918,22 +947,14 @@ exports.updateDataRecords = asyncHandler(async (req, res, next) => {
               for (let db2 = 0; db2 < myData[db1].length; db2++) {
                 for (const db3 in myData[db1][db2]) {
                   if (b3 === "ItemNumber" && db3 === "ItemNumber") {
-                    console.log(
-                      "Click-01",
-                      req.body[b1][b2][b3],
-                      myData[db1][db2][db3]
-                    );
                     if (req.body[b1][b2][b3] == myData[db1][db2][db3]) {
                       ItemUpdate = true;
-                      console.log("Click-01", b3);
                     } else {
                       ItemUpdate = false;
                     }
                   }
                   if (b3 === db3 && ItemUpdate === true) {
-                    console.log("Click-02A", b3);
-                    console.log("Click-02B", db3, ">>", myData[db1][db2][db3]);
-                    console.log("Click-02C", b3, ">>", req.body[b1][b2][b3]);
+                    console.log(req.body[b1][b2][b3]);
                     myData[db1][db2][db3] = req.body[b1][b2][b3];
                   }
                 }
@@ -941,16 +962,12 @@ exports.updateDataRecords = asyncHandler(async (req, res, next) => {
             }
           }
         }
-        //    console.log("Click-03", myData["ItemData"]);
+
         if (db1 == b1 && b1 !== "ItemData") {
-          console.log("db1>>", db1, "b1>>");
-          //   console.log("Test", req.body[db1]);
           myData[db1] = req.body[b1];
         }
       }
     }
-    //console.log(myData["ItemData"]);
-
     // Update Transaction Log
     myData.TransLog.forEach((ex1) => {
       nTrans.push(ex1);
@@ -958,6 +975,14 @@ exports.updateDataRecords = asyncHandler(async (req, res, next) => {
     nTrans.push(req.body.TransLog);
     req.body.TransLog = nTrans;
     req.body["ItemData"] = myData["ItemData"];
+
+    /*     if (req.headers.calculation == "Yes") {
+      //mydata = datacalculation(req.body, cardConfig);
+      var Handler = new calfunction();
+
+      outdata = Handler["datacalculation"](req.body, cardConfig);
+      req.body = outdata;
+    } */
 
     result = await SUPP00028.findByIdAndUpdate(myData.id, req.body, {
       new: true,
