@@ -100,6 +100,20 @@ const advancedDataList = (model, AppID, populate) => async (req, res, next) => {
   // Executing query
   let results = await query;
 
+  if (req.body.ItemFilter) {
+    // console.log("ItemFilter", req.body.ItemFilter);
+    for (let index = 0; index < req.body.ItemFilter.length; index++) {
+      const element = req.body.ItemFilter[index]["field"];
+
+      for (const kk in results.ItemData) {
+        if (results.ItemData.hasOwnProperty(kk)) {
+          const ee = results.ItemData[kk];
+          console.log(ee);
+        }
+      }
+      console.log(element);
+    }
+  }
   // Pagination result
   const pagination = {};
 
