@@ -1,1 +1,133 @@
-{"Title": {"ApplicationTitle": "Online Patient Information Form", "DetailTitle": "Form"}, "ListFields": {"IntroField": "FirstName", "TitleField": "LastName", "fStatus": "Status", "LFields": ["ID", "Email"]}, "ListBOTFields": {"Title": [], "SubTitle": [], "Description": []}, "PossibleValues": ["Country", "Gender", "Status"], "MButtons": [{"type": "DOWNLOAD", "name": "Download File", "icon": "sap-icon://download"}, {"type": "APPHELP", "name": "Get App Help", "icon": "sap-icon://sys-help-2"}, {"type": "BOT", "name": "Launch Assistant", "icon": "sap-icon://travel-request"}, {"type": "VIEW", "name": "Change App View", "icon": "sap-icon://chart-table-view"}, {"type": "ADD", "name": "Add Record", "icon": "sap-icon://add"}, {"type": "UPLOAD", "name": "Upload Record", "icon": "sap-icon://upload"}], "DButtons": [{"type": "ATTACHMENT", "name": "View Attachments", "icon": "sap-icon://attachment"}, {"type": "UPDATE", "name": "Update Record", "icon": "sap-icon://update"}, {"type": "ADD", "name": "Add Record", "icon": "sap-icon://add"}], "Tabs": [{"value": "Tab0", "name": "Cards", "type": "Cards", "fioriicon": "responsive"}, {"value": "Tab1", "name": "PatientInfo", "fioriicon": "hint", "type": "Field"}, {"value": "Tab2", "name": "ContactInfo", "fioriicon": "hint", "type": "Field"}, {"value": "Tab3", "name": "MedicalInfo", "fioriicon": "hint", "type": "Field"}], "DetailFields": {"None": ["ID", "ReasonForVisit"], "Tab1": ["FirstName", "LastName", "DOB", "Gender"], "Tab2": ["StreetAdd", "City", "PostCode", "Country", "Email", "HomePh", "MobileNo"], "Tab3": ["GP", "GPOffice", "CurrentHealthIssues", "AnyAllergy", "AnyMedication", "PlsList", "Status"]}, "ControlDisplay": {}, "FieldDef": [{"name": "ID", "type": "string", "width": "20", "Option": "", "SLabel": "", "LLabel": ""}, {"name": "FirstName", "type": "string", "width": "20"}, {"name": "LastName", "type": "string", "width": "20"}, {"name": "DOB", "type": "Date", "width": "10"}, {"name": "StreetAdd", "type": "string", "width": "100"}, {"name": "City", "type": "string", "width": "100"}, {"name": "PostCode", "type": "string", "width": "100"}, {"name": "Country", "type": "string", "width": "100"}, {"name": "Email", "type": "string", "width": "100"}, {"name": "Gender", "type": "string", "width": "100"}, {"name": "HomePh", "type": "string", "width": "100"}, {"name": "MobileNo", "type": "string", "width": "100"}, {"name": "ReasonForVisit", "type": "string", "width": "1000"}, {"name": "GP", "type": "string", "width": "200"}, {"name": "GPOffice", "type": "string", "width": "200"}, {"name": "CurrentHealthIssues", "type": "string", "width": "1000"}, {"name": "AnyAllergy", "type": "string", "width": "1000"}, {"name": "AnyMedication", "type": "string", "width": "50"}, {"name": "PlsList", "type": "string", "width": "500"}, {"name": "Status", "type": "string", "width": "20"}], "itemConfig": {}, "CalculatedFields": {}, "Wizard": []}
+{
+  "Title": {
+    "ApplicationTitle": "Online Patient Information Form",
+    "DetailTitle": "Form"
+  },
+  "ListFields": {
+    "IntroField": "FirstName",
+    "TitleField": "LastName",
+    "fStatus": "Status",
+    "LFields": ["ID", "Email"]
+  },
+  "ListBOTFields": {
+    "None": ["cardImage", "StatusState"],
+    "Title": [],
+    "SubTitle": [],
+    "Description": []
+  },
+  "PossibleValues": ["Country", "Gender", "Status"],
+  "MButtons": [
+    {
+      "type": "DOWNLOAD",
+      "name": "Download File",
+      "icon": "sap-icon://download"
+    },
+    {
+      "type": "APPHELP",
+      "name": "Get App Help",
+      "icon": "sap-icon://sys-help-2"
+    },
+    {
+      "type": "BOT",
+      "name": "Launch Assistant",
+      "icon": "sap-icon://travel-request"
+    },
+    {
+      "type": "VIEW",
+      "name": "Change App View",
+      "icon": "sap-icon://chart-table-view"
+    },
+    { "type": "ADD", "name": "Add Record", "icon": "sap-icon://add" },
+    { "type": "UPLOAD", "name": "Upload Record", "icon": "sap-icon://upload" }
+  ],
+  "DButtons": [
+    {
+      "type": "ATTACHMENT",
+      "name": "View Attachments",
+      "icon": "sap-icon://attachment"
+    },
+    { "type": "UPDATE", "name": "Update Record", "icon": "sap-icon://update" },
+    { "type": "ADD", "name": "Add Record", "icon": "sap-icon://add" }
+  ],
+  "Tabs": [
+    {
+      "value": "Tab0",
+      "name": "Cards",
+      "type": "Cards",
+      "fioriicon": "responsive"
+    },
+    {
+      "value": "Tab1",
+      "name": "PatientInfo",
+      "fioriicon": "hint",
+      "type": "Field"
+    },
+    {
+      "value": "Tab2",
+      "name": "ContactInfo",
+      "fioriicon": "hint",
+      "type": "Field"
+    },
+    {
+      "value": "Tab3",
+      "name": "MedicalInfo",
+      "fioriicon": "hint",
+      "type": "Field"
+    }
+  ],
+  "DetailFields": {
+    "None": ["ID", "ReasonForVisit"],
+    "Tab1": ["FirstName", "LastName", "DOB", "Gender"],
+    "Tab2": [
+      "StreetAdd",
+      "City",
+      "PostCode",
+      "Country",
+      "Email",
+      "HomePh",
+      "MobileNo"
+    ],
+    "Tab3": [
+      "GP",
+      "GPOffice",
+      "CurrentHealthIssues",
+      "AnyAllergy",
+      "AnyMedication",
+      "PlsList",
+      "Status"
+    ]
+  },
+  "ControlDisplay": {},
+  "FieldDef": [
+    {
+      "name": "ID",
+      "type": "string",
+      "width": "20",
+      "Option": "",
+      "SLabel": "",
+      "LLabel": ""
+    },
+    { "name": "FirstName", "type": "string", "width": "20" },
+    { "name": "LastName", "type": "string", "width": "20" },
+    { "name": "DOB", "type": "Date", "width": "10" },
+    { "name": "StreetAdd", "type": "string", "width": "100" },
+    { "name": "City", "type": "string", "width": "100" },
+    { "name": "PostCode", "type": "string", "width": "100" },
+    { "name": "Country", "type": "string", "width": "100" },
+    { "name": "Email", "type": "string", "width": "100" },
+    { "name": "Gender", "type": "string", "width": "100" },
+    { "name": "HomePh", "type": "string", "width": "100" },
+    { "name": "MobileNo", "type": "string", "width": "100" },
+    { "name": "ReasonForVisit", "type": "string", "width": "1000" },
+    { "name": "GP", "type": "string", "width": "200" },
+    { "name": "GPOffice", "type": "string", "width": "200" },
+    { "name": "CurrentHealthIssues", "type": "string", "width": "1000" },
+    { "name": "AnyAllergy", "type": "string", "width": "1000" },
+    { "name": "AnyMedication", "type": "string", "width": "50" },
+    { "name": "PlsList", "type": "string", "width": "500" },
+    { "name": "Status", "type": "string", "width": "20" }
+  ],
+  "itemConfig": {},
+  "CalculatedFields": {},
+  "Wizard": []
+}

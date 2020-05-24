@@ -1,1 +1,140 @@
-{"Title": {"ApplicationTitle": "Bids", "DetailTitle": "Bids"}, "ListFields": {"IntroField": "", "TitleField": "", "sStatus": "", "fStatus": "", "numberField": "", "LFields": [], "numberUnitField": ""}, "ListBOTFields": {"Title": [], "SubTitle": [], "Description": []}, "PossibleValues": ["VATRate", "Status"], "MButtons": [{"type": "DOWNLOAD", "name": "Download File", "icon": "sap-icon://download"}, {"type": "APPHELP", "name": "Get App Help", "icon": "sap-icon://sys-help-2"}, {"type": "BOT", "name": "Launch Assistant", "icon": "sap-icon://travel-request"}, {"type": "VIEW", "name": "Change App View", "icon": "sap-icon://chart-table-view"}, {"type": "ADD", "name": "Add Record", "icon": "sap-icon://add"}, {"type": "UPLOAD", "name": "Upload Record", "icon": "sap-icon://upload"}], "DButtons": [{"type": "ATTACHMENT", "name": "View Attachments", "icon": "sap-icon://attachment"}, {"type": "UPDATE", "name": "Update Record", "icon": "sap-icon://update"}, {"type": "ADD", "name": "Add Record", "icon": "sap-icon://add"}], "Tabs": [{"value": "Tab0", "name": "Cards", "type": "Cards", "fioriicon": "responsive"}, {"value": "Tab1", "name": "BidInvitation", "type": "Field", "fioriicon": "initiative"}, {"value": "Tab2", "name": "Bid", "type": "Field", "fioriicon": "sales-quote"}, {"value": "Tab3", "name": "Questioner", "type": "Field", "fioriicon": "question-mark"}, {"value": "Tab4", "name": "Attachment", "type": "Attachment", "fioriicon": "attachment"}], "DetailFields": {"None": ["BidNo", "BidInvitation", "ShortText"], "Tab1": ["BidItem", "Category", "Material", "BidInvDate", "RequestedQty", "UoM"], "Tab2": ["BidDate", "BidQty", "BidUoM", "BidPrice", "BidNetValue", "BidGrossValue", "Currency", "VATRate", "VATVal", "Comment", "Status"], "Tab3": ["Questioner", "QuestionerAns"], "Tab4": ["Attachment1", "Attachment2"]}, "ControlDisplay": {}, "FieldDef": [{"name": "BidNo", "type": "string", "width": "20"}, {"name": "BidInvitation", "type": "string", "width": "500"}, {"name": "BidItem", "type": "string", "width": "500"}, {"name": "Category", "type": "string", "width": "500"}, {"name": "ShortText", "type": "string", "width": "500"}, {"name": "Material", "type": "string", "width": "500"}, {"name": "BidInvDate", "type": "Date", "width": "10"}, {"name": "RequestedQty", "type": "string", "width": "10"}, {"name": "UoM", "type": "string", "width": "10"}, {"name": "BidDate", "type": "Date", "width": "10"}, {"name": "BidQty", "type": "string", "width": "10"}, {"name": "BidUoM", "type": "string", "width": "10"}, {"name": "BidPrice", "type": "string", "width": "100"}, {"name": "BidNetValue", "type": "string", "width": "100"}, {"name": "BidGrossValue", "type": "string", "width": "100"}, {"name": "Currency", "type": "string", "width": "100"}, {"name": "VATRate", "type": "string", "width": "100"}, {"name": "VATVal", "type": "string", "width": "100"}, {"name": "Comment", "type": "string", "width": "1000"}, {"name": "Questioner", "type": "string", "width": "100"}, {"name": "QuestionerAns", "type": "string", "width": "100"}, {"name": "Attachment1", "type": "attachment", "width": "100"}, {"name": "Attachment2", "type": "attachment", "width": "100"}, {"name": "Status", "type": "string", "width": "20"}], "itemConfig": {}, "CalculatedFields": {}, "Wizard": []}
+{
+  "Title": { "ApplicationTitle": "Bids", "DetailTitle": "Bids" },
+  "ListFields": {
+    "IntroField": "",
+    "TitleField": "",
+    "sStatus": "",
+    "fStatus": "",
+    "numberField": "",
+    "LFields": [],
+    "numberUnitField": ""
+  },
+  "ListBOTFields": {
+    "None": ["cardImage", "StatusState"],
+    "Title": [],
+    "SubTitle": [],
+    "Description": []
+  },
+  "PossibleValues": ["VATRate", "Status"],
+  "MButtons": [
+    {
+      "type": "DOWNLOAD",
+      "name": "Download File",
+      "icon": "sap-icon://download"
+    },
+    {
+      "type": "APPHELP",
+      "name": "Get App Help",
+      "icon": "sap-icon://sys-help-2"
+    },
+    {
+      "type": "BOT",
+      "name": "Launch Assistant",
+      "icon": "sap-icon://travel-request"
+    },
+    {
+      "type": "VIEW",
+      "name": "Change App View",
+      "icon": "sap-icon://chart-table-view"
+    },
+    { "type": "ADD", "name": "Add Record", "icon": "sap-icon://add" },
+    { "type": "UPLOAD", "name": "Upload Record", "icon": "sap-icon://upload" }
+  ],
+  "DButtons": [
+    {
+      "type": "ATTACHMENT",
+      "name": "View Attachments",
+      "icon": "sap-icon://attachment"
+    },
+    { "type": "UPDATE", "name": "Update Record", "icon": "sap-icon://update" },
+    { "type": "ADD", "name": "Add Record", "icon": "sap-icon://add" }
+  ],
+  "Tabs": [
+    {
+      "value": "Tab0",
+      "name": "Cards",
+      "type": "Cards",
+      "fioriicon": "responsive"
+    },
+    {
+      "value": "Tab1",
+      "name": "BidInvitation",
+      "type": "Field",
+      "fioriicon": "initiative"
+    },
+    {
+      "value": "Tab2",
+      "name": "Bid",
+      "type": "Field",
+      "fioriicon": "sales-quote"
+    },
+    {
+      "value": "Tab3",
+      "name": "Questioner",
+      "type": "Field",
+      "fioriicon": "question-mark"
+    },
+    {
+      "value": "Tab4",
+      "name": "Attachment",
+      "type": "Attachment",
+      "fioriicon": "attachment"
+    }
+  ],
+  "DetailFields": {
+    "None": ["BidNo", "BidInvitation", "ShortText"],
+    "Tab1": [
+      "BidItem",
+      "Category",
+      "Material",
+      "BidInvDate",
+      "RequestedQty",
+      "UoM"
+    ],
+    "Tab2": [
+      "BidDate",
+      "BidQty",
+      "BidUoM",
+      "BidPrice",
+      "BidNetValue",
+      "BidGrossValue",
+      "Currency",
+      "VATRate",
+      "VATVal",
+      "Comment",
+      "Status"
+    ],
+    "Tab3": ["Questioner", "QuestionerAns"],
+    "Tab4": ["Attachment1", "Attachment2"]
+  },
+  "ControlDisplay": {},
+  "FieldDef": [
+    { "name": "BidNo", "type": "string", "width": "20" },
+    { "name": "BidInvitation", "type": "string", "width": "500" },
+    { "name": "BidItem", "type": "string", "width": "500" },
+    { "name": "Category", "type": "string", "width": "500" },
+    { "name": "ShortText", "type": "string", "width": "500" },
+    { "name": "Material", "type": "string", "width": "500" },
+    { "name": "BidInvDate", "type": "Date", "width": "10" },
+    { "name": "RequestedQty", "type": "string", "width": "10" },
+    { "name": "UoM", "type": "string", "width": "10" },
+    { "name": "BidDate", "type": "Date", "width": "10" },
+    { "name": "BidQty", "type": "string", "width": "10" },
+    { "name": "BidUoM", "type": "string", "width": "10" },
+    { "name": "BidPrice", "type": "string", "width": "100" },
+    { "name": "BidNetValue", "type": "string", "width": "100" },
+    { "name": "BidGrossValue", "type": "string", "width": "100" },
+    { "name": "Currency", "type": "string", "width": "100" },
+    { "name": "VATRate", "type": "string", "width": "100" },
+    { "name": "VATVal", "type": "string", "width": "100" },
+    { "name": "Comment", "type": "string", "width": "1000" },
+    { "name": "Questioner", "type": "string", "width": "100" },
+    { "name": "QuestionerAns", "type": "string", "width": "100" },
+    { "name": "Attachment1", "type": "attachment", "width": "100" },
+    { "name": "Attachment2", "type": "attachment", "width": "100" },
+    { "name": "Status", "type": "string", "width": "20" }
+  ],
+  "itemConfig": {},
+  "CalculatedFields": {},
+  "Wizard": []
+}

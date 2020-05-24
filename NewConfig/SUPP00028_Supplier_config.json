@@ -13,6 +13,7 @@
     "numberUnitField": "Currency"
   },
   "ListBOTFields": {
+    "None": ["cardImage", "StatusState"],
     "Title": ["VendorName", "InvoiceType"],
     "SubTitle": ["SuppInvoiceNumber", "InvoiceStatus"],
     "Description": [
@@ -21,8 +22,7 @@
       "TotInvGrossVal",
       "CurrentStatus",
       "ID"
-    ],
-    "None": []
+    ]
   },
   "PossibleValues": [
     "Currency",
@@ -609,6 +609,18 @@
         "type": "string",
         "width": "50",
         "SLabel": "Invoice Item Status"
+      },
+      {
+        "name": "StatusState",
+        "type": "string",
+        "width": "20",
+        "SLabel": "StatusState"
+      },
+      {
+        "name": "cardImage",
+        "type": "string",
+        "width": "500",
+        "SLabel": "cardImage"
       }
     ],
     "DisplayFields": [

@@ -1,1 +1,375 @@
-{"Title": {"ApplicationTitle": "Payslip", "DetailTitle": "Payslip"}, "ListFields": {"IntroField": "", "TitleField": "", "sStatus": "", "fStatus": "", "numberField": "", "LFields": [], "numberUnitField": ""}, "ListBOTFields": {"Title": [], "SubTitle": [], "Description": []}, "PossibleValues": ["State", "Country", "Status"], "MButtons": [], "DButtons": [], "Tabs": [{"value": "Tab0", "name": "Cards", "type": "Cards", "fioriicon": "responsive"}, {"value": "Tab4", "name": "Employee", "type": "Field", "fioriicon": "employee"}, {"value": "Tab1", "name": "Month", "type": "Field", "fioriicon": "calendar"}, {"value": "Tab2", "name": "Details", "type": "Field", "fioriicon": "notes"}, {"value": "Tab3", "name": "Year", "type": "Field", "fioriicon": "calendar"}, {"value": "Tab5", "name": "Address", "type": "Field", "fioriicon": "addresses"}], "DetailFields": {"None": ["ID", "Company", "Status"], "Tab1": ["PeriodStart", "PeriodEnd", "PayDate", "TaxCode", "Location", "PaymentMode"], "Tab2": ["Base", "OOH", "GrossTotal", "EarningNI", "PAYTax", "NI", "Advance", "TotalDedu", "NetPay"], "Tab3": ["GrossYear", "EarningYear", "GrossPayYear", "TaxPaidYear", "NIYear"], "Tab4": ["Name", "EmployeeID", "NINumber"], "Tab5": ["Street", "City", "PostCode", "State", "Country"]}, "ControlDisplay": {}, "FieldDef": [{"name": "ID", "type": "string", "width": "20", "Option": "", "SLabel": "ID", "LLabel": "", "Currency": "No"}, {"name": "Company", "type": "string", "width": "50", "Option": "", "SLabel": "Company", "LLabel": "", "Currency": "No"}, {"name": "PeriodStart", "type": "Date", "width": "10", "Option": "", "SLabel": "Period Start", "LLabel": "", "Currency": "No"}, {"name": "PeriodEnd", "type": "Date", "width": "10", "Option": "", "SLabel": "Period End", "LLabel": "", "Currency": "No"}, {"name": "PayDate", "type": "Date", "width": "10", "Option": "", "SLabel": "Pay Date", "LLabel": "", "Currency": "No"}, {"name": "TaxCode", "type": "string", "width": "20", "Option": "", "SLabel": "Tax Code", "LLabel": "", "Currency": "No"}, {"name": "Name", "type": "string", "width": "50", "Option": "", "SLabel": "Name", "LLabel": "", "Currency": "No"}, {"name": "EmployeeID", "type": "string", "width": "50", "Option": "", "SLabel": "Employee ID", "LLabel": "", "Currency": "No"}, {"name": "Location", "type": "string", "width": "50", "Option": "", "SLabel": "Location", "LLabel": "", "Currency": "No"}, {"name": "PaymentMode", "type": "string", "width": "50", "Option": "", "SLabel": "Payment Mode", "LLabel": "", "Currency": "No"}, {"name": "NINumber", "type": "string", "width": "50", "Option": "", "SLabel": "NI Number", "LLabel": "", "Currency": "No"}, {"name": "Street", "type": "string", "width": "50", "Option": "", "SLabel": "Street", "LLabel": "", "Currency": "No"}, {"name": "City", "type": "string", "width": "50", "Option": "", "SLabel": "City", "LLabel": "", "Currency": "No"}, {"name": "PostCode", "type": "string", "width": "50", "Option": "", "SLabel": "Post Code", "LLabel": "", "Currency": "No"}, {"name": "State", "type": "string", "width": "50", "Option": "", "SLabel": "State", "LLabel": "", "Currency": "No"}, {"name": "Country", "type": "string", "width": "50", "Option": "", "SLabel": "Country", "LLabel": "", "Currency": "No"}, {"name": "Base", "type": "string", "width": "50", "Option": "", "SLabel": "Base", "LLabel": "", "Currency": "No"}, {"name": "OOH", "type": "string", "width": "50", "Option": "", "SLabel": "OOH", "LLabel": "", "Currency": "No"}, {"name": "GrossTotal", "type": "string", "width": "50", "Option": "", "SLabel": "GrossTotal", "LLabel": "", "Currency": "No"}, {"name": "EarningNI", "type": "string", "width": "50", "Option": "", "SLabel": "Earning NI", "LLabel": "", "Currency": "No"}, {"name": "PAYTax", "type": "string", "width": "100", "Option": "", "SLabel": "PAY Tax", "LLabel": "", "Currency": "No"}, {"name": "NI", "type": "string", "width": "100", "Option": "", "SLabel": "NI", "LLabel": "", "Currency": "No"}, {"name": "Advance", "type": "string", "width": "100", "Option": "", "SLabel": "Advance", "LLabel": "", "Currency": "No"}, {"name": "TotalDedu", "type": "string", "width": "100", "Option": "", "SLabel": "Total Deduction", "LLabel": "", "Currency": "No"}, {"name": "NetPay", "type": "string", "width": "100", "Option": "", "SLabel": "Net Pay", "LLabel": "", "Currency": "No"}, {"name": "GrossYear", "type": "string", "width": "100", "Option": "", "SLabel": "Gross Year", "LLabel": "", "Currency": "No"}, {"name": "EarningYear", "type": "string", "width": "100", "Option": "", "SLabel": "Earning Year", "LLabel": "", "Currency": "No"}, {"name": "GrossPayYear", "type": "string", "width": "100", "Option": "", "SLabel": "Gross Pay Year", "LLabel": "", "Currency": "No"}, {"name": "TaxPaidYear", "type": "string", "width": "100", "Option": "", "SLabel": "Tax Paid Year", "LLabel": "", "Currency": "No"}, {"name": "NIYear", "type": "string", "width": "100", "Option": "", "SLabel": "NI year", "LLabel": "", "Currency": "No"}, {"name": "Status", "type": "string", "width": "20", "Option": "", "SLabel": "Status", "LLabel": "", "Currency": "No"}], "itemConfig": {}, "CalculatedFields": {}, "Wizard": []}
+{
+  "Title": { "ApplicationTitle": "Payslip", "DetailTitle": "Payslip" },
+  "ListFields": {
+    "IntroField": "",
+    "TitleField": "",
+    "sStatus": "",
+    "fStatus": "",
+    "numberField": "",
+    "LFields": [],
+    "numberUnitField": ""
+  },
+  "ListBOTFields": {
+    "None": ["cardImage", "StatusState"],
+    "Title": [],
+    "SubTitle": [],
+    "Description": []
+  },
+  "PossibleValues": ["State", "Country", "Status"],
+  "MButtons": [],
+  "DButtons": [],
+  "Tabs": [
+    {
+      "value": "Tab0",
+      "name": "Cards",
+      "type": "Cards",
+      "fioriicon": "responsive"
+    },
+    {
+      "value": "Tab4",
+      "name": "Employee",
+      "type": "Field",
+      "fioriicon": "employee"
+    },
+    {
+      "value": "Tab1",
+      "name": "Month",
+      "type": "Field",
+      "fioriicon": "calendar"
+    },
+    {
+      "value": "Tab2",
+      "name": "Details",
+      "type": "Field",
+      "fioriicon": "notes"
+    },
+    {
+      "value": "Tab3",
+      "name": "Year",
+      "type": "Field",
+      "fioriicon": "calendar"
+    },
+    {
+      "value": "Tab5",
+      "name": "Address",
+      "type": "Field",
+      "fioriicon": "addresses"
+    }
+  ],
+  "DetailFields": {
+    "None": ["ID", "Company", "Status"],
+    "Tab1": [
+      "PeriodStart",
+      "PeriodEnd",
+      "PayDate",
+      "TaxCode",
+      "Location",
+      "PaymentMode"
+    ],
+    "Tab2": [
+      "Base",
+      "OOH",
+      "GrossTotal",
+      "EarningNI",
+      "PAYTax",
+      "NI",
+      "Advance",
+      "TotalDedu",
+      "NetPay"
+    ],
+    "Tab3": [
+      "GrossYear",
+      "EarningYear",
+      "GrossPayYear",
+      "TaxPaidYear",
+      "NIYear"
+    ],
+    "Tab4": ["Name", "EmployeeID", "NINumber"],
+    "Tab5": ["Street", "City", "PostCode", "State", "Country"]
+  },
+  "ControlDisplay": {},
+  "FieldDef": [
+    {
+      "name": "ID",
+      "type": "string",
+      "width": "20",
+      "Option": "",
+      "SLabel": "ID",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "Company",
+      "type": "string",
+      "width": "50",
+      "Option": "",
+      "SLabel": "Company",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "PeriodStart",
+      "type": "Date",
+      "width": "10",
+      "Option": "",
+      "SLabel": "Period Start",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "PeriodEnd",
+      "type": "Date",
+      "width": "10",
+      "Option": "",
+      "SLabel": "Period End",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "PayDate",
+      "type": "Date",
+      "width": "10",
+      "Option": "",
+      "SLabel": "Pay Date",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "TaxCode",
+      "type": "string",
+      "width": "20",
+      "Option": "",
+      "SLabel": "Tax Code",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "Name",
+      "type": "string",
+      "width": "50",
+      "Option": "",
+      "SLabel": "Name",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "EmployeeID",
+      "type": "string",
+      "width": "50",
+      "Option": "",
+      "SLabel": "Employee ID",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "Location",
+      "type": "string",
+      "width": "50",
+      "Option": "",
+      "SLabel": "Location",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "PaymentMode",
+      "type": "string",
+      "width": "50",
+      "Option": "",
+      "SLabel": "Payment Mode",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "NINumber",
+      "type": "string",
+      "width": "50",
+      "Option": "",
+      "SLabel": "NI Number",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "Street",
+      "type": "string",
+      "width": "50",
+      "Option": "",
+      "SLabel": "Street",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "City",
+      "type": "string",
+      "width": "50",
+      "Option": "",
+      "SLabel": "City",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "PostCode",
+      "type": "string",
+      "width": "50",
+      "Option": "",
+      "SLabel": "Post Code",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "State",
+      "type": "string",
+      "width": "50",
+      "Option": "",
+      "SLabel": "State",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "Country",
+      "type": "string",
+      "width": "50",
+      "Option": "",
+      "SLabel": "Country",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "Base",
+      "type": "string",
+      "width": "50",
+      "Option": "",
+      "SLabel": "Base",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "OOH",
+      "type": "string",
+      "width": "50",
+      "Option": "",
+      "SLabel": "OOH",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "GrossTotal",
+      "type": "string",
+      "width": "50",
+      "Option": "",
+      "SLabel": "GrossTotal",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "EarningNI",
+      "type": "string",
+      "width": "50",
+      "Option": "",
+      "SLabel": "Earning NI",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "PAYTax",
+      "type": "string",
+      "width": "100",
+      "Option": "",
+      "SLabel": "PAY Tax",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "NI",
+      "type": "string",
+      "width": "100",
+      "Option": "",
+      "SLabel": "NI",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "Advance",
+      "type": "string",
+      "width": "100",
+      "Option": "",
+      "SLabel": "Advance",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "TotalDedu",
+      "type": "string",
+      "width": "100",
+      "Option": "",
+      "SLabel": "Total Deduction",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "NetPay",
+      "type": "string",
+      "width": "100",
+      "Option": "",
+      "SLabel": "Net Pay",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "GrossYear",
+      "type": "string",
+      "width": "100",
+      "Option": "",
+      "SLabel": "Gross Year",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "EarningYear",
+      "type": "string",
+      "width": "100",
+      "Option": "",
+      "SLabel": "Earning Year",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "GrossPayYear",
+      "type": "string",
+      "width": "100",
+      "Option": "",
+      "SLabel": "Gross Pay Year",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "TaxPaidYear",
+      "type": "string",
+      "width": "100",
+      "Option": "",
+      "SLabel": "Tax Paid Year",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "NIYear",
+      "type": "string",
+      "width": "100",
+      "Option": "",
+      "SLabel": "NI year",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "Status",
+      "type": "string",
+      "width": "20",
+      "Option": "",
+      "SLabel": "Status",
+      "LLabel": "",
+      "Currency": "No"
+    }
+  ],
+  "itemConfig": {},
+  "CalculatedFields": {},
+  "Wizard": []
+}

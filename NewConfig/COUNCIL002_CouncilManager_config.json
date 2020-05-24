@@ -1,1 +1,57 @@
-{"Title": {"ApplicationTitle": "Change in Circumstances", "DetailTitle": "Change in Circumstances"}, "ListFields": {"IntroField": "ReportNo", "TitleField": "YourName", "fStatus": "Status", "LFields": ["EmailID"]}, "ListBOTFields": {"Title": [], "SubTitle": [], "Description": []}, "PossibleValues": ["Status"], "MButtons": [], "DButtons": [], "Tabs": [{"value": "Tab0", "name": "Cards", "type": "Cards", "fioriicon": "responsive"}, {"value": "Tab1", "name": "Report It", "type": "Field"}, {"value": "Tab2", "name": "Additional Info", "type": "Field"}], "DetailFields": {"None": ["ReportNo", "YourName", "ContactNo", "EmailID", "Status"], "Tab1": ["Address", "Q1", "A1", "Q2", "A2", "Q3", "A3", "Q4", "A4"], "Tab2": ["AdditionalInfo"]}, "ControlDisplay": {}, "FieldDef": [{"name": "ReportNo", "type": "string", "width": "20"}, {"name": "YourName", "type": "string", "width": "50"}, {"name": "ContactNo", "type": "string", "width": "20"}, {"name": "EmailID", "type": "string", "width": "100"}, {"name": "Address", "type": "string", "width": "500"}, {"name": "Q1", "type": "string", "width": "500"}, {"name": "A1", "type": "string", "width": "500"}, {"name": "Q2", "type": "string", "width": "500"}, {"name": "A2", "type": "string", "width": "500"}, {"name": "Q3", "type": "string", "width": "500"}, {"name": "A3", "type": "string", "width": "500"}, {"name": "Q4", "type": "string", "width": "500"}, {"name": "A4", "type": "Date", "width": "10"}, {"name": "AdditionalInfo", "type": "string", "width": "1000"}, {"name": "Status", "type": "string", "width": "20"}], "itemConfig": {}, "CalculatedFields": {}, "Wizard": []}
+{
+  "Title": {
+    "ApplicationTitle": "Change in Circumstances",
+    "DetailTitle": "Change in Circumstances"
+  },
+  "ListFields": {
+    "IntroField": "ReportNo",
+    "TitleField": "YourName",
+    "fStatus": "Status",
+    "LFields": ["EmailID"]
+  },
+  "ListBOTFields": {
+    "None": ["cardImage", "StatusState"],
+    "Title": [],
+    "SubTitle": [],
+    "Description": []
+  },
+  "PossibleValues": ["Status"],
+  "MButtons": [],
+  "DButtons": [],
+  "Tabs": [
+    {
+      "value": "Tab0",
+      "name": "Cards",
+      "type": "Cards",
+      "fioriicon": "responsive"
+    },
+    { "value": "Tab1", "name": "Report It", "type": "Field" },
+    { "value": "Tab2", "name": "Additional Info", "type": "Field" }
+  ],
+  "DetailFields": {
+    "None": ["ReportNo", "YourName", "ContactNo", "EmailID", "Status"],
+    "Tab1": ["Address", "Q1", "A1", "Q2", "A2", "Q3", "A3", "Q4", "A4"],
+    "Tab2": ["AdditionalInfo"]
+  },
+  "ControlDisplay": {},
+  "FieldDef": [
+    { "name": "ReportNo", "type": "string", "width": "20" },
+    { "name": "YourName", "type": "string", "width": "50" },
+    { "name": "ContactNo", "type": "string", "width": "20" },
+    { "name": "EmailID", "type": "string", "width": "100" },
+    { "name": "Address", "type": "string", "width": "500" },
+    { "name": "Q1", "type": "string", "width": "500" },
+    { "name": "A1", "type": "string", "width": "500" },
+    { "name": "Q2", "type": "string", "width": "500" },
+    { "name": "A2", "type": "string", "width": "500" },
+    { "name": "Q3", "type": "string", "width": "500" },
+    { "name": "A3", "type": "string", "width": "500" },
+    { "name": "Q4", "type": "string", "width": "500" },
+    { "name": "A4", "type": "Date", "width": "10" },
+    { "name": "AdditionalInfo", "type": "string", "width": "1000" },
+    { "name": "Status", "type": "string", "width": "20" }
+  ],
+  "itemConfig": {},
+  "CalculatedFields": {},
+  "Wizard": []
+}

@@ -1,1 +1,186 @@
-{"Title": {"ApplicationTitle": "Time Table", "DetailTitle": "Time Table"}, "ListFields": {"IntroField": "Subject", "TitleField": "Class", "fStatus": "Status", "LFields": ["ID", "Section"]}, "ListBOTFields": {"Title": [], "SubTitle": [], "Description": []}, "PossibleValues": [], "MButtons": [], "DButtons": [], "Tabs": [{"value": "Tab0", "name": "Cards", "type": "Cards", "fioriicon": "responsive"}, {"value": "Tab1", "name": "Subject", "type": "Field", "fioriicon": "hello-world"}, {"value": "Tab2", "name": "Timeline", "type": "Field", "fioriicon": "time-account"}], "DetailFields": {"None": ["ID", "Class", "Section", "Term", "Status"], "Tab1": ["Subject", "Room", "Type", "AnyChange"], "Tab2": ["Day", "Period", "TimeSlot"]}, "ControlDisplay": {}, "FieldDef": [{"name": "ID", "type": "string", "width": "20", "Option": "", "SLabel": "ID", "LLabel": "", "Currency": "No"}, {"name": "Class", "type": "string", "width": "50", "Option": "", "SLabel": "Class", "LLabel": "", "Currency": "No"}, {"name": "Section", "type": "string", "width": "50", "Option": "", "SLabel": "Section", "LLabel": "", "Currency": "No"}, {"name": "Term", "type": "string", "width": "50", "Option": "", "SLabel": "Term", "LLabel": "", "Currency": "No"}, {"name": "Subject", "type": "string", "width": "50", "Option": "", "SLabel": "Subject", "LLabel": "", "Currency": "No"}, {"name": "Day", "type": "string", "width": "50", "Option": "", "SLabel": "Day", "LLabel": "", "Currency": "No"}, {"name": "Period", "type": "string", "width": "50", "Option": "", "SLabel": "Period", "LLabel": "", "Currency": "No"}, {"name": "TimeSlot", "type": "string", "width": "50", "Option": "", "SLabel": "Time Slot", "LLabel": "", "Currency": "No"}, {"name": "Room", "type": "string", "width": "50", "Option": "", "SLabel": "Room", "LLabel": "", "Currency": "No"}, {"name": "Type", "type": "string", "width": "50", "Option": "", "SLabel": "Type", "LLabel": "", "Currency": "No"}, {"name": "AnyChange", "type": "string", "width": "1000", "Option": "", "SLabel": "Any Change", "LLabel": "", "Currency": "No"}, {"name": "Status", "type": "string", "width": "20", "Option": "", "SLabel": "Status", "LLabel": "", "Currency": "No"}, {"name": "Test", "type": "string", "width": "50", "Option": "", "SLabel": "Test", "LLabel": "", "Currency": "No"}, {"name": "Date", "type": "Date", "width": "10", "Option": "", "SLabel": "Date", "LLabel": "", "Currency": "No"}], "itemConfig": {"ItemFieldDefinition": [], "DisplayFields": [], "ItemButtons": {"itemDisplay": false, "itemAdd": false, "itemEdit": false, "itemDelete": false}, "CreateFields": [], "ItemDetails": []}, "CalculatedFields": {}, "Wizard": []}
+{
+  "Title": { "ApplicationTitle": "Time Table", "DetailTitle": "Time Table" },
+  "ListFields": {
+    "IntroField": "Subject",
+    "TitleField": "Class",
+    "fStatus": "Status",
+    "LFields": ["ID", "Section"]
+  },
+  "ListBOTFields": {
+    "None": ["cardImage", "StatusState"],
+    "Title": [],
+    "SubTitle": [],
+    "Description": []
+  },
+  "PossibleValues": [],
+  "MButtons": [],
+  "DButtons": [],
+  "Tabs": [
+    {
+      "value": "Tab0",
+      "name": "Cards",
+      "type": "Cards",
+      "fioriicon": "responsive"
+    },
+    {
+      "value": "Tab1",
+      "name": "Subject",
+      "type": "Field",
+      "fioriicon": "hello-world"
+    },
+    {
+      "value": "Tab2",
+      "name": "Timeline",
+      "type": "Field",
+      "fioriicon": "time-account"
+    }
+  ],
+  "DetailFields": {
+    "None": ["ID", "Class", "Section", "Term", "Status"],
+    "Tab1": ["Subject", "Room", "Type", "AnyChange"],
+    "Tab2": ["Day", "Period", "TimeSlot"]
+  },
+  "ControlDisplay": {},
+  "FieldDef": [
+    {
+      "name": "ID",
+      "type": "string",
+      "width": "20",
+      "Option": "",
+      "SLabel": "ID",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "Class",
+      "type": "string",
+      "width": "50",
+      "Option": "",
+      "SLabel": "Class",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "Section",
+      "type": "string",
+      "width": "50",
+      "Option": "",
+      "SLabel": "Section",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "Term",
+      "type": "string",
+      "width": "50",
+      "Option": "",
+      "SLabel": "Term",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "Subject",
+      "type": "string",
+      "width": "50",
+      "Option": "",
+      "SLabel": "Subject",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "Day",
+      "type": "string",
+      "width": "50",
+      "Option": "",
+      "SLabel": "Day",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "Period",
+      "type": "string",
+      "width": "50",
+      "Option": "",
+      "SLabel": "Period",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "TimeSlot",
+      "type": "string",
+      "width": "50",
+      "Option": "",
+      "SLabel": "Time Slot",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "Room",
+      "type": "string",
+      "width": "50",
+      "Option": "",
+      "SLabel": "Room",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "Type",
+      "type": "string",
+      "width": "50",
+      "Option": "",
+      "SLabel": "Type",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "AnyChange",
+      "type": "string",
+      "width": "1000",
+      "Option": "",
+      "SLabel": "Any Change",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "Status",
+      "type": "string",
+      "width": "20",
+      "Option": "",
+      "SLabel": "Status",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "Test",
+      "type": "string",
+      "width": "50",
+      "Option": "",
+      "SLabel": "Test",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "Date",
+      "type": "Date",
+      "width": "10",
+      "Option": "",
+      "SLabel": "Date",
+      "LLabel": "",
+      "Currency": "No"
+    }
+  ],
+  "itemConfig": {
+    "ItemFieldDefinition": [],
+    "DisplayFields": [],
+    "ItemButtons": {
+      "itemDisplay": false,
+      "itemAdd": false,
+      "itemEdit": false,
+      "itemDelete": false
+    },
+    "CreateFields": [],
+    "ItemDetails": []
+  },
+  "CalculatedFields": {},
+  "Wizard": []
+}

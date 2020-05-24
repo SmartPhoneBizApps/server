@@ -1,1 +1,441 @@
-{"Title": {"ApplicationTitle": "College Choice", "DetailTitle": "College Choice"}, "ListFields": {"IntroField": "Name", "TitleField": "Surname", "fStatus": "Status", "LFields": ["ID", "Rank"]}, "ListBOTFields": {"Title": [], "SubTitle": [], "Description": []}, "PossibleValues": ["Status", "CollegeChoice1", "CollegeChoice2", "CollegeChoice3", "CollegeChoice4", "CollegeChoice5", "CollegeChoice6", "CollegeChoice7", "CollegeChoice8", "BranchPrefer1", "BranchPrefer2", "Gender", "State", "Country"], "MButtons": [], "DButtons": [], "Tabs": [{"value": "Tab0", "name": "Cards", "type": "Cards", "fioriicon": "responsive"}, {"value": "Tab1", "name": "Details", "type": "Field", "fioriicon": "notes"}, {"value": "Tab2", "name": "Merit", "type": "Field", "fioriicon": "chalkboard"}, {"value": "Tab3", "name": "Choice", "type": "Field", "fioriicon": "multi-select"}], "DetailFields": {"None": ["ID", "Status", "SubmitDate"], "Tab1": ["DoB", "Name", "Surname", "Gender", "Street", "City", "PostCode", "State", "Country"], "Tab2": ["ExamCentre", "ScoreMaths", "ScorePhysics", "ScoreChemistry", "DateOfReg", "RegCentre", "FeePaymentDate", "ChoiceLockDate", "ResultDate", "FeeReference", "FeeAmount", "Rank"], "Tab3": ["CollegeChoice1", "CollegeChoice2", "CollegeChoice3", "CollegeChoice4", "CollegeChoice5", "CollegeChoice6", "CollegeChoice7", "CollegeChoice8", "BranchPrefer1", "BranchPrefer2"]}, "ControlDisplay": {}, "FieldDef": [{"name": "ID", "type": "string", "width": "20", "Option": "", "SLabel": "ID", "LLabel": "", "Currency": "No"}, {"name": "Status", "type": "string", "width": "20", "Option": "", "SLabel": "Status", "LLabel": "", "Currency": "No"}, {"name": "ExamCentre", "type": "string", "width": "500", "Option": "", "SLabel": "Exam Centre", "LLabel": "", "Currency": "No"}, {"name": "DoB", "type": "Date", "width": "10", "Option": "", "SLabel": "Date Of Birth", "LLabel": "", "Currency": "No"}, {"name": "ScoreMaths", "type": "string", "width": "100", "Option": "", "SLabel": "Maths Score", "LLabel": "", "Currency": "No"}, {"name": "ScorePhysics", "type": "string", "width": "100", "Option": "", "SLabel": "Physics Score", "LLabel": "", "Currency": "No"}, {"name": "ScoreChemistry", "type": "string", "width": "20", "Option": "", "SLabel": "Chemistry Score", "LLabel": "", "Currency": "No"}, {"name": "DateOfReg", "type": "Date", "width": "10", "Option": "", "SLabel": "Date Of Registration", "LLabel": "", "Currency": "No"}, {"name": "RegCentre", "type": "string", "width": "100", "Option": "", "SLabel": "Registration Centre", "LLabel": "", "Currency": "No"}, {"name": "FeePaymentDate", "type": "Date", "width": "10", "Option": "", "SLabel": "Fee Payment Date", "LLabel": "", "Currency": "No"}, {"name": "ChoiceLockDate", "type": "Date", "width": "10", "Option": "", "SLabel": "Choice Lock Date", "LLabel": "", "Currency": "No"}, {"name": "Name", "type": "string", "width": "100", "Option": "", "SLabel": "Name", "LLabel": "", "Currency": "No"}, {"name": "ResultDate", "type": "Date", "width": "10", "Option": "", "SLabel": "Result Date", "LLabel": "", "Currency": "No"}, {"name": "FeeReference", "type": "string", "width": "100", "Option": "", "SLabel": "Fee Reference", "LLabel": "", "Currency": "No"}, {"name": "FeeAmount", "type": "string", "width": "100", "Option": "", "SLabel": "Fee Amount", "LLabel": "", "Currency": "No"}, {"name": "CollegeChoice1", "type": "string", "width": "100", "Option": "", "SLabel": "College Choice1", "LLabel": "", "Currency": "No"}, {"name": "CollegeChoice2", "type": "string", "width": "100", "Option": "", "SLabel": "College Choice2", "LLabel": "", "Currency": "No"}, {"name": "CollegeChoice3", "type": "string", "width": "100", "Option": "", "SLabel": "College Choice3", "LLabel": "", "Currency": "No"}, {"name": "CollegeChoice4", "type": "string", "width": "100", "Option": "", "SLabel": "College Choice4", "LLabel": "", "Currency": "No"}, {"name": "CollegeChoice5", "type": "string", "width": "100", "Option": "", "SLabel": "College Choice5", "LLabel": "", "Currency": "No"}, {"name": "CollegeChoice6", "type": "string", "width": "100", "Option": "", "SLabel": "College Choice6", "LLabel": "", "Currency": "No"}, {"name": "CollegeChoice7", "type": "string", "width": "100", "Option": "", "SLabel": "College Choice7", "LLabel": "", "Currency": "No"}, {"name": "Surname", "type": "string", "width": "100", "Option": "", "SLabel": "Surname", "LLabel": "", "Currency": "No"}, {"name": "CollegeChoice8", "type": "string", "width": "100", "Option": "", "SLabel": "College Choice8", "LLabel": "", "Currency": "No"}, {"name": "BranchPrefer1", "type": "string", "width": "50", "Option": "", "SLabel": "Branch Prefer1", "LLabel": "", "Currency": "No"}, {"name": "BranchPrefer2", "type": "string", "width": "50", "Option": "", "SLabel": "Branch Prefer2", "LLabel": "", "Currency": "No"}, {"name": "Gender", "type": "string", "width": "50", "Option": "", "SLabel": "Gender", "LLabel": "", "Currency": "No"}, {"name": "SubmitDate", "type": "Date", "width": "10", "Option": "", "SLabel": "Submit Date", "LLabel": "", "Currency": "No"}, {"name": "Street", "type": "string", "width": "100", "Option": "", "SLabel": "Street", "LLabel": "", "Currency": "No"}, {"name": "City", "type": "string", "width": "100", "Option": "", "SLabel": "City", "LLabel": "", "Currency": "No"}, {"name": "PostCode", "type": "string", "width": "100", "Option": "", "SLabel": "Post Code", "LLabel": "", "Currency": "No"}, {"name": "State", "type": "string", "width": "100", "Option": "", "SLabel": "State", "LLabel": "", "Currency": "No"}, {"name": "Country", "type": "string", "width": "100", "Option": "", "SLabel": "Country", "LLabel": "", "Currency": "No"}, {"name": "Rank", "type": "string", "width": "100", "Option": "", "SLabel": "Rank", "LLabel": "", "Currency": "No"}, {"name": "Quota", "type": "string", "width": "100", "Option": "", "SLabel": "Quota", "LLabel": "", "Currency": "No"}, {"name": "AllocatedBranch", "type": "string", "width": "100", "Option": "", "SLabel": "Allocated Branch", "LLabel": "", "Currency": "No"}, {"name": "AllocatedCollege", "type": "string", "width": "50", "Option": "", "SLabel": "Allocated College", "LLabel": "", "Currency": "No"}], "itemConfig": {}, "CalculatedFields": {}, "Wizard": []}
+{
+  "Title": {
+    "ApplicationTitle": "College Choice",
+    "DetailTitle": "College Choice"
+  },
+  "ListFields": {
+    "IntroField": "Name",
+    "TitleField": "Surname",
+    "fStatus": "Status",
+    "LFields": ["ID", "Rank"]
+  },
+  "ListBOTFields": {
+    "None": ["cardImage", "StatusState"],
+    "Title": [],
+    "SubTitle": [],
+    "Description": []
+  },
+  "PossibleValues": [
+    "Status",
+    "CollegeChoice1",
+    "CollegeChoice2",
+    "CollegeChoice3",
+    "CollegeChoice4",
+    "CollegeChoice5",
+    "CollegeChoice6",
+    "CollegeChoice7",
+    "CollegeChoice8",
+    "BranchPrefer1",
+    "BranchPrefer2",
+    "Gender",
+    "State",
+    "Country"
+  ],
+  "MButtons": [],
+  "DButtons": [],
+  "Tabs": [
+    {
+      "value": "Tab0",
+      "name": "Cards",
+      "type": "Cards",
+      "fioriicon": "responsive"
+    },
+    {
+      "value": "Tab1",
+      "name": "Details",
+      "type": "Field",
+      "fioriicon": "notes"
+    },
+    {
+      "value": "Tab2",
+      "name": "Merit",
+      "type": "Field",
+      "fioriicon": "chalkboard"
+    },
+    {
+      "value": "Tab3",
+      "name": "Choice",
+      "type": "Field",
+      "fioriicon": "multi-select"
+    }
+  ],
+  "DetailFields": {
+    "None": ["ID", "Status", "SubmitDate"],
+    "Tab1": [
+      "DoB",
+      "Name",
+      "Surname",
+      "Gender",
+      "Street",
+      "City",
+      "PostCode",
+      "State",
+      "Country"
+    ],
+    "Tab2": [
+      "ExamCentre",
+      "ScoreMaths",
+      "ScorePhysics",
+      "ScoreChemistry",
+      "DateOfReg",
+      "RegCentre",
+      "FeePaymentDate",
+      "ChoiceLockDate",
+      "ResultDate",
+      "FeeReference",
+      "FeeAmount",
+      "Rank"
+    ],
+    "Tab3": [
+      "CollegeChoice1",
+      "CollegeChoice2",
+      "CollegeChoice3",
+      "CollegeChoice4",
+      "CollegeChoice5",
+      "CollegeChoice6",
+      "CollegeChoice7",
+      "CollegeChoice8",
+      "BranchPrefer1",
+      "BranchPrefer2"
+    ]
+  },
+  "ControlDisplay": {},
+  "FieldDef": [
+    {
+      "name": "ID",
+      "type": "string",
+      "width": "20",
+      "Option": "",
+      "SLabel": "ID",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "Status",
+      "type": "string",
+      "width": "20",
+      "Option": "",
+      "SLabel": "Status",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "ExamCentre",
+      "type": "string",
+      "width": "500",
+      "Option": "",
+      "SLabel": "Exam Centre",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "DoB",
+      "type": "Date",
+      "width": "10",
+      "Option": "",
+      "SLabel": "Date Of Birth",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "ScoreMaths",
+      "type": "string",
+      "width": "100",
+      "Option": "",
+      "SLabel": "Maths Score",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "ScorePhysics",
+      "type": "string",
+      "width": "100",
+      "Option": "",
+      "SLabel": "Physics Score",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "ScoreChemistry",
+      "type": "string",
+      "width": "20",
+      "Option": "",
+      "SLabel": "Chemistry Score",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "DateOfReg",
+      "type": "Date",
+      "width": "10",
+      "Option": "",
+      "SLabel": "Date Of Registration",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "RegCentre",
+      "type": "string",
+      "width": "100",
+      "Option": "",
+      "SLabel": "Registration Centre",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "FeePaymentDate",
+      "type": "Date",
+      "width": "10",
+      "Option": "",
+      "SLabel": "Fee Payment Date",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "ChoiceLockDate",
+      "type": "Date",
+      "width": "10",
+      "Option": "",
+      "SLabel": "Choice Lock Date",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "Name",
+      "type": "string",
+      "width": "100",
+      "Option": "",
+      "SLabel": "Name",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "ResultDate",
+      "type": "Date",
+      "width": "10",
+      "Option": "",
+      "SLabel": "Result Date",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "FeeReference",
+      "type": "string",
+      "width": "100",
+      "Option": "",
+      "SLabel": "Fee Reference",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "FeeAmount",
+      "type": "string",
+      "width": "100",
+      "Option": "",
+      "SLabel": "Fee Amount",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "CollegeChoice1",
+      "type": "string",
+      "width": "100",
+      "Option": "",
+      "SLabel": "College Choice1",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "CollegeChoice2",
+      "type": "string",
+      "width": "100",
+      "Option": "",
+      "SLabel": "College Choice2",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "CollegeChoice3",
+      "type": "string",
+      "width": "100",
+      "Option": "",
+      "SLabel": "College Choice3",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "CollegeChoice4",
+      "type": "string",
+      "width": "100",
+      "Option": "",
+      "SLabel": "College Choice4",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "CollegeChoice5",
+      "type": "string",
+      "width": "100",
+      "Option": "",
+      "SLabel": "College Choice5",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "CollegeChoice6",
+      "type": "string",
+      "width": "100",
+      "Option": "",
+      "SLabel": "College Choice6",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "CollegeChoice7",
+      "type": "string",
+      "width": "100",
+      "Option": "",
+      "SLabel": "College Choice7",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "Surname",
+      "type": "string",
+      "width": "100",
+      "Option": "",
+      "SLabel": "Surname",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "CollegeChoice8",
+      "type": "string",
+      "width": "100",
+      "Option": "",
+      "SLabel": "College Choice8",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "BranchPrefer1",
+      "type": "string",
+      "width": "50",
+      "Option": "",
+      "SLabel": "Branch Prefer1",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "BranchPrefer2",
+      "type": "string",
+      "width": "50",
+      "Option": "",
+      "SLabel": "Branch Prefer2",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "Gender",
+      "type": "string",
+      "width": "50",
+      "Option": "",
+      "SLabel": "Gender",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "SubmitDate",
+      "type": "Date",
+      "width": "10",
+      "Option": "",
+      "SLabel": "Submit Date",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "Street",
+      "type": "string",
+      "width": "100",
+      "Option": "",
+      "SLabel": "Street",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "City",
+      "type": "string",
+      "width": "100",
+      "Option": "",
+      "SLabel": "City",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "PostCode",
+      "type": "string",
+      "width": "100",
+      "Option": "",
+      "SLabel": "Post Code",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "State",
+      "type": "string",
+      "width": "100",
+      "Option": "",
+      "SLabel": "State",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "Country",
+      "type": "string",
+      "width": "100",
+      "Option": "",
+      "SLabel": "Country",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "Rank",
+      "type": "string",
+      "width": "100",
+      "Option": "",
+      "SLabel": "Rank",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "Quota",
+      "type": "string",
+      "width": "100",
+      "Option": "",
+      "SLabel": "Quota",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "AllocatedBranch",
+      "type": "string",
+      "width": "100",
+      "Option": "",
+      "SLabel": "Allocated Branch",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "AllocatedCollege",
+      "type": "string",
+      "width": "50",
+      "Option": "",
+      "SLabel": "Allocated College",
+      "LLabel": "",
+      "Currency": "No"
+    }
+  ],
+  "itemConfig": {},
+  "CalculatedFields": {},
+  "Wizard": []
+}

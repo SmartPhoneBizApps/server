@@ -1,1 +1,214 @@
-{"Title": {"ApplicationTitle": "Employee Feedback", "DetailTitle": "Employee Feedback"}, "ListFields": {"IntroField": "Area", "TitleField": "Name", "sStatus": "Band", "fStatus": "Status", "LFields": ["EmpRef", "DevManager"]}, "ListBOTFields": {"Title": [], "SubTitle": [], "Description": []}, "PossibleValues": ["Status"], "MButtons": [], "DButtons": [], "Tabs": [{"value": "Tab0", "name": "Cards", "type": "Cards", "fioriicon": "responsive"}, {"value": "Tab1", "name": "Reference", "type": "Field", "fioriicon": "request"}, {"value": "Tab2", "name": "Feedback", "type": "Field", "fioriicon": "comment"}], "DetailFields": {"None": ["ID", "Status", "ReviewPeriod", "FeedbackDate"], "Tab1": ["Area", "EmpRef", "Name", "DevManager", "Role", "Band"], "Tab2": ["Question", "Answer", "Rating", "Score", "MaxScore", "ManagerComm", "HRComment"]}, "ControlDisplay": {}, "FieldDef": [{"name": "ID", "type": "string", "width": "20", "Option": "", "SLabel": "ID", "LLabel": "", "Currency": "No"}, {"name": "Area", "type": "string", "width": "50", "Option": "", "SLabel": "Area", "LLabel": "", "Currency": "No"}, {"name": "Question", "type": "string", "width": "500", "Option": "", "SLabel": "Question", "LLabel": "", "Currency": "No"}, {"name": "Answer", "type": "string", "width": "500", "Option": "", "SLabel": "Answer", "LLabel": "", "Currency": "No"}, {"name": "Rating", "type": "string", "width": "50", "Option": "", "SLabel": "Rating", "LLabel": "", "Currency": "No"}, {"name": "Score", "type": "string", "width": "50", "Option": "", "SLabel": "Score", "LLabel": "", "Currency": "No"}, {"name": "MaxScore", "type": "string", "width": "50", "Option": "", "SLabel": "Maximum Score", "LLabel": "", "Currency": "No"}, {"name": "ManagerComm", "type": "string", "width": "1000", "Option": "", "SLabel": "Manager Comment", "LLabel": "", "Currency": "No"}, {"name": "HRComment", "type": "string", "width": "1000", "Option": "", "SLabel": "HR Comment", "LLabel": "", "Currency": "No"}, {"name": "Status", "type": "string", "width": "20", "Option": "", "SLabel": "Status", "LLabel": "", "Currency": "No"}, {"name": "EmpRef", "type": "string", "width": "50", "Option": "", "SLabel": "Employee Reference", "LLabel": "", "Currency": "No"}, {"name": "Name", "type": "string", "width": "50", "Option": "", "SLabel": "Name", "LLabel": "", "Currency": "No"}, {"name": "ReviewPeriod", "type": "string", "width": "50", "Option": "", "SLabel": "Review Period", "LLabel": "", "Currency": "No"}, {"name": "DevManager", "type": "string", "width": "50", "Option": "", "SLabel": "Devolpment Manager", "LLabel": "", "Currency": "No"}, {"name": "Role", "type": "string", "width": "50", "Option": "", "SLabel": "Role", "LLabel": "", "Currency": "No"}, {"name": "Band", "type": "string", "width": "50", "Option": "", "SLabel": "Band", "LLabel": "", "Currency": "No"}, {"name": "FeedbackDate", "type": "Date", "width": "10", "Option": "", "SLabel": "Feedback Date", "LLabel": "", "Currency": "No"}], "itemConfig": {}, "CalculatedFields": {}, "Wizard": []}
+{
+  "Title": {
+    "ApplicationTitle": "Employee Feedback",
+    "DetailTitle": "Employee Feedback"
+  },
+  "ListFields": {
+    "IntroField": "Area",
+    "TitleField": "Name",
+    "sStatus": "Band",
+    "fStatus": "Status",
+    "LFields": ["EmpRef", "DevManager"]
+  },
+  "ListBOTFields": {
+    "None": ["cardImage", "StatusState"],
+    "Title": [],
+    "SubTitle": [],
+    "Description": []
+  },
+  "PossibleValues": ["Status"],
+  "MButtons": [],
+  "DButtons": [],
+  "Tabs": [
+    {
+      "value": "Tab0",
+      "name": "Cards",
+      "type": "Cards",
+      "fioriicon": "responsive"
+    },
+    {
+      "value": "Tab1",
+      "name": "Reference",
+      "type": "Field",
+      "fioriicon": "request"
+    },
+    {
+      "value": "Tab2",
+      "name": "Feedback",
+      "type": "Field",
+      "fioriicon": "comment"
+    }
+  ],
+  "DetailFields": {
+    "None": ["ID", "Status", "ReviewPeriod", "FeedbackDate"],
+    "Tab1": ["Area", "EmpRef", "Name", "DevManager", "Role", "Band"],
+    "Tab2": [
+      "Question",
+      "Answer",
+      "Rating",
+      "Score",
+      "MaxScore",
+      "ManagerComm",
+      "HRComment"
+    ]
+  },
+  "ControlDisplay": {},
+  "FieldDef": [
+    {
+      "name": "ID",
+      "type": "string",
+      "width": "20",
+      "Option": "",
+      "SLabel": "ID",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "Area",
+      "type": "string",
+      "width": "50",
+      "Option": "",
+      "SLabel": "Area",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "Question",
+      "type": "string",
+      "width": "500",
+      "Option": "",
+      "SLabel": "Question",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "Answer",
+      "type": "string",
+      "width": "500",
+      "Option": "",
+      "SLabel": "Answer",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "Rating",
+      "type": "string",
+      "width": "50",
+      "Option": "",
+      "SLabel": "Rating",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "Score",
+      "type": "string",
+      "width": "50",
+      "Option": "",
+      "SLabel": "Score",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "MaxScore",
+      "type": "string",
+      "width": "50",
+      "Option": "",
+      "SLabel": "Maximum Score",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "ManagerComm",
+      "type": "string",
+      "width": "1000",
+      "Option": "",
+      "SLabel": "Manager Comment",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "HRComment",
+      "type": "string",
+      "width": "1000",
+      "Option": "",
+      "SLabel": "HR Comment",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "Status",
+      "type": "string",
+      "width": "20",
+      "Option": "",
+      "SLabel": "Status",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "EmpRef",
+      "type": "string",
+      "width": "50",
+      "Option": "",
+      "SLabel": "Employee Reference",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "Name",
+      "type": "string",
+      "width": "50",
+      "Option": "",
+      "SLabel": "Name",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "ReviewPeriod",
+      "type": "string",
+      "width": "50",
+      "Option": "",
+      "SLabel": "Review Period",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "DevManager",
+      "type": "string",
+      "width": "50",
+      "Option": "",
+      "SLabel": "Devolpment Manager",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "Role",
+      "type": "string",
+      "width": "50",
+      "Option": "",
+      "SLabel": "Role",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "Band",
+      "type": "string",
+      "width": "50",
+      "Option": "",
+      "SLabel": "Band",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "FeedbackDate",
+      "type": "Date",
+      "width": "10",
+      "Option": "",
+      "SLabel": "Feedback Date",
+      "LLabel": "",
+      "Currency": "No"
+    }
+  ],
+  "itemConfig": {},
+  "CalculatedFields": {},
+  "Wizard": []
+}

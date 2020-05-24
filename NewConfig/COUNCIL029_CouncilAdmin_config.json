@@ -1,1 +1,206 @@
-{"Title": {"ApplicationTitle": "Pest Problem ", "DetailTitle": "Pest Problem "}, "ListFields": {"IntroField": "ID", "TitleField": "YourName", "fStatus": "Status", "LFields": ["TypeOfPest"]}, "ListBOTFields": {"Title": [], "SubTitle": [], "Description": []}, "PossibleValues": ["TypeOfPest", "Status"], "MButtons": [], "DButtons": [], "Tabs": [{"value": "Tab0", "name": "Cards", "type": "Cards", "fioriicon": "responsive"}, {"value": "Tab1", "name": "Report It", "type": "Field", "fioriicon": "request"}, {"value": "Tab2", "name": "Your Details", "type": "Field", "fioriicon": "notes"}, {"value": "Tab3", "name": "Location", "type": "Field", "fioriicon": "map"}, {"value": "Tab4", "name": "Attachment", "type": "Attachment", "fioriicon": "attachment"}], "DetailFields": {"None": ["ID", "Status"], "Tab1": ["PestLocation", "TypeOfPest", "IfOther", "VisitDate", "Image"], "Tab2": ["YourName", "ContactNo", "EmailID", "YourAddress", "AdditionalInfo"], "Tab4": ["Attachment"]}, "ControlDisplay": {}, "FieldDef": [{"name": "ID", "type": "string", "width": "20", "Option": "", "SLabel": "Identification", "LLabel": "", "Currency": "No"}, {"name": "YourName", "type": "string", "width": "50", "Option": "", "SLabel": "Your Name", "LLabel": "", "Currency": "No"}, {"name": "ContactNo", "type": "string", "width": "20", "Option": "", "SLabel": "Contact No", "LLabel": "", "Currency": "No"}, {"name": "EmailID", "type": "string", "width": "100", "Option": "", "SLabel": "Email ID", "LLabel": "", "Currency": "No"}, {"name": "YourAddress", "type": "string", "width": "500", "Option": "", "SLabel": "Your Address", "LLabel": "", "Currency": "No"}, {"name": "PestLocation", "type": "string", "width": "50", "Option": "", "SLabel": "Pest Location", "LLabel": "", "Currency": "No"}, {"name": "Latitude", "type": "Geocode", "width": "50", "Option": "", "SLabel": "Latitude", "LLabel": "", "Currency": "No"}, {"name": "Longitude", "type": "Geocode", "width": "50", "Option": "", "SLabel": "Longitude", "LLabel": "", "Currency": "No"}, {"name": "TypeOfPest", "type": "string", "width": "50", "Option": "", "SLabel": "Type Of Pest", "LLabel": "", "Currency": "No"}, {"name": "IfOther", "type": "string", "width": "50", "Option": "", "SLabel": "If Other", "LLabel": "", "Currency": "No"}, {"name": "VisitDate", "type": "Date", "width": "10", "Option": "", "SLabel": "Visit Date", "LLabel": "", "Currency": "No"}, {"name": "Image", "type": "string", "width": "500", "Option": "", "SLabel": "Image", "LLabel": "", "Currency": "No"}, {"name": "Attachment", "type": "attachment", "width": "200", "Option": "", "SLabel": "Attachment", "LLabel": "", "Currency": "No"}, {"name": "AdditionalInfo", "type": "string", "width": "1000", "Option": "", "SLabel": "Additional Info", "LLabel": "", "Currency": "No"}, {"name": "Status", "type": "string", "width": "20", "Option": "", "SLabel": "Status", "LLabel": "", "Currency": "No"}], "itemConfig": {}, "CalculatedFields": {}, "Wizard": []}
+{
+  "Title": {
+    "ApplicationTitle": "Pest Problem ",
+    "DetailTitle": "Pest Problem "
+  },
+  "ListFields": {
+    "IntroField": "ID",
+    "TitleField": "YourName",
+    "fStatus": "Status",
+    "LFields": ["TypeOfPest"]
+  },
+  "ListBOTFields": {
+    "None": ["cardImage", "StatusState"],
+    "Title": [],
+    "SubTitle": [],
+    "Description": []
+  },
+  "PossibleValues": ["TypeOfPest", "Status"],
+  "MButtons": [],
+  "DButtons": [],
+  "Tabs": [
+    {
+      "value": "Tab0",
+      "name": "Cards",
+      "type": "Cards",
+      "fioriicon": "responsive"
+    },
+    {
+      "value": "Tab1",
+      "name": "Report It",
+      "type": "Field",
+      "fioriicon": "request"
+    },
+    {
+      "value": "Tab2",
+      "name": "Your Details",
+      "type": "Field",
+      "fioriicon": "notes"
+    },
+    {
+      "value": "Tab3",
+      "name": "Location",
+      "type": "Field",
+      "fioriicon": "map"
+    },
+    {
+      "value": "Tab4",
+      "name": "Attachment",
+      "type": "Attachment",
+      "fioriicon": "attachment"
+    }
+  ],
+  "DetailFields": {
+    "None": ["ID", "Status"],
+    "Tab1": ["PestLocation", "TypeOfPest", "IfOther", "VisitDate", "Image"],
+    "Tab2": [
+      "YourName",
+      "ContactNo",
+      "EmailID",
+      "YourAddress",
+      "AdditionalInfo"
+    ],
+    "Tab4": ["Attachment"]
+  },
+  "ControlDisplay": {},
+  "FieldDef": [
+    {
+      "name": "ID",
+      "type": "string",
+      "width": "20",
+      "Option": "",
+      "SLabel": "Identification",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "YourName",
+      "type": "string",
+      "width": "50",
+      "Option": "",
+      "SLabel": "Your Name",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "ContactNo",
+      "type": "string",
+      "width": "20",
+      "Option": "",
+      "SLabel": "Contact No",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "EmailID",
+      "type": "string",
+      "width": "100",
+      "Option": "",
+      "SLabel": "Email ID",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "YourAddress",
+      "type": "string",
+      "width": "500",
+      "Option": "",
+      "SLabel": "Your Address",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "PestLocation",
+      "type": "string",
+      "width": "50",
+      "Option": "",
+      "SLabel": "Pest Location",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "Latitude",
+      "type": "Geocode",
+      "width": "50",
+      "Option": "",
+      "SLabel": "Latitude",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "Longitude",
+      "type": "Geocode",
+      "width": "50",
+      "Option": "",
+      "SLabel": "Longitude",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "TypeOfPest",
+      "type": "string",
+      "width": "50",
+      "Option": "",
+      "SLabel": "Type Of Pest",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "IfOther",
+      "type": "string",
+      "width": "50",
+      "Option": "",
+      "SLabel": "If Other",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "VisitDate",
+      "type": "Date",
+      "width": "10",
+      "Option": "",
+      "SLabel": "Visit Date",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "Image",
+      "type": "string",
+      "width": "500",
+      "Option": "",
+      "SLabel": "Image",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "Attachment",
+      "type": "attachment",
+      "width": "200",
+      "Option": "",
+      "SLabel": "Attachment",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "AdditionalInfo",
+      "type": "string",
+      "width": "1000",
+      "Option": "",
+      "SLabel": "Additional Info",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "Status",
+      "type": "string",
+      "width": "20",
+      "Option": "",
+      "SLabel": "Status",
+      "LLabel": "",
+      "Currency": "No"
+    }
+  ],
+  "itemConfig": {},
+  "CalculatedFields": {},
+  "Wizard": []
+}

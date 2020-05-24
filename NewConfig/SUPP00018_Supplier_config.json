@@ -18,7 +18,9 @@
     ],
     "numberUnitField": "Currency"
   },
+
   "ListBOTFields": {
+    "None": ["cardImage", "StatusState"],
     "Title": ["PONumber", "Company", "ID"],
     "SubTitle": ["VendorName", "PODate"],
     "Description": [
@@ -532,6 +534,18 @@
       "SLabel": "Vendor Email",
       "LLabel": "",
       "Currency": "No"
+    },
+    {
+      "name": "StatusState",
+      "type": "string",
+      "width": "20",
+      "SLabel": "StatusState"
+    },
+    {
+      "name": "cardImage",
+      "type": "string",
+      "width": "500",
+      "SLabel": "cardImage"
     }
   ],
   "itemConfig": {

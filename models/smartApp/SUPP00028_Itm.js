@@ -1,7 +1,6 @@
 const mongoose = require("mongoose");
-const Validationrule = require("../appSetup/Validationrule");
+const { getRegExValidation } = require("../../modules/validations/validations");
 
-var sch = require("../../applicationJSON/Schema_Master.json");
 file = "../../applicationJSON/SUPP00028_Itm.json";
 
 //RegEx for validating emailIDs

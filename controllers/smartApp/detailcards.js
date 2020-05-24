@@ -2,6 +2,7 @@ const ErrorResponse = require("../../utils/errorResponse");
 const asyncHandler = require("../../middleware/async");
 const geocoder = require("../../utils/geocoder");
 const path = require("path");
+const { getNewConfig } = require("../../modules/config");
 
 const User = require("../../models/access/User");
 //const Approle = require("../../models/appSetup/Approle");
@@ -112,8 +113,11 @@ exports.getDetailCards = async (req, res, next) => {
   // Read AppID from Parameter..
   applicationID = req.params.app;
   // Read Card Configuration for the Role (X1)
-  let fn1 = "../../NewConfig/" + applicationID + "_" + role + "_config.json";
-  var appconfig = require(fn1);
+  //let fn1 = "../../NewConfig/" + applicationID + "_" + role + "_config.json";
+  //var appconfig = require(fn1);
+
+  // Read New Config File
+  var appconfig = getNewConfig(applicationID, role);
 
   //Validate Data...
   if (role.roleAccess != "External") {

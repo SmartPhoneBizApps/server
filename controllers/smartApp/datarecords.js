@@ -5,7 +5,10 @@ const Branch = require("../../models/orgSetup/Branch");
 const Area = require("../../models/orgSetup/Area");
 const App = require("../../models/appSetup/App");
 const Role = require("../../models/appSetup/Role");
+const { getNewConfig } = require("../../modules/config");
 const calfunction = require("../../models/utilities/calfunction.js");
+const Possval = require("../../models/appSetup/Possval");
+const { getSchema } = require("../../modules/validations/schema");
 const BUS0000002 = require("../../models/smartApp/BUS0000002");
 const BUS0000003 = require("../../models/smartApp/BUS0000003");
 const BUS0000004 = require("../../models/smartApp/BUS0000004");
@@ -84,8 +87,6 @@ const SUPP00018 = require("../../models/smartApp/SUPP00018");
 const SUPP00018_Itm = require("../../models/smartApp/SUPP00018_Itm");
 const SUPP00028 = require("../../models/smartApp/SUPP00028");
 const SUPP00028_Itm = require("../../models/smartApp/SUPP00028_Itm");
-var sch = require("../../applicationJSON/Schema_Master.json");
-const Possval = require("../../models/appSetup/Possval");
 // @desc      Add record
 // @route     POST /api/v1/datarecords/
 // @access    Private
@@ -101,16 +102,11 @@ exports.addDataRecords = asyncHandler(async (req, res, next) => {
   const BusinessRole = await Role.findOne({
     applicationID: req.headers.businessRole,
   });
-  /// --------------------------------- ///
-  ///        Read Config ..........
-  /// --------------------------------- ///
-  let fileName =
-    "../../NewConfig/" +
-    req.headers.applicationid +
-    "_" +
-    req.headers.businessrole +
-    "_config.json";
-  var cardConfig = require(fileName);
+  // Read New Config File
+  var cardConfig = getNewConfig(
+    req.headers.applicationid,
+    req.headers.businessrole
+  );
 
   /// -------------------------------------------- ///
   ///        Collect Field Names ..........
@@ -432,6 +428,15 @@ exports.addDataRecords = asyncHandler(async (req, res, next) => {
 
   ///  +++++++++++  VALIDATIONS ENDS +++++++++++++++++++++++ /////////
 
+  //---------------------------
+  // Perform Calculations ....
+  //---------------------------
+  if (req.headers.calculation == "Yes") {
+    var Handler = new calfunction();
+    mydata = Handler["datacalculation"](mydata, cardConfig["CalculatedFields"]);
+  }
+  //---------------------------
+
   //// Add similar Logic for Items as well
   let result;
   let result2;
@@ -489,9 +494,7 @@ exports.addDataRecords = asyncHandler(async (req, res, next) => {
   if (req.headers.applicationid == "EDU00021") {
     result = await EDU00021.create(mydata);
   }
-
   if (req.headers.applicationid == "EDU00097") {
-    const EDU00097 = require("../../models/smartApp/EDU00097");
     result = await EDU00097.create(mydata);
   }
   if (req.headers.applicationid == "EDU00098") {
@@ -666,12 +669,8 @@ exports.addDataRecords = asyncHandler(async (req, res, next) => {
     result2 = await SUPP00018_Itm.create(mydata.ItemData);
   }
   if (req.headers.applicationid == "SUPP00028") {
-    console.log("mydata2", mydata);
     result = await SUPP00028.create(mydata);
     result2 = await SUPP00028_Itm.create(mydata.ItemData);
-
-    try {
-    } catch (error) {}
   }
   mydata = {};
   res.status(201).json({
@@ -688,16 +687,11 @@ exports.addDataRecords = asyncHandler(async (req, res, next) => {
 // -----------------------------------------------------
 // -----------------------------------------------------
 exports.updateDataRecords = asyncHandler(async (req, res, next) => {
-  // -----------------------------------------------------
-  // Read Config File...
-  // -----------------------------------------------------
-  let fileName =
-    "../../NewConfig/" +
-    req.headers.applicationid +
-    "_" +
-    req.headers.businessrole +
-    "_config.json";
-  var cardConfig = require(fileName);
+  // Read New Config File
+  var cardConfig = getNewConfig(
+    req.headers.applicationid,
+    req.headers.businessrole
+  );
   // -----------------------------------------------------
   // Validate input Field Names
   // -----------------------------------------------------
@@ -890,33 +884,35 @@ exports.updateDataRecords = asyncHandler(async (req, res, next) => {
       return next(new ErrorResponse(`Record with ${ID} Not found`, 400));
     }
     let ItemUpdate = false;
-    for (const b1 in req.body) {
-      for (const db1 in myData) {
-        if (db1 === "ItemData" && b1 == "ItemData") {
-          for (let b2 = 0; b2 < req.body[b1].length; b2++) {
-            for (const b3 in req.body[b1][b2]) {
-              for (let db2 = 0; db2 < myData[db1].length; db2++) {
-                for (const db3 in myData[db1][db2]) {
-                  if (b3 === "ItemNumber" && db3 === "ItemNumber") {
-                    if (req.body[b1][b2][b3] == myData[db1][db2][db3]) {
-                      ItemUpdate = true;
-                    } else {
-                      ItemUpdate = false;
-                    }
-                  }
-                  if (b3 === db3 && ItemUpdate === true) {
-                    myData[db1][db2][db3] = req.body[b1][b2][b3];
-                  }
-                }
-              }
-            }
-          }
-        }
-        if (db1 == b1 && b1 !== "ItemData") {
-          myData[db1] = req.body[b1];
+    let UpdateItem = 0;
+    let NotUpdateItem = 0;
+    let itms = [];
+    ItemFields = {};
+    for (let b2 = 0; b2 < req.body["ItemData"].length; b2++) {
+      for (const b3 in req.body["ItemData"][b2]) {
+        if (b3 == "ItemNumber") {
+          itms.push(req.body["ItemData"][b2][b3]);
         }
       }
     }
+    //---------------------------
+    // Item update logic....
+    //---------------------------
+    for (let db2 = 0; db2 < myData["ItemData"].length; db2++) {
+      console.log("Rashmi1", myData["ItemData"][db2]);
+      for (let b2 = 0; b2 < req.body["ItemData"].length; b2++) {
+        if (
+          req.body["ItemData"][b2]["ItemNumber"] ==
+          myData["ItemData"][db2]["ItemNumber"]
+        ) {
+          for (const b3 in req.body["ItemData"][b2]) {
+            myData["ItemData"][db2][b3] = req.body["ItemData"][b2][b3];
+          }
+        }
+      }
+    }
+    //---------------------------
+
     // Update Transaction Log
     myData.TransLog.forEach((ex1) => {
       nTrans.push(ex1);
@@ -925,11 +921,39 @@ exports.updateDataRecords = asyncHandler(async (req, res, next) => {
     req.body.TransLog = nTrans;
     req.body["ItemData"] = myData["ItemData"];
 
+    console.log(cardConfig);
+
+    //---------------------------
+    // Perform Calculations ....
+    //---------------------------
+    if (req.headers.calculation == "Yes") {
+      var Handler = new calfunction();
+      outdata = Handler["datacalculation"](
+        req.body,
+        cardConfig["CalculatedFields"]
+      );
+      req.body = outdata;
+    }
+    //---------------------------
+
     result = await SUPP00018.findByIdAndUpdate(myData.id, req.body, {
       new: true,
       runValidators: true,
     });
+    console.log(req.body);
+    for (let index = 0; index < req.body.ItemData.length; index++) {
+      console.log(req.body.ItemData[index]);
+      result2 = await SUPP00018_Itm.findOneAndUpdate(
+        { ID: req.body.ID, ItemNumber: req.body.ItemData[index]["ItemNumber"] },
+        req.body.ItemData[index],
+        {
+          new: true,
+          runValidators: true,
+        }
+      );
+    }
   }
+
   if (req.headers.applicationid == "SUPP00028") {
     // -----------------------------------------------------
     // Read data from DB
@@ -939,35 +963,35 @@ exports.updateDataRecords = asyncHandler(async (req, res, next) => {
       return next(new ErrorResponse(`Record with ${ID} Not found`, 400));
     }
     let ItemUpdate = false;
-    for (const b1 in req.body) {
-      for (const db1 in myData) {
-        if (db1 === "ItemData" && b1 == "ItemData") {
-          for (let b2 = 0; b2 < req.body[b1].length; b2++) {
-            for (const b3 in req.body[b1][b2]) {
-              for (let db2 = 0; db2 < myData[db1].length; db2++) {
-                for (const db3 in myData[db1][db2]) {
-                  if (b3 === "ItemNumber" && db3 === "ItemNumber") {
-                    if (req.body[b1][b2][b3] == myData[db1][db2][db3]) {
-                      ItemUpdate = true;
-                    } else {
-                      ItemUpdate = false;
-                    }
-                  }
-                  if (b3 === db3 && ItemUpdate === true) {
-                    console.log(req.body[b1][b2][b3]);
-                    myData[db1][db2][db3] = req.body[b1][b2][b3];
-                  }
-                }
-              }
-            }
-          }
-        }
-
-        if (db1 == b1 && b1 !== "ItemData") {
-          myData[db1] = req.body[b1];
+    let UpdateItem = 0;
+    let NotUpdateItem = 0;
+    let itms = [];
+    ItemFields = {};
+    for (let b2 = 0; b2 < req.body["ItemData"].length; b2++) {
+      for (const b3 in req.body["ItemData"][b2]) {
+        if (b3 == "ItemNumber") {
+          itms.push(req.body["ItemData"][b2][b3]);
         }
       }
     }
+    //---------------------------
+    // Item update logic....
+    //---------------------------
+    for (let db2 = 0; db2 < myData["ItemData"].length; db2++) {
+      console.log("Rashmi1", myData["ItemData"][db2]);
+      for (let b2 = 0; b2 < req.body["ItemData"].length; b2++) {
+        if (
+          req.body["ItemData"][b2]["ItemNumber"] ==
+          myData["ItemData"][db2]["ItemNumber"]
+        ) {
+          for (const b3 in req.body["ItemData"][b2]) {
+            myData["ItemData"][db2][b3] = req.body["ItemData"][b2][b3];
+          }
+        }
+      }
+    }
+    //---------------------------
+
     // Update Transaction Log
     myData.TransLog.forEach((ex1) => {
       nTrans.push(ex1);
@@ -976,18 +1000,37 @@ exports.updateDataRecords = asyncHandler(async (req, res, next) => {
     req.body.TransLog = nTrans;
     req.body["ItemData"] = myData["ItemData"];
 
-    /*     if (req.headers.calculation == "Yes") {
-      //mydata = datacalculation(req.body, cardConfig);
-      var Handler = new calfunction();
+    console.log(cardConfig);
 
-      outdata = Handler["datacalculation"](req.body, cardConfig);
+    //---------------------------
+    // Perform Calculations ....
+    //---------------------------
+    if (req.headers.calculation == "Yes") {
+      var Handler = new calfunction();
+      outdata = Handler["datacalculation"](
+        req.body,
+        cardConfig["CalculatedFields"]
+      );
       req.body = outdata;
-    } */
+    }
+    //---------------------------
 
     result = await SUPP00028.findByIdAndUpdate(myData.id, req.body, {
       new: true,
       runValidators: true,
     });
+    console.log(req.body);
+    for (let index = 0; index < req.body.ItemData.length; index++) {
+      console.log(req.body.ItemData[index]);
+      result = await SUPP00028_Itm.findAndUpdate(
+        { ID: req.body.ID, ItemNumber: req.body.ItemData[index]["ItemNumber"] },
+        req.body.ItemData[index],
+        {
+          new: true,
+          runValidators: true,
+        }
+      );
+    }
   }
 
   res.status(200).json({

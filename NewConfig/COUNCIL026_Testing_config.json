@@ -1,1 +1,252 @@
-{"Title": {"ApplicationTitle": "Highways Problem ", "DetailTitle": "Highways Problem "}, "ListFields": {"IntroField": "", "TitleField": "", "sStatus": "", "fStatus": "", "numberField": "", "LFields": [], "numberUnitField": ""}, "ListBOTFields": {"Title": [], "SubTitle": [], "Description": []}, "PossibleValues": ["ProblemType", "Status"], "MButtons": [{"type": "DOWNLOAD", "name": "Download File", "icon": "sap-icon://download"}, {"type": "APPHELP", "name": "Get App Help", "icon": "sap-icon://sys-help-2"}, {"type": "BOT", "name": "Launch Assistant", "icon": "sap-icon://travel-request"}, {"type": "VIEW", "name": "Change App View", "icon": "sap-icon://chart-table-view"}, {"type": "ADD", "name": "Add Record", "icon": "sap-icon://add"}, {"type": "UPLOAD", "name": "Upload Record", "icon": "sap-icon://upload"}], "DButtons": [{"type": "ATTACHMENT", "name": "View Attachments", "icon": "sap-icon://attachment"}, {"type": "UPDATE", "name": "Update Record", "icon": "sap-icon://update"}, {"type": "ADD", "name": "Add Record", "icon": "sap-icon://add"}], "Tabs": [{"value": "Tab0", "name": "Cards", "type": "Cards", "fioriicon": "responsive"}, {"value": "Tab1", "name": "Problem Details", "type": "Field", "fioriicon": "notes"}, {"value": "Tab2", "name": "Your Details", "type": "Field", "fioriicon": "notes"}, {"value": "Tab3", "name": "Location", "type": "Field", "fioriicon": "map"}, {"value": "Tab4", "name": "Attachment", "type": "Attachment", "fioriicon": "attachment"}], "DetailFields": {"None": ["ID", "RoadDetails", "ProblemDetails", "Status"], "Tab1": ["ProblemType", "ReportDate", "Time", "Image", "AdditionalInfo"], "Tab2": ["YourName", "LastName", "PhNo", "EmailID", "Location"], "Tab4": ["Attachment"]}, "ControlDisplay": {}, "FieldDef": [{"name": "ID", "type": "string", "width": "20", "Option": "", "SLabel": "Identification", "LLabel": "", "Currency": "No"}, {"name": "RoadDetails", "type": "string", "width": "100", "Option": "", "SLabel": "Road Details", "LLabel": "", "Currency": "No"}, {"name": "ProblemDetails", "type": "string", "width": "1000", "Option": "", "SLabel": "Problem Details", "LLabel": "", "Currency": "No"}, {"name": "ProblemType", "type": "string", "width": "200", "Option": "", "SLabel": "Problem Type", "LLabel": "", "Currency": "No"}, {"name": "ReportDate", "type": "Date", "width": "10", "Option": "", "SLabel": "Report Date", "LLabel": "", "Currency": "No"}, {"name": "Time", "type": "Time", "width": "10", "Option": "", "SLabel": "Time", "LLabel": "", "Currency": "No"}, {"name": "Image", "type": "string", "width": "500", "Option": "", "SLabel": "Image", "LLabel": "", "Currency": "No"}, {"name": "Attachment", "type": "attachment", "width": "500", "Option": "", "SLabel": "Attachment", "LLabel": "", "Currency": "No"}, {"name": "YourName", "type": "string", "width": "50", "Option": "", "SLabel": "Your Name", "LLabel": "", "Currency": "No"}, {"name": "LastName", "type": "string", "width": "50", "Option": "", "SLabel": "Last Name", "LLabel": "", "Currency": "No"}, {"name": "PhNo", "type": "string", "width": "20", "Option": "", "SLabel": "Phone Number", "LLabel": "", "Currency": "No"}, {"name": "EmailID", "type": "string", "width": "100", "Option": "", "SLabel": "Email ID", "LLabel": "", "Currency": "No"}, {"name": "Location", "type": "string", "width": "500", "Option": "", "SLabel": "Location", "LLabel": "", "Currency": "No"}, {"name": "Latitude", "type": "Geocode", "width": "50", "Option": "", "SLabel": "Latitude", "LLabel": "", "Currency": "No"}, {"name": "Longitude", "type": "Geocode", "width": "50", "Option": "", "SLabel": "Longitude", "LLabel": "", "Currency": "No"}, {"name": "AdditionalInfo", "type": "string", "width": "1000", "Option": "", "SLabel": "Additional Information", "LLabel": "", "Currency": "No"}, {"name": "Status", "type": "string", "width": "20", "Option": "", "SLabel": "Document Status", "LLabel": "", "Currency": "No"}], "itemConfig": {}, "CalculatedFields": {}, "Wizard": []}
+{
+  "Title": {
+    "ApplicationTitle": "Highways Problem ",
+    "DetailTitle": "Highways Problem "
+  },
+  "ListFields": {
+    "IntroField": "",
+    "TitleField": "",
+    "sStatus": "",
+    "fStatus": "",
+    "numberField": "",
+    "LFields": [],
+    "numberUnitField": ""
+  },
+  "ListBOTFields": {
+    "None": ["cardImage", "StatusState"],
+    "Title": [],
+    "SubTitle": [],
+    "Description": []
+  },
+  "PossibleValues": ["ProblemType", "Status"],
+  "MButtons": [
+    {
+      "type": "DOWNLOAD",
+      "name": "Download File",
+      "icon": "sap-icon://download"
+    },
+    {
+      "type": "APPHELP",
+      "name": "Get App Help",
+      "icon": "sap-icon://sys-help-2"
+    },
+    {
+      "type": "BOT",
+      "name": "Launch Assistant",
+      "icon": "sap-icon://travel-request"
+    },
+    {
+      "type": "VIEW",
+      "name": "Change App View",
+      "icon": "sap-icon://chart-table-view"
+    },
+    { "type": "ADD", "name": "Add Record", "icon": "sap-icon://add" },
+    { "type": "UPLOAD", "name": "Upload Record", "icon": "sap-icon://upload" }
+  ],
+  "DButtons": [
+    {
+      "type": "ATTACHMENT",
+      "name": "View Attachments",
+      "icon": "sap-icon://attachment"
+    },
+    { "type": "UPDATE", "name": "Update Record", "icon": "sap-icon://update" },
+    { "type": "ADD", "name": "Add Record", "icon": "sap-icon://add" }
+  ],
+  "Tabs": [
+    {
+      "value": "Tab0",
+      "name": "Cards",
+      "type": "Cards",
+      "fioriicon": "responsive"
+    },
+    {
+      "value": "Tab1",
+      "name": "Problem Details",
+      "type": "Field",
+      "fioriicon": "notes"
+    },
+    {
+      "value": "Tab2",
+      "name": "Your Details",
+      "type": "Field",
+      "fioriicon": "notes"
+    },
+    {
+      "value": "Tab3",
+      "name": "Location",
+      "type": "Field",
+      "fioriicon": "map"
+    },
+    {
+      "value": "Tab4",
+      "name": "Attachment",
+      "type": "Attachment",
+      "fioriicon": "attachment"
+    }
+  ],
+  "DetailFields": {
+    "None": ["ID", "RoadDetails", "ProblemDetails", "Status"],
+    "Tab1": ["ProblemType", "ReportDate", "Time", "Image", "AdditionalInfo"],
+    "Tab2": ["YourName", "LastName", "PhNo", "EmailID", "Location"],
+    "Tab4": ["Attachment"]
+  },
+  "ControlDisplay": {},
+  "FieldDef": [
+    {
+      "name": "ID",
+      "type": "string",
+      "width": "20",
+      "Option": "",
+      "SLabel": "Identification",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "RoadDetails",
+      "type": "string",
+      "width": "100",
+      "Option": "",
+      "SLabel": "Road Details",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "ProblemDetails",
+      "type": "string",
+      "width": "1000",
+      "Option": "",
+      "SLabel": "Problem Details",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "ProblemType",
+      "type": "string",
+      "width": "200",
+      "Option": "",
+      "SLabel": "Problem Type",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "ReportDate",
+      "type": "Date",
+      "width": "10",
+      "Option": "",
+      "SLabel": "Report Date",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "Time",
+      "type": "Time",
+      "width": "10",
+      "Option": "",
+      "SLabel": "Time",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "Image",
+      "type": "string",
+      "width": "500",
+      "Option": "",
+      "SLabel": "Image",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "Attachment",
+      "type": "attachment",
+      "width": "500",
+      "Option": "",
+      "SLabel": "Attachment",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "YourName",
+      "type": "string",
+      "width": "50",
+      "Option": "",
+      "SLabel": "Your Name",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "LastName",
+      "type": "string",
+      "width": "50",
+      "Option": "",
+      "SLabel": "Last Name",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "PhNo",
+      "type": "string",
+      "width": "20",
+      "Option": "",
+      "SLabel": "Phone Number",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "EmailID",
+      "type": "string",
+      "width": "100",
+      "Option": "",
+      "SLabel": "Email ID",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "Location",
+      "type": "string",
+      "width": "500",
+      "Option": "",
+      "SLabel": "Location",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "Latitude",
+      "type": "Geocode",
+      "width": "50",
+      "Option": "",
+      "SLabel": "Latitude",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "Longitude",
+      "type": "Geocode",
+      "width": "50",
+      "Option": "",
+      "SLabel": "Longitude",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "AdditionalInfo",
+      "type": "string",
+      "width": "1000",
+      "Option": "",
+      "SLabel": "Additional Information",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "Status",
+      "type": "string",
+      "width": "20",
+      "Option": "",
+      "SLabel": "Document Status",
+      "LLabel": "",
+      "Currency": "No"
+    }
+  ],
+  "itemConfig": {},
+  "CalculatedFields": {},
+  "Wizard": []
+}

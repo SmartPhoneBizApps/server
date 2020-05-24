@@ -1,1 +1,329 @@
-{"Title": {"ApplicationTitle": "Student Registration", "DetailTitle": "Student Registration"}, "ListFields": {"IntroField": "Name", "TitleField": "Surname", "fStatus": "Status", "LFields": ["Year", "Section"]}, "ListBOTFields": {"Title": ["ID"], "SubTitle": ["Name", "Surname", "Year", "Section"], "Description": ["Status"]}, "PossibleValues": ["Status"], "MButtons": [{"type": "DOWNLOAD", "name": "Download File", "icon": "sap-icon://download"}, {"type": "APPHELP", "name": "Get App Help", "icon": "sap-icon://sys-help-2"}, {"type": "BOT", "name": "Launch Assistant", "icon": "sap-icon://travel-request"}, {"type": "VIEW", "name": "Change App View", "icon": "sap-icon://chart-table-view"}, {"type": "ADD", "name": "Add Record", "icon": "sap-icon://add"}, {"type": "UPLOAD", "name": "Upload Record", "icon": "sap-icon://upload"}], "DButtons": [{"type": "ATTACHMENT", "name": "View Attachments", "icon": "sap-icon://attachment"}, {"type": "UPDATE", "name": "Update Record", "icon": "sap-icon://update"}, {"type": "ADD", "name": "Add Record", "icon": "sap-icon://add"}], "Tabs": [{"value": "Tab0", "name": "Cards", "type": "Cards", "fioriicon": "responsive"}, {"value": "Tab1", "name": "Detail", "type": "Field", "fioriicon": "notes"}, {"value": "Tab2", "name": "Address", "type": "Field", "fioriicon": "addresses"}, {"value": "Tab3", "name": "Chat Details", "type": "Chat", "fioriicon": "discussion-2", "download": "No"}], "DetailFields": {"None": ["ID", "Name", "Surname", "Status"], "Tab1": ["SchoolNo", "SchoolName", "DOB", "RegDate", "Year", "Section", "ClassTeacher", "WaitListNo", "Phone", "Email"], "Tab2": ["Address", "PostCode"], "Tab3": ["Question_Response"]}, "ControlDisplay": {}, "FieldDef": [{"name": "ID", "type": "string", "width": "20", "Option": "", "SLabel": "ID", "LLabel": "", "Currency": "No"}, {"name": "Name", "type": "string", "width": "50", "Option": "", "SLabel": "Name", "LLabel": "", "Currency": "No"}, {"name": "Surname", "type": "string", "width": "50", "Option": "", "SLabel": "Surname", "LLabel": "", "Currency": "No"}, {"name": "SchoolNo", "type": "string", "width": "20", "Option": "", "SLabel": "School No", "LLabel": "", "Currency": "No"}, {"name": "SchoolName", "type": "string", "width": "500", "Option": "", "SLabel": "School Name", "LLabel": "", "Currency": "No"}, {"name": "DOB", "type": "Date", "width": "10", "Option": "", "SLabel": "Date of Birth", "LLabel": "", "Currency": "No"}, {"name": "RegDate", "type": "Date", "width": "10", "Option": "", "SLabel": "Registration date", "LLabel": "", "Currency": "No"}, {"name": "Year", "type": "string", "width": "50", "Option": "", "SLabel": "Year", "LLabel": "", "Currency": "No"}, {"name": "Section", "type": "string", "width": "100", "Option": "", "SLabel": "Section", "LLabel": "", "Currency": "No"}, {"name": "ClassTeacher", "type": "string", "width": "100", "Option": "", "SLabel": "Class Teacher", "LLabel": "", "Currency": "No"}, {"name": "WaitListNo", "type": "string", "width": "50", "Option": "", "SLabel": "Waiting List Number", "LLabel": "", "Currency": "No"}, {"name": "Address", "type": "string", "width": "500", "Option": "", "SLabel": "Address", "LLabel": "", "Currency": "No"}, {"name": "PostCode", "type": "string", "width": "20", "Option": "", "SLabel": "Post Code", "LLabel": "", "Currency": "No"}, {"name": "Phone", "type": "string", "width": "20", "Option": "", "SLabel": "Phone", "LLabel": "", "Currency": "No"}, {"name": "Email", "type": "string", "width": "50", "Option": "", "SLabel": "Email ID", "LLabel": "", "Currency": "No"}, {"name": "Status", "type": "string", "width": "20", "Option": "", "SLabel": "Status", "LLabel": "", "Currency": "No"}, {"name": "Latitude", "type": "Geocode", "width": "50", "Option": "", "SLabel": "Latitude", "LLabel": "", "Currency": "No"}, {"name": "Longitude", "type": "Geocode", "width": "50", "Option": "", "SLabel": "Longitude", "LLabel": "", "Currency": "No"}, {"name": "Question_Response", "type": "string", "width": "500", "Option": "", "SLabel": "Chat Details", "LLabel": "Question_Response", "Currency": "No"}], "itemConfig": {"ItemFieldDefinition": [], "DisplayFields": [], "ItemButtons": {"itemDisplay": false, "itemAdd": false, "itemEdit": false, "itemDelete": false}, "CreateFields": [], "ItemDetails": []}, "CalculatedFields": {}, "Wizard": [{"id": "Step1", "fields": [{"name": "Name", "Sequence": "1", "Mode": "Edit"}, {"name": "Surname", "Sequence": "1", "Mode": "Edit"}, {"name": "DOB", "Sequence": "1", "Mode": "Edit"}, {"name": "SchoolName", "Sequence": "1", "Mode": "Edit"}, {"name": "SchoolNo", "Sequence": "1", "Mode": "Edit"}], "name": "PersonelDetails", "stepType": "FieldList", "intro": "PersonelDetails"}, {"id": "Step2", "fields": [{"name": "Phone", "Sequence": "1", "Mode": "Edit"}, {"name": "Email", "Sequence": "1", "Mode": "Edit"}], "name": "ContactDetails", "stepType": "FieldList", "intro": "ContactDetails"}, {"id": "Step3", "fields": [{"name": "PostCode", "Sequence": "1", "Mode": "Edit"}, {"name": "Address", "Sequence": "1", "Mode": "Edit"}], "name": "Address", "stepType": "FieldList", "intro": "Address"}, {"id": "Step4", "fields": [{"name": "WaitListNo", "Sequence": "1", "Mode": "Edit"}, {"name": "ClassTeacher", "Sequence": "1", "Mode": "Edit"}, {"name": "Status", "Sequence": "1", "Mode": "Edit"}], "name": "Status", "stepType": "FieldList", "intro": "Status"}]}
+{
+  "Title": {
+    "ApplicationTitle": "Student Registration",
+    "DetailTitle": "Student Registration"
+  },
+  "ListFields": {
+    "IntroField": "Name",
+    "TitleField": "Surname",
+    "fStatus": "Status",
+    "LFields": ["Year", "Section"]
+  },
+  "ListBOTFields": {
+    "None": ["cardImage", "StatusState"],
+    "Title": ["ID"],
+    "SubTitle": ["Name", "Surname", "Year", "Section"],
+    "Description": ["Status"]
+  },
+  "PossibleValues": ["Status"],
+  "MButtons": [
+    {
+      "type": "DOWNLOAD",
+      "name": "Download File",
+      "icon": "sap-icon://download"
+    },
+    {
+      "type": "APPHELP",
+      "name": "Get App Help",
+      "icon": "sap-icon://sys-help-2"
+    },
+    {
+      "type": "BOT",
+      "name": "Launch Assistant",
+      "icon": "sap-icon://travel-request"
+    },
+    {
+      "type": "VIEW",
+      "name": "Change App View",
+      "icon": "sap-icon://chart-table-view"
+    },
+    { "type": "ADD", "name": "Add Record", "icon": "sap-icon://add" },
+    { "type": "UPLOAD", "name": "Upload Record", "icon": "sap-icon://upload" }
+  ],
+  "DButtons": [
+    {
+      "type": "ATTACHMENT",
+      "name": "View Attachments",
+      "icon": "sap-icon://attachment"
+    },
+    { "type": "UPDATE", "name": "Update Record", "icon": "sap-icon://update" },
+    { "type": "ADD", "name": "Add Record", "icon": "sap-icon://add" }
+  ],
+  "Tabs": [
+    {
+      "value": "Tab0",
+      "name": "Cards",
+      "type": "Cards",
+      "fioriicon": "responsive"
+    },
+    {
+      "value": "Tab1",
+      "name": "Detail",
+      "type": "Field",
+      "fioriicon": "notes"
+    },
+    {
+      "value": "Tab2",
+      "name": "Address",
+      "type": "Field",
+      "fioriicon": "addresses"
+    },
+    {
+      "value": "Tab3",
+      "name": "Chat Details",
+      "type": "Chat",
+      "fioriicon": "discussion-2",
+      "download": "No"
+    }
+  ],
+  "DetailFields": {
+    "None": ["ID", "Name", "Surname", "Status"],
+    "Tab1": [
+      "SchoolNo",
+      "SchoolName",
+      "DOB",
+      "RegDate",
+      "Year",
+      "Section",
+      "ClassTeacher",
+      "WaitListNo",
+      "Phone",
+      "Email"
+    ],
+    "Tab2": ["Address", "PostCode"],
+    "Tab3": ["Question_Response"]
+  },
+  "ControlDisplay": {},
+  "FieldDef": [
+    {
+      "name": "ID",
+      "type": "string",
+      "width": "20",
+      "Option": "",
+      "SLabel": "ID",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "Name",
+      "type": "string",
+      "width": "50",
+      "Option": "",
+      "SLabel": "Name",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "Surname",
+      "type": "string",
+      "width": "50",
+      "Option": "",
+      "SLabel": "Surname",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "SchoolNo",
+      "type": "string",
+      "width": "20",
+      "Option": "",
+      "SLabel": "School No",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "SchoolName",
+      "type": "string",
+      "width": "500",
+      "Option": "",
+      "SLabel": "School Name",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "DOB",
+      "type": "Date",
+      "width": "10",
+      "Option": "",
+      "SLabel": "Date of Birth",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "RegDate",
+      "type": "Date",
+      "width": "10",
+      "Option": "",
+      "SLabel": "Registration date",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "Year",
+      "type": "string",
+      "width": "50",
+      "Option": "",
+      "SLabel": "Year",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "Section",
+      "type": "string",
+      "width": "100",
+      "Option": "",
+      "SLabel": "Section",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "ClassTeacher",
+      "type": "string",
+      "width": "100",
+      "Option": "",
+      "SLabel": "Class Teacher",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "WaitListNo",
+      "type": "string",
+      "width": "50",
+      "Option": "",
+      "SLabel": "Waiting List Number",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "Address",
+      "type": "string",
+      "width": "500",
+      "Option": "",
+      "SLabel": "Address",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "PostCode",
+      "type": "string",
+      "width": "20",
+      "Option": "",
+      "SLabel": "Post Code",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "Phone",
+      "type": "string",
+      "width": "20",
+      "Option": "",
+      "SLabel": "Phone",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "Email",
+      "type": "string",
+      "width": "50",
+      "Option": "",
+      "SLabel": "Email ID",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "Status",
+      "type": "string",
+      "width": "20",
+      "Option": "",
+      "SLabel": "Status",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "Latitude",
+      "type": "Geocode",
+      "width": "50",
+      "Option": "",
+      "SLabel": "Latitude",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "Longitude",
+      "type": "Geocode",
+      "width": "50",
+      "Option": "",
+      "SLabel": "Longitude",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "Question_Response",
+      "type": "string",
+      "width": "500",
+      "Option": "",
+      "SLabel": "Chat Details",
+      "LLabel": "Question_Response",
+      "Currency": "No"
+    }
+  ],
+  "itemConfig": {
+    "ItemFieldDefinition": [],
+    "DisplayFields": [],
+    "ItemButtons": {
+      "itemDisplay": false,
+      "itemAdd": false,
+      "itemEdit": false,
+      "itemDelete": false
+    },
+    "CreateFields": [],
+    "ItemDetails": []
+  },
+  "CalculatedFields": {},
+  "Wizard": [
+    {
+      "id": "Step1",
+      "fields": [
+        { "name": "Name", "Sequence": "1", "Mode": "Edit" },
+        { "name": "Surname", "Sequence": "1", "Mode": "Edit" },
+        { "name": "DOB", "Sequence": "1", "Mode": "Edit" },
+        { "name": "SchoolName", "Sequence": "1", "Mode": "Edit" },
+        { "name": "SchoolNo", "Sequence": "1", "Mode": "Edit" }
+      ],
+      "name": "PersonelDetails",
+      "stepType": "FieldList",
+      "intro": "PersonelDetails"
+    },
+    {
+      "id": "Step2",
+      "fields": [
+        { "name": "Phone", "Sequence": "1", "Mode": "Edit" },
+        { "name": "Email", "Sequence": "1", "Mode": "Edit" }
+      ],
+      "name": "ContactDetails",
+      "stepType": "FieldList",
+      "intro": "ContactDetails"
+    },
+    {
+      "id": "Step3",
+      "fields": [
+        { "name": "PostCode", "Sequence": "1", "Mode": "Edit" },
+        { "name": "Address", "Sequence": "1", "Mode": "Edit" }
+      ],
+      "name": "Address",
+      "stepType": "FieldList",
+      "intro": "Address"
+    },
+    {
+      "id": "Step4",
+      "fields": [
+        { "name": "WaitListNo", "Sequence": "1", "Mode": "Edit" },
+        { "name": "ClassTeacher", "Sequence": "1", "Mode": "Edit" },
+        { "name": "Status", "Sequence": "1", "Mode": "Edit" }
+      ],
+      "name": "Status",
+      "stepType": "FieldList",
+      "intro": "Status"
+    }
+  ]
+}

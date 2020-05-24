@@ -1,1 +1,298 @@
-{"Title": {"ApplicationTitle": "Benefit Fraud", "DetailTitle": "Benefit Fraud"}, "ListFields": {"IntroField": "ID", "TitleField": "TheirName", "fStatus": "Status", "LFields": ["ReportDate"]}, "ListBOTFields": {"Title": [], "SubTitle": [], "Description": []}, "PossibleValues": ["Status"], "MButtons": [{"type": "DOWNLOAD", "name": "Download File", "icon": "sap-icon://download"}, {"type": "APPHELP", "name": "Get App Help", "icon": "sap-icon://sys-help-2"}, {"type": "BOT", "name": "Launch Assistant", "icon": "sap-icon://travel-request"}, {"type": "VIEW", "name": "Change App View", "icon": "sap-icon://chart-table-view"}, {"type": "ADD", "name": "Add Record", "icon": "sap-icon://add"}, {"type": "UPLOAD", "name": "Upload Record", "icon": "sap-icon://upload"}], "DButtons": [{"type": "ATTACHMENT", "name": "View Attachments", "icon": "sap-icon://attachment"}, {"type": "UPDATE", "name": "Update Record", "icon": "sap-icon://update"}, {"type": "ADD", "name": "Add Record", "icon": "sap-icon://add"}], "Tabs": [{"value": "Tab0", "name": "Cards", "type": "Cards", "fioriicon": "responsive"}, {"value": "Tab1", "name": "Report It", "type": "Field", "fioriicon": "citizen-connect", "download": "Yes"}, {"value": "Tab2", "name": "Your Details", "type": "Field", "fioriicon": "addresses"}], "DetailFields": {"None": ["ID", "TheirName", "TheirAddress", "ReportDate", "Status"], "Tab1": ["Q1", "A1", "Q2", "A2", "Q3", "A3"], "Tab2": ["Q4", "A4", "Q5", "A5", "AdditionalInfo", "ClosingComment"]}, "ControlDisplay": {}, "FieldDef": [{"name": "ID", "type": "string", "width": "20", "Option": "", "SLabel": "Identification", "LLabel": "", "Currency": "No"}, {"name": "TheirName", "type": "string", "width": "50", "Option": "", "SLabel": "Their Name", "LLabel": "", "Currency": "No"}, {"name": "TheirAddress", "type": "string", "width": "50", "Option": "", "SLabel": "Their Address", "LLabel": "", "Currency": "No"}, {"name": "ReportDate", "type": "Date", "width": "10", "Option": "", "SLabel": "Report Date", "LLabel": "", "Currency": "No"}, {"name": "Q1", "type": "string", "width": "500", "Option": "", "SLabel": "Question 1", "LLabel": "", "Currency": "No"}, {"name": "A1", "type": "string", "width": "500", "Option": "", "SLabel": "Answer 1", "LLabel": "", "Currency": "No"}, {"name": "Q2", "type": "string", "width": "100", "Option": "", "SLabel": "Question 2", "LLabel": "", "Currency": "No"}, {"name": "A2", "type": "string", "width": "500", "Option": "", "SLabel": "Answer 2", "LLabel": "", "Currency": "No"}, {"name": "Q3", "type": "string", "width": "100", "Option": "", "SLabel": "Question 3", "LLabel": "", "Currency": "No"}, {"name": "A3", "type": "string", "width": "500", "Option": "", "SLabel": "Answer 3", "LLabel": "", "Currency": "No"}, {"name": "Q4", "type": "string", "width": "100", "Option": "", "SLabel": "Question 4", "LLabel": "", "Currency": "No"}, {"name": "A4", "type": "string", "width": "500", "Option": "", "SLabel": "Answer 4", "LLabel": "", "Currency": "No"}, {"name": "Q5", "type": "string", "width": "100", "Option": "", "SLabel": "Question 5", "LLabel": "", "Currency": "No"}, {"name": "A5", "type": "string", "width": "500", "Option": "", "SLabel": "Answer 5", "LLabel": "", "Currency": "No"}, {"name": "AdditionalInfo", "type": "string", "width": "1000", "Option": "", "SLabel": "Additional Information", "LLabel": "", "Currency": "No"}, {"name": "ClosingComment", "type": "string", "width": "1000", "Option": "", "SLabel": "Closing Comment", "LLabel": "", "Currency": "No"}, {"name": "Status", "type": "string", "width": "20", "Option": "", "SLabel": "Complaint Status", "LLabel": "", "Currency": "No"}], "itemConfig": {"ItemFieldDefinition": [], "DisplayFields": [], "ItemButtons": {"itemDisplay": false, "itemAdd": false, "itemEdit": false, "itemDelete": false}, "CreateFields": [], "ItemDetails": []}, "CalculatedFields": {}, "Wizard": [{"id": "Step1", "fields": [{"name": "ReportDate", "Sequence": "1", "Mode": "Edit"}], "name": "Report", "stepType": "FieldList", "intro": "Benefit Fraud  : Report"}, {"id": "Step2", "fields": [{"name": "TheirName", "Sequence": "1", "Mode": "Edit"}, {"name": "TheirAddress", "Sequence": "1", "Mode": "Edit"}], "name": "Their Details", "stepType": "FieldList", "intro": "Benefit Fraud  : Their Details"}, {"id": "Step3", "fields": [{"name": "Q1", "Sequence": "1", "Mode": "Display"}, {"name": "A1", "Sequence": "1", "Mode": "Edit"}, {"name": "Q2", "Sequence": "1", "Mode": "Display"}, {"name": "A2", "Sequence": "1", "Mode": "Edit"}, {"name": "Q3", "Sequence": "1", "Mode": "Display"}, {"name": "A3", "Sequence": "1", "Mode": "Edit"}, {"name": "Q4", "Sequence": "1", "Mode": "Display"}, {"name": "A4", "Sequence": "1", "Mode": "Edit"}, {"name": "Q5", "Sequence": "1", "Mode": "Display"}, {"name": "A5", "Sequence": "1", "Mode": "Edit"}], "name": "Q and A", "stepType": "FieldList", "intro": "Benefit Fraud  : Q and A"}, {"id": "Step4", "fields": [{"name": "AdditionalInfo", "Sequence": "1", "Mode": "Edit"}], "name": "Additional Details", "stepType": "FieldList", "intro": "Benefit Fraud  : Additional Details"}, {"id": "Step5", "fields": [{"name": "Status", "Sequence": "1", "Mode": "Edit"}], "name": "Admin", "stepType": "FieldList", "intro": "Benefit Fraud  : Admin"}]}
+{
+  "Title": {
+    "ApplicationTitle": "Benefit Fraud",
+    "DetailTitle": "Benefit Fraud"
+  },
+  "ListFields": {
+    "IntroField": "ID",
+    "TitleField": "TheirName",
+    "fStatus": "Status",
+    "LFields": ["ReportDate"]
+  },
+  "ListBOTFields": {
+    "None": ["cardImage", "StatusState"],
+    "Title": [],
+    "SubTitle": [],
+    "Description": []
+  },
+  "PossibleValues": ["Status"],
+  "MButtons": [
+    {
+      "type": "DOWNLOAD",
+      "name": "Download File",
+      "icon": "sap-icon://download"
+    },
+    {
+      "type": "APPHELP",
+      "name": "Get App Help",
+      "icon": "sap-icon://sys-help-2"
+    },
+    {
+      "type": "BOT",
+      "name": "Launch Assistant",
+      "icon": "sap-icon://travel-request"
+    },
+    {
+      "type": "VIEW",
+      "name": "Change App View",
+      "icon": "sap-icon://chart-table-view"
+    },
+    { "type": "ADD", "name": "Add Record", "icon": "sap-icon://add" },
+    { "type": "UPLOAD", "name": "Upload Record", "icon": "sap-icon://upload" }
+  ],
+  "DButtons": [
+    {
+      "type": "ATTACHMENT",
+      "name": "View Attachments",
+      "icon": "sap-icon://attachment"
+    },
+    { "type": "UPDATE", "name": "Update Record", "icon": "sap-icon://update" },
+    { "type": "ADD", "name": "Add Record", "icon": "sap-icon://add" }
+  ],
+  "Tabs": [
+    {
+      "value": "Tab0",
+      "name": "Cards",
+      "type": "Cards",
+      "fioriicon": "responsive"
+    },
+    {
+      "value": "Tab1",
+      "name": "Report It",
+      "type": "Field",
+      "fioriicon": "citizen-connect",
+      "download": "Yes"
+    },
+    {
+      "value": "Tab2",
+      "name": "Your Details",
+      "type": "Field",
+      "fioriicon": "addresses"
+    }
+  ],
+  "DetailFields": {
+    "None": ["ID", "TheirName", "TheirAddress", "ReportDate", "Status"],
+    "Tab1": ["Q1", "A1", "Q2", "A2", "Q3", "A3"],
+    "Tab2": ["Q4", "A4", "Q5", "A5", "AdditionalInfo", "ClosingComment"]
+  },
+  "ControlDisplay": {},
+  "FieldDef": [
+    {
+      "name": "ID",
+      "type": "string",
+      "width": "20",
+      "Option": "",
+      "SLabel": "Identification",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "TheirName",
+      "type": "string",
+      "width": "50",
+      "Option": "",
+      "SLabel": "Their Name",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "TheirAddress",
+      "type": "string",
+      "width": "50",
+      "Option": "",
+      "SLabel": "Their Address",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "ReportDate",
+      "type": "Date",
+      "width": "10",
+      "Option": "",
+      "SLabel": "Report Date",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "Q1",
+      "type": "string",
+      "width": "500",
+      "Option": "",
+      "SLabel": "Question 1",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "A1",
+      "type": "string",
+      "width": "500",
+      "Option": "",
+      "SLabel": "Answer 1",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "Q2",
+      "type": "string",
+      "width": "100",
+      "Option": "",
+      "SLabel": "Question 2",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "A2",
+      "type": "string",
+      "width": "500",
+      "Option": "",
+      "SLabel": "Answer 2",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "Q3",
+      "type": "string",
+      "width": "100",
+      "Option": "",
+      "SLabel": "Question 3",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "A3",
+      "type": "string",
+      "width": "500",
+      "Option": "",
+      "SLabel": "Answer 3",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "Q4",
+      "type": "string",
+      "width": "100",
+      "Option": "",
+      "SLabel": "Question 4",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "A4",
+      "type": "string",
+      "width": "500",
+      "Option": "",
+      "SLabel": "Answer 4",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "Q5",
+      "type": "string",
+      "width": "100",
+      "Option": "",
+      "SLabel": "Question 5",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "A5",
+      "type": "string",
+      "width": "500",
+      "Option": "",
+      "SLabel": "Answer 5",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "AdditionalInfo",
+      "type": "string",
+      "width": "1000",
+      "Option": "",
+      "SLabel": "Additional Information",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "ClosingComment",
+      "type": "string",
+      "width": "1000",
+      "Option": "",
+      "SLabel": "Closing Comment",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "Status",
+      "type": "string",
+      "width": "20",
+      "Option": "",
+      "SLabel": "Complaint Status",
+      "LLabel": "",
+      "Currency": "No"
+    }
+  ],
+  "itemConfig": {
+    "ItemFieldDefinition": [],
+    "DisplayFields": [],
+    "ItemButtons": {
+      "itemDisplay": false,
+      "itemAdd": false,
+      "itemEdit": false,
+      "itemDelete": false
+    },
+    "CreateFields": [],
+    "ItemDetails": []
+  },
+  "CalculatedFields": {},
+  "Wizard": [
+    {
+      "id": "Step1",
+      "fields": [{ "name": "ReportDate", "Sequence": "1", "Mode": "Edit" }],
+      "name": "Report",
+      "stepType": "FieldList",
+      "intro": "Benefit Fraud  : Report"
+    },
+    {
+      "id": "Step2",
+      "fields": [
+        { "name": "TheirName", "Sequence": "1", "Mode": "Edit" },
+        { "name": "TheirAddress", "Sequence": "1", "Mode": "Edit" }
+      ],
+      "name": "Their Details",
+      "stepType": "FieldList",
+      "intro": "Benefit Fraud  : Their Details"
+    },
+    {
+      "id": "Step3",
+      "fields": [
+        { "name": "Q1", "Sequence": "1", "Mode": "Display" },
+        { "name": "A1", "Sequence": "1", "Mode": "Edit" },
+        { "name": "Q2", "Sequence": "1", "Mode": "Display" },
+        { "name": "A2", "Sequence": "1", "Mode": "Edit" },
+        { "name": "Q3", "Sequence": "1", "Mode": "Display" },
+        { "name": "A3", "Sequence": "1", "Mode": "Edit" },
+        { "name": "Q4", "Sequence": "1", "Mode": "Display" },
+        { "name": "A4", "Sequence": "1", "Mode": "Edit" },
+        { "name": "Q5", "Sequence": "1", "Mode": "Display" },
+        { "name": "A5", "Sequence": "1", "Mode": "Edit" }
+      ],
+      "name": "Q and A",
+      "stepType": "FieldList",
+      "intro": "Benefit Fraud  : Q and A"
+    },
+    {
+      "id": "Step4",
+      "fields": [{ "name": "AdditionalInfo", "Sequence": "1", "Mode": "Edit" }],
+      "name": "Additional Details",
+      "stepType": "FieldList",
+      "intro": "Benefit Fraud  : Additional Details"
+    },
+    {
+      "id": "Step5",
+      "fields": [{ "name": "Status", "Sequence": "1", "Mode": "Edit" }],
+      "name": "Admin",
+      "stepType": "FieldList",
+      "intro": "Benefit Fraud  : Admin"
+    }
+  ]
+}

@@ -1,1 +1,132 @@
-{"Title": {"ApplicationTitle": "PickUp", "DetailTitle": "PickUp"}, "ListFields": {"IntroField": "ContactNo", "TitleField": "YourName", "fStatus": "Status", "LFields": ["ID", "PickUpDate"]}, "ListBOTFields": {"Title": [], "SubTitle": [], "Description": []}, "PossibleValues": ["ProductType", "Status"], "MButtons": [], "DButtons": [], "Tabs": [{"value": "Tab0", "name": "Cards", "type": "Cards", "fioriicon": "responsive"}, {"value": "Tab1", "name": "YourDetail", "fioriicon": "detail-view", "type": "Field"}, {"value": "Tab2", "name": "ProdDetail", "fioriicon": "product", "type": "Field"}, {"value": "Tab3", "name": "PickUpDetail", "fioriicon": "map-2", "type": "Field"}, {"value": "Tab4", "name": "Comms", "fioriicon": "customer-and-contacts", "type": "Field"}], "DetailFields": {"None": ["ID", "Status"], "Tab1": ["YourName", "Surname", "Email", "ContactNo"], "Tab2": ["ProductType", "ItemDetail", "Weight", "Volume", "NoOfItems"], "Tab3": ["PickUpAddress", "PickUpDate", "PickUpTime"], "Tab4": ["UserComm", "TransComm", "Quote"]}, "ControlDisplay": {}, "FieldDef": [{"name": "ID", "type": "string", "width": "20", "Option": "", "SLabel": "", "LLabel": ""}, {"name": "YourName", "type": "string", "width": "20", "Option": "mandatory"}, {"name": "Surname", "type": "string", "width": "20", "Option": ""}, {"name": "Email", "type": "string", "width": "20", "Option": ""}, {"name": "ContactNo", "type": "string", "width": "20", "Option": "mandatory"}, {"name": "ProductType", "type": "string", "width": "50", "Option": ""}, {"name": "ItemDetail", "type": "string", "width": "200", "Option": "mandatory"}, {"name": "Weight", "type": "string", "width": "100", "Option": "mandatory"}, {"name": "Volume", "type": "string", "width": "100", "Option": "mandatory"}, {"name": "NoOfItems", "type": "string", "width": "100", "Option": "mandatory"}, {"name": "PickUpAddress", "type": "string", "width": "500", "Option": "mandatory"}, {"name": "PickUpDate", "type": "Date", "width": "10", "Option": "mandatory"}, {"name": "PickUpTime", "type": "Time", "width": "10", "Option": "mandatory"}, {"name": "UserComm", "type": "string", "width": "1000", "Option": ""}, {"name": "TransComm", "type": "string", "width": "1000", "Option": ""}, {"name": "Quote", "type": "string", "width": "100", "Option": ""}, {"name": "Status", "type": "string", "width": "20", "Option": ""}], "itemConfig": {}, "CalculatedFields": {}, "Wizard": []}
+{
+  "Title": { "ApplicationTitle": "PickUp", "DetailTitle": "PickUp" },
+  "ListFields": {
+    "IntroField": "ContactNo",
+    "TitleField": "YourName",
+    "fStatus": "Status",
+    "LFields": ["ID", "PickUpDate"]
+  },
+  "ListBOTFields": {
+    "None": ["cardImage", "StatusState"],
+    "Title": [],
+    "SubTitle": [],
+    "Description": []
+  },
+  "PossibleValues": ["ProductType", "Status"],
+  "MButtons": [],
+  "DButtons": [],
+  "Tabs": [
+    {
+      "value": "Tab0",
+      "name": "Cards",
+      "type": "Cards",
+      "fioriicon": "responsive"
+    },
+    {
+      "value": "Tab1",
+      "name": "YourDetail",
+      "fioriicon": "detail-view",
+      "type": "Field"
+    },
+    {
+      "value": "Tab2",
+      "name": "ProdDetail",
+      "fioriicon": "product",
+      "type": "Field"
+    },
+    {
+      "value": "Tab3",
+      "name": "PickUpDetail",
+      "fioriicon": "map-2",
+      "type": "Field"
+    },
+    {
+      "value": "Tab4",
+      "name": "Comms",
+      "fioriicon": "customer-and-contacts",
+      "type": "Field"
+    }
+  ],
+  "DetailFields": {
+    "None": ["ID", "Status"],
+    "Tab1": ["YourName", "Surname", "Email", "ContactNo"],
+    "Tab2": ["ProductType", "ItemDetail", "Weight", "Volume", "NoOfItems"],
+    "Tab3": ["PickUpAddress", "PickUpDate", "PickUpTime"],
+    "Tab4": ["UserComm", "TransComm", "Quote"]
+  },
+  "ControlDisplay": {},
+  "FieldDef": [
+    {
+      "name": "ID",
+      "type": "string",
+      "width": "20",
+      "Option": "",
+      "SLabel": "",
+      "LLabel": ""
+    },
+    {
+      "name": "YourName",
+      "type": "string",
+      "width": "20",
+      "Option": "mandatory"
+    },
+    { "name": "Surname", "type": "string", "width": "20", "Option": "" },
+    { "name": "Email", "type": "string", "width": "20", "Option": "" },
+    {
+      "name": "ContactNo",
+      "type": "string",
+      "width": "20",
+      "Option": "mandatory"
+    },
+    { "name": "ProductType", "type": "string", "width": "50", "Option": "" },
+    {
+      "name": "ItemDetail",
+      "type": "string",
+      "width": "200",
+      "Option": "mandatory"
+    },
+    {
+      "name": "Weight",
+      "type": "string",
+      "width": "100",
+      "Option": "mandatory"
+    },
+    {
+      "name": "Volume",
+      "type": "string",
+      "width": "100",
+      "Option": "mandatory"
+    },
+    {
+      "name": "NoOfItems",
+      "type": "string",
+      "width": "100",
+      "Option": "mandatory"
+    },
+    {
+      "name": "PickUpAddress",
+      "type": "string",
+      "width": "500",
+      "Option": "mandatory"
+    },
+    {
+      "name": "PickUpDate",
+      "type": "Date",
+      "width": "10",
+      "Option": "mandatory"
+    },
+    {
+      "name": "PickUpTime",
+      "type": "Time",
+      "width": "10",
+      "Option": "mandatory"
+    },
+    { "name": "UserComm", "type": "string", "width": "1000", "Option": "" },
+    { "name": "TransComm", "type": "string", "width": "1000", "Option": "" },
+    { "name": "Quote", "type": "string", "width": "100", "Option": "" },
+    { "name": "Status", "type": "string", "width": "20", "Option": "" }
+  ],
+  "itemConfig": {},
+  "CalculatedFields": {},
+  "Wizard": []
+}

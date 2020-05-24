@@ -1,1 +1,306 @@
-{"Title": {"ApplicationTitle": "Pupil Dues", "DetailTitle": "Details of Pupil Dues"}, "ListFields": {"IntroField": "StudentName", "TitleField": "StudyYear", "fStatus": "Status", "numberField": "DueAmt", "LFields": ["ID", "DueDate"]}, "ListBOTFields": {"Title": ["ID"], "SubTitle": ["StudentName", "DueDate"], "Description": ["StudyYear", "Status"]}, "PossibleValues": ["Status", "StudyYear", "Section"], "MButtons": [{"type": "DOWNLOAD", "name": "Download File", "icon": "sap-icon://download"}, {"type": "APPHELP", "name": "Get App Help", "icon": "sap-icon://sys-help-2"}, {"type": "BOT", "name": "Launch Assistant", "icon": "sap-icon://travel-request"}, {"type": "VIEW", "name": "Change App View", "icon": "sap-icon://chart-table-view"}, {"type": "ADD", "name": "Add Record", "icon": "sap-icon://add"}, {"type": "UPLOAD", "name": "Upload Record", "icon": "sap-icon://upload"}], "DButtons": [{"type": "ATTACHMENT", "name": "View Attachments", "icon": "sap-icon://attachment"}, {"type": "UPDATE", "name": "Update Record", "icon": "sap-icon://update"}, {"type": "ADD", "name": "Add Record", "icon": "sap-icon://add"}], "Tabs": [{"value": "Tab0", "name": "Cards", "type": "Cards", "fioriicon": "responsive"}, {"value": "Tab1", "name": "PupilDetail", "fioriicon": "account", "type": "Field", "download": "Yes"}, {"value": "Tab2", "name": "Due Details", "fioriicon": "customer-history", "type": "Field", "download": "Yes"}, {"value": "Tab3", "name": "Chat Details", "fioriicon": "discussion-2", "type": "Chat", "download": "Yes"}, {"value": "Tab4", "name": "ProcessLog", "fioriicon": "comment", "type": "Chat", "download": "Yes"}], "DetailFields": {"None": ["ID", "Status"], "Tab1": ["StudentName", "Surname", "DateOfBirth", "StudyYear", "Section", "Email", "StudentID", "ParentEmail"], "Tab2": ["DueFor", "DueReason", "DueAmt", "DueDate", "Balance"], "Tab3": ["Question_Response"], "Tab4": ["ProcessingLog"]}, "ControlDisplay": {}, "FieldDef": [{"name": "ID", "type": "string", "width": "20", "Option": "mandatory", "SLabel": "Identification", "LLabel": "Identification", "Currency": "No"}, {"name": "StudentName", "type": "string", "width": "20", "Option": "mandatory", "SLabel": "Student Name", "LLabel": "StudentName", "Currency": "No"}, {"name": "Surname", "type": "string", "width": "20", "Option": "", "SLabel": "Surname", "LLabel": "Surname", "Currency": "No"}, {"name": "DateOfBirth", "type": "Date", "width": "10", "Option": "", "SLabel": "Date Of Birth", "LLabel": "DateOfBirth", "Currency": "No"}, {"name": "StudyYear", "type": "string", "width": "10", "Option": "", "SLabel": "Study Year", "LLabel": "Study Year", "Currency": "No"}, {"name": "Section", "type": "string", "width": "20", "Option": "mandatory", "SLabel": "Section", "LLabel": "Section", "Currency": "No"}, {"name": "DueFor", "type": "string", "width": "200", "Option": "", "SLabel": "Due For", "LLabel": "DueFor", "Currency": "No"}, {"name": "DueReason", "type": "string", "width": "500", "Option": "", "SLabel": "Due Reason", "LLabel": "DueReason", "Currency": "No"}, {"name": "DueAmt", "type": "string", "width": "20", "Option": "", "SLabel": "Due amount", "LLabel": "DueAmt", "Currency": "No"}, {"name": "DueDate", "type": "Date", "width": "10", "Option": "", "SLabel": "Due Date", "LLabel": "Due Date", "Currency": "No"}, {"name": "Balance", "type": "string", "width": "20", "Option": "", "SLabel": "Outstanding Balance", "LLabel": "OutstandingBalance", "Currency": "No"}, {"name": "Status", "type": "string", "width": "20", "Option": "", "SLabel": "Status", "LLabel": "Status", "Currency": "No"}, {"name": "Question_Response", "type": "string", "width": "500", "Option": "", "SLabel": "Chat Details", "LLabel": "", "Currency": "No"}, {"name": "Email", "type": "string", "width": "50", "Option": "", "SLabel": "Student Email", "LLabel": "", "Currency": "No"}, {"name": "StudentID", "type": "string", "width": "20", "Option": "", "SLabel": "Student ID", "LLabel": "", "Currency": "No"}, {"name": "ParentEmail", "type": "string", "width": "100", "Option": "mandatory", "SLabel": "Parent Email", "LLabel": "ParentEmail", "Currency": "No"}, {"name": "ProcessingLog", "type": "string", "width": "500", "Option": "", "SLabel": "Processing Log", "LLabel": "ProcessingLog", "Currency": "No"}], "itemConfig": {"ItemFieldDefinition": [], "DisplayFields": [], "ItemButtons": {"itemDisplay": false, "itemAdd": false, "itemEdit": false, "itemDelete": false}, "CreateFields": [], "ItemDetails": []}, "CalculatedFields": {"Item": [], "HeaderItem": [], "Header": []}, "Wizard": [{"id": "Step1", "fields": [{"name": "StudentName", "Sequence": "1", "Mode": "Edit"}, {"name": "Surname", "Sequence": "1", "Mode": "Edit"}, {"name": "DateOfBirth", "Sequence": "1", "Mode": "Edit"}, {"name": "StudyYear", "Sequence": "1", "Mode": "Edit"}, {"name": "Section", "Sequence": "1", "Mode": "Edit"}, {"name": "Email", "Sequence": "1", "Mode": "Edit"}, {"name": "StudentID", "Sequence": "1", "Mode": "Edit"}, {"name": "ParentEmail", "Sequence": "1", "Mode": "Edit"}], "name": "Student Details", "stepType": "FieldList", "intro": "Student Details"}, {"id": "Step2", "fields": [{"name": "DueFor", "Sequence": "1", "Mode": "Edit"}, {"name": "DueReason", "Sequence": "1", "Mode": "Edit"}, {"name": "DueAmt", "Sequence": "1", "Mode": "Edit"}, {"name": "DueDate", "Sequence": "1", "Mode": "Edit"}, {"name": "Balance", "Sequence": "1", "Mode": "Edit"}, {"name": "Status", "Sequence": "1", "Mode": "Edit"}], "name": "Due Details", "stepType": "FieldList", "intro": "Due Details"}]}
+{
+  "Title": {
+    "ApplicationTitle": "Pupil Dues",
+    "DetailTitle": "Details of Pupil Dues"
+  },
+  "ListFields": {
+    "IntroField": "StudentName",
+    "TitleField": "StudyYear",
+    "fStatus": "Status",
+    "numberField": "DueAmt",
+    "LFields": ["ID", "DueDate"]
+  },
+  "ListBOTFields": {
+    "None": ["cardImage", "StatusState"],
+    "Title": ["ID"],
+    "SubTitle": ["StudentName", "DueDate"],
+    "Description": ["StudyYear", "Status"]
+  },
+  "PossibleValues": ["Status", "StudyYear", "Section"],
+  "MButtons": [
+    {
+      "type": "DOWNLOAD",
+      "name": "Download File",
+      "icon": "sap-icon://download"
+    },
+    {
+      "type": "APPHELP",
+      "name": "Get App Help",
+      "icon": "sap-icon://sys-help-2"
+    },
+    {
+      "type": "BOT",
+      "name": "Launch Assistant",
+      "icon": "sap-icon://travel-request"
+    },
+    {
+      "type": "VIEW",
+      "name": "Change App View",
+      "icon": "sap-icon://chart-table-view"
+    },
+    { "type": "ADD", "name": "Add Record", "icon": "sap-icon://add" },
+    { "type": "UPLOAD", "name": "Upload Record", "icon": "sap-icon://upload" }
+  ],
+  "DButtons": [
+    {
+      "type": "ATTACHMENT",
+      "name": "View Attachments",
+      "icon": "sap-icon://attachment"
+    },
+    { "type": "UPDATE", "name": "Update Record", "icon": "sap-icon://update" },
+    { "type": "ADD", "name": "Add Record", "icon": "sap-icon://add" }
+  ],
+  "Tabs": [
+    {
+      "value": "Tab0",
+      "name": "Cards",
+      "type": "Cards",
+      "fioriicon": "responsive"
+    },
+    {
+      "value": "Tab1",
+      "name": "PupilDetail",
+      "fioriicon": "account",
+      "type": "Field",
+      "download": "Yes"
+    },
+    {
+      "value": "Tab2",
+      "name": "Due Details",
+      "fioriicon": "customer-history",
+      "type": "Field",
+      "download": "Yes"
+    },
+    {
+      "value": "Tab3",
+      "name": "Chat Details",
+      "fioriicon": "discussion-2",
+      "type": "Chat",
+      "download": "Yes"
+    },
+    {
+      "value": "Tab4",
+      "name": "ProcessLog",
+      "fioriicon": "comment",
+      "type": "Chat",
+      "download": "Yes"
+    }
+  ],
+  "DetailFields": {
+    "None": ["ID", "Status"],
+    "Tab1": [
+      "StudentName",
+      "Surname",
+      "DateOfBirth",
+      "StudyYear",
+      "Section",
+      "Email",
+      "StudentID",
+      "ParentEmail"
+    ],
+    "Tab2": ["DueFor", "DueReason", "DueAmt", "DueDate", "Balance"],
+    "Tab3": ["Question_Response"],
+    "Tab4": ["ProcessingLog"]
+  },
+  "ControlDisplay": {},
+  "FieldDef": [
+    {
+      "name": "ID",
+      "type": "string",
+      "width": "20",
+      "Option": "mandatory",
+      "SLabel": "Identification",
+      "LLabel": "Identification",
+      "Currency": "No"
+    },
+    {
+      "name": "StudentName",
+      "type": "string",
+      "width": "20",
+      "Option": "mandatory",
+      "SLabel": "Student Name",
+      "LLabel": "StudentName",
+      "Currency": "No"
+    },
+    {
+      "name": "Surname",
+      "type": "string",
+      "width": "20",
+      "Option": "",
+      "SLabel": "Surname",
+      "LLabel": "Surname",
+      "Currency": "No"
+    },
+    {
+      "name": "DateOfBirth",
+      "type": "Date",
+      "width": "10",
+      "Option": "",
+      "SLabel": "Date Of Birth",
+      "LLabel": "DateOfBirth",
+      "Currency": "No"
+    },
+    {
+      "name": "StudyYear",
+      "type": "string",
+      "width": "10",
+      "Option": "",
+      "SLabel": "Study Year",
+      "LLabel": "Study Year",
+      "Currency": "No"
+    },
+    {
+      "name": "Section",
+      "type": "string",
+      "width": "20",
+      "Option": "mandatory",
+      "SLabel": "Section",
+      "LLabel": "Section",
+      "Currency": "No"
+    },
+    {
+      "name": "DueFor",
+      "type": "string",
+      "width": "200",
+      "Option": "",
+      "SLabel": "Due For",
+      "LLabel": "DueFor",
+      "Currency": "No"
+    },
+    {
+      "name": "DueReason",
+      "type": "string",
+      "width": "500",
+      "Option": "",
+      "SLabel": "Due Reason",
+      "LLabel": "DueReason",
+      "Currency": "No"
+    },
+    {
+      "name": "DueAmt",
+      "type": "string",
+      "width": "20",
+      "Option": "",
+      "SLabel": "Due amount",
+      "LLabel": "DueAmt",
+      "Currency": "No"
+    },
+    {
+      "name": "DueDate",
+      "type": "Date",
+      "width": "10",
+      "Option": "",
+      "SLabel": "Due Date",
+      "LLabel": "Due Date",
+      "Currency": "No"
+    },
+    {
+      "name": "Balance",
+      "type": "string",
+      "width": "20",
+      "Option": "",
+      "SLabel": "Outstanding Balance",
+      "LLabel": "OutstandingBalance",
+      "Currency": "No"
+    },
+    {
+      "name": "Status",
+      "type": "string",
+      "width": "20",
+      "Option": "",
+      "SLabel": "Status",
+      "LLabel": "Status",
+      "Currency": "No"
+    },
+    {
+      "name": "Question_Response",
+      "type": "string",
+      "width": "500",
+      "Option": "",
+      "SLabel": "Chat Details",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "Email",
+      "type": "string",
+      "width": "50",
+      "Option": "",
+      "SLabel": "Student Email",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "StudentID",
+      "type": "string",
+      "width": "20",
+      "Option": "",
+      "SLabel": "Student ID",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "ParentEmail",
+      "type": "string",
+      "width": "100",
+      "Option": "mandatory",
+      "SLabel": "Parent Email",
+      "LLabel": "ParentEmail",
+      "Currency": "No"
+    },
+    {
+      "name": "ProcessingLog",
+      "type": "string",
+      "width": "500",
+      "Option": "",
+      "SLabel": "Processing Log",
+      "LLabel": "ProcessingLog",
+      "Currency": "No"
+    }
+  ],
+  "itemConfig": {
+    "ItemFieldDefinition": [],
+    "DisplayFields": [],
+    "ItemButtons": {
+      "itemDisplay": false,
+      "itemAdd": false,
+      "itemEdit": false,
+      "itemDelete": false
+    },
+    "CreateFields": [],
+    "ItemDetails": []
+  },
+  "CalculatedFields": { "Item": [], "HeaderItem": [], "Header": [] },
+  "Wizard": [
+    {
+      "id": "Step1",
+      "fields": [
+        { "name": "StudentName", "Sequence": "1", "Mode": "Edit" },
+        { "name": "Surname", "Sequence": "1", "Mode": "Edit" },
+        { "name": "DateOfBirth", "Sequence": "1", "Mode": "Edit" },
+        { "name": "StudyYear", "Sequence": "1", "Mode": "Edit" },
+        { "name": "Section", "Sequence": "1", "Mode": "Edit" },
+        { "name": "Email", "Sequence": "1", "Mode": "Edit" },
+        { "name": "StudentID", "Sequence": "1", "Mode": "Edit" },
+        { "name": "ParentEmail", "Sequence": "1", "Mode": "Edit" }
+      ],
+      "name": "Student Details",
+      "stepType": "FieldList",
+      "intro": "Student Details"
+    },
+    {
+      "id": "Step2",
+      "fields": [
+        { "name": "DueFor", "Sequence": "1", "Mode": "Edit" },
+        { "name": "DueReason", "Sequence": "1", "Mode": "Edit" },
+        { "name": "DueAmt", "Sequence": "1", "Mode": "Edit" },
+        { "name": "DueDate", "Sequence": "1", "Mode": "Edit" },
+        { "name": "Balance", "Sequence": "1", "Mode": "Edit" },
+        { "name": "Status", "Sequence": "1", "Mode": "Edit" }
+      ],
+      "name": "Due Details",
+      "stepType": "FieldList",
+      "intro": "Due Details"
+    }
+  ]
+}

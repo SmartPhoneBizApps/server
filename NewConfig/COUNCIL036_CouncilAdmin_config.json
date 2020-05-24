@@ -1,1 +1,315 @@
-{"Title": {"ApplicationTitle": "Book Lessons", "DetailTitle": "Book for Lessons"}, "ListFields": {"IntroField": "BookingFor", "TitleField": "ParticipantFirstName", "fStatus": "Status", "LFields": ["ID"]}, "ListBOTFields": {"Title": ["ID", "ParticipantFirstName", "ParticipantLastName"], "SubTitle": ["Status", "ApplicationDate"], "Description": ["ParticipantGender", "BookingFor"]}, "PossibleValues": ["ParticipantGender", "Status", "PreferredTime", "PreferredCenter", "BookingFor", "A2"], "MButtons": [], "DButtons": [], "Tabs": [{"value": "Tab0", "name": "Cards", "type": "Cards", "fioriicon": "responsive"}, {"value": "Tab1", "name": "Participant Details", "type": "Field", "fioriicon": "notes", "download": "Yes"}, {"value": "Tab2", "name": "Applicant Details", "type": "Field", "fioriicon": "citizen-connect", "download": "Yes"}, {"value": "Tab3", "name": "Additional Info", "fioriicon": "hint", "type": "Field", "download": "Yes"}, {"value": "Tab4", "name": "Chat", "fioriicon": "comment", "type": "Chat", "download": "Yes"}, {"value": "Tab5", "name": "Processing Log", "fioriicon": "comment", "type": "Chat", "download": "Yes"}], "DetailFields": {"None": ["ID", "Status", "BookingFor", "ApplicationDate"], "Tab1": ["ParticipantLastName", "ParticipantFirstName", "BirthDate", "ParticipantGender", "Q1", "A1", "Q2", "A2"], "Tab2": ["ApplicantName", "ContactNo", "Email", "Address", "Postcode"], "Tab3": ["PreferredStartDate", "PreferredDay", "PreferredTime", "PreferredCenter"], "Tab4": ["Question_Response"], "Tab5": ["ProcessingLog"]}, "ControlDisplay": {}, "FieldDef": [{"name": "ID", "type": "string", "width": "20", "Option": "", "SLabel": "Identification", "LLabel": "", "Currency": "No"}, {"name": "ApplicantName", "type": "string", "width": "50", "Option": "", "SLabel": "Applicant Name", "LLabel": "ApplicantName", "Currency": "No"}, {"name": "ContactNo", "type": "string", "width": "50", "Option": "", "SLabel": "Contact No", "LLabel": "ContactNo", "Currency": "No"}, {"name": "Email", "type": "string", "width": "50", "Option": "", "SLabel": "Email", "LLabel": "Email", "Currency": "No"}, {"name": "Address", "type": "string", "width": "200", "Option": "", "SLabel": "Address", "LLabel": "Address", "Currency": "No"}, {"name": "Postcode", "type": "string", "width": "20", "Option": "", "SLabel": "Postcode", "LLabel": "Postcode", "Currency": "No"}, {"name": "ParticipantLastName", "type": "string", "width": "50", "Option": "", "SLabel": "Participant Last Name", "LLabel": "", "Currency": "No"}, {"name": "ParticipantFirstName", "type": "string", "width": "50", "Option": "", "SLabel": "Participant First Name", "LLabel": "", "Currency": "No"}, {"name": "BirthDate", "type": "string", "width": "20", "Option": "", "SLabel": "Age", "LLabel": "Age", "Currency": "No"}, {"name": "ParticipantGender", "type": "string", "width": "10", "Option": "", "SLabel": "Participant Gender", "LLabel": "", "Currency": "No"}, {"name": "PreferredStartDate", "type": "Date", "width": "10", "Option": "", "SLabel": "Preferred Start Date", "LLabel": "", "Currency": "No"}, {"name": "PreferredDay", "type": "string", "width": "50", "Option": "", "SLabel": "Preferred Day", "LLabel": "", "Currency": "No"}, {"name": "PreferredTime", "type": "string", "width": "100", "Option": "", "SLabel": "Preferred Time", "LLabel": "PreferredTime", "Currency": "No"}, {"name": "PreferredCenter", "type": "string", "width": "200", "Option": "", "SLabel": "Preferred Center", "LLabel": "", "Currency": "No"}, {"name": "Status", "type": "string", "width": "20", "Option": "", "SLabel": "Status", "LLabel": "", "Currency": "No"}, {"name": "BookingFor", "type": "string", "width": "200", "Option": "mandatory", "SLabel": "You are booking for", "LLabel": "You are booking for", "Currency": "No"}, {"name": "Q1", "type": "string", "width": "200", "Option": "", "SLabel": "Question 1", "LLabel": "Q", "Currency": "No"}, {"name": "A1", "type": "string", "width": "500", "Option": "", "SLabel": "Answer 1", "LLabel": "A", "Currency": "No"}, {"name": "Q2", "type": "string", "width": "200", "Option": "", "SLabel": "Question 2", "LLabel": "Q", "Currency": "No"}, {"name": "A2", "type": "string", "width": "100", "Option": "", "SLabel": "Answer 2", "LLabel": "A", "Currency": "No"}, {"name": "ApplicationDate", "type": "Date", "width": "10", "Option": "", "SLabel": "Application Date", "LLabel": "ApplicationDate", "Currency": "No"}, {"name": "Approver", "type": "string", "width": "100", "Option": "", "SLabel": "Approver", "LLabel": "Approver", "Currency": "No"}, {"name": "ProcessingLog", "type": "string", "width": "500", "Option": "", "SLabel": "Processing Log", "LLabel": "Processing Log", "Currency": "No"}, {"name": "Question_Response", "type": "string", "width": "500", "Option": "", "SLabel": "Here Is Chat Details", "LLabel": "Question_Response", "Currency": "No"}], "itemConfig": {}, "CalculatedFields": {}, "Wizard": []}
+{
+  "Title": {
+    "ApplicationTitle": "Book Lessons",
+    "DetailTitle": "Book for Lessons"
+  },
+  "ListFields": {
+    "IntroField": "BookingFor",
+    "TitleField": "ParticipantFirstName",
+    "fStatus": "Status",
+    "LFields": ["ID"]
+  },
+  "ListBOTFields": {
+    "None": ["cardImage", "StatusState"],
+    "Title": ["ID", "ParticipantFirstName", "ParticipantLastName"],
+    "SubTitle": ["Status", "ApplicationDate"],
+    "Description": ["ParticipantGender", "BookingFor"]
+  },
+  "PossibleValues": [
+    "ParticipantGender",
+    "Status",
+    "PreferredTime",
+    "PreferredCenter",
+    "BookingFor",
+    "A2"
+  ],
+  "MButtons": [],
+  "DButtons": [],
+  "Tabs": [
+    {
+      "value": "Tab0",
+      "name": "Cards",
+      "type": "Cards",
+      "fioriicon": "responsive"
+    },
+    {
+      "value": "Tab1",
+      "name": "Participant Details",
+      "type": "Field",
+      "fioriicon": "notes",
+      "download": "Yes"
+    },
+    {
+      "value": "Tab2",
+      "name": "Applicant Details",
+      "type": "Field",
+      "fioriicon": "citizen-connect",
+      "download": "Yes"
+    },
+    {
+      "value": "Tab3",
+      "name": "Additional Info",
+      "fioriicon": "hint",
+      "type": "Field",
+      "download": "Yes"
+    },
+    {
+      "value": "Tab4",
+      "name": "Chat",
+      "fioriicon": "comment",
+      "type": "Chat",
+      "download": "Yes"
+    },
+    {
+      "value": "Tab5",
+      "name": "Processing Log",
+      "fioriicon": "comment",
+      "type": "Chat",
+      "download": "Yes"
+    }
+  ],
+  "DetailFields": {
+    "None": ["ID", "Status", "BookingFor", "ApplicationDate"],
+    "Tab1": [
+      "ParticipantLastName",
+      "ParticipantFirstName",
+      "BirthDate",
+      "ParticipantGender",
+      "Q1",
+      "A1",
+      "Q2",
+      "A2"
+    ],
+    "Tab2": ["ApplicantName", "ContactNo", "Email", "Address", "Postcode"],
+    "Tab3": [
+      "PreferredStartDate",
+      "PreferredDay",
+      "PreferredTime",
+      "PreferredCenter"
+    ],
+    "Tab4": ["Question_Response"],
+    "Tab5": ["ProcessingLog"]
+  },
+  "ControlDisplay": {},
+  "FieldDef": [
+    {
+      "name": "ID",
+      "type": "string",
+      "width": "20",
+      "Option": "",
+      "SLabel": "Identification",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "ApplicantName",
+      "type": "string",
+      "width": "50",
+      "Option": "",
+      "SLabel": "Applicant Name",
+      "LLabel": "ApplicantName",
+      "Currency": "No"
+    },
+    {
+      "name": "ContactNo",
+      "type": "string",
+      "width": "50",
+      "Option": "",
+      "SLabel": "Contact No",
+      "LLabel": "ContactNo",
+      "Currency": "No"
+    },
+    {
+      "name": "Email",
+      "type": "string",
+      "width": "50",
+      "Option": "",
+      "SLabel": "Email",
+      "LLabel": "Email",
+      "Currency": "No"
+    },
+    {
+      "name": "Address",
+      "type": "string",
+      "width": "200",
+      "Option": "",
+      "SLabel": "Address",
+      "LLabel": "Address",
+      "Currency": "No"
+    },
+    {
+      "name": "Postcode",
+      "type": "string",
+      "width": "20",
+      "Option": "",
+      "SLabel": "Postcode",
+      "LLabel": "Postcode",
+      "Currency": "No"
+    },
+    {
+      "name": "ParticipantLastName",
+      "type": "string",
+      "width": "50",
+      "Option": "",
+      "SLabel": "Participant Last Name",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "ParticipantFirstName",
+      "type": "string",
+      "width": "50",
+      "Option": "",
+      "SLabel": "Participant First Name",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "BirthDate",
+      "type": "string",
+      "width": "20",
+      "Option": "",
+      "SLabel": "Age",
+      "LLabel": "Age",
+      "Currency": "No"
+    },
+    {
+      "name": "ParticipantGender",
+      "type": "string",
+      "width": "10",
+      "Option": "",
+      "SLabel": "Participant Gender",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "PreferredStartDate",
+      "type": "Date",
+      "width": "10",
+      "Option": "",
+      "SLabel": "Preferred Start Date",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "PreferredDay",
+      "type": "string",
+      "width": "50",
+      "Option": "",
+      "SLabel": "Preferred Day",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "PreferredTime",
+      "type": "string",
+      "width": "100",
+      "Option": "",
+      "SLabel": "Preferred Time",
+      "LLabel": "PreferredTime",
+      "Currency": "No"
+    },
+    {
+      "name": "PreferredCenter",
+      "type": "string",
+      "width": "200",
+      "Option": "",
+      "SLabel": "Preferred Center",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "Status",
+      "type": "string",
+      "width": "20",
+      "Option": "",
+      "SLabel": "Status",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "BookingFor",
+      "type": "string",
+      "width": "200",
+      "Option": "mandatory",
+      "SLabel": "You are booking for",
+      "LLabel": "You are booking for",
+      "Currency": "No"
+    },
+    {
+      "name": "Q1",
+      "type": "string",
+      "width": "200",
+      "Option": "",
+      "SLabel": "Question 1",
+      "LLabel": "Q",
+      "Currency": "No"
+    },
+    {
+      "name": "A1",
+      "type": "string",
+      "width": "500",
+      "Option": "",
+      "SLabel": "Answer 1",
+      "LLabel": "A",
+      "Currency": "No"
+    },
+    {
+      "name": "Q2",
+      "type": "string",
+      "width": "200",
+      "Option": "",
+      "SLabel": "Question 2",
+      "LLabel": "Q",
+      "Currency": "No"
+    },
+    {
+      "name": "A2",
+      "type": "string",
+      "width": "100",
+      "Option": "",
+      "SLabel": "Answer 2",
+      "LLabel": "A",
+      "Currency": "No"
+    },
+    {
+      "name": "ApplicationDate",
+      "type": "Date",
+      "width": "10",
+      "Option": "",
+      "SLabel": "Application Date",
+      "LLabel": "ApplicationDate",
+      "Currency": "No"
+    },
+    {
+      "name": "Approver",
+      "type": "string",
+      "width": "100",
+      "Option": "",
+      "SLabel": "Approver",
+      "LLabel": "Approver",
+      "Currency": "No"
+    },
+    {
+      "name": "ProcessingLog",
+      "type": "string",
+      "width": "500",
+      "Option": "",
+      "SLabel": "Processing Log",
+      "LLabel": "Processing Log",
+      "Currency": "No"
+    },
+    {
+      "name": "Question_Response",
+      "type": "string",
+      "width": "500",
+      "Option": "",
+      "SLabel": "Here Is Chat Details",
+      "LLabel": "Question_Response",
+      "Currency": "No"
+    }
+  ],
+  "itemConfig": {},
+  "CalculatedFields": {},
+  "Wizard": []
+}

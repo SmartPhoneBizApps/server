@@ -2,6 +2,7 @@ const ErrorResponse = require("../../utils/errorResponse");
 const asyncHandler = require("../../middleware/async");
 const App = require("../../models/appSetup/App");
 const Role = require("../../models/appSetup/Role");
+const { getNewConfig } = require("../../modules/config");
 // @desc      Perform Calculations
 // @route     GET /api/v1/util/calculation
 // @access    Private (Application Users)
@@ -24,13 +25,19 @@ exports.getaddress = asyncHandler(async (req, res, next) => {
     return next(new ErrorResponse(`Please provide Role(Header)`, 400));
   }
   // Read Card Configuration for the Role (X1)
-  let fn1 =
+  /* let fn1 =
     "../../NewConfig/" +
     req.headers.applicationid +
     "_" +
     req.headers.businessrole +
     "_config.json";
-  var appconfig = require(fn1);
+  var appconfig = require(fn1); */
+
+  // Read New Config File
+  var appconfig = getNewConfig(
+    req.headers.applicationid,
+    req.headers.businessrole
+  );
 
   let config = appconfig["CalculatedFields"];
   let outdata = req.body;

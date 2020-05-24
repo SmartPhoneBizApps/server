@@ -1,1 +1,243 @@
-{"Title": {"ApplicationTitle": "Student Registration", "DetailTitle": "Student Registration"}, "ListFields": {"IntroField": "Name", "TitleField": "Surname", "fStatus": "Status", "LFields": ["ID"]}, "ListBOTFields": {"Title": [], "SubTitle": [], "Description": []}, "PossibleValues": ["Status"], "MButtons": [], "DButtons": [], "Tabs": [{"value": "Tab0", "name": "Cards", "type": "Cards", "fioriicon": "responsive"}, {"value": "Tab1", "name": "Detail", "type": "Field", "fioriicon": "notes"}, {"value": "Tab2", "name": "Address", "type": "Field", "fioriicon": "addresses"}, {"value": "Tab3", "name": "Location", "type": "Field", "fioriicon": "map"}], "DetailFields": {"None": ["ID", "Name", "Surname", "Status"], "Tab1": ["SchoolNo", "SchoolName", "DOB", "RegDate", "Year", "Section", "ClassTeacher", "WaitListNo", "Email"], "Tab2": ["Street", "Postcode", "City", "Country", "Phone"]}, "ControlDisplay": {}, "FieldDef": [{"name": "ID", "type": "string", "width": "20", "Option": "", "SLabel": "ID", "LLabel": "", "Currency": "No"}, {"name": "Name", "type": "string", "width": "50", "Option": "", "SLabel": "Name", "LLabel": "", "Currency": "No"}, {"name": "Surname", "type": "string", "width": "50", "Option": "", "SLabel": "Surname", "LLabel": "", "Currency": "No"}, {"name": "SchoolNo", "type": "string", "width": "20", "Option": "", "SLabel": "School No", "LLabel": "", "Currency": "No"}, {"name": "SchoolName", "type": "string", "width": "500", "Option": "", "SLabel": "School Name", "LLabel": "", "Currency": "No"}, {"name": "DOB", "type": "Date", "width": "10", "Option": "", "SLabel": "Date Of Birth", "LLabel": "", "Currency": "No"}, {"name": "RegDate", "type": "Date", "width": "10", "Option": "", "SLabel": "Registration date", "LLabel": "", "Currency": "No"}, {"name": "Year", "type": "string", "width": "50", "Option": "", "SLabel": "Year", "LLabel": "", "Currency": "No"}, {"name": "Section", "type": "string", "width": "100", "Option": "", "SLabel": "Section", "LLabel": "", "Currency": "No"}, {"name": "ClassTeacher", "type": "string", "width": "100", "Option": "", "SLabel": "Class Teacher", "LLabel": "", "Currency": "No"}, {"name": "WaitListNo", "type": "string", "width": "50", "Option": "", "SLabel": "Waiting List Number", "LLabel": "", "Currency": "No"}, {"name": "Street", "type": "string", "width": "500", "Option": "", "SLabel": "Street", "LLabel": "", "Currency": "No"}, {"name": "Postcode", "type": "string", "width": "20", "Option": "", "SLabel": "PostCode", "LLabel": "", "Currency": "No"}, {"name": "City", "type": "string", "width": "50", "Option": "", "SLabel": "City", "LLabel": "", "Currency": "No"}, {"name": "Country", "type": "string", "width": "20", "Option": "", "SLabel": "Country", "LLabel": "", "Currency": "No"}, {"name": "Phone", "type": "string", "width": "20", "Option": "", "SLabel": "Phone", "LLabel": "", "Currency": "No"}, {"name": "Email", "type": "string", "width": "50", "Option": "", "SLabel": "Email", "LLabel": "", "Currency": "No"}, {"name": "Status", "type": "string", "width": "20", "Option": "", "SLabel": "Status", "LLabel": "", "Currency": "No"}, {"name": "Latitude", "type": "Geocode", "width": "50", "Option": "", "SLabel": "Latitude", "LLabel": "", "Currency": "No"}, {"name": "Longitude", "type": "Geocode", "width": "50", "Option": "", "SLabel": "Longitude", "LLabel": "", "Currency": "No"}], "itemConfig": {}, "CalculatedFields": {}, "Wizard": []}
+{
+  "Title": {
+    "ApplicationTitle": "Student Registration",
+    "DetailTitle": "Student Registration"
+  },
+  "ListFields": {
+    "IntroField": "Name",
+    "TitleField": "Surname",
+    "fStatus": "Status",
+    "LFields": ["ID"]
+  },
+  "ListBOTFields": {
+    "None": ["cardImage", "StatusState"],
+    "Title": [],
+    "SubTitle": [],
+    "Description": []
+  },
+  "PossibleValues": ["Status"],
+  "MButtons": [],
+  "DButtons": [],
+  "Tabs": [
+    {
+      "value": "Tab0",
+      "name": "Cards",
+      "type": "Cards",
+      "fioriicon": "responsive"
+    },
+    {
+      "value": "Tab1",
+      "name": "Detail",
+      "type": "Field",
+      "fioriicon": "notes"
+    },
+    {
+      "value": "Tab2",
+      "name": "Address",
+      "type": "Field",
+      "fioriicon": "addresses"
+    },
+    { "value": "Tab3", "name": "Location", "type": "Field", "fioriicon": "map" }
+  ],
+  "DetailFields": {
+    "None": ["ID", "Name", "Surname", "Status"],
+    "Tab1": [
+      "SchoolNo",
+      "SchoolName",
+      "DOB",
+      "RegDate",
+      "Year",
+      "Section",
+      "ClassTeacher",
+      "WaitListNo",
+      "Email"
+    ],
+    "Tab2": ["Street", "Postcode", "City", "Country", "Phone"]
+  },
+  "ControlDisplay": {},
+  "FieldDef": [
+    {
+      "name": "ID",
+      "type": "string",
+      "width": "20",
+      "Option": "",
+      "SLabel": "ID",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "Name",
+      "type": "string",
+      "width": "50",
+      "Option": "",
+      "SLabel": "Name",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "Surname",
+      "type": "string",
+      "width": "50",
+      "Option": "",
+      "SLabel": "Surname",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "SchoolNo",
+      "type": "string",
+      "width": "20",
+      "Option": "",
+      "SLabel": "School No",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "SchoolName",
+      "type": "string",
+      "width": "500",
+      "Option": "",
+      "SLabel": "School Name",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "DOB",
+      "type": "Date",
+      "width": "10",
+      "Option": "",
+      "SLabel": "Date Of Birth",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "RegDate",
+      "type": "Date",
+      "width": "10",
+      "Option": "",
+      "SLabel": "Registration date",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "Year",
+      "type": "string",
+      "width": "50",
+      "Option": "",
+      "SLabel": "Year",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "Section",
+      "type": "string",
+      "width": "100",
+      "Option": "",
+      "SLabel": "Section",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "ClassTeacher",
+      "type": "string",
+      "width": "100",
+      "Option": "",
+      "SLabel": "Class Teacher",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "WaitListNo",
+      "type": "string",
+      "width": "50",
+      "Option": "",
+      "SLabel": "Waiting List Number",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "Street",
+      "type": "string",
+      "width": "500",
+      "Option": "",
+      "SLabel": "Street",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "Postcode",
+      "type": "string",
+      "width": "20",
+      "Option": "",
+      "SLabel": "PostCode",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "City",
+      "type": "string",
+      "width": "50",
+      "Option": "",
+      "SLabel": "City",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "Country",
+      "type": "string",
+      "width": "20",
+      "Option": "",
+      "SLabel": "Country",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "Phone",
+      "type": "string",
+      "width": "20",
+      "Option": "",
+      "SLabel": "Phone",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "Email",
+      "type": "string",
+      "width": "50",
+      "Option": "",
+      "SLabel": "Email",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "Status",
+      "type": "string",
+      "width": "20",
+      "Option": "",
+      "SLabel": "Status",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "Latitude",
+      "type": "Geocode",
+      "width": "50",
+      "Option": "",
+      "SLabel": "Latitude",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "Longitude",
+      "type": "Geocode",
+      "width": "50",
+      "Option": "",
+      "SLabel": "Longitude",
+      "LLabel": "",
+      "Currency": "No"
+    }
+  ],
+  "itemConfig": {},
+  "CalculatedFields": {},
+  "Wizard": []
+}

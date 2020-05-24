@@ -1,1 +1,255 @@
-{"Title": {"ApplicationTitle": "List of Uni/College", "DetailTitle": "Detail of Course offered"}, "ListFields": {"IntroField": "CollegeOrUniversity", "TitleField": "courseTitle", "fStatus": "Status", "LFields": ["ID"]}, "ListBOTFields": {"Title": [], "SubTitle": [], "Description": []}, "PossibleValues": [], "MButtons": [], "DButtons": [], "Tabs": [{"value": "Tab0", "name": "Cards", "type": "Cards", "fioriicon": "responsive"}, {"value": "Tab1", "name": "CourseDetails", "fioriicon": "bullet-text", "type": "Field", "download": "Yes"}, {"value": "Tab2", "name": "ContactUs", "fioriicon": "document-text", "type": "Field", "download": "Yes"}, {"value": "Tab3", "name": "ApplicationDownload", "fioriicon": "call", "type": "Field", "download": "Yes"}, {"value": "Tab4", "name": "FindOnMap", "fioriicon": "map", "type": "Field", "download": "Yes"}], "DetailFields": {"None": ["ID", "CollegeOrUniversity", "StudyLevel", "City", "Ranking", "Status"], "Tab1": ["courseTitle", "courseDescription", "SeatsAvailable", "courseFee", "ScholarshipAvailable"], "Tab2": ["Address", "PhoneNo", "Email"], "Tab3": ["DownloadApplication"]}, "ControlDisplay": {}, "FieldDef": [{"name": "ID", "type": "string", "width": "20", "Option": "", "SLabel": "Identification", "LLabel": "Identification", "Currency": "No"}, {"name": "StudyLevel", "type": "string", "width": "50", "Option": "", "SLabel": "Study Level", "LLabel": "Study Level", "Currency": "No"}, {"name": "CollegeOrUniversity", "type": "string", "width": "100", "Option": "", "SLabel": "College/University", "LLabel": "College/Uni", "Currency": "No"}, {"name": "City", "type": "string", "width": "100", "Option": "", "SLabel": "City", "LLabel": "City", "Currency": "No"}, {"name": "Ranking", "type": "string", "width": "5", "Option": "", "SLabel": "College Ranking", "LLabel": "College Ranking", "Currency": "No"}, {"name": "courseTitle", "type": "string", "width": "100", "Option": "", "SLabel": "Course Title", "LLabel": "Course Title", "Currency": "No"}, {"name": "courseDescription", "type": "string", "width": "1000", "Option": "", "SLabel": "CourseDescription", "LLabel": "CourseDescription", "Currency": "No"}, {"name": "SeatsAvailable", "type": "string", "width": "10", "Option": "", "SLabel": "SeatsAvailable", "LLabel": "SeatsAvailable", "Currency": "No"}, {"name": "courseFee", "type": "string", "width": "50", "Option": "", "SLabel": "Course Fee", "LLabel": "Course Fee", "Currency": "No"}, {"name": "ScholarshipAvailable", "type": "string", "width": "10", "Option": "", "SLabel": "ScholarshipAvailable", "LLabel": "ScholarshipAvailable", "Currency": "No"}, {"name": "DownloadApplication", "type": "hyperlink", "width": "100", "Option": "", "SLabel": "Download Application", "LLabel": "Download Application", "Currency": "No"}, {"name": "Address", "type": "string", "width": "500", "Option": "", "SLabel": "Address", "LLabel": "Address", "Currency": "No"}, {"name": "PhoneNo", "type": "string", "width": "20", "Option": "", "SLabel": "Phone No", "LLabel": "Phone No", "Currency": "No"}, {"name": "Email", "type": "string", "width": "20", "Option": "", "SLabel": "Email", "LLabel": "Email", "Currency": "No"}, {"name": "Status", "type": "string", "width": "20", "Option": "", "SLabel": "Status", "LLabel": "Status", "Currency": "No"}, {"name": "Date", "type": "Date", "width": "10", "Option": "", "SLabel": "Date", "LLabel": "Date", "Currency": "No"}, {"name": "Latitude", "type": "Geocode", "width": "200", "Option": "", "SLabel": "Latitude", "LLabel": "", "Currency": "No"}, {"name": "Longitude", "type": "Geocode", "width": "200", "Option": "", "SLabel": "Longitude", "LLabel": "", "Currency": "No"}], "itemConfig": {"ItemFieldDefinition": [], "DisplayFields": [], "ItemButtons": {"itemDisplay": true, "itemAdd": true, "itemEdit": true, "itemDelete": true}, "CreateFields": [], "ItemDetails": []}, "CalculatedFields": {"Item": [], "HeaderItem": [], "Header": []}, "Wizard": []}
+{
+  "Title": {
+    "ApplicationTitle": "List of Uni/College",
+    "DetailTitle": "Detail of Course offered"
+  },
+  "ListFields": {
+    "IntroField": "CollegeOrUniversity",
+    "TitleField": "courseTitle",
+    "fStatus": "Status",
+    "LFields": ["ID"]
+  },
+  "ListBOTFields": {
+    "None": ["cardImage", "StatusState"],
+    "Title": [],
+    "SubTitle": [],
+    "Description": []
+  },
+  "PossibleValues": [],
+  "MButtons": [],
+  "DButtons": [],
+  "Tabs": [
+    {
+      "value": "Tab0",
+      "name": "Cards",
+      "type": "Cards",
+      "fioriicon": "responsive"
+    },
+    {
+      "value": "Tab1",
+      "name": "CourseDetails",
+      "fioriicon": "bullet-text",
+      "type": "Field",
+      "download": "Yes"
+    },
+    {
+      "value": "Tab2",
+      "name": "ContactUs",
+      "fioriicon": "document-text",
+      "type": "Field",
+      "download": "Yes"
+    },
+    {
+      "value": "Tab3",
+      "name": "ApplicationDownload",
+      "fioriicon": "call",
+      "type": "Field",
+      "download": "Yes"
+    },
+    {
+      "value": "Tab4",
+      "name": "FindOnMap",
+      "fioriicon": "map",
+      "type": "Field",
+      "download": "Yes"
+    }
+  ],
+  "DetailFields": {
+    "None": [
+      "ID",
+      "CollegeOrUniversity",
+      "StudyLevel",
+      "City",
+      "Ranking",
+      "Status"
+    ],
+    "Tab1": [
+      "courseTitle",
+      "courseDescription",
+      "SeatsAvailable",
+      "courseFee",
+      "ScholarshipAvailable"
+    ],
+    "Tab2": ["Address", "PhoneNo", "Email"],
+    "Tab3": ["DownloadApplication"]
+  },
+  "ControlDisplay": {},
+  "FieldDef": [
+    {
+      "name": "ID",
+      "type": "string",
+      "width": "20",
+      "Option": "",
+      "SLabel": "Identification",
+      "LLabel": "Identification",
+      "Currency": "No"
+    },
+    {
+      "name": "StudyLevel",
+      "type": "string",
+      "width": "50",
+      "Option": "",
+      "SLabel": "Study Level",
+      "LLabel": "Study Level",
+      "Currency": "No"
+    },
+    {
+      "name": "CollegeOrUniversity",
+      "type": "string",
+      "width": "100",
+      "Option": "",
+      "SLabel": "College/University",
+      "LLabel": "College/Uni",
+      "Currency": "No"
+    },
+    {
+      "name": "City",
+      "type": "string",
+      "width": "100",
+      "Option": "",
+      "SLabel": "City",
+      "LLabel": "City",
+      "Currency": "No"
+    },
+    {
+      "name": "Ranking",
+      "type": "string",
+      "width": "5",
+      "Option": "",
+      "SLabel": "College Ranking",
+      "LLabel": "College Ranking",
+      "Currency": "No"
+    },
+    {
+      "name": "courseTitle",
+      "type": "string",
+      "width": "100",
+      "Option": "",
+      "SLabel": "Course Title",
+      "LLabel": "Course Title",
+      "Currency": "No"
+    },
+    {
+      "name": "courseDescription",
+      "type": "string",
+      "width": "1000",
+      "Option": "",
+      "SLabel": "CourseDescription",
+      "LLabel": "CourseDescription",
+      "Currency": "No"
+    },
+    {
+      "name": "SeatsAvailable",
+      "type": "string",
+      "width": "10",
+      "Option": "",
+      "SLabel": "SeatsAvailable",
+      "LLabel": "SeatsAvailable",
+      "Currency": "No"
+    },
+    {
+      "name": "courseFee",
+      "type": "string",
+      "width": "50",
+      "Option": "",
+      "SLabel": "Course Fee",
+      "LLabel": "Course Fee",
+      "Currency": "No"
+    },
+    {
+      "name": "ScholarshipAvailable",
+      "type": "string",
+      "width": "10",
+      "Option": "",
+      "SLabel": "ScholarshipAvailable",
+      "LLabel": "ScholarshipAvailable",
+      "Currency": "No"
+    },
+    {
+      "name": "DownloadApplication",
+      "type": "hyperlink",
+      "width": "100",
+      "Option": "",
+      "SLabel": "Download Application",
+      "LLabel": "Download Application",
+      "Currency": "No"
+    },
+    {
+      "name": "Address",
+      "type": "string",
+      "width": "500",
+      "Option": "",
+      "SLabel": "Address",
+      "LLabel": "Address",
+      "Currency": "No"
+    },
+    {
+      "name": "PhoneNo",
+      "type": "string",
+      "width": "20",
+      "Option": "",
+      "SLabel": "Phone No",
+      "LLabel": "Phone No",
+      "Currency": "No"
+    },
+    {
+      "name": "Email",
+      "type": "string",
+      "width": "20",
+      "Option": "",
+      "SLabel": "Email",
+      "LLabel": "Email",
+      "Currency": "No"
+    },
+    {
+      "name": "Status",
+      "type": "string",
+      "width": "20",
+      "Option": "",
+      "SLabel": "Status",
+      "LLabel": "Status",
+      "Currency": "No"
+    },
+    {
+      "name": "Date",
+      "type": "Date",
+      "width": "10",
+      "Option": "",
+      "SLabel": "Date",
+      "LLabel": "Date",
+      "Currency": "No"
+    },
+    {
+      "name": "Latitude",
+      "type": "Geocode",
+      "width": "200",
+      "Option": "",
+      "SLabel": "Latitude",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "Longitude",
+      "type": "Geocode",
+      "width": "200",
+      "Option": "",
+      "SLabel": "Longitude",
+      "LLabel": "",
+      "Currency": "No"
+    }
+  ],
+  "itemConfig": {
+    "ItemFieldDefinition": [],
+    "DisplayFields": [],
+    "ItemButtons": {
+      "itemDisplay": true,
+      "itemAdd": true,
+      "itemEdit": true,
+      "itemDelete": true
+    },
+    "CreateFields": [],
+    "ItemDetails": []
+  },
+  "CalculatedFields": { "Item": [], "HeaderItem": [], "Header": [] },
+  "Wizard": []
+}

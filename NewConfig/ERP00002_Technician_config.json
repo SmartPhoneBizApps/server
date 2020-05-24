@@ -1,1 +1,250 @@
-{"Title": {"ApplicationTitle": "Incident Management", "DetailTitle": "Technician Update"}, "ListFields": {"IntroField": "Priority", "TitleField": "Area", "fStatus": "Status", "LFields": ["ID", "Problem"]}, "ListBOTFields": {"Title": [], "SubTitle": [], "Description": []}, "PossibleValues": ["Status", "Priority"], "MButtons": [], "DButtons": [], "Tabs": [{"value": "Tab0", "name": "Cards", "type": "Cards", "fioriicon": "responsive"}, {"value": "Tab1", "name": "Details", "type": "Field", "fioriicon": "notes"}, {"value": "Tab2", "name": "Action", "type": "Field", "fioriicon": "action"}, {"value": "Tab3", "name": "Location", "type": "Field", "fioriicon": "map"}], "DetailFields": {"None": ["ID", "Status", "Problem", "Details"], "Tab1": ["Area", "Priority", "Name", "Address", "Company"], "Tab2": ["StartDate", "StartTime", "Agent", "WorkLog", "FinishDate", "FinishTime", "Resolution"]}, "ControlDisplay": {}, "FieldDef": [{"name": "ID", "type": "string", "width": "20", "Option": "", "SLabel": "Identification", "LLabel": "", "Currency": "No"}, {"name": "Longitude", "type": "Geocode", "width": "50", "Option": "", "SLabel": "Longitude", "LLabel": "", "Currency": "No"}, {"name": "StartDate", "type": "Date", "width": "10", "Option": "", "SLabel": "Start Date", "LLabel": "", "Currency": "No"}, {"name": "StartTime", "type": "Time", "width": "10", "Option": "", "SLabel": "Start Time", "LLabel": "", "Currency": "No"}, {"name": "Agent", "type": "string", "width": "100", "Option": "", "SLabel": "Agent", "LLabel": "", "Currency": "No"}, {"name": "WorkLog", "type": "string", "width": "100", "Option": "", "SLabel": "Work Log", "LLabel": "", "Currency": "No"}, {"name": "FinishDate", "type": "Date", "width": "10", "Option": "", "SLabel": "Finish Date", "LLabel": "", "Currency": "No"}, {"name": "FinishTime", "type": "Time", "width": "10", "Option": "", "SLabel": "Finish Time", "LLabel": "", "Currency": "No"}, {"name": "Resolution", "type": "string", "width": "100", "Option": "", "SLabel": "Resolution", "LLabel": "", "Currency": "No"}, {"name": "Status", "type": "string", "width": "20", "Option": "", "SLabel": "Status", "LLabel": "", "Currency": "No"}, {"name": "Problem", "type": "string", "width": "50", "Option": "", "SLabel": "Problem", "LLabel": "", "Currency": "No"}, {"name": "Details", "type": "string", "width": "100", "Option": "", "SLabel": "Details", "LLabel": "", "Currency": "No"}, {"name": "Area", "type": "string", "width": "100", "Option": "", "SLabel": "Area", "LLabel": "", "Currency": "No"}, {"name": "Priority", "type": "string", "width": "100", "Option": "", "SLabel": "Priority", "LLabel": "", "Currency": "No"}, {"name": "Name", "type": "string", "width": "100", "Option": "", "SLabel": "Name", "LLabel": "", "Currency": "No"}, {"name": "Address", "type": "string", "width": "100", "Option": "", "SLabel": "Address", "LLabel": "", "Currency": "No"}, {"name": "Company", "type": "string", "width": "100", "Option": "", "SLabel": "Company", "LLabel": "", "Currency": "No"}, {"name": "Latitude", "type": "Geocode", "width": "50", "Option": "", "SLabel": "Latitude", "LLabel": "", "Currency": "No"}, {"name": "IncidentType", "type": "string", "width": "50", "Option": "", "SLabel": "Incident Type", "LLabel": "", "Currency": "No"}, {"name": "Urgency", "type": "string", "width": "50", "Option": "", "SLabel": "Urgency", "LLabel": "", "Currency": "No"}, {"name": "Impact", "type": "string", "width": "50", "Option": "", "SLabel": "Impact", "LLabel": "", "Currency": "No"}], "itemConfig": {}, "CalculatedFields": {}, "Wizard": []}
+{
+  "Title": {
+    "ApplicationTitle": "Incident Management",
+    "DetailTitle": "Technician Update"
+  },
+  "ListFields": {
+    "IntroField": "Priority",
+    "TitleField": "Area",
+    "fStatus": "Status",
+    "LFields": ["ID", "Problem"]
+  },
+  "ListBOTFields": {
+    "None": ["cardImage", "StatusState"],
+    "Title": [],
+    "SubTitle": [],
+    "Description": []
+  },
+  "PossibleValues": ["Status", "Priority"],
+  "MButtons": [],
+  "DButtons": [],
+  "Tabs": [
+    {
+      "value": "Tab0",
+      "name": "Cards",
+      "type": "Cards",
+      "fioriicon": "responsive"
+    },
+    {
+      "value": "Tab1",
+      "name": "Details",
+      "type": "Field",
+      "fioriicon": "notes"
+    },
+    {
+      "value": "Tab2",
+      "name": "Action",
+      "type": "Field",
+      "fioriicon": "action"
+    },
+    { "value": "Tab3", "name": "Location", "type": "Field", "fioriicon": "map" }
+  ],
+  "DetailFields": {
+    "None": ["ID", "Status", "Problem", "Details"],
+    "Tab1": ["Area", "Priority", "Name", "Address", "Company"],
+    "Tab2": [
+      "StartDate",
+      "StartTime",
+      "Agent",
+      "WorkLog",
+      "FinishDate",
+      "FinishTime",
+      "Resolution"
+    ]
+  },
+  "ControlDisplay": {},
+  "FieldDef": [
+    {
+      "name": "ID",
+      "type": "string",
+      "width": "20",
+      "Option": "",
+      "SLabel": "Identification",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "Longitude",
+      "type": "Geocode",
+      "width": "50",
+      "Option": "",
+      "SLabel": "Longitude",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "StartDate",
+      "type": "Date",
+      "width": "10",
+      "Option": "",
+      "SLabel": "Start Date",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "StartTime",
+      "type": "Time",
+      "width": "10",
+      "Option": "",
+      "SLabel": "Start Time",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "Agent",
+      "type": "string",
+      "width": "100",
+      "Option": "",
+      "SLabel": "Agent",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "WorkLog",
+      "type": "string",
+      "width": "100",
+      "Option": "",
+      "SLabel": "Work Log",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "FinishDate",
+      "type": "Date",
+      "width": "10",
+      "Option": "",
+      "SLabel": "Finish Date",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "FinishTime",
+      "type": "Time",
+      "width": "10",
+      "Option": "",
+      "SLabel": "Finish Time",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "Resolution",
+      "type": "string",
+      "width": "100",
+      "Option": "",
+      "SLabel": "Resolution",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "Status",
+      "type": "string",
+      "width": "20",
+      "Option": "",
+      "SLabel": "Status",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "Problem",
+      "type": "string",
+      "width": "50",
+      "Option": "",
+      "SLabel": "Problem",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "Details",
+      "type": "string",
+      "width": "100",
+      "Option": "",
+      "SLabel": "Details",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "Area",
+      "type": "string",
+      "width": "100",
+      "Option": "",
+      "SLabel": "Area",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "Priority",
+      "type": "string",
+      "width": "100",
+      "Option": "",
+      "SLabel": "Priority",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "Name",
+      "type": "string",
+      "width": "100",
+      "Option": "",
+      "SLabel": "Name",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "Address",
+      "type": "string",
+      "width": "100",
+      "Option": "",
+      "SLabel": "Address",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "Company",
+      "type": "string",
+      "width": "100",
+      "Option": "",
+      "SLabel": "Company",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "Latitude",
+      "type": "Geocode",
+      "width": "50",
+      "Option": "",
+      "SLabel": "Latitude",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "IncidentType",
+      "type": "string",
+      "width": "50",
+      "Option": "",
+      "SLabel": "Incident Type",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "Urgency",
+      "type": "string",
+      "width": "50",
+      "Option": "",
+      "SLabel": "Urgency",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "Impact",
+      "type": "string",
+      "width": "50",
+      "Option": "",
+      "SLabel": "Impact",
+      "LLabel": "",
+      "Currency": "No"
+    }
+  ],
+  "itemConfig": {},
+  "CalculatedFields": {},
+  "Wizard": []
+}

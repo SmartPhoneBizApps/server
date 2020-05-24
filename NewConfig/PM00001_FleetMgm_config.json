@@ -1,1 +1,97 @@
-{"Title": {"ApplicationTitle": "Fleet Tracking", "DetailTitle": "Fleet Tracking"}, "ListFields": {"IntroField": "Vehicle", "TitleField": "RegNo", "fStatus": "Status", "LFields": ["ID", "Model", "RegYear"]}, "ListBOTFields": {"Title": [], "SubTitle": [], "Description": []}, "PossibleValues": ["Status"], "MButtons": [], "DButtons": [], "Tabs": [{"value": "Tab0", "name": "Cards", "type": "Cards", "fioriicon": "responsive"}, {"value": "Tab1", "name": "Fleet", "type": "Field"}, {"value": "Tab2", "name": "IssuesTo", "type": "Field"}, {"value": "Tab3", "name": "Maintenance", "type": "Field"}, {"value": "Tab4", "name": "Attachment", "fioriicon": "attachment", "type": "Attachment"}], "DetailFields": {"None": ["ID", "RegNo"], "Tab1": ["Vehicle", "Model", "RegYear", "ChassisNo", "PurchaseDate", "Status"], "Tab2": ["IssueDate", "IssuesTo", "EmpID", "Phone", "Email"], "Tab3": ["MOTDueDate", "LastService", "NextService", "Millage", "MillageDate"], "Tab4": ["PhotoID"]}, "ControlDisplay": {}, "FieldDef": [{"name": "ID", "type": "string", "width": "20", "Option": "", "SLabel": "", "LLabel": ""}, {"name": "RegNo", "type": "string", "width": "50"}, {"name": "Vehicle", "type": "string", "width": "50"}, {"name": "Model", "type": "string", "width": "50"}, {"name": "RegYear", "type": "string", "width": "50"}, {"name": "ChassisNo", "Option": "", "type": "barcode", "width": "50", "SLabel": "", "LLabel": ""}, {"name": "PurchaseDate", "type": "Date", "width": "10"}, {"name": "IssueDate", "type": "Date", "width": "10"}, {"name": "IssuesTo", "type": "string", "width": "50"}, {"name": "PhotoID", "type": "attachment", "width": "50"}, {"name": "EmpID", "type": "string", "width": "50"}, {"name": "Phone", "type": "string", "width": "50"}, {"name": "Email", "type": "string", "width": "50"}, {"name": "MOTDueDate", "type": "Date", "width": "10"}, {"name": "LastService", "type": "Date", "width": "10"}, {"name": "NextService", "type": "Date", "width": "10"}, {"name": "Millage", "type": "string", "width": "50"}, {"name": "MillageDate", "type": "Date", "width": "10"}, {"name": "Status", "type": "string", "width": "20"}], "itemConfig": {}, "CalculatedFields": {}, "Wizard": []}
+{
+  "Title": {
+    "ApplicationTitle": "Fleet Tracking",
+    "DetailTitle": "Fleet Tracking"
+  },
+  "ListFields": {
+    "IntroField": "Vehicle",
+    "TitleField": "RegNo",
+    "fStatus": "Status",
+    "LFields": ["ID", "Model", "RegYear"]
+  },
+  "ListBOTFields": {
+    "None": ["cardImage", "StatusState"],
+    "Title": [],
+    "SubTitle": [],
+    "Description": []
+  },
+  "PossibleValues": ["Status"],
+  "MButtons": [],
+  "DButtons": [],
+  "Tabs": [
+    {
+      "value": "Tab0",
+      "name": "Cards",
+      "type": "Cards",
+      "fioriicon": "responsive"
+    },
+    { "value": "Tab1", "name": "Fleet", "type": "Field" },
+    { "value": "Tab2", "name": "IssuesTo", "type": "Field" },
+    { "value": "Tab3", "name": "Maintenance", "type": "Field" },
+    {
+      "value": "Tab4",
+      "name": "Attachment",
+      "fioriicon": "attachment",
+      "type": "Attachment"
+    }
+  ],
+  "DetailFields": {
+    "None": ["ID", "RegNo"],
+    "Tab1": [
+      "Vehicle",
+      "Model",
+      "RegYear",
+      "ChassisNo",
+      "PurchaseDate",
+      "Status"
+    ],
+    "Tab2": ["IssueDate", "IssuesTo", "EmpID", "Phone", "Email"],
+    "Tab3": [
+      "MOTDueDate",
+      "LastService",
+      "NextService",
+      "Millage",
+      "MillageDate"
+    ],
+    "Tab4": ["PhotoID"]
+  },
+  "ControlDisplay": {},
+  "FieldDef": [
+    {
+      "name": "ID",
+      "type": "string",
+      "width": "20",
+      "Option": "",
+      "SLabel": "",
+      "LLabel": ""
+    },
+    { "name": "RegNo", "type": "string", "width": "50" },
+    { "name": "Vehicle", "type": "string", "width": "50" },
+    { "name": "Model", "type": "string", "width": "50" },
+    { "name": "RegYear", "type": "string", "width": "50" },
+    {
+      "name": "ChassisNo",
+      "Option": "",
+      "type": "barcode",
+      "width": "50",
+      "SLabel": "",
+      "LLabel": ""
+    },
+    { "name": "PurchaseDate", "type": "Date", "width": "10" },
+    { "name": "IssueDate", "type": "Date", "width": "10" },
+    { "name": "IssuesTo", "type": "string", "width": "50" },
+    { "name": "PhotoID", "type": "attachment", "width": "50" },
+    { "name": "EmpID", "type": "string", "width": "50" },
+    { "name": "Phone", "type": "string", "width": "50" },
+    { "name": "Email", "type": "string", "width": "50" },
+    { "name": "MOTDueDate", "type": "Date", "width": "10" },
+    { "name": "LastService", "type": "Date", "width": "10" },
+    { "name": "NextService", "type": "Date", "width": "10" },
+    { "name": "Millage", "type": "string", "width": "50" },
+    { "name": "MillageDate", "type": "Date", "width": "10" },
+    { "name": "Status", "type": "string", "width": "20" }
+  ],
+  "itemConfig": {},
+  "CalculatedFields": {},
+  "Wizard": []
+}

@@ -1,6 +1,7 @@
 const ErrorResponse = require("../../utils/errorResponse");
 const Papa = require("papaparse");
 const axios = require("axios").default;
+const { getNewConfig } = require("../../modules/config");
 
 let papaConfig = {
   delimiter: "", // auto-detect
@@ -36,12 +37,18 @@ exports.upLoadData = async (req, res, next) => {
   let myURL = "http://localhost:5000/api/v1/datarecords/";
   ProcessLog = { ID: "", success: false, error: "" };
   ProcessOut = [];
-  let fileName =
+  /*   let fileName =
     "../../NewConfig/" +
     req.headers.applicationid +
     "_" +
     req.headers.businessrole +
-    "_config.json";
+    "_config.json"; */
+
+  // Read New Config File
+  var cardConfig = getNewConfig(
+    req.headers.applicationid,
+    req.headers.businessrole
+  );
 
   // Parse CSV
   var data = Papa.parse(req.body.FileData, papaConfig);
@@ -50,7 +57,7 @@ exports.upLoadData = async (req, res, next) => {
     if (data["data"].hasOwnProperty(key)) {
       element = data["data"][key];
       mydata = {};
-      var cardConfig = require(fileName);
+      //  var cardConfig = require(fileName);
       for (const key in element) {
         cardConfig["FieldDef"].forEach((element1) => {
           if (element.hasOwnProperty(key) & (element1["SLabel"] == key)) {
@@ -59,7 +66,17 @@ exports.upLoadData = async (req, res, next) => {
         });
       }
       ProcessLog["ID"] = mydata["ID"];
-
+      //---------------------------
+      // Perform Calculations ....
+      //---------------------------
+      if (req.headers.calculation == "Yes") {
+        var Handler = new calfunction();
+        mydata = Handler["datacalculation"](
+          mydata,
+          cardConfig["CalculatedFields"]
+        );
+      }
+      //---------------------------
       dg01 = JSON.stringify(mydata);
       axios({
         method: "post",

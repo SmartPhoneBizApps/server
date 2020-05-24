@@ -1,12 +1,11 @@
 const express = require("express");
 const {
   getMaterListrecords,
-  addListrecords,
 } = require("../../controllers/smartApp/listrecords");
 //const reviewRouter = require("../reviews");
 const router = express.Router();
 const advancedMasterList = require("../../middleware/advancedMasterList");
-const advancedCreate = require("../../middleware/advancedCreate");
+//const advancedCreate = require("../../middleware/advancedCreate");
 const { protect, authorize } = require("../../middleware/auth");
 
 const BUS0000002 = require("../../models/smartApp/BUS0000002");

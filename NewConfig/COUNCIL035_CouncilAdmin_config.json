@@ -1,1 +1,665 @@
-{"Title": {"ApplicationTitle": "Register with council", "DetailTitle": "Register with council"}, "ListFields": {"IntroField": "RegisterFor", "TitleField": "Name", "fStatus": "Status", "LFields": ["ID"]}, "ListBOTFields": {"Title": ["ID", "Status"], "SubTitle": ["Name", "RegisterFor"], "Description": ["ApplicationDate"]}, "PossibleValues": ["Status", "RegisterFor", "Gender", "WasDeath", "DeathCause"], "MButtons": [], "DButtons": [], "Tabs": [{"value": "Tab0", "name": "Cards", "type": "Cards", "fioriicon": "responsive"}, {"value": "Tab1", "name": "Registration Details", "type": "Field", "fioriicon": "request", "download": "Yes"}, {"value": "Tab2", "name": "Other Details", "type": "Field", "fioriicon": "action-settings", "download": "Yes"}, {"value": "Tab3", "name": "Applicant Details", "fioriicon": "notes", "type": "Field", "download": "Yes"}, {"value": "Tab4", "name": "Chat", "fioriicon": "comment", "type": "Chat", "download": "Yes"}, {"value": "Tab5", "name": "Processing Log", "fioriicon": "comment", "type": "Chat", "download": "Yes"}], "DetailFields": {"None": ["ID", "ApplicationDate", "Status"], "Tab1": ["RegisterFor", "ChildName", "Surname", "DeceasedName", "DOB", "BirthPlace", "DeathPlace", "Gender", "Nationality", "PreferName1", "PreferName2", "PreferName3", "DeathDate", "LastAddress", "WasDeath", "DeathCause", "NHSNumber", "BrideName", "BrideSurname", "GroomName", "GroomSurname"], "Tab2": ["MotherName", "MotherNationality", "MotherAddress", "FatherName", "FatherNationality", "FatherAddress", "MarriageDate", "AdditionalInfo", "SpouseName", "MarriagePlace", "BrideFatherName", "GroomFatherName"], "Tab3": ["Name", "ContactNo", "EmailID", "Address", "Postcode"], "Tab4": ["Question_Response"], "Tab5": ["ProcessingLog"]}, "ControlDisplay": {"ControlField": "RegisterFor", "Fields": [[{"ALL": ["ID", "Name", "ContactNo", "EmailID", "Address", "Postcode", "ApplicationDate", "RegisterFor", "Status", "Approver", "Question_Response", "ProcessingLog"]}, {"BirthCertificate": ["ChildName", "Surname", "Nationality", "MotherAddress", "MotherNationality", "FatherAddress", "FatherNationality"]}, {"DeathCertificate": ["DeceasedName", "DeathPlace", "DeathDate", "LastAddress", "WasDeath", "DeathCause", "SpouseName"]}, {"MarriageRegistration": ["BrideName", "BrideSurname", "GroomName", "GroomSurname", "MarriagePlace", "BrideFatherName", "GroomFatherName"]}, {"NewHouseName": ["PreferName1", "PreferName2", "PreferName3", "AdditionalInfo"]}]]}, "FieldDef": [{"name": "ID", "type": "string", "width": "20", "Option": "", "SLabel": "Identification ", "LLabel": "", "Currency": "No"}, {"name": "Name", "type": "string", "width": "20", "Option": "", "SLabel": "Applicant Name", "LLabel": "Applicant Name", "Currency": "No"}, {"name": "ContactNo", "type": "PhoneNumber", "width": "20", "Option": "", "SLabel": "Applicant Contact Number", "LLabel": "Contact Number", "Currency": "No"}, {"name": "EmailID", "type": "Email", "width": "100", "Option": "", "SLabel": "Applicant Email", "LLabel": "Applicant Email", "Currency": "No"}, {"name": "Address", "type": "string", "width": "500", "Option": "", "SLabel": "Applicant Address", "LLabel": "Applicant Address", "Currency": "No"}, {"name": "Postcode", "type": "string", "width": "20", "Option": "", "SLabel": "Applicant Postcode", "LLabel": "Postcode", "Currency": "No"}, {"name": "ApplicationDate", "type": "Date", "width": "10", "Option": "", "SLabel": "Application Date", "LLabel": "Application Date", "Currency": "No"}, {"name": "RegisterFor", "type": "string", "width": "200", "Option": "mandatory", "SLabel": "You are registering for", "LLabel": "RegisterFor", "Currency": "No"}, {"name": "Status", "type": "string", "width": "20", "Option": "", "SLabel": "Status", "LLabel": "Status", "Currency": "No"}, {"name": "DOB", "type": "Date", "width": "10", "Option": "", "SLabel": "Date of birth", "LLabel": "Date of birth", "Currency": "No"}, {"name": "ChildName", "type": "string", "width": "50", "Option": "", "SLabel": "Child Name", "LLabel": "ChildName", "Currency": "No"}, {"name": "Surname", "type": "string", "width": "50", "Option": "", "SLabel": "Surname", "LLabel": "Surname", "Currency": "No"}, {"name": "BirthPlace", "type": "string", "width": "50", "Option": "", "SLabel": "Birth Place", "LLabel": "BirthPlace", "Currency": "No"}, {"name": "Gender", "type": "string", "width": "20", "Option": "", "SLabel": "Gender", "LLabel": "Gender", "Currency": "No"}, {"name": "Nationality", "type": "string", "width": "50", "Option": "", "SLabel": "Nationality", "LLabel": "Nationality", "Currency": "No"}, {"name": "MotherName", "type": "string", "width": "50", "Option": "", "SLabel": "Mother Name", "LLabel": "MotherName", "Currency": "No"}, {"name": "MotherAddress", "type": "string", "width": "200", "Option": "", "SLabel": "Mother Address", "LLabel": "MotherAddress", "Currency": "No"}, {"name": "MotherNationality", "type": "string", "width": "200", "Option": "", "SLabel": "Mother Nationality", "LLabel": "MotherNationality", "Currency": "No"}, {"name": "FatherName", "type": "string", "width": "200", "Option": "", "SLabel": "Father Name", "LLabel": "FatherName", "Currency": "No"}, {"name": "FatherAddress", "type": "string", "width": "200", "Option": "", "SLabel": "Father Address", "LLabel": "Father Address", "Currency": "No"}, {"name": "FatherNationality", "type": "string", "width": "200", "Option": "", "SLabel": "Father Nationality", "LLabel": "FatherNationality", "Currency": "No"}, {"name": "MarriageDate", "type": "Date", "width": "10", "Option": "", "SLabel": "Marriage Date", "LLabel": "MarriageDate", "Currency": "No"}, {"name": "PreferName1", "type": "string", "width": "200", "Option": "", "SLabel": "Prefered Name 1", "LLabel": "PreferName1", "Currency": "No"}, {"name": "PreferName2", "type": "string", "width": "200", "Option": "", "SLabel": "Prefered Name 2", "LLabel": "PreferName2", "Currency": "No"}, {"name": "PreferName3", "type": "string", "width": "200", "Option": "", "SLabel": "Prefered Name 3", "LLabel": "", "Currency": "No"}, {"name": "DeceasedName", "type": "string", "width": "200", "Option": "", "SLabel": "Deceased Full Name", "LLabel": "DeceasedName", "Currency": "No"}, {"name": "DeathPlace", "type": "string", "width": "200", "Option": "", "SLabel": "Death Place", "LLabel": "DeathPlace", "Currency": "No"}, {"name": "DeathDate", "type": "Date", "width": "10", "Option": "", "SLabel": "Death Date", "LLabel": "DeathDate", "Currency": "No"}, {"name": "LastAddress", "type": "string", "width": "200", "Option": "", "SLabel": "Last Address", "LLabel": "LastAddress", "Currency": "No"}, {"name": "WasDeath", "type": "string", "width": "200", "Option": "", "SLabel": "Death was", "LLabel": "WasDeath", "Currency": "No"}, {"name": "DeathCause", "type": "string", "width": "200", "Option": "", "SLabel": "Cause of death", "LLabel": "Cause of death", "Currency": "No"}, {"name": "NHSNumber", "type": "string", "width": "200", "Option": "", "SLabel": "NHS Number", "LLabel": "NHSNumber", "Currency": "No"}, {"name": "SpouseName", "type": "string", "width": "200", "Option": "", "SLabel": "Spouse Or Civil Partner Name", "LLabel": "Spouse Or Civil Partner Name", "Currency": "No"}, {"name": "BrideName", "type": "string", "width": "200", "Option": "", "SLabel": "Bride Name", "LLabel": "BrideName", "Currency": "No"}, {"name": "BrideSurname", "type": "string", "width": "200", "Option": "", "SLabel": "Bride Surname", "LLabel": "BrideSurname", "Currency": "No"}, {"name": "GroomName", "type": "string", "width": "200", "Option": "", "SLabel": "Groom Name", "LLabel": "GroomName", "Currency": "No"}, {"name": "GroomSurname", "type": "string", "width": "200", "Option": "", "SLabel": "Groom Surname", "LLabel": "GroomSurname", "Currency": "No"}, {"name": "MarriagePlace", "type": "string", "width": "200", "Option": "", "SLabel": "Place of Marriage", "LLabel": "MarriagePlace", "Currency": "No"}, {"name": "BrideFatherName", "type": "string", "width": "200", "Option": "", "SLabel": "Bride's Father Name", "LLabel": "BrideFatherName", "Currency": "No"}, {"name": "GroomFatherName", "type": "string", "width": "200", "Option": "", "SLabel": "Groom's Father Name", "LLabel": "GroomFatherName", "Currency": "No"}, {"name": "AdditionalInfo", "type": "string", "width": "200", "Option": "", "SLabel": "Additional Info", "LLabel": "AdditionalInfo", "Currency": "No"}, {"name": "Approver", "type": "string", "width": "100", "Option": "", "SLabel": "Approver", "LLabel": "Approver", "Currency": "No"}, {"name": "Question_Response", "type": "string", "width": "500", "Option": "", "SLabel": "Here Is Chat Details", "LLabel": "Question_Response", "Currency": "No"}, {"name": "ProcessingLog", "type": "string", "width": "500", "Option": "", "SLabel": "Processing Log", "LLabel": "Processing Log", "Currency": "No"}], "itemConfig": {"ItemFieldDefinition": [], "DisplayFields": [], "ItemButtons": {"itemDisplay": false, "itemAdd": false, "itemEdit": false, "itemDelete": false}, "CreateFields": [], "ItemDetails": []}, "CalculatedFields": {}, "Wizard": [{"id": "Step1", "fields": [{"name": "EmailID", "Sequence": "1", "Mode": "Edit"}, {"name": "Postcode", "Sequence": "1", "Mode": "Edit"}, {"name": "Address", "Sequence": "1", "Mode": "Edit"}, {"name": "ChildName", "Sequence": "1", "Mode": "Edit"}, {"name": "Surname", "Sequence": "1", "Mode": "Edit"}, {"name": "DeceasedName", "Sequence": "1", "Mode": "Edit"}, {"name": "RegisterFor", "Sequence": "1", "Mode": "Display"}, {"name": "BirthPlace", "Sequence": "1", "Mode": "Edit"}, {"name": "Gender", "Sequence": "1", "Mode": "Edit"}, {"name": "Name", "Sequence": "1", "Mode": "Edit"}, {"name": "ContactNo", "Sequence": "1", "Mode": "Edit"}], "name": "Applicant'sDetails", "stepType": "FieldList", "intro": "Register : Applicant's Details"}, {"id": "Step2", "fields": [{"name": "MotherAddress", "Sequence": "1", "Mode": "Edit"}, {"name": "FatherName", "Sequence": "1", "Mode": "Edit"}, {"name": "FatherNationality", "Sequence": "1", "Mode": "Edit"}, {"name": "FatherAddress", "Sequence": "1", "Mode": "Edit"}], "name": "RegistrationDetails", "stepType": "FieldList", "intro": "Register : Registration Details"}, {"id": "Step3", "fields": [{"name": "PreferName1", "Sequence": "1", "Mode": "Edit"}, {"name": "PreferName2", "Sequence": "1", "Mode": "Edit"}, {"name": "PreferName3", "Sequence": "1", "Mode": "Edit"}, {"name": "DeathPlace", "Sequence": "1", "Mode": "Edit"}, {"name": "DeathDate", "Sequence": "1", "Mode": "Edit"}, {"name": "LastAddress", "Sequence": "1", "Mode": "Edit"}, {"name": "WasDeath", "Sequence": "1", "Mode": "Edit"}, {"name": "DeathCause", "Sequence": "1", "Mode": "Edit"}, {"name": "NHSNumber", "Sequence": "1", "Mode": "Edit"}, {"name": "SpouseName", "Sequence": "1", "Mode": "Edit"}], "name": "Other Details", "stepType": "FieldList", "intro": "Register : Other Details"}, {"id": "Step4", "fields": [{"name": "GroomName", "Sequence": "1", "Mode": "Edit"}, {"name": "GroomSurname", "Sequence": "1", "Mode": "Edit"}, {"name": "MarriagePlace", "Sequence": "1", "Mode": "Edit"}, {"name": "GroomFatherName", "Sequence": "1", "Mode": "Edit"}], "name": "OtherInfo", "stepType": "FieldList", "intro": "Register: Other Info"}, {"id": "Step5", "fields": [{"name": "AdditionalInfo", "Sequence": "1", "Mode": "Edit"}, {"name": "Status", "Sequence": "1", "Mode": "Edit"}, {"name": "Approver", "Sequence": "1", "Mode": "Display"}, {"name": "BrideName", "Sequence": "1", "Mode": "Edit"}, {"name": "BrideSurname", "Sequence": "1", "Mode": "Edit"}, {"name": "BrideFatherName", "Sequence": "1", "Mode": "Edit"}], "name": "Other Info 2", "stepType": "FieldList", "intro": "Register: other info 2"}]}
+{
+  "Title": {
+    "ApplicationTitle": "Register with council",
+    "DetailTitle": "Register with council"
+  },
+  "ListFields": {
+    "IntroField": "RegisterFor",
+    "TitleField": "Name",
+    "fStatus": "Status",
+    "LFields": ["ID"]
+  },
+  "ListBOTFields": {
+    "None": ["cardImage", "StatusState"],
+    "Title": ["ID", "Status"],
+    "SubTitle": ["Name", "RegisterFor"],
+    "Description": ["ApplicationDate"]
+  },
+  "PossibleValues": [
+    "Status",
+    "RegisterFor",
+    "Gender",
+    "WasDeath",
+    "DeathCause"
+  ],
+  "MButtons": [],
+  "DButtons": [],
+  "Tabs": [
+    {
+      "value": "Tab0",
+      "name": "Cards",
+      "type": "Cards",
+      "fioriicon": "responsive"
+    },
+    {
+      "value": "Tab1",
+      "name": "Registration Details",
+      "type": "Field",
+      "fioriicon": "request",
+      "download": "Yes"
+    },
+    {
+      "value": "Tab2",
+      "name": "Other Details",
+      "type": "Field",
+      "fioriicon": "action-settings",
+      "download": "Yes"
+    },
+    {
+      "value": "Tab3",
+      "name": "Applicant Details",
+      "fioriicon": "notes",
+      "type": "Field",
+      "download": "Yes"
+    },
+    {
+      "value": "Tab4",
+      "name": "Chat",
+      "fioriicon": "comment",
+      "type": "Chat",
+      "download": "Yes"
+    },
+    {
+      "value": "Tab5",
+      "name": "Processing Log",
+      "fioriicon": "comment",
+      "type": "Chat",
+      "download": "Yes"
+    }
+  ],
+  "DetailFields": {
+    "None": ["ID", "ApplicationDate", "Status"],
+    "Tab1": [
+      "RegisterFor",
+      "ChildName",
+      "Surname",
+      "DeceasedName",
+      "DOB",
+      "BirthPlace",
+      "DeathPlace",
+      "Gender",
+      "Nationality",
+      "PreferName1",
+      "PreferName2",
+      "PreferName3",
+      "DeathDate",
+      "LastAddress",
+      "WasDeath",
+      "DeathCause",
+      "NHSNumber",
+      "BrideName",
+      "BrideSurname",
+      "GroomName",
+      "GroomSurname"
+    ],
+    "Tab2": [
+      "MotherName",
+      "MotherNationality",
+      "MotherAddress",
+      "FatherName",
+      "FatherNationality",
+      "FatherAddress",
+      "MarriageDate",
+      "AdditionalInfo",
+      "SpouseName",
+      "MarriagePlace",
+      "BrideFatherName",
+      "GroomFatherName"
+    ],
+    "Tab3": ["Name", "ContactNo", "EmailID", "Address", "Postcode"],
+    "Tab4": ["Question_Response"],
+    "Tab5": ["ProcessingLog"]
+  },
+  "ControlDisplay": {
+    "ControlField": "RegisterFor",
+    "Fields": [
+      [
+        {
+          "ALL": [
+            "ID",
+            "Name",
+            "ContactNo",
+            "EmailID",
+            "Address",
+            "Postcode",
+            "ApplicationDate",
+            "RegisterFor",
+            "Status",
+            "Approver",
+            "Question_Response",
+            "ProcessingLog"
+          ]
+        },
+        {
+          "BirthCertificate": [
+            "ChildName",
+            "Surname",
+            "Nationality",
+            "MotherAddress",
+            "MotherNationality",
+            "FatherAddress",
+            "FatherNationality"
+          ]
+        },
+        {
+          "DeathCertificate": [
+            "DeceasedName",
+            "DeathPlace",
+            "DeathDate",
+            "LastAddress",
+            "WasDeath",
+            "DeathCause",
+            "SpouseName"
+          ]
+        },
+        {
+          "MarriageRegistration": [
+            "BrideName",
+            "BrideSurname",
+            "GroomName",
+            "GroomSurname",
+            "MarriagePlace",
+            "BrideFatherName",
+            "GroomFatherName"
+          ]
+        },
+        {
+          "NewHouseName": [
+            "PreferName1",
+            "PreferName2",
+            "PreferName3",
+            "AdditionalInfo"
+          ]
+        }
+      ]
+    ]
+  },
+  "FieldDef": [
+    {
+      "name": "ID",
+      "type": "string",
+      "width": "20",
+      "Option": "",
+      "SLabel": "Identification ",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "Name",
+      "type": "string",
+      "width": "20",
+      "Option": "",
+      "SLabel": "Applicant Name",
+      "LLabel": "Applicant Name",
+      "Currency": "No"
+    },
+    {
+      "name": "ContactNo",
+      "type": "PhoneNumber",
+      "width": "20",
+      "Option": "",
+      "SLabel": "Applicant Contact Number",
+      "LLabel": "Contact Number",
+      "Currency": "No"
+    },
+    {
+      "name": "EmailID",
+      "type": "Email",
+      "width": "100",
+      "Option": "",
+      "SLabel": "Applicant Email",
+      "LLabel": "Applicant Email",
+      "Currency": "No"
+    },
+    {
+      "name": "Address",
+      "type": "string",
+      "width": "500",
+      "Option": "",
+      "SLabel": "Applicant Address",
+      "LLabel": "Applicant Address",
+      "Currency": "No"
+    },
+    {
+      "name": "Postcode",
+      "type": "string",
+      "width": "20",
+      "Option": "",
+      "SLabel": "Applicant Postcode",
+      "LLabel": "Postcode",
+      "Currency": "No"
+    },
+    {
+      "name": "ApplicationDate",
+      "type": "Date",
+      "width": "10",
+      "Option": "",
+      "SLabel": "Application Date",
+      "LLabel": "Application Date",
+      "Currency": "No"
+    },
+    {
+      "name": "RegisterFor",
+      "type": "string",
+      "width": "200",
+      "Option": "mandatory",
+      "SLabel": "You are registering for",
+      "LLabel": "RegisterFor",
+      "Currency": "No"
+    },
+    {
+      "name": "Status",
+      "type": "string",
+      "width": "20",
+      "Option": "",
+      "SLabel": "Status",
+      "LLabel": "Status",
+      "Currency": "No"
+    },
+    {
+      "name": "DOB",
+      "type": "Date",
+      "width": "10",
+      "Option": "",
+      "SLabel": "Date of birth",
+      "LLabel": "Date of birth",
+      "Currency": "No"
+    },
+    {
+      "name": "ChildName",
+      "type": "string",
+      "width": "50",
+      "Option": "",
+      "SLabel": "Child Name",
+      "LLabel": "ChildName",
+      "Currency": "No"
+    },
+    {
+      "name": "Surname",
+      "type": "string",
+      "width": "50",
+      "Option": "",
+      "SLabel": "Surname",
+      "LLabel": "Surname",
+      "Currency": "No"
+    },
+    {
+      "name": "BirthPlace",
+      "type": "string",
+      "width": "50",
+      "Option": "",
+      "SLabel": "Birth Place",
+      "LLabel": "BirthPlace",
+      "Currency": "No"
+    },
+    {
+      "name": "Gender",
+      "type": "string",
+      "width": "20",
+      "Option": "",
+      "SLabel": "Gender",
+      "LLabel": "Gender",
+      "Currency": "No"
+    },
+    {
+      "name": "Nationality",
+      "type": "string",
+      "width": "50",
+      "Option": "",
+      "SLabel": "Nationality",
+      "LLabel": "Nationality",
+      "Currency": "No"
+    },
+    {
+      "name": "MotherName",
+      "type": "string",
+      "width": "50",
+      "Option": "",
+      "SLabel": "Mother Name",
+      "LLabel": "MotherName",
+      "Currency": "No"
+    },
+    {
+      "name": "MotherAddress",
+      "type": "string",
+      "width": "200",
+      "Option": "",
+      "SLabel": "Mother Address",
+      "LLabel": "MotherAddress",
+      "Currency": "No"
+    },
+    {
+      "name": "MotherNationality",
+      "type": "string",
+      "width": "200",
+      "Option": "",
+      "SLabel": "Mother Nationality",
+      "LLabel": "MotherNationality",
+      "Currency": "No"
+    },
+    {
+      "name": "FatherName",
+      "type": "string",
+      "width": "200",
+      "Option": "",
+      "SLabel": "Father Name",
+      "LLabel": "FatherName",
+      "Currency": "No"
+    },
+    {
+      "name": "FatherAddress",
+      "type": "string",
+      "width": "200",
+      "Option": "",
+      "SLabel": "Father Address",
+      "LLabel": "Father Address",
+      "Currency": "No"
+    },
+    {
+      "name": "FatherNationality",
+      "type": "string",
+      "width": "200",
+      "Option": "",
+      "SLabel": "Father Nationality",
+      "LLabel": "FatherNationality",
+      "Currency": "No"
+    },
+    {
+      "name": "MarriageDate",
+      "type": "Date",
+      "width": "10",
+      "Option": "",
+      "SLabel": "Marriage Date",
+      "LLabel": "MarriageDate",
+      "Currency": "No"
+    },
+    {
+      "name": "PreferName1",
+      "type": "string",
+      "width": "200",
+      "Option": "",
+      "SLabel": "Prefered Name 1",
+      "LLabel": "PreferName1",
+      "Currency": "No"
+    },
+    {
+      "name": "PreferName2",
+      "type": "string",
+      "width": "200",
+      "Option": "",
+      "SLabel": "Prefered Name 2",
+      "LLabel": "PreferName2",
+      "Currency": "No"
+    },
+    {
+      "name": "PreferName3",
+      "type": "string",
+      "width": "200",
+      "Option": "",
+      "SLabel": "Prefered Name 3",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "DeceasedName",
+      "type": "string",
+      "width": "200",
+      "Option": "",
+      "SLabel": "Deceased Full Name",
+      "LLabel": "DeceasedName",
+      "Currency": "No"
+    },
+    {
+      "name": "DeathPlace",
+      "type": "string",
+      "width": "200",
+      "Option": "",
+      "SLabel": "Death Place",
+      "LLabel": "DeathPlace",
+      "Currency": "No"
+    },
+    {
+      "name": "DeathDate",
+      "type": "Date",
+      "width": "10",
+      "Option": "",
+      "SLabel": "Death Date",
+      "LLabel": "DeathDate",
+      "Currency": "No"
+    },
+    {
+      "name": "LastAddress",
+      "type": "string",
+      "width": "200",
+      "Option": "",
+      "SLabel": "Last Address",
+      "LLabel": "LastAddress",
+      "Currency": "No"
+    },
+    {
+      "name": "WasDeath",
+      "type": "string",
+      "width": "200",
+      "Option": "",
+      "SLabel": "Death was",
+      "LLabel": "WasDeath",
+      "Currency": "No"
+    },
+    {
+      "name": "DeathCause",
+      "type": "string",
+      "width": "200",
+      "Option": "",
+      "SLabel": "Cause of death",
+      "LLabel": "Cause of death",
+      "Currency": "No"
+    },
+    {
+      "name": "NHSNumber",
+      "type": "string",
+      "width": "200",
+      "Option": "",
+      "SLabel": "NHS Number",
+      "LLabel": "NHSNumber",
+      "Currency": "No"
+    },
+    {
+      "name": "SpouseName",
+      "type": "string",
+      "width": "200",
+      "Option": "",
+      "SLabel": "Spouse Or Civil Partner Name",
+      "LLabel": "Spouse Or Civil Partner Name",
+      "Currency": "No"
+    },
+    {
+      "name": "BrideName",
+      "type": "string",
+      "width": "200",
+      "Option": "",
+      "SLabel": "Bride Name",
+      "LLabel": "BrideName",
+      "Currency": "No"
+    },
+    {
+      "name": "BrideSurname",
+      "type": "string",
+      "width": "200",
+      "Option": "",
+      "SLabel": "Bride Surname",
+      "LLabel": "BrideSurname",
+      "Currency": "No"
+    },
+    {
+      "name": "GroomName",
+      "type": "string",
+      "width": "200",
+      "Option": "",
+      "SLabel": "Groom Name",
+      "LLabel": "GroomName",
+      "Currency": "No"
+    },
+    {
+      "name": "GroomSurname",
+      "type": "string",
+      "width": "200",
+      "Option": "",
+      "SLabel": "Groom Surname",
+      "LLabel": "GroomSurname",
+      "Currency": "No"
+    },
+    {
+      "name": "MarriagePlace",
+      "type": "string",
+      "width": "200",
+      "Option": "",
+      "SLabel": "Place of Marriage",
+      "LLabel": "MarriagePlace",
+      "Currency": "No"
+    },
+    {
+      "name": "BrideFatherName",
+      "type": "string",
+      "width": "200",
+      "Option": "",
+      "SLabel": "Bride's Father Name",
+      "LLabel": "BrideFatherName",
+      "Currency": "No"
+    },
+    {
+      "name": "GroomFatherName",
+      "type": "string",
+      "width": "200",
+      "Option": "",
+      "SLabel": "Groom's Father Name",
+      "LLabel": "GroomFatherName",
+      "Currency": "No"
+    },
+    {
+      "name": "AdditionalInfo",
+      "type": "string",
+      "width": "200",
+      "Option": "",
+      "SLabel": "Additional Info",
+      "LLabel": "AdditionalInfo",
+      "Currency": "No"
+    },
+    {
+      "name": "Approver",
+      "type": "string",
+      "width": "100",
+      "Option": "",
+      "SLabel": "Approver",
+      "LLabel": "Approver",
+      "Currency": "No"
+    },
+    {
+      "name": "Question_Response",
+      "type": "string",
+      "width": "500",
+      "Option": "",
+      "SLabel": "Here Is Chat Details",
+      "LLabel": "Question_Response",
+      "Currency": "No"
+    },
+    {
+      "name": "ProcessingLog",
+      "type": "string",
+      "width": "500",
+      "Option": "",
+      "SLabel": "Processing Log",
+      "LLabel": "Processing Log",
+      "Currency": "No"
+    }
+  ],
+  "itemConfig": {
+    "ItemFieldDefinition": [],
+    "DisplayFields": [],
+    "ItemButtons": {
+      "itemDisplay": false,
+      "itemAdd": false,
+      "itemEdit": false,
+      "itemDelete": false
+    },
+    "CreateFields": [],
+    "ItemDetails": []
+  },
+  "CalculatedFields": {},
+  "Wizard": [
+    {
+      "id": "Step1",
+      "fields": [
+        { "name": "EmailID", "Sequence": "1", "Mode": "Edit" },
+        { "name": "Postcode", "Sequence": "1", "Mode": "Edit" },
+        { "name": "Address", "Sequence": "1", "Mode": "Edit" },
+        { "name": "ChildName", "Sequence": "1", "Mode": "Edit" },
+        { "name": "Surname", "Sequence": "1", "Mode": "Edit" },
+        { "name": "DeceasedName", "Sequence": "1", "Mode": "Edit" },
+        { "name": "RegisterFor", "Sequence": "1", "Mode": "Display" },
+        { "name": "BirthPlace", "Sequence": "1", "Mode": "Edit" },
+        { "name": "Gender", "Sequence": "1", "Mode": "Edit" },
+        { "name": "Name", "Sequence": "1", "Mode": "Edit" },
+        { "name": "ContactNo", "Sequence": "1", "Mode": "Edit" }
+      ],
+      "name": "Applicant'sDetails",
+      "stepType": "FieldList",
+      "intro": "Register : Applicant's Details"
+    },
+    {
+      "id": "Step2",
+      "fields": [
+        { "name": "MotherAddress", "Sequence": "1", "Mode": "Edit" },
+        { "name": "FatherName", "Sequence": "1", "Mode": "Edit" },
+        { "name": "FatherNationality", "Sequence": "1", "Mode": "Edit" },
+        { "name": "FatherAddress", "Sequence": "1", "Mode": "Edit" }
+      ],
+      "name": "RegistrationDetails",
+      "stepType": "FieldList",
+      "intro": "Register : Registration Details"
+    },
+    {
+      "id": "Step3",
+      "fields": [
+        { "name": "PreferName1", "Sequence": "1", "Mode": "Edit" },
+        { "name": "PreferName2", "Sequence": "1", "Mode": "Edit" },
+        { "name": "PreferName3", "Sequence": "1", "Mode": "Edit" },
+        { "name": "DeathPlace", "Sequence": "1", "Mode": "Edit" },
+        { "name": "DeathDate", "Sequence": "1", "Mode": "Edit" },
+        { "name": "LastAddress", "Sequence": "1", "Mode": "Edit" },
+        { "name": "WasDeath", "Sequence": "1", "Mode": "Edit" },
+        { "name": "DeathCause", "Sequence": "1", "Mode": "Edit" },
+        { "name": "NHSNumber", "Sequence": "1", "Mode": "Edit" },
+        { "name": "SpouseName", "Sequence": "1", "Mode": "Edit" }
+      ],
+      "name": "Other Details",
+      "stepType": "FieldList",
+      "intro": "Register : Other Details"
+    },
+    {
+      "id": "Step4",
+      "fields": [
+        { "name": "GroomName", "Sequence": "1", "Mode": "Edit" },
+        { "name": "GroomSurname", "Sequence": "1", "Mode": "Edit" },
+        { "name": "MarriagePlace", "Sequence": "1", "Mode": "Edit" },
+        { "name": "GroomFatherName", "Sequence": "1", "Mode": "Edit" }
+      ],
+      "name": "OtherInfo",
+      "stepType": "FieldList",
+      "intro": "Register: Other Info"
+    },
+    {
+      "id": "Step5",
+      "fields": [
+        { "name": "AdditionalInfo", "Sequence": "1", "Mode": "Edit" },
+        { "name": "Status", "Sequence": "1", "Mode": "Edit" },
+        { "name": "Approver", "Sequence": "1", "Mode": "Display" },
+        { "name": "BrideName", "Sequence": "1", "Mode": "Edit" },
+        { "name": "BrideSurname", "Sequence": "1", "Mode": "Edit" },
+        { "name": "BrideFatherName", "Sequence": "1", "Mode": "Edit" }
+      ],
+      "name": "Other Info 2",
+      "stepType": "FieldList",
+      "intro": "Register: other info 2"
+    }
+  ]
+}

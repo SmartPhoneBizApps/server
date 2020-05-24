@@ -1,1 +1,163 @@
-{"Title": {"ApplicationTitle": "Course Material Access", "DetailTitle": "Access to the course material covered in specific lecture"}, "ListFields": {"IntroField": "Subject", "TitleField": "Topic", "fStatus": "Status", "LFields": ["ID"]}, "ListBOTFields": {"Title": [], "SubTitle": [], "Description": []}, "PossibleValues": ["Status"], "MButtons": [], "DButtons": [], "Tabs": [{"value": "Tab0", "name": "Cards", "type": "Cards", "fioriicon": "responsive"}, {"value": "Tab1", "name": "Topic Brief", "fioriicon": "course-program", "type": "Field", "download": "Yes"}, {"value": "Tab2", "name": "Attachment", "fioriicon": "attachment", "type": "Attachment", "download": "Yes"}], "DetailFields": {"None": ["ID", "StudyYear", "Batch", "Subject", "Topic", "LectureDate", "Status"], "Tab1": ["LectureBrief"], "Tab2": ["StudyMaterial", "StudyMaterialLink"]}, "ControlDisplay": {}, "FieldDef": [{"name": "ID", "type": "string", "width": "20", "Option": "", "SLabel": "Identification", "LLabel": "Identification", "Currency": "No"}, {"name": "StudyYear", "type": "string", "width": "100", "Option": "", "SLabel": "Study year", "LLabel": "Study year", "Currency": "No"}, {"name": "Batch", "type": "string", "width": "100", "Option": "", "SLabel": "Batch", "LLabel": "Batch", "Currency": "No"}, {"name": "Subject", "type": "string", "width": "200", "Option": "", "SLabel": "Subject", "LLabel": "Subject", "Currency": "No"}, {"name": "LectureDate", "type": "Date", "width": "10", "Option": "", "SLabel": "Lecture Date", "LLabel": "Lecture Date", "Currency": "No"}, {"name": "LectureBrief", "type": "string", "width": "500", "Option": "", "SLabel": "Lecture Brief", "LLabel": "Lecture Brief", "Currency": "No"}, {"name": "StudyMaterial", "type": "attachment", "width": "500", "Option": "", "SLabel": "Study Material", "LLabel": "Study Material", "Currency": "No"}, {"name": "Status", "type": "string", "width": "100", "Option": "", "SLabel": "Status", "LLabel": "Status", "Currency": "No"}, {"name": "Topic", "type": "string", "width": "100", "Option": "", "SLabel": "Topic", "LLabel": "Topic", "Currency": "No"}, {"name": "StudyMaterialLink", "type": "hyperlink", "width": "100", "Option": "", "SLabel": "Study Material Link", "LLabel": "Study Material Link", "Currency": "No"}], "itemConfig": {"ItemFieldDefinition": [], "DisplayFields": [], "ItemButtons": {"itemDisplay": true, "itemAdd": true, "itemEdit": true, "itemDelete": true}, "CreateFields": [], "ItemDetails": []}, "CalculatedFields": {"Item": [], "HeaderItem": [], "Header": []}, "Wizard": []}
+{
+  "Title": {
+    "ApplicationTitle": "Course Material Access",
+    "DetailTitle": "Access to the course material covered in specific lecture"
+  },
+  "ListFields": {
+    "IntroField": "Subject",
+    "TitleField": "Topic",
+    "fStatus": "Status",
+    "LFields": ["ID"]
+  },
+  "ListBOTFields": {
+    "None": ["cardImage", "StatusState"],
+    "Title": [],
+    "SubTitle": [],
+    "Description": []
+  },
+  "PossibleValues": ["Status"],
+  "MButtons": [],
+  "DButtons": [],
+  "Tabs": [
+    {
+      "value": "Tab0",
+      "name": "Cards",
+      "type": "Cards",
+      "fioriicon": "responsive"
+    },
+    {
+      "value": "Tab1",
+      "name": "Topic Brief",
+      "fioriicon": "course-program",
+      "type": "Field",
+      "download": "Yes"
+    },
+    {
+      "value": "Tab2",
+      "name": "Attachment",
+      "fioriicon": "attachment",
+      "type": "Attachment",
+      "download": "Yes"
+    }
+  ],
+  "DetailFields": {
+    "None": [
+      "ID",
+      "StudyYear",
+      "Batch",
+      "Subject",
+      "Topic",
+      "LectureDate",
+      "Status"
+    ],
+    "Tab1": ["LectureBrief"],
+    "Tab2": ["StudyMaterial", "StudyMaterialLink"]
+  },
+  "ControlDisplay": {},
+  "FieldDef": [
+    {
+      "name": "ID",
+      "type": "string",
+      "width": "20",
+      "Option": "",
+      "SLabel": "Identification",
+      "LLabel": "Identification",
+      "Currency": "No"
+    },
+    {
+      "name": "StudyYear",
+      "type": "string",
+      "width": "100",
+      "Option": "",
+      "SLabel": "Study year",
+      "LLabel": "Study year",
+      "Currency": "No"
+    },
+    {
+      "name": "Batch",
+      "type": "string",
+      "width": "100",
+      "Option": "",
+      "SLabel": "Batch",
+      "LLabel": "Batch",
+      "Currency": "No"
+    },
+    {
+      "name": "Subject",
+      "type": "string",
+      "width": "200",
+      "Option": "",
+      "SLabel": "Subject",
+      "LLabel": "Subject",
+      "Currency": "No"
+    },
+    {
+      "name": "LectureDate",
+      "type": "Date",
+      "width": "10",
+      "Option": "",
+      "SLabel": "Lecture Date",
+      "LLabel": "Lecture Date",
+      "Currency": "No"
+    },
+    {
+      "name": "LectureBrief",
+      "type": "string",
+      "width": "500",
+      "Option": "",
+      "SLabel": "Lecture Brief",
+      "LLabel": "Lecture Brief",
+      "Currency": "No"
+    },
+    {
+      "name": "StudyMaterial",
+      "type": "attachment",
+      "width": "500",
+      "Option": "",
+      "SLabel": "Study Material",
+      "LLabel": "Study Material",
+      "Currency": "No"
+    },
+    {
+      "name": "Status",
+      "type": "string",
+      "width": "100",
+      "Option": "",
+      "SLabel": "Status",
+      "LLabel": "Status",
+      "Currency": "No"
+    },
+    {
+      "name": "Topic",
+      "type": "string",
+      "width": "100",
+      "Option": "",
+      "SLabel": "Topic",
+      "LLabel": "Topic",
+      "Currency": "No"
+    },
+    {
+      "name": "StudyMaterialLink",
+      "type": "hyperlink",
+      "width": "100",
+      "Option": "",
+      "SLabel": "Study Material Link",
+      "LLabel": "Study Material Link",
+      "Currency": "No"
+    }
+  ],
+  "itemConfig": {
+    "ItemFieldDefinition": [],
+    "DisplayFields": [],
+    "ItemButtons": {
+      "itemDisplay": true,
+      "itemAdd": true,
+      "itemEdit": true,
+      "itemDelete": true
+    },
+    "CreateFields": [],
+    "ItemDetails": []
+  },
+  "CalculatedFields": { "Item": [], "HeaderItem": [], "Header": [] },
+  "Wizard": []
+}

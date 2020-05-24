@@ -1,1 +1,354 @@
-{"Title": {"ApplicationTitle": "Expense", "DetailTitle": "Expense"}, "ListFields": {"IntroField": "", "TitleField": "", "sStatus": "", "fStatus": "", "numberField": "", "LFields": [], "numberUnitField": ""}, "ListBOTFields": {"Title": [], "SubTitle": [], "Description": []}, "PossibleValues": ["Currency", "CostCentre", "Status"], "MButtons": [{"type": "DOWNLOAD", "name": "Download File", "icon": "sap-icon://download"}, {"type": "APPHELP", "name": "Get App Help", "icon": "sap-icon://sys-help-2"}, {"type": "BOT", "name": "Launch Assistant", "icon": "sap-icon://travel-request"}, {"type": "VIEW", "name": "Change App View", "icon": "sap-icon://chart-table-view"}, {"type": "ADD", "name": "Add Record", "icon": "sap-icon://add"}, {"type": "UPLOAD", "name": "Upload Record", "icon": "sap-icon://upload"}], "DButtons": [{"type": "ATTACHMENT", "name": "View Attachments", "icon": "sap-icon://attachment"}, {"type": "UPDATE", "name": "Update Record", "icon": "sap-icon://update"}, {"type": "ADD", "name": "Add Record", "icon": "sap-icon://add"}], "Tabs": [{"value": "Tab0", "name": "Cards", "type": "Cards", "fioriicon": "responsive"}, {"value": "Tab1", "name": "Detail", "type": "Field", "fioriicon": "notes"}, {"value": "Tab2", "name": "Expenses", "type": "Field", "fioriicon": "expense-report"}, {"value": "Tab3", "name": "Attachments", "type": "Field", "fioriicon": "attachment"}], "DetailFields": {"None": ["ID", "EmployeeCode", "EmployeeName", "TotalAmount", "Currency", "Status"], "Tab1": ["EntryDate", "ExpenseStDate", "ExpenseEndDt", "ProjectCode", "CostCentre", "TravelRequest", "MileageStLoc", "MileageEndLoc", "TotalMilage", "TravelDetail", "Relocation", "StayDetail"], "Tab2": ["AirFare", "TrainBusFare", "CarRentalCost", "Parking", "TollCharge", "CongestionChg", "Meals", "Tips", "Hotel", "RentAccomCost", "VisaCost", "BusEntertain", "EyeTest", "MobileBill", "MiscAmount"], "Tab3": ["Receipt1", "Receipt2", "Receipt3", "Receipt4", "Receipt5"]}, "ControlDisplay": {}, "FieldDef": [{"name": "ID", "type": "string", "width": "20", "Option": "", "SLabel": "", "LLabel": ""}, {"name": "EmployeeCode", "type": "string", "width": "20"}, {"name": "EmployeeName", "type": "string", "width": "50"}, {"name": "TotalAmount", "type": "string", "width": "20"}, {"name": "Currency", "type": "string", "width": "5"}, {"name": "EntryDate", "type": "Date", "width": "10"}, {"name": "ExpenseStDate", "type": "Date", "width": "10"}, {"name": "ExpenseEndDt", "type": "Date", "width": "10"}, {"name": "ProjectCode", "type": "string", "width": "50"}, {"name": "CostCentre", "type": "string", "width": "50"}, {"name": "TravelRequest", "type": "string", "width": "50"}, {"name": "AirFare", "type": "string", "width": "50"}, {"name": "TrainBusFare", "type": "string", "width": "50"}, {"name": "MileageStLoc", "type": "string", "width": "20"}, {"name": "MileageEndLoc", "type": "string", "width": "20"}, {"name": "TotalMilage", "type": "string", "width": "20"}, {"name": "CarRentalCost", "type": "string", "width": "50"}, {"name": "Parking", "type": "string", "width": "50"}, {"name": "TollCharge", "type": "string", "width": "50"}, {"name": "CongestionChg", "type": "string", "width": "50"}, {"name": "Meals", "type": "string", "width": "50"}, {"name": "Tips", "type": "string", "width": "50"}, {"name": "Hotel", "type": "string", "width": "100"}, {"name": "RentAccomCost", "type": "string", "width": "100"}, {"name": "TravelDetail", "type": "string", "width": "500"}, {"name": "Relocation", "type": "string", "width": "50"}, {"name": "VisaCost", "type": "string", "width": "50", "Option": "", "SLabel": "", "LLabel": ""}, {"name": "Receipt1", "type": "attachment", "width": "100"}, {"name": "Receipt2", "type": "attachment", "width": "100"}, {"name": "Receipt3", "type": "attachment", "width": "100"}, {"name": "Receipt4", "type": "attachment", "width": "100"}, {"name": "Receipt5", "type": "attachment", "width": "100"}, {"name": "BusEntertain", "type": "string", "width": "100"}, {"name": "EyeTest", "type": "string", "width": "100", "Option": "", "SLabel": "", "LLabel": ""}, {"name": "MobileBill", "type": "string", "width": "100"}, {"name": "MiscAmount", "type": "string", "width": "100"}, {"name": "StayDetail", "type": "string", "width": "500"}, {"name": "Status", "type": "string", "width": "20"}, {"name": "Paid", "type": "string", "width": "50", "Option": "", "SLabel": "", "LLabel": ""}, {"name": "LMRefferBack", "type": "string", "width": "10", "Option": "", "SLabel": "", "LLabel": ""}, {"name": "APRejected", "type": "string", "width": "10", "Option": "", "SLabel": "", "LLabel": ""}, {"name": "LMRejected", "type": "string", "width": "10", "Option": "", "SLabel": "", "LLabel": ""}, {"name": "APQuery", "type": "string", "width": "10", "Option": "", "SLabel": "", "LLabel": ""}, {"name": "LMApproved", "type": "string", "width": "10", "Option": "", "SLabel": "", "LLabel": ""}, {"name": "APResponse", "type": "string", "width": "10", "Option": "", "SLabel": "", "LLabel": ""}, {"name": "RemittanceAdvice", "type": "string", "width": "100", "Option": "", "SLabel": "", "LLabel": ""}, {"name": "APReadyForPayment", "type": "string", "width": "100", "Option": "", "SLabel": "", "LLabel": ""}, {"name": "Archived", "type": "string", "width": "1000", "Option": "", "SLabel": "", "LLabel": ""}], "itemConfig": {}, "CalculatedFields": {"Item": [], "HeaderItem": [], "Header": []}, "Wizard": [{"id": "Step1", "fields": [{"name": "ExpenseStDate", "Sequence": "1", "Mode": "Edit"}, {"name": "ExpenseEndDt", "Sequence": "1", "Mode": "Edit"}, {"name": "EntryDate", "Sequence": "1", "Mode": "Edit"}, {"name": "ProjectCode", "Sequence": "1", "Mode": "Edit"}, {"name": "Currency", "Sequence": "1", "Mode": "Edit"}, {"name": "CostCentre", "Sequence": "1", "Mode": "Edit"}], "name": "Expenses Details", "stepType": "FieldList", "intro": "Expense : Expenses Details"}, {"id": "Step2", "fields": [{"name": "EmployeeCode", "Sequence": "1", "Mode": "Edit"}, {"name": "EmployeeName", "Sequence": "1", "Mode": "Edit"}], "name": "Employee Details", "stepType": "FieldList", "intro": "Expense : Employee Details"}, {"id": "Step3", "fields": [{"name": "Hotel", "Sequence": "1", "Mode": "Edit"}, {"name": "StayDetail", "Sequence": "1", "Mode": "Edit"}, {"name": "Relocation", "Sequence": "1", "Mode": "Edit"}, {"name": "RentAccomCost", "Sequence": "1", "Mode": "Edit"}], "name": "Expense Accommodation", "stepType": "FieldList", "intro": "Expense : Expense Accommodation"}, {"id": "Step4", "fields": [{"name": "Meals", "Sequence": "1", "Mode": "Edit"}, {"name": "Tips", "Sequence": "1", "Mode": "Edit"}], "name": "Food Expense", "stepType": "FieldList", "intro": "Expense : Food Expense"}, {"id": "Step5", "fields": [{"name": "TravelDetail", "Sequence": "1", "Mode": "Edit"}, {"name": "AirFare", "Sequence": "1", "Mode": "Edit"}, {"name": "TrainBusFare", "Sequence": "1", "Mode": "Edit"}, {"name": "Parking", "Sequence": "1", "Mode": "Edit"}, {"name": "TollCharge", "Sequence": "1", "Mode": "Edit"}, {"name": "MileageStLoc", "Sequence": "1", "Mode": "Edit"}, {"name": "MileageEndLoc", "Sequence": "1", "Mode": "Edit"}, {"name": "TotalMilage", "Sequence": "1", "Mode": "Edit"}], "name": "Travel Expense", "stepType": "FieldList", "intro": "Expense : Travel Expense"}, {"id": "Step6", "fields": [{"name": "CongestionChg", "Sequence": "1", "Mode": "Edit"}, {"name": "CarRentalCost", "Sequence": "1", "Mode": "Edit"}, {"name": "MobileBill", "Sequence": "1", "Mode": "Edit"}, {"name": "BusEntertain", "Sequence": "1", "Mode": "Edit"}, {"name": "EyeTest", "Sequence": "1", "Mode": "Edit"}, {"name": "MiscAmount", "Sequence": "1", "Mode": "Edit"}, {"name": "VisaCost", "Sequence": "1", "Mode": "Edit"}], "name": "Other Expense", "stepType": "FieldList", "intro": "Expense : Other Expense"}, {"id": "Step7", "fields": [{"name": "Status", "Sequence": "1", "Mode": "Edit"}, {"name": "TotalAmount", "Sequence": "1", "Mode": "Edit"}, {"name": "TravelRequest", "Sequence": "1", "Mode": "Edit"}], "name": "Admin", "stepType": "FieldList", "intro": "Expense : Admin"}]}
+{
+  "Title": { "ApplicationTitle": "Expense", "DetailTitle": "Expense" },
+  "ListFields": {
+    "IntroField": "",
+    "TitleField": "",
+    "sStatus": "",
+    "fStatus": "",
+    "numberField": "",
+    "LFields": [],
+    "numberUnitField": ""
+  },
+  "ListBOTFields": {
+    "None": ["cardImage", "StatusState"],
+    "Title": [],
+    "SubTitle": [],
+    "Description": []
+  },
+  "PossibleValues": ["Currency", "CostCentre", "Status"],
+  "MButtons": [
+    {
+      "type": "DOWNLOAD",
+      "name": "Download File",
+      "icon": "sap-icon://download"
+    },
+    {
+      "type": "APPHELP",
+      "name": "Get App Help",
+      "icon": "sap-icon://sys-help-2"
+    },
+    {
+      "type": "BOT",
+      "name": "Launch Assistant",
+      "icon": "sap-icon://travel-request"
+    },
+    {
+      "type": "VIEW",
+      "name": "Change App View",
+      "icon": "sap-icon://chart-table-view"
+    },
+    { "type": "ADD", "name": "Add Record", "icon": "sap-icon://add" },
+    { "type": "UPLOAD", "name": "Upload Record", "icon": "sap-icon://upload" }
+  ],
+  "DButtons": [
+    {
+      "type": "ATTACHMENT",
+      "name": "View Attachments",
+      "icon": "sap-icon://attachment"
+    },
+    { "type": "UPDATE", "name": "Update Record", "icon": "sap-icon://update" },
+    { "type": "ADD", "name": "Add Record", "icon": "sap-icon://add" }
+  ],
+  "Tabs": [
+    {
+      "value": "Tab0",
+      "name": "Cards",
+      "type": "Cards",
+      "fioriicon": "responsive"
+    },
+    {
+      "value": "Tab1",
+      "name": "Detail",
+      "type": "Field",
+      "fioriicon": "notes"
+    },
+    {
+      "value": "Tab2",
+      "name": "Expenses",
+      "type": "Field",
+      "fioriicon": "expense-report"
+    },
+    {
+      "value": "Tab3",
+      "name": "Attachments",
+      "type": "Field",
+      "fioriicon": "attachment"
+    }
+  ],
+  "DetailFields": {
+    "None": [
+      "ID",
+      "EmployeeCode",
+      "EmployeeName",
+      "TotalAmount",
+      "Currency",
+      "Status"
+    ],
+    "Tab1": [
+      "EntryDate",
+      "ExpenseStDate",
+      "ExpenseEndDt",
+      "ProjectCode",
+      "CostCentre",
+      "TravelRequest",
+      "MileageStLoc",
+      "MileageEndLoc",
+      "TotalMilage",
+      "TravelDetail",
+      "Relocation",
+      "StayDetail"
+    ],
+    "Tab2": [
+      "AirFare",
+      "TrainBusFare",
+      "CarRentalCost",
+      "Parking",
+      "TollCharge",
+      "CongestionChg",
+      "Meals",
+      "Tips",
+      "Hotel",
+      "RentAccomCost",
+      "VisaCost",
+      "BusEntertain",
+      "EyeTest",
+      "MobileBill",
+      "MiscAmount"
+    ],
+    "Tab3": ["Receipt1", "Receipt2", "Receipt3", "Receipt4", "Receipt5"]
+  },
+  "ControlDisplay": {},
+  "FieldDef": [
+    {
+      "name": "ID",
+      "type": "string",
+      "width": "20",
+      "Option": "",
+      "SLabel": "",
+      "LLabel": ""
+    },
+    { "name": "EmployeeCode", "type": "string", "width": "20" },
+    { "name": "EmployeeName", "type": "string", "width": "50" },
+    { "name": "TotalAmount", "type": "string", "width": "20" },
+    { "name": "Currency", "type": "string", "width": "5" },
+    { "name": "EntryDate", "type": "Date", "width": "10" },
+    { "name": "ExpenseStDate", "type": "Date", "width": "10" },
+    { "name": "ExpenseEndDt", "type": "Date", "width": "10" },
+    { "name": "ProjectCode", "type": "string", "width": "50" },
+    { "name": "CostCentre", "type": "string", "width": "50" },
+    { "name": "TravelRequest", "type": "string", "width": "50" },
+    { "name": "AirFare", "type": "string", "width": "50" },
+    { "name": "TrainBusFare", "type": "string", "width": "50" },
+    { "name": "MileageStLoc", "type": "string", "width": "20" },
+    { "name": "MileageEndLoc", "type": "string", "width": "20" },
+    { "name": "TotalMilage", "type": "string", "width": "20" },
+    { "name": "CarRentalCost", "type": "string", "width": "50" },
+    { "name": "Parking", "type": "string", "width": "50" },
+    { "name": "TollCharge", "type": "string", "width": "50" },
+    { "name": "CongestionChg", "type": "string", "width": "50" },
+    { "name": "Meals", "type": "string", "width": "50" },
+    { "name": "Tips", "type": "string", "width": "50" },
+    { "name": "Hotel", "type": "string", "width": "100" },
+    { "name": "RentAccomCost", "type": "string", "width": "100" },
+    { "name": "TravelDetail", "type": "string", "width": "500" },
+    { "name": "Relocation", "type": "string", "width": "50" },
+    {
+      "name": "VisaCost",
+      "type": "string",
+      "width": "50",
+      "Option": "",
+      "SLabel": "",
+      "LLabel": ""
+    },
+    { "name": "Receipt1", "type": "attachment", "width": "100" },
+    { "name": "Receipt2", "type": "attachment", "width": "100" },
+    { "name": "Receipt3", "type": "attachment", "width": "100" },
+    { "name": "Receipt4", "type": "attachment", "width": "100" },
+    { "name": "Receipt5", "type": "attachment", "width": "100" },
+    { "name": "BusEntertain", "type": "string", "width": "100" },
+    {
+      "name": "EyeTest",
+      "type": "string",
+      "width": "100",
+      "Option": "",
+      "SLabel": "",
+      "LLabel": ""
+    },
+    { "name": "MobileBill", "type": "string", "width": "100" },
+    { "name": "MiscAmount", "type": "string", "width": "100" },
+    { "name": "StayDetail", "type": "string", "width": "500" },
+    { "name": "Status", "type": "string", "width": "20" },
+    {
+      "name": "Paid",
+      "type": "string",
+      "width": "50",
+      "Option": "",
+      "SLabel": "",
+      "LLabel": ""
+    },
+    {
+      "name": "LMRefferBack",
+      "type": "string",
+      "width": "10",
+      "Option": "",
+      "SLabel": "",
+      "LLabel": ""
+    },
+    {
+      "name": "APRejected",
+      "type": "string",
+      "width": "10",
+      "Option": "",
+      "SLabel": "",
+      "LLabel": ""
+    },
+    {
+      "name": "LMRejected",
+      "type": "string",
+      "width": "10",
+      "Option": "",
+      "SLabel": "",
+      "LLabel": ""
+    },
+    {
+      "name": "APQuery",
+      "type": "string",
+      "width": "10",
+      "Option": "",
+      "SLabel": "",
+      "LLabel": ""
+    },
+    {
+      "name": "LMApproved",
+      "type": "string",
+      "width": "10",
+      "Option": "",
+      "SLabel": "",
+      "LLabel": ""
+    },
+    {
+      "name": "APResponse",
+      "type": "string",
+      "width": "10",
+      "Option": "",
+      "SLabel": "",
+      "LLabel": ""
+    },
+    {
+      "name": "RemittanceAdvice",
+      "type": "string",
+      "width": "100",
+      "Option": "",
+      "SLabel": "",
+      "LLabel": ""
+    },
+    {
+      "name": "APReadyForPayment",
+      "type": "string",
+      "width": "100",
+      "Option": "",
+      "SLabel": "",
+      "LLabel": ""
+    },
+    {
+      "name": "Archived",
+      "type": "string",
+      "width": "1000",
+      "Option": "",
+      "SLabel": "",
+      "LLabel": ""
+    }
+  ],
+  "itemConfig": {},
+  "CalculatedFields": { "Item": [], "HeaderItem": [], "Header": [] },
+  "Wizard": [
+    {
+      "id": "Step1",
+      "fields": [
+        { "name": "ExpenseStDate", "Sequence": "1", "Mode": "Edit" },
+        { "name": "ExpenseEndDt", "Sequence": "1", "Mode": "Edit" },
+        { "name": "EntryDate", "Sequence": "1", "Mode": "Edit" },
+        { "name": "ProjectCode", "Sequence": "1", "Mode": "Edit" },
+        { "name": "Currency", "Sequence": "1", "Mode": "Edit" },
+        { "name": "CostCentre", "Sequence": "1", "Mode": "Edit" }
+      ],
+      "name": "Expenses Details",
+      "stepType": "FieldList",
+      "intro": "Expense : Expenses Details"
+    },
+    {
+      "id": "Step2",
+      "fields": [
+        { "name": "EmployeeCode", "Sequence": "1", "Mode": "Edit" },
+        { "name": "EmployeeName", "Sequence": "1", "Mode": "Edit" }
+      ],
+      "name": "Employee Details",
+      "stepType": "FieldList",
+      "intro": "Expense : Employee Details"
+    },
+    {
+      "id": "Step3",
+      "fields": [
+        { "name": "Hotel", "Sequence": "1", "Mode": "Edit" },
+        { "name": "StayDetail", "Sequence": "1", "Mode": "Edit" },
+        { "name": "Relocation", "Sequence": "1", "Mode": "Edit" },
+        { "name": "RentAccomCost", "Sequence": "1", "Mode": "Edit" }
+      ],
+      "name": "Expense Accommodation",
+      "stepType": "FieldList",
+      "intro": "Expense : Expense Accommodation"
+    },
+    {
+      "id": "Step4",
+      "fields": [
+        { "name": "Meals", "Sequence": "1", "Mode": "Edit" },
+        { "name": "Tips", "Sequence": "1", "Mode": "Edit" }
+      ],
+      "name": "Food Expense",
+      "stepType": "FieldList",
+      "intro": "Expense : Food Expense"
+    },
+    {
+      "id": "Step5",
+      "fields": [
+        { "name": "TravelDetail", "Sequence": "1", "Mode": "Edit" },
+        { "name": "AirFare", "Sequence": "1", "Mode": "Edit" },
+        { "name": "TrainBusFare", "Sequence": "1", "Mode": "Edit" },
+        { "name": "Parking", "Sequence": "1", "Mode": "Edit" },
+        { "name": "TollCharge", "Sequence": "1", "Mode": "Edit" },
+        { "name": "MileageStLoc", "Sequence": "1", "Mode": "Edit" },
+        { "name": "MileageEndLoc", "Sequence": "1", "Mode": "Edit" },
+        { "name": "TotalMilage", "Sequence": "1", "Mode": "Edit" }
+      ],
+      "name": "Travel Expense",
+      "stepType": "FieldList",
+      "intro": "Expense : Travel Expense"
+    },
+    {
+      "id": "Step6",
+      "fields": [
+        { "name": "CongestionChg", "Sequence": "1", "Mode": "Edit" },
+        { "name": "CarRentalCost", "Sequence": "1", "Mode": "Edit" },
+        { "name": "MobileBill", "Sequence": "1", "Mode": "Edit" },
+        { "name": "BusEntertain", "Sequence": "1", "Mode": "Edit" },
+        { "name": "EyeTest", "Sequence": "1", "Mode": "Edit" },
+        { "name": "MiscAmount", "Sequence": "1", "Mode": "Edit" },
+        { "name": "VisaCost", "Sequence": "1", "Mode": "Edit" }
+      ],
+      "name": "Other Expense",
+      "stepType": "FieldList",
+      "intro": "Expense : Other Expense"
+    },
+    {
+      "id": "Step7",
+      "fields": [
+        { "name": "Status", "Sequence": "1", "Mode": "Edit" },
+        { "name": "TotalAmount", "Sequence": "1", "Mode": "Edit" },
+        { "name": "TravelRequest", "Sequence": "1", "Mode": "Edit" }
+      ],
+      "name": "Admin",
+      "stepType": "FieldList",
+      "intro": "Expense : Admin"
+    }
+  ]
+}

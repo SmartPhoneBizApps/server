@@ -1,1 +1,169 @@
-{"Title": {"ApplicationTitle": "Supplier Registration", "DetailTitle": "Supplier Registration"}, "ListFields": {"IntroField": "", "TitleField": "", "sStatus": "", "fStatus": "", "numberField": "", "LFields": [], "numberUnitField": ""}, "ListBOTFields": {"Title": [], "SubTitle": [], "Description": []}, "PossibleValues": ["Status", "CompanyType", "GeographicalCoverage", "PastSupplier", "BusinessType", "Language"], "MButtons": [{"type": "DOWNLOAD", "name": "Download File", "icon": "sap-icon://download"}, {"type": "APPHELP", "name": "Get App Help", "icon": "sap-icon://sys-help-2"}, {"type": "BOT", "name": "Launch Assistant", "icon": "sap-icon://travel-request"}, {"type": "VIEW", "name": "Change App View", "icon": "sap-icon://chart-table-view"}, {"type": "ADD", "name": "Add Record", "icon": "sap-icon://add"}, {"type": "UPLOAD", "name": "Upload Record", "icon": "sap-icon://upload"}], "DButtons": [{"type": "ATTACHMENT", "name": "View Attachments", "icon": "sap-icon://attachment"}, {"type": "UPDATE", "name": "Update Record", "icon": "sap-icon://update"}, {"type": "ADD", "name": "Add Record", "icon": "sap-icon://add"}], "Tabs": [{"value": "Tab0", "name": "Cards", "type": "Cards", "fioriicon": "responsive"}, {"value": "Tab1", "name": "Business", "type": "Field", "fioriicon": "factory"}, {"value": "Tab2", "name": "Address", "type": "Field", "fioriicon": "addresses"}, {"value": "Tab3", "name": "Details", "type": "Field", "fioriicon": "notes"}, {"value": "Tab4", "name": "Attachment", "type": "Attachment", "fioriicon": "attachment"}], "DetailFields": {"None": ["Status", "RegNo", "CompanyName", "IntrestArea"], "Tab1": ["CompanyType", "CompanyRegistrationNumber", "WebSiteURL", "VATRegistration", "DUNSNumber", "AnnualTurnover", "NumberOfEmployees", "GeographicalCoverage", "PastSupplier", "BusinessType", "DetailsOfServices", "DetailsOfProducts"], "Tab2": ["YearEstablish", "HouseNo", "Street", "City", "POBox", "PostCode", "State", "Country"], "Tab3": ["ContactPerson", "JobTitle", "EMail", "Phone", "Fax", "Language", "DateOfRegistration"], "Tab4": ["Attachment"]}, "ControlDisplay": {}, "FieldDef": [{"name": "Status", "type": "string", "width": "20"}, {"name": "Attachment", "type": "attachment", "width": "50"}, {"name": "RegNo", "type": "string", "width": "20"}, {"name": "CompanyName", "type": "string", "width": "50"}, {"name": "CompanyType", "type": "string", "width": "50"}, {"name": "CompanyRegistrationNumber", "type": "string", "width": "50"}, {"name": "WebSiteURL", "type": "string", "width": "50"}, {"name": "VATRegistration", "type": "string", "width": "50"}, {"name": "DUNSNumber", "type": "string", "width": "50"}, {"name": "AnnualTurnover", "type": "string", "width": "50"}, {"name": "YearEstablish", "type": "string", "width": "50"}, {"name": "HouseNo", "type": "string", "width": "50"}, {"name": "Street", "type": "string", "width": "50"}, {"name": "City", "type": "string", "width": "50"}, {"name": "POBox", "type": "string", "width": "50"}, {"name": "PostCode", "type": "string", "width": "50"}, {"name": "State", "type": "string", "width": "50"}, {"name": "Country", "type": "string", "width": "50"}, {"name": "NumberOfEmployees", "type": "string", "width": "50"}, {"name": "GeographicalCoverage", "type": "string", "width": "50"}, {"name": "PastSupplier", "type": "string", "width": "50"}, {"name": "BusinessType", "type": "string", "width": "50"}, {"name": "IntrestArea", "type": "string", "width": "50"}, {"name": "DetailsOfServices", "type": "string", "width": "50"}, {"name": "DetailsOfProducts", "type": "string", "width": "50"}, {"name": "ContactPerson", "type": "string", "width": "50"}, {"name": "JobTitle", "type": "string", "width": "50"}, {"name": "EMail", "type": "string", "width": "50"}, {"name": "Phone", "type": "string", "width": "50"}, {"name": "Fax", "type": "string", "width": "50"}, {"name": "Language", "type": "string", "width": "50"}, {"name": "DateOfRegistration", "type": "Date", "width": "10"}], "itemConfig": {}, "CalculatedFields": {}, "Wizard": []}
+{
+  "Title": {
+    "ApplicationTitle": "Supplier Registration",
+    "DetailTitle": "Supplier Registration"
+  },
+  "ListFields": {
+    "IntroField": "",
+    "TitleField": "",
+    "sStatus": "",
+    "fStatus": "",
+    "numberField": "",
+    "LFields": [],
+    "numberUnitField": ""
+  },
+  "ListBOTFields": {
+    "None": ["cardImage", "StatusState"],
+    "Title": [],
+    "SubTitle": [],
+    "Description": []
+  },
+  "PossibleValues": [
+    "Status",
+    "CompanyType",
+    "GeographicalCoverage",
+    "PastSupplier",
+    "BusinessType",
+    "Language"
+  ],
+  "MButtons": [
+    {
+      "type": "DOWNLOAD",
+      "name": "Download File",
+      "icon": "sap-icon://download"
+    },
+    {
+      "type": "APPHELP",
+      "name": "Get App Help",
+      "icon": "sap-icon://sys-help-2"
+    },
+    {
+      "type": "BOT",
+      "name": "Launch Assistant",
+      "icon": "sap-icon://travel-request"
+    },
+    {
+      "type": "VIEW",
+      "name": "Change App View",
+      "icon": "sap-icon://chart-table-view"
+    },
+    { "type": "ADD", "name": "Add Record", "icon": "sap-icon://add" },
+    { "type": "UPLOAD", "name": "Upload Record", "icon": "sap-icon://upload" }
+  ],
+  "DButtons": [
+    {
+      "type": "ATTACHMENT",
+      "name": "View Attachments",
+      "icon": "sap-icon://attachment"
+    },
+    { "type": "UPDATE", "name": "Update Record", "icon": "sap-icon://update" },
+    { "type": "ADD", "name": "Add Record", "icon": "sap-icon://add" }
+  ],
+  "Tabs": [
+    {
+      "value": "Tab0",
+      "name": "Cards",
+      "type": "Cards",
+      "fioriicon": "responsive"
+    },
+    {
+      "value": "Tab1",
+      "name": "Business",
+      "type": "Field",
+      "fioriicon": "factory"
+    },
+    {
+      "value": "Tab2",
+      "name": "Address",
+      "type": "Field",
+      "fioriicon": "addresses"
+    },
+    {
+      "value": "Tab3",
+      "name": "Details",
+      "type": "Field",
+      "fioriicon": "notes"
+    },
+    {
+      "value": "Tab4",
+      "name": "Attachment",
+      "type": "Attachment",
+      "fioriicon": "attachment"
+    }
+  ],
+  "DetailFields": {
+    "None": ["Status", "RegNo", "CompanyName", "IntrestArea"],
+    "Tab1": [
+      "CompanyType",
+      "CompanyRegistrationNumber",
+      "WebSiteURL",
+      "VATRegistration",
+      "DUNSNumber",
+      "AnnualTurnover",
+      "NumberOfEmployees",
+      "GeographicalCoverage",
+      "PastSupplier",
+      "BusinessType",
+      "DetailsOfServices",
+      "DetailsOfProducts"
+    ],
+    "Tab2": [
+      "YearEstablish",
+      "HouseNo",
+      "Street",
+      "City",
+      "POBox",
+      "PostCode",
+      "State",
+      "Country"
+    ],
+    "Tab3": [
+      "ContactPerson",
+      "JobTitle",
+      "EMail",
+      "Phone",
+      "Fax",
+      "Language",
+      "DateOfRegistration"
+    ],
+    "Tab4": ["Attachment"]
+  },
+  "ControlDisplay": {},
+  "FieldDef": [
+    { "name": "Status", "type": "string", "width": "20" },
+    { "name": "Attachment", "type": "attachment", "width": "50" },
+    { "name": "RegNo", "type": "string", "width": "20" },
+    { "name": "CompanyName", "type": "string", "width": "50" },
+    { "name": "CompanyType", "type": "string", "width": "50" },
+    { "name": "CompanyRegistrationNumber", "type": "string", "width": "50" },
+    { "name": "WebSiteURL", "type": "string", "width": "50" },
+    { "name": "VATRegistration", "type": "string", "width": "50" },
+    { "name": "DUNSNumber", "type": "string", "width": "50" },
+    { "name": "AnnualTurnover", "type": "string", "width": "50" },
+    { "name": "YearEstablish", "type": "string", "width": "50" },
+    { "name": "HouseNo", "type": "string", "width": "50" },
+    { "name": "Street", "type": "string", "width": "50" },
+    { "name": "City", "type": "string", "width": "50" },
+    { "name": "POBox", "type": "string", "width": "50" },
+    { "name": "PostCode", "type": "string", "width": "50" },
+    { "name": "State", "type": "string", "width": "50" },
+    { "name": "Country", "type": "string", "width": "50" },
+    { "name": "NumberOfEmployees", "type": "string", "width": "50" },
+    { "name": "GeographicalCoverage", "type": "string", "width": "50" },
+    { "name": "PastSupplier", "type": "string", "width": "50" },
+    { "name": "BusinessType", "type": "string", "width": "50" },
+    { "name": "IntrestArea", "type": "string", "width": "50" },
+    { "name": "DetailsOfServices", "type": "string", "width": "50" },
+    { "name": "DetailsOfProducts", "type": "string", "width": "50" },
+    { "name": "ContactPerson", "type": "string", "width": "50" },
+    { "name": "JobTitle", "type": "string", "width": "50" },
+    { "name": "EMail", "type": "string", "width": "50" },
+    { "name": "Phone", "type": "string", "width": "50" },
+    { "name": "Fax", "type": "string", "width": "50" },
+    { "name": "Language", "type": "string", "width": "50" },
+    { "name": "DateOfRegistration", "type": "Date", "width": "10" }
+  ],
+  "itemConfig": {},
+  "CalculatedFields": {},
+  "Wizard": []
+}

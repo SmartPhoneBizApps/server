@@ -1,16 +1,22 @@
-const advancedDataList = (model, AppID, populate) => async (req, res, next) => {
+const { getNewConfig } = require("../modules/config");
+
+const advancedDataList = (model, model2, AppID, populate) => async (
+  req,
+  res,
+  next
+) => {
   // Read New Configuration from File......
   const App = require("../models/appSetup/App");
   let app = await App.findOne({ applicationID: AppID });
-  //var button = require("../bot/Supplier_button.json");
 
-  const newConfig =
-    "../NewConfig/" + AppID + "_" + req.headers.businessrole + "_config.json";
-  var config1 = require(newConfig);
+  // Read New Config File
+  var config1 = getNewConfig(AppID, req.headers.businessrole);
+
   let config = {};
   fl1 = {};
   fl2 = [];
   lf = [];
+
   if (req.headers.mode == "BOTList") {
     config1["ListBOTFields"]["Title"].forEach((element1) => {
       lf.push(element1);
@@ -21,7 +27,12 @@ const advancedDataList = (model, AppID, populate) => async (req, res, next) => {
     config1["ListBOTFields"]["Description"].forEach((element1) => {
       lf.push(element1);
     });
+    config1["ListBOTFields"]["None"].forEach((element1) => {
+      lf.push(element1);
+    });
   }
+
+  // check the Mode
   switch (req.headers.mode) {
     case "BOTList":
       config1["FieldDef"].forEach((element) => {
@@ -34,6 +45,7 @@ const advancedDataList = (model, AppID, populate) => async (req, res, next) => {
           }
         });
       });
+      //fl2.push("cardImage");
       config["Title"] = config1["Title"];
       config["ListBOTFields"] = config1["ListBOTFields"];
       config["FieldDef"] = fl2;
@@ -49,33 +61,49 @@ const advancedDataList = (model, AppID, populate) => async (req, res, next) => {
     default:
       config = config1;
   }
-
   let query;
-  // Copy req.query
-  const reqQuery = { ...req.query };
-
-  // Fields to exclude
+  const reqQuery1 = { ...req.query };
   const removeFields = ["select", "sort", "page", "limit"];
+  removeFields.forEach((param) => delete reqQuery1[param]);
+  reqQuery2 = {};
+  reqQuery = {};
+  /////////////////////////////////////////////////////////////////
+  /// Split Header and Item Queries
+  rn = {};
+  for (const key in reqQuery1) {
+    var n = key.includes("ItemData");
+    if ((n == true) & (model !== model2)) {
+      const fList = key.split("_");
+      reqQuery2[fList[1]] = reqQuery1[key];
+      var r1 = reqQuery1[key].includes("ne");
+      if (r1 == true) {
+        rg01 = reqQuery1[key].split("|");
 
-  // Loop over removeFields and delete them from reqQuery
-  removeFields.forEach((param) => delete reqQuery[param]);
-
-  // Create query string
+        rn[rg01[0]] = rg01[1];
+        reqQuery2[fList[1]] = rn;
+      }
+    } else {
+      reqQuery[key] = reqQuery1[key];
+    }
+  }
+  console.log("Header", reqQuery);
+  console.log("Item", reqQuery2);
+  /////////////////////////////////////////////////////////////////
+  // Create query string (Header)
   let queryStr = JSON.stringify(reqQuery);
-
   // Create operators ($gt, $gte, etc)
   queryStr = queryStr.replace(
     /\b(gt|gte|lt|lte|in)\b/g,
     (match) => `$${match}`
   );
-
+  /////////////////////////////////////////////////////////////////
   // Finding resource
   query = model.find(JSON.parse(queryStr));
   if (req.headers.mode == "BOTList") {
     const fields = lf.join(" ");
     query = query.select(fields);
   }
-
+  /////////////////////////////////////////////////////////////////
   // Sort
   if (req.query.sort) {
     const sortBy = req.query.sort.split(",").join(" ");
@@ -83,76 +111,58 @@ const advancedDataList = (model, AppID, populate) => async (req, res, next) => {
   } else {
     query = query.sort("-createdAt");
   }
-
+  /////////////////////////////////////////////////////////////////
   // Pagination
   const page = parseInt(req.query.page, 10) || 1;
   const limit = parseInt(req.query.limit, 10) || 25;
   const startIndex = (page - 1) * limit;
   const endIndex = page * limit;
   const total = await model.countDocuments();
-
   query = query.skip(startIndex).limit(limit);
-
   if (populate) {
     query = query.populate(populate);
   }
-
+  /////////////////////////////////////////////////////////////////
   // Executing query
   let results = await query;
 
-  if (req.body.ItemFilter) {
-    // Loop of Request....
-    for (let index = 0; index < req.body.ItemFilter.length; index++) {
-      const field1 = req.body.ItemFilter[index]["field"];
-      const value1 = req.body.ItemFilter[index]["value"];
-      const operator1 = req.body.ItemFilter[index]["operator"];
-      console.log("API", field1);
-      console.log("API", value1);
-      console.log("API", operator1);
+  /////////////////////////////////////////////////////////////////
+  if (model2 !== model) {
+    // Create query string (Item)
+    for (let i1 = 0; i1 < results.length; i1++) {
+      let results2 = [];
+      reqQuery2["ID"] = results[i1]["ID"];
+      let queryStr2 = JSON.stringify(reqQuery2);
 
-      ItemData2 = [];
-
-      // Loop Results....
-      results.forEach((resData) => {
-        for (let i1 = 0; i1 < resData.ItemData.length; i1++) {
-          ItemData2 = [];
-          ItemUpdate = true;
-          console.log("Item - Data", i1);
-          const item = resData.ItemData[i1];
-          console.log("ItemNumber", item["ItemNumber"]);
-
-          if (operator1 == "NE") {
-            for (const itemElKey in item) {
-              const itemElement = item[itemElKey];
-              if (itemElKey == field1 && itemElement == value1) {
-                ItemUpdate = false;
-                console.log(ItemUpdate);
-                console.log(item["ItemNumber"]);
-                console.log(resData["ID"]);
-              }
-            }
-            // We need to add remove item here
-            if (ItemUpdate === true) {
-              console.log(item["ItemNumber"]);
-              ItemData2.push(item);
-            }
-            //  resData.ItemData = ItemData2;
-          }
-        }
-        console.log("NewItem", ItemData2);
-      });
+      console.log("Item2", queryStr2);
+      // let queryStr2 = reqQuery2;
+      // Create operators ($gt, $gte, etc)
+      queryStr2 = queryStr2.replace(
+        /\b(gt|gte|lt|lte|in|ne)\b/g,
+        (match) => `$${match}`
+      );
+      query2 = model2.find(JSON.parse(queryStr2));
+      results2 = await query2;
+      results[i1].cardImage = app["photo"];
+      if (req.headers.mode !== "BOTList") {
+        results[i1]["ItemData"] = results2;
+      }
+    }
+  } else {
+    for (let i1 = 0; i1 < results.length; i1++) {
+      results[i1].cardImage = app["photo"];
+      console.log("AG01", results[i1]);
     }
   }
+  /////////////////////////////////////////////////////////////////
   // Pagination result
   const pagination = {};
-
   if (endIndex < total) {
     pagination.next = {
       page: page + 1,
       limit,
     };
   }
-
   if (startIndex > 0) {
     pagination.prev = {
       page: page - 1,
@@ -165,7 +175,7 @@ const advancedDataList = (model, AppID, populate) => async (req, res, next) => {
     count: results.length,
     pagination,
     data: results,
-    cardImage: app["photo"],
+    // cardImage: app["photo"],
     config: config,
   };
 

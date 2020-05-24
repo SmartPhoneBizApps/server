@@ -132,59 +132,74 @@ class calFun {
     return Math.min.apply(null, arr);
   }
 
+  hasNull(target, arrayLength) {
+    for (var member in target) {
+      if (
+        target[member] == null ||
+        target[member] == "" ||
+        target[member] == undefined
+      ) {
+        return false;
+      }
+    }
+
+    if (Object.keys(target).length == arrayLength) {
+      return true;
+    }
+  }
+
   datacalculation(outdata, config) {
+    console.log(config);
     if (outdata["ItemData"].length > 0) {
-      // check item data exist in user input
       if (config["Item"].length > 0) {
-        // Check item calculation is exist or not
         for (var i = 0; i < outdata["ItemData"].length; i++) {
-          // loop ItemData array
           config["Item"].forEach((configItem) => {
-            // loop config Item
-            var fieldObj = [];
-            configItem["Fields"].forEach((field) => {
-              // push field value in obj
-              fieldObj.push(outdata["ItemData"][i][field["Source"]]); // get calculated field value in item array
-            });
-            var fun = configItem["CalculatedFormula"]["function"]; // get function name
-
-            if (typeof this[fun] !== "undefined") {
-              // Check function exist or not
-
-              outdata["ItemData"][i][
-                configItem["CalculatedFormula"]["Target"]
-              ] = this[fun](fieldObj); // call function and assign value in item array
-            } else {
-              outdata["ItemData"][i][
-                configItem["CalculatedFormula"]["Target"]
-              ] = "";
+            if (this.hasNull(configItem["CalculatedFormula"], 4)) {
+              var fieldObj = [];
+              configItem["Fields"].forEach((field) => {
+                if (this.hasNull(field, 2)) {
+                  fieldObj.push(outdata["ItemData"][i][field["Source"]]); // get calculated field value in item array
+                } else {
+                  fieldObj.push(); // get calculated field value in item array
+                }
+              });
+              var fun = configItem["CalculatedFormula"]["function"]; // get function name
+              if (typeof this[fun] !== "undefined") {
+                outdata["ItemData"][i][
+                  configItem["CalculatedFormula"]["Target"]
+                ] = this[fun](fieldObj); // call function and assign value in item array
+              } else {
+                outdata["ItemData"][i][
+                  configItem["CalculatedFormula"]["Target"]
+                ] = "";
+              }
             }
           });
         }
       }
     }
     if (config["HeaderItem"].length > 0) {
-      // Check header item calculation is exist or not
       if (outdata["ItemData"].length > 0) {
-        // Check item is not null
         config["HeaderItem"].forEach((configItem) => {
-          // loop  config HeaderItem
-          var fieldObj = [];
-          for (var i = 0; i < outdata["ItemData"].length; i++) {
-            // loop ItemData
-            fieldObj.push(
-              outdata["ItemData"][i][configItem["Fields"][0]["Source"]]
-            ); // get calculated field value from all items
-          }
-          var fun = configItem["CalculatedFormula"]["function"]; // get function name
-          if (typeof this[fun] !== "undefined") {
-            // Check function exist or not
-
-            outdata[configItem["CalculatedFormula"]["Target"]] = this[fun](
-              fieldObj
-            ); // call function and assign value in header array
-          } else {
-            outdata[configItem["CalculatedFormula"]["Target"]] = "";
+          if (this.hasNull(configItem["CalculatedFormula"], 4)) {
+            var fieldObj = [];
+            for (var i = 0; i < outdata["ItemData"].length; i++) {
+              if (this.hasNull(configItem["Fields"][0], 2)) {
+                fieldObj.push(
+                  outdata["ItemData"][i][configItem["Fields"][0]["Source"]]
+                ); // get calculated field value from all items
+              } else {
+                fieldObj.push(""); // get calculated field value from all items
+              }
+            }
+            var fun = configItem["CalculatedFormula"]["function"]; // get function name
+            if (typeof this[fun] !== "undefined") {
+              outdata[configItem["CalculatedFormula"]["Target"]] = this[fun](
+                fieldObj
+              ); // call function and assign value in header array
+            } else {
+              outdata[configItem["CalculatedFormula"]["Target"]] = "";
+            }
           }
         });
       }
@@ -192,20 +207,28 @@ class calFun {
     if (config["Header"].length > 0) {
       // Check Header calculation is exist or not
       config["Header"].forEach((configItem) => {
-        // loop config header
-        var fieldObj = [];
-        configItem["Fields"].forEach((field) => {
-          // loop for calculated field NOTE: here we can add multiple field
-          fieldObj.push(outdata[field["Source"]]); // get calculated field value
-        });
-        var fun = configItem["CalculatedFormula"]["function"]; // get function name
-        if (typeof this[fun] !== "undefined") {
-          // Check function exist or not
-          outdata[configItem["CalculatedFormula"]["Target"]] = this[fun](
-            fieldObj
-          ); // call function and assign value in header array
-        } else {
-          outdata[configItem["CalculatedFormula"]["Target"]] = "";
+        if (this.hasNull(configItem["CalculatedFormula"], 4)) {
+          // loop config header
+          var fieldObj = [];
+          if (configItem["Fields"].length > 0) {
+            configItem["Fields"].forEach((field) => {
+              if (this.hasNull(field, 2)) {
+                fieldObj.push(outdata[field["Source"]]); // get calculated field value
+              } else {
+                fieldObj.push(""); // get calculated field value
+              }
+            });
+          } else {
+            fieldObj.push("");
+          }
+          var fun = configItem["CalculatedFormula"]["function"]; // get function name
+          if (typeof this[fun] !== "undefined") {
+            outdata[configItem["CalculatedFormula"]["Target"]] = this[fun](
+              fieldObj
+            ); // call function and assign value in header array
+          } else {
+            outdata[configItem["CalculatedFormula"]["Target"]] = "";
+          }
         }
       });
     }

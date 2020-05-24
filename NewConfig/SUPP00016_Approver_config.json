@@ -1,1 +1,256 @@
-{"Title": {"ApplicationTitle": "Approve Non PO Invoices", "DetailTitle": "Approve Non PO Invoice"}, "ListFields": {"IntroField": "Details", "TitleField": "VendorInvoice", "fStatus": "Status", "numberField": "InvGrossVal", "LFields": ["InvoiceDate", "VendorName", "PaymentTerm", "InvoiceNo"], "numberUnitField": "Currency"}, "ListBOTFields": {"Title": [], "SubTitle": [], "Description": []}, "PossibleValues": ["Category", "Currency", "InvVATRate", "PaymentTerm", "Plant", "Status", "UoM"], "MButtons": [], "DButtons": [], "Tabs": [{"value": "Tab0", "name": "Cards", "type": "Cards", "fioriicon": "responsive"}, {"value": "Tab1", "name": "Invoice", "type": "Field", "fioriicon": "customer-financial-fact-sheet"}, {"value": "Tab2", "name": "PO", "type": "Field", "fioriicon": "document"}, {"value": "Tab3", "name": "History", "type": "Graph"}, {"value": "Tab4", "name": "Attachment", "type": "Attachment", "fioriicon": "attachment"}], "DetailFields": {"None": ["ID", "VendorName", "PaymentTerm"], "Tab1": ["VendorInvoice", "InvQty", "InvPrice", "InvNetValue", "InvVATRate", "InvVATVal", "InvGrossVal", "Currency", "Status", "InvoiceRemark", "InvoiceDate"], "Tab2": ["PODate", "Category", "Details", "POQty", "UoM", "Price", "NetValue", "VATRate", "VATVal", "GrossValue"], "Tab4": ["Attachment"]}, "ControlDisplay": {}, "FieldDef": [{"name": "ID", "type": "string", "width": "20", "Option": "", "SLabel": "", "LLabel": ""}, {"name": "VendorName", "type": "string", "width": "50"}, {"name": "Plant", "type": "string", "width": "100"}, {"name": "PaymentTerm", "type": "string", "width": "20"}, {"name": "PODate", "type": "Date", "width": "10"}, {"name": "POItem", "type": "string", "width": "10"}, {"name": "Category", "type": "string", "width": "50"}, {"name": "Details", "type": "string", "width": "50"}, {"name": "POQty", "type": "Num,2", "width": "10"}, {"name": "UoM", "type": "string", "width": "50"}, {"name": "Price", "type": "Num,2", "width": "50"}, {"name": "NetValue", "type": "Num,2", "width": "50"}, {"name": "VATRate", "type": "Num,1", "width": "50", "Option": "", "SLabel": "", "LLabel": "", "Currency": "No"}, {"name": "VATVal", "type": "Num,2", "width": "50"}, {"name": "GrossValue", "type": "Num,2", "width": "50"}, {"name": "GRQtyHistory", "type": "string", "width": "10"}, {"name": "InvQtyHistory", "type": "string", "width": "10"}, {"name": "Currency", "type": "string", "width": "50"}, {"name": "StorageLoc", "type": "string", "width": "10"}, {"name": "InvQty", "type": "Num,2", "width": "10"}, {"name": "InvPrice", "type": "Num,2", "width": "50"}, {"name": "InvNetValue", "type": "Num,2", "width": "50"}, {"name": "InvVATRate", "type": "Num,1", "width": "100", "Option": "", "SLabel": "", "LLabel": "", "Currency": "No"}, {"name": "InvVATVal", "type": "Num,2", "width": "50"}, {"name": "InvGrossVal", "type": "Num,2", "width": "50"}, {"name": "VendorInvoice", "type": "string", "width": "50"}, {"name": "Status", "type": "string", "width": "20"}, {"name": "InvoiceRemark", "type": "string", "width": "500"}, {"name": "InvoiceDate", "type": "Date", "width": "10"}, {"name": "Attachment", "type": "attachment", "width": "500"}, {"name": "VATPer", "type": "Num,0", "width": "100", "Option": "", "SLabel": "VAT Percentage", "LLabel": "", "Currency": "No"}, {"name": "InvVATPer", "type": "Num,0", "width": "100", "Option": "", "SLabel": "InvVAT Percentage", "LLabel": "", "Currency": "No"}], "itemConfig": {}, "CalculatedFields": {"Item": [], "HeaderItem": [], "Header": [{"CalculatedFormula": {"name": "Multiplication", "function": "MUL", "Target": "NetValue", "type": "Header"}, "Fields": [{"Source": "POQty", "Type": {"type": "Header"}}, {"Source": "Price", "Type": {"type": "Header"}}]}, {"CalculatedFormula": {"name": "Percentage", "function": "PAR", "Target": "VATPer", "type": "Header"}, "Fields": [{"Source": "VATRate", "Type": {"type": "Header"}}]}, {"CalculatedFormula": {"name": "Multiplication", "function": "MUL", "Target": "VATVal", "type": "Header"}, "Fields": [{"Source": "Price", "Type": {"type": "Header"}}, {"Source": "POQty", "Type": {"type": "Header"}}, {"Source": "VATPer", "Type": {"type": "Header"}}]}, {"CalculatedFormula": {"name": "Addition", "function": "ADD", "Target": "GrossValue", "type": "Header"}, "Fields": [{"Source": "NetValue", "Type": {"type": "Header"}}, {"Source": "VATVal", "Type": {"type": "Header"}}]}, {"CalculatedFormula": {"name": "Multiplication", "function": "MUL", "Target": "InvNetValue", "type": "Header"}, "Fields": [{"Source": "InvQty", "Type": {"type": "Header"}}, {"Source": "InvPrice", "Type": {"type": "Header"}}]}, {"CalculatedFormula": {"name": "Percentage", "function": "PAR", "Target": "InvVATPer", "type": "Header"}, "Fields": [{"Source": "InvVATRate", "Type": {"type": "Header"}}]}, {"CalculatedFormula": {"name": "Multiplication", "function": "MUL", "Target": "InvVATVal", "type": "Header"}, "Fields": [{"Source": "InvPrice", "Type": {"type": "Header"}}, {"Source": "InvQty", "Type": {"type": "Header"}}, {"Source": "InvVATPer", "Type": {"type": "Header"}}]}, {"CalculatedFormula": {"name": "Addition", "function": "ADD", "Target": "InvGrossVal", "type": "Header"}, "Fields": [{"Source": "InvNetValue", "Type": {"type": "Header"}}, {"Source": "InvVATVal", "Type": {"type": "Header"}}]}]}, "Wizard": []}
+{
+  "Title": {
+    "ApplicationTitle": "Approve Non PO Invoices",
+    "DetailTitle": "Approve Non PO Invoice"
+  },
+  "ListFields": {
+    "IntroField": "Details",
+    "TitleField": "VendorInvoice",
+    "fStatus": "Status",
+    "numberField": "InvGrossVal",
+    "LFields": ["InvoiceDate", "VendorName", "PaymentTerm", "InvoiceNo"],
+    "numberUnitField": "Currency"
+  },
+  "ListBOTFields": {
+    "None": ["cardImage", "StatusState"],
+    "Title": [],
+    "SubTitle": [],
+    "Description": []
+  },
+  "PossibleValues": [
+    "Category",
+    "Currency",
+    "InvVATRate",
+    "PaymentTerm",
+    "Plant",
+    "Status",
+    "UoM"
+  ],
+  "MButtons": [],
+  "DButtons": [],
+  "Tabs": [
+    {
+      "value": "Tab0",
+      "name": "Cards",
+      "type": "Cards",
+      "fioriicon": "responsive"
+    },
+    {
+      "value": "Tab1",
+      "name": "Invoice",
+      "type": "Field",
+      "fioriicon": "customer-financial-fact-sheet"
+    },
+    { "value": "Tab2", "name": "PO", "type": "Field", "fioriicon": "document" },
+    { "value": "Tab3", "name": "History", "type": "Graph" },
+    {
+      "value": "Tab4",
+      "name": "Attachment",
+      "type": "Attachment",
+      "fioriicon": "attachment"
+    }
+  ],
+  "DetailFields": {
+    "None": ["ID", "VendorName", "PaymentTerm"],
+    "Tab1": [
+      "VendorInvoice",
+      "InvQty",
+      "InvPrice",
+      "InvNetValue",
+      "InvVATRate",
+      "InvVATVal",
+      "InvGrossVal",
+      "Currency",
+      "Status",
+      "InvoiceRemark",
+      "InvoiceDate"
+    ],
+    "Tab2": [
+      "PODate",
+      "Category",
+      "Details",
+      "POQty",
+      "UoM",
+      "Price",
+      "NetValue",
+      "VATRate",
+      "VATVal",
+      "GrossValue"
+    ],
+    "Tab4": ["Attachment"]
+  },
+  "ControlDisplay": {},
+  "FieldDef": [
+    {
+      "name": "ID",
+      "type": "string",
+      "width": "20",
+      "Option": "",
+      "SLabel": "",
+      "LLabel": ""
+    },
+    { "name": "VendorName", "type": "string", "width": "50" },
+    { "name": "Plant", "type": "string", "width": "100" },
+    { "name": "PaymentTerm", "type": "string", "width": "20" },
+    { "name": "PODate", "type": "Date", "width": "10" },
+    { "name": "POItem", "type": "string", "width": "10" },
+    { "name": "Category", "type": "string", "width": "50" },
+    { "name": "Details", "type": "string", "width": "50" },
+    { "name": "POQty", "type": "Num,2", "width": "10" },
+    { "name": "UoM", "type": "string", "width": "50" },
+    { "name": "Price", "type": "Num,2", "width": "50" },
+    { "name": "NetValue", "type": "Num,2", "width": "50" },
+    {
+      "name": "VATRate",
+      "type": "Num,1",
+      "width": "50",
+      "Option": "",
+      "SLabel": "",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    { "name": "VATVal", "type": "Num,2", "width": "50" },
+    { "name": "GrossValue", "type": "Num,2", "width": "50" },
+    { "name": "GRQtyHistory", "type": "string", "width": "10" },
+    { "name": "InvQtyHistory", "type": "string", "width": "10" },
+    { "name": "Currency", "type": "string", "width": "50" },
+    { "name": "StorageLoc", "type": "string", "width": "10" },
+    { "name": "InvQty", "type": "Num,2", "width": "10" },
+    { "name": "InvPrice", "type": "Num,2", "width": "50" },
+    { "name": "InvNetValue", "type": "Num,2", "width": "50" },
+    {
+      "name": "InvVATRate",
+      "type": "Num,1",
+      "width": "100",
+      "Option": "",
+      "SLabel": "",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    { "name": "InvVATVal", "type": "Num,2", "width": "50" },
+    { "name": "InvGrossVal", "type": "Num,2", "width": "50" },
+    { "name": "VendorInvoice", "type": "string", "width": "50" },
+    { "name": "Status", "type": "string", "width": "20" },
+    { "name": "InvoiceRemark", "type": "string", "width": "500" },
+    { "name": "InvoiceDate", "type": "Date", "width": "10" },
+    { "name": "Attachment", "type": "attachment", "width": "500" },
+    {
+      "name": "VATPer",
+      "type": "Num,0",
+      "width": "100",
+      "Option": "",
+      "SLabel": "VAT Percentage",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "InvVATPer",
+      "type": "Num,0",
+      "width": "100",
+      "Option": "",
+      "SLabel": "InvVAT Percentage",
+      "LLabel": "",
+      "Currency": "No"
+    }
+  ],
+  "itemConfig": {},
+  "CalculatedFields": {
+    "Item": [],
+    "HeaderItem": [],
+    "Header": [
+      {
+        "CalculatedFormula": {
+          "name": "Multiplication",
+          "function": "MUL",
+          "Target": "NetValue",
+          "type": "Header"
+        },
+        "Fields": [
+          { "Source": "POQty", "Type": { "type": "Header" } },
+          { "Source": "Price", "Type": { "type": "Header" } }
+        ]
+      },
+      {
+        "CalculatedFormula": {
+          "name": "Percentage",
+          "function": "PAR",
+          "Target": "VATPer",
+          "type": "Header"
+        },
+        "Fields": [{ "Source": "VATRate", "Type": { "type": "Header" } }]
+      },
+      {
+        "CalculatedFormula": {
+          "name": "Multiplication",
+          "function": "MUL",
+          "Target": "VATVal",
+          "type": "Header"
+        },
+        "Fields": [
+          { "Source": "Price", "Type": { "type": "Header" } },
+          { "Source": "POQty", "Type": { "type": "Header" } },
+          { "Source": "VATPer", "Type": { "type": "Header" } }
+        ]
+      },
+      {
+        "CalculatedFormula": {
+          "name": "Addition",
+          "function": "ADD",
+          "Target": "GrossValue",
+          "type": "Header"
+        },
+        "Fields": [
+          { "Source": "NetValue", "Type": { "type": "Header" } },
+          { "Source": "VATVal", "Type": { "type": "Header" } }
+        ]
+      },
+      {
+        "CalculatedFormula": {
+          "name": "Multiplication",
+          "function": "MUL",
+          "Target": "InvNetValue",
+          "type": "Header"
+        },
+        "Fields": [
+          { "Source": "InvQty", "Type": { "type": "Header" } },
+          { "Source": "InvPrice", "Type": { "type": "Header" } }
+        ]
+      },
+      {
+        "CalculatedFormula": {
+          "name": "Percentage",
+          "function": "PAR",
+          "Target": "InvVATPer",
+          "type": "Header"
+        },
+        "Fields": [{ "Source": "InvVATRate", "Type": { "type": "Header" } }]
+      },
+      {
+        "CalculatedFormula": {
+          "name": "Multiplication",
+          "function": "MUL",
+          "Target": "InvVATVal",
+          "type": "Header"
+        },
+        "Fields": [
+          { "Source": "InvPrice", "Type": { "type": "Header" } },
+          { "Source": "InvQty", "Type": { "type": "Header" } },
+          { "Source": "InvVATPer", "Type": { "type": "Header" } }
+        ]
+      },
+      {
+        "CalculatedFormula": {
+          "name": "Addition",
+          "function": "ADD",
+          "Target": "InvGrossVal",
+          "type": "Header"
+        },
+        "Fields": [
+          { "Source": "InvNetValue", "Type": { "type": "Header" } },
+          { "Source": "InvVATVal", "Type": { "type": "Header" } }
+        ]
+      }
+    ]
+  },
+  "Wizard": []
+}

@@ -108,6 +108,8 @@ app.use("/api/v1/userapps", require("./routes/appSetup/userapps"));
 app.use("/api/v1/listrecords", require("./routes/smartApp/listrecords"));
 // Create a new Record
 app.use("/api/v1/datarecords", require("./routes/smartApp/datarecords"));
+app.use("/api/v1/createwithref", require("./routes/smartApp/createwithref"));
+app.use("/api/v1/addwithref", require("./routes/smartApp/addwithref"));
 // Route to get the Overview Cards (a Seperate Tile for every role)
 app.use("/api/v1/cards", require("./routes/smartApp/overviewcard"));
 // Route to get the cards for application Tab (only one tab can have cards)

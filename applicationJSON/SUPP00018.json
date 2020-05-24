@@ -22,7 +22,6 @@
   },
   "PaymentTerm": {
     "type": "String",
-
     "maxlength": [20, "PaymentTerm can not be more than 20 characters"]
   },
   "Currency": {
@@ -47,7 +46,6 @@
   },
   "DelPostCode": {
     "type": "String",
-
     "maxlength": [100, "DelPostCode can not be more than 100 characters"],
     "match": [
       "UK_POSTCODE_V1",
@@ -116,7 +114,6 @@
   },
   "PONumber": {
     "type": "String",
-
     "maxlength": [20, "PONumber can not be more than 20 characters"]
   },
   "AcceptanceComment": {
@@ -273,7 +270,6 @@
   },
   "PODate": {
     "type": "Date",
-
     "maxlength": [10, "PODate can not be more than 10 characters"],
     "match": [
       "DATE_V1",
@@ -349,6 +345,9 @@
       "DATE_V1",
       "Please provide date in YYYY-MM-DD format for field :ContractEndDate"
     ]
+  },
+  "cardImage": {
+    "type": "String"
   },
 
   "TransLog": [],

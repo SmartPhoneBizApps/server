@@ -1,1 +1,305 @@
-{"Title": {"ApplicationTitle": "Stock Report", "DetailTitle": "Stock Report"}, "ListFields": {"IntroField": "Material", "TitleField": "TotalStock", "fStatus": "Status", "LFields": ["ID"]}, "ListBOTFields": {"Title": [], "SubTitle": [], "Description": []}, "PossibleValues": ["Status", "Plant"], "MButtons": [{"type": "DOWNLOAD", "name": "Download File", "icon": "sap-icon://download"}, {"type": "APPHELP", "name": "Get App Help", "icon": "sap-icon://sys-help-2"}, {"type": "BOT", "name": "Launch Assistant", "icon": "sap-icon://travel-request"}, {"type": "VIEW", "name": "Change App View", "icon": "sap-icon://chart-table-view"}, {"type": "ADD", "name": "Add Record", "icon": "sap-icon://add"}, {"type": "UPLOAD", "name": "Upload Record", "icon": "sap-icon://upload"}], "DButtons": [{"type": "ATTACHMENT", "name": "View Attachments", "icon": "sap-icon://attachment"}, {"type": "UPDATE", "name": "Update Record", "icon": "sap-icon://update"}, {"type": "ADD", "name": "Add Record", "icon": "sap-icon://add"}], "Tabs": [{"value": "Tab0", "name": "Cards", "type": "Cards", "fioriicon": "responsive"}, {"value": "Tab1", "name": "Location", "type": "Field", "fioriicon": "map"}, {"value": "Tab2", "name": "Breakup", "type": "Field", "fioriicon": "notes"}, {"value": "Tab3", "name": "Stock", "type": "Graph", "fioriicon": "vertical-bar-chart"}], "DetailFields": {"None": ["ID", "Material", "Description", "StockDate", "Status"], "Tab1": ["Location", "StorageLoc"], "Tab2": ["TotalStock", "Returns", "Reserved", "Sales", "Blocked"]}, "ControlDisplay": {}, "FieldDef": [{"name": "ID", "type": "string", "width": "20", "Option": "", "SLabel": "Identification", "LLabel": "", "Currency": "No"}, {"name": "Material", "type": "string", "width": "20", "Option": "", "SLabel": "Material/Item", "LLabel": "", "Currency": "No"}, {"name": "Description", "type": "string", "width": "20", "Option": "", "SLabel": "Description", "LLabel": "", "Currency": "No"}, {"name": "Location", "type": "string", "width": "20", "Option": "", "SLabel": "Location", "LLabel": "", "Currency": "No"}, {"name": "StorageLoc", "type": "string", "width": "20", "Option": "", "SLabel": "Storage Location", "LLabel": "", "Currency": "No"}, {"name": "TotalStock", "type": "string", "width": "10", "Option": "", "SLabel": "Total Stock", "LLabel": "", "Currency": "No"}, {"name": "Returns", "type": "string", "width": "10", "Option": "", "SLabel": "Return Items", "LLabel": "", "Currency": "No"}, {"name": "Blocked", "type": "string", "width": "10", "Option": "", "SLabel": "Blocked items", "LLabel": "", "Currency": "No"}, {"name": "Reserved", "type": "string", "width": "50", "Option": "", "SLabel": "Reserved items", "LLabel": "", "Currency": "No"}, {"name": "Sales", "type": "string", "width": "10", "Option": "", "SLabel": "Sold items", "LLabel": "", "Currency": "No"}, {"name": "StockDate", "type": "Date", "width": "10", "Option": "", "SLabel": "Stock Date", "LLabel": "", "Currency": "No"}, {"name": "Status", "type": "string", "width": "20", "Option": "", "SLabel": "Status", "LLabel": "", "Currency": "No"}, {"name": "City", "type": "string", "width": "50", "Option": "", "SLabel": "City", "LLabel": "", "Currency": "No"}, {"name": "Street", "type": "string", "width": "50", "Option": "", "SLabel": "Street", "LLabel": "", "Currency": "No"}, {"name": "PostCode", "type": "string", "width": "50", "Option": "", "SLabel": "Post Code", "LLabel": "", "Currency": "No"}, {"name": "Country", "type": "string", "width": "50", "Option": "", "SLabel": "Country", "LLabel": "", "Currency": "No"}, {"name": "Plant", "type": "string", "width": "20", "Option": "", "SLabel": "Plant", "LLabel": "", "Currency": "No"}, {"name": "Seller", "type": "string", "width": "100", "Option": "", "SLabel": "Seller", "LLabel": "", "Currency": "No"}, {"name": "SpecialStock", "type": "string", "width": "100", "Option": "", "SLabel": "Special Stock", "LLabel": "", "Currency": "No"}], "itemConfig": {}, "CalculatedFields": {}, "Wizard": [{"id": "Step1", "fields": [{"name": "Material", "Sequence": "1", "Mode": "Edit"}, {"name": "Description", "Sequence": "1", "Mode": "Edit"}, {"name": "TotalStock", "Sequence": "1", "Mode": "Edit"}], "name": "Stock Details", "stepType": "FieldList", "intro": "Stock Report : Stock Details"}, {"id": "Step2", "fields": [{"name": "StorageLoc", "Sequence": "1", "Mode": "Edit"}], "name": "Storage Location", "stepType": "FieldList", "intro": "Stock Report : Storage Location"}, {"id": "Step3", "fields": [{"name": "Location", "Sequence": "1", "Mode": "Edit"}], "name": "Address details", "stepType": "FieldList", "intro": "Stock Report : Address details"}, {"id": "Step4", "fields": [{"name": "Reserved", "Sequence": "1", "Mode": "Edit"}, {"name": "Sales", "Sequence": "1", "Mode": "Edit"}, {"name": "Returns", "Sequence": "1", "Mode": "Edit"}, {"name": "Blocked", "Sequence": "1", "Mode": "Edit"}], "name": "Other Details", "stepType": "FieldList", "intro": "Stock Report : Other Details"}, {"id": "Step5", "fields": [{"name": "Status", "Sequence": "1", "Mode": "Edit"}], "name": "Admin", "stepType": "FieldList", "intro": "Stock Report : Admin"}]}
+{
+  "Title": {
+    "ApplicationTitle": "Stock Report",
+    "DetailTitle": "Stock Report"
+  },
+  "ListFields": {
+    "IntroField": "Material",
+    "TitleField": "TotalStock",
+    "fStatus": "Status",
+    "LFields": ["ID"]
+  },
+  "ListBOTFields": {
+    "None": ["cardImage", "StatusState"],
+    "Title": [],
+    "SubTitle": [],
+    "Description": []
+  },
+  "PossibleValues": ["Status", "Plant"],
+  "MButtons": [
+    {
+      "type": "DOWNLOAD",
+      "name": "Download File",
+      "icon": "sap-icon://download"
+    },
+    {
+      "type": "APPHELP",
+      "name": "Get App Help",
+      "icon": "sap-icon://sys-help-2"
+    },
+    {
+      "type": "BOT",
+      "name": "Launch Assistant",
+      "icon": "sap-icon://travel-request"
+    },
+    {
+      "type": "VIEW",
+      "name": "Change App View",
+      "icon": "sap-icon://chart-table-view"
+    },
+    { "type": "ADD", "name": "Add Record", "icon": "sap-icon://add" },
+    { "type": "UPLOAD", "name": "Upload Record", "icon": "sap-icon://upload" }
+  ],
+  "DButtons": [
+    {
+      "type": "ATTACHMENT",
+      "name": "View Attachments",
+      "icon": "sap-icon://attachment"
+    },
+    { "type": "UPDATE", "name": "Update Record", "icon": "sap-icon://update" },
+    { "type": "ADD", "name": "Add Record", "icon": "sap-icon://add" }
+  ],
+  "Tabs": [
+    {
+      "value": "Tab0",
+      "name": "Cards",
+      "type": "Cards",
+      "fioriicon": "responsive"
+    },
+    {
+      "value": "Tab1",
+      "name": "Location",
+      "type": "Field",
+      "fioriicon": "map"
+    },
+    {
+      "value": "Tab2",
+      "name": "Breakup",
+      "type": "Field",
+      "fioriicon": "notes"
+    },
+    {
+      "value": "Tab3",
+      "name": "Stock",
+      "type": "Graph",
+      "fioriicon": "vertical-bar-chart"
+    }
+  ],
+  "DetailFields": {
+    "None": ["ID", "Material", "Description", "StockDate", "Status"],
+    "Tab1": ["Location", "StorageLoc"],
+    "Tab2": ["TotalStock", "Returns", "Reserved", "Sales", "Blocked"]
+  },
+  "ControlDisplay": {},
+  "FieldDef": [
+    {
+      "name": "ID",
+      "type": "string",
+      "width": "20",
+      "Option": "",
+      "SLabel": "Identification",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "Material",
+      "type": "string",
+      "width": "20",
+      "Option": "",
+      "SLabel": "Material/Item",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "Description",
+      "type": "string",
+      "width": "20",
+      "Option": "",
+      "SLabel": "Description",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "Location",
+      "type": "string",
+      "width": "20",
+      "Option": "",
+      "SLabel": "Location",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "StorageLoc",
+      "type": "string",
+      "width": "20",
+      "Option": "",
+      "SLabel": "Storage Location",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "TotalStock",
+      "type": "string",
+      "width": "10",
+      "Option": "",
+      "SLabel": "Total Stock",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "Returns",
+      "type": "string",
+      "width": "10",
+      "Option": "",
+      "SLabel": "Return Items",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "Blocked",
+      "type": "string",
+      "width": "10",
+      "Option": "",
+      "SLabel": "Blocked items",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "Reserved",
+      "type": "string",
+      "width": "50",
+      "Option": "",
+      "SLabel": "Reserved items",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "Sales",
+      "type": "string",
+      "width": "10",
+      "Option": "",
+      "SLabel": "Sold items",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "StockDate",
+      "type": "Date",
+      "width": "10",
+      "Option": "",
+      "SLabel": "Stock Date",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "Status",
+      "type": "string",
+      "width": "20",
+      "Option": "",
+      "SLabel": "Status",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "City",
+      "type": "string",
+      "width": "50",
+      "Option": "",
+      "SLabel": "City",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "Street",
+      "type": "string",
+      "width": "50",
+      "Option": "",
+      "SLabel": "Street",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "PostCode",
+      "type": "string",
+      "width": "50",
+      "Option": "",
+      "SLabel": "Post Code",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "Country",
+      "type": "string",
+      "width": "50",
+      "Option": "",
+      "SLabel": "Country",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "Plant",
+      "type": "string",
+      "width": "20",
+      "Option": "",
+      "SLabel": "Plant",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "Seller",
+      "type": "string",
+      "width": "100",
+      "Option": "",
+      "SLabel": "Seller",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "SpecialStock",
+      "type": "string",
+      "width": "100",
+      "Option": "",
+      "SLabel": "Special Stock",
+      "LLabel": "",
+      "Currency": "No"
+    }
+  ],
+  "itemConfig": {},
+  "CalculatedFields": {},
+  "Wizard": [
+    {
+      "id": "Step1",
+      "fields": [
+        { "name": "Material", "Sequence": "1", "Mode": "Edit" },
+        { "name": "Description", "Sequence": "1", "Mode": "Edit" },
+        { "name": "TotalStock", "Sequence": "1", "Mode": "Edit" }
+      ],
+      "name": "Stock Details",
+      "stepType": "FieldList",
+      "intro": "Stock Report : Stock Details"
+    },
+    {
+      "id": "Step2",
+      "fields": [{ "name": "StorageLoc", "Sequence": "1", "Mode": "Edit" }],
+      "name": "Storage Location",
+      "stepType": "FieldList",
+      "intro": "Stock Report : Storage Location"
+    },
+    {
+      "id": "Step3",
+      "fields": [{ "name": "Location", "Sequence": "1", "Mode": "Edit" }],
+      "name": "Address details",
+      "stepType": "FieldList",
+      "intro": "Stock Report : Address details"
+    },
+    {
+      "id": "Step4",
+      "fields": [
+        { "name": "Reserved", "Sequence": "1", "Mode": "Edit" },
+        { "name": "Sales", "Sequence": "1", "Mode": "Edit" },
+        { "name": "Returns", "Sequence": "1", "Mode": "Edit" },
+        { "name": "Blocked", "Sequence": "1", "Mode": "Edit" }
+      ],
+      "name": "Other Details",
+      "stepType": "FieldList",
+      "intro": "Stock Report : Other Details"
+    },
+    {
+      "id": "Step5",
+      "fields": [{ "name": "Status", "Sequence": "1", "Mode": "Edit" }],
+      "name": "Admin",
+      "stepType": "FieldList",
+      "intro": "Stock Report : Admin"
+    }
+  ]
+}

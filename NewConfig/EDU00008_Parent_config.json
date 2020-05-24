@@ -1,1 +1,277 @@
-{"Title": {"ApplicationTitle": "Scholarship Application Form", "DetailTitle": "Scholarship Application Form"}, "ListFields": {"IntroField": "StudentName", "TitleField": "Status", "fStatus": "Status", "LFields": ["ID", "NINumber"]}, "ListBOTFields": {"Title": ["ID"], "SubTitle": ["StudentName", "Status"], "Description": ["NINumber"]}, "PossibleValues": ["Status", "Gender", "EthnicOrigin", "A3", "A7"], "MButtons": [], "DButtons": [], "Tabs": [{"value": "Tab0", "name": "Cards", "type": "Cards", "fioriicon": "responsive"}, {"value": "Tab1", "name": "Personal Data", "fioriicon": "notes", "type": "Field"}, {"value": "Tab2", "name": "Additional Information", "fioriicon": "action-settings", "type": "Field", "download": "Yes"}, {"value": "Tab3", "name": "More Information", "fioriicon": "enter-more", "type": "Field", "download": "Yes"}, {"value": "Tab4", "name": "Chat Details", "fioriicon": "discussion-2", "type": "Chat", "download": "Yes"}], "DetailFields": {"None": ["ID", "StudentName", "NINumber", "Status"], "Tab1": ["BirthDate", "Email", "Address", "Gender", "EthnicOrigin", "MobileNo", "PostCode"], "Tab2": ["Q3", "A3", "Q4", "A4", "Q5", "A5", "Q7", "A7"], "Tab3": ["Essay"], "Tab4": ["Question_Response"]}, "ControlDisplay": {}, "FieldDef": [{"name": "ID", "type": "string", "width": "20", "Option": "", "SLabel": "ID", "LLabel": "", "Currency": "No"}, {"name": "StudentName", "type": "string", "width": "20", "Option": "", "SLabel": "Student Name", "LLabel": "", "Currency": "No"}, {"name": "NINumber", "type": "string", "width": "20", "Option": "", "SLabel": "National Insurance number", "LLabel": "", "Currency": "No"}, {"name": "BirthDate", "type": "Date", "width": "10", "Option": "", "SLabel": "Birth Date", "LLabel": "", "Currency": "No"}, {"name": "Email", "type": "string", "width": "50", "Option": "", "SLabel": "Email ID", "LLabel": "", "Currency": "No"}, {"name": "Address", "type": "string", "width": "200", "Option": "", "SLabel": "Address", "LLabel": "", "Currency": "No"}, {"name": "Gender", "type": "string", "width": "10", "Option": "", "SLabel": "Gender", "LLabel": "", "Currency": "No"}, {"name": "EthnicOrigin", "type": "string", "width": "50", "Option": "", "SLabel": "Ethnic Origin", "LLabel": "", "Currency": "No"}, {"name": "Q3", "type": "string", "width": "200", "Option": "", "SLabel": "Question", "LLabel": "", "Currency": "No"}, {"name": "A3", "type": "string", "width": "10", "Option": "", "SLabel": "Answer", "LLabel": "", "Currency": "No"}, {"name": "Q4", "type": "string", "width": "200", "Option": "", "SLabel": "Question", "LLabel": "", "Currency": "No"}, {"name": "A4", "type": "string", "width": "200", "Option": "", "SLabel": "Answer", "LLabel": "", "Currency": "No"}, {"name": "Q5", "type": "string", "width": "200", "Option": "", "SLabel": "Question", "LLabel": "", "Currency": "No"}, {"name": "A5", "type": "string", "width": "200", "Option": "", "SLabel": "Answer", "LLabel": "", "Currency": "No"}, {"name": "Q7", "type": "string", "width": "200", "Option": "", "SLabel": "Question", "LLabel": "", "Currency": "No"}, {"name": "A7", "type": "string", "width": "200", "Option": "", "SLabel": "Answer", "LLabel": "", "Currency": "No"}, {"name": "Essay", "type": "attachment", "width": "1000", "Option": "", "SLabel": "Essay / CVS Attachment", "LLabel": "", "Currency": "No"}, {"name": "Status", "type": "string", "width": "20", "Option": "", "SLabel": "Status", "LLabel": "", "Currency": "No"}, {"name": "MobileNo", "type": "string", "width": "100", "Option": "", "SLabel": "Contact Number", "LLabel": "", "Currency": "No"}, {"name": "Question_Response", "type": "string", "width": "500", "Option": "", "SLabel": "Chat Details", "LLabel": "", "Currency": "No"}, {"name": "PostCode", "type": "string", "width": "100", "Option": "", "SLabel": "Post Code", "LLabel": "", "Currency": "No"}], "itemConfig": {"ItemFieldDefinition": [], "DisplayFields": [], "ItemButtons": {"itemDisplay": false, "itemAdd": false, "itemEdit": false, "itemDelete": false}, "CreateFields": [], "ItemDetails": []}, "CalculatedFields": {}, "Wizard": []}
+{
+  "Title": {
+    "ApplicationTitle": "Scholarship Application Form",
+    "DetailTitle": "Scholarship Application Form"
+  },
+  "ListFields": {
+    "IntroField": "StudentName",
+    "TitleField": "Status",
+    "fStatus": "Status",
+    "LFields": ["ID", "NINumber"]
+  },
+  "ListBOTFields": {
+    "None": ["cardImage", "StatusState"],
+    "Title": ["ID"],
+    "SubTitle": ["StudentName", "Status"],
+    "Description": ["NINumber"]
+  },
+  "PossibleValues": ["Status", "Gender", "EthnicOrigin", "A3", "A7"],
+  "MButtons": [],
+  "DButtons": [],
+  "Tabs": [
+    {
+      "value": "Tab0",
+      "name": "Cards",
+      "type": "Cards",
+      "fioriicon": "responsive"
+    },
+    {
+      "value": "Tab1",
+      "name": "Personal Data",
+      "fioriicon": "notes",
+      "type": "Field"
+    },
+    {
+      "value": "Tab2",
+      "name": "Additional Information",
+      "fioriicon": "action-settings",
+      "type": "Field",
+      "download": "Yes"
+    },
+    {
+      "value": "Tab3",
+      "name": "More Information",
+      "fioriicon": "enter-more",
+      "type": "Field",
+      "download": "Yes"
+    },
+    {
+      "value": "Tab4",
+      "name": "Chat Details",
+      "fioriicon": "discussion-2",
+      "type": "Chat",
+      "download": "Yes"
+    }
+  ],
+  "DetailFields": {
+    "None": ["ID", "StudentName", "NINumber", "Status"],
+    "Tab1": [
+      "BirthDate",
+      "Email",
+      "Address",
+      "Gender",
+      "EthnicOrigin",
+      "MobileNo",
+      "PostCode"
+    ],
+    "Tab2": ["Q3", "A3", "Q4", "A4", "Q5", "A5", "Q7", "A7"],
+    "Tab3": ["Essay"],
+    "Tab4": ["Question_Response"]
+  },
+  "ControlDisplay": {},
+  "FieldDef": [
+    {
+      "name": "ID",
+      "type": "string",
+      "width": "20",
+      "Option": "",
+      "SLabel": "ID",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "StudentName",
+      "type": "string",
+      "width": "20",
+      "Option": "",
+      "SLabel": "Student Name",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "NINumber",
+      "type": "string",
+      "width": "20",
+      "Option": "",
+      "SLabel": "National Insurance number",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "BirthDate",
+      "type": "Date",
+      "width": "10",
+      "Option": "",
+      "SLabel": "Birth Date",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "Email",
+      "type": "string",
+      "width": "50",
+      "Option": "",
+      "SLabel": "Email ID",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "Address",
+      "type": "string",
+      "width": "200",
+      "Option": "",
+      "SLabel": "Address",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "Gender",
+      "type": "string",
+      "width": "10",
+      "Option": "",
+      "SLabel": "Gender",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "EthnicOrigin",
+      "type": "string",
+      "width": "50",
+      "Option": "",
+      "SLabel": "Ethnic Origin",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "Q3",
+      "type": "string",
+      "width": "200",
+      "Option": "",
+      "SLabel": "Question",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "A3",
+      "type": "string",
+      "width": "10",
+      "Option": "",
+      "SLabel": "Answer",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "Q4",
+      "type": "string",
+      "width": "200",
+      "Option": "",
+      "SLabel": "Question",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "A4",
+      "type": "string",
+      "width": "200",
+      "Option": "",
+      "SLabel": "Answer",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "Q5",
+      "type": "string",
+      "width": "200",
+      "Option": "",
+      "SLabel": "Question",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "A5",
+      "type": "string",
+      "width": "200",
+      "Option": "",
+      "SLabel": "Answer",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "Q7",
+      "type": "string",
+      "width": "200",
+      "Option": "",
+      "SLabel": "Question",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "A7",
+      "type": "string",
+      "width": "200",
+      "Option": "",
+      "SLabel": "Answer",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "Essay",
+      "type": "attachment",
+      "width": "1000",
+      "Option": "",
+      "SLabel": "Essay / CVS Attachment",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "Status",
+      "type": "string",
+      "width": "20",
+      "Option": "",
+      "SLabel": "Status",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "MobileNo",
+      "type": "string",
+      "width": "100",
+      "Option": "",
+      "SLabel": "Contact Number",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "Question_Response",
+      "type": "string",
+      "width": "500",
+      "Option": "",
+      "SLabel": "Chat Details",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "PostCode",
+      "type": "string",
+      "width": "100",
+      "Option": "",
+      "SLabel": "Post Code",
+      "LLabel": "",
+      "Currency": "No"
+    }
+  ],
+  "itemConfig": {
+    "ItemFieldDefinition": [],
+    "DisplayFields": [],
+    "ItemButtons": {
+      "itemDisplay": false,
+      "itemAdd": false,
+      "itemEdit": false,
+      "itemDelete": false
+    },
+    "CreateFields": [],
+    "ItemDetails": []
+  },
+  "CalculatedFields": {},
+  "Wizard": []
+}

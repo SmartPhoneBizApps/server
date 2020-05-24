@@ -1,1 +1,287 @@
-{"Title": {"ApplicationTitle": "Test Equipment Calib", "DetailTitle": "Test Equipment Calib"}, "ListFields": {"IntroField": "Equipment", "TitleField": "ReferenceNo", "fStatus": "Status", "LFields": ["ID", "Result"]}, "ListBOTFields": {"Title": [], "SubTitle": [], "Description": []}, "PossibleValues": ["Result", "Status"], "MButtons": [{"type": "DOWNLOAD", "name": "Download File", "icon": "sap-icon://download"}, {"type": "APPHELP", "name": "Get App Help", "icon": "sap-icon://sys-help-2"}, {"type": "BOT", "name": "Launch Assistant", "icon": "sap-icon://travel-request"}, {"type": "VIEW", "name": "Change App View", "icon": "sap-icon://chart-table-view"}, {"type": "ADD", "name": "Add Record", "icon": "sap-icon://add"}, {"type": "UPLOAD", "name": "Upload Record", "icon": "sap-icon://upload"}], "DButtons": [{"type": "ATTACHMENT", "name": "View Attachments", "icon": "sap-icon://attachment"}, {"type": "UPDATE", "name": "Update Record", "icon": "sap-icon://update"}, {"type": "ADD", "name": "Add Record", "icon": "sap-icon://add"}], "Tabs": [{"value": "Tab0", "name": "Cards", "type": "Cards", "fioriicon": "responsive"}, {"value": "Tab1", "name": "Calib", "type": "Field", "fioriicon": "inspection"}, {"value": "Tab2", "name": "Document", "type": "Field", "fioriicon": "document"}, {"value": "Tab3", "name": "Attachment", "type": "Attachment", "fioriicon": "attachment"}], "DetailFields": {"None": ["ID", "ReferenceNo", "InvoiceNo", "Equipment"], "Tab1": ["CalibDate", "CalibStartDate", "CalibExpireDate", "Model", "SerialNumber", "Result", "Status", "Comment"], "Tab2": ["Remark"], "Tab3": ["CertificateAtt", "ReportAtt"]}, "ControlDisplay": {}, "FieldDef": [{"name": "ID", "type": "string", "width": "20", "Option": "", "SLabel": "Identification", "LLabel": "", "Currency": "No"}, {"name": "ReferenceNo", "type": "string", "width": "20", "Option": "", "SLabel": "Reference No", "LLabel": "", "Currency": "No"}, {"name": "InvoiceNo", "type": "string", "width": "20", "Option": "", "SLabel": "Invoice No", "LLabel": "", "Currency": "No"}, {"name": "CalibDate", "type": "Date", "width": "10", "Option": "", "SLabel": "Calibration Date", "LLabel": "", "Currency": "No"}, {"name": "CalibStartDate", "type": "Date", "width": "10", "Option": "", "SLabel": "Calibration Start Date", "LLabel": "", "Currency": "No"}, {"name": "CalibExpireDate", "type": "Date", "width": "10", "Option": "", "SLabel": "Calibration Expire Date", "LLabel": "", "Currency": "No"}, {"name": "Equipment", "type": "string", "width": "50", "Option": "", "SLabel": "Equipment", "LLabel": "", "Currency": "No"}, {"name": "Model", "type": "string", "width": "50", "Option": "", "SLabel": "Model", "LLabel": "", "Currency": "No"}, {"name": "SerialNumber", "type": "string", "width": "50", "Option": "", "SLabel": "Serial Number", "LLabel": "", "Currency": "No"}, {"name": "CertificateAtt", "type": "attachment", "width": "50", "Option": "", "SLabel": "Certificate Attachment", "LLabel": "", "Currency": "No"}, {"name": "ReportAtt", "type": "attachment", "width": "50", "Option": "", "SLabel": "Report Attachments", "LLabel": "", "Currency": "No"}, {"name": "Result", "type": "string", "width": "20", "Option": "", "SLabel": "Result", "LLabel": "", "Currency": "No"}, {"name": "Status", "type": "string", "width": "20", "Option": "", "SLabel": "Status", "LLabel": "", "Currency": "No"}, {"name": "Comment", "type": "string", "width": "50", "Option": "", "SLabel": "Comment", "LLabel": "", "Currency": "No"}, {"name": "Remark", "type": "string", "width": "50", "Option": "", "SLabel": "Remark", "LLabel": "", "Currency": "No"}], "itemConfig": {}, "CalculatedFields": {}, "Wizard": [{"id": "Step1", "fields": [{"name": "CalibDate", "Sequence": "1", "Mode": "Edit"}, {"name": "CalibStartDate", "Sequence": "1", "Mode": "Edit"}, {"name": "CalibExpireDate", "Sequence": "1", "Mode": "Edit"}], "name": "Calibration Details", "stepType": "FieldList", "intro": "Instrument Calibration : Calibration details"}, {"id": "Step2", "fields": [{"name": "Equipment", "Sequence": "1", "Mode": "Edit"}, {"name": "Model", "Sequence": "1", "Mode": "Edit"}, {"name": "SerialNumber", "Sequence": "1", "Mode": "Edit"}], "name": "Instrument details", "stepType": "FieldList", "intro": "Instrument Calibration : Instrument details"}, {"id": "Step3", "fields": [{"name": "CertificateAtt", "Sequence": "1", "Mode": "Edit"}, {"name": "ReportAtt", "Sequence": "1", "Mode": "Edit"}], "name": "Images and Attachment", "stepType": "FieldList", "intro": "Instrument Calibration : Images and Attachment"}, {"id": "Step4", "fields": [{"name": "ReferenceNo", "Sequence": "1", "Mode": "Edit"}, {"name": "Result", "Sequence": "1", "Mode": "Edit"}, {"name": "Comment", "Sequence": "1", "Mode": "Edit"}, {"name": "Remark", "Sequence": "1", "Mode": "Edit"}, {"name": "InvoiceNo", "Sequence": "1", "Mode": "Edit"}], "name": "Other details", "stepType": "FieldList", "intro": "Instrument Calibration : Other details"}, {"id": "Step5", "fields": [{"name": "Status", "Sequence": "1", "Mode": "Edit"}], "name": "Admin", "stepType": "FieldList", "intro": "Instrument Calibration : Admin"}]}
+{
+  "Title": {
+    "ApplicationTitle": "Test Equipment Calib",
+    "DetailTitle": "Test Equipment Calib"
+  },
+  "ListFields": {
+    "IntroField": "Equipment",
+    "TitleField": "ReferenceNo",
+    "fStatus": "Status",
+    "LFields": ["ID", "Result"]
+  },
+  "ListBOTFields": {
+    "None": ["cardImage", "StatusState"],
+    "Title": [],
+    "SubTitle": [],
+    "Description": []
+  },
+  "PossibleValues": ["Result", "Status"],
+  "MButtons": [
+    {
+      "type": "DOWNLOAD",
+      "name": "Download File",
+      "icon": "sap-icon://download"
+    },
+    {
+      "type": "APPHELP",
+      "name": "Get App Help",
+      "icon": "sap-icon://sys-help-2"
+    },
+    {
+      "type": "BOT",
+      "name": "Launch Assistant",
+      "icon": "sap-icon://travel-request"
+    },
+    {
+      "type": "VIEW",
+      "name": "Change App View",
+      "icon": "sap-icon://chart-table-view"
+    },
+    { "type": "ADD", "name": "Add Record", "icon": "sap-icon://add" },
+    { "type": "UPLOAD", "name": "Upload Record", "icon": "sap-icon://upload" }
+  ],
+  "DButtons": [
+    {
+      "type": "ATTACHMENT",
+      "name": "View Attachments",
+      "icon": "sap-icon://attachment"
+    },
+    { "type": "UPDATE", "name": "Update Record", "icon": "sap-icon://update" },
+    { "type": "ADD", "name": "Add Record", "icon": "sap-icon://add" }
+  ],
+  "Tabs": [
+    {
+      "value": "Tab0",
+      "name": "Cards",
+      "type": "Cards",
+      "fioriicon": "responsive"
+    },
+    {
+      "value": "Tab1",
+      "name": "Calib",
+      "type": "Field",
+      "fioriicon": "inspection"
+    },
+    {
+      "value": "Tab2",
+      "name": "Document",
+      "type": "Field",
+      "fioriicon": "document"
+    },
+    {
+      "value": "Tab3",
+      "name": "Attachment",
+      "type": "Attachment",
+      "fioriicon": "attachment"
+    }
+  ],
+  "DetailFields": {
+    "None": ["ID", "ReferenceNo", "InvoiceNo", "Equipment"],
+    "Tab1": [
+      "CalibDate",
+      "CalibStartDate",
+      "CalibExpireDate",
+      "Model",
+      "SerialNumber",
+      "Result",
+      "Status",
+      "Comment"
+    ],
+    "Tab2": ["Remark"],
+    "Tab3": ["CertificateAtt", "ReportAtt"]
+  },
+  "ControlDisplay": {},
+  "FieldDef": [
+    {
+      "name": "ID",
+      "type": "string",
+      "width": "20",
+      "Option": "",
+      "SLabel": "Identification",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "ReferenceNo",
+      "type": "string",
+      "width": "20",
+      "Option": "",
+      "SLabel": "Reference No",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "InvoiceNo",
+      "type": "string",
+      "width": "20",
+      "Option": "",
+      "SLabel": "Invoice No",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "CalibDate",
+      "type": "Date",
+      "width": "10",
+      "Option": "",
+      "SLabel": "Calibration Date",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "CalibStartDate",
+      "type": "Date",
+      "width": "10",
+      "Option": "",
+      "SLabel": "Calibration Start Date",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "CalibExpireDate",
+      "type": "Date",
+      "width": "10",
+      "Option": "",
+      "SLabel": "Calibration Expire Date",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "Equipment",
+      "type": "string",
+      "width": "50",
+      "Option": "",
+      "SLabel": "Equipment",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "Model",
+      "type": "string",
+      "width": "50",
+      "Option": "",
+      "SLabel": "Model",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "SerialNumber",
+      "type": "string",
+      "width": "50",
+      "Option": "",
+      "SLabel": "Serial Number",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "CertificateAtt",
+      "type": "attachment",
+      "width": "50",
+      "Option": "",
+      "SLabel": "Certificate Attachment",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "ReportAtt",
+      "type": "attachment",
+      "width": "50",
+      "Option": "",
+      "SLabel": "Report Attachments",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "Result",
+      "type": "string",
+      "width": "20",
+      "Option": "",
+      "SLabel": "Result",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "Status",
+      "type": "string",
+      "width": "20",
+      "Option": "",
+      "SLabel": "Status",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "Comment",
+      "type": "string",
+      "width": "50",
+      "Option": "",
+      "SLabel": "Comment",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "Remark",
+      "type": "string",
+      "width": "50",
+      "Option": "",
+      "SLabel": "Remark",
+      "LLabel": "",
+      "Currency": "No"
+    }
+  ],
+  "itemConfig": {},
+  "CalculatedFields": {},
+  "Wizard": [
+    {
+      "id": "Step1",
+      "fields": [
+        { "name": "CalibDate", "Sequence": "1", "Mode": "Edit" },
+        { "name": "CalibStartDate", "Sequence": "1", "Mode": "Edit" },
+        { "name": "CalibExpireDate", "Sequence": "1", "Mode": "Edit" }
+      ],
+      "name": "Calibration Details",
+      "stepType": "FieldList",
+      "intro": "Instrument Calibration : Calibration details"
+    },
+    {
+      "id": "Step2",
+      "fields": [
+        { "name": "Equipment", "Sequence": "1", "Mode": "Edit" },
+        { "name": "Model", "Sequence": "1", "Mode": "Edit" },
+        { "name": "SerialNumber", "Sequence": "1", "Mode": "Edit" }
+      ],
+      "name": "Instrument details",
+      "stepType": "FieldList",
+      "intro": "Instrument Calibration : Instrument details"
+    },
+    {
+      "id": "Step3",
+      "fields": [
+        { "name": "CertificateAtt", "Sequence": "1", "Mode": "Edit" },
+        { "name": "ReportAtt", "Sequence": "1", "Mode": "Edit" }
+      ],
+      "name": "Images and Attachment",
+      "stepType": "FieldList",
+      "intro": "Instrument Calibration : Images and Attachment"
+    },
+    {
+      "id": "Step4",
+      "fields": [
+        { "name": "ReferenceNo", "Sequence": "1", "Mode": "Edit" },
+        { "name": "Result", "Sequence": "1", "Mode": "Edit" },
+        { "name": "Comment", "Sequence": "1", "Mode": "Edit" },
+        { "name": "Remark", "Sequence": "1", "Mode": "Edit" },
+        { "name": "InvoiceNo", "Sequence": "1", "Mode": "Edit" }
+      ],
+      "name": "Other details",
+      "stepType": "FieldList",
+      "intro": "Instrument Calibration : Other details"
+    },
+    {
+      "id": "Step5",
+      "fields": [{ "name": "Status", "Sequence": "1", "Mode": "Edit" }],
+      "name": "Admin",
+      "stepType": "FieldList",
+      "intro": "Instrument Calibration : Admin"
+    }
+  ]
+}

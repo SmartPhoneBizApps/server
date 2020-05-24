@@ -1,7 +1,7 @@
 /* const mongoose = require("mongoose");
 const Validationrule = require("../../models/appSetup/Validationrule");
 
-var sch = require("../../applicationJSON/Schema_Master.json");
+
 
 //RegEx for validating emailIDs
 EMAIL_V1 = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;

@@ -1,1 +1,107 @@
-{"Title": {"ApplicationTitle": "Job Listing", "DetailTitle": "Job Listing"}, "ListFields": {"IntroField": "", "TitleField": "", "sStatus": "", "fStatus": "", "numberField": "", "LFields": [], "numberUnitField": ""}, "ListBOTFields": {"Title": [], "SubTitle": [], "Description": []}, "PossibleValues": ["JobType", "Status"], "MButtons": [], "DButtons": [], "Tabs": [{"value": "Tab0", "name": "Cards", "type": "Cards", "fioriicon": "responsive"}, {"value": "Tab1", "name": "Job", "type": "Field", "fioriicon": "work-history"}, {"value": "Tab2", "name": "Contact", "type": "Field", "fioriicon": "contacts"}, {"value": "Tab3", "name": "Apply", "type": "Field", "fioriicon": "curriculum"}], "DetailFields": {"None": ["ID", "Title", "Location", "Industry", "Status"], "Tab1": ["Summary", "Details", "EssentialExp", "PreferredExp", "Duration", "JobType", "StartDate", "Rate", "Salary"], "Tab2": ["EmpBusiness", "Contact", "Telephone", "Fax", "Email", "WebLink", "PostedDate"], "Tab3": ["CoverLetter", "CV"]}, "ControlDisplay": {}, "FieldDef": [{"name": "ID", "type": "string", "width": "20", "Option": "", "SLabel": "", "LLabel": ""}, {"name": "Title", "type": "string", "width": "500"}, {"name": "Summary", "type": "string", "width": "500"}, {"name": "Details", "type": "string", "width": "1000"}, {"name": "EssentialExp", "type": "string", "width": "1000"}, {"name": "PreferredExp", "type": "string", "width": "500"}, {"name": "Location", "type": "string", "width": "100"}, {"name": "Industry", "type": "string", "width": "100"}, {"name": "Duration", "type": "string", "width": "100"}, {"name": "JobType", "type": "string", "width": "50"}, {"name": "StartDate", "type": "Date", "width": "10"}, {"name": "Rate", "type": "string", "width": "50"}, {"name": "Salary", "type": "string", "width": "50"}, {"name": "EmpBusiness", "type": "string", "width": "100"}, {"name": "Contact", "type": "string", "width": "100"}, {"name": "Telephone", "type": "string", "width": "100"}, {"name": "Fax", "type": "string", "width": "100"}, {"name": "Email", "type": "string", "width": "100"}, {"name": "WebLink", "type": "string", "width": "100"}, {"name": "PostedDate", "type": "Date", "width": "10"}, {"name": "CoverLetter", "type": "string", "width": "100"}, {"name": "CV", "type": "string", "width": "100"}, {"name": "Status", "type": "string", "width": "20"}], "itemConfig": {}, "CalculatedFields": {}, "Wizard": []}
+{
+  "Title": { "ApplicationTitle": "Job Listing", "DetailTitle": "Job Listing" },
+  "ListFields": {
+    "IntroField": "",
+    "TitleField": "",
+    "sStatus": "",
+    "fStatus": "",
+    "numberField": "",
+    "LFields": [],
+    "numberUnitField": ""
+  },
+  "ListBOTFields": {
+    "None": ["cardImage", "StatusState"],
+    "Title": [],
+    "SubTitle": [],
+    "Description": []
+  },
+  "PossibleValues": ["JobType", "Status"],
+  "MButtons": [],
+  "DButtons": [],
+  "Tabs": [
+    {
+      "value": "Tab0",
+      "name": "Cards",
+      "type": "Cards",
+      "fioriicon": "responsive"
+    },
+    {
+      "value": "Tab1",
+      "name": "Job",
+      "type": "Field",
+      "fioriicon": "work-history"
+    },
+    {
+      "value": "Tab2",
+      "name": "Contact",
+      "type": "Field",
+      "fioriicon": "contacts"
+    },
+    {
+      "value": "Tab3",
+      "name": "Apply",
+      "type": "Field",
+      "fioriicon": "curriculum"
+    }
+  ],
+  "DetailFields": {
+    "None": ["ID", "Title", "Location", "Industry", "Status"],
+    "Tab1": [
+      "Summary",
+      "Details",
+      "EssentialExp",
+      "PreferredExp",
+      "Duration",
+      "JobType",
+      "StartDate",
+      "Rate",
+      "Salary"
+    ],
+    "Tab2": [
+      "EmpBusiness",
+      "Contact",
+      "Telephone",
+      "Fax",
+      "Email",
+      "WebLink",
+      "PostedDate"
+    ],
+    "Tab3": ["CoverLetter", "CV"]
+  },
+  "ControlDisplay": {},
+  "FieldDef": [
+    {
+      "name": "ID",
+      "type": "string",
+      "width": "20",
+      "Option": "",
+      "SLabel": "",
+      "LLabel": ""
+    },
+    { "name": "Title", "type": "string", "width": "500" },
+    { "name": "Summary", "type": "string", "width": "500" },
+    { "name": "Details", "type": "string", "width": "1000" },
+    { "name": "EssentialExp", "type": "string", "width": "1000" },
+    { "name": "PreferredExp", "type": "string", "width": "500" },
+    { "name": "Location", "type": "string", "width": "100" },
+    { "name": "Industry", "type": "string", "width": "100" },
+    { "name": "Duration", "type": "string", "width": "100" },
+    { "name": "JobType", "type": "string", "width": "50" },
+    { "name": "StartDate", "type": "Date", "width": "10" },
+    { "name": "Rate", "type": "string", "width": "50" },
+    { "name": "Salary", "type": "string", "width": "50" },
+    { "name": "EmpBusiness", "type": "string", "width": "100" },
+    { "name": "Contact", "type": "string", "width": "100" },
+    { "name": "Telephone", "type": "string", "width": "100" },
+    { "name": "Fax", "type": "string", "width": "100" },
+    { "name": "Email", "type": "string", "width": "100" },
+    { "name": "WebLink", "type": "string", "width": "100" },
+    { "name": "PostedDate", "type": "Date", "width": "10" },
+    { "name": "CoverLetter", "type": "string", "width": "100" },
+    { "name": "CV", "type": "string", "width": "100" },
+    { "name": "Status", "type": "string", "width": "20" }
+  ],
+  "itemConfig": {},
+  "CalculatedFields": {},
+  "Wizard": []
+}

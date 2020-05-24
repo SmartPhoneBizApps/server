@@ -1,1 +1,151 @@
-{"Title": {"ApplicationTitle": "Seat Availability", "DetailTitle": "Seat Availability"}, "ListFields": {"IntroField": "ID", "TitleField": "CourseName", "fStatus": "Status", "LFields": ["StartDate"]}, "ListBOTFields": {"Title": [], "SubTitle": [], "Description": []}, "PossibleValues": ["Status"], "MButtons": [], "DButtons": [], "Tabs": [{"value": "Tab0", "name": "Cards", "type": "Cards", "fioriicon": "responsive"}, {"value": "Tab1", "name": "Details", "type": "Field", "fioriicon": "notes"}], "DetailFields": {"None": ["ID", "Status", "CourseName", "CourseType", "College"], "Tab1": ["CampPlacement", "Town", "Duration", "Hostel", "StartDate", "CourseLevel"]}, "ControlDisplay": {}, "FieldDef": [{"name": "ID", "type": "string", "width": "20", "Option": "", "SLabel": "ID", "LLabel": "", "Currency": "No"}, {"name": "CampPlacement", "type": "string", "width": "100", "Option": "", "SLabel": "Campus Placement", "LLabel": "", "Currency": "No"}, {"name": "Status", "type": "string", "width": "20", "Option": "", "SLabel": "Status", "LLabel": "", "Currency": "No"}, {"name": "CourseName", "type": "string", "width": "100", "Option": "", "SLabel": "Course Name", "LLabel": "", "Currency": "No"}, {"name": "CourseType", "type": "string", "width": "500", "Option": "", "SLabel": "CourseType", "LLabel": "CourseType", "Currency": "No"}, {"name": "College", "type": "string", "width": "100", "Option": "", "SLabel": "College", "LLabel": "", "Currency": "No"}, {"name": "Town", "type": "string", "width": "100", "Option": "", "SLabel": "City", "LLabel": "", "Currency": "No"}, {"name": "Duration", "type": "string", "width": "100", "Option": "", "SLabel": "Duration", "LLabel": "", "Currency": "No"}, {"name": "Hostel", "type": "string", "width": "100", "Option": "", "SLabel": "Hostel", "LLabel": "", "Currency": "No"}, {"name": "StartDate", "type": "Date", "width": "10", "Option": "", "SLabel": "Start Date", "LLabel": "", "Currency": "No"}, {"name": "CourseLevel", "type": "string", "width": "500", "Option": "", "SLabel": "Course Level", "LLabel": "CourseLevel", "Currency": "No"}], "itemConfig": {}, "CalculatedFields": {}, "Wizard": []}
+{
+  "Title": {
+    "ApplicationTitle": "Seat Availability",
+    "DetailTitle": "Seat Availability"
+  },
+  "ListFields": {
+    "IntroField": "ID",
+    "TitleField": "CourseName",
+    "fStatus": "Status",
+    "LFields": ["StartDate"]
+  },
+  "ListBOTFields": {
+    "None": ["cardImage", "StatusState"],
+    "Title": [],
+    "SubTitle": [],
+    "Description": []
+  },
+  "PossibleValues": ["Status"],
+  "MButtons": [],
+  "DButtons": [],
+  "Tabs": [
+    {
+      "value": "Tab0",
+      "name": "Cards",
+      "type": "Cards",
+      "fioriicon": "responsive"
+    },
+    {
+      "value": "Tab1",
+      "name": "Details",
+      "type": "Field",
+      "fioriicon": "notes"
+    }
+  ],
+  "DetailFields": {
+    "None": ["ID", "Status", "CourseName", "CourseType", "College"],
+    "Tab1": [
+      "CampPlacement",
+      "Town",
+      "Duration",
+      "Hostel",
+      "StartDate",
+      "CourseLevel"
+    ]
+  },
+  "ControlDisplay": {},
+  "FieldDef": [
+    {
+      "name": "ID",
+      "type": "string",
+      "width": "20",
+      "Option": "",
+      "SLabel": "ID",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "CampPlacement",
+      "type": "string",
+      "width": "100",
+      "Option": "",
+      "SLabel": "Campus Placement",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "Status",
+      "type": "string",
+      "width": "20",
+      "Option": "",
+      "SLabel": "Status",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "CourseName",
+      "type": "string",
+      "width": "100",
+      "Option": "",
+      "SLabel": "Course Name",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "CourseType",
+      "type": "string",
+      "width": "500",
+      "Option": "",
+      "SLabel": "CourseType",
+      "LLabel": "CourseType",
+      "Currency": "No"
+    },
+    {
+      "name": "College",
+      "type": "string",
+      "width": "100",
+      "Option": "",
+      "SLabel": "College",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "Town",
+      "type": "string",
+      "width": "100",
+      "Option": "",
+      "SLabel": "City",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "Duration",
+      "type": "string",
+      "width": "100",
+      "Option": "",
+      "SLabel": "Duration",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "Hostel",
+      "type": "string",
+      "width": "100",
+      "Option": "",
+      "SLabel": "Hostel",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "StartDate",
+      "type": "Date",
+      "width": "10",
+      "Option": "",
+      "SLabel": "Start Date",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "CourseLevel",
+      "type": "string",
+      "width": "500",
+      "Option": "",
+      "SLabel": "Course Level",
+      "LLabel": "CourseLevel",
+      "Currency": "No"
+    }
+  ],
+  "itemConfig": {},
+  "CalculatedFields": {},
+  "Wizard": []
+}

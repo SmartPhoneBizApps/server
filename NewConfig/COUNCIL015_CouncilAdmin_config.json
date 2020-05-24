@@ -1,1 +1,198 @@
-{"Title": {"ApplicationTitle": "Problem in a play area", "DetailTitle": "Problem in a play area"}, "ListFields": {"IntroField": "ID", "TitleField": "YourName", "fStatus": "Status", "LFields": ["IncidentTime"]}, "ListBOTFields": {"Title": [], "SubTitle": [], "Description": []}, "PossibleValues": ["Status"], "MButtons": [], "DButtons": [], "Tabs": [{"value": "Tab0", "name": "Cards", "type": "Cards", "fioriicon": "responsive"}, {"value": "Tab1", "name": "Report It", "type": "Field", "fioriicon": "request"}, {"value": "Tab2", "name": "Your Details", "type": "Field", "fioriicon": "notes"}, {"value": "Tab3", "name": "Location", "type": "Field", "fioriicon": "map"}, {"value": "Tab4", "name": "Attachment", "type": "Attachment", "fioriicon": "attachment"}], "DetailFields": {"None": ["ID", "IncidentDate", "IncidentTime", "Status"], "Tab1": ["Address", "ProblemDetail", "Image"], "Tab2": ["YourName", "YourAddress", "Postcode", "EmailID", "PhoneNo", "AdditionalInfo"], "Tab4": ["Attachment"]}, "ControlDisplay": {}, "FieldDef": [{"name": "ID", "type": "string", "width": "20", "Option": "", "SLabel": "Identification", "LLabel": "Identification", "Currency": "No"}, {"name": "YourName", "type": "string", "width": "50", "Option": "", "SLabel": "Your Name", "LLabel": "Your Name", "Currency": "No"}, {"name": "YourAddress", "type": "string", "width": "500", "Option": "", "SLabel": "Your Address", "LLabel": "Your Address", "Currency": "No"}, {"name": "Postcode", "type": "string", "width": "20", "Option": "", "SLabel": "Postcode", "LLabel": "Postcode", "Currency": "No"}, {"name": "EmailID", "type": "string", "width": "100", "Option": "", "SLabel": "Email ID", "LLabel": "Email ID", "Currency": "No"}, {"name": "PhoneNo", "type": "string", "width": "20", "Option": "", "SLabel": "Phone No", "LLabel": "Phone No", "Currency": "No"}, {"name": "Address", "type": "string", "width": "500", "Option": "", "SLabel": "Address", "LLabel": "Address", "Currency": "No"}, {"name": "ProblemDetail", "type": "string", "width": "1000", "Option": "", "SLabel": "Problem Detail", "LLabel": "Problem Detail", "Currency": "No"}, {"name": "IncidentDate", "type": "Date", "width": "10", "Option": "", "SLabel": "Incident Date", "LLabel": "Incident Date", "Currency": "No"}, {"name": "IncidentTime", "type": "Time", "width": "10", "Option": "", "SLabel": "Incident Time", "LLabel": "Incident Time", "Currency": "No"}, {"name": "Image", "type": "string", "width": "500", "Option": "", "SLabel": "Image", "LLabel": "Image", "Currency": "No"}, {"name": "Attachment", "type": "attachment", "width": "200", "Option": "", "SLabel": "Attachment", "LLabel": "Attachment", "Currency": "No"}, {"name": "AdditionalInfo", "type": "string", "width": "1000", "Option": "", "SLabel": "Additional Info", "LLabel": "Additional Info", "Currency": "No"}, {"name": "Status", "type": "string", "width": "20", "Option": "", "SLabel": "Status", "LLabel": "Status", "Currency": "No"}], "itemConfig": {}, "CalculatedFields": {}, "Wizard": []}
+{
+  "Title": {
+    "ApplicationTitle": "Problem in a play area",
+    "DetailTitle": "Problem in a play area"
+  },
+  "ListFields": {
+    "IntroField": "ID",
+    "TitleField": "YourName",
+    "fStatus": "Status",
+    "LFields": ["IncidentTime"]
+  },
+  "ListBOTFields": {
+    "None": ["cardImage", "StatusState"],
+    "Title": [],
+    "SubTitle": [],
+    "Description": []
+  },
+  "PossibleValues": ["Status"],
+  "MButtons": [],
+  "DButtons": [],
+  "Tabs": [
+    {
+      "value": "Tab0",
+      "name": "Cards",
+      "type": "Cards",
+      "fioriicon": "responsive"
+    },
+    {
+      "value": "Tab1",
+      "name": "Report It",
+      "type": "Field",
+      "fioriicon": "request"
+    },
+    {
+      "value": "Tab2",
+      "name": "Your Details",
+      "type": "Field",
+      "fioriicon": "notes"
+    },
+    {
+      "value": "Tab3",
+      "name": "Location",
+      "type": "Field",
+      "fioriicon": "map"
+    },
+    {
+      "value": "Tab4",
+      "name": "Attachment",
+      "type": "Attachment",
+      "fioriicon": "attachment"
+    }
+  ],
+  "DetailFields": {
+    "None": ["ID", "IncidentDate", "IncidentTime", "Status"],
+    "Tab1": ["Address", "ProblemDetail", "Image"],
+    "Tab2": [
+      "YourName",
+      "YourAddress",
+      "Postcode",
+      "EmailID",
+      "PhoneNo",
+      "AdditionalInfo"
+    ],
+    "Tab4": ["Attachment"]
+  },
+  "ControlDisplay": {},
+  "FieldDef": [
+    {
+      "name": "ID",
+      "type": "string",
+      "width": "20",
+      "Option": "",
+      "SLabel": "Identification",
+      "LLabel": "Identification",
+      "Currency": "No"
+    },
+    {
+      "name": "YourName",
+      "type": "string",
+      "width": "50",
+      "Option": "",
+      "SLabel": "Your Name",
+      "LLabel": "Your Name",
+      "Currency": "No"
+    },
+    {
+      "name": "YourAddress",
+      "type": "string",
+      "width": "500",
+      "Option": "",
+      "SLabel": "Your Address",
+      "LLabel": "Your Address",
+      "Currency": "No"
+    },
+    {
+      "name": "Postcode",
+      "type": "string",
+      "width": "20",
+      "Option": "",
+      "SLabel": "Postcode",
+      "LLabel": "Postcode",
+      "Currency": "No"
+    },
+    {
+      "name": "EmailID",
+      "type": "string",
+      "width": "100",
+      "Option": "",
+      "SLabel": "Email ID",
+      "LLabel": "Email ID",
+      "Currency": "No"
+    },
+    {
+      "name": "PhoneNo",
+      "type": "string",
+      "width": "20",
+      "Option": "",
+      "SLabel": "Phone No",
+      "LLabel": "Phone No",
+      "Currency": "No"
+    },
+    {
+      "name": "Address",
+      "type": "string",
+      "width": "500",
+      "Option": "",
+      "SLabel": "Address",
+      "LLabel": "Address",
+      "Currency": "No"
+    },
+    {
+      "name": "ProblemDetail",
+      "type": "string",
+      "width": "1000",
+      "Option": "",
+      "SLabel": "Problem Detail",
+      "LLabel": "Problem Detail",
+      "Currency": "No"
+    },
+    {
+      "name": "IncidentDate",
+      "type": "Date",
+      "width": "10",
+      "Option": "",
+      "SLabel": "Incident Date",
+      "LLabel": "Incident Date",
+      "Currency": "No"
+    },
+    {
+      "name": "IncidentTime",
+      "type": "Time",
+      "width": "10",
+      "Option": "",
+      "SLabel": "Incident Time",
+      "LLabel": "Incident Time",
+      "Currency": "No"
+    },
+    {
+      "name": "Image",
+      "type": "string",
+      "width": "500",
+      "Option": "",
+      "SLabel": "Image",
+      "LLabel": "Image",
+      "Currency": "No"
+    },
+    {
+      "name": "Attachment",
+      "type": "attachment",
+      "width": "200",
+      "Option": "",
+      "SLabel": "Attachment",
+      "LLabel": "Attachment",
+      "Currency": "No"
+    },
+    {
+      "name": "AdditionalInfo",
+      "type": "string",
+      "width": "1000",
+      "Option": "",
+      "SLabel": "Additional Info",
+      "LLabel": "Additional Info",
+      "Currency": "No"
+    },
+    {
+      "name": "Status",
+      "type": "string",
+      "width": "20",
+      "Option": "",
+      "SLabel": "Status",
+      "LLabel": "Status",
+      "Currency": "No"
+    }
+  ],
+  "itemConfig": {},
+  "CalculatedFields": {},
+  "Wizard": []
+}

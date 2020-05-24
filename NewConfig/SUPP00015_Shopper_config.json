@@ -1,1 +1,152 @@
-{"Title": {"ApplicationTitle": "Supplier Performance", "DetailTitle": "Supplier Performance"}, "ListFields": {"IntroField": "SurveyDate", "TitleField": "SupplierName", "sStatus": "OverallRating", "fStatus": "Status", "LFields": ["SupplierID", "Customer", "Assesse"]}, "ListBOTFields": {"Title": [], "SubTitle": [], "Description": []}, "PossibleValues": ["AbilityToSolveProblems", "UnderstandingOfMyNeeds", "Responsiveness", "Professionalism", "Courtesy", "Friendliness", "TimelinessOfDeliveries", "ConditionOfDeliveredProduct", "AccuracyOfOrderFill", "AccuracyOfInvoices", "DriverProfessionalism", "PromotionalEffectiveness", "DiscountingPolicies", "ClarityOfPriceListInformation", "SeeSalesRepresentative", "FurtherComments", "OverallRating", "Status"], "MButtons": [], "DButtons": [], "Tabs": [{"value": "Tab0", "name": "Cards", "type": "Cards", "fioriicon": "responsive"}, {"value": "Tab1", "name": "Detail", "type": "Field", "fioriicon": "notes"}, {"value": "Tab2", "name": "Assessment", "type": "Field", "fioriicon": "settings"}, {"value": "Tab3", "name": "Rating", "type": "Field", "fioriicon": "action-settings"}], "DetailFields": {"None": ["ID", "SupplierID", "SupplierName", "Status"], "Tab1": ["SurveyDate", "Customer", "Assesse", "Phone", "EMail", "Assessor"], "Tab2": ["AbilityToSolveProblems", "UnderstandingOfMyNeeds", "Responsiveness", "Professionalism", "Courtesy", "Friendliness", "TimelinessOfDeliveries", "ConditionOfDeliveredProduct"], "Tab3": ["AccuracyOfOrderFill", "AccuracyOfInvoices", "DriverProfessionalism", "PromotionalEffectiveness", "DiscountingPolicies", "ClarityOfPriceListInformation", "SeeSalesRepresentative", "FurtherComments", "OverallRating"]}, "ControlDisplay": {}, "FieldDef": [{"name": "ID", "type": "string", "width": "20", "Option": "", "SLabel": "", "LLabel": ""}, {"name": "SupplierID", "type": "string", "width": "50"}, {"name": "SupplierName", "type": "string", "width": "50"}, {"name": "SurveyDate", "type": "Date", "width": "10"}, {"name": "Customer", "type": "string", "width": "50"}, {"name": "Assesse", "type": "string", "width": "50"}, {"name": "Phone", "type": "string", "width": "50"}, {"name": "EMail", "type": "string", "width": "50"}, {"name": "Assessor", "type": "string", "width": "50"}, {"name": "AbilityToSolveProblems", "type": "string", "width": "50"}, {"name": "UnderstandingOfMyNeeds", "type": "string", "width": "50"}, {"name": "Responsiveness", "type": "string", "width": "50"}, {"name": "Professionalism", "type": "string", "width": "50"}, {"name": "Courtesy", "type": "string", "width": "50"}, {"name": "Friendliness", "type": "string", "width": "50"}, {"name": "TimelinessOfDeliveries", "type": "string", "width": "50"}, {"name": "ConditionOfDeliveredProduct", "type": "string", "width": "50"}, {"name": "AccuracyOfOrderFill", "type": "string", "width": "50"}, {"name": "AccuracyOfInvoices", "type": "string", "width": "50"}, {"name": "DriverProfessionalism", "type": "string", "width": "50"}, {"name": "PromotionalEffectiveness", "type": "string", "width": "50"}, {"name": "DiscountingPolicies", "type": "string", "width": "50"}, {"name": "ClarityOfPriceListInformation", "type": "string", "width": "50"}, {"name": "SeeSalesRepresentative", "type": "string", "width": "50"}, {"name": "FurtherComments", "type": "string", "width": "50"}, {"name": "OverallRating", "type": "string", "width": "50"}, {"name": "Status", "type": "string", "width": "50"}, {"name": "PresentationOfNewProductsAndPackage", "type": "string", "width": "100", "Option": "", "SLabel": "", "LLabel": ""}, {"name": "OverallServicePerformanceCompareToLastYear", "type": "string", "width": "100", "Option": "", "SLabel": "", "LLabel": ""}], "itemConfig": {}, "CalculatedFields": {}, "Wizard": []}
+{
+  "Title": {
+    "ApplicationTitle": "Supplier Performance",
+    "DetailTitle": "Supplier Performance"
+  },
+  "ListFields": {
+    "IntroField": "SurveyDate",
+    "TitleField": "SupplierName",
+    "sStatus": "OverallRating",
+    "fStatus": "Status",
+    "LFields": ["SupplierID", "Customer", "Assesse"]
+  },
+  "ListBOTFields": {
+    "None": ["cardImage", "StatusState"],
+    "Title": [],
+    "SubTitle": [],
+    "Description": []
+  },
+  "PossibleValues": [
+    "AbilityToSolveProblems",
+    "UnderstandingOfMyNeeds",
+    "Responsiveness",
+    "Professionalism",
+    "Courtesy",
+    "Friendliness",
+    "TimelinessOfDeliveries",
+    "ConditionOfDeliveredProduct",
+    "AccuracyOfOrderFill",
+    "AccuracyOfInvoices",
+    "DriverProfessionalism",
+    "PromotionalEffectiveness",
+    "DiscountingPolicies",
+    "ClarityOfPriceListInformation",
+    "SeeSalesRepresentative",
+    "FurtherComments",
+    "OverallRating",
+    "Status"
+  ],
+  "MButtons": [],
+  "DButtons": [],
+  "Tabs": [
+    {
+      "value": "Tab0",
+      "name": "Cards",
+      "type": "Cards",
+      "fioriicon": "responsive"
+    },
+    {
+      "value": "Tab1",
+      "name": "Detail",
+      "type": "Field",
+      "fioriicon": "notes"
+    },
+    {
+      "value": "Tab2",
+      "name": "Assessment",
+      "type": "Field",
+      "fioriicon": "settings"
+    },
+    {
+      "value": "Tab3",
+      "name": "Rating",
+      "type": "Field",
+      "fioriicon": "action-settings"
+    }
+  ],
+  "DetailFields": {
+    "None": ["ID", "SupplierID", "SupplierName", "Status"],
+    "Tab1": ["SurveyDate", "Customer", "Assesse", "Phone", "EMail", "Assessor"],
+    "Tab2": [
+      "AbilityToSolveProblems",
+      "UnderstandingOfMyNeeds",
+      "Responsiveness",
+      "Professionalism",
+      "Courtesy",
+      "Friendliness",
+      "TimelinessOfDeliveries",
+      "ConditionOfDeliveredProduct"
+    ],
+    "Tab3": [
+      "AccuracyOfOrderFill",
+      "AccuracyOfInvoices",
+      "DriverProfessionalism",
+      "PromotionalEffectiveness",
+      "DiscountingPolicies",
+      "ClarityOfPriceListInformation",
+      "SeeSalesRepresentative",
+      "FurtherComments",
+      "OverallRating"
+    ]
+  },
+  "ControlDisplay": {},
+  "FieldDef": [
+    {
+      "name": "ID",
+      "type": "string",
+      "width": "20",
+      "Option": "",
+      "SLabel": "",
+      "LLabel": ""
+    },
+    { "name": "SupplierID", "type": "string", "width": "50" },
+    { "name": "SupplierName", "type": "string", "width": "50" },
+    { "name": "SurveyDate", "type": "Date", "width": "10" },
+    { "name": "Customer", "type": "string", "width": "50" },
+    { "name": "Assesse", "type": "string", "width": "50" },
+    { "name": "Phone", "type": "string", "width": "50" },
+    { "name": "EMail", "type": "string", "width": "50" },
+    { "name": "Assessor", "type": "string", "width": "50" },
+    { "name": "AbilityToSolveProblems", "type": "string", "width": "50" },
+    { "name": "UnderstandingOfMyNeeds", "type": "string", "width": "50" },
+    { "name": "Responsiveness", "type": "string", "width": "50" },
+    { "name": "Professionalism", "type": "string", "width": "50" },
+    { "name": "Courtesy", "type": "string", "width": "50" },
+    { "name": "Friendliness", "type": "string", "width": "50" },
+    { "name": "TimelinessOfDeliveries", "type": "string", "width": "50" },
+    { "name": "ConditionOfDeliveredProduct", "type": "string", "width": "50" },
+    { "name": "AccuracyOfOrderFill", "type": "string", "width": "50" },
+    { "name": "AccuracyOfInvoices", "type": "string", "width": "50" },
+    { "name": "DriverProfessionalism", "type": "string", "width": "50" },
+    { "name": "PromotionalEffectiveness", "type": "string", "width": "50" },
+    { "name": "DiscountingPolicies", "type": "string", "width": "50" },
+    {
+      "name": "ClarityOfPriceListInformation",
+      "type": "string",
+      "width": "50"
+    },
+    { "name": "SeeSalesRepresentative", "type": "string", "width": "50" },
+    { "name": "FurtherComments", "type": "string", "width": "50" },
+    { "name": "OverallRating", "type": "string", "width": "50" },
+    { "name": "Status", "type": "string", "width": "50" },
+    {
+      "name": "PresentationOfNewProductsAndPackage",
+      "type": "string",
+      "width": "100",
+      "Option": "",
+      "SLabel": "",
+      "LLabel": ""
+    },
+    {
+      "name": "OverallServicePerformanceCompareToLastYear",
+      "type": "string",
+      "width": "100",
+      "Option": "",
+      "SLabel": "",
+      "LLabel": ""
+    }
+  ],
+  "itemConfig": {},
+  "CalculatedFields": {},
+  "Wizard": []
+}

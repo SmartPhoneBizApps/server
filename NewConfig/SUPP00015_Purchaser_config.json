@@ -1,1 +1,291 @@
-{"Title": {"ApplicationTitle": "Supplier Performance", "DetailTitle": "Supplier Performance"}, "ListFields": {"IntroField": "SurveyDate", "TitleField": "SupplierName", "sStatus": "OverallRating", "fStatus": "Status", "LFields": ["SupplierID", "Customer", "Assesse"]}, "ListBOTFields": {"Title": [], "SubTitle": [], "Description": []}, "PossibleValues": ["AbilityToSolveProblems", "UnderstandingOfMyNeeds", "Responsiveness", "Professionalism", "Courtesy", "Friendliness", "PresentationOfNewProductsAndPackage", "TimelinessOfDeliveries", "ConditionOfDeliveredProduct", "AccuracyOfOrderFill", "AccuracyOfInvoices", "DriverProfessionalism", "PromotionalEffectiveness", "DiscountingPolicies", "ClarityOfPriceListInformation", "SeeSalesRepresentative", "OverallServicePerformanceCompareToLastYear", "FurtherComments", "OverallRating", "Status"], "MButtons": [{"type": "DOWNLOAD", "name": "Download File", "icon": "sap-icon://download"}, {"type": "APPHELP", "name": "Get App Help", "icon": "sap-icon://sys-help-2"}, {"type": "BOT", "name": "Launch Assistant", "icon": "sap-icon://travel-request"}, {"type": "VIEW", "name": "Change App View", "icon": "sap-icon://chart-table-view"}, {"type": "ADD", "name": "Add Record", "icon": "sap-icon://add"}, {"type": "UPLOAD", "name": "Upload Record", "icon": "sap-icon://upload"}], "DButtons": [{"type": "ATTACHMENT", "name": "View Attachments", "icon": "sap-icon://attachment"}, {"type": "UPDATE", "name": "Update Record", "icon": "sap-icon://update"}, {"type": "ADD", "name": "Add Record", "icon": "sap-icon://add"}], "Tabs": [{"value": "Tab0", "name": "Cards", "type": "Cards", "fioriicon": "responsive"}, {"value": "Tab1", "name": "Detail", "type": "Field", "fioriicon": "notes"}, {"value": "Tab2", "name": "Assessment", "type": "Field", "fioriicon": "settings"}, {"value": "Tab3", "name": "Rating", "type": "Field", "fioriicon": "action-settings"}], "DetailFields": {"None": ["ID", "SupplierID", "SupplierName", "Status"], "Tab1": ["SurveyDate", "Customer", "Assesse", "Phone", "EMail", "Assessor"], "Tab2": ["AbilityToSolveProblems", "UnderstandingOfMyNeeds", "Responsiveness", "Professionalism", "Courtesy", "Friendliness", "PresentationOfNewProductsAndPackage", "TimelinessOfDeliveries", "ConditionOfDeliveredProduct"], "Tab3": ["AccuracyOfOrderFill", "AccuracyOfInvoices", "DriverProfessionalism", "PromotionalEffectiveness", "DiscountingPolicies", "ClarityOfPriceListInformation", "SeeSalesRepresentative", "OverallServicePerformanceCompareToLastYear", "FurtherComments", "OverallRating"]}, "ControlDisplay": {}, "FieldDef": [{"name": "ID", "type": "string", "width": "20", "Option": "", "SLabel": "", "LLabel": ""}, {"name": "SupplierID", "type": "string", "width": "50"}, {"name": "SupplierName", "type": "string", "width": "50"}, {"name": "SurveyDate", "type": "Date", "width": "10"}, {"name": "Customer", "type": "string", "width": "50"}, {"name": "Assesse", "type": "string", "width": "50"}, {"name": "Phone", "type": "string", "width": "50"}, {"name": "EMail", "type": "string", "width": "50"}, {"name": "Assessor", "type": "string", "width": "50"}, {"name": "AbilityToSolveProblems", "type": "string", "width": "50"}, {"name": "UnderstandingOfMyNeeds", "type": "string", "width": "50"}, {"name": "Responsiveness", "type": "string", "width": "50"}, {"name": "Professionalism", "type": "string", "width": "50"}, {"name": "Courtesy", "type": "string", "width": "50"}, {"name": "Friendliness", "type": "string", "width": "50"}, {"name": "PresentationOfNewProductsAndPackage", "type": "string", "width": "50", "Option": "", "SLabel": "", "LLabel": ""}, {"name": "TimelinessOfDeliveries", "type": "string", "width": "50"}, {"name": "ConditionOfDeliveredProduct", "type": "string", "width": "50"}, {"name": "AccuracyOfOrderFill", "type": "string", "width": "50"}, {"name": "AccuracyOfInvoices", "type": "string", "width": "50"}, {"name": "DriverProfessionalism", "type": "string", "width": "50"}, {"name": "PromotionalEffectiveness", "type": "string", "width": "50"}, {"name": "DiscountingPolicies", "type": "string", "width": "50"}, {"name": "ClarityOfPriceListInformation", "type": "string", "width": "50"}, {"name": "SeeSalesRepresentative", "type": "string", "width": "50"}, {"name": "OverallServicePerformanceCompareToLastYear", "type": "string", "width": "50"}, {"name": "FurtherComments", "type": "string", "width": "50"}, {"name": "OverallRating", "type": "string", "width": "50"}, {"name": "Status", "type": "string", "width": "50"}], "itemConfig": {}, "CalculatedFields": {}, "Wizard": [{"id": "Step1", "fields": [{"name": "SupplierID", "Sequence": "1", "Mode": "Edit"}, {"name": "SupplierName", "Sequence": "1", "Mode": "Edit"}, {"name": "SurveyDate", "Sequence": "1", "Mode": "Edit"}], "name": "Supplier Details", "stepType": "FieldList", "intro": "Supplier Performance : Supplier Details"}, {"id": "Step2", "fields": [{"name": "Phone", "Sequence": "1", "Mode": "Edit"}, {"name": "SeeSalesRepresentative", "Sequence": "1", "Mode": "Edit"}, {"name": "EMail", "Sequence": "1", "Mode": "Edit"}, {"name": "Assessor", "Sequence": "1", "Mode": "Edit"}, {"name": "Assesse", "Sequence": "1", "Mode": "Edit"}], "name": "Contact Details", "stepType": "FieldList", "intro": "Supplier Performance : Contact Details"}, {"id": "Step3", "fields": [{"name": "ClarityOfPriceListInformation", "Sequence": "1", "Mode": "Edit"}, {"name": "ConditionOfDeliveredProduct", "Sequence": "1", "Mode": "Edit"}, {"name": "DiscountingPolicies", "Sequence": "1", "Mode": "Edit"}, {"name": "Friendliness", "Sequence": "1", "Mode": "Edit"}, {"name": "PresentationOfNewProductsAndPackage", "Sequence": "1", "Mode": "Edit"}, {"name": "Professionalism", "Sequence": "1", "Mode": "Edit"}, {"name": "PromotionalEffectiveness", "Sequence": "1", "Mode": "Edit"}, {"name": "Responsiveness", "Sequence": "1", "Mode": "Edit"}, {"name": "TimelinessOfDeliveries", "Sequence": "1", "Mode": "Edit"}, {"name": "AbilityToSolveProblems", "Sequence": "1", "Mode": "Edit"}, {"name": "DriverProfessionalism", "Sequence": "1", "Mode": "Edit"}, {"name": "UnderstandingOfMyNeeds", "Sequence": "1", "Mode": "Edit"}], "name": "Survey Response", "stepType": "FieldList", "intro": "Supplier Performance : Survey Response"}, {"id": "Step4", "fields": [{"name": "FurtherComments", "Sequence": "1", "Mode": "Edit"}], "name": "Additional Details", "stepType": "FieldList", "intro": "Supplier Performance : Additional Details"}, {"id": "Step5", "fields": [{"name": "Customer", "Sequence": "1", "Mode": "Edit"}, {"name": "Courtesy", "Sequence": "1", "Mode": "Edit"}], "name": "Customer Details", "stepType": "FieldList", "intro": "Supplier Performance : Customer Details"}, {"id": "Step6", "fields": [{"name": "AccuracyOfInvoices", "Sequence": "1", "Mode": "Edit"}, {"name": "AccuracyOfOrderFill", "Sequence": "1", "Mode": "Edit"}], "name": "Fulfillment and Invoicing", "stepType": "FieldList", "intro": "Supplier Performance : Fulfillment and Invoicing"}, {"id": "Step7", "fields": [{"name": "OverallRating", "Sequence": "1", "Mode": "Edit"}, {"name": "OverallServicePerformanceCompareToLastYear", "Sequence": "1", "Mode": "Edit"}], "name": "Overall", "stepType": "FieldList", "intro": "Supplier Performance : Overall"}, {"id": "Step8", "fields": [{"name": "Status", "Sequence": "1", "Mode": "Edit"}], "name": "Admin", "stepType": "FieldList", "intro": "Supplier Performance : Admin"}]}
+{
+  "Title": {
+    "ApplicationTitle": "Supplier Performance",
+    "DetailTitle": "Supplier Performance"
+  },
+  "ListFields": {
+    "IntroField": "SurveyDate",
+    "TitleField": "SupplierName",
+    "sStatus": "OverallRating",
+    "fStatus": "Status",
+    "LFields": ["SupplierID", "Customer", "Assesse"]
+  },
+  "ListBOTFields": {
+    "None": ["cardImage", "StatusState"],
+    "Title": [],
+    "SubTitle": [],
+    "Description": []
+  },
+  "PossibleValues": [
+    "AbilityToSolveProblems",
+    "UnderstandingOfMyNeeds",
+    "Responsiveness",
+    "Professionalism",
+    "Courtesy",
+    "Friendliness",
+    "PresentationOfNewProductsAndPackage",
+    "TimelinessOfDeliveries",
+    "ConditionOfDeliveredProduct",
+    "AccuracyOfOrderFill",
+    "AccuracyOfInvoices",
+    "DriverProfessionalism",
+    "PromotionalEffectiveness",
+    "DiscountingPolicies",
+    "ClarityOfPriceListInformation",
+    "SeeSalesRepresentative",
+    "OverallServicePerformanceCompareToLastYear",
+    "FurtherComments",
+    "OverallRating",
+    "Status"
+  ],
+  "MButtons": [
+    {
+      "type": "DOWNLOAD",
+      "name": "Download File",
+      "icon": "sap-icon://download"
+    },
+    {
+      "type": "APPHELP",
+      "name": "Get App Help",
+      "icon": "sap-icon://sys-help-2"
+    },
+    {
+      "type": "BOT",
+      "name": "Launch Assistant",
+      "icon": "sap-icon://travel-request"
+    },
+    {
+      "type": "VIEW",
+      "name": "Change App View",
+      "icon": "sap-icon://chart-table-view"
+    },
+    { "type": "ADD", "name": "Add Record", "icon": "sap-icon://add" },
+    { "type": "UPLOAD", "name": "Upload Record", "icon": "sap-icon://upload" }
+  ],
+  "DButtons": [
+    {
+      "type": "ATTACHMENT",
+      "name": "View Attachments",
+      "icon": "sap-icon://attachment"
+    },
+    { "type": "UPDATE", "name": "Update Record", "icon": "sap-icon://update" },
+    { "type": "ADD", "name": "Add Record", "icon": "sap-icon://add" }
+  ],
+  "Tabs": [
+    {
+      "value": "Tab0",
+      "name": "Cards",
+      "type": "Cards",
+      "fioriicon": "responsive"
+    },
+    {
+      "value": "Tab1",
+      "name": "Detail",
+      "type": "Field",
+      "fioriicon": "notes"
+    },
+    {
+      "value": "Tab2",
+      "name": "Assessment",
+      "type": "Field",
+      "fioriicon": "settings"
+    },
+    {
+      "value": "Tab3",
+      "name": "Rating",
+      "type": "Field",
+      "fioriicon": "action-settings"
+    }
+  ],
+  "DetailFields": {
+    "None": ["ID", "SupplierID", "SupplierName", "Status"],
+    "Tab1": ["SurveyDate", "Customer", "Assesse", "Phone", "EMail", "Assessor"],
+    "Tab2": [
+      "AbilityToSolveProblems",
+      "UnderstandingOfMyNeeds",
+      "Responsiveness",
+      "Professionalism",
+      "Courtesy",
+      "Friendliness",
+      "PresentationOfNewProductsAndPackage",
+      "TimelinessOfDeliveries",
+      "ConditionOfDeliveredProduct"
+    ],
+    "Tab3": [
+      "AccuracyOfOrderFill",
+      "AccuracyOfInvoices",
+      "DriverProfessionalism",
+      "PromotionalEffectiveness",
+      "DiscountingPolicies",
+      "ClarityOfPriceListInformation",
+      "SeeSalesRepresentative",
+      "OverallServicePerformanceCompareToLastYear",
+      "FurtherComments",
+      "OverallRating"
+    ]
+  },
+  "ControlDisplay": {},
+  "FieldDef": [
+    {
+      "name": "ID",
+      "type": "string",
+      "width": "20",
+      "Option": "",
+      "SLabel": "",
+      "LLabel": ""
+    },
+    { "name": "SupplierID", "type": "string", "width": "50" },
+    { "name": "SupplierName", "type": "string", "width": "50" },
+    { "name": "SurveyDate", "type": "Date", "width": "10" },
+    { "name": "Customer", "type": "string", "width": "50" },
+    { "name": "Assesse", "type": "string", "width": "50" },
+    { "name": "Phone", "type": "string", "width": "50" },
+    { "name": "EMail", "type": "string", "width": "50" },
+    { "name": "Assessor", "type": "string", "width": "50" },
+    { "name": "AbilityToSolveProblems", "type": "string", "width": "50" },
+    { "name": "UnderstandingOfMyNeeds", "type": "string", "width": "50" },
+    { "name": "Responsiveness", "type": "string", "width": "50" },
+    { "name": "Professionalism", "type": "string", "width": "50" },
+    { "name": "Courtesy", "type": "string", "width": "50" },
+    { "name": "Friendliness", "type": "string", "width": "50" },
+    {
+      "name": "PresentationOfNewProductsAndPackage",
+      "type": "string",
+      "width": "50",
+      "Option": "",
+      "SLabel": "",
+      "LLabel": ""
+    },
+    { "name": "TimelinessOfDeliveries", "type": "string", "width": "50" },
+    { "name": "ConditionOfDeliveredProduct", "type": "string", "width": "50" },
+    { "name": "AccuracyOfOrderFill", "type": "string", "width": "50" },
+    { "name": "AccuracyOfInvoices", "type": "string", "width": "50" },
+    { "name": "DriverProfessionalism", "type": "string", "width": "50" },
+    { "name": "PromotionalEffectiveness", "type": "string", "width": "50" },
+    { "name": "DiscountingPolicies", "type": "string", "width": "50" },
+    {
+      "name": "ClarityOfPriceListInformation",
+      "type": "string",
+      "width": "50"
+    },
+    { "name": "SeeSalesRepresentative", "type": "string", "width": "50" },
+    {
+      "name": "OverallServicePerformanceCompareToLastYear",
+      "type": "string",
+      "width": "50"
+    },
+    { "name": "FurtherComments", "type": "string", "width": "50" },
+    { "name": "OverallRating", "type": "string", "width": "50" },
+    { "name": "Status", "type": "string", "width": "50" }
+  ],
+  "itemConfig": {},
+  "CalculatedFields": {},
+  "Wizard": [
+    {
+      "id": "Step1",
+      "fields": [
+        { "name": "SupplierID", "Sequence": "1", "Mode": "Edit" },
+        { "name": "SupplierName", "Sequence": "1", "Mode": "Edit" },
+        { "name": "SurveyDate", "Sequence": "1", "Mode": "Edit" }
+      ],
+      "name": "Supplier Details",
+      "stepType": "FieldList",
+      "intro": "Supplier Performance : Supplier Details"
+    },
+    {
+      "id": "Step2",
+      "fields": [
+        { "name": "Phone", "Sequence": "1", "Mode": "Edit" },
+        { "name": "SeeSalesRepresentative", "Sequence": "1", "Mode": "Edit" },
+        { "name": "EMail", "Sequence": "1", "Mode": "Edit" },
+        { "name": "Assessor", "Sequence": "1", "Mode": "Edit" },
+        { "name": "Assesse", "Sequence": "1", "Mode": "Edit" }
+      ],
+      "name": "Contact Details",
+      "stepType": "FieldList",
+      "intro": "Supplier Performance : Contact Details"
+    },
+    {
+      "id": "Step3",
+      "fields": [
+        {
+          "name": "ClarityOfPriceListInformation",
+          "Sequence": "1",
+          "Mode": "Edit"
+        },
+        {
+          "name": "ConditionOfDeliveredProduct",
+          "Sequence": "1",
+          "Mode": "Edit"
+        },
+        { "name": "DiscountingPolicies", "Sequence": "1", "Mode": "Edit" },
+        { "name": "Friendliness", "Sequence": "1", "Mode": "Edit" },
+        {
+          "name": "PresentationOfNewProductsAndPackage",
+          "Sequence": "1",
+          "Mode": "Edit"
+        },
+        { "name": "Professionalism", "Sequence": "1", "Mode": "Edit" },
+        { "name": "PromotionalEffectiveness", "Sequence": "1", "Mode": "Edit" },
+        { "name": "Responsiveness", "Sequence": "1", "Mode": "Edit" },
+        { "name": "TimelinessOfDeliveries", "Sequence": "1", "Mode": "Edit" },
+        { "name": "AbilityToSolveProblems", "Sequence": "1", "Mode": "Edit" },
+        { "name": "DriverProfessionalism", "Sequence": "1", "Mode": "Edit" },
+        { "name": "UnderstandingOfMyNeeds", "Sequence": "1", "Mode": "Edit" }
+      ],
+      "name": "Survey Response",
+      "stepType": "FieldList",
+      "intro": "Supplier Performance : Survey Response"
+    },
+    {
+      "id": "Step4",
+      "fields": [
+        { "name": "FurtherComments", "Sequence": "1", "Mode": "Edit" }
+      ],
+      "name": "Additional Details",
+      "stepType": "FieldList",
+      "intro": "Supplier Performance : Additional Details"
+    },
+    {
+      "id": "Step5",
+      "fields": [
+        { "name": "Customer", "Sequence": "1", "Mode": "Edit" },
+        { "name": "Courtesy", "Sequence": "1", "Mode": "Edit" }
+      ],
+      "name": "Customer Details",
+      "stepType": "FieldList",
+      "intro": "Supplier Performance : Customer Details"
+    },
+    {
+      "id": "Step6",
+      "fields": [
+        { "name": "AccuracyOfInvoices", "Sequence": "1", "Mode": "Edit" },
+        { "name": "AccuracyOfOrderFill", "Sequence": "1", "Mode": "Edit" }
+      ],
+      "name": "Fulfillment and Invoicing",
+      "stepType": "FieldList",
+      "intro": "Supplier Performance : Fulfillment and Invoicing"
+    },
+    {
+      "id": "Step7",
+      "fields": [
+        { "name": "OverallRating", "Sequence": "1", "Mode": "Edit" },
+        {
+          "name": "OverallServicePerformanceCompareToLastYear",
+          "Sequence": "1",
+          "Mode": "Edit"
+        }
+      ],
+      "name": "Overall",
+      "stepType": "FieldList",
+      "intro": "Supplier Performance : Overall"
+    },
+    {
+      "id": "Step8",
+      "fields": [{ "name": "Status", "Sequence": "1", "Mode": "Edit" }],
+      "name": "Admin",
+      "stepType": "FieldList",
+      "intro": "Supplier Performance : Admin"
+    }
+  ]
+}

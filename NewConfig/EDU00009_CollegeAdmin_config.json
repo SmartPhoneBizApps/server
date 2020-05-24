@@ -1,1 +1,436 @@
-{"Title": {"ApplicationTitle": "Student Information Form", "DetailTitle": "Student Information Form"}, "ListFields": {"IntroField": "StudentName", "TitleField": "PhoneNumber", "fStatus": "Status", "LFields": ["ID"]}, "ListBOTFields": {"Title": [], "SubTitle": [], "Description": []}, "PossibleValues": ["A2", "A4", "A5", "Status"], "MButtons": [{"type": "DOWNLOAD", "name": "Download File", "icon": "sap-icon://download"}, {"type": "APPHELP", "name": "Get App Help", "icon": "sap-icon://sys-help-2"}, {"type": "BOT", "name": "Launch Assistant", "icon": "sap-icon://travel-request"}, {"type": "VIEW", "name": "Change App View", "icon": "sap-icon://chart-table-view"}, {"type": "ADD", "name": "Add Record", "icon": "sap-icon://add"}, {"type": "UPLOAD", "name": "Upload Record", "icon": "sap-icon://upload"}], "DButtons": [{"type": "ATTACHMENT", "name": "View Attachments", "icon": "sap-icon://attachment"}, {"type": "UPDATE", "name": "Update Record", "icon": "sap-icon://update"}, {"type": "ADD", "name": "Add Record", "icon": "sap-icon://add"}], "Tabs": [{"value": "Tab0", "name": "Cards", "type": "Cards", "fioriicon": "responsive"}, {"value": "Tab1", "name": "Personal Information", "fioriicon": "notes", "type": "Field"}, {"value": "Tab2", "name": "Additional Information", "fioriicon": "add-document", "type": "Field"}, {"value": "Tab3", "name": "Attachment", "fioriicon": "attachment", "type": "Attachment"}], "DetailFields": {"None": ["ID", "StudentName", "PhoneNumber", "Status", "BirthDate"], "Tab1": ["Email", "GradeLevel", "GuidanceName", "AdviserName", "MotherName", "MotherEmail", "FatherName", "FatherEmail", "FatherPhoneNo"], "Tab2": ["Q1", "A1", "Q2", "A2", "Q3", "A3", "Q4", "A4", "Q5", "A5", "Q6", "A6"], "Tab3": ["Image"]}, "ControlDisplay": {}, "FieldDef": [{"name": "ID", "type": "string", "width": "20", "Option": "mandatory", "SLabel": "ID", "LLabel": "", "Currency": "No"}, {"name": "StudentName", "type": "string", "width": "50", "Option": "mandatory", "SLabel": "Student Name", "LLabel": "", "Currency": "No"}, {"name": "Email", "type": "string", "width": "50", "Option": "", "SLabel": "Email ID", "LLabel": "", "Currency": "No"}, {"name": "PhoneNumber", "type": "string", "width": "20", "Option": "mandatory", "SLabel": "Phone Number", "LLabel": "", "Currency": "No"}, {"name": "GradeLevel", "type": "string", "width": "20", "Option": "mandatory", "SLabel": "Grade Level", "LLabel": "", "Currency": "No"}, {"name": "GuidanceName", "type": "string", "width": "50", "Option": "", "SLabel": "Guidance Name", "LLabel": "", "Currency": "No"}, {"name": "AdviserName", "type": "string", "width": "50", "Option": "", "SLabel": "Adviser Name ", "LLabel": "", "Currency": "No"}, {"name": "MotherName", "type": "string", "width": "50", "Option": "", "SLabel": "Mother Name", "LLabel": "", "Currency": "No"}, {"name": "MotherEmail", "type": "string", "width": "50", "Option": "", "SLabel": "Mother Email", "LLabel": "", "Currency": "No"}, {"name": "MotherPhoneNo", "type": "string", "width": "20", "Option": "", "SLabel": "Mother PhoneNo", "LLabel": "", "Currency": "No"}, {"name": "FatherEmail", "type": "string", "width": "50", "Option": "", "SLabel": "Father Email ID", "LLabel": "", "Currency": "No"}, {"name": "FatherPhoneNo", "type": "string", "width": "20", "Option": "", "SLabel": "Father PhoneNo", "LLabel": "", "Currency": "No"}, {"name": "Q1", "type": "string", "width": "50", "Option": "", "SLabel": "Question 1", "LLabel": "", "Currency": "No"}, {"name": "A1", "type": "string", "width": "50", "Option": "", "SLabel": "Answer 1", "LLabel": "", "Currency": "No"}, {"name": "Q2", "type": "string", "width": "50", "Option": "", "SLabel": "Question 2", "LLabel": "", "Currency": "No"}, {"name": "A2", "type": "string", "width": "100", "Option": "", "SLabel": "Answer 2", "LLabel": "", "Currency": "No"}, {"name": "Q3", "type": "string", "width": "100", "Option": "", "SLabel": "Question 3", "LLabel": "", "Currency": "No"}, {"name": "A3", "type": "string", "width": "100", "Option": "", "SLabel": "Answer 3", "LLabel": "", "Currency": "No"}, {"name": "Q4", "type": "string", "width": "100", "Option": "", "SLabel": "Question 4", "LLabel": "", "Currency": "No"}, {"name": "A4", "type": "string", "width": "100", "Option": "", "SLabel": "Answer 4", "LLabel": "", "Currency": "No"}, {"name": "Q5", "type": "string", "width": "100", "Option": "", "SLabel": "Question 5", "LLabel": "", "Currency": "No"}, {"name": "A5", "type": "string", "width": "100", "Option": "", "SLabel": "Answer 5", "LLabel": "", "Currency": "No"}, {"name": "Q6", "type": "string", "width": "100", "Option": "", "SLabel": "Question 6", "LLabel": "", "Currency": "No"}, {"name": "A6", "type": "string", "width": "100", "Option": "", "SLabel": "Answer 6", "LLabel": "", "Currency": "No"}, {"name": "Image", "type": "attachment", "width": "100", "Option": "", "SLabel": "Image", "LLabel": "", "Currency": "No"}, {"name": "Status", "type": "string", "width": "20", "Option": "mandatory", "SLabel": "Status", "LLabel": "", "Currency": "No"}, {"name": "BirthDate", "type": "Date", "width": "10", "Option": "mandatory", "SLabel": "Birth Date", "LLabel": "", "Currency": "No"}, {"name": "FatherName", "type": "string", "width": "50", "Option": "", "SLabel": "Father Name", "LLabel": "", "Currency": "No"}], "itemConfig": {}, "CalculatedFields": {}, "Wizard": [{"id": "Step1", "fields": [{"name": "StudentName", "Sequence": "1", "Mode": "Edit"}, {"name": "PhoneNumber", "Sequence": "1", "Mode": "Edit"}, {"name": "Email", "Sequence": "1", "Mode": "Edit"}, {"name": "GradeLevel", "Sequence": "1", "Mode": "Edit"}, {"name": "BirthDate", "Sequence": "1", "Mode": "Edit"}], "name": "Student Details", "stepType": "FieldList", "intro": "Student Information Form : Student Details"}, {"id": "Step2", "fields": [{"name": "GuidanceName", "Sequence": "1", "Mode": "Edit"}, {"name": "AdviserName", "Sequence": "1", "Mode": "Edit"}, {"name": "MotherName", "Sequence": "1", "Mode": "Edit"}, {"name": "MotherEmail", "Sequence": "1", "Mode": "Edit"}, {"name": "FatherName", "Sequence": "1", "Mode": "Edit"}, {"name": "FatherEmail", "Sequence": "1", "Mode": "Edit"}, {"name": "FatherPhoneNo", "Sequence": "1", "Mode": "Edit"}], "name": "Guidance and Parent Details", "stepType": "FieldList", "intro": "Student Information Form : Guidance and Parent Details"}, {"id": "Step3", "fields": [{"name": "Q1", "Sequence": "1", "Mode": "Display"}, {"name": "A1", "Sequence": "1", "Mode": "Edit"}, {"name": "Q2", "Sequence": "1", "Mode": "Display"}, {"name": "A2", "Sequence": "1", "Mode": "Edit"}, {"name": "Q3", "Sequence": "1", "Mode": "Display"}, {"name": "A3", "Sequence": "1", "Mode": "Edit"}], "name": "Q and A", "stepType": "FieldList", "intro": "Student Information Form : Q and A"}, {"id": "Step4", "fields": [{"name": "Q4", "Sequence": "1", "Mode": "Display"}, {"name": "A4", "Sequence": "1", "Mode": "Edit"}, {"name": "Q5", "Sequence": "1", "Mode": "Display"}, {"name": "A5", "Sequence": "1", "Mode": "Edit"}, {"name": "Q6", "Sequence": "1", "Mode": "Display"}, {"name": "A6", "Sequence": "1", "Mode": "Edit"}], "name": "Q and A", "stepType": "FieldList", "intro": "Student Information Form : Q and A"}, {"id": "Step5", "fields": [{"name": "Status", "Sequence": "1", "Mode": "Edit"}], "name": "Admin", "stepType": "FieldList", "intro": "Student Information Form : Admin"}, {"id": "Step6", "fields": [{"name": "Image", "Sequence": "1", "Mode": "Edit"}], "name": "Images and Attachment", "stepType": "FieldList", "intro": "Student Information Form : Images and Attachment"}]}
+{
+  "Title": {
+    "ApplicationTitle": "Student Information Form",
+    "DetailTitle": "Student Information Form"
+  },
+  "ListFields": {
+    "IntroField": "StudentName",
+    "TitleField": "PhoneNumber",
+    "fStatus": "Status",
+    "LFields": ["ID"]
+  },
+  "ListBOTFields": {
+    "None": ["cardImage", "StatusState"],
+    "Title": [],
+    "SubTitle": [],
+    "Description": []
+  },
+  "PossibleValues": ["A2", "A4", "A5", "Status"],
+  "MButtons": [
+    {
+      "type": "DOWNLOAD",
+      "name": "Download File",
+      "icon": "sap-icon://download"
+    },
+    {
+      "type": "APPHELP",
+      "name": "Get App Help",
+      "icon": "sap-icon://sys-help-2"
+    },
+    {
+      "type": "BOT",
+      "name": "Launch Assistant",
+      "icon": "sap-icon://travel-request"
+    },
+    {
+      "type": "VIEW",
+      "name": "Change App View",
+      "icon": "sap-icon://chart-table-view"
+    },
+    { "type": "ADD", "name": "Add Record", "icon": "sap-icon://add" },
+    { "type": "UPLOAD", "name": "Upload Record", "icon": "sap-icon://upload" }
+  ],
+  "DButtons": [
+    {
+      "type": "ATTACHMENT",
+      "name": "View Attachments",
+      "icon": "sap-icon://attachment"
+    },
+    { "type": "UPDATE", "name": "Update Record", "icon": "sap-icon://update" },
+    { "type": "ADD", "name": "Add Record", "icon": "sap-icon://add" }
+  ],
+  "Tabs": [
+    {
+      "value": "Tab0",
+      "name": "Cards",
+      "type": "Cards",
+      "fioriicon": "responsive"
+    },
+    {
+      "value": "Tab1",
+      "name": "Personal Information",
+      "fioriicon": "notes",
+      "type": "Field"
+    },
+    {
+      "value": "Tab2",
+      "name": "Additional Information",
+      "fioriicon": "add-document",
+      "type": "Field"
+    },
+    {
+      "value": "Tab3",
+      "name": "Attachment",
+      "fioriicon": "attachment",
+      "type": "Attachment"
+    }
+  ],
+  "DetailFields": {
+    "None": ["ID", "StudentName", "PhoneNumber", "Status", "BirthDate"],
+    "Tab1": [
+      "Email",
+      "GradeLevel",
+      "GuidanceName",
+      "AdviserName",
+      "MotherName",
+      "MotherEmail",
+      "FatherName",
+      "FatherEmail",
+      "FatherPhoneNo"
+    ],
+    "Tab2": [
+      "Q1",
+      "A1",
+      "Q2",
+      "A2",
+      "Q3",
+      "A3",
+      "Q4",
+      "A4",
+      "Q5",
+      "A5",
+      "Q6",
+      "A6"
+    ],
+    "Tab3": ["Image"]
+  },
+  "ControlDisplay": {},
+  "FieldDef": [
+    {
+      "name": "ID",
+      "type": "string",
+      "width": "20",
+      "Option": "mandatory",
+      "SLabel": "ID",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "StudentName",
+      "type": "string",
+      "width": "50",
+      "Option": "mandatory",
+      "SLabel": "Student Name",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "Email",
+      "type": "string",
+      "width": "50",
+      "Option": "",
+      "SLabel": "Email ID",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "PhoneNumber",
+      "type": "string",
+      "width": "20",
+      "Option": "mandatory",
+      "SLabel": "Phone Number",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "GradeLevel",
+      "type": "string",
+      "width": "20",
+      "Option": "mandatory",
+      "SLabel": "Grade Level",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "GuidanceName",
+      "type": "string",
+      "width": "50",
+      "Option": "",
+      "SLabel": "Guidance Name",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "AdviserName",
+      "type": "string",
+      "width": "50",
+      "Option": "",
+      "SLabel": "Adviser Name ",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "MotherName",
+      "type": "string",
+      "width": "50",
+      "Option": "",
+      "SLabel": "Mother Name",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "MotherEmail",
+      "type": "string",
+      "width": "50",
+      "Option": "",
+      "SLabel": "Mother Email",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "MotherPhoneNo",
+      "type": "string",
+      "width": "20",
+      "Option": "",
+      "SLabel": "Mother PhoneNo",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "FatherEmail",
+      "type": "string",
+      "width": "50",
+      "Option": "",
+      "SLabel": "Father Email ID",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "FatherPhoneNo",
+      "type": "string",
+      "width": "20",
+      "Option": "",
+      "SLabel": "Father PhoneNo",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "Q1",
+      "type": "string",
+      "width": "50",
+      "Option": "",
+      "SLabel": "Question 1",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "A1",
+      "type": "string",
+      "width": "50",
+      "Option": "",
+      "SLabel": "Answer 1",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "Q2",
+      "type": "string",
+      "width": "50",
+      "Option": "",
+      "SLabel": "Question 2",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "A2",
+      "type": "string",
+      "width": "100",
+      "Option": "",
+      "SLabel": "Answer 2",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "Q3",
+      "type": "string",
+      "width": "100",
+      "Option": "",
+      "SLabel": "Question 3",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "A3",
+      "type": "string",
+      "width": "100",
+      "Option": "",
+      "SLabel": "Answer 3",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "Q4",
+      "type": "string",
+      "width": "100",
+      "Option": "",
+      "SLabel": "Question 4",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "A4",
+      "type": "string",
+      "width": "100",
+      "Option": "",
+      "SLabel": "Answer 4",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "Q5",
+      "type": "string",
+      "width": "100",
+      "Option": "",
+      "SLabel": "Question 5",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "A5",
+      "type": "string",
+      "width": "100",
+      "Option": "",
+      "SLabel": "Answer 5",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "Q6",
+      "type": "string",
+      "width": "100",
+      "Option": "",
+      "SLabel": "Question 6",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "A6",
+      "type": "string",
+      "width": "100",
+      "Option": "",
+      "SLabel": "Answer 6",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "Image",
+      "type": "attachment",
+      "width": "100",
+      "Option": "",
+      "SLabel": "Image",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "Status",
+      "type": "string",
+      "width": "20",
+      "Option": "mandatory",
+      "SLabel": "Status",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "BirthDate",
+      "type": "Date",
+      "width": "10",
+      "Option": "mandatory",
+      "SLabel": "Birth Date",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "FatherName",
+      "type": "string",
+      "width": "50",
+      "Option": "",
+      "SLabel": "Father Name",
+      "LLabel": "",
+      "Currency": "No"
+    }
+  ],
+  "itemConfig": {},
+  "CalculatedFields": {},
+  "Wizard": [
+    {
+      "id": "Step1",
+      "fields": [
+        { "name": "StudentName", "Sequence": "1", "Mode": "Edit" },
+        { "name": "PhoneNumber", "Sequence": "1", "Mode": "Edit" },
+        { "name": "Email", "Sequence": "1", "Mode": "Edit" },
+        { "name": "GradeLevel", "Sequence": "1", "Mode": "Edit" },
+        { "name": "BirthDate", "Sequence": "1", "Mode": "Edit" }
+      ],
+      "name": "Student Details",
+      "stepType": "FieldList",
+      "intro": "Student Information Form : Student Details"
+    },
+    {
+      "id": "Step2",
+      "fields": [
+        { "name": "GuidanceName", "Sequence": "1", "Mode": "Edit" },
+        { "name": "AdviserName", "Sequence": "1", "Mode": "Edit" },
+        { "name": "MotherName", "Sequence": "1", "Mode": "Edit" },
+        { "name": "MotherEmail", "Sequence": "1", "Mode": "Edit" },
+        { "name": "FatherName", "Sequence": "1", "Mode": "Edit" },
+        { "name": "FatherEmail", "Sequence": "1", "Mode": "Edit" },
+        { "name": "FatherPhoneNo", "Sequence": "1", "Mode": "Edit" }
+      ],
+      "name": "Guidance and Parent Details",
+      "stepType": "FieldList",
+      "intro": "Student Information Form : Guidance and Parent Details"
+    },
+    {
+      "id": "Step3",
+      "fields": [
+        { "name": "Q1", "Sequence": "1", "Mode": "Display" },
+        { "name": "A1", "Sequence": "1", "Mode": "Edit" },
+        { "name": "Q2", "Sequence": "1", "Mode": "Display" },
+        { "name": "A2", "Sequence": "1", "Mode": "Edit" },
+        { "name": "Q3", "Sequence": "1", "Mode": "Display" },
+        { "name": "A3", "Sequence": "1", "Mode": "Edit" }
+      ],
+      "name": "Q and A",
+      "stepType": "FieldList",
+      "intro": "Student Information Form : Q and A"
+    },
+    {
+      "id": "Step4",
+      "fields": [
+        { "name": "Q4", "Sequence": "1", "Mode": "Display" },
+        { "name": "A4", "Sequence": "1", "Mode": "Edit" },
+        { "name": "Q5", "Sequence": "1", "Mode": "Display" },
+        { "name": "A5", "Sequence": "1", "Mode": "Edit" },
+        { "name": "Q6", "Sequence": "1", "Mode": "Display" },
+        { "name": "A6", "Sequence": "1", "Mode": "Edit" }
+      ],
+      "name": "Q and A",
+      "stepType": "FieldList",
+      "intro": "Student Information Form : Q and A"
+    },
+    {
+      "id": "Step5",
+      "fields": [{ "name": "Status", "Sequence": "1", "Mode": "Edit" }],
+      "name": "Admin",
+      "stepType": "FieldList",
+      "intro": "Student Information Form : Admin"
+    },
+    {
+      "id": "Step6",
+      "fields": [{ "name": "Image", "Sequence": "1", "Mode": "Edit" }],
+      "name": "Images and Attachment",
+      "stepType": "FieldList",
+      "intro": "Student Information Form : Images and Attachment"
+    }
+  ]
+}
