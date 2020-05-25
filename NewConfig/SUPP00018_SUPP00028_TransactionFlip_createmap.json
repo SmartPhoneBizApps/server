@@ -55,28 +55,14 @@
       "TaxInvoice": "TaxInvoice",
       "ItemInvoiceStatus": "ItemInvoiceStatus"
     },
-    "Checks1": [
+
+    "Checks": [
       {
         "Defaults": [
-          { "Header": [{ "Defaults.Header.InvoiceStatus": "PartialInvoiced" }] }
+          { "InvoiceStatus": "PartialInvoiced" },
+          { "CurrentStatus": "PartialInvoiced" }
         ]
       },
-      {
-        "Conditions": [
-          { "ItemData": [{ "ItemData.ItemInvoiceStatus": "complete" }] }
-        ]
-      },
-      {
-        "Results": {
-          "Header": [
-            { "CurrentStatus": "Invoiced" },
-            { "InvoiceStatus": "Invoiced" }
-          ]
-        }
-      }
-    ],
-    "Checks": [
-      { "Defaults": { "InvoiceStatus": "PartialInvoiced" } },
       {
         "Results": [
           { "CurrentStatus": "Invoiced" },

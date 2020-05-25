@@ -60,6 +60,8 @@ exports.addWithRef = asyncHandler(async (req, res, next) => {
     req.headers.s_applicationid +
     "_" +
     req.headers.t_applicationid +
+    "_" +
+    req.headers.transaction +
     "_createmap.json";
   var mymap = require(fn);
   myInv = {};

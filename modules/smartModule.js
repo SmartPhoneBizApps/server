@@ -6,7 +6,8 @@ module.exports = {
   getCreateMap: function (sapp, tapp) {
     // Read Create Map Config
     // This will be used only when you create record copying data from sapp to tapp
-    let fn = "../NewConfig/" + sapp + "_" + tapp + "_createmap.json";
+    let fn =
+      "../NewConfig/" + sapp + "_" + tapp + "_" + trans + "_createmap.json";
     var result = require(fn);
     return result;
   },

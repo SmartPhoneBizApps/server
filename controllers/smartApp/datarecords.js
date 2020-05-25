@@ -935,7 +935,6 @@ exports.updateDataRecords = asyncHandler(async (req, res, next) => {
       req.body = outdata;
     }
     //---------------------------
-
     result = await SUPP00018.findByIdAndUpdate(myData.id, req.body, {
       new: true,
       runValidators: true,

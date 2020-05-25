@@ -636,6 +636,13 @@
       "itemEdit": true,
       "itemDelete": true
     },
+
+    "ListBOTItemFields": {
+      "None": ["ID"],
+      "Title": ["ItemNumber", "ItemDetails"],
+      "SubTitle": ["InvGrossVal", "InvNetValue"],
+      "Description": ["InvQty", "InvUOM", "InvPrice", "InvVATVal"]
+    },
     "CreateFields": [
       "ItemDetails",
       "InvQty",

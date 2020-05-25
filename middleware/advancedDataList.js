@@ -35,6 +35,7 @@ const advancedDataList = (model, model2, AppID, populate) => async (
       });
       config["Title"] = config1["Title"];
       config["ListBOTFields"] = config1["ListBOTFields"];
+      config["ListBOTItemFields"] = config1["itemConfig"]["ListBOTItemFields"];
       config["FieldDef"] = fl2;
       break;
 
@@ -42,6 +43,7 @@ const advancedDataList = (model, model2, AppID, populate) => async (
       config["Title"] = config1["Title"];
       config["Tabs"] = config1["Tabs"];
       config["DetailFields"] = config1["DetailFields"];
+      config["ListBOTItemFields"] = config1["itemConfig"]["ListBOTItemFields"];
       config["FieldDef"] = fl2;
       break;
     default:

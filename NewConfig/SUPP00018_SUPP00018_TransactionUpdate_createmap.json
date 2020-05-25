@@ -1,0 +1,34 @@
+{
+  "Inputs": [
+    "TrackingWebsite",
+    "TrackingNumber",
+    "DeliveryCompany",
+    "ShippingDate",
+    "CurrentStatus",
+    "ProcessingLog",
+    "SupplierShipped",
+    "ItemShippingStatus"
+  ],
+  "HeaderMap": {},
+  "ItemMap": {},
+
+  "SourceUpdate": {
+    "ItemMap": {},
+    "ItemMapInput": {},
+    "Checks": [
+      {
+        "Defaults": [
+          { "ShippingStatus": "PartialShipped" },
+          { "CurrentStatus": "PartialShipped" }
+        ]
+      },
+      {
+        "Results": [
+          { "CurrentStatus": "SupplierShipped" },
+          { "ShippingStatus": "Shipped" }
+        ]
+      },
+      { "Conditions": [{ "ItemData_ItemShippingStatus": "Complete" }] }
+    ]
+  }
+}
