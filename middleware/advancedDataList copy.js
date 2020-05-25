@@ -1,4 +1,4 @@
-const { getNewConfig, getBotListFields } = require("../modules/config");
+const { getNewConfig } = require("../modules/config");
 
 const advancedDataList = (model, model2, AppID, populate) => async (
   req,
@@ -15,9 +15,21 @@ const advancedDataList = (model, model2, AppID, populate) => async (
   let config = {};
   fl1 = {};
   fl2 = [];
+  lf = [];
 
   if (req.headers.mode == "BOTList") {
-    let lf = getBotListFields(config1);
+    config1["ListBOTFields"]["Title"].forEach((element1) => {
+      lf.push(element1);
+    });
+    config1["ListBOTFields"]["SubTitle"].forEach((element1) => {
+      lf.push(element1);
+    });
+    config1["ListBOTFields"]["Description"].forEach((element1) => {
+      lf.push(element1);
+    });
+    config1["ListBOTFields"]["None"].forEach((element1) => {
+      lf.push(element1);
+    });
   }
 
   // check the Mode
@@ -33,9 +45,11 @@ const advancedDataList = (model, model2, AppID, populate) => async (
           }
         });
       });
+      //fl2.push("cardImage");
       config["Title"] = config1["Title"];
       config["ListBOTFields"] = config1["ListBOTFields"];
       config["FieldDef"] = fl2;
+      // config["Buttons"] = button[AppID];
       break;
 
     case "BOTDetail":
@@ -61,10 +75,10 @@ const advancedDataList = (model, model2, AppID, populate) => async (
     if ((n == true) & (model !== model2)) {
       const fList = key.split("_");
       reqQuery2[fList[1]] = reqQuery1[key];
-
-      var r1 = reqQuery1[key].includes("ne"); // Add the logic for gt, lt etc...
+      var r1 = reqQuery1[key].includes("ne");
       if (r1 == true) {
         rg01 = reqQuery1[key].split("|");
+
         rn[rg01[0]] = rg01[1];
         reqQuery2[fList[1]] = rn;
       }
@@ -72,7 +86,8 @@ const advancedDataList = (model, model2, AppID, populate) => async (
       reqQuery[key] = reqQuery1[key];
     }
   }
-
+  console.log("Header", reqQuery);
+  console.log("Item", reqQuery2);
   /////////////////////////////////////////////////////////////////
   // Create query string (Header)
   let queryStr = JSON.stringify(reqQuery);
@@ -119,6 +134,7 @@ const advancedDataList = (model, model2, AppID, populate) => async (
       reqQuery2["ID"] = results[i1]["ID"];
       let queryStr2 = JSON.stringify(reqQuery2);
 
+      console.log("Item2", queryStr2);
       // let queryStr2 = reqQuery2;
       // Create operators ($gt, $gte, etc)
       queryStr2 = queryStr2.replace(
@@ -135,6 +151,7 @@ const advancedDataList = (model, model2, AppID, populate) => async (
   } else {
     for (let i1 = 0; i1 < results.length; i1++) {
       results[i1].cardImage = app["photo"];
+      console.log("AG01", results[i1]);
     }
   }
   /////////////////////////////////////////////////////////////////

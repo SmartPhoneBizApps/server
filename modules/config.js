@@ -46,7 +46,7 @@ module.exports = {
   },
   getButtonData: function (results, app, role1) {
     buttonData = {};
-    buttonVal = {};
+    // buttonVal = {};
     results.forEach((element) => {
       if (element.PossibleValues == "CurrentStatus") {
         for (const key in button[app][element.Value]) {
@@ -61,5 +61,21 @@ module.exports = {
       //      l1 = {};
     });
     return buttonData;
+  },
+  getBotListFields: function (config1) {
+    lf = [];
+    config1["ListBOTFields"]["Title"].forEach((element1) => {
+      lf.push(element1);
+    });
+    config1["ListBOTFields"]["SubTitle"].forEach((element1) => {
+      lf.push(element1);
+    });
+    config1["ListBOTFields"]["Description"].forEach((element1) => {
+      lf.push(element1);
+    });
+    config1["ListBOTFields"]["None"].forEach((element1) => {
+      lf.push(element1);
+    });
+    return lf;
   },
 };

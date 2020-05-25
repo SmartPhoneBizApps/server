@@ -1022,7 +1022,7 @@ exports.updateDataRecords = asyncHandler(async (req, res, next) => {
     console.log(req.body);
     for (let index = 0; index < req.body.ItemData.length; index++) {
       console.log(req.body.ItemData[index]);
-      result = await SUPP00028_Itm.findAndUpdate(
+      result = await SUPP00028_Itm.findOneAndUpdate(
         { ID: req.body.ID, ItemNumber: req.body.ItemData[index]["ItemNumber"] },
         req.body.ItemData[index],
         {
