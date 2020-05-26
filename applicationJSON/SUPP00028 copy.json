@@ -169,11 +169,7 @@
   "InvoiceDate": {
     "type": "Date",
     "required": [true, "Please add mandatory field :InvoiceDate"],
-    "maxlength": [10, "InvoiceDate can not be more than 10 characters"],
-    "match": [
-      "DATE_V1",
-      "Please provide date in YYYY-MM-DD format for field :InvoiceDate"
-    ]
+    "maxlength": [10, "InvoiceDate can not be more than 10 characters"]
   },
   "NetValue": {
     "type": "Number",
