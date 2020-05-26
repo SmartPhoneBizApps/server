@@ -1522,6 +1522,60 @@
         }
       ]
     },
+    "PartialInvoiced": {
+      "Supplier": [
+        {
+          "title": "Display PO",
+          "action": "action_var-display transID"
+        },
+        {
+          "title": "Confirm Shipping",
+          "action": "action_var-poconfirmshipping transID"
+        },
+        {
+          "title": "Generate Invoice",
+          "action": "Generate Invoice transID ponumber"
+        }
+      ],
+      "APTeam": [
+        {
+          "title": "Goods Receipt",
+          "action": "action_var-confirmpo transID ponumber"
+        },
+        {
+          "title": "Display PO",
+          "action": "action_var-display transID"
+        },
+        {
+          "title": "Generate Invoice",
+          "action": "Generate Invoice transID ponumber"
+        }
+      ],
+      "Employee": [
+        {
+          "title": "Goods Receipt",
+          "action": "action_var-confirmpo transID ponumber"
+        },
+        {
+          "title": "Display PO",
+          "action": "action_var-display transID"
+        }
+      ],
+      "Purchaser": [
+        {
+          "title": "Goods Receipt",
+          "action": "action_var-confirmpo transID ponumber"
+        },
+        {
+          "title": "Display PO",
+          "action": "action_var-display transID"
+        },
+        {
+          "title": "Generate Invoice",
+          "action": "Generate Invoice transID ponumber"
+        }
+      ]
+    },
     "SupplierAccepted": {
       "Supplier": [
         {
