@@ -54,7 +54,7 @@ exports.createwithref = asyncHandler(async (req, res, next) => {
   // Set InputValues to Source Item Data...
   mymap.Inputs.forEach((el1) => {
     if (!req.body[el1]) {
-      return next(new ErrorResponse(`Input Field ${el1} missing (Body)`, 400));
+      //     return next(new ErrorResponse(`Input Field ${el1} missing (Body)`, 400));
     } else {
       myInv[el1] = req.body[el1];
       for (let ix1 = 0; ix1 < source.length; ix1++) {
