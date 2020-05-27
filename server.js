@@ -128,6 +128,7 @@ app.use("/api/v1/util/calculation", require("./routes/utilities/calculation"));
 app.use("/api/v1/util/validations", require("./routes/utilities/validations"));
 app.use("/api/v1/util/address", require("./routes/utilities/address"));
 app.use("/api/v1/util/possval", require("./routes/utilities/possVals"));
+app.use("/api/v1/util/fileupload/", require("./routes/utilities/fileupload"));
 
 //  -------------------------------------------------
 //  ----------  ***** IGNORE *****  ---------

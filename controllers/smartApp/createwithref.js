@@ -51,6 +51,15 @@ exports.createwithref = asyncHandler(async (req, res, next) => {
   // Get Parent App data
   source = outData["data"];
 
+  // Update Source data (Example - PO to Invoice values)
+  for (const key in mymap.SourceUpdate.ItemMap) {
+    for (let ix1 = 0; ix1 < source.length; ix1++) {
+      for (let ix2 = 0; ix2 < source[ix1]["ItemData"].length; ix2++) {
+        source[ix1]["ItemData"][ix2][key] =
+          source[ix1]["ItemData"][ix2][mymap.SourceUpdate.ItemMap[key]];
+      }
+    }
+  }
   // Set InputValues to Source Item Data...
   mymap.Inputs.forEach((el1) => {
     if (!req.body[el1]) {
@@ -64,17 +73,6 @@ exports.createwithref = asyncHandler(async (req, res, next) => {
       }
     }
   });
-
-  // Update Source data (Example - PO)
-  for (const key in mymap.SourceUpdate.ItemMap) {
-    for (let ix1 = 0; ix1 < source.length; ix1++) {
-      for (let ix2 = 0; ix2 < source[ix1]["ItemData"].length; ix2++) {
-        source[ix1]["ItemData"][ix2][key] =
-          source[ix1]["ItemData"][ix2][mymap.SourceUpdate.ItemMap[key]];
-      }
-    }
-  }
-
   // Collect Source data (Example - PO)
   for (let index = 0; index < source.length; index++) {
     const element = source[index];
