@@ -8,7 +8,10 @@
     "InvoiceStatus",
     "Status",
     "Details",
-    "ItemInvoiceStatus"
+    "ItemInvoiceStatus",
+    "InvQty",
+    "InvPrice",
+    "InvVATRate"
   ],
   "HeaderMap": {
     "VendorNumber": "VendorNumber",
@@ -20,14 +23,16 @@
     "branch": "branch",
     "area": "area"
   },
+  "ItemMapFullCopy": {
+    "InvQty": "ItemQty",
+    "InvPrice": "ItemPrice",
+    "InvVATRate": "ItemVATRate"
+  },
   "ItemMap": {
     "ItemNumber": "ItemNumber",
     "ItemDetails": "ItemDetails",
     "ItemUOM": "InvUOM",
-    "InvQty": "ItemQty",
-    "InvPrice": "ItemPrice",
     "InvNetValue": "ItemNetValue",
-    "InvVATRate": "ItemVATRate",
     "InvVATPer": "ItemVATPer",
     "InvVATVal": "ItemVATVal",
     "InvGrossVal": "ItemGrossVal"

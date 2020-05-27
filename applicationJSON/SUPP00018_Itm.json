@@ -34,7 +34,7 @@
 
   "ItemVATRate": {
     "type": "String",
-    "maxlength": [20, "InvNetValue can not be more than 20 characters"]
+    "maxlength": [20, "ItemVATRate can not be more than 20 characters"]
   },
   "ItemVATVal": {
     "type": "String",
@@ -42,11 +42,11 @@
   },
   "ItemGrossVal": {
     "type": "String",
-    "maxlength": [20, "InvGrossVal can not be more than 20 characters"]
+    "maxlength": [20, "ItemGrossVal can not be more than 20 characters"]
   },
   "ItemVATPer": {
     "type": "String",
-    "maxlength": [10, "InvVATPer can not be more than 10 characters"]
+    "maxlength": [10, "ItemVATPer can not be more than 10 characters"]
   },
   "SuppInvoiceNumber": {
     "type": "String",
@@ -94,26 +94,26 @@
   },
   "ShippingDate": {
     "type": "String",
-    "maxlength": [50, "ShippingDate can not be more than 10 characters"]
+    "maxlength": [10, "ShippingDate can not be more than 10 characters"]
   },
   "DeliveryCompany": {
     "type": "String",
-    "maxlength": [50, "DeliveryCompany can not be more than 10 characters"]
+    "maxlength": [100, "DeliveryCompany can not be more than 100 characters"]
   },
   "TrackingNumber": {
     "type": "String",
-    "maxlength": [50, "TrackingNumber can not be more than 10 characters"]
+    "maxlength": [50, "TrackingNumber can not be more than 50 characters"]
   },
   "TrackingWebsite": {
     "type": "String",
-    "maxlength": [50, "TrackingWebsite can not be more than 10 characters"]
+    "maxlength": [50, "TrackingWebsite can not be more than 50 characters"]
   },
   "ItemShippingStatus": {
     "type": "String",
-    "maxlength": [50, "ItemInvoiceStatus can not be more than 10 characters"]
+    "maxlength": [50, "ItemInvoiceStatus can not be more than 50 characters"]
   },
   "InvVATPer": {
     "type": "String",
-    "maxlength": [50, "InvVATPer can not be more than 10 characters"]
+    "maxlength": [10, "InvVATPer can not be more than 10 characters"]
   }
 }

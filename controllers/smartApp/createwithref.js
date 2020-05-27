@@ -5,6 +5,7 @@ const SUPP00028 = require("../../models/smartApp/SUPP00028");
 const SUPP00028_Itm = require("../../models/smartApp/SUPP00028_Itm");
 const App = require("../../models/appSetup/App");
 const { getCreateMap, getNewConfig } = require("../../modules/config");
+const ErrorResponse = require("../../utils/errorResponse");
 
 // @desc      Get all bootcamps
 // @route     GET /api/v1/bootcamps
@@ -51,15 +52,6 @@ exports.createwithref = asyncHandler(async (req, res, next) => {
   // Get Parent App data
   source = outData["data"];
 
-  // Update Source data (Example - PO to Invoice values)
-  for (const key in mymap.SourceUpdate.ItemMap) {
-    for (let ix1 = 0; ix1 < source.length; ix1++) {
-      for (let ix2 = 0; ix2 < source[ix1]["ItemData"].length; ix2++) {
-        source[ix1]["ItemData"][ix2][key] =
-          source[ix1]["ItemData"][ix2][mymap.SourceUpdate.ItemMap[key]];
-      }
-    }
-  }
   // Set InputValues to Source Item Data...
   mymap.Inputs.forEach((el1) => {
     if (!req.body[el1]) {
@@ -68,18 +60,51 @@ exports.createwithref = asyncHandler(async (req, res, next) => {
       myInv[el1] = req.body[el1];
       for (let ix1 = 0; ix1 < source.length; ix1++) {
         for (let ix2 = 0; ix2 < source[ix1]["ItemData"].length; ix2++) {
+          console.log("Inputs", req.body[el1]);
           source[ix1]["ItemData"][ix2][el1] = req.body[el1];
         }
       }
     }
   });
+
+  // Update Source data (Example - PO to Invoice values)
+  if (req.headers.fullCopy == "Yes") {
+    for (const key in mymap.SourceUpdate.ItemMapFullCopy) {
+      for (let ix1 = 0; ix1 < source.length; ix1++) {
+        if (source[ix1]["ItemData"].length > 0) {
+          for (let ix2 = 0; ix2 < source[ix1]["ItemData"].length; ix2++) {
+            source[ix1]["ItemData"][ix2][key] =
+              source[ix1]["ItemData"][ix2][
+                mymap.SourceUpdate.ItemMapFullCopy[key]
+              ];
+          }
+        } else {
+          return next(new ErrorResponse(`Items already processed`, 400));
+        }
+      }
+    }
+  }
+
+  for (const key in mymap.SourceUpdate.ItemMap) {
+    for (let ix1 = 0; ix1 < source.length; ix1++) {
+      if (source[ix1]["ItemData"].length > 0) {
+        for (let ix2 = 0; ix2 < source[ix1]["ItemData"].length; ix2++) {
+          source[ix1]["ItemData"][ix2][key] =
+            source[ix1]["ItemData"][ix2][mymap.SourceUpdate.ItemMap[key]];
+        }
+      } else {
+        return next(new ErrorResponse(`Items already processed`, 400));
+      }
+    }
+  }
+
   // Collect Source data (Example - PO)
   for (let index = 0; index < source.length; index++) {
     const element = source[index];
     myPO = element;
     // Note this is updated in next section, don't change the order
   }
-
+  console.log("Updated Source", myPO);
   // Perform Source Calc
   let upd_arr = [];
   for (let i1 = 0; i1 < mymap.SourceUpdate.Checks.length; i1++) {

@@ -77,6 +77,7 @@ const LOG00002 = require("../../models/smartApp/LOG00002");
 const LOG00003 = require("../../models/smartApp/LOG00003");
 const LOG00004 = require("../../models/smartApp/LOG00004");
 const PM00001 = require("../../models/smartApp/PM00001");
+const SUPP00007 = require("../../models/smartApp/SUPP00007");
 const SUPP00011 = require("../../models/smartApp/SUPP00011");
 const SUPP00012 = require("../../models/smartApp/SUPP00012");
 const SUPP00013 = require("../../models/smartApp/SUPP00013");
@@ -310,11 +311,13 @@ exports.addDataRecords = asyncHandler(async (req, res, next) => {
   pLog["applicationId"] = req.body.applicationId;
   pg1.push(pLog);
   req.body.TransLog = pg1;
+  req.body.ID = Math.floor(100000 + Math.random() * 900000);
   //req.body.OrgData = myorg;
-
-  for (let index = 0; index < req.body.ItemData.length; index++) {
-    const element = req.body.ItemData[index];
-    req.body.ItemData[index]["ID"] = req.body.ID;
+  if (req.body.ItemData) {
+    for (let index = 0; index < req.body.ItemData.length; index++) {
+      const element = req.body.ItemData[index];
+      req.body.ItemData[index]["ID"] = req.body.ID;
+    }
   }
 
   mydata = req.body;
@@ -648,6 +651,9 @@ exports.addDataRecords = asyncHandler(async (req, res, next) => {
   }
   if (req.headers.applicationid == "SUPP00011") {
     result = await SUPP00011.create(mydata);
+  }
+  if (req.headers.applicationid == "SUPP00007") {
+    result = await SUPP00007.create(mydata);
   }
   if (req.headers.applicationid == "SUPP00012") {
     result = await SUPP00012.create(mydata);
