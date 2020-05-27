@@ -881,6 +881,32 @@ exports.updateDataRecords = asyncHandler(async (req, res, next) => {
   pg1.push(pLog);
   req.body.TransLog = pLog;
   let nTrans = [];
+  if (req.headers.applicationid == "SUPP00007") {
+    // -----------------------------------------------------
+    // Read data from DB
+    // -----------------------------------------------------
+    let myData = await SUPP00007.findOne({ ID: req.body.ID });
+    if (!myData) {
+      return next(new ErrorResponse(`Record with ${ID} Not found`, 400));
+    }
+    ItemFields = {};
+    // Update Transaction Log
+    myData.TransLog.forEach((ex1) => {
+      nTrans.push(ex1);
+    });
+    if (req.body.Question_Response) {
+      req.body.Question_Response =
+        myData.Question_Response + "#" + req.body.Question_Response;
+    }
+    nTrans.push(req.body.TransLog);
+    req.body.TransLog = nTrans;
+    //---------------------------
+    result = await SUPP00007.findByIdAndUpdate(myData.id, req.body, {
+      new: true,
+      runValidators: true,
+    });
+  }
+
   if (req.headers.applicationid == "SUPP00018") {
     // -----------------------------------------------------
     // Read data from DB
@@ -889,9 +915,6 @@ exports.updateDataRecords = asyncHandler(async (req, res, next) => {
     if (!myData) {
       return next(new ErrorResponse(`Record with ${ID} Not found`, 400));
     }
-    let ItemUpdate = false;
-    let UpdateItem = 0;
-    let NotUpdateItem = 0;
     let itms = [];
     ItemFields = {};
     for (let b2 = 0; b2 < req.body["ItemData"].length; b2++) {
@@ -905,7 +928,6 @@ exports.updateDataRecords = asyncHandler(async (req, res, next) => {
     // Item update logic....
     //---------------------------
     for (let db2 = 0; db2 < myData["ItemData"].length; db2++) {
-      console.log("Rashmi1", myData["ItemData"][db2]);
       for (let b2 = 0; b2 < req.body["ItemData"].length; b2++) {
         if (
           req.body["ItemData"][b2]["ItemNumber"] ==
