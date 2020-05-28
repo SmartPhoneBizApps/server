@@ -9,7 +9,7 @@
     "sStatus": "Status",
     "fStatus": "TransType",
     "numberField": "",
-    "LFields": ["PONumber", "SuppInvoiceNumber"],
+    "LFields": ["PONumber", "SuppInvoiceNumber", "VendorNumber"],
     "numberUnitField": ""
   },
   "ListBOTFields": {
@@ -20,7 +20,9 @@
       "QuestionDate",
       "NotifyRole",
       "userName",
-      "companyName"
+      "companyName",
+      "TransType",
+      "CommsType"
     ]
   },
   "PossibleValues": ["Status"],
