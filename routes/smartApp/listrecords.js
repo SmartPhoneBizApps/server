@@ -77,6 +77,7 @@ const LOG00002 = require("../../models/smartApp/LOG00002");
 const LOG00003 = require("../../models/smartApp/LOG00003");
 const LOG00004 = require("../../models/smartApp/LOG00004");
 const PM00001 = require("../../models/smartApp/PM00001");
+const SUPP00007 = require("../../models/smartApp/SUPP00007");
 const SUPP00011 = require("../../models/smartApp/SUPP00011");
 const SUPP00012 = require("../../models/smartApp/SUPP00012");
 const SUPP00013 = require("../../models/smartApp/SUPP00013");
@@ -626,6 +627,13 @@ router
   .get(
     protect,
     advancedDataList(SUPP00028, SUPP00028_Itm, "SUPP00028"),
+    getListrecords
+  );
+router
+  .route("/SUPP00007")
+  .get(
+    protect,
+    advancedDataList(SUPP00007, SUPP00007, "SUPP00007"),
     getListrecords
   );
 
