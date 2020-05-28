@@ -68,6 +68,9 @@ const ERP00008 = require("../../models/smartApp/ERP00008");
 const ERP00009 = require("../../models/smartApp/ERP00009");
 const ERP00010 = require("../../models/smartApp/ERP00010");
 const ERP00014 = require("../../models/smartApp/ERP00014");
+const HC0002 = require("../../models/smartApp/HC0002");
+const HC0003 = require("../../models/smartApp/HC0003");
+const HC0004 = require("../../models/smartApp/HC0004");
 const HOSP0003 = require("../../models/smartApp/HOSP0003");
 const HOSP0004 = require("../../models/smartApp/HOSP0004");
 const ITPROJ002 = require("../../models/smartApp/ITPROJ002");
@@ -621,6 +624,15 @@ exports.addDataRecords = asyncHandler(async (req, res, next) => {
   }
   if (req.headers.applicationid == "ERP00014") {
     result = await ERP00014.create(mydata);
+  }
+  if (req.headers.applicationid == "HC0002") {
+    result = await HC0002.create(mydata);
+  }
+  if (req.headers.applicationid == "HC0003") {
+    result = await HC0003.create(mydata);
+  }
+  if (req.headers.applicationid == "HC0004") {
+    result = await HC0004.create(mydata);
   }
   if (req.headers.applicationid == "HOSP0003") {
     result = await HOSP0003.create(mydata);

@@ -68,6 +68,9 @@ const ERP00008 = require("../../models/smartApp/ERP00008");
 const ERP00009 = require("../../models/smartApp/ERP00009");
 const ERP00010 = require("../../models/smartApp/ERP00010");
 const ERP00014 = require("../../models/smartApp/ERP00014");
+const HC0002 = require("../../models/smartApp/HC0002");
+const HC0003 = require("../../models/smartApp/HC0003");
+const HC0004 = require("../../models/smartApp/HC0004");
 const HOSP0003 = require("../../models/smartApp/HOSP0003");
 const HOSP0004 = require("../../models/smartApp/HOSP0004");
 const ITPROJ002 = require("../../models/smartApp/ITPROJ002");
@@ -514,6 +517,15 @@ router
     advancedDataList(ERP00014, ERP00014, "ERP00014"),
     getListrecords
   );
+router
+  .route("/HC0002")
+  .get(protect, advancedDataList(HC0002, HC0002, "HC0002"), getListrecords);
+router
+  .route("/HC0003")
+  .get(protect, advancedDataList(HC0003, HC0003, "HC0003"), getListrecords);
+router
+  .route("/HC0002")
+  .get(protect, advancedDataList(HC0004, HC0004, "HC0004"), getListrecords);
 router
   .route("/HOSP0003")
   .get(

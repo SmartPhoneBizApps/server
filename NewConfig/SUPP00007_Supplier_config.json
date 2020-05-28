@@ -13,9 +13,15 @@
     "numberUnitField": ""
   },
   "ListBOTFields": {
-    "Title": ["CommsType", "TransType"],
-    "SubTitle": ["PONumber", "SuppInvoiceNumber"],
-    "Description": ["ID", "QuestionDate"]
+    "Title": ["Question_Response", "Question_Category"],
+    "SubTitle": ["PONumber", "SuppInvoiceNumber", "VendorNumber"],
+    "Description": [
+      "ID",
+      "QuestionDate",
+      "NotifyRole",
+      "userName",
+      "companyName"
+    ]
   },
   "PossibleValues": ["Status"],
   "MButtons": [

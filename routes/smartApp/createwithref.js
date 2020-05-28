@@ -68,6 +68,9 @@ const ERP00008 = require("../../models/smartApp/ERP00008");
 const ERP00009 = require("../../models/smartApp/ERP00009");
 const ERP00010 = require("../../models/smartApp/ERP00010");
 const ERP00014 = require("../../models/smartApp/ERP00014");
+const HC0002 = require("../../models/smartApp/HC0002");
+const HC0003 = require("../../models/smartApp/HC0003");
+const HC0004 = require("../../models/smartApp/HC0004");
 const HOSP0003 = require("../../models/smartApp/HOSP0003");
 const HOSP0004 = require("../../models/smartApp/HOSP0004");
 const ITPROJ002 = require("../../models/smartApp/ITPROJ002");
@@ -77,6 +80,7 @@ const LOG00002 = require("../../models/smartApp/LOG00002");
 const LOG00003 = require("../../models/smartApp/LOG00003");
 const LOG00004 = require("../../models/smartApp/LOG00004");
 const PM00001 = require("../../models/smartApp/PM00001");
+const SUPP00007 = require("../../models/smartApp/SUPP00007");
 const SUPP00011 = require("../../models/smartApp/SUPP00011");
 const SUPP00012 = require("../../models/smartApp/SUPP00012");
 const SUPP00013 = require("../../models/smartApp/SUPP00013");
@@ -514,6 +518,15 @@ router
     createwithref
   );
 router
+  .route("/HC0002")
+  .post(protect, advancedDataList(HC0002, HC0002, "HC0002"), createwithref);
+router
+  .route("/HC0003")
+  .post(protect, advancedDataList(HC0003, HC0003, "HC0003"), createwithref);
+router
+  .route("/HC0004")
+  .post(protect, advancedDataList(HC0004, HC0004, "HC0004"), createwithref);
+router
   .route("/HOSP0003")
   .post(
     protect,
@@ -572,6 +585,13 @@ router
 router
   .route("/PM00001")
   .post(protect, advancedDataList(PM00001, PM00001, "PM00001"), createwithref);
+router
+  .route("/SUPP00007")
+  .post(
+    protect,
+    advancedDataList(SUPP00007, SUPP00007, "SUPP00007"),
+    createwithref
+  );
 router
   .route("/SUPP00011")
   .post(
