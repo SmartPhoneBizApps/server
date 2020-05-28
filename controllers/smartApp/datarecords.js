@@ -679,8 +679,8 @@ exports.addDataRecords = asyncHandler(async (req, res, next) => {
     result2 = await SUPP00028_Itm.create(mydata.ItemData);
   }
   mydata = {};
-  res.status(200).json({
-    success: true,
+  res.status(400).json({
+    success: false,
     data: result,
   });
 });
