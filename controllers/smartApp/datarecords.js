@@ -680,7 +680,7 @@ exports.addDataRecords = asyncHandler(async (req, res, next) => {
   }
   mydata = {};
   res.status(200).json({
-    success: success,
+    success: true,
     data: result,
   });
 });
