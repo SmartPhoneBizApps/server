@@ -79,4 +79,15 @@ module.exports = {
     });
     return lf;
   },
+  createRefSetBody: function (result, app, user) {
+    result.appId = app.id;
+    result.applicationId = app.applicationID;
+    result.user = user.id;
+    result.userName = user.name;
+    result.userEmail = user.email;
+    result.company = user.company;
+    result.branch = user.branch;
+    result.area = user.area;
+    return result;
+  },
 };

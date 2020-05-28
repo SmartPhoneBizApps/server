@@ -4,7 +4,6 @@ const SUPP00018_Itm = require("../../models/smartApp/SUPP00018_Itm");
 const SUPP00028 = require("../../models/smartApp/SUPP00028");
 const SUPP00028_Itm = require("../../models/smartApp/SUPP00028_Itm");
 const App = require("../../models/appSetup/App");
-const calfunction = require("../../models/utilities/calfunction.js");
 const {
   getCreateMap,
   getNewConfig,
@@ -195,6 +194,9 @@ exports.createwithref = asyncHandler(async (req, res, next) => {
             }
           }
         }
+      }
+      for (const k6 in source[index]["ItemData"][key]) {
+        items["ID"] = myInv["ID"];
         for (const ik in mymap["ItemMap"]) {
           if (k6 == mymap["ItemMap"][ik]) {
             items[ik] = source[index]["ItemData"][key][k6];
@@ -207,6 +209,23 @@ exports.createwithref = asyncHandler(async (req, res, next) => {
       items = {};
     }
   }
+
+  /*   for (let index = 0; index < source.length; index++) {
+    for (const key in source[index]["ItemData"]) {
+      for (const k6 in source[index]["ItemData"][key]) {
+        items["ID"] = myInv["ID"];
+        for (const ik in mymap["ItemMap"]) {
+          if (k6 == mymap["ItemMap"][ik]) {
+            items[ik] = source[index]["ItemData"][key][k6];
+            console.log("items[ik - 3]", ik, ">>", items[ik]);
+          }
+        }
+      }
+      itemdata.push(items);
+      items = {};
+    }
+  } */
+  //  }
 
   myInv["ItemData"] = itemdata;
   // Read New Config File

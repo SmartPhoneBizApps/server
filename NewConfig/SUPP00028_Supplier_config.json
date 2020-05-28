@@ -693,51 +693,45 @@
         "CalculatedFormula": {
           "name": "Multiplication",
           "function": "MUL",
-          "Target": "ItemNetValue",
+          "Target": "InvNetValue",
           "type": "Item"
         },
         "Fields": [
           { "Source": "InvQty", "Type": { "type": "Item" } },
-          { "Source": "InvPrice", "Type": { "type": "Item" } },
-          { "Source": "InvNetValue", "Type": {} }
+          { "Source": "InvPrice", "Type": { "type": "Item" } }
         ]
       },
       {
         "CalculatedFormula": {
           "name": "Percentage",
           "function": "PAR",
-          "Target": "ItemVATPer",
+          "Target": "InvVATPer",
           "type": "Item"
         },
-        "Fields": [
-          { "Source": "InvVATRate", "Type": { "type": "Item" } },
-          { "Source": "InvVATPer", "Type": {} }
-        ]
+        "Fields": [{ "Source": "InvVATRate", "Type": { "type": "Item" } }]
       },
       {
         "CalculatedFormula": {
           "name": "Multiplication",
           "function": "MUL",
-          "Target": "ItemVATVal",
+          "Target": "InvVATVal",
           "type": "Item"
         },
         "Fields": [
           { "Source": "InvNetValue", "Type": { "type": "Item" } },
-          { "Source": "InvVATPer", "Type": { "type": "Item" } },
-          { "Source": "InvVATVal", "Type": {} }
+          { "Source": "InvVATPer", "Type": { "type": "Item" } }
         ]
       },
       {
         "CalculatedFormula": {
           "name": "Addition",
           "function": "ADD",
-          "Target": "ItemGrossVal",
+          "Target": "InvGrossVal",
           "type": "Item"
         },
         "Fields": [
           { "Source": "InvNetValue", "Type": { "type": "Item" } },
-          { "Source": "InvVATVal", "Type": { "type": "Item" } },
-          { "Source": "InvGrossVal", "Type": {} }
+          { "Source": "InvVATVal", "Type": { "type": "Item" } }
         ]
       },
       {
@@ -787,7 +781,6 @@
       }
     ],
     "HeaderItem": [
-      { "CalculatedFormula": { "type": "HeaderItem" }, "Fields": [] },
       {
         "CalculatedFormula": {
           "name": "ITEMSUM",

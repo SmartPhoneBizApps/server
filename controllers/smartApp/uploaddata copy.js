@@ -2,7 +2,7 @@ const ErrorResponse = require("../../utils/errorResponse");
 const Papa = require("papaparse");
 const axios = require("axios").default;
 const { getNewConfig } = require("../../modules/config");
-const path = require("path");
+
 let papaConfig = {
   delimiter: "", // auto-detect
   newline: "", // auto-detect
@@ -34,46 +34,25 @@ let papaConfig = {
 // @access    Public
 exports.upLoadData = async (req, res, next) => {
   dg01 = {};
+  const header = req.files.header;
   let myURL = "http://localhost:5000/api/v1/datarecords/";
   ProcessLog = { ID: "", success: false, error: "" };
   ProcessOut = [];
+  /*   let fileName =
+    "../../NewConfig/" +
+    req.headers.applicationid +
+    "_" +
+    req.headers.businessrole +
+    "_config.json"; */
 
-  const header = req.files.header;
-  output_header = [];
-  if (!req.files) {
-    return next(new ErrorResponse(`Please upload a file`, 400));
-  }
-  if (!header.mimetype.startsWith("text/csv")) {
-    return next(new ErrorResponse(`Please upload an csv file(header)`, 400));
-  }
-  if (header.size > process.env.MAX_FILE_UPLOAD) {
-    return next(
-      new ErrorResponse(
-        `Please upload an image less than ${process.env.MAX_FILE_UPLOAD}`,
-        400
-      )
-    );
-  }
+  // Read New Config File
   var cardConfig = getNewConfig(
     req.headers.applicationid,
     req.headers.businessrole
   );
 
-  header.name = `data_${req.user.id}${path.parse(header.name).ext}`;
-  const headercsvFilePath = "./public/uploadFiles/" + header.name;
-  const headercsvFilePath1 = "../public/uploadFiles/" + header.name;
-  header.mv(`${process.env.DATA_UPLOAD_PATH}/${header.name}`, async (err) => {
-    if (err) {
-      console.error(err);
-      return next(new ErrorResponse(`Problem with file upload`, 500));
-    }
-
-    // const filedata = require(headercsvFilePath1);
-    // Parse CSV
-    var data = Papa.parse(headercsvFilePath1, papaConfig);
-    console.log(data);
-  });
-
+  // Parse CSV
+  var data = Papa.parse(req.body.FileData, papaConfig);
   // Loop the records
   for (const key in data["data"]) {
     if (data["data"].hasOwnProperty(key)) {
@@ -91,16 +70,16 @@ exports.upLoadData = async (req, res, next) => {
       //---------------------------
       // Perform Calculations ....
       //---------------------------
-      /*       if (req.headers.calculation == "Yes") {
+      if (req.headers.calculation == "Yes") {
         var Handler = new calfunction();
         mydata = Handler["datacalculation"](
           mydata,
           cardConfig["CalculatedFields"]
         );
-      } */
+      }
       //---------------------------
-      //    dg01 = JSON.stringify(mydata);
-      /*       axios({
+      dg01 = JSON.stringify(mydata);
+      axios({
         method: "post",
         url: myURL,
         data: mydata,
@@ -119,10 +98,10 @@ exports.upLoadData = async (req, res, next) => {
           ProcessLog["error"] = error.message;
           console.log("Error Message", error.message);
           ProcessOut.push(ProcessLog);
-        }); */
-      //     console.log("ProcessLog", ProcessLog);
-      //   dg01 = {};
-      //   ProcessLog = {};
+        });
+      console.log("ProcessLog", ProcessLog);
+      dg01 = {};
+      ProcessLog = {};
     }
   }
 
