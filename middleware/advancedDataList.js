@@ -23,6 +23,7 @@ const advancedDataList = (model, model2, AppID, populate) => async (
   // check the Mode
   switch (req.headers.mode) {
     case "BOTList":
+      console.log("AG001");
       config1["FieldDef"].forEach((element) => {
         lf.forEach((element2) => {
           if (element["name"] == element2) {

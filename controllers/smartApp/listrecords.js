@@ -120,7 +120,8 @@ exports.getListrecords = asyncHandler(async (req, res, next) => {
   query = getPVQuery(
     req.headers.applicationid,
     req.headers.businessrole,
-    pvconfig1.PossFields
+    //   pvconfig1.PossFields
+    pvconfig1
   );
   let results = await query;
 

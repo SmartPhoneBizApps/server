@@ -23,9 +23,13 @@ module.exports = {
     // Read Create Map Config
     // These are converted old XML files from smartapp
 
-    const newPv = "../PossibleValues/" + a + "_" + b + "_pv.json";
+    /*     const newPv = "../PossibleValues/" + a + "_" + b + "_pv.json";
     var pvconfig1 = require(newPv);
-    return pvconfig1;
+    return pvconfig1; */
+
+    const newPv = "../NewConfig/" + a + "_" + b + "_config.json";
+    var pvconfig1 = require(newPv);
+    return pvconfig1["PossibleValues"];
   },
   getPVQuery: function (a, b, c) {
     app1 = a;
@@ -65,18 +69,28 @@ module.exports = {
   },
   getBotListFields: function (config1) {
     lf = [];
-    config1["ListBOTFields"]["Title"].forEach((element1) => {
-      lf.push(element1);
-    });
-    config1["ListBOTFields"]["SubTitle"].forEach((element1) => {
-      lf.push(element1);
-    });
-    config1["ListBOTFields"]["Description"].forEach((element1) => {
-      lf.push(element1);
-    });
-    config1["ListBOTFields"]["None"].forEach((element1) => {
-      lf.push(element1);
-    });
+    console.log("AG003");
+    if (config1["ListBOTFields"]["Title"]) {
+      config1["ListBOTFields"]["Title"].forEach((element1) => {
+        lf.push(element1);
+      });
+    }
+    if (config1["ListBOTFields"]["SubTitle"]) {
+      config1["ListBOTFields"]["SubTitle"].forEach((element1) => {
+        lf.push(element1);
+      });
+    }
+    if (config1["ListBOTFields"]["Description"]) {
+      config1["ListBOTFields"]["Description"].forEach((element1) => {
+        lf.push(element1);
+      });
+    }
+    if (config1["ListBOTFields"]["None"]) {
+      config1["ListBOTFields"]["None"].forEach((element1) => {
+        lf.push(element1);
+      });
+    }
+
     return lf;
   },
   createRefSetBody: function (result, app, user) {
