@@ -407,25 +407,6 @@ exports.temp = asyncHandler(async (req, res, next) => {
           }
         }
       }
-      /// -------------------------------------------- ///
-      ///        Possible value check ..........
-      /// --------------------------------------------- ///
-      // Comapre Possible Value fields and input values
-      var resPV = myPossValArray.includes(key);
-      //  console.log("PossVal1", key, ">>", resPV);
-      if (resPV === true) {
-        for (const k1 in pvalArr) {
-          //    console.log("PossValX", pvalArr[k1][key], ">>", key);
-          for (const b1 in pvalArr[k1][key]) {
-            const element = pvalArr[k1][key][b1];
-            //      console.log("Element", element["Value"]);
-          }
-          //    var chkPV = pvalArr.k1.includes(req.body.key);
-        }
-        pvalArr.forEach((element) => {
-          var resVal = myPossValArray.includes(key);
-        });
-      }
     }
   }
 
