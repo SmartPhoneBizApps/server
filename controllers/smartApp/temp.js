@@ -328,34 +328,6 @@ exports.temp = asyncHandler(async (req, res, next) => {
 
   mydata = req.body;
 
-  // Read Card Configuration for the Role (X1)
-  if (req.headers.fieldnames == "X") {
-    mydata = {};
-    mydata.appId = req.body.appId;
-    mydata.applicationId = req.body.applicationId;
-    mydata.user = req.body.user;
-    mydata.userName = req.body.userName;
-    mydata.userEmail = req.body.userEmail;
-    mydata.company = req.body.company;
-    mydata.companyName = req.body.companyName;
-    mydata.branch = req.body.branch;
-    mydata.branchName = req.body.branchName;
-    mydata.area = req.body.area;
-    mydata.areaName = req.body.areaName;
-    mydata.ItemData = req.body.ItemData;
-    mydata.TransLog = req.body.TransLog;
-    for (const key in req.body) {
-      cardConfig["FieldDef"].forEach((element1) => {
-        if (req.body.hasOwnProperty(key) & (element1["SLabel"] == key)) {
-          console.log(key);
-          console.log(element1["SLabel"]);
-          console.log(req.body[key]);
-          console.log(element1["name"]);
-          mydata[element1["name"]] = req.body[key];
-        }
-      });
-    }
-  }
   console.log("After Trans", mydata);
   req.body = mydata;
 
