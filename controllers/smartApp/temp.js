@@ -94,7 +94,7 @@ const SUPP00028_Itm = require("../../models/smartApp/SUPP00028_Itm");
 // @desc      Add record
 // @route     POST /api/v1/datarecords/
 // @access    Private
-exports.addDataRecords = asyncHandler(async (req, res, next) => {
+exports.temp = asyncHandler(async (req, res, next) => {
   /// --------------------------------- ///
   ///        Get inputs ..........
   /// --------------------------------- ///
