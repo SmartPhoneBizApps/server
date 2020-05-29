@@ -264,6 +264,6 @@ exports.createwithref = asyncHandler(async (req, res, next) => {
   mydata = {};
 
   res.status(200).json({
-    outData,
+    myPO,
   });
 });
