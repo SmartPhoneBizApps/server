@@ -140,7 +140,7 @@
             {
               "type": "Navigation",
               "parameters": {
-                "url": "/users/{name}"
+                "url": "/EMPACC01/{name}"
               }
             }
           ],
@@ -183,7 +183,7 @@
             {
               "type": "Navigation",
               "parameters": {
-                "url": "/users/{name}"
+                "url": "/EMPACC01/{name}"
               }
             }
           ],
@@ -261,7 +261,10 @@
             "infoState": "Error"
           },
           "actions": [
-            { "type": "Navigation", "parameters": { "url": "/{EMP00004}" } }
+            {
+              "type": "Navigation",
+              "parameters": { "url": "/EMP00004/{name}" }
+            }
           ],
           "json": []
         }
