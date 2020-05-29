@@ -113,6 +113,34 @@ exports.temp = asyncHandler(async (req, res, next) => {
     req.headers.businessrole
   );
 
+  /// -------------------------------------------- ///
+  ///        Collect Field Names ..........
+  /// --------------------------------------------- ///
+  myFieldArray = [];
+  myPossValArray = [];
+  pvalObj = {};
+  pvalArr = [];
+  for (let index = 0; index < cardConfig.FieldDef.length; index++) {
+    const element1 = cardConfig.FieldDef[index].name;
+    myFieldArray.push(element1);
+  }
+  exclude_array = [
+    "appId",
+    "applicationId",
+    "user",
+    "userName",
+    "userEmail",
+    "company",
+    "companyName",
+    "branch",
+    "branchName",
+    "area",
+    "areaName",
+    "ItemData",
+    "TransLog",
+  ];
+  myFieldArray.push.apply(myFieldArray, exclude_array);
+
   mydata = {};
 
   pagination = {};
