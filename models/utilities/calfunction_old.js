@@ -5,6 +5,17 @@ class calFun {
     return "Divyesh";
   }
 
+  isInt(n) {
+    console.log("isInt" + n);
+    if (n % 1 === 0) {
+      console.log("IF");
+      return n;
+    } else {
+      console.log("ELSE");
+      return Number(Number(n).toFixed(2));
+    }
+  }
+
   ADD(arr) {
     var a = 0;
     var b = 0;
@@ -15,6 +26,7 @@ class calFun {
       }
     });
     if (b) {
+      a = this.isInt(a);
       return a;
     }
     return "";
@@ -30,6 +42,7 @@ class calFun {
       }
     });
     if (b) {
+      a = this.isInt(a);
       return a;
     }
     return "";
@@ -45,6 +58,7 @@ class calFun {
       }
     });
     if (b) {
+      a = this.isInt(a);
       return a;
     }
     return "";
@@ -60,6 +74,7 @@ class calFun {
       }
     });
     if (b) {
+      a = this.isInt(a);
       return a;
     }
     return "";
@@ -74,6 +89,7 @@ class calFun {
       }
     });
     if (b) {
+      a = this.isInt(a);
       return a;
     }
     return "";
@@ -88,6 +104,7 @@ class calFun {
       }
     });
     if (b) {
+      a = this.isInt(a);
       return a;
     }
     return "";
@@ -102,6 +119,7 @@ class calFun {
       }
     });
     if (b) {
+      a = this.isInt(a);
       return a;
     }
     return "";
@@ -111,25 +129,26 @@ class calFun {
     var arr = Object.keys(obj).map(function (key) {
       return obj[key];
     });
-    return Math.max.apply(null, arr);
+    return this.isInt(Math.max.apply(null, arr));
+    // return Math.max.apply(null, arr);
   }
   MAX(obj) {
     var arr = Object.keys(obj).map(function (key) {
       return obj[key];
     });
-    return Math.max.apply(null, arr);
+    return this.isInt(Math.max.apply(null, arr));
   }
   ITEMMIN(obj) {
     var arr = Object.keys(obj).map(function (key) {
       return obj[key];
     });
-    return Math.min.apply(null, arr);
+    return this.isInt(Math.min.apply(null, arr));
   }
   ITEMMIN(obj) {
     var arr = Object.keys(obj).map(function (key) {
       return obj[key];
     });
-    return Math.min.apply(null, arr);
+    return this.isInt(Math.min.apply(null, arr));
   }
 
   hasNull(target, arrayLength) {
@@ -149,7 +168,7 @@ class calFun {
   }
 
   datacalculation(outdata, config) {
-    console.log(config);
+    // console.log(config);
     if (outdata["ItemData"].length > 0) {
       if (config["Item"].length > 0) {
         for (var i = 0; i < outdata["ItemData"].length; i++) {
@@ -158,13 +177,23 @@ class calFun {
               var fieldObj = [];
               configItem["Fields"].forEach((field) => {
                 if (this.hasNull(field, 2)) {
-                  fieldObj.push(outdata["ItemData"][i][field["Source"]]); // get calculated field value in item array
+                  console.log(
+                    field["Source"] +
+                      "--" +
+                      outdata["ItemData"][i][field["Source"]]
+                  );
+                  fieldObj.push(
+                    parseFloat(outdata["ItemData"][i][field["Source"]])
+                  ); // get calculated field value in item array
                 } else {
                   fieldObj.push(); // get calculated field value in item array
                 }
               });
               var fun = configItem["CalculatedFormula"]["function"]; // get function name
+              console.log("Function name -->" + fun);
               if (typeof this[fun] !== "undefined") {
+                console.log("Calue --" + this[fun](fieldObj));
+                console.log("---------------");
                 outdata["ItemData"][i][
                   configItem["CalculatedFormula"]["Target"]
                 ] = this[fun](fieldObj); // call function and assign value in item array
@@ -186,7 +215,9 @@ class calFun {
             for (var i = 0; i < outdata["ItemData"].length; i++) {
               if (this.hasNull(configItem["Fields"][0], 2)) {
                 fieldObj.push(
-                  outdata["ItemData"][i][configItem["Fields"][0]["Source"]]
+                  parseFloat(
+                    outdata["ItemData"][i][configItem["Fields"][0]["Source"]]
+                  )
                 ); // get calculated field value from all items
               } else {
                 fieldObj.push(""); // get calculated field value from all items
@@ -213,7 +244,7 @@ class calFun {
           if (configItem["Fields"].length > 0) {
             configItem["Fields"].forEach((field) => {
               if (this.hasNull(field, 2)) {
-                fieldObj.push(outdata[field["Source"]]); // get calculated field value
+                fieldObj.push(parseFloat(outdata[field["Source"]])); // get calculated field value
               } else {
                 fieldObj.push(""); // get calculated field value
               }

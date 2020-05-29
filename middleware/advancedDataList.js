@@ -53,6 +53,7 @@ const advancedDataList = (model, model2, AppID, populate) => async (
   let query;
   const reqQuery1 = { ...req.query };
   const removeFields = ["select", "sort", "page", "limit"];
+
   removeFields.forEach((param) => delete reqQuery1[param]);
   reqQuery2 = {};
   reqQuery = {};
