@@ -141,34 +141,136 @@ exports.temp = asyncHandler(async (req, res, next) => {
   ];
   myFieldArray.push.apply(myFieldArray, exclude_array);
 
-  /// -------------------------------------------- ///
-  ///        Check input Fields with Config ..........
-  /// --------------------------------------------- ///
-  for (let index = 0; index < myFieldArray.length; index++) {
-    const el1 = myFieldArray[index];
-    app1 = req.headers.applicationid;
-    app2 = "GLOBAL";
-    role1 = req.headers.businessrole;
-    role2 = "ALL";
-    pVal1 = el1;
-    let query;
-    query = Possval.find(
-      {
-        PossibleValues: pVal1,
-        ApplicationID: { $in: [app1, app2] },
-        Role: { $in: [role1, role2] },
-      },
-      { _id: 0 }
+  // ---------------------
+  // App ID and Validate
+  // ---------------------
+  req.body.appId = BodyApp.id;
+  req.body.applicationId = req.headers.applicationid;
+  if (!req.body.appId) {
+    return next(new ErrorResponse(`Please provide App ID`, 400));
+  }
+  req.body.user = req.user.id;
+  req.body.userName = req.user.name;
+  req.body.userEmail = req.user.email;
+  // ---------------------------------
+  // Get Company Details and Validate
+  // ---------------------------------
+  const CompanyDetails = await Company.findById(req.user.company);
+  // Check if user setup has company (Pass)
+  if (!req.user.company) {
+    return next(
+      new ErrorResponse(
+        `The user with ID ${req.user.email} is not setup for any company`,
+        400
+      )
     );
-    const fields = "Value";
-    query = query.select(fields);
-    const rslt = await query;
-    if (rslt.length > 0) {
-      myPossValArray.push(el1);
-      pvalObj[el1] = rslt;
-      // Note: append only values
-      pvalArr.push(pvalObj);
+  }
+  // Validate if user is creating documents in their own company (Pass)
+  if (req.headers.company) {
+    if (req.headers.company != CompanyDetails.id) {
+      return next(
+        new ErrorResponse(
+          `The user with ID ${req.user.email} can't create any documents for others companies`,
+          400
+        )
+      );
     }
+  }
+  // Company validation passed, now USER company can be used!!
+  req.body.company = CompanyDetails.id;
+  req.body.companyName = CompanyDetails.companyName;
+
+  // ---------------------------------
+  // Get Branch Details and Validate
+  // ---------------------------------
+  if (req.headers.branchname) {
+    const BodyBranch = await Branch.findOne({
+      branchName: req.headers.branchname,
+      companyId: req.body.company,
+    });
+    if (BodyBranch) {
+      req.body.branch = BodyBranch.id;
+      req.body.branchName = BodyBranch.branchName;
+    }
+  }
+  // ---------------------------------
+  // Get Area Details and Validate
+  // ---------------------------------
+  if (req.headers.areaname) {
+    const BodyArea = await Area.findOne({
+      areaName: req.headers.areaname,
+      companyId: req.body.company,
+    });
+    if (BodyArea) {
+      req.body.area = BodyArea.id;
+      req.body.areaName = BodyArea.areaName;
+    }
+  }
+  // Validate if user has provided Branch details (Pass)
+  if (!req.headers.branch) {
+    if (!req.user.branch) {
+      return next(
+        new ErrorResponse(
+          `The user with ID ${req.user.email} can't create document as branch is not provided`,
+          400
+        )
+      );
+    }
+  }
+  // If user record has got Branch then validate is it matches with body Branch
+  if (req.user.branch) {
+    // if no Area in body but user has area then use it
+    if (!req.headers.branch) {
+      req.body.branch = req.user.branch;
+      // myorg.branchName = BodyBranch.branchName;
+    }
+    if (req.body.branch != req.user.branch) {
+      return next(
+        new ErrorResponse(
+          `The user with ID ${req.user.email} can't create document for other branches`,
+          400
+        )
+      );
+    }
+  }
+  // Branch validation passed, now get Branch details and set Body
+  const BranchDetails = await Branch.findById(req.headers.branch);
+  if (BranchDetails) {
+    req.body.branch = BranchDetails.branch;
+    req.body.branchName = BranchDetails.branchName;
+  }
+  if (!req.headers.area) {
+    if (!req.user.area) {
+      return next(
+        new ErrorResponse(
+          `The user with ID ${req.user.email} can't create document as business area can't be determined`,
+          400
+        )
+      );
+    }
+  }
+  // If user record has got Area then validate is it matches with body Area
+  if (req.user.area) {
+    // if no Area in body but user has area then use it
+    if (!req.headers.area) {
+      req.body.area = req.user.area;
+    }
+
+    // if body and user both have area then they should be same (Validation  - Pass)
+    if (req.body.area != req.user.area) {
+      return next(
+        new ErrorResponse(
+          `The user with ID ${req.user.email} can't create document for other business area`,
+          400
+        )
+      );
+    }
+  }
+  // Area validation passed, now get Area details and set Body
+  const AreaDetails = await Area.findById(req.headers.area);
+  if (AreaDetails) {
+    req.body.areaName = AreaDetails.areaName;
+    req.body.area = AreaDetails.id;
   }
 
   mydata = {};
