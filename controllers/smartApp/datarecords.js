@@ -142,7 +142,7 @@ exports.addDataRecords = asyncHandler(async (req, res, next) => {
   /// -------------------------------------------- ///
   ///        Check input Fields with Config ..........
   /// --------------------------------------------- ///
-  for (let index = 0; index < myFieldArray.length; index++) {
+  /* for (let index = 0; index < myFieldArray.length; index++) {
     const el1 = myFieldArray[index];
     app1 = req.headers.applicationid;
     app2 = "GLOBAL";
@@ -167,7 +167,7 @@ exports.addDataRecords = asyncHandler(async (req, res, next) => {
       // Note: append only values
       pvalArr.push(pvalObj);
     }
-  }
+  } */
   // ---------------------
   // App ID and Validate
   // ---------------------
@@ -407,7 +407,7 @@ exports.addDataRecords = asyncHandler(async (req, res, next) => {
       ///        Possible value check ..........
       /// --------------------------------------------- ///
       // Comapre Possible Value fields and input values
-      var resPV = myPossValArray.includes(key);
+      /* var resPV = myPossValArray.includes(key);
       //  console.log("PossVal1", key, ">>", resPV);
       if (resPV === true) {
         for (const k1 in pvalArr) {
@@ -421,7 +421,7 @@ exports.addDataRecords = asyncHandler(async (req, res, next) => {
         pvalArr.forEach((element) => {
           var resVal = myPossValArray.includes(key);
         });
-      }
+      } */
     }
   }
   /// --------------------------------- ///
