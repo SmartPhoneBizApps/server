@@ -141,6 +141,36 @@ exports.temp = asyncHandler(async (req, res, next) => {
   ];
   myFieldArray.push.apply(myFieldArray, exclude_array);
 
+  /// -------------------------------------------- ///
+  ///        Check input Fields with Config ..........
+  /// --------------------------------------------- ///
+  for (let index = 0; index < myFieldArray.length; index++) {
+    const el1 = myFieldArray[index];
+    app1 = req.headers.applicationid;
+    app2 = "GLOBAL";
+    role1 = req.headers.businessrole;
+    role2 = "ALL";
+    pVal1 = el1;
+    let query;
+    query = Possval.find(
+      {
+        PossibleValues: pVal1,
+        ApplicationID: { $in: [app1, app2] },
+        Role: { $in: [role1, role2] },
+      },
+      { _id: 0 }
+    );
+    const fields = "Value";
+    query = query.select(fields);
+    const rslt = await query;
+    if (rslt.length > 0) {
+      myPossValArray.push(el1);
+      pvalObj[el1] = rslt;
+      // Note: append only values
+      pvalArr.push(pvalObj);
+    }
+  }
+
   mydata = {};
 
   pagination = {};
