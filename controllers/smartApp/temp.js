@@ -675,10 +675,10 @@ exports.temp = asyncHandler(async (req, res, next) => {
   if (req.headers.applicationid == "SUPP00016") {
     result = await SUPP00016.create(mydata);
   }
-  if (req.headers.applicationid == "SUPP00018") {
+  /*   if (req.headers.applicationid == "SUPP00018") {
     result = await SUPP00018.create(mydata);
     result2 = await SUPP00018_Itm.create(mydata.ItemData);
-  }
+  } */
   if (req.headers.applicationid == "SUPP00028") {
     result = await SUPP00028.create(mydata);
     result2 = await SUPP00028_Itm.create(mydata.ItemData);
