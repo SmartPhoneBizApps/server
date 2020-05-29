@@ -57,13 +57,7 @@ exports.createwithref = asyncHandler(async (req, res, next) => {
     myInv[el1] = req.body[el1];
     for (let ix1 = 0; ix1 < source.length; ix1++) {
       for (let ix2 = 0; ix2 < source[ix1]["ItemData"].length; ix2++) {
-        //    if (el1 == "ItemData") {
-        //     for (const key in req.body[el1]) {
-        //      source[ix1]["ItemData"][ix2][key] = req.body[el1][key];
-        //   }
-        // } else {
         source[ix1]["ItemData"][ix2][el1] = req.body[el1];
-        // }
       }
     }
   });
@@ -262,6 +256,6 @@ exports.createwithref = asyncHandler(async (req, res, next) => {
   mydata = {};
 
   res.status(200).json({
-    myPO,
+    outData,
   });
 });
