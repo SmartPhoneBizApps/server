@@ -693,7 +693,7 @@ exports.temp = asyncHandler(async (req, res, next) => {
     success: true,
     count: 1,
     pagination,
-    data: result,
+    //  data: result,
     // cardImage: app["photo"],
     config: config,
   });
