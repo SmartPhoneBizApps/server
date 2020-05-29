@@ -215,7 +215,10 @@ exports.createwithref = asyncHandler(async (req, res, next) => {
     req.headers.applicationid2,
     req.headers.businessrole
   );
-
+  var configS = getNewConfig(
+    req.headers.applicationid,
+    req.headers.businessrole
+  );
   for (const kk in mymap.Conversion) {
     if (mymap.Conversion.hasOwnProperty(kk)) {
       const element = mymap.Conversion[kk];
@@ -230,6 +233,8 @@ exports.createwithref = asyncHandler(async (req, res, next) => {
   if (req.headers.calculation == "Yes") {
     var Handler = new calfunction();
     myInv = Handler["datacalculation"](myInv, cardConfig["CalculatedFields"]);
+    var Handler2 = new calfunction();
+    myPO = Handler2["datacalculation"](myPO, configS["CalculatedFields"]);
   }
 
   console.log("After", myInv);

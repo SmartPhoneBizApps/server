@@ -3,6 +3,10 @@ const ErrorResponse = require("../utils/errorResponse");
 const asyncHandler = require("../middleware/async");
 const { getNewConfig } = require("../modules/config");
 let csvToJson = require("convert-csv-to-json");
+const SUPP00018 = require("../models/smartApp/SUPP00018");
+const SUPP00018_Itm = require("../models/smartApp/SUPP00018_Itm");
+const SUPP00028 = require("../models/smartApp/SUPP00028");
+const SUPP00028_Itm = require("../models/smartApp/SUPP00028_Itm");
 //let csvToJson = require("convert-csv-to-json");
 // @desc      Get all bootcamps
 // @route     GET /api/v1/bootcamps
@@ -105,6 +109,16 @@ exports.uploadFile = asyncHandler(async (req, res, next) => {
           );
           finalOutput.push(finalData);
         }
+
+        if (req.headers.applicationid == "SUPP00018") {
+          result = await SUPP00018.insertMany(finalOutput);
+          result2 = await SUPP00018_Itm.insertMany(outItem);
+        }
+        if (req.headers.applicationid == "SUPP00028") {
+          result = await SUPP00028.insertMany(finalOutput);
+          result2 = await SUPP00028_Itm.insertMany(outItem);
+        }
+
         res.status(200).json({
           success: true,
           data: finalOutput,

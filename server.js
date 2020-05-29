@@ -109,7 +109,7 @@ app.use("/api/v1/listrecords", require("./routes/smartApp/listrecords"));
 // Create a new Record
 app.use("/api/v1/datarecords", require("./routes/smartApp/datarecords"));
 app.use("/api/v1/createwithref", require("./routes/smartApp/createwithref"));
-app.use("/api/v1/addwithref", require("./routes/smartApp/addwithref"));
+//app.use("/api/v1/addwithref", require("./routes/smartApp/addwithref"));
 // Route to get the Overview Cards (a Seperate Tile for every role)
 app.use("/api/v1/cards", require("./routes/smartApp/overviewcard"));
 // Route to get the cards for application Tab (only one tab can have cards)
@@ -117,7 +117,10 @@ app.use("/api/v1/detailcards/", require("./routes/smartApp/detailcards"));
 // Route to get the Item data for a header record of an application
 app.use("/api/v1/detaillist/", require("./routes/smartApp/detaillist"));
 // Upload Data
-app.use("/api/v1/uploaddata/", require("./routes/smartApp/uploaddata"));
+app.use(
+  "/api/v1/uploaddata/",
+  require("./routes/smartApp/NotInUse_uploaddata")
+);
 
 //  -------------------------------------------------
 //  ----------  ***** UTILITIES *****  ----------

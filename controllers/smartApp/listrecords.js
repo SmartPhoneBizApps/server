@@ -134,7 +134,6 @@ exports.getListrecords = asyncHandler(async (req, res, next) => {
       req.headers.applicationid,
       req.headers.businessrole
     );
-    console.log(buttonData);
   }
 
   if (req.headers.mode == "BOTList") {

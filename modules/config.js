@@ -50,21 +50,46 @@ module.exports = {
     return query;
   },
   getButtonData: function (results, app, role1) {
+    console.log("getButtonData02");
     buttonData = {};
     // buttonVal = {};
-    results.forEach((element) => {
-      if (element.PossibleValues == "CurrentStatus") {
-        for (const key in button[app][element.Value]) {
-          if (button[app][element.Value].hasOwnProperty(key)) {
-            const element1 = button[app][element.Value][key];
-            if (key == role1) {
-              buttonData[element.Value] = element1;
+    if (app == "SUPP00028" || app == "SUPP00018") {
+      results.forEach((element) => {
+        if (element.PossibleValues == "CurrentStatus") {
+          for (const key in button[app][element.Value]) {
+            if (button[app][element.Value].hasOwnProperty(key)) {
+              const element1 = button[app][element.Value][key];
+              if (key == role1) {
+                buttonData[element.Value] = element1;
+              } else if (key == "ALL") {
+                buttonData[element.Value] = element1;
+              }
             }
           }
         }
-      }
-      //      l1 = {};
-    });
+        //      l1 = {};
+      });
+    } else {
+      console.log("getButtonData03");
+
+      results.forEach((element) => {
+        if (element.PossibleValues == "Status") {
+          for (const key in button[app][element.Value]) {
+            if (button[app][element.Value].hasOwnProperty(key)) {
+              const element1 = button[app][element.Value][key];
+              console.log("getButtonData04", key, role1);
+              if (key == role1) {
+                buttonData[element.Value] = element1;
+              } else if (key == "ALL") {
+                buttonData[element.Value] = element1;
+              }
+            }
+          }
+        }
+        //      l1 = {};
+      });
+    }
+
     return buttonData;
   },
   getBotListFields: function (config1) {

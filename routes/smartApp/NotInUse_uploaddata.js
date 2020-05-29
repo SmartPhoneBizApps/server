@@ -1,5 +1,7 @@
 const express = require("express");
-const { upLoadData } = require("../../controllers/smartApp/uploaddata");
+const {
+  upLoadData,
+} = require("../../controllers/smartApp/NotInUse_uploaddata");
 
 const router = express.Router({ mergeParams: true });
 const { protect, authorize } = require("../../middleware/auth");

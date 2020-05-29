@@ -3,6 +3,7 @@ const Papa = require("papaparse");
 const axios = require("axios").default;
 const { getNewConfig } = require("../../modules/config");
 const path = require("path");
+
 let papaConfig = {
   delimiter: "", // auto-detect
   newline: "", // auto-detect
@@ -87,6 +88,7 @@ exports.upLoadData = async (req, res, next) => {
           }
         });
       }
+      console.log("Atul Data");
       ProcessLog["ID"] = mydata["ID"];
       //---------------------------
       // Perform Calculations ....

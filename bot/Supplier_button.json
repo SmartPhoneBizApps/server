@@ -254,78 +254,96 @@
     }
   },
   "SUPP00007": {
-    "FromSupplier": [
-      {
-        "title": "Add Details",
-        "action": "Add Details transID"
-      },
-      {
-        "title": "More Details",
-        "action": "More Details transID"
-      }
-    ],
-    "Order": [
-      {
-        "title": "Display PO",
-        "action": "action_var-display transID"
-      },
-      {
-        "title": "Review Request",
-        "action": "ReviewRequestSelect transID"
-      }
-    ],
-    "Approve": [
-      {
-        "title": "Display Invoice",
-        "action": "InvoiceDisplay SuppInvoiceNumber"
-      }
-    ],
-    "Reject": [
-      {
-        "title": "Display Invoice",
-        "action": "InvoiceDisplay SuppInvoiceNumber"
-      }
-    ],
+    "FromSupplier": {
+      "ALL": [
+        {
+          "title": "Add Details",
+          "action": "Add Details transID"
+        },
+        {
+          "title": "More Details",
+          "action": "More Details transID"
+        }
+      ]
+    },
+    "Order": {
+      "ALL": [
+        {
+          "title": "Display PO",
+          "action": "action_var-display transID"
+        },
+        {
+          "title": "Review Request",
+          "action": "ReviewRequestSelect transID"
+        }
+      ]
+    },
+    "Approve": {
+      "ALL": [
+        {
+          "title": "Display Invoice",
+          "action": "InvoiceDisplay SuppInvoiceNumber"
+        }
+      ]
+    },
+    "Reject": {
+      "ALL": [
+        {
+          "title": "Display Invoice",
+          "action": "InvoiceDisplay SuppInvoiceNumber"
+        }
+      ]
+    },
 
-    "Approved": [
-      {
-        "title": "Display Invoice",
-        "action": "InvoiceDisplay SuppInvoiceNumber"
-      }
-    ],
-    "Rejected": [
-      {
-        "title": "Display Invoice",
-        "action": "InvoiceDisplay SuppInvoiceNumber"
-      }
-    ],
+    "Approved": {
+      "ALL": [
+        {
+          "title": "Display Invoice",
+          "action": "InvoiceDisplay SuppInvoiceNumber"
+        }
+      ]
+    },
+    "Rejected": {
+      "ALL": [
+        {
+          "title": "Display Invoice",
+          "action": "InvoiceDisplay SuppInvoiceNumber"
+        }
+      ]
+    },
 
-    "Invoice": [
-      {
-        "title": "Display Invoice",
-        "action": "InvoiceDisplay SuppInvoiceNumber"
-      },
-      {
-        "title": "Review Request",
-        "action": "ReviewRequestSelect transID"
-      }
-    ],
-    "ApproveReject": [
-      {
-        "title": "Approve",
-        "action": "action_var-Approve transID"
-      },
-      {
-        "title": "Reject",
-        "action": "action_var-Reject transID"
-      }
-    ],
-    "Generic": [
-      {
-        "title": "Review Request",
-        "action": "ReviewRequestSelect transID"
-      }
-    ]
+    "Invoice": {
+      "ALL": [
+        {
+          "title": "Display Invoice",
+          "action": "InvoiceDisplay SuppInvoiceNumber"
+        },
+        {
+          "title": "Review Request",
+          "action": "ReviewRequestSelect transID"
+        }
+      ]
+    },
+    "ApproveReject": {
+      "ALL": [
+        {
+          "title": "Approve",
+          "action": "action_var-Approve transID"
+        },
+        {
+          "title": "Reject",
+          "action": "action_var-Reject transID"
+        }
+      ]
+    },
+    "Generic": {
+      "ALL": [
+        {
+          "title": "Review Request",
+          "action": "ReviewRequestSelect transID"
+        }
+      ]
+    }
   },
   "SUPP00028": {
     "GRPartial": {

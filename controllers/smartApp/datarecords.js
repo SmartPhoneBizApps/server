@@ -403,7 +403,6 @@ exports.addDataRecords = asyncHandler(async (req, res, next) => {
           }
         }
       }
-
       /// -------------------------------------------- ///
       ///        Possible value check ..........
       /// --------------------------------------------- ///
@@ -413,27 +412,22 @@ exports.addDataRecords = asyncHandler(async (req, res, next) => {
       if (resPV === true) {
         for (const k1 in pvalArr) {
           //    console.log("PossValX", pvalArr[k1][key], ">>", key);
-
           for (const b1 in pvalArr[k1][key]) {
             const element = pvalArr[k1][key][b1];
             //      console.log("Element", element["Value"]);
           }
           //    var chkPV = pvalArr.k1.includes(req.body.key);
         }
-
         pvalArr.forEach((element) => {
           var resVal = myPossValArray.includes(key);
         });
       }
     }
   }
-
   /// --------------------------------- ///
   ////// Other Validations......
   /// --------------------------------- ///
-
   ///  +++++++++++  VALIDATIONS ENDS +++++++++++++++++++++++ /////////
-
   //---------------------------
   // Perform Calculations ....
   //---------------------------
@@ -442,10 +436,10 @@ exports.addDataRecords = asyncHandler(async (req, res, next) => {
     mydata = Handler["datacalculation"](mydata, cardConfig["CalculatedFields"]);
   }
   //---------------------------
-
   //// Add similar Logic for Items as well
   let result;
   let result2;
+
   if (req.headers.applicationid == "EDU00001") {
     result = await EDU00001.create(mydata);
   }
@@ -509,7 +503,6 @@ exports.addDataRecords = asyncHandler(async (req, res, next) => {
   if (req.headers.applicationid == "EDU0100") {
     result = await EDU0100.create(mydata);
   }
-
   if (req.headers.applicationid == "BUS0000002") {
     result = await BUS0000002.create(mydata);
   }
@@ -570,7 +563,6 @@ exports.addDataRecords = asyncHandler(async (req, res, next) => {
   if (req.headers.applicationid == "DOC00003") {
     result = await DOC00003.create(mydata);
   }
-
   if (req.headers.applicationid == "EMP00001") {
     result = await EMP00001.create(mydata);
   }
@@ -748,10 +740,8 @@ exports.updateDataRecords = asyncHandler(async (req, res, next) => {
   req.body.user = req.user.id;
   req.body.userName = req.user.name;
   req.body.userEmail = req.user.email;
-
   // Get Company Details
   const CompanyDetails = await Company.findById(req.user.company);
-
   ///  +++++++++++  VALIDATIONS STARTS +++++++++++++++++++++++ /////////
   // Check if user setup has company (Pass)
   if (!req.user.company) {
@@ -776,7 +766,6 @@ exports.updateDataRecords = asyncHandler(async (req, res, next) => {
   // Company validation passed, now USER company can be used!!
   req.body.company = CompanyDetails.id;
   req.body.companyName = CompanyDetails.companyName;
-
   // Get Branch from Header
   if (req.headers.branchname) {
     const BodyBranch = await Branch.findOne({
@@ -799,7 +788,6 @@ exports.updateDataRecords = asyncHandler(async (req, res, next) => {
       req.body.areaName = BodyArea.areaName;
     }
   }
-
   // Validate if user has provided Branch details (Pass)
   if (!req.headers.branch) {
     if (!req.user.branch) {
@@ -818,7 +806,6 @@ exports.updateDataRecords = asyncHandler(async (req, res, next) => {
       req.body.branch = req.user.branch;
       // myorg.branchName = BodyBranch.branchName;
     }
-
     if (req.body.branch != req.user.branch) {
       return next(
         new ErrorResponse(
@@ -834,7 +821,6 @@ exports.updateDataRecords = asyncHandler(async (req, res, next) => {
     req.body.branch = BranchDetails.branch;
     req.body.branchName = BranchDetails.branchName;
   }
-
   if (!req.headers.area) {
     if (!req.user.area) {
       return next(
@@ -845,7 +831,6 @@ exports.updateDataRecords = asyncHandler(async (req, res, next) => {
       );
     }
   }
-
   // If user record has got Area then validate is it matches with body Area
   if (req.user.area) {
     // if no Area in body but user has area then use it
@@ -870,7 +855,6 @@ exports.updateDataRecords = asyncHandler(async (req, res, next) => {
     req.body.area = AreaDetails.id;
   }
   ///  +++++++++++  VALIDATIONS ENDS +++++++++++++++++++++++ /////////
-
   // -----------------------------------------------------
   // Processing Log
   // -----------------------------------------------------
@@ -917,7 +901,6 @@ exports.updateDataRecords = asyncHandler(async (req, res, next) => {
       runValidators: true,
     });
   }
-
   if (req.headers.applicationid == "SUPP00018") {
     // -----------------------------------------------------
     // Read data from DB
@@ -951,17 +934,15 @@ exports.updateDataRecords = asyncHandler(async (req, res, next) => {
       }
     }
     //---------------------------
-
     // Update Transaction Log
+    //---------------------------
     myData.TransLog.forEach((ex1) => {
       nTrans.push(ex1);
     });
     nTrans.push(req.body.TransLog);
     req.body.TransLog = nTrans;
     req.body["ItemData"] = myData["ItemData"];
-
     console.log(cardConfig);
-
     //---------------------------
     // Perform Calculations ....
     //---------------------------
@@ -991,7 +972,6 @@ exports.updateDataRecords = asyncHandler(async (req, res, next) => {
       );
     }
   }
-
   if (req.headers.applicationid == "SUPP00028") {
     // -----------------------------------------------------
     // Read data from DB
@@ -1029,17 +1009,15 @@ exports.updateDataRecords = asyncHandler(async (req, res, next) => {
       }
     }
     //---------------------------
-
     // Update Transaction Log
+    //---------------------------
     myData.TransLog.forEach((ex1) => {
       nTrans.push(ex1);
     });
     nTrans.push(req.body.TransLog);
     req.body.TransLog = nTrans;
     req.body["ItemData"] = myData["ItemData"];
-
     console.log(cardConfig);
-
     //---------------------------
     // Perform Calculations ....
     //---------------------------
@@ -1052,7 +1030,6 @@ exports.updateDataRecords = asyncHandler(async (req, res, next) => {
       req.body = outdata;
     }
     //---------------------------
-
     result = await SUPP00028.findByIdAndUpdate(myData.id, req.body, {
       new: true,
       runValidators: true,
@@ -1070,29 +1047,8 @@ exports.updateDataRecords = asyncHandler(async (req, res, next) => {
       );
     }
   }
-
   res.status(200).json({
     success: true,
     data: result,
   });
 });
-
-// @desc      Update record
-// @route     PUT /api/v1/records/:id
-// @access    Private
-exports.updateRecord = asyncHandler(async (req, res, next) => {});
-
-// @desc      Delete record
-// @route     DELETE /api/v1/records/:id
-// @access    Private
-exports.deleteRecord = asyncHandler(async (req, res, next) => {});
-
-// @desc      Get records within a radius
-// @route     GET /api/v1/records/radius/:zipcode/:distance
-// @access    Private
-exports.getRecordsInRadius = asyncHandler(async (req, res, next) => {});
-
-// @desc      Upload photo for record
-// @route     PUT /api/v1/records/:id/photo
-// @access    Private
-exports.recordPhotoUpload = asyncHandler(async (req, res, next) => {});
