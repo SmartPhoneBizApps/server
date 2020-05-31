@@ -2,6 +2,10 @@ const asyncHandler = require("../middleware/async");
 const Possval = require("../models/appSetup/Possval");
 const ErrorResponse = require("../utils/errorResponse");
 var button = require("../bot/Supplier_button.json");
+const Agent = require("../models/access/Agent");
+const App = require("../models/appSetup/App");
+const Role = require("../models/appSetup/Role");
+const User = require("../models/access/User");
 
 module.exports = {
   getCreateMap: function (sapp, tapp, trans) {
@@ -50,7 +54,6 @@ module.exports = {
     return query;
   },
   getButtonData: function (results, app, role1) {
-    console.log("getButtonData02");
     buttonData = {};
     // buttonVal = {};
     if (app == "SUPP00028" || app == "SUPP00018") {
@@ -70,14 +73,11 @@ module.exports = {
         //      l1 = {};
       });
     } else {
-      console.log("getButtonData03");
-
       results.forEach((element) => {
         if (element.PossibleValues == "Status") {
           for (const key in button[app][element.Value]) {
             if (button[app][element.Value].hasOwnProperty(key)) {
               const element1 = button[app][element.Value][key];
-              console.log("getButtonData04", key, role1);
               if (key == role1) {
                 buttonData[element.Value] = element1;
               } else if (key == "ALL") {
@@ -94,7 +94,6 @@ module.exports = {
   },
   getBotListFields: function (config1) {
     lf = [];
-    console.log("AG003");
     if (config1["ListBOTFields"]["Title"]) {
       config1["ListBOTFields"]["Title"].forEach((element1) => {
         lf.push(element1);
@@ -128,5 +127,133 @@ module.exports = {
     result.branch = user.branch;
     result.area = user.area;
     return result;
+  },
+
+  itemValidate: function (itmData, newitemData) {
+    let itms = [];
+    ItemFields = {};
+    for (let db2 = 0; db2 < newitemData.length; db2++) {
+      for (let b2 = 0; b2 < itmData.length; b2++) {
+        if (itmData[b2]["ItemNumber"] == newitemData[db2]["ItemNumber"]) {
+          for (const b3 in itmData[b2]) {
+            newitemData[db2][b3] = itmData[b2][b3];
+          }
+        }
+      }
+    }
+    return newitemData;
+  },
+
+  getCompany: function (app) {
+    const myApp = App.findOne({ applicationID: app });
+    return myApp;
+  },
+  getRole: function (role) {
+    const myRole = Role.findOne({ role: role });
+    return myRole;
+  },
+
+  createUser: function (input) {
+    user = User.create(input);
+    return user;
+  },
+  findOneAgent: function (input) {
+    const agent = Agent.findOne({
+      agent: input,
+    });
+    return agent;
+  },
+  findOneSocialmedia: function (input) {
+    const smedia = Socialmedia.findOne({
+      SocialMediaAccountID: input,
+    });
+    return smedia;
+  },
+  findOneRole: function (input) {
+    const role = Role.findOne({
+      role: input,
+    });
+    return role;
+  },
+  findOneApp: function (input) {
+    const app = App.findOne({
+      applicationID: input,
+    });
+    return app;
+  },
+
+  // Business Application Modules....
+  findOneAppData: function (TransID, app) {
+    let path = "../models/smartApp/" + app;
+    const Model = require(path);
+    result = Model.findOne({
+      ID: TransID,
+    });
+    return result;
+  },
+  findOneUpdateData: function (mdata, app) {
+    let path = "../models/smartApp/" + app;
+    const Model = require(path);
+    console.log("AG", mdata.id);
+    result = Model.findOneAndUpdate({ ID: mdata.ID }, mdata, {
+      new: true,
+      runValidators: true,
+    });
+    return result;
+  },
+  createDocument: function (app, mydata) {
+    let path = "../models/smartApp/" + app;
+    const Model = require(path);
+    result = Model.create(mydata);
+    return result;
+  },
+  createMultipleDocument: function (app, mydata) {
+    let path = "../models/smartApp/" + app;
+    const Model = require(path);
+    result = Model.insertMany(mydata);
+    return result;
+  },
+  findAndUpdateItem: function (mdata, app) {
+    let path = "../models/smartApp/" + app + "_Itm";
+    const Model = require(path);
+    for (let index = 0; index < mdata.length; index++) {
+      result2 = Model.findOneAndUpdate(
+        { ID: mdata.ID, ItemNumber: mdata[index]["ItemNumber"] },
+        mdata[index],
+        {
+          new: true,
+          runValidators: true,
+        }
+      );
+    }
+    return result;
+  },
+
+  collectExceptionFields: function (FieldDef) {
+    myFieldArray = [];
+    myPossValArray = [];
+    pvalObj = {};
+    pvalArr = [];
+    for (let index = 0; index < FieldDef.length; index++) {
+      const element1 = FieldDef[index].name;
+      myFieldArray.push(element1);
+    }
+    exclude_array = [
+      "appId",
+      "applicationId",
+      "user",
+      "userName",
+      "userEmail",
+      "company",
+      "companyName",
+      "branch",
+      "branchName",
+      "area",
+      "areaName",
+      "ItemData",
+      "TransLog",
+    ];
+    myFieldArray.push.apply(myFieldArray, exclude_array);
+    return myFieldArray;
   },
 };

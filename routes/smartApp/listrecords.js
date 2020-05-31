@@ -1,10 +1,7 @@
 const express = require("express");
 const { getListrecords } = require("../../controllers/smartApp/listrecords");
-//const reviewRouter = require("../reviews");
 const router = express.Router();
 const advancedDataList = require("../../middleware/advancedDataList");
-//const advancedDataListItems = require("../../middleware/advancedDataList_withItem");
-const advancedCreate = require("../../middleware/advancedCreate");
 const { protect, authorize } = require("../../middleware/auth");
 
 const BUS0000002 = require("../../models/smartApp/BUS0000002");

@@ -35,8 +35,6 @@ exports.createSocialmedia = asyncHandler(async (req, res, next) => {
   sm = { ...req.body };
 
   sm["SocialMediaAccountID"] = SMediaAccountID;
-  console.log(sm["SocialMediaAccountID"]);
-  console.log(req.body.email);
   const busRole = await Role.findOne({ role: req.body.businessRoleName });
   if (!busRole) {
     return next(new ErrorResponse(`NO_ROLE`), 405);
@@ -44,9 +42,7 @@ exports.createSocialmedia = asyncHandler(async (req, res, next) => {
 
   // req.body.user = user.id;
   sm.businessRole = busRole.id;
-  console.log(req.body);
   const socialmedia = await Socialmedia.create(sm);
-
   const user = await User.findOne({ email: req.body.email });
   userRegistered = "USER_NOT_REGISTERED";
   regQuestion = {};
@@ -114,8 +110,6 @@ exports.createSocialmedia = asyncHandler(async (req, res, next) => {
 // @route     PUT /api/v1/auth/socialmedias/:id
 // @access    Private/Admin
 exports.updateSocialmedia = asyncHandler(async (req, res, next) => {
-  console.log(req.params);
-
   const socialmedia = await Socialmedia.findByIdAndUpdate(
     req.params.id,
     req.body,
@@ -124,7 +118,6 @@ exports.updateSocialmedia = asyncHandler(async (req, res, next) => {
       runValidators: true,
     }
   );
-
   res.status(200).json({
     success: true,
     data: socialmedia,

@@ -1,20 +1,21 @@
-const { getNewConfig, getBotListFields } = require("../modules/config");
+const {
+  getNewConfig,
+  getBotListFields,
+  findOneApp,
+} = require("../modules/config");
 
 const advancedDataList = (model, model2, AppID, populate) => async (
   req,
   res,
   next
 ) => {
-  // Read New Configuration from File......
-  const App = require("../models/appSetup/App");
-  let app = await App.findOne({ applicationID: AppID });
-
-  // Read New Config File
-  var config1 = getNewConfig(AppID, req.headers.businessrole);
-
   let config = {};
   fl1 = {};
   fl2 = [];
+
+  const app = await findOneApp(AppID);
+  // Read New Config File
+  var config1 = getNewConfig(AppID, req.headers.businessrole);
 
   if (req.headers.mode == "BOTList") {
     let lf = getBotListFields(config1);
@@ -23,7 +24,6 @@ const advancedDataList = (model, model2, AppID, populate) => async (
   // check the Mode
   switch (req.headers.mode) {
     case "BOTList":
-      console.log("AG001");
       config1["FieldDef"].forEach((element) => {
         lf.forEach((element2) => {
           if (element["name"] == element2) {

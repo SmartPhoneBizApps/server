@@ -85,11 +85,6 @@ SOCIAL_SEC_V1 = /^\d{3}-\d{2}-\d{4}$/;
 //NHS Hospital Number (D Number)
 NHS_HOSPITAL_NUM_V1 = /[DJF]{1}[0-9]{5,8}/;
 
-/* for (let prop in sch) {
-  file = "../../applicationJSON/" + sch[prop] + ".json";
-  console.log(file);
-} */
-
 var json = require(file);
 
 for (let prop in json) {

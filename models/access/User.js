@@ -23,6 +23,9 @@ const UserSchema = new mongoose.Schema({
   userType: {
     type: String,
   },
+  reason: {
+    type: String,
+  },
   userAccess: {
     type: String,
     default: "own",
@@ -154,6 +157,8 @@ UserSchema.methods.getSignedJwtToken = function () {
 
 // Match user entered password to hashed password in database
 UserSchema.methods.matchPassword = async function (enteredPassword) {
+  console.log(enteredPassword);
+  console.log(this.password);
   return await bcrypt.compare(enteredPassword, this.password);
 };
 
@@ -161,7 +166,6 @@ UserSchema.methods.matchPassword = async function (enteredPassword) {
 UserSchema.methods.getResetPasswordToken = function () {
   // Generate token
   const resetToken = crypto.randomBytes(20).toString("hex");
-  console.log("tkn-01", resetToken);
   // Hash token and set to resetPasswordToken field
   this.resetPasswordToken = crypto
     .createHash("sha256")
@@ -169,8 +173,6 @@ UserSchema.methods.getResetPasswordToken = function () {
     .digest("hex");
   // Set expire
   this.resetPasswordExpire = Date.now() + 10 * 60 * 1000;
-  console.log("tkn-02", resetToken);
-  console.log("tkn-03", this.resetPasswordToken);
   return resetToken;
 };
 

@@ -76,12 +76,8 @@ exports.addPossValFile = asyncHandler(async (req, res, next) => {
   // Executing query
   const results = await query;
   results1 = [new Set(results)];
-  console.log(results1);
-  console.log(pVal[pVal1]);
-
   myPVal = [];
   results1.forEach((element) => {
-    console.log(element["Value"]);
     myPVal.push(element["Value"]);
   });
 
@@ -95,18 +91,8 @@ exports.addPossValFile = asyncHandler(async (req, res, next) => {
       console.log("Successfully wrote file");
     }
   });
-
   myPVal = [];
   newfile = [];
-
-  //console.log(possVal);
-  //  for (var i = 0; i < possVal.length; i++) {
-  //   var obj = possVal[i];
-  // Uncomment to load the file
-  // const pVal = await Possval.create(obj);
-  // console.log(obj);
-  // console.log("---------Uncomment to load the file ------------------");
-  // }
   res.status(200).json({
     success: true,
   });

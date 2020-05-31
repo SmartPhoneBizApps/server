@@ -3,284 +3,59 @@ const ErrorResponse = require("../../utils/errorResponse");
 const asyncHandler = require("../../middleware/async");
 const sendEmail = require("../../utils/sendEmail");
 const User = require("../../models/access/User");
+const Role = require("../../models/appSetup/Role");
 const Socialmedia = require("../../models/access/Socialmedia");
-
+const Agent = require("../../models/access/Agent");
+const { createUser } = require("../../modules/config");
+const { valAlreadyReg } = require("../../modules/validationMessages");
 // @desc      Register user(PIN)
 // @route     POST /api/v1/auth/register
 // @access    Public
 exports.register = asyncHandler(async (req, res, next) => {
+  /*   const {
+    name,
+    email,
+    role,
+    businessRole,
+    userAccess,
+    reason,
+    agent,
+    regQuestion,
+  } = req.body; */
+
   businessRoles = [];
-  let user = await User.find({ email: req.body.email });
-  const { name, email, role, regQuestion, businessRole } = req.body;
-  /*   // Create user
-  if (businessRole == "Supplier") {
-    Supplier = regQuestion;
-    user = await User.create({
-      name,
-      email,
-      role,
-      Supplier,
-    });
-  }
-  // Create user
-  if (businessRole == "Employee") {
-    Employee = regQuestion;
-    user = await User.create({
-      name,
-      email,
-      role,
-      Employee,
-    });
-  }
-  // Create user
-  if (businessRole == "Student") {
-    Student = regQuestion;
-    user = await User.create({
-      name,
-      email,
-      role,
-      Student,
-    });
+  busRole = {};
+
+  if (req.body.agent) {
+    let agent = await Agent.findOne({ agent: req.body.agent });
+    req.body.company = agent.company;
+    req.body.branch = agent.branch;
+    req.body.area = agent.area;
+    console.log(req.body.company);
   }
 
-  // Create user
-  if (businessRole == "Manager") {
-    Manager = regQuestion;
-    user = await User.create({
-      name,
-      email,
-      role,
-      Manager,
-    });
+  if (req.body.businessRole) {
+    let role1 = await Role.findOne({ role: req.body.businessRole });
+    if (role1) {
+      busRole["role"] = req.body.businessRole;
+      busRole["roleId"] = role1.id;
+      busRole["roleId"] = role1.id;
+      businessRoles.push(busRole);
+      req.body.businessRoles = businessRoles;
+    }
+    if (req.body.regQuestion) {
+      req.body[req.body.businessRole] = req.body.regQuestion;
+    }
   }
-
-  // Create user
-  if (businessRole == "Approver") {
-    Approver = regQuestion;
-    user = await User.create({
-      name,
-      email,
-      role,
-      Approver,
-    });
-  } */
-  if (businessRole == "User") {
-    Userq = regQuestion;
-    user = await User.create({ name, email, role, Userq });
+  let user = await User.findOne({ email: req.body.email });
+  if (!user) {
+    user = await createUser(req.body);
+  } else {
+    msg = valAlreadyReg(req.body.email);
+    return next(new ErrorResponse(msg, 404));
   }
-
-  if (businessRole == "Purchaser") {
-    Purchaser = regQuestion;
-    user = await User.create({ name, email, role, Purchaser });
-  }
-  if (businessRole == "Project") {
-    Project = regQuestion;
-    user = await User.create({ name, email, role, Project });
-  }
-  if (businessRole == "Finance") {
-    Finance = regQuestion;
-    user = await User.create({ name, email, role, Finance });
-  }
-  if (businessRole == "Approver") {
-    Approver = regQuestion;
-    user = await User.create({ name, email, role, Approver });
-  }
-  if (businessRole == "Manager") {
-    Manager = regQuestion;
-    user = await User.create({ name, email, role, Manager });
-  }
-  if (businessRole == "Student") {
-    Student = regQuestion;
-    user = await User.create({ name, email, role, Student });
-  }
-  if (businessRole == "Employee") {
-    Employee = regQuestion;
-    user = await User.create({ name, email, role, Employee });
-  }
-  if (businessRole == "Technician") {
-    Technician = regQuestion;
-    user = await User.create({ name, email, role, Technician });
-  }
-  if (businessRole == "Operator") {
-    Operator = regQuestion;
-    user = await User.create({ name, email, role, Operator });
-  }
-  if (businessRole == "Candidate") {
-    Candidate = regQuestion;
-    user = await User.create({ name, email, role, Candidate });
-  }
-  if (businessRole == "HRManager") {
-    HRManager = regQuestion;
-    user = await User.create({ name, email, role, HRManager });
-  }
-  if (businessRole == "Interviewer") {
-    Interviewer = regQuestion;
-    user = await User.create({ name, email, role, Interviewer });
-  }
-  if (businessRole == "Citizen") {
-    Citizen = regQuestion;
-    user = await User.create({ name, email, role, Citizen });
-  }
-  if (businessRole == "ITManager") {
-    ITManager = regQuestion;
-    user = await User.create({ name, email, role, ITManager });
-  }
-  if (businessRole == "ITTechnician") {
-    ITTechnician = regQuestion;
-    user = await User.create({ name, email, role, ITTechnician });
-  }
-  if (businessRole == "Coder") {
-    Coder = regQuestion;
-    user = await User.create({ name, email, role, Coder });
-  }
-  if (businessRole == "APTeam") {
-    APTeam = regQuestion;
-    user = await User.create({ name, email, role, APTeam });
-  }
-  if (businessRole == "System") {
-    System = regQuestion;
-    user = await User.create({ name, email, role, System });
-  }
-  if (businessRole == "Stores") {
-    Stores = regQuestion;
-    user = await User.create({ name, email, role, Stores });
-  }
-  if (businessRole == "Shopper") {
-    Shopper = regQuestion;
-    user = await User.create({ name, email, role, Shopper });
-  }
-  if (businessRole == "FleetSup") {
-    FleetSup = regQuestion;
-    user = await User.create({ name, email, role, FleetSup });
-  }
-  if (businessRole == "SchoolAdmin") {
-    SchoolAdmin = regQuestion;
-    user = await User.create({ name, email, role, SchoolAdmin });
-  }
-  if (businessRole == "ITSupervisor") {
-    ITSupervisor = regQuestion;
-    user = await User.create({ name, email, role, ITSupervisor });
-  }
-  if (businessRole == "FleetMgm") {
-    FleetMgm = regQuestion;
-    user = await User.create({ name, email, role, FleetMgm });
-  }
-  if (businessRole == "CouncilAdmin") {
-    CouncilAdmin = regQuestion;
-    user = await User.create({ name, email, role, CouncilAdmin });
-  }
-  if (businessRole == "CouncilManager") {
-    CouncilManager = regQuestion;
-    user = await User.create({ name, email, role, CouncilManager });
-  }
-  if (businessRole == "Teacher") {
-    Teacher = regQuestion;
-    user = await User.create({ name, email, role, Teacher });
-  }
-  if (businessRole == "HR") {
-    HR = regQuestion;
-    user = await User.create({ name, email, role, HR });
-  }
-  if (businessRole == "HealthcareAdmin") {
-    HealthcareAdmin = regQuestion;
-    user = await User.create({ name, email, role, HealthcareAdmin });
-  }
-  if (businessRole == "Patient") {
-    Patient = regQuestion;
-    user = await User.create({ name, email, role, Patient });
-  }
-  if (businessRole == "Park") {
-    Park = regQuestion;
-    user = await User.create({ name, email, role, Park });
-  }
-  if (businessRole == "Transporter") {
-    Transporter = regQuestion;
-    user = await User.create({ name, email, role, Transporter });
-  }
-  if (businessRole == "LogisticUser") {
-    LogisticUser = regQuestion;
-    user = await User.create({ name, email, role, LogisticUser });
-  }
-  if (businessRole == "Broker") {
-    Broker = regQuestion;
-    user = await User.create({ name, email, role, Broker });
-  }
-  if (businessRole == "PApprover") {
-    PApprover = regQuestion;
-    user = await User.create({ name, email, role, PApprover });
-  }
-  if (businessRole == "Supplier") {
-    Supplier = regQuestion;
-    user = await User.create({ name, email, role, Supplier });
-  }
-  if (businessRole == "DocManager") {
-    DocManager = regQuestion;
-    user = await User.create({ name, email, role, DocManager });
-  }
-  if (businessRole == "GST_CLERK") {
-    GST_CLERK = regQuestion;
-    user = await User.create({ name, email, role, GST_CLERK });
-  }
-  if (businessRole == "Receptionist") {
-    Receptionist = regQuestion;
-    user = await User.create({ name, email, role, Receptionist });
-  }
-  if (businessRole == "Testing") {
-    Testing = regQuestion;
-    user = await User.create({ name, email, role, Testing });
-  }
-  if (businessRole == "OrthopaedicDoctor") {
-    OrthopaedicDoctor = regQuestion;
-    user = await User.create({ name, email, role, OrthopaedicDoctor });
-  }
-  if (businessRole == "Dentist") {
-    Dentist = regQuestion;
-    user = await User.create({ name, email, role, Dentist });
-  }
-  if (businessRole == "Orthodontist") {
-    Orthodontist = regQuestion;
-    user = await User.create({ name, email, role, Orthodontist });
-  }
-  if (businessRole == "Parent") {
-    Parent = regQuestion;
-    user = await User.create({ name, email, role, Parent });
-  }
-  if (businessRole == "Visitor") {
-    Visitor = regQuestion;
-    user = await User.create({ name, email, role, Visitor });
-  }
-  if (businessRole == "AccessAdmin") {
-    AccessAdmin = regQuestion;
-    user = await User.create({ name, email, role, AccessAdmin });
-  }
-  if (businessRole == "CollegeTeacher") {
-    CollegeTeacher = regQuestion;
-    user = await User.create({ name, email, role, CollegeTeacher });
-  }
-  if (businessRole == "CollegeStudent") {
-    CollegeStudent = regQuestion;
-    user = await User.create({ name, email, role, CollegeStudent });
-  }
-  if (businessRole == "CollegeAdmin") {
-    CollegeAdmin = regQuestion;
-    user = await User.create({ name, email, role, CollegeAdmin });
-  }
-  if (businessRole == "CollegeParent") {
-    CollegeParent = regQuestion;
-    user = await User.create({ name, email, role, CollegeParent });
-  }
-  if (businessRole == "ScrumMaster") {
-    ScrumMaster = regQuestion;
-    user = await User.create({ name, email, role, ScrumMaster });
-  }
-  if (businessRole == "HealthCareProfessional") {
-    HealthCareProfessional = regQuestion;
-    user = await User.create({ name, email, role, HealthCareProfessional });
-  }
-
   sendPINTokenResponse(user, 200, res);
 });
-
 // @desc      Register user (Password)
 // @route     POST /api/v1/auth/register
 // @access    Public
@@ -324,17 +99,13 @@ exports.register2 = asyncHandler(async (req, res, next) => {
     password,
     role,
   });
-
   sendTokenResponse(user, 200, res);
 });
-
 // @desc      Delete user
 // @route     DELETE /api/v1/courses/:id
 // @access    Private
 exports.deleteUser = asyncHandler(async (req, res, next) => {
   await User.findOneAndDelete({ email: req.params.email });
-  console.log(req.params.email);
-
   res.status(200).json({
     success: true,
     data: "User Removed",
@@ -563,20 +334,11 @@ const sendPINTokenResponse = asyncHandler(async (user, statusCode, res) => {
     ),
     httpOnly: true,
   };
-
   const resetToken = user.getResetPasswordToken();
-
   nToken = crypto.createHash("sha256").update(resetToken).digest("hex");
-
-  console.log("tkn-03", nToken);
-  //await user.save({ validateBeforeSave: false });
   if (process.env.NODE_ENV === "production") {
     options.secure = true;
   }
-
-  // let resetUrl = url;
-  // Create reset url
-
   const message = `Your PIN number is: ${UserPIN} , you are receiving this email because you (or someone else) is performing login to SmartApp`;
   try {
     await sendEmail({
@@ -711,25 +473,17 @@ exports.checkBotPin = asyncHandler(async (req, res, next) => {
   let buff1 = new Buffer(newSmedia, "base64");
   let SMediaAccountID = buff1.toString("ascii");
   // Get hashed token
-  console.log("tkn-chk-01", req.params.resettoken);
-  //resetPasswordToken = req.params.resettoken;
-  // Get hashed token
   const resetPasswordToken = crypto
     .createHash("sha256")
     .update(req.params.resettoken)
     .digest("hex");
-  console.log("tkn-chk-02", resetPasswordToken);
-  console.log("date-chk-03", Date.now());
   const user = await User.findOne({
     resetPasswordToken,
     resetPasswordExpire: { $gt: Date.now() },
   });
-  console.log("user", user);
   if (!user) {
     return next(new ErrorResponse("Invalid token", 400));
   }
-  console.log("Pin1", user.UserPIN);
-  console.log("Pin2", req.body.pin);
   if (user.UserPIN != req.body.pin) {
     return next(new ErrorResponse("Invalid PIN", 400));
   }

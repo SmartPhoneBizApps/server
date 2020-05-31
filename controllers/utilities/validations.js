@@ -45,7 +45,6 @@ exports.getvalidations = asyncHandler(async (req, res, next) => {
   // Config contains calculated fields
   // req.body contains the business data
   // update all the calculated fields and set them in outdata
-  console.log(config);
 
   res.status(201).json({
     success: true,

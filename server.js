@@ -67,6 +67,7 @@ app.use(express.static(path.join(__dirname, "public")));
 app.use("/api/v1/auth", require("./routes/access/auth"));
 app.use("/api/v1/users", require("./routes/access/users"));
 app.use("/api/v1/socialmedia", require("./routes/access/socialmedia"));
+app.use("/api/v1/agent", require("./routes/access/agent"));
 app.use(
   "/api/v1/socialmediacheck",
   require("./routes/access/socialmediacheck")
@@ -115,13 +116,6 @@ app.use("/api/v1/createwithref", require("./routes/smartApp/createwithref"));
 app.use("/api/v1/cards", require("./routes/smartApp/overviewcard"));
 // Route to get the cards for application Tab (only one tab can have cards)
 app.use("/api/v1/detailcards/", require("./routes/smartApp/detailcards"));
-// Route to get the Item data for a header record of an application
-app.use("/api/v1/detaillist/", require("./routes/smartApp/detaillist"));
-// Upload Data
-app.use(
-  "/api/v1/uploaddata/",
-  require("./routes/smartApp/NotInUse_uploaddata")
-);
 
 //  -------------------------------------------------
 //  ----------  ***** UTILITIES *****  ----------

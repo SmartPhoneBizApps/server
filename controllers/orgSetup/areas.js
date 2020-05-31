@@ -51,7 +51,6 @@ exports.addArea = asyncHandler(async (req, res, next) => {
   req.body.user = req.user.id;
 
   const company = await Company.findById(req.params.companyId);
-  console.log(company);
   if (!company) {
     return next(
       new ErrorResponse(`No company with the id of ${req.params.companyId}`),

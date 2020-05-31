@@ -12,7 +12,6 @@ const {
   createRefSetBody,
 } = require("../../modules/config");
 const ErrorResponse = require("../../utils/errorResponse");
-
 // @desc      Get all bootcamps
 // @route     GET /api/v1/bootcamps
 // @access    Public
@@ -51,7 +50,6 @@ exports.createwithref = asyncHandler(async (req, res, next) => {
   myInv = req.body;
   // Get Parent App data
   source = outData["data"];
-  console.log("IM0", source[0]);
   // Set InputValues to Source Item Data...
   mymap.Inputs.forEach((el1) => {
     myInv[el1] = req.body[el1];
@@ -99,7 +97,6 @@ exports.createwithref = asyncHandler(async (req, res, next) => {
     myPO = element;
     // Note this is updated in next section, don't change the order
   }
-  console.log("Updated Source", myPO);
   // Perform Source Calc
   let upd_arr = [];
   for (let i1 = 0; i1 < mymap.SourceUpdate.Checks.length; i1++) {
@@ -181,17 +178,14 @@ exports.createwithref = asyncHandler(async (req, res, next) => {
           if (k6 == mymap["ItemMapFullCopy"][ik]) {
             if (req.headers.fullCopy == "Yes") {
               items[ik] = source[index]["ItemData"][key][k6];
-              console.log("items[ik - 1]", ik, ">>", items[ik]);
             } else {
               items[ik] = source[index]["ItemData"][key][ik];
-              console.log("items[ik - 2]", ik, ">>", items[ik]);
             }
           }
         }
         for (const ik in mymap["ItemMap"]) {
           if (k6 == mymap["ItemMap"][ik]) {
             items[ik] = source[index]["ItemData"][key][k6];
-            console.log("items[ik - 3]", ik, ">>", items[ik]);
           }
         }
       }
@@ -200,7 +194,6 @@ exports.createwithref = asyncHandler(async (req, res, next) => {
       items = {};
     }
   }
-
   myInv["ItemData"] = itemdata;
   // Read New Config File
   var cardConfig = getNewConfig(
@@ -217,8 +210,6 @@ exports.createwithref = asyncHandler(async (req, res, next) => {
     }
   }
   result = {};
-
-  console.log("Before", myInv);
   //---------------------------
   // Perform Calculations ....
   //---------------------------
@@ -228,17 +219,11 @@ exports.createwithref = asyncHandler(async (req, res, next) => {
     var Handler2 = new calfunction();
     myPO = Handler2["datacalculation"](myPO, configS["CalculatedFields"]);
   }
-
-  console.log("After", myInv);
-
   //---------------------------
-
-  //result = createRecord(req.headers.t_applicationid);
   if (req.headers.applicationid != req.headers.applicationid2) {
     result = await SUPP00028.create(myInv);
     result = await SUPP00028_Itm.create(myInv.ItemData);
   }
-
   result = await SUPP00018.findByIdAndUpdate(myPO.id, myPO, {
     new: true,
     runValidators: true,

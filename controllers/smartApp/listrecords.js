@@ -96,16 +96,7 @@ const SUPP00015 = require("../../models/smartApp/SUPP00015");
 const SUPP00016 = require("../../models/smartApp/SUPP00016");
 const SUPP00018 = require("../../models/smartApp/SUPP00018");
 const SUPP00028 = require("../../models/smartApp/SUPP00028");
-
 const Possval = require("../../models/appSetup/Possval");
-
-// @desc      Get all bootcamps
-// @route     GET /api/v1/bootcamps
-// @access    Public
-//exports.getMaterListrecords = asyncHandler(async (req, res, next) => {
-//  outData = res.advancedMasterList;
-//  res.status(200).json(outData);
-//});
 
 // @desc      Get all bootcamps
 // @route     GET /api/v1/bootcamps

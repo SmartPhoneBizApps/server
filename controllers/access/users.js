@@ -15,7 +15,6 @@ exports.getUsers = asyncHandler(async (req, res, next) => {
 // @access    Private/Admin
 exports.getUser = asyncHandler(async (req, res, next) => {
   const user = await User.findById(req.params.id);
-
   res.status(200).json({
     success: true,
     data: user,
@@ -27,7 +26,6 @@ exports.getUser = asyncHandler(async (req, res, next) => {
 // @access    Private/Admin
 exports.createUser = asyncHandler(async (req, res, next) => {
   const user = await User.create(req.body);
-
   res.status(201).json({
     success: true,
     data: user,
@@ -38,8 +36,6 @@ exports.createUser = asyncHandler(async (req, res, next) => {
 // @route     PUT /api/v1/auth/users/:id
 // @access    Private/Admin
 exports.updateUser = asyncHandler(async (req, res, next) => {
-  console.log(req.params);
-
   if (req.body.businessRoles.length > 0) {
     let roleTemp = {
       role: "",
@@ -48,25 +44,18 @@ exports.updateUser = asyncHandler(async (req, res, next) => {
     roleArray = [];
     for (i = 0; i < req.body.businessRoles.length; i++) {
       roleTemp.role = req.body.businessRoles[i];
-      console.log(req.body.businessRoles[i]);
       const roleX = await Role.findOne({ role: req.body.businessRoles[i] });
-
       roleTemp.roleId = roleX.id;
       req.body.businessRoles[i] = roleTemp;
-
       roleArray.push(roleTemp);
-      console.log(roleArray);
       roleTemp = {};
     }
-    console.log(roleArray);
     req.body.businessRoles = roleArray;
   }
-
   const user = await User.findByIdAndUpdate(req.params.id, req.body, {
     new: true,
     runValidators: true,
   });
-
   res.status(200).json({
     success: true,
     data: user,
@@ -78,7 +67,6 @@ exports.updateUser = asyncHandler(async (req, res, next) => {
 // @access    Private/Admin
 exports.deleteUser = asyncHandler(async (req, res, next) => {
   await User.findByIdAndDelete({ email: req.params.id });
-
   res.status(200).json({
     success: true,
     data: {},

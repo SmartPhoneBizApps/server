@@ -11,16 +11,14 @@ const {
   getCompany,
   getRole,
   itemValidate,
-  findAndUpdateItem,
-  findOneUpdateData,
-  findOneAppData,
-  collectExceptionFields,
 } = require("../../modules/config");
-
-const { valAppNotNull } = require("../../modules/validationMessages");
-
 const calfunction = require("../../models/utilities/calfunction.js");
 const Possval = require("../../models/appSetup/Possval");
+const SUPP00007 = require("../../models/smartApp/SUPP00007");
+const SUPP00018 = require("../../models/smartApp/SUPP00018");
+const SUPP00018_Itm = require("../../models/smartApp/SUPP00018_Itm");
+const SUPP00028 = require("../../models/smartApp/SUPP00028");
+const SUPP00028_Itm = require("../../models/smartApp/SUPP00028_Itm");
 
 // @desc      Add record
 // @route     POST /api/v1/datarecords/
@@ -29,11 +27,41 @@ exports.addDataRecords = asyncHandler(async (req, res, next) => {
   //Get Company
   const BodyApp = await getCompany(req.headers.applicationid);
   const BusinessRole = await getRole(req.headers.businessRole);
+
   // Read New Config File
   var cardConfig = getNewConfig(
     req.headers.applicationid,
     req.headers.businessrole
   );
+
+  /// -------------------------------------------- ///
+  ///        Collect Field Names ..........
+  /// --------------------------------------------- ///
+  myFieldArray = [];
+  myPossValArray = [];
+  pvalObj = {};
+  pvalArr = [];
+  for (let index = 0; index < cardConfig.FieldDef.length; index++) {
+    const element1 = cardConfig.FieldDef[index].name;
+    myFieldArray.push(element1);
+  }
+  exclude_array = [
+    "appId",
+    "applicationId",
+    "user",
+    "userName",
+    "userEmail",
+    "company",
+    "companyName",
+    "branch",
+    "branchName",
+    "area",
+    "areaName",
+    "ItemData",
+    "TransLog",
+  ];
+  myFieldArray.push.apply(myFieldArray, exclude_array);
+
   // ---------------------
   // App ID and Validate
   // ---------------------
@@ -72,6 +100,7 @@ exports.addDataRecords = asyncHandler(async (req, res, next) => {
   // Company validation passed, now USER company can be used!!
   req.body.company = CompanyDetails.id;
   req.body.companyName = CompanyDetails.companyName;
+
   // ---------------------------------
   // Get Branch Details and Validate
   // ---------------------------------
@@ -164,7 +193,9 @@ exports.addDataRecords = asyncHandler(async (req, res, next) => {
     req.body.areaName = AreaDetails.areaName;
     req.body.area = AreaDetails.id;
   }
+
   // Field Translation..
+
   // Set Processing/Transaction Log
   let pLog = {};
   let pg1 = [];
@@ -185,6 +216,7 @@ exports.addDataRecords = asyncHandler(async (req, res, next) => {
       req.body.ItemData[index]["ID"] = req.body.ID;
     }
   }
+
   mydata = req.body;
   // Read Card Configuration for the Role (X1)
   if (req.headers.fieldnames == "X") {
@@ -211,12 +243,11 @@ exports.addDataRecords = asyncHandler(async (req, res, next) => {
     }
   }
   req.body = mydata;
-  // Find Exception fields
-  myFieldArray = collectExceptionFields(cardConfig.FieldDef);
 
   for (const key in req.body) {
     if (req.body.hasOwnProperty(key)) {
       var resField = myFieldArray.includes(key);
+
       /// Header Validations....
       if (resField === false && key !== "ItemData") {
         return next(
@@ -263,6 +294,7 @@ exports.addDataRecords = asyncHandler(async (req, res, next) => {
       }
     }
   }
+
   //---------------------------
   // Perform Calculations ....
   //---------------------------
@@ -270,6 +302,7 @@ exports.addDataRecords = asyncHandler(async (req, res, next) => {
     var Handler = new calfunction();
     mydata = Handler["datacalculation"](mydata, cardConfig["CalculatedFields"]);
   }
+
   // Create data in mongo DB ...
   let result = {};
   let result2 = {};
@@ -279,6 +312,7 @@ exports.addDataRecords = asyncHandler(async (req, res, next) => {
     result2 = await createDocument(app_itm, mydata.ItemData);
   }
   mydata = {};
+
   // Send Response .....
   res.status(200).json({
     success: true,
@@ -293,21 +327,19 @@ exports.addDataRecords = asyncHandler(async (req, res, next) => {
 // -----------------------------------------------------
 // -----------------------------------------------------
 exports.updateDataRecords = asyncHandler(async (req, res, next) => {
-  if (!req.body.appId) {
-    return next(new ErrorResponse(`Please provide App ID(Header)`, 400));
-  }
-  if (!req.headers.businessrole) {
-    return next(new ErrorResponse(`Please provide Role(Header)`, 400));
-  }
-
   // Read New Config File
   var cardConfig = getNewConfig(
     req.headers.applicationid,
     req.headers.businessrole
   );
-  // Find Exception fields
-  myFieldArray = collectExceptionFields(cardConfig.FieldDef);
-
+  // -----------------------------------------------------
+  // Validate input Field Names
+  // -----------------------------------------------------
+  myFieldArray = [];
+  for (let index = 0; index < cardConfig.FieldDef.length; index++) {
+    const element1 = cardConfig.FieldDef[index].name;
+    myFieldArray.push(element1);
+  }
   for (const key in req.body) {
     if (req.body.hasOwnProperty(key)) {
       var resField = myFieldArray.includes(key);
@@ -330,7 +362,12 @@ exports.updateDataRecords = asyncHandler(async (req, res, next) => {
   });
   req.body.appId = BodyApp.id;
   req.body.applicationId = req.headers.applicationid;
-
+  if (!req.body.appId) {
+    return next(new ErrorResponse(`Please provide App ID(Header)`, 400));
+  }
+  if (!req.headers.businessrole) {
+    return next(new ErrorResponse(`Please provide Role(Header)`, 400));
+  }
   req.body.user = req.user.id;
   req.body.userName = req.user.name;
   req.body.userEmail = req.user.email;
@@ -470,20 +507,42 @@ exports.updateDataRecords = asyncHandler(async (req, res, next) => {
   pg1.push(pLog);
   req.body.TransLog = pLog;
   let nTrans = [];
+
   // -----------------------------------------------------
   // Read data from DB
   // -----------------------------------------------------
-  let myData = await findOneAppData(req.body.ID, req.body.applicationId);
-  // let myData = await SUPP00018.findOne({ ID: req.body.ID });
+  let myData = await SUPP00018.findOne({ ID: req.body.ID });
   if (!myData) {
     return next(new ErrorResponse(`Record with ${ID} Not found`, 400));
   }
+
   //---------------------------
   // Item update logic....
   //---------------------------
   if (req.body["ItemData"]) {
     myData["ItemData"] = itemValidate(req.body["ItemData"], myData["ItemData"]);
   }
+  /*     let itms = [];
+    ItemFields = {};
+    for (let b2 = 0; b2 < req.body["ItemData"].length; b2++) {
+      for (const b3 in req.body["ItemData"][b2]) {
+        if (b3 == "ItemNumber") {
+          itms.push(req.body["ItemData"][b2][b3]);
+        }
+      }
+    }
+    for (let db2 = 0; db2 < myData["ItemData"].length; db2++) {
+      for (let b2 = 0; b2 < req.body["ItemData"].length; b2++) {
+        if (
+          req.body["ItemData"][b2]["ItemNumber"] ==
+          myData["ItemData"][db2]["ItemNumber"]
+        ) {
+          for (const b3 in req.body["ItemData"][b2]) {
+            myData["ItemData"][db2][b3] = req.body["ItemData"][b2][b3];
+          }
+        }
+      }
+    } */
   //---------------------------
   // Update Transaction Log
   //---------------------------
@@ -505,14 +564,91 @@ exports.updateDataRecords = asyncHandler(async (req, res, next) => {
     req.body = outdata;
   }
   //---------------------------
-  result = await findOneUpdateData(req.body, req.headers.applicationid);
-  console.log("Stage1", result, req.headers.applicationid, req.body);
-  if (req.body["ItemData"]) {
-    result2 = await findAndUpdateItem(
-      req.body["ItemData"],
-      req.headers.applicationid
+  result = await SUPP00018.findOneAndUpdate(myData.id, req.body, {
+    new: true,
+    runValidators: true,
+  });
+  for (let index = 0; index < req.body.ItemData.length; index++) {
+    result2 = await SUPP00018_Itm.findOneAndUpdate(
+      { ID: req.body.ID, ItemNumber: req.body.ItemData[index]["ItemNumber"] },
+      req.body.ItemData[index],
+      {
+        new: true,
+        runValidators: true,
+      }
     );
-    console.log("Stage1", result2);
+  }
+
+  if (req.headers.applicationid == "SUPP00028") {
+    // -----------------------------------------------------
+    // Read data from DB
+    // -----------------------------------------------------
+    let myData = await SUPP00028.findOne({ ID: req.body.ID });
+    if (!myData) {
+      return next(new ErrorResponse(`Record with ${ID} Not found`, 400));
+    }
+    let ItemUpdate = false;
+    let UpdateItem = 0;
+    let NotUpdateItem = 0;
+    // let itms = [];
+    // ItemFields = {};
+    /*     for (let b2 = 0; b2 < req.body["ItemData"].length; b2++) {
+      for (const b3 in req.body["ItemData"][b2]) {
+        if (b3 == "ItemNumber") {
+          itms.push(req.body["ItemData"][b2][b3]);
+        }
+      }
+    } */
+    //---------------------------
+    // Item update logic....
+    //---------------------------
+    for (let db2 = 0; db2 < myData["ItemData"].length; db2++) {
+      for (let b2 = 0; b2 < req.body["ItemData"].length; b2++) {
+        if (
+          req.body["ItemData"][b2]["ItemNumber"] ==
+          myData["ItemData"][db2]["ItemNumber"]
+        ) {
+          for (const b3 in req.body["ItemData"][b2]) {
+            myData["ItemData"][db2][b3] = req.body["ItemData"][b2][b3];
+          }
+        }
+      }
+    }
+    //---------------------------
+    // Update Transaction Log
+    //---------------------------
+    myData.TransLog.forEach((ex1) => {
+      nTrans.push(ex1);
+    });
+    nTrans.push(req.body.TransLog);
+    req.body.TransLog = nTrans;
+    req.body["ItemData"] = myData["ItemData"];
+    //---------------------------
+    // Perform Calculations ....
+    //---------------------------
+    if (req.headers.calculation == "Yes") {
+      var Handler = new calfunction();
+      outdata = Handler["datacalculation"](
+        req.body,
+        cardConfig["CalculatedFields"]
+      );
+      req.body = outdata;
+    }
+    //---------------------------
+    result = await SUPP00028.findByIdAndUpdate(myData.id, req.body, {
+      new: true,
+      runValidators: true,
+    });
+    for (let index = 0; index < req.body.ItemData.length; index++) {
+      result = await SUPP00028_Itm.findOneAndUpdate(
+        { ID: req.body.ID, ItemNumber: req.body.ItemData[index]["ItemNumber"] },
+        req.body.ItemData[index],
+        {
+          new: true,
+          runValidators: true,
+        }
+      );
+    }
   }
   res.status(200).json({
     success: true,

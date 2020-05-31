@@ -170,7 +170,6 @@ exports.getDetailCards = async (req, res, next) => {
   // Read card User Settings  for the Role
   let fileName2 = "../../userSettings/" + req.user.email + "_cardsSetup.json";
   var userSetCards = require(fileName2);
-  console.log("App:", applicationID);
   // Get App Record Data
   switch (applicationID) {
     case "User":
@@ -397,11 +396,9 @@ exports.getDetailCards = async (req, res, next) => {
       break;
     case "SUPP00018":
       rec = await SUPP00018.findById(req.params.record);
-      console.log("Records", rec);
       break;
     case "SUPP00028":
       rec = await SUPP00028.findById(req.params.record);
-      console.log("Records", rec);
       break;
     default:
     // code block
@@ -415,11 +412,9 @@ exports.getDetailCards = async (req, res, next) => {
       tab = tabCX[tab];
       tabCX[tab] = { ...cardConfig.Tabs[k2] };
       // Now loop through Tiles... in Card Configuration
-      console.log("Card Setup", tabCX[tab].Tiles);
       for (const key3 in tabCX[tab].Tiles) {
         if (tabCX[tab].Tiles.hasOwnProperty(key3)) {
           let configCardID = tabCX[tab].Tiles[key3].CardID;
-          console.log("FielName", configCardID);
           // Filtering the userSettings data based on application ID
           app_detail = applicationID + "_Detail";
           myData = userSetCards[role][app_detail];
@@ -441,16 +436,10 @@ exports.getDetailCards = async (req, res, next) => {
                   "_template.json";
                 key = {};
                 key["con" + con] = require(fileName3[con]);
-                console.log("FielName", fileName3[con]);
-                console.log("Template", tabCX[tab].Tiles[key3].Type);
-                console.log("Template", key["con" + con]);
-
                 //-------------------------------------------------
                 //Set Header ... All Cards
                 key["con" + con]["sap.card"]["header"] =
                   tabCX[tab].Tiles[key3].header;
-
-                console.log("Header", tabCX[tab].Tiles[key3]);
                 //-------------------------------------------------
                 //object1 : set group
                 if (tabCX[tab].Tiles[key3].Type == "object1") {
@@ -684,7 +673,6 @@ exports.getDetailCards = async (req, res, next) => {
       myTiles = {};
     }
   }
-  // console.log("API Output for other tabs... : ", cardTemplate);
   res.status(200).json({ success: true, data: cardTemplate });
   cardTemplate = {};
 };

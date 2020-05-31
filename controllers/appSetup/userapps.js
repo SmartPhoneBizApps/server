@@ -11,11 +11,8 @@ const App = require("../../models/appSetup/App");
 // @access    Public
 exports.getUserapps = asyncHandler(async (req, res, next) => {
   req.body.user = req.user.id;
-  //console.log("Ag 01:", req.user.id);
   // Finding Roles
   userX = await User.findById(req.body.user);
-
-  //console.log("Ag 02:", userX);
   i = 0;
   appTemp = {
     id: 0,
@@ -49,16 +46,13 @@ exports.getUserapps = asyncHandler(async (req, res, next) => {
     const approleX = await Approle.findOne({
       appRole: userX.businessRoles[i].roleId,
     });
-
     roleTemp["tabId"] = r;
     r = r + 1;
     roleTemp["Role"] = approleX.role;
     roleTemp["RoleDescription"] = approleX.descriptions[0].RoleDescription;
     roleTemp["icon"] = "sap-icon://customer-view";
     roleTemp["iconToolTip"] = approleX.descriptions[0].iconToolTip;
-
     tile = [];
-
     appTemp["id"] = 0;
     appTemp["icon"] = "sap-icon://customer-view";
     appTemp["tileName"] = "Overview Page";
@@ -71,7 +65,6 @@ exports.getUserapps = asyncHandler(async (req, res, next) => {
     appTemp["applicationID"] = "Overview";
     appTemp["tileType"] = "Overview";
     tile[0] = { ...appTemp };
-
     for (j = 0; j < approleX.Apps.length; j++) {
       k = j + 1;
       appTemp["id"] = k;
@@ -86,11 +79,9 @@ exports.getUserapps = asyncHandler(async (req, res, next) => {
       appTemp["userSpecific"] = approleX.Apps[j].userSpecific;
       appTemp["applicationID"] = approleX.Apps[j].applicationID;
       appTemp["tileType"] = "MasterDetail";
-      console.log(appTemp);
       tile[j + 1] = { ...appTemp };
     }
     roleTemp["Tiles"] = tile;
-    //console.log(roleTemp["Tiles"]);
     tile = [];
     myRoles[i] = roleTemp;
     roleTemp = {};

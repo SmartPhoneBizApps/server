@@ -10,11 +10,8 @@ const path = require("path");
 // @route     GET /api/v1/companies/:companyId/branches
 // @access    Public
 exports.getCompanyBranches = asyncHandler(async (req, res, next) => {
-  console.log(req.params);
   if (req.params.companyId) {
-    console.log(req.params.companyId);
     const branches = await Branch.find({ companyId: req.params.companyId });
-
     return res.status(200).json({
       success: true,
       count: branches.length,
@@ -30,11 +27,8 @@ exports.getCompanyBranches = asyncHandler(async (req, res, next) => {
 // @route     GET /api/v1/companies/:companyId/branches
 // @access    Public
 exports.getBranches = asyncHandler(async (req, res, next) => {
-  console.log(req.params);
   if (req.params.companyId) {
-    console.log(req.params.companyId);
     const branches = await Branch.find({ companyId: req.params.companyId });
-
     return res.status(200).json({
       success: true,
       count: branches.length,
@@ -60,7 +54,6 @@ exports.getBranch = asyncHandler(async (req, res, next) => {
       404
     );
   }
-
   res.status(200).json({
     success: true,
     data: branch,
@@ -73,28 +66,14 @@ exports.getBranch = asyncHandler(async (req, res, next) => {
 exports.addBranch = asyncHandler(async (req, res, next) => {
   req.body.companyId = req.params.companyId;
   req.body.user = req.user.id;
-  console.log(req.params.companyId);
   const company = await Company.findById(req.params.companyId);
-
   if (!company) {
     return next(
       new ErrorResponse(`No company with the id of ${req.params.companyId}`),
       404
     );
   }
-
-  // Make sure user is company owner
-  /*   if (company.user.toString() !== req.user.id && req.user.role !== "admin") {
-    return next(
-      new ErrorResponse(
-        `User ${req.user.id} is not authorized to add a branch to company ${company._id}`,
-        401
-      )
-    );
-  } */
-
   const branch = await Branch.create(req.body);
-
   res.status(200).json({
     success: true,
     data: branch,
@@ -106,29 +85,16 @@ exports.addBranch = asyncHandler(async (req, res, next) => {
 // @access    Private
 exports.updateBranch = asyncHandler(async (req, res, next) => {
   let branch = await Branch.findById(req.params.id);
-
   if (!branch) {
     return next(
       new ErrorResponse(`No branch with the id of ${req.params.id}`),
       404
     );
   }
-
-  // Make sure user is branch owner
-  /*   if (branch.user.toString() !== req.user.id && req.user.role !== "admin") {
-    return next(
-      new ErrorResponse(
-        `User ${req.user.id} is not authorized to update branch ${branch._id}`,
-        401
-      )
-    );
-  } */
-
   branch = await Branch.findByIdAndUpdate(req.params.id, req.body, {
     new: true,
     runValidators: true,
   });
-
   res.status(200).json({
     success: true,
     data: branch,
@@ -140,26 +106,13 @@ exports.updateBranch = asyncHandler(async (req, res, next) => {
 // @access    Private
 exports.deleteBranch = asyncHandler(async (req, res, next) => {
   const branch = await Branch.findById(req.params.id);
-
   if (!branch) {
     return next(
       new ErrorResponse(`No branch with the id of ${req.params.id}`),
       404
     );
   }
-
-  // Make sure user is branch owner
-  /*   if (branch.user.toString() !== req.user.id && req.user.role !== "admin") {
-    return next(
-      new ErrorResponse(
-        `User ${req.user.id} is not authorized to delete branch ${branch._id}`,
-        401
-      )
-    );
-  } */
-
   await branch.remove();
-
   res.status(200).json({
     success: true,
     data: {},
@@ -205,20 +158,9 @@ exports.branchPhotoUpload = asyncHandler(async (req, res, next) => {
     );
   }
 
-  // Make sure user is branch owner
-  /*   if (branch.user.toString() !== req.user.id && req.user.role !== "admin") {
-    return next(
-      new ErrorResponse(
-        `User ${req.params.id} is not authorized to update this branch`,
-        401
-      )
-    );
-  } */
-
   if (!req.files) {
     return next(new ErrorResponse(`Please upload a file`, 400));
   }
-
   const file = req.files.file;
 
   // Make sure the image is a photo

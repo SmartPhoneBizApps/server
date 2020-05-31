@@ -4,6 +4,7 @@ const asyncHandler = require("../../middleware/async");
 const Approle = require("../../models/appSetup/Approle");
 const Role = require("../../models/appSetup/Role");
 const App = require("../../models/appSetup/App");
+const { getCompany, getRole } = require("../../modules/config");
 
 // @desc      Get all approles
 // @route     GET /api/v1/approles
@@ -33,37 +34,15 @@ exports.getApprole = asyncHandler(async (req, res, next) => {
 exports.createApprole = asyncHandler(async (req, res, next) => {
   // Add user to req,body
   req.body.user = req.user.id;
-
   const roleX = await Role.findOne({ role: req.body.appRole });
   req.body.appRole = roleX.id;
-  console.log(req.body);
   let appList = [];
-
   i = 0;
   for (i = 0; i < req.body.Apps.length; i++) {
-    const appX = await App.findOne({
-      applicationID: req.body.Apps[i].applicationID,
-    });
-    console.log(appX);
-    //req.body.app[i] = appX;
+    const appX = await getCompany(req.headers.applicationid);
     req.body.Apps[i].app = appX.id;
   }
-
-  // Check for published approle
-  //const publishedApprole = await Approle.findOne({ user: req.user.id });
-
-  // If the user is not an SuperAdmin, they can only add one approle
-  /*   if (req.user.approle !== "SuperAdmin") {
-    return next(
-      new ErrorResponse(
-        `The user with ID ${req.user.id} has already published a approle`,
-        400
-      )
-    );
-  } */
-
   const approle = await Approle.create(req.body);
-
   res.status(201).json({
     success: true,
     data: approle,

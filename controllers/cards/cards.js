@@ -101,11 +101,8 @@ const cardTemplate = {};
 exports.adaptiveCard_card = async (req, res, next) => {
   // Some Global variables....
   // Read Role from Parameter..
-
   role = req.params.role;
   tab = req.params.tab;
-  console.log("Role : ", role, " / Tab : ", tab, " / User :", req.user.email);
-
   //Validate Data...
   if (req.user.userAccess != "External") {
     if (!req.user.company) {
@@ -148,7 +145,6 @@ exports.adaptiveCard_card = async (req, res, next) => {
   // Read Color Configuration
   let fileNameColor = "../../cards/cardConfig/colorConfig.json";
   var colorConfig = require(fileNameColor);
-  //console.log(cardConfig);
   // Read card User Settings  for the Role
   let fileName2 = "../../userSettings/" + req.user.email + "_cardsSetup.json";
   var userSetCards = require(fileName2);
@@ -162,7 +158,6 @@ exports.adaptiveCard_card = async (req, res, next) => {
   // Loop Card Configuration for the Role (X1)
   for (const k2 in cardConfig.Tabs) {
     // Filter the Card Configuration data for the request tab (Tab1, tab2 etc..)
-    console.log("Tabs : ", cardConfig.Tabs[k2].TabID);
     if (
       cardConfig.Tabs.hasOwnProperty(k2) &
       (cardConfig.Tabs[k2].TabID == tab)
@@ -170,7 +165,6 @@ exports.adaptiveCard_card = async (req, res, next) => {
       tabCX[tab] = { ...cardConfig.Tabs[k2] };
       // data for the requested tab is found in the Card Configuration
       // Now loop through Tiles... in Card Configuration
-      console.log("Tabs : ", tabCX[tab]);
       for (const key3 in tabCX[tab].Tiles) {
         if (tabCX[tab].Tiles.hasOwnProperty(key3)) {
           // Card / Tile found
@@ -179,10 +173,8 @@ exports.adaptiveCard_card = async (req, res, next) => {
           myData = userSetCards[role][tabCX[tab].Tiles[key3].applicationID];
           // Looping the USers Settings data
           for (const key4 in myData) {
-            console.log("Role : ", role, "Card : ", key4, ">>", myData[key4]);
             if (myData.hasOwnProperty(key4) & (myData[key4] == true)) {
               if (key4 == configCardID) {
-                console.log("Card : ", configCardID);
                 //////////////////////////////////////////////////////////////////////////////
                 // Here user setup is matched with the card setup... Build the card output
                 //////////////////////////////////////////////////////////////////////////////
@@ -225,21 +217,17 @@ exports.adaptiveCard_card = async (req, res, next) => {
 
                 roleApp["Apps"].forEach((roleApp1) => {
                   if (roleApp1["applicationID"] == applicationID) {
-                    console.log(roleApp1["userSpecific"]);
                     if (roleApp1["userSpecific"]) {
                       // User can see only there own data (User Specific is TRUE)
                       qx1["user"] = req.user.id;
-                      console.log("User Specific True: ", qx1);
                     }
                     if (req.user.userAccess == "External") {
                       qx1["partner"] = req.user.id;
-                      console.log("External User filtered as partner: ", qx1);
                     }
                   }
                 });
                 let q1 = { ...qx1 };
                 q1 = JSON.stringify(q1);
-                console.log(q1);
                 let query;
                 //let results;
 
@@ -652,7 +640,6 @@ exports.adaptiveCard_card = async (req, res, next) => {
                     jl1 = ex2;
                     jl1["statusState"] = colorConfig["Status"][ex2["Status"]];
                   });
-                  // console.log(jl1);
                   key["con" + con]["sap.card"]["data"]["json"] = jsonArray[
                     "json" + con
                   ].slice(0);
@@ -793,11 +780,8 @@ exports.adaptiveCard_card = async (req, res, next) => {
     }
   }
   if (tab == "Tab1") {
-    cardTemplate["Tabs"].forEach((element) => {
-      //console.log("API Output for Tab1.....: ", cardTemplate["Tabs"]);
-    });
+    cardTemplate["Tabs"].forEach((element) => {});
   } else {
-    //console.log("API Output for other tabs... : ", cardTemplate);
   }
   res.status(200).json({ success: true, data: cardTemplate });
   cardTemplate = [];
