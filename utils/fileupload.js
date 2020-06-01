@@ -10,17 +10,18 @@ const App = require("../models/appSetup/App");
 // @access    Public
 exports.uploadFile = asyncHandler(async (req, res, next) => {
   console.log("Inside Upload ");
-  const header = req.files.header;
-  const item = req.files.item;
+  const file = req.files.file;
+  console.log("File1 ", req.files.file);
+  console.log("File2 ", req.file);
 
   if (!req.files) {
     return next(new ErrorResponse(`Please upload a file`, 400));
   }
-  /*   if (!header.mimetype.startsWith("text/csv")) {
-    return next(new ErrorResponse(`Please upload an csv file(header)`, 400));
+  /*   if (!file.mimetype.startsWith("text/csv")) {
+    return next(new ErrorResponse(`Please upload an csv file(file)`, 400));
   } */
 
-  if (header.size > process.env.MAX_FILE_UPLOAD) {
+  if (file.size > process.env.MAX_FILE_UPLOAD) {
     return next(
       new ErrorResponse(
         `Please upload an image less than ${process.env.MAX_FILE_UPLOAD}`,
@@ -29,11 +30,11 @@ exports.uploadFile = asyncHandler(async (req, res, next) => {
     );
   }
 
-  header.name = `header_${req.user.id}${path.parse(header.name).ext}`;
-  console.log("Inside Upload ", header.name);
-  const headercsvFilePath = "./public/uploadFiles/" + header.name;
-  const outFileName = "/public/uploadFiles/" + header.name;
-  header.mv(`${process.env.DATA_UPLOAD_PATH}/${header.name}`, async (err) => {
+  file.name = `file_${req.user.id}${path.parse(file.name).ext}`;
+  console.log("Inside Upload ", file.name);
+  const filecsvFilePath = "./public/uploadFiles/" + file.name;
+  const outFileName = "/public/uploadFiles/" + file.name;
+  file.mv(`${process.env.DATA_UPLOAD_PATH}/${file.name}`, async (err) => {
     if (err) {
       console.error(err);
       return next(new ErrorResponse(`Problem with file upload`, 500));
@@ -42,7 +43,7 @@ exports.uploadFile = asyncHandler(async (req, res, next) => {
     res.status(200).json({
       success: true,
       fileName: outFileName,
-      fileType: header.mimetype,
+      fileType: file.mimetype,
     });
   });
 });
