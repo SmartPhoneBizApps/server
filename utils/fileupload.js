@@ -14,6 +14,9 @@ exports.uploadFile = asyncHandler(async (req, res, next) => {
   console.log("File1 ", req.files.file);
   console.log("File2 ", req.file);
 
+  if (!req.files.file) {
+    return next(new ErrorResponse(`Please upload a file`, 400));
+  }
   if (!req.files) {
     return next(new ErrorResponse(`Please upload a file`, 400));
   }
