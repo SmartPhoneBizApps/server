@@ -101,12 +101,16 @@ const advancedDataList = (model, model2, AppID, populate) => async (
     query = query.sort("-createdAt");
   }
   /////////////////////////////////////////////////////////////////
+  const limit = parseInt(req.query.limit, 10) || 25;
   // Pagination
   const page = parseInt(req.query.page, 10) || 1;
-  const limit = parseInt(req.query.limit, 10) || 25;
   const startIndex = (page - 1) * limit;
   const endIndex = page * limit;
-  const total = await model.countDocuments();
+  //const total = await model.countDocuments();
+  query2 = query;
+  let result2 = await query2;
+
+  const total = result2.length;
   query = query.skip(startIndex).limit(limit);
   if (populate) {
     query = query.populate(populate);

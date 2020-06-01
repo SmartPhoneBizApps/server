@@ -85,6 +85,9 @@ app.use(
   "/api/v1/companybranches",
   require("./routes/orgSetup/companybranches")
 );
+app.use((req, res) => {
+  res.header("Access-Control-Allow-Origin", "*");
+});
 // Setup Area
 app.use("/api/v1/areas", require("./routes/orgSetup/areas"));
 // Setup Company / Area
