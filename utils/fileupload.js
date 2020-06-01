@@ -9,8 +9,10 @@ const App = require("../models/appSetup/App");
 // @route     GET /api/v1/bootcamps
 // @access    Public
 exports.uploadFile = asyncHandler(async (req, res, next) => {
+  console.log("Inside Upload ");
   const header = req.files.header;
   const item = req.files.item;
+
   if (!req.files) {
     return next(new ErrorResponse(`Please upload a file`, 400));
   }
@@ -28,6 +30,7 @@ exports.uploadFile = asyncHandler(async (req, res, next) => {
   }
 
   header.name = `header_${req.user.id}${path.parse(header.name).ext}`;
+  console.log("Inside Upload ", header.name);
   const headercsvFilePath = "./public/uploadFiles/" + header.name;
   const outFileName = "/public/uploadFiles/" + header.name;
   header.mv(`${process.env.DATA_UPLOAD_PATH}/${header.name}`, async (err) => {
