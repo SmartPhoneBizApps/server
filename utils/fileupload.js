@@ -11,6 +11,7 @@ const App = require("../models/appSetup/App");
 exports.uploadFile = asyncHandler(async (req, res, next) => {
   console.log("Inside Upload ");
   console.log(req);
+  console.log(req.files);
   const file = req.files.file;
   console.log("File1 ", req.files.file);
   console.log("File2 ", req.file);
