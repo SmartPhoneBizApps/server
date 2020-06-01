@@ -299,7 +299,6 @@ exports.updateDataRecords = asyncHandler(async (req, res, next) => {
   if (!req.headers.businessrole) {
     return next(new ErrorResponse(`Please provide Role(Header)`, 400));
   }
-
   // Read New Config File
   var cardConfig = getNewConfig(
     req.headers.applicationid,
