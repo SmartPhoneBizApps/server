@@ -2,7 +2,7 @@ var randomstring = require("randomstring");
 // @desc      Perform Encoding
 // @route     GET /api/v1/roles
 // @access    Public
-exports.addressCheck = (req, res, next) => {
+exports.address = (req, res, next) => {
   //  req.params["api-key"] = "g0Obs9X3fE-Fqvt59gA3vA26300";
   myURL = "api.getaddress.io/find/" + req.body.postcode;
   ProcessOut = [];
