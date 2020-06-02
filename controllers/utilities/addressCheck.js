@@ -6,11 +6,9 @@ exports.addressCheck = (req, res, next) => {
   req.params["api-key"] = "g0Obs9X3fE-Fqvt59gA3vA26300";
   myURL = "api.getaddress.io/find/" + req.body.postcode;
 
-  //sl15dg?api-key=
   https: axios({
-    method: "post",
+    method: "get",
     url: myURL,
-    data: mydata,
     headers: {
       applicationid: req.headers.applicationid,
       Authorization: req.headers.authorization,
