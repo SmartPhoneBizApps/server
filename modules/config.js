@@ -275,7 +275,6 @@ module.exports = {
       type: "card",
       id: "smartphoneapps",
     };
-
     card["cardMinRows"] = 4;
     card["cardColumn"] = 4;
 
@@ -295,6 +294,6 @@ module.exports = {
     cardSub1["content"] = content;
 
     card["sap.card"] = cardSub1;
-    return cardSub1;
+    return card;
   },
 };
