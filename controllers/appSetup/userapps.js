@@ -59,13 +59,13 @@ exports.getUserapps = asyncHandler(async (req, res, next) => {
     tile = [];
     appTemp["id"] = 0;
     appTemp["icon"] = "sap-icon://customer-view";
-    appTemp["tileName"] = "Overview Page";
-    appTemp["subTileName"] = userX.businessRoles[i].role;
+    appTemp["tileName"] = userX.businessRoles[i].role + " Overview Page";
+    appTemp["subTileName"] = "";
     appTemp["info"] = "";
-    appTemp["extraInfo"] = "Data Card based access";
+    appTemp["extraInfo"] = "";
     appTemp["frameType"] = "TwoByOne";
     appTemp["backgroundImage"] = path + roleX.photo;
-    appTemp["footer"] = "Quick Access";
+    appTemp["footer"] = "";
     appTemp["applicationID"] = "Overview";
     appTemp["tileType"] = "Overview";
     tile[0] = { ...appTemp };
