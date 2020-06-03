@@ -76,10 +76,10 @@ exports.getUserapps = asyncHandler(async (req, res, next) => {
       appTemp["tileName"] = approleX.Apps[j].descriptions[0].appDescription;
       appTemp["subTileName"] = approleX.Apps[j].descriptions[0].area;
       appTemp["info"] = approleX.Apps[j].descriptions[0].appHelp;
-      appTemp["extraInfo"] = approleX.Apps[j].applicationID;
+      appTemp["extraInfo"] = "";
       appTemp["frameType"] = "OneByOne";
       appTemp["backgroundImage"] = "";
-      appTemp["footer"] = approleX.Apps[j].applicationID;
+      appTemp["footer"] = "";
       appTemp["userSpecific"] = approleX.Apps[j].userSpecific;
       appTemp["applicationID"] = approleX.Apps[j].applicationID;
       appTemp["tileType"] = "MasterDetail";
