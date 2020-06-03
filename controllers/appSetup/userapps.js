@@ -42,7 +42,7 @@ exports.getUserapps = asyncHandler(async (req, res, next) => {
   };
   X1 = {};
   r = 0;
-
+  path = "https://fierce-oasis-51455.herokuapp.com/appImages/";
   for (i = 0; i < userX.businessRoles.length; i++) {
     const approleX = await Approle.findOne({
       appRole: userX.businessRoles[i].roleId,
@@ -64,7 +64,7 @@ exports.getUserapps = asyncHandler(async (req, res, next) => {
     appTemp["info"] = "";
     appTemp["extraInfo"] = "Data Card based access";
     appTemp["frameType"] = "TwoByOne";
-    appTemp["backgroundImage"] = roleX.photo;
+    appTemp["backgroundImage"] = path + roleX.photo;
     appTemp["footer"] = "Quick Access";
     appTemp["applicationID"] = "Overview";
     appTemp["tileType"] = "Overview";
