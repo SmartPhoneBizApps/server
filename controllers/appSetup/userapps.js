@@ -58,7 +58,7 @@ exports.getUserapps = asyncHandler(async (req, res, next) => {
     roleTemp["iconToolTip"] = approleX.descriptions[0].iconToolTip;
     tile = [];
     appTemp["id"] = 0;
-    appTemp["icon"] = "sap-icon://customer-view";
+    appTemp["icon"] = "";
     appTemp["tileName"] = userX.businessRoles[i].role + " Overview Page";
     appTemp["subTileName"] = "";
     appTemp["info"] = "";

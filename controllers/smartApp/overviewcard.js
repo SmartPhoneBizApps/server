@@ -83,11 +83,6 @@ const SUPP00018 = require("../../models/smartApp/SUPP00018");
 const SUPP00028 = require("../../models/smartApp/SUPP00028");
 let myD = { json: [] };
 let myO = { json: {} };
-function getData(Model, q1) {
-  let qg1 = JSON.parse(q1);
-  query = Model.find(qg1, { _id: 0 });
-  return query;
-}
 con = 0;
 jsonArray = [];
 jsonObject = {};
@@ -95,17 +90,16 @@ myTiles = {};
 counter = 0;
 tabCX = {};
 const cardTemplate = {};
+
+const { getAdaptiveCard } = require("../../modules/config");
+
 // @desc      Get adaptiveCard_card
 // @route     GET /api/v1/adaptiveCard_card/:id
 // @access    Public
 exports.adaptiveCard_card = async (req, res, next) => {
-  // Some Global variables....
-  // Read Role from Parameter..
   const role = await Role.findOne({
     role: req.params.role,
   });
-
-  //role = req.params.role;
   tab = req.params.tab;
 
   //Validate Data...
@@ -144,22 +138,27 @@ exports.adaptiveCard_card = async (req, res, next) => {
 
   // Get Role/App details..
   const roleApp = await Approle.findOne({ role: req.params.role });
+
   // Read Card Configuration for the Role (X1)
   let fileName = "../../cards/cardConfig/" + role.role + "_cardConfig.json";
   var cardConfig = require(fileName);
+
   // Read Color Configuration
   let fileNameColor = "../../cards/cardConfig/colorConfig.json";
   var colorConfig = require(fileNameColor);
+
   // Read card User Settings  for the Role
   let fileName2 = "../../userSettings/" + req.user.email + "_cardsSetup.json";
   var userSetCards = require(fileName2);
-  // When tab is "Tab1" full template with Tab1 data will be returned, for all other cases on data for that tab
+
+  // When tab is "Tab1", a full template with Tab1 data will be returned, for all other cases on data for that tab
   if (tab == "Tab1") {
     let fileName1 = "../../cards/cardConfig/" + role.role + "_cardTabs.json";
     var cardTemplate = require(fileName1);
   } else {
     cardTemplate = {};
   }
+
   // Loop Card Configuration for the Role (X1)
   for (const k2 in cardConfig.Tabs) {
     // Filter the Card Configuration data for the request tab (Tab1, tab2 etc..)
@@ -191,6 +190,13 @@ exports.adaptiveCard_card = async (req, res, next) => {
                 con = con + 1;
                 let applicationID = tabCX[tab].Tiles[key3].applicationID;
                 qx1 = {};
+                if (tabCX[tab].Tiles[key3].Type == "Adaptive1") {
+                  var cardData = await getAdaptiveCard(
+                    applicationID,
+                    req.params.role
+                  );
+                  console.log(cardData);
+                }
 
                 // User can see data only for there own company (User Specific is TRUE)
                 if (role.roleAccess != "External") {
@@ -594,175 +600,190 @@ exports.adaptiveCard_card = async (req, res, next) => {
                   let results = await query;
                   jsonArray["json" + con] = results;
                 }
-
-                // Read Card Template
-                let fileName3 =
-                  "../../cards/templates/" +
-                  tabCX[tab].Tiles[key3].Type +
-                  "_template.json";
                 key = {};
-                key["con" + con] = require(fileName3);
-                //-------------------------------------------------
-                //Set Header ... All Cards
-                key["con" + con]["sap.card"]["header"] =
-                  tabCX[tab].Tiles[key3].header;
-                //-------------------------------------------------
-                //object1 : set group
-                if (tabCX[tab].Tiles[key3].Type == "object1") {
-                  key["con" + con]["sap.card"]["content"]["groups"][key3] =
-                    tabCX[tab].Tiles[key3].groups;
-                  // Add Data
-                  let jg01 = {
-                    name: "Atul Gupta",
-                    position: "Director",
-                    mobile: "+1 202 34869-0",
-                    phone: "+1 202 555 5555",
-                    email: "donna@peachvalley.com",
-                  };
-                  myO["json"] = { ...jg01 };
-                  key["con" + con]["sap.card"]["data"] = { ...myO };
-                  myO = {};
-                }
-                //-------------------------------------------------
-                //table1
-                if (tabCX[tab].Tiles[key3].Type == "table1A") {
-                  ///// Set Coloumns ////////
-                  key["con" + con]["sap.card"]["content"]["row"][
-                    "columns"
-                  ] = tabCX[tab].Tiles[key3].columns.slice(0);
+                if (tabCX[tab].Tiles[key3].Type != "Adaptive1") {
+                  // Read Card Template
+                  let fileName3 =
+                    "../../cards/templates/" +
+                    tabCX[tab].Tiles[key3].Type +
+                    "_template.json";
+                  key = {};
+                  key["con" + con] = require(fileName3);
+                  //-------------------------------------------------
 
-                  /// Add JSON Data
-                  key["con" + con]["sap.card"]["data"]["json"] = jsonArray[
-                    "json" + con
-                  ].slice(0);
-                }
-                //-------------------------------------------------
-                //table1
-                if (tabCX[tab].Tiles[key3].Type == "table1B") {
-                  ///// Set Coloumns ////////
-                  key["con" + con]["sap.card"]["content"]["row"][
-                    "columns"
-                  ] = tabCX[tab].Tiles[key3].columns.slice(0);
-                  /// Add JSON Data
-                  jl1 = {};
-                  jsonArray["json" + con].forEach((ex2) => {
-                    jl1 = ex2;
-                    jl1["statusState"] = colorConfig["Status"][ex2["Status"]];
-                  });
-                  key["con" + con]["sap.card"]["data"]["json"] = jsonArray[
-                    "json" + con
-                  ].slice(0);
-                }
-                //--------------------
-                //set group for action card
-                //object1
-                if (tabCX[tab].Tiles[key3].Type == "object1") {
-                  key["con" + con]["sap.card"]["content"]["actions"] =
-                    tabCX[tab].Tiles[key3].actions;
-                }
-                //list2 - Actions
-                if (tabCX[tab].Tiles[key3].Type == "list2A") {
-                  key["con" + con]["sap.card"]["content"]["item"]["actions"] =
-                    tabCX[tab].Tiles[key3].actions;
-                  /// Add Data
-                  jsonOut = {};
-                  jsonOutArray = [];
-                  name1 = tabCX[tab].Tiles[key3].fieldMap["name"];
-                  description1 = tabCX[tab].Tiles[key3].fieldMap["description"];
-                  icon1 = tabCX[tab].Tiles[key3].fieldMap["icon"];
-                  k = 0;
-                  jsonArray["json" + con].forEach((eln1) => {
-                    jsonOut["name"] = eln1[name1];
-                    jsonOut["description"] = eln1[description1];
-                    jsonOut["icon"] = icon1;
-                    jsonOut["statusState"] =
-                      colorConfig["Status"][eln1["Status"]];
-                    jsonOutArray.push({ ...jsonOut });
-                  });
-                  /// Add Data
-                  myD["json"] = jsonOutArray;
-                  key["con" + con]["sap.card"]["content"]["data"] = {
-                    ...myD,
-                  };
-                  jsonArray["json" + con] = [];
-                }
-                //list2 - Actions
-                if (tabCX[tab].Tiles[key3].Type == "list2B") {
-                  key["con" + con]["sap.card"]["content"]["item"]["actions"] =
-                    tabCX[tab].Tiles[key3].actions;
-                  /// Add Data
-                  myD["json"] = jsonArray["json" + con];
-                  key["con" + con]["sap.card"]["content"]["data"] = {
-                    ...myD,
-                  };
-                  jsonArray["json" + con] = [];
-                }
-                //list1 - Data
-                if (tabCX[tab].Tiles[key3].Type == "list1A") {
-                  jsonOut = {};
-                  jsonOutArray = [];
-                  name1 = tabCX[tab].Tiles[key3].fieldMap["name"];
-                  description1 = tabCX[tab].Tiles[key3].fieldMap["description"];
-                  info1 = tabCX[tab].Tiles[key3].fieldMap["info"];
-                  icon1 = tabCX[tab].Tiles[key3].fieldMap["icon"];
-                  k = 0;
-                  jsonArray["json" + con].forEach((eln1) => {
-                    jsonOut["name"] = eln1[name1];
-                    jsonOut["description"] = eln1[description1];
-                    jsonOut["info"] = eln1[info1];
-                    jsonOut["icon"] = icon1;
-                    jsonOut["infoState"] =
-                      colorConfig["Status"][eln1["Status"]];
-                    jsonOutArray.push({ ...jsonOut });
-                  });
-                  /// Add Data
-                  myD["json"] = jsonOutArray;
-                  key["con" + con]["sap.card"]["content"]["data"] = {
-                    ...myD,
-                  };
-                  jsonArray["json" + con] = [];
-                }
-                //list1 - Data
-                if (tabCX[tab].Tiles[key3].Type == "list1B") {
-                  jsonOut = {};
-                  jsonOutArray = [];
-                  name1 = tabCX[tab].Tiles[key3].fieldMap["name"];
-                  description1 = tabCX[tab].Tiles[key3].fieldMap["description"];
-                  info1 = tabCX[tab].Tiles[key3].fieldMap["info"];
-                  icon1 = tabCX[tab].Tiles[key3].fieldMap["icon"];
-                  k = 0;
-                  jsonArray["json" + con].forEach((eln1) => {
-                    jsonOut["name"] = eln1[name1];
-                    jsonOut["description"] = eln1[description1];
-                    jsonOut["info"] = eln1[info1];
-                    jsonOut["icon"] = icon1;
-                    jsonOut["infoState"] =
-                      colorConfig["Status"][eln1["Status"]];
-                    jsonOutArray.push({ ...jsonOut });
-                  });
-                  /// Add Data
-                  myD["json"] = jsonOutArray;
-                  key["con" + con]["sap.card"]["content"]["data"] = {
-                    ...myD,
-                  };
-                  jsonArray["json" + con] = [];
+                  //Set Header ... All Cards
+                  key["con" + con]["sap.card"]["header"] =
+                    tabCX[tab].Tiles[key3].header;
+
+                  //-------------------------------------------------
+                  //object1 : set group
+                  if (tabCX[tab].Tiles[key3].Type == "object1") {
+                    key["con" + con]["sap.card"]["content"]["groups"][key3] =
+                      tabCX[tab].Tiles[key3].groups;
+                    // Add Data
+                    let jg01 = {
+                      name: "Atul Gupta",
+                      position: "Director",
+                      mobile: "+1 202 34869-0",
+                      phone: "+1 202 555 5555",
+                      email: "donna@peachvalley.com",
+                    };
+                    myO["json"] = { ...jg01 };
+                    key["con" + con]["sap.card"]["data"] = { ...myO };
+                    myO = {};
+                  }
+                  //-------------------------------------------------
+                  //table1
+                  if (tabCX[tab].Tiles[key3].Type == "table1A") {
+                    ///// Set Coloumns ////////
+                    key["con" + con]["sap.card"]["content"]["row"][
+                      "columns"
+                    ] = tabCX[tab].Tiles[key3].columns.slice(0);
+
+                    /// Add JSON Data
+                    key["con" + con]["sap.card"]["data"]["json"] = jsonArray[
+                      "json" + con
+                    ].slice(0);
+                  }
+                  //-------------------------------------------------
+                  //table1
+                  if (tabCX[tab].Tiles[key3].Type == "table1B") {
+                    ///// Set Coloumns ////////
+                    key["con" + con]["sap.card"]["content"]["row"][
+                      "columns"
+                    ] = tabCX[tab].Tiles[key3].columns.slice(0);
+                    /// Add JSON Data
+                    jl1 = {};
+                    jsonArray["json" + con].forEach((ex2) => {
+                      jl1 = ex2;
+                      jl1["statusState"] = colorConfig["Status"][ex2["Status"]];
+                    });
+                    key["con" + con]["sap.card"]["data"]["json"] = jsonArray[
+                      "json" + con
+                    ].slice(0);
+                  }
+                  //--------------------
+                  //set group for action card
+                  //object1
+                  if (tabCX[tab].Tiles[key3].Type == "object1") {
+                    key["con" + con]["sap.card"]["content"]["actions"] =
+                      tabCX[tab].Tiles[key3].actions;
+                  }
+                  //list2 - Actions
+                  if (tabCX[tab].Tiles[key3].Type == "list2A") {
+                    key["con" + con]["sap.card"]["content"]["item"]["actions"] =
+                      tabCX[tab].Tiles[key3].actions;
+                    /// Add Data
+                    jsonOut = {};
+                    jsonOutArray = [];
+                    name1 = tabCX[tab].Tiles[key3].fieldMap["name"];
+                    description1 =
+                      tabCX[tab].Tiles[key3].fieldMap["description"];
+                    icon1 = tabCX[tab].Tiles[key3].fieldMap["icon"];
+                    k = 0;
+                    jsonArray["json" + con].forEach((eln1) => {
+                      jsonOut["name"] = eln1[name1];
+                      jsonOut["description"] = eln1[description1];
+                      jsonOut["icon"] = icon1;
+                      jsonOut["statusState"] =
+                        colorConfig["Status"][eln1["Status"]];
+                      jsonOutArray.push({ ...jsonOut });
+                    });
+                    /// Add Data
+                    myD["json"] = jsonOutArray;
+                    key["con" + con]["sap.card"]["content"]["data"] = {
+                      ...myD,
+                    };
+                    jsonArray["json" + con] = [];
+                  }
+                  //list2 - Actions
+                  if (tabCX[tab].Tiles[key3].Type == "list2B") {
+                    key["con" + con]["sap.card"]["content"]["item"]["actions"] =
+                      tabCX[tab].Tiles[key3].actions;
+                    /// Add Data
+                    myD["json"] = jsonArray["json" + con];
+                    key["con" + con]["sap.card"]["content"]["data"] = {
+                      ...myD,
+                    };
+                    jsonArray["json" + con] = [];
+                  }
+                  //list1 - Data
+                  if (tabCX[tab].Tiles[key3].Type == "list1A") {
+                    jsonOut = {};
+                    jsonOutArray = [];
+                    name1 = tabCX[tab].Tiles[key3].fieldMap["name"];
+                    description1 =
+                      tabCX[tab].Tiles[key3].fieldMap["description"];
+                    info1 = tabCX[tab].Tiles[key3].fieldMap["info"];
+                    icon1 = tabCX[tab].Tiles[key3].fieldMap["icon"];
+                    k = 0;
+                    jsonArray["json" + con].forEach((eln1) => {
+                      jsonOut["name"] = eln1[name1];
+                      jsonOut["description"] = eln1[description1];
+                      jsonOut["info"] = eln1[info1];
+                      jsonOut["icon"] = icon1;
+                      jsonOut["infoState"] =
+                        colorConfig["Status"][eln1["Status"]];
+                      jsonOutArray.push({ ...jsonOut });
+                    });
+                    /// Add Data
+                    myD["json"] = jsonOutArray;
+                    key["con" + con]["sap.card"]["content"]["data"] = {
+                      ...myD,
+                    };
+                    jsonArray["json" + con] = [];
+                  }
+                  //list1 - Data
+                  if (tabCX[tab].Tiles[key3].Type == "list1B") {
+                    jsonOut = {};
+                    jsonOutArray = [];
+                    name1 = tabCX[tab].Tiles[key3].fieldMap["name"];
+                    description1 =
+                      tabCX[tab].Tiles[key3].fieldMap["description"];
+                    info1 = tabCX[tab].Tiles[key3].fieldMap["info"];
+                    icon1 = tabCX[tab].Tiles[key3].fieldMap["icon"];
+                    k = 0;
+                    jsonArray["json" + con].forEach((eln1) => {
+                      jsonOut["name"] = eln1[name1];
+                      jsonOut["description"] = eln1[description1];
+                      jsonOut["info"] = eln1[info1];
+                      jsonOut["icon"] = icon1;
+                      jsonOut["infoState"] =
+                        colorConfig["Status"][eln1["Status"]];
+                      jsonOutArray.push({ ...jsonOut });
+                    });
+                    /// Add Data
+                    myD["json"] = jsonOutArray;
+                    key["con" + con]["sap.card"]["content"]["data"] = {
+                      ...myD,
+                    };
+                    jsonArray["json" + con] = [];
+                  }
+
+                  if (
+                    tabCX[tab].Tiles[key3].Type == "timeline1" ||
+                    tabCX[tab].Tiles[key3].Type == "quicklinks1"
+                  ) {
+                    /// Add Data
+                    myD["json"] = { ...jsonArray["json" + con] };
+                    key["con" + con]["sap.card"]["content"]["data"] = {
+                      ...myD,
+                    };
+                    jsonArray["json" + con] = [];
+                  }
                 }
 
-                if (
-                  tabCX[tab].Tiles[key3].Type == "timeline1" ||
-                  tabCX[tab].Tiles[key3].Type == "quicklinks1"
-                ) {
-                  /// Add Data
-                  myD["json"] = { ...jsonArray["json" + con] };
-                  key["con" + con]["sap.card"]["content"]["data"] = {
-                    ...myD,
-                  };
-                  jsonArray["json" + con] = [];
+                if (tabCX[tab].Tiles[key3].Type == "Adaptive1") {
+                  counter = counter + 1;
+                  let TileID = tabCX[tab].Tiles[key3].Type + "_" + counter;
+                  myTiles[TileID] = Object.assign({}, cardData);
+                } else {
+                  counter = counter + 1;
+                  let TileID = tabCX[tab].Tiles[key3].Type + "_" + counter;
+                  myTiles[TileID] = Object.assign({}, key["con" + con]);
+                  key["con" + con] = {};
                 }
-                counter = counter + 1;
-                let TileID = tabCX[tab].Tiles[key3].Type + "_" + counter;
-                myTiles[TileID] = Object.assign({}, key["con" + con]);
-                key["con" + con] = {};
+
                 //////////////////////////////////////////////////////////////////////////////
                 // Ends
                 //////////////////////////////////////////////////////////////////////////////

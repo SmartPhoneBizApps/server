@@ -256,4 +256,45 @@ module.exports = {
     myFieldArray.push.apply(myFieldArray, exclude_array);
     return myFieldArray;
   },
+  getAdaptiveCard: function (appID, role) {
+    card = {};
+    cardSub1 = {};
+    header = {};
+    content = {};
+    actions = {};
+    body = {};
+    icon = {};
+
+    let path1 = "../cards/adaptivecardforms/" + appID + "_" + role + ".json";
+    let path2 =
+      "../cards/adaptivecardforms/" + appID + "_" + role + "_actions.json";
+    const cardbody = require(path1);
+    const cardaction = require(path2);
+
+    card["sap.app"] = {
+      type: "card",
+      id: "smartphoneapps",
+    };
+
+    card["cardMinRows"] = 4;
+    card["cardColumn"] = 4;
+
+    header["title"] = "Book Taxi";
+    header["subTitle"] = "Booking App for Taxi";
+    icon["src"] = "sap-icon://form";
+    header["icon"] = icon;
+    cardSub1["header"] = header;
+
+    cardSub1["type"] = "AdaptiveCard";
+
+    content["$schema"] = "http://adaptivecards.io/schemas/adaptive-card.json";
+    content["type"] = "AdaptiveCard";
+    content["version"] = "1.0";
+    content["body"] = cardbody["body"];
+    content["actions"] = cardaction["actions"];
+    cardSub1["content"] = content;
+
+    card["sap.card"] = cardSub1;
+    return cardSub1;
+  },
 };
