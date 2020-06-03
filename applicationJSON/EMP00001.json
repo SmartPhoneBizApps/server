@@ -25,13 +25,7 @@
   },
   "EmpPostCode": {
     "type": "String",
-
-    "required": [true, "Please add mandatory field :EmpPostCode"],
-    "maxlength": [20, "EmpPostCode can not be more than 20 characters"],
-    "match": [
-      "UK_POSTCODE_V1",
-      "Please provide valid UK Post Code in field :EmpPostCode"
-    ]
+    "maxlength": [20, "EmpPostCode can not be more than 20 characters"]
   },
   "EmpDesignation": {
     "type": "String",
@@ -41,8 +35,6 @@
   },
   "EmpTelephone": {
     "type": "String",
-
-    "required": [true, "Please add mandatory field :EmpTelephone"],
     "maxlength": [20, "EmpTelephone can not be more than 20 characters"],
     "match": [
       "UK_PHONE_V1",
@@ -56,10 +48,8 @@
   },
   "EmpEmail": {
     "type": "String",
-
     "required": [true, "Please add mandatory field :EmpEmail"],
-    "maxlength": [50, "EmpEmail can not be more than 50 characters"],
-    "match": ["EMAIL_V1", "Invalid EmailID for field :EmpEmail"]
+    "maxlength": [50, "EmpEmail can not be more than 50 characters"]
   },
   "Location": {
     "type": "String",
@@ -85,8 +75,6 @@
   },
   "Status": {
     "type": "String",
-
-    "required": [true, "Please add mandatory field :Status"],
     "maxlength": [20, "Status can not be more than 20 characters"]
   },
   "Comment": {
@@ -101,27 +89,14 @@
   },
   "LeaveFrom": {
     "type": "Date",
-
-    "required": [true, "Please add mandatory field :LeaveFrom"],
-    "maxlength": [10, "LeaveFrom can not be more than 10 characters"],
-    "match": [
-      "DATE_V1",
-      "Please provide date in YYYY-MM-DD format for field :LeaveFrom"
-    ]
+    "required": [true, "Please add mandatory field :LeaveFrom"]
   },
   "LeaveTo": {
     "type": "Date",
-
-    "required": [true, "Please add mandatory field :LeaveTo"],
-    "maxlength": [10, "LeaveTo can not be more than 10 characters"],
-    "match": [
-      "DATE_V1",
-      "Please provide date in YYYY-MM-DD format for field :LeaveTo"
-    ]
+    "required": [true, "Please add mandatory field :LeaveTo"]
   },
   "LeaveDays": {
     "type": "Number",
-
     "required": [true, "Please add mandatory field :LeaveDays"],
     "maxlength": [10, "LeaveDays can not be more than 10 characters"],
     "match": [

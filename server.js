@@ -127,6 +127,15 @@ app.use("/api/v1/createwithref", require("./routes/smartApp/createwithref"));
 app.use("/api/v1/cards", require("./routes/smartApp/overviewcard"));
 // Route to get the cards for application Tab (only one tab can have cards)
 app.use("/api/v1/detailcards/", require("./routes/smartApp/detailcards"));
+// Route to get the cards for application Tab (only one tab can have cards)
+app.use(
+  "/api/v1/uploadHeaderFile/",
+  require("./routes/smartApp/uploadHeaderFile")
+);
+app.use(
+  "/api/v1/uploadHeaderItemFile/",
+  require("./routes/smartApp/uploadHeaderItemFile")
+);
 
 //  -------------------------------------------------
 //  ----------  ***** UTILITIES *****  ----------

@@ -1,1 +1,375 @@
-{"Identification": {"Object": "BUS0000004", "PartnerNo": "SmartPhone"}, "ApplicationControls": {"CreateNewItems": true, "CreateNewFields": [{"Field": "ID", "Attr": {"Attribute": "E"}}, {"Field": "Name", "Attr": {"Attribute": "E"}}, {"Field": "Email", "Attr": {"Attribute": "E"}}, {"Field": "Phone", "Attr": {"Attribute": "E"}}, {"Field": "UserAccount", "Attr": {"Attribute": "E"}}, {"Field": "From", "Attr": {"Attribute": "E"}}, {"Field": "To", "Attr": {"Attribute": "E"}}, {"Field": "ReturnJourney", "Attr": {"Attribute": "E"}}, {"Field": "StartDate", "Attr": {"Attribute": "E"}}, {"Field": "StartTime", "Attr": {"Attribute": "E"}}, {"Field": "ReturnDate", "Attr": {"Attribute": "E"}}, {"Field": "ReturnTime", "Attr": {"Attribute": "E"}}, {"Field": "TrainFare", "Attr": {"Attribute": "E"}}, {"Field": "Currency", "Attr": {"Attribute": "E"}}, {"Field": "CostCentre", "Attr": {"Attribute": "E"}}, {"Field": "Status", "Attr": {"Attribute": "E"}}], "PossibleValue": true, "PossibleValueFields": ["ReturnJourney", "Status"], "AttachmentFunction": true, "ServerUpdate": true, "ColorCoding": true, "ColorCodedFields": [], "ApplicationFilters": [], "ReadGeoCode": false, "GoogleMap": false, "GoogleMapTab": null, "MapFields": [], "SimpleValFileUpload": "", "CalculatedFieldsItem": [], "CalculatedFieldsHeaderItem": [], "CalculatedFieldsHeader": [], "RecordDownload": "", "CurrencySymbol": "", "BOTSetup": [], "FieldLabel": "", "PDFDownload": "", "ViewDesktopType": "", "ConfirmationEmail": "", "FileUpload": "", "DupChkUpload": []}, "ListScreenControls": [], "Filters": {"Sorting": {"DataField": ["ID", "Status", "Name", "UserAccount", "From", "To"]}, "DateFilter": {"DataField": "StartDate", "Sequence": "2", "Options": ["In Last 1 day", "In Last 3 day", "In Last 7 day", "In Last 15 day", "In Last 30 day"]}, "DataFilter": []}, "Graph": {"Dimension": [{"DropDownValue": "Status", "Title": "Analysis based on Document Status"}], "KeyFigures": [{"DropDownValue": "Number of Record", "Action": "Count", "DataField": "ID", "SLabel": "Identification"}, {"DropDownValue": "Number of Record", "Action": "Count", "DataField": "ID", "SLabel": "Identification"}, {"DropDownValue": "Number of Record", "Action": "Count", "DataField": "ID", "SLabel": "Identification"}, {"DropDownValue": "Number of Record", "Action": "Count", "DataField": "ID", "SLabel": "Identification"}]}, "DetailPageControl": {"DetailPageTab": "Active", "TabDetails": [[{"value": "Tab1", "name": "Traveller", "fioriicon": "customer", "type": "Field"}, {"value": "Tab2", "name": "Train", "fioriicon": "passenger-train", "type": "Field"}, {"value": "Tab1", "name": "Traveller", "fioriicon": "customer", "type": "Field"}, {"value": "Tab2", "name": "Train", "fioriicon": "passenger-train", "type": "Field"}]]}, "Title": {"ApplicationTitle": "Train Booking", "DetailTitle": "Train Booking"}, "FieldDefinition": {"FieldDefinition": [{"name": "ID", "type": "string", "width": "20", "Option": "", "SLabel": "Identification", "LLabel": "", "Currency": "No"}, {"name": "Name", "type": "string", "width": "50", "Option": "", "SLabel": "Name", "LLabel": "", "Currency": "No"}, {"name": "Email", "type": "string", "width": "50", "Option": "", "SLabel": "Email", "LLabel": "", "Currency": "No"}, {"name": "Phone", "type": "string", "width": "20", "Option": "", "SLabel": "Phone", "LLabel": "", "Currency": "No"}, {"name": "UserAccount", "type": "string", "width": "20", "Option": "", "SLabel": "User Account", "LLabel": "", "Currency": "No"}, {"name": "From", "type": "string", "width": "50", "Option": "", "SLabel": "From", "LLabel": "", "Currency": "No"}, {"name": "To", "type": "string", "width": "50", "Option": "", "SLabel": "To", "LLabel": "", "Currency": "No"}, {"name": "ReturnJourney", "type": "string", "width": "3", "Option": "", "SLabel": "Return Journey", "LLabel": "", "Currency": "No"}, {"name": "StartDate", "type": "Date", "width": "10", "Option": "", "SLabel": "Start Date", "LLabel": "", "Currency": "No"}, {"name": "StartTime", "type": "Time", "width": "10", "Option": "", "SLabel": "Start Time", "LLabel": "", "Currency": "No"}, {"name": "ReturnDate", "type": "Date", "width": "10", "Option": "", "SLabel": "Return Date", "LLabel": "", "Currency": "No"}, {"name": "ReturnTime", "type": "Time", "width": "10", "Option": "", "SLabel": "Return Time", "LLabel": "", "Currency": "No"}, {"name": "TrainFare", "type": "string", "width": "10", "Option": "", "SLabel": "Train Fare", "LLabel": "", "Currency": "No"}, {"name": "Currency", "type": "string", "width": "3", "Option": "", "SLabel": "Currency", "LLabel": "", "Currency": "No"}, {"name": "CostCentre", "type": "string", "width": "20", "Option": "", "SLabel": "Cost Centre", "LLabel": "", "Currency": "No"}, {"name": "Status", "type": "string", "width": "20", "Option": "", "SLabel": "Status", "LLabel": "", "Currency": "No"}]}, "ListField": {"ListField": [{"name": "ID", "ListField": "Display", "Sequence": "1"}, {"name": "From", "ListField": "Display", "Sequence": "1"}, {"name": "To", "ListField": "Display", "Sequence": "1"}, {"name": "StartDate", "ListField": "Display", "Sequence": "1"}, {"name": "ReturnDate", "ListField": "Display", "Sequence": "1"}, {"name": "CostCentre", "ListField": "Display", "Sequence": "1"}, {"name": "Status", "ListField": "Display", "Sequence": "1"}]}, "DetailScreen": {"DetailScreen": [{"name": "ID", "Tab": "None", "Sequence": "1", "Mode": "Display"}, {"name": "Name", "Tab": "Tab1", "Sequence": "1", "Mode": "Edit"}, {"name": "UserAccount", "Tab": "Tab1", "Sequence": "1", "Mode": "Edit"}, {"name": "Email", "Tab": "Tab1", "Sequence": "1", "Mode": "Edit"}, {"name": "Phone", "Tab": "Tab1", "Sequence": "1", "Mode": "Edit"}, {"name": "From", "Tab": "Tab2", "Sequence": "1", "Mode": "Edit"}, {"name": "To", "Tab": "Tab2", "Sequence": "1", "Mode": "Edit"}, {"name": "StartDate", "Tab": "Tab2", "Sequence": "1", "Mode": "Edit"}, {"name": "StartTime", "Tab": "Tab2", "Sequence": "1", "Mode": "Edit"}, {"name": "ReturnJourney", "Tab": "Tab2", "Sequence": "1", "Mode": "Edit"}, {"name": "ReturnDate", "Tab": "Tab2", "Sequence": "1", "Mode": "Edit"}, {"name": "ReturnTime", "Tab": "Tab2", "Sequence": "1", "Mode": "Edit"}, {"name": "TrainFare", "Tab": "Tab2", "Sequence": "1", "Mode": "Edit"}, {"name": "Currency", "Tab": "Tab2", "Sequence": "1", "Mode": "Edit"}, {"name": "CostCentre", "Tab": "Tab1", "Sequence": "1", "Mode": "Edit"}, {"name": "Status", "Tab": "Tab1", "Sequence": "1", "Mode": "Edit"}]}, "Item": [], "WizardStep": [{"id": "Step1", "name": "Journey Details", "stepType": "FieldList", "intro": "Train Booking : Journey Details", "fields": [{"name": "From", "Sequence": "1", "Mode": "Edit"}, {"name": "To", "Sequence": "1", "Mode": "Edit"}, {"name": "ReturnJourney", "Sequence": "1", "Mode": "Edit"}, {"name": "StartDate", "Sequence": "1", "Mode": "Edit"}, {"name": "StartTime", "Sequence": "1", "Mode": "Edit"}, {"name": "ReturnDate", "Sequence": "1", "Mode": "Edit"}, {"name": "ReturnTime", "Sequence": "1", "Mode": "Edit"}]}, {"id": "Step2", "fields": [{"name": "Phone", "Sequence": "1", "Mode": "Edit"}, {"name": "UserAccount", "Sequence": "1", "Mode": "Edit"}], "name": "Personel Details", "stepType": "FieldList", "intro": "Train Booking : Personel Details"}, {"id": "Step3", "fields": [{"name": "TrainFare", "Sequence": "1", "Mode": "Edit"}, {"name": "Currency", "Sequence": "1", "Mode": "Edit"}, {"name": "CostCentre", "Sequence": "1", "Mode": "Edit"}], "name": "Finance Data", "stepType": "FieldList", "intro": "Train Booking : Finance Data"}, {"id": "Step4", "fields": [{"name": "Name", "Sequence": "1", "Mode": "Edit"}, {"name": "Email", "Sequence": "1", "Mode": "Edit"}], "name": "Contact Details", "stepType": "FieldList", "intro": "Train Booking : Contact Details"}, {"id": "Step5", "fields": [{"name": "Status", "Sequence": "1", "Mode": "Edit"}], "name": "Admin", "stepType": "FieldList", "intro": "Train Booking : Admin"}]}
+{
+  "Identification": { "Object": "BUS0000004", "PartnerNo": "SmartPhone" },
+  "ApplicationControls": {
+    "CreateNewItems": true,
+    "CreateNewFields": [
+      { "Field": "ID", "Attr": { "Attribute": "E" } },
+      { "Field": "Name", "Attr": { "Attribute": "E" } },
+      { "Field": "Email", "Attr": { "Attribute": "E" } },
+      { "Field": "Phone", "Attr": { "Attribute": "E" } },
+      { "Field": "UserAccount", "Attr": { "Attribute": "E" } },
+      { "Field": "From", "Attr": { "Attribute": "E" } },
+      { "Field": "To", "Attr": { "Attribute": "E" } },
+      { "Field": "ReturnJourney", "Attr": { "Attribute": "E" } },
+      { "Field": "StartDate", "Attr": { "Attribute": "E" } },
+      { "Field": "StartTime", "Attr": { "Attribute": "E" } },
+      { "Field": "ReturnDate", "Attr": { "Attribute": "E" } },
+      { "Field": "ReturnTime", "Attr": { "Attribute": "E" } },
+      { "Field": "TrainFare", "Attr": { "Attribute": "E" } },
+      { "Field": "Currency", "Attr": { "Attribute": "E" } },
+      { "Field": "CostCentre", "Attr": { "Attribute": "E" } },
+      { "Field": "Status", "Attr": { "Attribute": "E" } }
+    ],
+    "PossibleValue": true,
+    "PossibleValueFields": ["ReturnJourney", "Status"],
+    "AttachmentFunction": true,
+    "ServerUpdate": true,
+    "ColorCoding": true,
+    "ColorCodedFields": [],
+    "ApplicationFilters": [],
+    "ReadGeoCode": false,
+    "GoogleMap": false,
+    "GoogleMapTab": null,
+    "MapFields": [],
+    "SimpleValFileUpload": "",
+    "CalculatedFieldsItem": [],
+    "CalculatedFieldsHeaderItem": [],
+    "CalculatedFieldsHeader": [],
+    "RecordDownload": "",
+    "CurrencySymbol": "",
+    "BOTSetup": [],
+    "FieldLabel": "",
+    "PDFDownload": "",
+    "ViewDesktopType": "",
+    "ConfirmationEmail": "",
+    "FileUpload": "",
+    "DupChkUpload": []
+  },
+  "ListScreenControls": [],
+  "Filters": {
+    "Sorting": {
+      "DataField": ["ID", "Status", "Name", "UserAccount", "From", "To"]
+    },
+    "DateFilter": {
+      "DataField": "StartDate",
+      "Sequence": "2",
+      "Options": [
+        "In Last 1 day",
+        "In Last 3 day",
+        "In Last 7 day",
+        "In Last 15 day",
+        "In Last 30 day"
+      ]
+    },
+    "DataFilter": []
+  },
+  "Graph": {
+    "Dimension": [
+      {
+        "DropDownValue": "Status",
+        "Title": "Analysis based on Document Status"
+      }
+    ],
+    "KeyFigures": [
+      {
+        "DropDownValue": "Number of Record",
+        "Action": "Count",
+        "DataField": "ID",
+        "SLabel": "Identification"
+      },
+      {
+        "DropDownValue": "Number of Record",
+        "Action": "Count",
+        "DataField": "ID",
+        "SLabel": "Identification"
+      },
+      {
+        "DropDownValue": "Number of Record",
+        "Action": "Count",
+        "DataField": "ID",
+        "SLabel": "Identification"
+      },
+      {
+        "DropDownValue": "Number of Record",
+        "Action": "Count",
+        "DataField": "ID",
+        "SLabel": "Identification"
+      }
+    ]
+  },
+  "DetailPageControl": {
+    "DetailPageTab": "Active",
+    "TabDetails": [
+      [
+        {
+          "value": "Tab1",
+          "name": "Traveller",
+          "fioriicon": "customer",
+          "type": "Field"
+        },
+        {
+          "value": "Tab2",
+          "name": "Train",
+          "fioriicon": "passenger-train",
+          "type": "Field"
+        },
+        {
+          "value": "Tab1",
+          "name": "Traveller",
+          "fioriicon": "customer",
+          "type": "Field"
+        },
+        {
+          "value": "Tab2",
+          "name": "Train",
+          "fioriicon": "passenger-train",
+          "type": "Field"
+        }
+      ]
+    ]
+  },
+  "Title": {
+    "ApplicationTitle": "Train Booking",
+    "DetailTitle": "Train Booking"
+  },
+  "FieldDefinition": {
+    "FieldDefinition": [
+      {
+        "name": "ID",
+        "type": "string",
+        "width": "20",
+        "Option": "",
+        "SLabel": "Identification",
+        "LLabel": "",
+        "Currency": "No"
+      },
+      {
+        "name": "Name",
+        "type": "string",
+        "width": "50",
+        "Option": "",
+        "SLabel": "Name",
+        "LLabel": "",
+        "Currency": "No"
+      },
+      {
+        "name": "Email",
+        "type": "string",
+        "width": "50",
+        "Option": "",
+        "SLabel": "Email",
+        "LLabel": "",
+        "Currency": "No"
+      },
+      {
+        "name": "Phone",
+        "type": "string",
+        "width": "20",
+        "Option": "",
+        "SLabel": "Phone",
+        "LLabel": "",
+        "Currency": "No"
+      },
+      {
+        "name": "UserAccount",
+        "type": "string",
+        "width": "20",
+        "Option": "",
+        "SLabel": "User Account",
+        "LLabel": "",
+        "Currency": "No"
+      },
+      {
+        "name": "From",
+        "type": "string",
+        "width": "50",
+        "Option": "",
+        "SLabel": "From",
+        "LLabel": "",
+        "Currency": "No"
+      },
+      {
+        "name": "To",
+        "type": "string",
+        "width": "50",
+        "Option": "",
+        "SLabel": "To",
+        "LLabel": "",
+        "Currency": "No"
+      },
+      {
+        "name": "ReturnJourney",
+        "type": "string",
+        "width": "3",
+        "Option": "",
+        "SLabel": "Return Journey",
+        "LLabel": "",
+        "Currency": "No"
+      },
+      {
+        "name": "StartDate",
+        "type": "Date",
+        "width": "10",
+        "Option": "",
+        "SLabel": "Start Date",
+        "LLabel": "",
+        "Currency": "No"
+      },
+      {
+        "name": "StartTime",
+        "type": "Time",
+        "width": "10",
+        "Option": "",
+        "SLabel": "Start Time",
+        "LLabel": "",
+        "Currency": "No"
+      },
+      {
+        "name": "ReturnDate",
+        "type": "Date",
+        "width": "10",
+        "Option": "",
+        "SLabel": "Return Date",
+        "LLabel": "",
+        "Currency": "No"
+      },
+      {
+        "name": "ReturnTime",
+        "type": "Time",
+        "width": "10",
+        "Option": "",
+        "SLabel": "Return Time",
+        "LLabel": "",
+        "Currency": "No"
+      },
+      {
+        "name": "TrainFare",
+        "type": "string",
+        "width": "10",
+        "Option": "",
+        "SLabel": "Train Fare",
+        "LLabel": "",
+        "Currency": "No"
+      },
+      {
+        "name": "Currency",
+        "type": "string",
+        "width": "3",
+        "Option": "",
+        "SLabel": "Currency",
+        "LLabel": "",
+        "Currency": "No"
+      },
+      {
+        "name": "CostCentre",
+        "type": "string",
+        "width": "20",
+        "Option": "",
+        "SLabel": "Cost Centre",
+        "LLabel": "",
+        "Currency": "No"
+      },
+      {
+        "name": "Status",
+        "type": "string",
+        "width": "20",
+        "Option": "",
+        "SLabel": "Status",
+        "LLabel": "",
+        "Currency": "No"
+      }
+    ]
+  },
+  "ListField": {
+    "ListField": [
+      { "name": "ID", "ListField": "Display", "Sequence": "1" },
+      { "name": "From", "ListField": "Display", "Sequence": "1" },
+      { "name": "To", "ListField": "Display", "Sequence": "1" },
+      { "name": "StartDate", "ListField": "Display", "Sequence": "1" },
+      { "name": "ReturnDate", "ListField": "Display", "Sequence": "1" },
+      { "name": "CostCentre", "ListField": "Display", "Sequence": "1" },
+      { "name": "Status", "ListField": "Display", "Sequence": "1" }
+    ]
+  },
+  "DetailScreen": {
+    "DetailScreen": [
+      { "name": "ID", "Tab": "None", "Sequence": "1", "Mode": "Display" },
+      { "name": "Name", "Tab": "Tab1", "Sequence": "1", "Mode": "Edit" },
+      { "name": "UserAccount", "Tab": "Tab1", "Sequence": "1", "Mode": "Edit" },
+      { "name": "Email", "Tab": "Tab1", "Sequence": "1", "Mode": "Edit" },
+      { "name": "Phone", "Tab": "Tab1", "Sequence": "1", "Mode": "Edit" },
+      { "name": "From", "Tab": "Tab2", "Sequence": "1", "Mode": "Edit" },
+      { "name": "To", "Tab": "Tab2", "Sequence": "1", "Mode": "Edit" },
+      { "name": "StartDate", "Tab": "Tab2", "Sequence": "1", "Mode": "Edit" },
+      { "name": "StartTime", "Tab": "Tab2", "Sequence": "1", "Mode": "Edit" },
+      {
+        "name": "ReturnJourney",
+        "Tab": "Tab2",
+        "Sequence": "1",
+        "Mode": "Edit"
+      },
+      { "name": "ReturnDate", "Tab": "Tab2", "Sequence": "1", "Mode": "Edit" },
+      { "name": "ReturnTime", "Tab": "Tab2", "Sequence": "1", "Mode": "Edit" },
+      { "name": "TrainFare", "Tab": "Tab2", "Sequence": "1", "Mode": "Edit" },
+      { "name": "Currency", "Tab": "Tab2", "Sequence": "1", "Mode": "Edit" },
+      { "name": "CostCentre", "Tab": "Tab1", "Sequence": "1", "Mode": "Edit" },
+      { "name": "Status", "Tab": "Tab1", "Sequence": "1", "Mode": "Edit" }
+    ]
+  },
+  "Item": [],
+  "WizardStep": [
+    {
+      "id": "Step1",
+      "name": "Journey Details",
+      "stepType": "FieldList",
+      "intro": "Train Booking : Journey Details",
+      "fields": [
+        { "name": "From", "Sequence": "1", "Mode": "Edit" },
+        { "name": "To", "Sequence": "1", "Mode": "Edit" },
+        { "name": "ReturnJourney", "Sequence": "1", "Mode": "Edit" },
+        { "name": "StartDate", "Sequence": "1", "Mode": "Edit" },
+        { "name": "StartTime", "Sequence": "1", "Mode": "Edit" },
+        { "name": "ReturnDate", "Sequence": "1", "Mode": "Edit" },
+        { "name": "ReturnTime", "Sequence": "1", "Mode": "Edit" }
+      ]
+    },
+    {
+      "id": "Step2",
+      "fields": [
+        { "name": "Phone", "Sequence": "1", "Mode": "Edit" },
+        { "name": "UserAccount", "Sequence": "1", "Mode": "Edit" }
+      ],
+      "name": "Personel Details",
+      "stepType": "FieldList",
+      "intro": "Train Booking : Personel Details"
+    },
+    {
+      "id": "Step3",
+      "fields": [
+        { "name": "TrainFare", "Sequence": "1", "Mode": "Edit" },
+        { "name": "Currency", "Sequence": "1", "Mode": "Edit" },
+        { "name": "CostCentre", "Sequence": "1", "Mode": "Edit" }
+      ],
+      "name": "Finance Data",
+      "stepType": "FieldList",
+      "intro": "Train Booking : Finance Data"
+    },
+    {
+      "id": "Step4",
+      "fields": [
+        { "name": "Name", "Sequence": "1", "Mode": "Edit" },
+        { "name": "Email", "Sequence": "1", "Mode": "Edit" }
+      ],
+      "name": "Contact Details",
+      "stepType": "FieldList",
+      "intro": "Train Booking : Contact Details"
+    },
+    {
+      "id": "Step5",
+      "fields": [{ "name": "Status", "Sequence": "1", "Mode": "Edit" }],
+      "name": "Admin",
+      "stepType": "FieldList",
+      "intro": "Train Booking : Admin"
+    }
+  ]
+}

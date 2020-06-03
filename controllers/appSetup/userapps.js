@@ -42,10 +42,14 @@ exports.getUserapps = asyncHandler(async (req, res, next) => {
   };
   X1 = {};
   r = 0;
+
   for (i = 0; i < userX.businessRoles.length; i++) {
     const approleX = await Approle.findOne({
       appRole: userX.businessRoles[i].roleId,
     });
+    const roleX = await Role.findById(userX.businessRoles[i].roleId);
+    console.log(userX.businessRoles[i].roleId);
+    console.log(roleX);
     roleTemp["tabId"] = r;
     r = r + 1;
     roleTemp["Role"] = approleX.role;
@@ -57,10 +61,10 @@ exports.getUserapps = asyncHandler(async (req, res, next) => {
     appTemp["icon"] = "sap-icon://customer-view";
     appTemp["tileName"] = "Overview Page";
     appTemp["subTileName"] = userX.businessRoles[i].role;
-    appTemp["info"] = "Overview Cards";
+    appTemp["info"] = "";
     appTemp["extraInfo"] = "Data Card based access";
     appTemp["frameType"] = "TwoByOne";
-    appTemp["backgroundImage"] = "";
+    appTemp["backgroundImage"] = roleX.photo;
     appTemp["footer"] = "Quick Access";
     appTemp["applicationID"] = "Overview";
     appTemp["tileType"] = "Overview";

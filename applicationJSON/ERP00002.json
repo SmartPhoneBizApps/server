@@ -39,13 +39,10 @@
   },
   "Latitude": {
     "type": "String",
-
-    "maxlength": [50, "Latitude can not be more than 50 characters"],
-    "match": ["LATITUDE_V1", "Invalid Lat/Long values for field :Latitude"]
+    "maxlength": [50, "Latitude can not be more than 50 characters"]
   },
   "IncidentType": {
     "type": "String",
-
     "required": [true, "Please add mandatory field :IncidentType"],
     "maxlength": [50, "IncidentType can not be more than 50 characters"]
   },
@@ -111,21 +108,11 @@
   },
   "FinishDate": {
     "type": "Date",
-
-    "maxlength": [10, "FinishDate can not be more than 10 characters"],
-    "match": [
-      "DATE_V1",
-      "Please provide date in YYYY-MM-DD format for field :FinishDate"
-    ]
+    "maxlength": [10, "FinishDate can not be more than 10 characters"]
   },
   "FinishTime": {
     "type": "Date",
-
-    "maxlength": [10, "FinishTime can not be more than 10 characters"],
-    "match": [
-      "DATE_V1",
-      "Please provide date in YYYY-MM-DD format for field :FinishTime"
-    ]
+    "maxlength": [10, "FinishTime can not be more than 10 characters"]
   },
   "TransLog": [],
   "ItemData": []

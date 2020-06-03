@@ -1,14 +1,17 @@
 const path = require("path");
-const ErrorResponse = require("../utils/errorResponse");
-const asyncHandler = require("../middleware/async");
-const { getNewConfig, createMultipleDocument } = require("../modules/config");
+const ErrorResponse = require("../../utils/errorResponse");
+const asyncHandler = require("../../middleware/async");
+const {
+  getNewConfig,
+  createMultipleDocument,
+} = require("../../modules/config");
 let csvToJson = require("convert-csv-to-json");
-const App = require("../models/appSetup/App");
+const App = require("../../models/appSetup/App");
 //let csvToJson = require("convert-csv-to-json");
 // @desc      Get all bootcamps
 // @route     GET /api/v1/bootcamps
 // @access    Public
-exports.uploadFile = asyncHandler(async (req, res, next) => {
+exports.uploadHeaderItemFile = asyncHandler(async (req, res, next) => {
   const header = req.files.header;
   const item = req.files.item;
   if (!req.files) {

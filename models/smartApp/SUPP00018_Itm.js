@@ -52,7 +52,7 @@ PERCENTAGE_V1 = /^(0*100{1,1}\.?((?<=\.)0*)?%?$)|(^0*\d{0,2}\.?((?<=\.)\d*)?%?)$
 //RegEx to validate Full Path and CSV
 FULL_FILE_PATH_CSV_V1 = /^(?<Drive>([a-zA-Z]:)|(\\{2}\w+)\$?)(\\(\w[\w].*))(?<Year>\d{4})-(?<Month>\d{1,2})-(?<Day>\d{1,2})(?<ExtraText>.*)(?<Extension>.csv|.CSV)$/;
 //RegEx to validate Date in YYYY-MM-DD fromat
-DATE_V1 = /[0-9]{4}-([0][0-9]|[1][0-2])-([0][0-9]|[1][0-9]|[2][0-9]|[3][0-1])/;
+DATE_V1 = /^(0?[1-9]|[12][0-9]|3[01])[\/\-](0?[1-9]|1[012])[\/\-]\d{4}$/;
 
 //No Whitespace
 NO_WHITESPACE_V1 = /^[^\s]+$/;

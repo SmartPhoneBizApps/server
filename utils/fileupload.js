@@ -10,8 +10,7 @@ const App = require("../models/appSetup/App");
 // @access    Public
 exports.uploadFile = asyncHandler(async (req, res, next) => {
   console.log("Inside Upload ");
-  console.log(req.body);
-  console.log(req.data);
+  console.log(req.files);
   console.log(req);
 
   const file = req.files.file;

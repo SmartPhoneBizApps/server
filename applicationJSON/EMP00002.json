@@ -165,35 +165,19 @@
   },
   "EntryDate": {
     "type": "Date",
-
     "required": [true, "Please add mandatory field :EntryDate"],
-    "maxlength": [10, "EntryDate can not be more than 10 characters"],
-    "match": [
-      "DATE_V1",
-      "Please provide date in YYYY-MM-DD format for field :EntryDate"
-    ]
+    "maxlength": [10, "EntryDate can not be more than 10 characters"]
   },
   "TravelDtFrom": {
     "type": "Date",
-
-    "maxlength": [10, "TravelDtFrom can not be more than 10 characters"],
-    "match": [
-      "DATE_V1",
-      "Please provide date in YYYY-MM-DD format for field :TravelDtFrom"
-    ]
+    "maxlength": [10, "TravelDtFrom can not be more than 10 characters"]
   },
   "TravelDateTo": {
     "type": "Date",
-
-    "maxlength": [10, "TravelDateTo can not be more than 10 characters"],
-    "match": [
-      "DATE_V1",
-      "Please provide date in YYYY-MM-DD format for field :TravelDateTo"
-    ]
+    "maxlength": [10, "TravelDateTo can not be more than 10 characters"]
   },
   "FoodCost": {
     "type": "Number",
-
     "maxlength": [20, "FoodCost can not be more than 20 characters"],
     "match": [
       "NUM_2_DEC_PLACE_V1",
@@ -202,7 +186,6 @@
   },
   "TravelCost": {
     "type": "Number",
-
     "maxlength": [20, "TravelCost can not be more than 20 characters"],
     "match": [
       "NUM_2_DEC_PLACE_V1",

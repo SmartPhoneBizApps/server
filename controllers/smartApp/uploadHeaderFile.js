@@ -1,26 +1,31 @@
 const path = require("path");
-const ErrorResponse = require("../utils/errorResponse");
-const asyncHandler = require("../middleware/async");
-const { getNewConfig, createMultipleDocument } = require("../modules/config");
+const ErrorResponse = require("../../utils/errorResponse");
+const asyncHandler = require("../../middleware/async");
+const {
+  getNewConfig,
+  createMultipleDocument,
+} = require("../../modules/config");
 let csvToJson = require("convert-csv-to-json");
-const App = require("../models/appSetup/App");
+const App = require("../../models/appSetup/App");
 //let csvToJson = require("convert-csv-to-json");
 // @desc      Get all bootcamps
 // @route     GET /api/v1/bootcamps
 // @access    Public
-exports.uploadFile = asyncHandler(async (req, res, next) => {
+exports.uploadHeaderFile = asyncHandler(async (req, res, next) => {
   const header = req.files.header;
-  const item = req.files.item;
   if (!req.files) {
     return next(new ErrorResponse(`Please upload a file`, 400));
   }
-  if (!header.mimetype.startsWith("text/csv")) {
+  if (!header) {
+    return next(new ErrorResponse(`Please upload header file`, 400));
+  }
+  if (header && !header.mimetype.startsWith("text/csv")) {
     return next(new ErrorResponse(`Please upload an csv file(header)`, 400));
   }
   const BodyApp = await App.findOne({
     applicationID: req.headers.applicationid,
   });
-  if (header.size > process.env.MAX_FILE_UPLOAD) {
+  if (header && header.size > process.env.MAX_FILE_UPLOAD) {
     return next(
       new ErrorResponse(
         `Please upload an image less than ${process.env.MAX_FILE_UPLOAD}`,
@@ -65,7 +70,11 @@ exports.uploadFile = asyncHandler(async (req, res, next) => {
       outdata.push(mydata);
       mydata = {};
     }
+    console.log("Data", outdata);
     result = await createMultipleDocument(req.headers.applicationid, outdata);
+    if (!result) {
+      return next(new ErrorResponse(`Problem with the file data`), 404);
+    }
     res.status(200).json({
       success: true,
       data: result,
