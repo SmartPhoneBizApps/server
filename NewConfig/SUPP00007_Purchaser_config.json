@@ -1,4 +1,190 @@
-{"Title": {"ApplicationTitle": "General Comms", "DetailTitle": "General Comms"}, "ListFields": {"IntroField": "", "TitleField": "", "sStatus": "", "fStatus": "", "numberField": "", "LFields": [], "numberUnitField": ""}, "ListBOTFields": {"Title": [], "SubTitle": [], "Description": ["ID", "CommsType", "TransType", "QuestionDate", "PONumber", "SuppInvoiceNumber"]}, "PossibleValues": ["Status"], "MButtons": [{"type": "DOWNLOAD", "name": "Download File", "icon": "sap-icon://download"}, {"type": "APPHELP", "name": "Get App Help", "icon": "sap-icon://sys-help-2"}, {"type": "BOT", "name": "Launch Assistant", "icon": "sap-icon://travel-request"}, {"type": "VIEW", "name": "Change App View", "icon": "sap-icon://chart-table-view"}, {"type": "ADD", "name": "Add Record", "icon": "sap-icon://add"}, {"type": "UPLOAD", "name": "Upload Record", "icon": "sap-icon://upload"}], "DButtons": [{"type": "ATTACHMENT", "name": "View Attachments", "icon": "sap-icon://attachment"}, {"type": "UPDATE", "name": "Update Record", "icon": "sap-icon://update"}, {"type": "ADD", "name": "Add Record", "icon": "sap-icon://add"}], "Tabs": [{"value": "Tab0", "name": "Cards", "type": "Cards", "fioriicon": "responsive"}, {"value": "Tab1", "name": "Supplier", "fioriicon": "shipping-status", "type": "Field"}, {"value": "Tab2", "name": "PO", "fioriicon": "company-view", "type": "Field", "download": "Yes"}, {"value": "Tab3", "name": "Invoice", "fioriicon": "accounting-document-verification", "type": "Field", "download": "Yes"}, {"value": "Tab4", "name": "Purchaser", "fioriicon": "company-view", "type": "Field", "download": "Yes"}, {"value": "Tab5", "name": "Finance", "fioriicon": "accounting-document-verification", "type": "Field", "download": "Yes"}, {"value": "Tab6", "name": "Admin", "fioriicon": "company-view", "type": "Field", "download": "Yes"}, {"value": "Tab7", "name": "Chat", "fioriicon": "comment", "type": "Chat", "download": "No"}], "DetailFields": {"None": ["ID", "VendorName", "Status", "TransType", "VendorNumber"], "Tab1": ["QuestionDate", "CommsType", "Question_Category", "ContactName", "ContactEmail", "OldBusinessName", "NewBusinessName", "PostCode", "HouseNumber", "NewAddress", "ContactNumber", "DateOfNameChange"], "Tab2": ["PONumber", "POGrossValue", "PONetValue", "PODate", "DelEmail"], "Tab3": ["SuppInvoiceNumber", "ReasonForCreditNote", "CreditDate", "CreditNoteNumber", "CreditAmount", "InvoiceDate", "InvAmount", "PaymentTerm", "InvoiceType"], "Tab4": ["CollectionDate", "Packaging", "InDays", "DiscountAmount"], "Tab6": ["Notification", "NotifyRole", "CountryImpacted", "Company"], "Tab7": ["Question_Response"]}, "ControlDisplay": {}, "FieldDef": [{"name": "ID", "type": "string", "width": "20", "Option": "", "SLabel": "Identification", "LLabel": "Identification", "Currency": "No"}, {"name": "VendorName", "type": "string", "width": "100", "Option": "", "SLabel": "Vendor Name", "LLabel": "Vendor Name", "Currency": "No"}, {"name": "Question_Response", "type": "string", "width": "500", "Option": "", "SLabel": "Question or Response", "LLabel": "Question or Response", "Currency": "No"}, {"name": "QuestionDate", "type": "Date", "width": "10", "Option": "", "SLabel": "Question Date", "LLabel": "Question Date", "Currency": "No"},     {
+{
+  "Title": {
+    "ApplicationTitle": "General Comms",
+    "DetailTitle": "General Comms"
+  },
+  "ListFields": {
+    "IntroField": "",
+    "TitleField": "",
+    "sStatus": "",
+    "fStatus": "",
+    "numberField": "",
+    "LFields": [],
+    "numberUnitField": ""
+  },
+  "ListBOTFields": {
+    "Title": [],
+    "SubTitle": [],
+    "Description": [
+      "ID",
+      "CommsType",
+      "TransType",
+      "QuestionDate",
+      "PONumber",
+      "SuppInvoiceNumber"
+    ]
+  },
+  "PossibleValues": ["Status"],
+  "MButtons": [
+    {
+      "type": "DOWNLOAD",
+      "name": "Download File",
+      "icon": "sap-icon://download"
+    },
+    {
+      "type": "APPHELP",
+      "name": "Get App Help",
+      "icon": "sap-icon://sys-help-2"
+    },
+    {
+      "type": "BOT",
+      "name": "Launch Assistant",
+      "icon": "sap-icon://travel-request"
+    },
+    {
+      "type": "VIEW",
+      "name": "Change App View",
+      "icon": "sap-icon://chart-table-view"
+    },
+    { "type": "ADD", "name": "Add Record", "icon": "sap-icon://add" },
+    { "type": "UPLOAD", "name": "Upload Record", "icon": "sap-icon://upload" }
+  ],
+  "DButtons": [
+    {
+      "type": "ATTACHMENT",
+      "name": "View Attachments",
+      "icon": "sap-icon://attachment"
+    },
+    { "type": "UPDATE", "name": "Update Record", "icon": "sap-icon://update" },
+    { "type": "ADD", "name": "Add Record", "icon": "sap-icon://add" }
+  ],
+  "Tabs": [
+    {
+      "value": "Tab0",
+      "name": "Cards",
+      "type": "Cards",
+      "fioriicon": "responsive"
+    },
+    {
+      "value": "Tab1",
+      "name": "Supplier",
+      "fioriicon": "shipping-status",
+      "type": "Field"
+    },
+    {
+      "value": "Tab2",
+      "name": "PO",
+      "fioriicon": "company-view",
+      "type": "Field",
+      "download": "Yes"
+    },
+    {
+      "value": "Tab3",
+      "name": "Invoice",
+      "fioriicon": "accounting-document-verification",
+      "type": "Field",
+      "download": "Yes"
+    },
+    {
+      "value": "Tab4",
+      "name": "Purchaser",
+      "fioriicon": "company-view",
+      "type": "Field",
+      "download": "Yes"
+    },
+    {
+      "value": "Tab5",
+      "name": "Finance",
+      "fioriicon": "accounting-document-verification",
+      "type": "Field",
+      "download": "Yes"
+    },
+    {
+      "value": "Tab6",
+      "name": "Admin",
+      "fioriicon": "company-view",
+      "type": "Field",
+      "download": "Yes"
+    },
+    {
+      "value": "Tab7",
+      "name": "Chat",
+      "fioriicon": "comment",
+      "type": "Chat",
+      "download": "No"
+    }
+  ],
+  "DetailFields": {
+    "None": ["ID", "VendorName", "Status", "TransType", "VendorNumber"],
+    "Tab1": [
+      "QuestionDate",
+      "CommsType",
+      "Question_Category",
+      "ContactName",
+      "ContactEmail",
+      "OldBusinessName",
+      "NewBusinessName",
+      "PostCode",
+      "HouseNumber",
+      "NewAddress",
+      "ContactNumber",
+      "DateOfNameChange"
+    ],
+    "Tab2": ["PONumber", "POGrossValue", "PONetValue", "PODate", "DelEmail"],
+    "Tab3": [
+      "SuppInvoiceNumber",
+      "ReasonForCreditNote",
+      "CreditDate",
+      "CreditNoteNumber",
+      "CreditAmount",
+      "InvoiceDate",
+      "InvAmount",
+      "PaymentTerm",
+      "InvoiceType"
+    ],
+    "Tab4": ["CollectionDate", "Packaging", "InDays", "DiscountAmount"],
+    "Tab6": ["Notification", "NotifyRole", "CountryImpacted", "Company"],
+    "Tab7": ["Question_Response"]
+  },
+  "ControlDisplay": {},
+  "FieldDef": [
+    {
+      "name": "ID",
+      "type": "string",
+      "width": "20",
+      "Option": "",
+      "SLabel": "Identification",
+      "LLabel": "Identification",
+      "Currency": "No"
+    },
+    {
+      "name": "VendorName",
+      "type": "string",
+      "width": "100",
+      "Option": "",
+      "SLabel": "Vendor Name",
+      "LLabel": "Vendor Name",
+      "Currency": "No"
+    },
+    {
+      "name": "Question_Response",
+      "type": "string",
+      "width": "500",
+      "Option": "",
+      "SLabel": "Question or Response",
+      "LLabel": "Question or Response",
+      "Currency": "No"
+    },
+    {
+      "name": "QuestionDate",
+      "type": "Date",
+      "width": "10",
+      "Option": "",
+      "SLabel": "Question Date",
+      "LLabel": "Question Date",
+      "Currency": "No"
+    },
+    {
       "name": "AppID",
       "type": "string",
       "width": "10",
@@ -15,4 +201,391 @@
       "SLabel": "BusObject",
       "LLabel": "BusObject",
       "Currency": "No"
-    },{"name": "ReasonForCreditNote", "type": "string", "width": "500", "Option": "", "SLabel": "Reason For Credit Note", "LLabel": "Reason For Credit Note", "Currency": "No"}, {"name": "Status", "type": "string", "width": "20", "Option": "", "SLabel": "Status", "LLabel": "Status", "Currency": "No"}, {"name": "PurchaserComment", "type": "string", "width": "500", "Option": "", "SLabel": "Purchaser Comment", "LLabel": "Purchaser Comment", "Currency": "No"}, {"name": "AccountsComment", "type": "string", "width": "500", "Option": "", "SLabel": "AP Comment", "LLabel": "AP Comment", "Currency": "No"}, {"name": "Attachment", "type": "attachment", "width": "200", "Option": "", "SLabel": "Attachment", "LLabel": "Attachment", "Currency": "No"}, {"name": "CreditNoteNumber", "type": "string", "width": "20", "Option": "", "SLabel": "Credit Note Number", "LLabel": "Credit Note Number", "Currency": "No"}, {"name": "CreditDate", "type": "Date", "width": "10", "Option": "", "SLabel": "Credit Date", "LLabel": "Credit Date", "Currency": "No"}, {"name": "CreditAmount", "type": "Num,2", "width": "20", "Option": "", "SLabel": "Credit Amount", "LLabel": "Credit Amount", "Currency": "Yes"}, {"name": "InvAmount", "type": "Num,2", "width": "20", "Option": "", "SLabel": "Invoice Gross Amount", "LLabel": "Invoice Gross Amount", "Currency": "Yes"}, {"name": "InvoiceDate", "type": "Date", "width": "10", "Option": "", "SLabel": "Invoice Date", "LLabel": "Invoice Date", "Currency": "No"}, {"name": "PONumber", "type": "string", "width": "20", "Option": "", "SLabel": "Purchase Order Number", "LLabel": "Purchase Order Number", "Currency": "No"}, {"name": "SuppInvoiceNumber", "type": "string", "width": "50", "Option": "", "SLabel": "Supplier Invoice Number", "LLabel": "Supplier Invoice Number", "Currency": "No"}, {"name": "VendorNumber", "type": "string", "width": "20", "Option": "", "SLabel": "Vendor Number", "LLabel": "Vendor Number", "Currency": "No"}, {"name": "POGrossValue", "type": "Num,2", "width": "50", "Option": "", "SLabel": "PO Gross Value", "LLabel": "PO Gross Value", "Currency": "Yes"}, {"name": "PONetValue", "type": "Num,2", "width": "50", "Option": "", "SLabel": "PO Net Value", "LLabel": "PO Net Value", "Currency": "Yes"}, {"name": "PODate", "type": "Date", "width": "10", "Option": "", "SLabel": "PO Date", "LLabel": "PO Date", "Currency": "No"}, {"name": "PaymentTerm", "type": "string", "width": "50", "Option": "", "SLabel": "Payment Term", "LLabel": "Payment Term", "Currency": "No"}, {"name": "Company", "type": "string", "width": "100", "Option": "", "SLabel": "Company", "LLabel": "Company", "Currency": "No"}, {"name": "DelEmail", "type": "string", "width": "100", "Option": "", "SLabel": "Delivery Email", "LLabel": "Delivery Email", "Currency": "No"}, {"name": "CommsType", "type": "string", "width": "100", "Option": "", "SLabel": "Comms Type", "LLabel": "Comms Type", "Currency": "No"}, {"name": "InvoiceType", "type": "string", "width": "50", "Option": "", "SLabel": "Invoice Type", "LLabel": "Invoice Type", "Currency": "No"}, {"name": "Question_Category", "type": "string", "width": "50", "Option": "", "SLabel": "Question Category", "LLabel": "Question Category", "Currency": "No"}, {"name": "TransType", "type": "string", "width": "100", "Option": "", "SLabel": "Transaction Type", "LLabel": "Transaction Type", "Currency": "No"}, {"name": "CountryImpacted", "type": "string", "width": "50", "Option": "", "SLabel": "Country", "LLabel": "Country", "Currency": "No"}, {"name": "Notification", "type": "string", "width": "50", "Option": "", "SLabel": "Notification", "LLabel": "Notification", "Currency": "No"}, {"name": "NotifyRole", "type": "string", "width": "50", "Option": "", "SLabel": "Notification Role", "LLabel": "Notification Role", "Currency": "No"}, {"name": "ContactName", "type": "string", "width": "50", "Option": "", "SLabel": "Contact Name", "LLabel": "Contact Name", "Currency": "No"}, {"name": "ContactNumber", "type": "string", "width": "50", "Option": "", "SLabel": "Contact Number", "LLabel": "Contact Number", "Currency": "No"}, {"name": "ContactEmail", "type": "string", "width": "100", "Option": "", "SLabel": "Contact Email", "LLabel": "Contact Email", "Currency": "No"}, {"name": "OldBusinessName", "type": "string", "width": "200", "Option": "", "SLabel": "Old Business Name", "LLabel": "Old Business Name", "Currency": "No"}, {"name": "NewBusinessName", "type": "string", "width": "200", "Option": "", "SLabel": "New Business Name", "LLabel": "New Business Name", "Currency": "No"}, {"name": "DateOfNameChange", "type": "Date", "width": "10", "Option": "", "SLabel": "Date Of Name Change", "LLabel": "Date Of Name Change", "Currency": "No"}, {"name": "PostCode", "type": "string", "width": "50", "Option": "", "SLabel": "Post Code", "LLabel": "Post Code", "Currency": "No"}, {"name": "HouseNumber", "type": "string", "width": "50", "Option": "", "SLabel": "House Number", "LLabel": "House Number", "Currency": "No"}, {"name": "NewAddress", "type": "string", "width": "200", "Option": "", "SLabel": "New Address", "LLabel": "New Address", "Currency": "No"}, {"name": "Packaging", "type": "string", "width": "200", "Option": "", "SLabel": "Packaging", "LLabel": "Packaging", "Currency": "No"}, {"name": "CollectionDate", "type": "Date", "width": "10", "Option": "", "SLabel": "Collection Date", "LLabel": "Collection Date", "Currency": "No"}, {"name": "InDays", "type": "Num,0", "width": "10", "Option": "", "SLabel": "Early Payment in Days", "LLabel": "Early Payment in Days", "Currency": "No"}, {"name": "DiscountAmount", "type": "Num,2", "width": "50", "Option": "", "SLabel": "Early Discount Amount", "LLabel": "Early Discount Amount", "Currency": "No"}], "itemConfig": {}, "CalculatedFields": {}, "Wizard": [{"id": "Step1", "fields": [{"name": "VendorName", "Sequence": "1", "Mode": "Edit"}, {"name": "QuestionDate", "Sequence": "1", "Mode": "Edit"}, {"name": "Question_Response", "Sequence": "1", "Mode": "Edit"}, {"name": "VendorNumber", "Sequence": "1", "Mode": "Edit"}], "name": "Details", "stepType": "FieldList", "intro": " General Comms : Details"}, {"id": "Step2", "fields": [{"name": "Status", "Sequence": "1", "Mode": "Edit"}], "name": "Admin", "stepType": "FieldList", "intro": " General Comms : Admin"}]}
+    },
+    {
+      "name": "ReasonForCreditNote",
+      "type": "string",
+      "width": "500",
+      "Option": "",
+      "SLabel": "Reason For Credit Note",
+      "LLabel": "Reason For Credit Note",
+      "Currency": "No"
+    },
+    {
+      "name": "Status",
+      "type": "string",
+      "width": "20",
+      "Option": "",
+      "SLabel": "Status",
+      "LLabel": "Status",
+      "Currency": "No"
+    },
+    {
+      "name": "PurchaserComment",
+      "type": "string",
+      "width": "500",
+      "Option": "",
+      "SLabel": "Purchaser Comment",
+      "LLabel": "Purchaser Comment",
+      "Currency": "No"
+    },
+    {
+      "name": "AccountsComment",
+      "type": "string",
+      "width": "500",
+      "Option": "",
+      "SLabel": "AP Comment",
+      "LLabel": "AP Comment",
+      "Currency": "No"
+    },
+    {
+      "name": "Attachment",
+      "type": "attachment",
+      "width": "200",
+      "Option": "",
+      "SLabel": "Attachment",
+      "LLabel": "Attachment",
+      "Currency": "No"
+    },
+    {
+      "name": "CreditNoteNumber",
+      "type": "string",
+      "width": "20",
+      "Option": "",
+      "SLabel": "Credit Note Number",
+      "LLabel": "Credit Note Number",
+      "Currency": "No"
+    },
+    {
+      "name": "CreditDate",
+      "type": "Date",
+      "width": "10",
+      "Option": "",
+      "SLabel": "Credit Date",
+      "LLabel": "Credit Date",
+      "Currency": "No"
+    },
+    {
+      "name": "CreditAmount",
+      "type": "Num,2",
+      "width": "20",
+      "Option": "",
+      "SLabel": "Credit Amount",
+      "LLabel": "Credit Amount",
+      "Currency": "Yes"
+    },
+    {
+      "name": "InvAmount",
+      "type": "Num,2",
+      "width": "20",
+      "Option": "",
+      "SLabel": "Invoice Gross Amount",
+      "LLabel": "Invoice Gross Amount",
+      "Currency": "Yes"
+    },
+    {
+      "name": "InvoiceDate",
+      "type": "Date",
+      "width": "10",
+      "Option": "",
+      "SLabel": "Invoice Date",
+      "LLabel": "Invoice Date",
+      "Currency": "No"
+    },
+    {
+      "name": "PONumber",
+      "type": "string",
+      "width": "20",
+      "Option": "",
+      "SLabel": "Purchase Order Number",
+      "LLabel": "Purchase Order Number",
+      "Currency": "No"
+    },
+    {
+      "name": "SuppInvoiceNumber",
+      "type": "string",
+      "width": "50",
+      "Option": "",
+      "SLabel": "Supplier Invoice Number",
+      "LLabel": "Supplier Invoice Number",
+      "Currency": "No"
+    },
+    {
+      "name": "VendorNumber",
+      "type": "string",
+      "width": "20",
+      "Option": "",
+      "SLabel": "Vendor Number",
+      "LLabel": "Vendor Number",
+      "Currency": "No"
+    },
+    {
+      "name": "POGrossValue",
+      "type": "Num,2",
+      "width": "50",
+      "Option": "",
+      "SLabel": "PO Gross Value",
+      "LLabel": "PO Gross Value",
+      "Currency": "Yes"
+    },
+    {
+      "name": "PONetValue",
+      "type": "Num,2",
+      "width": "50",
+      "Option": "",
+      "SLabel": "PO Net Value",
+      "LLabel": "PO Net Value",
+      "Currency": "Yes"
+    },
+    {
+      "name": "PODate",
+      "type": "Date",
+      "width": "10",
+      "Option": "",
+      "SLabel": "PO Date",
+      "LLabel": "PO Date",
+      "Currency": "No"
+    },
+    {
+      "name": "PaymentTerm",
+      "type": "string",
+      "width": "50",
+      "Option": "",
+      "SLabel": "Payment Term",
+      "LLabel": "Payment Term",
+      "Currency": "No"
+    },
+    {
+      "name": "Company",
+      "type": "string",
+      "width": "100",
+      "Option": "",
+      "SLabel": "Company",
+      "LLabel": "Company",
+      "Currency": "No"
+    },
+    {
+      "name": "DelEmail",
+      "type": "string",
+      "width": "100",
+      "Option": "",
+      "SLabel": "Delivery Email",
+      "LLabel": "Delivery Email",
+      "Currency": "No"
+    },
+    {
+      "name": "CommsType",
+      "type": "string",
+      "width": "100",
+      "Option": "",
+      "SLabel": "Comms Type",
+      "LLabel": "Comms Type",
+      "Currency": "No"
+    },
+    {
+      "name": "InvoiceType",
+      "type": "string",
+      "width": "50",
+      "Option": "",
+      "SLabel": "Invoice Type",
+      "LLabel": "Invoice Type",
+      "Currency": "No"
+    },
+    {
+      "name": "Question_Category",
+      "type": "string",
+      "width": "50",
+      "Option": "",
+      "SLabel": "Question Category",
+      "LLabel": "Question Category",
+      "Currency": "No"
+    },
+    {
+      "name": "TransType",
+      "type": "string",
+      "width": "100",
+      "Option": "",
+      "SLabel": "Transaction Type",
+      "LLabel": "Transaction Type",
+      "Currency": "No"
+    },
+    {
+      "name": "CountryImpacted",
+      "type": "string",
+      "width": "50",
+      "Option": "",
+      "SLabel": "Country",
+      "LLabel": "Country",
+      "Currency": "No"
+    },
+    {
+      "name": "Notification",
+      "type": "string",
+      "width": "50",
+      "Option": "",
+      "SLabel": "Notification",
+      "LLabel": "Notification",
+      "Currency": "No"
+    },
+    {
+      "name": "NotifyRole",
+      "type": "string",
+      "width": "50",
+      "Option": "",
+      "SLabel": "Notification Role",
+      "LLabel": "Notification Role",
+      "Currency": "No"
+    },
+    {
+      "name": "ContactName",
+      "type": "string",
+      "width": "50",
+      "Option": "",
+      "SLabel": "Contact Name",
+      "LLabel": "Contact Name",
+      "Currency": "No"
+    },
+    {
+      "name": "ContactNumber",
+      "type": "string",
+      "width": "50",
+      "Option": "",
+      "SLabel": "Contact Number",
+      "LLabel": "Contact Number",
+      "Currency": "No"
+    },
+    {
+      "name": "ContactEmail",
+      "type": "string",
+      "width": "100",
+      "Option": "",
+      "SLabel": "Contact Email",
+      "LLabel": "Contact Email",
+      "Currency": "No"
+    },
+    {
+      "name": "OldBusinessName",
+      "type": "string",
+      "width": "200",
+      "Option": "",
+      "SLabel": "Old Business Name",
+      "LLabel": "Old Business Name",
+      "Currency": "No"
+    },
+    {
+      "name": "NewBusinessName",
+      "type": "string",
+      "width": "200",
+      "Option": "",
+      "SLabel": "New Business Name",
+      "LLabel": "New Business Name",
+      "Currency": "No"
+    },
+    {
+      "name": "DateOfNameChange",
+      "type": "Date",
+      "width": "10",
+      "Option": "",
+      "SLabel": "Date Of Name Change",
+      "LLabel": "Date Of Name Change",
+      "Currency": "No"
+    },
+    {
+      "name": "PostCode",
+      "type": "string",
+      "width": "50",
+      "Option": "",
+      "SLabel": "Post Code",
+      "LLabel": "Post Code",
+      "Currency": "No"
+    },
+    {
+      "name": "HouseNumber",
+      "type": "string",
+      "width": "50",
+      "Option": "",
+      "SLabel": "House Number",
+      "LLabel": "House Number",
+      "Currency": "No"
+    },
+    {
+      "name": "NewAddress",
+      "type": "string",
+      "width": "200",
+      "Option": "",
+      "SLabel": "New Address",
+      "LLabel": "New Address",
+      "Currency": "No"
+    },
+    {
+      "name": "Packaging",
+      "type": "string",
+      "width": "200",
+      "Option": "",
+      "SLabel": "Packaging",
+      "LLabel": "Packaging",
+      "Currency": "No"
+    },
+    {
+      "name": "CollectionDate",
+      "type": "Date",
+      "width": "10",
+      "Option": "",
+      "SLabel": "Collection Date",
+      "LLabel": "Collection Date",
+      "Currency": "No"
+    },
+    {
+      "name": "InDays",
+      "type": "Num,0",
+      "width": "10",
+      "Option": "",
+      "SLabel": "Early Payment in Days",
+      "LLabel": "Early Payment in Days",
+      "Currency": "No"
+    },
+    {
+      "name": "DiscountAmount",
+      "type": "Num,2",
+      "width": "50",
+      "Option": "",
+      "SLabel": "Early Discount Amount",
+      "LLabel": "Early Discount Amount",
+      "Currency": "No"
+    }
+  ],
+  "itemConfig": {
+    "ItemFieldDefinition": [],
+    "DisplayFields": [],
+    "ItemButtons": {
+      "itemDisplay": false,
+      "itemAdd": false,
+      "itemEdit": false,
+      "itemDelete": false
+    },
+    "CreateFields": [],
+    "ItemDetails": []
+  },
+  "CalculatedFields": {},
+  "Wizard": [
+    {
+      "id": "Step1",
+      "fields": [
+        { "name": "VendorName", "Sequence": "1", "Mode": "Edit" },
+        { "name": "QuestionDate", "Sequence": "1", "Mode": "Edit" },
+        { "name": "Question_Response", "Sequence": "1", "Mode": "Edit" },
+        { "name": "VendorNumber", "Sequence": "1", "Mode": "Edit" }
+      ],
+      "name": "Details",
+      "stepType": "FieldList",
+      "intro": " General Comms : Details"
+    },
+    {
+      "id": "Step2",
+      "fields": [{ "name": "Status", "Sequence": "1", "Mode": "Edit" }],
+      "name": "Admin",
+      "stepType": "FieldList",
+      "intro": " General Comms : Admin"
+    }
+  ]
+}

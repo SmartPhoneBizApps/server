@@ -54,6 +54,19 @@ exports.createApprole = asyncHandler(async (req, res, next) => {
 // @access    Private
 exports.updateApprole = asyncHandler(async (req, res, next) => {
   let approle = await Approle.findById(req.params.id);
+  amg = {};
+  console.log(req.body.appID);
+  if (req.body.appID) {
+    if (req.headers.addapp == "Yes") {
+      let app01 = await App.findOne({ applicationID: req.body.appID });
+      amg = app01;
+      console.log("Apps", amg);
+      approle["Apps"].push(amg);
+      console.log("AG", approle["Apps"]);
+      req.body["Apps"] = approle["Apps"];
+      console.log(req.body["Apps"]);
+    }
+  }
 
   if (!approle) {
     return next(
