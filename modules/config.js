@@ -277,9 +277,40 @@ module.exports = {
     };
     card["cardMinRows"] = 4;
     card["cardColumn"] = 4;
-
-    header["title"] = "Book Taxi";
-    header["subTitle"] = "Booking App for Taxi";
+    header["title"] = "Create Record";
+    header["subTitle"] = "Create Form";
+    if (appID == "BUS0000001") {
+      header["title"] = "IT Service Ticket";
+      header["subTitle"] = "Request IT Service Ticket";
+    }
+    if (appID == "BUS0000002") {
+      header["title"] = "Flight Booking";
+      header["subTitle"] = "Request Flight Booking";
+    }
+    if (appID == "BUS0000003") {
+      header["title"] = "Taxi Booking";
+      header["subTitle"] = "Request Online Taxi Booking";
+    }
+    if (appID == "BUS0000004") {
+      header["title"] = "Train Booking";
+      header["subTitle"] = "Request Train Booking";
+    }
+    if (appID == "BUS0000005") {
+      header["title"] = "Contact Us";
+      header["subTitle"] = "Contact Us";
+    }
+    if (appID == "BUS0000006") {
+      header["title"] = "Employee Complaint";
+      header["subTitle"] = "Employee Complaint";
+    }
+    if (appID == "EMPACC01") {
+      header["title"] = "Laptop Requests";
+      header["subTitle"] = "New Laptop Request ";
+    }
+    if (appID == "EMPBOK01") {
+      header["title"] = "Employee Bookings";
+      header["subTitle"] = "Meeting Room Booking";
+    }
     icon["src"] = "sap-icon://form";
     header["icon"] = icon;
     cardSub1["header"] = header;
