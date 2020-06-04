@@ -39,7 +39,7 @@ exports.uploadFile = asyncHandler(async (req, res, next) => {
   file.name = `file_${req.user.id}${path.parse(file.name).ext}`;
   console.log("Inside Upload ", file.name);
   const filecsvFilePath = "./public/uploadFiles/" + file.name;
-  const outFileName = "/public/uploadFiles/" + file.name;
+  const outFileName = "/uploadFiles/" + file.name;
   file.mv(`${process.env.DATA_UPLOAD_PATH}/${file.name}`, async (err) => {
     if (err) {
       console.error(err);
