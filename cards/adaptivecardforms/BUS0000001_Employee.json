@@ -45,7 +45,7 @@
     },
     {
       "type": "TextBlock",
-      "isSubtle": true,
+      "isMultiline": true,
       "size": "medium",
       "text": "Describe Problem"
     },
@@ -55,17 +55,15 @@
       "style": "text",
       "id": "DescribeProblem"
     },
+
     {
-      "type": "TextBlock",
-      "isSubtle": true,
-      "size": "medium",
-      "text": "Status"
-    },
-    {
-      "placeholder": "Status",
-      "type": "Input.Text",
-      "style": "text",
-      "id": "Status"
+      "type": "Input.Toggle",
+      "title": "I accept the terms and conditions",
+      "id": "Checked",
+      "wrap": true,
+      "value": "false",
+      "valueOn": "true",
+      "valueOff": "false"
     }
   ]
 }

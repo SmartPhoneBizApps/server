@@ -47,10 +47,19 @@
       "text": "Return Journey"
     },
     {
-      "placeholder": "Return Journey",
-      "type": "Input.Text",
-      "style": "text",
-      "id": "ReturnJourney"
+      "type": "Input.ChoiceSet",
+      "style": "expanded",
+      "id": "ReturnJourney",
+      "choices": [
+        {
+          "title": "Yes",
+          "value": "1"
+        },
+        {
+          "title": "No",
+          "value": "2"
+        }
+      ]
     },
     {
       "type": "TextBlock",
