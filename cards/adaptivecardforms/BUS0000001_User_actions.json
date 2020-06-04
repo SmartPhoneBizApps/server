@@ -1,0 +1,38 @@
+{
+  "actions": [
+    {
+      "type": "Action.ShowCard",
+      "title": "Additional Information",
+      "card": {
+        "type": "AdaptiveCard",
+        "body": [
+          {
+            "type": "TextBlock",
+            "isSubtle": true,
+            "size": "medium",
+            "text": "Screen Shot"
+          },
+          {
+            "placeholder": "Screen Shot",
+            "type": "Input.Text",
+            "style": "text",
+            "id": "ScreenShot"
+          },
+          {
+            "type": "TextBlock",
+            "isSubtle": true,
+            "size": "medium",
+            "text": "User Account"
+          },
+          {
+            "placeholder": "User Account",
+            "type": "Input.Text",
+            "style": "text",
+            "id": "UserAccount"
+          }
+        ]
+      }
+    },
+    { "type": "Action.Submit", "title": "Submit" }
+  ]
+}

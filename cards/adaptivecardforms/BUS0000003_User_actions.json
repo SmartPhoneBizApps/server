@@ -1,0 +1,74 @@
+{
+  "actions": [
+    {
+      "type": "Action.ShowCard",
+      "title": "Additional Information",
+      "card": {
+        "type": "AdaptiveCard",
+        "body": [
+          {
+            "type": "TextBlock",
+            "isSubtle": true,
+            "size": "medium",
+            "text": "Cost Centre"
+          },
+          {
+            "placeholder": "Cost Centre",
+            "type": "Input.Text",
+            "style": "text",
+            "id": "CostCentre"
+          },
+          {
+            "type": "TextBlock",
+            "isSubtle": true,
+            "size": "medium",
+            "text": "User Account"
+          },
+          {
+            "placeholder": "User Account",
+            "type": "Input.Text",
+            "style": "text",
+            "id": "UserAccount"
+          },
+          {
+            "type": "TextBlock",
+            "isSubtle": true,
+            "size": "medium",
+            "text": "Phone"
+          },
+          {
+            "placeholder": "Phone",
+            "type": "Input.Text",
+            "style": "text",
+            "id": "Phone"
+          },
+          {
+            "type": "TextBlock",
+            "isSubtle": true,
+            "size": "medium",
+            "text": "Return Time"
+          },
+          {
+            "placeholder": "Return Time",
+            "type": "Input.Text",
+            "style": "text",
+            "id": "ReturnTime"
+          },
+          {
+            "type": "TextBlock",
+            "isSubtle": true,
+            "size": "medium",
+            "text": "Start Time"
+          },
+          {
+            "placeholder": "Start Time",
+            "type": "Input.Text",
+            "style": "text",
+            "id": "StartTime"
+          }
+        ]
+      }
+    },
+    { "type": "Action.Submit", "title": "Submit" }
+  ]
+}

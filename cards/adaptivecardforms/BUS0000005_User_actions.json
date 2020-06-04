@@ -1,0 +1,26 @@
+{
+  "actions": [
+    {
+      "type": "Action.ShowCard",
+      "title": "Additional Information",
+      "card": {
+        "type": "AdaptiveCard",
+        "body": [
+          {
+            "type": "TextBlock",
+            "isSubtle": true,
+            "size": "medium",
+            "text": "Contact Date"
+          },
+          {
+            "placeholder": "Contact Date",
+            "type": "Input.Text",
+            "style": "text",
+            "id": "ContactDate"
+          }
+        ]
+      }
+    },
+    { "type": "Action.Submit", "title": "Submit" }
+  ]
+}

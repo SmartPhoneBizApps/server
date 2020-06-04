@@ -1,0 +1,50 @@
+{
+  "actions": [
+    {
+      "type": "Action.ShowCard",
+      "title": "Additional Information",
+      "card": {
+        "type": "AdaptiveCard",
+        "body": [
+          {
+            "type": "TextBlock",
+            "isSubtle": true,
+            "size": "medium",
+            "text": "Phone"
+          },
+          {
+            "placeholder": "Phone",
+            "type": "Input.Text",
+            "style": "text",
+            "id": "Phone"
+          },
+          {
+            "type": "TextBlock",
+            "isSubtle": true,
+            "size": "medium",
+            "text": "Supervisor"
+          },
+          {
+            "placeholder": "Supervisor",
+            "type": "Input.Text",
+            "style": "text",
+            "id": "Supervisor"
+          },
+          {
+            "type": "TextBlock",
+            "isSubtle": true,
+            "size": "medium",
+            "text": "Supervisor Comment"
+          },
+          {
+            "placeholder": "Supervisor Comment",
+            "type": "Input.Text",
+            "style": "text",
+            "id": "SupervisorComment"
+          }
+        ]
+      }
+    },
+    { "type": "Action.Submit", "title": "Submit" }
+  ]
+}
