@@ -35,8 +35,8 @@ exports.uploadFile = asyncHandler(async (req, res, next) => {
       )
     );
   }
-  file.name = "abc.csv";
-  // file.name = `file_${req.user.id}${path.parse(file.name).ext}`;
+  //file.name = "abc.csv";
+  file.name = `file_${req.user.id}${path.parse(file.name).ext}`;
   console.log("Inside Upload ", file.name);
   const filecsvFilePath = "./public/uploadFiles/" + file.name;
   const outFileName = "/public/uploadFiles/" + file.name;
