@@ -150,7 +150,7 @@ const advancedDataList = (model, model2, AppID, populate) => async (
         results[i1].USP_Image =
           "https://www.espncricinfo.com/inline/content/image/1183835.html?alt=1";
       }
-      console.log(results[i1].carouselImage);
+      /*       console.log(results[i1].carouselImage);
       if (
         results[i1].MultiAttachments &
         (results[i1].MultiAttachments.length > 0)
@@ -170,8 +170,13 @@ const advancedDataList = (model, model2, AppID, populate) => async (
         }
         results[i1].MultiAttachments[index] = { ...tr1 };
         tr1 = [];
-      }
-      if (results[i1].carouselImage & (results[i1].carouselImage.length > 0)) {
+      }*/
+      console.log(results[i1]);
+      results[i1].carouselImage.forEach((element) => {
+        console.log("AG", element);
+      });
+
+      if (results[i1].carouselImage) {
         for (let index = 0; index < results[i1].carouselImage.length; index++) {
           const element = results[i1].carouselImage[index];
           results[i1].carouselImage[index] =

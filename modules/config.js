@@ -191,10 +191,16 @@ module.exports = {
     });
     return result;
   },
+  // Business Application Modules....
+  findOneAppDatabyid: function (TransID, app) {
+    let path = "../models/smartApp/" + app;
+    const Model = require(path);
+    result = Model.findById(TransID);
+    return result;
+  },
   findOneUpdateData: function (mdata, app) {
     let path = "../models/smartApp/" + app;
     const Model = require(path);
-    console.log("AG", mdata.id);
     result = Model.findOneAndUpdate({ ID: mdata.ID }, mdata, {
       new: true,
       runValidators: true,

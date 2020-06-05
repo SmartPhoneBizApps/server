@@ -136,7 +136,7 @@ app.use(
   "/api/v1/uploadHeaderItemFile/",
   require("./routes/smartApp/uploadHeaderItemFile")
 );
-
+app.use("/api/v1/detaillist/", require("./routes/smartApp/detaillist"));
 //  -------------------------------------------------
 //  ----------  ***** UTILITIES *****  ----------
 //  -------------------------------------------------
