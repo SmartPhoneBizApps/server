@@ -3,6 +3,7 @@
     "ApplicationTitle": "Student Information Form",
     "DetailTitle": "Student Information Form"
   },
+  "Controls": { "USP": "UserProfile" },
   "ListFields": {
     "IntroField": "StudentName",
     "TitleField": "PhoneNumber",
@@ -45,6 +46,9 @@
     }
   ],
   "DetailFields": {
+    "headerTitle": ["USP_Name"],
+    "headerRole": ["USP_Role"],
+    "headerImage": ["USP_Image"],
     "None": ["ID", "StudentName", "PhoneNumber", "Status", "BirthDate"],
     "Tab1": [
       "Email",

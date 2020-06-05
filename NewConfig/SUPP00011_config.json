@@ -1,5 +1,6 @@
 {
   "Title": { "ApplicationTitle": "Quotation", "DetailTitle": "Quotation" },
+  "Controls": { "USP": "UserProfile" },
   "ListFields": {
     "IntroField": "",
     "TitleField": "",
@@ -70,6 +71,9 @@
     }
   ],
   "DetailFields": {
+    "headerTitle": ["USP_Name"],
+    "headerRole": ["USP_Role"],
+    "headerImage": ["USP_Image"],
     "None": ["QuoteNo", "RefNo", "ShortText"],
     "Tab1": ["QuoteItem", "Category", "Material", "RFQDate", "RFQQty", "UoM"],
     "Tab2": [

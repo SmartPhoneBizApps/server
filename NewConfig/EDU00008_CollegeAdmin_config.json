@@ -3,6 +3,7 @@
     "ApplicationTitle": "Scholarship Application Form",
     "DetailTitle": "Scholarship Application Form"
   },
+  "Controls": { "USP": "UserProfile" },
   "ListFields": {
     "IntroField": "FirstName",
     "TitleField": "Town",
@@ -91,6 +92,9 @@
     }
   ],
   "DetailFields": {
+    "headerTitle": ["USP_Name"],
+    "headerRole": ["USP_Role"],
+    "headerImage": ["USP_Image"],
     "None": ["ID", "FirstName", "SocialSecurityNumber", "Status"],
     "Tab1": [
       "LastName",

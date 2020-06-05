@@ -3,6 +3,7 @@
     "ApplicationTitle": "Suplier Invoice",
     "DetailTitle": "Suplier Invoice"
   },
+  "Controls": { "USP": "UserProfile" },
   "ListFields": {
     "IntroField": "Details",
     "TitleField": "VendorInvoice",
@@ -51,6 +52,9 @@
     }
   ],
   "DetailFields": {
+    "headerTitle": ["USP_Name"],
+    "headerRole": ["USP_Role"],
+    "headerImage": ["USP_Image"],
     "None": ["InvoiceNo", "VendorName", "PaymentTerm"],
     "Tab1": [
       "VendorInvoice",

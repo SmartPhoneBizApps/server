@@ -1,5 +1,6 @@
 {
   "Title": { "ApplicationTitle": "Payslip", "DetailTitle": "Payslip" },
+  "Controls": { "USP": "UserProfile" },
   "ListFields": {
     "IntroField": "PayDate",
     "TitleField": "Name",
@@ -52,6 +53,9 @@
     }
   ],
   "DetailFields": {
+    "headerTitle": ["USP_Name"],
+    "headerRole": ["USP_Role"],
+    "headerImage": ["USP_Image"],
     "None": ["ID", "PayDate", "PaymentMode", "Status"],
     "Tab1": ["Company", "TaxCode", "Name", "EmployeeID", "NINumber"],
     "Tab2": [

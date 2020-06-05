@@ -3,6 +3,7 @@
     "ApplicationTitle": "Student Registration",
     "DetailTitle": "Student Registration"
   },
+  "Controls": { "USP": "UserProfile" },
   "ListFields": {
     "IntroField": "Name",
     "TitleField": "Surname",
@@ -40,6 +41,9 @@
     { "value": "Tab3", "name": "Location", "type": "Field", "fioriicon": "map" }
   ],
   "DetailFields": {
+    "headerTitle": ["USP_Name"],
+    "headerRole": ["USP_Role"],
+    "headerImage": ["USP_Image"],
     "None": ["ID", "Name", "Surname", "Status"],
     "Tab1": [
       "SchoolNo",

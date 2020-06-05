@@ -3,6 +3,7 @@
     "ApplicationTitle": "Pupil Dues",
     "DetailTitle": "Details of Pupil Dues"
   },
+  "Controls": { "USP": "UserProfile" },
   "ListFields": {
     "IntroField": "StudentName",
     "TitleField": "Surname",
@@ -41,6 +42,9 @@
     }
   ],
   "DetailFields": {
+    "headerTitle": ["USP_Name"],
+    "headerRole": ["USP_Role"],
+    "headerImage": ["USP_Image"],
     "None": ["ID", "Status"],
     "Tab1": ["StudentName", "Surname", "DateOfBirth", "YearGroup", "Section"],
     "Tab2": ["DueFor", "DueReason", "DueAmt", "DueDate", "Balance"]

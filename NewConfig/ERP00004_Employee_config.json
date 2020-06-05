@@ -3,6 +3,7 @@
     "ApplicationTitle": "Daily Production Report",
     "DetailTitle": "Daily Production Report"
   },
+  "Controls": { "USP": "UserProfile" },
   "ListFields": {
     "IntroField": "Time",
     "TitleField": "Material",
@@ -70,6 +71,9 @@
     }
   ],
   "DetailFields": {
+    "headerTitle": ["USP_Name"],
+    "headerRole": ["USP_Role"],
+    "headerImage": ["USP_Image"],
     "None": ["ID", "Material", "UoM", "PostCode", "Address"],
     "Tab1": [
       "Qty",

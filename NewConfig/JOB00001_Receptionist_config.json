@@ -1,5 +1,6 @@
 {
   "Title": { "ApplicationTitle": "Job Listing", "DetailTitle": "Job Listing" },
+  "Controls": { "USP": "UserProfile" },
   "ListFields": {
     "IntroField": "Title",
     "TitleField": "JobType",
@@ -36,6 +37,9 @@
     }
   ],
   "DetailFields": {
+    "headerTitle": ["USP_Name"],
+    "headerRole": ["USP_Role"],
+    "headerImage": ["USP_Image"],
     "None": ["ID", "Title", "Location", "Industry", "Status"],
     "Tab1": [
       "Summary",

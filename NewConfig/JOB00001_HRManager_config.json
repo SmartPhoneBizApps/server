@@ -1,16 +1,21 @@
 {
   "Title": { "ApplicationTitle": "Job Listing", "DetailTitle": "Job Listing" },
+  "Controls": {
+    "USP": "UserProfile",
+    "AttachmentURL": "https://fierce-oasis-51455.herokuapp.com/appData",
+    "carouselURL": "https://fierce-oasis-51455.herokuapp.com/appData"
+  },
   "ListFields": {
     "IntroField": "Title",
     "TitleField": "JobType",
     "fStatus": "Status",
-    "LFields": ["ID", "Location"]
+    "LFields": ["ID", "Location", "Duration", "StartDate"]
   },
   "ListBOTFields": {
     "None": ["cardImage", "StatusState"],
-    "Title": [],
-    "SubTitle": [],
-    "Description": []
+    "Title": ["Title", "JobType"],
+    "SubTitle": ["Salary", "Rate", "Location"],
+    "Description": ["ID", "Location", "Duration", "StartDate"]
   },
   "PossibleValues": ["JobType", "Status"],
   "MButtons": [
@@ -64,9 +69,31 @@
       "name": "Contact",
       "type": "Field",
       "fioriicon": "contacts"
+    },
+    {
+      "value": "Tab3",
+      "name": "Attachments",
+      "type": "MultiAttachments",
+      "fioriicon": "contacts"
+    },
+    {
+      "value": "Tab4",
+      "name": "Certifications",
+      "type": "carouselImage",
+      "fioriicon": "contacts"
+    },
+    {
+      "value": "Tab5",
+      "name": "Process Log",
+      "type": "ProcessingLog",
+      "fioriicon": "contacts"
     }
   ],
   "DetailFields": {
+    "headerTitle": ["USP_Name"],
+    "headerRole": ["USP_Role"],
+    "headerImage": ["USP_Image"],
+
     "None": ["ID", "Title", "Location", "Industry", "Status"],
     "Tab1": [
       "Summary",
@@ -83,11 +110,13 @@
       "EmpBusiness",
       "Contact",
       "Telephone",
-      "Fax",
       "Email",
       "WebLink",
       "PostedDate"
-    ]
+    ],
+    "Tab3": ["MultiAttachments"],
+    "Tab4": ["carouselImage"],
+    "Tab5": ["ProcessingLog"]
   },
   "ControlDisplay": {},
   "FieldDef": [
@@ -100,27 +129,208 @@
       "LLabel": "",
       "Currency": "No"
     },
-    { "name": "Title", "type": "string", "width": "500" },
-    { "name": "Summary", "type": "string", "width": "500" },
-    { "name": "Details", "type": "string", "width": "1000" },
-    { "name": "EssentialExp", "type": "string", "width": "1000" },
-    { "name": "PreferredExp", "type": "string", "width": "500" },
-    { "name": "Location", "type": "string", "width": "100" },
-    { "name": "Industry", "type": "string", "width": "100" },
-    { "name": "Duration", "type": "string", "width": "100" },
-    { "name": "JobType", "type": "string", "width": "50" },
-    { "name": "StartDate", "type": "Date", "width": "10" },
-    { "name": "Rate", "type": "string", "width": "50" },
-    { "name": "Salary", "type": "string", "width": "50" },
-    { "name": "EmpBusiness", "type": "string", "width": "100" },
-    { "name": "Contact", "type": "string", "width": "100" },
-    { "name": "Telephone", "type": "string", "width": "100" },
-    { "name": "Fax", "type": "string", "width": "100" },
-    { "name": "Email", "type": "string", "width": "100" },
-    { "name": "WebLink", "type": "string", "width": "100" },
-    { "name": "PostedDate", "type": "Date", "width": "10" },
-    { "name": "Status", "type": "string", "width": "20" }
+    {
+      "name": "Title",
+      "type": "string",
+      "width": "500",
+      "Option": "",
+      "SLabel": "Job Title",
+      "LLabel": "Job Title"
+    },
+    {
+      "name": "Summary",
+      "type": "string",
+      "width": "500",
+      "Option": "",
+      "SLabel": "Job Summary",
+      "LLabel": "Job Summary"
+    },
+    {
+      "name": "Details",
+      "type": "string",
+      "width": "1000",
+      "Option": "",
+      "SLabel": "Job Details",
+      "LLabel": "Job Details"
+    },
+    {
+      "name": "EssentialExp",
+      "type": "string",
+      "width": "1000",
+      "Option": "",
+      "SLabel": "Essential Experience",
+      "LLabel": "Essential Experience"
+    },
+    {
+      "name": "PreferredExp",
+      "type": "string",
+      "width": "500",
+      "Option": "",
+      "SLabel": "Preferred Experience",
+      "LLabel": "Preferred Experience"
+    },
+    {
+      "name": "Location",
+      "type": "string",
+      "width": "100",
+      "Option": "",
+      "SLabel": "Location",
+      "LLabel": "Location"
+    },
+    {
+      "name": "Industry",
+      "type": "string",
+      "width": "100",
+      "Option": "",
+      "SLabel": "Industry",
+      "LLabel": "Industry"
+    },
+    {
+      "name": "Duration",
+      "type": "string",
+      "width": "100",
+      "Option": "",
+      "SLabel": "Duration",
+      "LLabel": "Duration"
+    },
+    {
+      "name": "JobType",
+      "type": "string",
+      "width": "50",
+      "Option": "",
+      "SLabel": "Job Type",
+      "LLabel": "Job Type"
+    },
+    {
+      "name": "StartDate",
+      "type": "Date",
+      "width": "10",
+      "Option": "",
+      "SLabel": "Start Date",
+      "LLabel": "Start Date"
+    },
+    {
+      "name": "Rate",
+      "type": "string",
+      "width": "50",
+      "Option": "",
+      "SLabel": "Rate",
+      "LLabel": "Rate"
+    },
+    {
+      "name": "Salary",
+      "type": "string",
+      "width": "50",
+      "Option": "",
+      "SLabel": "Salary",
+      "LLabel": "Salary"
+    },
+    {
+      "name": "EmpBusiness",
+      "type": "string",
+      "width": "100",
+      "Option": "",
+      "SLabel": "Agency",
+      "LLabel": "Agency"
+    },
+    {
+      "name": "Contact",
+      "type": "string",
+      "width": "100",
+      "Option": "",
+      "SLabel": "Contact",
+      "LLabel": "Contact"
+    },
+    {
+      "name": "Telephone",
+      "type": "string",
+      "width": "100",
+      "Option": "",
+      "SLabel": "Telephone",
+      "LLabel": "Telephone"
+    },
+    {
+      "name": "Email",
+      "type": "string",
+      "width": "100",
+      "Option": "",
+      "SLabel": "Email",
+      "LLabel": "Email"
+    },
+    {
+      "name": "WebLink",
+      "type": "string",
+      "width": "100",
+      "Option": "",
+      "SLabel": "Web Link",
+      "LLabel": "Web Link"
+    },
+    {
+      "name": "PostedDate",
+      "type": "Date",
+      "width": "10",
+      "Option": "",
+      "SLabel": "Posted Date",
+      "LLabel": "Posted Date"
+    },
+    {
+      "name": "Status",
+      "type": "string",
+      "width": "20",
+      "Option": "",
+      "SLabel": "Status",
+      "LLabel": "Status"
+    },
+    {
+      "name": "MultiAttachments",
+      "type": "string",
+      "width": "200",
+      "Option": "",
+      "SLabel": "CV",
+      "LLabel": "CV"
+    },
+    {
+      "name": "carouselImage",
+      "type": "string",
+      "width": "200",
+      "Option": "",
+      "SLabel": "Certificates",
+      "LLabel": "Certificates"
+    },
+    {
+      "name": "ProcessingLog",
+      "type": "string",
+      "width": "200",
+      "Option": "",
+      "SLabel": "Processing Log",
+      "LLabel": "Processing Log"
+    },
+    {
+      "name": "USP_Role",
+      "type": "string",
+      "width": "50",
+      "Option": "",
+      "SLabel": "User Role",
+      "LLabel": "User Role"
+    },
+    {
+      "name": "USP_Name",
+      "type": "string",
+      "width": "100",
+      "Option": "",
+      "SLabel": "User Name",
+      "LLabel": "User Name"
+    },
+    {
+      "name": "USP_Image",
+      "type": "string",
+      "width": "200",
+      "Option": "",
+      "SLabel": "Profile Image",
+      "LLabel": "Profile Image"
+    }
   ],
+
   "itemConfig": {
     "ItemFieldDefinition": [],
     "DisplayFields": [],

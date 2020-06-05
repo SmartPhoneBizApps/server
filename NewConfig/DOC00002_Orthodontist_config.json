@@ -3,6 +3,7 @@
     "ApplicationTitle": "Dental Referral Form (Orthodontist View)",
     "DetailTitle": "Dental Referral Form (Orthodontist View)"
   },
+  "Controls": { "USP": "UserProfile" },
   "ListFields": {
     "IntroField": "PatientFirstName",
     "TitleField": "PatientLastName",
@@ -102,6 +103,9 @@
     }
   ],
   "DetailFields": {
+    "headerTitle": ["USP_Name"],
+    "headerRole": ["USP_Role"],
+    "headerImage": ["USP_Image"],
     "None": ["ID"],
     "Tab1": [
       "DentistName",

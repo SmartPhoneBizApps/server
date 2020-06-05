@@ -3,6 +3,7 @@
     "ApplicationTitle": "Supplier Registration",
     "DetailTitle": "Supplier Registration"
   },
+  "Controls": { "USP": "UserProfile" },
   "ListFields": {
     "IntroField": "",
     "TitleField": "",
@@ -92,6 +93,9 @@
     }
   ],
   "DetailFields": {
+    "headerTitle": ["USP_Name"],
+    "headerRole": ["USP_Role"],
+    "headerImage": ["USP_Image"],
     "None": ["Status", "RegNo", "CompanyName", "IntrestArea"],
     "Tab1": [
       "CompanyType",

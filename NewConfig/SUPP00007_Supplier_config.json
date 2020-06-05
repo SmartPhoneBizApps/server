@@ -3,6 +3,7 @@
     "ApplicationTitle": "General Comms",
     "DetailTitle": "General Comms"
   },
+  "Controls": { "USP": "UserProfile" },
   "ListFields": {
     "IntroField": "ID",
     "TitleField": "CommsType",
@@ -116,6 +117,9 @@
     }
   ],
   "DetailFields": {
+    "headerTitle": ["USP_Name"],
+    "headerRole": ["USP_Role"],
+    "headerImage": ["USP_Image"],
     "None": ["ID", "VendorName", "Status", "TransType", "VendorNumber"],
     "Tab1": [
       "QuestionDate",

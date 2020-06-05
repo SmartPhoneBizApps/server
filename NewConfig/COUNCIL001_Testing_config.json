@@ -3,6 +3,7 @@
     "ApplicationTitle": "Benefit Fraud",
     "DetailTitle": "Benefit Fraud"
   },
+  "Controls": { "USP": "UserProfile" },
   "ListFields": {
     "IntroField": "",
     "TitleField": "",
@@ -89,6 +90,9 @@
     }
   ],
   "DetailFields": {
+    "headerTitle": ["USP_Name"],
+    "headerRole": ["USP_Role"],
+    "headerImage": ["USP_Image"],
     "None": ["ID", "TheirName", "TheirAddress", "Status"],
     "Tab1": ["Q1", "A1", "Q2", "A2", "Q3", "A3"],
     "Tab2": [

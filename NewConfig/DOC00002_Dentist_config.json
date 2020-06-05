@@ -3,6 +3,7 @@
     "ApplicationTitle": "Dental Referral Form",
     "DetailTitle": "Dental Referral Form"
   },
+  "Controls": { "USP": "UserProfile" },
   "ListFields": {
     "IntroField": "PatientFirstName",
     "TitleField": "PatientLastName",
@@ -102,6 +103,9 @@
     }
   ],
   "DetailFields": {
+    "headerTitle": ["USP_Name"],
+    "headerRole": ["USP_Role"],
+    "headerImage": ["USP_Image"],
     "None": ["ID", "ReferralDate"],
     "Tab1": [
       "DentistAddress",

@@ -3,6 +3,7 @@
     "ApplicationTitle": "Contract Spend",
     "DetailTitle": "Contract Spend"
   },
+  "Controls": { "USP": "UserProfile" },
   "ListFields": {
     "IntroField": "",
     "TitleField": "",
@@ -80,6 +81,9 @@
     }
   ],
   "DetailFields": {
+    "headerTitle": ["USP_Name"],
+    "headerRole": ["USP_Role"],
+    "headerImage": ["USP_Image"],
     "None": ["ContractNo", "CreationDate", "Status", "StartDate", "Details"],
     "Tab1": [
       "ContractType",

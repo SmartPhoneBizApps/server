@@ -3,6 +3,7 @@
     "ApplicationTitle": "Suplier Purchase Orders\"i\"",
     "DetailTitle": "Suplier Purchase Orders\"i\""
   },
+  "Controls": { "USP": "UserProfile" },
   "ListFields": {
     "IntroField": "PONumber",
     "TitleField": "VendorName",
@@ -116,6 +117,9 @@
     }
   ],
   "DetailFields": {
+    "headerTitle": ["USP_Name"],
+    "headerRole": ["USP_Role"],
+    "headerImage": ["USP_Image"],
     "None": ["ID", "VendorName", "PONumber", "VendorNumber", "VendorEmail"],
     "Tab1": [
       "DelTo",

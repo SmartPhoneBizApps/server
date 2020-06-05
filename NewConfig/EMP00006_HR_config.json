@@ -3,6 +3,7 @@
     "ApplicationTitle": "Training Requirement",
     "DetailTitle": "Training Requirement"
   },
+  "Controls": { "USP": "UserProfile" },
   "ListFields": {
     "IntroField": "Area",
     "TitleField": "Name",
@@ -40,6 +41,9 @@
     }
   ],
   "DetailFields": {
+    "headerTitle": ["USP_Name"],
+    "headerRole": ["USP_Role"],
+    "headerImage": ["USP_Image"],
     "None": ["ID", "Status"],
     "Tab1": [
       "EmpRef",

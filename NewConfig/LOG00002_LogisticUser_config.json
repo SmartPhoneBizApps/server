@@ -1,5 +1,6 @@
 {
   "Title": { "ApplicationTitle": "PickUp", "DetailTitle": "PickUp" },
+  "Controls": { "USP": "UserProfile" },
   "ListFields": {
     "IntroField": "ContactNo",
     "TitleField": "YourName",
@@ -79,6 +80,9 @@
     }
   ],
   "DetailFields": {
+    "headerTitle": ["USP_Name"],
+    "headerRole": ["USP_Role"],
+    "headerImage": ["USP_Image"],
     "None": ["ID", "Status"],
     "Tab1": ["YourName", "Surname", "Email", "ContactNo"],
     "Tab2": ["ProductType", "ItemDetail", "Weight", "Volume", "NoOfItems"],

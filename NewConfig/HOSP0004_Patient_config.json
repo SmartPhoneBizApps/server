@@ -3,6 +3,7 @@
     "ApplicationTitle": "Health Evaluation Form",
     "DetailTitle": "Evaluation Form"
   },
+  "Controls": { "USP": "UserProfile" },
   "ListFields": {
     "IntroField": "FirstName",
     "TitleField": "LastName",
@@ -103,6 +104,9 @@
     }
   ],
   "DetailFields": {
+    "headerTitle": ["USP_Name"],
+    "headerRole": ["USP_Role"],
+    "headerImage": ["USP_Image"],
     "None": ["ID", "Status"],
     "Tab1": ["FirstName", "LastName", "Gender", "Email", "PhoneNo"],
     "Tab2": [

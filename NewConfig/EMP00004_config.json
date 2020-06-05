@@ -3,6 +3,7 @@
     "ApplicationTitle": "Shopping Cart",
     "DetailTitle": "Shopping Cart"
   },
+  "Controls": { "USP": "UserProfile" },
   "ListFields": {
     "IntroField": "",
     "TitleField": "",
@@ -77,6 +78,9 @@
     { "value": "Tab3", "name": "Assignment", "type": "Field" }
   ],
   "DetailFields": {
+    "headerTitle": ["USP_Name"],
+    "headerRole": ["USP_Role"],
+    "headerImage": ["USP_Image"],
     "None": ["ShoppingCart", "VendorName"],
     "Tab1": [
       "SCDate",

@@ -3,6 +3,7 @@
     "ApplicationTitle": "Seat Availability",
     "DetailTitle": "Seat Availability"
   },
+  "Controls": { "USP": "UserProfile" },
   "ListFields": {
     "IntroField": "ID",
     "TitleField": "CourseName",
@@ -39,6 +40,9 @@
     }
   ],
   "DetailFields": {
+    "headerTitle": ["USP_Name"],
+    "headerRole": ["USP_Role"],
+    "headerImage": ["USP_Image"],
     "None": ["ID", "Status", "CourseName", "CourseType", "College"],
     "Tab1": [
       "CampPlacement",

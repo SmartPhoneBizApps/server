@@ -3,6 +3,7 @@
     "ApplicationTitle": "Inform your council",
     "DetailTitle": "Inform your council"
   },
+  "Controls": { "USP": "UserProfile" },
   "ListFields": {
     "IntroField": "InfoAbout",
     "TitleField": "Name",
@@ -110,6 +111,9 @@
     }
   ],
   "DetailFields": {
+    "headerTitle": ["USP_Name"],
+    "headerRole": ["USP_Role"],
+    "headerImage": ["USP_Image"],
     "None": ["ID", "ReportDate", "Status"],
     "Tab1": [
       "InfoAbout",

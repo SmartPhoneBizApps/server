@@ -3,6 +3,7 @@
     "ApplicationTitle": "Food Complaint ",
     "DetailTitle": "Food Complaint "
   },
+  "Controls": { "USP": "UserProfile" },
   "ListFields": {
     "IntroField": "",
     "TitleField": "",
@@ -118,6 +119,9 @@
     }
   ],
   "DetailFields": {
+    "headerTitle": ["USP_Name"],
+    "headerRole": ["USP_Role"],
+    "headerImage": ["USP_Image"],
     "None": ["ID", "ReportDate", "BusinessName", "Status", "TotalGrossValue"],
     "Tab1": [
       "SubjectAddress",

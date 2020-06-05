@@ -3,6 +3,7 @@
     "ApplicationTitle": "Change Application Title",
     "DetailTitle": "Change Application Title"
   },
+  "Controls": { "USP": "UserProfile" },
   "ListFields": {
     "IntroField": "StudentName",
     "TitleField": "StudyYear",
@@ -72,6 +73,9 @@
     }
   ],
   "DetailFields": {
+    "headerTitle": ["USP_Name"],
+    "headerRole": ["USP_Role"],
+    "headerImage": ["USP_Image"],
     "None": ["ID", "Status", "StudyYear", "Section"],
     "Tab1": [
       "StudentName",

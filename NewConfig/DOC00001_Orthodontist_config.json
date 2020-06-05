@@ -3,6 +3,7 @@
     "ApplicationTitle": "Orthopaedic Evaluation",
     "DetailTitle": "Orthopaedic Evaluation"
   },
+  "Controls": { "USP": "UserProfile" },
   "ListFields": {
     "IntroField": "ReferringPhysician",
     "TitleField": "PatientName",
@@ -86,6 +87,9 @@
     }
   ],
   "DetailFields": {
+    "headerTitle": ["USP_Name"],
+    "headerRole": ["USP_Role"],
+    "headerImage": ["USP_Image"],
     "None": ["ID"],
     "Tab1": ["S1", "ReferringPhysician", "Fax", "ReferralTo"],
     "Tab2": [

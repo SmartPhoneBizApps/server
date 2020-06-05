@@ -3,6 +3,7 @@
     "ApplicationTitle": "Class Registration Form",
     "DetailTitle": "Class Registration Form"
   },
+  "Controls": { "USP": "UserProfile" },
   "ListFields": {
     "IntroField": "StudyYear",
     "TitleField": "StudentName",
@@ -34,6 +35,9 @@
     }
   ],
   "DetailFields": {
+    "headerTitle": ["USP_Name"],
+    "headerRole": ["USP_Role"],
+    "headerImage": ["USP_Image"],
     "None": ["ID", "Term"],
     "Tab1": ["StudentName", "SubmissionDate", "Status", "StudyYear", "Section"]
   },

@@ -3,6 +3,7 @@
     "ApplicationTitle": "Pupil Dues",
     "DetailTitle": "Details of Pupil Dues"
   },
+  "Controls": { "USP": "UserProfile" },
   "ListFields": {
     "IntroField": "StudentName",
     "TitleField": "StudyYear",
@@ -56,6 +57,9 @@
     }
   ],
   "DetailFields": {
+    "headerTitle": ["USP_Name"],
+    "headerRole": ["USP_Role"],
+    "headerImage": ["USP_Image"],
     "None": ["ID", "Status"],
     "Tab1": [
       "StudentName",

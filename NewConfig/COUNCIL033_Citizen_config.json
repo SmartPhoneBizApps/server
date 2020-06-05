@@ -3,6 +3,7 @@
     "ApplicationTitle": "Lodge Your Complaint",
     "DetailTitle": "Lodge Your Complaint"
   },
+  "Controls": { "USP": "UserProfile" },
   "ListFields": {
     "IntroField": "ComplaintType",
     "TitleField": "Name",
@@ -127,6 +128,9 @@
     }
   ],
   "DetailFields": {
+    "headerTitle": ["USP_Name"],
+    "headerRole": ["USP_Role"],
+    "headerImage": ["USP_Image"],
     "None": ["ID", "Status", "ComplaintDate"],
     "Tab1": [
       "ComplaintType",

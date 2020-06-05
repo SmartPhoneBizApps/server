@@ -3,6 +3,7 @@
     "ApplicationTitle": "Guest Pass Request Form",
     "DetailTitle": "Guest Pass Request Form"
   },
+  "Controls": { "USP": "UserProfile" },
   "ListFields": {
     "IntroField": "StudentName",
     "TitleField": "GuestName",
@@ -51,6 +52,9 @@
   ],
   "Tabs": [],
   "DetailFields": {
+    "headerTitle": ["USP_Name"],
+    "headerRole": ["USP_Role"],
+    "headerImage": ["USP_Image"],
     "None": [
       "ID",
       "StudentName",

@@ -3,6 +3,7 @@
     "ApplicationTitle": "Fault Reporting",
     "DetailTitle": "Fault Reporting"
   },
+  "Controls": { "USP": "UserProfile" },
   "ListFields": {
     "IntroField": "ReportType",
     "TitleField": "Name",
@@ -100,6 +101,9 @@
     }
   ],
   "DetailFields": {
+    "headerTitle": ["USP_Name"],
+    "headerRole": ["USP_Role"],
+    "headerImage": ["USP_Image"],
     "None": ["ID", "ReportDate", "Status"],
     "Tab1": [
       "ReportType",

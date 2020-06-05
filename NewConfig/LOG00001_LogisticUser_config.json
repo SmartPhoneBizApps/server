@@ -3,6 +3,7 @@
     "ApplicationTitle": "Book Shipment",
     "DetailTitle": "Book Shipment"
   },
+  "Controls": { "USP": "UserProfile" },
   "ListFields": {
     "IntroField": "PickUpDate",
     "TitleField": "YourName",
@@ -88,6 +89,9 @@
     }
   ],
   "DetailFields": {
+    "headerTitle": ["USP_Name"],
+    "headerRole": ["USP_Role"],
+    "headerImage": ["USP_Image"],
     "None": ["ID", "Status"],
     "Tab1": ["YourName", "Surname", "ContactNo", "Email"],
     "Tab2": ["ProductType", "ProdDetail", "Weight", "Volume", "NoOfItems"],

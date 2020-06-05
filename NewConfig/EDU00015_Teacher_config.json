@@ -3,6 +3,7 @@
     "ApplicationTitle": "Course Material Access",
     "DetailTitle": "Access to the course material covered in specific lecture"
   },
+  "Controls": { "USP": "UserProfile" },
   "ListFields": {
     "IntroField": "Subject",
     "TitleField": "Topic",
@@ -72,6 +73,9 @@
     }
   ],
   "DetailFields": {
+    "headerTitle": ["USP_Name"],
+    "headerRole": ["USP_Role"],
+    "headerImage": ["USP_Image"],
     "None": ["ID", "StudyYear", "Batch", "Subject", "Status", "Term"],
     "Tab1": ["Topic", "LectureDate", "LectureBrief"],
     "Tab2": ["StudyMaterial", "StudyMaterialLink"]

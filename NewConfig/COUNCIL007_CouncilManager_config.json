@@ -3,6 +3,7 @@
     "ApplicationTitle": "Order new bins and boxes",
     "DetailTitle": "Order new bins and boxes"
   },
+  "Controls": { "USP": "UserProfile" },
   "ListFields": {
     "IntroField": "Postcode",
     "TitleField": "HouseNo",
@@ -45,6 +46,9 @@
     }
   ],
   "DetailFields": {
+    "headerTitle": ["USP_Name"],
+    "headerRole": ["USP_Role"],
+    "headerImage": ["USP_Image"],
     "None": ["ID", "RequestDate", "Status"],
     "Tab1": [
       "Q1",

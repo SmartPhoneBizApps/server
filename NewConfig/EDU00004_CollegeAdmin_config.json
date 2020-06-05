@@ -1,5 +1,6 @@
 {
   "Title": { "ApplicationTitle": "Time Table", "DetailTitle": "Time Table" },
+  "Controls": { "USP": "UserProfile" },
   "ListFields": {
     "IntroField": "Subject",
     "TitleField": "Class",
@@ -67,6 +68,9 @@
     }
   ],
   "DetailFields": {
+    "headerTitle": ["USP_Name"],
+    "headerRole": ["USP_Role"],
+    "headerImage": ["USP_Image"],
     "None": ["ID", "Class", "Section", "Term", "Status"],
     "Tab1": ["Subject", "Room", "Type", "AnyChange"],
     "Tab2": ["Day", "Period", "TimeSlot"]

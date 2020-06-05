@@ -3,6 +3,7 @@
     "ApplicationTitle": "List of Open Days for College and Courses",
     "DetailTitle": "Details of College and Courses"
   },
+  "Controls": { "USP": "UserProfile" },
   "ListFields": {
     "IntroField": "CourseName",
     "TitleField": "CourseName",
@@ -62,6 +63,9 @@
     }
   ],
   "DetailFields": {
+    "headerTitle": ["USP_Name"],
+    "headerRole": ["USP_Role"],
+    "headerImage": ["USP_Image"],
     "None": ["ID", "Status", "CollegeName"],
     "Tab1": [
       "CourseName",

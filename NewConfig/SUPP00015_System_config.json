@@ -3,6 +3,7 @@
     "ApplicationTitle": "Supplier Performance",
     "DetailTitle": "Supplier Performance"
   },
+  "Controls": { "USP": "UserProfile" },
   "ListFields": {
     "IntroField": "SurveyDate",
     "TitleField": "SupplierName",
@@ -67,6 +68,9 @@
     }
   ],
   "DetailFields": {
+    "headerTitle": ["USP_Name"],
+    "headerRole": ["USP_Role"],
+    "headerImage": ["USP_Image"],
     "None": ["ID", "SupplierID", "SupplierName", "Status"],
     "Tab1": ["SurveyDate", "Customer", "Assesse", "Phone", "EMail", "Assessor"],
     "Tab2": [

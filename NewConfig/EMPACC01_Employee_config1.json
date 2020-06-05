@@ -3,6 +3,7 @@
     "ApplicationTitle": "My Request",
     "DetailTitle": "Request for Laptops, Access cards, Software etc.."
   },
+  "Controls": { "USP": "UserProfile" },
   "ListFields": {
     "IntroField": "DateOfRequest",
     "TitleField": "ID",
@@ -77,6 +78,9 @@
     }
   ],
   "DetailFields": {
+    "headerTitle": ["USP_Name"],
+    "headerRole": ["USP_Role"],
+    "headerImage": ["USP_Image"],
     "None": ["ID", "Status", "RequestType"],
     "Tab1": ["EmployeeID", "Name", "EmailID", "PhoneNo"],
     "Tab2": ["DateOfRequest", "StartDate", "EndDate", "Reason"],

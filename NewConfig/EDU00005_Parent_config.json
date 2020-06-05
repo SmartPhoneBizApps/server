@@ -1,5 +1,6 @@
 {
   "Title": { "ApplicationTitle": "Merit List", "DetailTitle": "Merit List" },
+  "Controls": { "USP": "UserProfile" },
   "ListFields": {
     "IntroField": "StudentName",
     "TitleField": "Score",
@@ -45,6 +46,9 @@
     }
   ],
   "DetailFields": {
+    "headerTitle": ["USP_Name"],
+    "headerRole": ["USP_Role"],
+    "headerImage": ["USP_Image"],
     "None": ["ID", "Status", "ResultDate"],
     "Tab1": [
       "StudyYear",

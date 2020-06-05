@@ -1,5 +1,6 @@
 {
   "Title": { "ApplicationTitle": "Time Sheet", "DetailTitle": "Time Sheet" },
+  "Controls": { "USP": "UserProfile" },
   "ListFields": {
     "IntroField": "ID",
     "TitleField": "EmpName",
@@ -92,6 +93,9 @@
     }
   ],
   "DetailFields": {
+    "headerTitle": ["USP_Name"],
+    "headerRole": ["USP_Role"],
+    "headerImage": ["USP_Image"],
     "None": ["ID", "EmpName", "EmpCode", "StartDate", "EndDate", "Status"],
     "Tab1": ["TotalRegHours", "HourlyRate", "RegularNetAmount"],
     "Tab2": ["TotalOvertimeHours", "OvertimeRate", "OvertimeNetAmount"],

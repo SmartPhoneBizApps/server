@@ -3,6 +3,7 @@
     "ApplicationTitle": "Pupil Report",
     "DetailTitle": "Pupil Report"
   },
+  "Controls": { "USP": "UserProfile" },
   "ListFields": {
     "IntroField": "StudentName",
     "TitleField": "TermReport",
@@ -94,6 +95,9 @@
     }
   ],
   "DetailFields": {
+    "headerTitle": ["USP_Name"],
+    "headerRole": ["USP_Role"],
+    "headerImage": ["USP_Image"],
     "None": ["ID", "Status", "Email", "TermReport", "ReportDate"],
     "Tab1": [
       "StudentName",

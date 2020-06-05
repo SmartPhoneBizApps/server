@@ -3,6 +3,7 @@
     "ApplicationTitle": "Apply for mini recycling centre for flats",
     "DetailTitle": "Apply for mini recycling centre for flats"
   },
+  "Controls": { "USP": "UserProfile" },
   "ListFields": {
     "IntroField": "ID",
     "TitleField": "YourName",
@@ -40,6 +41,9 @@
     { "value": "Tab3", "name": "Map", "type": "Field", "fioriicon": "map" }
   ],
   "DetailFields": {
+    "headerTitle": ["USP_Name"],
+    "headerRole": ["USP_Role"],
+    "headerImage": ["USP_Image"],
     "None": ["ID", "ContactNo", "Status"],
     "Tab1": [
       "NoOfFlats",

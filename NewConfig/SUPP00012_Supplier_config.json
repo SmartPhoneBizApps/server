@@ -1,5 +1,6 @@
 {
   "Title": { "ApplicationTitle": "Bids", "DetailTitle": "Bids" },
+  "Controls": { "USP": "UserProfile" },
   "ListFields": {
     "IntroField": "Category",
     "TitleField": "BidInvitation",
@@ -51,6 +52,9 @@
     }
   ],
   "DetailFields": {
+    "headerTitle": ["USP_Name"],
+    "headerRole": ["USP_Role"],
+    "headerImage": ["USP_Image"],
     "None": ["ID", "BidInvitation", "ShortText"],
     "Tab1": [
       "BidItem",

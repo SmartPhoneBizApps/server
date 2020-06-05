@@ -3,6 +3,7 @@
     "ApplicationTitle": "Employee Feedback",
     "DetailTitle": "Employee Feedback"
   },
+  "Controls": { "USP": "UserProfile" },
   "ListFields": {
     "IntroField": "Area",
     "TitleField": "Name",
@@ -79,6 +80,9 @@
     }
   ],
   "DetailFields": {
+    "headerTitle": ["USP_Name"],
+    "headerRole": ["USP_Role"],
+    "headerImage": ["USP_Image"],
     "None": ["ID", "Status", "ReviewPeriod", "FeedbackDate"],
     "Tab1": ["Area", "EmpRef", "Name", "DevManager", "Role", "Band"],
     "Tab2": ["Q1", "A1", "Rating", "Score"]

@@ -3,6 +3,7 @@
     "ApplicationTitle": "Goods Receipt",
     "DetailTitle": "Goods Receipt"
   },
+  "Controls": { "USP": "UserProfile" },
   "ListFields": {
     "IntroField": "",
     "TitleField": "",
@@ -75,6 +76,9 @@
     { "value": "Tab5", "name": "PO2", "type": "Field", "fioriicon": "document" }
   ],
   "DetailFields": {
+    "headerTitle": ["USP_Name"],
+    "headerRole": ["USP_Role"],
+    "headerImage": ["USP_Image"],
     "None": ["ID", "Requsitioner", "Plant", "PODate"],
     "Tab1": [
       "Vendor",

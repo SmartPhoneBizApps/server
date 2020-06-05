@@ -3,6 +3,7 @@
     "ApplicationTitle": "Problem in a play area",
     "DetailTitle": "Problem in a play area"
   },
+  "Controls": { "USP": "UserProfile" },
   "ListFields": {
     "IntroField": "ID",
     "TitleField": "YourName",
@@ -51,6 +52,9 @@
     }
   ],
   "DetailFields": {
+    "headerTitle": ["USP_Name"],
+    "headerRole": ["USP_Role"],
+    "headerImage": ["USP_Image"],
     "None": ["ID", "IncidentDate", "IncidentTime", "Status"],
     "Tab1": ["Address", "ProblemDetail", "Image"],
     "Tab2": [

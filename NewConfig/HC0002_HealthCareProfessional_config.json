@@ -1,1 +1,167 @@
-{"Title": {"ApplicationTitle": "Study/Trial", "DetailTitle": "Study/Trial"}, "ListFields": {"IntroField": "", "TitleField": "", "sStatus": "", "fStatus": "", "numberField": "", "LFields": [], "numberUnitField": ""}, "ListBOTFields": {"Title": ["ID"], "SubTitle": ["StudyType"], "Description": ["Phase"]}, "PossibleValues": ["StudyType", "Phase", "Status"], "MButtons": [], "DButtons": [], "Tabs": [{"value": "Tab0", "name": "Cards", "type": "Cards", "fioriicon": "responsive"}, {"value": "Tab1", "name": "Study", "fioriicon": "notes", "type": "Field", "download": "Yes"}, {"value": "Tab2", "name": "Contact", "fioriicon": "discussion", "type": "Field", "download": "Yes"}], "DetailFields": {"None": ["ID", "Phase", "Status", "Date", "HCPEmail", "VendorName"], "Tab1": ["StudyType", "StudyName", "StudyDetails"], "Tab2": ["PharmaContact", "PharmaContactEmail"]}, "ControlDisplay": {}, "FieldDef": [{"name": "ID", "type": "string", "width": "20", "Option": "", "SLabel": "Study ID", "LLabel": "", "Currency": "No"}, {"name": "StudyType", "type": "string", "width": "50", "Option": "", "SLabel": "Study Type", "LLabel": "", "Currency": "No"}, {"name": "StudyName", "type": "string", "width": "100", "Option": "", "SLabel": "Study Name", "LLabel": "", "Currency": "No"}, {"name": "PharmaContact", "type": "string", "width": "50", "Option": "", "SLabel": "Pharma Contact", "LLabel": "", "Currency": "No"}, {"name": "PharmaContactEmail", "type": "string", "width": "50", "Option": "", "SLabel": "Pharma Contact Email", "LLabel": "", "Currency": "No"}, {"name": "StudyDetails", "type": "string", "width": "500", "Option": "", "SLabel": "Study Details", "LLabel": "", "Currency": "No"}, {"name": "Phase", "type": "string", "width": "50", "Option": "", "SLabel": "Phase", "LLabel": "", "Currency": "No"}, {"name": "Status", "type": "string", "width": "20", "Option": "", "SLabel": "Status", "LLabel": "", "Currency": "No"}, {"name": "Date", "type": "Date", "width": "10", "Option": "", "SLabel": "Date", "LLabel": "", "Currency": "No"}, {"name": "HCPEmail", "type": "string", "width": "50", "Option": "", "SLabel": "HCP Email", "LLabel": "HCPEmail", "Currency": "No"}, {"name": "VendorName", "type": "string", "width": "100", "Option": "", "SLabel": "HCP Name", "LLabel": "VendorName", "Currency": "No"}], "itemConfig": {"ItemFieldDefinition": [], "DisplayFields": [], "ItemButtons": {"itemDisplay": false, "itemAdd": false, "itemEdit": false, "itemDelete": false}, "CreateFields": [], "ItemDetails": []}, "CalculatedFields": {"Item": [], "HeaderItem": [], "Header": []}, "Wizard": []}
+{
+  "Title": { "ApplicationTitle": "Study/Trial", "DetailTitle": "Study/Trial" },
+  "Controls": { "USP": "UserProfile" },
+  "ListFields": {
+    "IntroField": "",
+    "TitleField": "",
+    "sStatus": "",
+    "fStatus": "",
+    "numberField": "",
+    "LFields": [],
+    "numberUnitField": ""
+  },
+  "ListBOTFields": {
+    "Title": ["ID"],
+    "SubTitle": ["StudyType"],
+    "Description": ["Phase"]
+  },
+  "PossibleValues": ["StudyType", "Phase", "Status"],
+  "MButtons": [],
+  "DButtons": [],
+  "Tabs": [
+    {
+      "value": "Tab0",
+      "name": "Cards",
+      "type": "Cards",
+      "fioriicon": "responsive"
+    },
+    {
+      "value": "Tab1",
+      "name": "Study",
+      "fioriicon": "notes",
+      "type": "Field",
+      "download": "Yes"
+    },
+    {
+      "value": "Tab2",
+      "name": "Contact",
+      "fioriicon": "discussion",
+      "type": "Field",
+      "download": "Yes"
+    }
+  ],
+  "DetailFields": {
+    "headerTitle": ["USP_Name"],
+    "headerRole": ["USP_Role"],
+    "headerImage": ["USP_Image"],
+    "None": ["ID", "Phase", "Status", "Date", "HCPEmail", "VendorName"],
+    "Tab1": ["StudyType", "StudyName", "StudyDetails"],
+    "Tab2": ["PharmaContact", "PharmaContactEmail"]
+  },
+  "ControlDisplay": {},
+  "FieldDef": [
+    {
+      "name": "ID",
+      "type": "string",
+      "width": "20",
+      "Option": "",
+      "SLabel": "Study ID",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "StudyType",
+      "type": "string",
+      "width": "50",
+      "Option": "",
+      "SLabel": "Study Type",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "StudyName",
+      "type": "string",
+      "width": "100",
+      "Option": "",
+      "SLabel": "Study Name",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "PharmaContact",
+      "type": "string",
+      "width": "50",
+      "Option": "",
+      "SLabel": "Pharma Contact",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "PharmaContactEmail",
+      "type": "string",
+      "width": "50",
+      "Option": "",
+      "SLabel": "Pharma Contact Email",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "StudyDetails",
+      "type": "string",
+      "width": "500",
+      "Option": "",
+      "SLabel": "Study Details",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "Phase",
+      "type": "string",
+      "width": "50",
+      "Option": "",
+      "SLabel": "Phase",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "Status",
+      "type": "string",
+      "width": "20",
+      "Option": "",
+      "SLabel": "Status",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "Date",
+      "type": "Date",
+      "width": "10",
+      "Option": "",
+      "SLabel": "Date",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "HCPEmail",
+      "type": "string",
+      "width": "50",
+      "Option": "",
+      "SLabel": "HCP Email",
+      "LLabel": "HCPEmail",
+      "Currency": "No"
+    },
+    {
+      "name": "VendorName",
+      "type": "string",
+      "width": "100",
+      "Option": "",
+      "SLabel": "HCP Name",
+      "LLabel": "VendorName",
+      "Currency": "No"
+    }
+  ],
+  "itemConfig": {
+    "ItemFieldDefinition": [],
+    "DisplayFields": [],
+    "ItemButtons": {
+      "itemDisplay": false,
+      "itemAdd": false,
+      "itemEdit": false,
+      "itemDelete": false
+    },
+    "CreateFields": [],
+    "ItemDetails": []
+  },
+  "CalculatedFields": { "Item": [], "HeaderItem": [], "Header": [] },
+  "Wizard": []
+}

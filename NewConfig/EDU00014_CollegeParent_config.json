@@ -3,6 +3,7 @@
     "ApplicationTitle": "List of Uni/College",
     "DetailTitle": "Detail of Course offered"
   },
+  "Controls": { "USP": "UserProfile" },
   "ListFields": {
     "IntroField": "CollegeOrUniversity",
     "TitleField": "courseTitle",
@@ -55,6 +56,9 @@
     }
   ],
   "DetailFields": {
+    "headerTitle": ["USP_Name"],
+    "headerRole": ["USP_Role"],
+    "headerImage": ["USP_Image"],
     "None": [
       "ID",
       "CollegeOrUniversity",

@@ -3,6 +3,7 @@
     "ApplicationTitle": "Fleet Tracking",
     "DetailTitle": "Fleet Tracking"
   },
+  "Controls": { "USP": "UserProfile" },
   "ListFields": {
     "IntroField": "Vehicle",
     "TitleField": "RegNo",
@@ -67,6 +68,9 @@
     }
   ],
   "DetailFields": {
+    "headerTitle": ["USP_Name"],
+    "headerRole": ["USP_Role"],
+    "headerImage": ["USP_Image"],
     "None": ["ID", "RegNo"],
     "Tab1": [
       "Vehicle",

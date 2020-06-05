@@ -3,6 +3,7 @@
     "ApplicationTitle": "Training Approval Request",
     "DetailTitle": "Training Details"
   },
+  "Controls": { "USP": "UserProfile" },
   "ListFields": {
     "IntroField": "Area",
     "TitleField": "Name",
@@ -47,6 +48,9 @@
     }
   ],
   "DetailFields": {
+    "headerTitle": ["USP_Name"],
+    "headerRole": ["USP_Role"],
+    "headerImage": ["USP_Image"],
     "None": ["ID", "Status"],
     "Tab1": ["Name", "DateRequested", "Area", "Detail", "Duration", "External"],
     "Tab2": ["ProjectNeed", "Cost", "CostCentre"],

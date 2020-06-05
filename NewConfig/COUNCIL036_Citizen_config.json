@@ -3,6 +3,7 @@
     "ApplicationTitle": "Book Lessons",
     "DetailTitle": "Book for Lessons"
   },
+  "Controls": { "USP": "UserProfile" },
   "ListFields": {
     "IntroField": "BookingFor",
     "TitleField": "ParticipantFirstName",
@@ -100,6 +101,9 @@
     }
   ],
   "DetailFields": {
+    "headerTitle": ["USP_Name"],
+    "headerRole": ["USP_Role"],
+    "headerImage": ["USP_Image"],
     "None": ["ID", "Status", "BookingFor", "ApplicationDate", "Approver"],
     "Tab1": [
       "ParticipantLastName",

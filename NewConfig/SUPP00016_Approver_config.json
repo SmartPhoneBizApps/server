@@ -3,6 +3,7 @@
     "ApplicationTitle": "Approve Non PO Invoices",
     "DetailTitle": "Approve Non PO Invoice"
   },
+  "Controls": { "USP": "UserProfile" },
   "ListFields": {
     "IntroField": "Details",
     "TitleField": "VendorInvoice",
@@ -51,6 +52,9 @@
     }
   ],
   "DetailFields": {
+    "headerTitle": ["USP_Name"],
+    "headerRole": ["USP_Role"],
+    "headerImage": ["USP_Image"],
     "None": ["ID", "VendorName", "PaymentTerm"],
     "Tab1": [
       "VendorInvoice",

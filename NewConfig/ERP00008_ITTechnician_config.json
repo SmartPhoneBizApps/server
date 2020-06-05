@@ -3,6 +3,7 @@
     "ApplicationTitle": "IT Asset Tracking",
     "DetailTitle": "IT Asset Tracking"
   },
+  "Controls": { "USP": "UserProfile" },
   "ListFields": {
     "IntroField": "Model",
     "TitleField": "AssetType",
@@ -67,6 +68,9 @@
     }
   ],
   "DetailFields": {
+    "headerTitle": ["USP_Name"],
+    "headerRole": ["USP_Role"],
+    "headerImage": ["USP_Image"],
     "None": ["ID", "AssetType", "SerialNo", "Status"],
     "Tab1": [
       "Make",

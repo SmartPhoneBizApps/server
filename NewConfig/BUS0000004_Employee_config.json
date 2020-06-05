@@ -3,6 +3,7 @@
     "ApplicationTitle": "Train Booking",
     "DetailTitle": "Train Booking"
   },
+  "Controls": { "USP": "UserProfile" },
   "ListFields": {
     "IntroField": "From",
     "TitleField": "To",
@@ -73,6 +74,9 @@
     }
   ],
   "DetailFields": {
+    "headerTitle": ["USP_Name"],
+    "headerRole": ["USP_Role"],
+    "headerImage": ["USP_Image"],
     "None": ["ID"],
     "Tab1": ["Name", "UserAccount", "Email", "Phone", "CostCentre", "Status"],
     "Tab2": [

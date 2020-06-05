@@ -3,6 +3,7 @@
     "ApplicationTitle": "College Choice",
     "DetailTitle": "College Choice"
   },
+  "Controls": { "USP": "UserProfile" },
   "ListFields": {
     "IntroField": "Name",
     "TitleField": "Surname",
@@ -60,6 +61,9 @@
     }
   ],
   "DetailFields": {
+    "headerTitle": ["USP_Name"],
+    "headerRole": ["USP_Role"],
+    "headerImage": ["USP_Image"],
     "None": ["ID", "Status", "SubmitDate"],
     "Tab1": [
       "DoB",

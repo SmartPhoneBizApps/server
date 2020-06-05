@@ -1,5 +1,6 @@
 {
   "Title": { "ApplicationTitle": "SC Approval", "DetailTitle": "SC Approval" },
+  "Controls": { "USP": "UserProfile" },
   "ListFields": {
     "IntroField": "VendorName",
     "TitleField": "Details",
@@ -53,6 +54,9 @@
     }
   ],
   "DetailFields": {
+    "headerTitle": ["USP_Name"],
+    "headerRole": ["USP_Role"],
+    "headerImage": ["USP_Image"],
     "None": ["ID", "VendorName", "Status"],
     "Tab1": [
       "SCDate",

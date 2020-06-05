@@ -3,6 +3,7 @@
     "ApplicationTitle": "Travel Request",
     "DetailTitle": "Travel Request"
   },
+  "Controls": { "USP": "UserProfile" },
   "ListFields": {
     "IntroField": "EmployeeName",
     "TitleField": "NoValue",
@@ -60,6 +61,9 @@
     }
   ],
   "DetailFields": {
+    "headerTitle": ["USP_Name"],
+    "headerRole": ["USP_Role"],
+    "headerImage": ["USP_Image"],
     "None": ["ID", "EmployeeCode", "EmployeeName", "EntryDate", "Status"],
     "Tab1": ["CostCentre", "TotalAmount", "Currency"],
     "Tab2": ["TravelDtFrom", "TravelDateTo", "TravelDetail", "Justification"],

@@ -1,5 +1,6 @@
 {
   "Title": { "ApplicationTitle": "Test", "DetailTitle": "Test" },
+  "Controls": { "USP": "UserProfile" },
   "ListFields": {
     "IntroField": "Area",
     "TitleField": "Topic",
@@ -67,6 +68,9 @@
     }
   ],
   "DetailFields": {
+    "headerTitle": ["USP_Name"],
+    "headerRole": ["USP_Role"],
+    "headerImage": ["USP_Image"],
     "None": ["ID", "ExamDate", "Area", "Topic", "Status"],
     "Tab1": ["Question", "A", "B", "C", "D", "E"],
     "Tab2": ["Answer", "Reasoning"]

@@ -50,6 +50,7 @@ const advancedDataList = (model, model2, AppID, populate) => async (
     default:
       config = config1;
   }
+
   let query;
   const reqQuery1 = { ...req.query };
   const removeFields = ["select", "sort", "page", "limit"];
@@ -143,8 +144,16 @@ const advancedDataList = (model, model2, AppID, populate) => async (
   } else {
     for (let i1 = 0; i1 < results.length; i1++) {
       results[i1].cardImage = app["photo"];
+      if (config["Controls"]["USP"] == "UserProfile") {
+        console.log("Atul 01");
+        results[i1].USP_Name = "Atul Gupta";
+        results[i1].USP_Role = "HRManager";
+        results[i1].USP_Image =
+          "https://www.espncricinfo.com/inline/content/image/1183835.html?alt=1";
+      }
     }
   }
+  console.log(results);
   /////////////////////////////////////////////////////////////////
   // Pagination result
   const pagination = {};

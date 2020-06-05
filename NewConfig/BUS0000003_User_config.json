@@ -3,6 +3,7 @@
     "ApplicationTitle": "Online Taxi Booking",
     "DetailTitle": "Online Taxi Booking"
   },
+  "Controls": { "USP": "UserProfile" },
   "ListFields": {
     "IntroField": "From",
     "TitleField": "To",
@@ -68,6 +69,9 @@
     { "value": "Tab2", "name": "Taxi", "fioriicon": "taxi", "type": "Field" }
   ],
   "DetailFields": {
+    "headerTitle": ["USP_Name"],
+    "headerRole": ["USP_Role"],
+    "headerImage": ["USP_Image"],
     "None": ["ID"],
     "Tab1": ["Name", "UserAccount", "Email", "Phone", "CostCentre", "Status"],
     "Tab2": [

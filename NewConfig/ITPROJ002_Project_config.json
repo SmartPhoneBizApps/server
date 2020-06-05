@@ -3,6 +3,7 @@
     "ApplicationTitle": "Access Request",
     "DetailTitle": "Access Request Form"
   },
+  "Controls": { "USP": "UserProfile" },
   "ListFields": {
     "IntroField": "Systems",
     "TitleField": "UserAccount",
@@ -88,6 +89,9 @@
     }
   ],
   "DetailFields": {
+    "headerTitle": ["USP_Name"],
+    "headerRole": ["USP_Role"],
+    "headerImage": ["USP_Image"],
     "None": ["ID"],
     "Tab1": [
       "Status",

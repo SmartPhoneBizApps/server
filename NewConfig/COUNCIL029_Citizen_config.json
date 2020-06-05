@@ -3,6 +3,7 @@
     "ApplicationTitle": "Pest Problem ",
     "DetailTitle": "Pest Problem "
   },
+  "Controls": { "USP": "UserProfile" },
   "ListFields": {
     "IntroField": "ID",
     "TitleField": "YourName",
@@ -82,6 +83,9 @@
     }
   ],
   "DetailFields": {
+    "headerTitle": ["USP_Name"],
+    "headerRole": ["USP_Role"],
+    "headerImage": ["USP_Image"],
     "None": ["ID", "Status"],
     "Tab1": ["PestLocation", "TypeOfPest", "IfOther", "VisitDate", "Image"],
     "Tab2": [

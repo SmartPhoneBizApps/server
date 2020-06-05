@@ -3,6 +3,7 @@
     "ApplicationTitle": "Highways Problem ",
     "DetailTitle": "Highways Problem "
   },
+  "Controls": { "USP": "UserProfile" },
   "ListFields": {
     "IntroField": "ID",
     "TitleField": "ProblemType",
@@ -51,6 +52,9 @@
     }
   ],
   "DetailFields": {
+    "headerTitle": ["USP_Name"],
+    "headerRole": ["USP_Role"],
+    "headerImage": ["USP_Image"],
     "None": ["ID", "RoadDetails", "ProblemDetails", "Status"],
     "Tab1": ["ProblemType", "ReportDate", "Time", "Image", "AdditionalInfo"],
     "Tab2": ["YourName", "LastName", "PhNo", "EmailID", "Location"],

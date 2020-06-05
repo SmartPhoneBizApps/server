@@ -1,5 +1,6 @@
 {
   "Title": { "ApplicationTitle": "Expense", "DetailTitle": "Expense" },
+  "Controls": { "USP": "UserProfile" },
   "ListFields": {
     "IntroField": "ProjectCode",
     "TitleField": "EmployeeName",
@@ -54,6 +55,9 @@
     }
   ],
   "DetailFields": {
+    "headerTitle": ["USP_Name"],
+    "headerRole": ["USP_Role"],
+    "headerImage": ["USP_Image"],
     "None": ["ID", "EntryDate", "Status"],
     "Tab1": ["EmployeeCode", "EmployeeName"],
     "Tab2": [

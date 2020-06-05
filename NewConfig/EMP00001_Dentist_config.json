@@ -3,6 +3,7 @@
     "ApplicationTitle": "Leave Application",
     "DetailTitle": "Leave Application"
   },
+  "Controls": { "USP": "UserProfile" },
   "ListFields": {
     "IntroField": "LeaveFrom",
     "TitleField": "EmpName",
@@ -97,6 +98,9 @@
     }
   ],
   "DetailFields": {
+    "headerTitle": ["USP_Name"],
+    "headerRole": ["USP_Role"],
+    "headerImage": ["USP_Image"],
     "None": ["ID", "Status"],
     "Tab1": ["LeaveType", "LeaveFrom", "LeaveTo", "LeaveDays", "LeaveReason"],
     "Tab2": ["EmpName", "EmployeeID", "EmpDesignation"],

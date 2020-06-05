@@ -3,6 +3,7 @@
     "ApplicationTitle": "Incident Management",
     "DetailTitle": "Incident Management"
   },
+  "Controls": { "USP": "UserProfile" },
   "ListFields": {
     "IntroField": "Priority",
     "TitleField": "Area",
@@ -71,6 +72,9 @@
     { "value": "Tab3", "name": "Location", "type": "Field", "fioriicon": "map" }
   ],
   "DetailFields": {
+    "headerTitle": ["USP_Name"],
+    "headerRole": ["USP_Role"],
+    "headerImage": ["USP_Image"],
     "None": ["ID", "Status", "Problem", "Details"],
     "Tab1": ["Area", "Priority", "Name", "Address", "Company"],
     "Tab2": [

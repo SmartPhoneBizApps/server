@@ -1,5 +1,6 @@
 {
   "Title": { "ApplicationTitle": "Booking For", "DetailTitle": "Booking For" },
+  "Controls": { "USP": "UserProfile" },
   "ListFields": {
     "IntroField": "StudentName",
     "TitleField": "BookingFor",
@@ -89,6 +90,9 @@
     }
   ],
   "DetailFields": {
+    "headerTitle": ["USP_Name"],
+    "headerRole": ["USP_Role"],
+    "headerImage": ["USP_Image"],
     "None": ["ID", "Status"],
     "Tab1": [
       "StudentName",

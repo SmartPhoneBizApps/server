@@ -3,6 +3,7 @@
     "ApplicationTitle": "Library Book availability",
     "DetailTitle": "Library Book availability"
   },
+  "Controls": { "USP": "UserProfile" },
   "ListFields": {
     "IntroField": "Author",
     "TitleField": "BookTitle",
@@ -34,6 +35,9 @@
     }
   ],
   "DetailFields": {
+    "headerTitle": ["USP_Name"],
+    "headerRole": ["USP_Role"],
+    "headerImage": ["USP_Image"],
     "None": [
       "ID",
       "StudyLevel",

@@ -1,5 +1,6 @@
 {
   "Title": { "ApplicationTitle": "Request For", "DetailTitle": "Request For" },
+  "Controls": { "USP": "UserProfile" },
   "ListFields": {
     "IntroField": "StudentName",
     "TitleField": "RequestFor",
@@ -90,6 +91,9 @@
     }
   ],
   "DetailFields": {
+    "headerTitle": ["USP_Name"],
+    "headerRole": ["USP_Role"],
+    "headerImage": ["USP_Image"],
     "None": ["ID", "RequestFor", "Status"],
     "Tab1": [
       "StudentName",
