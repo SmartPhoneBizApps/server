@@ -145,15 +145,43 @@ const advancedDataList = (model, model2, AppID, populate) => async (
     for (let i1 = 0; i1 < results.length; i1++) {
       results[i1].cardImage = app["photo"];
       if (config["Controls"]["USP"] == "UserProfile") {
-        console.log("Atul 01");
         results[i1].USP_Name = "Atul Gupta";
         results[i1].USP_Role = "HRManager";
         results[i1].USP_Image =
           "https://www.espncricinfo.com/inline/content/image/1183835.html?alt=1";
       }
+      console.log(results[i1].carouselImage);
+      if (
+        results[i1].MultiAttachments &
+        (results[i1].MultiAttachments.length > 0)
+      ) {
+        console.log("MultiAttachments");
+        tr1 = [];
+        to1 = "";
+        for (
+          let index = 0;
+          index < results[i1].MultiAttachments.length;
+          index++
+        ) {
+          to1 =
+            config["Controls"]["AttachmentURL"] +
+            results[i1].MultiAttachments[index];
+          tr1.push(to1);
+        }
+        results[i1].MultiAttachments[index] = { ...tr1 };
+        tr1 = [];
+      }
+      if (results[i1].carouselImage & (results[i1].carouselImage.length > 0)) {
+        for (let index = 0; index < results[i1].carouselImage.length; index++) {
+          const element = results[i1].carouselImage[index];
+          results[i1].carouselImage[index] =
+            config["Controls"]["AttachmentURL"] +
+            results[i1].carouselImage[index];
+        }
+      }
     }
   }
-  console.log(results);
+
   /////////////////////////////////////////////////////////////////
   // Pagination result
   const pagination = {};
