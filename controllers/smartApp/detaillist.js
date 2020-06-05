@@ -6,6 +6,7 @@ const asyncHandler = require("../../middleware/async");
 // @access    Private
 exports.getItems = asyncHandler(async (req, res, next) => {
   console.log(req.params.appID);
+  itm = [];
   result = await findOneAppDatabyid(req.params.id, req.params.appID);
   console.log(result);
   itm = result["ItemData"];
