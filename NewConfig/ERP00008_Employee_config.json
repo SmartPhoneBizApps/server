@@ -6,15 +6,15 @@
   "Controls": { "USP": "UserProfile" },
   "ListFields": {
     "IntroField": "AssetType",
-    "TitleField": "Make",
+    "TitleField": "Model",
     "fStatus": "Status",
-    "LFields": ["ID"]
+    "LFields": ["ID", "Make"]
   },
   "ListBOTFields": {
     "None": ["cardImage", "StatusState"],
-    "Title": [],
-    "SubTitle": [],
-    "Description": []
+    "Title": ["ID", "Model"],
+    "SubTitle": ["AssetType"],
+    "Description": ["Make", "Status", "ID"]
   },
   "PossibleValues": [
     "Status",
@@ -71,12 +71,19 @@
       "fioriicon": "hint",
       "download": "Yes"
     },
-    { "value": "Tab2", "name": "IssuesTo", "type": "Field" },
+    { "value": "Tab2", "name": "IssuesTo", "type": "Field", "download": "Yes" },
     {
       "value": "Tab3",
+      "name": "Images",
+      "fioriicon": "attachment",
+      "type": "carouselImage",
+      "download": "No"
+    },
+    {
+      "value": "Tab4",
       "name": "Attachment",
       "fioriicon": "attachment",
-      "type": "Attachment",
+      "type": "MultiAttachments",
       "download": "No"
     }
   ],
@@ -104,7 +111,8 @@
       "Location",
       "Notes"
     ],
-    "Tab3": ["Image"]
+    "Tab3": ["Image"],
+    "Tab4": ["Attachment"]
   },
   "ControlDisplay": {},
   "FieldDef": [
@@ -213,6 +221,15 @@
       "width": "200",
       "Option": "",
       "SLabel": "Image",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "Attachment",
+      "type": "attachment",
+      "width": "200",
+      "Option": "",
+      "SLabel": "Attachment",
       "LLabel": "",
       "Currency": "No"
     },
