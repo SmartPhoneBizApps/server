@@ -3,16 +3,21 @@
     "ApplicationTitle": "Employee Profile",
     "DetailTitle": "Employee Profile"
   },
+  "Controls": { "USP": "UserProfile" },
   "ListFields": {
-    "IntroField": "",
-    "TitleField": "",
-    "sStatus": "",
+    "IntroField": "EmpFirstName",
+    "TitleField": "EmpLastName",
+    "sStatus": "Status",
     "fStatus": "",
     "numberField": "",
-    "LFields": [],
+    "LFields": ["ID", "EmailId", "DateOfJoining"],
     "numberUnitField": ""
   },
-  "ListBOTFields": { "Title": [], "SubTitle": [], "Description": [] },
+  "ListBOTFields": {
+    "Title": ["EmpFirstName", "EmpLastName"],
+    "SubTitle": ["ID", "Status"],
+    "Description": ["EmailId", "DateOfJoining"]
+  },
   "PossibleValues": ["Status"],
   "MButtons": [
     {
@@ -55,31 +60,100 @@
       "fioriicon": "responsive"
     },
     {
-      "value": "Tab2",
-      "name": "Employee Bank Details",
-      "fioriicon": "Notes",
+      "value": "Tab1",
+      "name": "Personel Details",
+      "fioriicon": "developer-settings",
       "type": "Field"
     },
     {
-      "value": "Tab1",
-      "name": "Employee Details",
-      "fioriicon": "Notes",
+      "value": "Tab3",
+      "name": "Skills",
+      "fioriicon": "technical-object",
+      "type": "Field"
+    },
+    {
+      "value": "Tab4",
+      "name": "Emergency Contacts",
+      "fioriicon": "accidental-leave",
+      "type": "Field"
+    },
+    {
+      "value": "Tab5",
+      "name": "Bank Details",
+      "fioriicon": "loan",
+      "type": "Field"
+    },
+    {
+      "value": "Tab6",
+      "name": "Education",
+      "fioriicon": "study-leave",
+      "type": "Field"
+    },
+    {
+      "value": "Tab7",
+      "name": "Previous Employer",
+      "fioriicon": "addresses",
+      "type": "Field"
+    },
+    {
+      "value": "Tab8",
+      "name": "Attachments",
+      "fioriicon": "attachment",
+      "type": "MultiAttachments"
+    },
+    {
+      "value": "Tab9",
+      "name": "Certifications",
+      "fioriicon": "receipt",
+      "type": "carouselImage"
+    },
+    {
+      "value": "Tab10",
+      "name": "Remuneration",
+      "fioriicon": "crm-sales",
+      "type": "Field"
+    },
+    {
+      "value": "Tab11",
+      "name": "Identification",
+      "fioriicon": "hint",
       "type": "Field"
     }
   ],
   "DetailFields": {
-    "None": ["ID", "EmployeeName", "Status"],
+    "headerTitle": ["USP_Name"],
+    "headerRole": ["USP_Role"],
+    "headerImage": ["USP_Image"],
+    "None": ["ID", "EmpFirstName", "EmpLastName", "Status"],
     "Tab1": [
-      "FatherOrSpouseName",
-      "DateOfBirth",
-      "CommunciationAddress",
-      "PermanentAddress",
+      "SpouseName",
+      "FatherName",
+      "DateOfJoining",
+      "MaritalStatus",
+      "Sex",
       "ContactNo",
       "EmailId",
-      "DateOfJoining",
-      "Remuneration"
+      "PostCode",
+      "Address"
     ],
-    "Tab2": ["AccountName", "AccountNo", "Bank", "Branch", "IFSCcode"]
+
+    "Tab3": ["Skills"],
+    "Tab4": ["Emergency Contacts"],
+    "Tab5": [
+      "AccountNo",
+      "BankName",
+      "Branch",
+      "IBAN",
+      "SWIFT",
+      "IFSCcode",
+      "Sortcode"
+    ],
+    "Tab6": ["Education"],
+    "Tab7": ["PreviousEmployer"],
+    "Tab8": ["Attachments"],
+    "Tab9": ["Certifications"],
+    "Tab10": ["Remuneration"],
+    "Tab11": ["DOB", "SSNumber", "NINumber"]
   },
   "ControlDisplay": {},
   "FieldDef": [
@@ -87,48 +161,291 @@
       "name": "ID",
       "type": "string",
       "width": "20",
-      "Option": "Optional",
-      "SLabel": "",
-      "LLabel": ""
+      "Option": "Mandatory",
+      "SLabel": "Identification",
+      "LLabel": "Identification",
+      "Currency": "No"
     },
-    { "name": "EmployeeName", "type": "string", "width": "50", "Option": "" },
     {
-      "name": "FatherOrSpouseName",
+      "name": "EmpFirstName",
       "type": "string",
       "width": "50",
-      "Option": ""
-    },
-    { "name": "DateOfBirth", "type": "Date", "width": "10", "Option": "" },
-    {
-      "name": "CommunciationAddress",
-      "type": "string",
-      "width": "200",
-      "Option": ""
+      "Option": "Mandatory",
+      "SLabel": "Identification",
+      "LLabel": "Identification",
+      "Currency": "No"
     },
     {
-      "name": "PermanentAddress",
+      "name": "EmpLastName",
+      "type": "string",
+      "width": "50",
+      "Option": "Mandatory",
+      "SLabel": "Identification",
+      "LLabel": "Identification",
+      "Currency": "No"
+    },
+    {
+      "name": "SpouseName",
+      "type": "string",
+      "width": "50",
+      "Option": "Optional",
+      "SLabel": "Spouse Name",
+      "LLabel": "Spouse Name",
+      "Currency": "No"
+    },
+    {
+      "name": "FatherName",
+      "type": "string",
+      "width": "50",
+      "Option": "Optional",
+      "SLabel": "Father Name",
+      "LLabel": "Father Name",
+      "Currency": "No"
+    },
+    {
+      "name": "DOB",
+      "type": "Date",
+      "width": "10",
+      "Option": "Mandatory",
+      "SLabel": "Date of Birth",
+      "LLabel": "Date of Birth",
+      "Currency": "No"
+    },
+    {
+      "name": "Address",
       "type": "string",
       "width": "200",
-      "Option": ""
+      "Option": "Optional",
+      "SLabel": "Address",
+      "LLabel": "Address",
+      "Currency": "No"
+    },
+    {
+      "name": "Postcode",
+      "type": "string",
+      "width": "200",
+      "Option": "Mandatory",
+      "SLabel": "PostCode",
+      "LLabel": "PostCode",
+      "Currency": "No"
+    },
+    {
+      "name": "Sex",
+      "type": "string",
+      "width": "20",
+      "Option": "Optional",
+      "SLabel": "Sex",
+      "LLabel": "Sex",
+      "Currency": "No"
+    },
+    {
+      "name": "Certifications",
+      "type": "string",
+      "width": "500",
+      "Option": "Optional",
+      "SLabel": "Certifications and Trainings",
+      "LLabel": "Certifications and Trainings",
+      "Currency": "No"
+    },
+    {
+      "name": "Attachments",
+      "type": "string",
+      "width": "500",
+      "Option": "Optional",
+      "SLabel": "Attachments",
+      "LLabel": "Attachments",
+      "Currency": "No"
+    },
+    {
+      "name": "MaritalStatus",
+      "type": "string",
+      "width": "20",
+      "Option": "Optional",
+      "SLabel": "MaritalStatus",
+      "LLabel": "MaritalStatus",
+      "Currency": "No"
     },
     {
       "name": "ContactNo",
       "type": "string",
       "width": "20",
       "Option": "Optional",
-      "SLabel": "",
-      "LLabel": "",
+      "SLabel": "Contact No",
+      "LLabel": "Contact No",
       "Currency": "No"
     },
-    { "name": "EmailId", "type": "string", "width": "50", "Option": "" },
-    { "name": "DateOfJoining", "type": "Date", "width": "10", "Option": "" },
-    { "name": "Remuneration", "type": "string", "width": "100", "Option": "" },
-    { "name": "AccountName", "type": "string", "width": "100", "Option": "" },
-    { "name": "AccountNo", "type": "string", "width": "50", "Option": "" },
-    { "name": "Bank", "type": "string", "width": "100", "Option": "" },
-    { "name": "Branch", "type": "string", "width": "100", "Option": "" },
-    { "name": "IFSCcode", "type": "string", "width": "100", "Option": "" },
-    { "name": "Status", "type": "string", "width": "20", "Option": "" }
+    {
+      "name": "EmailId",
+      "type": "string",
+      "width": "50",
+      "Option": "Optional",
+      "SLabel": "Email Id",
+      "LLabel": "Email Id",
+      "Currency": "No"
+    },
+    {
+      "name": "DateOfJoining",
+      "type": "Date",
+      "width": "10",
+      "Option": "Optional",
+      "SLabel": "Date Of Joining",
+      "LLabel": "Date Of Joining",
+      "Currency": "No"
+    },
+    {
+      "name": "Remuneration",
+      "type": "string",
+      "width": "500",
+      "Option": "Optional",
+      "SLabel": "Remuneration",
+      "LLabel": "Remuneration",
+      "Currency": "No"
+    },
+    {
+      "name": "EmpFirstName",
+      "type": "string",
+      "width": "100",
+      "Option": "Optional",
+      "SLabel": "Booking For",
+      "LLabel": "Booking For",
+      "Currency": "No"
+    },
+    {
+      "name": "SSNumber",
+      "type": "string",
+      "width": "100",
+      "Option": "Optional",
+      "SLabel": "Social Security Number",
+      "LLabel": "Social Security Number",
+      "Currency": "No"
+    },
+    {
+      "name": "NINumber",
+      "type": "string",
+      "width": "100",
+      "Option": "Optional",
+      "SLabel": "NI Number",
+      "LLabel": "NI Number",
+      "Currency": "No"
+    },
+    {
+      "name": "AccountNo",
+      "type": "string",
+      "width": "50",
+      "Option": "Optional",
+      "SLabel": "Account No",
+      "LLabel": "Account No",
+      "Currency": "No"
+    },
+    {
+      "name": "Sortcode",
+      "type": "string",
+      "width": "50",
+      "Option": "Optional",
+      "SLabel": "Sort/Branch Code",
+      "LLabel": "Sort Code / Branch Code",
+      "Currency": "No"
+    },
+    {
+      "name": "IFSCcode",
+      "type": "string",
+      "width": "100",
+      "Option": "Optional",
+      "SLabel": "IFSC code",
+      "LLabel": "IFSC code",
+      "Currency": "No"
+    },
+    {
+      "name": "SWIFT",
+      "type": "string",
+      "width": "100",
+      "Option": "Optional",
+      "SLabel": "SWIFT code",
+      "LLabel": "SWIFT code",
+      "Currency": "No"
+    },
+    {
+      "name": "IBAN",
+      "type": "string",
+      "width": "50",
+      "Option": "Optional",
+      "SLabel": "IBAN Number",
+      "LLabel": "IBAN Number",
+      "Currency": "No"
+    },
+    {
+      "name": "BankName",
+      "type": "string",
+      "width": "100",
+      "Option": "Optional",
+      "SLabel": "Bank Name",
+      "LLabel": "Name of the Bank",
+      "Currency": "No"
+    },
+    {
+      "name": "Branch",
+      "type": "string",
+      "width": "100",
+      "Option": "Optional",
+      "SLabel": "Branch",
+      "LLabel": "Name of Branch",
+      "Currency": "No"
+    },
+
+    {
+      "name": "Status",
+      "type": "string",
+      "width": "20",
+      "Option": "Optional",
+      "SLabel": "Booking For",
+      "LLabel": "Booking For",
+      "Currency": "No"
+    },
+    {
+      "name": "Dependents",
+      "type": "string",
+      "width": "20",
+      "Option": "Optional",
+      "SLabel": "Dependents",
+      "LLabel": "Dependents",
+      "Currency": "No"
+    },
+    {
+      "name": "EmergencyContacts",
+      "type": "string",
+      "width": "20",
+      "Option": "Optional",
+      "SLabel": "Emergency Contacts",
+      "LLabel": "Emergency Contacts",
+      "Currency": "No"
+    },
+    {
+      "name": "Education",
+      "type": "string",
+      "width": "20",
+      "Option": "Optional",
+      "SLabel": "Education",
+      "LLabel": "Education",
+      "Currency": "No"
+    },
+    {
+      "name": "PreviousEmployer",
+      "type": "string",
+      "width": "20",
+      "Option": "Optional",
+      "SLabel": "Previous Employer",
+      "LLabel": "Previous Employer",
+      "Currency": "No"
+    },
+    {
+      "name": "Skills",
+      "type": "string",
+      "width": "20",
+      "Option": "Optional",
+      "SLabel": "Skills",
+      "LLabel": "Skills",
+      "Currency": "No"
+    }
   ],
   "itemConfig": {},
   "CalculatedFields": {},

@@ -66,12 +66,6 @@
       "type": "Field"
     },
     {
-      "value": "Tab2",
-      "name": "Contact Details",
-      "fioriicon": "customer-and-contacts",
-      "type": "Field"
-    },
-    {
       "value": "Tab3",
       "name": "Skills",
       "fioriicon": "technical-object",
@@ -127,15 +121,22 @@
     }
   ],
   "DetailFields": {
+    "headerTitle": ["USP_Name"],
+    "headerRole": ["USP_Role"],
+    "headerImage": ["USP_Image"],
     "None": ["ID", "EmpFirstName", "EmpLastName", "Status"],
     "Tab1": [
       "SpouseName",
       "FatherName",
       "DateOfJoining",
       "MaritalStatus",
-      "Sex"
+      "Sex",
+      "ContactNo",
+      "EmailId",
+      "PostCode",
+      "Address"
     ],
-    "Tab2": ["ContactNo", "EmailId", "PostCode", "Address"],
+
     "Tab3": ["Skills"],
     "Tab4": ["Emergency Contacts"],
     "Tab5": [

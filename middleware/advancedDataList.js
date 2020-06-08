@@ -146,7 +146,7 @@ const advancedDataList = (model, model2, AppID, populate) => async (
       results[i1].cardImage = app["photo"];
       if (config["Controls"]["USP"] == "UserProfile") {
         results[i1].USP_Name = "Atul Gupta";
-        results[i1].USP_Role = "HRManager";
+        results[i1].USP_Role = req.headers.businessrole;
         results[i1].USP_Image =
           "https://www.espncricinfo.com/inline/content/image/1183835.html?alt=1";
       }
