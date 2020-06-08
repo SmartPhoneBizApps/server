@@ -166,9 +166,12 @@ exports.updateArea = asyncHandler(async (req, res, next) => {
     new: true,
     runValidators: true,
   });
+  user2 = user;
+  user2.UserPIN = "XXXXX";
+  user2.password = "XXXXX";
   res.status(200).json({
     success: true,
-    data: user,
+    user: user2,
   });
 });
 // @desc      Update user details
@@ -184,9 +187,12 @@ exports.updateBranch = asyncHandler(async (req, res, next) => {
     runValidators: true,
   });
 
+  user2 = user;
+  user2.UserPIN = "XXXXX";
+  user2.password = "XXXXX";
   res.status(200).json({
     success: true,
-    data: user,
+    user: user2,
   });
 });
 // @desc      Update user details
@@ -198,11 +204,6 @@ exports.updateDetails = asyncHandler(async (req, res, next) => {
     email: req.body.email,
   };
 
-  /*   const user = await User.findByIdAndUpdate(req.user.id, req.body, {
-    new: true,
-    runValidators: true,
-  }); */
-
   const user = await User.findOneAndUpdate(
     { email: req.body.email },
     req.body,
@@ -211,11 +212,12 @@ exports.updateDetails = asyncHandler(async (req, res, next) => {
       runValidators: true,
     }
   );
-
+  user2 = user;
+  user2.UserPIN = "XXXXX";
+  user2.password = "XXXXX";
   res.status(200).json({
     success: true,
-    data: user,
-    req: req.body,
+    user: user2,
   });
 });
 
@@ -229,10 +231,8 @@ exports.updatePassword = asyncHandler(async (req, res, next) => {
   if (!(await user.matchPassword(req.body.currentPassword))) {
     return next(new ErrorResponse("Password is incorrect", 401));
   }
-
   user.password = req.body.newPassword;
   await user.save();
-
   sendTokenResponse(user, 200, res);
 });
 
@@ -270,15 +270,15 @@ exports.forgotPassword = asyncHandler(async (req, res, next) => {
     console.log(err);
     user.resetPasswordToken = undefined;
     user.resetPasswordExpire = undefined;
-
     await user.save({ validateBeforeSave: false });
-
     return next(new ErrorResponse("Email could not be sent", 500));
   }
-
+  user2 = user;
+  user2.UserPIN = "XXXXX";
+  user2.password = "XXXXX";
   res.status(200).json({
     success: true,
-    data: user,
+    user: user2,
   });
 });
 
@@ -291,22 +291,18 @@ exports.resetPassword = asyncHandler(async (req, res, next) => {
     .createHash("sha256")
     .update(req.params.resettoken)
     .digest("hex");
-
   const user = await User.findOne({
     resetPasswordToken,
     resetPasswordExpire: { $gt: Date.now() },
   });
-
   if (!user) {
     return next(new ErrorResponse("Invalid token", 400));
   }
-
   // Set new password
   user.password = req.body.password;
   user.resetPasswordToken = undefined;
   user.resetPasswordExpire = undefined;
   await user.save();
-
   sendTokenResponse(user, 200, res);
 });
 

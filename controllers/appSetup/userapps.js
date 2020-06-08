@@ -72,18 +72,20 @@ exports.getUserapps = asyncHandler(async (req, res, next) => {
     for (j = 0; j < approleX.Apps.length; j++) {
       k = j + 1;
       appTemp["id"] = k;
-      appTemp["icon"] = approleX.Apps[j].icon;
-      appTemp["tileName"] = approleX.Apps[j].descriptions[0].appDescription;
-      appTemp["subTileName"] = approleX.Apps[j].descriptions[0].area;
-      appTemp["info"] = approleX.Apps[j].descriptions[0].appHelp;
-      appTemp["extraInfo"] = "";
-      appTemp["frameType"] = "OneByOne";
-      appTemp["backgroundImage"] = "";
-      appTemp["footer"] = "";
-      appTemp["userSpecific"] = approleX.Apps[j].userSpecific;
-      appTemp["applicationID"] = approleX.Apps[j].applicationID;
-      appTemp["tileType"] = "MasterDetail";
-      tile[j + 1] = { ...appTemp };
+      if (approleX.Apps[j]) {
+        appTemp["icon"] = approleX.Apps[j].icon;
+        appTemp["tileName"] = approleX.Apps[j].descriptions[0].appDescription;
+        appTemp["subTileName"] = approleX.Apps[j].descriptions[0].area;
+        appTemp["info"] = approleX.Apps[j].descriptions[0].appHelp;
+        appTemp["extraInfo"] = "";
+        appTemp["frameType"] = "OneByOne";
+        appTemp["backgroundImage"] = "";
+        appTemp["footer"] = "";
+        appTemp["userSpecific"] = approleX.Apps[j].userSpecific;
+        appTemp["applicationID"] = approleX.Apps[j].applicationID;
+        appTemp["tileType"] = "MasterDetail";
+        tile[j + 1] = { ...appTemp };
+      }
     }
     roleTemp["Tiles"] = tile;
     tile = [];
