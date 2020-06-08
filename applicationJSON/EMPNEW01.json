@@ -8,13 +8,11 @@
 
   "EmpFirstName": {
     "type": "String",
-
     "required": [true, "Please add mandatory field :EmployeeName"],
     "maxlength": [50, "EmployeeName can not be more than 50 characters"]
   },
   "EmpLastName": {
     "type": "String",
-
     "required": [true, "Please add mandatory field :EmployeeName"],
     "maxlength": [50, "EmployeeName can not be more than 50 characters"]
   },
@@ -26,252 +24,99 @@
     "type": "String",
     "maxlength": [20, "Sex can not be more than 20 characters"]
   },
-  "Category": {
+  "ContactNo": {
     "type": "String",
-
-    "maxlength": [50, "Category can not be more than 50 characters"]
+    "maxlength": [50, "ContactNo can not be more than 50 characters"]
   },
-  "Details": {
-    "type": "String",
 
-    "maxlength": [50, "Details can not be more than 50 characters"]
+  "SpouseName": {
+    "type": "String",
+    "maxlength": [50, "SpouseName can not be more than 50 characters"]
   },
-  "UoM": {
+  "FatherName": {
     "type": "String",
-
-    "maxlength": [10, "UoM can not be more than 10 characters"]
+    "maxlength": [50, "FatherName can not be more than 50 characters"]
   },
   "Status": {
     "type": "String",
-
     "required": [true, "Please add mandatory field :Status"],
-    "maxlength": [20, "Status can not be more than 20 characters"]
+    "maxlength": [50, "Status can not be more than 20 characters"]
   },
-  "Office": {
+  "Address": {
     "type": "String",
-
-    "maxlength": [50, "Office can not be more than 50 characters"]
+    "required": [true, "Please add mandatory field :Address"],
+    "maxlength": [200, "Address can not be more than 50 characters"]
   },
-  "CostObject": {
+  "Postcode": {
     "type": "String",
-
-    "maxlength": [50, "CostObject can not be more than 50 characters"]
+    "required": [true, "Please add mandatory field :Postcode"],
+    "maxlength": [20, "Postcode can not be more than 50 characters"]
   },
-  "CostType": {
-    "type": "String",
-    "maxlength": [50, "CostType can not be more than 50 characters"]
+  "DateOfJoining": {
+    "type": "Date",
+    "maxlength": [10, "DateOfJoining can not be more than 50 characters"]
   },
-  "GLAccount": {
-    "type": "String",
-
-    "maxlength": [20, "GLAccount can not be more than 20 characters"]
+  "DOB": {
+    "type": "Date",
+    "maxlength": [10, "DOB can not be more than 20 characters"]
   },
-  "OtherInfo": {
+  "SSNumber": {
     "type": "String",
-
-    "maxlength": [500, "OtherInfo can not be more than 500 characters"]
+    "maxlength": [500, "SSNumber can not be more than 500 characters"]
   },
-  "DelTo": {
+  "NINumber": {
     "type": "String",
-
-    "maxlength": [100, "DelTo can not be more than 100 characters"]
+    "maxlength": [100, "NINumber can not be more than 100 characters"]
   },
-  "DelStreet": {
+  "EmailId": {
     "type": "String",
-
-    "maxlength": [100, "DelStreet can not be more than 100 characters"]
+    "maxlength": [100, "EmailId can not be more than 100 characters"],
+    "required": [true, "Please add mandatory field :EmailId"],
+    "match": ["EMAIL_V1", "Invalid EmailId for field :DelEmail"]
   },
-  "DelCity": {
+  "AccountNo": {
     "type": "String",
-
-    "maxlength": [100, "DelCity can not be more than 100 characters"]
+    "maxlength": [100, "AccountNo can not be more than 100 characters"]
   },
-  "State": {
+  "BankName": {
     "type": "String",
-
-    "maxlength": [100, "State can not be more than 100 characters"]
+    "maxlength": [100, "BankName can not be more than 100 characters"]
   },
-  "DelPostCode": {
+  "Branch": {
     "type": "String",
-
-    "maxlength": [100, "DelPostCode can not be more than 100 characters"],
-    "match": [
-      "UK_POSTCODE_V1",
-      "Please provide valid UK Post Code in field :DelPostCode"
-    ]
+    "maxlength": [100, "Branch can not be more than 100 characters"]
   },
-  "Country": {
+  "IBAN": {
     "type": "String",
-
-    "maxlength": [100, "Country can not be more than 100 characters"]
+    "maxlength": [100, "IBAN can not be more than 100 characters"]
   },
-  "DelPhone": {
+  "SWIFT": {
     "type": "String",
-
-    "maxlength": [100, "DelPhone can not be more than 100 characters"],
+    "maxlength": [100, "SWIFT can not be more than 100 characters"],
     "match": [
       "UK_PHONE_V1",
       "Please provide valid UK Phone number in field :DelPhone"
     ]
   },
-  "DelEmail": {
+  "IFSCcode": {
     "type": "String",
-
-    "required": [true, "Please add mandatory field :DelEmail"],
-    "maxlength": [100, "DelEmail can not be more than 100 characters"],
-    "match": ["EMAIL_V1", "Invalid EmailID for field :DelEmail"]
+    "maxlength": [100, "IFSCcode can not be more than 100 characters"]
   },
-  "DeliveryInstr": {
+  "Sortcode": {
     "type": "String",
-
-    "maxlength": [500, "DeliveryInstr can not be more than 500 characters"]
-  },
-  "Currency": {
-    "type": "String",
-
-    "maxlength": [50, "Currency can not be more than 50 characters"]
-  },
-  "PaymentOption": {
-    "type": "String",
-
-    "maxlength": [50, "PaymentOption can not be more than 50 characters"]
-  },
-  "TransactionID": {
-    "type": "String",
-
-    "maxlength": [50, "TransactionID can not be more than 50 characters"]
-  },
-  "TransactionStatus": {
-    "type": "String",
-
-    "maxlength": [50, "TransactionStatus can not be more than 50 characters"]
-  },
-  "Approver": {
-    "type": "String",
-
-    "maxlength": [100, "Approver can not be more than 100 characters"]
-  },
-  "ProcessingLog": {
-    "type": "String",
-
-    "maxlength": [1000, "ProcessingLog can not be more than 1000 characters"]
-  },
-  "MutiItems": {
-    "type": "String",
-
-    "maxlength": [3, "MutiItems can not be more than 3 characters"]
-  },
-  "SCDate": {
-    "type": "Date",
-
-    "maxlength": [10, "SCDate can not be more than 10 characters"],
-    "match": [
-      "DATE_V1",
-      "Please provide date in YYYY-MM-DD format for field :SCDate"
-    ]
-  },
-  "SCQty": {
-    "type": "Number",
-
-    "maxlength": [10, "SCQty can not be more than 10 characters"],
-    "match": [
-      "NUM_INT_MAX_10D_V1",
-      "Please provide an Integer value for field :SCQty"
-    ]
-  },
-  "Price": {
-    "type": "Number",
-
-    "maxlength": [50, "Price can not be more than 50 characters"],
-    "match": [
-      "NUM_2_DEC_PLACE_V1",
-      "Please provide value with 2 decimal places in the field :Price"
-    ]
-  },
-  "NetValue": {
-    "type": "Number",
-
-    "maxlength": [50, "NetValue can not be more than 50 characters"],
-    "match": [
-      "NUM_2_DEC_PLACE_V1",
-      "Please provide value with 2 decimal places in the field :NetValue"
-    ]
-  },
-  "VATRate": {
-    "type": "Number",
-
-    "maxlength": [10, "VATRate can not be more than 10 characters"],
-    "match": [
-      "NUM_2_DEC_PLACE_V1",
-      "Please provide value with 2 decimal places in the field :VATRate"
-    ]
-  },
-  "VATVal": {
-    "type": "Number",
-
-    "maxlength": [50, "VATVal can not be more than 50 characters"],
-    "match": [
-      "NUM_2_DEC_PLACE_V1",
-      "Please provide value with 2 decimal places in the field :VATVal"
-    ]
-  },
-  "GrossValue": {
-    "type": "Number",
-
-    "maxlength": [50, "GrossValue can not be more than 50 characters"],
-    "match": [
-      "NUM_2_DEC_PLACE_V1",
-      "Please provide value with 2 decimal places in the field :GrossValue"
-    ]
-  },
-  "Budget": {
-    "type": "Number",
-
-    "maxlength": [10, "Budget can not be more than 10 characters"],
-    "match": [
-      "NUM_2_DEC_PLACE_V1",
-      "Please provide value with 2 decimal places in the field :Budget"
-    ]
-  },
-  "DeliveryDt": {
-    "type": "Date",
-
-    "maxlength": [10, "DeliveryDt can not be more than 10 characters"],
-    "match": [
-      "DATE_V1",
-      "Please provide date in YYYY-MM-DD format for field :DeliveryDt"
-    ]
-  },
-  "BudgetUsed": {
-    "type": "Number",
-
-    "maxlength": [10, "BudgetUsed can not be more than 10 characters"],
-    "match": [
-      "NUM_2_DEC_PLACE_V1",
-      "Please provide value with 2 decimal places in the field :BudgetUsed"
-    ]
-  },
-  "PaymentAmount": {
-    "type": "Number",
-
-    "maxlength": [50, "PaymentAmount can not be more than 50 characters"],
-    "match": [
-      "NUM_2_DEC_PLACE_V1",
-      "Please provide value with 2 decimal places in the field :PaymentAmount"
-    ]
-  },
-  "VATPer": {
-    "type": "Number",
-
-    "maxlength": [100, "VATPer can not be more than 100 characters"],
-    "match": [
-      "NUM_2_DEC_PLACE_V1",
-      "Please provide value with 2 decimal places in the field :VATPer"
-    ]
+    "maxlength": [500, "Sortcode can not be more than 500 characters"]
   },
   "USP_Name": { "type": "String" },
   "USP_Role": { "type": "String" },
   "USP_Image": { "type": "String" },
+  "Dependents": [],
+  "EmergencyContacts": [],
+  "Education": [],
+  "PreviousEmployer": [],
+  "Remuneration": [],
+  "Skills": [],
+  "Attachments": [],
+  "Certifications": [],
   "TransLog": [],
   "ItemData": []
 }

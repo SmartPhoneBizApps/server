@@ -9,7 +9,7 @@ const App = require("../models/appSetup/App");
 // @route     GET /api/v1/bootcamps
 // @access    Public
 exports.uploadFile = asyncHandler(async (req, res, next) => {
-  console.log("Inside Upload ");
+  console.log("Inside Upload...");
   console.log(req.files);
   //console.log(req);
 
