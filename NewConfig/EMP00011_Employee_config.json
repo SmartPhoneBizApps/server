@@ -5,15 +5,19 @@
   },
   "Controls": { "USP": "UserProfile" },
   "ListFields": {
-    "IntroField": "",
-    "TitleField": "",
-    "sStatus": "",
-    "fStatus": "",
+    "IntroField": "ReviewDate",
+    "TitleField": "Role",
+    "sStatus": "Band",
+    "fStatus": "Status",
     "numberField": "",
-    "LFields": [],
+    "LFields": ["DevManager", "EmpRef"],
     "numberUnitField": ""
   },
-  "ListBOTFields": { "Title": [], "SubTitle": [], "Description": [] },
+  "ListBOTFields": {
+    "Title": ["Band", "ReviewDate"],
+    "SubTitle": ["Status", "Role"],
+    "Description": ["DevManager", "EmpRef"]
+  },
   "PossibleValues": [
     "Status",
     "ReviewPeriod",
