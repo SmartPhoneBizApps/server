@@ -1,1 +1,290 @@
-{"Title": {"ApplicationTitle": "Competency Model", "DetailTitle": "Competency Matrix"}, "ListFields": {"IntroField": "", "TitleField": "", "sStatus": "", "fStatus": "", "numberField": "", "LFields": [], "numberUnitField": ""}, "ListBOTFields": {"Title": [], "SubTitle": [], "Description": []}, "PossibleValues": ["Status", "ReviewPeriod", "DevManager", "Role", "Band", "Area"], "MButtons": [{"type": "DOWNLOAD", "name": "Download File", "icon": "sap-icon://download"}, {"type": "APPHELP", "name": "Get App Help", "icon": "sap-icon://sys-help-2"}, {"type": "BOT", "name": "Launch Assistant", "icon": "sap-icon://travel-request"}, {"type": "VIEW", "name": "Change App View", "icon": "sap-icon://chart-table-view"}, {"type": "ADD", "name": "Add Record", "icon": "sap-icon://add"}, {"type": "UPLOAD", "name": "Upload Record", "icon": "sap-icon://upload"}], "DButtons": [{"type": "ATTACHMENT", "name": "View Attachments", "icon": "sap-icon://attachment"}, {"type": "UPDATE", "name": "Update Record", "icon": "sap-icon://update"}, {"type": "ADD", "name": "Add Record", "icon": "sap-icon://add"}], "Tabs": [{"value": "Tab0", "name": "Cards", "type": "Cards", "fioriicon": "responsive"}, {"value": "Tab1", "name": "Reference", "type": "Field", "fioriicon": "request"}, {"value": "Tab2", "name": "Appraisal", "type": "Field", "fioriicon": "comment"}], "DetailFields": {"None": ["ID", "Status", "ReviewDate"], "Tab1": ["EmpRef", "Name", "DevManager", "Role", "Band", "Area", "CompDesc"], "Tab2": ["ReviewPeriod", "Score", "MaxScore", "AppraiseeComm"]}, "ControlDisplay": {}, "FieldDef": [{"name": "ID", "type": "string", "width": "20", "Option": "", "SLabel": "ID", "LLabel": "", "Currency": "No"}, {"name": "Status", "type": "string", "width": "20", "Option": "", "SLabel": "Status", "LLabel": "", "Currency": "No"}, {"name": "EmpRef", "type": "string", "width": "50", "Option": "", "SLabel": "Employee Reference", "LLabel": "", "Currency": "No"}, {"name": "Name", "type": "string", "width": "50", "Option": "", "SLabel": "Name", "LLabel": "", "Currency": "No"}, {"name": "ReviewPeriod", "type": "string", "width": "50", "Option": "", "SLabel": "Review Period", "LLabel": "", "Currency": "No"}, {"name": "DevManager", "type": "string", "width": "50", "Option": "", "SLabel": "Development Manager", "LLabel": "", "Currency": "No"}, {"name": "Role", "type": "string", "width": "50", "Option": "", "SLabel": "Role", "LLabel": "", "Currency": "No"}, {"name": "Band", "type": "string", "width": "50", "Option": "", "SLabel": "Band", "LLabel": "", "Currency": "No"}, {"name": "ReviewDate", "type": "Date", "width": "10", "Option": "", "SLabel": "Review Date", "LLabel": "", "Currency": "No"}, {"name": "NextReviewDt", "type": "Date", "width": "10", "Option": "", "SLabel": "Next Review Date", "LLabel": "", "Currency": "No"}, {"name": "Area", "type": "string", "width": "50", "Option": "", "SLabel": "Area", "LLabel": "", "Currency": "No"}, {"name": "CompDesc", "type": "string", "width": "500", "Option": "", "SLabel": "Company Description", "LLabel": "", "Currency": "No"}, {"name": "AppraiseeComm", "type": "string", "width": "500", "Option": "", "SLabel": "Appraise communication", "LLabel": "", "Currency": "No"}, {"name": "AppraiserComm", "type": "string", "width": "500", "Option": "", "SLabel": "Appraiser Communication", "LLabel": "", "Currency": "No"}, {"name": "Grade", "type": "string", "width": "50", "Option": "", "SLabel": "Grade", "LLabel": "", "Currency": "No"}, {"name": "Score", "type": "string", "width": "50", "Option": "", "SLabel": "Score (out of 5)", "LLabel": "", "Currency": "No"}, {"name": "MaxScore", "type": "string", "width": "50", "Option": "", "SLabel": "Maximum Score", "LLabel": "", "Currency": "No"}], "itemConfig": {}, "CalculatedFields": {}, "Wizard": [{"id": "Step1", "fields": [{"name": "Name", "Sequence": "1", "Mode": "Edit"}, {"name": "Role", "Sequence": "1", "Mode": "Edit"}, {"name": "Band", "Sequence": "1", "Mode": "Edit"}], "name": "Employee Details", "stepType": "FieldList", "intro": "Competency Model : Employee Details"}, {"id": "Step2", "fields": [{"name": "EmpRef", "Sequence": "1", "Mode": "Edit"}, {"name": "ReviewPeriod", "Sequence": "1", "Mode": "Edit"}], "name": "Other Details and Admin", "stepType": "FieldList", "intro": "Competency Model : Other Details and Admin"}, {"id": "Step3", "fields": [{"name": "DevManager", "Sequence": "1", "Mode": "Edit"}], "name": "Development Manager", "stepType": "FieldList", "intro": "Competency Model : Development Manager"}, {"id": "Step4", "fields": [{"name": "Area", "Sequence": "1", "Mode": "Edit"}, {"name": "AppraiseeComm", "Sequence": "1", "Mode": "Edit"}, {"name": "Score", "Sequence": "1", "Mode": "Edit"}, {"name": "Status", "Sequence": "1", "Mode": "Edit"}], "name": "Appraisal", "stepType": "FieldList", "intro": "Annual Appraisal"}]}
+{
+  "Title": {
+    "ApplicationTitle": "Competency Model",
+    "DetailTitle": "Competency Matrix"
+  },
+  "ListFields": {
+    "IntroField": "",
+    "TitleField": "",
+    "sStatus": "",
+    "fStatus": "",
+    "numberField": "",
+    "LFields": [],
+    "numberUnitField": ""
+  },
+  "ListBOTFields": { "Title": [], "SubTitle": [], "Description": [] },
+  "PossibleValues": [
+    "Status",
+    "ReviewPeriod",
+    "DevManager",
+    "Role",
+    "Band",
+    "Area"
+  ],
+  "MButtons": [
+    {
+      "type": "DOWNLOAD",
+      "name": "Download File",
+      "icon": "sap-icon://download"
+    },
+    {
+      "type": "APPHELP",
+      "name": "Get App Help",
+      "icon": "sap-icon://sys-help-2"
+    },
+    {
+      "type": "BOT",
+      "name": "Launch Assistant",
+      "icon": "sap-icon://travel-request"
+    },
+    {
+      "type": "VIEW",
+      "name": "Change App View",
+      "icon": "sap-icon://chart-table-view"
+    },
+    { "type": "ADD", "name": "Add Record", "icon": "sap-icon://add" },
+    { "type": "UPLOAD", "name": "Upload Record", "icon": "sap-icon://upload" }
+  ],
+  "DButtons": [
+    {
+      "type": "ATTACHMENT",
+      "name": "View Attachments",
+      "icon": "sap-icon://attachment"
+    },
+    { "type": "UPDATE", "name": "Update Record", "icon": "sap-icon://update" },
+    { "type": "ADD", "name": "Add Record", "icon": "sap-icon://add" }
+  ],
+  "Tabs": [
+    {
+      "value": "Tab0",
+      "name": "Cards",
+      "type": "Cards",
+      "fioriicon": "responsive"
+    },
+    {
+      "value": "Tab1",
+      "name": "Reference",
+      "type": "Field",
+      "fioriicon": "request"
+    },
+    {
+      "value": "Tab2",
+      "name": "Appraisal",
+      "type": "Field",
+      "fioriicon": "comment"
+    }
+  ],
+  "DetailFields": {
+    "None": ["ID", "Status", "ReviewDate"],
+    "Tab1": [
+      "EmpRef",
+      "Name",
+      "DevManager",
+      "Role",
+      "Band",
+      "Area",
+      "CompDesc"
+    ],
+    "Tab2": ["ReviewPeriod", "Score", "MaxScore", "AppraiseeComm"]
+  },
+  "ControlDisplay": {},
+  "FieldDef": [
+    {
+      "name": "ID",
+      "type": "string",
+      "width": "20",
+      "Option": "Optional",
+      "SLabel": "ID",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "Status",
+      "type": "string",
+      "width": "20",
+      "Option": "Optional",
+      "SLabel": "Status",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "EmpRef",
+      "type": "string",
+      "width": "50",
+      "Option": "Optional",
+      "SLabel": "Employee Reference",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "Name",
+      "type": "string",
+      "width": "50",
+      "Option": "Optional",
+      "SLabel": "Name",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "ReviewPeriod",
+      "type": "string",
+      "width": "50",
+      "Option": "Optional",
+      "SLabel": "Review Period",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "DevManager",
+      "type": "string",
+      "width": "50",
+      "Option": "Optional",
+      "SLabel": "Development Manager",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "Role",
+      "type": "string",
+      "width": "50",
+      "Option": "Optional",
+      "SLabel": "Role",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "Band",
+      "type": "string",
+      "width": "50",
+      "Option": "Optional",
+      "SLabel": "Band",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "ReviewDate",
+      "type": "Date",
+      "width": "10",
+      "Option": "Optional",
+      "SLabel": "Review Date",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "NextReviewDt",
+      "type": "Date",
+      "width": "10",
+      "Option": "Optional",
+      "SLabel": "Next Review Date",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "Area",
+      "type": "string",
+      "width": "50",
+      "Option": "Optional",
+      "SLabel": "Area",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "CompDesc",
+      "type": "string",
+      "width": "500",
+      "Option": "Optional",
+      "SLabel": "Company Description",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "AppraiseeComm",
+      "type": "string",
+      "width": "500",
+      "Option": "Optional",
+      "SLabel": "Appraise communication",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "AppraiserComm",
+      "type": "string",
+      "width": "500",
+      "Option": "Optional",
+      "SLabel": "Appraiser Communication",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "Grade",
+      "type": "string",
+      "width": "50",
+      "Option": "Optional",
+      "SLabel": "Grade",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "Score",
+      "type": "string",
+      "width": "50",
+      "Option": "Optional",
+      "SLabel": "Score (out of 5)",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "MaxScore",
+      "type": "string",
+      "width": "50",
+      "Option": "Optional",
+      "SLabel": "Maximum Score",
+      "LLabel": "",
+      "Currency": "No"
+    }
+  ],
+  "itemConfig": {},
+  "CalculatedFields": {},
+  "Wizard": [
+    {
+      "id": "Step1",
+      "fields": [
+        { "name": "Name", "Sequence": "1", "Mode": "Edit" },
+        { "name": "Role", "Sequence": "1", "Mode": "Edit" },
+        { "name": "Band", "Sequence": "1", "Mode": "Edit" }
+      ],
+      "name": "Employee Details",
+      "stepType": "FieldList",
+      "intro": "Competency Model : Employee Details"
+    },
+    {
+      "id": "Step2",
+      "fields": [
+        { "name": "EmpRef", "Sequence": "1", "Mode": "Edit" },
+        { "name": "ReviewPeriod", "Sequence": "1", "Mode": "Edit" }
+      ],
+      "name": "Other Details and Admin",
+      "stepType": "FieldList",
+      "intro": "Competency Model : Other Details and Admin"
+    },
+    {
+      "id": "Step3",
+      "fields": [{ "name": "DevManager", "Sequence": "1", "Mode": "Edit" }],
+      "name": "Development Manager",
+      "stepType": "FieldList",
+      "intro": "Competency Model : Development Manager"
+    },
+    {
+      "id": "Step4",
+      "fields": [
+        { "name": "Area", "Sequence": "1", "Mode": "Edit" },
+        { "name": "AppraiseeComm", "Sequence": "1", "Mode": "Edit" },
+        { "name": "Score", "Sequence": "1", "Mode": "Edit" },
+        { "name": "Status", "Sequence": "1", "Mode": "Edit" }
+      ],
+      "name": "Appraisal",
+      "stepType": "FieldList",
+      "intro": "Annual Appraisal"
+    }
+  ]
+}

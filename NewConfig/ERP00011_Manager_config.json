@@ -1,1 +1,158 @@
-{"Title": {"ApplicationTitle": "Interview Schedule", "DetailTitle": "Interview Schedule"}, "ListFields": {"IntroField": "", "TitleField": "", "sStatus": "", "fStatus": "", "numberField": "", "LFields": [], "numberUnitField": ""}, "ListBOTFields": {"Title": [], "SubTitle": [], "Description": []}, "PossibleValues": ["Position", "Citizenship", "JobType", "Status"], "MButtons": [], "DButtons": [], "Tabs": [{"value": "Tab0", "name": "Cards", "type": "Cards", "fioriicon": "responsive"}, {"value": "Tab1", "name": "Details", "type": "Field", "fioriicon": "notes"}, {"value": "Tab3", "name": "Job Details", "type": "Field", "fioriicon": "notes"}], "DetailFields": {"None": ["ID", "Candidate", "Status"], "Tab1": ["InterviewDate", "Position", "Citizenship", "DOB", "Email", "Telephone"], "Tab3": ["JobType"]}, "ControlDisplay": {}, "FieldDef": [{"name": "ID", "type": "string", "width": "20", "Option": "", "SLabel": "Identification", "LLabel": "", "Currency": "No"}, {"name": "InterviewDate", "type": "Date", "width": "10", "Option": "", "SLabel": "Interview Date", "LLabel": "", "Currency": "No"}, {"name": "Position", "type": "string", "width": "50", "Option": "", "SLabel": "Position", "LLabel": "", "Currency": "No"}, {"name": "Citizenship", "type": "string", "width": "50", "Option": "", "SLabel": "Citizenship", "LLabel": "", "Currency": "No"}, {"name": "Candidate", "type": "string", "width": "50", "Option": "", "SLabel": "Candidate", "LLabel": "", "Currency": "No"}, {"name": "JobType", "type": "string", "width": "50", "Option": "", "SLabel": "Job Type", "LLabel": "", "Currency": "No"}, {"name": "Status", "type": "string", "width": "20", "Option": "", "SLabel": "Status", "LLabel": "", "Currency": "No"}, {"name": "DOB", "type": "Date", "width": "10", "Option": "", "SLabel": "Date of Birth", "LLabel": "", "Currency": "No"}, {"name": "Email", "type": "string", "width": "100", "Option": "", "SLabel": "Email", "LLabel": "", "Currency": "No"}, {"name": "Telephone", "type": "string", "width": "50", "Option": "", "SLabel": "Telephone", "LLabel": "", "Currency": "No"}], "itemConfig": {"ItemFieldDefinition": [], "DisplayFields": [], "ItemButtons": {"itemDisplay": false, "itemAdd": false, "itemEdit": false, "itemDelete": false}, "CreateFields": [], "ItemDetails": []}, "CalculatedFields": {}, "Wizard": []}
+{
+  "Title": {
+    "ApplicationTitle": "Interview Schedule",
+    "DetailTitle": "Interview Schedule"
+  },
+  "ListFields": {
+    "IntroField": "",
+    "TitleField": "",
+    "sStatus": "",
+    "fStatus": "",
+    "numberField": "",
+    "LFields": [],
+    "numberUnitField": ""
+  },
+  "ListBOTFields": { "Title": [], "SubTitle": [], "Description": [] },
+  "PossibleValues": ["Position", "Citizenship", "JobType", "Status"],
+  "MButtons": [],
+  "DButtons": [],
+  "Tabs": [
+    {
+      "value": "Tab0",
+      "name": "Cards",
+      "type": "Cards",
+      "fioriicon": "responsive"
+    },
+    {
+      "value": "Tab1",
+      "name": "Details",
+      "type": "Field",
+      "fioriicon": "notes"
+    },
+    {
+      "value": "Tab3",
+      "name": "Job Details",
+      "type": "Field",
+      "fioriicon": "notes"
+    }
+  ],
+  "DetailFields": {
+    "None": ["ID", "Candidate", "Status"],
+    "Tab1": [
+      "InterviewDate",
+      "Position",
+      "Citizenship",
+      "DOB",
+      "Email",
+      "Telephone"
+    ],
+    "Tab3": ["JobType"]
+  },
+  "ControlDisplay": {},
+  "FieldDef": [
+    {
+      "name": "ID",
+      "type": "string",
+      "width": "20",
+      "Option": "Optional",
+      "SLabel": "Identification",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "InterviewDate",
+      "type": "Date",
+      "width": "10",
+      "Option": "Optional",
+      "SLabel": "Interview Date",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "Position",
+      "type": "string",
+      "width": "50",
+      "Option": "Optional",
+      "SLabel": "Position",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "Citizenship",
+      "type": "string",
+      "width": "50",
+      "Option": "Optional",
+      "SLabel": "Citizenship",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "Candidate",
+      "type": "string",
+      "width": "50",
+      "Option": "Optional",
+      "SLabel": "Candidate",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "JobType",
+      "type": "string",
+      "width": "50",
+      "Option": "Optional",
+      "SLabel": "Job Type",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "Status",
+      "type": "string",
+      "width": "20",
+      "Option": "Optional",
+      "SLabel": "Status",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "DOB",
+      "type": "Date",
+      "width": "10",
+      "Option": "Optional",
+      "SLabel": "Date of Birth",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "Email",
+      "type": "string",
+      "width": "100",
+      "Option": "Optional",
+      "SLabel": "Email",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "Telephone",
+      "type": "string",
+      "width": "50",
+      "Option": "Optional",
+      "SLabel": "Telephone",
+      "LLabel": "",
+      "Currency": "No"
+    }
+  ],
+  "itemConfig": {
+    "ItemFieldDefinition": [],
+    "DisplayFields": [],
+    "ItemButtons": {
+      "itemDisplay": false,
+      "itemAdd": false,
+      "itemEdit": false,
+      "itemDelete": false
+    },
+    "CreateFields": [],
+    "ItemDetails": []
+  },
+  "CalculatedFields": {},
+  "Wizard": []
+}

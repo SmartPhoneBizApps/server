@@ -1,1 +1,671 @@
-{"Title": {"ApplicationTitle": "Benefit Enrolment Form", "DetailTitle": "Benefit Enrolment Form"}, "ListFields": {"IntroField": "", "TitleField": "", "sStatus": "", "fStatus": "", "numberField": "", "LFields": [], "numberUnitField": ""}, "ListBOTFields": {"Title": [], "SubTitle": [], "Description": []}, "PossibleValues": ["Status", "Gender", "MartialStatus", "ChooseInsurancePlan", "MedicalCoverage", "Dentalcoverage", "VisionCoverage", "AccidentalDeathCoverage", "Dependent1Gender", "Dependent1Relationship", "Dependent2Gender", "Dependent2Relationship", "Dependent3Gender", "Dependent3Relationship", "RequestType"], "MButtons": [{"type": "DOWNLOAD", "name": "Download File", "icon": "sap-icon://download"}, {"type": "APPHELP", "name": "Get App Help", "icon": "sap-icon://sys-help-2"}, {"type": "BOT", "name": "Launch Assistant", "icon": "sap-icon://travel-request"}, {"type": "VIEW", "name": "Change App View", "icon": "sap-icon://chart-table-view"}, {"type": "ADD", "name": "Add Record", "icon": "sap-icon://add"}, {"type": "UPLOAD", "name": "Upload Record", "icon": "sap-icon://upload"}], "DButtons": [{"type": "ATTACHMENT", "name": "View Attachments", "icon": "sap-icon://attachment"}, {"type": "UPDATE", "name": "Update Record", "icon": "sap-icon://update"}, {"type": "ADD", "name": "Add Record", "icon": "sap-icon://add"}], "Tabs": [{"value": "Tab0", "name": "Cards", "type": "Cards", "fioriicon": "responsive"}, {"value": "Tab1", "name": "Employee details", "fioriicon": "employee", "type": "Field", "download": "Yes"}, {"value": "Tab2", "name": "Benefits", "fioriicon": "notes", "type": "Field", "download": "Yes"}, {"value": "Tab3", "name": "Dependent details", "fioriicon": "folder", "type": "Field", "download": "Yes"}, {"value": "Tab4", "name": "Item Details", "fioriicon": "notes", "type": "Items", "download": "Yes"}], "DetailFields": {"None": ["ID", "Status"], "Tab1": ["Name", "DOB", "Gender", "Address", "MartialStatus", "Email", "Designation"], "Tab2": ["ChooseInsurancePlan", "MedicalCoverage", "Dentalcoverage", "VisionCoverage", "AccidentalDeathCoverage"], "Tab3": ["Dependent1Name", "Dependent1DOB", "Dependent1Gender", "Dependent1Relationship", "Dependent2Name", "Dependent2DOB", "Dependent2Gender", "Dependent2Relationship", "Dependent3Name", "Dependent3DOB", "Dependent3Gender", "Dependent3Relationship"]}, "ControlDisplay": {}, "FieldDef": [{"name": "ID", "type": "string", "width": "20", "Option": "", "SLabel": "Identification", "LLabel": "", "Currency": "No"}, {"name": "Name", "type": "string", "width": "50", "Option": "", "SLabel": "Name", "LLabel": "", "Currency": "No"}, {"name": "DOB", "type": "Date", "width": "10", "Option": "", "SLabel": "Date Of Birth", "LLabel": "", "Currency": "No"}, {"name": "Gender", "type": "string", "width": "20", "Option": "", "SLabel": "Gender", "LLabel": "", "Currency": "No"}, {"name": "Address", "type": "string", "width": "100", "Option": "", "SLabel": "Address", "LLabel": "", "Currency": "No"}, {"name": "MartialStatus", "type": "string", "width": "50", "Option": "", "SLabel": "Martial Status", "LLabel": "", "Currency": "No"}, {"name": "Email", "type": "string", "width": "50", "Option": "", "SLabel": "Email", "LLabel": "", "Currency": "No"}, {"name": "Designation", "type": "string", "width": "50", "Option": "", "SLabel": "Designation", "LLabel": "", "Currency": "No"}, {"name": "ChooseInsurancePlan", "type": "string", "width": "100", "Option": "", "SLabel": "Choose Insurance Plan", "LLabel": "", "Currency": "No"}, {"name": "MedicalCoverage", "type": "string", "width": "100", "Option": "", "SLabel": "Medical Coverage", "LLabel": "", "Currency": "No"}, {"name": "Dentalcoverage", "type": "string", "width": "100", "Option": "", "SLabel": "Dental Coverage", "LLabel": "", "Currency": "No"}, {"name": "VisionCoverage", "type": "string", "width": "100", "Option": "", "SLabel": "VisionCoverage", "LLabel": "", "Currency": "No"}, {"name": "AccidentalDeathCoverage", "type": "string", "width": "100", "Option": "", "SLabel": "Life and Accidental death Coverage", "LLabel": "", "Currency": "No"}, {"name": "Dependent1Name", "type": "string", "width": "50", "Option": "", "SLabel": "Dependent 1  Name", "LLabel": "", "Currency": "No"}, {"name": "Dependent1DOB", "type": "Date", "width": "10", "Option": "", "SLabel": "Dependent 1 Date Of Birth", "LLabel": "", "Currency": "No"}, {"name": "Dependent1Gender", "type": "string", "width": "20", "Option": "", "SLabel": "Dependent 1 Gender", "LLabel": "", "Currency": "No"}, {"name": "Dependent1Relationship", "type": "string", "width": "100", "Option": "", "SLabel": "Dependent 1 Relationship", "LLabel": "", "Currency": "No"}, {"name": "Dependent2Name", "type": "string", "width": "50", "Option": "", "SLabel": "Dependent 2 Name", "LLabel": "", "Currency": "No"}, {"name": "Dependent2DOB", "type": "Date", "width": "10", "Option": "", "SLabel": "Dependent 2 Date Of Birth", "LLabel": "", "Currency": "No"}, {"name": "Dependent2Gender", "type": "string", "width": "20", "Option": "", "SLabel": "Dependent 2 Gender", "LLabel": "", "Currency": "No"}, {"name": "Dependent2Relationship", "type": "string", "width": "100", "Option": "", "SLabel": "Dependent 2 Relationship", "LLabel": "", "Currency": "No"}, {"name": "Dependent3Name", "type": "string", "width": "50", "Option": "", "SLabel": "Dependent 3 Name", "LLabel": "", "Currency": "No"}, {"name": "Dependent3DOB", "type": "Date", "width": "10", "Option": "", "SLabel": "Dependent 3 Date Of Birth", "LLabel": "", "Currency": "No"}, {"name": "Dependent3Gender", "type": "string", "width": "20", "Option": "", "SLabel": "Dependent 3 Gender", "LLabel": "", "Currency": "No"}, {"name": "Dependent3Relationship", "type": "string", "width": "100", "Option": "", "SLabel": "Dependent 3 Relationship", "LLabel": "", "Currency": "No"}, {"name": "Status", "type": "string", "width": "20", "Option": "", "SLabel": "Status", "LLabel": "", "Currency": "No"}, {"name": "RequestType", "type": "string", "width": "50", "Option": "", "SLabel": "Request Type", "LLabel": "Request Type", "Currency": "No"}, {"name": "Area", "type": "string", "width": "50", "Option": "", "SLabel": "Area", "LLabel": "Area", "Currency": "No"}, {"name": "Cost", "type": "string", "width": "50", "Option": "", "SLabel": "Cost", "LLabel": "Cost", "Currency": "No"}, {"name": "CostCentre", "type": "string", "width": "50", "Option": "", "SLabel": "CostCentre", "LLabel": "CostCentre", "Currency": "No"}, {"name": "DateRequested", "type": "string", "width": "50", "Option": "", "SLabel": "Date Requested", "LLabel": "Date Requested", "Currency": "No"}, {"name": "Detail", "type": "string", "width": "1000", "Option": "", "SLabel": "Details / Comments ", "LLabel": "Details / Comments ", "Currency": "No"}, {"name": "Duration", "type": "string", "width": "10", "Option": "", "SLabel": "Duration", "LLabel": "Duration", "Currency": "No"}, {"name": "EmpDev", "type": "string", "width": "10", "Option": "", "SLabel": "EmpDev", "LLabel": "EmpDev", "Currency": "No"}, {"name": "External", "type": "string", "width": "10", "Option": "", "SLabel": "External", "LLabel": "External", "Currency": "No"}, {"name": "ProjectCode", "type": "string", "width": "50", "Option": "", "SLabel": "Project Code", "LLabel": "Project Code", "Currency": "No"}, {"name": "ProjectNeed", "type": "string", "width": "50", "Option": "", "SLabel": "ProjectNeed", "LLabel": "ProjectNeed", "Currency": "No"}, {"name": "Band", "type": "string", "width": "50", "Option": "", "SLabel": "Band", "LLabel": "Band", "Currency": "No"}, {"name": "DevManager", "type": "string", "width": "50", "Option": "", "SLabel": "Development Manager", "LLabel": "Development Manager", "Currency": "No"}, {"name": "Goal", "type": "string", "width": "500", "Option": "", "SLabel": "Goal", "LLabel": "Goal", "Currency": "No"}, {"name": "FeedbackDate", "type": "Date", "width": "10", "Option": "", "SLabel": "FeedbackDate", "LLabel": "FeedbackDate", "Currency": "No"}, {"name": "MaxScore", "type": "string", "width": "10", "Option": "", "SLabel": "MaxScore", "LLabel": "MaxScore", "Currency": "No"}, {"name": "NextReviewDt", "type": "Date", "width": "10", "Option": "", "SLabel": "Next Review Date", "LLabel": "Next Review Date", "Currency": "No"}, {"name": "TargetDate", "type": "Date", "width": "10", "Option": "", "SLabel": "Target Date", "LLabel": "Target Date", "Currency": "No"}, {"name": "SetDate", "type": "Date", "width": "10", "Option": "", "SLabel": "Set Date", "LLabel": "Set Date", "Currency": "No"}, {"name": "Score", "type": "string", "width": "10", "Option": "", "SLabel": "Score", "LLabel": "Score", "Currency": "No"}, {"name": "ReviewPeriod", "type": "string", "width": "10", "Option": "", "SLabel": "Review Period", "LLabel": "Review Period", "Currency": "No"}, {"name": "Rating", "type": "string", "width": "10", "Option": "", "SLabel": "Rating", "LLabel": "Rating", "Currency": "No"}, {"name": "ReviewDate", "type": "Date", "width": "10", "Option": "", "SLabel": "Review Date", "LLabel": "Review Date", "Currency": "No"}], "itemConfig": {"ItemFieldDefinition": [], "DisplayFields": [], "itemButton": {}, "CreateFields": [], "ItemDetails": [], "ItemButtons": {"itemDisplay": true, "itemAdd": true, "itemEdit": true, "itemDelete": true}}, "CalculatedFields": {"ItemC": [], "HeaderItem": [], "Header": [], "Item": []}, "Wizard": [{"id": "Step1", "fields": [{"name": "Name", "Sequence": "1", "Mode": "Edit"}, {"name": "DOB", "Sequence": "1", "Mode": "Edit"}, {"name": "Gender", "Sequence": "1", "Mode": "Edit"}, {"name": "Address", "Sequence": "1", "Mode": "Edit"}, {"name": "MartialStatus", "Sequence": "1", "Mode": "Edit"}, {"name": "Email", "Sequence": "1", "Mode": "Edit"}, {"name": "Designation", "Sequence": "1", "Mode": "Edit"}], "name": "Employee Details", "stepType": "FieldList", "intro": "Benefit Enrolment Form : Employee Details"}, {"id": "Step2", "fields": [{"name": "ChooseInsurancePlan", "Sequence": "1", "Mode": "Edit"}, {"name": "MedicalCoverage", "Sequence": "1", "Mode": "Edit"}, {"name": "Dentalcoverage", "Sequence": "1", "Mode": "Edit"}, {"name": "VisionCoverage", "Sequence": "1", "Mode": "Edit"}, {"name": "AccidentalDeathCoverage", "Sequence": "1", "Mode": "Edit"}], "name": "Benefit Details", "stepType": "FieldList", "intro": "Benefit Enrolment Form : Benefit Details"}, {"id": "Step3", "fields": [{"name": "Dependent1Name", "Sequence": "1", "Mode": "Edit"}, {"name": "Dependent1DOB", "Sequence": "1", "Mode": "Edit"}, {"name": "Dependent1Gender", "Sequence": "1", "Mode": "Edit"}, {"name": "Dependent1Relationship", "Sequence": "1", "Mode": "Edit"}], "name": "Dependent 1 Details", "stepType": "FieldList", "intro": "Benefit Enrolment Form : Dependent 1 Details"}, {"id": "Step4", "fields": [{"name": "Dependent2Name", "Sequence": "1", "Mode": "Edit"}, {"name": "Dependent2DOB", "Sequence": "1", "Mode": "Edit"}, {"name": "Dependent2Gender", "Sequence": "1", "Mode": "Edit"}, {"name": "Dependent2Relationship", "Sequence": "1", "Mode": "Edit"}], "name": "Dependent 2 Details", "stepType": "FieldList", "intro": "Benefit Enrolment Form : Dependent 2 Details"}, {"id": "Step5", "fields": [{"name": "Dependent3Name", "Sequence": "1", "Mode": "Edit"}, {"name": "Dependent3DOB", "Sequence": "1", "Mode": "Edit"}, {"name": "Dependent3Gender", "Sequence": "1", "Mode": "Edit"}, {"name": "Dependent3Relationship", "Sequence": "1", "Mode": "Edit"}], "name": "Dependent 3 Details", "stepType": "FieldList", "intro": "Benefit Enrolment Form : Dependent 3 Details"}, {"id": "Step6", "fields": [{"name": "Status", "Sequence": "1", "Mode": "Edit"}], "name": "Admin", "stepType": "FieldList", "intro": "Benefit Enrolment Form : Admin"}]}
+{
+  "Title": {
+    "ApplicationTitle": "Benefit Enrolment Form",
+    "DetailTitle": "Benefit Enrolment Form"
+  },
+  "ListFields": {
+    "IntroField": "",
+    "TitleField": "",
+    "sStatus": "",
+    "fStatus": "",
+    "numberField": "",
+    "LFields": [],
+    "numberUnitField": ""
+  },
+  "ListBOTFields": { "Title": [], "SubTitle": [], "Description": [] },
+  "PossibleValues": [
+    "Status",
+    "Gender",
+    "MartialStatus",
+    "ChooseInsurancePlan",
+    "MedicalCoverage",
+    "Dentalcoverage",
+    "VisionCoverage",
+    "AccidentalDeathCoverage",
+    "Dependent1Gender",
+    "Dependent1Relationship",
+    "Dependent2Gender",
+    "Dependent2Relationship",
+    "Dependent3Gender",
+    "Dependent3Relationship",
+    "RequestType"
+  ],
+  "MButtons": [
+    {
+      "type": "DOWNLOAD",
+      "name": "Download File",
+      "icon": "sap-icon://download"
+    },
+    {
+      "type": "APPHELP",
+      "name": "Get App Help",
+      "icon": "sap-icon://sys-help-2"
+    },
+    {
+      "type": "BOT",
+      "name": "Launch Assistant",
+      "icon": "sap-icon://travel-request"
+    },
+    {
+      "type": "VIEW",
+      "name": "Change App View",
+      "icon": "sap-icon://chart-table-view"
+    },
+    { "type": "ADD", "name": "Add Record", "icon": "sap-icon://add" },
+    { "type": "UPLOAD", "name": "Upload Record", "icon": "sap-icon://upload" }
+  ],
+  "DButtons": [
+    {
+      "type": "ATTACHMENT",
+      "name": "View Attachments",
+      "icon": "sap-icon://attachment"
+    },
+    { "type": "UPDATE", "name": "Update Record", "icon": "sap-icon://update" },
+    { "type": "ADD", "name": "Add Record", "icon": "sap-icon://add" }
+  ],
+  "Tabs": [
+    {
+      "value": "Tab0",
+      "name": "Cards",
+      "type": "Cards",
+      "fioriicon": "responsive"
+    },
+    {
+      "value": "Tab1",
+      "name": "Employee details",
+      "fioriicon": "employee",
+      "type": "Field",
+      "download": "Yes"
+    },
+    {
+      "value": "Tab2",
+      "name": "Benefits",
+      "fioriicon": "notes",
+      "type": "Field",
+      "download": "Yes"
+    },
+    {
+      "value": "Tab3",
+      "name": "Dependent details",
+      "fioriicon": "folder",
+      "type": "Field",
+      "download": "Yes"
+    },
+    {
+      "value": "Tab4",
+      "name": "Item Details",
+      "fioriicon": "notes",
+      "type": "Items",
+      "download": "Yes"
+    }
+  ],
+  "DetailFields": {
+    "None": ["ID", "Status"],
+    "Tab1": [
+      "Name",
+      "DOB",
+      "Gender",
+      "Address",
+      "MartialStatus",
+      "Email",
+      "Designation"
+    ],
+    "Tab2": [
+      "ChooseInsurancePlan",
+      "MedicalCoverage",
+      "Dentalcoverage",
+      "VisionCoverage",
+      "AccidentalDeathCoverage"
+    ],
+    "Tab3": [
+      "Dependent1Name",
+      "Dependent1DOB",
+      "Dependent1Gender",
+      "Dependent1Relationship",
+      "Dependent2Name",
+      "Dependent2DOB",
+      "Dependent2Gender",
+      "Dependent2Relationship",
+      "Dependent3Name",
+      "Dependent3DOB",
+      "Dependent3Gender",
+      "Dependent3Relationship"
+    ]
+  },
+  "ControlDisplay": {},
+  "FieldDef": [
+    {
+      "name": "ID",
+      "type": "string",
+      "width": "20",
+      "Option": "Optional",
+      "SLabel": "Identification",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "Name",
+      "type": "string",
+      "width": "50",
+      "Option": "Optional",
+      "SLabel": "Name",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "DOB",
+      "type": "Date",
+      "width": "10",
+      "Option": "Optional",
+      "SLabel": "Date Of Birth",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "Gender",
+      "type": "string",
+      "width": "20",
+      "Option": "Optional",
+      "SLabel": "Gender",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "Address",
+      "type": "string",
+      "width": "100",
+      "Option": "Optional",
+      "SLabel": "Address",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "MartialStatus",
+      "type": "string",
+      "width": "50",
+      "Option": "Optional",
+      "SLabel": "Martial Status",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "Email",
+      "type": "string",
+      "width": "50",
+      "Option": "Optional",
+      "SLabel": "Email",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "Designation",
+      "type": "string",
+      "width": "50",
+      "Option": "Optional",
+      "SLabel": "Designation",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "ChooseInsurancePlan",
+      "type": "string",
+      "width": "100",
+      "Option": "Optional",
+      "SLabel": "Choose Insurance Plan",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "MedicalCoverage",
+      "type": "string",
+      "width": "100",
+      "Option": "Optional",
+      "SLabel": "Medical Coverage",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "Dentalcoverage",
+      "type": "string",
+      "width": "100",
+      "Option": "Optional",
+      "SLabel": "Dental Coverage",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "VisionCoverage",
+      "type": "string",
+      "width": "100",
+      "Option": "Optional",
+      "SLabel": "VisionCoverage",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "AccidentalDeathCoverage",
+      "type": "string",
+      "width": "100",
+      "Option": "Optional",
+      "SLabel": "Life and Accidental death Coverage",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "Dependent1Name",
+      "type": "string",
+      "width": "50",
+      "Option": "Optional",
+      "SLabel": "Dependent 1  Name",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "Dependent1DOB",
+      "type": "Date",
+      "width": "10",
+      "Option": "Optional",
+      "SLabel": "Dependent 1 Date Of Birth",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "Dependent1Gender",
+      "type": "string",
+      "width": "20",
+      "Option": "Optional",
+      "SLabel": "Dependent 1 Gender",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "Dependent1Relationship",
+      "type": "string",
+      "width": "100",
+      "Option": "Optional",
+      "SLabel": "Dependent 1 Relationship",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "Dependent2Name",
+      "type": "string",
+      "width": "50",
+      "Option": "Optional",
+      "SLabel": "Dependent 2 Name",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "Dependent2DOB",
+      "type": "Date",
+      "width": "10",
+      "Option": "Optional",
+      "SLabel": "Dependent 2 Date Of Birth",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "Dependent2Gender",
+      "type": "string",
+      "width": "20",
+      "Option": "Optional",
+      "SLabel": "Dependent 2 Gender",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "Dependent2Relationship",
+      "type": "string",
+      "width": "100",
+      "Option": "Optional",
+      "SLabel": "Dependent 2 Relationship",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "Dependent3Name",
+      "type": "string",
+      "width": "50",
+      "Option": "Optional",
+      "SLabel": "Dependent 3 Name",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "Dependent3DOB",
+      "type": "Date",
+      "width": "10",
+      "Option": "Optional",
+      "SLabel": "Dependent 3 Date Of Birth",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "Dependent3Gender",
+      "type": "string",
+      "width": "20",
+      "Option": "Optional",
+      "SLabel": "Dependent 3 Gender",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "Dependent3Relationship",
+      "type": "string",
+      "width": "100",
+      "Option": "Optional",
+      "SLabel": "Dependent 3 Relationship",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "Status",
+      "type": "string",
+      "width": "20",
+      "Option": "Optional",
+      "SLabel": "Status",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "RequestType",
+      "type": "string",
+      "width": "50",
+      "Option": "Optional",
+      "SLabel": "Request Type",
+      "LLabel": "Request Type",
+      "Currency": "No"
+    },
+    {
+      "name": "Area",
+      "type": "string",
+      "width": "50",
+      "Option": "Optional",
+      "SLabel": "Area",
+      "LLabel": "Area",
+      "Currency": "No"
+    },
+    {
+      "name": "Cost",
+      "type": "string",
+      "width": "50",
+      "Option": "Optional",
+      "SLabel": "Cost",
+      "LLabel": "Cost",
+      "Currency": "No"
+    },
+    {
+      "name": "CostCentre",
+      "type": "string",
+      "width": "50",
+      "Option": "Optional",
+      "SLabel": "CostCentre",
+      "LLabel": "CostCentre",
+      "Currency": "No"
+    },
+    {
+      "name": "DateRequested",
+      "type": "string",
+      "width": "50",
+      "Option": "Optional",
+      "SLabel": "Date Requested",
+      "LLabel": "Date Requested",
+      "Currency": "No"
+    },
+    {
+      "name": "Detail",
+      "type": "string",
+      "width": "1000",
+      "Option": "Optional",
+      "SLabel": "Details / Comments ",
+      "LLabel": "Details / Comments ",
+      "Currency": "No"
+    },
+    {
+      "name": "Duration",
+      "type": "string",
+      "width": "10",
+      "Option": "Optional",
+      "SLabel": "Duration",
+      "LLabel": "Duration",
+      "Currency": "No"
+    },
+    {
+      "name": "EmpDev",
+      "type": "string",
+      "width": "10",
+      "Option": "Optional",
+      "SLabel": "EmpDev",
+      "LLabel": "EmpDev",
+      "Currency": "No"
+    },
+    {
+      "name": "External",
+      "type": "string",
+      "width": "10",
+      "Option": "Optional",
+      "SLabel": "External",
+      "LLabel": "External",
+      "Currency": "No"
+    },
+    {
+      "name": "ProjectCode",
+      "type": "string",
+      "width": "50",
+      "Option": "Optional",
+      "SLabel": "Project Code",
+      "LLabel": "Project Code",
+      "Currency": "No"
+    },
+    {
+      "name": "ProjectNeed",
+      "type": "string",
+      "width": "50",
+      "Option": "Optional",
+      "SLabel": "ProjectNeed",
+      "LLabel": "ProjectNeed",
+      "Currency": "No"
+    },
+    {
+      "name": "Band",
+      "type": "string",
+      "width": "50",
+      "Option": "Optional",
+      "SLabel": "Band",
+      "LLabel": "Band",
+      "Currency": "No"
+    },
+    {
+      "name": "DevManager",
+      "type": "string",
+      "width": "50",
+      "Option": "Optional",
+      "SLabel": "Development Manager",
+      "LLabel": "Development Manager",
+      "Currency": "No"
+    },
+    {
+      "name": "Goal",
+      "type": "string",
+      "width": "500",
+      "Option": "Optional",
+      "SLabel": "Goal",
+      "LLabel": "Goal",
+      "Currency": "No"
+    },
+    {
+      "name": "FeedbackDate",
+      "type": "Date",
+      "width": "10",
+      "Option": "Optional",
+      "SLabel": "FeedbackDate",
+      "LLabel": "FeedbackDate",
+      "Currency": "No"
+    },
+    {
+      "name": "MaxScore",
+      "type": "string",
+      "width": "10",
+      "Option": "Optional",
+      "SLabel": "MaxScore",
+      "LLabel": "MaxScore",
+      "Currency": "No"
+    },
+    {
+      "name": "NextReviewDt",
+      "type": "Date",
+      "width": "10",
+      "Option": "Optional",
+      "SLabel": "Next Review Date",
+      "LLabel": "Next Review Date",
+      "Currency": "No"
+    },
+    {
+      "name": "TargetDate",
+      "type": "Date",
+      "width": "10",
+      "Option": "Optional",
+      "SLabel": "Target Date",
+      "LLabel": "Target Date",
+      "Currency": "No"
+    },
+    {
+      "name": "SetDate",
+      "type": "Date",
+      "width": "10",
+      "Option": "Optional",
+      "SLabel": "Set Date",
+      "LLabel": "Set Date",
+      "Currency": "No"
+    },
+    {
+      "name": "Score",
+      "type": "string",
+      "width": "10",
+      "Option": "Optional",
+      "SLabel": "Score",
+      "LLabel": "Score",
+      "Currency": "No"
+    },
+    {
+      "name": "ReviewPeriod",
+      "type": "string",
+      "width": "10",
+      "Option": "Optional",
+      "SLabel": "Review Period",
+      "LLabel": "Review Period",
+      "Currency": "No"
+    },
+    {
+      "name": "Rating",
+      "type": "string",
+      "width": "10",
+      "Option": "Optional",
+      "SLabel": "Rating",
+      "LLabel": "Rating",
+      "Currency": "No"
+    },
+    {
+      "name": "ReviewDate",
+      "type": "Date",
+      "width": "10",
+      "Option": "Optional",
+      "SLabel": "Review Date",
+      "LLabel": "Review Date",
+      "Currency": "No"
+    }
+  ],
+  "itemConfig": {
+    "ItemFieldDefinition": [],
+    "DisplayFields": [],
+    "itemButton": {},
+    "CreateFields": [],
+    "ItemDetails": [],
+    "ItemButtons": {
+      "itemDisplay": true,
+      "itemAdd": true,
+      "itemEdit": true,
+      "itemDelete": true
+    }
+  },
+  "CalculatedFields": {
+    "ItemC": [],
+    "HeaderItem": [],
+    "Header": [],
+    "Item": []
+  },
+  "Wizard": [
+    {
+      "id": "Step1",
+      "fields": [
+        { "name": "Name", "Sequence": "1", "Mode": "Edit" },
+        { "name": "DOB", "Sequence": "1", "Mode": "Edit" },
+        { "name": "Gender", "Sequence": "1", "Mode": "Edit" },
+        { "name": "Address", "Sequence": "1", "Mode": "Edit" },
+        { "name": "MartialStatus", "Sequence": "1", "Mode": "Edit" },
+        { "name": "Email", "Sequence": "1", "Mode": "Edit" },
+        { "name": "Designation", "Sequence": "1", "Mode": "Edit" }
+      ],
+      "name": "Employee Details",
+      "stepType": "FieldList",
+      "intro": "Benefit Enrolment Form : Employee Details"
+    },
+    {
+      "id": "Step2",
+      "fields": [
+        { "name": "ChooseInsurancePlan", "Sequence": "1", "Mode": "Edit" },
+        { "name": "MedicalCoverage", "Sequence": "1", "Mode": "Edit" },
+        { "name": "Dentalcoverage", "Sequence": "1", "Mode": "Edit" },
+        { "name": "VisionCoverage", "Sequence": "1", "Mode": "Edit" },
+        { "name": "AccidentalDeathCoverage", "Sequence": "1", "Mode": "Edit" }
+      ],
+      "name": "Benefit Details",
+      "stepType": "FieldList",
+      "intro": "Benefit Enrolment Form : Benefit Details"
+    },
+    {
+      "id": "Step3",
+      "fields": [
+        { "name": "Dependent1Name", "Sequence": "1", "Mode": "Edit" },
+        { "name": "Dependent1DOB", "Sequence": "1", "Mode": "Edit" },
+        { "name": "Dependent1Gender", "Sequence": "1", "Mode": "Edit" },
+        { "name": "Dependent1Relationship", "Sequence": "1", "Mode": "Edit" }
+      ],
+      "name": "Dependent 1 Details",
+      "stepType": "FieldList",
+      "intro": "Benefit Enrolment Form : Dependent 1 Details"
+    },
+    {
+      "id": "Step4",
+      "fields": [
+        { "name": "Dependent2Name", "Sequence": "1", "Mode": "Edit" },
+        { "name": "Dependent2DOB", "Sequence": "1", "Mode": "Edit" },
+        { "name": "Dependent2Gender", "Sequence": "1", "Mode": "Edit" },
+        { "name": "Dependent2Relationship", "Sequence": "1", "Mode": "Edit" }
+      ],
+      "name": "Dependent 2 Details",
+      "stepType": "FieldList",
+      "intro": "Benefit Enrolment Form : Dependent 2 Details"
+    },
+    {
+      "id": "Step5",
+      "fields": [
+        { "name": "Dependent3Name", "Sequence": "1", "Mode": "Edit" },
+        { "name": "Dependent3DOB", "Sequence": "1", "Mode": "Edit" },
+        { "name": "Dependent3Gender", "Sequence": "1", "Mode": "Edit" },
+        { "name": "Dependent3Relationship", "Sequence": "1", "Mode": "Edit" }
+      ],
+      "name": "Dependent 3 Details",
+      "stepType": "FieldList",
+      "intro": "Benefit Enrolment Form : Dependent 3 Details"
+    },
+    {
+      "id": "Step6",
+      "fields": [{ "name": "Status", "Sequence": "1", "Mode": "Edit" }],
+      "name": "Admin",
+      "stepType": "FieldList",
+      "intro": "Benefit Enrolment Form : Admin"
+    }
+  ]
+}
