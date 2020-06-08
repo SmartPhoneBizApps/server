@@ -58,13 +58,11 @@ exports.updateApprole = asyncHandler(async (req, res, next) => {
   console.log(req.body.appID);
   if (req.body.appID) {
     if (req.headers.addapp == "Yes") {
+      console.log(req.headers.addapp);
       let app01 = await App.findOne({ applicationID: req.body.appID });
       amg = app01;
-      console.log("Apps", amg);
       approle["Apps"].push(amg);
-      console.log("AG", approle["Apps"]);
       req.body["Apps"] = approle["Apps"];
-      console.log(req.body["Apps"]);
     }
   }
 
@@ -73,18 +71,8 @@ exports.updateApprole = asyncHandler(async (req, res, next) => {
       new ErrorResponse(`Approle not found with id of ${req.params.id}`, 404)
     );
   }
-
-  // Make sure user is Admin
-  /*  if (req.user.approle !== "SuperAdmin") {
-    return next(
-      new ErrorResponse(
-        `User ${req.params.id} is not authorized to update this approle`,
-        401
-      )
-    );
-  } */
-
-  approle = await Approle.findOneAndUpdate(req.params.id, req.body, {
+  console.log(req.body);
+  approle = await Approle.findByIdAndUpdate(req.params.id, req.body, {
     new: true,
     runValidators: true,
   });
