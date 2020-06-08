@@ -530,8 +530,11 @@ exports.checkBotPin = asyncHandler(async (req, res, next) => {
   user.resetPasswordToken = undefined;
   user.resetPasswordExpire = undefined;
   await user.save();
+  settings = user.userSettings;
+  console.log(settings);
   res.status(200).cookie("token", token, options).json({
     success: true,
     token,
+    user: user,
   });
 });
