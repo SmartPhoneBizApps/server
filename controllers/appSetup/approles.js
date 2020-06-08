@@ -60,6 +60,23 @@ exports.updateApprole = asyncHandler(async (req, res, next) => {
     if (req.headers.addapp == "Yes") {
       console.log(req.headers.addapp);
       let app01 = await App.findOne({ applicationID: req.body.appID });
+      if (!app01) {
+        return next(
+          new ErrorResponse(`App not found with id of ${req.body.appID}`, 404)
+        );
+      }
+      for (let index = 0; index < approle["Apps"].length; index++) {
+        const element = approle["Apps"][index].applicationID;
+        if (element == req.body.appID) {
+          return next(
+            new ErrorResponse(
+              `App with id  ${req.body.appID} is already added to the Role ${approle["role"]}`,
+              404
+            )
+          );
+        }
+      }
+
       amg = app01;
       approle["Apps"].push(amg);
       req.body["Apps"] = approle["Apps"];

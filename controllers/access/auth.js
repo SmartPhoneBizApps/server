@@ -529,7 +529,6 @@ exports.checkBotPin = asyncHandler(async (req, res, next) => {
   user.resetPasswordToken = undefined;
   user.resetPasswordExpire = undefined;
   await user.save();
-  settings = user.userSettings;
   user2 = user;
   user2.UserPIN = "XXXXX";
   user2.password = "XXXXX";

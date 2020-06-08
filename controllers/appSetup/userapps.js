@@ -37,7 +37,7 @@ exports.getUserapps = asyncHandler(async (req, res, next) => {
   };
   myRoles = [];
   userData = {
-    UserSettings: [],
+    userSettings: [],
     Roles: [],
   };
   X1 = {};
