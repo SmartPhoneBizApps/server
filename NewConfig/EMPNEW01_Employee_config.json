@@ -124,7 +124,7 @@
     "headerTitle": ["USP_Name"],
     "headerRole": ["USP_Role"],
     "headerImage": ["USP_Image"],
-    "None": ["ID", "EmpFirstName", "EmpLastName", "Status"],
+    "None": ["EmpLastName", "EmpFirstName", "ID", "Status"],
     "Tab1": [
       "SpouseName",
       "FatherName",
@@ -142,7 +142,7 @@
     "Tab5": [
       "AccountNo",
       "BankName",
-      "Branch",
+      "BankBranch",
       "IBAN",
       "SWIFT",
       "IFSCcode",
@@ -171,8 +171,8 @@
       "type": "string",
       "width": "50",
       "Option": "Mandatory",
-      "SLabel": "Identification",
-      "LLabel": "Identification",
+      "SLabel": "First Name",
+      "LLabel": "First Name",
       "Currency": "No"
     },
     {
@@ -180,8 +180,8 @@
       "type": "string",
       "width": "50",
       "Option": "Mandatory",
-      "SLabel": "Identification",
-      "LLabel": "Identification",
+      "SLabel": "Last Name",
+      "LLabel": "Last Name",
       "Currency": "No"
     },
     {
@@ -301,15 +301,7 @@
       "LLabel": "Remuneration",
       "Currency": "No"
     },
-    {
-      "name": "EmpFirstName",
-      "type": "string",
-      "width": "100",
-      "Option": "Optional",
-      "SLabel": "Booking For",
-      "LLabel": "Booking For",
-      "Currency": "No"
-    },
+
     {
       "name": "SSNumber",
       "type": "string",
@@ -342,8 +334,8 @@
       "type": "string",
       "width": "50",
       "Option": "Optional",
-      "SLabel": "Sort/Branch Code",
-      "LLabel": "Sort Code / Branch Code",
+      "SLabel": "Sort/BankBranch Code",
+      "LLabel": "Sort Code / BankBranch Code",
       "Currency": "No"
     },
     {
@@ -383,12 +375,12 @@
       "Currency": "No"
     },
     {
-      "name": "Branch",
+      "name": "BankBranch",
       "type": "string",
       "width": "100",
       "Option": "Optional",
-      "SLabel": "Branch",
-      "LLabel": "Name of Branch",
+      "SLabel": "BankBranch",
+      "LLabel": "Name of BankBranch",
       "Currency": "No"
     },
 
@@ -397,8 +389,8 @@
       "type": "string",
       "width": "20",
       "Option": "Optional",
-      "SLabel": "Booking For",
-      "LLabel": "Booking For",
+      "SLabel": "Status",
+      "LLabel": "Status",
       "Currency": "No"
     },
     {

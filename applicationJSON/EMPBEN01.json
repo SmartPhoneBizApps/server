@@ -5,107 +5,37 @@
     "required": [true, "Please add mandatory field :ID"],
     "maxlength": [20, "ID can not be more than 20 characters"]
   },
+  "Name": { "type": "String" },
+  "DOB": { "type": "Date" },
+  "Gender": { "type": "String" },
+  "Address": { "type": "String" },
+  "MartialStatus": { "type": "String" },
+  "Email": { "type": "String" },
+  "Designation": { "type": "String" },
+  "ChooseInsurancePlan": { "type": "String" },
+  "MedicalCoverage": { "type": "String" },
+  "Dentalcoverage": { "type": "String" },
+  "VisionCoverage": { "type": "String" },
+  "AccidentalDeathCoverage": { "type": "String" },
+  "Dependent1Name": { "type": "String" },
+  "Dependent1DOB": { "type": "String" },
+  "Dependent1Gender": { "type": "String" },
+  "Dependent1Relationship": { "type": "String" },
+  "Dependent2Name": { "type": "String" },
+  "Dependent2DOB": { "type": "String" },
+  "Dependent2Gender": { "type": "String" },
+  "Dependent2Relationship": { "type": "String" },
+  "Dependent3Name": { "type": "String" },
+  "Dependent3DOB": { "type": "String" },
+  "Dependent3Gender": { "type": "String" },
+  "Dependent3Relationship": { "type": "String" },
 
-  "EmpFirstName": {
-    "type": "String",
-    "required": [true, "Please add mandatory field :EmployeeName"],
-    "maxlength": [50, "EmployeeName can not be more than 50 characters"]
-  },
-  "EmpLastName": {
-    "type": "String",
-    "required": [true, "Please add mandatory field :EmployeeName"],
-    "maxlength": [50, "EmployeeName can not be more than 50 characters"]
-  },
-  "MaritalStatus ": {
-    "type": "String",
-    "maxlength": [20, "MaritalStatus can not be more than 20 characters"]
-  },
-  "Sex": {
-    "type": "String",
-    "maxlength": [20, "Sex can not be more than 20 characters"]
-  },
-  "ContactNo": {
-    "type": "String",
-    "maxlength": [50, "ContactNo can not be more than 50 characters"]
-  },
-
-  "SpouseName": {
-    "type": "String",
-    "maxlength": [50, "SpouseName can not be more than 50 characters"]
-  },
-  "FatherName": {
-    "type": "String",
-    "maxlength": [50, "FatherName can not be more than 50 characters"]
-  },
   "Status": {
     "type": "String",
     "required": [true, "Please add mandatory field :Status"],
     "maxlength": [50, "Status can not be more than 20 characters"]
   },
-  "Address": {
-    "type": "String",
-    "required": [true, "Please add mandatory field :Address"],
-    "maxlength": [200, "Address can not be more than 50 characters"]
-  },
-  "Postcode": {
-    "type": "String",
-    "required": [true, "Please add mandatory field :Postcode"],
-    "maxlength": [20, "Postcode can not be more than 50 characters"]
-  },
-  "DateOfJoining": {
-    "type": "Date",
-    "maxlength": [10, "DateOfJoining can not be more than 50 characters"]
-  },
-  "DOB": {
-    "type": "Date",
-    "maxlength": [10, "DOB can not be more than 20 characters"]
-  },
-  "SSNumber": {
-    "type": "String",
-    "maxlength": [500, "SSNumber can not be more than 500 characters"]
-  },
-  "NINumber": {
-    "type": "String",
-    "maxlength": [100, "NINumber can not be more than 100 characters"]
-  },
-  "EmailId": {
-    "type": "String",
-    "maxlength": [100, "EmailId can not be more than 100 characters"],
-    "required": [true, "Please add mandatory field :EmailId"],
-    "match": ["EMAIL_V1", "Invalid EmailId for field :DelEmail"]
-  },
-  "AccountNo": {
-    "type": "String",
-    "maxlength": [100, "AccountNo can not be more than 100 characters"]
-  },
-  "BankName": {
-    "type": "String",
-    "maxlength": [100, "BankName can not be more than 100 characters"]
-  },
-  "Branch": {
-    "type": "String",
-    "maxlength": [100, "Branch can not be more than 100 characters"]
-  },
-  "IBAN": {
-    "type": "String",
-    "maxlength": [100, "IBAN can not be more than 100 characters"]
-  },
-  "SWIFT": {
-    "type": "String",
-    "maxlength": [100, "SWIFT can not be more than 100 characters"],
-    "match": [
-      "UK_PHONE_V1",
-      "Please provide valid UK Phone number in field :DelPhone"
-    ]
-  },
-  "IFSCcode": {
-    "type": "String",
-    "maxlength": [100, "IFSCcode can not be more than 100 characters"]
-  },
-  "Sortcode": {
-    "type": "String",
-    "maxlength": [500, "Sortcode can not be more than 500 characters"]
-  },
+
   "USP_Name": { "type": "String" },
   "USP_Role": { "type": "String" },
   "USP_Image": { "type": "String" },

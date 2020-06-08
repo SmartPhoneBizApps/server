@@ -4,15 +4,19 @@
     "DetailTitle": "Competency Matrix"
   },
   "ListFields": {
-    "IntroField": "",
-    "TitleField": "",
+    "IntroField": "ReviewPeriod",
+    "TitleField": "Name",
     "sStatus": "",
-    "fStatus": "",
+    "fStatus": "Status",
     "numberField": "",
-    "LFields": [],
+    "LFields": ["DevManager", "Band", "Area"],
     "numberUnitField": ""
   },
-  "ListBOTFields": { "Title": [], "SubTitle": [], "Description": [] },
+  "ListBOTFields": {
+    "Title": ["Name"],
+    "SubTitle": ["Status", "ReviewPeriod"],
+    "Description": ["DevManager", "Band", "Area"]
+  },
   "PossibleValues": [
     "Status",
     "ReviewPeriod",
@@ -75,6 +79,9 @@
     }
   ],
   "DetailFields": {
+    "headerTitle": ["USP_Name"],
+    "headerRole": ["USP_Role"],
+    "headerImage": ["USP_Image"],
     "None": ["ID", "Status", "ReviewDate"],
     "Tab1": [
       "EmpRef",
