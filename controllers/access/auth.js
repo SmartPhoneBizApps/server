@@ -31,7 +31,6 @@ exports.register = asyncHandler(async (req, res, next) => {
     req.body.company = agent.company;
     req.body.branch = agent.branch;
     req.body.area = agent.area;
-    console.log(req.body.company);
   }
 
   if (req.body.businessRole) {
@@ -325,11 +324,13 @@ const sendTokenResponse = (user, statusCode, res) => {
   if (process.env.NODE_ENV === "production") {
     options.secure = true;
   }
-
+  user2 = user;
+  user2.UserPIN = "XXXXX";
+  user2.password = "XXXXX";
   res.status(statusCode).cookie("token", token, options).json({
     success: true,
     token,
-    user,
+    user: user2,
   });
 };
 
@@ -532,10 +533,12 @@ exports.checkBotPin = asyncHandler(async (req, res, next) => {
   user.resetPasswordExpire = undefined;
   await user.save();
   settings = user.userSettings;
-  console.log(settings);
+  user2 = user;
+  user2.UserPIN = "XXXXX";
+  user2.password = "XXXXX";
   res.status(200).cookie("token", token, options).json({
     success: true,
     token,
-    user: user,
+    user: user2,
   });
 });
