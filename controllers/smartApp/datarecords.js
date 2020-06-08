@@ -221,7 +221,7 @@ exports.addDataRecords = asyncHandler(async (req, res, next) => {
       if (resField === false && key !== "ItemData") {
         return next(
           new ErrorResponse(
-            `Header Field ${key} can't be used with this transaction`,
+            `Header Field # ${key} can't be used with this transaction`,
             400
           )
         );

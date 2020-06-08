@@ -514,25 +514,25 @@
       },
       { "name": "ID", "type": "string", "width": "20", "SLabel": "ID" },
       {
-        "name": "itemName",
+        "name": "ItemName",
         "type": "string",
         "width": "100",
         "SLabel": "item Name"
       },
       {
-        "name": "iPrice",
+        "name": "ItemPrice",
         "type": "Num,2",
         "width": "100",
         "SLabel": "Item Price"
       },
       {
-        "name": "iQuantity",
+        "name": "ItemQuantity",
         "type": "Num,2",
         "width": "100",
         "SLabel": "Item Quantity"
       },
       {
-        "name": "iValue",
+        "name": "ItemValue",
         "type": "Num,2",
         "width": "100",
         "SLabel": "Item Value"
@@ -544,19 +544,19 @@
         "SLabel": "Item Value Added Tax"
       },
       {
-        "name": "iGrossValue",
+        "name": "ItemGrossValue",
         "type": "Num,2",
         "width": "100",
         "SLabel": "Item Gross Value"
       },
       {
-        "name": "iTaxRate",
+        "name": "ItemTaxRate",
         "type": "Num,2",
         "width": "100",
         "SLabel": "Item Tax Rate"
       },
       {
-        "name": "iVATValue",
+        "name": "ItemVATValue",
         "type": "Num,3",
         "width": "20",
         "SLabel": "Item VAT Value"
@@ -564,11 +564,11 @@
     ],
     "DisplayFields": [
       "ItemNumber",
-      "itemName",
-      "iValue",
+      "ItemName",
+      "ItemValue",
       "iVAT",
-      "iVATValue",
-      "iGrossValue"
+      "ItemVATValue",
+      "ItemGrossValue"
     ],
     "ItemButtons": {
       "itemDisplay": false,
@@ -577,14 +577,14 @@
       "itemDelete": true
     },
     "CreateFields": [
-      "itemName",
-      "iPrice",
-      "iQuantity",
-      "iValue",
-      "iTaxRate",
+      "ItemName",
+      "ItemPrice",
+      "ItemQuantity",
+      "ItemValue",
+      "ItemTaxRate",
       "iVAT",
-      "iGrossValue",
-      "iVATValue"
+      "ItemGrossValue",
+      "ItemVATValue"
     ],
     "ItemDetails": [
       {
@@ -593,19 +593,39 @@
         "Sequence": "1",
         "Mode": "Display"
       },
-      { "name": "itemName", "Tab": "Tab3", "Sequence": "1", "Mode": "Edit" },
-      { "name": "iPrice", "Tab": "Tab3", "Sequence": "1", "Mode": "Edit" },
-      { "name": "iQuantity", "Tab": "Tab3", "Sequence": "1", "Mode": "Edit" },
-      { "name": "iValue", "Tab": "Tab3", "Sequence": "1", "Mode": "Display" },
-      { "name": "iVAT", "Tab": "Tab3", "Sequence": "1", "Mode": "Edit" },
+      { "name": "ItemName", "Tab": "Tab3", "Sequence": "1", "Mode": "Edit" },
+      { "name": "ItemPrice", "Tab": "Tab3", "Sequence": "1", "Mode": "Edit" },
       {
-        "name": "iGrossValue",
+        "name": "ItemQuantity",
+        "Tab": "Tab3",
+        "Sequence": "1",
+        "Mode": "Edit"
+      },
+      {
+        "name": "ItemValue",
         "Tab": "Tab3",
         "Sequence": "1",
         "Mode": "Display"
       },
-      { "name": "iVATValue", "Tab": "Tab3", "Sequence": "1", "Mode": "Edit" },
-      { "name": "iTaxRate", "Tab": "Tab3", "Sequence": "1", "Mode": "Display" }
+      { "name": "iVAT", "Tab": "Tab3", "Sequence": "1", "Mode": "Edit" },
+      {
+        "name": "ItemGrossValue",
+        "Tab": "Tab3",
+        "Sequence": "1",
+        "Mode": "Display"
+      },
+      {
+        "name": "ItemVATValue",
+        "Tab": "Tab3",
+        "Sequence": "1",
+        "Mode": "Edit"
+      },
+      {
+        "name": "ItemTaxRate",
+        "Tab": "Tab3",
+        "Sequence": "1",
+        "Mode": "Display"
+      }
     ]
   },
   "CalculatedFields": {
@@ -614,20 +634,20 @@
         "CalculatedFormula": {
           "name": "Multiplication",
           "function": "MUL",
-          "Target": "iValue",
+          "Target": "ItemValue",
           "type": "Item"
         },
         "Fields": [
-          { "Source": "iPrice", "Type": { "type": "Item" } },
-          { "Source": "iQuantity", "Type": { "type": "Item" } },
-          { "Source": "iValue", "Type": {} }
+          { "Source": "ItemPrice", "Type": { "type": "Item" } },
+          { "Source": "ItemQuantity", "Type": { "type": "Item" } },
+          { "Source": "ItemValue", "Type": {} }
         ]
       },
       {
         "CalculatedFormula": {
           "name": "Percentage",
           "function": "PAR",
-          "Target": "iTaxRate",
+          "Target": "ItemTaxRate",
           "type": "Item"
         },
         "Fields": [{ "Source": "iVAT", "Type": { "type": "Item" } }]
@@ -636,25 +656,25 @@
         "CalculatedFormula": {
           "name": "Multiplication",
           "function": "MUL",
-          "Target": "iVATValue",
+          "Target": "ItemVATValue",
           "type": "Item"
         },
         "Fields": [
-          { "Source": "iPrice", "Type": { "type": "Item" } },
-          { "Source": "iQuantity", "Type": { "type": "Item" } },
-          { "Source": "iTaxRate", "Type": { "type": "Item" } }
+          { "Source": "ItemPrice", "Type": { "type": "Item" } },
+          { "Source": "ItemQuantity", "Type": { "type": "Item" } },
+          { "Source": "ItemTaxRate", "Type": { "type": "Item" } }
         ]
       },
       {
         "CalculatedFormula": {
           "name": "Addition",
           "function": "ADD",
-          "Target": "iGrossValue",
+          "Target": "ItemGrossValue",
           "type": "Item"
         },
         "Fields": [
-          { "Source": "iValue", "Type": { "type": "Item" } },
-          { "Source": "iVATValue", "Type": { "type": "Item" } }
+          { "Source": "ItemValue", "Type": { "type": "Item" } },
+          { "Source": "ItemVATValue", "Type": { "type": "Item" } }
         ]
       }
     ],

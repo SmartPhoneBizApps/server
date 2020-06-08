@@ -199,10 +199,19 @@ exports.updateDetails = asyncHandler(async (req, res, next) => {
     email: req.body.email,
   };
 
-  const user = await User.findByIdAndUpdate(req.user.id, req.body, {
+  /*   const user = await User.findByIdAndUpdate(req.user.id, req.body, {
     new: true,
     runValidators: true,
-  });
+  }); */
+
+  const user = await User.findOneAndUpdate(
+    { email: req.body.email },
+    req.body,
+    {
+      new: true,
+      runValidators: true,
+    }
+  );
 
   res.status(200).json({
     success: true,
