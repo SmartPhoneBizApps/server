@@ -88,6 +88,12 @@ const SUPP00018 = require("../../models/smartApp/SUPP00018");
 const SUPP00028 = require("../../models/smartApp/SUPP00028");
 const SUPP00018_Itm = require("../../models/smartApp/SUPP00018_Itm");
 const SUPP00028_Itm = require("../../models/smartApp/SUPP00028_Itm");
+const EMPBEN01 = require("../../models/smartApp/EMPBEN01");
+const EMP00012 = require("../../models/smartApp/EMP00012");
+const EMP00011 = require("../../models/smartApp/EMP00011");
+const ERP00011 = require("../../models/smartApp/ERP00011");
+const EMP00017 = require("../../models/smartApp/EMP00017");
+const EMPNEW01 = require("../../models/smartApp/EMPNEW01");
 
 //router.use("/:smartappId/reviews", reviewRouter);
 
@@ -645,5 +651,46 @@ router
     advancedDataList(SUPP00007, SUPP00007, "SUPP00007"),
     getListrecords
   );
-
+router
+  .route("/ERP00011")
+  .get(
+    protect,
+    advancedDataList(ERP00011, ERP00011, "ERP00011"),
+    getListrecords
+  );
+router
+  .route("/EMP00017")
+  .get(
+    protect,
+    advancedDataList(EMP00017, EMP00017, "EMP00017"),
+    getListrecords
+  );
+router
+  .route("/EMPNEW01")
+  .get(
+    protect,
+    advancedDataList(EMPNEW01, EMPNEW01, "EMPNEW01"),
+    getListrecords
+  );
+router
+  .route("/EMP00011")
+  .get(
+    protect,
+    advancedDataList(EMP00011, EMP00011, "EMP00011"),
+    getListrecords
+  );
+router
+  .route("/EMP00012")
+  .get(
+    protect,
+    advancedDataList(EMP00012, EMP00012, "EMP00012"),
+    getListrecords
+  );
+router
+  .route("/EMPBEN01")
+  .get(
+    protect,
+    advancedDataList(EMPBEN01, EMPBEN01, "EMPBEN01"),
+    getListrecords
+  );
 module.exports = router;
