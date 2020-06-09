@@ -1,0 +1,34 @@
+{
+  "ItemNumber": {
+    "type": "String",
+    "required": [true, "Please add mandatory field :ItemNumber"],
+    "maxlength": [20, "ID can not be more than 20 characters"]
+  },
+  "ID": {
+    "type": "String",
+    "required": [true, "Please add mandatory field :ID"],
+    "maxlength": [20, "ID can not be more than 20 characters"]
+  },
+  "ProjectCode": {
+    "type": "String",
+    "required": [true, "Please add mandatory field :ProjectCode"],
+    "maxlength": [100, "ProjectCode can not be more than 100 characters"]
+  },
+  "TotalRegWorkHours": {
+    "type": "String",
+    "maxlength": [10, "TotalRegWorkHours can not be more than 10 characters"]
+  },
+  "OvertimeHours": {
+    "type": "String",
+    "maxlength": [10, "OvertimeHours can not be more than 10 characters"]
+  },
+  "Comment": {
+    "type": "String",
+    "maxlength": [1000, "Comment can not be more than 1000 characters"]
+  },
+
+  "Date": {
+    "type": "Date",
+    "maxlength": [20, "Date can not be more than 10 characters"]
+  }
+}
