@@ -69,6 +69,49 @@
           "limit": 5,
           "Type": "Adaptive1"
         },
+
+        {
+          "CardID": "BUS0000006_User_table1A_01",
+          "applicationID": "BUS0000006",
+          "filters": {},
+          "fieldList": "ID Name DateOfComplaint Status",
+          "sortBy": "ID",
+          "limit": 5,
+          "Type": "table1A",
+          "header": {
+            "title": "Employee Complaint",
+            "subTitle": "My Development",
+            "status": { "text": "User" }
+          },
+          "columns": [
+            { "title": "ID", "value": "{ID}" },
+            { "title": "Name", "value": "{Name}" },
+            { "title": "DateOfComplaint", "value": "{DateOfComplaint}" },
+            { "title": "Status", "value": "{Status}", "state": "{statusState}" }
+          ],
+          "json": []
+        },
+        {
+          "CardID": "ERP00010_HRManager_table1A_01",
+          "applicationID": "ERP00010",
+          "filters": {},
+          "fieldList": "InterviewDate Position Status",
+          "sortBy": "ID",
+          "limit": 5,
+          "Type": "table1A",
+          "header": {
+            "title": "Interview Feedback",
+            "subTitle": "Approvals",
+            "status": { "text": "HRManager" }
+          },
+          "columns": [
+            { "title": "InterviewDate", "value": "{InterviewDate}" },
+            { "title": "Position", "value": "{Position}" },
+            { "title": "Status", "value": "{Status}", "state": "{statusState}" }
+          ],
+          "json": []
+        },
+
         {
           "CardID": "EMPACC01_Table1_RequestType_SoftwareRequest",
           "applicationID": "EMPACC01",

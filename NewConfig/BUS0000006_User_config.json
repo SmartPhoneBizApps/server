@@ -5,17 +5,19 @@
   },
   "Controls": { "USP": "UserProfile" },
   "ListFields": {
-    "IntroField": "ID",
+    "IntroField": "Email",
     "TitleField": "Name",
-    "sStatus": "DateOfComplaint",
-    "fStatus": "Status",
-    "LFields": ["YourEmail"]
+    "sStatus": "Status",
+    "fStatus": "",
+    "numberField": "",
+    "LFields": ["AgainstWhom", "DateOfComplaint", "Phone"],
+    "numberUnitField": ""
   },
   "ListBOTFields": {
     "None": ["cardImage", "StatusState"],
-    "Title": [],
-    "SubTitle": [],
-    "Description": []
+    "Title": ["Name", "Email"],
+    "SubTitle": ["Status"],
+    "Description": ["AgainstWhom", "DateOfComplaint", "Phone"]
   },
   "PossibleValues": ["Status"],
   "MButtons": [
