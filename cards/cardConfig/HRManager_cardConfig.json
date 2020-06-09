@@ -14,6 +14,127 @@
           "sortBy": "",
           "limit": 5,
           "Type": "Adaptive1"
+        },
+        {
+          "CardID": "JOB00001_Employee_table1B_01",
+          "applicationID": "JOB00001",
+          "filters": {},
+          "fieldList": "Reference Title",
+          "sortBy": "ID",
+          "limit": 5,
+          "Type": "table1B",
+          "header": { "title": "", "subTitle": "", "status": { "text": "" } },
+          "columns": [
+            { "title": "Reference", "value": "{Reference}" },
+            { "title": "Title", "value": "{Title}" },
+            { "title": "Status", "value": "{Status}", "state": "{statusState}" }
+          ],
+          "json": []
+        },
+        {
+          "CardID": "JOB00001_Employee_table1A_01",
+          "applicationID": "JOB00001",
+          "filters": {},
+          "fieldList": "Reference Title",
+          "sortBy": "ID",
+          "limit": 5,
+          "Type": "table1A",
+          "header": {
+            "title": "Job Listing",
+            "subTitle": "Job Listing",
+            "status": { "text": "Employee" }
+          },
+          "columns": [
+            { "title": "Reference", "value": "{Reference}" },
+            { "title": "Title", "value": "{Title}" },
+            { "title": "Status", "value": "{Status}", "state": "{statusState}" }
+          ],
+          "json": []
+        },
+        {
+          "CardID": "JOB00001_Employee_list1A_01",
+          "applicationID": "JOB00001",
+          "filters": {},
+          "limit": 5,
+          "fieldList": "",
+          "fieldMap": {
+            "name": "Title",
+            "description": "Reference",
+            "info": "Status",
+            "icon": "noicon.jpg"
+          },
+          "Type": "list1A",
+          "header": {
+            "title": "Job Listing",
+            "status": { "text": "Employee" },
+            "subTitle": "Job Listing"
+          },
+          "ListTemplate": {
+            "name": "Title",
+            "icon": "sap-icon://add-employee",
+            "description": "Reference",
+            "info": "Status",
+            "infoState": "Error"
+          },
+          "json": []
+        },
+        {
+          "CardID": "JOB00001_HRManager_list2A_01",
+          "applicationID": "JOB00001",
+          "filters": {},
+          "limit": 5,
+          "fieldList": "ID Hardware AssetID DateOfRequest Status",
+          "fieldMap": {
+            "name": "JobType",
+            "description": "Title",
+            "icon": "sap-icon://add-employee"
+          },
+          "Type": "list2A",
+          "header": {
+            "title": "Job Listing",
+            "subTitle": "Approvals",
+            "icon": { "src": "sap-icon://add-employee" }
+          },
+          "ListTemplate": {
+            "name": "JobType",
+            "icon": "sap-icon://add-employee",
+            "description": "Title",
+            "infoState": "Error"
+          },
+          "actions": [
+            {
+              "type": "Navigation",
+              "parameters": { "url": "/JOB00001/{name}" }
+            }
+          ],
+          "json": []
+        },
+        {
+          "CardID": "JOB00001_HRManager_list1B_01",
+          "applicationID": "JOB00001",
+          "filters": {},
+          "limit": 5,
+          "fieldList": "",
+          "fieldMap": {
+            "name": "Name",
+            "description": "ID",
+            "info": "Status",
+            "icon": "noicon.jpg"
+          },
+          "Type": "list1B",
+          "header": {
+            "title": "Visitor Management",
+            "status": { "text": "Visitor" },
+            "subTitle": "Admin"
+          },
+          "ListTemplate": {
+            "name": "Name",
+            "icon": "sap-icon://add-employee",
+            "description": "ID",
+            "info": "Status",
+            "infoState": "Error"
+          },
+          "json": []
         }
       ]
     },
