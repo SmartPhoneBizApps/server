@@ -293,7 +293,7 @@ exports.addDataRecords = asyncHandler(async (req, res, next) => {
 // -----------------------------------------------------
 // -----------------------------------------------------
 exports.updateDataRecords = asyncHandler(async (req, res, next) => {
-  if (!req.body.appId) {
+  if (!req.headers.applicationid) {
     return next(new ErrorResponse(`Please provide App ID(Header)`, 400));
   }
   if (!req.headers.businessrole) {
