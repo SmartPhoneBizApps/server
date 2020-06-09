@@ -3,16 +3,21 @@
     "ApplicationTitle": "Benefit Enrolment Form",
     "DetailTitle": "Benefit Enrolment Form"
   },
+  "Controls": { "USP": "UserProfile" },
   "ListFields": {
-    "IntroField": "",
-    "TitleField": "",
-    "sStatus": "",
+    "IntroField": "Designation",
+    "TitleField": "Name",
+    "sStatus": "Status",
     "fStatus": "",
     "numberField": "",
-    "LFields": [],
+    "LFields": ["Gender", "Email"],
     "numberUnitField": ""
   },
-  "ListBOTFields": { "Title": [], "SubTitle": [], "Description": [] },
+  "ListBOTFields": {
+    "Title": ["Name"],
+    "SubTitle": ["Designation", "Status"],
+    "Description": ["Gender", "Email"]
+  },
   "PossibleValues": [
     "Status",
     "Gender",

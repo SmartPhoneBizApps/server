@@ -5,15 +5,19 @@
   },
   "Controls": { "USP": "UserProfile" },
   "ListFields": {
-    "IntroField": "",
-    "TitleField": "",
+    "IntroField": "EmployeeCode",
+    "TitleField": "EmployeeName",
     "sStatus": "",
-    "fStatus": "",
-    "numberField": "",
-    "LFields": [],
+    "fStatus": "Status",
+    "numberField": "TravelCost",
+    "LFields": ["TravelDtFrom", "TravelDateTo"],
     "numberUnitField": ""
   },
-  "ListBOTFields": { "Title": [], "SubTitle": [], "Description": [] },
+  "ListBOTFields": {
+    "Title": ["EmployeeName"],
+    "SubTitle": ["Status", "EmployeeCode"],
+    "Description": ["TravelDtFrom", "TravelDateTo"]
+  },
   "PossibleValues": ["ProjectCode", "CostCentre", "Status"],
   "MButtons": [
     {
