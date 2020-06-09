@@ -85,6 +85,13 @@
       "download": "No"
     },
     {
+      "value": "Tab6",
+      "name": "Attachments",
+      "fioriicon": "attachment",
+      "type": "MultiAttachments",
+      "download": "No"
+    },
+    {
       "value": "Tab5",
       "name": "Process log",
       "fioriicon": "step",
@@ -100,7 +107,8 @@
     "Tab1": ["TotalRegHours", "HourlyRate", "RegularNetAmount"],
     "Tab2": ["TotalOvertimeHours", "OvertimeRate", "OvertimeNetAmount"],
     "Tab3": ["NetAmount", "VATRate", "VATAmount", "GrossAmount"],
-    "Tab5": ["ProcessingLog"]
+    "Tab5": ["ProcessingLog"],
+    "Tab6": ["MultiAttachments"]
   },
   "ControlDisplay": {},
   "FieldDef": [
@@ -274,6 +282,14 @@
       "SLabel": "Approver",
       "LLabel": "Approver",
       "Currency": "No"
+    },
+    {
+      "name": "MultiAttachments",
+      "type": "attachment",
+      "width": "200",
+      "Option": "Optional",
+      "SLabel": "Attachments",
+      "LLabel": "Attachments"
     }
   ],
   "itemConfig": {
