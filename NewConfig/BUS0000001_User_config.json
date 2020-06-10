@@ -6,16 +6,16 @@
   "Controls": { "USP": "UserProfile" },
   "ListFields": {
     "IntroField": "ID",
-    "TitleField": "Name",
+    "TitleField": "DescribeProblem",
     "sStatus": "Department",
     "fStatus": "Status",
-    "LFields": ["UserAccount", "Email"]
+    "LFields": ["UserAccount", "Email", "Name"]
   },
   "ListBOTFields": {
     "None": ["cardImage", "StatusState"],
-    "Title": [],
-    "SubTitle": [],
-    "Description": []
+    "Title": ["DescribeProblem"],
+    "SubTitle": ["Name", "Department"],
+    "Description": ["UserAccount", "Email", "Status"]
   },
   "PossibleValues": ["Department", "Status"],
   "MButtons": [
@@ -56,31 +56,42 @@
       "value": "Tab0",
       "name": "Cards",
       "type": "Cards",
-      "fioriicon": "responsive"
+      "fioriicon": "responsive",
+      "download": "No"
     },
     {
       "value": "Tab1",
       "name": "Requester",
       "fioriicon": "employee",
-      "type": "Field"
+      "type": "Field",
+      "download": "Yes"
     },
     {
       "value": "Tab2",
       "name": "Problem",
       "fioriicon": "quality-issue",
-      "type": "Field"
+      "type": "Field",
+      "download": "Yes"
     },
     {
       "value": "Tab3",
       "name": "Resolution",
       "fioriicon": "message-success",
-      "type": "Field"
+      "type": "Field",
+      "download": "Yes"
     },
     {
       "value": "Tab4",
       "name": "Attachment",
       "fioriicon": "attachment",
       "type": "MultiAttachments",
+      "download": "No"
+    },
+    {
+      "value": "Tab5",
+      "name": "ScreenShots",
+      "type": "carouselImage",
+      "fioriicon": "contacts",
       "download": "No"
     }
   ],
@@ -92,7 +103,8 @@
     "Tab1": ["Name", "Email", "Department", "UserAccount"],
     "Tab2": ["DescribeProblem", "ComputerID", "DateCreated"],
     "Tab3": ["DateResolved", "ResolutionDetails", "UserFeedback", "Score"],
-    "Tab4": ["ScreenShot"]
+    "Tab4": ["Attachment"],
+    "Tab5": ["ScreenShot"]
   },
   "ControlDisplay": {},
   "FieldDef": [
@@ -178,6 +190,15 @@
       "Currency": "No"
     },
     {
+      "name": "Attachment",
+      "type": "attachment",
+      "width": "100",
+      "Option": "Optional",
+      "SLabel": "Attachment",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
       "name": "DateCreated",
       "type": "Date",
       "width": "10",
@@ -236,6 +257,7 @@
     "ItemDetails": []
   },
   "CalculatedFields": {},
+  "Create": "Yes",
   "Wizard": [
     {
       "id": "Step1",

@@ -273,9 +273,10 @@
     "ItemDetails": []
   },
   "CalculatedFields": {},
+  "Create": "Yes",
   "Wizard": [
     {
-      "id": "Step2",
+      "id": "Step1",
       "fields": [
         { "name": "Detail", "Sequence": "1", "Mode": "Edit" },
         { "name": "Duration", "Sequence": "1", "Mode": "Edit" },
@@ -287,14 +288,14 @@
       "intro": "Training Request : Training Details"
     },
     {
-      "id": "Step3",
+      "id": "Step2",
       "fields": [{ "name": "Name", "Sequence": "1", "Mode": "Edit" }],
       "name": "Employee Details",
       "stepType": "FieldList",
       "intro": "Training Request : Employee Details"
     },
     {
-      "id": "Step4",
+      "id": "Step3",
       "fields": [
         { "name": "CostCentre", "Sequence": "1", "Mode": "Edit" },
         { "name": "Cost", "Sequence": "1", "Mode": "Edit" }
@@ -304,14 +305,14 @@
       "intro": "Training Request : Training Cost"
     },
     {
-      "id": "Step5",
+      "id": "Step4",
       "fields": [{ "name": "ProjectNeed", "Sequence": "1", "Mode": "Edit" }],
       "name": "Project",
       "stepType": "FieldList",
       "intro": "Training Request : Project"
     },
     {
-      "id": "Step6",
+      "id": "Step5",
       "fields": [
         { "name": "Status", "Sequence": "1", "Mode": "Edit" },
         { "name": "Approver", "Sequence": "1", "Mode": "Edit" }

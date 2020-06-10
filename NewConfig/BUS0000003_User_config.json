@@ -15,9 +15,9 @@
   },
   "ListBOTFields": {
     "None": ["cardImage", "StatusState"],
-    "Title": [],
-    "SubTitle": [],
-    "Description": []
+    "Title": ["Name", "TaxiFare"],
+    "SubTitle": ["CostCentre", "Currency"],
+    "Description": ["ID", "UserAccount", "Email", "Status"]
   },
   "PossibleValues": [],
   "MButtons": [
@@ -246,6 +246,7 @@
     "ItemDetails": []
   },
   "CalculatedFields": {},
+  "Create": "Yes",
   "Wizard": [
     {
       "id": "Step1",

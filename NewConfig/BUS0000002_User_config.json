@@ -15,9 +15,9 @@
   },
   "ListBOTFields": {
     "None": ["cardImage", "StatusState"],
-    "Title": [],
-    "SubTitle": [],
-    "Description": []
+    "Title": ["Name"],
+    "SubTitle": ["From", "To"],
+    "Description": ["ID", "UserAccount", "Email", "Status"]
   },
   "PossibleValues": ["Status", "ReturnJourney"],
   "MButtons": [
@@ -318,6 +318,7 @@
     "ItemDetails": []
   },
   "CalculatedFields": {},
+  "Create": "Yes",
   "Wizard": [
     {
       "id": "Step1",
