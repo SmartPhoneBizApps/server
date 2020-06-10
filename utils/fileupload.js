@@ -12,6 +12,7 @@ exports.uploadFile = asyncHandler(async (req, res, next) => {
   // Note the logic currently supports only one file at a time..
   console.log("Inside Upload...");
   const file = req.files.file;
+  console.log(req.user);
   /////////////////////////////////////////////////////////////////////////
   //   --------  Input - Validations  -------------------
   /////////////////////////////////////////////////////////////////////////
@@ -57,6 +58,7 @@ exports.uploadFile = asyncHandler(async (req, res, next) => {
       }
     }
   }
+
   /////////////////////////////////////////////////////////////////////////
   //   --------  App Data  -------------------
   /////////////////////////////////////////////////////////////////////////
