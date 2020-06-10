@@ -30,7 +30,7 @@ router.put("/updatearea", protect, updateArea);
 router.put("/updatepassword", protect, updatePassword);
 router.post("/forgotpassword", forgotPassword);
 router.put("/resetpassword/:resettoken", resetPassword);
-router.post("/sendemail", protect, sendEmail);
+router.post("/sendemail", sendEmail);
 router.post("/pinLogin", pinLogin);
 router.put("/checkpin/:resettoken", checkPin);
 router.delete("/:email", deleteUser);
