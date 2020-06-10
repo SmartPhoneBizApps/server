@@ -24,6 +24,7 @@ exports.uploadFile = asyncHandler(async (req, res, next) => {
     return next(new ErrorResponse(`No file with parameter file`, 400));
   }
   const header = req.files.file;
+  console.log(header.mimetype.startsWith);
   if (req.headers.filetype == "csv") {
     if (header && !header.mimetype.startsWith("text/csv")) {
       return next(new ErrorResponse(`Please upload an csv file(header)`, 400));
