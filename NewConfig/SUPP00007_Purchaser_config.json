@@ -5,25 +5,26 @@
   },
   "Controls": { "USP": "UserProfile" },
   "ListFields": {
-    "IntroField": "",
-    "TitleField": "",
-    "sStatus": "",
-    "fStatus": "",
+    "IntroField": "ID",
+    "TitleField": "CommsType",
+    "sStatus": "Status",
+    "fStatus": "TransType",
     "numberField": "",
-    "LFields": [],
+    "LFields": ["PONumber", "SuppInvoiceNumber", "VendorNumber"],
     "numberUnitField": ""
   },
   "ListBOTFields": {
     "None": ["cardImage", "StatusState"],
-    "Title": [],
-    "SubTitle": [],
+    "Title": ["Question_Response", "Question_Category"],
+    "SubTitle": ["PONumber", "SuppInvoiceNumber", "VendorNumber"],
     "Description": [
       "ID",
-      "CommsType",
-      "TransType",
       "QuestionDate",
-      "PONumber",
-      "SuppInvoiceNumber"
+      "NotifyRole",
+      "userName",
+      "companyName",
+      "TransType",
+      "CommsType"
     ]
   },
   "PossibleValues": ["Status"],

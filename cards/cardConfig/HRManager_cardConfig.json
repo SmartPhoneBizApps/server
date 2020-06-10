@@ -7,7 +7,7 @@
       "iconToolTip": "Employee Requests",
       "Tiles": [
         {
-          "CardID": "Adaptive1",
+          "CardID": "JOB00001_Adaptive1",
           "applicationID": "JOB00001",
           "filters": {},
           "fieldList": "",
@@ -23,7 +23,11 @@
           "sortBy": "ID",
           "limit": 5,
           "Type": "table1B",
-          "header": { "title": "", "subTitle": "", "status": { "text": "" } },
+          "header": {
+            "title": "Reference",
+            "subTitle": "Title",
+            "status": { "text": "" }
+          },
           "columns": [
             { "title": "Reference", "value": "{Reference}" },
             { "title": "Title", "value": "{Title}" },

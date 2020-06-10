@@ -144,12 +144,15 @@ const advancedDataList = (model, model2, AppID, populate) => async (
   } else {
     for (let i1 = 0; i1 < results.length; i1++) {
       results[i1].cardImage = app["photo"];
-      if (config["Controls"]["USP"] == "UserProfile") {
-        results[i1].USP_Name = "Atul Gupta";
-        results[i1].USP_Role = req.headers.businessrole;
-        results[i1].USP_Image =
-          "https://www.espncricinfo.com/inline/content/image/1183835.html?alt=1";
+      if (req.headers.mode == "Web" || req.headers.mode == "web") {
+        if (config["Controls"]["USP"] == "UserProfile") {
+          results[i1].USP_Name = "Atul Gupta";
+          results[i1].USP_Role = req.headers.businessrole;
+          results[i1].USP_Image =
+            "https://www.espncricinfo.com/inline/content/image/1183835.html?alt=1";
+        }
       }
+
       /*       console.log(results[i1].carouselImage);
       if (
         results[i1].MultiAttachments &
