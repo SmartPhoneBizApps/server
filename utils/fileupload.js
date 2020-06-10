@@ -11,6 +11,7 @@ const App = require("../models/appSetup/App");
 exports.uploadFile = asyncHandler(async (req, res, next) => {
   // Note the logic currently supports only one file at a time..
   console.log("Inside Upload...");
+  console.log(req.files);
   const file = req.files.file;
   console.log(req.user);
   /////////////////////////////////////////////////////////////////////////
@@ -58,7 +59,9 @@ exports.uploadFile = asyncHandler(async (req, res, next) => {
       }
     }
   }
-
+  if (req.headers.type == "NewUpload") {
+    version = 1;
+  }
   /////////////////////////////////////////////////////////////////////////
   //   --------  App Data  -------------------
   /////////////////////////////////////////////////////////////////////////
@@ -158,8 +161,8 @@ exports.uploadFile = asyncHandler(async (req, res, next) => {
       fileName: outFileName,
       fileType: file.mimetype,
       fileSize: file.size,
-      uploadedBy: "Atul Gupta",
-      version: "1",
+      uploadedBy: req.user.name,
+      version: version,
     });
   });
 });
