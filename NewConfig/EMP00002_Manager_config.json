@@ -5,7 +5,7 @@
   },
   "Controls": { "USP": "UserProfile" },
   "ListFields": {
-    "IntroField": "EmployeeName",
+    "IntroField": "EmpName",
     "TitleField": "NoValue",
     "sStatus": "CostCentre",
     "fStatus": "Status",
@@ -16,7 +16,7 @@
   "ListBOTFields": {
     "None": ["cardImage", "StatusState"],
     "Title": ["ID"],
-    "SubTitle": ["EmployeeName", "TotalAmount", "Status"],
+    "SubTitle": ["EmpName", "TotalAmount", "Status"],
     "Description": ["TravelDtFrom", "TravelDateTo", "Justification"]
   },
   "PossibleValues": [
@@ -101,8 +101,8 @@
     "headerImage": ["USP_Image"],
     "None": [
       "ID",
-      "EmployeeCode",
-      "EmployeeName",
+      "EmployeeID",
+      "EmpName",
       "EntryDate",
       "Status",
       "TotalAmount"
@@ -137,7 +137,7 @@
       "Currency": "No"
     },
     {
-      "name": "EmployeeCode",
+      "name": "EmployeeID",
       "type": "string",
       "width": "20",
       "Option": "Optional",
@@ -146,7 +146,7 @@
       "Currency": "No"
     },
     {
-      "name": "EmployeeName",
+      "name": "EmpName",
       "type": "string",
       "width": "50",
       "Option": "Optional",
@@ -373,8 +373,8 @@
     {
       "id": "Step1",
       "fields": [
-        { "name": "EmployeeCode", "Sequence": "1", "Mode": "Edit" },
-        { "name": "EmployeeName", "Sequence": "1", "Mode": "Edit" },
+        { "name": "EmployeeID", "Sequence": "1", "Mode": "Edit" },
+        { "name": "EmpName", "Sequence": "1", "Mode": "Edit" },
         { "name": "Justification", "Sequence": "1", "Mode": "Edit" }
       ],
       "name": "Request Details",

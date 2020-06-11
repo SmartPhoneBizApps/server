@@ -10,14 +10,14 @@
     "sStatus": "Band",
     "fStatus": "Status",
     "numberField": "",
-    "LFields": ["DevManager", "EmpRef"],
+    "LFields": ["DevManager", "EmployeeID"],
     "numberUnitField": ""
   },
   "ListBOTFields": {
     "None": ["cardImage", "StatusState"],
     "Title": ["Band", "ReviewDate"],
     "SubTitle": ["Status", "Role"],
-    "Description": ["DevManager", "EmpRef"]
+    "Description": ["DevManager", "EmployeeID"]
   },
   "PossibleValues": [
     "Status",
@@ -87,7 +87,14 @@
     "headerRole": ["USP_Role"],
     "headerImage": ["USP_Image"],
     "None": ["ID", "Status", "ReviewPeriod"],
-    "Tab1": ["EmpRef", "Name", "DevManager", "Role", "Band", "ReviewDate"],
+    "Tab1": [
+      "EmployeeID",
+      "EmpName",
+      "DevManager",
+      "Role",
+      "Band",
+      "ReviewDate"
+    ],
     "Tab2": [
       "SetDate",
       "Area",
@@ -119,7 +126,7 @@
       "Currency": "No"
     },
     {
-      "name": "EmpRef",
+      "name": "EmployeeID",
       "type": "string",
       "width": "50",
       "Option": "Optional",
@@ -128,11 +135,11 @@
       "Currency": "No"
     },
     {
-      "name": "Name",
+      "name": "EmpName",
       "type": "string",
       "width": "50",
       "Option": "Optional",
-      "SLabel": "Name",
+      "SLabel": "Employee Name",
       "LLabel": "",
       "Currency": "No"
     },
@@ -261,7 +268,7 @@
   "Wizard": [
     {
       "id": "Step1",
-      "fields": [{ "name": "Name", "Sequence": "1", "Mode": "Edit" }],
+      "fields": [{ "name": "EmpName", "Sequence": "1", "Mode": "Edit" }],
       "name": "Development Goal",
       "stepType": "FieldList",
       "intro": "Development Goals  : Development Goal"
@@ -272,7 +279,7 @@
         { "name": "Role", "Sequence": "1", "Mode": "Edit" },
         { "name": "Band", "Sequence": "1", "Mode": "Edit" },
         { "name": "Area", "Sequence": "1", "Mode": "Edit" },
-        { "name": "EmpRef", "Sequence": "1", "Mode": "Edit" }
+        { "name": "EmployeeID", "Sequence": "1", "Mode": "Edit" }
       ],
       "name": "Reference",
       "stepType": "FieldList",

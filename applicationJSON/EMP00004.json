@@ -51,10 +51,10 @@
 
     "maxlength": [50, "Office can not be more than 50 characters"]
   },
-  "CostObject": {
+  "CostCentre": {
     "type": "String",
 
-    "maxlength": [50, "CostObject can not be more than 50 characters"]
+    "maxlength": [50, "CostCentre can not be more than 50 characters"]
   },
   "CostType": {
     "type": "String",
@@ -67,32 +67,18 @@
   },
   "OtherInfo": {
     "type": "String",
-
     "maxlength": [500, "OtherInfo can not be more than 500 characters"]
   },
   "DelTo": {
     "type": "String",
-
     "maxlength": [100, "DelTo can not be more than 100 characters"]
   },
-  "DelStreet": {
+  "EmpAddress": {
     "type": "String",
-
-    "maxlength": [100, "DelStreet can not be more than 100 characters"]
-  },
-  "DelCity": {
-    "type": "String",
-
-    "maxlength": [100, "DelCity can not be more than 100 characters"]
-  },
-  "State": {
-    "type": "String",
-
-    "maxlength": [100, "State can not be more than 100 characters"]
+    "maxlength": [100, "EmpAddress can not be more than 100 characters"]
   },
   "DelPostCode": {
     "type": "String",
-
     "maxlength": [100, "DelPostCode can not be more than 100 characters"],
     "match": [
       "UK_POSTCODE_V1",

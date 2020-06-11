@@ -6,7 +6,7 @@
   "Controls": { "USP": "UserProfile" },
   "ListFields": {
     "IntroField": "ReviewPeriod",
-    "TitleField": "Name",
+    "TitleField": "EmpName",
     "sStatus": "",
     "fStatus": "Status",
     "numberField": "",
@@ -15,7 +15,7 @@
   },
   "ListBOTFields": {
     "None": ["cardImage", "StatusState"],
-    "Title": ["Name"],
+    "Title": ["EmpName"],
     "SubTitle": ["Status", "ReviewPeriod"],
     "Description": ["DevManager", "Band", "Area"]
   },
@@ -86,8 +86,8 @@
     "headerImage": ["USP_Image"],
     "None": ["ID", "Status", "ReviewDate"],
     "Tab1": [
-      "EmpRef",
-      "Name",
+      "EmployeeID",
+      "EmpName",
       "DevManager",
       "Role",
       "Band",
@@ -117,7 +117,7 @@
       "Currency": "No"
     },
     {
-      "name": "EmpRef",
+      "name": "EmployeeID",
       "type": "string",
       "width": "50",
       "Option": "Optional",
@@ -126,11 +126,11 @@
       "Currency": "No"
     },
     {
-      "name": "Name",
+      "name": "EmpName",
       "type": "string",
       "width": "50",
       "Option": "Optional",
-      "SLabel": "Name",
+      "SLabel": "Employee Name",
       "LLabel": "",
       "Currency": "No"
     },
@@ -260,7 +260,7 @@
     {
       "id": "Step1",
       "fields": [
-        { "name": "Name", "Sequence": "1", "Mode": "Edit" },
+        { "name": "EmpName", "Sequence": "1", "Mode": "Edit" },
         { "name": "Role", "Sequence": "1", "Mode": "Edit" },
         { "name": "Band", "Sequence": "1", "Mode": "Edit" }
       ],
@@ -271,7 +271,7 @@
     {
       "id": "Step2",
       "fields": [
-        { "name": "EmpRef", "Sequence": "1", "Mode": "Edit" },
+        { "name": "EmployeeID", "Sequence": "1", "Mode": "Edit" },
         { "name": "ReviewPeriod", "Sequence": "1", "Mode": "Edit" }
       ],
       "name": "Other Details and Admin",

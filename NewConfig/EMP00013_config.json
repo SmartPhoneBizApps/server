@@ -6,17 +6,25 @@
   "Controls": { "USP": "UserProfile" },
   "ListFields": {
     "IntroField": "Area",
-    "TitleField": "Name",
+    "TitleField": "EmpName",
     "sStatus": "Band",
     "fStatus": "Status",
-    "LFields": ["EmpRef", "DevManager"]
+    "LFields": ["EmployeeID", "DevManager"]
   },
   "ListBOTFields": {
-    "Title": ["Name"],
+    "Title": ["EmpName"],
     "SubTitle": ["Status", "Band", "Area"],
-    "Description": ["EmpRef", "DevManager"]
+    "Description": ["EmployeeID", "DevManager"]
   },
-  "PossibleValues": ["Status"],
+  "PossibleValues": [
+    "Status",
+    "Band",
+    "Rating",
+    "Role",
+    "ReviewPeriod",
+    "Area",
+    "DevManager"
+  ],
   "MButtons": [
     {
       "type": "DOWNLOAD",
@@ -71,54 +79,227 @@
     }
   ],
   "DetailFields": {
-    "headerTitle": ["USP_Name"],
-    "headerRole": ["USP_Role"],
-    "headerImage": ["USP_Image"],
-    "None": ["FeedbackID", "Status", "ReviewPeriod", "FeedbackDate"],
-    "Tab1": ["EmpRef", "Name", "DevManager", "Role", "Band"],
-    "Tab2": [
-      "Area",
-      "Question",
-      "Answer",
-      "Rating",
-      "Score",
-      "MaxScore",
-      "Comments"
-    ]
+    "None": ["ID", "Status", "ReviewPeriod", "FeedbackDate"],
+    "Tab1": ["Area", "EmployeeID", "EmpName", "DevManager", "Role", "Band"],
+    "Tab2": ["Q1", "A1", "Rating", "Score"]
   },
   "ControlDisplay": {},
   "FieldDef": [
-    { "name": "FeedbackID", "type": "string", "width": "20" },
-    { "name": "Area", "type": "string", "width": "50" },
-    { "name": "Question", "type": "string", "width": "500" },
-    { "name": "Answer", "type": "string", "width": "500" },
-    { "name": "Rating", "type": "string", "width": "50" },
-    { "name": "Score", "type": "string", "width": "50" },
-    { "name": "MaxScore", "type": "string", "width": "50" },
-    { "name": "Comments", "type": "string", "width": "1000" },
-    { "name": "Status", "type": "string", "width": "20" },
-    { "name": "EmpRef", "type": "string", "width": "50" },
-    { "name": "Name", "type": "string", "width": "50" },
-    { "name": "ReviewPeriod", "type": "string", "width": "50" },
-    { "name": "DevManager", "type": "string", "width": "50" },
-    { "name": "Role", "type": "string", "width": "50" },
-    { "name": "Band", "type": "string", "width": "50" },
-    { "name": "FeedbackDate", "type": "Date", "width": "10" }
+    {
+      "name": "ID",
+      "type": "string",
+      "width": "20",
+      "Option": "Optional",
+      "SLabel": "ID",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "Area",
+      "type": "string",
+      "width": "50",
+      "Option": "Optional",
+      "SLabel": "Area",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "Q1",
+      "type": "string",
+      "width": "500",
+      "Option": "Optional",
+      "SLabel": "Question",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "A1",
+      "type": "string",
+      "width": "500",
+      "Option": "Optional",
+      "SLabel": "Your feedback",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "Rating",
+      "type": "string",
+      "width": "50",
+      "Option": "Optional",
+      "SLabel": "Rating",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "Score",
+      "type": "string",
+      "width": "50",
+      "Option": "Optional",
+      "SLabel": "Score out of 10",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "MaxScore",
+      "type": "string",
+      "width": "50",
+      "Option": "Optional",
+      "SLabel": "Maximum Score",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "ManagerComm",
+      "type": "string",
+      "width": "1000",
+      "Option": "Optional",
+      "SLabel": "Manager Comments",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "HRComment",
+      "type": "string",
+      "width": "1000",
+      "Option": "Optional",
+      "SLabel": "HR Comment",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "Status",
+      "type": "string",
+      "width": "20",
+      "Option": "Optional",
+      "SLabel": "Status",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "EmployeeID",
+      "type": "string",
+      "width": "50",
+      "Option": "Optional",
+      "SLabel": "Employee Reference",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "EmpName",
+      "type": "string",
+      "width": "50",
+      "Option": "Optional",
+      "SLabel": "Employee Name",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "ReviewPeriod",
+      "type": "string",
+      "width": "50",
+      "Option": "Optional",
+      "SLabel": "Review Period",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "DevManager",
+      "type": "string",
+      "width": "50",
+      "Option": "Optional",
+      "SLabel": "Development Manager",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "Role",
+      "type": "string",
+      "width": "50",
+      "Option": "Optional",
+      "SLabel": "Role",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "Band",
+      "type": "string",
+      "width": "50",
+      "Option": "Optional",
+      "SLabel": "Band",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "FeedbackDate",
+      "type": "Date",
+      "width": "10",
+      "Option": "Optional",
+      "SLabel": "Feedback Date",
+      "LLabel": "",
+      "Currency": "No"
+    }
   ],
   "itemData": "No",
-  "itemConfig": {
-    "ItemFieldDefinition": [],
-    "DisplayFields": [],
-    "ItemButtons": {
-      "itemDisplay": false,
-      "itemAdd": false,
-      "itemEdit": false,
-      "itemDelete": false
-    },
-    "CreateFields": [],
-    "ItemDetails": []
-  },
+  "itemConfig": {},
   "CalculatedFields": {},
-  "Create": "No",
-  "Wizard": []
+  "Create": "Yes",
+  "Wizard": [
+    {
+      "id": "Step1",
+      "fields": [
+        { "name": "EmployeeID", "Sequence": "1", "Mode": "Edit" },
+        { "name": "EmpName", "Sequence": "1", "Mode": "Edit" },
+        { "name": "Band", "Sequence": "1", "Mode": "Edit" },
+        { "name": "Role", "Sequence": "1", "Mode": "Edit" },
+        { "name": "Area", "Sequence": "1", "Mode": "Edit" }
+      ],
+      "name": "Employee Details",
+      "stepType": "FieldList",
+      "intro": "Please provide Employee details"
+    },
+    {
+      "id": "Step2",
+      "fields": [
+        { "name": "DevManager", "Sequence": "1", "Mode": "Edit" },
+        { "name": "ReviewPeriod", "Sequence": "1", "Mode": "Edit" }
+      ],
+      "name": "Review Details",
+      "stepType": "FieldList",
+      "intro": "Details of Review"
+    },
+    {
+      "id": "Step3",
+      "fields": [
+        { "name": "FeedbackDate", "Sequence": "1", "Mode": "Edit" },
+        { "name": "Rating", "Sequence": "1", "Mode": "Edit" }
+      ],
+      "name": "Feedback Details",
+      "stepType": "FieldList",
+      "intro": "Feedback Details"
+    },
+    {
+      "id": "Step4",
+      "fields": [
+        { "name": "Q1", "Sequence": "1", "Mode": "Display" },
+        { "name": "A1", "Sequence": "1", "Mode": "Edit" }
+      ],
+      "name": "Feedback Question",
+      "stepType": "FieldList",
+      "intro": "Are you happy with overall process of development review?"
+    },
+    {
+      "id": "Step5",
+      "fields": [{ "name": "Score", "Sequence": "1", "Mode": "Edit" }],
+      "name": "Score",
+      "stepType": "FieldList",
+      "intro": "Max Score is 10"
+    },
+    {
+      "id": "Step6",
+      "fields": [{ "name": "Status", "Sequence": "1", "Mode": "Edit" }],
+      "name": "Submission",
+      "stepType": "FieldList",
+      "intro": "Submission Status"
+    }
+  ]
 }

@@ -1,1 +1,208 @@
-{"body": [{"type": "TextBlock", "isSubtle": true, "size": "medium", "text": "Employee Name"}, {"placeholder": "Employee Name", "type": "Input.Text", "style": "text", "id": "EmpName"}, {"type": "TextBlock", "isSubtle": true, "size": "medium", "text": "Employee Code"}, {"placeholder": "Employee Code", "type": "Input.Text", "style": "text", "id": "EmpCode"}, {"type": "TextBlock", "isSubtle": true, "size": "medium", "text": "Timesheet start date"}, {"placeholder": "Timesheet start date", "type": "Input.Text", "style": "text", "id": "StartDate"}, {"type": "TextBlock", "isSubtle": true, "size": "medium", "text": "Timesheet end date"}, {"placeholder": "Timesheet end date", "type": "Input.Text", "style": "text", "id": "EndDate"}, {"type": "TextBlock", "isSubtle": true, "size": "medium", "text": "Total Regular Work Hours"}, {"placeholder": "Total Regular Work Hours", "type": "Input.Text", "style": "text", "id": "TotalRegHours"}, {"type": "TextBlock", "isSubtle": true, "size": "medium", "text": "Hourly Rate"}, {"placeholder": "Hourly Rate", "type": "Input.Text", "style": "text", "id": "HourlyRate"}, {"type": "TextBlock", "isSubtle": true, "size": "medium", "text": "Regular Amount"}, {"placeholder": "Regular Amount", "type": "Input.Text", "style": "text", "id": "RegularNetAmount"}, {"type": "TextBlock", "isSubtle": true, "size": "medium", "text": "Total Overtime Hours"}, {"placeholder": "Total Overtime Hours", "type": "Input.Text", "style": "text", "id": "TotalOvertimeHours"}, {"type": "TextBlock", "isSubtle": true, "size": "medium", "text": "Overtime Rate"}, {"placeholder": "Overtime Rate", "type": "Input.Text", "style": "text", "id": "OvertimeRate"}, {"type": "TextBlock", "isSubtle": true, "size": "medium", "text": "Overtime Amount"}, {"placeholder": "Overtime Amount", "type": "Input.Text", "style": "text", "id": "OvertimeNetAmount"}, {"type": "TextBlock", "isSubtle": true, "size": "medium", "text": "Net Amount"}, {"placeholder": "Net Amount", "type": "Input.Text", "style": "text", "id": "NetAmount"}, {"type": "TextBlock", "isSubtle": true, "size": "medium", "text": "VAT Rate"}, {"placeholder": "VAT Rate", "type": "Input.Text", "style": "text", "id": "VATRate"}, {"type": "TextBlock", "isSubtle": true, "size": "medium", "text": "VAT Amount"}, {"placeholder": "VAT Amount", "type": "Input.Text", "style": "text", "id": "VATAmount"}, {"type": "TextBlock", "isSubtle": true, "size": "medium", "text": "Gross Amount"}, {"placeholder": "Gross Amount", "type": "Input.Text", "style": "text", "id": "GrossAmount"}, {"type": "TextBlock", "isSubtle": true, "size": "medium", "text": "Timesheet Status"}, {"placeholder": "Timesheet Status", "type": "Input.Text", "style": "text", "id": "Status"}, {"type": "TextBlock", "isSubtle": true, "size": "medium", "text": "VAT Percentage"}, {"placeholder": "VAT Percentage", "type": "Input.Text", "style": "text", "id": "VATPer"}, {"type": "TextBlock", "isSubtle": true, "size": "medium", "text": "Approver"}, {"placeholder": "Approver", "type": "Input.Text", "style": "text", "id": "Approver"}]}
+{
+  "body": [
+    {
+      "type": "TextBlock",
+      "isSubtle": true,
+      "size": "medium",
+      "text": "Employee Name"
+    },
+    {
+      "placeholder": "Employee Name",
+      "type": "Input.Text",
+      "style": "text",
+      "id": "EmpName"
+    },
+    {
+      "type": "TextBlock",
+      "isSubtle": true,
+      "size": "medium",
+      "text": "Employee Code"
+    },
+    {
+      "placeholder": "Employee Code",
+      "type": "Input.Text",
+      "style": "text",
+      "id": "EmployeeID"
+    },
+    {
+      "type": "TextBlock",
+      "isSubtle": true,
+      "size": "medium",
+      "text": "Timesheet start date"
+    },
+    {
+      "placeholder": "Timesheet start date",
+      "type": "Input.Text",
+      "style": "text",
+      "id": "StartDate"
+    },
+    {
+      "type": "TextBlock",
+      "isSubtle": true,
+      "size": "medium",
+      "text": "Timesheet end date"
+    },
+    {
+      "placeholder": "Timesheet end date",
+      "type": "Input.Text",
+      "style": "text",
+      "id": "EndDate"
+    },
+    {
+      "type": "TextBlock",
+      "isSubtle": true,
+      "size": "medium",
+      "text": "Total Regular Work Hours"
+    },
+    {
+      "placeholder": "Total Regular Work Hours",
+      "type": "Input.Text",
+      "style": "text",
+      "id": "TotalRegHours"
+    },
+    {
+      "type": "TextBlock",
+      "isSubtle": true,
+      "size": "medium",
+      "text": "Hourly Rate"
+    },
+    {
+      "placeholder": "Hourly Rate",
+      "type": "Input.Text",
+      "style": "text",
+      "id": "HourlyRate"
+    },
+    {
+      "type": "TextBlock",
+      "isSubtle": true,
+      "size": "medium",
+      "text": "Regular Amount"
+    },
+    {
+      "placeholder": "Regular Amount",
+      "type": "Input.Text",
+      "style": "text",
+      "id": "RegularNetAmount"
+    },
+    {
+      "type": "TextBlock",
+      "isSubtle": true,
+      "size": "medium",
+      "text": "Total Overtime Hours"
+    },
+    {
+      "placeholder": "Total Overtime Hours",
+      "type": "Input.Text",
+      "style": "text",
+      "id": "TotalOvertimeHours"
+    },
+    {
+      "type": "TextBlock",
+      "isSubtle": true,
+      "size": "medium",
+      "text": "Overtime Rate"
+    },
+    {
+      "placeholder": "Overtime Rate",
+      "type": "Input.Text",
+      "style": "text",
+      "id": "OvertimeRate"
+    },
+    {
+      "type": "TextBlock",
+      "isSubtle": true,
+      "size": "medium",
+      "text": "Overtime Amount"
+    },
+    {
+      "placeholder": "Overtime Amount",
+      "type": "Input.Text",
+      "style": "text",
+      "id": "OvertimeNetAmount"
+    },
+    {
+      "type": "TextBlock",
+      "isSubtle": true,
+      "size": "medium",
+      "text": "Net Amount"
+    },
+    {
+      "placeholder": "Net Amount",
+      "type": "Input.Text",
+      "style": "text",
+      "id": "NetAmount"
+    },
+    {
+      "type": "TextBlock",
+      "isSubtle": true,
+      "size": "medium",
+      "text": "VAT Rate"
+    },
+    {
+      "placeholder": "VAT Rate",
+      "type": "Input.Text",
+      "style": "text",
+      "id": "VATRate"
+    },
+    {
+      "type": "TextBlock",
+      "isSubtle": true,
+      "size": "medium",
+      "text": "VAT Amount"
+    },
+    {
+      "placeholder": "VAT Amount",
+      "type": "Input.Text",
+      "style": "text",
+      "id": "VATAmount"
+    },
+    {
+      "type": "TextBlock",
+      "isSubtle": true,
+      "size": "medium",
+      "text": "Gross Amount"
+    },
+    {
+      "placeholder": "Gross Amount",
+      "type": "Input.Text",
+      "style": "text",
+      "id": "GrossAmount"
+    },
+    {
+      "type": "TextBlock",
+      "isSubtle": true,
+      "size": "medium",
+      "text": "Timesheet Status"
+    },
+    {
+      "placeholder": "Timesheet Status",
+      "type": "Input.Text",
+      "style": "text",
+      "id": "Status"
+    },
+    {
+      "type": "TextBlock",
+      "isSubtle": true,
+      "size": "medium",
+      "text": "VAT Percentage"
+    },
+    {
+      "placeholder": "VAT Percentage",
+      "type": "Input.Text",
+      "style": "text",
+      "id": "VATPer"
+    },
+    {
+      "type": "TextBlock",
+      "isSubtle": true,
+      "size": "medium",
+      "text": "Approver"
+    },
+    {
+      "placeholder": "Approver",
+      "type": "Input.Text",
+      "style": "text",
+      "id": "Approver"
+    }
+  ]
+}

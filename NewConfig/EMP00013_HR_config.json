@@ -6,19 +6,58 @@
   "Controls": { "USP": "UserProfile" },
   "ListFields": {
     "IntroField": "Area",
-    "TitleField": "Name",
+    "TitleField": "EmpName",
     "sStatus": "Band",
     "fStatus": "Status",
-    "LFields": ["EmpRef", "DevManager"]
+    "LFields": ["EmployeeID", "DevManager"]
   },
   "ListBOTFields": {
-    "Title": ["Name"],
+    "Title": ["EmpName"],
     "SubTitle": ["Status", "Band", "Area"],
-    "Description": ["EmpRef", "DevManager"]
+    "Description": ["EmployeeID", "DevManager"]
   },
-  "PossibleValues": ["Status"],
-  "MButtons": [],
-  "DButtons": [],
+  "PossibleValues": [
+    "Status",
+    "Band",
+    "Rating",
+    "Role",
+    "ReviewPeriod",
+    "Area",
+    "DevManager"
+  ],
+  "MButtons": [
+    {
+      "type": "DOWNLOAD",
+      "name": "Download File",
+      "icon": "sap-icon://download"
+    },
+    {
+      "type": "APPHELP",
+      "name": "Get App Help",
+      "icon": "sap-icon://sys-help-2"
+    },
+    {
+      "type": "BOT",
+      "name": "Launch Assistant",
+      "icon": "sap-icon://travel-request"
+    },
+    {
+      "type": "VIEW",
+      "name": "Change App View",
+      "icon": "sap-icon://chart-table-view"
+    },
+    { "type": "ADD", "name": "Add Record", "icon": "sap-icon://add" },
+    { "type": "UPLOAD", "name": "Upload Record", "icon": "sap-icon://upload" }
+  ],
+  "DButtons": [
+    {
+      "type": "ATTACHMENT",
+      "name": "View Attachments",
+      "icon": "sap-icon://attachment"
+    },
+    { "type": "UPDATE", "name": "Update Record", "icon": "sap-icon://update" },
+    { "type": "ADD", "name": "Add Record", "icon": "sap-icon://add" }
+  ],
   "Tabs": [
     {
       "value": "Tab0",
@@ -40,20 +79,9 @@
     }
   ],
   "DetailFields": {
-    "headerTitle": ["USP_Name"],
-    "headerRole": ["USP_Role"],
-    "headerImage": ["USP_Image"],
     "None": ["ID", "Status", "ReviewPeriod", "FeedbackDate"],
-    "Tab1": ["Area", "EmpRef", "Name", "DevManager", "Role", "Band"],
-    "Tab2": [
-      "Question",
-      "Answer",
-      "Rating",
-      "Score",
-      "MaxScore",
-      "ManagerComm",
-      "HRComment"
-    ]
+    "Tab1": ["Area", "EmployeeID", "EmpName", "DevManager", "Role", "Band"],
+    "Tab2": ["Q1", "A1", "Rating", "Score"]
   },
   "ControlDisplay": {},
   "FieldDef": [
@@ -76,7 +104,7 @@
       "Currency": "No"
     },
     {
-      "name": "Question",
+      "name": "Q1",
       "type": "string",
       "width": "500",
       "Option": "Optional",
@@ -85,11 +113,11 @@
       "Currency": "No"
     },
     {
-      "name": "Answer",
+      "name": "A1",
       "type": "string",
       "width": "500",
       "Option": "Optional",
-      "SLabel": "Answer",
+      "SLabel": "Your feedback",
       "LLabel": "",
       "Currency": "No"
     },
@@ -107,7 +135,7 @@
       "type": "string",
       "width": "50",
       "Option": "Optional",
-      "SLabel": "Score",
+      "SLabel": "Score out of 10",
       "LLabel": "",
       "Currency": "No"
     },
@@ -125,7 +153,7 @@
       "type": "string",
       "width": "1000",
       "Option": "Optional",
-      "SLabel": "Manager Comment",
+      "SLabel": "Manager Comments",
       "LLabel": "",
       "Currency": "No"
     },
@@ -148,7 +176,7 @@
       "Currency": "No"
     },
     {
-      "name": "EmpRef",
+      "name": "EmployeeID",
       "type": "string",
       "width": "50",
       "Option": "Optional",
@@ -157,11 +185,11 @@
       "Currency": "No"
     },
     {
-      "name": "Name",
+      "name": "EmpName",
       "type": "string",
       "width": "50",
       "Option": "Optional",
-      "SLabel": "Name",
+      "SLabel": "Employee Name",
       "LLabel": "",
       "Currency": "No"
     },
@@ -179,7 +207,7 @@
       "type": "string",
       "width": "50",
       "Option": "Optional",
-      "SLabel": "Devolpment Manager",
+      "SLabel": "Development Manager",
       "LLabel": "",
       "Currency": "No"
     },
@@ -212,19 +240,66 @@
     }
   ],
   "itemData": "No",
-  "itemConfig": {
-    "ItemFieldDefinition": [],
-    "DisplayFields": [],
-    "ItemButtons": {
-      "itemDisplay": false,
-      "itemAdd": false,
-      "itemEdit": false,
-      "itemDelete": false
-    },
-    "CreateFields": [],
-    "ItemDetails": []
-  },
+  "itemConfig": {},
   "CalculatedFields": {},
-  "Create": "No",
-  "Wizard": []
+  "Create": "Yes",
+  "Wizard": [
+    {
+      "id": "Step1",
+      "fields": [
+        { "name": "EmployeeID", "Sequence": "1", "Mode": "Edit" },
+        { "name": "EmpName", "Sequence": "1", "Mode": "Edit" },
+        { "name": "Band", "Sequence": "1", "Mode": "Edit" },
+        { "name": "Role", "Sequence": "1", "Mode": "Edit" },
+        { "name": "Area", "Sequence": "1", "Mode": "Edit" }
+      ],
+      "name": "Employee Details",
+      "stepType": "FieldList",
+      "intro": "Please provide Employee details"
+    },
+    {
+      "id": "Step2",
+      "fields": [
+        { "name": "DevManager", "Sequence": "1", "Mode": "Edit" },
+        { "name": "ReviewPeriod", "Sequence": "1", "Mode": "Edit" }
+      ],
+      "name": "Review Details",
+      "stepType": "FieldList",
+      "intro": "Details of Review"
+    },
+    {
+      "id": "Step3",
+      "fields": [
+        { "name": "FeedbackDate", "Sequence": "1", "Mode": "Edit" },
+        { "name": "Rating", "Sequence": "1", "Mode": "Edit" }
+      ],
+      "name": "Feedback Details",
+      "stepType": "FieldList",
+      "intro": "Feedback Details"
+    },
+    {
+      "id": "Step4",
+      "fields": [
+        { "name": "Q1", "Sequence": "1", "Mode": "Display" },
+        { "name": "A1", "Sequence": "1", "Mode": "Edit" }
+      ],
+      "name": "Feedback Question",
+      "stepType": "FieldList",
+      "intro": "Are you happy with overall process of development review?"
+    },
+    {
+      "id": "Step5",
+      "fields": [{ "name": "Score", "Sequence": "1", "Mode": "Edit" }],
+      "name": "Score",
+      "stepType": "FieldList",
+      "intro": "Max Score is 10"
+    },
+    {
+      "id": "Step6",
+      "fields": [{ "name": "Status", "Sequence": "1", "Mode": "Edit" }],
+      "name": "Submission",
+      "stepType": "FieldList",
+      "intro": "Submission Status"
+    }
+  ]
 }

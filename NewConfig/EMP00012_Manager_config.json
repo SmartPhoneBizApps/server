@@ -6,7 +6,7 @@
   "Controls": { "USP": "UserProfile" },
   "ListFields": {
     "IntroField": "ReviewPeriod",
-    "TitleField": "Name",
+    "TitleField": "EmpName",
     "sStatus": "",
     "fStatus": "Status",
     "numberField": "",
@@ -15,13 +15,51 @@
   },
   "ListBOTFields": {
     "None": ["cardImage", "StatusState"],
-    "Title": ["Name"],
+    "Title": ["EmpName"],
     "SubTitle": ["Status", "ReviewPeriod"],
     "Description": ["DevManager", "Band", "Area"]
   },
-  "PossibleValues": ["Status"],
-  "MButtons": [],
-  "DButtons": [],
+  "PossibleValues": [
+    "Status",
+    "ReviewPeriod",
+    "DevManager",
+    "Role",
+    "Band",
+    "Area"
+  ],
+  "MButtons": [
+    {
+      "type": "DOWNLOAD",
+      "name": "Download File",
+      "icon": "sap-icon://download"
+    },
+    {
+      "type": "APPHELP",
+      "name": "Get App Help",
+      "icon": "sap-icon://sys-help-2"
+    },
+    {
+      "type": "BOT",
+      "name": "Launch Assistant",
+      "icon": "sap-icon://travel-request"
+    },
+    {
+      "type": "VIEW",
+      "name": "Change App View",
+      "icon": "sap-icon://chart-table-view"
+    },
+    { "type": "ADD", "name": "Add Record", "icon": "sap-icon://add" },
+    { "type": "UPLOAD", "name": "Upload Record", "icon": "sap-icon://upload" }
+  ],
+  "DButtons": [
+    {
+      "type": "ATTACHMENT",
+      "name": "View Attachments",
+      "icon": "sap-icon://attachment"
+    },
+    { "type": "UPDATE", "name": "Update Record", "icon": "sap-icon://update" },
+    { "type": "ADD", "name": "Add Record", "icon": "sap-icon://add" }
+  ],
   "Tabs": [
     {
       "value": "Tab0",
@@ -43,25 +81,20 @@
     }
   ],
   "DetailFields": {
-    "None": ["ID", "Status", "Band"],
+    "headerTitle": ["USP_Name"],
+    "headerRole": ["USP_Role"],
+    "headerImage": ["USP_Image"],
+    "None": ["ID", "Status", "ReviewDate"],
     "Tab1": [
-      "EmpRef",
-      "Name",
-      "ReviewPeriod",
+      "EmployeeID",
+      "EmpName",
       "DevManager",
       "Role",
-      "ReviewDate",
-      "NextReviewDt"
-    ],
-    "Tab2": [
+      "Band",
       "Area",
-      "CompDesc",
-      "AppraiseeComm",
-      "AppraiserComm",
-      "Grade",
-      "Score",
-      "MaxScore"
-    ]
+      "CompDesc"
+    ],
+    "Tab2": ["ReviewPeriod", "Score", "MaxScore", "AppraiseeComm"]
   },
   "ControlDisplay": {},
   "FieldDef": [
@@ -84,7 +117,7 @@
       "Currency": "No"
     },
     {
-      "name": "EmpRef",
+      "name": "EmployeeID",
       "type": "string",
       "width": "50",
       "Option": "Optional",
@@ -93,11 +126,11 @@
       "Currency": "No"
     },
     {
-      "name": "Name",
+      "name": "EmpName",
       "type": "string",
       "width": "50",
       "Option": "Optional",
-      "SLabel": "Name",
+      "SLabel": "Employee Name",
       "LLabel": "",
       "Currency": "No"
     },
@@ -205,7 +238,7 @@
       "type": "string",
       "width": "50",
       "Option": "Optional",
-      "SLabel": "Score",
+      "SLabel": "Score (out of 5)",
       "LLabel": "",
       "Currency": "No"
     },
@@ -227,7 +260,7 @@
     {
       "id": "Step1",
       "fields": [
-        { "name": "Name", "Sequence": "1", "Mode": "Edit" },
+        { "name": "EmpName", "Sequence": "1", "Mode": "Edit" },
         { "name": "Role", "Sequence": "1", "Mode": "Edit" },
         { "name": "Band", "Sequence": "1", "Mode": "Edit" }
       ],
@@ -238,10 +271,8 @@
     {
       "id": "Step2",
       "fields": [
-        { "name": "EmpRef", "Sequence": "1", "Mode": "Edit" },
-        { "name": "ReviewPeriod", "Sequence": "1", "Mode": "Edit" },
-        { "name": "ReviewDate", "Sequence": "1", "Mode": "Edit" },
-        { "name": "NextReviewDt", "Sequence": "1", "Mode": "Edit" }
+        { "name": "EmployeeID", "Sequence": "1", "Mode": "Edit" },
+        { "name": "ReviewPeriod", "Sequence": "1", "Mode": "Edit" }
       ],
       "name": "Other Details and Admin",
       "stepType": "FieldList",
@@ -250,9 +281,21 @@
     {
       "id": "Step3",
       "fields": [{ "name": "DevManager", "Sequence": "1", "Mode": "Edit" }],
-      "name": "Development Manager ",
+      "name": "Development Manager",
       "stepType": "FieldList",
       "intro": "Competency Model : Development Manager"
+    },
+    {
+      "id": "Step4",
+      "fields": [
+        { "name": "Area", "Sequence": "1", "Mode": "Edit" },
+        { "name": "AppraiseeComm", "Sequence": "1", "Mode": "Edit" },
+        { "name": "Score", "Sequence": "1", "Mode": "Edit" },
+        { "name": "Status", "Sequence": "1", "Mode": "Edit" }
+      ],
+      "name": "Appraisal",
+      "stepType": "FieldList",
+      "intro": "Annual Appraisal"
     }
   ]
 }

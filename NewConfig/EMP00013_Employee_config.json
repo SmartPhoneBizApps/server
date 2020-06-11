@@ -6,15 +6,15 @@
   "Controls": { "USP": "UserProfile" },
   "ListFields": {
     "IntroField": "Area",
-    "TitleField": "Name",
+    "TitleField": "EmpName",
     "sStatus": "Band",
     "fStatus": "Status",
-    "LFields": ["EmpRef", "DevManager"]
+    "LFields": ["EmployeeID", "DevManager"]
   },
   "ListBOTFields": {
-    "Title": ["Name"],
+    "Title": ["EmpName"],
     "SubTitle": ["Status", "Band", "Area"],
-    "Description": ["EmpRef", "DevManager"]
+    "Description": ["EmployeeID", "DevManager"]
   },
   "PossibleValues": [
     "Status",
@@ -80,7 +80,7 @@
   ],
   "DetailFields": {
     "None": ["ID", "Status", "ReviewPeriod", "FeedbackDate"],
-    "Tab1": ["Area", "EmpRef", "Name", "DevManager", "Role", "Band"],
+    "Tab1": ["Area", "EmployeeID", "EmpName", "DevManager", "Role", "Band"],
     "Tab2": ["Q1", "A1", "Rating", "Score"]
   },
   "ControlDisplay": {},
@@ -176,7 +176,7 @@
       "Currency": "No"
     },
     {
-      "name": "EmpRef",
+      "name": "EmployeeID",
       "type": "string",
       "width": "50",
       "Option": "Optional",
@@ -185,11 +185,11 @@
       "Currency": "No"
     },
     {
-      "name": "Name",
+      "name": "EmpName",
       "type": "string",
       "width": "50",
       "Option": "Optional",
-      "SLabel": "Name",
+      "SLabel": "Employee Name",
       "LLabel": "",
       "Currency": "No"
     },
@@ -247,8 +247,8 @@
     {
       "id": "Step1",
       "fields": [
-        { "name": "EmpRef", "Sequence": "1", "Mode": "Edit" },
-        { "name": "Name", "Sequence": "1", "Mode": "Edit" },
+        { "name": "EmployeeID", "Sequence": "1", "Mode": "Edit" },
+        { "name": "EmpName", "Sequence": "1", "Mode": "Edit" },
         { "name": "Band", "Sequence": "1", "Mode": "Edit" },
         { "name": "Role", "Sequence": "1", "Mode": "Edit" },
         { "name": "Area", "Sequence": "1", "Mode": "Edit" }

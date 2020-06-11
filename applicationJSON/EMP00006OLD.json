@@ -11,10 +11,10 @@
     "required": [true, "Please add mandatory field :EmployeeID"],
     "maxlength": [50, "EmployeeID can not be more than 50 characters"]
   },
-  "Name": {
+  "EmpName": {
     "type": "String",
 
-    "maxlength": [50, "Name can not be more than 50 characters"]
+    "maxlength": [50, "EmpName can not be more than 50 characters"]
   },
   "ProjectNeed": {
     "type": "String",
@@ -82,12 +82,6 @@
     "type": "String",
 
     "maxlength": [1000, "AdminComment can not be more than 1000 characters"]
-  },
-  "EmpRef": {
-    "type": "String",
-
-    "required": [true, "Please add mandatory field :EmpRef"],
-    "maxlength": [50, "EmpRef can not be more than 50 characters"]
   },
   "DateRequested": {
     "type": "Date",

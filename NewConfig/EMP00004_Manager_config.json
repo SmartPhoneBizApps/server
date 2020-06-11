@@ -22,7 +22,7 @@
     "State",
     "Country",
     "Office",
-    "CostObject",
+    "CostCentre",
     "GLAccount",
     "VATRate",
     "Currency",
@@ -73,14 +73,13 @@
     "Tab2": [
       "DeliveryDt",
       "DelTo",
-      "DelStreet",
-      "DelCity",
+      "EmpAddress",
       "State",
       "DelPostCode",
       "Country",
       "DelPhone",
       "OtherInfo",
-      "CostObject"
+      "CostCentre"
     ],
     "Tab3": ["ProcessingLog"]
   },
@@ -240,7 +239,7 @@
       "Currency": "No"
     },
     {
-      "name": "CostObject",
+      "name": "CostCentre",
       "type": "string",
       "width": "50",
       "Option": "Optional",
@@ -294,16 +293,15 @@
       "Currency": "No"
     },
     {
-      "name": "DelStreet",
+      "name": "EmpAddress",
       "type": "string",
       "width": "50",
       "Option": "Optional",
-      "SLabel": "Delivery Street",
+      "SLabel": "Delivery Address",
       "LLabel": "",
       "Currency": "No"
     },
     {
-      "name": "DelCity",
       "type": "string",
       "width": "50",
       "Option": "Optional",

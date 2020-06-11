@@ -26,7 +26,7 @@
     "State",
     "DelCountry",
     "Office",
-    "CostObject",
+    "CostCentre",
     "GLAccount",
     "VATRate",
     "Office",
@@ -97,14 +97,13 @@
     "Tab2": [
       "DeliveryDt",
       "DelTo",
-      "DelStreet",
-      "DelCity",
+      "EmpAddress",
       "State",
       "DelPostCode",
       "DelCountry",
       "DelPhone"
     ],
-    "Tab3": ["Office", "CostObject", "GLAccount", "OtherInfo", "Status"]
+    "Tab3": ["Office", "CostCentre", "GLAccount", "OtherInfo", "Status"]
   },
   "ControlDisplay": {},
   "FieldDef": [
@@ -126,13 +125,12 @@
     { "name": "Currency", "type": "string", "width": "10" },
     { "name": "Status", "type": "string", "width": "20" },
     { "name": "Office", "type": "string", "width": "50" },
-    { "name": "CostObject", "type": "string", "width": "50" },
+    { "name": "CostCentre", "type": "string", "width": "50" },
     { "name": "GLAccount", "type": "string", "width": "50" },
     { "name": "OtherInfo", "type": "string", "width": "500" },
     { "name": "DeliveryDt", "type": "Date", "width": "10" },
     { "name": "DelTo", "type": "string", "width": "50" },
-    { "name": "DelStreet", "type": "string", "width": "50" },
-    { "name": "DelCity", "type": "string", "width": "50" },
+    { "name": "EmpAddress", "type": "string", "width": "50" },
     { "name": "State", "type": "string", "width": "50" },
     { "name": "DelPostCode", "type": "string", "width": "20" },
     { "name": "DelCountry", "type": "string", "width": "50" },
@@ -208,8 +206,7 @@
     {
       "id": "Step5",
       "fields": [
-        { "name": "DelStreet", "Sequence": "1", "Mode": "Edit" },
-        { "name": "DelCity", "Sequence": "1", "Mode": "Edit" },
+        { "name": "EmpAddress", "Sequence": "1", "Mode": "Edit" },
         { "name": "DelPostCode", "Sequence": "1", "Mode": "Edit" },
         { "name": "DeliveryDt", "Sequence": "1", "Mode": "Edit" },
         { "name": "State", "Sequence": "1", "Mode": "Edit" },
@@ -237,7 +234,7 @@
       "fields": [
         { "name": "PaymentOption", "Sequence": "1", "Mode": "Edit" },
         { "name": "PaymentTerm", "Sequence": "1", "Mode": "Edit" },
-        { "name": "CostObject", "Sequence": "1", "Mode": "Edit" },
+        { "name": "CostCentre", "Sequence": "1", "Mode": "Edit" },
         { "name": "CostType", "Sequence": "1", "Mode": "Edit" },
         { "name": "GLAccount", "Sequence": "1", "Mode": "Edit" },
         { "name": "BudgetUsed", "Sequence": "1", "Mode": "Edit" },

@@ -6,7 +6,7 @@
     "TitleField": "EmpName",
     "fStatus": "Status",
     "numberField": "GrossAmount",
-    "LFields": ["EmpCode", "StartDate", "EndDate"],
+    "LFields": ["EmployeeID", "StartDate", "EndDate"],
     "numberUnitField": "Currency"
   },
   "ListBOTFields": {
@@ -65,7 +65,7 @@
     "headerTitle": ["USP_Name"],
     "headerRole": ["USP_Role"],
     "headerImage": ["USP_Image"],
-    "None": ["ID", "EmpName", "EmpCode", "StartDate", "EndDate", "Status"],
+    "None": ["ID", "EmpName", "EmployeeID", "StartDate", "EndDate", "Status"],
     "Tab1": ["TotalRegHours", "HourlyRate", "RegularNetAmount"],
     "Tab2": ["TotalOvertimeHours", "OvertimeRate", "OvertimeNetAmount"],
     "Tab3": ["NetAmount", "VATRate", "VATAmount", "GrossAmount"],
@@ -92,7 +92,7 @@
       "Currency": "No"
     },
     {
-      "name": "EmpCode",
+      "name": "EmployeeID",
       "type": "string",
       "width": "50",
       "Option": "mandatory",

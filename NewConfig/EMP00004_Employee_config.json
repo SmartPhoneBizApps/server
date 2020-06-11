@@ -25,7 +25,7 @@
     "State",
     "Country",
     "Office",
-    "CostObject",
+    "CostCentre",
     "GLAccount",
     "VATRate",
     "Status",
@@ -122,8 +122,7 @@
     "Tab2": [
       "DeliveryDt",
       "DelTo",
-      "DelStreet",
-      "DelCity",
+      "EmpAddress",
       "State",
       "DelPostCode",
       "Country",
@@ -288,7 +287,7 @@
       "Currency": "No"
     },
     {
-      "name": "CostObject",
+      "name": "CostCentre",
       "type": "string",
       "width": "50",
       "Option": "Optional",
@@ -342,16 +341,15 @@
       "Currency": "No"
     },
     {
-      "name": "DelStreet",
+      "name": "EmpAddress",
       "type": "string",
       "width": "100",
       "Option": "Optional",
-      "SLabel": "Delivery Street",
+      "SLabel": "Delivery Address",
       "LLabel": "",
       "Currency": "No"
     },
     {
-      "name": "DelCity",
       "type": "string",
       "width": "100",
       "Option": "Optional",
@@ -758,8 +756,7 @@
     {
       "id": "Step3",
       "fields": [
-        { "name": "DelStreet", "Sequence": "1", "Mode": "Edit" },
-        { "name": "DelCity", "Sequence": "1", "Mode": "Edit" },
+        { "name": "EmpAddress", "Sequence": "1", "Mode": "Edit" },
         { "name": "DelPostCode", "Sequence": "1", "Mode": "Edit" },
         { "name": "State", "Sequence": "1", "Mode": "Edit" },
         { "name": "Country", "Sequence": "1", "Mode": "Edit" }

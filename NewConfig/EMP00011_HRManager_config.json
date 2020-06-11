@@ -10,16 +10,24 @@
     "sStatus": "Band",
     "fStatus": "Status",
     "numberField": "",
-    "LFields": ["DevManager", "EmpRef"],
+    "LFields": ["DevManager", "EmployeeID"],
     "numberUnitField": ""
   },
   "ListBOTFields": {
     "None": ["cardImage", "StatusState"],
     "Title": ["Band", "ReviewDate"],
     "SubTitle": ["Status", "Role"],
-    "Description": ["DevManager", "EmpRef"]
+    "Description": ["DevManager", "EmployeeID"]
   },
-  "PossibleValues": ["Status"],
+  "PossibleValues": [
+    "Status",
+    "ReviewPeriod",
+    "Band",
+    "DevManager",
+    "Role",
+    "Score",
+    "Area"
+  ],
   "MButtons": [
     {
       "type": "DOWNLOAD",
@@ -68,26 +76,34 @@
     },
     {
       "value": "Tab2",
-      "name": "Review",
+      "name": "Goal",
       "type": "Field",
-      "fioriicon": "comment"
+      "fioriicon": "comment",
+      "download": "Yes"
     }
   ],
   "DetailFields": {
     "headerTitle": ["USP_Name"],
     "headerRole": ["USP_Role"],
     "headerImage": ["USP_Image"],
-    "None": ["ID", "Name", "ReviewPeriod"],
+    "None": ["ID", "Status", "ReviewPeriod"],
     "Tab1": [
-      "EmpRef",
+      "EmployeeID",
+      "EmpName",
       "DevManager",
       "Role",
       "Band",
-      "SetDate",
-      "ReviewDate",
-      "TargetDate"
+      "ReviewDate"
     ],
-    "Tab2": ["Status", "Area", "Goal", "AppraiseeComm", "Score", "MaxScore"]
+    "Tab2": [
+      "SetDate",
+      "Area",
+      "Goal",
+      "TargetDate",
+      "Score",
+      "MaxScore",
+      "AppraiseeComm"
+    ]
   },
   "ControlDisplay": {},
   "FieldDef": [
@@ -110,20 +126,20 @@
       "Currency": "No"
     },
     {
-      "name": "EmpRef",
+      "name": "EmployeeID",
       "type": "string",
       "width": "50",
       "Option": "Optional",
-      "SLabel": "Employee Reference",
+      "SLabel": "Employee Reference ",
       "LLabel": "",
       "Currency": "No"
     },
     {
-      "name": "Name",
+      "name": "EmpName",
       "type": "string",
       "width": "50",
       "Option": "Optional",
-      "SLabel": "Name",
+      "SLabel": "Employee Name",
       "LLabel": "",
       "Currency": "No"
     },
@@ -168,7 +184,7 @@
       "type": "Date",
       "width": "10",
       "Option": "Optional",
-      "SLabel": "Set Date ",
+      "SLabel": "Set Date",
       "LLabel": "",
       "Currency": "No"
     },
@@ -231,7 +247,7 @@
       "type": "string",
       "width": "50",
       "Option": "Optional",
-      "SLabel": "Score",
+      "SLabel": "Score out of 5",
       "LLabel": "",
       "Currency": "No"
     },
@@ -252,66 +268,64 @@
   "Wizard": [
     {
       "id": "Step1",
-      "fields": [{ "name": "Name", "Sequence": "1", "Mode": "Edit" }],
+      "fields": [{ "name": "EmpName", "Sequence": "1", "Mode": "Edit" }],
       "name": "Development Goal",
       "stepType": "FieldList",
-      "intro": "Development Goals : Development Goal"
+      "intro": "Development Goals  : Development Goal"
     },
     {
       "id": "Step2",
       "fields": [
-        { "name": "EmpRef", "Sequence": "1", "Mode": "Edit" },
         { "name": "Role", "Sequence": "1", "Mode": "Edit" },
         { "name": "Band", "Sequence": "1", "Mode": "Edit" },
-        { "name": "Area", "Sequence": "1", "Mode": "Edit" }
+        { "name": "Area", "Sequence": "1", "Mode": "Edit" },
+        { "name": "EmployeeID", "Sequence": "1", "Mode": "Edit" }
       ],
       "name": "Reference",
       "stepType": "FieldList",
-      "intro": "Development Goals : Reference"
+      "intro": "Development Goals  : Reference"
     },
     {
       "id": "Step3",
       "fields": [
-        { "name": "ReviewDate", "Sequence": "1", "Mode": "Edit" },
         { "name": "TargetDate", "Sequence": "1", "Mode": "Edit" },
         { "name": "SetDate", "Sequence": "1", "Mode": "Edit" }
       ],
       "name": "Dates",
       "stepType": "FieldList",
-      "intro": "Development Goals : Dates"
+      "intro": "Development Goals  : Dates"
     },
     {
       "id": "Step4",
       "fields": [
         { "name": "Goal", "Sequence": "1", "Mode": "Edit" },
         { "name": "ReviewPeriod", "Sequence": "1", "Mode": "Edit" },
-        { "name": "Score", "Sequence": "1", "Mode": "Edit" },
-        { "name": "MaxScore", "Sequence": "1", "Mode": "Edit" }
+        { "name": "Score", "Sequence": "1", "Mode": "Edit" }
       ],
       "name": "Review",
       "stepType": "FieldList",
-      "intro": "Development Goals : Review"
+      "intro": "Development Goals  : Review"
     },
     {
       "id": "Step5",
       "fields": [{ "name": "DevManager", "Sequence": "1", "Mode": "Edit" }],
-      "name": " Development Manager",
+      "name": "Development Manager",
       "stepType": "FieldList",
-      "intro": "Development Goals : Development Manager"
+      "intro": "Development Goals  : Development Manager"
     },
     {
       "id": "Step6",
       "fields": [{ "name": "AppraiseeComm", "Sequence": "1", "Mode": "Edit" }],
       "name": "Appraisee Comments",
       "stepType": "FieldList",
-      "intro": "Development Goals : Appraisee Comments"
+      "intro": "Development Goals  : Appraisee Comments"
     },
     {
-      "id": "Step7",
+      "id": "Step8",
       "fields": [{ "name": "Status", "Sequence": "1", "Mode": "Edit" }],
       "name": "Admin",
       "stepType": "FieldList",
-      "intro": "Development Goals : Admin"
+      "intro": "Development Goals  : Admin"
     }
   ]
 }

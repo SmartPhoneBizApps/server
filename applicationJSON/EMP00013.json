@@ -7,27 +7,22 @@
   },
   "Area": {
     "type": "String",
-
     "maxlength": [50, "Area can not be more than 50 characters"]
   },
   "Q1": {
     "type": "String",
-
     "maxlength": [500, "Q1 can not be more than 500 characters"]
   },
   "A1": {
     "type": "String",
-
     "maxlength": [500, "A1 can not be more than 500 characters"]
   },
   "Rating": {
     "type": "String",
-
     "maxlength": [50, "Rating can not be more than 50 characters"]
   },
   "Score": {
     "type": "Number",
-
     "maxlength": [50, "Score can not be more than 50 characters"],
     "match": [
       "NUM_INT_MAX_10D_V1",
@@ -36,54 +31,44 @@
   },
   "ManagerComm": {
     "type": "String",
-
     "maxlength": [1000, "ManagerComm can not be more than 1000 characters"]
   },
   "HRComment": {
     "type": "String",
-
     "maxlength": [1000, "HRComment can not be more than 1000 characters"]
   },
   "Status": {
     "type": "String",
-
     "required": [true, "Please add mandatory field :Status"],
     "maxlength": [20, "Status can not be more than 20 characters"]
   },
-  "EmpRef": {
+  "EmployeeID": {
     "type": "String",
-
-    "required": [true, "Please add mandatory field :EmpRef"],
-    "maxlength": [50, "EmpRef can not be more than 50 characters"]
+    "required": [true, "Please add mandatory field :EmployeeID"],
+    "maxlength": [50, "EmployeeID can not be more than 50 characters"]
   },
-  "Name": {
+  "EmpName": {
     "type": "String",
-
-    "maxlength": [50, "Name can not be more than 50 characters"]
+    "maxlength": [50, "EmpName can not be more than 50 characters"]
   },
   "ReviewPeriod": {
     "type": "String",
-
     "maxlength": [50, "ReviewPeriod can not be more than 50 characters"]
   },
   "DevManager": {
     "type": "String",
-
     "maxlength": [50, "DevManager can not be more than 50 characters"]
   },
   "Role": {
     "type": "String",
-
     "maxlength": [50, "Role can not be more than 50 characters"]
   },
   "Band": {
     "type": "String",
-
     "maxlength": [50, "Band can not be more than 50 characters"]
   },
   "Question": {
     "type": "String",
-
     "maxlength": [500, "Question can not be more than 500 characters"]
   },
   "Answer": {

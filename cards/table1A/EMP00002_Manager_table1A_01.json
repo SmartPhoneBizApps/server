@@ -1,1 +1,22 @@
-{"CardID": "EMP00002_Manager_table1A_01", "applicationID": "EMP00002", "filters": {}, "fieldList": "EmployeeName TravelMode TotalAmount CostCentre Status", "sortBy": "ID", "limit": 5, "Type": "table1A", "header": {"title": "Travel Request", "subTitle": "Approvals", "status": {"text": "Manager"}}, "columns": [{"title": "EmployeeName", "value": "{EmployeeName}"}, {"title": "TravelMode", "value": "{TravelMode}"}, {"title": "TotalAmount", "value": "{TotalAmount}"}, {"title": "CostCentre", "value": "{CostCentre}"}, {"title": "Status", "value": "{Status}", "state": "{statusState}"}], "json": []}
+{
+  "CardID": "EMP00002_Manager_table1A_01",
+  "applicationID": "EMP00002",
+  "filters": {},
+  "fieldList": "EmpName TravelMode TotalAmount CostCentre Status",
+  "sortBy": "ID",
+  "limit": 5,
+  "Type": "table1A",
+  "header": {
+    "title": "Travel Request",
+    "subTitle": "Approvals",
+    "status": { "text": "Manager" }
+  },
+  "columns": [
+    { "title": "EmpName", "value": "{EmpName}" },
+    { "title": "TravelMode", "value": "{TravelMode}" },
+    { "title": "TotalAmount", "value": "{TotalAmount}" },
+    { "title": "CostCentre", "value": "{CostCentre}" },
+    { "title": "Status", "value": "{Status}", "state": "{statusState}" }
+  ],
+  "json": []
+}

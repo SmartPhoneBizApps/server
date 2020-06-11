@@ -3,18 +3,18 @@
   "Controls": { "USP": "UserProfile" },
   "ListFields": {
     "IntroField": "ProjectCode",
-    "TitleField": "EmployeeName",
+    "TitleField": "EmpName",
     "sStatus": "ExpType",
     "fStatus": "Status",
     "numberField": "TotalAmount",
-    "LFields": ["ID", "EmployeeCode"],
+    "LFields": ["ID", "EmployeeID"],
     "numberUnitField": "Currency"
   },
   "ListBOTFields": {
     "None": ["cardImage", "StatusState"],
-    "Title": ["ExpType", "EmployeeName", "ProjectCode"],
+    "Title": ["ExpType", "EmpName", "ProjectCode"],
     "SubTitle": ["TotalAmount", "Status"],
-    "Description": ["ID", "EmployeeCode"]
+    "Description": ["ID", "EmployeeID"]
   },
   "PossibleValues": ["Currency", "CostCentre", "Status", "ExpType"],
   "MButtons": [
@@ -90,8 +90,8 @@
     "headerImage": ["USP_Image"],
     "None": [
       "ID",
-      "EmployeeCode",
-      "EmployeeName",
+      "EmployeeID",
+      "EmpName",
       "TotalAmount",
       "Currency",
       "Status"
@@ -119,7 +119,7 @@
       "Currency": "No"
     },
     {
-      "name": "EmployeeCode",
+      "name": "EmployeeID",
       "type": "string",
       "width": "20",
       "Option": "Optional",
@@ -128,7 +128,7 @@
       "Currency": "No"
     },
     {
-      "name": "EmployeeName",
+      "name": "EmpName",
       "type": "string",
       "width": "50",
       "Option": "Optional",
@@ -276,8 +276,8 @@
     {
       "id": "Step2",
       "fields": [
-        { "name": "EmployeeCode", "Sequence": "1", "Mode": "Edit" },
-        { "name": "EmployeeName", "Sequence": "1", "Mode": "Edit" }
+        { "name": "EmployeeID", "Sequence": "1", "Mode": "Edit" },
+        { "name": "EmpName", "Sequence": "1", "Mode": "Edit" }
       ],
       "name": "Employee Details",
       "stepType": "FieldList",

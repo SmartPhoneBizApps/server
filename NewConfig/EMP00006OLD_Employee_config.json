@@ -6,14 +6,14 @@
   "Controls": { "USP": "UserProfile" },
   "ListFields": {
     "IntroField": "Area",
-    "TitleField": "Name",
+    "TitleField": "EmpName",
     "sStatus": "Duration",
     "fStatus": "Status",
     "LFields": ["ID", "EmployeeID", "DateRequested", "Detail", "External"]
   },
   "ListBOTFields": {
     "None": ["cardImage", "StatusState"],
-    "Title": ["Area", "Name"],
+    "Title": ["Area", "EmpName"],
     "SubTitle": ["Status", "Duration"],
     "Description": ["ID", "EmployeeID", "DateRequested", "Detail", "External"]
   },
@@ -105,7 +105,7 @@
     "None": ["ID", "Status"],
     "Tab1": [
       "EmployeeID",
-      "Name",
+      "EmpName",
       "DateRequested",
       "Area",
       "Detail",
@@ -145,11 +145,11 @@
       "Currency": "No"
     },
     {
-      "name": "Name",
+      "name": "EmpName",
       "type": "string",
       "width": "50",
       "Option": "Optional",
-      "SLabel": "Name",
+      "SLabel": "Employee Name",
       "LLabel": "",
       "Currency": "No"
     },
@@ -319,7 +319,7 @@
     },
     {
       "id": "Step2",
-      "fields": [{ "name": "Name", "Sequence": "1", "Mode": "Edit" }],
+      "fields": [{ "name": "EmpName", "Sequence": "1", "Mode": "Edit" }],
       "name": "Employee Details",
       "stepType": "FieldList",
       "intro": "Training Request : Employee Details"

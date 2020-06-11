@@ -7,19 +7,16 @@
   },
   "EmployeeID": {
     "type": "String",
-
     "required": [true, "Please add mandatory field :EmployeeID"],
     "maxlength": [20, "EmployeeID can not be more than 20 characters"]
   },
   "EmpName": {
     "type": "String",
-
     "required": [true, "Please add mandatory field :EmpName"],
     "maxlength": [50, "EmpName can not be more than 50 characters"]
   },
   "EmpAddress": {
     "type": "String",
-
     "required": [true, "Please add mandatory field :EmpAddress"],
     "maxlength": [200, "EmpAddress can not be more than 200 characters"]
   },
@@ -53,18 +50,15 @@
   },
   "Location": {
     "type": "String",
-
     "maxlength": [100, "Location can not be more than 100 characters"]
   },
   "LeaveType": {
     "type": "String",
-
     "required": [true, "Please add mandatory field :LeaveType"],
     "maxlength": [100, "LeaveType can not be more than 100 characters"]
   },
   "LeaveReason": {
     "type": "String",
-
     "required": [true, "Please add mandatory field :LeaveReason"],
     "maxlength": [500, "LeaveReason can not be more than 500 characters"]
   },
@@ -79,12 +73,10 @@
   },
   "Comment": {
     "type": "String",
-
     "maxlength": [1000, "Comment can not be more than 1000 characters"]
   },
   "ProcessingLog": {
     "type": "String",
-
     "maxlength": [1000, "ProcessingLog can not be more than 1000 characters"]
   },
   "LeaveFrom": {

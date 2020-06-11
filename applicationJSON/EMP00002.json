@@ -5,83 +5,68 @@
     "required": [true, "Please add mandatory field :ID"],
     "maxlength": [20, "ID can not be more than 20 characters"]
   },
-  "EmployeeCode": {
+  "EmployeeID": {
     "type": "String",
-
-    "required": [true, "Please add mandatory field :EmployeeCode"],
-    "maxlength": [20, "EmployeeCode can not be more than 20 characters"]
+    "required": [true, "Please add mandatory field :EmployeeID"],
+    "maxlength": [20, "EmployeeID can not be more than 20 characters"]
   },
-  "EmployeeName": {
+  "EmpName": {
     "type": "String",
-
-    "required": [true, "Please add mandatory field :EmployeeName"],
-    "maxlength": [50, "EmployeeName can not be more than 50 characters"]
+    "required": [true, "Please add mandatory field :EmpName"],
+    "maxlength": [50, "EmpName can not be more than 50 characters"]
   },
   "Currency": {
     "type": "String",
-
     "maxlength": [5, "Currency can not be more than 5 characters"]
   },
   "ProjectCode": {
     "type": "String",
-
     "maxlength": [50, "ProjectCode can not be more than 50 characters"]
   },
   "CostCentre": {
     "type": "String",
-
     "maxlength": [50, "CostCentre can not be more than 50 characters"]
   },
   "Location": {
     "type": "String",
-
     "maxlength": [50, "Location can not be more than 50 characters"]
   },
   "TravelDetail": {
     "type": "String",
-
     "maxlength": [500, "TravelDetail can not be more than 500 characters"]
   },
   "Justification": {
     "type": "String",
-
     "required": [true, "Please add mandatory field :Justification"],
     "maxlength": [1000, "Justification can not be more than 1000 characters"]
   },
   "Status": {
     "type": "String",
-
     "required": [true, "Please add mandatory field :Status"],
     "maxlength": [20, "Status can not be more than 20 characters"]
   },
   "TravelMode": {
     "type": "String",
-
     "maxlength": [50, "TravelMode can not be more than 50 characters"]
   },
   "ProcessingLog": {
     "type": "String",
-
     "maxlength": [1000, "ProcessingLog can not be more than 1000 characters"]
   },
   "Approver": {
     "type": "String",
-
     "maxlength": [100, "Approver can not be more than 100 characters"]
   },
   "AdditionalInfo": {
     "type": "String",
-
     "maxlength": [500, "AdditionalInfo can not be more than 500 characters"]
   },
   "StayDetails": {
     "type": "String",
-
     "maxlength": [500, "StayDetails can not be more than 500 characters"]
   },
   "Cost1Type": {
     "type": "String",
-
     "maxlength": [50, "Cost1Type can not be more than 50 characters"]
   },
   "Cost1Detail": {
@@ -91,22 +76,18 @@
   },
   "Cost2Type": {
     "type": "String",
-
     "maxlength": [50, "Cost2Type can not be more than 50 characters"]
   },
   "Cost2Detail": {
     "type": "String",
-
     "maxlength": [50, "Cost2Detail can not be more than 50 characters"]
   },
   "Cost3Type": {
     "type": "String",
-
     "maxlength": [100, "Cost3Type can not be more than 100 characters"]
   },
   "Cost3Detail": {
     "type": "String",
-
     "maxlength": [100, "Cost3Detail can not be more than 100 characters"]
   },
   "Cost4Type": {
