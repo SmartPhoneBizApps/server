@@ -11,7 +11,6 @@ const App = require("../models/appSetup/App");
 exports.uploadFile = asyncHandler(async (req, res, next) => {
   // Note the logic currently supports only one file at a time..
   console.log("Inside Upload...");
-  console.log(req.files);
   const file = req.files.file;
   /////////////////////////////////////////////////////////////////////////
   //   --------  Input - Validations  -------------------
@@ -23,7 +22,7 @@ exports.uploadFile = asyncHandler(async (req, res, next) => {
     return next(new ErrorResponse(`No file with parameter file`, 400));
   }
   const header = req.files.file;
-  console.log(header.mimetype.startsWith);
+  console.log(header.mimetype);
   if (req.headers.filetype == "csv") {
     if (header && !header.mimetype.startsWith("text/csv")) {
       return next(new ErrorResponse(`Please upload an csv file(header)`, 400));
@@ -87,7 +86,6 @@ exports.uploadFile = asyncHandler(async (req, res, next) => {
     req.headers.businessrole
   );
   if (req.headers.mode == "File") {
-    console.log("Mode is Record");
     let Multiattachment = false;
     for (let index = 0; index < cardConfig["Tabs"].length; index++) {
       const element = cardConfig["Tabs"][index];
@@ -148,16 +146,14 @@ exports.uploadFile = asyncHandler(async (req, res, next) => {
         mydata.area = req.user.area;
         outdata.push(mydata);
         mydata = {};
-
-        console.log("Data", outdata);
-        result = await createMultipleDocument(
-          req.headers.applicationid,
-          outdata
-        );
-        if (!result) {
-          return next(new ErrorResponse(`Problem with the file data`), 404);
-        }
       }
+
+      console.log("Data", outdata);
+      result = await createMultipleDocument(req.headers.applicationid, outdata);
+      if (!result) {
+        return next(new ErrorResponse(`Problem with the file data`), 404);
+      }
+
       res.status(200).json({
         success: true,
         fileName: outFileName,
