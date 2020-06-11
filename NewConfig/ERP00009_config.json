@@ -2,19 +2,16 @@
   "Title": { "ApplicationTitle": "Payslip", "DetailTitle": "Payslip" },
   "Controls": { "USP": "UserProfile" },
   "ListFields": {
-    "IntroField": "",
-    "TitleField": "",
-    "sStatus": "",
-    "fStatus": "",
-    "numberField": "",
-    "LFields": [],
-    "numberUnitField": ""
+    "IntroField": "PayDate",
+    "TitleField": "Name",
+    "fStatus": "Status",
+    "LFields": ["ID"]
   },
   "ListBOTFields": {
     "None": ["cardImage", "StatusState"],
-    "Title": [],
-    "SubTitle": [],
-    "Description": []
+    "Title": ["Name"],
+    "SubTitle": ["PayDate"],
+    "Description": ["Status", "ID"]
   },
   "PossibleValues": ["State", "Country", "Status"],
   "MButtons": [],
@@ -27,49 +24,40 @@
       "fioriicon": "responsive"
     },
     {
-      "value": "Tab4",
-      "name": "Employee",
-      "type": "Field",
-      "fioriicon": "employee"
-    },
-    {
       "value": "Tab1",
-      "name": "Month",
+      "name": "EmployeeDetails",
       "type": "Field",
-      "fioriicon": "calendar"
+      "fioriicon": "employee",
+      "download": "Yes"
     },
     {
       "value": "Tab2",
-      "name": "Details",
+      "name": "PayDetails",
       "type": "Field",
-      "fioriicon": "notes"
+      "fioriicon": "notes",
+      "download": "Yes"
     },
     {
       "value": "Tab3",
-      "name": "Year",
+      "name": "Period",
       "type": "Field",
-      "fioriicon": "calendar"
+      "fioriicon": "calendar",
+      "download": "Yes"
     },
     {
-      "value": "Tab5",
+      "value": "Tab4",
       "name": "Address",
       "type": "Field",
-      "fioriicon": "addresses"
+      "fioriicon": "addresses",
+      "download": "Yes"
     }
   ],
   "DetailFields": {
     "headerTitle": ["USP_Name"],
     "headerRole": ["USP_Role"],
     "headerImage": ["USP_Image"],
-    "None": ["ID", "Company", "Status"],
-    "Tab1": [
-      "PeriodStart",
-      "PeriodEnd",
-      "PayDate",
-      "TaxCode",
-      "Location",
-      "PaymentMode"
-    ],
+    "None": ["ID", "PayDate", "PaymentMode", "Status"],
+    "Tab1": ["Company", "TaxCode", "Name", "EmployeeID", "NINumber"],
     "Tab2": [
       "Base",
       "OOH",
@@ -82,14 +70,15 @@
       "NetPay"
     ],
     "Tab3": [
+      "PeriodStart",
+      "PeriodEnd",
       "GrossYear",
       "EarningYear",
       "GrossPayYear",
       "TaxPaidYear",
       "NIYear"
     ],
-    "Tab4": ["Name", "EmployeeID", "NINumber"],
-    "Tab5": ["Street", "City", "PostCode", "State", "Country"]
+    "Tab4": ["Location", "Street", "City", "PostCode", "State", "Country"]
   },
   "ControlDisplay": {},
   "FieldDef": [

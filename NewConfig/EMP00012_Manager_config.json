@@ -5,15 +5,20 @@
   },
   "Controls": { "USP": "UserProfile" },
   "ListFields": {
-    "IntroField": "",
-    "TitleField": "",
+    "IntroField": "ReviewPeriod",
+    "TitleField": "Name",
     "sStatus": "",
-    "fStatus": "",
+    "fStatus": "Status",
     "numberField": "",
-    "LFields": [],
+    "LFields": ["DevManager", "Band", "Area"],
     "numberUnitField": ""
   },
-  "ListBOTFields": { "Title": [], "SubTitle": [], "Description": [] },
+  "ListBOTFields": {
+    "None": ["cardImage", "StatusState"],
+    "Title": ["Name"],
+    "SubTitle": ["Status", "ReviewPeriod"],
+    "Description": ["DevManager", "Band", "Area"]
+  },
   "PossibleValues": ["Status"],
   "MButtons": [],
   "DButtons": [],

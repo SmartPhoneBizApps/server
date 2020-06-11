@@ -15,9 +15,15 @@
   },
   "ListBOTFields": {
     "None": ["cardImage", "StatusState"],
-    "Title": [],
-    "SubTitle": [],
-    "Description": []
+    "Title": ["VendorName", "InvoiceType"],
+    "SubTitle": ["SuppInvoiceNumber", "InvoiceStatus"],
+    "Description": [
+      "InvoiceDate",
+      "PaymentTerm",
+      "TotInvGrossVal",
+      "CurrentStatus",
+      "ID"
+    ]
   },
   "PossibleValues": [
     "Currency",
@@ -29,9 +35,7 @@
     "InvoiceStatus",
     "BuyerPaymentStatus",
     "BuyerInvoiceStatus",
-    "CurrentStatus",
-    "ExpenseType",
-    "TaxInvoice"
+    "CurrentStatus"
   ],
   "MButtons": [
     {
@@ -106,27 +110,6 @@
       "fioriicon": "survey",
       "type": "Field",
       "download": "Yes"
-    },
-    {
-      "value": "Tab7",
-      "name": "Event",
-      "fioriicon": "approvals",
-      "type": "Field",
-      "download": "No"
-    },
-    {
-      "value": "Tab8",
-      "name": "Study",
-      "fioriicon": "add-contact",
-      "type": "Field",
-      "download": "Yes"
-    },
-    {
-      "value": "Tab9",
-      "name": "Contract",
-      "fioriicon": "accelerated",
-      "type": "Field",
-      "download": "Yes"
     }
   ],
   "DetailFields": {
@@ -148,8 +131,7 @@
       "BuyerInvoiceNumber",
       "BuyerInvoiceYear",
       "BuyerInvoiceStatus",
-      "Comment",
-      "PharmaContactEmail"
+      "Comment"
     ],
     "Tab2": [
       "PONumber",
@@ -167,10 +149,7 @@
       "BuyerPaymentDate",
       "BuyerPaymentStatus"
     ],
-    "Tab6": ["ConfidenceScore", "OverallMatching"],
-    "Tab7": ["EventName", "EventType", "EventStartDate", "EventID"],
-    "Tab8": ["StudyType", "StudyName", "Phase", "StudyID"],
-    "Tab9": ["ContractID", "ContractType", "ContractName", "ContractStartDate"]
+    "Tab6": ["ConfidenceScore", "OverallMatching"]
   },
   "ControlDisplay": {
     "ControlField": "InvoiceType",
@@ -210,25 +189,11 @@
             "OverallMatching"
           ]
         },
-        {
-          "ContractInvoice": [
-            "ContractID",
-            "ContractName",
-            "ContractType",
-            "ContractStartDate"
-          ]
-        },
-        {
-          "EventInvoice": [
-            "EventID",
-            "EventName",
-            "EventType",
-            "EventStartDate"
-          ]
-        },
+        { "ContractInvoice": [] },
+        { "EventInvoice": [] },
         { "NonPOInvoice": [] },
         { "POInvoice": ["PONumber", "PODate"] },
-        { "StudyInvoice": ["StudyID", "StudyType", "StudyName", "Phase"] }
+        { "StudyInvoice": [] }
       ]
     ]
   },
@@ -281,7 +246,7 @@
     {
       "name": "VendorNumber",
       "type": "string",
-      "width": "50",
+      "width": "20",
       "Option": "Optional",
       "SLabel": "Vendor Number",
       "LLabel": "Vendor Number",
@@ -529,123 +494,6 @@
       "SLabel": "Processing Log",
       "LLabel": "Processing Log",
       "Currency": "No"
-    },
-    {
-      "name": "EventName",
-      "type": "string",
-      "width": "200",
-      "Option": "Optional",
-      "SLabel": "Event Name",
-      "LLabel": "EventName",
-      "Currency": "No"
-    },
-    {
-      "name": "EventType",
-      "type": "string",
-      "width": "200",
-      "Option": "Optional",
-      "SLabel": "Event Type",
-      "LLabel": "EventType",
-      "Currency": "No"
-    },
-    {
-      "name": "PharmaContactEmail",
-      "type": "string",
-      "width": "100",
-      "Option": "Optional",
-      "SLabel": "Pharma Contact Email",
-      "LLabel": "PharmaContactEmail",
-      "Currency": "No"
-    },
-    {
-      "name": "EventStartDate",
-      "type": "Date",
-      "width": "10",
-      "Option": "Optional",
-      "SLabel": "Event Start Date",
-      "LLabel": "EventStartDate",
-      "Currency": "No"
-    },
-    {
-      "name": "StudyType",
-      "type": "string",
-      "width": "200",
-      "Option": "Optional",
-      "SLabel": "Study Type",
-      "LLabel": "StudyType",
-      "Currency": "No"
-    },
-    {
-      "name": "StudyName",
-      "type": "string",
-      "width": "200",
-      "Option": "Optional",
-      "SLabel": "Study Name",
-      "LLabel": "StudyName",
-      "Currency": "No"
-    },
-    {
-      "name": "Phase",
-      "type": "string",
-      "width": "200",
-      "Option": "Optional",
-      "SLabel": "Phase",
-      "LLabel": "Phase",
-      "Currency": "No"
-    },
-    {
-      "name": "EventID",
-      "type": "string",
-      "width": "20",
-      "Option": "Optional",
-      "SLabel": "Event ID",
-      "LLabel": "EventID",
-      "Currency": "No"
-    },
-    {
-      "name": "StudyID",
-      "type": "string",
-      "width": "20",
-      "Option": "Optional",
-      "SLabel": "Study ID",
-      "LLabel": "StudyID",
-      "Currency": "No"
-    },
-    {
-      "name": "ContractID",
-      "type": "string",
-      "width": "20",
-      "Option": "Optional",
-      "SLabel": "Contract ID",
-      "LLabel": "ContractID",
-      "Currency": "No"
-    },
-    {
-      "name": "ContractName",
-      "type": "string",
-      "width": "200",
-      "Option": "Optional",
-      "SLabel": "Contract Name",
-      "LLabel": "ContractName",
-      "Currency": "No"
-    },
-    {
-      "name": "ContractType",
-      "type": "string",
-      "width": "200",
-      "Option": "Optional",
-      "SLabel": "Contract Type",
-      "LLabel": "ContractType",
-      "Currency": "No"
-    },
-    {
-      "name": "ContractStartDate",
-      "type": "Date",
-      "width": "10",
-      "Option": "Optional",
-      "SLabel": "Contract Start Date",
-      "LLabel": "ContractStartDate",
-      "Currency": "No"
     }
   ],
   "itemData": "Yes",
@@ -768,12 +616,16 @@
         "SLabel": "Invoice Item Status"
       },
       {
-        "name": "ExpenseType",
+        "name": "StatusState",
         "type": "string",
-        "width": "100",
-        "SLabel": "Expense Type",
-        "Option": "Optional",
-        "Currency": "No"
+        "width": "20",
+        "SLabel": "StatusState"
+      },
+      {
+        "name": "cardImage",
+        "type": "string",
+        "width": "500",
+        "SLabel": "cardImage"
       }
     ],
     "DisplayFields": [
@@ -788,6 +640,13 @@
       "itemAdd": true,
       "itemEdit": true,
       "itemDelete": true
+    },
+
+    "ListBOTItemFields": {
+      "None": ["ID"],
+      "Title": ["ItemNumber", "ItemDetails"],
+      "SubTitle": ["InvGrossVal", "InvNetValue"],
+      "Description": ["InvQty", "InvUOM", "InvPrice", "InvVATVal"]
     },
     "CreateFields": [
       "ItemDetails",
@@ -830,18 +689,7 @@
         "Sequence": "1",
         "Mode": "Display"
       },
-      {
-        "name": "InvVATPer",
-        "Tab": "Tab3",
-        "Sequence": "1",
-        "Mode": "Display"
-      },
-      {
-        "name": "ExpenseType",
-        "Tab": "Tab3",
-        "Sequence": "1",
-        "Mode": "Display"
-      }
+      { "name": "InvVATPer", "Tab": "Tab3", "Sequence": "1", "Mode": "Display" }
     ]
   },
   "CalculatedFields": {
@@ -850,51 +698,45 @@
         "CalculatedFormula": {
           "name": "Multiplication",
           "function": "MUL",
-          "Target": "ItemNetValue",
+          "Target": "InvNetValue",
           "type": "Item"
         },
         "Fields": [
           { "Source": "InvQty", "Type": { "type": "Item" } },
-          { "Source": "InvPrice", "Type": { "type": "Item" } },
-          { "Source": "InvNetValue", "Type": {} }
+          { "Source": "InvPrice", "Type": { "type": "Item" } }
         ]
       },
       {
         "CalculatedFormula": {
           "name": "Percentage",
           "function": "PAR",
-          "Target": "ItemVATPer",
+          "Target": "InvVATPer",
           "type": "Item"
         },
-        "Fields": [
-          { "Source": "InvVATRate", "Type": { "type": "Item" } },
-          { "Source": "InvVATPer", "Type": {} }
-        ]
+        "Fields": [{ "Source": "InvVATRate", "Type": { "type": "Item" } }]
       },
       {
         "CalculatedFormula": {
           "name": "Multiplication",
           "function": "MUL",
-          "Target": "ItemVATVal",
+          "Target": "InvVATVal",
           "type": "Item"
         },
         "Fields": [
           { "Source": "InvNetValue", "Type": { "type": "Item" } },
-          { "Source": "InvVATPer", "Type": { "type": "Item" } },
-          { "Source": "InvVATVal", "Type": {} }
+          { "Source": "InvVATPer", "Type": { "type": "Item" } }
         ]
       },
       {
         "CalculatedFormula": {
           "name": "Addition",
           "function": "ADD",
-          "Target": "ItemGrossVal",
+          "Target": "InvGrossVal",
           "type": "Item"
         },
         "Fields": [
           { "Source": "InvNetValue", "Type": { "type": "Item" } },
-          { "Source": "InvVATVal", "Type": { "type": "Item" } },
-          { "Source": "InvGrossVal", "Type": {} }
+          { "Source": "InvVATVal", "Type": { "type": "Item" } }
         ]
       },
       {
@@ -944,7 +786,6 @@
       }
     ],
     "HeaderItem": [
-      { "CalculatedFormula": { "type": "HeaderItem" }, "Fields": [] },
       {
         "CalculatedFormula": {
           "name": "ITEMSUM",
@@ -1051,27 +892,6 @@
       "name": "Admin",
       "stepType": "FieldList",
       "intro": "Supplier Invoice (PO) : Admin"
-    },
-    {
-      "id": "Step5",
-      "fields": [
-        { "name": "EventID", "Sequence": "1", "Mode": "Edit" },
-        { "name": "EventName", "Sequence": "1", "Mode": "Edit" },
-        { "name": "EventType", "Sequence": "1", "Mode": "Edit" },
-        { "name": "EventStartDate", "Sequence": "1", "Mode": "Edit" },
-        { "name": "StudyID", "Sequence": "1", "Mode": "Edit" },
-        { "name": "StudyName", "Sequence": "1", "Mode": "Edit" },
-        { "name": "StudyType", "Sequence": "1", "Mode": "Edit" },
-        { "name": "Phase", "Sequence": "1", "Mode": "Edit" },
-        { "name": "ContractID", "Sequence": "1", "Mode": "Edit" },
-        { "name": "ContractName", "Sequence": "1", "Mode": "Edit" },
-        { "name": "ContractType", "Sequence": "1", "Mode": "Edit" },
-        { "name": "ContractStartDate", "Sequence": "1", "Mode": "Edit" },
-        { "name": "PharmaContactEmail", "Sequence": "1", "Mode": "Edit" }
-      ],
-      "name": "Other",
-      "stepType": "FieldList",
-      "intro": "Other Info"
     }
   ]
 }

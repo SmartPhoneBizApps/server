@@ -15,9 +15,15 @@
   },
   "ListBOTFields": {
     "None": ["cardImage", "StatusState"],
-    "Title": [],
-    "SubTitle": [],
-    "Description": []
+    "Title": ["VendorName", "InvoiceType"],
+    "SubTitle": ["SuppInvoiceNumber", "InvoiceStatus"],
+    "Description": [
+      "InvoiceDate",
+      "PaymentTerm",
+      "TotInvGrossVal",
+      "CurrentStatus",
+      "ID"
+    ]
   },
   "PossibleValues": [
     "Currency",
@@ -104,27 +110,6 @@
       "fioriicon": "survey",
       "type": "Field",
       "download": "Yes"
-    },
-    {
-      "value": "Tab7",
-      "name": "Event",
-      "fioriicon": "approvals",
-      "type": "Field",
-      "download": "Yes"
-    },
-    {
-      "value": "Tab8",
-      "name": "Study",
-      "fioriicon": "add-contact",
-      "type": "Field",
-      "download": "Yes"
-    },
-    {
-      "value": "Tab9",
-      "name": "Contract",
-      "fioriicon": "accelerated",
-      "type": "Field",
-      "download": "Yes"
     }
   ],
   "DetailFields": {
@@ -146,8 +131,7 @@
       "BuyerInvoiceNumber",
       "BuyerInvoiceYear",
       "BuyerInvoiceStatus",
-      "Comment",
-      "PharmaContactEmail"
+      "Comment"
     ],
     "Tab2": [
       "PONumber",
@@ -165,10 +149,7 @@
       "BuyerPaymentDate",
       "BuyerPaymentStatus"
     ],
-    "Tab6": ["ConfidenceScore", "OverallMatching"],
-    "Tab7": ["EventID", "EventName", "EventType", "EventStartDate"],
-    "Tab8": ["StudyID", "StudyName", "StudyType", "Phase"],
-    "Tab9": ["ContractID", "ContractName", "ContractType", "ContractStartDate"]
+    "Tab6": ["ConfidenceScore", "OverallMatching"]
   },
   "ControlDisplay": {
     "ControlField": "InvoiceType",
@@ -208,25 +189,11 @@
             "OverallMatching"
           ]
         },
-        {
-          "ContractInvoice": [
-            "ContractStartDate",
-            "ContractName",
-            "ContractType",
-            "ContractID"
-          ]
-        },
-        {
-          "EventInvoice": [
-            "EventID",
-            "EventName",
-            "EventType",
-            "EventStartDate"
-          ]
-        },
+        { "ContractInvoice": [] },
+        { "EventInvoice": [] },
         { "NonPOInvoice": [] },
         { "POInvoice": ["PONumber", "PODate"] },
-        { "StudyInvoice": ["StudyID", "StudyType", "StudyName", "Phase"] }
+        { "StudyInvoice": [] }
       ]
     ]
   },
@@ -527,123 +494,6 @@
       "SLabel": "Processing Log",
       "LLabel": "Processing Log",
       "Currency": "No"
-    },
-    {
-      "name": "ContractStartDate",
-      "type": "Date",
-      "width": "10",
-      "Option": "Optional",
-      "SLabel": "Contract Start Date",
-      "LLabel": "ContractStartDate",
-      "Currency": "No"
-    },
-    {
-      "name": "EventStartDate",
-      "type": "Date",
-      "width": "10",
-      "Option": "Optional",
-      "SLabel": "Event Start Date",
-      "LLabel": "EventStartDate",
-      "Currency": "No"
-    },
-    {
-      "name": "EventID",
-      "type": "string",
-      "width": "20",
-      "Option": "Optional",
-      "SLabel": "Event ID",
-      "LLabel": "EventID",
-      "Currency": "No"
-    },
-    {
-      "name": "StudyID",
-      "type": "string",
-      "width": "20",
-      "Option": "Optional",
-      "SLabel": "Study ID",
-      "LLabel": "StudyID",
-      "Currency": "No"
-    },
-    {
-      "name": "EventName",
-      "type": "string",
-      "width": "200",
-      "Option": "Optional",
-      "SLabel": "Event Name",
-      "LLabel": "EventName",
-      "Currency": "No"
-    },
-    {
-      "name": "EventType",
-      "type": "string",
-      "width": "200",
-      "Option": "Optional",
-      "SLabel": "Event Type",
-      "LLabel": "EventType",
-      "Currency": "No"
-    },
-    {
-      "name": "PharmaContactEmail",
-      "type": "string",
-      "width": "200",
-      "Option": "Optional",
-      "SLabel": "Pharma Contact Email",
-      "LLabel": "PharmaContactEmail",
-      "Currency": "No"
-    },
-    {
-      "name": "StudyType",
-      "type": "string",
-      "width": "200",
-      "Option": "Optional",
-      "SLabel": "Study Type",
-      "LLabel": "StudyType",
-      "Currency": "No"
-    },
-    {
-      "name": "StudyName",
-      "type": "string",
-      "width": "200",
-      "Option": "Optional",
-      "SLabel": "Study Name",
-      "LLabel": "StudyName",
-      "Currency": "No"
-    },
-    {
-      "name": "Phase",
-      "type": "string",
-      "width": "200",
-      "Option": "Optional",
-      "SLabel": "Phase",
-      "LLabel": "Phase",
-      "Currency": "No"
-    },
-    {
-      "name": "ContractName",
-      "type": "string",
-      "width": "200",
-      "Option": "Optional",
-      "SLabel": "ContractName",
-      "LLabel": "ContractName",
-      "Currency": "No"
-    },
-    {
-      "name": "ContractType",
-      "type": "string",
-      "width": "200",
-      "Option": "Optional",
-      "SLabel": "Contract Type",
-      "LLabel": "ContractType",
-      "Currency": "No"
-    },
-    {
-      "name": "ContractID",
-      "type": "string",
-      "width": "20",
-      "Option": "Optional",
-      "SLabel": "Contract ID",
-      "LLabel": "ContractID",
-      "Currency": "No"
     }
   ],
   "itemData": "Yes",
@@ -764,6 +614,18 @@
         "type": "string",
         "width": "50",
         "SLabel": "Invoice Item Status"
+      },
+      {
+        "name": "StatusState",
+        "type": "string",
+        "width": "20",
+        "SLabel": "StatusState"
+      },
+      {
+        "name": "cardImage",
+        "type": "string",
+        "width": "500",
+        "SLabel": "cardImage"
       }
     ],
     "DisplayFields": [
@@ -778,6 +640,13 @@
       "itemAdd": true,
       "itemEdit": true,
       "itemDelete": true
+    },
+
+    "ListBOTItemFields": {
+      "None": ["ID"],
+      "Title": ["ItemNumber", "ItemDetails"],
+      "SubTitle": ["InvGrossVal", "InvNetValue"],
+      "Description": ["InvQty", "InvUOM", "InvPrice", "InvVATVal"]
     },
     "CreateFields": [
       "ItemDetails",
@@ -829,51 +698,45 @@
         "CalculatedFormula": {
           "name": "Multiplication",
           "function": "MUL",
-          "Target": "ItemNetValue",
+          "Target": "InvNetValue",
           "type": "Item"
         },
         "Fields": [
           { "Source": "InvQty", "Type": { "type": "Item" } },
-          { "Source": "InvPrice", "Type": { "type": "Item" } },
-          { "Source": "InvNetValue", "Type": {} }
+          { "Source": "InvPrice", "Type": { "type": "Item" } }
         ]
       },
       {
         "CalculatedFormula": {
           "name": "Percentage",
           "function": "PAR",
-          "Target": "ItemVATPer",
+          "Target": "InvVATPer",
           "type": "Item"
         },
-        "Fields": [
-          { "Source": "InvVATRate", "Type": { "type": "Item" } },
-          { "Source": "InvVATPer", "Type": {} }
-        ]
+        "Fields": [{ "Source": "InvVATRate", "Type": { "type": "Item" } }]
       },
       {
         "CalculatedFormula": {
           "name": "Multiplication",
           "function": "MUL",
-          "Target": "ItemVATVal",
+          "Target": "InvVATVal",
           "type": "Item"
         },
         "Fields": [
           { "Source": "InvNetValue", "Type": { "type": "Item" } },
-          { "Source": "InvVATPer", "Type": { "type": "Item" } },
-          { "Source": "InvVATVal", "Type": {} }
+          { "Source": "InvVATPer", "Type": { "type": "Item" } }
         ]
       },
       {
         "CalculatedFormula": {
           "name": "Addition",
           "function": "ADD",
-          "Target": "ItemGrossVal",
+          "Target": "InvGrossVal",
           "type": "Item"
         },
         "Fields": [
           { "Source": "InvNetValue", "Type": { "type": "Item" } },
-          { "Source": "InvVATVal", "Type": { "type": "Item" } },
-          { "Source": "InvGrossVal", "Type": {} }
+          { "Source": "InvVATVal", "Type": { "type": "Item" } }
         ]
       },
       {
@@ -923,7 +786,6 @@
       }
     ],
     "HeaderItem": [
-      { "CalculatedFormula": { "type": "HeaderItem" }, "Fields": [] },
       {
         "CalculatedFormula": {
           "name": "ITEMSUM",

@@ -5,19 +5,16 @@
   },
   "Controls": { "USP": "UserProfile" },
   "ListFields": {
-    "IntroField": "",
-    "TitleField": "",
-    "sStatus": "",
-    "fStatus": "",
-    "numberField": "",
-    "LFields": [],
-    "numberUnitField": ""
+    "IntroField": "InterviewDate",
+    "TitleField": "Position",
+    "fStatus": "Status",
+    "LFields": ["ID"]
   },
   "ListBOTFields": {
     "None": ["cardImage", "StatusState"],
-    "Title": [],
-    "SubTitle": [],
-    "Description": []
+    "Title": ["Candidate"],
+    "SubTitle": ["Position"],
+    "Description": ["InterviewDate", "Status", "ID"]
   },
   "PossibleValues": [
     "Position",

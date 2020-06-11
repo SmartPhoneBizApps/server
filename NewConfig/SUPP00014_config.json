@@ -5,19 +5,17 @@
   },
   "Controls": { "USP": "UserProfile" },
   "ListFields": {
-    "IntroField": "",
-    "TitleField": "",
-    "sStatus": "",
-    "fStatus": "",
-    "numberField": "",
-    "LFields": [],
-    "numberUnitField": ""
+    "IntroField": "CompanyRegistrationNumber",
+    "TitleField": "CompanyName",
+    "sStatus": "CompanyType",
+    "fStatus": "Status",
+    "LFields": ["IntrestArea", "ID", "AnnualTurnover", "BusinessType"]
   },
   "ListBOTFields": {
     "None": ["cardImage", "StatusState"],
-    "Title": [],
-    "SubTitle": [],
-    "Description": []
+    "Title": ["CompanyName", "CompanyRegistrationNumber"],
+    "SubTitle": ["Status", "CompanyType"],
+    "Description": ["IntrestArea", "ID", "AnnualTurnover", "BusinessType"]
   },
   "PossibleValues": [
     "Status",

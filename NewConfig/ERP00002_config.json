@@ -5,19 +5,16 @@
   },
   "Controls": { "USP": "UserProfile" },
   "ListFields": {
-    "IntroField": "",
-    "TitleField": "",
-    "sStatus": "",
-    "fStatus": "",
-    "numberField": "",
-    "LFields": [],
-    "numberUnitField": ""
+    "IntroField": "Priority",
+    "TitleField": "Area",
+    "fStatus": "Status",
+    "LFields": ["ID", "Problem"]
   },
   "ListBOTFields": {
     "None": ["cardImage", "StatusState"],
-    "Title": [],
-    "SubTitle": [],
-    "Description": []
+    "Title": ["Priority"],
+    "SubTitle": ["Status", "Area"],
+    "Description": ["ID", "Problem"]
   },
   "PossibleValues": ["Status", "Priority"],
   "MButtons": [

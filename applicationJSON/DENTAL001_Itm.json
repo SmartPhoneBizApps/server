@@ -1,0 +1,56 @@
+{
+  "ItemNumber": {
+    "type": "String",
+    "maxlength": [10, "ItemNumber can not be more than 10 characters"]
+  },
+  "ID": {
+    "type": "String",
+    "maxlength": [20, "ID can not be more than 20 characters"]
+  },
+  "Amount": {
+    "type": "String",
+    "maxlength": [20, "Amount can not be more than 20 characters"]
+  },
+  "ItemStatus": {
+    "type": "String",
+    "maxlength": [20, "ItemStatus can not be more than 20 characters"]
+  },
+  "Description": {
+    "type": "String",
+    "maxlength": [200, "Description can not be more than 200 characters"]
+  },
+  "DueDate": {
+    "type": "Date",
+    "maxlength": [10, "DueDate can not be more than 10 characters"]
+  },
+
+  "PaymentMethod": {
+    "type": "String",
+    "maxlength": [50, "PaymentMethod can not be more than 50 characters"]
+  },
+  "PaidAmount": {
+    "type": "String",
+    "maxlength": [50, "PaidAmount can not be more than 50 characters"]
+  },
+
+  "Currency": {
+    "type": "String",
+    "maxlength": [10, "ItemNumber can not be more than 10 characters"]
+  },
+  "AuthorizationCode": {
+    "type": "String",
+    "maxlength": [50, "PaymentMethod can not be more than 50 characters"]
+  },
+  "PaidBy": {
+    "type": "String",
+    "maxlength": [50, "PaymentMethod can not be more than 50 characters"]
+  },
+  "ItemBalance": {
+    "type": "String",
+    "maxlength": [20, "ItemBalance can not be more than 20 characters"]
+  },
+  "PaymentDate": {
+    "type": "Date",
+    "maxlength": [10, "DueDate can not be more than 10 characters"]
+  }
+}

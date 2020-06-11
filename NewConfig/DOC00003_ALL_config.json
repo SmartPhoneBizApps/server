@@ -13,9 +13,9 @@
   },
   "ListBOTFields": {
     "None": ["cardImage", "StatusState"],
-    "Title": [],
-    "SubTitle": [],
-    "Description": []
+    "Title": ["PatientLastName", "PatientFirstName"],
+    "SubTitle": ["Status", "NHS_Number"],
+    "Description": ["ReferringPhysician", "ReferralTo", "Patient_Email"]
   },
   "PossibleValues": ["ReferralTo", "Gender", "Status"],
   "MButtons": [

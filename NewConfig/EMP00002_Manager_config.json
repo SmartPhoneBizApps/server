@@ -15,23 +15,50 @@
   },
   "ListBOTFields": {
     "None": ["cardImage", "StatusState"],
-    "Title": [],
-    "SubTitle": [],
-    "Description": []
+    "Title": ["ID"],
+    "SubTitle": ["EmployeeName", "TotalAmount", "Status"],
+    "Description": ["TravelDtFrom", "TravelDateTo", "Justification"]
   },
   "PossibleValues": [
     "Currency",
     "ProjectCode",
     "CostCentre",
-    "Cost1Type",
-    "Cost2Type",
-    "Cost3Type",
-    "Cost4Type",
-    "Cost5Type",
-    "Status"
+    "Status",
+    "TravelMode"
   ],
-  "MButtons": [],
-  "DButtons": [],
+  "MButtons": [
+    {
+      "type": "DOWNLOAD",
+      "name": "Download File",
+      "icon": "sap-icon://download"
+    },
+    {
+      "type": "APPHELP",
+      "name": "Get App Help",
+      "icon": "sap-icon://sys-help-2"
+    },
+    {
+      "type": "BOT",
+      "name": "Launch Assistant",
+      "icon": "sap-icon://travel-request"
+    },
+    {
+      "type": "VIEW",
+      "name": "Change App View",
+      "icon": "sap-icon://chart-table-view"
+    },
+    { "type": "ADD", "name": "Add Record", "icon": "sap-icon://add" },
+    { "type": "UPLOAD", "name": "Upload Record", "icon": "sap-icon://upload" }
+  ],
+  "DButtons": [
+    {
+      "type": "ATTACHMENT",
+      "name": "View Attachments",
+      "icon": "sap-icon://attachment"
+    },
+    { "type": "UPDATE", "name": "Update Record", "icon": "sap-icon://update" },
+    { "type": "ADD", "name": "Add Record", "icon": "sap-icon://add" }
+  ],
   "Tabs": [
     {
       "value": "Tab0",
@@ -41,33 +68,62 @@
     },
     {
       "value": "Tab1",
-      "name": "Reference",
+      "name": "Travel details",
       "type": "Field",
-      "fioriicon": "request"
+      "fioriicon": "request",
+      "download": "Yes"
     },
     {
       "value": "Tab2",
-      "name": "Travel details",
+      "name": "Stay details",
       "type": "Field",
       "fioriicon": "database",
       "download": "Yes"
     },
     {
       "value": "Tab3",
-      "name": "Process Log",
+      "name": "Processing Log",
       "fioriicon": "step",
       "type": "Chat",
-      "download": "No"
+      "download": "Yes"
+    },
+    {
+      "value": "Tab4",
+      "name": "Other Details",
+      "fioriicon": "customer-view",
+      "type": "Field",
+      "download": "Yes"
     }
   ],
   "DetailFields": {
     "headerTitle": ["USP_Name"],
     "headerRole": ["USP_Role"],
     "headerImage": ["USP_Image"],
-    "None": ["ID", "EmployeeCode", "EmployeeName", "EntryDate", "Status"],
-    "Tab1": ["CostCentre", "TotalAmount", "Currency"],
-    "Tab2": ["TravelDtFrom", "TravelDateTo", "TravelDetail", "Justification"],
-    "Tab3": ["ProcessingLog"]
+    "None": [
+      "ID",
+      "EmployeeCode",
+      "EmployeeName",
+      "EntryDate",
+      "Status",
+      "TotalAmount"
+    ],
+    "Tab1": [
+      "TravelDtFrom",
+      "TravelDateTo",
+      "TravelDetail",
+      "Justification",
+      "TravelMode",
+      "TravelCost"
+    ],
+    "Tab2": ["FoodCost", "StayCost", "StayDetails"],
+    "Tab3": ["ProcessingLog"],
+    "Tab4": [
+      "OtherCost",
+      "AdditionalInfo",
+      "CostCentre",
+      "Approver",
+      "Currency"
+    ]
   },
   "ControlDisplay": {},
   "FieldDef": [
@@ -100,7 +156,7 @@
     },
     {
       "name": "TotalAmount",
-      "type": "string",
+      "type": "Num,2",
       "width": "20",
       "Option": "Optional",
       "SLabel": "Total Amount",
@@ -147,7 +203,7 @@
       "name": "ProjectCode",
       "type": "string",
       "width": "50",
-      "Option": "Optional",
+      "Option": "mandatory",
       "SLabel": "Project Code",
       "LLabel": "",
       "Currency": "No"
@@ -189,159 +245,6 @@
       "Currency": "No"
     },
     {
-      "name": "Cost1",
-      "type": "string",
-      "width": "20",
-      "Option": "Optional",
-      "SLabel": "Cost 1",
-      "LLabel": "",
-      "Currency": "No"
-    },
-    {
-      "name": "Cost1Type",
-      "type": "string",
-      "width": "50",
-      "Option": "Optional",
-      "SLabel": "Cost type 1",
-      "LLabel": "",
-      "Currency": "No"
-    },
-    {
-      "name": "Cost1Detail",
-      "type": "string",
-      "width": "50",
-      "Option": "Optional",
-      "SLabel": "Cost1 Details",
-      "LLabel": "",
-      "Currency": "No"
-    },
-    {
-      "name": "Cost2",
-      "type": "string",
-      "width": "50",
-      "Option": "Optional",
-      "SLabel": "Cost 2",
-      "LLabel": "",
-      "Currency": "No"
-    },
-    {
-      "name": "Cost2Type",
-      "type": "string",
-      "width": "50",
-      "Option": "Optional",
-      "SLabel": "Cost type 2",
-      "LLabel": "",
-      "Currency": "No"
-    },
-    {
-      "name": "Cost2Detail",
-      "type": "string",
-      "width": "50",
-      "Option": "Optional",
-      "SLabel": "Cost 2 details",
-      "LLabel": "",
-      "Currency": "No"
-    },
-    {
-      "name": "Cost3",
-      "type": "string",
-      "width": "50",
-      "Option": "Optional",
-      "SLabel": "Cost 3",
-      "LLabel": "",
-      "Currency": "No"
-    },
-    {
-      "name": "Cost3Type",
-      "type": "string",
-      "width": "100",
-      "Option": "Optional",
-      "SLabel": "Cost type 3",
-      "LLabel": "",
-      "Currency": "No"
-    },
-    {
-      "name": "Cost3Detail",
-      "type": "string",
-      "width": "100",
-      "Option": "Optional",
-      "SLabel": "Cost 3 Details",
-      "LLabel": "",
-      "Currency": "No"
-    },
-    {
-      "name": "Cost4",
-      "type": "string",
-      "width": "500",
-      "Option": "Optional",
-      "SLabel": "Cost 4",
-      "LLabel": "",
-      "Currency": "No"
-    },
-    {
-      "name": "Cost4Type",
-      "type": "string",
-      "width": "50",
-      "Option": "Optional",
-      "SLabel": "Cost Type 4",
-      "LLabel": "",
-      "Currency": "No"
-    },
-    {
-      "name": "Cost4Detail",
-      "type": "string",
-      "width": "50",
-      "Option": "Optional",
-      "SLabel": "Cost 4 Details",
-      "LLabel": "",
-      "Currency": "No"
-    },
-    {
-      "name": "Cost5",
-      "type": "string",
-      "width": "100",
-      "Option": "Optional",
-      "SLabel": "Cost 5",
-      "LLabel": "",
-      "Currency": "No"
-    },
-    {
-      "name": "Cost5Type",
-      "type": "string",
-      "width": "100",
-      "Option": "Optional",
-      "SLabel": "Cost Type 5",
-      "LLabel": "",
-      "Currency": "No"
-    },
-    {
-      "name": "Cost5Detail",
-      "type": "string",
-      "width": "100",
-      "Option": "Optional",
-      "SLabel": "Cost 5 Details",
-      "LLabel": "",
-      "Currency": "No"
-    },
-    {
-      "name": "MiscAmount",
-      "type": "string",
-      "width": "100",
-      "Option": "Optional",
-      "SLabel": "Miscellaneous Amount",
-      "LLabel": "",
-      "Currency": "No"
-    },
-    {
-      "name": "ApproverComm",
-      "type": "string",
-      "width": "500",
-      "Option": "Optional",
-      "SLabel": "Approver Comments",
-      "LLabel": "",
-      "Currency": "No"
-    },
-    {
       "name": "Status",
       "type": "string",
       "width": "20",
@@ -351,38 +254,11 @@
       "Currency": "No"
     },
     {
-      "name": "EmployeeComments",
+      "name": "TravelMode",
       "type": "string",
-      "width": "500",
+      "width": "50",
       "Option": "Optional",
-      "SLabel": "Employee Comments",
-      "LLabel": "",
-      "Currency": "No"
-    },
-    {
-      "name": "LMComments",
-      "type": "string",
-      "width": "500",
-      "Option": "Optional",
-      "SLabel": "Leave Manager Comments",
-      "LLabel": "",
-      "Currency": "No"
-    },
-    {
-      "name": "TravelDeskComments",
-      "type": "string",
-      "width": "500",
-      "Option": "Optional",
-      "SLabel": "Travel Desk Comments",
-      "LLabel": "",
-      "Currency": "No"
-    },
-    {
-      "name": "DMComments",
-      "type": "string",
-      "width": "500",
-      "Option": "Optional",
-      "SLabel": "Deputy Manager Comments",
+      "SLabel": "Travelling mode",
       "LLabel": "",
       "Currency": "No"
     },
@@ -403,6 +279,60 @@
       "SLabel": "Approver",
       "LLabel": "Approver",
       "Currency": "No"
+    },
+    {
+      "name": "FoodCost",
+      "type": "Num,2",
+      "width": "20",
+      "Option": "Optional",
+      "SLabel": "Food Cost",
+      "LLabel": "Food Cost",
+      "Currency": "Yes"
+    },
+    {
+      "name": "TravelCost",
+      "type": "Num,2",
+      "width": "20",
+      "Option": "Optional",
+      "SLabel": "Travel Cost",
+      "LLabel": "Travel Cost",
+      "Currency": "Yes"
+    },
+    {
+      "name": "StayCost",
+      "type": "Num,2",
+      "width": "20",
+      "Option": "Optional",
+      "SLabel": "Stay Cost",
+      "LLabel": "Stay Cost",
+      "Currency": "Yes"
+    },
+    {
+      "name": "OtherCost",
+      "type": "Num,2",
+      "width": "20",
+      "Option": "Optional",
+      "SLabel": "Other Cost",
+      "LLabel": "Other Cost",
+      "Currency": "No"
+    },
+    {
+      "name": "AdditionalInfo",
+      "type": "string",
+      "width": "500",
+      "Option": "Optional",
+      "SLabel": "Additional Info",
+      "LLabel": "Additional Info",
+      "Currency": "No"
+    },
+    {
+      "name": "StayDetails",
+      "type": "string",
+      "width": "500",
+      "Option": "Optional",
+      "SLabel": "Stay Details",
+      "LLabel": "Stay Details",
+      "Currency": "No"
     }
   ],
   "itemData": "No",
@@ -418,7 +348,64 @@
     "CreateFields": [],
     "ItemDetails": []
   },
-  "CalculatedFields": {},
-  "Create": "No",
-  "Wizard": []
+  "CalculatedFields": {
+    "Item": [],
+    "HeaderItem": [],
+    "Header": [
+      {
+        "CalculatedFormula": {
+          "name": "Addition",
+          "function": "ADD",
+          "Target": "TotalAmount",
+          "type": "Header"
+        },
+        "Fields": [
+          { "Source": "TravelCost", "Type": { "type": "Header" } },
+          { "Source": "StayCost", "Type": { "type": "Header" } },
+          { "Source": "OtherCost", "Type": { "type": "Header" } },
+          { "Source": "FoodCost", "Type": { "type": "Header" } }
+        ]
+      }
+    ]
+  },
+  "Create": "Yes",
+  "Wizard": [
+    {
+      "id": "Step1",
+      "fields": [
+        { "name": "EmployeeCode", "Sequence": "1", "Mode": "Edit" },
+        { "name": "EmployeeName", "Sequence": "1", "Mode": "Edit" },
+        { "name": "Justification", "Sequence": "1", "Mode": "Edit" }
+      ],
+      "name": "Request Details",
+      "stepType": "FieldList",
+      "intro": "Travel Request : Request Details"
+    },
+    {
+      "id": "Step4",
+      "fields": [
+        { "name": "TravelDtFrom", "Sequence": "1", "Mode": "Edit" },
+        { "name": "TravelDateTo", "Sequence": "1", "Mode": "Edit" },
+        { "name": "TravelMode", "Sequence": "1", "Mode": "Edit" },
+        { "name": "TravelDetail", "Sequence": "1", "Mode": "Edit" },
+        { "name": "Status", "Sequence": "1", "Mode": "Edit" },
+        { "name": "Approver", "Sequence": "1", "Mode": "Edit" }
+      ],
+      "name": "Travel Details",
+      "stepType": "FieldList",
+      "intro": "Travel Request : Travel Details"
+    },
+    {
+      "id": "Step2",
+      "fields": [
+        { "name": "FoodCost", "Sequence": "1", "Mode": "Edit" },
+        { "name": "TravelCost", "Sequence": "1", "Mode": "Edit" },
+        { "name": "StayCost", "Sequence": "1", "Mode": "Edit" },
+        { "name": "OtherCost", "Sequence": "1", "Mode": "Edit" }
+      ],
+      "name": "Travel Cost",
+      "stepType": "FieldList",
+      "intro": "Travel Cost Details"
+    }
+  ]
 }

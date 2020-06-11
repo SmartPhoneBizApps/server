@@ -5,19 +5,17 @@
   },
   "Controls": { "USP": "UserProfile" },
   "ListFields": {
-    "IntroField": "",
-    "TitleField": "",
-    "sStatus": "",
-    "fStatus": "",
-    "numberField": "",
-    "LFields": [],
-    "numberUnitField": ""
+    "IntroField": "SurveyDate",
+    "TitleField": "SupplierName",
+    "sStatus": "OverallRating",
+    "fStatus": "Status",
+    "LFields": ["SupplierID", "Customer", "Assesse"]
   },
   "ListBOTFields": {
     "None": ["cardImage", "StatusState"],
-    "Title": [],
-    "SubTitle": [],
-    "Description": []
+    "Title": ["SupplierName"],
+    "SubTitle": ["Status", "OverallRating"],
+    "Description": ["SupplierID", "Customer", "Assesse"]
   },
   "PossibleValues": [
     "AbilityToSolveProblems",

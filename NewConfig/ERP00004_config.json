@@ -5,19 +5,16 @@
   },
   "Controls": { "USP": "UserProfile" },
   "ListFields": {
-    "IntroField": "",
-    "TitleField": "",
-    "sStatus": "",
-    "fStatus": "",
-    "numberField": "",
-    "LFields": [],
-    "numberUnitField": ""
+    "IntroField": "Time",
+    "TitleField": "Material",
+    "fStatus": "Status",
+    "LFields": ["ID"]
   },
   "ListBOTFields": {
     "None": ["cardImage", "StatusState"],
-    "Title": [],
-    "SubTitle": [],
-    "Description": []
+    "Title": ["ID"],
+    "SubTitle": ["Material", "Time"],
+    "Description": ["Status"]
   },
   "PossibleValues": ["Status"],
   "MButtons": [

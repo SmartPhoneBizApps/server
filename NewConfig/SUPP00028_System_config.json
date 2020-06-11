@@ -15,9 +15,15 @@
   },
   "ListBOTFields": {
     "None": ["cardImage", "StatusState"],
-    "Title": [],
-    "SubTitle": [],
-    "Description": []
+    "Title": ["VendorName", "InvoiceType"],
+    "SubTitle": ["SuppInvoiceNumber", "InvoiceStatus"],
+    "Description": [
+      "InvoiceDate",
+      "PaymentTerm",
+      "TotInvGrossVal",
+      "CurrentStatus",
+      "ID"
+    ]
   },
   "PossibleValues": [
     "Currency",
@@ -350,7 +356,7 @@
       "type": "attachment",
       "width": "500",
       "Option": "Optional",
-      "SLabel": "Attachment",
+      "SLabel": "Invoice Image",
       "LLabel": "",
       "Currency": "No"
     },
@@ -479,6 +485,15 @@
       "SLabel": "Overall Matching",
       "LLabel": "Overall Matching",
       "Currency": "No"
+    },
+    {
+      "name": "ProcessingLog",
+      "type": "string",
+      "width": "500",
+      "Option": "Optional",
+      "SLabel": "Processing Log",
+      "LLabel": "Processing Log",
+      "Currency": "No"
     }
   ],
   "itemData": "Yes",
@@ -599,6 +614,18 @@
         "type": "string",
         "width": "50",
         "SLabel": "Invoice Item Status"
+      },
+      {
+        "name": "StatusState",
+        "type": "string",
+        "width": "20",
+        "SLabel": "StatusState"
+      },
+      {
+        "name": "cardImage",
+        "type": "string",
+        "width": "500",
+        "SLabel": "cardImage"
       }
     ],
     "DisplayFields": [
@@ -613,6 +640,13 @@
       "itemAdd": true,
       "itemEdit": true,
       "itemDelete": true
+    },
+
+    "ListBOTItemFields": {
+      "None": ["ID"],
+      "Title": ["ItemNumber", "ItemDetails"],
+      "SubTitle": ["InvGrossVal", "InvNetValue"],
+      "Description": ["InvQty", "InvUOM", "InvPrice", "InvVATVal"]
     },
     "CreateFields": [
       "ItemDetails",
@@ -664,51 +698,45 @@
         "CalculatedFormula": {
           "name": "Multiplication",
           "function": "MUL",
-          "Target": "ItemNetValue",
+          "Target": "InvNetValue",
           "type": "Item"
         },
         "Fields": [
           { "Source": "InvQty", "Type": { "type": "Item" } },
-          { "Source": "InvPrice", "Type": { "type": "Item" } },
-          { "Source": "InvNetValue", "Type": {} }
+          { "Source": "InvPrice", "Type": { "type": "Item" } }
         ]
       },
       {
         "CalculatedFormula": {
           "name": "Percentage",
           "function": "PAR",
-          "Target": "ItemVATPer",
+          "Target": "InvVATPer",
           "type": "Item"
         },
-        "Fields": [
-          { "Source": "InvVATRate", "Type": { "type": "Item" } },
-          { "Source": "InvVATPer", "Type": {} }
-        ]
+        "Fields": [{ "Source": "InvVATRate", "Type": { "type": "Item" } }]
       },
       {
         "CalculatedFormula": {
           "name": "Multiplication",
           "function": "MUL",
-          "Target": "ItemVATVal",
+          "Target": "InvVATVal",
           "type": "Item"
         },
         "Fields": [
           { "Source": "InvNetValue", "Type": { "type": "Item" } },
-          { "Source": "InvVATPer", "Type": { "type": "Item" } },
-          { "Source": "InvVATVal", "Type": {} }
+          { "Source": "InvVATPer", "Type": { "type": "Item" } }
         ]
       },
       {
         "CalculatedFormula": {
           "name": "Addition",
           "function": "ADD",
-          "Target": "ItemGrossVal",
+          "Target": "InvGrossVal",
           "type": "Item"
         },
         "Fields": [
           { "Source": "InvNetValue", "Type": { "type": "Item" } },
-          { "Source": "InvVATVal", "Type": { "type": "Item" } },
-          { "Source": "InvGrossVal", "Type": {} }
+          { "Source": "InvVATVal", "Type": { "type": "Item" } }
         ]
       },
       {
@@ -758,7 +786,6 @@
       }
     ],
     "HeaderItem": [
-      { "CalculatedFormula": { "type": "HeaderItem" }, "Fields": [] },
       {
         "CalculatedFormula": {
           "name": "ITEMSUM",

@@ -5,19 +5,19 @@
   },
   "Controls": { "USP": "UserProfile" },
   "ListFields": {
-    "IntroField": "",
-    "TitleField": "",
-    "sStatus": "",
-    "fStatus": "",
-    "numberField": "",
-    "LFields": [],
+    "IntroField": "POItem",
+    "TitleField": "Details",
+    "sStatus": "Category",
+    "fStatus": "Status",
+    "numberField": "POQty",
+    "LFields": ["Vendor", "GrossValue"],
     "numberUnitField": ""
   },
   "ListBOTFields": {
     "None": ["cardImage", "StatusState"],
-    "Title": [],
-    "SubTitle": [],
-    "Description": []
+    "Title": ["Details", "POItem"],
+    "SubTitle": ["Category", "Status", "POQty"],
+    "Description": ["Vendor", "GrossValue"]
   },
   "PossibleValues": ["Quality", "Packaging", "Status"],
   "MButtons": [

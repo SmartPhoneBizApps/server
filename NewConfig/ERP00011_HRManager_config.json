@@ -5,19 +5,19 @@
   },
   "Controls": { "USP": "UserProfile" },
   "ListFields": {
-    "IntroField": "ReviewDate",
-    "TitleField": "Role",
-    "sStatus": "Band",
+    "IntroField": "Candidate",
+    "TitleField": "Position",
+    "sStatus": "JobType",
     "fStatus": "Status",
     "numberField": "",
-    "LFields": ["DevManager", "EmpRef"],
+    "LFields": ["InterviewDate", "Email", "Telephone"],
     "numberUnitField": ""
   },
   "ListBOTFields": {
     "None": ["cardImage", "StatusState"],
-    "Title": ["Band", "ReviewDate"],
-    "SubTitle": ["Status", "Role"],
-    "Description": ["DevManager", "EmpRef"]
+    "Title": ["Candidate", "JobType"],
+    "SubTitle": ["InterviewDate", "Position"],
+    "Description": ["Email", "Telephone"]
   },
   "PossibleValues": ["Position", "Citizenship", "JobType", "Status"],
   "MButtons": [

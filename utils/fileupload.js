@@ -13,7 +13,6 @@ exports.uploadFile = asyncHandler(async (req, res, next) => {
   console.log("Inside Upload...");
   console.log(req.files);
   const file = req.files.file;
-  console.log(req.user);
   /////////////////////////////////////////////////////////////////////////
   //   --------  Input - Validations  -------------------
   /////////////////////////////////////////////////////////////////////////
@@ -63,6 +62,19 @@ exports.uploadFile = asyncHandler(async (req, res, next) => {
   if (req.headers.type == "NewUpload") {
     version = 1;
   }
+
+  let statuses = [
+    {
+      title: "Status",
+      text: "Approved",
+      state: "Success",
+    },
+    {
+      title: "DocumentType",
+      text: "Attachment",
+      state: "None",
+    },
+  ];
   /////////////////////////////////////////////////////////////////////////
   //   --------  App Data  -------------------
   /////////////////////////////////////////////////////////////////////////
@@ -92,10 +104,7 @@ exports.uploadFile = asyncHandler(async (req, res, next) => {
       );
     }
   }
-  if (
-    (req.headers.mode == "Record" || req.headers.mode == "RecordItems") &&
-    cardConfig["Create"] == "No"
-  ) {
+  if (req.headers.mode == "Record" && cardConfig["Create"] == "No") {
     return next(
       new ErrorResponse(`App do not allow to upload or create new record`, 400)
     );
@@ -118,7 +127,7 @@ exports.uploadFile = asyncHandler(async (req, res, next) => {
       console.error(err);
       return next(new ErrorResponse(`Problem with file upload`, 500));
     }
-    if (req.headers.mode == "Record" || req.headers.mode == "RecordItems") {
+    if (req.headers.mode == "Record") {
       csvToJson.fieldDelimiter(",").getJsonFromCsv(filecsvFilePath);
       let json_header = csvToJson.getJsonFromCsv(filecsvFilePath);
       for (let index = 0; index < json_header.length; index++) {
@@ -129,7 +138,6 @@ exports.uploadFile = asyncHandler(async (req, res, next) => {
             }
           });
         }
-        console.log("Atul");
         mydata.appId = BodyApp.id;
         mydata.applicationId = BodyApp.applicationID;
         mydata.user = req.user.id;
@@ -164,6 +172,7 @@ exports.uploadFile = asyncHandler(async (req, res, next) => {
       fileSize: file.size,
       uploadedBy: req.user.name,
       version: version,
+      statuses: statuses,
     });
   });
 });

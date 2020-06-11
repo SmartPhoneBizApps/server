@@ -15,9 +15,15 @@
   },
   "ListBOTFields": {
     "None": ["cardImage", "StatusState"],
-    "Title": [],
-    "SubTitle": [],
-    "Description": []
+    "Title": ["VendorName", "InvoiceType"],
+    "SubTitle": ["SuppInvoiceNumber", "InvoiceStatus"],
+    "Description": [
+      "InvoiceDate",
+      "PaymentTerm",
+      "TotInvGrossVal",
+      "CurrentStatus",
+      "ID"
+    ]
   },
   "PossibleValues": [
     "Currency",
@@ -31,8 +37,39 @@
     "BuyerInvoiceStatus",
     "CurrentStatus"
   ],
-  "MButtons": [],
-  "DButtons": [],
+  "MButtons": [
+    {
+      "type": "DOWNLOAD",
+      "name": "Download File",
+      "icon": "sap-icon://download"
+    },
+    {
+      "type": "APPHELP",
+      "name": "Get App Help",
+      "icon": "sap-icon://sys-help-2"
+    },
+    {
+      "type": "BOT",
+      "name": "Launch Assistant",
+      "icon": "sap-icon://travel-request"
+    },
+    {
+      "type": "VIEW",
+      "name": "Change App View",
+      "icon": "sap-icon://chart-table-view"
+    },
+    { "type": "ADD", "name": "Add Record", "icon": "sap-icon://add" },
+    { "type": "UPLOAD", "name": "Upload Record", "icon": "sap-icon://upload" }
+  ],
+  "DButtons": [
+    {
+      "type": "ATTACHMENT",
+      "name": "View Attachments",
+      "icon": "sap-icon://attachment"
+    },
+    { "type": "UPDATE", "name": "Update Record", "icon": "sap-icon://update" },
+    { "type": "ADD", "name": "Add Record", "icon": "sap-icon://add" }
+  ],
   "Tabs": [
     {
       "value": "Tab0",
@@ -577,6 +614,18 @@
         "type": "string",
         "width": "50",
         "SLabel": "Invoice Item Status"
+      },
+      {
+        "name": "StatusState",
+        "type": "string",
+        "width": "20",
+        "SLabel": "StatusState"
+      },
+      {
+        "name": "cardImage",
+        "type": "string",
+        "width": "500",
+        "SLabel": "cardImage"
       }
     ],
     "DisplayFields": [
@@ -591,6 +640,13 @@
       "itemAdd": true,
       "itemEdit": true,
       "itemDelete": true
+    },
+
+    "ListBOTItemFields": {
+      "None": ["ID"],
+      "Title": ["ItemNumber", "ItemDetails"],
+      "SubTitle": ["InvGrossVal", "InvNetValue"],
+      "Description": ["InvQty", "InvUOM", "InvPrice", "InvVATVal"]
     },
     "CreateFields": [
       "ItemDetails",
@@ -642,51 +698,45 @@
         "CalculatedFormula": {
           "name": "Multiplication",
           "function": "MUL",
-          "Target": "ItemNetValue",
+          "Target": "InvNetValue",
           "type": "Item"
         },
         "Fields": [
           { "Source": "InvQty", "Type": { "type": "Item" } },
-          { "Source": "InvPrice", "Type": { "type": "Item" } },
-          { "Source": "InvNetValue", "Type": {} }
+          { "Source": "InvPrice", "Type": { "type": "Item" } }
         ]
       },
       {
         "CalculatedFormula": {
           "name": "Percentage",
           "function": "PAR",
-          "Target": "ItemVATPer",
+          "Target": "InvVATPer",
           "type": "Item"
         },
-        "Fields": [
-          { "Source": "InvVATRate", "Type": { "type": "Item" } },
-          { "Source": "InvVATPer", "Type": {} }
-        ]
+        "Fields": [{ "Source": "InvVATRate", "Type": { "type": "Item" } }]
       },
       {
         "CalculatedFormula": {
           "name": "Multiplication",
           "function": "MUL",
-          "Target": "ItemVATVal",
+          "Target": "InvVATVal",
           "type": "Item"
         },
         "Fields": [
           { "Source": "InvNetValue", "Type": { "type": "Item" } },
-          { "Source": "InvVATPer", "Type": { "type": "Item" } },
-          { "Source": "InvVATVal", "Type": {} }
+          { "Source": "InvVATPer", "Type": { "type": "Item" } }
         ]
       },
       {
         "CalculatedFormula": {
           "name": "Addition",
           "function": "ADD",
-          "Target": "ItemGrossVal",
+          "Target": "InvGrossVal",
           "type": "Item"
         },
         "Fields": [
           { "Source": "InvNetValue", "Type": { "type": "Item" } },
-          { "Source": "InvVATVal", "Type": { "type": "Item" } },
-          { "Source": "InvGrossVal", "Type": {} }
+          { "Source": "InvVATVal", "Type": { "type": "Item" } }
         ]
       },
       {
@@ -736,7 +786,6 @@
       }
     ],
     "HeaderItem": [
-      { "CalculatedFormula": { "type": "HeaderItem" }, "Fields": [] },
       {
         "CalculatedFormula": {
           "name": "ITEMSUM",

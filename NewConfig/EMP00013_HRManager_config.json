@@ -3,16 +3,19 @@
     "ApplicationTitle": "Employee Profile",
     "DetailTitle": "Employee Profile"
   },
+  "Controls": { "USP": "UserProfile" },
   "ListFields": {
-    "IntroField": "",
-    "TitleField": "",
-    "sStatus": "",
-    "fStatus": "",
-    "numberField": "",
-    "LFields": [],
-    "numberUnitField": ""
+    "IntroField": "Area",
+    "TitleField": "Name",
+    "sStatus": "Band",
+    "fStatus": "Status",
+    "LFields": ["EmpRef", "DevManager"]
   },
-  "ListBOTFields": { "Title": [], "SubTitle": [], "Description": [] },
+  "ListBOTFields": {
+    "Title": ["Name"],
+    "SubTitle": ["Status", "Band", "Area"],
+    "Description": ["EmpRef", "DevManager"]
+  },
   "PossibleValues": ["Status"],
   "MButtons": [
     {

@@ -5,19 +5,16 @@
   },
   "Controls": { "USP": "UserProfile" },
   "ListFields": {
-    "IntroField": "",
-    "TitleField": "",
-    "sStatus": "",
-    "fStatus": "",
-    "numberField": "",
-    "LFields": [],
-    "numberUnitField": ""
+    "IntroField": "ReferenceNo",
+    "TitleField": "CalibDate",
+    "fStatus": "Status",
+    "LFields": ["ID", "Equipment"]
   },
   "ListBOTFields": {
     "None": ["cardImage", "StatusState"],
-    "Title": [],
-    "SubTitle": [],
-    "Description": []
+    "Title": ["ReferenceNo"],
+    "SubTitle": ["Status", "CalibDate"],
+    "Description": ["ID", "Equipment"]
   },
   "PossibleValues": ["Result", "Status"],
   "MButtons": [

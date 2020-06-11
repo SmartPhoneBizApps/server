@@ -3,6 +3,7 @@
     "ApplicationTitle": "Employee Feedback",
     "DetailTitle": "Employee Feedback"
   },
+  "Controls": { "USP": "UserProfile" },
   "ListFields": {
     "IntroField": "Area",
     "TitleField": "Name",
@@ -10,7 +11,11 @@
     "fStatus": "Status",
     "LFields": ["EmpRef", "DevManager"]
   },
-  "ListBOTFields": { "Title": [], "SubTitle": [], "Description": [] },
+  "ListBOTFields": {
+    "Title": ["Name"],
+    "SubTitle": ["Status", "Band", "Area"],
+    "Description": ["EmpRef", "DevManager"]
+  },
   "PossibleValues": ["Status"],
   "MButtons": [],
   "DButtons": [],

@@ -5,21 +5,25 @@
   },
   "Controls": { "USP": "UserProfile" },
   "ListFields": {
-    "IntroField": "",
-    "TitleField": "",
-    "sStatus": "",
-    "fStatus": "",
-    "numberField": "",
-    "LFields": [],
-    "numberUnitField": ""
+    "IntroField": "AssetType",
+    "TitleField": "Model",
+    "fStatus": "Status",
+    "LFields": ["ID", "Make"]
   },
   "ListBOTFields": {
     "None": ["cardImage", "StatusState"],
-    "Title": [],
-    "SubTitle": [],
-    "Description": []
+    "Title": ["ID", "Model"],
+    "SubTitle": ["AssetType"],
+    "Description": ["Make", "Status", "ID"]
   },
-  "PossibleValues": ["Status", "RAM"],
+  "PossibleValues": [
+    "Status",
+    "Make",
+    "Processor",
+    "RAM",
+    "LapFrequency",
+    "AssetType"
+  ],
   "MButtons": [
     {
       "type": "DOWNLOAD",
@@ -62,34 +66,53 @@
     },
     {
       "value": "Tab1",
-      "name": "Specifications",
+      "name": "Asset details",
       "type": "Field",
-      "fioriicon": "incident"
+      "fioriicon": "hint",
+      "download": "Yes"
+    },
+    { "value": "Tab2", "name": "IssuesTo", "type": "Field", "download": "Yes" },
+    {
+      "value": "Tab3",
+      "name": "Images",
+      "fioriicon": "attachment",
+      "type": "carouselImage",
+      "download": "No"
     },
     {
-      "value": "Tab2",
-      "name": "IssuesTo",
-      "type": "Field",
-      "fioriicon": "customer-view"
-    },
-    { "value": "Tab3", "name": "Location", "type": "Field", "fioriicon": "map" }
+      "value": "Tab4",
+      "name": "Attachment",
+      "fioriicon": "attachment",
+      "type": "MultiAttachments",
+      "download": "No"
+    }
   ],
   "DetailFields": {
     "headerTitle": ["USP_Name"],
     "headerRole": ["USP_Role"],
     "headerImage": ["USP_Image"],
-    "None": ["ID", "AssetType", "SerialNo", "Status"],
+    "None": ["ID", "Status"],
     "Tab1": [
+      "AssetType",
+      "SerialNo",
       "Make",
       "Model",
       "RAM",
       "Processor",
-      "Frequency",
+      "LapFrequency",
       "Description",
-      "Image",
       "WarrantyEnd"
     ],
-    "Tab2": ["IssuedTo", "IssueDate", "EmpMobile", "Email", "Location", "Notes"]
+    "Tab2": [
+      "IssuedTo",
+      "IssueDate",
+      "EmpMobile",
+      "ContactEmail",
+      "Location",
+      "Notes"
+    ],
+    "Tab3": ["Image"],
+    "Tab4": ["Attachment"]
   },
   "ControlDisplay": {},
   "FieldDef": [
@@ -98,28 +121,190 @@
       "type": "string",
       "width": "20",
       "Option": "Optional",
-      "SLabel": "",
-      "LLabel": ""
+      "SLabel": "Identification",
+      "LLabel": "",
+      "Currency": "No"
     },
-    { "name": "AssetType", "type": "string", "width": "50" },
-    { "name": "SerialNo", "type": "string", "width": "50" },
-    { "name": "Make", "type": "string", "width": "50", "Option": "mandatory" },
-    { "name": "Model", "type": "string", "width": "50" },
-    { "name": "RAM", "type": "string", "width": "50" },
-    { "name": "Processor", "type": "string", "width": "50" },
-    { "name": "Frequency", "type": "string", "width": "50" },
-    { "name": "Description", "type": "string", "width": "50" },
-    { "name": "Latitude", "type": "Geocode", "width": "50" },
-    { "name": "Longitude", "type": "Geocode", "width": "50" },
-    { "name": "Image", "type": "attachment", "width": "200" },
-    { "name": "WarrantyEnd", "type": "Date", "width": "10" },
-    { "name": "IssuedTo", "type": "string", "width": "50" },
-    { "name": "IssueDate", "type": "Date", "width": "10" },
-    { "name": "EmpMobile", "type": "string", "width": "50" },
-    { "name": "Email", "type": "string", "width": "50" },
-    { "name": "Location", "type": "string", "width": "200" },
-    { "name": "Notes", "type": "string", "width": "200" },
-    { "name": "Status", "type": "string", "width": "20" }
+    {
+      "name": "AssetType",
+      "type": "string",
+      "width": "50",
+      "Option": "Optional",
+      "SLabel": "Asset Type",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "SerialNo",
+      "type": "string",
+      "width": "50",
+      "Option": "Optional",
+      "SLabel": "Serial Number",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "Make",
+      "type": "string",
+      "width": "50",
+      "Option": "Optional",
+      "SLabel": "Make",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "Model",
+      "type": "string",
+      "width": "50",
+      "Option": "Optional",
+      "SLabel": "Model",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "RAM",
+      "type": "string",
+      "width": "50",
+      "Option": "Optional",
+      "SLabel": "RAM",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "Processor",
+      "type": "string",
+      "width": "50",
+      "Option": "Optional",
+      "SLabel": "Processor",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "LapFrequency",
+      "type": "string",
+      "width": "50",
+      "Option": "Optional",
+      "SLabel": "Laptop Frequency",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "Description",
+      "type": "string",
+      "width": "50",
+      "Option": "Optional",
+      "SLabel": "Description",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "Latitude",
+      "type": "Geocode",
+      "width": "50",
+      "Option": "Optional",
+      "SLabel": "Latitude",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "Longitude",
+      "type": "Geocode",
+      "width": "50",
+      "Option": "Optional",
+      "SLabel": "Longitude",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "Image",
+      "type": "attachment",
+      "width": "200",
+      "Option": "Optional",
+      "SLabel": "Image",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "Attachment",
+      "type": "attachment",
+      "width": "200",
+      "Option": "Optional",
+      "SLabel": "Attachment",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "WarrantyEnd",
+      "type": "Date",
+      "width": "10",
+      "Option": "Optional",
+      "SLabel": "Warranty End",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "IssuedTo",
+      "type": "string",
+      "width": "50",
+      "Option": "Optional",
+      "SLabel": "Issued To",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "IssueDate",
+      "type": "Date",
+      "width": "10",
+      "Option": "Optional",
+      "SLabel": "Issue Date",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "EmpMobile",
+      "type": "string",
+      "width": "50",
+      "Option": "Optional",
+      "SLabel": "Employee Mobile",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "ContactEmail",
+      "type": "string",
+      "width": "50",
+      "Option": "Optional",
+      "SLabel": "Contact Email",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "Location",
+      "type": "string",
+      "width": "200",
+      "Option": "Optional",
+      "SLabel": "Asset Location",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "Notes",
+      "type": "string",
+      "width": "200",
+      "Option": "Optional",
+      "SLabel": "Notes",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "Status",
+      "type": "string",
+      "width": "20",
+      "Option": "Optional",
+      "SLabel": "Status",
+      "LLabel": "",
+      "Currency": "No"
+    }
   ],
   "itemData": "No",
   "itemConfig": {
@@ -135,6 +320,62 @@
     "ItemDetails": []
   },
   "CalculatedFields": {},
-  "Create": "No",
-  "Wizard": []
+  "Create": "Yes",
+  "Wizard": [
+    {
+      "id": "Step1",
+      "fields": [
+        { "name": "AssetType", "Sequence": "1", "Mode": "Edit" },
+        { "name": "SerialNo", "Sequence": "1", "Mode": "Edit" },
+        { "name": "Make", "Sequence": "1", "Mode": "Edit" },
+        { "name": "Model", "Sequence": "1", "Mode": "Edit" },
+        { "name": "RAM", "Sequence": "1", "Mode": "Edit" }
+      ],
+      "name": "Asset Details",
+      "stepType": "FieldList",
+      "intro": "IT Asset Tracking : Asset Details"
+    },
+    {
+      "id": "Step2",
+      "fields": [
+        { "name": "Processor", "Sequence": "1", "Mode": "Edit" },
+        { "name": "LapFrequency", "Sequence": "1", "Mode": "Edit" },
+        { "name": "Description", "Sequence": "1", "Mode": "Edit" },
+        { "name": "WarrantyEnd", "Sequence": "1", "Mode": "Edit" },
+        { "name": "IssuedTo", "Sequence": "1", "Mode": "Edit" },
+        { "name": "IssueDate", "Sequence": "1", "Mode": "Edit" }
+      ],
+      "name": "Asset Specification",
+      "stepType": "FieldList",
+      "intro": "IT Asset Tracking : Asset Specification"
+    },
+    {
+      "id": "Step3",
+      "fields": [{ "name": "Image", "Sequence": "1", "Mode": "Edit" }],
+      "name": "Images and Attachment",
+      "stepType": "FieldList",
+      "intro": "IT Asset Tracking : Images and Attachment"
+    },
+    {
+      "id": "Step4",
+      "fields": [
+        { "name": "EmpMobile", "Sequence": "1", "Mode": "Edit" },
+        { "name": "ContactEmail", "Sequence": "1", "Mode": "Edit" },
+        { "name": "Location", "Sequence": "1", "Mode": "Edit" }
+      ],
+      "name": "Employee Details",
+      "stepType": "FieldList",
+      "intro": "IT Asset Tracking : Employee Details"
+    },
+    {
+      "id": "Step5",
+      "fields": [
+        { "name": "Notes", "Sequence": "1", "Mode": "Edit" },
+        { "name": "Status", "Sequence": "1", "Mode": "Edit" }
+      ],
+      "name": "Admin and other details",
+      "stepType": "FieldList",
+      "intro": "IT Asset Tracking : Admin and other details"
+    }
+  ]
 }

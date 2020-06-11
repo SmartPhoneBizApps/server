@@ -12,9 +12,9 @@
   },
   "ListBOTFields": {
     "None": ["cardImage", "StatusState"],
-    "Title": [],
-    "SubTitle": [],
-    "Description": []
+    "Title": ["PatientName"],
+    "SubTitle": ["Status", "ReferringPhysician"],
+    "Description": ["ID", "Problem"]
   },
   "PossibleValues": ["ReferralTo", "Gender", "Status"],
   "MButtons": [

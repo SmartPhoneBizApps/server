@@ -3,16 +3,22 @@
     "ApplicationTitle": "Interview Schedule",
     "DetailTitle": "Interview Schedule"
   },
+  "Controls": { "USP": "UserProfile" },
   "ListFields": {
-    "IntroField": "",
-    "TitleField": "",
-    "sStatus": "",
-    "fStatus": "",
+    "IntroField": "Candidate",
+    "TitleField": "Position",
+    "sStatus": "JobType",
+    "fStatus": "Status",
     "numberField": "",
-    "LFields": [],
+    "LFields": ["InterviewDate", "Email", "Telephone"],
     "numberUnitField": ""
   },
-  "ListBOTFields": { "Title": [], "SubTitle": [], "Description": [] },
+  "ListBOTFields": {
+    "None": ["cardImage", "StatusState"],
+    "Title": ["Candidate", "JobType"],
+    "SubTitle": ["InterviewDate", "Position"],
+    "Description": ["Email", "Telephone"]
+  },
   "PossibleValues": ["Position", "Citizenship", "JobType", "Status"],
   "MButtons": [],
   "DButtons": [],

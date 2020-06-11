@@ -2,19 +2,19 @@
   "Title": { "ApplicationTitle": "Expense", "DetailTitle": "Expense" },
   "Controls": { "USP": "UserProfile" },
   "ListFields": {
-    "IntroField": "",
-    "TitleField": "",
-    "sStatus": "",
-    "fStatus": "",
-    "numberField": "",
-    "LFields": [],
-    "numberUnitField": ""
+    "IntroField": "ProjectCode",
+    "TitleField": "EmployeeName",
+    "sStatus": "ExpType",
+    "fStatus": "Status",
+    "numberField": "TotalAmount",
+    "LFields": ["ID", "EmployeeCode"],
+    "numberUnitField": "Currency"
   },
   "ListBOTFields": {
     "None": ["cardImage", "StatusState"],
-    "Title": [],
-    "SubTitle": [],
-    "Description": []
+    "Title": ["ExpType", "EmployeeName", "ProjectCode"],
+    "SubTitle": ["TotalAmount", "Status"],
+    "Description": ["ID", "EmployeeCode"]
   },
   "PossibleValues": ["Currency", "CostCentre", "Status"],
   "MButtons": [

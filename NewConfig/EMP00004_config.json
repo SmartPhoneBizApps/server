@@ -5,19 +5,18 @@
   },
   "Controls": { "USP": "UserProfile" },
   "ListFields": {
-    "IntroField": "",
-    "TitleField": "",
-    "sStatus": "",
-    "fStatus": "",
-    "numberField": "",
-    "LFields": [],
-    "numberUnitField": ""
+    "IntroField": "VendorName",
+    "TitleField": "Details",
+    "fStatus": "Status",
+    "numberField": "GrossValue",
+    "LFields": ["ID", "SCDate"],
+    "numberUnitField": "Currency"
   },
   "ListBOTFields": {
     "None": ["cardImage", "StatusState"],
-    "Title": [],
-    "SubTitle": [],
-    "Description": []
+    "Title": ["Details", "VendorName"],
+    "SubTitle": ["GrossValue", "Status"],
+    "Description": ["ID", "SCDate"]
   },
   "PossibleValues": [
     "VendorName",
