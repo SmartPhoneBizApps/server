@@ -15,6 +15,7 @@ const {
   findOneUpdateData,
   findOneAppData,
   collectExceptionFields,
+  handleArray,
 } = require("../../modules/config");
 
 const { valAppNotNull } = require("../../modules/validationMessages");
@@ -488,8 +489,8 @@ exports.updateDataRecords = asyncHandler(async (req, res, next) => {
   //---------------------------
   if (req.body["MultiAttachments"]) {
     myData["MultiAttachments"] = handleArray(
-      req.body["MultiAttachments"],
-      myData["MultiAttachments"]
+      req.body["MultiAttachments"]["items"],
+      myData["MultiAttachments"]["items"][0]
     );
   }
   //---------------------------

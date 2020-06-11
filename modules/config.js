@@ -144,7 +144,8 @@ module.exports = {
     return newitemData;
   },
   handleArray: function (oldData, newData) {
-    let current = oldData;
+    let current = [];
+    current = oldData;
     current.push(newData);
     return current;
   },
