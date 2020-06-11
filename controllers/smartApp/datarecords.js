@@ -474,6 +474,8 @@ exports.updateDataRecords = asyncHandler(async (req, res, next) => {
   // -----------------------------------------------------
   // Read data from DB
   // -----------------------------------------------------
+  console.log("Data", req.body.ID);
+  console.log("AppID", req.body.applicationId);
   let myData = await findOneAppData(req.body.ID, req.body.applicationId);
   // let myData = await SUPP00018.findOne({ ID: req.body.ID });
   if (!myData) {
