@@ -476,7 +476,7 @@ exports.updateDataRecords = asyncHandler(async (req, res, next) => {
   let myData = await findOneAppData(req.body.ID, req.body.applicationId);
   // let myData = await SUPP00018.findOne({ ID: req.body.ID });
   if (!myData) {
-    return next(new ErrorResponse(`Record with ${ID} Not found`, 400));
+    return next(new ErrorResponse(`Record with ${req.body.ID} Not found`, 400));
   }
   //---------------------------
   // Item update logic....
