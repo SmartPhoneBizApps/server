@@ -23,6 +23,14 @@ module.exports = {
     var result = require(fn);
     return result;
   },
+  checkItemData: function (a, b) {
+    // Read Create Map Config
+    // These are converted old XML files from smartapp
+    let fn = "../NewConfig/" + a + "_" + b + "_config.json";
+    var result1 = require(fn);
+    var result = result1["itemData"];
+    return result;
+  },
   getPVConfig: function (a, b) {
     // Read Create Map Config
     // These are converted old XML files from smartapp

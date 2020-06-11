@@ -16,6 +16,7 @@ const {
   findOneAppData,
   collectExceptionFields,
   handleArray,
+  checkItemData,
 } = require("../../modules/config");
 
 const { valAppNotNull } = require("../../modules/validationMessages");
@@ -506,6 +507,7 @@ exports.updateDataRecords = asyncHandler(async (req, res, next) => {
       myData["MultiAttachments"] = req.body["MultiAttachments"];
     }
   }
+
   //---------------------------
   // Update Transaction Log
   //---------------------------
@@ -526,10 +528,12 @@ exports.updateDataRecords = asyncHandler(async (req, res, next) => {
     );
     req.body = outdata;
   }
+  console.log(req.body);
+  itm = checkItemData(req.headers.applicationid, req.headers.businessrole);
   //---------------------------
   result = await findOneUpdateData(req.body, req.headers.applicationid);
   //console.log("Stage1", result, req.headers.applicationid, req.body);
-  if (req.body["ItemData"]) {
+  if (itm == "Yes") {
     result2 = await findAndUpdateItem(
       req.body["ItemData"],
       req.headers.applicationid
