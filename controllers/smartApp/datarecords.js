@@ -487,11 +487,24 @@ exports.updateDataRecords = asyncHandler(async (req, res, next) => {
   //---------------------------
   // Attachment logic....
   //---------------------------
+
   if (req.body["MultiAttachments"]) {
-    myData["MultiAttachments"] = handleArray(
-      req.body["MultiAttachments"]["items"],
-      myData["MultiAttachments"]["items"][0]
-    );
+    if (myData["MultiAttachments"]) {
+      if (myData["MultiAttachments"]["items"]) {
+        console.log("Multiple Attachments");
+        req.body["MultiAttachments"]["items"] = handleArray(
+          req.body["MultiAttachments"]["items"][0],
+          myData["MultiAttachments"]["items"]
+        );
+        myData["MultiAttachments"] = req.body["MultiAttachments"];
+      } else {
+        console.log("Single Attachments");
+        myData["MultiAttachments"] = req.body["MultiAttachments"];
+      }
+    } else {
+      console.log("Single Attachments - No Tag");
+      myData["MultiAttachments"] = req.body["MultiAttachments"];
+    }
   }
   //---------------------------
   // Update Transaction Log
@@ -515,13 +528,13 @@ exports.updateDataRecords = asyncHandler(async (req, res, next) => {
   }
   //---------------------------
   result = await findOneUpdateData(req.body, req.headers.applicationid);
-  console.log("Stage1", result, req.headers.applicationid, req.body);
+  //console.log("Stage1", result, req.headers.applicationid, req.body);
   if (req.body["ItemData"]) {
     result2 = await findAndUpdateItem(
       req.body["ItemData"],
       req.headers.applicationid
     );
-    console.log("Stage1", result2);
+    //   console.log("Stage1", result2);
   }
   res.status(200).json({
     success: true,

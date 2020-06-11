@@ -143,10 +143,12 @@ module.exports = {
     }
     return newitemData;
   },
-  handleArray: function (oldData, newData) {
+  handleArray: function (newData, oldData) {
     let current = [];
     current = oldData;
+    console.log("OldData", current);
     current.push(newData);
+    console.log("NewItems", current);
     return current;
   },
   getCompany: function (app) {
