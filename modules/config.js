@@ -155,17 +155,14 @@ module.exports = {
     let current = [];
     let docID = newData["documentId"];
     console.log("NewID", docID);
-
+    current.push(newData);
     for (let index = 0; index < oldData.length; index++) {
-      console.log("OldID", oldData[index]["documentId"]);
       if (oldData[index]["documentId"] == docID) {
-        console.log("Update");
-        current.push(newData);
+        console.log("OldID-M", oldData[index]["documentId"]);
+        // current.push(newData);
+        // move the file to Archive here......
       } else {
-        console.log("Insert");
-        if (index == 0) {
-          current.push(newData);
-        }
+        console.log("OldID-NM", oldData[index]["documentId"]);
         current.push(oldData[index]);
       }
     }
