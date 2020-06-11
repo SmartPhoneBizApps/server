@@ -153,9 +153,26 @@ module.exports = {
   },
   handleArray: function (newData, oldData) {
     let current = [];
-    current = oldData;
+    let docID = newData["documentId"];
+    console.log("NewID", docID);
+
+    for (let index = 0; index < oldData.length; index++) {
+      console.log("OldID", oldData[index]["documentId"]);
+      if (oldData[index]["documentId"] == docID) {
+        console.log("Update");
+        current.push(newData);
+      } else {
+        console.log("Insert");
+        if (index == 0) {
+          current.push(newData);
+        }
+        current.push(oldData[index]);
+      }
+    }
+
+    //   current = oldData;
     console.log("OldData", current);
-    current.push(newData);
+    //  current.push(newData);
     console.log("NewItems", current);
     return current;
   },

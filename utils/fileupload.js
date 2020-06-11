@@ -59,8 +59,13 @@ exports.uploadFile = asyncHandler(async (req, res, next) => {
     }
   }
   let version = 1;
+
   if (req.headers.type == "NewVersion") {
-    version = version + 1;
+    if (req.headers.version) {
+      new ErrorResponse(`Please provide current version of the document`, 400);
+    } else {
+      version = req.headers.version + 1;
+    }
   }
 
   let statuses = [
