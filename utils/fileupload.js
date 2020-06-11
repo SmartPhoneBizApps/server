@@ -58,8 +58,9 @@ exports.uploadFile = asyncHandler(async (req, res, next) => {
       }
     }
   }
-  if (req.headers.type == "NewUpload") {
-    version = 1;
+  let version = 1;
+  if (req.headers.type == "NewVersion") {
+    version = version + 1;
   }
 
   let statuses = [
