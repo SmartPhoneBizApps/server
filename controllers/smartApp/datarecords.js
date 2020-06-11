@@ -484,6 +484,15 @@ exports.updateDataRecords = asyncHandler(async (req, res, next) => {
     myData["ItemData"] = itemValidate(req.body["ItemData"], myData["ItemData"]);
   }
   //---------------------------
+  // Attachment logic....
+  //---------------------------
+  if (req.body["MultiAttachments"]) {
+    myData["MultiAttachments"] = handleArray(
+      req.body["MultiAttachments"],
+      myData["MultiAttachments"]
+    );
+  }
+  //---------------------------
   // Update Transaction Log
   //---------------------------
   myData.TransLog.forEach((ex1) => {

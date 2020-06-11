@@ -143,7 +143,11 @@ module.exports = {
     }
     return newitemData;
   },
-
+  handleArray: function (oldData, newData) {
+    let current = oldData;
+    current.push(newData);
+    return current;
+  },
   getCompany: function (app) {
     const myApp = App.findOne({ applicationID: app });
     return myApp;
