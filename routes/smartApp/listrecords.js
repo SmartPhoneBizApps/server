@@ -3,7 +3,7 @@ const { getListrecords } = require("../../controllers/smartApp/listrecords");
 const router = express.Router();
 const advancedDataList = require("../../middleware/advancedDataList");
 const { protect, authorize } = require("../../middleware/auth");
-
+const BUS0000001 = require("../../models/smartApp/BUS0000002");
 const BUS0000002 = require("../../models/smartApp/BUS0000002");
 const BUS0000003 = require("../../models/smartApp/BUS0000003");
 const BUS0000004 = require("../../models/smartApp/BUS0000004");
@@ -94,9 +94,16 @@ const EMP00011 = require("../../models/smartApp/EMP00011");
 const ERP00011 = require("../../models/smartApp/ERP00011");
 const EMP00017 = require("../../models/smartApp/EMP00017");
 const EMPNEW01 = require("../../models/smartApp/EMPNEW01");
+const TIME0002 = require("../../models/smartApp/TIME0002");
 
 //router.use("/:smartappId/reviews", reviewRouter);
-
+router
+  .route("/BUS0000001")
+  .get(
+    protect,
+    advancedDataList(BUS0000001, BUS0000001, "BUS0000001"),
+    getListrecords
+  );
 router
   .route("/BUS0000002")
   .get(
@@ -518,6 +525,13 @@ router
   .get(
     protect,
     advancedDataList(ERP00014, ERP00014, "ERP00014"),
+    getListrecords
+  );
+router
+  .route("/TIME0002")
+  .get(
+    protect,
+    advancedDataList(TIME0002, TIME0002, "TIME0002"),
     getListrecords
   );
 router
