@@ -7,63 +7,51 @@
   },
   "ReferenceNo": {
     "type": "String",
-
     "maxlength": [20, "ReferenceNo can not be more than 20 characters"]
   },
   "InvoiceNo": {
     "type": "String",
-
     "maxlength": [20, "InvoiceNo can not be more than 20 characters"]
   },
   "Equipment": {
     "type": "String",
-
     "maxlength": [50, "Equipment can not be more than 50 characters"]
   },
   "Model": {
     "type": "String",
-
     "maxlength": [50, "Model can not be more than 50 characters"]
   },
   "SerialNumber": {
     "type": "String",
-
     "maxlength": [50, "SerialNumber can not be more than 50 characters"]
   },
   "CertificateAtt": {
     "type": "String",
-
     "maxlength": [50, "CertificateAtt can not be more than 50 characters"]
   },
   "ReportAtt": {
     "type": "String",
-
     "maxlength": [50, "ReportAtt can not be more than 50 characters"]
   },
   "Result": {
     "type": "String",
-
     "maxlength": [20, "Result can not be more than 20 characters"]
   },
   "Status": {
     "type": "String",
-
     "required": [true, "Please add Mandatory field :Status"],
-    "maxlength": [20, "Status can not be more than 20 characters"]
+    "maxlength": [50, "Status can not be more than 50 characters"]
   },
   "Comment": {
     "type": "String",
-
     "maxlength": [50, "Comment can not be more than 50 characters"]
   },
   "Remark": {
     "type": "String",
-
     "maxlength": [50, "Remark can not be more than 50 characters"]
   },
   "CalibDate": {
     "type": "Date",
-
     "maxlength": [10, "CalibDate can not be more than 10 characters"],
     "match": [
       "DATE_V1",
@@ -72,7 +60,6 @@
   },
   "CalibStartDate": {
     "type": "Date",
-
     "required": [true, "Please add Mandatory field :CalibStartDate"],
     "maxlength": [10, "CalibStartDate can not be more than 10 characters"],
     "match": [
@@ -82,7 +69,6 @@
   },
   "CalibExpireDate": {
     "type": "Date",
-
     "maxlength": [10, "CalibExpireDate can not be more than 10 characters"],
     "match": [
       "DATE_V1",
@@ -92,6 +78,8 @@
   "USP_Name": { "type": "String" },
   "USP_Role": { "type": "String" },
   "USP_Image": { "type": "String" },
+  "carouselImage": [],
+  "MultiAttachments": {},
   "TransLog": [],
   "ItemData": []
 }

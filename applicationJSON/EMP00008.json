@@ -7,66 +7,54 @@
   },
   "EmployeeID": {
     "type": "String",
-
     "required": [true, "Please add Mandatory field :EmployeeID"],
     "maxlength": [20, "EmployeeID can not be more than 20 characters"]
   },
   "Name": {
     "type": "String",
-
     "required": [true, "Please add Mandatory field :EmpName"],
     "maxlength": [50, "EmpName can not be more than 50 characters"]
   },
   "Currency": {
     "type": "String",
-
     "maxlength": [10, "Currency can not be more than 10 characters"]
   },
   "ProjectCode": {
     "type": "String",
-
     "maxlength": [50, "ProjectCode can not be more than 50 characters"]
   },
   "CostCentre": {
     "type": "String",
-
     "maxlength": [50, "CostCentre can not be more than 50 characters"]
   },
   "Receipt": {
     "type": "String",
-
     "maxlength": [100, "Receipt can not be more than 100 characters"]
   },
   "ExpType": {
     "type": "String",
-
     "required": [true, "Please add Mandatory field :ExpType"],
     "maxlength": [100, "ExpType can not be more than 100 characters"]
   },
   "ExpenseDetails": {
     "type": "String",
-
     "maxlength": [200, "ExpenseDetails can not be more than 200 characters"]
   },
   "Status": {
     "type": "String",
-
     "required": [true, "Please add Mandatory field :Status"],
-    "maxlength": [20, "Status can not be more than 20 characters"]
+    "maxlength": [50, "Status can not be more than 50 characters"]
   },
   "ProcessingLog": {
     "type": "String",
-
     "maxlength": [1000, "ProcessingLog can not be more than 1000 characters"]
   },
   "Approver": {
     "type": "String",
-
     "maxlength": [100, "Approver can not be more than 100 characters"]
   },
   "TotalAmount": {
     "type": "Number",
-
     "maxlength": [20, "TotalAmount can not be more than 20 characters"],
     "match": [
       "NUM_2_DEC_PLACE_V1",
@@ -75,7 +63,6 @@
   },
   "EntryDate": {
     "type": "Date",
-
     "required": [true, "Please add Mandatory field :EntryDate"],
     "maxlength": [10, "EntryDate can not be more than 10 characters"],
     "match": [
@@ -85,7 +72,6 @@
   },
   "ExpenseDate": {
     "type": "Date",
-
     "maxlength": [10, "ExpenseDate can not be more than 10 characters"],
     "match": [
       "DATE_V1",
@@ -95,6 +81,8 @@
   "USP_Name": { "type": "String" },
   "USP_Role": { "type": "String" },
   "USP_Image": { "type": "String" },
+  "carouselImage": [],
+  "MultiAttachments": {},
   "TransLog": [],
   "ItemData": []
 }

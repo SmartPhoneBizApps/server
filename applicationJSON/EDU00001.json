@@ -7,54 +7,45 @@
   },
   "Name": {
     "type": "String",
-
     "required": [true, "Please add Mandatory field :Name"],
     "maxlength": [50, "Name can not be more than 50 characters"]
   },
   "Surname": {
     "type": "String",
-
     "required": [true, "Please add Mandatory field :Surname"],
     "maxlength": [50, "Surname can not be more than 50 characters"]
   },
   "SchoolNo": {
     "type": "String",
-
     "required": [true, "Please add Mandatory field :SchoolNo"],
     "maxlength": [20, "SchoolNo can not be more than 20 characters"]
   },
   "SchoolName": {
     "type": "String",
-
     "required": [true, "Please add Mandatory field :SchoolName"],
     "maxlength": [500, "SchoolName can not be more than 500 characters"]
   },
   "Year": {
     "type": "String",
-
     "required": [true, "Please add Mandatory field :Year"],
     "maxlength": [50, "Year can not be more than 50 characters"],
     "match": ["YEAR_V1", "Please provide 4 digit year in field :Year"]
   },
   "Section": {
     "type": "String",
-
     "maxlength": [100, "Section can not be more than 100 characters"]
   },
   "ClassTeacher": {
     "type": "String",
-
     "required": [true, "Please add Mandatory field :ClassTeacher"],
     "maxlength": [100, "ClassTeacher can not be more than 100 characters"]
   },
   "Street": {
     "type": "String",
-
     "maxlength": [500, "Street can not be more than 500 characters"]
   },
   "Postcode": {
     "type": "String",
-
     "required": [true, "Please add Mandatory field :Postcode"],
     "maxlength": [20, "Postcode can not be more than 20 characters"],
     "match": [
@@ -64,17 +55,14 @@
   },
   "City": {
     "type": "String",
-
     "maxlength": [50, "City can not be more than 50 characters"]
   },
   "Country": {
     "type": "String",
-
     "maxlength": [20, "Country can not be more than 20 characters"]
   },
   "Phone": {
     "type": "String",
-
     "required": [true, "Please add Mandatory field :Phone"],
     "maxlength": [20, "Phone can not be more than 20 characters"],
     "match": [
@@ -84,38 +72,32 @@
   },
   "Email": {
     "type": "String",
-
     "required": [true, "Please add Mandatory field :Email"],
-    "maxlength": [50, "Email can not be more than 50 characters"],
+    "maxlength": [100, "Email can not be more than 100 characters"],
     "match": ["EMAIL_V1", "Invalid EmailID for field :Email"]
   },
   "Status": {
     "type": "String",
-
     "required": [true, "Please add Mandatory field :Status"],
-    "maxlength": [20, "Status can not be more than 20 characters"]
+    "maxlength": [50, "Status can not be more than 50 characters"]
   },
   "Latitude": {
     "type": "String",
-
     "maxlength": [50, "Latitude can not be more than 50 characters"],
     "match": ["LATITUDE_V1", "Invalid Lat/Long values for field :Latitude"]
   },
   "Longitude": {
     "type": "String",
-
     "maxlength": [50, "Longitude can not be more than 50 characters"],
     "match": ["LONGITUDE_V1", "Invalid Lat/Long values for field :Longitude"]
   },
   "Address": {
     "type": "String",
-
     "required": [true, "Please add Mandatory field :Address"],
     "maxlength": [500, "Address can not be more than 500 characters"]
   },
   "PostCode": {
     "type": "String",
-
     "required": [true, "Please add Mandatory field :PostCode"],
     "maxlength": [20, "PostCode can not be more than 20 characters"],
     "match": [
@@ -125,12 +107,10 @@
   },
   "Question_Response": {
     "type": "String",
-
     "maxlength": [500, "Question_Response can not be more than 500 characters"]
   },
   "DOB": {
     "type": "Date",
-
     "maxlength": [10, "DOB can not be more than 10 characters"],
     "match": [
       "DATE_V1",
@@ -139,7 +119,6 @@
   },
   "RegDate": {
     "type": "Date",
-
     "maxlength": [10, "RegDate can not be more than 10 characters"],
     "match": [
       "DATE_V1",
@@ -148,7 +127,6 @@
   },
   "WaitListNo": {
     "type": "Number",
-
     "maxlength": [50, "WaitListNo can not be more than 50 characters"],
     "match": [
       "NUM_INT_MAX_10D_V1",
@@ -158,6 +136,8 @@
   "USP_Name": { "type": "String" },
   "USP_Role": { "type": "String" },
   "USP_Image": { "type": "String" },
+  "carouselImage": [],
+  "MultiAttachments": {},
   "TransLog": [],
   "ItemData": []
 }

@@ -7,7 +7,6 @@
   },
   "VendorName": {
     "type": "String",
-
     "required": [true, "Please add Mandatory field :VendorName"],
     "maxlength": [50, "VendorName can not be more than 50 characters"],
     "match": [
@@ -17,43 +16,35 @@
   },
   "Plant": {
     "type": "String",
-
     "maxlength": [20, "Plant can not be more than 20 characters"]
   },
   "PaymentTerm": {
     "type": "String",
-
     "maxlength": [20, "PaymentTerm can not be more than 20 characters"]
   },
   "Category": {
     "type": "String",
-
     "maxlength": [50, "Category can not be more than 50 characters"]
   },
   "Details": {
     "type": "String",
-
     "maxlength": [50, "Details can not be more than 50 characters"]
   },
   "UoM": {
     "type": "String",
-
     "maxlength": [10, "UoM can not be more than 10 characters"]
   },
   "Status": {
     "type": "String",
-
     "required": [true, "Please add Mandatory field :Status"],
-    "maxlength": [20, "Status can not be more than 20 characters"]
+    "maxlength": [50, "Status can not be more than 50 characters"]
   },
   "Office": {
     "type": "String",
-
     "maxlength": [50, "Office can not be more than 50 characters"]
   },
   "CostCentre": {
     "type": "String",
-
     "maxlength": [50, "CostCentre can not be more than 50 characters"]
   },
   "CostType": {
@@ -62,7 +53,6 @@
   },
   "GLAccount": {
     "type": "String",
-
     "maxlength": [20, "GLAccount can not be more than 20 characters"]
   },
   "OtherInfo": {
@@ -87,12 +77,10 @@
   },
   "Country": {
     "type": "String",
-
     "maxlength": [100, "Country can not be more than 100 characters"]
   },
   "ContactNo": {
     "type": "String",
-
     "maxlength": [100, "ContactNo can not be more than 100 characters"],
     "match": [
       "UK_PHONE_V1",
@@ -101,54 +89,44 @@
   },
   "Email": {
     "type": "String",
-
     "required": [true, "Please add Mandatory field :Email"],
     "maxlength": [100, "Email can not be more than 100 characters"],
     "match": ["EMAIL_V1", "Invalid EmailID for field :Email"]
   },
   "DeliveryInstr": {
     "type": "String",
-
     "maxlength": [500, "DeliveryInstr can not be more than 500 characters"]
   },
   "Currency": {
     "type": "String",
-
     "maxlength": [50, "Currency can not be more than 50 characters"]
   },
   "PaymentOption": {
     "type": "String",
-
     "maxlength": [50, "PaymentOption can not be more than 50 characters"]
   },
   "TransactionID": {
     "type": "String",
-
     "maxlength": [50, "TransactionID can not be more than 50 characters"]
   },
   "TransactionStatus": {
     "type": "String",
-
     "maxlength": [50, "TransactionStatus can not be more than 50 characters"]
   },
   "Approver": {
     "type": "String",
-
     "maxlength": [100, "Approver can not be more than 100 characters"]
   },
   "ProcessingLog": {
     "type": "String",
-
     "maxlength": [1000, "ProcessingLog can not be more than 1000 characters"]
   },
   "MutiItems": {
     "type": "String",
-
     "maxlength": [3, "MutiItems can not be more than 3 characters"]
   },
   "SCDate": {
     "type": "Date",
-
     "maxlength": [10, "SCDate can not be more than 10 characters"],
     "match": [
       "DATE_V1",
@@ -157,7 +135,6 @@
   },
   "SCQty": {
     "type": "Number",
-
     "maxlength": [10, "SCQty can not be more than 10 characters"],
     "match": [
       "NUM_INT_MAX_10D_V1",
@@ -166,7 +143,6 @@
   },
   "Price": {
     "type": "Number",
-
     "maxlength": [50, "Price can not be more than 50 characters"],
     "match": [
       "NUM_2_DEC_PLACE_V1",
@@ -175,7 +151,6 @@
   },
   "NetValue": {
     "type": "Number",
-
     "maxlength": [50, "NetValue can not be more than 50 characters"],
     "match": [
       "NUM_2_DEC_PLACE_V1",
@@ -184,7 +159,6 @@
   },
   "VATRate": {
     "type": "Number",
-
     "maxlength": [10, "VATRate can not be more than 10 characters"],
     "match": [
       "NUM_2_DEC_PLACE_V1",
@@ -193,7 +167,6 @@
   },
   "VATVal": {
     "type": "Number",
-
     "maxlength": [50, "VATVal can not be more than 50 characters"],
     "match": [
       "NUM_2_DEC_PLACE_V1",
@@ -202,7 +175,6 @@
   },
   "GrossValue": {
     "type": "Number",
-
     "maxlength": [50, "GrossValue can not be more than 50 characters"],
     "match": [
       "NUM_2_DEC_PLACE_V1",
@@ -211,7 +183,6 @@
   },
   "Budget": {
     "type": "Number",
-
     "maxlength": [10, "Budget can not be more than 10 characters"],
     "match": [
       "NUM_2_DEC_PLACE_V1",
@@ -220,7 +191,6 @@
   },
   "DeliveryDt": {
     "type": "Date",
-
     "maxlength": [10, "DeliveryDt can not be more than 10 characters"],
     "match": [
       "DATE_V1",
@@ -229,7 +199,6 @@
   },
   "BudgetUsed": {
     "type": "Number",
-
     "maxlength": [10, "BudgetUsed can not be more than 10 characters"],
     "match": [
       "NUM_2_DEC_PLACE_V1",
@@ -238,7 +207,6 @@
   },
   "PaymentAmount": {
     "type": "Number",
-
     "maxlength": [50, "PaymentAmount can not be more than 50 characters"],
     "match": [
       "NUM_2_DEC_PLACE_V1",
@@ -247,7 +215,6 @@
   },
   "VATPer": {
     "type": "Number",
-
     "maxlength": [100, "VATPer can not be more than 100 characters"],
     "match": [
       "NUM_2_DEC_PLACE_V1",
@@ -257,6 +224,8 @@
   "USP_Name": { "type": "String" },
   "USP_Role": { "type": "String" },
   "USP_Image": { "type": "String" },
+  "carouselImage": [],
+  "MultiAttachments": {},
   "TransLog": [],
   "ItemData": []
 }

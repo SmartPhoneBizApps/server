@@ -7,50 +7,42 @@
   },
   "StudentName": {
     "type": "String",
-
     "required": [true, "Please add Mandatory field :StudentName"],
     "maxlength": [50, "StudentName can not be more than 50 characters"]
   },
   "RequestFor": {
     "type": "String",
-
     "maxlength": [50, "RequestFor can not be more than 50 characters"]
   },
   "Status": {
     "type": "String",
-
     "required": [true, "Please add Mandatory field :Status"],
-    "maxlength": [20, "Status can not be more than 20 characters"]
+    "maxlength": [50, "Status can not be more than 50 characters"]
   },
   "StudentID": {
     "type": "String",
-
     "required": [true, "Please add Mandatory field :StudentID"],
     "maxlength": [20, "StudentID can not be more than 20 characters"]
   },
   "Email": {
     "type": "String",
-
     "required": [true, "Please add Mandatory field :Email"],
-    "maxlength": [50, "Email can not be more than 50 characters"],
+    "maxlength": [100, "Email can not be more than 100 characters"],
     "match": ["EMAIL_V1", "Invalid EmailID for field :Email"]
   },
   "GuestName": {
     "type": "String",
-
     "required": [true, "Please add Mandatory field :GuestName"],
     "maxlength": [50, "GuestName can not be more than 50 characters"]
   },
   "GuestEmail": {
     "type": "String",
-
     "required": [true, "Please add Mandatory field :GuestEmail"],
     "maxlength": [50, "GuestEmail can not be more than 50 characters"],
     "match": ["EMAIL_V1", "Invalid EmailID for field :GuestEmail"]
   },
   "StudentPhone": {
     "type": "String",
-
     "maxlength": [50, "StudentPhone can not be more than 50 characters"],
     "match": [
       "UK_PHONE_V1",
@@ -59,7 +51,6 @@
   },
   "GuestPhone": {
     "type": "String",
-
     "required": [true, "Please add Mandatory field :GuestPhone"],
     "maxlength": [50, "GuestPhone can not be more than 50 characters"],
     "match": [
@@ -69,23 +60,19 @@
   },
   "Question_Response": {
     "type": "String",
-
     "maxlength": [500, "Question_Response can not be more than 500 characters"]
   },
   "AnyComment": {
     "type": "String",
-
     "maxlength": [1000, "AnyComment can not be more than 1000 characters"]
   },
   "Address": {
     "type": "String",
-
     "required": [true, "Please add Mandatory field :Address"],
     "maxlength": [200, "Address can not be more than 200 characters"]
   },
   "PostCode": {
     "type": "String",
-
     "required": [true, "Please add Mandatory field :PostCode"],
     "maxlength": [100, "PostCode can not be more than 100 characters"],
     "match": [
@@ -95,22 +82,18 @@
   },
   "StudyLevel": {
     "type": "String",
-
     "maxlength": [100, "StudyLevel can not be more than 100 characters"]
   },
   "Subject": {
     "type": "String",
-
     "maxlength": [200, "Subject can not be more than 200 characters"]
   },
   "EquipmentName": {
     "type": "String",
-
     "maxlength": [200, "EquipmentName can not be more than 200 characters"]
   },
   "NINumber": {
     "type": "String",
-
     "maxlength": [20, "NINumber can not be more than 20 characters"],
     "match": [
       "UK_NI_NUMBER_V1",
@@ -119,79 +102,64 @@
   },
   "EthnicOrigin": {
     "type": "String",
-
     "maxlength": [50, "EthnicOrigin can not be more than 50 characters"]
   },
   "Q1": {
     "type": "String",
-
     "maxlength": [200, "Q1 can not be more than 200 characters"]
   },
   "A1": {
     "type": "String",
-
     "maxlength": [200, "A1 can not be more than 200 characters"]
   },
   "Q2": {
     "type": "String",
-
     "maxlength": [200, "Q2 can not be more than 200 characters"]
   },
   "A2": {
     "type": "String",
-
     "maxlength": [200, "A2 can not be more than 200 characters"]
   },
   "Q3": {
     "type": "String",
-
     "maxlength": [200, "Q3 can not be more than 200 characters"]
   },
   "A3": {
     "type": "String",
-
     "maxlength": [200, "A3 can not be more than 200 characters"]
   },
   "Q4": {
     "type": "String",
-
     "maxlength": [100, "Q4 can not be more than 100 characters"]
   },
   "A4": {
     "type": "String",
-
     "maxlength": [100, "A4 can not be more than 100 characters"]
   },
   "Essay": {
     "type": "String",
-
     "maxlength": [1000, "Essay can not be more than 1000 characters"]
   },
   "LeaveReason": {
     "type": "String",
-
     "maxlength": [100, "LeaveReason can not be more than 100 characters"]
   },
   "DegreePursuing": {
     "type": "String",
-
     "maxlength": [100, "DegreePursuing can not be more than 100 characters"]
   },
   "ParentEmail": {
     "type": "String",
-
     "required": [true, "Please add Mandatory field :ParentEmail"],
     "maxlength": [100, "ParentEmail can not be more than 100 characters"],
     "match": ["EMAIL_V1", "Invalid EmailID for field :ParentEmail"]
   },
   "ProcessingLog": {
     "type": "String",
-
     "maxlength": [500, "ProcessingLog can not be more than 500 characters"]
   },
   "EntryDate": {
     "type": "Date",
-
     "required": [true, "Please add Mandatory field :EntryDate"],
     "maxlength": [10, "EntryDate can not be more than 10 characters"],
     "match": [
@@ -201,7 +169,6 @@
   },
   "RequestDate": {
     "type": "Date",
-
     "required": [true, "Please add Mandatory field :RequestDate"],
     "maxlength": [10, "RequestDate can not be more than 10 characters"],
     "match": [
@@ -211,7 +178,6 @@
   },
   "RequiredDate": {
     "type": "Date",
-
     "maxlength": [10, "RequiredDate can not be more than 10 characters"],
     "match": [
       "DATE_V1",
@@ -220,7 +186,6 @@
   },
   "LeaveFrom": {
     "type": "Date",
-
     "required": [true, "Please add Mandatory field :LeaveFrom"],
     "maxlength": [10, "LeaveFrom can not be more than 10 characters"],
     "match": [
@@ -230,7 +195,6 @@
   },
   "LeaveTo": {
     "type": "Date",
-
     "required": [true, "Please add Mandatory field :LeaveTo"],
     "maxlength": [10, "LeaveTo can not be more than 10 characters"],
     "match": [
@@ -240,7 +204,6 @@
   },
   "LeaveDays": {
     "type": "Number",
-
     "required": [true, "Please add Mandatory field :LeaveDays"],
     "maxlength": [10, "LeaveDays can not be more than 10 characters"],
     "match": [
@@ -251,6 +214,8 @@
   "USP_Name": { "type": "String" },
   "USP_Role": { "type": "String" },
   "USP_Image": { "type": "String" },
+  "carouselImage": [],
+  "MultiAttachments": {},
   "TransLog": [],
   "ItemData": []
 }

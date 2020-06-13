@@ -7,29 +7,24 @@
   },
   "FirstName": {
     "type": "String",
-
     "required": [true, "Please add Mandatory field :FirstName"],
     "maxlength": [20, "FirstName can not be more than 20 characters"]
   },
   "LastName": {
     "type": "String",
-
     "required": [true, "Please add Mandatory field :LastName"],
     "maxlength": [20, "LastName can not be more than 20 characters"]
   },
   "StreetAdd": {
     "type": "String",
-
     "maxlength": [100, "StreetAdd can not be more than 100 characters"]
   },
   "City": {
     "type": "String",
-
     "maxlength": [100, "City can not be more than 100 characters"]
   },
   "PostCode": {
     "type": "String",
-
     "required": [true, "Please add Mandatory field :PostCode"],
     "maxlength": [100, "PostCode can not be more than 100 characters"],
     "match": [
@@ -39,26 +34,22 @@
   },
   "Country": {
     "type": "String",
-
     "maxlength": [100, "Country can not be more than 100 characters"]
   },
   "Email": {
     "type": "String",
-
     "required": [true, "Please add Mandatory field :Email"],
     "maxlength": [100, "Email can not be more than 100 characters"],
     "match": ["EMAIL_V1", "Invalid EmailID for field :Email"]
   },
   "Gender": {
     "type": "String",
-
     "required": [true, "Please add Mandatory field :Gender"],
     "maxlength": [100, "Gender can not be more than 100 characters"],
     "match": ["GENDER_V1", "Invalid Gender value in field : Gender"]
   },
   "HomePh": {
     "type": "String",
-
     "required": [true, "Please add Mandatory field :HomePh"],
     "maxlength": [100, "HomePh can not be more than 100 characters"],
     "match": [
@@ -68,7 +59,6 @@
   },
   "MobileNo": {
     "type": "String",
-
     "required": [true, "Please add Mandatory field :MobileNo"],
     "maxlength": [100, "MobileNo can not be more than 100 characters"],
     "match": [
@@ -78,25 +68,21 @@
   },
   "ReasonForVisit": {
     "type": "String",
-
     "required": [true, "Please add Mandatory field :ReasonForVisit"],
     "maxlength": [1000, "ReasonForVisit can not be more than 1000 characters"]
   },
   "GP": {
     "type": "String",
-
     "required": [true, "Please add Mandatory field :GP"],
     "maxlength": [200, "GP can not be more than 200 characters"]
   },
   "GPOffice": {
     "type": "String",
-
     "required": [true, "Please add Mandatory field :GPOffice"],
     "maxlength": [200, "GPOffice can not be more than 200 characters"]
   },
   "CurrentHealthIssues": {
     "type": "String",
-
     "required": [true, "Please add Mandatory field :CurrentHealthIssues"],
     "maxlength": [
       1000,
@@ -105,30 +91,25 @@
   },
   "AnyAllergy": {
     "type": "String",
-
     "required": [true, "Please add Mandatory field :AnyAllergy"],
     "maxlength": [1000, "AnyAllergy can not be more than 1000 characters"]
   },
   "AnyMedication": {
     "type": "String",
-
     "required": [true, "Please add Mandatory field :AnyMedication"],
     "maxlength": [50, "AnyMedication can not be more than 50 characters"]
   },
   "PlsList": {
     "type": "String",
-
     "maxlength": [500, "PlsList can not be more than 500 characters"]
   },
   "Status": {
     "type": "String",
-
     "required": [true, "Please add Mandatory field :Status"],
-    "maxlength": [20, "Status can not be more than 20 characters"]
+    "maxlength": [50, "Status can not be more than 50 characters"]
   },
   "DOB": {
     "type": "Date",
-
     "maxlength": [10, "DOB can not be more than 10 characters"],
     "match": [
       "DATE_V1",
@@ -138,6 +119,8 @@
   "USP_Name": { "type": "String" },
   "USP_Role": { "type": "String" },
   "USP_Image": { "type": "String" },
+  "carouselImage": [],
+  "MultiAttachments": {},
   "TransLog": [],
   "ItemData": []
 }

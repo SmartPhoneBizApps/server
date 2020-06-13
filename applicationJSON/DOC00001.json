@@ -7,18 +7,15 @@
   },
   "S1": {
     "type": "String",
-
     "maxlength": [50, "S1 can not be more than 50 characters"]
   },
   "ReferringPhysician": {
     "type": "String",
-
     "required": [true, "Please add Mandatory field :ReferringPhysician"],
     "maxlength": [50, "ReferringPhysician can not be more than 50 characters"]
   },
   "Fax": {
     "type": "String",
-
     "maxlength": [50, "Fax can not be more than 50 characters"],
     "match": [
       "UK_PHONE_V1",
@@ -27,30 +24,25 @@
   },
   "ReferralTo": {
     "type": "String",
-
     "required": [true, "Please add Mandatory field :ReferralTo"],
     "maxlength": [50, "ReferralTo can not be more than 50 characters"]
   },
   "S2": {
     "type": "String",
-
     "maxlength": [50, "S2 can not be more than 50 characters"]
   },
   "PatientName": {
     "type": "String",
-
     "required": [true, "Please add Mandatory field :PatientName"],
     "maxlength": [50, "PatientName can not be more than 50 characters"]
   },
   "Address": {
     "type": "String",
-
     "required": [true, "Please add Mandatory field :Address"],
     "maxlength": [200, "Address can not be more than 200 characters"]
   },
   "HomeContactNo": {
     "type": "String",
-
     "required": [true, "Please add Mandatory field :HomeContactNo"],
     "maxlength": [50, "HomeContactNo can not be more than 50 characters"],
     "match": [
@@ -60,57 +52,47 @@
   },
   "Gender": {
     "type": "String",
-
     "required": [true, "Please add Mandatory field :Gender"],
     "maxlength": [20, "Gender can not be more than 20 characters"],
     "match": ["GENDER_V1", "Invalid Gender value in field : Gender"]
   },
   "Employer": {
     "type": "String",
-
     "required": [true, "Please add Mandatory field :Employer"],
     "maxlength": [50, "Employer can not be more than 50 characters"]
   },
   "Insurance": {
     "type": "String",
-
     "maxlength": [50, "Insurance can not be more than 50 characters"]
   },
   "SubscribeName": {
     "type": "String",
-
     "maxlength": [50, "SubscribeName can not be more than 50 characters"]
   },
   "MemberID": {
     "type": "String",
-
     "maxlength": [50, "MemberID can not be more than 50 characters"]
   },
   "S3": {
     "type": "String",
-
     "maxlength": [50, "S3 can not be more than 50 characters"]
   },
   "Problem": {
     "type": "String",
-
     "required": [true, "Please add Mandatory field :Problem"],
     "maxlength": [50, "Problem can not be more than 50 characters"]
   },
   "Status": {
     "type": "String",
-
     "required": [true, "Please add Mandatory field :Status"],
-    "maxlength": [20, "Status can not be more than 20 characters"]
+    "maxlength": [50, "Status can not be more than 50 characters"]
   },
   "Attachment": {
     "type": "String",
-
     "maxlength": [200, "Attachment can not be more than 200 characters"]
   },
   "DOB": {
     "type": "Date",
-
     "maxlength": [10, "DOB can not be more than 10 characters"],
     "match": [
       "DATE_V1",
@@ -119,7 +101,6 @@
   },
   "ReqAppointmentDate": {
     "type": "Date",
-
     "maxlength": [10, "ReqAppointmentDate can not be more than 10 characters"],
     "match": [
       "DATE_V1",
@@ -128,7 +109,6 @@
   },
   "AppointmentTime": {
     "type": "Date",
-
     "maxlength": [10, "AppointmentTime can not be more than 10 characters"],
     "match": [
       "DATE_V1",
@@ -138,6 +118,8 @@
   "USP_Name": { "type": "String" },
   "USP_Role": { "type": "String" },
   "USP_Image": { "type": "String" },
+  "carouselImage": [],
+  "MultiAttachments": {},
   "TransLog": [],
   "ItemData": []
 }

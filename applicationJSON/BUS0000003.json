@@ -7,19 +7,16 @@
   },
   "Name": {
     "type": "String",
-
     "maxlength": [50, "Name can not be more than 50 characters"]
   },
   "Email": {
     "type": "String",
-
     "required": [true, "Please add Mandatory field :Email"],
-    "maxlength": [50, "Email can not be more than 50 characters"],
+    "maxlength": [100, "Email can not be more than 100 characters"],
     "match": ["EMAIL_V1", "Invalid EmailID for field :Email"]
   },
   "Phone": {
     "type": "String",
-
     "required": [true, "Please add Mandatory field :Phone"],
     "maxlength": [20, "Phone can not be more than 20 characters"],
     "match": [
@@ -29,48 +26,39 @@
   },
   "UserAccount": {
     "type": "String",
-
     "maxlength": [20, "UserAccount can not be more than 20 characters"]
   },
   "From": {
     "type": "String",
-
     "maxlength": [50, "From can not be more than 50 characters"]
   },
   "To": {
     "type": "String",
-
     "maxlength": [50, "To can not be more than 50 characters"]
   },
   "ReturnJourney": {
     "type": "String",
-
     "maxlength": [20, "ReturnJourney can not be more than 20 characters"]
   },
   "TaxiFare": {
     "type": "String",
-
     "maxlength": [10, "TaxiFare can not be more than 10 characters"]
   },
   "Currency": {
     "type": "String",
-
     "maxlength": [20, "Currency can not be more than 20 characters"]
   },
   "CostCentre": {
     "type": "String",
-
     "maxlength": [20, "CostCentre can not be more than 20 characters"]
   },
   "Status": {
     "type": "String",
-
     "required": [true, "Please add Mandatory field :Status"],
-    "maxlength": [20, "Status can not be more than 20 characters"]
+    "maxlength": [50, "Status can not be more than 50 characters"]
   },
   "StartDate": {
     "type": "Date",
-
     "required": [true, "Please add Mandatory field :StartDate"],
     "maxlength": [10, "StartDate can not be more than 10 characters"],
     "match": [
@@ -88,7 +76,6 @@
   },
   "ReturnDate": {
     "type": "Date",
-
     "maxlength": [10, "ReturnDate can not be more than 10 characters"],
     "match": [
       "DATE_V1",
@@ -97,7 +84,6 @@
   },
   "ReturnTime": {
     "type": "Date",
-
     "maxlength": [10, "ReturnTime can not be more than 10 characters"],
     "match": [
       "DATE_V1",
@@ -107,6 +93,8 @@
   "USP_Name": { "type": "String" },
   "USP_Role": { "type": "String" },
   "USP_Image": { "type": "String" },
+  "carouselImage": [],
+  "MultiAttachments": {},
   "TransLog": [],
   "ItemData": []
 }

@@ -7,26 +7,22 @@
   },
   "Status": {
     "type": "String",
-
     "required": [true, "Please add Mandatory field :Status"],
-    "maxlength": [20, "Status can not be more than 20 characters"]
+    "maxlength": [50, "Status can not be more than 50 characters"]
   },
   "YourName": {
     "type": "String",
-
     "required": [true, "Please add Mandatory field :YourName"],
     "maxlength": [50, "YourName can not be more than 50 characters"]
   },
   "Email": {
     "type": "String",
-
     "required": [true, "Please add Mandatory field :Email"],
-    "maxlength": [50, "Email can not be more than 50 characters"],
+    "maxlength": [100, "Email can not be more than 100 characters"],
     "match": ["EMAIL_V1", "Invalid EmailID for field :Email"]
   },
   "YourPhone": {
     "type": "String",
-
     "required": [true, "Please add Mandatory field :YourPhone"],
     "maxlength": [20, "YourPhone can not be more than 20 characters"],
     "match": [
@@ -36,29 +32,24 @@
   },
   "YourDepartment": {
     "type": "String",
-
     "maxlength": [50, "YourDepartment can not be more than 50 characters"]
   },
   "YourBusiness": {
     "type": "String",
-
     "required": [true, "Please add Mandatory field :YourBusiness"],
     "maxlength": [50, "YourBusiness can not be more than 50 characters"]
   },
   "Subject": {
     "type": "String",
-
     "maxlength": [100, "Subject can not be more than 100 characters"]
   },
   "YourMessage": {
     "type": "String",
-
     "required": [true, "Please add Mandatory field :YourMessage"],
     "maxlength": [1000, "YourMessage can not be more than 1000 characters"]
   },
   "ContactDate": {
     "type": "Date",
-
     "required": [true, "Please add Mandatory field :ContactDate"],
     "maxlength": [10, "ContactDate can not be more than 10 characters"],
     "match": [
@@ -69,6 +60,8 @@
   "USP_Name": { "type": "String" },
   "USP_Role": { "type": "String" },
   "USP_Image": { "type": "String" },
+  "carouselImage": [],
+  "MultiAttachments": {},
   "TransLog": [],
   "ItemData": []
 }

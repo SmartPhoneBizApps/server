@@ -5,37 +5,104 @@
     "required": [true, "Please add Mandatory field :ID"],
     "maxlength": [20, "ID can not be more than 20 characters"]
   },
-  "Name": { "type": "String" },
-  "DOB": { "type": "Date" },
-  "Gender": { "type": "String" },
-  "Address": { "type": "String" },
-  "MartialStatus": { "type": "String" },
-  "Email": { "type": "String" },
-  "Designation": { "type": "String" },
-  "ChooseInsurancePlan": { "type": "String" },
-  "MedicalCoverage": { "type": "String" },
-  "Dentalcoverage": { "type": "String" },
-  "VisionCoverage": { "type": "String" },
-  "AccidentalDeathCoverage": { "type": "String" },
-  "Dependent1Name": { "type": "String" },
-  "Dependent1DOB": { "type": "String" },
-  "Dependent1Gender": { "type": "String" },
-  "Dependent1Relationship": { "type": "String" },
-  "Dependent2Name": { "type": "String" },
-  "Dependent2DOB": { "type": "String" },
-  "Dependent2Gender": { "type": "String" },
-  "Dependent2Relationship": { "type": "String" },
-  "Dependent3Name": { "type": "String" },
-  "Dependent3DOB": { "type": "String" },
-  "Dependent3Gender": { "type": "String" },
-  "Dependent3Relationship": { "type": "String" },
-
   "Status": {
     "type": "String",
     "required": [true, "Please add Mandatory field :Status"],
-    "maxlength": [50, "Status can not be more than 20 characters"]
+    "maxlength": [50, "Status can not be more than 50 characters"]
   },
-
+  "Name": {
+    "type": "String",
+    "maxlength": [50, "Name can not be more than 50"]
+  },
+  "DOB": { "type": "Date", "maxlength": [10, "DOB can not be more than 10"] },
+  "Gender": {
+    "type": "String",
+    "maxlength": [20, "Gender can not be more than 20"]
+  },
+  "Address": {
+    "type": "String",
+    "maxlength": [100, "Address can not be more than 100"]
+  },
+  "MartialStatus": {
+    "type": "String",
+    "maxlength": [50, "MartialStatus can not be more than 50"]
+  },
+  "Email": {
+    "type": "String",
+    "maxlength": [50, "Email can not be more than 50"]
+  },
+  "Designation": {
+    "type": "String",
+    "maxlength": [50, "Designation can not be more than 50"]
+  },
+  "ChooseInsurancePlan": {
+    "type": "String",
+    "maxlength": [100, "ChooseInsurancePlan can not be more than 100"]
+  },
+  "MedicalCoverage": {
+    "type": "String",
+    "maxlength": [100, "MedicalCoverage can not be more than 100"]
+  },
+  "Dentalcoverage": {
+    "type": "String",
+    "maxlength": [100, "Dentalcoverage can not be more than 100"]
+  },
+  "VisionCoverage": {
+    "type": "String",
+    "maxlength": [100, "VisionCoverage can not be more than 100"]
+  },
+  "AccidentalDeathCoverage": {
+    "type": "String",
+    "maxlength": [100, "AccidentalDeathCoverage can not be more than 100"]
+  },
+  "Dependent1Name": {
+    "type": "String",
+    "maxlength": [50, "Dependent1Name can not be more than 50"]
+  },
+  "Dependent1DOB": {
+    "type": "Date",
+    "maxlength": [10, "Dependent1DOB can not be more than 10"]
+  },
+  "Dependent1Gender": {
+    "type": "String",
+    "maxlength": [20, "Dependent1Gender can not be more than 20"]
+  },
+  "Dependent1Relationship": {
+    "type": "String",
+    "maxlength": [100, "Dependent1Relationship can not be more than 100"]
+  },
+  "Dependent2Name": {
+    "type": "String",
+    "maxlength": [50, "Dependent2Name can not be more than 50"]
+  },
+  "Dependent2DOB": {
+    "type": "Date",
+    "maxlength": [10, "Dependent2DOB can not be more than 10"]
+  },
+  "Dependent2Gender": {
+    "type": "String",
+    "maxlength": [20, "Dependent2Gender can not be more than 20"]
+  },
+  "Dependent2Relationship": {
+    "type": "String",
+    "maxlength": [100, "Dependent2Relationship can not be more than 100"]
+  },
+  "Dependent3Name": {
+    "type": "String",
+    "maxlength": [50, "Dependent3Name can not be more than 50"]
+  },
+  "Dependent3DOB": {
+    "type": "Date",
+    "maxlength": [10, "Dependent3DOB can not be more than 10"]
+  },
+  "Dependent3Gender": {
+    "type": "String",
+    "maxlength": [20, "Dependent3Gender can not be more than 20"]
+  },
+  "Dependent3Relationship": {
+    "type": "String",
+    "maxlength": [100, "Dependent3Relationship can not be more than 100"]
+  },
   "USP_Name": { "type": "String" },
   "USP_Role": { "type": "String" },
   "USP_Image": { "type": "String" },

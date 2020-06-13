@@ -5,47 +5,185 @@
     "required": [true, "Please add Mandatory field :ID"],
     "maxlength": [20, "ID can not be more than 20 characters"]
   },
-  "VendorName": { "type": "String" },
-  "QuestionDate": { "type": "Date" },
-  "CommsType": { "type": "String" },
-  "Question_Category": { "type": "String" },
-  "ContactName": { "type": "String" },
-  "ContactEmail": { "type": "String" },
-  "OldBusinessName": { "type": "String" },
-  "NewBusinessName": { "type": "String" },
-  "PostCode": { "type": "String" },
-  "HouseNumber": { "type": "String" },
-  "NewAddress": { "type": "String" },
-  "ContactNumber": { "type": "String" },
-  "DateOfNameChange": { "type": "Date" },
-  "Status": { "type": "String" },
-  "VendorNumber": { "type": "String" },
-  "TransType": { "type": "String" },
-  "PONumber": { "type": "String" },
-  "POGrossValue": { "type": "String" },
-  "PONetValue": { "type": "String" },
-  "PODate": { "type": "Date" },
-  "Email": { "type": "String" },
-  "SuppInvoiceNumber": { "type": "String" },
-  "ReasonForCreditNote": { "type": "String" },
-  "CreditDate": { "type": "Date" },
-  "CreditNoteNumber": { "type": "String" },
-  "CreditAmount": { "type": "String" },
-  "InvoiceDate": { "type": "Date" },
-  "InvAmount": { "type": "String" },
-  "PaymentTerm": { "type": "String" },
-  "InvoiceType": { "type": "String" },
-  "CollectionDate": { "type": "Date" },
-  "Packaging": { "type": "String" },
-  "InDays": { "type": "String" },
-  "DiscountAmount": { "type": "String" },
-  "Notification": { "type": "String" },
-  "NotifyRole": { "type": "String" },
-  "CountryImpacted": { "type": "String" },
-  "Company": { "type": "String" },
-  "Question_Response": { "type": "String" },
-  "BusObject": { "type": "String" },
-  "AppID": { "type": "String" },
+  "Status": {
+    "type": "String",
+    "required": [true, "Please add Mandatory field :Status"],
+    "maxlength": [50, "Status can not be more than 50 characters"]
+  },
+  "VendorName": {
+    "type": "String",
+    "maxlength": [100, "VendorName can not be more than 100"]
+  },
+  "Question_Response": {
+    "type": "String",
+    "maxlength": [500, "Question_Response can not be more than 500"]
+  },
+  "QuestionDate": {
+    "type": "Date",
+    "maxlength": [10, "QuestionDate can not be more than 10"]
+  },
+  "AppID": {
+    "type": "String",
+    "maxlength": [10, "AppID can not be more than 10"]
+  },
+  "BusObject": {
+    "type": "String",
+    "maxlength": [10, "BusObject can not be more than 10"]
+  },
+  "ReasonForCreditNote": {
+    "type": "String",
+    "maxlength": [500, "ReasonForCreditNote can not be more than 500"]
+  },
+
+  "PurchaserComment": {
+    "type": "String",
+    "maxlength": [500, "PurchaserComment can not be more than 500"]
+  },
+  "AccountsComment": {
+    "type": "String",
+    "maxlength": [500, "AccountsComment can not be more than 500"]
+  },
+  "Attachment": {
+    "type": "attachment",
+    "maxlength": [200, "Attachment can not be more than 200"]
+  },
+  "CreditNoteNumber": {
+    "type": "String",
+    "maxlength": [20, "CreditNoteNumber can not be more than 20"]
+  },
+  "CreditDate": {
+    "type": "Date",
+    "maxlength": [10, "CreditDate can not be more than 10"]
+  },
+  "CreditAmount": {
+    "type": "Num,2",
+    "maxlength": [20, "CreditAmount can not be more than 20"]
+  },
+  "InvAmount": {
+    "type": "Num,2",
+    "maxlength": [20, "InvAmount can not be more than 20"]
+  },
+  "InvoiceDate": {
+    "type": "Date",
+    "maxlength": [10, "InvoiceDate can not be more than 10"]
+  },
+  "PONumber": {
+    "type": "String",
+    "maxlength": [20, "PONumber can not be more than 20"]
+  },
+  "SuppInvoiceNumber": {
+    "type": "String",
+    "maxlength": [50, "SuppInvoiceNumber can not be more than 50"]
+  },
+  "VendorNumber": {
+    "type": "String",
+    "maxlength": [20, "VendorNumber can not be more than 20"]
+  },
+  "POGrossValue": {
+    "type": "Num,2",
+    "maxlength": [50, "POGrossValue can not be more than 50"]
+  },
+  "PONetValue": {
+    "type": "Num,2",
+    "maxlength": [50, "PONetValue can not be more than 50"]
+  },
+  "PODate": {
+    "type": "Date",
+    "maxlength": [10, "PODate can not be more than 10"]
+  },
+  "PaymentTerm": {
+    "type": "String",
+    "maxlength": [50, "PaymentTerm can not be more than 50"]
+  },
+  "Company": {
+    "type": "String",
+    "maxlength": [100, "Company can not be more than 100"]
+  },
+  "Email": {
+    "type": "String",
+    "maxlength": [100, "Email can not be more than 100"]
+  },
+  "CommsType": {
+    "type": "String",
+    "maxlength": [100, "CommsType can not be more than 100"]
+  },
+  "InvoiceType": {
+    "type": "String",
+    "maxlength": [50, "InvoiceType can not be more than 50"]
+  },
+  "Question_Category": {
+    "type": "String",
+    "maxlength": [50, "Question_Category can not be more than 50"]
+  },
+  "TransType": {
+    "type": "String",
+    "maxlength": [100, "TransType can not be more than 100"]
+  },
+  "CountryImpacted": {
+    "type": "String",
+    "maxlength": [50, "CountryImpacted can not be more than 50"]
+  },
+  "Notification": {
+    "type": "String",
+    "maxlength": [50, "Notification can not be more than 50"]
+  },
+  "NotifyRole": {
+    "type": "String",
+    "maxlength": [50, "NotifyRole can not be more than 50"]
+  },
+  "ContactName": {
+    "type": "String",
+    "maxlength": [50, "ContactName can not be more than 50"]
+  },
+  "ContactNumber": {
+    "type": "String",
+    "maxlength": [50, "ContactNumber can not be more than 50"]
+  },
+  "ContactEmail": {
+    "type": "String",
+    "maxlength": [100, "ContactEmail can not be more than 100"]
+  },
+  "OldBusinessName": {
+    "type": "String",
+    "maxlength": [200, "OldBusinessName can not be more than 200"]
+  },
+  "NewBusinessName": {
+    "type": "String",
+    "maxlength": [200, "NewBusinessName can not be more than 200"]
+  },
+  "DateOfNameChange": {
+    "type": "Date",
+    "maxlength": [10, "DateOfNameChange can not be more than 10"]
+  },
+  "PostCode": {
+    "type": "String",
+    "maxlength": [50, "PostCode can not be more than 50"]
+  },
+  "HouseNumber": {
+    "type": "String",
+    "maxlength": [50, "HouseNumber can not be more than 50"]
+  },
+  "NewAddress": {
+    "type": "String",
+    "maxlength": [200, "NewAddress can not be more than 200"]
+  },
+  "Packaging": {
+    "type": "String",
+    "maxlength": [200, "Packaging can not be more than 200"]
+  },
+  "CollectionDate": {
+    "type": "Date",
+    "maxlength": [10, "CollectionDate can not be more than 10"]
+  },
+  "InDays": {
+    "type": "Num,0",
+    "maxlength": [10, "InDays can not be more than 10"]
+  },
+  "DiscountAmount": {
+    "type": "Num,2",
+    "maxlength": [50, "DiscountAmount can not be more than 50"]
+  },
+
   "TransLog": [],
   "USP_Name": { "type": "String" },
   "USP_Role": { "type": "String" },

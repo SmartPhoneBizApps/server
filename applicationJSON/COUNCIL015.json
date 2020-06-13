@@ -7,17 +7,14 @@
   },
   "YourName": {
     "type": "String",
-
     "maxlength": [50, "YourName can not be more than 50 characters"]
   },
   "YourAddress": {
     "type": "String",
-
     "maxlength": [500, "YourAddress can not be more than 500 characters"]
   },
   "Postcode": {
     "type": "String",
-
     "required": [true, "Please add Mandatory field :Postcode"],
     "maxlength": [20, "Postcode can not be more than 20 characters"],
     "match": [
@@ -27,14 +24,12 @@
   },
   "EmailID": {
     "type": "String",
-
     "required": [true, "Please add Mandatory field :EmailID"],
     "maxlength": [100, "EmailID can not be more than 100 characters"],
     "match": ["EMAIL_V1", "Invalid EmailID for field :EmailID"]
   },
   "ContactNo": {
     "type": "String",
-
     "maxlength": [20, "ContactNo can not be more than 20 characters"],
     "match": [
       "UK_PHONE_V1",
@@ -43,39 +38,32 @@
   },
   "Address": {
     "type": "String",
-
     "required": [true, "Please add Mandatory field :Address"],
     "maxlength": [500, "Address can not be more than 500 characters"]
   },
   "ProblemDetail": {
     "type": "String",
-
     "maxlength": [1000, "ProblemDetail can not be more than 1000 characters"]
   },
   "Image": {
     "type": "String",
-
     "maxlength": [500, "Image can not be more than 500 characters"]
   },
   "Attachment": {
     "type": "String",
-
     "maxlength": [200, "Attachment can not be more than 200 characters"]
   },
   "AdditionalInfo": {
     "type": "String",
-
     "maxlength": [1000, "AdditionalInfo can not be more than 1000 characters"]
   },
   "Status": {
     "type": "String",
-
     "required": [true, "Please add Mandatory field :Status"],
-    "maxlength": [20, "Status can not be more than 20 characters"]
+    "maxlength": [50, "Status can not be more than 50 characters"]
   },
   "IncidentDate": {
     "type": "Date",
-
     "required": [true, "Please add Mandatory field :IncidentDate"],
     "maxlength": [10, "IncidentDate can not be more than 10 characters"],
     "match": [
@@ -85,7 +73,6 @@
   },
   "IncidentTime": {
     "type": "Date",
-
     "maxlength": [10, "IncidentTime can not be more than 10 characters"],
     "match": [
       "DATE_V1",
@@ -95,6 +82,8 @@
   "USP_Name": { "type": "String" },
   "USP_Role": { "type": "String" },
   "USP_Image": { "type": "String" },
+  "carouselImage": [],
+  "MultiAttachments": {},
   "TransLog": [],
   "ItemData": []
 }

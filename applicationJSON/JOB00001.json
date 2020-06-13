@@ -7,59 +7,48 @@
   },
   "Title": {
     "type": "String",
-
     "maxlength": [500, "Title can not be more than 500 characters"]
   },
   "Summary": {
     "type": "String",
-
     "maxlength": [500, "Summary can not be more than 500 characters"]
   },
   "Details": {
     "type": "String",
-
     "maxlength": [1000, "Details can not be more than 1000 characters"]
   },
   "EssentialExp": {
     "type": "String",
-
     "maxlength": [1000, "EssentialExp can not be more than 1000 characters"]
   },
   "PreferredExp": {
     "type": "String",
-
     "maxlength": [500, "PreferredExp can not be more than 500 characters"]
   },
   "Location": {
     "type": "String",
-
     "maxlength": [100, "Location can not be more than 100 characters"]
   },
   "Industry": {
     "type": "String",
-
     "maxlength": [100, "Industry can not be more than 100 characters"]
   },
   "JobType": {
     "type": "String",
-
     "required": [true, "Please add Mandatory field :JobType"],
     "maxlength": [50, "JobType can not be more than 50 characters"]
   },
   "EmpBusiness": {
     "type": "String",
-
     "required": [true, "Please add Mandatory field :EmpBusiness"],
     "maxlength": [100, "EmpBusiness can not be more than 100 characters"]
   },
   "Contact": {
     "type": "String",
-
     "maxlength": [100, "Contact can not be more than 100 characters"]
   },
   "ContactNo": {
     "type": "String",
-
     "maxlength": [100, "ContactNo can not be more than 100 characters"],
     "match": [
       "UK_PHONE_V1",
@@ -68,7 +57,6 @@
   },
   "Fax": {
     "type": "String",
-
     "maxlength": [100, "Fax can not be more than 100 characters"],
     "match": [
       "UK_PHONE_V1",
@@ -77,36 +65,30 @@
   },
   "Email": {
     "type": "String",
-
     "required": [true, "Please add Mandatory field :Email"],
     "maxlength": [100, "Email can not be more than 100 characters"],
     "match": ["EMAIL_V1", "Invalid EmailID for field :Email"]
   },
   "WebLink": {
     "type": "String",
-
     "maxlength": [100, "WebLink can not be more than 100 characters"],
     "match": ["WEBSITE_V1", "Invalid web address in field :WebLink"]
   },
   "Status": {
     "type": "String",
-
     "required": [true, "Please add Mandatory field :Status"],
-    "maxlength": [20, "Status can not be more than 20 characters"]
+    "maxlength": [50, "Status can not be more than 50 characters"]
   },
   "CoverLetter": {
     "type": "String",
-
     "maxlength": [100, "CoverLetter can not be more than 100 characters"]
   },
   "CV": {
     "type": "String",
-
     "maxlength": [100, "CV can not be more than 100 characters"]
   },
   "Duration": {
     "type": "Number",
-
     "maxlength": [100, "Duration can not be more than 100 characters"],
     "match": [
       "NUM_INT_MAX_10D_V1",
@@ -115,7 +97,6 @@
   },
   "StartDate": {
     "type": "Date",
-
     "required": [true, "Please add Mandatory field :StartDate"],
     "maxlength": [10, "StartDate can not be more than 10 characters"],
     "match": [
@@ -125,7 +106,6 @@
   },
   "Rate": {
     "type": "Number",
-
     "maxlength": [50, "Rate can not be more than 50 characters"],
     "match": [
       "NUM_2_DEC_PLACE_V1",
@@ -134,7 +114,6 @@
   },
   "Salary": {
     "type": "Number",
-
     "maxlength": [50, "Salary can not be more than 50 characters"],
     "match": [
       "NUM_2_DEC_PLACE_V1",
@@ -143,7 +122,6 @@
   },
   "PostedDate": {
     "type": "Date",
-
     "maxlength": [10, "PostedDate can not be more than 10 characters"],
     "match": [
       "DATE_V1",

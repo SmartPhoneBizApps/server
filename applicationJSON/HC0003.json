@@ -7,13 +7,64 @@
   },
   "Status": {
     "type": "String",
-
     "required": [true, "Please add Mandatory field :Status"],
-    "maxlength": [20, "Status can not be more than 20 characters"]
+    "maxlength": [50, "Status can not be more than 50 characters"]
+  },
+
+  "EventName": {
+    "type": "String",
+    "maxlength": [100, "EventName can not be more than 100"]
+  },
+  "EventType": {
+    "type": "String",
+    "maxlength": [50, "EventType can not be more than 50"]
+  },
+  "EventStartDate": {
+    "type": "Date",
+    "maxlength": [10, "EventStartDate can not be more than 10"]
+  },
+  "Time": {
+    "type": "String",
+    "maxlength": [50, "Time can not be more than 50"]
+  },
+  "Duration": {
+    "type": "String",
+    "maxlength": [20, "Duration can not be more than 20"]
+  },
+  "PharmaContact": {
+    "type": "String",
+    "maxlength": [50, "PharmaContact can not be more than 50"]
+  },
+  "PharmaContactEmail": {
+    "type": "String",
+    "maxlength": [50, "PharmaContactEmail can not be more than 50"]
+  },
+  "Address": {
+    "type": "String",
+    "maxlength": [200, "Address can not be more than 200"]
+  },
+  "Agenda": {
+    "type": "String",
+    "maxlength": [500, "Agenda can not be more than 500"]
+  },
+
+  "EventLink": {
+    "type": "hyperlink",
+    "maxlength": [200, "EventLink can not be more than 200"]
+  },
+  "HCPEmail": {
+    "type": "String",
+    "maxlength": [50, "HCPEmail can not be more than 50"]
+  },
+  "VendorName": {
+    "type": "String",
+    "maxlength": [100, "VendorName can not be more than 100"]
   },
   "USP_Name": { "type": "String" },
   "USP_Role": { "type": "String" },
   "USP_Image": { "type": "String" },
+  "carouselImage": [],
+  "MultiAttachments": {},
   "TransLog": [],
   "ItemData": []
 }

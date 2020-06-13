@@ -5,49 +5,77 @@
     "required": [true, "Please add Mandatory field :ID"],
     "maxlength": [20, "ID can not be more than 20 characters"]
   },
+  "Status": {
+    "type": "String",
+    "required": [true, "Please add Mandatory field :Status"],
+    "maxlength": [50, "Status can not be more than 50 characters"]
+  },
+
   "FirstName": {
-    "type": "String"
+    "type": "String",
+    "maxlength": [20, "FirstName can not be more than 20"]
   },
   "LastName": {
-    "type": "String"
+    "type": "String",
+    "maxlength": [20, "LastName can not be more than 20"]
   },
   "Gender": {
-    "type": "String"
+    "type": "String",
+    "maxlength": [20, "Gender can not be more than 20"]
   },
   "Email": {
-    "type": "String"
+    "type": "String",
+    "maxlength": [20, "Email can not be more than 20"]
   },
   "ContactNo": {
-    "type": "String"
-  },
-  "DOB": {
-    "type": "Date"
-  },
-  "Status": {
-    "type": "String"
+    "type": "String",
+    "maxlength": [20, "ContactNo can not be more than 20"]
   },
   "NHSNumber": {
-    "type": "String"
+    "type": "String",
+    "maxlength": [20, "NHSNumber can not be more than 20"]
   },
   "HouseNumber": {
-    "type": "String"
+    "type": "String",
+    "maxlength": [20, "HouseNumber can not be more than 20"]
   },
   "PostCode": {
-    "type": "String"
+    "type": "String",
+    "maxlength": [10, "PostCode can not be more than 10"]
   },
   "Address": {
-    "type": "String"
+    "type": "String",
+    "maxlength": [100, "Address can not be more than 100"]
   },
   "Group": {
-    "type": "String"
+    "type": "String",
+    "maxlength": [20, "Group can not be more than 20"]
   },
-  "patientType": {
-    "type": "String"
+  "PatientType": {
+    "type": "String",
+    "maxlength": [20, "PatientType can not be more than 20"]
   },
   "ProfileImage": {
-    "type": "String"
+    "type": "String",
+    "maxlength": [200, "ProfileImage can not be more than 200"]
   },
-  "PatientStatus": { "type": "String" },
+  "PatientStatus": {
+    "type": "String",
+    "maxlength": [50, "PatientStatus can not be more than 50"]
+  },
+  "TotalCost": {
+    "type": "Num,2",
+    "maxlength": [20, "TotalCost can not be more than 20"]
+  },
+  "TotalPayment": {
+    "type": "Num,2",
+    "maxlength": [20, "TotalPayment can not be more than 20"]
+  },
+  "TotalBalance": {
+    "type": "Num,2",
+    "maxlength": [20, "TotalBalance can not be more than 20"]
+  },
+  "DOB": { "type": "Date", "maxlength": [10, "DOB can not be more than 10"] },
 
   "TreatmentCost": [],
   "TreatmentPlan": [],
@@ -69,10 +97,13 @@
   "PaymentDetails": {},
   "EmergencyContact": {},
   "Communication": {},
+  "DentalProfile": {},
 
   "USP_Name": { "type": "String" },
   "USP_Role": { "type": "String" },
   "USP_Image": { "type": "String" },
+  "carouselImage": [],
+  "MultiAttachments": {},
   "TransLog": [],
   "ItemData": []
 }

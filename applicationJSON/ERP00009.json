@@ -7,53 +7,43 @@
   },
   "Company": {
     "type": "String",
-
     "maxlength": [50, "Company can not be more than 50 characters"]
   },
   "TaxCode": {
     "type": "String",
-
     "maxlength": [20, "TaxCode can not be more than 20 characters"]
   },
   "Name": {
     "type": "String",
-
     "maxlength": [50, "Name can not be more than 50 characters"]
   },
   "EmployeeID": {
     "type": "String",
-
     "required": [true, "Please add Mandatory field :EmployeeID"],
     "maxlength": [50, "EmployeeID can not be more than 50 characters"]
   },
   "Location": {
     "type": "String",
-
     "maxlength": [50, "Location can not be more than 50 characters"]
   },
   "PaymentMode": {
     "type": "String",
-
     "maxlength": [50, "PaymentMode can not be more than 50 characters"]
   },
   "NINumber": {
     "type": "String",
-
     "maxlength": [50, "NINumber can not be more than 50 characters"]
   },
   "Street": {
     "type": "String",
-
     "maxlength": [50, "Street can not be more than 50 characters"]
   },
   "City": {
     "type": "String",
-
     "maxlength": [50, "City can not be more than 50 characters"]
   },
   "PostCode": {
     "type": "String",
-
     "maxlength": [50, "PostCode can not be more than 50 characters"],
     "match": [
       "UK_POSTCODE_V1",
@@ -63,40 +53,33 @@
 
   "Country": {
     "type": "String",
-
     "maxlength": [50, "Country can not be more than 50 characters"]
   },
   "NI": {
     "type": "String",
-
     "maxlength": [100, "NI can not be more than 100 characters"]
   },
   "Advance": {
     "type": "String",
-
     "maxlength": [100, "Advance can not be more than 100 characters"]
   },
   "TaxPaidYear": {
     "type": "String",
-
     "maxlength": [100, "TaxPaidYear can not be more than 100 characters"],
     "match": ["YEAR_V1", "Please provide 4 digit year in field :TaxPaidYear"]
   },
   "Status": {
     "type": "String",
-
     "required": [true, "Please add Mandatory field :Status"],
-    "maxlength": [20, "Status can not be more than 20 characters"]
+    "maxlength": [50, "Status can not be more than 50 characters"]
   },
   "PeriodStart": {
     "type": "Date",
-
     "required": [true, "Please add Mandatory field :PeriodStart"],
     "maxlength": [10, "PeriodStart can not be more than 10 characters"]
   },
   "PeriodEnd": {
     "type": "Date",
-
     "maxlength": [10, "PeriodEnd can not be more than 10 characters"],
     "match": [
       "DATE_V1",
@@ -105,7 +88,6 @@
   },
   "PayDate": {
     "type": "Date",
-
     "maxlength": [10, "PayDate can not be more than 10 characters"],
     "match": [
       "DATE_V1",
@@ -114,7 +96,6 @@
   },
   "Base": {
     "type": "Number",
-
     "maxlength": [50, "Base can not be more than 50 characters"],
     "match": [
       "NUM_2_DEC_PLACE_V1",
@@ -123,7 +104,6 @@
   },
   "OOH": {
     "type": "Number",
-
     "maxlength": [50, "OOH can not be more than 50 characters"],
     "match": [
       "NUM_2_DEC_PLACE_V1",
@@ -132,7 +112,6 @@
   },
   "GrossTotal": {
     "type": "Number",
-
     "maxlength": [50, "GrossTotal can not be more than 50 characters"],
     "match": [
       "NUM_2_DEC_PLACE_V1",
@@ -141,7 +120,6 @@
   },
   "EarningNI": {
     "type": "Number",
-
     "maxlength": [50, "EarningNI can not be more than 50 characters"],
     "match": [
       "NUM_2_DEC_PLACE_V1",
@@ -150,7 +128,6 @@
   },
   "PAYTax": {
     "type": "Number",
-
     "maxlength": [100, "PAYTax can not be more than 100 characters"],
     "match": [
       "NUM_2_DEC_PLACE_V1",
@@ -159,7 +136,6 @@
   },
   "TotalDedu": {
     "type": "Number",
-
     "maxlength": [100, "TotalDedu can not be more than 100 characters"],
     "match": [
       "NUM_2_DEC_PLACE_V1",
@@ -168,7 +144,6 @@
   },
   "NetPay": {
     "type": "Number",
-
     "maxlength": [100, "NetPay can not be more than 100 characters"],
     "match": [
       "NUM_2_DEC_PLACE_V1",
@@ -177,7 +152,6 @@
   },
   "GrossYear": {
     "type": "Number",
-
     "maxlength": [100, "GrossYear can not be more than 100 characters"],
     "match": [
       "NUM_2_DEC_PLACE_V1",
@@ -186,7 +160,6 @@
   },
   "EarningYear": {
     "type": "Number",
-
     "maxlength": [100, "EarningYear can not be more than 100 characters"],
     "match": [
       "NUM_2_DEC_PLACE_V1",
@@ -195,7 +168,6 @@
   },
   "GrossPayYear": {
     "type": "Number",
-
     "maxlength": [100, "GrossPayYear can not be more than 100 characters"],
     "match": [
       "NUM_2_DEC_PLACE_V1",
@@ -204,7 +176,6 @@
   },
   "NIYear": {
     "type": "Number",
-
     "maxlength": [100, "NIYear can not be more than 100 characters"],
     "match": [
       "NUM_2_DEC_PLACE_V1",
@@ -214,6 +185,8 @@
   "USP_Name": { "type": "String" },
   "USP_Role": { "type": "String" },
   "USP_Image": { "type": "String" },
+  "carouselImage": [],
+  "MultiAttachments": {},
   "TransLog": [],
   "ItemData": []
 }

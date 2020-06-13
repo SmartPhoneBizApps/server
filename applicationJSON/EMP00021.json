@@ -7,35 +7,29 @@
   },
   "Name": {
     "type": "String",
-
     "required": [true, "Please add Mandatory field :EmpName"],
     "maxlength": [50, "EmpName can not be more than 50 characters"]
   },
   "EmployeeID": {
     "type": "String",
-
     "required": [true, "Please add Mandatory field :EmployeeID"],
     "maxlength": [50, "EmployeeID can not be more than 50 characters"]
   },
   "Status": {
     "type": "String",
-
     "required": [true, "Please add Mandatory field :Status"],
-    "maxlength": [20, "Status can not be more than 20 characters"]
+    "maxlength": [50, "Status can not be more than 50 characters"]
   },
   "ProcessingLog": {
     "type": "String",
-
     "maxlength": [1000, "ProcessingLog can not be more than 1000 characters"]
   },
   "Approver": {
     "type": "String",
-
     "maxlength": [50, "Approver can not be more than 50 characters"]
   },
   "StartDate": {
     "type": "Date",
-
     "required": [true, "Please add Mandatory field :StartDate"],
     "maxlength": [10, "StartDate can not be more than 10 characters"],
     "match": [
@@ -45,7 +39,6 @@
   },
   "EndDate": {
     "type": "Date",
-
     "required": [true, "Please add Mandatory field :EndDate"],
     "maxlength": [10, "EndDate can not be more than 10 characters"],
     "match": [
@@ -55,7 +48,6 @@
   },
   "TotalRegHours": {
     "type": "Number",
-
     "maxlength": [20, "TotalRegHours can not be more than 20 characters"],
     "match": [
       "NUM_2_DEC_PLACE_V1",
@@ -64,7 +56,6 @@
   },
   "HourlyRate": {
     "type": "Number",
-
     "maxlength": [50, "HourlyRate can not be more than 50 characters"],
     "match": [
       "NUM_2_DEC_PLACE_V1",
@@ -73,7 +64,6 @@
   },
   "RegularNetAmount": {
     "type": "Number",
-
     "maxlength": [50, "RegularNetAmount can not be more than 50 characters"],
     "match": [
       "NUM_2_DEC_PLACE_V1",
@@ -82,7 +72,6 @@
   },
   "TotalOvertimeHours": {
     "type": "Number",
-
     "maxlength": [50, "TotalOvertimeHours can not be more than 50 characters"],
     "match": [
       "NUM_2_DEC_PLACE_V1",
@@ -91,7 +80,6 @@
   },
   "OvertimeRate": {
     "type": "Number",
-
     "maxlength": [50, "OvertimeRate can not be more than 50 characters"],
     "match": [
       "NUM_2_DEC_PLACE_V1",
@@ -100,7 +88,6 @@
   },
   "OvertimeNetAmount": {
     "type": "Number",
-
     "maxlength": [50, "OvertimeNetAmount can not be more than 50 characters"],
     "match": [
       "NUM_2_DEC_PLACE_V1",
@@ -109,7 +96,6 @@
   },
   "NetAmount": {
     "type": "Number",
-
     "maxlength": [50, "NetAmount can not be more than 50 characters"],
     "match": [
       "NUM_2_DEC_PLACE_V1",
@@ -118,7 +104,6 @@
   },
   "VATRate": {
     "type": "Number",
-
     "maxlength": [50, "VATRate can not be more than 50 characters"],
     "match": [
       "NUM_2_DEC_PLACE_V1",
@@ -127,7 +112,6 @@
   },
   "VATAmount": {
     "type": "Number",
-
     "maxlength": [50, "VATAmount can not be more than 50 characters"],
     "match": [
       "NUM_2_DEC_PLACE_V1",
@@ -136,7 +120,6 @@
   },
   "GrossAmount": {
     "type": "Number",
-
     "required": [true, "Please add Mandatory field :GrossAmount"],
     "maxlength": [50, "GrossAmount can not be more than 50 characters"],
     "match": [
@@ -146,7 +129,6 @@
   },
   "VATPer": {
     "type": "Number",
-
     "maxlength": [20, "VATPer can not be more than 20 characters"],
     "match": [
       "NUM_2_DEC_PLACE_V1",

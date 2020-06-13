@@ -7,12 +7,10 @@
   },
   "StudyLevel": {
     "type": "String",
-
     "maxlength": [200, "StudyLevel can not be more than 200 characters"]
   },
   "ApplicableStudyYear": {
     "type": "String",
-
     "maxlength": [
       200,
       "ApplicableStudyYear can not be more than 200 characters"
@@ -20,38 +18,31 @@
   },
   "Subject": {
     "type": "String",
-
     "maxlength": [200, "Subject can not be more than 200 characters"]
   },
   "BookTitle": {
     "type": "String",
-
     "maxlength": [500, "BookTitle can not be more than 500 characters"]
   },
   "Author": {
     "type": "String",
-
     "maxlength": [500, "Author can not be more than 500 characters"]
   },
   "ISBN": {
     "type": "String",
-
     "maxlength": [50, "ISBN can not be more than 50 characters"]
   },
   "Language": {
     "type": "String",
-
     "maxlength": [20, "Language can not be more than 20 characters"]
   },
   "Status": {
     "type": "String",
-
     "required": [true, "Please add Mandatory field :Status"],
     "maxlength": [100, "Status can not be more than 100 characters"]
   },
   "AvailableQuantity": {
     "type": "Number",
-
     "maxlength": [10, "AvailableQuantity can not be more than 10 characters"],
     "match": [
       "NUM_INT_MAX_10D_V1",
@@ -60,7 +51,6 @@
   },
   "Date": {
     "type": "Date",
-
     "required": [true, "Please add Mandatory field :Date"],
     "maxlength": [10, "Date can not be more than 10 characters"],
     "match": [
@@ -71,6 +61,8 @@
   "USP_Name": { "type": "String" },
   "USP_Role": { "type": "String" },
   "USP_Image": { "type": "String" },
+  "carouselImage": [],
+  "MultiAttachments": {},
   "TransLog": [],
   "ItemData": []
 }

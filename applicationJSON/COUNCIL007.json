@@ -7,22 +7,18 @@
   },
   "HouseNo": {
     "type": "String",
-
     "maxlength": [20, "HouseNo can not be more than 20 characters"]
   },
   "HouseName": {
     "type": "String",
-
     "maxlength": [50, "HouseName can not be more than 50 characters"]
   },
   "Country": {
     "type": "String",
-
     "maxlength": [50, "Country can not be more than 50 characters"]
   },
   "Postcode": {
     "type": "String",
-
     "required": [true, "Please add Mandatory field :Postcode"],
     "maxlength": [10, "Postcode can not be more than 10 characters"],
     "match": [
@@ -32,62 +28,50 @@
   },
   "Q1": {
     "type": "String",
-
     "maxlength": [100, "Q1 can not be more than 100 characters"]
   },
   "A1": {
     "type": "String",
-
     "maxlength": [500, "A1 can not be more than 500 characters"]
   },
   "Q2": {
     "type": "String",
-
     "maxlength": [100, "Q2 can not be more than 100 characters"]
   },
   "A2": {
     "type": "String",
-
     "maxlength": [500, "A2 can not be more than 500 characters"]
   },
   "Q3": {
     "type": "String",
-
     "maxlength": [100, "Q3 can not be more than 100 characters"]
   },
   "A3": {
     "type": "String",
-
     "maxlength": [500, "A3 can not be more than 500 characters"]
   },
   "Q4": {
     "type": "String",
-
     "maxlength": [500, "Q4 can not be more than 500 characters"]
   },
   "A4": {
     "type": "String",
-
     "maxlength": [500, "A4 can not be more than 500 characters"]
   },
   "Q5": {
     "type": "String",
-
     "maxlength": [500, "Q5 can not be more than 500 characters"]
   },
   "A5": {
     "type": "String",
-
     "maxlength": [500, "A5 can not be more than 500 characters"]
   },
   "ContactName": {
     "type": "String",
-
     "maxlength": [50, "ContactName can not be more than 50 characters"]
   },
   "ContactNo": {
     "type": "String",
-
     "maxlength": [20, "ContactNo can not be more than 20 characters"],
     "match": [
       "UK_PHONE_V1",
@@ -96,30 +80,25 @@
   },
   "EmailID": {
     "type": "String",
-
     "required": [true, "Please add Mandatory field :EmailID"],
     "maxlength": [100, "EmailID can not be more than 100 characters"],
     "match": ["EMAIL_V1", "Invalid EmailID for field :EmailID"]
   },
   "AdditionalInfo": {
     "type": "String",
-
     "maxlength": [1000, "AdditionalInfo can not be more than 1000 characters"]
   },
   "Status": {
     "type": "String",
-
     "required": [true, "Please add Mandatory field :Status"],
-    "maxlength": [20, "Status can not be more than 20 characters"]
+    "maxlength": [50, "Status can not be more than 50 characters"]
   },
   "RejectReason": {
     "type": "String",
-
     "maxlength": [1000, "RejectReason can not be more than 1000 characters"]
   },
   "RequestDate": {
     "type": "Date",
-
     "required": [true, "Please add Mandatory field :RequestDate"],
     "maxlength": [10, "RequestDate can not be more than 10 characters"],
     "match": [
@@ -129,7 +108,6 @@
   },
   "DelDate": {
     "type": "Date",
-
     "maxlength": [10, "DelDate can not be more than 10 characters"],
     "match": [
       "DATE_V1",
@@ -139,6 +117,8 @@
   "USP_Name": { "type": "String" },
   "USP_Role": { "type": "String" },
   "USP_Image": { "type": "String" },
+  "carouselImage": [],
+  "MultiAttachments": {},
   "TransLog": [],
   "ItemData": []
 }

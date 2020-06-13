@@ -8,11 +8,63 @@
   "Status": {
     "type": "String",
     "required": [true, "Please add Mandatory field :Status"],
-    "maxlength": [20, "Status can not be more than 20 characters"]
+    "maxlength": [50, "Status can not be more than 50 characters"]
+  },
+
+  "ContractName": {
+    "type": "String",
+    "maxlength": [100, "ContractName can not be more than 100"]
+  },
+  "ContractType": {
+    "type": "String",
+    "maxlength": [50, "ContractType can not be more than 50"]
+  },
+  "ContractStartDate": {
+    "type": "Date",
+    "maxlength": [10, "ContractStartDate can not be more than 10"]
+  },
+  "PharmaContact": {
+    "type": "String",
+    "maxlength": [50, "PharmaContact can not be more than 50"]
+  },
+  "PharmaContactEmail": {
+    "type": "String",
+    "maxlength": [50, "PharmaContactEmail can not be more than 50"]
+  },
+  "Services": {
+    "type": "String",
+    "maxlength": [500, "Services can not be more than 500"]
+  },
+
+  "ContractLink": {
+    "type": "hyperlink",
+    "maxlength": [200, "ContractLink can not be more than 200"]
+  },
+  "HCPEmail": {
+    "type": "String",
+    "maxlength": [50, "HCPEmail can not be more than 50"]
+  },
+  "VendorName": {
+    "type": "String",
+    "maxlength": [100, "VendorName can not be more than 100"]
+  },
+  "ContractEndDate": {
+    "type": "Date",
+    "maxlength": [10, "ContractEndDate can not be more than 10"]
+  },
+  "ContractValue": {
+    "type": "String",
+    "maxlength": [50, "ContractValue can not be more than 50"]
+  },
+  "BalanceValue": {
+    "type": "String",
+    "maxlength": [50, "BalanceValue can not be more than 50"]
   },
   "USP_Name": { "type": "String" },
   "USP_Role": { "type": "String" },
   "USP_Image": { "type": "String" },
+  "carouselImage": [],
+  "MultiAttachments": {},
   "TransLog": [],
   "ItemData": []
 }

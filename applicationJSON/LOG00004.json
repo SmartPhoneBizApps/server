@@ -7,71 +7,58 @@
   },
   "YourName": {
     "type": "String",
-
     "maxlength": [20, "YourName can not be more than 20 characters"]
   },
   "Surname": {
     "type": "String",
-
     "maxlength": [20, "Surname can not be more than 20 characters"]
   },
   "Email": {
     "type": "String",
-
     "required": [true, "Please add Mandatory field :Email"],
-    "maxlength": [20, "Email can not be more than 20 characters"],
+    "maxlength": [100, "Email can not be more than 100 characters"],
     "match": ["EMAIL_V1", "Invalid EmailID for field :Email"]
   },
   "ContactNo": {
     "type": "String",
-
     "maxlength": [20, "ContactNo can not be more than 20 characters"]
   },
   "ProductType": {
     "type": "String",
-
     "required": [true, "Please add Mandatory field :ProductType"],
     "maxlength": [200, "ProductType can not be more than 200 characters"]
   },
   "ProductDetail": {
     "type": "String",
-
     "maxlength": [500, "ProductDetail can not be more than 500 characters"]
   },
   "LoadLocation": {
     "type": "String",
-
     "maxlength": [500, "LoadLocation can not be more than 500 characters"]
   },
   "UserComm": {
     "type": "String",
-
     "maxlength": [1000, "UserComm can not be more than 1000 characters"]
   },
   "TransComm": {
     "type": "String",
-
     "maxlength": [1000, "TransComm can not be more than 1000 characters"]
   },
   "Status": {
     "type": "String",
-
     "required": [true, "Please add Mandatory field :Status"],
     "maxlength": [100, "Status can not be more than 100 characters"]
   },
   "InsurPolicyNo": {
     "type": "String",
-
     "maxlength": [20, "InsurPolicyNo can not be more than 20 characters"]
   },
   "InsComp": {
     "type": "String",
-
     "maxlength": [100, "InsComp can not be more than 100 characters"]
   },
   "Weight": {
     "type": "Number",
-
     "maxlength": [50, "Weight can not be more than 50 characters"],
     "match": [
       "NUM_2_DEC_PLACE_V1",
@@ -80,7 +67,6 @@
   },
   "Volume": {
     "type": "Number",
-
     "maxlength": [50, "Volume can not be more than 50 characters"],
     "match": [
       "NUM_2_DEC_PLACE_V1",
@@ -89,7 +75,6 @@
   },
   "NoOfBoxes": {
     "type": "Number",
-
     "maxlength": [50, "NoOfBoxes can not be more than 50 characters"],
     "match": [
       "NUM_INT_MAX_10D_V1",
@@ -98,7 +83,6 @@
   },
   "LoadDate": {
     "type": "Date",
-
     "maxlength": [10, "LoadDate can not be more than 10 characters"],
     "match": [
       "DATE_V1",
@@ -107,7 +91,6 @@
   },
   "LoadTime": {
     "type": "Date",
-
     "maxlength": [10, "LoadTime can not be more than 10 characters"],
     "match": [
       "DATE_V1",
@@ -116,7 +99,6 @@
   },
   "Price": {
     "type": "Number",
-
     "maxlength": [50, "Price can not be more than 50 characters"],
     "match": [
       "NUM_2_DEC_PLACE_V1",
@@ -126,6 +108,8 @@
   "USP_Name": { "type": "String" },
   "USP_Role": { "type": "String" },
   "USP_Image": { "type": "String" },
+  "carouselImage": [],
+  "MultiAttachments": {},
   "TransLog": [],
   "ItemData": []
 }

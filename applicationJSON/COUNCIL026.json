@@ -7,43 +7,35 @@
   },
   "RoadDetails": {
     "type": "String",
-
     "maxlength": [100, "RoadDetails can not be more than 100 characters"]
   },
   "ProblemDetails": {
     "type": "String",
-
     "maxlength": [1000, "ProblemDetails can not be more than 1000 characters"]
   },
   "ProblemType": {
     "type": "String",
-
     "required": [true, "Please add Mandatory field :ProblemType"],
     "maxlength": [200, "ProblemType can not be more than 200 characters"]
   },
   "Image": {
     "type": "String",
-
     "maxlength": [500, "Image can not be more than 500 characters"]
   },
   "Attachment": {
     "type": "String",
-
     "maxlength": [500, "Attachment can not be more than 500 characters"]
   },
   "YourName": {
     "type": "String",
-
     "maxlength": [50, "YourName can not be more than 50 characters"]
   },
   "LastName": {
     "type": "String",
-
     "maxlength": [50, "LastName can not be more than 50 characters"]
   },
   "PhNo": {
     "type": "String",
-
     "maxlength": [20, "PhNo can not be more than 20 characters"],
     "match": [
       "UK_PHONE_V1",
@@ -52,42 +44,35 @@
   },
   "EmailID": {
     "type": "String",
-
     "required": [true, "Please add Mandatory field :EmailID"],
     "maxlength": [100, "EmailID can not be more than 100 characters"],
     "match": ["EMAIL_V1", "Invalid EmailID for field :EmailID"]
   },
   "Location": {
     "type": "String",
-
     "maxlength": [500, "Location can not be more than 500 characters"]
   },
   "Latitude": {
     "type": "String",
-
     "maxlength": [50, "Latitude can not be more than 50 characters"],
     "match": ["LATITUDE_V1", "Invalid Lat/Long values for field :Latitude"]
   },
   "Longitude": {
     "type": "String",
-
     "maxlength": [50, "Longitude can not be more than 50 characters"],
     "match": ["LONGITUDE_V1", "Invalid Lat/Long values for field :Longitude"]
   },
   "AdditionalInfo": {
     "type": "String",
-
     "maxlength": [1000, "AdditionalInfo can not be more than 1000 characters"]
   },
   "Status": {
     "type": "String",
-
     "required": [true, "Please add Mandatory field :Status"],
-    "maxlength": [20, "Status can not be more than 20 characters"]
+    "maxlength": [50, "Status can not be more than 50 characters"]
   },
   "ReportDate": {
     "type": "Date",
-
     "maxlength": [10, "ReportDate can not be more than 10 characters"],
     "match": [
       "DATE_V1",
@@ -96,7 +81,6 @@
   },
   "Time": {
     "type": "Date",
-
     "maxlength": [10, "Time can not be more than 10 characters"],
     "match": [
       "DATE_V1",
@@ -106,6 +90,8 @@
   "USP_Name": { "type": "String" },
   "USP_Role": { "type": "String" },
   "USP_Image": { "type": "String" },
+  "carouselImage": [],
+  "MultiAttachments": {},
   "TransLog": [],
   "ItemData": []
 }

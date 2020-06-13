@@ -7,34 +7,28 @@
   },
   "Longitude": {
     "type": "String",
-
     "maxlength": [50, "Longitude can not be more than 50 characters"],
     "match": ["LONGITUDE_V1", "Invalid Lat/Long values for field :Longitude"]
   },
   "Agent": {
     "type": "String",
-
     "maxlength": [100, "Agent can not be more than 100 characters"]
   },
   "WorkLog": {
     "type": "String",
-
     "maxlength": [100, "WorkLog can not be more than 100 characters"]
   },
   "Resolution": {
     "type": "String",
-
     "maxlength": [100, "Resolution can not be more than 100 characters"]
   },
   "Status": {
     "type": "String",
-
     "required": [true, "Please add Mandatory field :Status"],
-    "maxlength": [20, "Status can not be more than 20 characters"]
+    "maxlength": [50, "Status can not be more than 50 characters"]
   },
   "Problem": {
     "type": "String",
-
     "maxlength": [50, "Problem can not be more than 50 characters"]
   },
   "Latitude": {
@@ -115,6 +109,8 @@
   "USP_Name": { "type": "String" },
   "USP_Role": { "type": "String" },
   "USP_Image": { "type": "String" },
+  "carouselImage": [],
+  "MultiAttachments": {},
   "TransLog": [],
   "ItemData": []
 }

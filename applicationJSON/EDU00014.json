@@ -7,12 +7,10 @@
   },
   "StudyLevel": {
     "type": "String",
-
     "maxlength": [50, "StudyLevel can not be more than 50 characters"]
   },
   "CollegeOrUniversity": {
     "type": "String",
-
     "maxlength": [
       100,
       "CollegeOrUniversity can not be more than 100 characters"
@@ -20,17 +18,14 @@
   },
   "City": {
     "type": "String",
-
     "maxlength": [100, "City can not be more than 100 characters"]
   },
   "courseTitle": {
     "type": "String",
-
     "maxlength": [100, "courseTitle can not be more than 100 characters"]
   },
   "courseDescription": {
     "type": "String",
-
     "maxlength": [
       1000,
       "courseDescription can not be more than 1000 characters"
@@ -38,12 +33,10 @@
   },
   "ScholarshipAvailable": {
     "type": "String",
-
     "maxlength": [10, "ScholarshipAvailable can not be more than 10 characters"]
   },
   "DownloadApplication": {
     "type": "String",
-
     "maxlength": [
       100,
       "DownloadApplication can not be more than 100 characters"
@@ -51,13 +44,11 @@
   },
   "Address": {
     "type": "String",
-
     "required": [true, "Please add Mandatory field :Address"],
     "maxlength": [500, "Address can not be more than 500 characters"]
   },
   "ContactNo": {
     "type": "String",
-
     "required": [true, "Please add Mandatory field :ContactNo"],
     "maxlength": [20, "ContactNo can not be more than 20 characters"],
     "match": [
@@ -67,32 +58,27 @@
   },
   "Email": {
     "type": "String",
-
     "required": [true, "Please add Mandatory field :Email"],
-    "maxlength": [20, "Email can not be more than 20 characters"],
+    "maxlength": [100, "Email can not be more than 100 characters"],
     "match": ["EMAIL_V1", "Invalid EmailID for field :Email"]
   },
   "Longitude": {
     "type": "String",
-
     "maxlength": [200, "Longitude can not be more than 200 characters"],
     "match": ["LONGITUDE_V1", "Invalid Lat/Long values for field :Longitude"]
   },
   "Latitude": {
     "type": "String",
-
     "maxlength": [200, "Latitude can not be more than 200 characters"],
     "match": ["LATITUDE_V1", "Invalid Lat/Long values for field :Latitude"]
   },
   "Status": {
     "type": "String",
-
     "required": [true, "Please add Mandatory field :Status"],
-    "maxlength": [20, "Status can not be more than 20 characters"]
+    "maxlength": [50, "Status can not be more than 50 characters"]
   },
   "PostCode": {
     "type": "String",
-
     "required": [true, "Please add Mandatory field :PostCode"],
     "maxlength": [50, "PostCode can not be more than 50 characters"],
     "match": [
@@ -102,7 +88,6 @@
   },
   "Ranking": {
     "type": "Number",
-
     "maxlength": [5, "Ranking can not be more than 5 characters"],
     "match": [
       "NUM_INT_MAX_10D_V1",
@@ -111,7 +96,6 @@
   },
   "SeatsAvailable": {
     "type": "Number",
-
     "maxlength": [10, "SeatsAvailable can not be more than 10 characters"],
     "match": [
       "NUM_INT_MAX_10D_V1",
@@ -120,7 +104,6 @@
   },
   "courseFee": {
     "type": "Number",
-
     "maxlength": [50, "courseFee can not be more than 50 characters"],
     "match": [
       "NUM_2_DEC_PLACE_V1",
@@ -129,7 +112,6 @@
   },
   "Date": {
     "type": "Date",
-
     "required": [true, "Please add Mandatory field :Date"],
     "maxlength": [10, "Date can not be more than 10 characters"],
     "match": [
@@ -140,6 +122,8 @@
   "USP_Name": { "type": "String" },
   "USP_Role": { "type": "String" },
   "USP_Image": { "type": "String" },
+  "carouselImage": [],
+  "MultiAttachments": {},
   "TransLog": [],
   "ItemData": []
 }

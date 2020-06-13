@@ -7,20 +7,17 @@
   },
   "StudentName": {
     "type": "String",
-
     "required": [true, "Please add Mandatory field :StudentName"],
     "maxlength": [50, "StudentName can not be more than 50 characters"]
   },
   "Email": {
     "type": "String",
-
     "required": [true, "Please add Mandatory field :Email"],
-    "maxlength": [50, "Email can not be more than 50 characters"],
+    "maxlength": [100, "Email can not be more than 100 characters"],
     "match": ["EMAIL_V1", "Invalid EmailID for field :Email"]
   },
   "PhoneNumber": {
     "type": "String",
-
     "maxlength": [20, "PhoneNumber can not be more than 20 characters"],
     "match": [
       "UK_PHONE_V1",
@@ -29,34 +26,28 @@
   },
   "GradeLevel": {
     "type": "String",
-
     "maxlength": [20, "GradeLevel can not be more than 20 characters"]
   },
   "GuidanceName": {
     "type": "String",
-
     "maxlength": [50, "GuidanceName can not be more than 50 characters"]
   },
   "AdviserName": {
     "type": "String",
-
     "maxlength": [50, "AdviserName can not be more than 50 characters"]
   },
   "MotherName": {
     "type": "String",
-
     "maxlength": [50, "MotherName can not be more than 50 characters"]
   },
   "MotherEmail": {
     "type": "String",
-
     "required": [true, "Please add Mandatory field :MotherEmail"],
     "maxlength": [50, "MotherEmail can not be more than 50 characters"],
     "match": ["EMAIL_V1", "Invalid EmailID for field :MotherEmail"]
   },
   "MotherContactNo": {
     "type": "String",
-
     "maxlength": [20, "MotherContactNo can not be more than 20 characters"],
     "match": [
       "UK_PHONE_V1",
@@ -65,14 +56,12 @@
   },
   "FatherEmail": {
     "type": "String",
-
     "required": [true, "Please add Mandatory field :FatherEmail"],
     "maxlength": [50, "FatherEmail can not be more than 50 characters"],
     "match": ["EMAIL_V1", "Invalid EmailID for field :FatherEmail"]
   },
   "FatherContactNo": {
     "type": "String",
-
     "maxlength": [20, "FatherContactNo can not be more than 20 characters"],
     "match": [
       "UK_PHONE_V1",
@@ -81,95 +70,77 @@
   },
   "Q1": {
     "type": "String",
-
     "maxlength": [50, "Q1 can not be more than 50 characters"]
   },
   "A1": {
     "type": "String",
-
     "maxlength": [50, "A1 can not be more than 50 characters"]
   },
   "Q2": {
     "type": "String",
-
     "maxlength": [50, "Q2 can not be more than 50 characters"]
   },
   "A2": {
     "type": "String",
-
     "maxlength": [100, "A2 can not be more than 100 characters"]
   },
   "Q3": {
     "type": "String",
-
     "maxlength": [500, "Q3 can not be more than 500 characters"]
   },
   "A3": {
     "type": "String",
-
     "maxlength": [500, "A3 can not be more than 500 characters"]
   },
   "Q4": {
     "type": "String",
-
     "maxlength": [500, "Q4 can not be more than 500 characters"]
   },
   "A4": {
     "type": "String",
-
     "maxlength": [500, "A4 can not be more than 500 characters"]
   },
   "Q5": {
     "type": "String",
-
     "maxlength": [500, "Q5 can not be more than 500 characters"]
   },
   "A5": {
     "type": "String",
-
     "maxlength": [500, "A5 can not be more than 500 characters"]
   },
   "Q6": {
     "type": "String",
-
     "maxlength": [500, "Q6 can not be more than 500 characters"]
   },
   "A6": {
     "type": "String",
-
     "maxlength": [500, "A6 can not be more than 500 characters"]
   },
   "Image": {
     "type": "String",
-
     "maxlength": [100, "Image can not be more than 100 characters"]
   },
   "Status": {
     "type": "String",
-
     "required": [true, "Please add Mandatory field :Status"],
-    "maxlength": [20, "Status can not be more than 20 characters"]
+    "maxlength": [50, "Status can not be more than 50 characters"]
   },
   "FatherName": {
     "type": "String",
-
     "maxlength": [50, "FatherName can not be more than 50 characters"]
   },
   "ParentName": {
     "type": "String",
-
     "maxlength": [50, "ParentName can not be more than 50 characters"]
   },
   "ParentEmail": {
     "type": "String",
-
     "required": [true, "Please add Mandatory field :ParentEmail"],
     "maxlength": [50, "ParentEmail can not be more than 50 characters"],
     "match": ["EMAIL_V1", "Invalid EmailID for field :ParentEmail"]
   },
   "ParentContactNo": {
     "type": "String",
-
     "maxlength": [20, "ParentContactNo can not be more than 20 characters"],
     "match": [
       "UK_PHONE_V1",
@@ -178,12 +149,10 @@
   },
   "Question_Response": {
     "type": "String",
-
     "maxlength": [500, "Question_Response can not be more than 500 characters"]
   },
   "PostCode": {
     "type": "String",
-
     "required": [true, "Please add Mandatory field :PostCode"],
     "maxlength": [100, "PostCode can not be more than 100 characters"],
     "match": [
@@ -193,13 +162,11 @@
   },
   "Address": {
     "type": "String",
-
     "required": [true, "Please add Mandatory field :Address"],
     "maxlength": [500, "Address can not be more than 500 characters"]
   },
   "BirthDate": {
     "type": "Date",
-
     "maxlength": [10, "BirthDate can not be more than 10 characters"],
     "match": [
       "DATE_V1",
@@ -209,6 +176,8 @@
   "USP_Name": { "type": "String" },
   "USP_Role": { "type": "String" },
   "USP_Image": { "type": "String" },
+  "carouselImage": [],
+  "MultiAttachments": {},
   "TransLog": [],
   "ItemData": []
 }

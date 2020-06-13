@@ -91,7 +91,6 @@
     "headerTitle": ["USP_Name"],
     "headerRole": ["USP_Role"],
     "headerImage": ["USP_Image"],
-
     "None": ["Title", "Location", "JobType", "Status", "Salary", "Rate"],
     "Tab1": [
       "ID",
@@ -121,7 +120,7 @@
       "name": "ID",
       "type": "string",
       "width": "20",
-      "Option": "Optional",
+      "Option": "Mandatory",
       "SLabel": "Identification",
       "LLabel": "",
       "Currency": "No"
@@ -250,7 +249,7 @@
       "name": "Email",
       "type": "string",
       "width": "100",
-      "Option": "Optional",
+      "Option": "Mandatory",
       "SLabel": "Email",
       "LLabel": "Email"
     },
@@ -273,8 +272,8 @@
     {
       "name": "Status",
       "type": "string",
-      "width": "20",
-      "Option": "Optional",
+      "width": "50",
+      "Option": "Mandatory",
       "SLabel": "Status",
       "LLabel": "Status"
     },

@@ -7,49 +7,40 @@
   },
   "CampPlacement": {
     "type": "String",
-
     "maxlength": [100, "CampPlacement can not be more than 100 characters"]
   },
   "Status": {
     "type": "String",
-
     "required": [true, "Please add Mandatory field :Status"],
-    "maxlength": [20, "Status can not be more than 20 characters"]
+    "maxlength": [50, "Status can not be more than 50 characters"]
   },
   "CourseName": {
     "type": "String",
-
     "maxlength": [100, "CourseName can not be more than 100 characters"]
   },
   "CourseType": {
     "type": "String",
-
     "required": [true, "Please add Mandatory field :CourseType"],
     "maxlength": [500, "CourseType can not be more than 500 characters"]
   },
   "College": {
     "type": "String",
-
     "maxlength": [100, "College can not be more than 100 characters"]
   },
   "Town": {
     "type": "String",
-
     "maxlength": [100, "Town can not be more than 100 characters"]
   },
   "Hostel": {
     "type": "String",
-
     "maxlength": [100, "Hostel can not be more than 100 characters"]
   },
   "CourseLevel": {
     "type": "String",
-
     "maxlength": [500, "CourseLevel can not be more than 500 characters"]
   },
   "Duration": {
     "type": "Number",
-
     "maxlength": [100, "Duration can not be more than 100 characters"],
     "match": [
       "NUM_INT_MAX_10D_V1",
@@ -58,7 +49,6 @@
   },
   "StartDate": {
     "type": "Date",
-
     "required": [true, "Please add Mandatory field :StartDate"],
     "maxlength": [10, "StartDate can not be more than 10 characters"],
     "match": [
@@ -68,7 +58,6 @@
   },
   "AvailableSeats": {
     "type": "Number",
-
     "required": [true, "Please add Mandatory field :AvailableSeats"],
     "maxlength": [5, "AvailableSeats can not be more than 5 characters"],
     "match": [
@@ -79,6 +68,8 @@
   "USP_Name": { "type": "String" },
   "USP_Role": { "type": "String" },
   "USP_Image": { "type": "String" },
+  "carouselImage": [],
+  "MultiAttachments": {},
   "TransLog": [],
   "ItemData": []
 }

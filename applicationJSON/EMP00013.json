@@ -40,7 +40,7 @@
   "Status": {
     "type": "String",
     "required": [true, "Please add Mandatory field :Status"],
-    "maxlength": [20, "Status can not be more than 20 characters"]
+    "maxlength": [50, "Status can not be more than 50 characters"]
   },
   "EmployeeID": {
     "type": "String",
@@ -73,12 +73,10 @@
   },
   "Answer": {
     "type": "String",
-
     "maxlength": [500, "Answer can not be more than 500 characters"]
   },
   "MaxScore": {
     "type": "Number",
-
     "maxlength": [50, "MaxScore can not be more than 50 characters"],
     "match": [
       "NUM_INT_MAX_10D_V1",
@@ -87,7 +85,6 @@
   },
   "FeedbackDate": {
     "type": "Date",
-
     "maxlength": [10, "FeedbackDate can not be more than 10 characters"],
     "match": [
       "DATE_V1",
@@ -97,6 +94,8 @@
   "USP_Name": { "type": "String" },
   "USP_Role": { "type": "String" },
   "USP_Image": { "type": "String" },
+  "carouselImage": [],
+  "MultiAttachments": {},
   "TransLog": [],
   "ItemData": []
 }

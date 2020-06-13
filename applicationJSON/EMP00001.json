@@ -26,7 +26,6 @@
   },
   "Designation": {
     "type": "String",
-
     "required": [true, "Please add Mandatory field :Designation"],
     "maxlength": [50, "Designation can not be more than 50 characters"]
   },
@@ -40,7 +39,6 @@
   },
   "CostCentre": {
     "type": "String",
-
     "maxlength": [50, "CostCentre can not be more than 50 characters"]
   },
   "Email": {
@@ -64,7 +62,6 @@
   },
   "Approver": {
     "type": "String",
-
     "maxlength": [50, "Approver can not be more than 50 characters"]
   },
   "Status": {
@@ -107,6 +104,8 @@
   "USP_Name": { "type": "String" },
   "USP_Role": { "type": "String" },
   "USP_Image": { "type": "String" },
+  "carouselImage": [],
+  "MultiAttachments": {},
   "TransLog": [],
   "ItemData": []
 }

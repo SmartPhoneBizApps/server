@@ -7,56 +7,46 @@
   },
   "Name": {
     "type": "String",
-
     "maxlength": [20, "Name can not be more than 20 characters"]
   },
   "ContactNo": {
     "type": "String",
-
     "maxlength": [20, "ContactNo can not be more than 20 characters"]
   },
   "EmailID": {
     "type": "String",
-
     "required": [true, "Please add Mandatory field :EmailID"],
     "maxlength": [100, "EmailID can not be more than 100 characters"],
     "match": ["EMAIL_V1", "Invalid EmailID for field :EmailID"]
   },
   "YourAddress": {
     "type": "String",
-
     "maxlength": [500, "YourAddress can not be more than 500 characters"]
   },
   "RequestType": {
     "type": "String",
-
     "required": [true, "Please add Mandatory field :RequestType"],
     "maxlength": [200, "RequestType can not be more than 200 characters"]
   },
   "Attachment": {
     "type": "String",
-
     "maxlength": [500, "Attachment can not be more than 500 characters"]
   },
   "AdditionalInfo": {
     "type": "String",
-
     "maxlength": [1000, "AdditionalInfo can not be more than 1000 characters"]
   },
   "Status": {
     "type": "String",
-
     "required": [true, "Please add Mandatory field :Status"],
-    "maxlength": [20, "Status can not be more than 20 characters"]
+    "maxlength": [50, "Status can not be more than 50 characters"]
   },
   "CareTaker": {
     "type": "String",
-
     "maxlength": [100, "CareTaker can not be more than 100 characters"]
   },
   "Postcode1": {
     "type": "String",
-
     "required": [true, "Please add Mandatory field :Postcode1"],
     "maxlength": [100, "Postcode1 can not be more than 100 characters"],
     "match": [
@@ -66,180 +56,145 @@
   },
   "Address1": {
     "type": "String",
-
     "required": [true, "Please add Mandatory field :Address1"],
     "maxlength": [200, "Address1 can not be more than 200 characters"]
   },
   "CollectionItems": {
     "type": "String",
-
     "maxlength": [200, "CollectionItems can not be more than 200 characters"]
   },
   "ItemType": {
     "type": "String",
-
     "required": [true, "Please add Mandatory field :ItemType"],
     "maxlength": [200, "ItemType can not be more than 200 characters"]
   },
   "Condition": {
     "type": "String",
-
     "maxlength": [200, "Condition can not be more than 200 characters"]
   },
   "ItemLocation": {
     "type": "String",
-
     "maxlength": [200, "ItemLocation can not be more than 200 characters"]
   },
   "RejectReason": {
     "type": "String",
-
     "maxlength": [1000, "RejectReason can not be more than 1000 characters"]
   },
   "PestLocation": {
     "type": "String",
-
     "maxlength": [100, "PestLocation can not be more than 100 characters"]
   },
   "TypeOfPest": {
     "type": "String",
-
     "required": [true, "Please add Mandatory field :TypeOfPest"],
     "maxlength": [100, "TypeOfPest can not be more than 100 characters"]
   },
   "IfOther": {
     "type": "String",
-
     "maxlength": [200, "IfOther can not be more than 200 characters"]
   },
   "Q1": {
     "type": "String",
-
     "maxlength": [200, "Q1 can not be more than 200 characters"]
   },
   "Q2": {
     "type": "String",
-
     "maxlength": [200, "Q2 can not be more than 200 characters"]
   },
   "Q3": {
     "type": "String",
-
     "maxlength": [200, "Q3 can not be more than 200 characters"]
   },
   "Q4": {
     "type": "String",
-
     "maxlength": [200, "Q4 can not be more than 200 characters"]
   },
   "Q5": {
     "type": "String",
-
     "maxlength": [200, "Q5 can not be more than 200 characters"]
   },
   "Q6": {
     "type": "String",
-
     "maxlength": [200, "Q6 can not be more than 200 characters"]
   },
   "Q7": {
     "type": "String",
-
     "maxlength": [200, "Q7 can not be more than 200 characters"]
   },
   "Q8": {
     "type": "String",
-
     "maxlength": [200, "Q8 can not be more than 200 characters"]
   },
   "Q9": {
     "type": "String",
-
     "maxlength": [200, "Q9 can not be more than 200 characters"]
   },
   "Q10": {
     "type": "String",
-
     "maxlength": [200, "Q10 can not be more than 200 characters"]
   },
   "Q11": {
     "type": "String",
-
     "maxlength": [200, "Q11 can not be more than 200 characters"]
   },
   "A1": {
     "type": "String",
-
     "maxlength": [200, "A1 can not be more than 200 characters"]
   },
   "A2": {
     "type": "String",
-
     "maxlength": [200, "A2 can not be more than 200 characters"]
   },
   "A3": {
     "type": "String",
-
     "maxlength": [200, "A3 can not be more than 200 characters"]
   },
   "A4": {
     "type": "String",
-
     "maxlength": [200, "A4 can not be more than 200 characters"]
   },
   "A5": {
     "type": "String",
-
     "maxlength": [200, "A5 can not be more than 200 characters"]
   },
   "A6": {
     "type": "String",
-
     "maxlength": [200, "A6 can not be more than 200 characters"]
   },
   "A7": {
     "type": "String",
-
     "maxlength": [200, "A7 can not be more than 200 characters"]
   },
   "A8": {
     "type": "String",
-
     "maxlength": [200, "A8 can not be more than 200 characters"]
   },
   "A9": {
     "type": "String",
-
     "maxlength": [200, "A9 can not be more than 200 characters"]
   },
   "A10": {
     "type": "String",
-
     "maxlength": [200, "A10 can not be more than 200 characters"]
   },
   "A11": {
     "type": "String",
-
     "maxlength": [200, "A11 can not be more than 200 characters"]
   },
   "Approver": {
     "type": "String",
-
     "maxlength": [100, "Approver can not be more than 100 characters"]
   },
   "Question_Response": {
     "type": "String",
-
     "maxlength": [500, "Question_Response can not be more than 500 characters"]
   },
   "ProcessingLog": {
     "type": "String",
-
     "maxlength": [500, "ProcessingLog can not be more than 500 characters"]
   },
   "RequestDate": {
     "type": "Date",
-
     "required": [true, "Please add Mandatory field :RequestDate"],
     "maxlength": [10, "RequestDate can not be more than 10 characters"],
     "match": [
@@ -249,7 +204,6 @@
   },
   "NoOfFlats": {
     "type": "Number",
-
     "maxlength": [100, "NoOfFlats can not be more than 100 characters"],
     "match": [
       "NUM_INT_MAX_10D_V1",
@@ -258,7 +212,6 @@
   },
   "Count": {
     "type": "Number",
-
     "maxlength": [10, "Count can not be more than 10 characters"],
     "match": [
       "NUM_INT_MAX_10D_V1",
@@ -267,7 +220,6 @@
   },
   "RequiredDate": {
     "type": "Date",
-
     "maxlength": [10, "RequiredDate can not be more than 10 characters"],
     "match": [
       "DATE_V1",
@@ -276,7 +228,6 @@
   },
   "CollectionDate": {
     "type": "Date",
-
     "maxlength": [10, "CollectionDate can not be more than 10 characters"],
     "match": [
       "DATE_V1",
@@ -285,7 +236,6 @@
   },
   "NoOfBags": {
     "type": "Number",
-
     "maxlength": [20, "NoOfBags can not be more than 20 characters"],
     "match": [
       "NUM_INT_MAX_10D_V1",
@@ -294,7 +244,6 @@
   },
   "VisitDate": {
     "type": "Date",
-
     "maxlength": [10, "VisitDate can not be more than 10 characters"],
     "match": [
       "DATE_V1",
@@ -304,6 +253,8 @@
   "USP_Name": { "type": "String" },
   "USP_Role": { "type": "String" },
   "USP_Image": { "type": "String" },
+  "carouselImage": [],
+  "MultiAttachments": {},
   "TransLog": [],
   "ItemData": []
 }

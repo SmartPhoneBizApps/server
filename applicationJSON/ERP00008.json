@@ -76,7 +76,7 @@
   "Status": {
     "type": "String",
     "required": [true, "Please add Mandatory field :Status"],
-    "maxlength": [20, "Status can not be more than 20 characters"]
+    "maxlength": [50, "Status can not be more than 50 characters"]
   },
   "Frequency": {
     "type": "String",
@@ -84,12 +84,12 @@
   },
   "Email": {
     "type": "String",
-    "maxlength": [50, "Email can not be more than 50 characters"],
+    "required": [true, "Please add Mandatory field :Email"],
+    "maxlength": [100, "Email can not be more than 100 characters"],
     "match": ["EMAIL_V1", "Invalid EmailID for field :Email"]
   },
   "WarrantyEnd": {
     "type": "Date",
-
     "maxlength": [10, "WarrantyEnd can not be more than 10 characters"],
     "match": [
       "DATE_V1",
@@ -98,7 +98,6 @@
   },
   "IssueDate": {
     "type": "Date",
-
     "maxlength": [10, "IssueDate can not be more than 10 characters"],
     "match": [
       "DATE_V1",
@@ -108,6 +107,8 @@
   "USP_Name": { "type": "String" },
   "USP_Role": { "type": "String" },
   "USP_Image": { "type": "String" },
+  "carouselImage": [],
+  "MultiAttachments": {},
   "TransLog": [],
   "ItemData": []
 }

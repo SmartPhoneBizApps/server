@@ -43,7 +43,7 @@
   "Status": {
     "type": "String",
     "required": [true, "Please add Mandatory field :Status"],
-    "maxlength": [20, "Status can not be more than 20 characters"]
+    "maxlength": [50, "Status can not be more than 50 characters"]
   },
   "TravelMode": {
     "type": "String",
@@ -71,7 +71,6 @@
   },
   "Cost1Detail": {
     "type": "String",
-
     "maxlength": [50, "Cost1Detail can not be more than 50 characters"]
   },
   "Cost2Type": {
@@ -92,52 +91,42 @@
   },
   "Cost4Type": {
     "type": "String",
-
     "maxlength": [50, "Cost4Type can not be more than 50 characters"]
   },
   "Cost4Detail": {
     "type": "String",
-
     "maxlength": [50, "Cost4Detail can not be more than 50 characters"]
   },
   "Cost5Type": {
     "type": "String",
-
     "maxlength": [100, "Cost5Type can not be more than 100 characters"]
   },
   "Cost5Detail": {
     "type": "String",
-
     "maxlength": [100, "Cost5Detail can not be more than 100 characters"]
   },
   "ApproverComm": {
     "type": "String",
-
     "maxlength": [500, "ApproverComm can not be more than 500 characters"]
   },
   "EmployeeComments": {
     "type": "String",
-
     "maxlength": [500, "EmployeeComments can not be more than 500 characters"]
   },
   "LMComments": {
     "type": "String",
-
     "maxlength": [500, "LMComments can not be more than 500 characters"]
   },
   "TravelDeskComments": {
     "type": "String",
-
     "maxlength": [500, "TravelDeskComments can not be more than 500 characters"]
   },
   "DMComments": {
     "type": "String",
-
     "maxlength": [500, "DMComments can not be more than 500 characters"]
   },
   "TotalAmount": {
     "type": "Number",
-
     "maxlength": [20, "TotalAmount can not be more than 20 characters"],
     "match": [
       "NUM_2_DEC_PLACE_V1",
@@ -186,7 +175,6 @@
   },
   "StayCost": {
     "type": "Number",
-
     "maxlength": [20, "StayCost can not be more than 20 characters"],
     "match": [
       "NUM_2_DEC_PLACE_V1",
@@ -195,7 +183,6 @@
   },
   "OtherCost": {
     "type": "Number",
-
     "maxlength": [20, "OtherCost can not be more than 20 characters"],
     "match": [
       "NUM_2_DEC_PLACE_V1",
@@ -204,7 +191,6 @@
   },
   "Cost1": {
     "type": "Number",
-
     "maxlength": [20, "Cost1 can not be more than 20 characters"],
     "match": [
       "NUM_2_DEC_PLACE_V1",
@@ -213,7 +199,6 @@
   },
   "Cost2": {
     "type": "Number",
-
     "maxlength": [50, "Cost2 can not be more than 50 characters"],
     "match": [
       "NUM_2_DEC_PLACE_V1",
@@ -222,7 +207,6 @@
   },
   "Cost3": {
     "type": "Number",
-
     "maxlength": [50, "Cost3 can not be more than 50 characters"],
     "match": [
       "NUM_2_DEC_PLACE_V1",
@@ -231,7 +215,6 @@
   },
   "Cost4": {
     "type": "Number",
-
     "maxlength": [500, "Cost4 can not be more than 500 characters"],
     "match": [
       "NUM_2_DEC_PLACE_V1",
@@ -240,7 +223,6 @@
   },
   "Cost5": {
     "type": "Number",
-
     "maxlength": [100, "Cost5 can not be more than 100 characters"],
     "match": [
       "NUM_2_DEC_PLACE_V1",
@@ -249,7 +231,6 @@
   },
   "MiscAmount": {
     "type": "Number",
-
     "maxlength": [100, "MiscAmount can not be more than 100 characters"],
     "match": [
       "NUM_2_DEC_PLACE_V1",
@@ -259,6 +240,8 @@
   "USP_Name": { "type": "String" },
   "USP_Role": { "type": "String" },
   "USP_Image": { "type": "String" },
+  "carouselImage": [],
+  "MultiAttachments": {},
   "TransLog": [],
   "ItemData": []
 }

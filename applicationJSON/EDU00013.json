@@ -7,29 +7,24 @@
   },
   "CollegeName": {
     "type": "String",
-
     "maxlength": [200, "CollegeName can not be more than 200 characters"]
   },
   "CourseName": {
     "type": "String",
-
     "maxlength": [200, "CourseName can not be more than 200 characters"]
   },
   "collegeAdd": {
     "type": "String",
-
     "maxlength": [500, "collegeAdd can not be more than 500 characters"]
   },
   "ContactEmail": {
     "type": "String",
-
     "required": [true, "Please add Mandatory field :ContactEmail"],
     "maxlength": [100, "ContactEmail can not be more than 100 characters"],
     "match": ["EMAIL_V1", "Invalid EmailID for field :ContactEmail"]
   },
   "ContactNo": {
     "type": "String",
-
     "required": [true, "Please add Mandatory field :ContactNo"],
     "maxlength": [20, "ContactNo can not be more than 20 characters"],
     "match": [
@@ -39,59 +34,49 @@
   },
   "StudyLevel": {
     "type": "String",
-
     "maxlength": [200, "StudyLevel can not be more than 200 characters"]
   },
   "Status": {
     "type": "String",
-
     "required": [true, "Please add Mandatory field :Status"],
-    "maxlength": [20, "Status can not be more than 20 characters"]
+    "maxlength": [50, "Status can not be more than 50 characters"]
   },
   "HomePage": {
     "type": "String",
-
     "maxlength": [200, "HomePage can not be more than 200 characters"],
     "match": ["WEBSITE_V1", "Invalid web address in field :HomePage"]
   },
   "OpenDayPage": {
     "type": "String",
-
     "maxlength": [200, "OpenDayPage can not be more than 200 characters"],
     "match": ["WEBSITE_V1", "Invalid web address in field :OpenDayPage"]
   },
   "BookingPage": {
     "type": "String",
-
     "maxlength": [200, "BookingPage can not be more than 200 characters"],
     "match": ["WEBSITE_V1", "Invalid web address in field :BookingPage"]
   },
   "City": {
     "type": "String",
-
     "maxlength": [100, "City can not be more than 100 characters"]
   },
   "Latitude": {
     "type": "String",
-
     "maxlength": [50, "Latitude can not be more than 50 characters"],
     "match": ["LATITUDE_V1", "Invalid Lat/Long values for field :Latitude"]
   },
   "Longitude": {
     "type": "String",
-
     "maxlength": [50, "Longitude can not be more than 50 characters"],
     "match": ["LONGITUDE_V1", "Invalid Lat/Long values for field :Longitude"]
   },
   "Address": {
     "type": "String",
-
     "required": [true, "Please add Mandatory field :Address"],
     "maxlength": [500, "Address can not be more than 500 characters"]
   },
   "PostCode": {
     "type": "String",
-
     "required": [true, "Please add Mandatory field :PostCode"],
     "maxlength": [100, "PostCode can not be more than 100 characters"],
     "match": [
@@ -101,12 +86,10 @@
   },
   "CourseGroup": {
     "type": "String",
-
     "maxlength": [100, "CourseGroup can not be more than 100 characters"]
   },
   "OpenDayDate": {
     "type": "Date",
-
     "maxlength": [10, "OpenDayDate can not be more than 10 characters"],
     "match": [
       "DATE_V1",
@@ -115,7 +98,6 @@
   },
   "OpenDayStTime": {
     "type": "Date",
-
     "maxlength": [10, "OpenDayStTime can not be more than 10 characters"],
     "match": [
       "DATE_V1",
@@ -124,7 +106,6 @@
   },
   "OpenDayETime": {
     "type": "Date",
-
     "maxlength": [10, "OpenDayETime can not be more than 10 characters"],
     "match": [
       "DATE_V1",
@@ -134,6 +115,8 @@
   "USP_Name": { "type": "String" },
   "USP_Role": { "type": "String" },
   "USP_Image": { "type": "String" },
+  "carouselImage": [],
+  "MultiAttachments": {},
   "TransLog": [],
   "ItemData": []
 }

@@ -7,7 +7,6 @@
   },
   "RegNo": {
     "type": "String",
-
     "maxlength": [50, "RegNo can not be more than 50 characters"],
     "match": [
       "UK_CAR_REG_V1",
@@ -16,43 +15,35 @@
   },
   "Vehicle": {
     "type": "String",
-
     "maxlength": [50, "Vehicle can not be more than 50 characters"]
   },
   "Model": {
     "type": "String",
-
     "maxlength": [50, "Model can not be more than 50 characters"]
   },
   "RegYear": {
     "type": "String",
-
     "maxlength": [50, "RegYear can not be more than 50 characters"]
   },
   "ChassisNo": {
     "type": "String",
-
     "maxlength": [50, "ChassisNo can not be more than 50 characters"]
   },
   "IssuesTo": {
     "type": "String",
-
     "maxlength": [50, "IssuesTo can not be more than 50 characters"]
   },
   "PhotoID": {
     "type": "String",
-
     "maxlength": [50, "PhotoID can not be more than 50 characters"]
   },
   "EmpID": {
     "type": "String",
-
     "required": [true, "Please add Mandatory field :EmpID"],
     "maxlength": [50, "EmpID can not be more than 50 characters"]
   },
   "Phone": {
     "type": "String",
-
     "maxlength": [50, "Phone can not be more than 50 characters"],
     "match": [
       "UK_PHONE_V1",
@@ -61,25 +52,21 @@
   },
   "Email": {
     "type": "String",
-
     "required": [true, "Please add Mandatory field :Email"],
-    "maxlength": [50, "Email can not be more than 50 characters"],
+    "maxlength": [100, "Email can not be more than 100 characters"],
     "match": ["EMAIL_V1", "Invalid EmailID for field :Email"]
   },
   "Millage": {
     "type": "String",
-
     "maxlength": [50, "Millage can not be more than 50 characters"]
   },
   "Status": {
     "type": "String",
-
     "required": [true, "Please add Mandatory field :Status"],
-    "maxlength": [20, "Status can not be more than 20 characters"]
+    "maxlength": [50, "Status can not be more than 50 characters"]
   },
   "PurchaseDate": {
     "type": "Date",
-
     "maxlength": [10, "PurchaseDate can not be more than 10 characters"],
     "match": [
       "DATE_V1",
@@ -88,7 +75,6 @@
   },
   "IssueDate": {
     "type": "Date",
-
     "maxlength": [10, "IssueDate can not be more than 10 characters"],
     "match": [
       "DATE_V1",
@@ -97,7 +83,6 @@
   },
   "MOTDueDate": {
     "type": "Date",
-
     "maxlength": [10, "MOTDueDate can not be more than 10 characters"],
     "match": [
       "DATE_V1",
@@ -106,7 +91,6 @@
   },
   "LastService": {
     "type": "Date",
-
     "maxlength": [10, "LastService can not be more than 10 characters"],
     "match": [
       "DATE_V1",
@@ -115,7 +99,6 @@
   },
   "NextService": {
     "type": "Date",
-
     "maxlength": [10, "NextService can not be more than 10 characters"],
     "match": [
       "DATE_V1",
@@ -124,7 +107,6 @@
   },
   "MillageDate": {
     "type": "Date",
-
     "maxlength": [10, "MillageDate can not be more than 10 characters"],
     "match": [
       "DATE_V1",
@@ -134,6 +116,8 @@
   "USP_Name": { "type": "String" },
   "USP_Role": { "type": "String" },
   "USP_Image": { "type": "String" },
+  "carouselImage": [],
+  "MultiAttachments": {},
   "TransLog": [],
   "ItemData": []
 }

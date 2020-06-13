@@ -7,7 +7,6 @@
   },
   "VendorName": {
     "type": "String",
-
     "required": [true, "Please add Mandatory field :VendorName"],
     "maxlength": [50, "VendorName can not be more than 50 characters"],
     "match": [
@@ -17,7 +16,6 @@
   },
   "Company": {
     "type": "String",
-
     "maxlength": [50, "Company can not be more than 50 characters"]
   },
   "PaymentTerm": {
@@ -26,22 +24,18 @@
   },
   "Currency": {
     "type": "String",
-
     "maxlength": [10, "Currency can not be more than 10 characters"]
   },
   "DelTo": {
     "type": "String",
-
     "maxlength": [100, "DelTo can not be more than 100 characters"]
   },
   "DelCountry": {
     "type": "String",
-
     "maxlength": [100, "DelCountry can not be more than 100 characters"]
   },
   "Address": {
     "type": "String",
-
     "maxlength": [100, "Address can not be more than 100 characters"]
   },
   "PostCode": {
@@ -54,7 +48,6 @@
   },
   "ContactNo": {
     "type": "String",
-
     "maxlength": [100, "ContactNo can not be more than 100 characters"],
     "match": [
       "UK_PHONE_V1",
@@ -63,53 +56,45 @@
   },
   "Email": {
     "type": "String",
+    "required": [true, "Please add Mandatory field :Email"],
     "maxlength": [100, "Email can not be more than 100 characters"],
     "match": ["EMAIL_V1", "Invalid EmailID for field :Email"]
   },
   "DeliveryInstr": {
     "type": "String",
-
     "maxlength": [500, "DeliveryInstr can not be more than 500 characters"]
   },
   "AddDetails": {
     "type": "String",
-
     "maxlength": [500, "AddDetails can not be more than 500 characters"]
   },
   "Attachment": {
     "type": "String",
-
     "maxlength": [500, "Attachment can not be more than 500 characters"]
   },
   "Status": {
     "type": "String",
-
     "required": [true, "Please add Mandatory field :Status"],
-    "maxlength": [20, "Status can not be more than 20 characters"]
+    "maxlength": [50, "Status can not be more than 50 characters"]
   },
   "AcceptanceStatus": {
     "type": "String",
-
     "maxlength": [50, "AcceptanceStatus can not be more than 50 characters"]
   },
   "ShippingStatus": {
     "type": "String",
-
     "maxlength": [50, "ShippingStatus can not be more than 50 characters"]
   },
   "InvoiceStatus": {
     "type": "String",
-
     "maxlength": [50, "InvoiceStatus can not be more than 50 characters"]
   },
   "CurrentStatus": {
     "type": "String",
-
     "maxlength": [50, "CurrentStatus can not be more than 50 characters"]
   },
   "PaymentStatus": {
     "type": "String",
-
     "maxlength": [50, "PaymentStatus can not be more than 50 characters"]
   },
   "PONumber": {
@@ -119,22 +104,18 @@
   },
   "AcceptanceComment": {
     "type": "String",
-
     "maxlength": [200, "AcceptanceComment can not be more than 200 characters"]
   },
   "QuestionCategory": {
     "type": "String",
-
     "maxlength": [100, "QuestionCategory can not be more than 100 characters"]
   },
   "CommsDetails": {
     "type": "String",
-
     "maxlength": [1000, "CommsDetails can not be more than 1000 characters"]
   },
   "VendorNumber": {
     "type": "String",
-
     "required": [true, "Please add Mandatory field :VendorNumber"],
     "maxlength": [20, "VendorNumber can not be more than 20 characters"]
   },
@@ -145,22 +126,18 @@
   },
   "GRStatus": {
     "type": "String",
-
     "maxlength": [100, "GRStatus can not be more than 100 characters"]
   },
   "GRComments": {
     "type": "String",
-
     "maxlength": [500, "GRComments can not be more than 500 characters"]
   },
   "ProcessingLog": {
     "type": "String",
-
     "maxlength": [500, "ProcessingLog can not be more than 500 characters"]
   },
   "SupplierInvoiceNumber": {
     "type": "String",
-
     "maxlength": [
       50,
       "SupplierInvoiceNumber can not be more than 50 characters"
@@ -168,47 +145,38 @@
   },
   "MedicalTitle": {
     "type": "String",
-
     "maxlength": [50, "MedicalTitle can not be more than 50 characters"]
   },
   "Degree": {
     "type": "String",
-
     "maxlength": [200, "Degree can not be more than 200 characters"]
   },
   "Speciality": {
     "type": "String",
-
     "maxlength": [200, "Speciality can not be more than 200 characters"]
   },
   "MedicalSchool": {
     "type": "String",
-
     "maxlength": [200, "MedicalSchool can not be more than 200 characters"]
   },
   "PassYear": {
     "type": "String",
-
     "maxlength": [100, "PassYear can not be more than 100 characters"]
   },
   "Licence": {
     "type": "String",
-
     "maxlength": [100, "Licence can not be more than 100 characters"]
   },
   "LicenceExpiry": {
     "type": "String",
-
     "maxlength": [100, "LicenceExpiry can not be more than 100 characters"]
   },
   "RegistrationNo": {
     "type": "String",
-
     "maxlength": [100, "RegistrationNo can not be more than 100 characters"]
   },
   "OwningEntity": {
     "type": "String",
-
     "maxlength": [500, "OwningEntity can not be more than 500 characters"]
   },
   "Type": {
@@ -217,22 +185,18 @@
   },
   "ReportingRegime": {
     "type": "String",
-
     "maxlength": [500, "ReportingRegime can not be more than 500 characters"]
   },
   "PIIConsent": {
     "type": "String",
-
     "maxlength": [500, "PIIConsent can not be more than 500 characters"]
   },
   "PublicationConsent": {
     "type": "String",
-
     "maxlength": [500, "PublicationConsent can not be more than 500 characters"]
   },
   "AdditionalAttachments": {
     "type": "String",
-
     "maxlength": [
       500,
       "AdditionalAttachments can not be more than 500 characters"
@@ -240,17 +204,14 @@
   },
   "ContractNumber": {
     "type": "String",
-
     "maxlength": [50, "ContractNumber can not be more than 50 characters"]
   },
   "ContractAttachment": {
     "type": "String",
-
     "maxlength": [200, "ContractAttachment can not be more than 200 characters"]
   },
   "HPostCode": {
     "type": "String",
-
     "maxlength": [20, "HPostCode can not be more than 20 characters"],
     "match": [
       "UK_POSTCODE_V1",
@@ -259,12 +220,10 @@
   },
   "HAddress": {
     "type": "String",
-
     "maxlength": [200, "HAddress can not be more than 200 characters"]
   },
   "VendorEmail": {
     "type": "String",
-
     "required": [true, "Please add Mandatory field :VendorEmail"],
     "maxlength": [50, "VendorEmail can not be more than 50 characters"],
     "match": ["EMAIL_V1", "Invalid EmailID for field :VendorEmail"]
@@ -279,7 +238,6 @@
   },
   "PODeliveryDt": {
     "type": "Date",
-
     "maxlength": [10, "PODeliveryDt can not be more than 10 characters"],
     "match": [
       "DATE_V1",
@@ -288,7 +246,6 @@
   },
   "TotalNetVal": {
     "type": "Number",
-
     "maxlength": [20, "TotalNetVal can not be more than 20 characters"],
     "match": [
       "NUM_2_DEC_PLACE_V1",
@@ -297,7 +254,6 @@
   },
   "TotalTax": {
     "type": "Number",
-
     "maxlength": [20, "TotalTax can not be more than 20 characters"],
     "match": [
       "NUM_2_DEC_PLACE_V1",
@@ -306,7 +262,6 @@
   },
   "TotalGrossVal": {
     "type": "Number",
-
     "maxlength": [20, "TotalGrossVal can not be more than 20 characters"],
     "match": [
       "NUM_2_DEC_PLACE_V1",
@@ -315,7 +270,6 @@
   },
   "TotalInvNetVal": {
     "type": "Number",
-
     "maxlength": [20, "TotalInvNetVal can not be more than 20 characters"],
     "match": [
       "NUM_2_DEC_PLACE_V1",
@@ -324,7 +278,6 @@
   },
   "TotalInvGrossVal": {
     "type": "Number",
-
     "maxlength": [20, "TotalInvGrossVal can not be more than 20 characters"],
     "match": [
       "NUM_2_DEC_PLACE_V1",
@@ -354,6 +307,8 @@
   "USP_Name": { "type": "String" },
   "USP_Role": { "type": "String" },
   "USP_Image": { "type": "String" },
+  "carouselImage": [],
+  "MultiAttachments": {},
   "TransLog": [],
   "ItemData": []
 }

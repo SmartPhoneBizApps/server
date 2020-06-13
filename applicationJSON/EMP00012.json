@@ -5,24 +5,72 @@
     "required": [true, "Please add Mandatory field :ID"],
     "maxlength": [20, "ID can not be more than 20 characters"]
   },
-  "ReviewDate": { "type": "String" },
-  "EmployeeID": { "type": "String" },
-  "Name": { "type": "String" },
-  "DevManager": { "type": "String" },
-  "Role": { "type": "String" },
-  "Band": { "type": "String" },
-  "Area": { "type": "String" },
-  "CompDesc": { "type": "String" },
-  "ReviewPeriod": { "type": "String" },
-  "Score": { "type": "String" },
-  "MaxScore": { "type": "String" },
-  "AppraiseeComm": { "type": "String" },
   "Status": {
     "type": "String",
     "required": [true, "Please add Mandatory field :Status"],
-    "maxlength": [50, "Status can not be more than 20 characters"]
+    "maxlength": [50, "Status can not be more than 50 characters"]
   },
 
+  "EmployeeID": {
+    "type": "String",
+    "maxlength": [50, "EmployeeID can not be more than 50"]
+  },
+  "Name": {
+    "type": "String",
+    "maxlength": [50, "Name can not be more than 50"]
+  },
+  "ReviewPeriod": {
+    "type": "String",
+    "maxlength": [50, "ReviewPeriod can not be more than 50"]
+  },
+  "DevManager": {
+    "type": "String",
+    "maxlength": [50, "DevManager can not be more than 50"]
+  },
+  "Role": {
+    "type": "String",
+    "maxlength": [50, "Role can not be more than 50"]
+  },
+  "Band": {
+    "type": "String",
+    "maxlength": [50, "Band can not be more than 50"]
+  },
+  "ReviewDate": {
+    "type": "Date",
+    "maxlength": [10, "ReviewDate can not be more than 10"]
+  },
+  "NextReviewDt": {
+    "type": "Date",
+    "maxlength": [10, "NextReviewDt can not be more than 10"]
+  },
+  "Area": {
+    "type": "String",
+    "maxlength": [50, "Area can not be more than 50"]
+  },
+  "CompDesc": {
+    "type": "String",
+    "maxlength": [500, "CompDesc can not be more than 500"]
+  },
+  "AppraiseeComm": {
+    "type": "String",
+    "maxlength": [500, "AppraiseeComm can not be more than 500"]
+  },
+  "AppraiserComm": {
+    "type": "String",
+    "maxlength": [500, "AppraiserComm can not be more than 500"]
+  },
+  "Grade": {
+    "type": "String",
+    "maxlength": [50, "Grade can not be more than 50"]
+  },
+  "Score": {
+    "type": "String",
+    "maxlength": [50, "Score can not be more than 50"]
+  },
+  "MaxScore": {
+    "type": "String",
+    "maxlength": [50, "MaxScore can not be more than 50"]
+  },
   "USP_Name": { "type": "String" },
   "USP_Role": { "type": "String" },
   "USP_Image": { "type": "String" },

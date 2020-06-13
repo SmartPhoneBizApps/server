@@ -3,24 +3,52 @@
     "type": "String",
     "unique": true,
     "required": [true, "Please add Mandatory field :ID"],
-    "maxlength": [20, "ID can not be more than 20 characters"]
+    "maxlength": [20, "ID can not be more than 20"]
   },
-  "Citizenship": { "type": "String" },
-  "Candidate": { "type": "String" },
-  "DOB": { "type": "Date" },
-  "Email": { "type": "String" },
-  "ContactNo": { "type": "String" },
-  "InterviewDate": { "type": "String" },
-  "Position": { "type": "String" },
-  "JobType": { "type": "String" },
+  "InterviewDate": {
+    "type": "Date",
+    "required": [true, "Please add Mandatory field :InterviewDate"],
+    "maxlength": [10, "InterviewDate can not be more than 10"]
+  },
+  "Position": {
+    "type": "String",
+    "maxlength": [50, "Position can not be more than 50"]
+  },
+  "Citizenship": {
+    "type": "String",
+    "maxlength": [50, "Citizenship can not be more than 50"]
+  },
+  "Candidate": {
+    "type": "String",
+    "required": [true, "Please add Mandatory field :Candidate"],
+    "maxlength": [50, "Candidate can not be more than 50"]
+  },
+  "JobType": {
+    "type": "String",
+    "maxlength": [50, "JobType can not be more than 50"]
+  },
+
+  "DOB": { "type": "Date", "maxlength": [10, "DOB can not be more than 10"] },
+  "Email": {
+    "type": "String",
+    "required": [true, "Please add Mandatory field :Email"],
+    "maxlength": [100, "Email can not be more than 100"]
+  },
+  "ContactNo": {
+    "type": "String",
+    "maxlength": [50, "ContactNo can not be more than 50"]
+  },
+
   "Status": {
     "type": "String",
     "required": [true, "Please add Mandatory field :Status"],
-    "maxlength": [50, "Status can not be more than 20 characters"]
+    "maxlength": [50, "Status can not be more than 50 characters"]
   },
   "USP_Name": { "type": "String" },
   "USP_Role": { "type": "String" },
   "USP_Image": { "type": "String" },
+  "carouselImage": [],
+  "MultiAttachments": {},
   "TransLog": [],
   "ItemData": []
 }

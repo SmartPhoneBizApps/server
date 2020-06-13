@@ -7,39 +7,32 @@
   },
   "EmployeeID": {
     "type": "String",
-
     "required": [true, "Please add Mandatory field :EmployeeID"],
     "maxlength": [50, "EmployeeID can not be more than 50 characters"]
   },
   "Name": {
     "type": "String",
-
     "maxlength": [50, "EmpName can not be more than 50 characters"]
   },
   "ProjectNeed": {
     "type": "String",
-
     "maxlength": [50, "ProjectNeed can not be more than 50 characters"]
   },
   "EmpDev": {
     "type": "String",
-
     "required": [true, "Please add Mandatory field :EmpDev"],
     "maxlength": [50, "EmpDev can not be more than 50 characters"]
   },
   "Area": {
     "type": "String",
-
     "maxlength": [50, "Area can not be more than 50 characters"]
   },
   "Detail": {
     "type": "String",
-
     "maxlength": [500, "Detail can not be more than 500 characters"]
   },
   "Duration": {
     "type": "Number",
-
     "maxlength": [50, "Duration can not be more than 50 characters"],
     "match": [
       "NUM_INT_MAX_10D_V1",
@@ -48,44 +41,36 @@
   },
   "ProjectCode": {
     "type": "String",
-
     "maxlength": [50, "ProjectCode can not be more than 50 characters"]
   },
   "CostCentre": {
     "type": "String",
-
     "maxlength": [50, "CostCentre can not be more than 50 characters"]
   },
   "Status": {
     "type": "String",
-
     "required": [true, "Please add Mandatory field :Status"],
-    "maxlength": [20, "Status can not be more than 20 characters"]
+    "maxlength": [50, "Status can not be more than 50 characters"]
   },
   "Justification": {
     "type": "String",
-
     "required": [true, "Please add Mandatory field :Justification"],
     "maxlength": [500, "Justification can not be more than 500 characters"]
   },
   "LMComment": {
     "type": "String",
-
     "maxlength": [1000, "LMComment can not be more than 1000 characters"]
   },
   "HRComment": {
     "type": "String",
-
     "maxlength": [500, "HRComment can not be more than 500 characters"]
   },
   "AdminComment": {
     "type": "String",
-
     "maxlength": [1000, "AdminComment can not be more than 1000 characters"]
   },
   "DateRequested": {
     "type": "Date",
-
     "required": [true, "Please add Mandatory field :DateRequested"],
     "maxlength": [10, "DateRequested can not be more than 10 characters"],
     "match": [
@@ -95,12 +80,10 @@
   },
   "External": {
     "type": "Boolean",
-
     "maxlength": [50, "External can not be more than 50 characters"]
   },
   "Cost": {
     "type": "Number",
-
     "maxlength": [50, "Cost can not be more than 50 characters"],
     "match": [
       "NUM_2_DEC_PLACE_V1",
@@ -110,6 +93,8 @@
   "USP_Name": { "type": "String" },
   "USP_Role": { "type": "String" },
   "USP_Image": { "type": "String" },
+  "carouselImage": [],
+  "MultiAttachments": {},
   "TransLog": [],
   "ItemData": []
 }

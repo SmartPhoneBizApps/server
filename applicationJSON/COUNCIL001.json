@@ -7,83 +7,67 @@
   },
   "TheirName": {
     "type": "String",
-
     "maxlength": [50, "TheirName can not be more than 50 characters"]
   },
   "TheirAddress": {
     "type": "String",
-
     "maxlength": [50, "TheirAddress can not be more than 50 characters"]
   },
   "Q1": {
     "type": "String",
-
     "maxlength": [500, "Q1 can not be more than 500 characters"]
   },
   "A1": {
     "type": "String",
-
     "maxlength": [500, "A1 can not be more than 500 characters"]
   },
   "Q2": {
     "type": "String",
-
     "maxlength": [100, "Q2 can not be more than 100 characters"]
   },
   "A2": {
     "type": "String",
-
     "maxlength": [500, "A2 can not be more than 500 characters"]
   },
   "Q3": {
     "type": "String",
-
     "maxlength": [100, "Q3 can not be more than 100 characters"]
   },
   "A3": {
     "type": "String",
-
     "maxlength": [500, "A3 can not be more than 500 characters"]
   },
   "Q4": {
     "type": "String",
-
     "maxlength": [100, "Q4 can not be more than 100 characters"]
   },
   "A4": {
     "type": "String",
-
     "maxlength": [500, "A4 can not be more than 500 characters"]
   },
   "Q5": {
     "type": "String",
-
     "maxlength": [100, "Q5 can not be more than 100 characters"]
   },
   "A5": {
     "type": "String",
-
     "maxlength": [500, "A5 can not be more than 500 characters"]
   },
   "AdditionalInfo": {
     "type": "String",
-
     "maxlength": [1000, "AdditionalInfo can not be more than 1000 characters"]
   },
   "ClosingComment": {
     "type": "String",
-
     "maxlength": [1000, "ClosingComment can not be more than 1000 characters"]
   },
   "Status": {
     "type": "String",
-
     "required": [true, "Please add Mandatory field :Status"],
-    "maxlength": [20, "Status can not be more than 20 characters"]
+    "maxlength": [50, "Status can not be more than 50 characters"]
   },
   "ReportDate": {
     "type": "Date",
-
     "maxlength": [10, "ReportDate can not be more than 10 characters"],
     "match": [
       "DATE_V1",
@@ -93,6 +77,8 @@
   "USP_Name": { "type": "String" },
   "USP_Role": { "type": "String" },
   "USP_Image": { "type": "String" },
+  "carouselImage": [],
+  "MultiAttachments": {},
   "TransLog": [],
   "ItemData": []
 }

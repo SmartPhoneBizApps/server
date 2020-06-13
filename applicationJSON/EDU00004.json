@@ -7,75 +7,61 @@
   },
   "Class": {
     "type": "String",
-
     "maxlength": [50, "Class can not be more than 50 characters"]
   },
   "Section": {
     "type": "String",
-
     "maxlength": [50, "Section can not be more than 50 characters"]
   },
   "Term": {
     "type": "String",
-
     "maxlength": [50, "Term can not be more than 50 characters"]
   },
   "Subject": {
     "type": "String",
-
     "maxlength": [50, "Subject can not be more than 50 characters"]
   },
   "Day": {
     "type": "String",
-
     "maxlength": [50, "Day can not be more than 50 characters"]
   },
   "Period": {
     "type": "String",
-
     "maxlength": [50, "Period can not be more than 50 characters"]
   },
   "TimeSlot": {
     "type": "String",
-
     "required": [true, "Please add Mandatory field :TimeSlot"],
     "maxlength": [50, "TimeSlot can not be more than 50 characters"]
   },
   "Room": {
     "type": "String",
-
     "maxlength": [50, "Room can not be more than 50 characters"]
   },
   "Type": {
     "type": "String",
-
     "required": [true, "Please add Mandatory field :Type"],
     "maxlength": [50, "Type can not be more than 50 characters"]
   },
   "AnyChange": {
     "type": "String",
-
     "maxlength": [1000, "AnyChange can not be more than 1000 characters"]
   },
   "Status": {
     "type": "String",
-
     "required": [true, "Please add Mandatory field :Status"],
-    "maxlength": [20, "Status can not be more than 20 characters"]
+    "maxlength": [50, "Status can not be more than 50 characters"]
   },
   "Test": {
     "type": "String",
-
     "maxlength": [50, "Test can not be more than 50 characters"]
   },
   "Image": {
     "type": "String",
-
     "maxlength": [100, "Image can not be more than 100 characters"]
   },
   "Date": {
     "type": "Date",
-
     "required": [true, "Please add Mandatory field :Date"],
     "maxlength": [10, "Date can not be more than 10 characters"],
     "match": [
@@ -86,6 +72,8 @@
   "USP_Name": { "type": "String" },
   "USP_Role": { "type": "String" },
   "USP_Image": { "type": "String" },
+  "carouselImage": [],
+  "MultiAttachments": {},
   "TransLog": [],
   "ItemData": []
 }

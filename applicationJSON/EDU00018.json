@@ -7,76 +7,63 @@
   },
   "StudentName": {
     "type": "String",
-
     "required": [true, "Please add Mandatory field :StudentName"],
     "maxlength": [20, "StudentName can not be more than 20 characters"]
   },
   "Surname": {
     "type": "String",
-
     "required": [true, "Please add Mandatory field :Surname"],
     "maxlength": [20, "Surname can not be more than 20 characters"]
   },
   "StudyYear": {
     "type": "String",
-
     "required": [true, "Please add Mandatory field :StudyYear"],
     "maxlength": [10, "StudyYear can not be more than 10 characters"]
   },
   "TermReport": {
     "type": "String",
-
     "maxlength": [50, "TermReport can not be more than 50 characters"]
   },
   "Status": {
     "type": "String",
-
     "required": [true, "Please add Mandatory field :Status"],
-    "maxlength": [20, "Status can not be more than 20 characters"]
+    "maxlength": [50, "Status can not be more than 50 characters"]
   },
   "Email": {
     "type": "String",
-
     "required": [true, "Please add Mandatory field :Email"],
-    "maxlength": [50, "Email can not be more than 50 characters"],
+    "maxlength": [100, "Email can not be more than 100 characters"],
     "match": ["EMAIL_V1", "Invalid EmailID for field :Email"]
   },
   "Question_Response": {
     "type": "String",
-
     "maxlength": [500, "Question_Response can not be more than 500 characters"]
   },
   "Behaviour": {
     "type": "String",
-
     "maxlength": [500, "Behaviour can not be more than 500 characters"]
   },
   "StudentID": {
     "type": "String",
-
     "required": [true, "Please add Mandatory field :StudentID"],
     "maxlength": [50, "StudentID can not be more than 50 characters"]
   },
   "Attendance": {
     "type": "String",
-
     "maxlength": [100, "Attendance can not be more than 100 characters"]
   },
   "Section": {
     "type": "String",
-
     "maxlength": [10, "Section can not be more than 10 characters"]
   },
   "ParentEmail": {
     "type": "String",
-
     "required": [true, "Please add Mandatory field :ParentEmail"],
     "maxlength": [50, "ParentEmail can not be more than 50 characters"],
     "match": ["EMAIL_V1", "Invalid EmailID for field :ParentEmail"]
   },
   "MeritPoints": {
     "type": "Number",
-
     "maxlength": [50, "MeritPoints can not be more than 50 characters"],
     "match": [
       "NUM_INT_MAX_10D_V1",
@@ -85,7 +72,6 @@
   },
   "ReportDate": {
     "type": "Date",
-
     "maxlength": [10, "ReportDate can not be more than 10 characters"],
     "match": [
       "DATE_V1",
@@ -95,6 +81,8 @@
   "USP_Name": { "type": "String" },
   "USP_Role": { "type": "String" },
   "USP_Image": { "type": "String" },
+  "carouselImage": [],
+  "MultiAttachments": {},
   "TransLog": [],
   "ItemData": []
 }

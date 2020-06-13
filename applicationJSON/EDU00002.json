@@ -7,63 +7,51 @@
   },
   "Area": {
     "type": "String",
-
     "maxlength": [100, "Area can not be more than 100 characters"]
   },
   "Topic": {
     "type": "String",
-
     "maxlength": [100, "Topic can not be more than 100 characters"]
   },
   "Question": {
     "type": "String",
-
     "maxlength": [100, "Question can not be more than 100 characters"]
   },
   "A": {
     "type": "String",
-
     "maxlength": [100, "A can not be more than 100 characters"]
   },
   "B": {
     "type": "String",
-
     "maxlength": [100, "B can not be more than 100 characters"]
   },
   "C": {
     "type": "String",
-
     "maxlength": [100, "C can not be more than 100 characters"]
   },
   "D": {
     "type": "String",
-
     "maxlength": [100, "D can not be more than 100 characters"]
   },
   "E": {
     "type": "String",
-
     "maxlength": [100, "E can not be more than 100 characters"]
   },
   "Answer": {
     "type": "String",
-
     "maxlength": [100, "Answer can not be more than 100 characters"]
   },
   "Reasoning": {
     "type": "String",
-
     "maxlength": [500, "Reasoning can not be more than 500 characters"]
   },
   "Status": {
     "type": "String",
-
     "required": [true, "Please add Mandatory field :Status"],
-    "maxlength": [20, "Status can not be more than 20 characters"]
+    "maxlength": [50, "Status can not be more than 50 characters"]
   },
   "ExamDate": {
     "type": "Date",
-
     "required": [true, "Please add Mandatory field :ExamDate"],
     "maxlength": [10, "ExamDate can not be more than 10 characters"],
     "match": [
@@ -74,6 +62,8 @@
   "USP_Name": { "type": "String" },
   "USP_Role": { "type": "String" },
   "USP_Image": { "type": "String" },
+  "carouselImage": [],
+  "MultiAttachments": {},
   "TransLog": [],
   "ItemData": []
 }

@@ -1,0 +1,72 @@
+{
+  "ID": {
+    "type": "String",
+    "unique": true,
+    "required": [true, "Please add Mandatory field :ID"],
+    "maxlength": [20, "ID can not be more than 20 characters"]
+  },
+  "Name": {
+    "type": "String",
+    "maxlength": [50, "Name can not be more than 50"]
+  },
+  "Email": {
+    "type": "String",
+    "maxlength": [50, "Email can not be more than 50"]
+  },
+  "Department": {
+    "type": "String",
+    "maxlength": [50, "Department can not be more than 50"]
+  },
+  "ComputerID": {
+    "type": "String",
+    "maxlength": [20, "ComputerID can not be more than 20"]
+  },
+  "UserAccount": {
+    "type": "String",
+    "maxlength": [20, "UserAccount can not be more than 20"]
+  },
+  "DescribeProblem": {
+    "type": "String",
+    "maxlength": [1000, "DescribeProblem can not be more than 1000"]
+  },
+  "ScreenShot": {
+    "type": "String",
+    "maxlength": [100, "ScreenShot can not be more than 100"]
+  },
+  "Attachment": {
+    "type": "String",
+    "maxlength": [100, "Attachment can not be more than 100"]
+  },
+  "DateCreated": {
+    "type": "Date",
+    "maxlength": [10, "DateCreated can not be more than 10"]
+  },
+  "DateResolved": {
+    "type": "Date",
+    "maxlength": [10, "DateResolved can not be more than 10"]
+  },
+  "ResolutionDetails": {
+    "type": "String",
+    "maxlength": [500, "ResolutionDetails can not be more than 500"]
+  },
+  "UserFeedback": {
+    "type": "String",
+    "maxlength": [500, "UserFeedback can not be more than 500"]
+  },
+  "Score": {
+    "type": "String",
+    "maxlength": [20, "Score can not be more than 20"]
+  },
+  "Status": {
+    "type": "String",
+    "required": [true, "Please add Mandatory field :Status"],
+    "maxlength": [50, "Status can not be more than 50 characters"]
+  },
+  "USP_Name": { "type": "String" },
+  "USP_Role": { "type": "String" },
+  "USP_Image": { "type": "String" },
+  "carouselImage": [],
+  "MultiAttachments": {},
+  "TransLog": [],
+  "ItemData": []
+}

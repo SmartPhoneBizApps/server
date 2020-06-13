@@ -5,118 +5,95 @@
     "required": [true, "Please add Mandatory field :ID"],
     "maxlength": [20, "ID can not be more than 20 characters"]
   },
+  "Status": {
+    "type": "String",
+    "required": [true, "Please add Mandatory field :Status"],
+    "maxlength": [50, "Status can not be more than 50 characters"]
+  },
   "EmployeeID": {
     "type": "String",
-
     "required": [true, "Please add Mandatory field :EmployeeID"],
     "maxlength": [50, "EmployeeID can not be more than 50 characters"]
   },
+
   "Name": {
     "type": "String",
-
-    "maxlength": [50, "EmpName can not be more than 50 characters"]
+    "maxlength": [50, "Name can not be more than 50"]
+  },
+  "DateRequested": {
+    "type": "Date",
+    "maxlength": [10, "DateRequested can not be more than 10"]
   },
   "ProjectNeed": {
-    "type": "String"
+    "type": "String",
+    "maxlength": [50, "ProjectNeed can not be more than 50"]
   },
   "EmpDev": {
-    "type": "String"
+    "type": "String",
+    "maxlength": [50, "EmpDev can not be more than 50"]
   },
   "Area": {
     "type": "String",
-
-    "maxlength": [50, "Area can not be more than 50 characters"]
+    "maxlength": [50, "Area can not be more than 50"]
   },
   "Detail": {
     "type": "String",
-
-    "maxlength": [500, "Detail can not be more than 500 characters"]
+    "maxlength": [500, "Detail can not be more than 500"]
   },
-  "Currency": {
+  "Duration": {
     "type": "String",
-    "maxlength": [3, "Detail can not be more than 3 characters"]
+    "maxlength": [50, "Duration can not be more than 50"]
+  },
+  "External": {
+    "type": "String",
+    "maxlength": [50, "External can not be more than 50"]
+  },
+  "Cost": {
+    "type": "String",
+    "maxlength": [50, "Cost can not be more than 50"]
   },
   "ProjectCode": {
     "type": "String",
-
-    "maxlength": [50, "ProjectCode can not be more than 50 characters"]
+    "maxlength": [50, "ProjectCode can not be more than 50"]
   },
   "CostCentre": {
     "type": "String",
-
-    "maxlength": [50, "CostCentre can not be more than 50 characters"]
+    "maxlength": [50, "CostCentre can not be more than 50"]
   },
-  "Status": {
-    "type": "String",
 
-    "required": [true, "Please add Mandatory field :Status"],
-    "maxlength": [20, "Status can not be more than 20 characters"]
-  },
-  "Justification": {
-    "type": "String",
-
-    "required": [true, "Please add Mandatory field :Justification"],
-    "maxlength": [500, "Justification can not be more than 500 characters"]
-  },
   "ProcessingLog": {
     "type": "String",
-
-    "maxlength": [1000, "ProcessingLog can not be more than 1000 characters"]
+    "maxlength": [1000, "ProcessingLog can not be more than 1000"]
   },
   "Approver": {
     "type": "String",
+    "maxlength": [100, "Approver can not be more than 100"]
+  },
 
-    "maxlength": [100, "Approver can not be more than 100 characters"]
+  "Justification": {
+    "type": "String",
+    "required": [true, "Please add Mandatory field :Justification"],
+    "maxlength": [500, "Justification can not be more than 500 characters"]
   },
 
   "LMComment": {
     "type": "String",
-
     "maxlength": [1000, "LMComment can not be more than 1000 characters"]
   },
   "HRComment": {
     "type": "String",
-
     "maxlength": [500, "HRComment can not be more than 500 characters"]
   },
   "AdminComment": {
     "type": "String",
-
     "maxlength": [1000, "AdminComment can not be more than 1000 characters"]
   },
-  "DateRequested": {
-    "type": "Date",
 
-    "required": [true, "Please add Mandatory field :DateRequested"],
-    "maxlength": [10, "DateRequested can not be more than 10 characters"],
-    "match": [
-      "DATE_V1",
-      "Please provide date in YYYY-MM-DD format for field :DateRequested"
-    ]
-  },
-  "Duration": {
-    "type": "String",
-    "required": [
-      true,
-      "Please provide duration in number of days, weeks or months for field : Duration"
-    ],
-    "maxlength": [50, "Duration can not be more than 50 characters"]
-  },
-  "External": {
-    "type": "String"
-  },
-  "Cost": {
-    "type": "Number",
-
-    "maxlength": [50, "Cost can not be more than 50 characters"],
-    "match": [
-      "NUM_2_DEC_PLACE_V1",
-      "Please provide value with 2 decimal places in the field :Cost"
-    ]
-  },
   "USP_Name": { "type": "String" },
   "USP_Role": { "type": "String" },
   "USP_Image": { "type": "String" },
+  "carouselImage": [],
+  "MultiAttachments": {},
   "TransLog": [],
   "ItemData": []
 }

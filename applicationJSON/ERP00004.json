@@ -7,27 +7,22 @@
   },
   "Shift": {
     "type": "String",
-
     "maxlength": [50, "Shift can not be more than 50 characters"]
   },
   "Operator": {
     "type": "String",
-
     "maxlength": [20, "Operator can not be more than 20 characters"]
   },
   "Material": {
     "type": "String",
-
     "maxlength": [20, "Material can not be more than 20 characters"]
   },
   "UoM": {
     "type": "String",
-
     "maxlength": [50, "UoM can not be more than 50 characters"]
   },
   "PostCode": {
     "type": "String",
-
     "maxlength": [50, "PostCode can not be more than 50 characters"],
     "match": [
       "UK_POSTCODE_V1",
@@ -36,23 +31,19 @@
   },
   "Address": {
     "type": "String",
-
     "maxlength": [50, "Address can not be more than 50 characters"]
   },
   "Reason": {
     "type": "String",
-
     "maxlength": [50, "Reason can not be more than 50 characters"]
   },
   "Status": {
     "type": "String",
-
     "required": [true, "Please add Mandatory field :Status"],
-    "maxlength": [20, "Status can not be more than 20 characters"]
+    "maxlength": [50, "Status can not be more than 50 characters"]
   },
   "Date": {
     "type": "Date",
-
     "required": [true, "Please add Mandatory field :Date"],
     "maxlength": [10, "Date can not be more than 10 characters"],
     "match": [
@@ -62,7 +53,6 @@
   },
   "Qty": {
     "type": "Number",
-
     "maxlength": [50, "Qty can not be more than 50 characters"],
     "match": [
       "NUM_INT_MAX_10D_V1",
@@ -71,7 +61,6 @@
   },
   "CummQty": {
     "type": "Number",
-
     "maxlength": [50, "CummQty can not be more than 50 characters"],
     "match": [
       "NUM_INT_MAX_10D_V1",
@@ -80,7 +69,6 @@
   },
   "TargetQty": {
     "type": "Number",
-
     "maxlength": [50, "TargetQty can not be more than 50 characters"],
     "match": [
       "NUM_INT_MAX_10D_V1",
@@ -89,7 +77,6 @@
   },
   "QtyPercent": {
     "type": "Number",
-
     "required": [true, "Please add Mandatory field :QtyPercent"],
     "maxlength": [50, "QtyPercent can not be more than 50 characters"],
     "match": [
@@ -99,7 +86,6 @@
   },
   "CummPercent": {
     "type": "Number",
-
     "maxlength": [50, "CummPercent can not be more than 50 characters"],
     "match": [
       "NUM_2_DEC_PLACE_V1",
@@ -108,7 +94,6 @@
   },
   "Time": {
     "type": "Date",
-
     "maxlength": [10, "Time can not be more than 10 characters"],
     "match": [
       "DATE_V1",
@@ -118,6 +103,8 @@
   "USP_Name": { "type": "String" },
   "USP_Role": { "type": "String" },
   "USP_Image": { "type": "String" },
+  "carouselImage": [],
+  "MultiAttachments": {},
   "TransLog": [],
   "ItemData": []
 }

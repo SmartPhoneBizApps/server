@@ -7,24 +7,21 @@
   },
   "Position": {
     "type": "String",
-
     "maxlength": [50, "Position can not be more than 50 characters"]
   },
   "Candidate": {
     "type": "String",
-
+    "required": [true, "Please add Mandatory field :Candidate"],
     "maxlength": [50, "Candidate can not be more than 50 characters"]
   },
   "Email": {
     "type": "String",
-
     "required": [true, "Please add Mandatory field :Email"],
     "maxlength": [100, "Email can not be more than 100 characters"],
     "match": ["EMAIL_V1", "Invalid EmailID for field :Email"]
   },
   "ContactNo": {
     "type": "String",
-
     "maxlength": [50, "ContactNo can not be more than 50 characters"],
     "match": [
       "UK_PHONE_V1",
@@ -33,22 +30,18 @@
   },
   "AboutCompany": {
     "type": "String",
-
     "maxlength": [50, "AboutCompany can not be more than 50 characters"]
   },
   "Communication": {
     "type": "String",
-
     "maxlength": [50, "Communication can not be more than 50 characters"]
   },
   "LeadershipSkills": {
     "type": "String",
-
     "maxlength": [100, "LeadershipSkills can not be more than 100 characters"]
   },
   "ProblemSolvingSkills": {
     "type": "String",
-
     "maxlength": [
       100,
       "ProblemSolvingSkills can not be more than 100 characters"
@@ -56,156 +49,126 @@
   },
   "MotivationalSkills": {
     "type": "String",
-
     "maxlength": [100, "MotivationalSkills can not be more than 100 characters"]
   },
   "CurrentJobType": {
     "type": "String",
-
     "required": [true, "Please add Mandatory field :CurrentJobType"],
     "maxlength": [50, "CurrentJobType can not be more than 50 characters"]
   },
   "CurrEmployer": {
     "type": "String",
-
     "required": [true, "Please add Mandatory field :CurrEmployer"],
     "maxlength": [50, "CurrEmployer can not be more than 50 characters"]
   },
   "CurrJobRole": {
     "type": "String",
-
     "maxlength": [50, "CurrJobRole can not be more than 50 characters"]
   },
   "Reasonleaving": {
     "type": "String",
-
     "maxlength": [50, "Reasonleaving can not be more than 50 characters"]
   },
   "PensionPlan": {
     "type": "String",
-
     "maxlength": [50, "PensionPlan can not be more than 50 characters"]
   },
   "HealthCare": {
     "type": "String",
-
     "maxlength": [50, "HealthCare can not be more than 50 characters"]
   },
   "LifeAssurance": {
     "type": "String",
-
     "maxlength": [50, "LifeAssurance can not be more than 50 characters"]
   },
   "CompanyCar": {
     "type": "Boolean",
-
     "maxlength": [50, "CompanyCar can not be more than 50 characters"]
   },
   "OtherAllowan": {
     "type": "String",
-
     "maxlength": [50, "OtherAllowan can not be more than 50 characters"]
   },
   "NoticePeriod": {
     "type": "String",
-
     "maxlength": [50, "NoticePeriod can not be more than 50 characters"]
   },
   "ConsiderReLocation": {
     "type": "Boolean",
-
     "maxlength": [100, "ConsiderReLocation can not be more than 100 characters"]
   },
   "ConsiderTravel": {
     "type": "String",
-
     "maxlength": [50, "ConsiderTravel can not be more than 50 characters"]
   },
   "UKResident": {
     "type": "String",
-
     "maxlength": [50, "UKResident can not be more than 50 characters"]
   },
   "Eligibility": {
     "type": "String",
-
     "maxlength": [50, "Eligibility can not be more than 50 characters"]
   },
   "Citizenship": {
     "type": "String",
-
     "maxlength": [50, "Citizenship can not be more than 50 characters"]
   },
   "Visa": {
     "type": "String",
-
     "maxlength": [50, "Visa can not be more than 50 characters"]
   },
   "Location": {
     "type": "String",
-
     "maxlength": [50, "Location can not be more than 50 characters"]
   },
   "JobType": {
     "type": "String",
-
     "required": [true, "Please add Mandatory field :JobType"],
     "maxlength": [50, "JobType can not be more than 50 characters"]
   },
   "HRFeedback": {
     "type": "String",
-
     "maxlength": [1000, "HRFeedback can not be more than 1000 characters"]
   },
   "TechFeedback": {
     "type": "String",
-
     "maxlength": [1000, "TechFeedback can not be more than 1000 characters"]
   },
   "LeadFeedback": {
     "type": "String",
-
     "maxlength": [1000, "LeadFeedback can not be more than 1000 characters"]
   },
   "Status": {
     "type": "String",
-
     "required": [true, "Please add Mandatory field :Status"],
-    "maxlength": [20, "Status can not be more than 20 characters"]
+    "maxlength": [50, "Status can not be more than 50 characters"]
   },
   "Screening_Status": {
     "type": "String",
-
     "maxlength": [100, "Screening_Status can not be more than 100 characters"]
   },
   "Tech_Status": {
     "type": "String",
-
     "maxlength": [100, "Tech_Status can not be more than 100 characters"]
   },
   "Lead_Status": {
     "type": "String",
-
     "maxlength": [100, "Lead_Status can not be more than 100 characters"]
   },
   "HR_Status": {
     "type": "String",
-
     "maxlength": [100, "HR_Status can not be more than 100 characters"]
   },
   "WorkPermitVisa": {
     "type": "String",
-
     "maxlength": [200, "WorkPermitVisa can not be more than 200 characters"]
   },
   "ScreenFeedback": {
     "type": "String",
-
     "maxlength": [500, "ScreenFeedback can not be more than 500 characters"]
   },
   "Duration": {
     "type": "Number",
-
     "maxlength": [50, "Duration can not be more than 50 characters"],
     "match": [
       "NUM_INT_MAX_10D_V1",
@@ -222,7 +185,6 @@
   },
   "DOB": {
     "type": "Date",
-
     "maxlength": [10, "DOB can not be more than 10 characters"],
     "match": [
       "DATE_V1",
@@ -231,7 +193,6 @@
   },
   "CurBaseSalary": {
     "type": "Number",
-
     "required": [true, "Please add Mandatory field :CurBaseSalary"],
     "maxlength": [50, "CurBaseSalary can not be more than 50 characters"],
     "match": [
@@ -241,7 +202,6 @@
   },
   "CurGrosSalary": {
     "type": "Number",
-
     "required": [true, "Please add Mandatory field :CurGrosSalary"],
     "maxlength": [50, "CurGrosSalary can not be more than 50 characters"],
     "match": [
@@ -251,7 +211,6 @@
   },
   "ExpBaseSalary": {
     "type": "Number",
-
     "maxlength": [50, "ExpBaseSalary can not be more than 50 characters"],
     "match": [
       "NUM_2_DEC_PLACE_V1",
@@ -260,7 +219,6 @@
   },
   "ExpGrossSal": {
     "type": "Number",
-
     "maxlength": [50, "ExpGrossSal can not be more than 50 characters"],
     "match": [
       "NUM_2_DEC_PLACE_V1",
@@ -269,7 +227,6 @@
   },
   "Bonus": {
     "type": "Number",
-
     "maxlength": [50, "Bonus can not be more than 50 characters"],
     "match": [
       "NUM_2_DEC_PLACE_V1",
@@ -278,7 +235,6 @@
   },
   "VisaValidity": {
     "type": "Date",
-
     "maxlength": [10, "VisaValidity can not be more than 10 characters"],
     "match": [
       "DATE_V1",
@@ -287,7 +243,6 @@
   },
   "DateOfJoining": {
     "type": "Date",
-
     "maxlength": [10, "DateOfJoining can not be more than 10 characters"],
     "match": [
       "DATE_V1",
@@ -296,7 +251,6 @@
   },
   "Rate": {
     "type": "Number",
-
     "maxlength": [50, "Rate can not be more than 50 characters"],
     "match": [
       "NUM_2_DEC_PLACE_V1",
@@ -305,7 +259,6 @@
   },
   "BaseSalary": {
     "type": "Number",
-
     "maxlength": [50, "BaseSalary can not be more than 50 characters"],
     "match": [
       "NUM_2_DEC_PLACE_V1",
@@ -314,7 +267,6 @@
   },
   "GrossSalary": {
     "type": "Number",
-
     "maxlength": [50, "GrossSalary can not be more than 50 characters"],
     "match": [
       "NUM_2_DEC_PLACE_V1",
@@ -323,7 +275,6 @@
   },
   "HRInterviewDt": {
     "type": "Date",
-
     "maxlength": [10, "HRInterviewDt can not be more than 10 characters"],
     "match": [
       "DATE_V1",
@@ -332,7 +283,6 @@
   },
   "TechInterviewDt": {
     "type": "Date",
-
     "maxlength": [10, "TechInterviewDt can not be more than 10 characters"],
     "match": [
       "DATE_V1",
@@ -341,7 +291,6 @@
   },
   "LeadInterviewDt": {
     "type": "Date",
-
     "maxlength": [10, "LeadInterviewDt can not be more than 10 characters"],
     "match": [
       "DATE_V1",
@@ -350,7 +299,6 @@
   },
   "ScreenDt": {
     "type": "Date",
-
     "maxlength": [10, "ScreenDt can not be more than 10 characters"],
     "match": [
       "DATE_V1",
@@ -360,6 +308,8 @@
   "USP_Name": { "type": "String" },
   "USP_Role": { "type": "String" },
   "USP_Image": { "type": "String" },
+  "carouselImage": [],
+  "MultiAttachments": {},
   "TransLog": [],
   "ItemData": []
 }
