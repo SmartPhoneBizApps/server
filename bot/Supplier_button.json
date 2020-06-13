@@ -75,7 +75,7 @@
     "Open": {
       "Employee": [
         {
-          "title": "More Details",
+          "title": "Display Study/Trial",
           "action": "action_var-display transID"
         }
       ],
@@ -84,16 +84,9 @@
           "title": "Display Study/Trial",
           "action": "action_var-display transID"
         }
-      ],
-      "Employee": [
-        {
-          "title": "Display Study/Trial",
-          "action": "action_var-display transID"
-        }
       ]
     }
   },
-
   "HC0004": {
     "Open": {
       "HealthCareProfessional": [
@@ -176,7 +169,6 @@
       ]
     }
   },
-
   "HC0003": {
     "Suspended": {
       "HealthCareProfessional": [
@@ -1935,7 +1927,6 @@
       ]
     }
   },
-
   "COUNCIL001": {
     "Saved": {
       "Manager": [
@@ -2054,7 +2045,6 @@
       ]
     }
   },
-
   "COUNCIL022": {
     "Saved": {
       "CouncilAdmin": [
@@ -2215,7 +2205,6 @@
       ]
     }
   },
-
   "COUNCIL023": {
     "Saved": {
       "CouncilAdmin": [
@@ -2394,7 +2383,6 @@
       ]
     }
   },
-
   "COUNCIL033": {
     "Saved": {
       "CouncilAdmin": [
@@ -2711,7 +2699,6 @@
       ]
     }
   },
-
   "COUNCIL036": {
     "Saved": {
       "CouncilAdmin": [
@@ -2874,7 +2861,6 @@
       ]
     }
   },
-
   "COUNCIL034": {
     "Saved": {
       "CouncilAdmin": [
@@ -2899,24 +2885,24 @@
       ]
     },
     "Submitted": {
+      "Citizen": [
+        {
+          "title": "Display Information",
+          "action": "action_var-display transID"
+        }
+      ],
       "CouncilAdmin": [
         {
           "title": "Display Information",
           "action": "action_var-display transID"
         },
         {
-          "title": "Chat Details ",
-          "action": "action_var-ChatDetails transID"
-        }
-      ],
-      "Citizen": [
-        {
-          "title": "Display Information",
-          "action": "action_var-display transID"
+          "title": "Approve",
+          "action": "action_var-Approve transID"
         },
         {
-          "title": "Chat Details ",
-          "action": "action_var-ChatDetails transID"
+          "title": "Reject",
+          "action": "action_var-Reject transID"
         }
       ]
     },
@@ -2959,28 +2945,6 @@
         {
           "title": "Display Information",
           "action": "action_var-display transID"
-        }
-      ]
-    },
-    "Submitted": {
-      "Citizen": [
-        {
-          "title": "Display Information",
-          "action": "action_var-display transID"
-        }
-      ],
-      "CouncilAdmin": [
-        {
-          "title": "Display Information",
-          "action": "action_var-display transID"
-        },
-        {
-          "title": "Approve",
-          "action": "action_var-Approve transID"
-        },
-        {
-          "title": "Reject",
-          "action": "action_var-Reject transID"
         }
       ]
     },
@@ -3285,16 +3249,6 @@
           "action": "action_var-ChatDetails transID"
         }
       ],
-      "Parent": [
-        {
-          "title": "Display Time Table",
-          "action": "action_var-display transID"
-        },
-        {
-          "title": "Chat Details ",
-          "action": "action_var-ChatDetails transID"
-        }
-      ],
       "Teacher": [
         {
           "title": "Display Time Table",
@@ -3327,16 +3281,6 @@
           "action": "action_var-ChatDetails transID"
         }
       ],
-      "Parent": [
-        {
-          "title": "Display Time Table",
-          "action": "action_var-display transID"
-        },
-        {
-          "title": "Chat Details ",
-          "action": "action_var-ChatDetails transID"
-        }
-      ],
       "Teacher": [
         {
           "title": "Display Time Table",
@@ -3350,16 +3294,6 @@
     },
     "Cancelled": {
       "Student": [
-        {
-          "title": "Display Time Table",
-          "action": "action_var-display transID"
-        },
-        {
-          "title": "Chat Details ",
-          "action": "action_var-ChatDetails transID"
-        }
-      ],
-      "Parent": [
         {
           "title": "Display Time Table",
           "action": "action_var-display transID"
@@ -3413,7 +3347,6 @@
           "action": "action_var-ChatDetails transID"
         }
       ],
-
       "Teacher": [
         {
           "title": "Display Merit List",
@@ -3437,16 +3370,6 @@
     },
     "UnderReview": {
       "Student": [
-        {
-          "title": "Display Merit List",
-          "action": "action_var-display transID"
-        },
-        {
-          "title": "Chat Details ",
-          "action": "action_var-ChatDetails transID"
-        }
-      ],
-      "Parent": [
         {
           "title": "Display Merit List",
           "action": "action_var-display transID"
@@ -3498,16 +3421,6 @@
           "action": "action_var-ChatDetails transID"
         }
       ],
-      "Parent": [
-        {
-          "title": "Display Merit List",
-          "action": "action_var-display transID"
-        },
-        {
-          "title": "Chat Details ",
-          "action": "action_var-ChatDetails transID"
-        }
-      ],
       "Teacher": [
         {
           "title": "Display Merit List",
@@ -3521,16 +3434,6 @@
     },
     "Cancelled": {
       "Student": [
-        {
-          "title": "Display Merit List",
-          "action": "action_var-display transID"
-        },
-        {
-          "title": "Chat Details ",
-          "action": "action_var-ChatDetails transID"
-        }
-      ],
-      "Parent": [
         {
           "title": "Display Merit List",
           "action": "action_var-display transID"
@@ -3922,16 +3825,6 @@
           "action": "action_var-ChatDetails transID"
         }
       ],
-      "Parent": [
-        {
-          "title": "Display Seat Availability ",
-          "action": "action_var-display transID"
-        },
-        {
-          "title": "Chat Details ",
-          "action": "action_var-ChatDetails transID"
-        }
-      ],
       "Teacher": [
         {
           "title": "Display Seat Availability ",
@@ -3964,16 +3857,6 @@
           "action": "action_var-ChatDetails transID"
         }
       ],
-      "Parent": [
-        {
-          "title": "Display Seat Availability ",
-          "action": "action_var-display transID"
-        },
-        {
-          "title": "Chat Details ",
-          "action": "action_var-ChatDetails transID"
-        }
-      ],
       "Teacher": [
         {
           "title": "Display Seat Availability ",
@@ -3986,7 +3869,6 @@
       ]
     }
   },
-
   "EDU00008": {
     "Draft": {
       "Student": [
@@ -4751,7 +4633,6 @@
       ]
     }
   },
-
   "EDU00012": {
     "Rejected": {
       "Parent": [
@@ -4980,7 +4861,6 @@
       ]
     }
   },
-
   "EDU00014": {
     "Available": {
       "Parent": [
@@ -5345,7 +5225,6 @@
       ]
     }
   },
-
   "EDU00017": {
     "Cancelled": {
       "Parent": [
@@ -5996,7 +5875,6 @@
       ]
     }
   },
-
   "EMP00001": {
     "Saved": {
       "Manager": [
@@ -6075,7 +5953,7 @@
     "Saved": {
       "Manager": [
         {
-          "title": "My Timesheet",
+          "title": "Display My Timesheet",
           "action": "action_var-display transID"
         },
         {
@@ -6089,7 +5967,7 @@
       ],
       "Employee": [
         {
-          "title": "My Timesheet",
+          "title": "Display My Timesheet",
           "action": "action_var-display transID"
         }
       ]
@@ -6097,13 +5975,13 @@
     "Approved": {
       "Employee": [
         {
-          "title": "My Timesheet",
+          "title": "Display My Timesheet",
           "action": "action_var-display transID"
         }
       ],
       "Manager": [
         {
-          "title": "My Timesheet",
+          "title": "Display My Timesheet",
           "action": "action_var-display transID"
         }
       ]
@@ -6111,13 +5989,13 @@
     "Rejected": {
       "Employee": [
         {
-          "title": "My Timesheet",
+          "title": "Display My Timesheet",
           "action": "action_var-display transID"
         }
       ],
       "Manager": [
         {
-          "title": "My Timesheet",
+          "title": "Display My Timesheet",
           "action": "action_var-display transID"
         }
       ]
@@ -6125,13 +6003,13 @@
     "Submitted": {
       "Employee": [
         {
-          "title": "My Timesheet",
+          "title": "Display My Timesheet",
           "action": "action_var-display transID"
         }
       ],
       "Manager": [
         {
-          "title": "My Timesheet",
+          "title": "Display My Timesheet",
           "action": "action_var-display transID"
         },
         {
@@ -6436,80 +6314,6 @@
       "Manager": [
         {
           "title": "Display Expense",
-          "action": "action_var-display transID"
-        },
-        {
-          "title": "Approve",
-          "action": "action_var-Approve transID"
-        },
-        {
-          "title": "Reject",
-          "action": "action_var-Reject transID"
-        }
-      ]
-    }
-  },
-  "EMP00021": {
-    "Saved": {
-      "Manager": [
-        {
-          "title": "Display My Timesheet",
-          "action": "action_var-display transID"
-        },
-        {
-          "title": "Approve",
-          "action": "action_var-Approve transID"
-        },
-        {
-          "title": "Reject",
-          "action": "action_var-Reject transID"
-        }
-      ],
-      "Employee": [
-        {
-          "title": "Display My Timesheet",
-          "action": "action_var-display transID"
-        }
-      ]
-    },
-    "Approved": {
-      "Employee": [
-        {
-          "title": "Display My Timesheet",
-          "action": "action_var-display transID"
-        }
-      ],
-      "Manager": [
-        {
-          "title": "Display My Timesheet",
-          "action": "action_var-display transID"
-        }
-      ]
-    },
-    "Rejected": {
-      "Employee": [
-        {
-          "title": "Display My Timesheet",
-          "action": "action_var-display transID"
-        }
-      ],
-      "Manager": [
-        {
-          "title": "Display My Timesheet",
-          "action": "action_var-display transID"
-        }
-      ]
-    },
-    "Submitted": {
-      "Employee": [
-        {
-          "title": "Display My Timesheet",
-          "action": "action_var-display transID"
-        }
-      ],
-      "Manager": [
-        {
-          "title": "Display My Timesheet",
           "action": "action_var-display transID"
         },
         {
