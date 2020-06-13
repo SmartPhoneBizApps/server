@@ -120,7 +120,7 @@ const advancedDataList = (model, model2, AppID, populate) => async (
   // Executing query
   let results = await query;
 
-  rag = [];
+  /*   rag = [];
   for (let a = 0; a < results.length; a++) {
     const el1 = results[a];
     // console.log("el1", el1);
@@ -145,7 +145,7 @@ const advancedDataList = (model, model2, AppID, populate) => async (
         }
       }
     }
-  }
+  } */
 
   /////////////////////////////////////////////////////////////////
   if (model2 !== model) {
