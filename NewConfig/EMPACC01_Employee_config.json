@@ -112,7 +112,7 @@
     "headerRole": ["USP_Role"],
     "headerImage": ["USP_Image"],
     "None": ["ID", "Status", "RequestType"],
-    "Tab1": ["EmployeeID", "Name", "Surname", "EmailID", "PhoneNo"],
+    "Tab1": ["EmployeeID", "Name", "Surname", "EmailID", "ContactNo"],
     "Tab2": ["DateOfRequest", "StartDate", "EndDate", "Reason"],
     "Tab3": ["Approver", "ApprovalDate", "ApproverComment"],
     "Tab4": ["Officer"],
@@ -152,7 +152,7 @@
             "EmployeeID",
             "Name",
             "Surname",
-            "PhoneNo",
+            "ContactNo",
             "DateOfRequest",
             "StartDate",
             "EndDate",
@@ -203,7 +203,7 @@
       "name": "ID",
       "type": "string",
       "width": "20",
-      "Option": "mandatory",
+      "Option": "Mandatory",
       "SLabel": "Identification",
       "LLabel": "",
       "Currency": "No"
@@ -212,7 +212,7 @@
       "name": "EmployeeID",
       "type": "string",
       "width": "50",
-      "Option": "mandatory",
+      "Option": "Mandatory",
       "SLabel": "Employee ID",
       "LLabel": "",
       "Currency": "No"
@@ -221,7 +221,7 @@
       "name": "Name",
       "type": "string",
       "width": "50",
-      "Option": "mandatory",
+      "Option": "Mandatory",
       "SLabel": "Name",
       "LLabel": "",
       "Currency": "No"
@@ -230,7 +230,7 @@
       "name": "Surname",
       "type": "string",
       "width": "50",
-      "Option": "mandatory",
+      "Option": "Mandatory",
       "SLabel": "Surname",
       "LLabel": "",
       "Currency": "No"
@@ -245,7 +245,7 @@
       "Currency": "No"
     },
     {
-      "name": "PhoneNo",
+      "name": "ContactNo",
       "type": "string",
       "width": "50",
       "Option": "Optional",
@@ -266,7 +266,7 @@
       "name": "AccessCardNo",
       "type": "string",
       "width": "50",
-      "Option": "mandatory",
+      "Option": "Mandatory",
       "SLabel": "Access Card Number",
       "LLabel": "",
       "Currency": "No"
@@ -275,7 +275,7 @@
       "name": "BuildingName",
       "type": "string",
       "width": "50",
-      "Option": "mandatory",
+      "Option": "Mandatory",
       "SLabel": "Building Name",
       "LLabel": "",
       "Currency": "No"
@@ -356,7 +356,7 @@
       "name": "RequestType",
       "type": "string",
       "width": "100",
-      "Option": "mandatory",
+      "Option": "Mandatory",
       "SLabel": "Request Type",
       "LLabel": "Request Type",
       "Currency": "No"
@@ -583,7 +583,7 @@
     {
       "id": "Step2",
       "fields": [
-        { "name": "PhoneNo", "Sequence": "1", "Mode": "Edit" },
+        { "name": "ContactNo", "Sequence": "1", "Mode": "Edit" },
         { "name": "EmailID", "Sequence": "1", "Mode": "Edit" },
         { "name": "StartDate", "Sequence": "1", "Mode": "Edit" },
         { "name": "EndDate", "Sequence": "1", "Mode": "Edit" },

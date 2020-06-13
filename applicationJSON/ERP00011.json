@@ -2,34 +2,25 @@
   "ID": {
     "type": "String",
     "unique": true,
-    "required": [true, "Please add mandatory field :ID"],
+    "required": [true, "Please add Mandatory field :ID"],
     "maxlength": [20, "ID can not be more than 20 characters"]
   },
   "Citizenship": { "type": "String" },
   "Candidate": { "type": "String" },
-  "DOB": { "type": "String" },
+  "DOB": { "type": "Date" },
   "Email": { "type": "String" },
-  "Telephone": { "type": "String" },
-
+  "ContactNo": { "type": "String" },
   "InterviewDate": { "type": "String" },
   "Position": { "type": "String" },
   "JobType": { "type": "String" },
   "Status": {
     "type": "String",
-    "required": [true, "Please add mandatory field :Status"],
+    "required": [true, "Please add Mandatory field :Status"],
     "maxlength": [50, "Status can not be more than 20 characters"]
   },
   "USP_Name": { "type": "String" },
   "USP_Role": { "type": "String" },
   "USP_Image": { "type": "String" },
-  "Dependents": [],
-  "EmergencyContacts": [],
-  "Education": [],
-  "PreviousEmployer": [],
-  "Remuneration": [],
-  "Skills": [],
-  "Attachments": [],
-  "Certifications": [],
   "TransLog": [],
   "ItemData": []
 }

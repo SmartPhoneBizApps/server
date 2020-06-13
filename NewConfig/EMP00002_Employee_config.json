@@ -5,7 +5,7 @@
   },
   "Controls": { "USP": "UserProfile" },
   "ListFields": {
-    "IntroField": "EmpName",
+    "IntroField": "Name",
     "TitleField": "NoValue",
     "sStatus": "CostCentre",
     "fStatus": "Status",
@@ -16,7 +16,7 @@
   "ListBOTFields": {
     "None": ["cardImage", "StatusState"],
     "Title": ["ID"],
-    "SubTitle": ["EmpName", "TotalAmount", "Status"],
+    "SubTitle": ["Name", "TotalAmount", "Status"],
     "Description": ["TravelDtFrom", "TravelDateTo", "Justification"]
   },
   "PossibleValues": [
@@ -99,14 +99,7 @@
     "headerTitle": ["USP_Name"],
     "headerRole": ["USP_Role"],
     "headerImage": ["USP_Image"],
-    "None": [
-      "ID",
-      "EmployeeID",
-      "EmpName",
-      "EntryDate",
-      "Status",
-      "TotalAmount"
-    ],
+    "None": ["ID", "EmployeeID", "Name", "EntryDate", "Status", "TotalAmount"],
     "Tab1": [
       "TravelDtFrom",
       "TravelDateTo",
@@ -146,7 +139,7 @@
       "Currency": "No"
     },
     {
-      "name": "EmpName",
+      "name": "Name",
       "type": "string",
       "width": "50",
       "Option": "Optional",
@@ -203,7 +196,7 @@
       "name": "ProjectCode",
       "type": "string",
       "width": "50",
-      "Option": "mandatory",
+      "Option": "Mandatory",
       "SLabel": "Project Code",
       "LLabel": "",
       "Currency": "No"
@@ -374,7 +367,7 @@
       "id": "Step1",
       "fields": [
         { "name": "EmployeeID", "Sequence": "1", "Mode": "Edit" },
-        { "name": "EmpName", "Sequence": "1", "Mode": "Edit" },
+        { "name": "Name", "Sequence": "1", "Mode": "Edit" },
         { "name": "Justification", "Sequence": "1", "Mode": "Edit" }
       ],
       "name": "Request Details",

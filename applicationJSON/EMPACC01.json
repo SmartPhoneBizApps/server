@@ -2,13 +2,13 @@
   "ID": {
     "type": "String",
     "unique": true,
-    "required": [true, "Please add mandatory field :ID"],
+    "required": [true, "Please add Mandatory field :ID"],
     "maxlength": [20, "ID can not be more than 20 characters"]
   },
   "EmployeeID": {
     "type": "String",
 
-    "required": [true, "Please add mandatory field :EmployeeID"],
+    "required": [true, "Please add Mandatory field :EmployeeID"],
     "maxlength": [50, "EmployeeID can not be more than 50 characters"]
   },
   "Name": {
@@ -20,17 +20,17 @@
   "EmailID": {
     "type": "String",
 
-    "required": [true, "Please add mandatory field :EmailID"],
+    "required": [true, "Please add Mandatory field :EmailID"],
     "maxlength": [50, "EmailID can not be more than 50 characters"],
     "match": ["EMAIL_V1", "Invalid EmailID for field :EmailID"]
   },
-  "PhoneNo": {
+  "ContactNo": {
     "type": "String",
 
-    "maxlength": [50, "PhoneNo can not be more than 50 characters"],
+    "maxlength": [50, "ContactNo can not be more than 50 characters"],
     "match": [
       "UK_PHONE_V1",
-      "Please provide valid UK Phone number in field :PhoneNo"
+      "Please provide valid UK Phone number in field :ContactNo"
     ]
   },
   "AccessCardNo": {
@@ -56,7 +56,7 @@
   "Status": {
     "type": "String",
 
-    "required": [true, "Please add mandatory field :Status"],
+    "required": [true, "Please add Mandatory field :Status"],
     "maxlength": [20, "Status can not be more than 20 characters"]
   },
   "ApproverComment": {
@@ -72,7 +72,7 @@
   "RequestType": {
     "type": "String",
 
-    "required": [true, "Please add mandatory field :RequestType"],
+    "required": [true, "Please add Mandatory field :RequestType"],
     "maxlength": [100, "RequestType can not be more than 100 characters"]
   },
   "Application": {
@@ -185,8 +185,7 @@
   },
   "DateOfRequest": {
     "type": "Date",
-
-    "required": [true, "Please add mandatory field :DateOfRequest"],
+    "required": [true, "Please add Mandatory field :DateOfRequest"],
     "maxlength": [10, "DateOfRequest can not be more than 10 characters"],
     "match": [
       "DATE_V1",
@@ -195,7 +194,6 @@
   },
   "StartDate": {
     "type": "Date",
-
     "maxlength": [10, "StartDate can not be more than 10 characters"],
     "match": [
       "DATE_V1",
@@ -204,7 +202,6 @@
   },
   "EndDate": {
     "type": "Date",
-
     "maxlength": [10, "EndDate can not be more than 10 characters"],
     "match": [
       "DATE_V1",
@@ -213,7 +210,6 @@
   },
   "ApprovalDate": {
     "type": "Date",
-
     "maxlength": [10, "ApprovalDate can not be more than 10 characters"],
     "match": [
       "DATE_V1",

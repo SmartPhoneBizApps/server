@@ -2,13 +2,13 @@
   "ID": {
     "type": "String",
     "unique": true,
-    "required": [true, "Please add mandatory field :ID"],
+    "required": [true, "Please add Mandatory field :ID"],
     "maxlength": [20, "ID can not be more than 20 characters"]
   },
   "VendorName": {
     "type": "String",
 
-    "required": [true, "Please add mandatory field :VendorName"],
+    "required": [true, "Please add Mandatory field :VendorName"],
     "maxlength": [50, "VendorName can not be more than 50 characters"],
     "match": [
       "UK_COMPANYNAME_V1",
@@ -39,32 +39,32 @@
 
     "maxlength": [100, "DelCountry can not be more than 100 characters"]
   },
-  "DelAddress": {
+  "Address": {
     "type": "String",
 
-    "maxlength": [100, "DelAddress can not be more than 100 characters"]
+    "maxlength": [100, "Address can not be more than 100 characters"]
   },
-  "DelPostCode": {
+  "PostCode": {
     "type": "String",
-    "maxlength": [100, "DelPostCode can not be more than 100 characters"],
+    "maxlength": [100, "PostCode can not be more than 100 characters"],
     "match": [
       "UK_POSTCODE_V1",
-      "Please provide valid UK Post Code in field :DelPostCode"
+      "Please provide valid UK Post Code in field :PostCode"
     ]
   },
-  "DelPhone": {
+  "ContactNo": {
     "type": "String",
 
-    "maxlength": [100, "DelPhone can not be more than 100 characters"],
+    "maxlength": [100, "ContactNo can not be more than 100 characters"],
     "match": [
       "UK_PHONE_V1",
-      "Please provide valid UK Phone number in field :DelPhone"
+      "Please provide valid UK Phone number in field :ContactNo"
     ]
   },
-  "DelEmail": {
+  "Email": {
     "type": "String",
-    "maxlength": [100, "DelEmail can not be more than 100 characters"],
-    "match": ["EMAIL_V1", "Invalid EmailID for field :DelEmail"]
+    "maxlength": [100, "Email can not be more than 100 characters"],
+    "match": ["EMAIL_V1", "Invalid EmailID for field :Email"]
   },
   "DeliveryInstr": {
     "type": "String",
@@ -84,7 +84,7 @@
   "Status": {
     "type": "String",
 
-    "required": [true, "Please add mandatory field :Status"],
+    "required": [true, "Please add Mandatory field :Status"],
     "maxlength": [20, "Status can not be more than 20 characters"]
   },
   "AcceptanceStatus": {
@@ -135,7 +135,7 @@
   "VendorNumber": {
     "type": "String",
 
-    "required": [true, "Please add mandatory field :VendorNumber"],
+    "required": [true, "Please add Mandatory field :VendorNumber"],
     "maxlength": [20, "VendorNumber can not be more than 20 characters"]
   },
   "EmployeeEmail": {
@@ -265,7 +265,7 @@
   "VendorEmail": {
     "type": "String",
 
-    "required": [true, "Please add mandatory field :VendorEmail"],
+    "required": [true, "Please add Mandatory field :VendorEmail"],
     "maxlength": [50, "VendorEmail can not be more than 50 characters"],
     "match": ["EMAIL_V1", "Invalid EmailID for field :VendorEmail"]
   },

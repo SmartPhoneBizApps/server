@@ -2,12 +2,12 @@
   "Title": { "ApplicationTitle": "Events", "DetailTitle": "Events" },
   "Controls": { "USP": "UserProfile" },
   "ListFields": {
-    "IntroField": "",
-    "TitleField": "",
-    "sStatus": "",
-    "fStatus": "",
+    "IntroField": "VendorName",
+    "TitleField": "EventName",
+    "sStatus": "EventType",
+    "fStatus": "Status",
     "numberField": "",
-    "LFields": [],
+    "LFields": ["ID", "HCPEmail"],
     "numberUnitField": ""
   },
   "ListBOTFields": {
@@ -17,39 +17,8 @@
     "Description": ["EventType", "EventStartDate"]
   },
   "PossibleValues": ["EventType", "Status"],
-  "MButtons": [
-    {
-      "type": "DOWNLOAD",
-      "name": "Download File",
-      "icon": "sap-icon://download"
-    },
-    {
-      "type": "APPHELP",
-      "name": "Get App Help",
-      "icon": "sap-icon://sys-help-2"
-    },
-    {
-      "type": "BOT",
-      "name": "Launch Assistant",
-      "icon": "sap-icon://travel-request"
-    },
-    {
-      "type": "VIEW",
-      "name": "Change App View",
-      "icon": "sap-icon://chart-table-view"
-    },
-    { "type": "ADD", "name": "Add Record", "icon": "sap-icon://add" },
-    { "type": "UPLOAD", "name": "Upload Record", "icon": "sap-icon://upload" }
-  ],
-  "DButtons": [
-    {
-      "type": "ATTACHMENT",
-      "name": "View Attachments",
-      "icon": "sap-icon://attachment"
-    },
-    { "type": "UPDATE", "name": "Update Record", "icon": "sap-icon://update" },
-    { "type": "ADD", "name": "Add Record", "icon": "sap-icon://add" }
-  ],
+  "MButtons": [],
+  "DButtons": [],
   "Tabs": [
     {
       "value": "Tab0",
@@ -83,7 +52,7 @@
       "EventStartDate",
       "Time",
       "Duration",
-      "EventAddress",
+      "Address",
       "Agenda",
       "EventLink"
     ],
@@ -164,7 +133,7 @@
       "Currency": "No"
     },
     {
-      "name": "EventAddress",
+      "name": "Address",
       "type": "string",
       "width": "200",
       "Option": "Optional",
@@ -203,7 +172,7 @@
       "name": "HCPEmail",
       "type": "string",
       "width": "50",
-      "Option": "mandatory",
+      "Option": "Optional",
       "SLabel": "HCP Email",
       "LLabel": "HCPEmail",
       "Currency": "No"
@@ -232,44 +201,6 @@
     "ItemDetails": []
   },
   "CalculatedFields": { "Item": [], "HeaderItem": [], "Header": [] },
-  "Create": "Yes",
-  "Wizard": [
-    {
-      "id": "Step1",
-      "fields": [
-        { "name": "EventName", "Sequence": "1", "Mode": "Edit" },
-        { "name": "EventType", "Sequence": "1", "Mode": "Edit" },
-        { "name": "EventStartDate", "Sequence": "1", "Mode": "Edit" },
-        { "name": "Time", "Sequence": "1", "Mode": "Edit" },
-        { "name": "Duration", "Sequence": "1", "Mode": "Edit" },
-        { "name": "EventAddress", "Sequence": "1", "Mode": "Edit" },
-        { "name": "EventLink", "Sequence": "1", "Mode": "Edit" },
-        { "name": "Agenda", "Sequence": "1", "Mode": "Edit" }
-      ],
-      "name": "Event Details",
-      "stepType": "FieldList",
-      "intro": "Events : Event Details"
-    },
-    {
-      "id": "Step2",
-      "fields": [
-        { "name": "PharmaContact", "Sequence": "1", "Mode": "Edit" },
-        { "name": "PharmaContactEmail", "Sequence": "1", "Mode": "Edit" }
-      ],
-      "name": "Contact Details",
-      "stepType": "FieldList",
-      "intro": "Events : Contact Details"
-    },
-    {
-      "id": "Step3",
-      "fields": [
-        { "name": "HCPEmail", "Sequence": "1", "Mode": "Edit" },
-        { "name": "VendorName", "Sequence": "1", "Mode": "Edit" },
-        { "name": "Status", "Sequence": "1", "Mode": "Edit" }
-      ],
-      "name": "Other Details",
-      "stepType": "FieldList",
-      "intro": "Events : Other Details"
-    }
-  ]
+  "Create": "No",
+  "Wizard": []
 }

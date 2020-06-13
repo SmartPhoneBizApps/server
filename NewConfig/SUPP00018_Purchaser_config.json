@@ -12,7 +12,7 @@
     "numberField": "TotalGrossVal",
     "LFields": [
       "ID",
-      "DelPostCode",
+      "PostCode",
       "ShippingStatus",
       "InvoiceStatus",
       "PaymentStatus"
@@ -23,12 +23,7 @@
     "None": ["cardImage", "StatusState"],
     "Title": ["PONumber", "Company", "ID"],
     "SubTitle": ["VendorName", "PODate"],
-    "Description": [
-      "TotalGrossVal",
-      "DelAddress",
-      "DelPostCode",
-      "CurrentStatus"
-    ]
+    "Description": ["TotalGrossVal", "Address", "PostCode", "CurrentStatus"]
   },
   "PossibleValues": [
     "Status",
@@ -161,10 +156,10 @@
     "Tab1": [
       "DelTo",
       "DelCountry",
-      "DelAddress",
-      "DelPostCode",
-      "DelPhone",
-      "DelEmail",
+      "Address",
+      "PostCode",
+      "ContactNo",
+      "Email",
       "DeliveryInstr"
     ],
     "Tab2": [
@@ -278,7 +273,7 @@
       "Currency": "No"
     },
     {
-      "name": "DelAddress",
+      "name": "Address",
       "type": "string",
       "width": "100",
       "Option": "Optional",
@@ -287,7 +282,7 @@
       "Currency": "No"
     },
     {
-      "name": "DelPostCode",
+      "name": "PostCode",
       "type": "string",
       "width": "100",
       "Option": "Optional",
@@ -296,7 +291,7 @@
       "Currency": "No"
     },
     {
-      "name": "DelPhone",
+      "name": "ContactNo",
       "type": "string",
       "width": "100",
       "Option": "Optional",
@@ -305,7 +300,7 @@
       "Currency": "No"
     },
     {
-      "name": "DelEmail",
+      "name": "Email",
       "type": "string",
       "width": "100",
       "Option": "Optional",
@@ -407,7 +402,7 @@
       "name": "CurrentStatus",
       "type": "string",
       "width": "50",
-      "Option": "mandatory",
+      "Option": "Mandatory",
       "SLabel": "Current Status",
       "LLabel": "Current Status",
       "Currency": "No"
@@ -1092,10 +1087,10 @@
       "id": "Step2",
       "fields": [
         { "name": "DelCountry", "Sequence": "1", "Mode": "Edit" },
-        { "name": "DelAddress", "Sequence": "1", "Mode": "Edit" },
-        { "name": "DelPostCode", "Sequence": "1", "Mode": "Edit" },
-        { "name": "DelPhone", "Sequence": "1", "Mode": "Edit" },
-        { "name": "DelEmail", "Sequence": "1", "Mode": "Edit" },
+        { "name": "Address", "Sequence": "1", "Mode": "Edit" },
+        { "name": "PostCode", "Sequence": "1", "Mode": "Edit" },
+        { "name": "ContactNo", "Sequence": "1", "Mode": "Edit" },
+        { "name": "Email", "Sequence": "1", "Mode": "Edit" },
         { "name": "DeliveryInstr", "Sequence": "1", "Mode": "Edit" },
         { "name": "Company", "Sequence": "1", "Mode": "Edit" },
         { "name": "DelTo", "Sequence": "1", "Mode": "Edit" }

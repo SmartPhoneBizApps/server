@@ -1,0 +1,78 @@
+{
+  "ID": {
+    "type": "String",
+    "unique": true,
+    "required": [true, "Please add Mandatory field :ID"],
+    "maxlength": [20, "ID can not be more than 20 characters"]
+  },
+  "FirstName": {
+    "type": "String"
+  },
+  "LastName": {
+    "type": "String"
+  },
+  "Gender": {
+    "type": "String"
+  },
+  "Email": {
+    "type": "String"
+  },
+  "ContactNo": {
+    "type": "String"
+  },
+  "DOB": {
+    "type": "Date"
+  },
+  "Status": {
+    "type": "String"
+  },
+  "NHSNumber": {
+    "type": "String"
+  },
+  "HouseNumber": {
+    "type": "String"
+  },
+  "PostCode": {
+    "type": "String"
+  },
+  "Address": {
+    "type": "String"
+  },
+  "Group": {
+    "type": "String"
+  },
+  "patientType": {
+    "type": "String"
+  },
+  "ProfileImage": {
+    "type": "String"
+  },
+  "PatientStatus": { "type": "String" },
+
+  "TreatmentCost": [],
+  "TreatmentPlan": [],
+  "PatientStatusLog": [],
+  "DentalCharting": [],
+  "Appointments": [],
+  "Pathology": [],
+  "Radiology": [],
+  "Visits": [],
+  "ClinicalNotes": [],
+  "AdminNotes": [],
+  "DentalImages": [],
+  "HealthEvaluation": [],
+  "OtherDetails": {},
+  "ReferalDetails": {},
+  "PersonalDetails": {},
+  "GPDetails": {},
+  "DentistDetails": {},
+  "PaymentDetails": {},
+  "EmergencyContact": {},
+  "Communication": {},
+
+  "USP_Name": { "type": "String" },
+  "USP_Role": { "type": "String" },
+  "USP_Image": { "type": "String" },
+  "TransLog": [],
+  "ItemData": []
+}

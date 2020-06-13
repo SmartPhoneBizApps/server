@@ -2,13 +2,13 @@
   "ID": {
     "type": "String",
     "unique": true,
-    "required": [true, "Please add mandatory field :ID"],
+    "required": [true, "Please add Mandatory field :ID"],
     "maxlength": [20, "ID can not be more than 20 characters"]
   },
   "Status": {
     "type": "String",
 
-    "required": [true, "Please add mandatory field :Status"],
+    "required": [true, "Please add Mandatory field :Status"],
     "maxlength": [20, "Status can not be more than 20 characters"]
   },
   "Name": {
@@ -19,14 +19,14 @@
   "Email": {
     "type": "String",
 
-    "required": [true, "Please add mandatory field :Email"],
+    "required": [true, "Please add Mandatory field :Email"],
     "maxlength": [50, "Email can not be more than 50 characters"],
     "match": ["EMAIL_V1", "Invalid EmailID for field :Email"]
   },
   "Phone": {
     "type": "String",
 
-    "required": [true, "Please add mandatory field :Phone"],
+    "required": [true, "Please add Mandatory field :Phone"],
     "maxlength": [20, "Phone can not be more than 20 characters"],
     "match": [
       "UK_PHONE_V1",
@@ -46,7 +46,7 @@
   "DescribeIncident": {
     "type": "String",
 
-    "required": [true, "Please add mandatory field :DescribeIncident"],
+    "required": [true, "Please add Mandatory field :DescribeIncident"],
     "maxlength": [200, "DescribeIncident can not be more than 200 characters"]
   },
   "AdditionalComments": {

@@ -2,25 +2,25 @@
   "ID": {
     "type": "String",
     "unique": true,
-    "required": [true, "Please add mandatory field :ID"],
+    "required": [true, "Please add Mandatory field :ID"],
     "maxlength": [20, "ID can not be more than 20 characters"]
   },
   "StudentName": {
     "type": "String",
 
-    "required": [true, "Please add mandatory field :StudentName"],
+    "required": [true, "Please add Mandatory field :StudentName"],
     "maxlength": [20, "StudentName can not be more than 20 characters"]
   },
   "Surname": {
     "type": "String",
 
-    "required": [true, "Please add mandatory field :Surname"],
+    "required": [true, "Please add Mandatory field :Surname"],
     "maxlength": [20, "Surname can not be more than 20 characters"]
   },
   "YearGroup": {
     "type": "String",
 
-    "required": [true, "Please add mandatory field :YearGroup"],
+    "required": [true, "Please add Mandatory field :YearGroup"],
     "maxlength": [10, "YearGroup can not be more than 10 characters"]
   },
   "Section": {
@@ -41,13 +41,13 @@
   "Status": {
     "type": "String",
 
-    "required": [true, "Please add mandatory field :Status"],
+    "required": [true, "Please add Mandatory field :Status"],
     "maxlength": [20, "Status can not be more than 20 characters"]
   },
   "StudyYear": {
     "type": "String",
 
-    "required": [true, "Please add mandatory field :StudyYear"],
+    "required": [true, "Please add Mandatory field :StudyYear"],
     "maxlength": [10, "StudyYear can not be more than 10 characters"]
   },
   "Question_Response": {
@@ -58,21 +58,21 @@
   "Email": {
     "type": "String",
 
-    "required": [true, "Please add mandatory field :Email"],
+    "required": [true, "Please add Mandatory field :Email"],
     "maxlength": [50, "Email can not be more than 50 characters"],
     "match": ["EMAIL_V1", "Invalid EmailID for field :Email"]
   },
   "ParentEmail": {
     "type": "String",
 
-    "required": [true, "Please add mandatory field :ParentEmail"],
+    "required": [true, "Please add Mandatory field :ParentEmail"],
     "maxlength": [100, "ParentEmail can not be more than 100 characters"],
     "match": ["EMAIL_V1", "Invalid EmailID for field :ParentEmail"]
   },
   "StudentID": {
     "type": "String",
 
-    "required": [true, "Please add mandatory field :StudentID"],
+    "required": [true, "Please add Mandatory field :StudentID"],
     "maxlength": [20, "StudentID can not be more than 20 characters"]
   },
   "ProcessingLog": {
@@ -101,7 +101,7 @@
   "DueDate": {
     "type": "Date",
 
-    "required": [true, "Please add mandatory field :DueDate"],
+    "required": [true, "Please add Mandatory field :DueDate"],
     "maxlength": [10, "DueDate can not be more than 10 characters"],
     "match": [
       "DATE_V1",
@@ -111,7 +111,7 @@
   "Balance": {
     "type": "Number",
 
-    "required": [true, "Please add mandatory field :Balance"],
+    "required": [true, "Please add Mandatory field :Balance"],
     "maxlength": [20, "Balance can not be more than 20 characters"],
     "match": [
       "NUM_2_DEC_PLACE_V1",

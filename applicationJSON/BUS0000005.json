@@ -2,32 +2,32 @@
   "ID": {
     "type": "String",
     "unique": true,
-    "required": [true, "Please add mandatory field :ID"],
+    "required": [true, "Please add Mandatory field :ID"],
     "maxlength": [20, "ID can not be more than 20 characters"]
   },
   "Status": {
     "type": "String",
 
-    "required": [true, "Please add mandatory field :Status"],
+    "required": [true, "Please add Mandatory field :Status"],
     "maxlength": [20, "Status can not be more than 20 characters"]
   },
   "YourName": {
     "type": "String",
 
-    "required": [true, "Please add mandatory field :YourName"],
+    "required": [true, "Please add Mandatory field :YourName"],
     "maxlength": [50, "YourName can not be more than 50 characters"]
   },
-  "YourEmail": {
+  "Email": {
     "type": "String",
 
-    "required": [true, "Please add mandatory field :YourEmail"],
-    "maxlength": [50, "YourEmail can not be more than 50 characters"],
-    "match": ["EMAIL_V1", "Invalid EmailID for field :YourEmail"]
+    "required": [true, "Please add Mandatory field :Email"],
+    "maxlength": [50, "Email can not be more than 50 characters"],
+    "match": ["EMAIL_V1", "Invalid EmailID for field :Email"]
   },
   "YourPhone": {
     "type": "String",
 
-    "required": [true, "Please add mandatory field :YourPhone"],
+    "required": [true, "Please add Mandatory field :YourPhone"],
     "maxlength": [20, "YourPhone can not be more than 20 characters"],
     "match": [
       "UK_PHONE_V1",
@@ -42,7 +42,7 @@
   "YourBusiness": {
     "type": "String",
 
-    "required": [true, "Please add mandatory field :YourBusiness"],
+    "required": [true, "Please add Mandatory field :YourBusiness"],
     "maxlength": [50, "YourBusiness can not be more than 50 characters"]
   },
   "Subject": {
@@ -53,13 +53,13 @@
   "YourMessage": {
     "type": "String",
 
-    "required": [true, "Please add mandatory field :YourMessage"],
+    "required": [true, "Please add Mandatory field :YourMessage"],
     "maxlength": [1000, "YourMessage can not be more than 1000 characters"]
   },
   "ContactDate": {
     "type": "Date",
 
-    "required": [true, "Please add mandatory field :ContactDate"],
+    "required": [true, "Please add Mandatory field :ContactDate"],
     "maxlength": [10, "ContactDate can not be more than 10 characters"],
     "match": [
       "DATE_V1",

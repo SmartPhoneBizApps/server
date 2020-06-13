@@ -1,17 +1,17 @@
 {
   "ItemNumber": {
     "type": "String",
-    "required": [true, "Please add mandatory field :ItemNumber"],
+    "required": [true, "Please add Mandatory field :ItemNumber"],
     "maxlength": [20, "ID can not be more than 20 characters"]
   },
   "ID": {
     "type": "String",
-    "required": [true, "Please add mandatory field :ID"],
+    "required": [true, "Please add Mandatory field :ID"],
     "maxlength": [20, "ID can not be more than 20 characters"]
   },
   "ProjectCode": {
     "type": "String",
-    "required": [true, "Please add mandatory field :ProjectCode"],
+    "required": [true, "Please add Mandatory field :ProjectCode"],
     "maxlength": [100, "ProjectCode can not be more than 100 characters"]
   },
   "TotalRegWorkHours": {
@@ -29,6 +29,10 @@
 
   "Date": {
     "type": "Date",
-    "maxlength": [20, "Date can not be more than 10 characters"]
+    "maxlength": [20, "Date can not be more than 10 characters"],
+    "match": [
+      "DATE_V1",
+      "Please provide date in YYYY-MM-DD format for field :ApplicationDate"
+    ]
   }
 }

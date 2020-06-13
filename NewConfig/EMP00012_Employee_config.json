@@ -6,7 +6,7 @@
   "Controls": { "USP": "UserProfile" },
   "ListFields": {
     "IntroField": "ReviewPeriod",
-    "TitleField": "EmpName",
+    "TitleField": "Name",
     "sStatus": "",
     "fStatus": "Status",
     "numberField": "",
@@ -15,7 +15,7 @@
   },
   "ListBOTFields": {
     "None": ["cardImage", "StatusState"],
-    "Title": ["EmpName"],
+    "Title": ["Name"],
     "SubTitle": ["Status", "ReviewPeriod"],
     "Description": ["DevManager", "Band", "Area"]
   },
@@ -87,7 +87,7 @@
     "None": ["ID", "Status", "ReviewDate"],
     "Tab1": [
       "EmployeeID",
-      "EmpName",
+      "Name",
       "DevManager",
       "Role",
       "Band",
@@ -126,7 +126,7 @@
       "Currency": "No"
     },
     {
-      "name": "EmpName",
+      "name": "Name",
       "type": "string",
       "width": "50",
       "Option": "Optional",
@@ -260,7 +260,7 @@
     {
       "id": "Step1",
       "fields": [
-        { "name": "EmpName", "Sequence": "1", "Mode": "Edit" },
+        { "name": "Name", "Sequence": "1", "Mode": "Edit" },
         { "name": "Role", "Sequence": "1", "Mode": "Edit" },
         { "name": "Band", "Sequence": "1", "Mode": "Edit" }
       ],

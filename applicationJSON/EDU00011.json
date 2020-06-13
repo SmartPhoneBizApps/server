@@ -2,38 +2,38 @@
   "ID": {
     "type": "String",
     "unique": true,
-    "required": [true, "Please add mandatory field :ID"],
+    "required": [true, "Please add Mandatory field :ID"],
     "maxlength": [20, "ID can not be more than 20 characters"]
   },
   "StudentName": {
     "type": "String",
 
-    "required": [true, "Please add mandatory field :StudentName"],
+    "required": [true, "Please add Mandatory field :StudentName"],
     "maxlength": [50, "StudentName can not be more than 50 characters"]
   },
   "StudentID": {
     "type": "String",
 
-    "required": [true, "Please add mandatory field :StudentID"],
+    "required": [true, "Please add Mandatory field :StudentID"],
     "maxlength": [50, "StudentID can not be more than 50 characters"]
   },
   "StudentEmail": {
     "type": "String",
 
-    "required": [true, "Please add mandatory field :StudentEmail"],
+    "required": [true, "Please add Mandatory field :StudentEmail"],
     "maxlength": [50, "StudentEmail can not be more than 50 characters"],
     "match": ["EMAIL_V1", "Invalid EmailID for field :StudentEmail"]
   },
   "GuestName": {
     "type": "String",
 
-    "required": [true, "Please add mandatory field :GuestName"],
+    "required": [true, "Please add Mandatory field :GuestName"],
     "maxlength": [50, "GuestName can not be more than 50 characters"]
   },
   "GuestEmail": {
     "type": "String",
 
-    "required": [true, "Please add mandatory field :GuestEmail"],
+    "required": [true, "Please add Mandatory field :GuestEmail"],
     "maxlength": [50, "GuestEmail can not be more than 50 characters"],
     "match": ["EMAIL_V1", "Invalid EmailID for field :GuestEmail"]
   },
@@ -49,7 +49,7 @@
   "GuestPhone": {
     "type": "String",
 
-    "required": [true, "Please add mandatory field :GuestPhone"],
+    "required": [true, "Please add Mandatory field :GuestPhone"],
     "maxlength": [50, "GuestPhone can not be more than 50 characters"],
     "match": [
       "UK_PHONE_V1",
@@ -59,13 +59,13 @@
   "Status": {
     "type": "String",
 
-    "required": [true, "Please add mandatory field :Status"],
+    "required": [true, "Please add Mandatory field :Status"],
     "maxlength": [20, "Status can not be more than 20 characters"]
   },
   "Email": {
     "type": "String",
 
-    "required": [true, "Please add mandatory field :Email"],
+    "required": [true, "Please add Mandatory field :Email"],
     "maxlength": [50, "Email can not be more than 50 characters"],
     "match": ["EMAIL_V1", "Invalid EmailID for field :Email"]
   },
@@ -82,7 +82,7 @@
   "EntryDate": {
     "type": "Date",
 
-    "required": [true, "Please add mandatory field :EntryDate"],
+    "required": [true, "Please add Mandatory field :EntryDate"],
     "maxlength": [10, "EntryDate can not be more than 10 characters"],
     "match": [
       "DATE_V1",

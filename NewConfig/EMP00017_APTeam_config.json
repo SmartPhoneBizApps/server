@@ -6,7 +6,7 @@
   "Controls": { "USP": "UserProfile" },
   "ListFields": {
     "IntroField": "EmployeeID",
-    "TitleField": "EmpName",
+    "TitleField": "Name",
     "sStatus": "",
     "fStatus": "Status",
     "numberField": "TravelCost",
@@ -15,7 +15,7 @@
   },
   "ListBOTFields": {
     "None": ["cardImage", "StatusState"],
-    "Title": ["EmpName"],
+    "Title": ["Name"],
     "SubTitle": ["Status", "EmployeeID"],
     "Description": ["TravelDtFrom", "TravelDateTo"]
   },
@@ -87,7 +87,7 @@
       "ID",
       "TravelRequest",
       "EmployeeID",
-      "EmpName",
+      "Name",
       "TravelDtFrom",
       "TravelDateTo",
       "TravelDetail",
@@ -126,7 +126,7 @@
       "Currency": "No"
     },
     {
-      "name": "EmpName",
+      "name": "Name",
       "type": "string",
       "width": "50",
       "Option": "Optional",
@@ -294,7 +294,7 @@
       "id": "Step1",
       "fields": [
         { "name": "EmployeeID", "Sequence": "1", "Mode": "Edit" },
-        { "name": "EmpName", "Sequence": "1", "Mode": "Edit" }
+        { "name": "Name", "Sequence": "1", "Mode": "Edit" }
       ],
       "name": "Employee Details",
       "stepType": "FieldList",

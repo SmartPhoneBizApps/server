@@ -4,7 +4,7 @@ const asyncHandler = require("../../middleware/async");
 const Approle = require("../../models/appSetup/Approle");
 const Role = require("../../models/appSetup/Role");
 const App = require("../../models/appSetup/App");
-const { getCompany, getRole } = require("../../modules/config");
+const { getApplication, getRole } = require("../../modules/config");
 
 // @desc      Get all approles
 // @route     GET /api/v1/approles
@@ -39,7 +39,7 @@ exports.createApprole = asyncHandler(async (req, res, next) => {
   let appList = [];
   i = 0;
   for (i = 0; i < req.body.Apps.length; i++) {
-    const appX = await getCompany(req.headers.applicationid);
+    const appX = await getApplication(req.headers.applicationid);
     req.body.Apps[i].app = appX.id;
   }
   const approle = await Approle.create(req.body);

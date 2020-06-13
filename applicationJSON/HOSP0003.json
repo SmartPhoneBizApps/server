@@ -2,19 +2,19 @@
   "ID": {
     "type": "String",
     "unique": true,
-    "required": [true, "Please add mandatory field :ID"],
+    "required": [true, "Please add Mandatory field :ID"],
     "maxlength": [20, "ID can not be more than 20 characters"]
   },
   "FirstName": {
     "type": "String",
 
-    "required": [true, "Please add mandatory field :FirstName"],
+    "required": [true, "Please add Mandatory field :FirstName"],
     "maxlength": [20, "FirstName can not be more than 20 characters"]
   },
   "LastName": {
     "type": "String",
 
-    "required": [true, "Please add mandatory field :LastName"],
+    "required": [true, "Please add Mandatory field :LastName"],
     "maxlength": [20, "LastName can not be more than 20 characters"]
   },
   "StreetAdd": {
@@ -30,7 +30,7 @@
   "PostCode": {
     "type": "String",
 
-    "required": [true, "Please add mandatory field :PostCode"],
+    "required": [true, "Please add Mandatory field :PostCode"],
     "maxlength": [100, "PostCode can not be more than 100 characters"],
     "match": [
       "UK_POSTCODE_V1",
@@ -45,21 +45,21 @@
   "Email": {
     "type": "String",
 
-    "required": [true, "Please add mandatory field :Email"],
+    "required": [true, "Please add Mandatory field :Email"],
     "maxlength": [100, "Email can not be more than 100 characters"],
     "match": ["EMAIL_V1", "Invalid EmailID for field :Email"]
   },
   "Gender": {
     "type": "String",
 
-    "required": [true, "Please add mandatory field :Gender"],
+    "required": [true, "Please add Mandatory field :Gender"],
     "maxlength": [100, "Gender can not be more than 100 characters"],
     "match": ["GENDER_V1", "Invalid Gender value in field : Gender"]
   },
   "HomePh": {
     "type": "String",
 
-    "required": [true, "Please add mandatory field :HomePh"],
+    "required": [true, "Please add Mandatory field :HomePh"],
     "maxlength": [100, "HomePh can not be more than 100 characters"],
     "match": [
       "UK_PHONE_V1",
@@ -69,7 +69,7 @@
   "MobileNo": {
     "type": "String",
 
-    "required": [true, "Please add mandatory field :MobileNo"],
+    "required": [true, "Please add Mandatory field :MobileNo"],
     "maxlength": [100, "MobileNo can not be more than 100 characters"],
     "match": [
       "UK_MOBILE_V1",
@@ -79,25 +79,25 @@
   "ReasonForVisit": {
     "type": "String",
 
-    "required": [true, "Please add mandatory field :ReasonForVisit"],
+    "required": [true, "Please add Mandatory field :ReasonForVisit"],
     "maxlength": [1000, "ReasonForVisit can not be more than 1000 characters"]
   },
   "GP": {
     "type": "String",
 
-    "required": [true, "Please add mandatory field :GP"],
+    "required": [true, "Please add Mandatory field :GP"],
     "maxlength": [200, "GP can not be more than 200 characters"]
   },
   "GPOffice": {
     "type": "String",
 
-    "required": [true, "Please add mandatory field :GPOffice"],
+    "required": [true, "Please add Mandatory field :GPOffice"],
     "maxlength": [200, "GPOffice can not be more than 200 characters"]
   },
   "CurrentHealthIssues": {
     "type": "String",
 
-    "required": [true, "Please add mandatory field :CurrentHealthIssues"],
+    "required": [true, "Please add Mandatory field :CurrentHealthIssues"],
     "maxlength": [
       1000,
       "CurrentHealthIssues can not be more than 1000 characters"
@@ -106,13 +106,13 @@
   "AnyAllergy": {
     "type": "String",
 
-    "required": [true, "Please add mandatory field :AnyAllergy"],
+    "required": [true, "Please add Mandatory field :AnyAllergy"],
     "maxlength": [1000, "AnyAllergy can not be more than 1000 characters"]
   },
   "AnyMedication": {
     "type": "String",
 
-    "required": [true, "Please add mandatory field :AnyMedication"],
+    "required": [true, "Please add Mandatory field :AnyMedication"],
     "maxlength": [50, "AnyMedication can not be more than 50 characters"]
   },
   "PlsList": {
@@ -123,7 +123,7 @@
   "Status": {
     "type": "String",
 
-    "required": [true, "Please add mandatory field :Status"],
+    "required": [true, "Please add Mandatory field :Status"],
     "maxlength": [20, "Status can not be more than 20 characters"]
   },
   "DOB": {

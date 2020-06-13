@@ -2,27 +2,27 @@
   "ID": {
     "type": "String",
     "unique": true,
-    "required": [true, "Please add mandatory field :ID"],
+    "required": [true, "Please add Mandatory field :ID"],
     "maxlength": [20, "ID can not be more than 20 characters"]
   },
   "FirstName": {
     "type": "String",
-    "required": [true, "Please add mandatory field :FirstName"],
+    "required": [true, "Please add Mandatory field :FirstName"],
     "maxlength": [50, "FirstName can not be more than 50 characters"]
   },
   "LastName": {
     "type": "String",
-    "required": [true, "Please add mandatory field :LastName"],
+    "required": [true, "Please add Mandatory field :LastName"],
     "maxlength": [50, "LastName can not be more than 50 characters"]
   },
 
-  "PhoneNo": {
+  "ContactNo": {
     "type": "String",
 
-    "maxlength": [50, "PhoneNo can not be more than 50 characters"],
+    "maxlength": [50, "ContactNo can not be more than 50 characters"],
     "match": [
       "UK_PHONE_V1",
-      "Please provide valid UK Phone number in field :PhoneNo"
+      "Please provide valid UK Phone number in field :ContactNo"
     ]
   },
   "Email": {
@@ -48,7 +48,7 @@
   "Status": {
     "type": "String",
 
-    "required": [true, "Please add mandatory field :Status"],
+    "required": [true, "Please add Mandatory field :Status"],
     "maxlength": [20, "Status can not be more than 20 characters"]
   },
   "LunchRequired": {
@@ -78,7 +78,7 @@
   "Emailid": {
     "type": "String",
 
-    "required": [true, "Please add mandatory field :Emailid"],
+    "required": [true, "Please add Mandatory field :Emailid"],
     "maxlength": [100, "Emailid can not be more than 100 characters"],
     "match": ["EMAIL_V1", "Invalid EmailID for field :Emailid"]
   },
@@ -115,7 +115,7 @@
   },
   "BookingFor": {
     "type": "String",
-    "required": [true, "Please add mandatory field :BookingFor"],
+    "required": [true, "Please add Mandatory field :BookingFor"],
     "maxlength": [10, "BookingFor can not be more than 10 characters"],
     "enum": ["HotDesk", "CarPark", "Visitor", "MeetingRoom"]
   },
@@ -132,7 +132,7 @@
   "StartDate": {
     "type": "Date",
 
-    "required": [true, "Please add mandatory field :StartDate"],
+    "required": [true, "Please add Mandatory field :StartDate"],
     "maxlength": [10, "StartDate can not be more than 10 characters"],
     "match": [
       "DATE_V1",
@@ -151,7 +151,7 @@
   "EndDate": {
     "type": "Date",
 
-    "required": [true, "Please add mandatory field :EndDate"],
+    "required": [true, "Please add Mandatory field :EndDate"],
     "maxlength": [10, "EndDate can not be more than 10 characters"],
     "match": [
       "DATE_V1",

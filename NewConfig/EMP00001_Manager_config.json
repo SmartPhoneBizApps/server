@@ -6,7 +6,7 @@
   "Controls": { "USP": "UserProfile" },
   "ListFields": {
     "IntroField": "LeaveFrom",
-    "TitleField": "EmpName",
+    "TitleField": "Name",
     "sStatus": "LeaveType",
     "fStatus": "Status",
     "numberField": "LeaveDays",
@@ -19,7 +19,7 @@
     "Description": ["LeaveDays", "Status"]
   },
   "PossibleValues": [
-    "EmpDesignation",
+    "Designation",
     "LeaveType",
     "Approver",
     "Status",
@@ -60,14 +60,14 @@
     "headerTitle": ["USP_Name"],
     "headerRole": ["USP_Role"],
     "headerImage": ["USP_Image"],
-    "None": ["ID", "EmpName", "CostCentre", "Status"],
+    "None": ["ID", "Name", "CostCentre", "Status"],
     "Tab1": ["LeaveType", "LeaveFrom", "LeaveTo", "LeaveDays", "LeaveReason"],
     "Tab2": [
-      "EmpAddress",
-      "EmpPostCode",
-      "EmpDesignation",
-      "EmpTelephone",
-      "EmpEmail",
+      "Address",
+      "PostCode",
+      "Designation",
+      "ContactNo",
+      "Email",
       "Comment"
     ],
     "Tab3": ["ProcessingLog"]
@@ -83,16 +83,16 @@
       "LLabel": "Identification Number"
     },
     {
-      "name": "EmpName",
+      "name": "Name",
       "type": "string",
       "width": "50",
-      "Option": "mandatory",
+      "Option": "Mandatory",
       "SLabel": "Employee Full Name",
       "LLabel": "Employee Name",
       "Currency": "No"
     },
     {
-      "name": "EmpAddress",
+      "name": "Address",
       "type": "string",
       "width": "200",
       "Option": "Optional",
@@ -101,7 +101,7 @@
       "Currency": "No"
     },
     {
-      "name": "EmpPostCode",
+      "name": "PostCode",
       "type": "string",
       "width": "20",
       "Option": "Optional",
@@ -109,7 +109,7 @@
       "LLabel": "Employee Post Code"
     },
     {
-      "name": "EmpDesignation",
+      "name": "Designation",
       "type": "string",
       "width": "50",
       "Option": "Optional",
@@ -117,12 +117,12 @@
       "LLabel": "Employee Designation"
     },
     {
-      "name": "EmpTelephone",
+      "name": "ContactNo",
       "type": "string",
       "width": "20",
       "Option": "Optional",
-      "SLabel": "Employee Telephone",
-      "LLabel": "Employee Telephone"
+      "SLabel": "Employee ContactNo",
+      "LLabel": "Employee ContactNo"
     },
     {
       "name": "CostCentre",
@@ -133,7 +133,7 @@
       "LLabel": "Cost Centre"
     },
     {
-      "name": "EmpEmail",
+      "name": "Email",
       "type": "string",
       "width": "50",
       "Option": "Optional",

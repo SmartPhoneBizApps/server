@@ -2,19 +2,19 @@
   "ID": {
     "type": "String",
     "unique": true,
-    "required": [true, "Please add mandatory field :ID"],
+    "required": [true, "Please add Mandatory field :ID"],
     "maxlength": [20, "ID can not be more than 20 characters"]
   },
   "Name": {
     "type": "String",
 
-    "required": [true, "Please add mandatory field :Name"],
+    "required": [true, "Please add Mandatory field :Name"],
     "maxlength": [100, "Name can not be more than 100 characters"]
   },
   "Surname": {
     "type": "String",
 
-    "required": [true, "Please add mandatory field :Surname"],
+    "required": [true, "Please add Mandatory field :Surname"],
     "maxlength": [100, "Surname can not be more than 100 characters"]
   },
   "RegCentre": {
@@ -35,7 +35,7 @@
   "PostCode": {
     "type": "String",
 
-    "required": [true, "Please add mandatory field :PostCode"],
+    "required": [true, "Please add Mandatory field :PostCode"],
     "maxlength": [100, "PostCode can not be more than 100 characters"],
     "match": [
       "UK_POSTCODE_V1",
@@ -56,13 +56,13 @@
   "Status": {
     "type": "String",
 
-    "required": [true, "Please add mandatory field :Status"],
+    "required": [true, "Please add Mandatory field :Status"],
     "maxlength": [20, "Status can not be more than 20 characters"]
   },
   "StudyYear": {
     "type": "String",
 
-    "required": [true, "Please add mandatory field :StudyYear"],
+    "required": [true, "Please add Mandatory field :StudyYear"],
     "maxlength": [20, "StudyYear can not be more than 20 characters"]
   },
   "Exam": {
@@ -78,13 +78,13 @@
   "StudentName": {
     "type": "String",
 
-    "required": [true, "Please add mandatory field :StudentName"],
+    "required": [true, "Please add Mandatory field :StudentName"],
     "maxlength": [50, "StudentName can not be more than 50 characters"]
   },
   "StudentID": {
     "type": "String",
 
-    "required": [true, "Please add mandatory field :StudentID"],
+    "required": [true, "Please add Mandatory field :StudentID"],
     "maxlength": [20, "StudentID can not be more than 20 characters"]
   },
   "RollNumber": {
@@ -100,14 +100,14 @@
   "Email": {
     "type": "String",
 
-    "required": [true, "Please add mandatory field :Email"],
+    "required": [true, "Please add Mandatory field :Email"],
     "maxlength": [50, "Email can not be more than 50 characters"],
     "match": ["EMAIL_V1", "Invalid EmailID for field :Email"]
   },
   "ParentEmail": {
     "type": "String",
 
-    "required": [true, "Please add mandatory field :ParentEmail"],
+    "required": [true, "Please add Mandatory field :ParentEmail"],
     "maxlength": [100, "ParentEmail can not be more than 100 characters"],
     "match": ["EMAIL_V1", "Invalid EmailID for field :ParentEmail"]
   },

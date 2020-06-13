@@ -10,14 +10,14 @@
     "sStatus": "JobType",
     "fStatus": "Status",
     "numberField": "",
-    "LFields": ["InterviewDate", "Email", "Telephone"],
+    "LFields": ["InterviewDate", "Email", "ID"],
     "numberUnitField": ""
   },
   "ListBOTFields": {
     "None": ["cardImage", "StatusState"],
     "Title": ["Candidate", "JobType"],
     "SubTitle": ["InterviewDate", "Position"],
-    "Description": ["Email", "Telephone"]
+    "Description": ["Email", "ContactNo"]
   },
   "PossibleValues": ["JobType", "Status"],
   "MButtons": [],
@@ -56,7 +56,7 @@
     "headerRole": ["USP_Role"],
     "headerImage": ["USP_Image"],
     "None": ["ID", "Status"],
-    "Tab1": ["Citizenship", "Candidate", "DOB", "Email", "Telephone"],
+    "Tab1": ["Citizenship", "Candidate", "DOB", "Email", "ContactNo"],
     "Tab2": ["InterviewDate", "Position", "JobType"]
   },
   "ControlDisplay": {},
@@ -143,66 +143,27 @@
       "Currency": "No"
     },
     {
-      "name": "Telephone",
+      "name": "ContactNo",
       "type": "string",
       "width": "50",
       "Option": "Optional",
-      "SLabel": "Telephone",
+      "SLabel": "ContactNo",
       "LLabel": "",
       "Currency": "No"
     }
   ],
-  "itemData": "Yes",
+  "itemData": "No",
   "itemConfig": {
-    "ItemFieldDefinition": [
-      {
-        "name": "ItemNumber",
-        "type": "string",
-        "width": "20",
-        "SLabel": "ItemNumber"
-      },
-      { "name": "ID", "type": "string", "width": "20", "SLabel": "ID" },
-      {
-        "name": "PaymentTerm",
-        "type": "string",
-        "width": "50",
-        "SLabel": "Payment Term"
-      },
-      {
-        "name": "Category",
-        "type": "string",
-        "width": "50",
-        "SLabel": "Category"
-      },
-      { "name": "Plant", "type": "string", "width": "50", "SLabel": "Plant" },
-      { "name": "POItem", "type": "string", "width": "50", "SLabel": "PO Item" }
-    ],
-    "DisplayFields": [
-      "ItemNumber",
-      "PaymentTerm",
-      "Category",
-      "Plant",
-      "POItem"
-    ],
+    "ItemFieldDefinition": [],
+    "DisplayFields": [],
     "ItemButtons": {
-      "itemDisplay": true,
-      "itemAdd": true,
-      "itemEdit": true,
-      "itemDelete": true
+      "itemDisplay": false,
+      "itemAdd": false,
+      "itemEdit": false,
+      "itemDelete": false
     },
-    "CreateFields": ["PaymentTerm", "Category", "Plant", "POItem"],
-    "ItemDetails": [
-      {
-        "name": "ItemNumber",
-        "Tab": "Tab4",
-        "Sequence": "1",
-        "Mode": "Display"
-      },
-      { "name": "PaymentTerm", "Tab": "Tab4", "Sequence": "1", "Mode": "Edit" },
-      { "name": "Category", "Tab": "Tab4", "Sequence": "1", "Mode": "Edit" },
-      { "name": "Plant", "Tab": "Tab4", "Sequence": "1", "Mode": "Edit" },
-      { "name": "POItem", "Tab": "Tab4", "Sequence": "1", "Mode": "Edit" }
-    ]
+    "CreateFields": [],
+    "ItemDetails": []
   },
   "CalculatedFields": {},
   "Create": "No",

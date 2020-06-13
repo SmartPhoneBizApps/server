@@ -2,13 +2,13 @@
   "ID": {
     "type": "String",
     "unique": true,
-    "required": [true, "Please add mandatory field :ID"],
+    "required": [true, "Please add Mandatory field :ID"],
     "maxlength": [20, "ID can not be more than 20 characters"]
   },
   "StudentName": {
     "type": "String",
 
-    "required": [true, "Please add mandatory field :StudentName"],
+    "required": [true, "Please add Mandatory field :StudentName"],
     "maxlength": [50, "StudentName can not be more than 50 characters"]
   },
   "RequestFor": {
@@ -19,32 +19,32 @@
   "Status": {
     "type": "String",
 
-    "required": [true, "Please add mandatory field :Status"],
+    "required": [true, "Please add Mandatory field :Status"],
     "maxlength": [20, "Status can not be more than 20 characters"]
   },
   "StudentID": {
     "type": "String",
 
-    "required": [true, "Please add mandatory field :StudentID"],
+    "required": [true, "Please add Mandatory field :StudentID"],
     "maxlength": [20, "StudentID can not be more than 20 characters"]
   },
   "Email": {
     "type": "String",
 
-    "required": [true, "Please add mandatory field :Email"],
+    "required": [true, "Please add Mandatory field :Email"],
     "maxlength": [50, "Email can not be more than 50 characters"],
     "match": ["EMAIL_V1", "Invalid EmailID for field :Email"]
   },
   "GuestName": {
     "type": "String",
 
-    "required": [true, "Please add mandatory field :GuestName"],
+    "required": [true, "Please add Mandatory field :GuestName"],
     "maxlength": [50, "GuestName can not be more than 50 characters"]
   },
   "GuestEmail": {
     "type": "String",
 
-    "required": [true, "Please add mandatory field :GuestEmail"],
+    "required": [true, "Please add Mandatory field :GuestEmail"],
     "maxlength": [50, "GuestEmail can not be more than 50 characters"],
     "match": ["EMAIL_V1", "Invalid EmailID for field :GuestEmail"]
   },
@@ -60,7 +60,7 @@
   "GuestPhone": {
     "type": "String",
 
-    "required": [true, "Please add mandatory field :GuestPhone"],
+    "required": [true, "Please add Mandatory field :GuestPhone"],
     "maxlength": [50, "GuestPhone can not be more than 50 characters"],
     "match": [
       "UK_PHONE_V1",
@@ -80,13 +80,13 @@
   "Address": {
     "type": "String",
 
-    "required": [true, "Please add mandatory field :Address"],
+    "required": [true, "Please add Mandatory field :Address"],
     "maxlength": [200, "Address can not be more than 200 characters"]
   },
   "PostCode": {
     "type": "String",
 
-    "required": [true, "Please add mandatory field :PostCode"],
+    "required": [true, "Please add Mandatory field :PostCode"],
     "maxlength": [100, "PostCode can not be more than 100 characters"],
     "match": [
       "UK_POSTCODE_V1",
@@ -180,7 +180,7 @@
   "ParentEmail": {
     "type": "String",
 
-    "required": [true, "Please add mandatory field :ParentEmail"],
+    "required": [true, "Please add Mandatory field :ParentEmail"],
     "maxlength": [100, "ParentEmail can not be more than 100 characters"],
     "match": ["EMAIL_V1", "Invalid EmailID for field :ParentEmail"]
   },
@@ -192,7 +192,7 @@
   "EntryDate": {
     "type": "Date",
 
-    "required": [true, "Please add mandatory field :EntryDate"],
+    "required": [true, "Please add Mandatory field :EntryDate"],
     "maxlength": [10, "EntryDate can not be more than 10 characters"],
     "match": [
       "DATE_V1",
@@ -202,7 +202,7 @@
   "RequestDate": {
     "type": "Date",
 
-    "required": [true, "Please add mandatory field :RequestDate"],
+    "required": [true, "Please add Mandatory field :RequestDate"],
     "maxlength": [10, "RequestDate can not be more than 10 characters"],
     "match": [
       "DATE_V1",
@@ -221,7 +221,7 @@
   "LeaveFrom": {
     "type": "Date",
 
-    "required": [true, "Please add mandatory field :LeaveFrom"],
+    "required": [true, "Please add Mandatory field :LeaveFrom"],
     "maxlength": [10, "LeaveFrom can not be more than 10 characters"],
     "match": [
       "DATE_V1",
@@ -231,7 +231,7 @@
   "LeaveTo": {
     "type": "Date",
 
-    "required": [true, "Please add mandatory field :LeaveTo"],
+    "required": [true, "Please add Mandatory field :LeaveTo"],
     "maxlength": [10, "LeaveTo can not be more than 10 characters"],
     "match": [
       "DATE_V1",
@@ -241,7 +241,7 @@
   "LeaveDays": {
     "type": "Number",
 
-    "required": [true, "Please add mandatory field :LeaveDays"],
+    "required": [true, "Please add Mandatory field :LeaveDays"],
     "maxlength": [10, "LeaveDays can not be more than 10 characters"],
     "match": [
       "NUM_INT_MAX_10D_V1",

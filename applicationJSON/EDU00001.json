@@ -2,37 +2,37 @@
   "ID": {
     "type": "String",
     "unique": true,
-    "required": [true, "Please add mandatory field :ID"],
+    "required": [true, "Please add Mandatory field :ID"],
     "maxlength": [20, "ID can not be more than 20 characters"]
   },
   "Name": {
     "type": "String",
 
-    "required": [true, "Please add mandatory field :Name"],
+    "required": [true, "Please add Mandatory field :Name"],
     "maxlength": [50, "Name can not be more than 50 characters"]
   },
   "Surname": {
     "type": "String",
 
-    "required": [true, "Please add mandatory field :Surname"],
+    "required": [true, "Please add Mandatory field :Surname"],
     "maxlength": [50, "Surname can not be more than 50 characters"]
   },
   "SchoolNo": {
     "type": "String",
 
-    "required": [true, "Please add mandatory field :SchoolNo"],
+    "required": [true, "Please add Mandatory field :SchoolNo"],
     "maxlength": [20, "SchoolNo can not be more than 20 characters"]
   },
   "SchoolName": {
     "type": "String",
 
-    "required": [true, "Please add mandatory field :SchoolName"],
+    "required": [true, "Please add Mandatory field :SchoolName"],
     "maxlength": [500, "SchoolName can not be more than 500 characters"]
   },
   "Year": {
     "type": "String",
 
-    "required": [true, "Please add mandatory field :Year"],
+    "required": [true, "Please add Mandatory field :Year"],
     "maxlength": [50, "Year can not be more than 50 characters"],
     "match": ["YEAR_V1", "Please provide 4 digit year in field :Year"]
   },
@@ -44,7 +44,7 @@
   "ClassTeacher": {
     "type": "String",
 
-    "required": [true, "Please add mandatory field :ClassTeacher"],
+    "required": [true, "Please add Mandatory field :ClassTeacher"],
     "maxlength": [100, "ClassTeacher can not be more than 100 characters"]
   },
   "Street": {
@@ -55,7 +55,7 @@
   "Postcode": {
     "type": "String",
 
-    "required": [true, "Please add mandatory field :Postcode"],
+    "required": [true, "Please add Mandatory field :Postcode"],
     "maxlength": [20, "Postcode can not be more than 20 characters"],
     "match": [
       "UK_POSTCODE_V1",
@@ -75,7 +75,7 @@
   "Phone": {
     "type": "String",
 
-    "required": [true, "Please add mandatory field :Phone"],
+    "required": [true, "Please add Mandatory field :Phone"],
     "maxlength": [20, "Phone can not be more than 20 characters"],
     "match": [
       "UK_PHONE_V1",
@@ -85,14 +85,14 @@
   "Email": {
     "type": "String",
 
-    "required": [true, "Please add mandatory field :Email"],
+    "required": [true, "Please add Mandatory field :Email"],
     "maxlength": [50, "Email can not be more than 50 characters"],
     "match": ["EMAIL_V1", "Invalid EmailID for field :Email"]
   },
   "Status": {
     "type": "String",
 
-    "required": [true, "Please add mandatory field :Status"],
+    "required": [true, "Please add Mandatory field :Status"],
     "maxlength": [20, "Status can not be more than 20 characters"]
   },
   "Latitude": {
@@ -110,13 +110,13 @@
   "Address": {
     "type": "String",
 
-    "required": [true, "Please add mandatory field :Address"],
+    "required": [true, "Please add Mandatory field :Address"],
     "maxlength": [500, "Address can not be more than 500 characters"]
   },
   "PostCode": {
     "type": "String",
 
-    "required": [true, "Please add mandatory field :PostCode"],
+    "required": [true, "Please add Mandatory field :PostCode"],
     "maxlength": [20, "PostCode can not be more than 20 characters"],
     "match": [
       "UK_POSTCODE_V1",

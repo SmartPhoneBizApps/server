@@ -10,14 +10,14 @@
     "sStatus": "Status",
     "fStatus": "",
     "numberField": "",
-    "LFields": ["ID", "EmailId", "DateOfJoining"],
+    "LFields": ["ID", "Email", "DateOfJoining"],
     "numberUnitField": ""
   },
   "ListBOTFields": {
     "None": ["cardImage", "StatusState"],
     "Title": ["EmpFirstName", "EmpLastName"],
     "SubTitle": ["ID", "Status"],
-    "Description": ["EmailId", "DateOfJoining"]
+    "Description": ["Email", "DateOfJoining"]
   },
   "PossibleValues": ["Status"],
   "MButtons": [
@@ -133,7 +133,7 @@
       "MaritalStatus",
       "Sex",
       "ContactNo",
-      "EmailId",
+      "Email",
       "PostCode",
       "Address"
     ],
@@ -276,7 +276,7 @@
       "Currency": "No"
     },
     {
-      "name": "EmailId",
+      "name": "Email",
       "type": "string",
       "width": "50",
       "Option": "Optional",

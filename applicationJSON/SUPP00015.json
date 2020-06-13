@@ -2,7 +2,7 @@
   "ID": {
     "type": "String",
     "unique": true,
-    "required": [true, "Please add mandatory field :ID"],
+    "required": [true, "Please add Mandatory field :ID"],
     "maxlength": [20, "ID can not be more than 20 characters"]
   },
   "SupplierID": {
@@ -32,19 +32,19 @@
   "Phone": {
     "type": "String",
 
-    "required": [true, "Please add mandatory field :Phone"],
+    "required": [true, "Please add Mandatory field :Phone"],
     "maxlength": [50, "Phone can not be more than 50 characters"],
     "match": [
       "UK_PHONE_V1",
       "Please provide valid UK Phone number in field :Phone"
     ]
   },
-  "EMail": {
+  "Email": {
     "type": "String",
 
-    "required": [true, "Please add mandatory field :EMail"],
-    "maxlength": [50, "EMail can not be more than 50 characters"],
-    "match": ["EMAIL_V1", "Invalid EmailID for field :EMail"]
+    "required": [true, "Please add Mandatory field :Email"],
+    "maxlength": [50, "Email can not be more than 50 characters"],
+    "match": ["EMAIL_V1", "Invalid EmailID for field :Email"]
   },
   "Assessor": {
     "type": "String",
@@ -179,7 +179,7 @@
   "Status": {
     "type": "String",
 
-    "required": [true, "Please add mandatory field :Status"],
+    "required": [true, "Please add Mandatory field :Status"],
     "maxlength": [50, "Status can not be more than 50 characters"]
   },
   "SurveyDate": {

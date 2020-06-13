@@ -51,9 +51,10 @@ exports.createSocialmedia = asyncHandler(async (req, res, next) => {
   if (user) {
     // user already exist
     userAccount = "USER_CREATED";
-    if (user[req.body.businessRoleName]) {
+    const k1 = "Role_" + req.body.businessRoleName;
+    if (user[k1]) {
       userRegistered = "USER_REGISTERED";
-      regQuestion = user[req.body.businessRoleName];
+      regQuestion = user[k1];
     }
     // Get reset token
     UserPIN = Math.floor(100000 + Math.random() * 900000);

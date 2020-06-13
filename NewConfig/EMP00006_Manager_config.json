@@ -6,14 +6,14 @@
   "Controls": { "USP": "UserProfile" },
   "ListFields": {
     "IntroField": "Area",
-    "TitleField": "EmpName",
+    "TitleField": "Name",
     "sStatus": "Duration",
     "fStatus": "Status",
     "LFields": ["ID", "EmployeeID", "DateRequested", "Detail", "External"]
   },
   "ListBOTFields": {
     "None": ["cardImage", "StatusState"],
-    "Title": ["Area", "EmpName"],
+    "Title": ["Area", "Name"],
     "SubTitle": ["Status", "Duration"],
     "Description": ["ID", "EmployeeID", "DateRequested", "Detail", "External"]
   },
@@ -52,14 +52,7 @@
     "headerRole": ["USP_Role"],
     "headerImage": ["USP_Image"],
     "None": ["ID", "Status"],
-    "Tab1": [
-      "EmpName",
-      "DateRequested",
-      "Area",
-      "Detail",
-      "Duration",
-      "External"
-    ],
+    "Tab1": ["Name", "DateRequested", "Area", "Detail", "Duration", "External"],
     "Tab2": ["ProjectNeed", "Cost", "CostCentre"],
     "Tab3": ["ProcessingLog"]
   },
@@ -93,7 +86,7 @@
       "Currency": "No"
     },
     {
-      "name": "EmpName",
+      "name": "Name",
       "type": "string",
       "width": "50",
       "Option": "Optional",

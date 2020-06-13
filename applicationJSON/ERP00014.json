@@ -2,7 +2,7 @@
   "ID": {
     "type": "String",
     "unique": true,
-    "required": [true, "Please add mandatory field :ID"],
+    "required": [true, "Please add Mandatory field :ID"],
     "maxlength": [20, "ID can not be more than 20 characters"]
   },
   "ReferenceNo": {
@@ -48,7 +48,7 @@
   "Status": {
     "type": "String",
 
-    "required": [true, "Please add mandatory field :Status"],
+    "required": [true, "Please add Mandatory field :Status"],
     "maxlength": [20, "Status can not be more than 20 characters"]
   },
   "Comment": {
@@ -73,7 +73,7 @@
   "CalibStartDate": {
     "type": "Date",
 
-    "required": [true, "Please add mandatory field :CalibStartDate"],
+    "required": [true, "Please add Mandatory field :CalibStartDate"],
     "maxlength": [10, "CalibStartDate can not be more than 10 characters"],
     "match": [
       "DATE_V1",

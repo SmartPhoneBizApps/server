@@ -2,7 +2,7 @@
   "ID": {
     "type": "String",
     "unique": true,
-    "required": [true, "Please add mandatory field :ID"],
+    "required": [true, "Please add Mandatory field :ID"],
     "maxlength": [20, "ID can not be more than 20 characters"]
   },
   "YourName": {
@@ -23,14 +23,14 @@
   "Email": {
     "type": "String",
 
-    "required": [true, "Please add mandatory field :Email"],
+    "required": [true, "Please add Mandatory field :Email"],
     "maxlength": [20, "Email can not be more than 20 characters"],
     "match": ["EMAIL_V1", "Invalid EmailID for field :Email"]
   },
   "ProductType": {
     "type": "String",
 
-    "required": [true, "Please add mandatory field :ProductType"],
+    "required": [true, "Please add Mandatory field :ProductType"],
     "maxlength": [100, "ProductType can not be more than 100 characters"]
   },
   "ProdDetail": {
@@ -84,7 +84,7 @@
   "Status": {
     "type": "String",
 
-    "required": [true, "Please add mandatory field :Status"],
+    "required": [true, "Please add Mandatory field :Status"],
     "maxlength": [20, "Status can not be more than 20 characters"]
   },
   "NoOfItems": {

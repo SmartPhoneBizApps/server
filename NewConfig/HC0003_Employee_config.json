@@ -2,12 +2,12 @@
   "Title": { "ApplicationTitle": "Events", "DetailTitle": "Events" },
   "Controls": { "USP": "UserProfile" },
   "ListFields": {
-    "IntroField": "",
-    "TitleField": "",
-    "sStatus": "",
-    "fStatus": "",
+    "IntroField": "VendorName",
+    "TitleField": "EventName",
+    "sStatus": "EventType",
+    "fStatus": "Status",
     "numberField": "",
-    "LFields": [],
+    "LFields": ["ID", "HCPEmail"],
     "numberUnitField": ""
   },
   "ListBOTFields": {
@@ -52,7 +52,7 @@
       "EventStartDate",
       "Time",
       "Duration",
-      "EventAddress",
+      "Address",
       "Agenda",
       "EventLink"
     ],
@@ -133,7 +133,7 @@
       "Currency": "No"
     },
     {
-      "name": "EventAddress",
+      "name": "Address",
       "type": "string",
       "width": "200",
       "Option": "Optional",
@@ -172,7 +172,7 @@
       "name": "HCPEmail",
       "type": "string",
       "width": "50",
-      "Option": "mandatory",
+      "Option": "Optional",
       "SLabel": "HCP Email",
       "LLabel": "HCPEmail",
       "Currency": "No"

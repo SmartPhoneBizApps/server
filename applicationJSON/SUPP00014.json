@@ -2,7 +2,7 @@
   "ID": {
     "type": "String",
     "unique": true,
-    "required": [true, "Please add mandatory field :ID"],
+    "required": [true, "Please add Mandatory field :ID"],
     "maxlength": [20, "ID can not be more than 20 characters"]
   },
   "CompanyName": {
@@ -17,7 +17,7 @@
   "CompanyType": {
     "type": "String",
 
-    "required": [true, "Please add mandatory field :CompanyType"],
+    "required": [true, "Please add Mandatory field :CompanyType"],
     "maxlength": [50, "CompanyType can not be more than 50 characters"]
   },
   "CompanyRegistrationNumber": {
@@ -87,7 +87,7 @@
   "PostCode": {
     "type": "String",
 
-    "required": [true, "Please add mandatory field :PostCode"],
+    "required": [true, "Please add Mandatory field :PostCode"],
     "maxlength": [50, "PostCode can not be more than 50 characters"],
     "match": [
       "UK_POSTCODE_V1",
@@ -111,7 +111,7 @@
   "BusinessType": {
     "type": "String",
 
-    "required": [true, "Please add mandatory field :BusinessType"],
+    "required": [true, "Please add Mandatory field :BusinessType"],
     "maxlength": [100, "BusinessType can not be more than 100 characters"]
   },
   "IntrestArea": {
@@ -139,17 +139,17 @@
 
     "maxlength": [100, "JobTitle can not be more than 100 characters"]
   },
-  "EMail": {
+  "Email": {
     "type": "String",
 
-    "required": [true, "Please add mandatory field :EMail"],
-    "maxlength": [100, "EMail can not be more than 100 characters"],
-    "match": ["EMAIL_V1", "Invalid EmailID for field :EMail"]
+    "required": [true, "Please add Mandatory field :Email"],
+    "maxlength": [100, "Email can not be more than 100 characters"],
+    "match": ["EMAIL_V1", "Invalid EmailID for field :Email"]
   },
   "Phone": {
     "type": "String",
 
-    "required": [true, "Please add mandatory field :Phone"],
+    "required": [true, "Please add Mandatory field :Phone"],
     "maxlength": [100, "Phone can not be more than 100 characters"],
     "match": [
       "UK_PHONE_V1",
@@ -173,7 +173,7 @@
   "Status": {
     "type": "String",
 
-    "required": [true, "Please add mandatory field :Status"],
+    "required": [true, "Please add Mandatory field :Status"],
     "maxlength": [20, "Status can not be more than 20 characters"]
   },
   "GoogleProfile": {

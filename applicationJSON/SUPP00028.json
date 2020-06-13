@@ -2,12 +2,12 @@
   "ID": {
     "type": "String",
     "unique": true,
-    "required": [true, "Please add mandatory field :ID"],
+    "required": [true, "Please add Mandatory field :ID"],
     "maxlength": [20, "ID can not be more than 20 characters"]
   },
   "InvoiceType": {
     "type": "String",
-    "required": [true, "Please add mandatory field :InvoiceType"],
+    "required": [true, "Please add Mandatory field :InvoiceType"],
     "maxlength": [20, "InvoiceType can not be more than 20 characters"]
   },
   "PONumber": {
@@ -16,7 +16,7 @@
   },
   "VendorName": {
     "type": "String",
-    "required": [true, "Please add mandatory field :VendorName"],
+    "required": [true, "Please add Mandatory field :VendorName"],
     "maxlength": [50, "VendorName can not be more than 50 characters"],
     "match": [
       "UK_COMPANYNAME_V1",
@@ -25,7 +25,7 @@
   },
   "VendorNumber": {
     "type": "String",
-    "required": [true, "Please add mandatory field :VendorNumber"],
+    "required": [true, "Please add Mandatory field :VendorNumber"],
     "maxlength": [20, "VendorNumber can not be more than 20 characters"]
   },
   "SuppInvoiceNumber": {
@@ -50,7 +50,7 @@
   },
   "Status": {
     "type": "String",
-    "required": [true, "Please add mandatory field :Status"],
+    "required": [true, "Please add Mandatory field :Status"],
     "maxlength": [20, "Status can not be more than 20 characters"]
   },
   "Attachment": {
@@ -59,7 +59,7 @@
   },
   "TaxInvoice": {
     "type": "String",
-    "required": [true, "Please add mandatory field :TaxInvoice"],
+    "required": [true, "Please add Mandatory field :TaxInvoice"],
     "maxlength": [3, "TaxInvoice can not be more than 3 characters"]
   },
   "PaymentStatus": {
@@ -168,7 +168,7 @@
   },
   "InvoiceDate": {
     "type": "Date",
-    "required": [true, "Please add mandatory field :InvoiceDate"],
+    "required": [true, "Please add Mandatory field :InvoiceDate"],
     "maxlength": [10, "InvoiceDate can not be more than 10 characters"],
     "match": [
       "DATE_V1",

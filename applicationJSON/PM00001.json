@@ -2,7 +2,7 @@
   "ID": {
     "type": "String",
     "unique": true,
-    "required": [true, "Please add mandatory field :ID"],
+    "required": [true, "Please add Mandatory field :ID"],
     "maxlength": [20, "ID can not be more than 20 characters"]
   },
   "RegNo": {
@@ -47,7 +47,7 @@
   "EmpID": {
     "type": "String",
 
-    "required": [true, "Please add mandatory field :EmpID"],
+    "required": [true, "Please add Mandatory field :EmpID"],
     "maxlength": [50, "EmpID can not be more than 50 characters"]
   },
   "Phone": {
@@ -62,7 +62,7 @@
   "Email": {
     "type": "String",
 
-    "required": [true, "Please add mandatory field :Email"],
+    "required": [true, "Please add Mandatory field :Email"],
     "maxlength": [50, "Email can not be more than 50 characters"],
     "match": ["EMAIL_V1", "Invalid EmailID for field :Email"]
   },
@@ -74,7 +74,7 @@
   "Status": {
     "type": "String",
 
-    "required": [true, "Please add mandatory field :Status"],
+    "required": [true, "Please add Mandatory field :Status"],
     "maxlength": [20, "Status can not be more than 20 characters"]
   },
   "PurchaseDate": {

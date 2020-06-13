@@ -2,12 +2,12 @@
   "ID": {
     "type": "String",
     "unique": true,
-    "required": [true, "Please add mandatory field :ID"],
+    "required": [true, "Please add Mandatory field :ID"],
     "maxlength": [20, "ID can not be more than 20 characters"]
   },
   "TravelRequest": { "type": "String" },
   "EmployeeID": { "type": "String" },
-  "EmpName": { "type": "String" },
+  "Name": { "type": "String" },
   "TravelDtFrom": { "type": "String" },
   "TravelDateTo": { "type": "String" },
   "TravelDetail": { "type": "String" },
@@ -20,7 +20,7 @@
 
   "Status": {
     "type": "String",
-    "required": [true, "Please add mandatory field :Status"],
+    "required": [true, "Please add Mandatory field :Status"],
     "maxlength": [50, "Status can not be more than 20 characters"]
   },
   "USP_Name": { "type": "String" },

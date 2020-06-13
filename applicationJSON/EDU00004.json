@@ -2,7 +2,7 @@
   "ID": {
     "type": "String",
     "unique": true,
-    "required": [true, "Please add mandatory field :ID"],
+    "required": [true, "Please add Mandatory field :ID"],
     "maxlength": [20, "ID can not be more than 20 characters"]
   },
   "Class": {
@@ -38,7 +38,7 @@
   "TimeSlot": {
     "type": "String",
 
-    "required": [true, "Please add mandatory field :TimeSlot"],
+    "required": [true, "Please add Mandatory field :TimeSlot"],
     "maxlength": [50, "TimeSlot can not be more than 50 characters"]
   },
   "Room": {
@@ -49,7 +49,7 @@
   "Type": {
     "type": "String",
 
-    "required": [true, "Please add mandatory field :Type"],
+    "required": [true, "Please add Mandatory field :Type"],
     "maxlength": [50, "Type can not be more than 50 characters"]
   },
   "AnyChange": {
@@ -60,7 +60,7 @@
   "Status": {
     "type": "String",
 
-    "required": [true, "Please add mandatory field :Status"],
+    "required": [true, "Please add Mandatory field :Status"],
     "maxlength": [20, "Status can not be more than 20 characters"]
   },
   "Test": {
@@ -76,7 +76,7 @@
   "Date": {
     "type": "Date",
 
-    "required": [true, "Please add mandatory field :Date"],
+    "required": [true, "Please add Mandatory field :Date"],
     "maxlength": [10, "Date can not be more than 10 characters"],
     "match": [
       "DATE_V1",

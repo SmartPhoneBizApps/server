@@ -2,12 +2,12 @@
   "Title": { "ApplicationTitle": "Study/Trial", "DetailTitle": "Study/Trial" },
   "Controls": { "USP": "UserProfile" },
   "ListFields": {
-    "IntroField": "",
-    "TitleField": "",
-    "sStatus": "",
-    "fStatus": "",
+    "IntroField": "ID",
+    "TitleField": "StudyName",
+    "sStatus": "StudyType",
+    "fStatus": "Status",
     "numberField": "",
-    "LFields": [],
+    "LFields": ["VendorName", "HCPEmail"],
     "numberUnitField": ""
   },
   "ListBOTFields": {
@@ -136,7 +136,7 @@
       "name": "HCPEmail",
       "type": "string",
       "width": "50",
-      "Option": "mandatory",
+      "Option": "Optional",
       "SLabel": "HCP Email",
       "LLabel": "HCPEmail",
       "Currency": "No"
@@ -155,22 +155,16 @@
   "itemConfig": {
     "ItemFieldDefinition": [],
     "DisplayFields": [],
-    "itemButton": {},
-    "CreateFields": [],
-    "ItemDetails": [],
     "ItemButtons": {
       "itemDisplay": false,
       "itemAdd": false,
       "itemEdit": false,
       "itemDelete": false
-    }
+    },
+    "CreateFields": [],
+    "ItemDetails": []
   },
-  "CalculatedFields": {
-    "ItemC": [],
-    "HeaderItem": [],
-    "Header": [],
-    "Item": []
-  },
+  "CalculatedFields": { "Item": [], "HeaderItem": [], "Header": [] },
   "Create": "No",
   "Wizard": []
 }

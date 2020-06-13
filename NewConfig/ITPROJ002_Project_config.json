@@ -108,13 +108,7 @@
       "RequesterUserID",
       "RequestedDate"
     ],
-    "Tab3": [
-      "ApproverName",
-      "ApproverUserID",
-      "ApprovalDate",
-      "ApproverComments",
-      "ApproverPosition"
-    ],
+    "Tab3": ["Approver", "ApprovalDate", "ApproverComments"],
     "Tab4": ["RequestedRoles", "CopyUserID", "Systems", "Client"],
     "Tab5": ["Signature"]
   },
@@ -129,11 +123,9 @@
     { "name": "ExpiryDate", "type": "Date", "width": "10" },
     { "name": "AccountType", "type": "string", "width": "20" },
     { "name": "Details", "type": "string", "width": "200" },
-    { "name": "ApproverName", "type": "string", "width": "50" },
-    { "name": "ApproverUserID", "type": "string", "width": "20" },
+    { "name": "Approver", "type": "string", "width": "20" },
     { "name": "ApprovalDate", "type": "Date", "width": "10" },
     { "name": "ApproverComments", "type": "string", "width": "500" },
-    { "name": "ApproverPosition", "type": "string", "width": "50" },
     { "name": "CopyUserID", "type": "string", "width": "20" },
     { "name": "RequestedRoles", "type": "string", "width": "1000" },
     { "name": "Systems", "type": "string", "width": "100" },

@@ -2,13 +2,13 @@
   "ID": {
     "type": "String",
     "unique": true,
-    "required": [true, "Please add mandatory field :ID"],
+    "required": [true, "Please add Mandatory field :ID"],
     "maxlength": [20, "ID can not be more than 20 characters"]
   },
   "VendorName": {
     "type": "String",
 
-    "required": [true, "Please add mandatory field :VendorName"],
+    "required": [true, "Please add Mandatory field :VendorName"],
     "maxlength": [50, "VendorName can not be more than 50 characters"],
     "match": [
       "UK_COMPANYNAME_V1",
@@ -63,13 +63,13 @@
   "VendorInvoice": {
     "type": "String",
 
-    "required": [true, "Please add mandatory field :VendorInvoice"],
+    "required": [true, "Please add Mandatory field :VendorInvoice"],
     "maxlength": [50, "VendorInvoice can not be more than 50 characters"]
   },
   "Status": {
     "type": "String",
 
-    "required": [true, "Please add mandatory field :Status"],
+    "required": [true, "Please add Mandatory field :Status"],
     "maxlength": [20, "Status can not be more than 20 characters"]
   },
   "InvoiceRemark": {
@@ -175,7 +175,7 @@
   "InvNetValue": {
     "type": "Number",
 
-    "required": [true, "Please add mandatory field :InvNetValue"],
+    "required": [true, "Please add Mandatory field :InvNetValue"],
     "maxlength": [50, "InvNetValue can not be more than 50 characters"],
     "match": [
       "NUM_2_DEC_PLACE_V1",
@@ -203,7 +203,7 @@
   "InvGrossVal": {
     "type": "Number",
 
-    "required": [true, "Please add mandatory field :InvGrossVal"],
+    "required": [true, "Please add Mandatory field :InvGrossVal"],
     "maxlength": [2, "InvGrossVal can not be more than 2 characters"],
     "match": [
       "NUM_2_DEC_PLACE_V1",
@@ -213,7 +213,7 @@
   "InvoiceDate": {
     "type": "Date",
 
-    "required": [true, "Please add mandatory field :InvoiceDate"],
+    "required": [true, "Please add Mandatory field :InvoiceDate"],
     "maxlength": [10, "InvoiceDate can not be more than 10 characters"],
     "match": [
       "DATE_V1",

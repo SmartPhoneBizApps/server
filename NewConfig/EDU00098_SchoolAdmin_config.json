@@ -87,7 +87,7 @@
       "RegDate",
       "ParentName",
       "ParentEmail",
-      "ParentPhoneNo",
+      "ParentContactNo",
       "Image"
     ],
     "Tab2": [
@@ -129,7 +129,7 @@
           "Confirm": [
             "AdviserName",
             "ParentName",
-            "ParentPhoneNo",
+            "ParentContactNo",
             "Question1",
             "Answer1",
             "Question2",
@@ -212,7 +212,7 @@
       "name": "Status",
       "type": "string",
       "width": "20",
-      "Option": "mandatory",
+      "Option": "Mandatory",
       "SLabel": "Status",
       "LLabel": "Status",
       "Currency": "No"
@@ -299,12 +299,12 @@
       "Currency": "No"
     },
     {
-      "name": "ParentPhoneNo",
+      "name": "ParentContactNo",
       "type": "string",
       "width": "20",
       "Option": "Optional",
-      "SLabel": "Parent PhoneNo",
-      "LLabel": "Parent PhoneNo",
+      "SLabel": "Parent ContactNo",
+      "LLabel": "Parent ContactNo",
       "Currency": "No"
     },
     {
@@ -476,7 +476,7 @@
         { "name": "AdviserName", "Sequence": "1", "Mode": "Edit" },
         { "name": "ParentName", "Sequence": "1", "Mode": "Edit" },
         { "name": "ParentEmail", "Sequence": "1", "Mode": "Edit" },
-        { "name": "ParentPhoneNo", "Sequence": "1", "Mode": "Edit" }
+        { "name": "ParentContactNo", "Sequence": "1", "Mode": "Edit" }
       ],
       "name": "More Information and Admin",
       "stepType": "FieldList",

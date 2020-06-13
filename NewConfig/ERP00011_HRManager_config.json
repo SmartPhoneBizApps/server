@@ -10,49 +10,18 @@
     "sStatus": "JobType",
     "fStatus": "Status",
     "numberField": "",
-    "LFields": ["InterviewDate", "Email", "Telephone"],
+    "LFields": ["InterviewDate", "Email", "ID"],
     "numberUnitField": ""
   },
   "ListBOTFields": {
     "None": ["cardImage", "StatusState"],
     "Title": ["Candidate", "JobType"],
     "SubTitle": ["InterviewDate", "Position"],
-    "Description": ["Email", "Telephone"]
+    "Description": ["Email", "ContactNo"]
   },
-  "PossibleValues": ["Position", "Citizenship", "JobType", "Status"],
-  "MButtons": [
-    {
-      "type": "DOWNLOAD",
-      "name": "Download File",
-      "icon": "sap-icon://download"
-    },
-    {
-      "type": "APPHELP",
-      "name": "Get App Help",
-      "icon": "sap-icon://sys-help-2"
-    },
-    {
-      "type": "BOT",
-      "name": "Launch Assistant",
-      "icon": "sap-icon://travel-request"
-    },
-    {
-      "type": "VIEW",
-      "name": "Change App View",
-      "icon": "sap-icon://chart-table-view"
-    },
-    { "type": "ADD", "name": "Add Record", "icon": "sap-icon://add" },
-    { "type": "UPLOAD", "name": "Upload Record", "icon": "sap-icon://upload" }
-  ],
-  "DButtons": [
-    {
-      "type": "ATTACHMENT",
-      "name": "View Attachments",
-      "icon": "sap-icon://attachment"
-    },
-    { "type": "UPDATE", "name": "Update Record", "icon": "sap-icon://update" },
-    { "type": "ADD", "name": "Add Record", "icon": "sap-icon://add" }
-  ],
+  "PossibleValues": ["JobType", "Status"],
+  "MButtons": [],
+  "DButtons": [],
   "Tabs": [
     {
       "value": "Tab0",
@@ -62,44 +31,140 @@
     },
     {
       "value": "Tab1",
-      "name": "Details",
+      "name": "Employee Details",
       "type": "Field",
-      "fioriicon": "notes"
+      "fioriicon": "notes",
+      "download": "Yes"
+    },
+    {
+      "value": "Tab2",
+      "name": "Job Details",
+      "type": "Field",
+      "fioriicon": "notes",
+      "download": "Yes"
     },
     {
       "value": "Tab3",
-      "name": "Job Details",
-      "type": "Field",
-      "fioriicon": "notes"
+      "name": "Item Details",
+      "fioriicon": "notes",
+      "type": "Items",
+      "download": "Yes"
     }
   ],
   "DetailFields": {
-    "None": ["InterviewID", "Candidate", "Status"],
-    "Tab1": [
-      "InterviewDate",
-      "Position",
-      "Citizenship",
-      "DOB",
-      "Email",
-      "Telephone"
-    ],
-    "Tab3": ["JobType"]
+    "headerTitle": ["USP_Name"],
+    "headerRole": ["USP_Role"],
+    "headerImage": ["USP_Image"],
+    "None": ["ID", "Status"],
+    "Tab1": ["Citizenship", "Candidate", "DOB", "Email", "ContactNo"],
+    "Tab2": ["InterviewDate", "Position", "JobType"]
   },
   "ControlDisplay": {},
   "FieldDef": [
-    { "name": "InterviewID", "type": "string", "width": "20" },
-    { "name": "InterviewDate", "type": "Date", "width": "10" },
-    { "name": "Position", "type": "string", "width": "50" },
-    { "name": "Citizenship", "type": "string", "width": "50" },
-    { "name": "Candidate", "type": "string", "width": "50" },
-    { "name": "JobType", "type": "string", "width": "50" },
-    { "name": "Status", "type": "string", "width": "20" },
-    { "name": "DOB", "type": "Date", "width": "10" },
-    { "name": "Email", "type": "string", "width": "100" },
-    { "name": "Telephone", "type": "string", "width": "50" }
+    {
+      "name": "ID",
+      "type": "string",
+      "width": "20",
+      "Option": "Optional",
+      "SLabel": "ID",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "InterviewDate",
+      "type": "Date",
+      "width": "10",
+      "Option": "Optional",
+      "SLabel": "Interview Date",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "Position",
+      "type": "string",
+      "width": "50",
+      "Option": "Optional",
+      "SLabel": "Position",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "Citizenship",
+      "type": "string",
+      "width": "50",
+      "Option": "Optional",
+      "SLabel": "Citizenship",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "Candidate",
+      "type": "string",
+      "width": "50",
+      "Option": "Optional",
+      "SLabel": "Candidate",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "JobType",
+      "type": "string",
+      "width": "50",
+      "Option": "Optional",
+      "SLabel": "JobType",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "Status",
+      "type": "string",
+      "width": "20",
+      "Option": "Optional",
+      "SLabel": "Status",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "DOB",
+      "type": "Date",
+      "width": "10",
+      "Option": "Optional",
+      "SLabel": "DOB",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "Email",
+      "type": "string",
+      "width": "100",
+      "Option": "Optional",
+      "SLabel": "Email",
+      "LLabel": "",
+      "Currency": "No"
+    },
+    {
+      "name": "ContactNo",
+      "type": "string",
+      "width": "50",
+      "Option": "Optional",
+      "SLabel": "ContactNo",
+      "LLabel": "",
+      "Currency": "No"
+    }
   ],
   "itemData": "No",
-  "itemConfig": {},
+  "itemConfig": {
+    "ItemFieldDefinition": [],
+    "DisplayFields": [],
+    "ItemButtons": {
+      "itemDisplay": false,
+      "itemAdd": false,
+      "itemEdit": false,
+      "itemDelete": false
+    },
+    "CreateFields": [],
+    "ItemDetails": []
+  },
   "CalculatedFields": {},
   "Create": "No",
   "Wizard": []

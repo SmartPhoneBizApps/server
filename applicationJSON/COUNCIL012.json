@@ -2,7 +2,7 @@
   "ID": {
     "type": "String",
     "unique": true,
-    "required": [true, "Please add mandatory field :ID"],
+    "required": [true, "Please add Mandatory field :ID"],
     "maxlength": [20, "ID can not be more than 20 characters"]
   },
   "YourName": {
@@ -18,14 +18,14 @@
   "EmailID": {
     "type": "String",
 
-    "required": [true, "Please add mandatory field :EmailID"],
+    "required": [true, "Please add Mandatory field :EmailID"],
     "maxlength": [100, "EmailID can not be more than 100 characters"],
     "match": ["EMAIL_V1", "Invalid EmailID for field :EmailID"]
   },
   "Address": {
     "type": "String",
 
-    "required": [true, "Please add mandatory field :Address"],
+    "required": [true, "Please add Mandatory field :Address"],
     "maxlength": [500, "Address can not be more than 500 characters"]
   },
   "BusinessName": {
@@ -41,7 +41,7 @@
   "ComplaintType": {
     "type": "String",
 
-    "required": [true, "Please add mandatory field :ComplaintType"],
+    "required": [true, "Please add Mandatory field :ComplaintType"],
     "maxlength": [100, "ComplaintType can not be more than 100 characters"]
   },
   "Q1": {
@@ -57,7 +57,7 @@
   "FoodType": {
     "type": "String",
 
-    "required": [true, "Please add mandatory field :FoodType"],
+    "required": [true, "Please add Mandatory field :FoodType"],
     "maxlength": [100, "FoodType can not be more than 100 characters"]
   },
   "Q2": {
@@ -123,7 +123,7 @@
   "Status": {
     "type": "String",
 
-    "required": [true, "Please add mandatory field :Status"],
+    "required": [true, "Please add Mandatory field :Status"],
     "maxlength": [20, "Status can not be more than 20 characters"]
   },
   "ReportDate": {

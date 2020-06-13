@@ -96,8 +96,8 @@
       "S2",
       "PatientName",
       "Address",
-      "HomePhoneNo",
-      "CellPhoneNo",
+      "HomeContactNo",
+      "CellContactNo",
       "DOB",
       "Gender",
       "Employer",
@@ -120,7 +120,7 @@
       "name": "ID",
       "type": "string",
       "width": "20",
-      "Option": "mandatory",
+      "Option": "Mandatory",
       "SLabel": "Identification Number",
       "LLabel": "Identification Number",
       "Currency": "No"
@@ -189,7 +189,7 @@
       "Currency": "No"
     },
     {
-      "name": "HomePhoneNo",
+      "name": "HomeContactNo",
       "type": "Num,0",
       "width": "50",
       "Option": "Optional",
@@ -198,7 +198,7 @@
       "Currency": "No"
     },
     {
-      "name": "CellPhoneNo",
+      "name": "CellContactNo",
       "type": "string",
       "width": "50",
       "Option": "Optional",
@@ -348,8 +348,8 @@
       "fields": [
         { "name": "S2", "Sequence": "1", "Mode": "Display" },
         { "name": "PatientName", "Sequence": "1", "Mode": "Edit" },
-        { "name": "HomePhoneNo", "Sequence": "1", "Mode": "Edit" },
-        { "name": "CellPhoneNo", "Sequence": "1", "Mode": "Edit" },
+        { "name": "HomeContactNo", "Sequence": "1", "Mode": "Edit" },
+        { "name": "CellContactNo", "Sequence": "1", "Mode": "Edit" },
         { "name": "DOB", "Sequence": "1", "Mode": "Edit" },
         { "name": "Gender", "Sequence": "1", "Mode": "Edit" }
       ],

@@ -2,13 +2,13 @@
   "ID": {
     "type": "String",
     "unique": true,
-    "required": [true, "Please add mandatory field :ID"],
+    "required": [true, "Please add Mandatory field :ID"],
     "maxlength": [20, "ID can not be more than 20 characters"]
   },
   "FirstName": {
     "type": "String",
 
-    "required": [true, "Please add mandatory field :FirstName"],
+    "required": [true, "Please add Mandatory field :FirstName"],
     "maxlength": [20, "FirstName can not be more than 20 characters"]
   },
   "LastName": {
@@ -31,14 +31,14 @@
   "Email": {
     "type": "String",
 
-    "required": [true, "Please add mandatory field :Email"],
+    "required": [true, "Please add Mandatory field :Email"],
     "maxlength": [50, "Email can not be more than 50 characters"],
     "match": ["EMAIL_V1", "Invalid EmailID for field :Email"]
   },
   "HomeAddress": {
     "type": "String",
 
-    "required": [true, "Please add mandatory field :HomeAddress"],
+    "required": [true, "Please add Mandatory field :HomeAddress"],
     "maxlength": [200, "HomeAddress can not be more than 200 characters"]
   },
   "Town": {
@@ -50,7 +50,7 @@
   "PostalCode": {
     "type": "String",
 
-    "required": [true, "Please add mandatory field :PostalCode"],
+    "required": [true, "Please add Mandatory field :PostalCode"],
     "maxlength": [20, "PostalCode can not be more than 20 characters"],
     "match": [
       "UK_POSTCODE_V1",
@@ -186,7 +186,7 @@
   "Status": {
     "type": "String",
 
-    "required": [true, "Please add mandatory field :Status"],
+    "required": [true, "Please add Mandatory field :Status"],
     "maxlength": [20, "Status can not be more than 20 characters"]
   },
   "MobileNo": {
@@ -201,7 +201,7 @@
   "StudentName": {
     "type": "String",
 
-    "required": [true, "Please add mandatory field :StudentName"],
+    "required": [true, "Please add Mandatory field :StudentName"],
     "maxlength": [20, "StudentName can not be more than 20 characters"]
   },
   "NINumber": {
@@ -216,7 +216,7 @@
   "Address": {
     "type": "String",
 
-    "required": [true, "Please add mandatory field :Address"],
+    "required": [true, "Please add Mandatory field :Address"],
     "maxlength": [200, "Address can not be more than 200 characters"]
   },
   "Question_Response": {
@@ -227,7 +227,7 @@
   "PostCode": {
     "type": "String",
 
-    "required": [true, "Please add mandatory field :PostCode"],
+    "required": [true, "Please add Mandatory field :PostCode"],
     "maxlength": [100, "PostCode can not be more than 100 characters"],
     "match": [
       "UK_POSTCODE_V1",
@@ -237,7 +237,7 @@
   "Postcode": {
     "type": "String",
 
-    "required": [true, "Please add mandatory field :Postcode"],
+    "required": [true, "Please add Mandatory field :Postcode"],
     "maxlength": [100, "Postcode can not be more than 100 characters"],
     "match": [
       "UK_POSTCODE_V1",

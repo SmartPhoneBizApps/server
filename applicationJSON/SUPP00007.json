@@ -2,7 +2,7 @@
   "ID": {
     "type": "String",
     "unique": true,
-    "required": [true, "Please add mandatory field :ID"],
+    "required": [true, "Please add Mandatory field :ID"],
     "maxlength": [20, "ID can not be more than 20 characters"]
   },
   "VendorName": { "type": "String" },
@@ -25,7 +25,7 @@
   "POGrossValue": { "type": "String" },
   "PONetValue": { "type": "String" },
   "PODate": { "type": "Date" },
-  "DelEmail": { "type": "String" },
+  "Email": { "type": "String" },
   "SuppInvoiceNumber": { "type": "String" },
   "ReasonForCreditNote": { "type": "String" },
   "CreditDate": { "type": "Date" },

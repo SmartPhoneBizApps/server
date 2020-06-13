@@ -2,43 +2,43 @@
   "ID": {
     "type": "String",
     "unique": true,
-    "required": [true, "Please add mandatory field :ID"],
+    "required": [true, "Please add Mandatory field :ID"],
     "maxlength": [20, "ID can not be more than 20 characters"]
   },
   "FirstName": {
     "type": "String",
 
-    "required": [true, "Please add mandatory field :FirstName"],
+    "required": [true, "Please add Mandatory field :FirstName"],
     "maxlength": [20, "FirstName can not be more than 20 characters"]
   },
   "LastName": {
     "type": "String",
 
-    "required": [true, "Please add mandatory field :LastName"],
+    "required": [true, "Please add Mandatory field :LastName"],
     "maxlength": [20, "LastName can not be more than 20 characters"]
   },
   "Gender": {
     "type": "String",
 
-    "required": [true, "Please add mandatory field :Gender"],
+    "required": [true, "Please add Mandatory field :Gender"],
     "maxlength": [20, "Gender can not be more than 20 characters"],
     "match": ["GENDER_V1", "Invalid Gender value in field : Gender"]
   },
   "Email": {
     "type": "String",
 
-    "required": [true, "Please add mandatory field :Email"],
+    "required": [true, "Please add Mandatory field :Email"],
     "maxlength": [20, "Email can not be more than 20 characters"],
     "match": ["EMAIL_V1", "Invalid EmailID for field :Email"]
   },
-  "PhoneNo": {
+  "ContactNo": {
     "type": "String",
 
-    "required": [true, "Please add mandatory field :PhoneNo"],
-    "maxlength": [20, "PhoneNo can not be more than 20 characters"],
+    "required": [true, "Please add Mandatory field :ContactNo"],
+    "maxlength": [20, "ContactNo can not be more than 20 characters"],
     "match": [
       "UK_PHONE_V1",
-      "Please provide valid UK Phone number in field :PhoneNo"
+      "Please provide valid UK Phone number in field :ContactNo"
     ]
   },
   "Q1": {
@@ -64,7 +64,7 @@
   "AnyotherReason": {
     "type": "String",
 
-    "required": [true, "Please add mandatory field :AnyotherReason"],
+    "required": [true, "Please add Mandatory field :AnyotherReason"],
     "maxlength": [500, "AnyotherReason can not be more than 500 characters"]
   },
   "Q3": {
@@ -220,7 +220,7 @@
   "AnyAllergies": {
     "type": "String",
 
-    "required": [true, "Please add mandatory field :AnyAllergies"],
+    "required": [true, "Please add Mandatory field :AnyAllergies"],
     "maxlength": [200, "AnyAllergies can not be more than 200 characters"]
   },
   "Q16": {
@@ -274,7 +274,7 @@
   "Status": {
     "type": "String",
 
-    "required": [true, "Please add mandatory field :Status"],
+    "required": [true, "Please add Mandatory field :Status"],
     "maxlength": [20, "Status can not be more than 20 characters"]
   },
   "DOB": {
@@ -331,7 +331,7 @@
   "Age": {
     "type": "Number",
 
-    "required": [true, "Please add mandatory field :Age"],
+    "required": [true, "Please add Mandatory field :Age"],
     "maxlength": [50, "Age can not be more than 50 characters"],
     "match": [
       "NUM_INT_MAX_10D_V1",

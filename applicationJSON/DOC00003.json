@@ -2,7 +2,7 @@
   "ID": {
     "type": "String",
     "unique": true,
-    "required": [true, "Please add mandatory field :ID"],
+    "required": [true, "Please add Mandatory field :ID"],
     "maxlength": [20, "ID can not be more than 20 characters"]
   },
   "S1": {
@@ -13,7 +13,7 @@
   "ReferringPhysician": {
     "type": "String",
 
-    "required": [true, "Please add mandatory field :ReferringPhysician"],
+    "required": [true, "Please add Mandatory field :ReferringPhysician"],
     "maxlength": [50, "ReferringPhysician can not be more than 50 characters"]
   },
   "Fax": {
@@ -28,7 +28,7 @@
   "ReferralTo": {
     "type": "String",
 
-    "required": [true, "Please add mandatory field :ReferralTo"],
+    "required": [true, "Please add Mandatory field :ReferralTo"],
     "maxlength": [50, "ReferralTo can not be more than 50 characters"]
   },
   "S2": {
@@ -39,42 +39,42 @@
   "PatientName": {
     "type": "String",
 
-    "required": [true, "Please add mandatory field :PatientName"],
+    "required": [true, "Please add Mandatory field :PatientName"],
     "maxlength": [50, "PatientName can not be more than 50 characters"]
   },
   "Address": {
     "type": "String",
 
-    "required": [true, "Please add mandatory field :Address"],
+    "required": [true, "Please add Mandatory field :Address"],
     "maxlength": [200, "Address can not be more than 200 characters"]
   },
-  "HomePhoneNo": {
+  "HomeContactNo": {
     "type": "String",
 
-    "required": [true, "Please add mandatory field :HomePhoneNo"],
-    "maxlength": [50, "HomePhoneNo can not be more than 50 characters"],
+    "required": [true, "Please add Mandatory field :HomeContactNo"],
+    "maxlength": [50, "HomeContactNo can not be more than 50 characters"],
     "match": [
       "UK_PHONE_V1",
-      "Please provide valid UK Phone number in field :HomePhoneNo"
+      "Please provide valid UK Phone number in field :HomeContactNo"
     ]
   },
   "ContactNo": {
     "type": "String",
 
-    "required": [true, "Please add mandatory field :ContactNo"],
+    "required": [true, "Please add Mandatory field :ContactNo"],
     "maxlength": [50, "ContactNo can not be more than 50 characters"]
   },
   "Gender": {
     "type": "String",
 
-    "required": [true, "Please add mandatory field :Gender"],
+    "required": [true, "Please add Mandatory field :Gender"],
     "maxlength": [20, "Gender can not be more than 20 characters"],
     "match": ["GENDER_V1", "Invalid Gender value in field : Gender"]
   },
   "Employer": {
     "type": "String",
 
-    "required": [true, "Please add mandatory field :Employer"],
+    "required": [true, "Please add Mandatory field :Employer"],
     "maxlength": [50, "Employer can not be more than 50 characters"]
   },
   "Insurance": {
@@ -100,13 +100,13 @@
   "Problem": {
     "type": "String",
 
-    "required": [true, "Please add mandatory field :Problem"],
+    "required": [true, "Please add Mandatory field :Problem"],
     "maxlength": [50, "Problem can not be more than 50 characters"]
   },
   "Status": {
     "type": "String",
 
-    "required": [true, "Please add mandatory field :Status"],
+    "required": [true, "Please add Mandatory field :Status"],
     "maxlength": [20, "Status can not be more than 20 characters"]
   },
   "Attachment": {

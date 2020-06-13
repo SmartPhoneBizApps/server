@@ -2,7 +2,7 @@
   "ID": {
     "type": "String",
     "unique": true,
-    "required": [true, "Please add mandatory field :ID"],
+    "required": [true, "Please add Mandatory field :ID"],
     "maxlength": [20, "ID can not be more than 20 characters"]
   },
   "CollegeName": {
@@ -23,18 +23,18 @@
   "ContactEmail": {
     "type": "String",
 
-    "required": [true, "Please add mandatory field :ContactEmail"],
+    "required": [true, "Please add Mandatory field :ContactEmail"],
     "maxlength": [100, "ContactEmail can not be more than 100 characters"],
     "match": ["EMAIL_V1", "Invalid EmailID for field :ContactEmail"]
   },
-  "PhoneNo": {
+  "ContactNo": {
     "type": "String",
 
-    "required": [true, "Please add mandatory field :PhoneNo"],
-    "maxlength": [20, "PhoneNo can not be more than 20 characters"],
+    "required": [true, "Please add Mandatory field :ContactNo"],
+    "maxlength": [20, "ContactNo can not be more than 20 characters"],
     "match": [
       "UK_PHONE_V1",
-      "Please provide valid UK Phone number in field :PhoneNo"
+      "Please provide valid UK Phone number in field :ContactNo"
     ]
   },
   "StudyLevel": {
@@ -45,7 +45,7 @@
   "Status": {
     "type": "String",
 
-    "required": [true, "Please add mandatory field :Status"],
+    "required": [true, "Please add Mandatory field :Status"],
     "maxlength": [20, "Status can not be more than 20 characters"]
   },
   "HomePage": {
@@ -86,13 +86,13 @@
   "Address": {
     "type": "String",
 
-    "required": [true, "Please add mandatory field :Address"],
+    "required": [true, "Please add Mandatory field :Address"],
     "maxlength": [500, "Address can not be more than 500 characters"]
   },
   "PostCode": {
     "type": "String",
 
-    "required": [true, "Please add mandatory field :PostCode"],
+    "required": [true, "Please add Mandatory field :PostCode"],
     "maxlength": [100, "PostCode can not be more than 100 characters"],
     "match": [
       "UK_POSTCODE_V1",

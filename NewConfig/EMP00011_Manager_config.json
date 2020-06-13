@@ -87,14 +87,7 @@
     "headerRole": ["USP_Role"],
     "headerImage": ["USP_Image"],
     "None": ["ID", "Status", "ReviewPeriod"],
-    "Tab1": [
-      "EmployeeID",
-      "EmpName",
-      "DevManager",
-      "Role",
-      "Band",
-      "ReviewDate"
-    ],
+    "Tab1": ["EmployeeID", "Name", "DevManager", "Role", "Band", "ReviewDate"],
     "Tab2": [
       "SetDate",
       "Area",
@@ -135,7 +128,7 @@
       "Currency": "No"
     },
     {
-      "name": "EmpName",
+      "name": "Name",
       "type": "string",
       "width": "50",
       "Option": "Optional",
@@ -268,7 +261,7 @@
   "Wizard": [
     {
       "id": "Step1",
-      "fields": [{ "name": "EmpName", "Sequence": "1", "Mode": "Edit" }],
+      "fields": [{ "name": "Name", "Sequence": "1", "Mode": "Edit" }],
       "name": "Development Goal",
       "stepType": "FieldList",
       "intro": "Development Goals  : Development Goal"

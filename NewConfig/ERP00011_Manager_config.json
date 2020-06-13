@@ -10,16 +10,16 @@
     "sStatus": "JobType",
     "fStatus": "Status",
     "numberField": "",
-    "LFields": ["InterviewDate", "Email", "Telephone"],
+    "LFields": ["InterviewDate", "Email", "ID"],
     "numberUnitField": ""
   },
   "ListBOTFields": {
     "None": ["cardImage", "StatusState"],
     "Title": ["Candidate", "JobType"],
     "SubTitle": ["InterviewDate", "Position"],
-    "Description": ["Email", "Telephone"]
+    "Description": ["Email", "ContactNo"]
   },
-  "PossibleValues": ["Position", "Citizenship", "JobType", "Status"],
+  "PossibleValues": ["JobType", "Status"],
   "MButtons": [],
   "DButtons": [],
   "Tabs": [
@@ -31,28 +31,33 @@
     },
     {
       "value": "Tab1",
-      "name": "Details",
+      "name": "Employee Details",
       "type": "Field",
-      "fioriicon": "notes"
+      "fioriicon": "notes",
+      "download": "Yes"
+    },
+    {
+      "value": "Tab2",
+      "name": "Job Details",
+      "type": "Field",
+      "fioriicon": "notes",
+      "download": "Yes"
     },
     {
       "value": "Tab3",
-      "name": "Job Details",
-      "type": "Field",
-      "fioriicon": "notes"
+      "name": "Item Details",
+      "fioriicon": "notes",
+      "type": "Items",
+      "download": "Yes"
     }
   ],
   "DetailFields": {
-    "None": ["ID", "Candidate", "Status"],
-    "Tab1": [
-      "InterviewDate",
-      "Position",
-      "Citizenship",
-      "DOB",
-      "Email",
-      "Telephone"
-    ],
-    "Tab3": ["JobType"]
+    "headerTitle": ["USP_Name"],
+    "headerRole": ["USP_Role"],
+    "headerImage": ["USP_Image"],
+    "None": ["ID", "Status"],
+    "Tab1": ["Citizenship", "Candidate", "DOB", "Email", "ContactNo"],
+    "Tab2": ["InterviewDate", "Position", "JobType"]
   },
   "ControlDisplay": {},
   "FieldDef": [
@@ -61,7 +66,7 @@
       "type": "string",
       "width": "20",
       "Option": "Optional",
-      "SLabel": "Identification",
+      "SLabel": "ID",
       "LLabel": "",
       "Currency": "No"
     },
@@ -106,7 +111,7 @@
       "type": "string",
       "width": "50",
       "Option": "Optional",
-      "SLabel": "Job Type",
+      "SLabel": "JobType",
       "LLabel": "",
       "Currency": "No"
     },
@@ -124,7 +129,7 @@
       "type": "Date",
       "width": "10",
       "Option": "Optional",
-      "SLabel": "Date of Birth",
+      "SLabel": "DOB",
       "LLabel": "",
       "Currency": "No"
     },
@@ -138,11 +143,11 @@
       "Currency": "No"
     },
     {
-      "name": "Telephone",
+      "name": "ContactNo",
       "type": "string",
       "width": "50",
       "Option": "Optional",
-      "SLabel": "Telephone",
+      "SLabel": "ContactNo",
       "LLabel": "",
       "Currency": "No"
     }

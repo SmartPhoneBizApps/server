@@ -2,19 +2,19 @@
   "ID": {
     "type": "String",
     "unique": true,
-    "required": [true, "Please add mandatory field :ID"],
+    "required": [true, "Please add Mandatory field :ID"],
     "maxlength": [20, "ID can not be more than 20 characters"]
   },
   "EmployeeID": {
     "type": "String",
 
-    "required": [true, "Please add mandatory field :EmployeeID"],
+    "required": [true, "Please add Mandatory field :EmployeeID"],
     "maxlength": [20, "EmployeeID can not be more than 20 characters"]
   },
-  "EmpName": {
+  "Name": {
     "type": "String",
 
-    "required": [true, "Please add mandatory field :EmpName"],
+    "required": [true, "Please add Mandatory field :EmpName"],
     "maxlength": [50, "EmpName can not be more than 50 characters"]
   },
   "Currency": {
@@ -40,7 +40,7 @@
   "ExpType": {
     "type": "String",
 
-    "required": [true, "Please add mandatory field :ExpType"],
+    "required": [true, "Please add Mandatory field :ExpType"],
     "maxlength": [100, "ExpType can not be more than 100 characters"]
   },
   "ExpenseDetails": {
@@ -51,7 +51,7 @@
   "Status": {
     "type": "String",
 
-    "required": [true, "Please add mandatory field :Status"],
+    "required": [true, "Please add Mandatory field :Status"],
     "maxlength": [20, "Status can not be more than 20 characters"]
   },
   "ProcessingLog": {
@@ -76,7 +76,7 @@
   "EntryDate": {
     "type": "Date",
 
-    "required": [true, "Please add mandatory field :EntryDate"],
+    "required": [true, "Please add Mandatory field :EntryDate"],
     "maxlength": [10, "EntryDate can not be more than 10 characters"],
     "match": [
       "DATE_V1",

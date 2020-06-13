@@ -8,7 +8,7 @@ const Role = require("../../models/appSetup/Role");
 const {
   getNewConfig,
   createDocument,
-  getCompany,
+  getApplication,
   getRole,
   itemValidate,
   findAndUpdateItem,
@@ -29,7 +29,7 @@ const Possval = require("../../models/appSetup/Possval");
 // @access    Private
 exports.addDataRecords = asyncHandler(async (req, res, next) => {
   //Get Company
-  const BodyApp = await getCompany(req.headers.applicationid);
+  const BodyApp = await getApplication(req.headers.applicationid);
   const BusinessRole = await getRole(req.headers.businessRole);
   // Read New Config File
   var cardConfig = getNewConfig(
@@ -217,8 +217,10 @@ exports.addDataRecords = asyncHandler(async (req, res, next) => {
   myFieldArray = collectExceptionFields(cardConfig.FieldDef);
 
   for (const key in req.body) {
+    console.log("request", key);
     if (req.body.hasOwnProperty(key)) {
       var resField = myFieldArray.includes(key);
+      console.log("match", resField);
       /// Header Validations....
       if (resField === false && key !== "ItemData") {
         return next(

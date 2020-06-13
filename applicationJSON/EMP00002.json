@@ -2,17 +2,17 @@
   "ID": {
     "type": "String",
     "unique": true,
-    "required": [true, "Please add mandatory field :ID"],
+    "required": [true, "Please add Mandatory field :ID"],
     "maxlength": [20, "ID can not be more than 20 characters"]
   },
   "EmployeeID": {
     "type": "String",
-    "required": [true, "Please add mandatory field :EmployeeID"],
+    "required": [true, "Please add Mandatory field :EmployeeID"],
     "maxlength": [20, "EmployeeID can not be more than 20 characters"]
   },
-  "EmpName": {
+  "Name": {
     "type": "String",
-    "required": [true, "Please add mandatory field :EmpName"],
+    "required": [true, "Please add Mandatory field :EmpName"],
     "maxlength": [50, "EmpName can not be more than 50 characters"]
   },
   "Currency": {
@@ -37,12 +37,12 @@
   },
   "Justification": {
     "type": "String",
-    "required": [true, "Please add mandatory field :Justification"],
+    "required": [true, "Please add Mandatory field :Justification"],
     "maxlength": [1000, "Justification can not be more than 1000 characters"]
   },
   "Status": {
     "type": "String",
-    "required": [true, "Please add mandatory field :Status"],
+    "required": [true, "Please add Mandatory field :Status"],
     "maxlength": [20, "Status can not be more than 20 characters"]
   },
   "TravelMode": {
@@ -146,16 +146,27 @@
   },
   "EntryDate": {
     "type": "Date",
-    "required": [true, "Please add mandatory field :EntryDate"],
-    "maxlength": [10, "EntryDate can not be more than 10 characters"]
+    "maxlength": [10, "EntryDate can not be more than 10 characters"],
+    "match": [
+      "DATE_V1",
+      "Please provide date in YYYY-MM-DD format for field :ApplicationDate"
+    ]
   },
   "TravelDtFrom": {
     "type": "Date",
-    "maxlength": [10, "TravelDtFrom can not be more than 10 characters"]
+    "maxlength": [10, "TravelDtFrom can not be more than 10 characters"],
+    "match": [
+      "DATE_V1",
+      "Please provide date in YYYY-MM-DD format for field :ApplicationDate"
+    ]
   },
   "TravelDateTo": {
     "type": "Date",
-    "maxlength": [10, "TravelDateTo can not be more than 10 characters"]
+    "maxlength": [10, "TravelDateTo can not be more than 10 characters"],
+    "match": [
+      "DATE_V1",
+      "Please provide date in YYYY-MM-DD format for field :ApplicationDate"
+    ]
   },
   "FoodCost": {
     "type": "Number",

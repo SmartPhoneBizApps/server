@@ -3,7 +3,7 @@
   "Controls": { "USP": "UserProfile" },
   "ListFields": {
     "IntroField": "ProjectCode",
-    "TitleField": "EmpName",
+    "TitleField": "Name",
     "sStatus": "ExpType",
     "fStatus": "Status",
     "numberField": "TotalAmount",
@@ -12,7 +12,7 @@
   },
   "ListBOTFields": {
     "None": ["cardImage", "StatusState"],
-    "Title": ["ExpType", "EmpName", "ProjectCode"],
+    "Title": ["ExpType", "Name", "ProjectCode"],
     "SubTitle": ["TotalAmount", "Status"],
     "Description": ["ID", "EmployeeID"]
   },
@@ -59,7 +59,7 @@
     "headerRole": ["USP_Role"],
     "headerImage": ["USP_Image"],
     "None": ["ID", "EntryDate", "Status"],
-    "Tab1": ["EmployeeID", "EmpName"],
+    "Tab1": ["EmployeeID", "Name"],
     "Tab2": [
       "Currency",
       "ExpenseDate",
@@ -93,7 +93,7 @@
       "Currency": "No"
     },
     {
-      "name": "EmpName",
+      "name": "Name",
       "type": "string",
       "width": "50",
       "Option": "Optional",

@@ -12,27 +12,14 @@ const { valAlreadyReg } = require("../../modules/validationMessages");
 // @route     POST /api/v1/auth/register
 // @access    Public
 exports.register = asyncHandler(async (req, res, next) => {
-  /*   const {
-    name,
-    email,
-    role,
-    businessRole,
-    userAccess,
-    reason,
-    agent,
-    regQuestion,
-  } = req.body; */
-
   businessRoles = [];
   busRole = {};
-
   if (req.body.agent) {
     let agent = await Agent.findOne({ agent: req.body.agent });
     req.body.company = agent.company;
     req.body.branch = agent.branch;
     req.body.area = agent.area;
   }
-
   if (req.body.businessRole) {
     let role1 = await Role.findOne({ role: req.body.businessRole });
     if (role1) {
@@ -43,7 +30,8 @@ exports.register = asyncHandler(async (req, res, next) => {
       req.body.businessRoles = businessRoles;
     }
     if (req.body.regQuestion) {
-      req.body[req.body.businessRole] = req.body.regQuestion;
+      const k1 = "Role_" + req.body.businessRole;
+      req.body[k1] = req.body.regQuestion;
     }
   }
   let user = await User.findOne({ email: req.body.email });

@@ -38,7 +38,7 @@ const SmartappSchema = new mongoose.Schema({
   PartnerRef: { type: String },
   PaymentStatus: { type: String },
   Phase: { type: String },
-  PhoneNo: { type: String },
+  ContactNo: { type: String },
   PONo: { type: String },
   Position: { type: String },
   PostCode: { type: String },

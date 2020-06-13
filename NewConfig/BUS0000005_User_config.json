@@ -6,13 +6,13 @@
     "TitleField": "YourName",
     "sStatus": "Subject",
     "fStatus": "Status",
-    "LFields": ["ID", "YourEmail"]
+    "LFields": ["ID", "Email"]
   },
   "ListBOTFields": {
     "None": ["cardImage", "StatusState"],
     "Title": ["YourBusiness"],
     "SubTitle": ["YourName", "Subject"],
-    "Description": ["Status", "ID", "YourEmail"]
+    "Description": ["Status", "ID", "Email"]
   },
   "PossibleValues": ["Status"],
   "MButtons": [
@@ -75,7 +75,7 @@
     "None": ["ID", "Status"],
     "Tab1": [
       "YourName",
-      "YourEmail",
+      "Email",
       "YourPhone",
       "YourDepartment",
       "YourBusiness"
@@ -112,7 +112,7 @@
       "Currency": "No"
     },
     {
-      "name": "YourEmail",
+      "name": "Email",
       "type": "string",
       "width": "50",
       "Option": "Optional",
@@ -206,7 +206,7 @@
       "id": "Step2",
       "fields": [
         { "name": "YourPhone", "Sequence": "1", "Mode": "Edit" },
-        { "name": "YourEmail", "Sequence": "1", "Mode": "Edit" },
+        { "name": "Email", "Sequence": "1", "Mode": "Edit" },
         { "name": "YourBusiness", "Sequence": "1", "Mode": "Edit" },
         { "name": "YourDepartment", "Sequence": "1", "Mode": "Edit" }
       ],

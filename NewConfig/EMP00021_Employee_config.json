@@ -3,7 +3,7 @@
   "Controls": { "USP": "UserProfile" },
   "ListFields": {
     "IntroField": "ID",
-    "TitleField": "EmpName",
+    "TitleField": "Name",
     "fStatus": "Status",
     "numberField": "GrossAmount",
     "LFields": ["EmployeeID", "StartDate", "EndDate"],
@@ -11,7 +11,7 @@
   },
   "ListBOTFields": {
     "None": ["cardImage", "StatusState"],
-    "Title": ["EmpName", "Status"],
+    "Title": ["Name", "Status"],
     "SubTitle": ["StartDate", "EndDate"],
     "Description": ["TotalRegHours", "TotalOvertimeHours"]
   },
@@ -103,7 +103,7 @@
     "headerTitle": ["USP_Name"],
     "headerRole": ["USP_Role"],
     "headerImage": ["USP_Image"],
-    "None": ["ID", "EmpName", "EmployeeID", "Status", "StartDate", "EndDate"],
+    "None": ["ID", "Name", "EmployeeID", "Status", "StartDate", "EndDate"],
     "Tab1": ["TotalRegHours", "HourlyRate", "RegularNetAmount"],
     "Tab2": ["TotalOvertimeHours", "OvertimeRate", "OvertimeNetAmount"],
     "Tab3": ["NetAmount", "VATRate", "VATAmount", "GrossAmount"],
@@ -116,16 +116,16 @@
       "name": "ID",
       "type": "string",
       "width": "20",
-      "Option": "mandatory",
+      "Option": "Mandatory",
       "SLabel": "Identification",
       "LLabel": "Identification",
       "Currency": "No"
     },
     {
-      "name": "EmpName",
+      "name": "Name",
       "type": "string",
       "width": "50",
-      "Option": "mandatory",
+      "Option": "Mandatory",
       "SLabel": "Employee Name",
       "LLabel": "Employee Name",
       "Currency": "No"
@@ -134,7 +134,7 @@
       "name": "EmployeeID",
       "type": "string",
       "width": "50",
-      "Option": "mandatory",
+      "Option": "Mandatory",
       "SLabel": "Employee Code",
       "LLabel": "Employee Code",
       "Currency": "No"
@@ -161,7 +161,7 @@
       "name": "TotalRegHours",
       "type": "Num,1",
       "width": "20",
-      "Option": "mandatory",
+      "Option": "Mandatory",
       "SLabel": "Total Regular Work Hours",
       "LLabel": "Total Work Hours",
       "Currency": "No"
@@ -170,7 +170,7 @@
       "name": "HourlyRate",
       "type": "Num,2",
       "width": "50",
-      "Option": "mandatory",
+      "Option": "Mandatory",
       "SLabel": "Hourly Rate",
       "LLabel": "Hourly Rate",
       "Currency": "Yes"
@@ -224,7 +224,7 @@
       "name": "VATRate",
       "type": "Num,2",
       "width": "50",
-      "Option": "mandatory",
+      "Option": "Mandatory",
       "SLabel": "VAT Rate",
       "LLabel": "VATRate",
       "Currency": "No"
@@ -251,7 +251,7 @@
       "name": "Status",
       "type": "string",
       "width": "20",
-      "Option": "mandatory",
+      "Option": "Mandatory",
       "SLabel": "Timesheet Status",
       "LLabel": "Status",
       "Currency": "No"
@@ -316,7 +316,7 @@
         "type": "string",
         "width": "50",
         "SLabel": "Project Code",
-        "Option": "mandatory",
+        "Option": "Mandatory",
         "Currency": "No"
       },
       {
@@ -324,7 +324,7 @@
         "type": "Date",
         "width": "10",
         "SLabel": "Timesheet Date",
-        "Option": "mandatory",
+        "Option": "Mandatory",
         "Currency": "No"
       },
       {
@@ -332,7 +332,7 @@
         "type": "Num,1",
         "width": "50",
         "SLabel": "Regular work hours",
-        "Option": "mandatory",
+        "Option": "Mandatory",
         "Currency": "No"
       },
       {
@@ -499,7 +499,7 @@
     {
       "id": "Step1",
       "fields": [
-        { "name": "EmpName", "Sequence": "1", "Mode": "Edit" },
+        { "name": "Name", "Sequence": "1", "Mode": "Edit" },
         { "name": "EmployeeID", "Sequence": "1", "Mode": "Edit" },
         { "name": "Approver", "Sequence": "1", "Mode": "Display" }
       ],

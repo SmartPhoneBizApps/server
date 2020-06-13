@@ -2,7 +2,7 @@
   "ID": {
     "type": "String",
     "unique": true,
-    "required": [true, "Please add mandatory field :ID"],
+    "required": [true, "Please add Mandatory field :ID"],
     "maxlength": [20, "ID can not be more than 20 characters"]
   },
   "Name": {
@@ -18,7 +18,7 @@
   "EmailID": {
     "type": "String",
 
-    "required": [true, "Please add mandatory field :EmailID"],
+    "required": [true, "Please add Mandatory field :EmailID"],
     "maxlength": [100, "EmailID can not be more than 100 characters"],
     "match": ["EMAIL_V1", "Invalid EmailID for field :EmailID"]
   },
@@ -30,7 +30,7 @@
   "RequestType": {
     "type": "String",
 
-    "required": [true, "Please add mandatory field :RequestType"],
+    "required": [true, "Please add Mandatory field :RequestType"],
     "maxlength": [200, "RequestType can not be more than 200 characters"]
   },
   "Attachment": {
@@ -46,7 +46,7 @@
   "Status": {
     "type": "String",
 
-    "required": [true, "Please add mandatory field :Status"],
+    "required": [true, "Please add Mandatory field :Status"],
     "maxlength": [20, "Status can not be more than 20 characters"]
   },
   "CareTaker": {
@@ -57,7 +57,7 @@
   "Postcode1": {
     "type": "String",
 
-    "required": [true, "Please add mandatory field :Postcode1"],
+    "required": [true, "Please add Mandatory field :Postcode1"],
     "maxlength": [100, "Postcode1 can not be more than 100 characters"],
     "match": [
       "UK_POSTCODE_V1",
@@ -67,7 +67,7 @@
   "Address1": {
     "type": "String",
 
-    "required": [true, "Please add mandatory field :Address1"],
+    "required": [true, "Please add Mandatory field :Address1"],
     "maxlength": [200, "Address1 can not be more than 200 characters"]
   },
   "CollectionItems": {
@@ -78,7 +78,7 @@
   "ItemType": {
     "type": "String",
 
-    "required": [true, "Please add mandatory field :ItemType"],
+    "required": [true, "Please add Mandatory field :ItemType"],
     "maxlength": [200, "ItemType can not be more than 200 characters"]
   },
   "Condition": {
@@ -104,7 +104,7 @@
   "TypeOfPest": {
     "type": "String",
 
-    "required": [true, "Please add mandatory field :TypeOfPest"],
+    "required": [true, "Please add Mandatory field :TypeOfPest"],
     "maxlength": [100, "TypeOfPest can not be more than 100 characters"]
   },
   "IfOther": {
@@ -240,7 +240,7 @@
   "RequestDate": {
     "type": "Date",
 
-    "required": [true, "Please add mandatory field :RequestDate"],
+    "required": [true, "Please add Mandatory field :RequestDate"],
     "maxlength": [10, "RequestDate can not be more than 10 characters"],
     "match": [
       "DATE_V1",

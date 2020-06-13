@@ -2,13 +2,13 @@
   "ID": {
     "type": "String",
     "unique": true,
-    "required": [true, "Please add mandatory field :ID"],
+    "required": [true, "Please add Mandatory field :ID"],
     "maxlength": [20, "ID can not be more than 20 characters"]
   },
   "RequesterName": {
     "type": "String",
 
-    "required": [true, "Please add mandatory field :RequesterName"],
+    "required": [true, "Please add Mandatory field :RequesterName"],
     "maxlength": [50, "RequesterName can not be more than 50 characters"]
   },
   "RequesterPosition": {
@@ -24,13 +24,13 @@
   "RequesterUserID": {
     "type": "String",
 
-    "required": [true, "Please add mandatory field :RequesterUserID"],
+    "required": [true, "Please add Mandatory field :RequesterUserID"],
     "maxlength": [20, "RequesterUserID can not be more than 20 characters"]
   },
   "AccountType": {
     "type": "String",
 
-    "required": [true, "Please add mandatory field :AccountType"],
+    "required": [true, "Please add Mandatory field :AccountType"],
     "maxlength": [20, "AccountType can not be more than 20 characters"]
   },
   "Details": {
@@ -38,26 +38,18 @@
 
     "maxlength": [200, "Details can not be more than 200 characters"]
   },
-  "ApproverName": {
+
+  "Approver": {
     "type": "String",
 
-    "maxlength": [50, "ApproverName can not be more than 50 characters"]
-  },
-  "ApproverUserID": {
-    "type": "String",
-
-    "maxlength": [20, "ApproverUserID can not be more than 20 characters"]
+    "maxlength": [20, "Approver can not be more than 20 characters"]
   },
   "ApproverComments": {
     "type": "String",
 
     "maxlength": [500, "ApproverComments can not be more than 500 characters"]
   },
-  "ApproverPosition": {
-    "type": "String",
 
-    "maxlength": [50, "ApproverPosition can not be more than 50 characters"]
-  },
   "CopyUserID": {
     "type": "String",
 
@@ -81,7 +73,7 @@
   "Status": {
     "type": "String",
 
-    "required": [true, "Please add mandatory field :Status"],
+    "required": [true, "Please add Mandatory field :Status"],
     "maxlength": [20, "Status can not be more than 20 characters"]
   },
   "UserAccount": {
@@ -97,7 +89,7 @@
   "StartDate": {
     "type": "Date",
 
-    "required": [true, "Please add mandatory field :StartDate"],
+    "required": [true, "Please add Mandatory field :StartDate"],
     "maxlength": [10, "StartDate can not be more than 10 characters"]
   },
   "ExpiryDate": {
@@ -121,7 +113,7 @@
   "RequestedDate": {
     "type": "Date",
 
-    "required": [true, "Please add mandatory field :RequestedDate"],
+    "required": [true, "Please add Mandatory field :RequestedDate"],
     "maxlength": [10, "RequestedDate can not be more than 10 characters"]
   },
   "USP_Name": { "type": "String" },

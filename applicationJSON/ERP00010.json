@@ -2,7 +2,7 @@
   "ID": {
     "type": "String",
     "unique": true,
-    "required": [true, "Please add mandatory field :ID"],
+    "required": [true, "Please add Mandatory field :ID"],
     "maxlength": [20, "ID can not be more than 20 characters"]
   },
   "Position": {
@@ -18,17 +18,17 @@
   "Email": {
     "type": "String",
 
-    "required": [true, "Please add mandatory field :Email"],
+    "required": [true, "Please add Mandatory field :Email"],
     "maxlength": [100, "Email can not be more than 100 characters"],
     "match": ["EMAIL_V1", "Invalid EmailID for field :Email"]
   },
-  "Telephone": {
+  "ContactNo": {
     "type": "String",
 
-    "maxlength": [50, "Telephone can not be more than 50 characters"],
+    "maxlength": [50, "ContactNo can not be more than 50 characters"],
     "match": [
       "UK_PHONE_V1",
-      "Please provide valid UK Phone number in field :Telephone"
+      "Please provide valid UK Phone number in field :ContactNo"
     ]
   },
   "AboutCompany": {
@@ -62,13 +62,13 @@
   "CurrentJobType": {
     "type": "String",
 
-    "required": [true, "Please add mandatory field :CurrentJobType"],
+    "required": [true, "Please add Mandatory field :CurrentJobType"],
     "maxlength": [50, "CurrentJobType can not be more than 50 characters"]
   },
   "CurrEmployer": {
     "type": "String",
 
-    "required": [true, "Please add mandatory field :CurrEmployer"],
+    "required": [true, "Please add Mandatory field :CurrEmployer"],
     "maxlength": [50, "CurrEmployer can not be more than 50 characters"]
   },
   "CurrJobRole": {
@@ -149,7 +149,7 @@
   "JobType": {
     "type": "String",
 
-    "required": [true, "Please add mandatory field :JobType"],
+    "required": [true, "Please add Mandatory field :JobType"],
     "maxlength": [50, "JobType can not be more than 50 characters"]
   },
   "HRFeedback": {
@@ -170,7 +170,7 @@
   "Status": {
     "type": "String",
 
-    "required": [true, "Please add mandatory field :Status"],
+    "required": [true, "Please add Mandatory field :Status"],
     "maxlength": [20, "Status can not be more than 20 characters"]
   },
   "Screening_Status": {
@@ -232,7 +232,7 @@
   "CurBaseSalary": {
     "type": "Number",
 
-    "required": [true, "Please add mandatory field :CurBaseSalary"],
+    "required": [true, "Please add Mandatory field :CurBaseSalary"],
     "maxlength": [50, "CurBaseSalary can not be more than 50 characters"],
     "match": [
       "NUM_2_DEC_PLACE_V1",
@@ -242,7 +242,7 @@
   "CurGrosSalary": {
     "type": "Number",
 
-    "required": [true, "Please add mandatory field :CurGrosSalary"],
+    "required": [true, "Please add Mandatory field :CurGrosSalary"],
     "maxlength": [50, "CurGrosSalary can not be more than 50 characters"],
     "match": [
       "NUM_2_DEC_PLACE_V1",

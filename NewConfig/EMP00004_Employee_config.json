@@ -122,11 +122,11 @@
     "Tab2": [
       "DeliveryDt",
       "DelTo",
-      "EmpAddress",
+      "Address",
       "State",
-      "DelPostCode",
+      "PostCode",
       "Country",
-      "DelPhone",
+      "ContactNo",
       "OtherInfo"
     ],
     "Tab4": ["ProcessingLog"]
@@ -146,7 +146,7 @@
       "name": "VendorName",
       "type": "string",
       "width": "50",
-      "Option": "mandatory",
+      "Option": "Mandatory",
       "SLabel": "Vendor Name",
       "LLabel": "",
       "Currency": "No"
@@ -192,7 +192,7 @@
       "type": "string",
       "width": "50",
       "Option": "Optional",
-      "SLabel": "Item Details",
+      "SLabel": "Details",
       "LLabel": "",
       "Currency": "No"
     },
@@ -209,7 +209,7 @@
       "name": "UoM",
       "type": "string",
       "width": "10",
-      "Option": "mandatory",
+      "Option": "Mandatory",
       "SLabel": "Unit of Measurement",
       "LLabel": "",
       "Currency": "No"
@@ -341,7 +341,7 @@
       "Currency": "No"
     },
     {
-      "name": "EmpAddress",
+      "name": "Address",
       "type": "string",
       "width": "100",
       "Option": "Optional",
@@ -349,14 +349,7 @@
       "LLabel": "",
       "Currency": "No"
     },
-    {
-      "type": "string",
-      "width": "100",
-      "Option": "Optional",
-      "SLabel": "Delivery City",
-      "LLabel": "",
-      "Currency": "No"
-    },
+
     {
       "name": "State",
       "type": "string",
@@ -367,7 +360,7 @@
       "Currency": "No"
     },
     {
-      "name": "DelPostCode",
+      "name": "PostCode",
       "type": "string",
       "width": "100",
       "Option": "Optional",
@@ -385,7 +378,7 @@
       "Currency": "No"
     },
     {
-      "name": "DelPhone",
+      "name": "ContactNo",
       "type": "string",
       "width": "100",
       "Option": "Optional",
@@ -394,7 +387,7 @@
       "Currency": "No"
     },
     {
-      "name": "DelEmail",
+      "name": "Email",
       "type": "string",
       "width": "100",
       "Option": "Optional",
@@ -756,8 +749,8 @@
     {
       "id": "Step3",
       "fields": [
-        { "name": "EmpAddress", "Sequence": "1", "Mode": "Edit" },
-        { "name": "DelPostCode", "Sequence": "1", "Mode": "Edit" },
+        { "name": "Address", "Sequence": "1", "Mode": "Edit" },
+        { "name": "PostCode", "Sequence": "1", "Mode": "Edit" },
         { "name": "State", "Sequence": "1", "Mode": "Edit" },
         { "name": "Country", "Sequence": "1", "Mode": "Edit" }
       ],
@@ -768,8 +761,8 @@
     {
       "id": "Step4",
       "fields": [
-        { "name": "DelPhone", "Sequence": "1", "Mode": "Edit" },
-        { "name": "DelEmail", "Sequence": "1", "Mode": "Edit" }
+        { "name": "ContactNo", "Sequence": "1", "Mode": "Edit" },
+        { "name": "Email", "Sequence": "1", "Mode": "Edit" }
       ],
       "name": "Delivery Contact",
       "stepType": "FieldList",

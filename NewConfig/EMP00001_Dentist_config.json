@@ -6,7 +6,7 @@
   "Controls": { "USP": "UserProfile" },
   "ListFields": {
     "IntroField": "LeaveFrom",
-    "TitleField": "EmpName",
+    "TitleField": "Name",
     "sStatus": "LeaveType",
     "fStatus": "Status",
     "numberField": "LeaveDays",
@@ -19,7 +19,7 @@
     "Description": ["LeaveFrom"]
   },
   "PossibleValues": [
-    "EmpDesignation",
+    "Designation",
     "LeaveType",
     "Approver",
     "Status",
@@ -103,9 +103,9 @@
     "headerImage": ["USP_Image"],
     "None": ["ID", "Status"],
     "Tab1": ["LeaveType", "LeaveFrom", "LeaveTo", "LeaveDays", "LeaveReason"],
-    "Tab2": ["EmpName", "EmployeeID", "EmpDesignation"],
-    "Tab3": ["EmpAddress", "EmpPostCode"],
-    "Tab4": ["EmpTelephone", "EmpEmail"],
+    "Tab2": ["Name", "EmployeeID", "Designation"],
+    "Tab3": ["Address", "PostCode"],
+    "Tab4": ["ContactNo", "Email"],
     "Tab5": ["CostCentre", "Approver", "Comment"]
   },
   "ControlDisplay": {},
@@ -129,7 +129,7 @@
       "Currency": "No"
     },
     {
-      "name": "EmpName",
+      "name": "Name",
       "type": "string",
       "width": "50",
       "Option": "Optional",
@@ -138,7 +138,7 @@
       "Currency": "No"
     },
     {
-      "name": "EmpAddress",
+      "name": "Address",
       "type": "string",
       "width": "200",
       "Option": "Optional",
@@ -147,7 +147,7 @@
       "Currency": "No"
     },
     {
-      "name": "EmpPostCode",
+      "name": "PostCode",
       "type": "string",
       "width": "20",
       "Option": "Optional",
@@ -156,7 +156,7 @@
       "Currency": "No"
     },
     {
-      "name": "EmpDesignation",
+      "name": "Designation",
       "type": "string",
       "width": "50",
       "Option": "Optional",
@@ -165,11 +165,11 @@
       "Currency": "No"
     },
     {
-      "name": "EmpTelephone",
+      "name": "ContactNo",
       "type": "string",
       "width": "20",
       "Option": "Optional",
-      "SLabel": "Employee Telephone No.",
+      "SLabel": "Employee ContactNo No.",
       "LLabel": "",
       "Currency": "No"
     },
@@ -183,7 +183,7 @@
       "Currency": "No"
     },
     {
-      "name": "EmpEmail",
+      "name": "Email",
       "type": "string",
       "width": "50",
       "Option": "Optional",
@@ -258,7 +258,7 @@
       "name": "Status",
       "type": "string",
       "width": "20",
-      "Option": "mandatory",
+      "Option": "Mandatory",
       "SLabel": "Request Status",
       "LLabel": "",
       "Currency": "No"
@@ -379,11 +379,11 @@
     {
       "id": "Step2",
       "fields": [
-        { "name": "EmpName", "Sequence": "1", "Mode": "Edit" },
-        { "name": "EmpDesignation", "Sequence": "1", "Mode": "Edit" },
-        { "name": "EmpTelephone", "Sequence": "1", "Mode": "Edit" },
+        { "name": "Name", "Sequence": "1", "Mode": "Edit" },
+        { "name": "Designation", "Sequence": "1", "Mode": "Edit" },
+        { "name": "ContactNo", "Sequence": "1", "Mode": "Edit" },
         { "name": "EmployeeID", "Sequence": "1", "Mode": "Edit" },
-        { "name": "EmpEmail", "Sequence": "1", "Mode": "Edit" }
+        { "name": "Email", "Sequence": "1", "Mode": "Edit" }
       ],
       "name": "Employee Details",
       "stepType": "FieldList",
@@ -391,7 +391,7 @@
     },
     {
       "id": "Step3",
-      "fields": [{ "name": "EmpPostCode", "Sequence": "1", "Mode": "Edit" }],
+      "fields": [{ "name": "PostCode", "Sequence": "1", "Mode": "Edit" }],
       "name": "Address",
       "stepType": "FieldList",
       "intro": "Leave Request  : Address"

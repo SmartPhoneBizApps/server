@@ -96,7 +96,7 @@
       "S2",
       "PatientName",
       "Address",
-      "HomePhoneNo",
+      "HomeContactNo",
       "DOB",
       "Gender",
       "Employer",
@@ -119,7 +119,7 @@
       "name": "ID",
       "type": "string",
       "width": "20",
-      "Option": "mandatory",
+      "Option": "Mandatory",
       "SLabel": "Identification Number",
       "LLabel": "Identification Number",
       "Currency": "No"
@@ -188,7 +188,7 @@
       "Currency": "No"
     },
     {
-      "name": "HomePhoneNo",
+      "name": "HomeContactNo",
       "type": "Num,0",
       "width": "50",
       "Option": "Optional",
@@ -337,8 +337,8 @@
       "id": "Step2",
       "fields": [
         { "name": "PatientName", "Sequence": "1", "Mode": "Edit" },
-        { "name": "HomePhoneNo", "Sequence": "1", "Mode": "Edit" },
-        { "name": "CellPhoneNo", "Sequence": "1", "Mode": "Edit" },
+        { "name": "HomeContactNo", "Sequence": "1", "Mode": "Edit" },
+        { "name": "CellContactNo", "Sequence": "1", "Mode": "Edit" },
         { "name": "DOB", "Sequence": "1", "Mode": "Edit" },
         { "name": "Gender", "Sequence": "1", "Mode": "Edit" }
       ],

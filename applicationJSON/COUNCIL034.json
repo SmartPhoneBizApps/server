@@ -2,7 +2,7 @@
   "ID": {
     "type": "String",
     "unique": true,
-    "required": [true, "Please add mandatory field :ID"],
+    "required": [true, "Please add Mandatory field :ID"],
     "maxlength": [20, "ID can not be more than 20 characters"]
   },
   "Name": {
@@ -18,7 +18,7 @@
   "EmailID": {
     "type": "String",
 
-    "required": [true, "Please add mandatory field :EmailID"],
+    "required": [true, "Please add Mandatory field :EmailID"],
     "maxlength": [100, "EmailID can not be more than 100 characters"],
     "match": ["EMAIL_V1", "Invalid EmailID for field :EmailID"]
   },
@@ -45,7 +45,7 @@
   "Status": {
     "type": "String",
 
-    "required": [true, "Please add mandatory field :Status"],
+    "required": [true, "Please add Mandatory field :Status"],
     "maxlength": [20, "Status can not be more than 20 characters"]
   },
   "BriefDetails": {
@@ -263,7 +263,7 @@
   "BuilderName": {
     "type": "String",
 
-    "required": [true, "Please add mandatory field :BuilderName"],
+    "required": [true, "Please add Mandatory field :BuilderName"],
     "maxlength": [200, "BuilderName can not be more than 200 characters"]
   },
   "CompanyName": {
@@ -292,7 +292,7 @@
   "BuilderEmail": {
     "type": "String",
 
-    "required": [true, "Please add mandatory field :BuilderEmail"],
+    "required": [true, "Please add Mandatory field :BuilderEmail"],
     "maxlength": [50, "BuilderEmail can not be more than 50 characters"],
     "match": ["EMAIL_V1", "Invalid EmailID for field :BuilderEmail"]
   },
@@ -309,7 +309,7 @@
   "BreachType": {
     "type": "String",
 
-    "required": [true, "Please add mandatory field :BreachType"],
+    "required": [true, "Please add Mandatory field :BreachType"],
     "maxlength": [200, "BreachType can not be more than 200 characters"]
   },
   "BreachLocation": {
@@ -320,7 +320,7 @@
   "PropertyType": {
     "type": "String",
 
-    "required": [true, "Please add mandatory field :PropertyType"],
+    "required": [true, "Please add Mandatory field :PropertyType"],
     "maxlength": [200, "PropertyType can not be more than 200 characters"]
   },
   "Q13": {
@@ -455,7 +455,7 @@
   "IncidentDate": {
     "type": "Date",
 
-    "required": [true, "Please add mandatory field :IncidentDate"],
+    "required": [true, "Please add Mandatory field :IncidentDate"],
     "maxlength": [10, "IncidentDate can not be more than 10 characters"],
     "match": [
       "DATE_V1",

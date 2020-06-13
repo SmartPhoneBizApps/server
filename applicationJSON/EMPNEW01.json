@@ -2,18 +2,18 @@
   "ID": {
     "type": "String",
     "unique": true,
-    "required": [true, "Please add mandatory field :ID"],
+    "required": [true, "Please add Mandatory field :ID"],
     "maxlength": [20, "ID can not be more than 20 characters"]
   },
 
   "EmpFirstName": {
     "type": "String",
-    "required": [true, "Please add mandatory field :EmpName"],
+    "required": [true, "Please add Mandatory field :EmpName"],
     "maxlength": [50, "EmpName can not be more than 50 characters"]
   },
   "EmpLastName": {
     "type": "String",
-    "required": [true, "Please add mandatory field :EmpName"],
+    "required": [true, "Please add Mandatory field :EmpName"],
     "maxlength": [50, "EmpName can not be more than 50 characters"]
   },
   "MaritalStatus": {
@@ -39,26 +39,34 @@
   },
   "Status": {
     "type": "String",
-    "required": [true, "Please add mandatory field :Status"],
+    "required": [true, "Please add Mandatory field :Status"],
     "maxlength": [50, "Status can not be more than 20 characters"]
   },
   "Address": {
     "type": "String",
-    "required": [true, "Please add mandatory field :Address"],
+    "required": [true, "Please add Mandatory field :Address"],
     "maxlength": [200, "Address can not be more than 50 characters"]
   },
   "Postcode": {
     "type": "String",
-    "required": [true, "Please add mandatory field :Postcode"],
+    "required": [true, "Please add Mandatory field :Postcode"],
     "maxlength": [20, "Postcode can not be more than 50 characters"]
   },
   "DateOfJoining": {
     "type": "Date",
-    "maxlength": [10, "DateOfJoining can not be more than 50 characters"]
+    "maxlength": [10, "DateOfJoining can not be more than 50 characters"],
+    "match": [
+      "DATE_V1",
+      "Please provide date in YYYY-MM-DD format for field :ApplicationDate"
+    ]
   },
   "DOB": {
     "type": "Date",
-    "maxlength": [10, "DOB can not be more than 20 characters"]
+    "maxlength": [10, "DOB can not be more than 20 characters"],
+    "match": [
+      "DATE_V1",
+      "Please provide date in YYYY-MM-DD format for field :ApplicationDate"
+    ]
   },
   "SSNumber": {
     "type": "String",
@@ -68,11 +76,11 @@
     "type": "String",
     "maxlength": [100, "NINumber can not be more than 100 characters"]
   },
-  "EmailId": {
+  "Email": {
     "type": "String",
-    "maxlength": [100, "EmailId can not be more than 100 characters"],
-    "required": [true, "Please add mandatory field :EmailId"],
-    "match": ["EMAIL_V1", "Invalid EmailId for field :DelEmail"]
+    "maxlength": [100, "Email can not be more than 100 characters"],
+    "required": [true, "Please add Mandatory field :Email"],
+    "match": ["EMAIL_V1", "Invalid Email for field :Email"]
   },
   "AccountNo": {
     "type": "String",
@@ -95,7 +103,7 @@
     "maxlength": [100, "SWIFT can not be more than 100 characters"],
     "match": [
       "UK_PHONE_V1",
-      "Please provide valid UK Phone number in field :DelPhone"
+      "Please provide valid UK Phone number in field :ContactNo"
     ]
   },
   "IFSCcode": {

@@ -16,6 +16,125 @@ module.exports = {
     var result = require(fn);
     return result;
   },
+  getInitialValues: function (a) {
+    // These are converted old XML files from smartapp
+    let fn = "../NewConfig/initialValues_EN.json";
+    let res = [];
+    var result = require(fn);
+    for (let i = 0; i < result.initialValues.length; i++) {
+      const element = result.initialValues[i];
+      if (element["ApplicationID"] == a) {
+        console.log(element);
+        res = element["initialValues"];
+        break;
+      }
+    }
+    return res;
+  },
+
+  getDateValues: function (a) {
+    switch (a) {
+      case "@currentDate":
+        var today = new Date();
+        var dd = String(today.getDate()).padStart(2, "0");
+        var mm = String(today.getMonth() + 1).padStart(2, "0"); //January is 0!
+        var yyyy = today.getFullYear();
+        date = yyyy + "-" + mm + "-" + dd;
+        break;
+      case "today":
+        var today = new Date();
+        var dd = String(today.getDate()).padStart(2, "0");
+        var mm = String(today.getMonth() + 1).padStart(2, "0"); //January is 0!
+        var yyyy = today.getFullYear();
+        date = yyyy + "-" + mm + "-" + dd;
+        break;
+      case "@tomorrow":
+        var today = new Date();
+        today.setDate(today.getDate() + 1);
+        var dd = String(today.getDate()).padStart(2, "0");
+        var mm = String(today.getMonth() + 1).padStart(2, "0"); //January is 0!
+        var yyyy = today.getFullYear();
+        date = yyyy + "-" + mm + "-" + dd;
+        break;
+      case "tomorrow":
+        var today = new Date();
+        today.setDate(today.getDate() + 1);
+        var dd = String(today.getDate()).padStart(2, "0");
+        var mm = String(today.getMonth() + 1).padStart(2, "0"); //January is 0!
+        var yyyy = today.getFullYear();
+        date = yyyy + "-" + mm + "-" + dd;
+        break;
+      case "@yesterday":
+        var today = new Date();
+        today.setDate(today.getDate() - 1);
+        var dd = String(today.getDate()).padStart(2, "0");
+        var mm = String(today.getMonth() + 1).padStart(2, "0"); //January is 0!
+        var yyyy = today.getFullYear();
+        date = yyyy + "-" + mm + "-" + dd;
+        break;
+      case "yesterday":
+        var today = new Date();
+        today.setDate(today.getDate() - 1);
+        var dd = String(today.getDate()).padStart(2, "0");
+        var mm = String(today.getMonth() + 1).padStart(2, "0"); //January is 0!
+        var yyyy = today.getFullYear();
+        date = yyyy + "-" + mm + "-" + dd;
+        break;
+      case "@weekBack":
+        var today = new Date();
+        today.setDate(today.getDate() - 7);
+        var dd = String(today.getDate()).padStart(2, "0");
+        var mm = String(today.getMonth() + 1).padStart(2, "0"); //January is 0!
+        var yyyy = today.getFullYear();
+        date = yyyy + "-" + mm + "-" + dd;
+        break;
+      case "@weekLater":
+        var today = new Date();
+        today.setDate(today.getDate() + 7);
+        var dd = String(today.getDate()).padStart(2, "0");
+        var mm = String(today.getMonth() + 1).padStart(2, "0"); //January is 0!
+        var yyyy = today.getFullYear();
+        date = yyyy + "-" + mm + "-" + dd;
+        break;
+      case "@30DaysLater":
+        var today = new Date();
+        today.setDate(today.getDate() + 30);
+        var dd = String(today.getDate()).padStart(2, "0");
+        var mm = String(today.getMonth() + 1).padStart(2, "0"); //January is 0!
+        var yyyy = today.getFullYear();
+        date = yyyy + "-" + mm + "-" + dd;
+        break;
+      case "@30DaysEarlier":
+        var today = new Date();
+        today.setDate(today.getDate() + 30);
+        var dd = String(today.getDate()).padStart(2, "0");
+        var mm = String(today.getMonth() + 1).padStart(2, "0"); //January is 0!
+        var yyyy = today.getFullYear();
+        date = yyyy + "-" + mm + "-" + dd;
+        break;
+      case "@15DaysLater":
+        var today = new Date();
+        today.setDate(today.getDate() + 15);
+        var dd = String(today.getDate()).padStart(2, "0");
+        var mm = String(today.getMonth() + 1).padStart(2, "0"); //January is 0!
+        var yyyy = today.getFullYear();
+        date = yyyy + "-" + mm + "-" + dd;
+        break;
+      case "@15DaysEarlier":
+        var today = new Date();
+        today.setDate(today.getDate() + 15);
+        var dd = String(today.getDate()).padStart(2, "0");
+        var mm = String(today.getMonth() + 1).padStart(2, "0"); //January is 0!
+        var yyyy = today.getFullYear();
+        date = yyyy + "-" + mm + "-" + dd;
+        break;
+      default:
+        date = a;
+        break;
+    }
+    return date;
+  },
+
   getNewConfig: function (a, b) {
     // Read Create Map Config
     // These are converted old XML files from smartapp
@@ -173,7 +292,7 @@ module.exports = {
     console.log("NewItems", current);
     return current;
   },
-  getCompany: function (app) {
+  getApplication: function (app) {
     const myApp = App.findOne({ applicationID: app });
     return myApp;
   },

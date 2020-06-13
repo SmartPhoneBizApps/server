@@ -6,14 +6,14 @@
   "Controls": { "USP": "UserProfile" },
   "ListFields": {
     "IntroField": "Area",
-    "TitleField": "EmpName",
+    "TitleField": "Name",
     "sStatus": "Duration",
     "fStatus": "Status",
     "LFields": ["ID", "EmployeeID", "DateRequested", "Detail", "External"]
   },
   "ListBOTFields": {
     "None": ["cardImage", "StatusState"],
-    "Title": ["Area", "EmpName"],
+    "Title": ["Area", "Name"],
     "SubTitle": ["Status", "Duration"],
     "Description": ["ID", "EmployeeID", "DateRequested", "Detail", "External"]
   },
@@ -105,7 +105,7 @@
     "None": ["ID", "Status"],
     "Tab1": [
       "EmployeeID",
-      "EmpName",
+      "Name",
       "DateRequested",
       "Area",
       "Detail",
@@ -145,7 +145,7 @@
       "Currency": "No"
     },
     {
-      "name": "EmpName",
+      "name": "Name",
       "type": "string",
       "width": "50",
       "Option": "Optional",
@@ -193,7 +193,7 @@
       "name": "Detail",
       "type": "string",
       "width": "500",
-      "Option": "mandatory",
+      "Option": "Mandatory",
       "SLabel": "Training Details",
       "LLabel": "",
       "Currency": "No"
@@ -229,7 +229,7 @@
       "name": "ProjectCode",
       "type": "string",
       "width": "50",
-      "Option": "mandatory",
+      "Option": "Mandatory",
       "SLabel": "Project Code",
       "LLabel": "",
       "Currency": "No"
@@ -319,7 +319,7 @@
     },
     {
       "id": "Step2",
-      "fields": [{ "name": "EmpName", "Sequence": "1", "Mode": "Edit" }],
+      "fields": [{ "name": "Name", "Sequence": "1", "Mode": "Edit" }],
       "name": "Employee Details",
       "stepType": "FieldList",
       "intro": "Training Request : Employee Details"

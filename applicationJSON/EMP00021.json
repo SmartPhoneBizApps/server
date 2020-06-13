@@ -2,25 +2,25 @@
   "ID": {
     "type": "String",
     "unique": true,
-    "required": [true, "Please add mandatory field :ID"],
+    "required": [true, "Please add Mandatory field :ID"],
     "maxlength": [20, "ID can not be more than 20 characters"]
   },
-  "EmpName": {
+  "Name": {
     "type": "String",
 
-    "required": [true, "Please add mandatory field :EmpName"],
+    "required": [true, "Please add Mandatory field :EmpName"],
     "maxlength": [50, "EmpName can not be more than 50 characters"]
   },
   "EmployeeID": {
     "type": "String",
 
-    "required": [true, "Please add mandatory field :EmployeeID"],
+    "required": [true, "Please add Mandatory field :EmployeeID"],
     "maxlength": [50, "EmployeeID can not be more than 50 characters"]
   },
   "Status": {
     "type": "String",
 
-    "required": [true, "Please add mandatory field :Status"],
+    "required": [true, "Please add Mandatory field :Status"],
     "maxlength": [20, "Status can not be more than 20 characters"]
   },
   "ProcessingLog": {
@@ -36,7 +36,7 @@
   "StartDate": {
     "type": "Date",
 
-    "required": [true, "Please add mandatory field :StartDate"],
+    "required": [true, "Please add Mandatory field :StartDate"],
     "maxlength": [10, "StartDate can not be more than 10 characters"],
     "match": [
       "DATE_V1",
@@ -46,7 +46,7 @@
   "EndDate": {
     "type": "Date",
 
-    "required": [true, "Please add mandatory field :EndDate"],
+    "required": [true, "Please add Mandatory field :EndDate"],
     "maxlength": [10, "EndDate can not be more than 10 characters"],
     "match": [
       "DATE_V1",
@@ -137,7 +137,7 @@
   "GrossAmount": {
     "type": "Number",
 
-    "required": [true, "Please add mandatory field :GrossAmount"],
+    "required": [true, "Please add Mandatory field :GrossAmount"],
     "maxlength": [50, "GrossAmount can not be more than 50 characters"],
     "match": [
       "NUM_2_DEC_PLACE_V1",

@@ -2,19 +2,19 @@
   "ID": {
     "type": "String",
     "unique": true,
-    "required": [true, "Please add mandatory field :ID"],
+    "required": [true, "Please add Mandatory field :ID"],
     "maxlength": [20, "ID can not be more than 20 characters"]
   },
   "ContractType": {
     "type": "String",
 
-    "required": [true, "Please add mandatory field :ContractType"],
+    "required": [true, "Please add Mandatory field :ContractType"],
     "maxlength": [50, "ContractType can not be more than 50 characters"]
   },
   "Status": {
     "type": "String",
 
-    "required": [true, "Please add mandatory field :Status"],
+    "required": [true, "Please add Mandatory field :Status"],
     "maxlength": [20, "Status can not be more than 20 characters"]
   },
   "Details": {
@@ -48,7 +48,7 @@
   "CreationDate": {
     "type": "Date",
 
-    "required": [true, "Please add mandatory field :CreationDate"],
+    "required": [true, "Please add Mandatory field :CreationDate"],
     "maxlength": [10, "CreationDate can not be more than 10 characters"],
     "match": [
       "DATE_V1",
@@ -58,7 +58,7 @@
   "StartDate": {
     "type": "Date",
 
-    "required": [true, "Please add mandatory field :StartDate"],
+    "required": [true, "Please add Mandatory field :StartDate"],
     "maxlength": [10, "StartDate can not be more than 10 characters"],
     "match": [
       "DATE_V1",
@@ -68,7 +68,7 @@
   "EndDate": {
     "type": "Date",
 
-    "required": [true, "Please add mandatory field :EndDate"],
+    "required": [true, "Please add Mandatory field :EndDate"],
     "maxlength": [10, "EndDate can not be more than 10 characters"],
     "match": [
       "DATE_V1",

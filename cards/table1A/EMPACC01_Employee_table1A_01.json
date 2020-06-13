@@ -1,1 +1,21 @@
-{"CardID": "EMPACC01_Employee_table1A_01", "applicationID": "EMPACC01", "filters": {}, "fieldList": "Name Surname RequestType Status", "sortBy": "ID", "limit": 5, "Type": "table1A", "header": {"title": "Employee Requests", "subTitle": "My Requests and Bookings", "status": {"text": "Employee"}}, "columns": [{"title": "Name", "value": "{Name}"}, {"title": "Surname", "value": "{Surname}"}, {"title": "RequestType", "value": "{RequestType}"}, {"title": "Status", "value": "{Status}", "state": "{statusState}"}], "json": []}
+{
+  "CardID": "EMPACC01_Employee_table1A_01",
+  "applicationID": "EMPACC01",
+  "filters": {},
+  "fieldList": "EmpName Surname RequestType Status",
+  "sortBy": "ID",
+  "limit": 5,
+  "Type": "table1A",
+  "header": {
+    "title": "Employee Requests",
+    "subTitle": "My Requests and Bookings",
+    "status": { "text": "Employee" }
+  },
+  "columns": [
+    { "title": "Name", "value": "{EmpName}" },
+    { "title": "Surname", "value": "{Surname}" },
+    { "title": "RequestType", "value": "{RequestType}" },
+    { "title": "Status", "value": "{Status}", "state": "{statusState}" }
+  ],
+  "json": []
+}

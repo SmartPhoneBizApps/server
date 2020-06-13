@@ -2,7 +2,7 @@
   "ID": {
     "type": "String",
     "unique": true,
-    "required": [true, "Please add mandatory field :ID"],
+    "required": [true, "Please add Mandatory field :ID"],
     "maxlength": [20, "ID can not be more than 20 characters"]
   },
   "CampPlacement": {
@@ -13,7 +13,7 @@
   "Status": {
     "type": "String",
 
-    "required": [true, "Please add mandatory field :Status"],
+    "required": [true, "Please add Mandatory field :Status"],
     "maxlength": [20, "Status can not be more than 20 characters"]
   },
   "CourseName": {
@@ -24,7 +24,7 @@
   "CourseType": {
     "type": "String",
 
-    "required": [true, "Please add mandatory field :CourseType"],
+    "required": [true, "Please add Mandatory field :CourseType"],
     "maxlength": [500, "CourseType can not be more than 500 characters"]
   },
   "College": {
@@ -59,7 +59,7 @@
   "StartDate": {
     "type": "Date",
 
-    "required": [true, "Please add mandatory field :StartDate"],
+    "required": [true, "Please add Mandatory field :StartDate"],
     "maxlength": [10, "StartDate can not be more than 10 characters"],
     "match": [
       "DATE_V1",
@@ -69,7 +69,7 @@
   "AvailableSeats": {
     "type": "Number",
 
-    "required": [true, "Please add mandatory field :AvailableSeats"],
+    "required": [true, "Please add Mandatory field :AvailableSeats"],
     "maxlength": [5, "AvailableSeats can not be more than 5 characters"],
     "match": [
       "NUM_INT_MAX_10D_V1",

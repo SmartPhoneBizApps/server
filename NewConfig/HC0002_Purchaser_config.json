@@ -2,12 +2,12 @@
   "Title": { "ApplicationTitle": "Study/Trial", "DetailTitle": "Study/Trial" },
   "Controls": { "USP": "UserProfile" },
   "ListFields": {
-    "IntroField": "",
-    "TitleField": "",
-    "sStatus": "",
-    "fStatus": "",
+    "IntroField": "ID",
+    "TitleField": "StudyName",
+    "sStatus": "StudyType",
+    "fStatus": "Status",
     "numberField": "",
-    "LFields": [],
+    "LFields": ["VendorName", "HCPEmail"],
     "numberUnitField": ""
   },
   "ListBOTFields": {
@@ -17,39 +17,8 @@
     "Description": ["Phase"]
   },
   "PossibleValues": ["StudyType", "Phase", "Status"],
-  "MButtons": [
-    {
-      "type": "DOWNLOAD",
-      "name": "Download File",
-      "icon": "sap-icon://download"
-    },
-    {
-      "type": "APPHELP",
-      "name": "Get App Help",
-      "icon": "sap-icon://sys-help-2"
-    },
-    {
-      "type": "BOT",
-      "name": "Launch Assistant",
-      "icon": "sap-icon://travel-request"
-    },
-    {
-      "type": "VIEW",
-      "name": "Change App View",
-      "icon": "sap-icon://chart-table-view"
-    },
-    { "type": "ADD", "name": "Add Record", "icon": "sap-icon://add" },
-    { "type": "UPLOAD", "name": "Upload Record", "icon": "sap-icon://upload" }
-  ],
-  "DButtons": [
-    {
-      "type": "ATTACHMENT",
-      "name": "View Attachments",
-      "icon": "sap-icon://attachment"
-    },
-    { "type": "UPDATE", "name": "Update Record", "icon": "sap-icon://update" },
-    { "type": "ADD", "name": "Add Record", "icon": "sap-icon://add" }
-  ],
+  "MButtons": [],
+  "DButtons": [],
   "Tabs": [
     {
       "value": "Tab0",
@@ -167,7 +136,7 @@
       "name": "HCPEmail",
       "type": "string",
       "width": "50",
-      "Option": "mandatory",
+      "Option": "Optional",
       "SLabel": "HCP Email",
       "LLabel": "HCPEmail",
       "Currency": "No"
@@ -196,41 +165,6 @@
     "ItemDetails": []
   },
   "CalculatedFields": { "Item": [], "HeaderItem": [], "Header": [] },
-  "Create": "Yes",
-  "Wizard": [
-    {
-      "id": "Step1",
-      "fields": [
-        { "name": "StudyType", "Sequence": "1", "Mode": "Edit" },
-        { "name": "StudyName", "Sequence": "1", "Mode": "Edit" },
-        { "name": "StudyDetails", "Sequence": "1", "Mode": "Edit" },
-        { "name": "Phase", "Sequence": "1", "Mode": "Edit" },
-        { "name": "Date", "Sequence": "1", "Mode": "Edit" }
-      ],
-      "name": "Subject Details",
-      "stepType": "FieldList",
-      "intro": "Study/Trial : Subject Details"
-    },
-    {
-      "id": "Step2",
-      "fields": [
-        { "name": "PharmaContact", "Sequence": "1", "Mode": "Edit" },
-        { "name": "PharmaContactEmail", "Sequence": "1", "Mode": "Edit" }
-      ],
-      "name": "Contact Details",
-      "stepType": "FieldList",
-      "intro": "Study/Trail : Contact Details"
-    },
-    {
-      "id": "Step3",
-      "fields": [
-        { "name": "Status", "Sequence": "1", "Mode": "Edit" },
-        { "name": "HCPEmail", "Sequence": "1", "Mode": "Edit" },
-        { "name": "VendorName", "Sequence": "1", "Mode": "Edit" }
-      ],
-      "name": "Admin",
-      "stepType": "FieldList",
-      "intro": "Study/TrIl : Admin"
-    }
-  ]
+  "Create": "No",
+  "Wizard": []
 }

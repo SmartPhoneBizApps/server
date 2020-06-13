@@ -2,16 +2,16 @@
   "ID": {
     "type": "String",
     "unique": true,
-    "required": [true, "Please add mandatory field :ID"],
+    "required": [true, "Please add Mandatory field :ID"],
     "maxlength": [20, "ID can not be more than 20 characters"]
   },
   "EmployeeID": {
     "type": "String",
 
-    "required": [true, "Please add mandatory field :EmployeeID"],
+    "required": [true, "Please add Mandatory field :EmployeeID"],
     "maxlength": [50, "EmployeeID can not be more than 50 characters"]
   },
-  "EmpName": {
+  "Name": {
     "type": "String",
 
     "maxlength": [50, "EmpName can not be more than 50 characters"]
@@ -49,13 +49,13 @@
   "Status": {
     "type": "String",
 
-    "required": [true, "Please add mandatory field :Status"],
+    "required": [true, "Please add Mandatory field :Status"],
     "maxlength": [20, "Status can not be more than 20 characters"]
   },
   "Justification": {
     "type": "String",
 
-    "required": [true, "Please add mandatory field :Justification"],
+    "required": [true, "Please add Mandatory field :Justification"],
     "maxlength": [500, "Justification can not be more than 500 characters"]
   },
   "ProcessingLog": {
@@ -87,7 +87,7 @@
   "DateRequested": {
     "type": "Date",
 
-    "required": [true, "Please add mandatory field :DateRequested"],
+    "required": [true, "Please add Mandatory field :DateRequested"],
     "maxlength": [10, "DateRequested can not be more than 10 characters"],
     "match": [
       "DATE_V1",

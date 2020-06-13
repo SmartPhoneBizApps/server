@@ -8,7 +8,7 @@ const Role = require("../../models/appSetup/Role");
 const {
   getNewConfig,
   createDocument,
-  getCompany,
+  getApplication,
   getRole,
   itemValidate,
 } = require("../../modules/config");
@@ -25,7 +25,7 @@ const SUPP00028_Itm = require("../../models/smartApp/SUPP00028_Itm");
 // @access    Private
 exports.addDataRecords = asyncHandler(async (req, res, next) => {
   //Get Company
-  const BodyApp = await getCompany(req.headers.applicationid);
+  const BodyApp = await getApplication(req.headers.applicationid);
   const BusinessRole = await getRole(req.headers.businessRole);
 
   // Read New Config File

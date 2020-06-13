@@ -2,7 +2,7 @@
   "ID": {
     "type": "String",
     "unique": true,
-    "required": [true, "Please add mandatory field :ID"],
+    "required": [true, "Please add Mandatory field :ID"],
     "maxlength": [20, "ID can not be more than 20 characters"]
   },
   "Longitude": {
@@ -29,7 +29,7 @@
   "Status": {
     "type": "String",
 
-    "required": [true, "Please add mandatory field :Status"],
+    "required": [true, "Please add Mandatory field :Status"],
     "maxlength": [20, "Status can not be more than 20 characters"]
   },
   "Problem": {
@@ -43,53 +43,44 @@
   },
   "IncidentType": {
     "type": "String",
-    "required": [true, "Please add mandatory field :IncidentType"],
+    "required": [true, "Please add Mandatory field :IncidentType"],
     "maxlength": [50, "IncidentType can not be more than 50 characters"]
   },
   "Urgency": {
     "type": "String",
-
     "maxlength": [50, "Urgency can not be more than 50 characters"]
   },
   "Impact": {
     "type": "String",
-
     "maxlength": [50, "Impact can not be more than 50 characters"]
   },
   "Area": {
     "type": "String",
-
     "maxlength": [100, "Area can not be more than 100 characters"]
   },
   "Priority": {
     "type": "String",
-
     "maxlength": [100, "Priority can not be more than 100 characters"]
   },
   "Name": {
     "type": "String",
-
     "maxlength": [100, "Name can not be more than 100 characters"]
   },
   "Address": {
     "type": "String",
-
     "maxlength": [100, "Address can not be more than 100 characters"]
   },
   "Company": {
     "type": "String",
-
     "maxlength": [100, "Company can not be more than 100 characters"]
   },
   "Details": {
     "type": "String",
-
     "maxlength": [100, "Details can not be more than 100 characters"]
   },
   "StartDate": {
     "type": "Date",
-
-    "required": [true, "Please add mandatory field :StartDate"],
+    "required": [true, "Please add Mandatory field :StartDate"],
     "maxlength": [10, "StartDate can not be more than 10 characters"],
     "match": [
       "DATE_V1",
@@ -98,8 +89,7 @@
   },
   "StartTime": {
     "type": "Date",
-
-    "required": [true, "Please add mandatory field :StartTime"],
+    "required": [true, "Please add Mandatory field :StartTime"],
     "maxlength": [10, "StartTime can not be more than 10 characters"],
     "match": [
       "DATE_V1",
@@ -108,11 +98,19 @@
   },
   "FinishDate": {
     "type": "Date",
-    "maxlength": [10, "FinishDate can not be more than 10 characters"]
+    "maxlength": [10, "FinishDate can not be more than 10 characters"],
+    "match": [
+      "DATE_V1",
+      "Please provide date in YYYY-MM-DD format for field :ApplicationDate"
+    ]
   },
   "FinishTime": {
     "type": "Date",
-    "maxlength": [10, "FinishTime can not be more than 10 characters"]
+    "maxlength": [10, "FinishTime can not be more than 10 characters"],
+    "match": [
+      "DATE_V1",
+      "Please provide date in YYYY-MM-DD format for field :ApplicationDate"
+    ]
   },
   "USP_Name": { "type": "String" },
   "USP_Role": { "type": "String" },

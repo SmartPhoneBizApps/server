@@ -89,7 +89,7 @@
       "ParentName",
       "ParentEmail",
       "Image",
-      "ParentPhoneNo",
+      "ParentContactNo",
       "PostCode",
       "Address"
     ],
@@ -102,7 +102,7 @@
       "name": "ID",
       "type": "string",
       "width": "20",
-      "Option": "mandatory",
+      "Option": "Mandatory",
       "SLabel": "ID",
       "LLabel": "",
       "Currency": "No"
@@ -111,7 +111,7 @@
       "name": "StudentName",
       "type": "string",
       "width": "50",
-      "Option": "mandatory",
+      "Option": "Mandatory",
       "SLabel": "Student Name",
       "LLabel": "",
       "Currency": "No"
@@ -129,7 +129,7 @@
       "name": "PhoneNumber",
       "type": "string",
       "width": "20",
-      "Option": "mandatory",
+      "Option": "Mandatory",
       "SLabel": "Phone Number",
       "LLabel": "",
       "Currency": "No"
@@ -138,7 +138,7 @@
       "name": "GradeLevel",
       "type": "string",
       "width": "20",
-      "Option": "mandatory",
+      "Option": "Mandatory",
       "SLabel": "Grade Level",
       "LLabel": "",
       "Currency": "No"
@@ -171,11 +171,11 @@
       "Currency": "No"
     },
     {
-      "name": "ParentPhoneNo",
+      "name": "ParentContactNo",
       "type": "string",
       "width": "20",
       "Option": "Optional",
-      "SLabel": "Parent PhoneNo",
+      "SLabel": "Parent ContactNo",
       "LLabel": "",
       "Currency": "No"
     },
@@ -264,7 +264,7 @@
       "name": "Status",
       "type": "string",
       "width": "20",
-      "Option": "mandatory",
+      "Option": "Mandatory",
       "SLabel": "Status",
       "LLabel": "",
       "Currency": "No"
@@ -273,7 +273,7 @@
       "name": "BirthDate",
       "type": "Date",
       "width": "10",
-      "Option": "mandatory",
+      "Option": "Mandatory",
       "SLabel": "Birth Date",
       "LLabel": "",
       "Currency": "No"
@@ -342,7 +342,7 @@
       "fields": [
         { "name": "ParentName", "Sequence": "1", "Mode": "Edit" },
         { "name": "ParentEmail", "Sequence": "1", "Mode": "Edit" },
-        { "name": "ParentPhoneNo", "Sequence": "1", "Mode": "Edit" },
+        { "name": "ParentContactNo", "Sequence": "1", "Mode": "Edit" },
         { "name": "AdviserName", "Sequence": "1", "Mode": "Edit" }
       ],
       "name": "Guidance and Parent Details",
