@@ -44,7 +44,7 @@
     "maxlength": [500, "AccountsComment can not be more than 500"]
   },
   "Attachment": {
-    "type": "attachment",
+    "type": "String",
     "maxlength": [200, "Attachment can not be more than 200"]
   },
   "CreditNoteNumber": {
@@ -56,11 +56,11 @@
     "maxlength": [10, "CreditDate can not be more than 10"]
   },
   "CreditAmount": {
-    "type": "Num,2",
+    "type": "String",
     "maxlength": [20, "CreditAmount can not be more than 20"]
   },
   "InvAmount": {
-    "type": "Num,2",
+    "type": "String",
     "maxlength": [20, "InvAmount can not be more than 20"]
   },
   "InvoiceDate": {
@@ -80,11 +80,11 @@
     "maxlength": [20, "VendorNumber can not be more than 20"]
   },
   "POGrossValue": {
-    "type": "Num,2",
+    "type": "String",
     "maxlength": [50, "POGrossValue can not be more than 50"]
   },
   "PONetValue": {
-    "type": "Num,2",
+    "type": "String",
     "maxlength": [50, "PONetValue can not be more than 50"]
   },
   "PODate": {
@@ -176,11 +176,11 @@
     "maxlength": [10, "CollectionDate can not be more than 10"]
   },
   "InDays": {
-    "type": "Num,0",
+    "type": "String",
     "maxlength": [10, "InDays can not be more than 10"]
   },
   "DiscountAmount": {
-    "type": "Num,2",
+    "type": "String",
     "maxlength": [50, "DiscountAmount can not be more than 50"]
   },
 
