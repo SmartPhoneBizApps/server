@@ -12,7 +12,14 @@ const asyncHandler = require("../../middleware/async");
 exports.getListrecords = asyncHandler(async (req, res, next) => {
   let outData = res.advancedDataList;
   // Initial Values..
-  var ivalue = getInitialValues(req.headers.applicationid);
+  //console.log(req.user);
+
+  //console.log("Status", req.user.hasOwnProperty(["userSettings"]));
+  var ivalue = getInitialValues(
+    req.headers.applicationid,
+    req.headers.businessrole,
+    req.user
+  );
   ival_out = [];
   ival = {};
 
@@ -45,11 +52,13 @@ exports.getListrecords = asyncHandler(async (req, res, next) => {
     res.status(200).json({
       outData,
       buttons: buttonData,
+      defaultValues: ival_out,
     });
   }
   if (req.headers.mode == "BOTDetail") {
     res.status(200).json({
       outData,
+      defaultValues: ival_out,
     });
   }
   if (req.headers.mode == "Web" || req.headers.mode == "web") {

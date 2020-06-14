@@ -17,6 +17,7 @@ const {
   collectExceptionFields,
   handleArray,
   checkItemData,
+  getInitialValues,
 } = require("../../modules/config");
 
 const { valAppNotNull } = require("../../modules/validationMessages");
@@ -36,6 +37,13 @@ exports.addDataRecords = asyncHandler(async (req, res, next) => {
     req.headers.applicationid,
     req.headers.businessrole
   );
+  // Get initial Values / UserProfile
+  var ivalue = getInitialValues(
+    req.headers.applicationid,
+    req.headers.businessrole,
+    req.user
+  );
+
   // ---------------------
   // App ID and Validate
   // ---------------------

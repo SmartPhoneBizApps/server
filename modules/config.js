@@ -16,20 +16,79 @@ module.exports = {
     var result = require(fn);
     return result;
   },
-  getInitialValues: function (a) {
-    // These are converted old XML files from smartapp
-    let fn = "../NewConfig/initialValues_EN.json";
+
+  getInitialValues: function (a, b, c) {
+    var set1 = new Set([]);
+    let rl = "Role_" + b;
+    let fn1 = "../NewConfig/initialValues_EN.json";
+    var result = require(fn1);
+    rl1 = {};
+    let el1 = {};
+    let kys = [];
+    let out = [];
+    let out1 = {};
     let res = [];
-    var result = require(fn);
+    for (const key in c) {
+      kys.push(key);
+      if (key == rl) {
+        el1 = c[key];
+      }
+    }
+    // Initial values
     for (let i = 0; i < result.initialValues.length; i++) {
       const element = result.initialValues[i];
       if (element["ApplicationID"] == a) {
-        console.log(element);
         res = element["initialValues"];
         break;
       }
     }
-    return res;
+    // User default
+    for (const key in el1) {
+      const element = el1[key];
+      // Add User Defaults...
+      out1["Field"] = key;
+      out1["Value"] = el1[key];
+      out1["EditLock"] = "No";
+      for (let index = 0; index < res.length; index++) {
+        if (res[index]["Field"] == key) {
+          if (res[index]["EditLock"] == "Yes") {
+            // Use initial values if EditLock is set ...
+            out1["Field"] = key;
+            out1["Value"] = res[index]["Value"];
+            out1["EditLock"] = "Yes";
+          }
+        }
+      }
+      // Append the data in array ...
+      console.log("out1", out1);
+      out.push(out1);
+      set1.add(out1);
+      out1 = {};
+    }
+    // Add Initial values which are not in User Defaults...
+    for (let index = 0; index < res.length; index++) {
+      out1 = {};
+      if (!(res[index]["Field"] in kys)) {
+        out1 = { ...res[index] };
+        out.push(out1);
+        set1.add(out1);
+      }
+    }
+
+    // Remove Duplicates...
+    var resArr = [];
+    out.forEach(function (item) {
+      var i = resArr.findIndex((x) => x.Field == item.Field);
+      if (i <= -1) {
+        resArr.push({
+          Field: item.Field,
+          Value: item.Value,
+          EditLock: item.EditLock,
+        });
+      }
+    });
+
+    return resArr;
   },
 
   getDateValues: function (a) {
