@@ -174,7 +174,7 @@
       "ReferalDetails",
       "PersonalDetails",
       "OtherDetails",
-      "Communication"
+      "CommunicationSetting"
     ],
     "Tab2": [
       "TotalCost",
@@ -257,6 +257,16 @@
       "Currency": "No"
     },
     {
+      "name": "CommunicationSetting",
+      "type": "string",
+      "width": "50",
+      "Option": "Mandatory",
+      "SLabel": "Communication Setting",
+      "LLabel": "Communication Setting",
+      "Currency": "No"
+    },
+
+    {
       "name": "NHSNumber",
       "type": "string",
       "width": "20",
@@ -299,6 +309,15 @@
       "Option": "Optional",
       "SLabel": "Group",
       "LLabel": "Group",
+      "Currency": "No"
+    },
+    {
+      "name": "LetterTo",
+      "type": "string",
+      "width": "20",
+      "Option": "Optional",
+      "SLabel": "LetterTo(for Child)",
+      "LLabel": "LetterTo(for Child)",
       "Currency": "No"
     },
     {

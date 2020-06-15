@@ -99,6 +99,224 @@
   "Communication": {},
   "DentalProfile": {},
 
+  "CommunicationSettings": {
+    "type": "String",
+    "maxlength": [200, "CommunicationSettings can not be more than 200"]
+  },
+
+  "LetterTo": {
+    "type": "string",
+    "maxlength": [100, "LetterTo can not be more than 100"]
+  },
+  "PaymentBy": {
+    "type": "String",
+    "maxlength": [100, "PaymentBy can not be more than 100"]
+  },
+  "InsuranceCompany": {
+    "type": "string",
+    "maxlength": [200, "InsuranceCompany can not be more than 200"]
+  },
+  "PaymentMethod": {
+    "type": "string",
+    "maxlength": [200, "PaymentMethod can not be more than 200"]
+  },
+  "Occupation": {
+    "type": "String",
+    "maxlength": [100, "Occupation can not be more than 100"]
+  },
+  "School": {
+    "type": "String",
+    "maxlength": [100, "School can not be more than 100"]
+  },
+  "PatientCompany": {
+    "type": "String",
+    "maxlength": [100, "PatientCompany can not be more than 100"]
+  },
+  "ReferralDoctor": {
+    "type": "String",
+    "maxlength": [100, "ReferralDoctor can not be more than 100"]
+  },
+  "ReferralDate": {
+    "type": "String",
+    "maxlength": [100, "ReferralDate can not be more than 100"]
+  },
+  "ReferralSource": {
+    "type": "String",
+    "maxlength": [100, "ReferralSource can not be more than 100"]
+  },
+  "HospSurgeryName": {
+    "type": "String",
+    "maxlength": [100, "HospSurgeryName can not be more than 100"]
+  },
+  "SpouseName": {
+    "type": "String",
+    "maxlength": [100, "SpouseName can not be more than 100"]
+  },
+  "MaritalStatus": {
+    "type": "String",
+    "maxlength": [100, "MaritalStatus can not be more than 100"]
+  },
+  "Height": {
+    "type": "String",
+    "maxlength": [100, "Height can not be more than 100"]
+  },
+  "Weight": {
+    "type": "String",
+    "maxlength": [100, "Weight can not be more than 100"]
+  },
+  "GPName": {
+    "type": "String",
+    "maxlength": [100, "GPName can not be more than 100"]
+  },
+  "SurgeryName": {
+    "type": "String",
+    "maxlength": [100, "SurgeryName can not be more than 100"]
+  },
+  "SurgeryAddress": {
+    "type": "String",
+    "maxlength": [100, "SurgeryAddress can not be more than 100"]
+  },
+  "SurgeryPhone": {
+    "type": "String",
+    "maxlength": [100, "SurgeryPhone can not be more than 100"]
+  },
+  "SurgeryEmail": {
+    "type": "String",
+    "maxlength": [100, "SurgeryEmail can not be more than 100"]
+  },
+  "DentalGPName": {
+    "type": "String",
+    "maxlength": [100, "DentalGPName can not be more than 100"]
+  },
+  "DentalSurgeryName": {
+    "type": "String",
+    "maxlength": [100, "DentalSurgeryName can not be more than 100"]
+  },
+  "DentalSurgeryAddress": {
+    "type": "String",
+    "maxlength": [100, "DentalSurgeryAddress can not be more than 100"]
+  },
+  "DentalSurgeryPhone": {
+    "type": "String",
+    "maxlength": [100, "DentalSurgeryPhone can not be more than 100"]
+  },
+  "DentalSurgeryEmail": {
+    "type": "String",
+    "maxlength": [100, "DentalSurgeryEmail can not be more than 100"]
+  },
+  "skeletalClass": {
+    "type": "String",
+    "maxlength": [1, "skeletalClass can not be more than 1"]
+  },
+  "fmAngle": {
+    "type": "String",
+    "maxlength": [1, "fmAngle can not be more than 1"]
+  },
+  "incisorRelationship": {
+    "type": "String",
+    "maxlength": [1, "incisorRelationship can not be more than 1"]
+  },
+  "overJet": {
+    "type": "String",
+    "maxlength": [1, "overJet can not be more than 1"]
+  },
+  "overBite": {
+    "type": "String",
+    "maxlength": [1, "overBite can not be more than 1"]
+  },
+  "openBite": {
+    "type": "String",
+    "maxlength": [50, "openBite can not be more than 50"]
+  },
+  "molarOccRight": {
+    "type": "String",
+    "maxlength": [1, "molarOccRight can not be more than 1"]
+  },
+  "molarOccLeft": {
+    "type": "String",
+    "maxlength": [1, "molarOccLeft can not be more than 1"]
+  },
+  "canineOcclRight": {
+    "type": "String",
+    "maxlength": [1, "canineOcclRight can not be more than 1"]
+  },
+  "canineOcclLeft": {
+    "type": "String",
+    "maxlength": [1, "canineOcclLeft can not be more than 1"]
+  },
+  "upperCLine": {
+    "type": "String",
+    "maxlength": [1, "upperCLine can not be more than 1"]
+  },
+  "lowerCLine": {
+    "type": "String",
+    "maxlength": [1, "lowerCLine can not be more than 1"]
+  },
+  "upperCrowding": {
+    "type": "String",
+    "maxlength": [1, "upperCrowding can not be more than 1"]
+  },
+  "lowerCrowding": {
+    "type": "String",
+    "maxlength": [1, "lowerCrowding can not be more than 1"]
+  },
+  "spacing": {
+    "type": "String",
+    "maxlength": [1, "spacing can not be more than 1"]
+  },
+  "centricPrompt": {
+    "type": "String",
+    "maxlength": [1, "centricPrompt can not be more than 1"]
+  },
+  "Profile": {
+    "type": "String",
+    "maxlength": [50, "Profile can not be more than 50"]
+  },
+  "incisorAtRest": {
+    "type": "String",
+    "maxlength": [100, "incisorAtRest can not be more than 100"]
+  },
+  "patientStatus": {
+    "type": "String",
+    "maxlength": [50, "patientStatus can not be more than 50"]
+  },
+  "doubtfulPrognosis": {
+    "type": "String",
+    "maxlength": [100, "doubtfulPrognosis can not be more than 100"]
+  },
+  "congenitallyAbsent": {
+    "type": "String",
+    "maxlength": [50, "congenitallyAbsent can not be more than 50"]
+  },
+  "generalHealth": {
+    "type": "String",
+    "maxlength": [50, "generalHealth can not be more than 50"]
+  },
+  "dentalOralHealth": {
+    "type": "String",
+    "maxlength": [50, "dentalOralHealth can not be more than 50"]
+  },
+  "teethPresent": {
+    "type": "String",
+    "maxlength": [50, "teethPresent can not be more than 50"]
+  },
+  "missingTeeth": {
+    "type": "String",
+    "maxlength": [100, "missingTeeth can not be more than 100"]
+  },
+  "unerupted": {
+    "type": "String",
+    "maxlength": [100, "unerupted can not be more than 100"]
+  },
+  "softTissuesOrHabits": {
+    "type": "String",
+    "maxlength": [100, "softTissuesOrHabits can not be more than 100"]
+  },
+  "radiographicRep": {
+    "type": "String",
+    "maxlength": [100, "radiographicRep can not be more than 100"]
+  },
+
   "USP_Name": { "type": "String" },
   "USP_Role": { "type": "String" },
   "USP_Image": { "type": "String" },
