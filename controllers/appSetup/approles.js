@@ -35,12 +35,25 @@ exports.createApprole = asyncHandler(async (req, res, next) => {
   // Add user to req,body
   req.body.user = req.user.id;
   const roleX = await Role.findOne({ role: req.body.appRole });
+  if (!roleX) {
+    return next(
+      new ErrorResponse(`Role ${req.body.appRole} is not created`, 400)
+    );
+  }
   req.body.appRole = roleX.id;
+  req.body.role = roleX.role;
   let appList = [];
   i = 0;
   for (i = 0; i < req.body.Apps.length; i++) {
-    const appX = await getApplication(req.headers.applicationid);
-    req.body.Apps[i].app = appX.id;
+    let appX = {};
+    appX = await getApplication(req.body.Apps[i]);
+    if (appX) {
+      req.body.Apps[i] = appX;
+    } else {
+      return next(
+        new ErrorResponse(`App ${req.body.apps[i]} is not created`, 400)
+      );
+    }
   }
   const approle = await Approle.create(req.body);
   res.status(201).json({
@@ -53,27 +66,37 @@ exports.createApprole = asyncHandler(async (req, res, next) => {
 // @route     PUT /api/v1/approles/:id
 // @access    Private
 exports.updateApprole = asyncHandler(async (req, res, next) => {
-  let approle = await Approle.findById(req.params.id);
+  // let approle = await Approle.findById(req.params.id);
+  let approle = await Approle.findOne({ role: req.params.id });
+  if (!approle) {
+    return next(
+      new ErrorResponse(
+        `No record for Role and Apps found for  ${req.params.id}`,
+        404
+      )
+    );
+  }
   amg = {};
-  console.log(req.body.appID);
   if (req.body.appID) {
     if (req.headers.addapp == "Yes") {
-      console.log(req.headers.addapp);
       let app01 = await App.findOne({ applicationID: req.body.appID });
       if (!app01) {
         return next(
           new ErrorResponse(`App not found with id of ${req.body.appID}`, 404)
         );
       }
-      for (let index = 0; index < approle["Apps"].length; index++) {
-        const element = approle["Apps"][index].applicationID;
-        if (element == req.body.appID) {
-          return next(
-            new ErrorResponse(
-              `App with id  ${req.body.appID} is already added to the Role ${approle["role"]}`,
-              404
-            )
-          );
+
+      if (approle.hasOwnProperty("Apps")) {
+        for (let index = 0; index < approle["Apps"].length; index++) {
+          const element = approle["Apps"][index].applicationID;
+          if (element == req.body.appID) {
+            return next(
+              new ErrorResponse(
+                `App with id  ${req.body.appID} is already added to the Role ${approle["role"]}`,
+                404
+              )
+            );
+          }
         }
       }
 
@@ -88,7 +111,6 @@ exports.updateApprole = asyncHandler(async (req, res, next) => {
       new ErrorResponse(`Approle not found with id of ${req.params.id}`, 404)
     );
   }
-  console.log(req.body);
   approle = await Approle.findByIdAndUpdate(req.params.id, req.body, {
     new: true,
     runValidators: true,
