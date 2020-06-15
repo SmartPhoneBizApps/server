@@ -106,14 +106,14 @@
       "value": "Tab6",
       "name": "Radiology",
       "fioriicon": "x-ray",
-      "type": "Field",
+      "type": "carouselImage",
       "download": "Yes"
     },
     {
       "value": "Tab7",
       "name": "DentalImages",
       "fioriicon": "camera",
-      "type": "Field",
+      "type": "carouselImage",
       "download": "Yes"
     },
     {
@@ -149,22 +149,24 @@
     "headerTitle": ["USP_Name"],
     "headerRole": ["USP_Role"],
     "headerImage": ["USP_Image"],
-    "None": ["ID", "Status"],
-    "Tab1": [
+    "None": [
+      "ID",
+      "NHSNumber",
       "FirstName",
       "LastName",
+      "Group",
+      "PatientType",
+      "PatientStatus",
+      "Status"
+    ],
+    "Tab1": [
       "Gender",
       "Email",
       "ContactNo",
       "DOB",
-      "NHSNumber",
       "HouseNumber",
       "PostCode",
       "Address",
-      "Group",
-      "PatientType",
-      "ProfileImage",
-      "PatientStatus",
       "PatientStatusLog",
       "EmergencyContact",
       "GPDetails",
@@ -172,12 +174,15 @@
       "ReferalDetails",
       "PersonalDetails",
       "OtherDetails",
-      "Communication",
+      "Communication"
+    ],
+    "Tab2": [
       "TotalCost",
       "TotalPayment",
-      "TotalBalance"
+      "TotalBalance",
+      "TreatmentCost",
+      "PaymentDetails"
     ],
-    "Tab2": ["TreatmentCost", "PaymentDetails"],
     "Tab3": ["TreatmentPlan"],
     "Tab4": ["DentalProfile", "DentalCharting"],
     "Tab5": ["Appointments", "Visits"],
@@ -351,14 +356,52 @@
       "Currency": "No"
     },
     {
-      "name": "Communication",
+      "name": "PaymentBy",
+      "type": "comboBox",
+      "width": "100",
+      "Option": "Optional",
+      "SLabel": "PaymentBy",
+      "LLabel": "PaymentBy",
+      "Currency": "No"
+    },
+
+    {
+      "name": "InsuranceCompany",
       "type": "string",
       "width": "200",
       "Option": "Optional",
-      "SLabel": "Communication Settings",
-      "LLabel": "Communication Settings",
+      "SLabel": "Insurance Company",
+      "LLabel": "Insurance Company",
       "Currency": "No"
     },
+    {
+      "name": "PaymentMethod",
+      "type": "string",
+      "width": "200",
+      "Option": "Optional",
+      "SLabel": "Payment Method",
+      "LLabel": "Payment Method",
+      "Currency": "No"
+    },
+    {
+      "name": "PersonalDetails",
+      "type": "string",
+      "width": "200",
+      "Option": "Optional",
+      "SLabel": "Personal Details",
+      "LLabel": "Personal Details",
+      "Currency": "No"
+    },
+    {
+      "name": "PaymentDetails",
+      "type": "string",
+      "width": "200",
+      "Option": "Optional",
+      "SLabel": "Payment Details",
+      "LLabel": "Payment Details",
+      "Currency": "No"
+    },
+
     {
       "name": "GPDetails",
       "type": "string",
@@ -377,15 +420,7 @@
       "LLabel": "Dentist Details",
       "Currency": "No"
     },
-    {
-      "name": "PersonalDetails",
-      "type": "string",
-      "width": "200",
-      "Option": "Optional",
-      "SLabel": "Personal Details",
-      "LLabel": "Personal Details",
-      "Currency": "No"
-    },
+
     {
       "name": "PaymentDetails",
       "type": "string",
@@ -546,6 +581,457 @@
       "Option": "Optional",
       "SLabel": "Total Balance",
       "LLabel": "Total Balance",
+      "Currency": "No"
+    },
+    {
+      "name": "Occupation",
+      "type": "String",
+      "width": "100",
+      "Option": "Optional",
+      "SLabel": "Occupation",
+      "LLabel": "Occupation",
+      "Currency": "No"
+    },
+    {
+      "name": "School",
+      "type": "String",
+      "width": "100",
+      "Option": "Optional",
+      "SLabel": "School",
+      "LLabel": "School",
+      "Currency": "No"
+    },
+    {
+      "name": "PatientCompany",
+      "type": "String",
+      "width": "100",
+      "Option": "Optional",
+      "SLabel": "Patient Company",
+      "LLabel": "Patient Company",
+      "Currency": "No"
+    },
+    {
+      "name": "ReferralDoctor",
+      "type": "String",
+      "width": "100",
+      "Option": "Optional",
+      "SLabel": "Referral Doctor",
+      "LLabel": "Referral Doctor",
+      "Currency": "No"
+    },
+    {
+      "name": "ReferralDate",
+      "type": "String",
+      "width": "100",
+      "Option": "Optional",
+      "SLabel": "Referral Date",
+      "LLabel": "Referral Date",
+      "Currency": "No"
+    },
+    {
+      "name": "ReferralSource",
+      "type": "String",
+      "width": "100",
+      "Option": "Optional",
+      "SLabel": "Referral Source",
+      "LLabel": "Referral Source",
+      "Currency": "No"
+    },
+    {
+      "name": "HospSurgeryName",
+      "type": "String",
+      "width": "100",
+      "Option": "Optional",
+      "SLabel": "Hosp Surgery Name",
+      "LLabel": "Hospital Surgery Name",
+      "Currency": "No"
+    },
+    {
+      "name": "Gender",
+      "type": "String",
+      "width": "100",
+      "Option": "Optional",
+      "SLabel": "Gender",
+      "LLabel": "Gender",
+      "Currency": "No"
+    },
+    {
+      "name": "SpouseName",
+      "type": "String",
+      "width": "100",
+      "Option": "Optional",
+      "SLabel": "Spouse Name",
+      "LLabel": "Spouse Name",
+      "Currency": "No"
+    },
+    {
+      "name": "MaritalStatus",
+      "type": "String",
+      "width": "100",
+      "Option": "Optional",
+      "SLabel": "Marital Status",
+      "LLabel": "Marital Status",
+      "Currency": "No"
+    },
+    {
+      "name": "Height",
+      "type": "String",
+      "width": "100",
+      "Option": "Optional",
+      "SLabel": "Height",
+      "LLabel": "Height",
+      "Currency": "No"
+    },
+    {
+      "name": "Weight",
+      "type": "String",
+      "width": "100",
+      "Option": "Optional",
+      "SLabel": "Weight",
+      "LLabel": "Weight",
+      "Currency": "No"
+    },
+    {
+      "name": "GPName",
+      "type": "String",
+      "width": "100",
+      "Option": "Optional",
+      "SLabel": "GPName",
+      "LLabel": "GPName",
+      "Currency": "No"
+    },
+    {
+      "name": "SurgeryName",
+      "type": "String",
+      "width": "100",
+      "Option": "Optional",
+      "SLabel": "Surgery Name",
+      "LLabel": "Surgery Name",
+      "Currency": "No"
+    },
+    {
+      "name": "SurgeryAddress",
+      "type": "String",
+      "width": "100",
+      "Option": "Optional",
+      "SLabel": "Surgery Address",
+      "LLabel": "Surgery Address",
+      "Currency": "No"
+    },
+    {
+      "name": "SurgeryPhone",
+      "type": "String",
+      "width": "100",
+      "Option": "Optional",
+      "SLabel": "Surgery Phone",
+      "LLabel": "Surgery Phone",
+      "Currency": "No"
+    },
+    {
+      "name": "SurgeryEmail",
+      "type": "Email",
+      "width": "100",
+      "Option": "Optional",
+      "SLabel": "Surgery Email",
+      "LLabel": "Surgery Email",
+      "Currency": "No"
+    },
+    {
+      "name": "DentalGPName",
+      "type": "String",
+      "width": "100",
+      "Option": "Optional",
+      "SLabel": "Dental GP Name",
+      "LLabel": "Dental GP Name",
+      "Currency": "No"
+    },
+    {
+      "name": "DentalSurgeryName",
+      "type": "String",
+      "width": "100",
+      "Option": "Optional",
+      "SLabel": "Dental Surgery Name",
+      "LLabel": "Dental Surgery Name",
+      "Currency": "No"
+    },
+    {
+      "name": "DentalSurgeryAddress",
+      "type": "String",
+      "width": "100",
+      "Option": "Optional",
+      "SLabel": "Dental Surgery Address",
+      "LLabel": "Dental Surgery Address",
+      "Currency": "No"
+    },
+    {
+      "name": "DentalSurgeryPhone",
+      "type": "String",
+      "width": "100",
+      "Option": "Optional",
+      "SLabel": "Dental Surgery Phone",
+      "LLabel": "Dental Surgery Phone",
+      "Currency": "No"
+    },
+    {
+      "name": "DentalSurgeryEmail",
+      "type": "Email",
+      "width": "100",
+      "Option": "Optional",
+      "SLabel": "Dental Surgery Email",
+      "LLabel": "Dental Surgery Email",
+      "Currency": "No"
+    },
+
+    {
+      "name": "skeletalClass",
+      "type": "String",
+      "width": "1",
+      "Option": "Optional",
+      "SLabel": "skeletalClass",
+      "LLabel": "skeletalClass",
+      "Currency": "No"
+    },
+    {
+      "name": "fmAngle",
+      "type": "String",
+      "width": "1",
+      "Option": "Optional",
+      "SLabel": "fmAngle",
+      "LLabel": "fmAngle",
+      "Currency": "No"
+    },
+    {
+      "name": "incisorRelationship",
+      "type": "String",
+      "width": "1",
+      "Option": "Optional",
+      "SLabel": "incisorRelationship",
+      "LLabel": "incisorRelationship",
+      "Currency": "No"
+    },
+    {
+      "name": "overJet",
+      "type": "String",
+      "width": "1",
+      "Option": "Optional",
+      "SLabel": "overJet",
+      "LLabel": "overJet",
+      "Currency": "No"
+    },
+    {
+      "name": "overBite",
+      "type": "String",
+      "width": "1",
+      "Option": "Optional",
+      "SLabel": "overBite",
+      "LLabel": "overBite",
+      "Currency": "No"
+    },
+    {
+      "name": "openBite",
+      "type": "String",
+      "width": "50",
+      "Option": "Optional",
+      "SLabel": "openBite",
+      "LLabel": "openBite",
+      "Currency": "No"
+    },
+    {
+      "name": "molarOccRight",
+      "type": "String",
+      "width": "1",
+      "Option": "Optional",
+      "SLabel": "molarOccRight",
+      "LLabel": "molarOccRight",
+      "Currency": "No"
+    },
+    {
+      "name": "molarOccLeft",
+      "type": "String",
+      "width": "1",
+      "Option": "Optional",
+      "SLabel": "molarOccLeft",
+      "LLabel": "molarOccLeft",
+      "Currency": "No"
+    },
+    {
+      "name": "canineOcclRight",
+      "type": "String",
+      "width": "1",
+      "Option": "Optional",
+      "SLabel": "canineOcclRight",
+      "LLabel": "canineOcclRight",
+      "Currency": "No"
+    },
+    {
+      "name": "canineOcclLeft",
+      "type": "String",
+      "width": "1",
+      "Option": "Optional",
+      "SLabel": "canineOcclLeft",
+      "LLabel": "canineOcclLeft",
+      "Currency": "No"
+    },
+    {
+      "name": "upperCLine",
+      "type": "String",
+      "width": "1",
+      "Option": "Optional",
+      "SLabel": "upperC/Line",
+      "LLabel": "upperC/Line",
+      "Currency": "No"
+    },
+    {
+      "name": "lowerCLine",
+      "type": "String",
+      "width": "1",
+      "Option": "Optional",
+      "SLabel": "lowerC/Line",
+      "LLabel": "lowerC/Line",
+      "Currency": "No"
+    },
+    {
+      "name": "upperCrowding",
+      "type": "String",
+      "width": "1",
+      "Option": "Optional",
+      "SLabel": "upperCrowding",
+      "LLabel": "upperCrowding",
+      "Currency": "No"
+    },
+    {
+      "name": "lowerCrowding",
+      "type": "String",
+      "width": "1",
+      "Option": "Optional",
+      "SLabel": "lowerCrowding",
+      "LLabel": "lowerCrowding",
+      "Currency": "No"
+    },
+    {
+      "name": "spacing",
+      "type": "String",
+      "width": "1",
+      "Option": "Optional",
+      "SLabel": "spacing",
+      "LLabel": "spacing",
+      "Currency": "No"
+    },
+    {
+      "name": "centricPrompt",
+      "type": "String",
+      "width": "1",
+      "Option": "Optional",
+      "SLabel": "centricPrompt",
+      "LLabel": "centricPrompt",
+      "Currency": "No"
+    },
+    {
+      "name": "Profile",
+      "type": "String",
+      "width": "50",
+      "Option": "Optional",
+      "SLabel": "Profile",
+      "LLabel": "Profile",
+      "Currency": "No"
+    },
+    {
+      "name": "incisorAtRest",
+      "type": "String",
+      "width": "100",
+      "Option": "Optional",
+      "SLabel": "incisorAtRest",
+      "LLabel": "incisorAtRest",
+      "Currency": "No"
+    },
+    {
+      "name": "patientStatus",
+      "type": "String",
+      "width": "50",
+      "Option": "Optional",
+      "SLabel": "patientStatus",
+      "LLabel": "patientStatus",
+      "Currency": "No"
+    },
+    {
+      "name": "doubtfulPrognosis",
+      "type": "String",
+      "width": "100",
+      "Option": "Optional",
+      "SLabel": "doubtfulPrognosis",
+      "LLabel": "doubtfulPrognosis",
+      "Currency": "No"
+    },
+    {
+      "name": "congenitallyAbsent",
+      "type": "String",
+      "width": "50",
+      "Option": "Optional",
+      "SLabel": "congenitallyAbsent",
+      "LLabel": "congenitallyAbsent",
+      "Currency": "No"
+    },
+    {
+      "name": "generalHealth",
+      "type": "String",
+      "width": "50",
+      "Option": "Optional",
+      "SLabel": "generalHealth",
+      "LLabel": "generalHealth",
+      "Currency": "No"
+    },
+    {
+      "name": "dentalOralHealth",
+      "type": "String",
+      "width": "50",
+      "Option": "Optional",
+      "SLabel": "dental/OralHealth",
+      "LLabel": "dental/OralHealth",
+      "Currency": "No"
+    },
+    {
+      "name": "teethPresent",
+      "type": "String",
+      "width": "50",
+      "Option": "Optional",
+      "SLabel": "teethPresent",
+      "LLabel": "teethPresent",
+      "Currency": "No"
+    },
+    {
+      "name": "missingTeeth",
+      "type": "String",
+      "width": "100",
+      "Option": "Optional",
+      "SLabel": "missingTeeth",
+      "LLabel": "missingTeeth",
+      "Currency": "No"
+    },
+    {
+      "name": "unerupted",
+      "type": "String",
+      "width": "100",
+      "Option": "Optional",
+      "SLabel": "unerupted",
+      "LLabel": "unerupted",
+      "Currency": "No"
+    },
+    {
+      "name": "softTissuesOrHabits",
+      "type": "String",
+      "width": "100",
+      "Option": "Optional",
+      "SLabel": "softTissuesOrHabits",
+      "LLabel": "softTissuesOrHabits",
+      "Currency": "No"
+    },
+    {
+      "name": "radiographicRep",
+      "type": "String",
+      "width": "100",
+      "Option": "Optional",
+      "SLabel": "radiographicRep",
+      "LLabel": "radiographicRep",
       "Currency": "No"
     }
   ],
