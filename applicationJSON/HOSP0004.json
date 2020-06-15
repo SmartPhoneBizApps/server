@@ -235,7 +235,7 @@
     ]
   },
   "Height": {
-    "type": "Number",
+    "type": "String",
     "maxlength": [50, "Height can not be more than 50 characters"],
     "match": [
       "NUM_2_DEC_PLACE_V1",
@@ -243,7 +243,7 @@
     ]
   },
   "Weight": {
-    "type": "Number",
+    "type": "String",
     "maxlength": [50, "Weight can not be more than 50 characters"],
     "match": [
       "NUM_2_DEC_PLACE_V1",
@@ -251,15 +251,15 @@
     ]
   },
   "DoYouExercise": {
-    "type": "Boolean",
+    "type": "String",
     "maxlength": [50, "DoYouExercise can not be more than 50 characters"]
   },
   "DoYouSmoke": {
-    "type": "Boolean",
+    "type": "String",
     "maxlength": [50, "DoYouSmoke can not be more than 50 characters"]
   },
   "DrinkAlcohal": {
-    "type": "Boolean",
+    "type": "String",
     "maxlength": [200, "DrinkAlcohal can not be more than 200 characters"]
   },
   "HowMany": {
