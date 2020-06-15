@@ -11,6 +11,7 @@ const App = require("../../models/appSetup/App");
 // @access    Public
 exports.getUserapps = asyncHandler(async (req, res, next) => {
   req.body.user = req.user.id;
+
   // Finding Roles
   userX = await User.findById(req.body.user);
   i = 0;
@@ -43,13 +44,30 @@ exports.getUserapps = asyncHandler(async (req, res, next) => {
   X1 = {};
   r = 0;
   let path = "https://fierce-oasis-51455.herokuapp.com/appImages/";
+  console.log("bRoles", userX.businessRoles);
   for (i = 0; i < userX.businessRoles.length; i++) {
     const approleX = await Approle.findOne({
       appRole: userX.businessRoles[i].roleId,
     });
+    if (!approleX) {
+      return next(
+        new ErrorResponse(
+          `user not setup for role - ${userX.businessRoles[i].role}`,
+          400
+        )
+      );
+    }
     const roleX = await Role.findById(userX.businessRoles[i].roleId);
+    if (!roleX) {
+      return next(
+        new ErrorResponse(
+          `role - ${userX.businessRoles[i].role} is not created`,
+          400
+        )
+      );
+    }
     console.log(userX.businessRoles[i].roleId);
-    console.log(roleX);
+    console.log(roleX.descriptions);
     roleTemp["tabId"] = r;
     r = r + 1;
     roleTemp["Role"] = approleX.role;

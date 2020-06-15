@@ -42,6 +42,7 @@ exports.createApprole = asyncHandler(async (req, res, next) => {
   }
   req.body.appRole = roleX.id;
   req.body.role = roleX.role;
+  req.body.descriptions = roleX.descriptions;
   let appList = [];
   i = 0;
   for (i = 0; i < req.body.Apps.length; i++) {

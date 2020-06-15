@@ -95,8 +95,16 @@ const ERP00011 = require("../../models/smartApp/ERP00011");
 const EMP00017 = require("../../models/smartApp/EMP00017");
 const EMPNEW01 = require("../../models/smartApp/EMPNEW01");
 const TIME0002 = require("../../models/smartApp/TIME0002");
+const PATIENT001 = require("../../models/smartApp/PATIENT001");
 
 //router.use("/:smartappId/reviews", reviewRouter);
+router
+  .route("/PATIENT001")
+  .get(
+    protect,
+    advancedDataList(PATIENT001, PATIENT001, "PATIENT001"),
+    getListrecords
+  );
 router
   .route("/BUS0000001")
   .get(
