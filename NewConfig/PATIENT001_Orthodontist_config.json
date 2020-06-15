@@ -1,0 +1,787 @@
+{
+  "Title": {
+    "ApplicationTitle": "Health Evaluation Form",
+    "DetailTitle": "Evaluation Form"
+  },
+  "Controls": { "USP": "UserProfile" },
+  "ListFields": {
+    "IntroField": "",
+    "TitleField": "",
+    "sStatus": "",
+    "fStatus": "",
+    "numberField": "",
+    "LFields": [],
+    "numberUnitField": ""
+  },
+  "ListBOTFields": {
+    "None": ["cardImage", "StatusState"],
+    "Title": ["LastName"],
+    "SubTitle": ["FirstName", "Email", "NHSNumber", "PatientStatus"],
+    "Description": ["ID", "Status", "PostCode", "Group"]
+  },
+  "PossibleValues": [
+    "Gender",
+    "Status",
+    "Group",
+    "PatientType",
+    "PatientStatus",
+    "ItemStatus"
+  ],
+  "MButtons": [
+    {
+      "type": "DOWNLOAD",
+      "name": "Download File",
+      "icon": "sap-icon://download"
+    },
+    {
+      "type": "APPHELP",
+      "name": "Get App Help",
+      "icon": "sap-icon://sys-help-2"
+    },
+    {
+      "type": "BOT",
+      "name": "Launch Assistant",
+      "icon": "sap-icon://travel-request"
+    },
+    {
+      "type": "VIEW",
+      "name": "Change App View",
+      "icon": "sap-icon://chart-table-view"
+    },
+    { "type": "ADD", "name": "Add Record", "icon": "sap-icon://add" },
+    { "type": "UPLOAD", "name": "Upload Record", "icon": "sap-icon://upload" }
+  ],
+  "DButtons": [
+    {
+      "type": "ATTACHMENT",
+      "name": "View Attachments",
+      "icon": "sap-icon://attachment"
+    },
+    { "type": "UPDATE", "name": "Update Record", "icon": "sap-icon://update" },
+    { "type": "ADD", "name": "Add Record", "icon": "sap-icon://add" }
+  ],
+  "Tabs": [
+    {
+      "value": "Tab0",
+      "name": "Cards",
+      "type": "Cards",
+      "fioriicon": "responsive"
+    },
+    {
+      "value": "Tab1",
+      "name": "KeyData",
+      "fioriicon": "flag",
+      "type": "Field",
+      "download": "Yes"
+    },
+    {
+      "value": "Tab2",
+      "name": "Payment",
+      "fioriicon": "batch-payments",
+      "type": "Field",
+      "download": "Yes"
+    },
+    {
+      "value": "Tab11",
+      "name": "TreatmentPlan",
+      "fioriicon": "legend",
+      "type": "Field",
+      "download": "Yes"
+    },
+    {
+      "value": "Tab4",
+      "name": "DentalProfile",
+      "fioriicon": "business-card",
+      "type": "Field",
+      "download": "Yes"
+    },
+    {
+      "value": "Tab5",
+      "name": "Appointments",
+      "fioriicon": "appointment",
+      "type": "Field",
+      "download": "Yes"
+    },
+    {
+      "value": "Tab6",
+      "name": "Radiology",
+      "fioriicon": "x-ray",
+      "type": "Field",
+      "download": "Yes"
+    },
+    {
+      "value": "Tab7",
+      "name": "DentalImages",
+      "fioriicon": "camera",
+      "type": "Field",
+      "download": "Yes"
+    },
+    {
+      "value": "Tab8",
+      "name": "AdminNotes",
+      "fioriicon": "notes",
+      "type": "Field",
+      "download": "Yes"
+    },
+    {
+      "value": "Tab9",
+      "name": "ClinicalNotes",
+      "fioriicon": "microphone",
+      "type": "Field",
+      "download": "Yes"
+    },
+    {
+      "value": "Tab10",
+      "name": "HealthEvaluation",
+      "fioriicon": "e-care",
+      "type": "Field",
+      "download": "Yes"
+    },
+    {
+      "value": "Tab3",
+      "name": "ItemDetails",
+      "fioriicon": "Item Details",
+      "type": "Items",
+      "download": "Yes"
+    }
+  ],
+  "DetailFields": {
+    "headerTitle": ["USP_Name"],
+    "headerRole": ["USP_Role"],
+    "headerImage": ["USP_Image"],
+    "None": ["ID", "Status"],
+    "Tab1": [
+      "FirstName",
+      "LastName",
+      "Gender",
+      "Email",
+      "ContactNo",
+      "DOB",
+      "NHSNumber",
+      "HouseNumber",
+      "PostCode",
+      "Address",
+      "Group",
+      "PatientType",
+      "ProfileImage",
+      "PatientStatus",
+      "PatientStatusLog",
+      "EmergencyContact",
+      "GPDetails",
+      "DentistDetails",
+      "ReferalDetails",
+      "PersonalDetails",
+      "OtherDetails",
+      "Communication",
+      "TotalCost",
+      "TotalPayment",
+      "TotalBalance"
+    ],
+    "Tab2": ["TreatmentCost", "PaymentDetails"],
+    "Tab3": ["TreatmentPlan"],
+    "Tab4": ["DentalProfile", "DentalCharting"],
+    "Tab5": ["Appointments", "Visits"],
+    "Tab6": ["Radiology", "Pathology"],
+    "Tab7": ["DentalImages"],
+    "Tab8": ["AdminNotes"],
+    "Tab9": ["ClinicalNotes"]
+  },
+  "ControlDisplay": {},
+  "FieldDef": [
+    {
+      "name": "ID",
+      "type": "string",
+      "width": "20",
+      "Option": "Mandatory",
+      "SLabel": "Identification",
+      "LLabel": "Identification",
+      "Currency": "No"
+    },
+    {
+      "name": "FirstName",
+      "type": "string",
+      "width": "20",
+      "Option": "Mandatory",
+      "SLabel": "First Name",
+      "LLabel": "First Name",
+      "Currency": "No"
+    },
+    {
+      "name": "LastName",
+      "type": "string",
+      "width": "20",
+      "Option": "Mandatory",
+      "SLabel": "Last Name",
+      "LLabel": "Last Name",
+      "Currency": "No"
+    },
+    {
+      "name": "Gender",
+      "type": "string",
+      "width": "20",
+      "Option": "Optional",
+      "SLabel": "Gender",
+      "LLabel": "Gender",
+      "Currency": "No"
+    },
+    {
+      "name": "Email",
+      "type": "string",
+      "width": "100",
+      "Option": "Mandatory",
+      "SLabel": "Email",
+      "LLabel": "Email",
+      "Currency": "No"
+    },
+    {
+      "name": "ContactNo",
+      "type": "string",
+      "width": "20",
+      "Option": "Optional",
+      "SLabel": "Phone No",
+      "LLabel": "Phone No",
+      "Currency": "No"
+    },
+    {
+      "name": "Status",
+      "type": "string",
+      "width": "50",
+      "Option": "Mandatory",
+      "SLabel": "Status",
+      "LLabel": "Status",
+      "Currency": "No"
+    },
+    {
+      "name": "NHSNumber",
+      "type": "string",
+      "width": "20",
+      "Option": "Optional",
+      "SLabel": "NHS Number",
+      "LLabel": "NHS Number",
+      "Currency": "No"
+    },
+    {
+      "name": "HouseNumber",
+      "type": "string",
+      "width": "20",
+      "Option": "Optional",
+      "SLabel": "House Number",
+      "LLabel": "House Number",
+      "Currency": "No"
+    },
+    {
+      "name": "PostCode",
+      "type": "string",
+      "width": "10",
+      "Option": "Mandatory",
+      "SLabel": "Post Code",
+      "LLabel": "Post Code",
+      "Currency": "No"
+    },
+    {
+      "name": "Address",
+      "type": "string",
+      "width": "100",
+      "Option": "Mandatory",
+      "SLabel": "Address",
+      "LLabel": "Address",
+      "Currency": "No"
+    },
+    {
+      "name": "Group",
+      "type": "string",
+      "width": "20",
+      "Option": "Optional",
+      "SLabel": "Group",
+      "LLabel": "Group",
+      "Currency": "No"
+    },
+    {
+      "name": "PatientType",
+      "type": "string",
+      "width": "20",
+      "Option": "Optional",
+      "SLabel": "Patient Type",
+      "LLabel": "Patient Type",
+      "Currency": "No"
+    },
+    {
+      "name": "ProfileImage",
+      "type": "string",
+      "width": "200",
+      "Option": "Optional",
+      "SLabel": "Profile Image",
+      "LLabel": "Profile Image",
+      "Currency": "No"
+    },
+    {
+      "name": "PatientStatus",
+      "type": "string",
+      "width": "50",
+      "Option": "Optional",
+      "SLabel": "Patient Status",
+      "LLabel": "Patient Status",
+      "Currency": "No"
+    },
+    {
+      "name": "PatientStatusLog",
+      "type": "string",
+      "width": "200",
+      "Option": "Optional",
+      "SLabel": "Patient StatusLog",
+      "LLabel": "Patient StatusLog",
+      "Currency": "No"
+    },
+    {
+      "name": "TreatmentPlan",
+      "type": "string",
+      "width": "200",
+      "Option": "Optional",
+      "SLabel": "Treatment Plan",
+      "LLabel": "Treatment Plan",
+      "Currency": "No"
+    },
+    {
+      "name": "EmergencyContact",
+      "type": "string",
+      "width": "200",
+      "Option": "Optional",
+      "SLabel": "Emergency Contact",
+      "LLabel": "Emergency Contact",
+      "Currency": "No"
+    },
+    {
+      "name": "Communication",
+      "type": "string",
+      "width": "200",
+      "Option": "Optional",
+      "SLabel": "Communication Settings",
+      "LLabel": "Communication Settings",
+      "Currency": "No"
+    },
+    {
+      "name": "GPDetails",
+      "type": "string",
+      "width": "200",
+      "Option": "Optional",
+      "SLabel": "GP Details",
+      "LLabel": "GP Details",
+      "Currency": "No"
+    },
+    {
+      "name": "DentistDetails",
+      "type": "string",
+      "width": "200",
+      "Option": "Optional",
+      "SLabel": "Dentist Details",
+      "LLabel": "Dentist Details",
+      "Currency": "No"
+    },
+    {
+      "name": "PersonalDetails",
+      "type": "string",
+      "width": "200",
+      "Option": "Optional",
+      "SLabel": "Personal Details",
+      "LLabel": "Personal Details",
+      "Currency": "No"
+    },
+    {
+      "name": "PaymentDetails",
+      "type": "string",
+      "width": "200",
+      "Option": "Optional",
+      "SLabel": "Payment Details",
+      "LLabel": "Payment Details",
+      "Currency": "No"
+    },
+    {
+      "name": "ReferalDetails",
+      "type": "string",
+      "width": "200",
+      "Option": "Optional",
+      "SLabel": "Referal Details",
+      "LLabel": "Referal Details",
+      "Currency": "No"
+    },
+    {
+      "name": "OtherDetails",
+      "type": "string",
+      "width": "200",
+      "Option": "Optional",
+      "SLabel": "Other Details",
+      "LLabel": "Other Details",
+      "Currency": "No"
+    },
+    {
+      "name": "DentalProfile",
+      "type": "string",
+      "width": "200",
+      "Option": "Optional",
+      "SLabel": "Dental Profile",
+      "LLabel": "Dental Profile",
+      "Currency": "No"
+    },
+    {
+      "name": "DentalCharting",
+      "type": "string",
+      "width": "200",
+      "Option": "Optional",
+      "SLabel": "Dental Charting",
+      "LLabel": "Dental Charting",
+      "Currency": "No"
+    },
+    {
+      "name": "Appointments",
+      "type": "string",
+      "width": "200",
+      "Option": "Optional",
+      "SLabel": "Appointments",
+      "LLabel": "Appointments",
+      "Currency": "No"
+    },
+    {
+      "name": "Radiology",
+      "type": "string",
+      "width": "200",
+      "Option": "Optional",
+      "SLabel": "Radiology",
+      "LLabel": "Radiology",
+      "Currency": "No"
+    },
+    {
+      "name": "Pathology",
+      "type": "string",
+      "width": "200",
+      "Option": "Optional",
+      "SLabel": "Pathology",
+      "LLabel": "Pathology",
+      "Currency": "No"
+    },
+    {
+      "name": "DentalImages",
+      "type": "string",
+      "width": "200",
+      "Option": "Optional",
+      "SLabel": "Dental Images",
+      "LLabel": "Dental Images",
+      "Currency": "No"
+    },
+    {
+      "name": "Visits",
+      "type": "string",
+      "width": "200",
+      "Option": "Optional",
+      "SLabel": "Visits",
+      "LLabel": "Visits",
+      "Currency": "No"
+    },
+    {
+      "name": "DOB",
+      "type": "Date",
+      "width": "10",
+      "Option": "Optional",
+      "SLabel": "Date of Birth",
+      "LLabel": "Date of Birth",
+      "Currency": "No"
+    },
+    {
+      "name": "ClinicalNotes",
+      "type": "string",
+      "width": "200",
+      "Option": "Optional",
+      "SLabel": "Clinical Notes",
+      "LLabel": "Clinical Notes",
+      "Currency": "No"
+    },
+    {
+      "name": "AdminNotes",
+      "type": "string",
+      "width": "200",
+      "Option": "Optional",
+      "SLabel": "Admin Notes",
+      "LLabel": "Admin Notes",
+      "Currency": "No"
+    },
+    {
+      "name": "HealthEvaluation",
+      "type": "string",
+      "width": "200",
+      "Option": "Optional",
+      "SLabel": "Health Evaluation",
+      "LLabel": "Health Evaluation",
+      "Currency": "No"
+    },
+    {
+      "name": "TreatmentCost",
+      "type": "string",
+      "width": "200",
+      "Option": "Optional",
+      "SLabel": "Treatment Cost",
+      "LLabel": "Treatment Cost",
+      "Currency": "No"
+    },
+    {
+      "name": "TotalCost",
+      "type": "Num,2",
+      "width": "20",
+      "Option": "Optional",
+      "SLabel": "TotalCost",
+      "LLabel": "TotalCost",
+      "Currency": "No"
+    },
+    {
+      "name": "TotalPayment",
+      "type": "Num,2",
+      "width": "20",
+      "Option": "Optional",
+      "SLabel": "Total Payment",
+      "LLabel": "Total Payment",
+      "Currency": "No"
+    },
+    {
+      "name": "TotalBalance",
+      "type": "Num,2",
+      "width": "20",
+      "Option": "Optional",
+      "SLabel": "Total Balance",
+      "LLabel": "Total Balance",
+      "Currency": "No"
+    }
+  ],
+  "itemData": "Yes",
+  "itemConfig": {
+    "ItemFieldDefinition": [
+      {
+        "name": "ItemNumber",
+        "type": "string",
+        "width": "10",
+        "SLabel": "Item Number",
+        "Option": "Optional",
+        "Currency": "No"
+      },
+      {
+        "name": "ID",
+        "type": "string",
+        "width": "20",
+        "SLabel": "Identification",
+        "Option": "Optional",
+        "Currency": "No"
+      },
+      {
+        "name": "Amount",
+        "type": "Num,2",
+        "width": "20",
+        "SLabel": "Amount",
+        "Option": "Optional",
+        "Currency": "No"
+      },
+      {
+        "name": "ItemStatus",
+        "type": "string",
+        "width": "20",
+        "SLabel": "Item Status",
+        "Option": "Optional",
+        "Currency": "No"
+      },
+      {
+        "name": "Description",
+        "type": "string",
+        "width": "200",
+        "SLabel": "Description",
+        "Option": "Optional",
+        "Currency": "No"
+      },
+      {
+        "name": "DueDate",
+        "type": "Date",
+        "width": "10",
+        "SLabel": "Due Date",
+        "Option": "Optional",
+        "Currency": "No"
+      },
+      {
+        "name": "PaymentMethod",
+        "type": "string",
+        "width": "50",
+        "SLabel": "Payment Method",
+        "Option": "Optional",
+        "Currency": "No"
+      },
+      {
+        "name": "PaidAmount",
+        "type": "Num,2",
+        "width": "50",
+        "SLabel": "Paid Amount",
+        "Option": "Optional",
+        "Currency": "No"
+      },
+      {
+        "name": "Currency",
+        "type": "string",
+        "width": "10",
+        "SLabel": "Currency",
+        "Option": "Optional",
+        "Currency": "No"
+      },
+      {
+        "name": "AuthorizationCode",
+        "type": "string",
+        "width": "50",
+        "SLabel": "Authorization Code",
+        "Option": "Optional",
+        "Currency": "No"
+      },
+      {
+        "name": "PaidBy",
+        "type": "string",
+        "width": "50",
+        "SLabel": "Paid By",
+        "Option": "Optional",
+        "Currency": "No"
+      },
+      {
+        "name": "ItemBalance",
+        "type": "Num,2",
+        "width": "20",
+        "SLabel": "Item Balance",
+        "Option": "Optional",
+        "Currency": "No"
+      },
+      {
+        "name": "PaymentDate",
+        "type": "Date",
+        "width": "10",
+        "SLabel": "Payment Date",
+        "Option": "Optional",
+        "Currency": "No"
+      }
+    ],
+    "DisplayFields": [
+      "ID",
+      "Amount",
+      "ItemStatus",
+      "Description",
+      "PaidAmount"
+    ],
+    "ItemButtons": {
+      "itemDisplay": true,
+      "itemAdd": true,
+      "itemEdit": true,
+      "itemDelete": true
+    },
+    "CreateFields": ["Description", "Amount", "ID", "Currency", "ItemStatus"],
+    "ItemDetails": [
+      { "name": "ItemNumber", "Tab": "Tab3", "Sequence": "1", "Mode": "Edit" },
+      { "name": "Description", "Tab": "Tab3", "Sequence": "1", "Mode": "Edit" },
+      { "name": "Amount", "Tab": "Tab3", "Sequence": "1", "Mode": "Edit" },
+      { "name": "Currency", "Tab": "Tab3", "Sequence": "1", "Mode": "Edit" },
+      { "name": "ID", "Tab": "Tab3", "Sequence": "1", "Mode": "Edit" },
+      { "name": "ItemStatus", "Tab": "Tab3", "Sequence": "1", "Mode": "Edit" },
+      { "name": "DueDate", "Tab": "Tab3", "Sequence": "1", "Mode": "Edit" },
+      { "name": "PaidAmount", "Tab": "Tab3", "Sequence": "1", "Mode": "Edit" },
+      {
+        "name": "PaymentMethod",
+        "Tab": "Tab3",
+        "Sequence": "1",
+        "Mode": "Edit"
+      },
+      {
+        "name": "AuthorizationCode",
+        "Tab": "Tab3",
+        "Sequence": "1",
+        "Mode": "Edit"
+      },
+      { "name": "PaidBy", "Tab": "Tab3", "Sequence": "1", "Mode": "Edit" }
+    ]
+  },
+  "CalculatedFields": {
+    "Item": [
+      {
+        "CalculatedFormula": {
+          "name": "Substraction",
+          "function": "SUB",
+          "Target": "ItemBalance",
+          "type": "Item"
+        },
+        "Fields": [
+          { "Source": "Amount", "Type": { "type": "Item" } },
+          { "Source": "PaidAmount", "Type": { "type": "Item" } }
+        ]
+      }
+    ],
+    "HeaderItem": [
+      {
+        "CalculatedFormula": {
+          "name": "ITEMSUM",
+          "function": "ITEMSUM",
+          "Target": "TotalCost",
+          "type": "HeaderItem"
+        },
+        "Fields": [{ "Source": "Amount", "Type": { "type": "HeaderItem" } }]
+      },
+      {
+        "CalculatedFormula": {
+          "name": "ITEMSUM",
+          "function": "ITEMSUM",
+          "Target": "TotalPayment",
+          "type": "HeaderItem"
+        },
+        "Fields": [{ "Source": "PaidAmount", "Type": { "type": "HeaderItem" } }]
+      },
+      {
+        "CalculatedFormula": {
+          "name": "ITEMSUM",
+          "function": "ITEMSUM",
+          "Target": "TotalBalance",
+          "type": "HeaderItem"
+        },
+        "Fields": [
+          { "Source": "ItemBalance", "Type": { "type": "HeaderItem" } }
+        ]
+      }
+    ],
+    "Header": []
+  },
+  "Create": "Yes",
+  "Wizard": [
+    {
+      "id": "Step1",
+      "fields": [
+        { "name": "FirstName", "Sequence": "1", "Mode": "Edit" },
+        { "name": "LastName", "Sequence": "1", "Mode": "Edit" },
+        { "name": "Gender", "Sequence": "1", "Mode": "Edit" },
+        { "name": "NHSNumber", "Sequence": "1", "Mode": "Edit" },
+        { "name": "ProfileImage", "Sequence": "1", "Mode": "Edit" }
+      ],
+      "name": "Basic Information",
+      "stepType": "FieldList",
+      "intro": "Please provide basic details"
+    },
+    {
+      "id": "Step2",
+      "fields": [
+        { "name": "Email", "Sequence": "1", "Mode": "Edit" },
+        { "name": "ContactNo", "Sequence": "1", "Mode": "Edit" },
+        { "name": "PostCode", "Sequence": "1", "Mode": "Edit" },
+        { "name": "HouseNumber", "Sequence": "1", "Mode": "Edit" },
+        { "name": "Address", "Sequence": "1", "Mode": "Edit" }
+      ],
+      "name": "Contact Details",
+      "stepType": "FieldList",
+      "intro": "Please provide Contact Details"
+    },
+    {
+      "id": "Step3",
+      "fields": [
+        { "name": "Group", "Sequence": "1", "Mode": "Edit" },
+        { "name": "PatientType", "Sequence": "1", "Mode": "Edit" },
+        { "name": "Status", "Sequence": "1", "Mode": "Edit" },
+        { "name": "PatientStatus", "Sequence": "1", "Mode": "Edit" }
+      ],
+      "name": "Status Info",
+      "stepType": "FieldList",
+      "intro": "Please provide Status information"
+    }
+  ]
+}
