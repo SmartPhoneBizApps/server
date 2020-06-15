@@ -1,7 +1,8 @@
 const crypto = require("crypto");
 const ErrorResponse = require("../../utils/errorResponse");
 const asyncHandler = require("../../middleware/async");
-const sendEmail = require("../../utils/sendEmailProd");
+const sendEmail = require("../../utils/sendEmail");
+const sendEmail1 = require("../../utils/sendEmailProd");
 const User = require("../../models/access/User");
 const Role = require("../../models/appSetup/Role");
 const Socialmedia = require("../../models/access/Socialmedia");
@@ -379,7 +380,7 @@ exports.sendEmail = asyncHandler(async (req, res, next) => {
   Subject = req.body.subject;
   message = req.body.message;
   try {
-    await sendEmail({
+    await sendEmail1({
       email: emailTo,
       subject: Subject,
       message: message,
