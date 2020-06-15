@@ -181,12 +181,13 @@
       "TotalPayment",
       "TotalBalance",
       "TreatmentCost",
-      "PaymentDetails"
+      "PaymentDetails",
+      "Pathology"
     ],
     "Tab3": ["TreatmentPlan"],
     "Tab4": ["DentalProfile", "DentalCharting"],
     "Tab5": ["Appointments", "Visits"],
-    "Tab6": ["Radiology", "Pathology"],
+    "Tab6": ["Radiology"],
     "Tab7": ["DentalImages"],
     "Tab8": ["AdminNotes"],
     "Tab9": ["ClinicalNotes"]
@@ -496,7 +497,7 @@
     },
     {
       "name": "Radiology",
-      "type": "string",
+      "type": "attachment",
       "width": "200",
       "Option": "Optional",
       "SLabel": "Radiology",
