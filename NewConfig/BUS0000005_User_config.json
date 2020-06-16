@@ -67,7 +67,7 @@
       "fioriicon": "employee",
       "type": "Field"
     },
-        {
+    {
       "value": "Tab4",
       "name": "Attachment",
       "fioriicon": "attachment",
@@ -94,7 +94,9 @@
       "YourDepartment",
       "YourBusiness"
     ],
-    "Tab2": ["Subject", "YourMessage", "ContactDate"]
+    "Tab2": ["Subject", "YourMessage", "ContactDate"],
+    "Tab4": ["Attachment"],
+    "Tab5": ["ScreenShot"]
   },
   "ControlDisplay": {},
   "FieldDef": [
@@ -176,6 +178,22 @@
       "width": "10",
       "Option": "Optional",
       "SLabel": "Contact Date",
+      "LLabel": ""
+    },
+    {
+      "name": "ScreenShot",
+      "type": "attachment",
+      "width": "100",
+      "Option": "Optional",
+      "SLabel": "Screen Shot",
+      "LLabel": ""
+    },
+    {
+      "name": "Attachment",
+      "type": "attachment",
+      "width": "100",
+      "Option": "Optional",
+      "SLabel": "Attachment",
       "LLabel": ""
     }
   ],
