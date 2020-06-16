@@ -77,6 +77,20 @@
       "name": "Booking",
       "fioriicon": "travel-expense",
       "type": "Field"
+    },
+        {
+      "value": "Tab4",
+      "name": "Attachment",
+      "fioriicon": "attachment",
+      "type": "MultiAttachments",
+      "download": "No"
+    },
+    {
+      "value": "Tab5",
+      "name": "ScreenShots",
+      "type": "carouselImage",
+      "fioriicon": "contacts",
+      "download": "No"
     }
   ],
   "DetailFields": {
@@ -102,7 +116,9 @@
       "FlightDuration",
       "Airline",
       "Class"
-    ]
+    ],
+        "Tab4": ["Attachment"],
+    "Tab5": ["ScreenShot"]
   },
   "ControlDisplay": {},
   "FieldDef": [
@@ -112,8 +128,7 @@
       "width": "20",
       "Option": "Mandatory",
       "SLabel": "Identification",
-      "LLabel": "",
-      "Currency": "No"
+      "LLabel": ""
     },
     {
       "name": "Name",
@@ -121,8 +136,7 @@
       "width": "50",
       "Option": "Optional",
       "SLabel": "Name",
-      "LLabel": "",
-      "Currency": "No"
+      "LLabel": ""
     },
     {
       "name": "Email",
@@ -130,8 +144,7 @@
       "width": "100",
       "Option": "Mandatory",
       "SLabel": "Email",
-      "LLabel": "Email",
-      "Currency": "No"
+      "LLabel": "Email"
     },
     {
       "name": "Phone",
@@ -139,8 +152,7 @@
       "width": "20",
       "Option": "Optional",
       "SLabel": "Phone",
-      "LLabel": "",
-      "Currency": "No"
+      "LLabel": ""
     },
     {
       "name": "UserAccount",
@@ -148,8 +160,7 @@
       "width": "20",
       "Option": "Optional",
       "SLabel": "User Account",
-      "LLabel": "",
-      "Currency": "No"
+      "LLabel": ""
     },
     {
       "name": "From",
@@ -157,8 +168,7 @@
       "width": "50",
       "Option": "Optional",
       "SLabel": "From",
-      "LLabel": "",
-      "Currency": "No"
+      "LLabel": ""
     },
     {
       "name": "To",
@@ -166,8 +176,7 @@
       "width": "50",
       "Option": "Optional",
       "SLabel": "To",
-      "LLabel": "",
-      "Currency": "No"
+      "LLabel": ""
     },
     {
       "name": "ReturnJourney",
@@ -175,8 +184,7 @@
       "width": "3",
       "Option": "Optional",
       "SLabel": "Return Journey",
-      "LLabel": "",
-      "Currency": "No"
+      "LLabel": ""
     },
     {
       "name": "StartDate",
@@ -184,8 +192,7 @@
       "width": "10",
       "Option": "Optional",
       "SLabel": "Start Date",
-      "LLabel": "",
-      "Currency": "No"
+      "LLabel": ""
     },
     {
       "name": "StartTime",
@@ -193,8 +200,7 @@
       "width": "10",
       "Option": "Optional",
       "SLabel": "Start Time",
-      "LLabel": "",
-      "Currency": "No"
+      "LLabel": ""
     },
     {
       "name": "ReturnDate",
@@ -202,8 +208,7 @@
       "width": "10",
       "Option": "Optional",
       "SLabel": "Return Date",
-      "LLabel": "",
-      "Currency": "No"
+      "LLabel": ""
     },
     {
       "name": "ReturnTime",
@@ -211,8 +216,7 @@
       "width": "10",
       "Option": "Optional",
       "SLabel": "Return Time",
-      "LLabel": "",
-      "Currency": "No"
+      "LLabel": ""
     },
     {
       "name": "AirFare",
@@ -220,8 +224,7 @@
       "width": "10",
       "Option": "Optional",
       "SLabel": "Air Fare",
-      "LLabel": "",
-      "Currency": "No"
+      "LLabel": ""
     },
     {
       "name": "Currency",
@@ -229,8 +232,7 @@
       "width": "3",
       "Option": "Optional",
       "SLabel": "Currency",
-      "LLabel": "",
-      "Currency": "No"
+      "LLabel": ""
     },
     {
       "name": "CostCentre",
@@ -238,8 +240,7 @@
       "width": "20",
       "Option": "Optional",
       "SLabel": "Cost Centre",
-      "LLabel": "",
-      "Currency": "No"
+      "LLabel": ""
     },
     {
       "name": "Status",
@@ -247,8 +248,7 @@
       "width": "50",
       "Option": "Mandatory",
       "SLabel": "Status",
-      "LLabel": "Status",
-      "Currency": "No"
+      "LLabel": "Status"
     },
     {
       "name": "Class",
@@ -256,8 +256,7 @@
       "width": "50",
       "Option": "Optional",
       "SLabel": "Class",
-      "LLabel": "",
-      "Currency": "No"
+      "LLabel": ""
     },
     {
       "name": "Airline",
@@ -265,8 +264,7 @@
       "width": "50",
       "Option": "Optional",
       "SLabel": "Airline",
-      "LLabel": "",
-      "Currency": "No"
+      "LLabel": ""
     },
     {
       "name": "FlightDuration",
@@ -274,8 +272,7 @@
       "width": "10",
       "Option": "Optional",
       "SLabel": "Flight Duration",
-      "LLabel": "",
-      "Currency": "No"
+      "LLabel": ""
     },
     {
       "name": "FlightNo",
@@ -283,8 +280,7 @@
       "width": "10",
       "Option": "Optional",
       "SLabel": "Flight Number",
-      "LLabel": "",
-      "Currency": "No"
+      "LLabel": ""
     },
     {
       "name": "DietaryRequirement",
@@ -292,8 +288,7 @@
       "width": "20",
       "Option": "Optional",
       "SLabel": "Dietary Requirement",
-      "LLabel": "",
-      "Currency": "No"
+      "LLabel": ""
     },
     {
       "name": "TaxiFare",
@@ -301,8 +296,7 @@
       "width": "50",
       "Option": "Optional",
       "SLabel": "Taxi Fare",
-      "LLabel": "Taxi Fare",
-      "Currency": "No"
+      "LLabel": "Taxi Fare"
     }
   ],
   "itemData": "No",

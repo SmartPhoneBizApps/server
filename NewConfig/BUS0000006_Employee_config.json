@@ -71,6 +71,19 @@
       "name": "Supervisor",
       "fioriicon": "group",
       "type": "Field"
+    },    {
+      "value": "Tab4",
+      "name": "Attachment",
+      "fioriicon": "attachment",
+      "type": "MultiAttachments",
+      "download": "No"
+    },
+    {
+      "value": "Tab5",
+      "name": "ScreenShots",
+      "type": "carouselImage",
+      "fioriicon": "contacts",
+      "download": "No"
     }
   ],
   "DetailFields": {
@@ -87,7 +100,9 @@
       "DescribeIncident",
       "AdditionalComments"
     ],
-    "Tab2": ["Supervisor", "SupervisorComment"]
+    "Tab2": ["Supervisor", "SupervisorComment"],
+    "Tab4": ["Attachment"],
+    "Tab5": ["ScreenShot"]
   },
   "ControlDisplay": {},
   "FieldDef": [
@@ -97,8 +112,7 @@
       "width": "20",
       "Option": "Mandatory",
       "SLabel": "Identification",
-      "LLabel": "",
-      "Currency": "No"
+      "LLabel": ""
     },
     {
       "name": "Status",
@@ -106,8 +120,7 @@
       "width": "50",
       "Option": "Mandatory",
       "SLabel": "Status",
-      "LLabel": "Status",
-      "Currency": "No"
+      "LLabel": "Status"
     },
     {
       "name": "Name",
@@ -115,8 +128,7 @@
       "width": "50",
       "Option": "Optional",
       "SLabel": "Name",
-      "LLabel": "",
-      "Currency": "No"
+      "LLabel": ""
     },
     {
       "name": "Email",
@@ -124,8 +136,7 @@
       "width": "100",
       "Option": "Mandatory",
       "SLabel": "Email",
-      "LLabel": "Email",
-      "Currency": "No"
+      "LLabel": "Email"
     },
     {
       "name": "Phone",
@@ -133,8 +144,7 @@
       "width": "20",
       "Option": "Optional",
       "SLabel": "Phone",
-      "LLabel": "",
-      "Currency": "No"
+      "LLabel": ""
     },
     {
       "name": "DateOfComplaint",
@@ -142,8 +152,7 @@
       "width": "10",
       "Option": "Optional",
       "SLabel": "Date Of Complaint",
-      "LLabel": "",
-      "Currency": "No"
+      "LLabel": ""
     },
     {
       "name": "Supervisor",
@@ -151,8 +160,7 @@
       "width": "50",
       "Option": "Optional",
       "SLabel": "Supervisor",
-      "LLabel": "",
-      "Currency": "No"
+      "LLabel": ""
     },
     {
       "name": "AgainstWhom",
@@ -160,8 +168,7 @@
       "width": "100",
       "Option": "Optional",
       "SLabel": "Against Whom",
-      "LLabel": "",
-      "Currency": "No"
+      "LLabel": ""
     },
     {
       "name": "DescribeIncident",
@@ -169,8 +176,7 @@
       "width": "200",
       "Option": "Optional",
       "SLabel": "Describe Incident",
-      "LLabel": "",
-      "Currency": "No"
+      "LLabel": ""
     },
     {
       "name": "AdditionalComments",
@@ -178,8 +184,7 @@
       "width": "500",
       "Option": "Optional",
       "SLabel": "Additional Comments",
-      "LLabel": "",
-      "Currency": "No"
+      "LLabel": ""
     },
     {
       "name": "SupervisorComment",
@@ -187,8 +192,7 @@
       "width": "500",
       "Option": "Optional",
       "SLabel": "Supervisor Comment",
-      "LLabel": "",
-      "Currency": "No"
+      "LLabel": ""
     }
   ],
   "itemData": "No",
