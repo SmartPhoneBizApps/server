@@ -99,7 +99,7 @@
       "value": "Tab5",
       "name": "Payment",
       "fioriicon": "batch-payments",
-      "type": "FieldGroup",
+      "type": "Field",
       "download": "Yes"
     },
     {
@@ -197,8 +197,12 @@
         "Fields": ["School", "Occupation", "PatientCompany"]
       },
       {
-        "GrpTitle": "Patient Status Log",
-        "Fields": ["PatientStatusLog"]
+        "GrpTitle": "Payment Method",
+        "Fields": ["PaymentBy", "InsuranceCompany", "PaymentMethod"]
+      },
+      {
+        "GrpTitle": "Total Payment Summary",
+        "Fields": ["TotalCost", "TotalPayment", "TotalBalance"]
       }
     ],
     "Tab2": [
@@ -226,6 +230,21 @@
         ]
       }
     ],
+
+    "Tab8": [
+      {
+        "GrpTitle": "Appointments",
+        "Fields": ["Appointments"]
+      },
+      {
+        "GrpTitle": "Visits",
+        "Fields": ["Visits"]
+      }
+    ],
+    "Tab9": ["Radiology"],
+    "Tab10": ["DentalImages"],
+    "Tab5": ["TreatmentCost"],
+    "Tab6": ["TreatmentPlan"],
     "Tab4": [
       {
         "GrpTitle": "Referal Details",
@@ -257,21 +276,6 @@
         ]
       }
     ],
-    "Tab5": [
-      {
-        "GrpTitle": "Payment Method",
-        "Fields": ["PaymentBy", "InsuranceCompany", "PaymentMethod"]
-      },
-      {
-        "GrpTitle": "Total Payment Summary",
-        "Fields": ["TotalCost", "TotalPayment", "TotalBalance", "TreatmentCost"]
-      },
-      {
-        "GrpTitle": "Treatment Cost",
-        "Fields": ["TreatmentCost"]
-      }
-    ],
-    "Tab6": ["TreatmentPlan"],
     "Tab7": [
       {
         "GrpTitle": "Dental Profile",
@@ -282,18 +286,7 @@
         "Fields": ["DentalCharting"]
       }
     ],
-    "Tab8": [
-      {
-        "GrpTitle": "Appointments",
-        "Fields": ["Appointments"]
-      },
-      {
-        "GrpTitle": "Visits",
-        "Fields": ["Visits"]
-      }
-    ],
-    "Tab9": ["Radiology"],
-    "Tab10": ["DentalImages"],
+
     "Tab11": [
       {
         "GrpTitle": "Clinical Notes",
@@ -305,7 +298,8 @@
       }
     ],
     "Tab12": ["HealthEvaluation"],
-    "Tab13": ["Pathology"]
+    "Tab13": ["Pathology"],
+    "Tab14": ["PatientStatusLog"]
   },
   "ControlDisplay": {},
   "FieldDef": [
