@@ -71,14 +71,70 @@
       "value": "Tab1",
       "name": "KeyData",
       "fioriicon": "flag",
-      "type": "FieldGroup",
+      "type": "Field",
       "download": "Yes"
     },
     {
       "value": "Tab2",
-      "name": "Communication",
+      "name": "Payment",
       "fioriicon": "batch-payments",
-      "type": "FieldGroup",
+      "type": "Field",
+      "download": "Yes"
+    },
+    {
+      "value": "Tab11",
+      "name": "TreatmentPlan",
+      "fioriicon": "legend",
+      "type": "Field",
+      "download": "Yes"
+    },
+    {
+      "value": "Tab4",
+      "name": "DentalProfile",
+      "fioriicon": "business-card",
+      "type": "Field",
+      "download": "Yes"
+    },
+    {
+      "value": "Tab5",
+      "name": "Appointments",
+      "fioriicon": "appointment",
+      "type": "Field",
+      "download": "Yes"
+    },
+    {
+      "value": "Tab6",
+      "name": "Radiology",
+      "fioriicon": "x-ray",
+      "type": "carouselImage",
+      "download": "Yes"
+    },
+    {
+      "value": "Tab7",
+      "name": "DentalImages",
+      "fioriicon": "camera",
+      "type": "Field",
+      "download": "Yes"
+    },
+    {
+      "value": "Tab8",
+      "name": "AdminNotes",
+      "fioriicon": "notes",
+      "type": "Field",
+      "download": "Yes"
+    },
+    {
+      "value": "Tab9",
+      "name": "ClinicalNotes",
+      "fioriicon": "microphone",
+      "type": "Field",
+      "download": "Yes"
+    },
+    {
+      "value": "Tab10",
+      "name": "HealthEvaluation",
+      "fioriicon": "e-care",
+      "type": "Field",
       "download": "Yes"
     },
     {
@@ -86,76 +142,6 @@
       "name": "ItemDetails",
       "fioriicon": "Item Details",
       "type": "Items",
-      "download": "Yes"
-    },
-    {
-      "value": "Tab3",
-      "name": "Referrals and GP",
-      "fioriicon": "doctor",
-      "type": "FieldGroup",
-      "download": "Yes"
-    },
-    {
-      "value": "Tab5",
-      "name": "Payment",
-      "fioriicon": "batch-payments",
-      "type": "FieldGroup",
-      "download": "Yes"
-    },
-    {
-      "value": "Tab6",
-      "name": "TreatmentPlan",
-      "fioriicon": "legend",
-      "type": "Field",
-      "download": "Yes"
-    },
-    {
-      "value": "Tab7",
-      "name": "DentalProfile",
-      "fioriicon": "business-card",
-      "type": "FieldGroup",
-      "download": "Yes"
-    },
-    {
-      "value": "Tab8",
-      "name": "Appointments",
-      "fioriicon": "appointment",
-      "type": "FieldGroup",
-      "download": "Yes"
-    },
-    {
-      "value": "Tab9",
-      "name": "Radiology",
-      "fioriicon": "x-ray",
-      "type": "carouselImage",
-      "download": "Yes"
-    },
-    {
-      "value": "Tab10",
-      "name": "DentalImages",
-      "fioriicon": "camera",
-      "type": "carouselImage",
-      "download": "Yes"
-    },
-    {
-      "value": "Tab11",
-      "name": "Notes",
-      "fioriicon": "notes",
-      "type": "FieldGroup",
-      "download": "Yes"
-    },
-    {
-      "value": "Tab12",
-      "name": "HealthEvaluation",
-      "fioriicon": "e-care",
-      "type": "Field",
-      "download": "Yes"
-    },
-    {
-      "value": "Tab13",
-      "name": "Radiology",
-      "fioriicon": "x-ray",
-      "type": "carouselImage",
       "download": "Yes"
     }
   ],
@@ -174,131 +160,37 @@
       "Status"
     ],
     "Tab1": [
-      {
-        "GrpTitle": "Personal Details",
-        "Fields": [
-          "Gender",
-          "DOB",
-          "MaritalStatus",
-          "SpouseName",
-          "Height",
-          "Weight"
-        ]
-      },
-      {
-        "GrpTitle": "Other Details",
-        "Fields": ["School", "Occupation", "PatientCompany"]
-      },
-      {
-        "GrpTitle": "Patient Status Log",
-        "Fields": ["PatientStatusLog"]
-      }
+      "Gender",
+      "Email",
+      "ContactNo",
+      "DOB",
+      "HouseNumber",
+      "PostCode",
+      "Address",
+      "PatientStatusLog",
+      "EmergencyContact",
+      "GPDetails",
+      "DentistDetails",
+      "ReferalDetails",
+      "PersonalDetails",
+      "OtherDetails",
+      "CommunicationSetting"
     ],
     "Tab2": [
-      {
-        "GrpTitle": "Address Details",
-        "Fields": ["Address", "HouseNumber", "PostCode"]
-      },
-      {
-        "GrpTitle": "Patient Contact Details",
-        "Fields": ["Email", "ContactNo"]
-      },
-      {
-        "GrpTitle": "Emergency Contact Details",
-        "Fields": ["EmergencyContactName", "EmergencyContactNo"]
-      },
-      {
-        "GrpTitle": "Communication Settings",
-        "Fields": [
-          "SMSUpdates",
-          "EmailUpdates",
-          "WhatsApp",
-          "Skype",
-          "Notification",
-          "LetterTo"
-        ]
-      }
+      "TotalCost",
+      "TotalPayment",
+      "TotalBalance",
+      "TreatmentCost",
+      "PaymentDetails",
+      "Pathology"
     ],
-    "Tab4": [
-      {
-        "GrpTitle": "Referal Details",
-        "Fields": [
-          "ReferralDoctor",
-          "ReferralDate",
-          "ReferralSource",
-          "HospSurgeryName"
-        ]
-      },
-      {
-        "GrpTitle": "Dentist Details",
-        "Fields": [
-          "DentalGPName",
-          "DentalSurgeryName",
-          "DentalSurgeryAddress",
-          "DentalSurgeryPhone",
-          "DentalSurgeryEmail"
-        ]
-      },
-      {
-        "GrpTitle": "GP Details",
-        "Fields": [
-          "GPName",
-          "SurgeryName",
-          "SurgeryAddress",
-          "SurgeryPhone",
-          "SurgeryEmail"
-        ]
-      }
-    ],
-    "Tab5": [
-      {
-        "GrpTitle": "Payment Method",
-        "Fields": ["PaymentBy", "InsuranceCompany", "PaymentMethod"]
-      },
-      {
-        "GrpTitle": "Total Payment Summary",
-        "Fields": ["TotalCost", "TotalPayment", "TotalBalance", "TreatmentCost"]
-      },
-      {
-        "GrpTitle": "Treatment Cost",
-        "Fields": ["TreatmentCost"]
-      }
-    ],
-    "Tab6": ["TreatmentPlan"],
-    "Tab7": [
-      {
-        "GrpTitle": "Dental Profile",
-        "Fields": ["DentalProfile"]
-      },
-      {
-        "GrpTitle": "Dental Charting",
-        "Fields": ["DentalCharting"]
-      }
-    ],
-    "Tab8": [
-      {
-        "GrpTitle": "Appointments",
-        "Fields": ["Appointments"]
-      },
-      {
-        "GrpTitle": "Visits",
-        "Fields": ["Visits"]
-      }
-    ],
-    "Tab9": ["Radiology"],
-    "Tab10": ["DentalImages"],
-    "Tab11": [
-      {
-        "GrpTitle": "Clinical Notes",
-        "Fields": ["ClinicalNotes"]
-      },
-      {
-        "GrpTitle": "Admin Notes",
-        "Fields": ["AdminNotes"]
-      }
-    ],
-    "Tab12": ["HealthEvaluation"],
-    "Tab13": ["Pathology"]
+    "Tab3": ["TreatmentPlan"],
+    "Tab4": ["DentalProfile", "DentalCharting"],
+    "Tab5": ["Appointments", "Visits"],
+    "Tab6": ["Radiology"],
+    "Tab7": ["DentalImages"],
+    "Tab8": ["AdminNotes"],
+    "Tab9": ["ClinicalNotes"]
   },
   "ControlDisplay": {},
   "FieldDef": [
