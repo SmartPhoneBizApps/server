@@ -391,9 +391,9 @@
         { "name": "BookingFor", "Sequence": "1", "Mode": "Display" },
         { "name": "CarPark", "Sequence": "1", "Mode": "Edit" },
         { "name": "StartDate", "Sequence": "1", "Mode": "Edit" },
-        { "name": "StartTime", "Sequence": "1", "Mode": "Edit" },
+
         { "name": "EndDate", "Sequence": "1", "Mode": "Edit" },
-        { "name": "EndTime", "Sequence": "1", "Mode": "Edit" },
+
         { "name": "MeetingDate", "Sequence": "1", "Mode": "Edit" },
         { "name": "Slot", "Sequence": "1", "Mode": "Edit" },
         { "name": "NoOfPeople", "Sequence": "1", "Mode": "Edit" },
@@ -403,7 +403,7 @@
         { "name": "HotDeskNo", "Sequence": "1", "Mode": "Edit" },
         { "name": "Building", "Sequence": "1", "Mode": "Edit" },
         { "name": "ParkingRequired", "Sequence": "1", "Mode": "Edit" },
-        { "name": "Comments", "Sequence": "1", "Mode": "Edit" },
+
         { "name": "VisitorName", "Sequence": "1", "Mode": "Edit" },
         { "name": "VisitorEmail", "Sequence": "1", "Mode": "Edit" },
         { "name": "VisitorPhone", "Sequence": "1", "Mode": "Edit" },
@@ -428,10 +428,14 @@
     },
     {
       "id": "Step3",
-      "fields": [],
-      "name": "Your Address",
+      "fields": [
+        { "name": "StartTime", "Sequence": "1", "Mode": "Edit" },
+        { "name": "EndTime", "Sequence": "1", "Mode": "Edit" },
+        { "name": "Comments", "Sequence": "1", "Mode": "Edit" }
+      ],
+      "name": "Additional Details",
       "stepType": "FieldList",
-      "intro": "Booking : Your Address"
+      "intro": "Booking : Additional Details"
     },
     {
       "id": "Step4",
