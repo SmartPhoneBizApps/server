@@ -157,6 +157,13 @@
       "fioriicon": "sonography",
       "type": "MultiAttachments",
       "download": "Yes"
+    },
+    {
+      "value": "Tab14",
+      "name": "PatientLog",
+      "fioriicon": "sonography",
+      "type": "Field",
+      "download": "Yes"
     }
   ],
   "DetailFields": {
@@ -1214,6 +1221,153 @@
       { "name": "PaidBy", "Tab": "Tab3", "Sequence": "1", "Mode": "Edit" }
     ]
   },
+  "itemAdditional": ["PatientStatusLog", "TreatmentPlan"],
+  "itemAdditionalConfig": {
+    "PatientStatusLog": {
+      "ItemFieldDefinition": [
+        {
+          "name": "ItemNumber",
+          "type": "string",
+          "width": "10",
+          "SLabel": "Item Number",
+          "Option": "Optional"
+        },
+        {
+          "name": "ID",
+          "type": "string",
+          "width": "20",
+          "SLabel": "Identification",
+          "Option": "Optional"
+        },
+        {
+          "name": "PatientStatus",
+          "type": "string",
+          "width": "10",
+          "SLabel": "Patient Status",
+          "Option": "Optional"
+        },
+        {
+          "name": "StatusDate",
+          "type": "Date",
+          "width": "20",
+          "SLabel": "StatusDate",
+          "Option": "Optional"
+        }
+      ],
+      "DisplayFields": ["ID", "PatientStatus", "StatusDate"],
+      "ItemButtons": {
+        "itemDisplay": true,
+        "itemAdd": false,
+        "itemEdit": false,
+        "itemDelete": false
+      },
+      "CreateFields": ["ID", "PatientStatus", "StatusDate"],
+      "ItemDetails": [
+        {
+          "name": "ItemNumber",
+          "Tab": "Tab14",
+          "Sequence": "1",
+          "Mode": "Edit"
+        },
+        {
+          "name": "ID",
+          "Tab": "Tab14",
+          "Sequence": "1",
+          "Mode": "Edit"
+        },
+        {
+          "name": "PatientStatus",
+          "Tab": "Tab14",
+          "Sequence": "1",
+          "Mode": "Edit"
+        },
+        {
+          "name": "StatusDate",
+          "Tab": "Tab14",
+          "Sequence": "1",
+          "Mode": "Edit"
+        }
+      ]
+    },
+    "TreatmentPlan": {
+      "ItemFieldDefinition": [
+        {
+          "name": "ItemNumber",
+          "type": "string",
+          "width": "10",
+          "SLabel": "Item Number",
+          "Option": "Optional"
+        },
+        {
+          "name": "ID",
+          "type": "string",
+          "width": "20",
+          "SLabel": "Identification",
+          "Option": "Optional"
+        },
+        {
+          "name": "EventID",
+          "type": "string",
+          "width": "10",
+          "SLabel": "Event ID",
+          "Option": "Optional"
+        },
+        {
+          "name": "Task",
+          "type": "string",
+          "width": "20",
+          "SLabel": "Task",
+          "Option": "Optional"
+        },
+        {
+          "name": "ExpectedDate",
+          "type": "Date",
+          "width": "10",
+          "SLabel": "Expected Date",
+          "Option": "Optional"
+        },
+        {
+          "name": "TPStatus",
+          "type": "string",
+          "width": "20",
+          "SLabel": "TP Status",
+          "Option": "Optional"
+        }
+      ],
+      "DisplayFields": ["ID", "EventID", "Task", "ExpectedDate", "TPStatus"],
+      "ItemButtons": {
+        "itemDisplay": true,
+        "itemAdd": true,
+        "itemEdit": true,
+        "itemDelete": true
+      },
+      "CreateFields": ["ID", "EventID", "Task", "ExpectedDate", "TPStatus"],
+      "ItemDetails": [
+        {
+          "name": "ItemNumber",
+          "Tab": "Tab6",
+          "Sequence": "1",
+          "Mode": "Edit"
+        },
+        {
+          "name": "ID",
+          "Tab": "Tab6",
+          "Sequence": "1",
+          "Mode": "Edit"
+        },
+        { "name": "EventID", "Tab": "Tab6", "Sequence": "1", "Mode": "Edit" },
+        { "name": "Task", "Tab": "Tab6", "Sequence": "1", "Mode": "Edit" },
+        {
+          "name": "ExpectedDate",
+          "Tab": "Tab6",
+          "Sequence": "1",
+          "Mode": "Edit"
+        },
+        { "name": "TPStatus", "Tab": "Tab6", "Sequence": "1", "Mode": "Edit" }
+      ]
+    }
+  },
+
   "CalculatedFields": {
     "Item": [
       {
