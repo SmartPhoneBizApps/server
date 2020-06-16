@@ -70,7 +70,7 @@
     {
       "value": "Tab1",
       "name": "Employee Details",
-      "type": "Field",
+      "type": "FieldGroup",
       "fioriicon": "notes"
     },
     {
@@ -91,15 +91,16 @@
     "headerTitle": ["USP_Name"],
     "headerRole": ["USP_Role"],
     "headerImage": ["USP_Image"],
-    "None": ["ID", "Status"],
+    "None": ["ID", "Status", "DateRequested"],
     "Tab1": [
-      "EmployeeID",
-      "Name",
-      "DateRequested",
-      "Area",
-      "Detail",
-      "Duration",
-      "External"
+      {
+        "GrpTitle": "Employee Details",
+        "Fields": ["EmployeeID", "Name"]
+      },
+      {
+        "GrpTitle": "Training Details",
+        "Fields": ["Area", "Detail", "Duration", "External"]
+      }
     ],
     "Tab2": ["ProjectNeed", "Cost", "CostCentre"],
     "Tab3": ["ProcessingLog"]

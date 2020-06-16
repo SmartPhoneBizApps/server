@@ -67,7 +67,7 @@
     {
       "value": "Tab1",
       "name": "Booking",
-      "type": "Field",
+      "type": "FieldGroup",
       "fioriicon": "hint",
       "download": "Yes"
     },
@@ -85,28 +85,50 @@
     "headerImage": ["USP_Image"],
     "None": ["ID", "Status", "BookingFor"],
     "Tab1": [
-      "MeetingDate",
-      "NoOfPeople",
-      "Slot",
-      "RoomLayout",
-      "LunchRequired",
-      "DietaryRequirement",
-      "VisitorName",
-      "VisitorCompany",
-      "VisitorPhone",
-      "VisitorEmail",
-      "ParkingRequired",
-      "HotDeskNo",
-      "Building",
-      "HotDeskNo",
-      "Building",
-      "StartDate",
-      "StartTime",
-      "EndDate",
-      "EndTime",
-      "CarRegistration",
-      "CarPark",
-      "Comments"
+      {
+        "GrpTitle": "Meeting Room Details",
+        "Fields": [
+          "MeetingDate",
+          "NoOfPeople",
+          "Slot",
+          "RoomLayout",
+          "LunchRequired",
+          "DietaryRequirement"
+        ]
+      },
+      {
+        "GrpTitle": "Visitor Details",
+        "Fields": [
+          "VisitorName",
+          "VisitorCompany",
+          "VisitorPhone",
+          "VisitorEmail",
+          "ParkingRequired"
+        ]
+      },
+      {
+        "GrpTitle": "Hot Desk Details",
+        "Fields": ["HotDeskNo", "Building"]
+      },
+      {
+        "GrpTitle": "Hot Desk Details",
+        "Fields": ["HotDeskNo", "Building"]
+      },
+      {
+        "GrpTitle": "Car Park Details",
+        "Fields": [
+          "StartDate",
+          "StartTime",
+          "EndDate",
+          "EndTime",
+          "CarRegistration",
+          "CarPark"
+        ]
+      },
+      {
+        "GrpTitle": "Additional Details",
+        "Fields": ["Comments"]
+      }
     ],
     "Tab2": ["FirstName", "LastName", "ContactNo", "Email"]
   },

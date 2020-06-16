@@ -96,6 +96,13 @@
       "fioriicon": "step",
       "type": "Chat",
       "download": "No"
+    },
+    {
+      "value": "Tab7",
+      "name": "Attachment",
+      "fioriicon": "attachment",
+      "type": "MultiAttachments",
+      "download": "No"
     }
   ],
   "DetailFields": {
@@ -108,7 +115,8 @@
     "Tab3": ["Address", "PostCode"],
     "Tab4": ["ContactNo", "Email"],
     "Tab5": ["CostCentre", "Approver", "Comment"],
-    "Tab6": ["ProcessingLog"]
+    "Tab6": ["ProcessingLog"],
+    "Tab7": ["MultiAttachments"]
   },
   "ControlDisplay": {},
   "FieldDef": [
@@ -263,6 +271,15 @@
       "Option": "Optional",
       "SLabel": "Processing Log",
       "LLabel": "Processing Log"
+    },
+    {
+      "name": "MultiAttachments",
+      "type": "attachment",
+      "width": "100",
+      "Option": "Optional",
+      "SLabel": "Attachment",
+      "LLabel": "Attachment",
+      "Currency": "No"
     }
   ],
   "itemData": "No",

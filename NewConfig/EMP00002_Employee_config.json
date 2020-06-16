@@ -93,6 +93,13 @@
       "fioriicon": "customer-view",
       "type": "Field",
       "download": "Yes"
+    },
+    {
+      "value": "Tab5",
+      "name": "Attachment",
+      "fioriicon": "attachment",
+      "type": "MultiAttachments",
+      "download": "No"
     }
   ],
   "DetailFields": {
@@ -116,7 +123,8 @@
       "CostCentre",
       "Approver",
       "Currency"
-    ]
+    ],
+    "Tab5": ["MultiAttachments"]
   },
   "ControlDisplay": {},
   "FieldDef": [
@@ -306,6 +314,15 @@
       "Option": "Optional",
       "SLabel": "Stay Details",
       "LLabel": "Stay Details"
+    },
+    {
+      "name": "MultiAttachments",
+      "type": "attachment",
+      "width": "100",
+      "Option": "Optional",
+      "SLabel": "Attachment",
+      "LLabel": "Attachment",
+      "Currency": "No"
     }
   ],
   "itemData": "No",
