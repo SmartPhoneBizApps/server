@@ -241,7 +241,6 @@ module.exports = {
   },
   getButtonData: function (results, app, role1) {
     buttonData = {};
-    // buttonVal = {};
     if (app == "SUPP00028" || app == "SUPP00018") {
       results.forEach((element) => {
         if (element.PossibleValues == "CurrentStatus") {
@@ -256,7 +255,6 @@ module.exports = {
             }
           }
         }
-        //      l1 = {};
       });
     } else {
       results.forEach((element) => {

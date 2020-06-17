@@ -62,16 +62,6 @@ exports.updateApp = asyncHandler(async (req, res, next) => {
     );
   }
 
-  /*  // Make sure user is app owner
-  if (req.user.role !== "SuperAdmin") {
-    return next(
-      new ErrorResponse(
-        `User ${req.params.id} is not authorized to update this app`,
-        401
-      )
-    );
-  } */
-
   app = await App.findOneAndUpdate(req.params.id, req.body, {
     new: true,
     runValidators: true,

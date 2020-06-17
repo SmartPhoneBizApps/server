@@ -1060,6 +1060,14 @@
       "Option": "Optional",
       "SLabel": "radiographicRep",
       "LLabel": "radiographicRep"
+    },
+    {
+      "name": "Agree",
+      "type": "String",
+      "width": "100",
+      "Option": "Optional",
+      "SLabel": "Terms",
+      "LLabel": "Terms"
     }
   ],
   "itemData": "Yes",
@@ -1412,7 +1420,9 @@
         { "name": "LastName", "Sequence": "1", "Mode": "Edit" },
         { "name": "Gender", "Sequence": "1", "Mode": "Edit" },
         { "name": "NHSNumber", "Sequence": "1", "Mode": "Edit" },
-        { "name": "ProfileImage", "Sequence": "1", "Mode": "Edit" }
+        { "name": "DOB", "Sequence": "1", "Mode": "Edit" },
+        { "name": "Group", "Sequence": "1", "Mode": "Edit" },
+        { "name": "PatientType", "Sequence": "1", "Mode": "Edit" }
       ],
       "name": "Basic Information",
       "stepType": "FieldList",
@@ -1434,14 +1444,63 @@
     {
       "id": "Step3",
       "fields": [
-        { "name": "Group", "Sequence": "1", "Mode": "Edit" },
-        { "name": "PatientType", "Sequence": "1", "Mode": "Edit" },
-        { "name": "Status", "Sequence": "1", "Mode": "Edit" },
-        { "name": "PatientStatus", "Sequence": "1", "Mode": "Edit" }
+        { "name": "PatientStatus", "Sequence": "1", "Mode": "Edit" },
+        { "name": "MaritalStatus", "Sequence": "1", "Mode": "Edit" },
+        { "name": "SpouseName", "Sequence": "1", "Mode": "Edit" },
+        { "name": "Height", "Sequence": "1", "Mode": "Edit" },
+        { "name": "Weight", "Sequence": "1", "Mode": "Edit" }
       ],
       "name": "Status Info",
       "stepType": "FieldList",
-      "intro": "Please provide Status information"
+      "intro": "Please provide Personal Details"
+    },
+    {
+      "id": "Step4",
+      "fields": [
+        { "name": "GPName", "Sequence": "1", "Mode": "Edit" },
+        { "name": "SurgeryName", "Sequence": "1", "Mode": "Edit" },
+        { "name": "SurgeryAddress", "Sequence": "1", "Mode": "Edit" },
+        { "name": "SurgeryPhone", "Sequence": "1", "Mode": "Edit" },
+        { "name": "SurgeryEmail", "Sequence": "1", "Mode": "Edit" }
+      ],
+      "name": "GP Details",
+      "stepType": "FieldList",
+      "intro": "Please provide information about your current GP"
+    },
+    {
+      "id": "Step5",
+      "fields": [
+        { "name": "DentalGPName", "Sequence": "1", "Mode": "Edit" },
+        { "name": "DentalSurgeryName", "Sequence": "1", "Mode": "Edit" },
+        { "name": "DentalSurgeryAddress", "Sequence": "1", "Mode": "Edit" },
+        { "name": "DentalSurgeryPhone", "Sequence": "1", "Mode": "Edit" },
+        { "name": "DentalSurgeryEmail", "Sequence": "1", "Mode": "Edit" }
+      ],
+      "name": "GP Details",
+      "stepType": "FieldList",
+      "intro": "Please provide information about your current GP"
+    },
+    {
+      "id": "Step6",
+      "fields": [
+        { "name": "Occupation", "Sequence": "1", "Mode": "Edit" },
+        { "name": "PatientCompany", "Sequence": "1", "Mode": "Edit" },
+        { "name": "School", "Sequence": "1", "Mode": "Edit" },
+        { "name": "Status", "Sequence": "1", "Mode": "Edit" }
+      ],
+      "name": "Occupation / School",
+      "stepType": "FieldList",
+      "intro": "Please provide information about your Occupation or School"
+    },
+    {
+      "id": "Step6",
+      "fields": [
+        { "name": "PrivacyPolicy", "Sequence": "1", "Mode": "Edit" },
+        { "name": "Agree", "Sequence": "1", "Mode": "Edit" }
+      ],
+      "name": "Terms",
+      "stepType": "FieldList",
+      "intro": "You agree that Smartphone Biz Apps may collect, use your personal data which you have provided in this form, for providing marketing material and further communication that you have agreed to receive, in accordance with our privacy policy- http://smartphonebizapps.com/privacy-policy/"
     }
   ]
 }
