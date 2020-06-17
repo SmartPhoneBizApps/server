@@ -24,8 +24,7 @@
     "Status",
     "Group",
     "PatientType",
-    "PatientStatus",
-    "ItemStatus"
+    "PatientStatus"
   ],
   "MButtons": [
     {
@@ -1062,8 +1061,16 @@
       "LLabel": "radiographicRep"
     },
     {
+      "name": "PrivacyPolicy",
+      "type": "hyperlink",
+      "width": "100",
+      "Option": "Optional",
+      "SLabel": "Privacy Policy",
+      "LLabel": "Privacy Policy"
+    },
+    {
       "name": "Agree",
-      "type": "String",
+      "type": "radiobutton",
       "width": "100",
       "Option": "Optional",
       "SLabel": "Terms",
