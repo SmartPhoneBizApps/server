@@ -279,7 +279,7 @@
     },
     {
       "name": "PensionPlan",
-      "type": "string",
+      "type": "switch",
       "width": "50",
       "Option": "Optional",
       "SLabel": "Pension Plan",
@@ -295,7 +295,7 @@
     },
     {
       "name": "LifeAssurance",
-      "type": "string",
+      "type": "switch",
       "width": "50",
       "Option": "Optional",
       "SLabel": "Life Assurance",
@@ -311,7 +311,7 @@
     },
     {
       "name": "CompanyCar",
-      "type": "string",
+      "type": "switch",
       "width": "50",
       "Option": "Optional",
       "SLabel": "Company Car",
@@ -322,7 +322,7 @@
       "type": "string",
       "width": "50",
       "Option": "Optional",
-      "SLabel": "Other Allowance",
+      "SLabel": "Other Allowance ",
       "LLabel": ""
     },
     {
@@ -335,7 +335,7 @@
     },
     {
       "name": "ConsiderReLocation",
-      "type": "string",
+      "type": "switch",
       "width": "100",
       "Option": "Optional",
       "SLabel": "Consider ReLocation",
@@ -351,7 +351,7 @@
     },
     {
       "name": "UKResident",
-      "type": "string",
+      "type": "switch",
       "width": "50",
       "Option": "Optional",
       "SLabel": "UK Resident",
@@ -359,7 +359,7 @@
     },
     {
       "name": "Eligibility",
-      "type": "string",
+      "type": "switch",
       "width": "50",
       "Option": "Optional",
       "SLabel": "Eligibility",
@@ -478,9 +478,25 @@
       "LLabel": "Status"
     },
     {
+      "name": "Screening_Status",
+      "type": "string",
+      "width": "100",
+      "Option": "Optional",
+      "SLabel": "Screening Status",
+      "LLabel": ""
+    },
+    {
+      "name": "Tech_Status",
+      "type": "string",
+      "width": "100",
+      "Option": "Optional",
+      "SLabel": "Technical Status",
+      "LLabel": ""
+    },
+    {
       "name": "Lead_Status",
       "type": "string",
-      "width": "50",
+      "width": "100",
       "Option": "Optional",
       "SLabel": "Lead Status",
       "LLabel": ""
@@ -488,17 +504,9 @@
     {
       "name": "HR_Status",
       "type": "string",
-      "width": "50",
+      "width": "100",
       "Option": "Optional",
       "SLabel": "HR Status",
-      "LLabel": ""
-    },
-    {
-      "name": "Tech_Status",
-      "type": "string",
-      "width": "50",
-      "Option": "Optional",
-      "SLabel": "Technical Status",
       "LLabel": ""
     },
     {
@@ -507,14 +515,6 @@
       "width": "200",
       "Option": "Optional",
       "SLabel": "Work Permit Visa",
-      "LLabel": ""
-    },
-    {
-      "name": "Screening_Status",
-      "type": "string",
-      "width": "100",
-      "Option": "Optional",
-      "SLabel": "Screening Status",
       "LLabel": ""
     },
     {
@@ -538,7 +538,7 @@
       "type": "Date",
       "width": "10",
       "Option": "Optional",
-      "SLabel": "Tech Interview Date",
+      "SLabel": "Technical Interview Date",
       "LLabel": ""
     },
     {
