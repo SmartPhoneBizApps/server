@@ -316,6 +316,21 @@ module.exports = {
   },
 
   itemValidate: function (itmData, newitemData) {
+    let kys = [];
+    let out1 = {};
+    for (let i = 0; i < newitemData.length; i++) {
+      kys.push(newitemData[i]["ItemNumber"]);
+    }
+
+    for (let x = 0; x < itmData.length; x++) {
+      out1 = {};
+      if (!(itmData[x]["ItemNumber"] in kys)) {
+        out1 = { ...itmData[x] };
+        newitemData.push(out1);
+        //       set1.add(out1);
+      }
+    }
+
     let itms = [];
     ItemFields = {};
     for (let db2 = 0; db2 < newitemData.length; db2++) {

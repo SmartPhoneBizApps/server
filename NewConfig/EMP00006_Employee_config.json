@@ -274,7 +274,11 @@
     },
     {
       "id": "Step2",
-      "fields": [{ "name": "Name", "Sequence": "1", "Mode": "Edit" }],
+      "fields": [
+        { "name": "EmployeeID", "Sequence": "1", "Mode": "Display" },
+        { "name": "Name", "Sequence": "1", "Mode": "Edit" }
+      ],
+
       "name": "Employee Details",
       "stepType": "FieldList",
       "intro": "Training Request : Employee Details"

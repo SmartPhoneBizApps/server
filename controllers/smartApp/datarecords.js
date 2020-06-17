@@ -495,9 +495,13 @@ exports.updateDataRecords = asyncHandler(async (req, res, next) => {
   //---------------------------
   // Item update logic....
   //---------------------------
+  console.log("Before - Req:", req.body["ItemData"]);
+  console.log("Before:", myData["ItemData"]);
   if (req.body["ItemData"]) {
     myData["ItemData"] = itemValidate(req.body["ItemData"], myData["ItemData"]);
   }
+  console.log("After - Req:", req.body["ItemData"]);
+  console.log("After:", myData["ItemData"]);
   //---------------------------
   // Attachment logic....
   //---------------------------
@@ -530,6 +534,7 @@ exports.updateDataRecords = asyncHandler(async (req, res, next) => {
   nTrans.push(req.body.TransLog);
   req.body.TransLog = nTrans;
   req.body["ItemData"] = myData["ItemData"];
+
   //---------------------------
   // Perform Calculations ....
   //---------------------------
