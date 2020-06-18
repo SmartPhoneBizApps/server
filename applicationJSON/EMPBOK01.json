@@ -103,7 +103,6 @@
   },
   "StartDate": {
     "type": "Date",
-    "required": [true, "Please add Mandatory field :StartDate"],
     "maxlength": [10, "StartDate can not be more than 10 characters"],
     "match": [
       "DATE_V1",
@@ -120,7 +119,6 @@
   },
   "EndDate": {
     "type": "Date",
-    "required": [true, "Please add Mandatory field :EndDate"],
     "maxlength": [10, "EndDate can not be more than 10 characters"],
     "match": [
       "DATE_V1",
