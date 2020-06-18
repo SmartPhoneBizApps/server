@@ -9,11 +9,11 @@
     "TitleField": "BookingFor",
     "sStatus": "ID",
     "fStatus": "Status",
-    "LFields": ["LastName", "FirstName"]
+    "LFields": ["Name"]
   },
   "ListBOTFields": {
     "None": ["cardImage", "StatusState"],
-    "Title": ["LastName", "FirstName"],
+    "Title": ["Name"],
     "SubTitle": ["Status", "BookingFor"],
     "Description": ["ID", "Email"]
   },
@@ -108,7 +108,7 @@
       "CarPark",
       "Comments"
     ],
-    "Tab2": ["FirstName", "LastName", "ContactNo", "Email"]
+    "Tab2": ["Name", "ContactNo", "Email"]
   },
   "ControlDisplay": {
     "ControlField": "BookingFor",
@@ -117,8 +117,7 @@
         {
           "ALL": [
             "ID",
-            "FirstName",
-            "LastName",
+            "Name",
             "ContactNo",
             "Status",
             "Email",
@@ -192,19 +191,11 @@
       "LLabel": ""
     },
     {
-      "name": "FirstName",
+      "name": "Name",
       "type": "string",
-      "width": "50",
+      "width": "100",
       "Option": "Optional",
-      "SLabel": "First Name",
-      "LLabel": ""
-    },
-    {
-      "name": "LastName",
-      "type": "string",
-      "width": "10",
-      "Option": "Optional",
-      "SLabel": "Last Name",
+      "SLabel": "Name",
       "LLabel": ""
     },
     {
@@ -417,8 +408,7 @@
     {
       "id": "Step2",
       "fields": [
-        { "name": "FirstName", "Sequence": "1", "Mode": "Edit" },
-        { "name": "LastName", "Sequence": "1", "Mode": "Edit" },
+        { "name": "Name", "Sequence": "1", "Mode": "Edit" },
         { "name": "ContactNo", "Sequence": "1", "Mode": "Edit" },
         { "name": "Email", "Sequence": "1", "Mode": "Edit" }
       ],

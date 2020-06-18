@@ -5,17 +5,11 @@
     "required": [true, "Please add Mandatory field :ID"],
     "maxlength": [20, "ID can not be more than 20 characters"]
   },
-  "FirstName": {
+  "Name": {
     "type": "String",
     "required": [true, "Please add Mandatory field :FirstName"],
-    "maxlength": [50, "FirstName can not be more than 50 characters"]
+    "maxlength": [100, "Name can not be more than 50 characters"]
   },
-  "LastName": {
-    "type": "String",
-    "required": [true, "Please add Mandatory field :LastName"],
-    "maxlength": [50, "LastName can not be more than 50 characters"]
-  },
-
   "ContactNo": {
     "type": "String",
     "maxlength": [50, "ContactNo can not be more than 50 characters"],
@@ -24,12 +18,7 @@
       "Please provide valid UK Phone number in field :ContactNo"
     ]
   },
-  "Email": {
-    "type": "String",
-    "required": [true, "Please add Mandatory field :Email"],
-    "maxlength": [100, "Email can not be more than 100 characters"],
-    "match": ["EMAIL_V1", "Invalid Email for field :Email"]
-  },
+
   "CarRegistration": {
     "type": "String",
     "maxlength": [50, "CarRegistration can not be more than 50 characters"],

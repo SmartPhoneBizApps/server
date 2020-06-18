@@ -169,8 +169,6 @@
             "Name",
             "ContactNo",
             "DateOfRequest",
-            "StartDate",
-            "EndDate",
             "Reason",
             "RequestType",
             "Status",
@@ -181,7 +179,7 @@
             "Email"
           ]
         },
-        { "AccessCard": ["AccessCardNo"] },
+        { "AccessCard": ["AccessCardNo", "StartDate", "EndDate"] },
         { "ApplicationLogin": ["Application"] },
         { "HardwareUpgrade": ["Hardware"] },
         {
@@ -400,7 +398,7 @@
     },
     {
       "name": "KeyBoard",
-      "type": "string",
+      "type": "switch",
       "width": "100",
       "Option": "Optional",
       "SLabel": "KeyBoard",
@@ -571,7 +569,7 @@
         { "name": "Application", "Sequence": "1", "Mode": "Edit" },
         { "name": "CostCentre", "Sequence": "1", "Mode": "Edit" },
         { "name": "HardDrive", "Sequence": "1", "Mode": "Edit" },
-        { "name": "KeyBoard", "Sequence": "1", "Mode": "Edit" },
+
         { "name": "Environment", "Sequence": "1", "Mode": "Edit" },
         { "name": "Software", "Sequence": "1", "Mode": "Edit" },
         { "name": "AssetID", "Sequence": "1", "Mode": "Edit" },
@@ -593,7 +591,8 @@
         { "name": "System", "Sequence": "1", "Mode": "Edit" },
         { "name": "CloneUser", "Sequence": "1", "Mode": "Edit" },
         { "name": "RolesRequired", "Sequence": "1", "Mode": "Edit" },
-        { "name": "TransactionsRequired", "Sequence": "1", "Mode": "Edit" }
+        { "name": "TransactionsRequired", "Sequence": "1", "Mode": "Edit" },
+        { "name": "KeyBoard", "Sequence": "1", "Mode": "Edit" }
       ],
       "name": "Key Details2",
       "stepType": "FieldList",

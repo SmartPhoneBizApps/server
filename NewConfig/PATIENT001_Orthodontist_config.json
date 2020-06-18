@@ -108,7 +108,7 @@
       "value": "Tab6",
       "name": "TreatmentPlan",
       "fioriicon": "legend",
-      "type": "Field",
+      "type": "Table",
       "download": "Yes"
     },
     {
@@ -164,7 +164,7 @@
       "value": "Tab14",
       "name": "PatientLog",
       "fioriicon": "sonography",
-      "type": "Field",
+      "type": "Table",
       "download": "Yes"
     }
   ],
@@ -444,7 +444,7 @@
     },
     {
       "name": "PatientStatusLog",
-      "type": "string",
+      "type": "Array",
       "width": "200",
       "Option": "Optional",
       "SLabel": "Patient StatusLog",
@@ -452,7 +452,7 @@
     },
     {
       "name": "TreatmentPlan",
-      "type": "string",
+      "type": "Array",
       "width": "200",
       "Option": "Optional",
       "SLabel": "Treatment Plan",
@@ -1226,8 +1226,7 @@
       { "name": "PaidBy", "Tab": "Tab3", "Sequence": "1", "Mode": "Edit" }
     ]
   },
-  "itemAdditional": ["PatientStatusLog", "TreatmentPlan"],
-  "itemAdditionalConfig": {
+  "tableConfig": {
     "PatientStatusLog": {
       "ItemFieldDefinition": [
         {
