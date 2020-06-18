@@ -85,7 +85,7 @@
     ],
     "Tab2": ["FaultLocation", "StreetName", "NearestLandmark"],
     "Tab3": ["Attachment"],
-    "Tab4": ["Name", "ContactNo", "EmailID", "Address", "Postcode"],
+    "Tab4": ["Name", "ContactNo", "Email", "Address", "Postcode"],
     "Tab5": ["Question_Response"],
     "Tab6": ["ProcessingLog"]
   },
@@ -98,7 +98,7 @@
             "ID",
             "Name",
             "ContactNo",
-            "EmailID",
+            "Email",
             "Address",
             "Postcode",
             "FaultLocation",
@@ -148,7 +148,7 @@
       "LLabel": "Contact Number"
     },
     {
-      "name": "EmailID",
+      "name": "Email",
       "type": "Email",
       "width": "100",
       "Option": "Optional",
@@ -321,7 +321,7 @@
       "fields": [
         { "name": "Name", "Sequence": "1", "Mode": "Edit" },
         { "name": "ContactNo", "Sequence": "1", "Mode": "Edit" },
-        { "name": "EmailID", "Sequence": "1", "Mode": "Edit" },
+        { "name": "Email", "Sequence": "1", "Mode": "Edit" },
         { "name": "Postcode", "Sequence": "1", "Mode": "Edit" },
         { "name": "Address", "Sequence": "1", "Mode": "Edit" }
       ],

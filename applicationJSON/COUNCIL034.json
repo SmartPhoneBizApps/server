@@ -13,11 +13,11 @@
     "type": "String",
     "maxlength": [20, "ContactNo can not be more than 20 characters"]
   },
-  "EmailID": {
+  "Email": {
     "type": "String",
-    "required": [true, "Please add Mandatory field :EmailID"],
-    "maxlength": [100, "EmailID can not be more than 100 characters"],
-    "match": ["EMAIL_V1", "Invalid EmailID for field :EmailID"]
+    "required": [true, "Please add Mandatory field :Email"],
+    "maxlength": [100, "Email can not be more than 100 characters"],
+    "match": ["EMAIL_V1", "Invalid Email for field :Email"]
   },
   "YourAddress": {
     "type": "String",
@@ -241,7 +241,7 @@
     "type": "String",
     "required": [true, "Please add Mandatory field :BuilderEmail"],
     "maxlength": [50, "BuilderEmail can not be more than 50 characters"],
-    "match": ["EMAIL_V1", "Invalid EmailID for field :BuilderEmail"]
+    "match": ["EMAIL_V1", "Invalid Email for field :BuilderEmail"]
   },
   "NoticePeriod": {
     "type": "String",

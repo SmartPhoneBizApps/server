@@ -58,7 +58,7 @@
     "type": "String",
     "required": [true, "Please add Mandatory field :Email"],
     "maxlength": [100, "Email can not be more than 100 characters"],
-    "match": ["EMAIL_V1", "Invalid EmailID for field :Email"]
+    "match": ["EMAIL_V1", "Invalid Email for field :Email"]
   },
   "DeliveryInstr": {
     "type": "String",
@@ -121,7 +121,7 @@
   "EmployeeEmail": {
     "type": "String",
     "maxlength": [200, "EmployeeEmail can not be more than 200 characters"],
-    "match": ["EMAIL_V1", "Invalid EmailID for field :EmployeeEmail"]
+    "match": ["EMAIL_V1", "Invalid Email for field :EmployeeEmail"]
   },
   "GRStatus": {
     "type": "String",
@@ -225,7 +225,7 @@
     "type": "String",
     "required": [true, "Please add Mandatory field :VendorEmail"],
     "maxlength": [50, "VendorEmail can not be more than 50 characters"],
-    "match": ["EMAIL_V1", "Invalid EmailID for field :VendorEmail"]
+    "match": ["EMAIL_V1", "Invalid Email for field :VendorEmail"]
   },
   "PODate": {
     "type": "Date",

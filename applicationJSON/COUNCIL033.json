@@ -9,11 +9,11 @@
     "type": "String",
     "maxlength": [20, "Name can not be more than 20 characters"]
   },
-  "EmailID": {
+  "Email": {
     "type": "String",
-    "required": [true, "Please add Mandatory field :EmailID"],
-    "maxlength": [100, "EmailID can not be more than 100 characters"],
-    "match": ["EMAIL_V1", "Invalid EmailID for field :EmailID"]
+    "required": [true, "Please add Mandatory field :Email"],
+    "maxlength": [100, "Email can not be more than 100 characters"],
+    "match": ["EMAIL_V1", "Invalid Email for field :Email"]
   },
   "YourAddress": {
     "type": "String",

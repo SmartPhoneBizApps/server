@@ -276,7 +276,7 @@ This API can be used to upload company documents(PDF, Word, Excel, Text).<p>Sign
 {{URL}}/api/v1/datarecords/</h4></a></div><div id=collapse-Data-CreateRecordsEMPACC01LaptopRequest class="panel-collapse collapse"><div class=panel-body><h5 class="label label-warning">Headers</h5><table class="table table-hover"><thead><tr><th>Key<th>Value<th>Description<tbody><tr><td>Content-Type<td>application/json<td><p>JSON<tr><td>applicationid<td>EMPACC01<td></table><h5 class="label label-primary">Body</h5><span class=resp-prettyprint>{
 "ID":"900002",
 "Status":"Requested",
-"EmailID":"ramesh@yahoo.co.uk",
+"Email":"ramesh@yahoo.co.uk",
 "Reason":"My Laptop Not Working",
 "Name":"Atul",
 "Surname":"Gupta",
@@ -290,7 +290,7 @@ This API can be used to upload company documents(PDF, Word, Excel, Text).<p>Sign
 {{URL}}/api/v1/datarecords/</h4></a></div><div id=collapse-Data-CreateRecordsEMPBOK01CarParkBooking class="panel-collapse collapse"><div class=panel-body><h5 class="label label-warning">Headers</h5><table class="table table-hover"><thead><tr><th>Key<th>Value<th>Description<tbody><tr><td>Content-Type<td>application/json<td><p>JSON<tr><td>applicationid<td>EMPBOK01<td></table><h5 class="label label-primary">Body</h5><span class=resp-prettyprint>{
 "ID":"500003",
 "Status":"Requested",
-"Emailid":"ramesh@yahoo.co.uk",
+"Email":"ramesh@yahoo.co.uk",
 "Reason":"CarPark Booking for Visitor",
 "CarPark":"BristolOfficeCarPark",
 "FirstName":"Atul",
@@ -307,7 +307,7 @@ This API can be used to upload company documents(PDF, Word, Excel, Text).<p>Sign
 {{URL}}/api/v1/datarecords/</h4></a></div><div id=collapse-Data-CreateRecordsEMP00006TrainingRequest class="panel-collapse collapse"><div class=panel-body><h5 class="label label-warning">Headers</h5><table class="table table-hover"><thead><tr><th>Key<th>Value<th>Description<tbody><tr><td>Content-Type<td>application/json<td><p>JSON<tr><td>applicationid<td>EMP00006<td></table><h5 class="label label-primary">Body</h5><span class=resp-prettyprint>{
 "ID":"500004",
 "Status":"Approved",
-"Emailid":"ramesh@yahoo.co.uk",
+"Email":"ramesh@yahoo.co.uk",
 "EmployeeID":"12002",
 "DateRequested":"2020-04-30",
 "Detail":"SAP MM Training",
@@ -690,7 +690,7 @@ userType: internal or external</small><br><br><h5 class="label label-warning">He
 {{URL}}/api/v1/auth/forgotpassword</h4></a></div><div id=collapse-User_28Auth_29_2FUserLogin-ForgotPassword class="panel-collapse collapse"><div class=panel-body><h5 class="label label-default">Description</h5><br><small><p>Overview:
 This API can be used to send password reset emails from SmartApp (noreply@smartphonebizapps.com)<p>API Usage:
 This API can be used to send password reset emails from SmartApp App or BOTs.<p>Important Note:
-For development and testing purposes we will set smtp.mailtrap.io as the test mail server. This will make testing very easy and we can create users with dummy emailIDs for our testing<p>Steps for Testing using MailTrap server:
+For development and testing purposes we will set smtp.mailtrap.io as the test mail server. This will make testing very easy and we can create users with dummy Emails for our testing<p>Steps for Testing using MailTrap server:
 Steps to access emails during the testing are :
 - Login to Gmail using gst@smartphonebizapps.com
 - Got to MailTrap site (<a href=https://mailtrap.io/>https://mailtrap.io/</a>)
@@ -711,7 +711,7 @@ With the password reset email a token is sent which is valid only for 10 mins. u
 {{URL}}/api/v1/auth/pinLogin</h4></a></div><div id=collapse-User_28Auth_29_2FUserLogin-PINbasedLogin class="panel-collapse collapse"><div class=panel-body><h5 class="label label-default">Description</h5><br><small><p>Overview:
 This API can be used to send password reset emails from SmartApp (noreply@smartphonebizapps.com)<p>API Usage:
 This API can be used to send password reset emails from SmartApp App or BOTs.<p>Important Note:
-For development and testing purposes we will set smtp.mailtrap.io as the test mail server. This will make testing very easy and we can create users with dummy emailIDs for our testing<p>Steps for Testing using MailTrap server:
+For development and testing purposes we will set smtp.mailtrap.io as the test mail server. This will make testing very easy and we can create users with dummy Emails for our testing<p>Steps for Testing using MailTrap server:
 Steps to access emails during the testing are :
 - Login to Gmail using gst@smartphonebizapps.com
 - Got to MailTrap site (<a href=https://mailtrap.io/>https://mailtrap.io/</a>)
@@ -732,7 +732,7 @@ With the password reset email a token is sent which is valid only for 10 mins. u
 {{URL}}/api/v1/auth/resetpassword/fc14ec0406d645ec1f5f336635176f7d76ebed27</h4></a></div><div id=collapse-User_28Auth_29_2FUserLogin-ResetPassword class="panel-collapse collapse"><div class=panel-body><h5 class="label label-default">Description</h5><br><small><p>Overview:
 This API can be used to reset password from SmartApp (noreply@smartphonebizapps.com)<p>API Usage:
 This API can be used to Reset Password from SmartApp App or BOTs.<p>Important Note:
-For development and testing purposes we will set smtp.mailtrap.io as the test mail server. This will make testing very easy and we can create users with dummy emailIDs for our testing<p>Steps for Testing using MailTrap server:
+For development and testing purposes we will set smtp.mailtrap.io as the test mail server. This will make testing very easy and we can create users with dummy Emails for our testing<p>Steps for Testing using MailTrap server:
 Steps to access emails during the testing are :
 - Login to Gmail using gst@smartphonebizapps.com
 - Got to MailTrap site (<a href=https://mailtrap.io/>https://mailtrap.io/</a>)
@@ -754,7 +754,7 @@ Steps to access emails during the testing are :
 {{URL}}/api/v1/auth/resetpassword/6a879fba97bc9b90db3e2dd49e39a3c45264be43</h4></a></div><div id=collapse-User_28Auth_29_2FUserLogin-CheckPIN class="panel-collapse collapse"><div class=panel-body><h5 class="label label-default">Description</h5><br><small><p>Overview:
 This API can be used to reset password from SmartApp (noreply@smartphonebizapps.com)<p>API Usage:
 This API can be used to Reset Password from SmartApp App or BOTs.<p>Important Note:
-For development and testing purposes we will set smtp.mailtrap.io as the test mail server. This will make testing very easy and we can create users with dummy emailIDs for our testing<p>Steps for Testing using MailTrap server:
+For development and testing purposes we will set smtp.mailtrap.io as the test mail server. This will make testing very easy and we can create users with dummy Emails for our testing<p>Steps for Testing using MailTrap server:
 Steps to access emails during the testing are :
 - Login to Gmail using gst@smartphonebizapps.com
 - Got to MailTrap site (<a href=https://mailtrap.io/>https://mailtrap.io/</a>)
@@ -777,7 +777,7 @@ Steps to access emails during the testing are :
 {{URL}}/api/v1/auth/sendemail</h4></a></div><div id=collapse-Utilities-SendEmail class="panel-collapse collapse"><div class=panel-body><h5 class="label label-default">Description</h5><br><small><p>Overview:
 This API can be used to send emails from SmartApp (noreply@smartphonebizapps.com)<p>API Usage:
 This API can be used to send emails from SmartApp App or BOTs.<p>Important Note:
-For development and testing purposes we will set smtp.mailtrap.io as the test mail server. This will make testing very easy and we can create users with dummy emailIDs for our testing<p>Steps for Testing using MailTrap server:
+For development and testing purposes we will set smtp.mailtrap.io as the test mail server. This will make testing very easy and we can create users with dummy Emails for our testing<p>Steps for Testing using MailTrap server:
 Steps to access emails during the testing are :
 - Login to Gmail using gst@smartphonebizapps.com
 - Got to MailTrap site (<a href=https://mailtrap.io/>https://mailtrap.io/</a>)

@@ -88,7 +88,7 @@
     "headerImage": ["USP_Image"],
     "None": ["ID", "RoadDetails", "ProblemDetails", "Status"],
     "Tab1": ["ProblemType", "ReportDate", "Time", "Image", "AdditionalInfo"],
-    "Tab2": ["YourName", "LastName", "PhNo", "EmailID", "Location"],
+    "Tab2": ["YourName", "LastName", "PhNo", "Email", "Location"],
     "Tab4": ["Attachment"]
   },
   "ControlDisplay": {},
@@ -182,7 +182,7 @@
       "LLabel": ""
     },
     {
-      "name": "EmailID",
+      "name": "Email",
       "type": "string",
       "width": "100",
       "Option": "Optional",
@@ -266,7 +266,7 @@
         { "name": "YourName", "Sequence": "1", "Mode": "Edit" },
         { "name": "LastName", "Sequence": "1", "Mode": "Edit" },
         { "name": "PhNo", "Sequence": "1", "Mode": "Edit" },
-        { "name": "EmailID", "Sequence": "1", "Mode": "Edit" }
+        { "name": "Email", "Sequence": "1", "Mode": "Edit" }
       ],
       "name": "Your Details",
       "stepType": "FieldList",

@@ -3,7 +3,7 @@ const Possval = require("../../models/appSetup/Possval");
 const ErrorResponse = require("../../utils/errorResponse");
 const mongoose = require("mongoose");
 const App = require("../../models/appSetup/App");
-//RegEx for validating emailIDs
+//RegEx for validating Emails
 EMAIL_V1 = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
 //RegEx for validating Website
 WEBSITE_V1 = /https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)/;

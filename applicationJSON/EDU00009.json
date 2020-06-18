@@ -14,7 +14,7 @@
     "type": "String",
     "required": [true, "Please add Mandatory field :Email"],
     "maxlength": [100, "Email can not be more than 100 characters"],
-    "match": ["EMAIL_V1", "Invalid EmailID for field :Email"]
+    "match": ["EMAIL_V1", "Invalid Email for field :Email"]
   },
   "PhoneNumber": {
     "type": "String",
@@ -44,7 +44,7 @@
     "type": "String",
     "required": [true, "Please add Mandatory field :MotherEmail"],
     "maxlength": [50, "MotherEmail can not be more than 50 characters"],
-    "match": ["EMAIL_V1", "Invalid EmailID for field :MotherEmail"]
+    "match": ["EMAIL_V1", "Invalid Email for field :MotherEmail"]
   },
   "MotherContactNo": {
     "type": "String",
@@ -58,7 +58,7 @@
     "type": "String",
     "required": [true, "Please add Mandatory field :FatherEmail"],
     "maxlength": [50, "FatherEmail can not be more than 50 characters"],
-    "match": ["EMAIL_V1", "Invalid EmailID for field :FatherEmail"]
+    "match": ["EMAIL_V1", "Invalid Email for field :FatherEmail"]
   },
   "FatherContactNo": {
     "type": "String",
@@ -137,7 +137,7 @@
     "type": "String",
     "required": [true, "Please add Mandatory field :ParentEmail"],
     "maxlength": [50, "ParentEmail can not be more than 50 characters"],
-    "match": ["EMAIL_V1", "Invalid EmailID for field :ParentEmail"]
+    "match": ["EMAIL_V1", "Invalid Email for field :ParentEmail"]
   },
   "ParentContactNo": {
     "type": "String",

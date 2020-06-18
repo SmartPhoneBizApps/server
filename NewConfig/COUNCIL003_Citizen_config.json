@@ -8,7 +8,7 @@
     "IntroField": "ID",
     "TitleField": "YourName",
     "fStatus": "Status",
-    "LFields": ["EmailID"]
+    "LFields": ["Email"]
   },
   "ListBOTFields": {
     "None": ["cardImage", "StatusState"],
@@ -93,7 +93,7 @@
       "AdditionalInfo",
       "YourName"
     ],
-    "Tab2": ["Address", "PostCode", "EmailID", "MobileNo"]
+    "Tab2": ["Address", "PostCode", "Email", "MobileNo"]
   },
   "ControlDisplay": {},
   "FieldDef": [
@@ -138,7 +138,7 @@
       "LLabel": ""
     },
     {
-      "name": "EmailID",
+      "name": "Email",
       "type": "string",
       "width": "20",
       "Option": "Optional",
@@ -253,7 +253,7 @@
       "id": "Step2",
       "fields": [
         { "name": "YourName", "Sequence": "1", "Mode": "Edit" },
-        { "name": "EmailID", "Sequence": "1", "Mode": "Edit" },
+        { "name": "Email", "Sequence": "1", "Mode": "Edit" },
         { "name": "ContactNo", "Sequence": "1", "Mode": "Edit" },
         { "name": "Caretaker", "Sequence": "1", "Mode": "Edit" }
       ],

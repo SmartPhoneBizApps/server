@@ -6,14 +6,14 @@
   "Controls": { "USP": "UserProfile" },
   "ListFields": {
     "IntroField": "Name",
-    "TitleField": "Surname",
+    "TitleField": "EmployeeID",
     "sStatus": "RequestType",
     "fStatus": "Status",
-    "LFields": ["ID", "DateOfRequest", "EmployeeID"]
+    "LFields": ["ID", "DateOfRequest", "ContactNo"]
   },
   "ListBOTFields": {
     "None": ["cardImage", "StatusState"],
-    "Title": ["Surname", "Name"],
+    "Title": ["Name", "ContactNo"],
     "SubTitle": ["Status", "RequestType"],
     "Description": ["ID", "DateOfRequest", "EmployeeID"]
   },
@@ -81,7 +81,7 @@
     "headerRole": ["USP_Role"],
     "headerImage": ["USP_Image"],
     "None": ["ID", "Status", "RequestType"],
-    "Tab1": ["EmployeeID", "Name", "Surname", "EmailID", "ContactNo"],
+    "Tab1": ["EmployeeID", "Name", "Email", "ContactNo"],
     "Tab2": ["DateOfRequest", "StartDate", "EndDate", "Reason"],
     "Tab3": ["Approver", "ApprovalDate", "ApproverComment"],
     "Tab4": ["Officer"],
@@ -120,7 +120,6 @@
             "ID",
             "EmployeeID",
             "Name",
-            "Surname",
             "ContactNo",
             "DateOfRequest",
             "StartDate",
@@ -132,7 +131,7 @@
             "ApprovalDate",
             "Officer",
             "Approver",
-            "EmailID"
+            "Email"
           ]
         },
         { "AccessCard": ["AccessCardNo"] },
@@ -193,15 +192,7 @@
       "LLabel": ""
     },
     {
-      "name": "Surname",
-      "type": "string",
-      "width": "50",
-      "Option": "Mandatory",
-      "SLabel": "Surname",
-      "LLabel": ""
-    },
-    {
-      "name": "EmailID",
+      "name": "Email",
       "type": "string",
       "width": "50",
       "Option": "Optional",

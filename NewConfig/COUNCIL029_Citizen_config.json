@@ -88,13 +88,7 @@
     "headerImage": ["USP_Image"],
     "None": ["ID", "Status"],
     "Tab1": ["PestLocation", "TypeOfPest", "IfOther", "VisitDate", "Image"],
-    "Tab2": [
-      "YourName",
-      "ContactNo",
-      "EmailID",
-      "YourAddress",
-      "AdditionalInfo"
-    ],
+    "Tab2": ["YourName", "ContactNo", "Email", "YourAddress", "AdditionalInfo"],
     "Tab4": ["Attachment"]
   },
   "ControlDisplay": {},
@@ -124,7 +118,7 @@
       "LLabel": ""
     },
     {
-      "name": "EmailID",
+      "name": "Email",
       "type": "string",
       "width": "100",
       "Option": "Optional",
@@ -241,7 +235,7 @@
       "fields": [
         { "name": "YourName", "Sequence": "1", "Mode": "Edit" },
         { "name": "ContactNo", "Sequence": "1", "Mode": "Edit" },
-        { "name": "EmailID", "Sequence": "1", "Mode": "Edit" },
+        { "name": "Email", "Sequence": "1", "Mode": "Edit" },
         { "name": "YourAddress", "Sequence": "1", "Mode": "Edit" }
       ],
       "name": "Your Details",

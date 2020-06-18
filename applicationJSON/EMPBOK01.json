@@ -28,7 +28,7 @@
     "type": "String",
     "required": [true, "Please add Mandatory field :Email"],
     "maxlength": [100, "Email can not be more than 100 characters"],
-    "match": ["EMAIL_V1", "Invalid EmailID for field :Email"]
+    "match": ["EMAIL_V1", "Invalid Email for field :Email"]
   },
   "CarRegistration": {
     "type": "String",
@@ -67,11 +67,11 @@
     "type": "String",
     "maxlength": [100, "Building can not be more than 100 characters"]
   },
-  "Emailid": {
+  "Email": {
     "type": "String",
-    "required": [true, "Please add Mandatory field :Emailid"],
-    "maxlength": [100, "Emailid can not be more than 100 characters"],
-    "match": ["EMAIL_V1", "Invalid EmailID for field :Emailid"]
+    "required": [true, "Please add Mandatory field :Email"],
+    "maxlength": [100, "Email can not be more than 100 characters"],
+    "match": ["EMAIL_V1", "Invalid Email for field :Email"]
   },
   "HotDeskNo": {
     "type": "String",
@@ -88,7 +88,7 @@
   "VisitorEmail": {
     "type": "String",
     "maxlength": [100, "VisitorEmail can not be more than 100 characters"],
-    "match": ["EMAIL_V1", "Invalid EmailID for field :VisitorEmail"]
+    "match": ["EMAIL_V1", "Invalid Email for field :VisitorEmail"]
   },
   "VisitorName": {
     "type": "String",

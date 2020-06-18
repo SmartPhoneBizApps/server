@@ -27,11 +27,11 @@
     "type": "String",
     "maxlength": [20, "ContactNo can not be more than 20 characters"]
   },
-  "EmailID": {
+  "Email": {
     "type": "String",
-    "required": [true, "Please add Mandatory field :EmailID"],
-    "maxlength": [20, "EmailID can not be more than 20 characters"],
-    "match": ["EMAIL_V1", "Invalid EmailID for field :EmailID"]
+    "required": [true, "Please add Mandatory field :Email"],
+    "maxlength": [20, "Email can not be more than 20 characters"],
+    "match": ["EMAIL_V1", "Invalid Email for field :Email"]
   },
   "PropertyAddress": {
     "type": "String",

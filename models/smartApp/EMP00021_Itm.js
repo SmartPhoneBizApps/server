@@ -3,7 +3,7 @@ const { getRegExValidation } = require("../../modules/validations/validations");
 
 file = "../../applicationJSON/EMP00021_Itm.json";
 
-//RegEx for validating emailIDs
+//RegEx for validating Emails
 EMAIL_V1 = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
 //RegEx for validating Website
 WEBSITE_V1 = /https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)/;

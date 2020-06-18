@@ -13,7 +13,7 @@
   },
   "ListBOTFields": {
     "None": ["cardImage", "StatusState"],
-    "Title": ["Surname", "Name"],
+    "Title": ["Name", "Email"],
     "SubTitle": ["Status", "RequestType"],
     "Description": ["ID", "DateOfRequest", "EmployeeID"]
   },
@@ -92,11 +92,11 @@
     "headerTitle": ["USP_Name"],
     "headerRole": ["USP_Role"],
     "headerImage": ["USP_Image"],
-    "None": ["ID", "Status", "RequestType", "Name", "Surname"],
+    "None": ["ID", "Status", "RequestType", "Name"],
     "Tab1": [
       {
         "GrpTitle": "Employee Details",
-        "Fields": ["EmployeeID", "EmailID", "ContactNo"]
+        "Fields": ["EmployeeID", "Email", "ContactNo"]
       },
       {
         "GrpTitle": "Approval Details",
@@ -167,7 +167,6 @@
             "ID",
             "EmployeeID",
             "Name",
-            "Surname",
             "ContactNo",
             "DateOfRequest",
             "StartDate",
@@ -179,7 +178,7 @@
             "ApprovalDate",
             "Officer",
             "Approver",
-            "EmailID"
+            "Email"
           ]
         },
         { "AccessCard": ["AccessCardNo"] },
@@ -240,15 +239,7 @@
       "LLabel": ""
     },
     {
-      "name": "Surname",
-      "type": "string",
-      "width": "50",
-      "Option": "Mandatory",
-      "SLabel": "Surname",
-      "LLabel": ""
-    },
-    {
-      "name": "EmailID",
+      "name": "Email",
       "type": "string",
       "width": "50",
       "Option": "Optional",
@@ -548,7 +539,6 @@
       "id": "Step1",
       "fields": [
         { "name": "Name", "Sequence": "1", "Mode": "Edit" },
-        { "name": "Surname", "Sequence": "1", "Mode": "Edit" },
         { "name": "EmployeeID", "Sequence": "1", "Mode": "Edit" },
         { "name": "RequestType", "Sequence": "1", "Mode": "Display" },
         { "name": "DateOfRequest", "Sequence": "1", "Mode": "Edit" }
@@ -561,7 +551,7 @@
       "id": "Step2",
       "fields": [
         { "name": "ContactNo", "Sequence": "1", "Mode": "Edit" },
-        { "name": "EmailID", "Sequence": "1", "Mode": "Edit" },
+        { "name": "Email", "Sequence": "1", "Mode": "Edit" },
         { "name": "StartDate", "Sequence": "1", "Mode": "Edit" },
         { "name": "EndDate", "Sequence": "1", "Mode": "Edit" },
         { "name": "Reason", "Sequence": "1", "Mode": "Edit" }
