@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 const { getRegExValidation } = require("../../modules/validations/validations");
 
-file = "../../applicationJSON/PATIENT_Itm.json";
+file = "../../applicationJSON/PATIENT001_Itm.json";
 
 //RegEx for validating Emails
 EMAIL_V1 = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
@@ -240,4 +240,4 @@ scmc.push(fixed1);
 
 const XSchema = new mongoose.Schema(scmc);
 
-module.exports = mongoose.model("PATIENT_Itm", XSchema);
+module.exports = mongoose.model("PATIENT001_Itm", XSchema);
