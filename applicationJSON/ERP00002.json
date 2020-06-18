@@ -83,12 +83,7 @@
   },
   "StartTime": {
     "type": "Date",
-    "required": [true, "Please add Mandatory field :StartTime"],
-    "maxlength": [10, "StartTime can not be more than 10 characters"],
-    "match": [
-      "DATE_V1",
-      "Please provide date in YYYY-MM-DD format for field :StartTime"
-    ]
+    "maxlength": [10, "StartTime can not be more than 10 characters"]
   },
   "FinishDate": {
     "type": "Date",
@@ -100,11 +95,7 @@
   },
   "FinishTime": {
     "type": "Date",
-    "maxlength": [10, "FinishTime can not be more than 10 characters"],
-    "match": [
-      "DATE_V1",
-      "Please provide date in YYYY-MM-DD format for field :ApplicationDate"
-    ]
+    "maxlength": [10, "FinishTime can not be more than 10 characters"]
   },
   "USP_Name": { "type": "String" },
   "USP_Role": { "type": "String" },
