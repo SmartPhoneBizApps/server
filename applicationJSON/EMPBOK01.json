@@ -111,11 +111,7 @@
   },
   "StartTime": {
     "type": "Date",
-    "maxlength": [10, "StartTime can not be more than 10 characters"],
-    "match": [
-      "DATE_V1",
-      "Please provide date in YYYY-MM-DD format for field :StartTime"
-    ]
+    "maxlength": [10, "StartTime can not be more than 10 characters"]
   },
   "EndDate": {
     "type": "Date",
@@ -127,11 +123,7 @@
   },
   "EndTime": {
     "type": "Date",
-    "maxlength": [10, "EndTime can not be more than 10 characters"],
-    "match": [
-      "DATE_V1",
-      "Please provide date in YYYY-MM-DD format for field :EndTime"
-    ]
+    "maxlength": [10, "EndTime can not be more than 10 characters"]
   },
   "MeetingDate": {
     "type": "Date",
