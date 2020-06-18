@@ -90,7 +90,7 @@
   "BookingFor": {
     "type": "String",
     "required": [true, "Please add Mandatory field :BookingFor"],
-    "maxlength": [10, "BookingFor can not be more than 10 characters"],
+    "maxlength": [100, "BookingFor can not be more than 100 characters"],
     "enum": ["HotDesk", "CarPark", "Visitor", "MeetingRoom"]
   },
   "RoomLayout": {
