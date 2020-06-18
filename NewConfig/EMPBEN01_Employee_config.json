@@ -5,18 +5,18 @@
   },
   "Controls": { "USP": "UserProfile" },
   "ListFields": {
-    "IntroField": "Designation",
+    "IntroField": "Email",
     "TitleField": "Name",
     "sStatus": "Status",
     "fStatus": "",
     "numberField": "",
-    "LFields": ["Gender", "Email"],
+    "LFields": ["Gender", "Email", "MartialStatus"],
     "numberUnitField": ""
   },
   "ListBOTFields": {
     "None": ["cardImage", "StatusState"],
     "Title": ["Name"],
-    "SubTitle": ["Designation", "Status"],
+    "SubTitle": ["Status", "MartialStatus"],
     "Description": ["Gender", "Email"]
   },
   "PossibleValues": [
@@ -33,8 +33,7 @@
     "Dependent2Gender",
     "Dependent2Relationship",
     "Dependent3Gender",
-    "Dependent3Relationship",
-    "RequestType"
+    "Dependent3Relationship"
   ],
   "MButtons": [
     {
@@ -110,15 +109,7 @@
     "headerRole": ["USP_Role"],
     "headerImage": ["USP_Image"],
     "None": ["ID", "Status"],
-    "Tab1": [
-      "Name",
-      "DOB",
-      "Gender",
-      "Address",
-      "MartialStatus",
-      "Email",
-      "Designation"
-    ],
+    "Tab1": ["Name", "DOB", "Gender", "Address", "MartialStatus", "Email"],
     "Tab2": [
       "ChooseInsurancePlan",
       "MedicalCoverage",
@@ -199,14 +190,7 @@
       "SLabel": "Email",
       "LLabel": "Email"
     },
-    {
-      "name": "Designation",
-      "type": "string",
-      "width": "50",
-      "Option": "Optional",
-      "SLabel": "Designation",
-      "LLabel": ""
-    },
+
     {
       "name": "ChooseInsurancePlan",
       "type": "radiobutton",
@@ -351,14 +335,7 @@
       "SLabel": "Status",
       "LLabel": "Status"
     },
-    {
-      "name": "RequestType",
-      "type": "string",
-      "width": "50",
-      "Option": "Optional",
-      "SLabel": "Request Type",
-      "LLabel": "Request Type"
-    },
+
     {
       "name": "Area",
       "type": "string",
@@ -566,8 +543,7 @@
         { "name": "Gender", "Sequence": "1", "Mode": "Edit" },
         { "name": "Address", "Sequence": "1", "Mode": "Edit" },
         { "name": "MartialStatus", "Sequence": "1", "Mode": "Edit" },
-        { "name": "Email", "Sequence": "1", "Mode": "Edit" },
-        { "name": "Designation", "Sequence": "1", "Mode": "Edit" }
+        { "name": "Email", "Sequence": "1", "Mode": "Edit" }
       ],
       "name": "Employee Details",
       "stepType": "FieldList",

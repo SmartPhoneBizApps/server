@@ -18,7 +18,7 @@
     "SubTitle": ["LeaveType"],
     "Description": ["LeaveFrom"]
   },
-  "PossibleValues": ["Designation", "LeaveType", "Status", "CostCentre"],
+  "PossibleValues": ["LeaveType", "Status", "CostCentre"],
   "MButtons": [
     {
       "type": "DOWNLOAD",
@@ -97,8 +97,9 @@
       "type": "Chat",
       "download": "No"
     },
+
     {
-      "value": "Tab7",
+      "value": "Tab8",
       "name": "Attachment",
       "fioriicon": "attachment",
       "type": "MultiAttachments",
@@ -111,12 +112,12 @@
     "headerImage": ["USP_Image"],
     "None": ["ID", "Status"],
     "Tab1": ["LeaveType", "LeaveFrom", "LeaveTo", "LeaveDays", "LeaveReason"],
-    "Tab2": ["Name", "EmployeeID", "Designation"],
+    "Tab2": ["Name", "EmployeeID"],
     "Tab3": ["Address", "PostCode"],
     "Tab4": ["ContactNo", "Email"],
     "Tab5": ["CostCentre", "Approver", "Comment"],
     "Tab6": ["ProcessingLog"],
-    "Tab7": ["MultiAttachments"]
+    "Tab8": ["MultiAttachments"]
   },
   "ControlDisplay": {},
   "FieldDef": [
@@ -158,14 +159,6 @@
       "width": "20",
       "Option": "Optional",
       "SLabel": "PostCode",
-      "LLabel": ""
-    },
-    {
-      "name": "Designation",
-      "type": "string",
-      "width": "50",
-      "Option": "Optional",
-      "SLabel": "Designation",
       "LLabel": ""
     },
     {
@@ -315,7 +308,6 @@
       "id": "Step2",
       "fields": [
         { "name": "Name", "Sequence": "1", "Mode": "Edit" },
-        { "name": "Designation", "Sequence": "1", "Mode": "Edit" },
         { "name": "ContactNo", "Sequence": "1", "Mode": "Edit" },
         { "name": "EmployeeID", "Sequence": "1", "Mode": "Edit" },
         { "name": "Email", "Sequence": "1", "Mode": "Edit" }

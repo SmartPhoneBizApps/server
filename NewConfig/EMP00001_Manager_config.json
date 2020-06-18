@@ -18,13 +18,7 @@
     "SubTitle": ["LeaveFrom", "LeaveTo"],
     "Description": ["LeaveDays", "Status"]
   },
-  "PossibleValues": [
-    "Designation",
-    "LeaveType",
-    "Approver",
-    "Status",
-    "CostCentre"
-  ],
+  "PossibleValues": ["LeaveType", "Approver", "Status", "CostCentre"],
   "MButtons": [],
   "DButtons": [],
   "Tabs": [
@@ -62,14 +56,7 @@
     "headerImage": ["USP_Image"],
     "None": ["ID", "Name", "CostCentre", "Status"],
     "Tab1": ["LeaveType", "LeaveFrom", "LeaveTo", "LeaveDays", "LeaveReason"],
-    "Tab2": [
-      "Address",
-      "PostCode",
-      "Designation",
-      "ContactNo",
-      "Email",
-      "Comment"
-    ],
+    "Tab2": ["Address", "PostCode", "ContactNo", "Email", "Comment"],
     "Tab3": ["ProcessingLog"]
   },
   "ControlDisplay": {},
@@ -106,14 +93,7 @@
       "SLabel": "Employee Post Code",
       "LLabel": "Employee Post Code"
     },
-    {
-      "name": "Designation",
-      "type": "string",
-      "width": "50",
-      "Option": "Optional",
-      "SLabel": "Employee Designation",
-      "LLabel": "Employee Designation"
-    },
+
     {
       "name": "ContactNo",
       "type": "string",
