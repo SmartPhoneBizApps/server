@@ -5,8 +5,8 @@
   },
   "Controls": { "USP": "UserProfile" },
   "ListFields": {
-    "IntroField": "NHSNumber",
-    "TitleField": "ID",
+    "IntroField": "ID",
+    "TitleField": "NHSNumber",
     "sStatus": "PatientStatus",
     "fStatus": "Status",
     "numberField": "",
@@ -27,7 +27,18 @@
     "PatientStatus",
     "MaritalStatus",
     "Agree",
-    "PaymentBy"
+    "PaymentBy",
+    "PaymentMethod",
+    "canineOcclLeft",
+    "canineOcclRight",
+    "molarOccLeft",
+    "molarOccRight",
+    "openBite",
+    "overBite",
+    "overJet",
+    "incisorRelationship",
+    "fmAngle",
+    "skeletalClass"
   ],
   "MButtons": [
     {
@@ -187,11 +198,11 @@
         "GrpTitle": "Personal Details",
         "Fields": [
           "Gender",
-          "DOB",
           "MaritalStatus",
-          "SpouseName",
+          "DOB",
           "Height",
-          "Weight"
+          "Weight",
+          "SpouseName"
         ]
       },
       {
@@ -284,9 +295,37 @@
     ],
     "Tab7": [
       {
-        "GrpTitle": "Dental Profile",
-        "Fields": ["DentalProfile"]
+        "GrpTitle": "Skeletal Class",
+        "Fields": ["skeletalClass"]
       },
+
+      {
+        "GrpTitle": "Fm Angle",
+        "Fields": ["fmAngle"]
+      },
+      {
+        "GrpTitle": "Incisor Relationship",
+        "Fields": ["incisorRelationship"]
+      },
+
+      {
+        "GrpTitle": "Over Jet",
+        "Fields": ["overJet"]
+      },
+      {
+        "GrpTitle": "Bite",
+        "Fields": ["overBite", "openBite"]
+      },
+      {
+        "GrpTitle": "Occlusion",
+        "Fields": [
+          "canineOcclLeft",
+          "canineOcclRight",
+          "molarOccLeft",
+          "molarOccRight"
+        ]
+      },
+
       {
         "GrpTitle": "Dental Charting",
         "Fields": ["DentalCharting"]
@@ -489,7 +528,7 @@
     },
     {
       "name": "PaymentMethod",
-      "type": "string",
+      "type": "radiobutton",
       "width": "200",
       "Option": "Optional",
       "SLabel": "Payment Method",
