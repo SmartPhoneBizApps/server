@@ -152,9 +152,16 @@
     },
     {
       "value": "Tab11",
-      "name": "Notes",
+      "name": "ClinicalNotes",
       "fioriicon": "notes",
-      "type": "FieldGroup",
+      "type": "Table",
+      "download": "Yes"
+    },
+    {
+      "value": "Tab15",
+      "name": "AdminNotes",
+      "fioriicon": "notes",
+      "type": "Table",
       "download": "Yes"
     },
     {
@@ -318,17 +325,8 @@
         "Fields": ["DentalCharting"]
       }
     ],
-
-    "Tab11": [
-      {
-        "GrpTitle": "Clinical Notes",
-        "Fields": ["ClinicalNotes"]
-      },
-      {
-        "GrpTitle": "Admin Notes",
-        "Fields": ["AdminNotes"]
-      }
-    ],
+    "Tab11": ["ClinicalNotes"],
+    "Tab15": ["AdminNotes"],
     "Tab12": ["HealthEvaluation"],
     "Tab13": ["Pathology"],
     "Tab14": ["PatientStatusLog"]
@@ -1218,20 +1216,14 @@
         "Currency": "No"
       }
     ],
-    "DisplayFields": [
-      "ID",
-      "Amount",
-      "ItemStatus",
-      "Description",
-      "PaidAmount"
-    ],
+    "DisplayFields": ["Amount", "ItemStatus", "Description", "PaidAmount"],
     "ItemButtons": {
       "itemDisplay": true,
       "itemAdd": true,
       "itemEdit": true,
       "itemDelete": true
     },
-    "CreateFields": ["Description", "Amount", "ID", "Currency", "ItemStatus"],
+    "CreateFields": ["ID", "Description", "Amount", "Currency", "ItemStatus"],
     "ItemDetails": [
       { "name": "ItemNumber", "Tab": "Tab3", "Sequence": "1", "Mode": "Edit" },
       { "name": "Description", "Tab": "Tab3", "Sequence": "1", "Mode": "Edit" },
@@ -1288,7 +1280,7 @@
           "Option": "Optional"
         }
       ],
-      "DisplayFields": ["ID", "PatientStatus", "StatusDate"],
+      "DisplayFields": ["PatientStatus", "StatusDate"],
       "ItemButtons": {
         "itemDisplay": true,
         "itemAdd": false,
@@ -1368,7 +1360,7 @@
           "Option": "Optional"
         }
       ],
-      "DisplayFields": ["ID", "EventID", "Task", "ExpectedDate", "TPStatus"],
+      "DisplayFields": ["EventID", "Task", "ExpectedDate", "TPStatus"],
       "ItemButtons": {
         "itemDisplay": true,
         "itemAdd": true,
@@ -1398,6 +1390,222 @@
           "Mode": "Edit"
         },
         { "name": "TPStatus", "Tab": "Tab6", "Sequence": "1", "Mode": "Edit" }
+      ]
+    },
+    "ClinicalNotes": {
+      "ItemFieldDefinition": [
+        {
+          "name": "ItemNumber",
+          "type": "string",
+          "width": "10",
+          "SLabel": "Item Number",
+          "Option": "Optional"
+        },
+        {
+          "name": "ID",
+          "type": "string",
+          "width": "20",
+          "SLabel": "Identification",
+          "Option": "Optional"
+        },
+        {
+          "name": "VisitReason",
+          "type": "string",
+          "width": "10",
+          "SLabel": "VisitReason",
+          "Option": "Optional"
+        },
+        {
+          "name": "VisitDate",
+          "type": "Date",
+          "width": "10",
+          "SLabel": "Visit Date",
+          "Option": "Optional"
+        },
+        {
+          "name": "ExaminationNotes",
+          "type": "string",
+          "width": "500",
+          "SLabel": "Examination Notes",
+          "Option": "Optional"
+        },
+        {
+          "name": "Examination",
+          "type": "string",
+          "width": "500",
+          "SLabel": "Examination",
+          "Option": "Optional"
+        },
+        {
+          "name": "Doctor",
+          "type": "string",
+          "width": "100",
+          "SLabel": "Doctor",
+          "Option": "Optional"
+        },
+        {
+          "name": "MedicalNotes",
+          "type": "string",
+          "width": "500",
+          "SLabel": "MedicalNotes",
+          "Option": "Optional"
+        }
+      ],
+      "DisplayFields": [
+        "VisitDate",
+        "VisitReason",
+        "ExaminationNotes",
+        "Examination",
+
+        "Doctor"
+      ],
+      "ItemButtons": {
+        "itemDisplay": true,
+        "itemAdd": true,
+        "itemEdit": true,
+        "itemDelete": true
+      },
+      "CreateFields": [
+        "ID",
+        "VisitDate",
+        "VisitReason",
+        "ExaminationNotes",
+        "Examination",
+        "MedicalNotes",
+        "Doctor"
+      ],
+      "ItemDetails": [
+        {
+          "name": "ItemNumber",
+          "Tab": "Tab11",
+          "Sequence": "1",
+          "Mode": "Edit"
+        },
+        {
+          "name": "ID",
+          "Tab": "Tab11",
+          "Sequence": "1",
+          "Mode": "Edit"
+        },
+        {
+          "name": "VisitDate",
+          "Tab": "Tab11",
+          "Sequence": "1",
+          "Mode": "Edit"
+        },
+        {
+          "name": "VisitReason",
+          "Tab": "Tab11",
+          "Sequence": "1",
+          "Mode": "Edit"
+        },
+        {
+          "name": "ExaminationNotes",
+          "Tab": "Tab11",
+          "Sequence": "1",
+          "Mode": "Edit"
+        },
+        {
+          "name": "Examination",
+          "Tab": "Tab11",
+          "Sequence": "1",
+          "Mode": "Edit"
+        },
+        {
+          "name": "MedicalNotes",
+          "Tab": "Tab11",
+          "Sequence": "1",
+          "Mode": "Edit"
+        },
+        {
+          "name": "Doctor",
+          "Tab": "Tab11",
+          "Sequence": "1",
+          "Mode": "Edit"
+        }
+      ]
+    },
+    "AdminNotes": {
+      "ItemFieldDefinition": [
+        {
+          "name": "ItemNumber",
+          "type": "string",
+          "width": "10",
+          "SLabel": "Item Number",
+          "Option": "Optional"
+        },
+        {
+          "name": "ID",
+          "type": "string",
+          "width": "20",
+          "SLabel": "Identification",
+          "Option": "Optional"
+        },
+        {
+          "name": "Date",
+          "type": "Date",
+          "width": "10",
+          "SLabel": "Date",
+          "Option": "Optional"
+        },
+        {
+          "name": "Notes",
+          "type": "string",
+          "width": "500",
+          "SLabel": "Notes",
+          "Option": "Optional"
+        },
+        {
+          "name": "Action",
+          "type": "string",
+          "width": "500",
+          "SLabel": "Action",
+          "Option": "Optional"
+        },
+
+        {
+          "name": "ACreatedBy",
+          "type": "string",
+          "width": "100",
+          "SLabel": "Created By",
+          "Option": "Optional"
+        }
+      ],
+      "DisplayFields": ["Date", "Notes", "Action", "ACreatedBy"],
+      "ItemButtons": {
+        "itemDisplay": true,
+        "itemAdd": true,
+        "itemEdit": true,
+        "itemDelete": true
+      },
+      "CreateFields": ["ID", "Date", "Notes", "Action", "ACreatedBy"],
+      "ItemDetails": [
+        {
+          "name": "ItemNumber",
+          "Tab": "Tab15",
+          "Sequence": "1",
+          "Mode": "Edit"
+        },
+        {
+          "name": "ID",
+          "Tab": "Tab15",
+          "Sequence": "1",
+          "Mode": "Edit"
+        },
+        { "name": "Date", "Tab": "Tab15", "Sequence": "1", "Mode": "Edit" },
+        { "name": "Notes", "Tab": "Tab15", "Sequence": "1", "Mode": "Edit" },
+        {
+          "name": "Action",
+          "Tab": "Tab15",
+          "Sequence": "1",
+          "Mode": "Edit"
+        },
+        {
+          "name": "ACreatedBy",
+          "Tab": "Tab15",
+          "Sequence": "1",
+          "Mode": "Edit"
+        }
       ]
     }
   },
