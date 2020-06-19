@@ -16,8 +16,39 @@
     "Description": ["TotalRegHours", "TotalOvertimeHours"]
   },
   "PossibleValues": ["Status", "ProjectCode"],
-  "MButtons": [],
-  "DButtons": [],
+  "MButtons": [
+    {
+      "type": "DOWNLOAD",
+      "name": "Download File",
+      "icon": "sap-icon://download"
+    },
+    {
+      "type": "APPHELP",
+      "name": "Get App Help",
+      "icon": "sap-icon://sys-help-2"
+    },
+    {
+      "type": "BOT",
+      "name": "Launch Assistant",
+      "icon": "sap-icon://travel-request"
+    },
+    {
+      "type": "VIEW",
+      "name": "Change App View",
+      "icon": "sap-icon://chart-table-view"
+    },
+    { "type": "ADD", "name": "Add Record", "icon": "sap-icon://add" },
+    { "type": "UPLOAD", "name": "Upload Record", "icon": "sap-icon://upload" }
+  ],
+  "DButtons": [
+    {
+      "type": "ATTACHMENT",
+      "name": "View Attachments",
+      "icon": "sap-icon://attachment"
+    },
+    { "type": "UPDATE", "name": "Update Record", "icon": "sap-icon://update" },
+    { "type": "ADD", "name": "Add Record", "icon": "sap-icon://add" }
+  ],
   "Tabs": [
     {
       "value": "Tab0",
@@ -29,7 +60,7 @@
       "value": "Tab1",
       "name": "RegularHoursDetails",
       "type": "Field",
-      "fioriicon": "date-time",
+      "fioriicon": "per-diem",
       "download": "Yes"
     },
     {
@@ -49,8 +80,15 @@
     {
       "value": "Tab4",
       "name": "Items",
-      "fioriicon": "note",
+      "fioriicon": "activity-items",
       "type": "Items",
+      "download": "No"
+    },
+    {
+      "value": "Tab6",
+      "name": "Attachments",
+      "fioriicon": "attachment",
+      "type": "MultiAttachments",
       "download": "No"
     },
     {
@@ -65,11 +103,12 @@
     "headerTitle": ["USP_Name"],
     "headerRole": ["USP_Role"],
     "headerImage": ["USP_Image"],
-    "None": ["ID", "Name", "EmployeeID", "StartDate", "EndDate", "Status"],
+    "None": ["ID", "Name", "EmployeeID", "Status", "StartDate", "EndDate"],
     "Tab1": ["TotalRegHours", "HourlyRate", "RegularNetAmount"],
     "Tab2": ["TotalOvertimeHours", "OvertimeRate", "OvertimeNetAmount"],
     "Tab3": ["NetAmount", "VATRate", "VATAmount", "GrossAmount"],
-    "Tab5": ["ProcessingLog"]
+    "Tab5": ["ProcessingLog"],
+    "Tab6": ["MultiAttachments"]
   },
   "ControlDisplay": {},
   "FieldDef": [
@@ -117,7 +156,7 @@
       "name": "TotalRegHours",
       "type": "Num,1",
       "width": "20",
-      "Option": "Mandatory",
+      "Option": "Optional",
       "SLabel": "Total Regular Work Hours",
       "LLabel": "Total Work Hours"
     },
@@ -125,7 +164,7 @@
       "name": "HourlyRate",
       "type": "Num,2",
       "width": "50",
-      "Option": "Mandatory",
+      "Option": "Optional",
       "SLabel": "Hourly Rate",
       "LLabel": "Hourly Rate",
       "Currency": "Yes"
@@ -188,7 +227,8 @@
       "width": "50",
       "Option": "Optional",
       "SLabel": "VAT Amount",
-      "LLabel": "VATAmount"
+      "LLabel": "VATAmount",
+      "Currency": "Yes"
     },
     {
       "name": "GrossAmount",
@@ -216,6 +256,14 @@
       "LLabel": "VAT Percentage"
     },
     {
+      "name": "ProcessingLog",
+      "type": "string",
+      "width": "1000",
+      "Option": "Optional",
+      "SLabel": "Processing Log",
+      "LLabel": "ProcessingLog"
+    },
+    {
       "name": "Approver",
       "type": "string",
       "width": "50",
@@ -224,12 +272,12 @@
       "LLabel": "Approver"
     },
     {
-      "name": "ProcessingLog",
-      "type": "string",
-      "width": "1000",
+      "name": "MultiAttachments",
+      "type": "attachment",
+      "width": "200",
       "Option": "Optional",
-      "SLabel": "Processing Log",
-      "LLabel": "ProcessingLog"
+      "SLabel": "Attachments",
+      "LLabel": "Attachments"
     }
   ],
   "itemData": "Yes",
@@ -301,9 +349,9 @@
     ],
     "ItemButtons": {
       "itemDisplay": true,
-      "itemAdd": false,
-      "itemEdit": false,
-      "itemDelete": false
+      "itemAdd": true,
+      "itemEdit": true,
+      "itemDelete": true
     },
     "CreateFields": [
       "ProjectCode",
@@ -434,6 +482,63 @@
       }
     ]
   },
-  "Create": "No",
-  "Wizard": []
+  "Create": "Yes",
+  "Wizard": [
+    {
+      "id": "Step1",
+      "fields": [
+        { "name": "Name", "Sequence": "1", "Mode": "Edit" },
+        { "name": "EmployeeID", "Sequence": "1", "Mode": "Edit" },
+        { "name": "Approver", "Sequence": "1", "Mode": "Display" }
+      ],
+      "name": "Employee Details",
+      "stepType": "FieldList",
+      "intro": "Time Sheet : Employee Details"
+    },
+    {
+      "id": "Step2",
+      "fields": [
+        { "name": "StartDate", "Sequence": "1", "Mode": "Edit" },
+        { "name": "EndDate", "Sequence": "1", "Mode": "Edit" }
+      ],
+      "name": "Timesheet Duration",
+      "stepType": "FieldList",
+      "intro": "Time Sheet : Duration"
+    },
+    {
+      "id": "Step3",
+      "fields": [
+        { "name": "TotalRegHours", "Sequence": "1", "Mode": "Display" },
+        { "name": "HourlyRate", "Sequence": "1", "Mode": "Display" },
+        { "name": "RegularNetAmount", "Sequence": "1", "Mode": "Display" }
+      ],
+      "name": "Regular hours Details",
+      "stepType": "FieldList",
+      "intro": "Time Sheet : Regular hours  Details"
+    },
+    {
+      "id": "Step4",
+      "fields": [
+        { "name": "TotalOvertimeHours", "Sequence": "1", "Mode": "Display" },
+        { "name": "OvertimeRate", "Sequence": "1", "Mode": "Display" },
+        { "name": "OvertimeNetAmount", "Sequence": "1", "Mode": "Display" }
+      ],
+      "name": "Overtime Details",
+      "stepType": "FieldList",
+      "intro": "Time Sheet : Overtime Details"
+    },
+    {
+      "id": "Step5",
+      "fields": [
+        { "name": "NetAmount", "Sequence": "1", "Mode": "Display" },
+        { "name": "VATRate", "Sequence": "1", "Mode": "Display" },
+        { "name": "VATAmount", "Sequence": "1", "Mode": "Display" },
+        { "name": "GrossAmount", "Sequence": "1", "Mode": "Display" },
+        { "name": "Status", "Sequence": "1", "Mode": "Edit" }
+      ],
+      "name": "Amount",
+      "stepType": "FieldList",
+      "intro": "Time Sheet : Amount"
+    }
+  ]
 }

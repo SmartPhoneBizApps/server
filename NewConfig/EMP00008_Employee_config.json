@@ -70,10 +70,10 @@
       "fioriicon": "expense-report"
     },
     {
-      "value": "Tab3",
+      "value": "Tab5",
       "name": "Attachments",
       "fioriicon": "attachment",
-      "type": "Attachment",
+      "type": "carouselImage",
       "download": "Yes"
     },
     {
@@ -97,7 +97,7 @@
       "ExpenseDetails"
     ],
     "Tab2": ["ExpType"],
-    "Tab3": ["Receipt"],
+    "Tab5": ["Receipt"],
     "Tab4": ["ProcessingLog"]
   },
   "ControlDisplay": {},
@@ -177,10 +177,10 @@
     {
       "name": "Receipt",
       "type": "attachment",
-      "width": "100",
+      "width": "200",
       "Option": "Optional",
       "SLabel": "Receipt",
-      "LLabel": ""
+      "LLabel": "Receipt"
     },
     {
       "name": "ExpType",
@@ -245,7 +245,11 @@
         { "name": "ProjectCode", "Sequence": "1", "Mode": "Edit" },
         { "name": "Currency", "Sequence": "1", "Mode": "Edit" },
         { "name": "CostCentre", "Sequence": "1", "Mode": "Edit" },
-        { "name": "EntryDate", "Sequence": "1", "Mode": "Edit" }
+        { "name": "EntryDate", "Sequence": "1", "Mode": "Edit" },
+        { "name": "ExpenseDetails", "Sequence": "1", "Mode": "Edit" },
+        { "name": "ExpType", "Sequence": "1", "Mode": "Edit" },
+        { "name": "ExpenseDate", "Sequence": "1", "Mode": "Edit" },
+        { "name": "TotalAmount", "Sequence": "1", "Mode": "Edit" }
       ],
       "name": "Expenses Details",
       "stepType": "FieldList",
@@ -263,16 +267,10 @@
     },
     {
       "id": "Step3",
-      "fields": [
-        { "name": "ExpenseDetails", "Sequence": "1", "Mode": "Edit" },
-        { "name": "ExpType", "Sequence": "1", "Mode": "Edit" },
-        { "name": "ExpenseDate", "Sequence": "1", "Mode": "Edit" },
-        { "name": "TotalAmount", "Sequence": "1", "Mode": "Edit" },
-        { "name": "Receipt", "Sequence": "1", "Mode": "Edit" }
-      ],
-      "name": "Expense Details",
-      "stepType": "FieldList",
-      "intro": "Expense : Expense Details"
+      "fields": [{ "name": "Receipt", "Sequence": "1", "Mode": "Edit" }],
+      "name": "Attachments",
+      "stepType": "Attachments",
+      "intro": "Expense : Attachments"
     },
     {
       "id": "Step4",

@@ -1,21 +1,54 @@
 {
   "Title": { "ApplicationTitle": "Job Listing", "DetailTitle": "Job Listing" },
-  "Controls": { "USP": "UserProfile" },
+  "Controls": {
+    "USP": "UserProfile"
+  },
   "ListFields": {
-    "IntroField": "Reference",
-    "TitleField": "Title",
+    "IntroField": "Title",
+    "TitleField": "JobType",
     "fStatus": "Status",
-    "LFields": ["ID", "JobType", "StartDate"]
+    "LFields": ["ID", "Location", "Duration", "StartDate"]
   },
   "ListBOTFields": {
     "None": ["cardImage", "StatusState"],
-    "Title": ["Title"],
-    "SubTitle": ["Status", "Reference"],
-    "Description": ["ID", "JobType", "StartDate"]
+    "Title": ["Title", "JobType"],
+    "SubTitle": ["Salary", "Rate", "Location"],
+    "Description": ["ID", "Location", "Duration", "StartDate"]
   },
   "PossibleValues": ["JobType", "Status"],
-  "MButtons": [],
-  "DButtons": [],
+  "MButtons": [
+    {
+      "type": "DOWNLOAD",
+      "name": "Download File",
+      "icon": "sap-icon://download"
+    },
+    {
+      "type": "APPHELP",
+      "name": "Get App Help",
+      "icon": "sap-icon://sys-help-2"
+    },
+    {
+      "type": "BOT",
+      "name": "Launch Assistant",
+      "icon": "sap-icon://travel-request"
+    },
+    {
+      "type": "VIEW",
+      "name": "Change App View",
+      "icon": "sap-icon://chart-table-view"
+    },
+    { "type": "ADD", "name": "Add Record", "icon": "sap-icon://add" },
+    { "type": "UPLOAD", "name": "Upload Record", "icon": "sap-icon://upload" }
+  ],
+  "DButtons": [
+    {
+      "type": "ATTACHMENT",
+      "name": "View Attachments",
+      "icon": "sap-icon://attachment"
+    },
+    { "type": "UPDATE", "name": "Update Record", "icon": "sap-icon://update" },
+    { "type": "ADD", "name": "Add Record", "icon": "sap-icon://add" }
+  ],
   "Tabs": [
     {
       "value": "Tab0",
@@ -39,7 +72,7 @@
       "value": "Tab3",
       "name": "Attachments",
       "type": "MultiAttachments",
-      "fioriicon": "attachment"
+      "fioriicon": "contacts"
     },
     {
       "value": "Tab4",
@@ -58,28 +91,28 @@
     "headerTitle": ["USP_Name"],
     "headerRole": ["USP_Role"],
     "headerImage": ["USP_Image"],
-    "None": ["ID", "Title", "Location", "Industry", "Status"],
+    "None": ["Title", "Location", "JobType", "Status", "Salary", "Rate"],
     "Tab1": [
+      "ID",
       "Summary",
       "Details",
       "EssentialExp",
       "PreferredExp",
       "Duration",
-      "JobType",
       "StartDate",
-      "Rate",
-      "Salary"
+      "Industry"
     ],
     "Tab2": [
       "EmpBusiness",
       "Contact",
       "ContactNo",
-      "Fax",
       "Email",
       "WebLink",
       "PostedDate"
     ],
-    "Tab3": ["MultiAttachments"]
+    "Tab3": ["MultiAttachments"],
+    "Tab4": ["carouselImage"],
+    "Tab5": ["ProcessingLog"]
   },
   "ControlDisplay": {},
   "FieldDef": [
@@ -88,53 +121,211 @@
       "type": "string",
       "width": "20",
       "Option": "Mandatory",
-      "SLabel": "Reference",
-      "LLabel": "Reference"
+      "SLabel": "Identification",
+      "LLabel": ""
     },
-    { "name": "Title", "type": "string", "width": "500" },
-    { "name": "Summary", "type": "string", "width": "500" },
-    { "name": "Details", "type": "string", "width": "1000" },
+    {
+      "name": "Title",
+      "type": "string",
+      "width": "500",
+      "Option": "Optional",
+      "SLabel": "Job Title",
+      "LLabel": "Job Title"
+    },
+    {
+      "name": "Summary",
+      "type": "string",
+      "width": "500",
+      "Option": "Optional",
+      "SLabel": "Job Summary",
+      "LLabel": "Job Summary"
+    },
+    {
+      "name": "Details",
+      "type": "string",
+      "width": "1000",
+      "Option": "Optional",
+      "SLabel": "Job Details",
+      "LLabel": "Job Details"
+    },
     {
       "name": "EssentialExp",
       "type": "string",
       "width": "1000",
       "Option": "Optional",
-      "SLabel": "Essential Experiance",
-      "LLabel": "Essential Experiance"
+      "SLabel": "Essential Experience",
+      "LLabel": "Essential Experience"
     },
-    { "name": "PreferredExp", "type": "string", "width": "500" },
-    { "name": "Location", "type": "string", "width": "100" },
-    { "name": "Industry", "type": "string", "width": "100" },
-    { "name": "Duration", "type": "string", "width": "100" },
-    { "name": "JobType", "type": "string", "width": "50" },
-    { "name": "StartDate", "type": "Date", "width": "10" },
-    { "name": "Rate", "type": "string", "width": "50" },
-    { "name": "Salary", "type": "string", "width": "50" },
-    { "name": "EmpBusiness", "type": "string", "width": "100" },
-    { "name": "Contact", "type": "string", "width": "100" },
-    { "name": "ContactNo", "type": "string", "width": "100" },
-    { "name": "Fax", "type": "string", "width": "100" },
-    { "name": "Email", "type": "string", "width": "100" },
-    { "name": "WebLink", "type": "string", "width": "100" },
-    { "name": "PostedDate", "type": "Date", "width": "10" },
-    { "name": "Status", "type": "string", "width": "20" },
     {
-      "name": "CoverLetter",
+      "name": "PreferredExp",
+      "type": "string",
+      "width": "500",
+      "Option": "Optional",
+      "SLabel": "Preferred Experience",
+      "LLabel": "Preferred Experience"
+    },
+    {
+      "name": "Location",
       "type": "string",
       "width": "100",
       "Option": "Optional",
-      "SLabel": "",
-      "LLabel": ""
+      "SLabel": "Location",
+      "LLabel": "Location"
     },
     {
-      "name": "CV",
+      "name": "Industry",
       "type": "string",
       "width": "100",
       "Option": "Optional",
-      "SLabel": "",
-      "LLabel": ""
+      "SLabel": "Industry",
+      "LLabel": "Industry"
+    },
+    {
+      "name": "Duration",
+      "type": "string",
+      "width": "100",
+      "Option": "Optional",
+      "SLabel": "Duration",
+      "LLabel": "Duration"
+    },
+    {
+      "name": "JobType",
+      "type": "string",
+      "width": "50",
+      "Option": "Optional",
+      "SLabel": "Job Type",
+      "LLabel": "Job Type"
+    },
+    {
+      "name": "StartDate",
+      "type": "Date",
+      "width": "10",
+      "Option": "Optional",
+      "SLabel": "Start Date",
+      "LLabel": "Start Date"
+    },
+    {
+      "name": "Rate",
+      "type": "string",
+      "width": "50",
+      "Option": "Optional",
+      "SLabel": "Rate",
+      "LLabel": "Rate"
+    },
+    {
+      "name": "Salary",
+      "type": "string",
+      "width": "50",
+      "Option": "Optional",
+      "SLabel": "Salary",
+      "LLabel": "Salary"
+    },
+    {
+      "name": "EmpBusiness",
+      "type": "string",
+      "width": "100",
+      "Option": "Optional",
+      "SLabel": "Agency",
+      "LLabel": "Agency"
+    },
+    {
+      "name": "Contact",
+      "type": "string",
+      "width": "100",
+      "Option": "Optional",
+      "SLabel": "Contact",
+      "LLabel": "Contact"
+    },
+    {
+      "name": "ContactNo",
+      "type": "string",
+      "width": "100",
+      "Option": "Optional",
+      "SLabel": "ContactNo",
+      "LLabel": "ContactNo"
+    },
+    {
+      "name": "Email",
+      "type": "string",
+      "width": "100",
+      "Option": "Mandatory",
+      "SLabel": "Email",
+      "LLabel": "Email"
+    },
+    {
+      "name": "WebLink",
+      "type": "string",
+      "width": "100",
+      "Option": "Optional",
+      "SLabel": "Web Link",
+      "LLabel": "Web Link"
+    },
+    {
+      "name": "PostedDate",
+      "type": "Date",
+      "width": "10",
+      "Option": "Optional",
+      "SLabel": "Posted Date",
+      "LLabel": "Posted Date"
+    },
+    {
+      "name": "Status",
+      "type": "string",
+      "width": "50",
+      "Option": "Mandatory",
+      "SLabel": "Status",
+      "LLabel": "Status"
+    },
+    {
+      "name": "MultiAttachments",
+      "type": "attachment",
+      "width": "200",
+      "Option": "Optional",
+      "SLabel": "CV",
+      "LLabel": "CV"
+    },
+    {
+      "name": "carouselImage",
+      "type": "attachment",
+      "width": "200",
+      "Option": "Optional",
+      "SLabel": "Certificates",
+      "LLabel": "Certificates"
+    },
+    {
+      "name": "ProcessingLog",
+      "type": "string",
+      "width": "200",
+      "Option": "Optional",
+      "SLabel": "Processing Log",
+      "LLabel": "Processing Log"
+    },
+    {
+      "name": "USP_Role",
+      "type": "string",
+      "width": "50",
+      "Option": "Optional",
+      "SLabel": "User Role",
+      "LLabel": "User Role"
+    },
+    {
+      "name": "USP_Name",
+      "type": "string",
+      "width": "100",
+      "Option": "Optional",
+      "SLabel": "User Name",
+      "LLabel": "User Name"
+    },
+    {
+      "name": "USP_Image",
+      "type": "string",
+      "width": "200",
+      "Option": "Optional",
+      "SLabel": "Profile Image",
+      "LLabel": "Profile Image"
     }
   ],
+
   "itemData": "No",
   "itemConfig": {
     "ItemFieldDefinition": [],
@@ -149,6 +340,71 @@
     "ItemDetails": []
   },
   "CalculatedFields": {},
-  "Create": "No",
-  "Wizard": []
+  "Create": "Yes",
+  "Wizard": [
+    {
+      "id": "Step1",
+      "fields": [
+        { "name": "Title", "Sequence": "1", "Mode": "Edit" },
+        { "name": "Location", "Sequence": "1", "Mode": "Edit" },
+        { "name": "JobType", "Sequence": "1", "Mode": "Edit" },
+        { "name": "Salary", "Sequence": "1", "Mode": "Edit" },
+        { "name": "Rate", "Sequence": "1", "Mode": "Edit" }
+      ],
+      "name": "About Job",
+      "stepType": "FieldList",
+      "intro": "About Job : Job Details"
+    },
+    {
+      "id": "Step2",
+      "fields": [
+        { "name": "Summary", "Sequence": "1", "Mode": "Edit" },
+        { "name": "Details", "Sequence": "1", "Mode": "Edit" },
+        { "name": "Duration", "Sequence": "1", "Mode": "Edit" },
+        { "name": "StartDate", "Sequence": "1", "Mode": "Edit" },
+        { "name": "Industry", "Sequence": "1", "Mode": "Edit" }
+      ],
+      "name": "About Job",
+      "stepType": "FieldList",
+      "intro": "About Job : Job Details"
+    },
+    {
+      "id": "Step3",
+      "fields": [
+        { "name": "EssentialExp", "Sequence": "1", "Mode": "Edit" },
+        { "name": "PreferredExp", "Sequence": "1", "Mode": "Edit" }
+      ],
+      "name": "Your Experience",
+      "stepType": "FieldList",
+      "intro": "Job Requirements : Your Experience"
+    },
+    {
+      "id": "Step4",
+      "fields": [
+        { "name": "EmpBusiness", "Sequence": "1", "Mode": "Edit" },
+        { "name": "Contact", "Sequence": "1", "Mode": "Edit" },
+        { "name": "ContactNo", "Sequence": "1", "Mode": "Edit" },
+        { "name": "Email", "Sequence": "1", "Mode": "Edit" },
+        { "name": "WebLink", "Sequence": "1", "Mode": "Edit" },
+        { "name": "PostedDate", "Sequence": "1", "Mode": "Edit" }
+      ],
+      "name": "Contact Details",
+      "stepType": "FieldList",
+      "intro": "Job Contacts : Posted By"
+    },
+    {
+      "id": "Step5",
+      "fields": [{ "name": "carouselImage", "Sequence": "1", "Mode": "Edit" }],
+      "name": "Attachments",
+      "stepType": "Attachments",
+      "intro": "About Job : Attachments"
+    },
+    {
+      "id": "Step6",
+      "fields": [{ "name": "Status", "Sequence": "1", "Mode": "Edit" }],
+      "name": "About Job",
+      "stepType": "FieldList",
+      "intro": "About Job : Job Details"
+    }
+  ]
 }
