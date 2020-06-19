@@ -295,23 +295,10 @@
     ],
     "Tab7": [
       {
-        "GrpTitle": "Skeletal Class",
-        "Fields": ["skeletalClass"]
+        "GrpTitle": "Assessment",
+        "Fields": ["skeletalClass", "fmAngle", "incisorRelationship", "overJet"]
       },
 
-      {
-        "GrpTitle": "Fm Angle",
-        "Fields": ["fmAngle"]
-      },
-      {
-        "GrpTitle": "Incisor Relationship",
-        "Fields": ["incisorRelationship"]
-      },
-
-      {
-        "GrpTitle": "Over Jet",
-        "Fields": ["overJet"]
-      },
       {
         "GrpTitle": "Bite",
         "Fields": ["overBite", "openBite"]
@@ -887,32 +874,32 @@
       "type": "String",
       "width": "1",
       "Option": "Optional",
-      "SLabel": "skeletalClass",
-      "LLabel": "skeletalClass"
+      "SLabel": "Skeletal Class",
+      "LLabel": "Skeletal Class"
     },
     {
       "name": "fmAngle",
-      "type": "String",
+      "type": "radiobutton",
       "width": "1",
       "Option": "Optional",
-      "SLabel": "fmAngle",
-      "LLabel": "fmAngle"
+      "SLabel": "Fm Angle",
+      "LLabel": "Fm Angle"
     },
     {
       "name": "incisorRelationship",
-      "type": "String",
+      "type": "radiobutton",
       "width": "1",
       "Option": "Optional",
-      "SLabel": "incisorRelationship",
-      "LLabel": "incisorRelationship"
+      "SLabel": "Incisor Relationship",
+      "LLabel": "Incisor Relationship"
     },
     {
       "name": "overJet",
       "type": "String",
       "width": "1",
       "Option": "Optional",
-      "SLabel": "overJet",
-      "LLabel": "overJet"
+      "SLabel": "Over Jet",
+      "LLabel": "Over Jet"
     },
     {
       "name": "overBite",
