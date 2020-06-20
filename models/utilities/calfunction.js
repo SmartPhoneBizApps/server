@@ -6,12 +6,12 @@ class calFun {
   }
 
   isInt(n) {
-    console.log("isInt" + n);
+    // console.log("isInt" + n);
     if (n % 1 === 0) {
-      console.log("IF");
+      //   console.log("IF");
       return n;
     } else {
-      console.log("ELSE");
+      //   console.log("ELSE");
       return Number(Number(n).toFixed(2));
     }
   }
@@ -181,7 +181,6 @@ class calFun {
   }
 
   datacalculation(outdata, config) {
-    // console.log(config);
     if (outdata["ItemData"].length > 0) {
       if (config["Item"].length > 0) {
         for (var i = 0; i < outdata["ItemData"].length; i++) {
@@ -190,11 +189,11 @@ class calFun {
               var fieldObj = [];
               configItem["Fields"].forEach((field) => {
                 if (this.hasNull(field, 2)) {
-                  console.log(
+                  /*                   console.log(
                     field["Source"] +
                       "--" +
                       outdata["ItemData"][i][field["Source"]]
-                  );
+                  ); */
                   fieldObj.push(
                     parseFloat(outdata["ItemData"][i][field["Source"]])
                   ); // get calculated field value in item array
@@ -203,10 +202,10 @@ class calFun {
                 }
               });
               var fun = configItem["CalculatedFormula"]["function"]; // get function name
-              console.log("Function name -->" + fun);
+              //   console.log("Function name -->" + fun);
               if (typeof this[fun] !== "undefined") {
-                console.log("Calue --" + this[fun](fieldObj));
-                console.log("---------------");
+                //     console.log("Calue --" + this[fun](fieldObj));
+                //    console.log("---------------");
                 outdata["ItemData"][i][
                   configItem["CalculatedFormula"]["Target"]
                 ] = this[fun](fieldObj); // call function and assign value in item array

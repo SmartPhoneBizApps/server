@@ -375,7 +375,6 @@ const sendPINTokenResponse = asyncHandler(async (user, statusCode, res) => {
 // @route     POST /api/v1/auth/sendEmail
 // @access    Public
 exports.sendEmail = asyncHandler(async (req, res, next) => {
-  console.log(req.body);
   emailTo = req.body.emailTo;
   Subject = req.body.subject;
   message = req.body.message;

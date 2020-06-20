@@ -149,7 +149,7 @@ const advancedDataList = (model, model2, AppID, populate) => async (
     }
     results[a] = el3;
   } */
-  console.log("Ag2", results);
+
   /////////////////////////////////////////////////////////////////
   if (model2 !== model) {
     // Create query string (Item)

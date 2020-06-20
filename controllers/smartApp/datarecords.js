@@ -225,10 +225,8 @@ exports.addDataRecords = asyncHandler(async (req, res, next) => {
   myFieldArray = collectExceptionFields(cardConfig.FieldDef);
 
   for (const key in req.body) {
-    console.log("request", key);
     if (req.body.hasOwnProperty(key)) {
       var resField = myFieldArray.includes(key);
-      console.log("match", resField);
       /// Header Validations....
       if (resField === false && key !== "ItemData") {
         return next(
@@ -305,7 +303,6 @@ exports.addDataRecords = asyncHandler(async (req, res, next) => {
 // -----------------------------------------------------
 // -----------------------------------------------------
 exports.updateDataRecords = asyncHandler(async (req, res, next) => {
-  console.log(req.body);
   if (!req.headers.applicationid) {
     return next(new ErrorResponse(`Please provide App ID(Header)`, 400));
   }
@@ -485,8 +482,6 @@ exports.updateDataRecords = asyncHandler(async (req, res, next) => {
   // -----------------------------------------------------
   // Read data from DB
   // -----------------------------------------------------
-  console.log("Data", req.body.ID);
-  console.log("AppID", req.body.applicationId);
   let myData = await findOneAppData(req.body.ID, req.body.applicationId);
   // let myData = await SUPP00018.findOne({ ID: req.body.ID });
   if (!myData) {
@@ -495,13 +490,9 @@ exports.updateDataRecords = asyncHandler(async (req, res, next) => {
   //---------------------------
   // Item update logic....
   //---------------------------
-  console.log("Before - Req:", req.body["ItemData"]);
-  console.log("Before:", myData["ItemData"]);
   if (req.body["ItemData"]) {
     myData["ItemData"] = itemValidate(req.body["ItemData"], myData["ItemData"]);
   }
-  console.log("After - Req:", req.body["ItemData"]);
-  console.log("After:", myData["ItemData"]);
   //---------------------------
   // Attachment logic....
   //---------------------------
@@ -546,17 +537,14 @@ exports.updateDataRecords = asyncHandler(async (req, res, next) => {
     );
     req.body = outdata;
   }
-  console.log(req.body);
   itm = checkItemData(req.headers.applicationid, req.headers.businessrole);
   //---------------------------
   result = await findOneUpdateData(req.body, req.headers.applicationid);
-  //console.log("Stage1", result, req.headers.applicationid, req.body);
   if (itm == "Yes") {
     result2 = await findAndUpdateItem(
       req.body["ItemData"],
       req.headers.applicationid
     );
-    //   console.log("Stage1", result2);
   }
   res.status(200).json({
     success: true,

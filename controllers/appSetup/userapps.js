@@ -44,7 +44,6 @@ exports.getUserapps = asyncHandler(async (req, res, next) => {
   X1 = {};
   r = 0;
   let path = "https://fierce-oasis-51455.herokuapp.com/appImages/";
-  console.log("bRoles", userX.businessRoles);
   for (i = 0; i < userX.businessRoles.length; i++) {
     const approleX = await Approle.findOne({
       appRole: userX.businessRoles[i].roleId,
@@ -66,8 +65,7 @@ exports.getUserapps = asyncHandler(async (req, res, next) => {
         )
       );
     }
-    console.log(userX.businessRoles[i].roleId);
-    console.log(roleX.descriptions);
+
     roleTemp["tabId"] = r;
     r = r + 1;
     roleTemp["Role"] = approleX.role;

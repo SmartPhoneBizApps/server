@@ -42,7 +42,25 @@ exports.getListrecords1 = asyncHandler(async (req, res, next) => {
   let query = readData(req.params.id, req, config1);
   let results = await query;
 
-  rag = [];
+  /*   for (let a = 0; a < results.length; a++) {
+    for (const key in results[a]) {
+      for (let b = 0; b < config1.FieldDef.length; b++) {
+        if (
+          (config1.FieldDef[b]["type"] == "Date") &
+          (config1.FieldDef[b]["name"] == key)
+        ) {
+          let myTemp = results[a][key];
+          results[a][key] = typeof " ";
+          results[a][key] = results[a][key].toString(results[a][key]);
+          results[a]["New"] = String("2020-03-03");
+
+          console.log(results[a][key]);
+        }
+      }
+    }
+  } */
+
+  //  rag = [];
 
   /////////////////////////////////////////////////////////////////
   if (model2 !== model) {
@@ -51,7 +69,6 @@ exports.getListrecords1 = asyncHandler(async (req, res, next) => {
       let results2 = [];
       reqQuery2["ID"] = results[i1]["ID"];
       let queryStr2 = JSON.stringify(reqQuery2);
-      console.log(reqQuery2);
       // let queryStr2 = reqQuery2;
       // Create operators ($gt, $gte, etc)
       queryStr2 = queryStr2.replace(
@@ -125,7 +142,6 @@ exports.getListrecords1 = asyncHandler(async (req, res, next) => {
     o_val = getDateValues(ival.Value);
     ival.Value = o_val;
     ival_out.push(ival);
-    console.log(ival_out);
   }
 
   // Read Possible Values Config.....(Required for Possible Values and BOT Buttons)
@@ -164,22 +180,6 @@ exports.getListrecords1 = asyncHandler(async (req, res, next) => {
       defaultValues: ival_out,
     });
   }
-
-  /*   possibleValues = [];
-  defaultValues = [];
-
-  out["outData"] = outData;
-  out["possibleValues"] = possibleValues;
-  out["defaultValues"] = defaultValues;
-  res.status(200).json(out); */
-
-  /*   res.status(200).json({
-    success: true,
-    count: results.length,
-    pagination,
-    data: results,
-    config: config1,
-  }); */
 });
 // @desc      Get all bootcamps
 // @route     GET /api/v1/bootcamps
@@ -192,9 +192,6 @@ exports.getListrecords = asyncHandler(async (req, res, next) => {
   console.log("Secure:", req.secure);
   let outData = res.advancedDataList;
   // Initial Values..
-  //console.log(req.user);
-
-  //console.log("Status", req.user.hasOwnProperty(["userSettings"]));
   var ivalue = getInitialValues(
     req.headers.applicationid,
     req.headers.businessrole,
@@ -210,7 +207,6 @@ exports.getListrecords = asyncHandler(async (req, res, next) => {
     o_val = getDateValues(ival.Value);
     ival.Value = o_val;
     ival_out.push(ival);
-    console.log(ival_out);
   }
   // Add ID field in the Item Query... (Only for Items)
   // Read Possible Values Config.....(Required for Possible Values and BOT Buttons)

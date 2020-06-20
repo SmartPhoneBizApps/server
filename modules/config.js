@@ -60,7 +60,6 @@ module.exports = {
         }
       }
       // Append the data in array ...
-      console.log("out1", out1);
       out.push(out1);
       set1.add(out1);
       out1 = {};
@@ -321,14 +320,9 @@ module.exports = {
     for (let i = 0; i < newitemData.length; i++) {
       kys.push(newitemData[i]["ItemNumber"]);
     }
-
-    console.log(kys);
     for (let x = 0; x < itmData.length; x++) {
       out1 = {};
       if (!kys.includes(itmData[x]["ItemNumber"])) {
-        console.log("Check1B", itmData[x]["ItemNumber"]);
-        console.log(typeof itmData[x]["ItemNumber"]);
-        console.log("Check1B", kys);
         out1 = { ...itmData[x] };
         newitemData.push(out1);
         set1.add(out1);
@@ -340,7 +334,6 @@ module.exports = {
     for (let db2 = 0; db2 < newitemData.length; db2++) {
       for (let b2 = 0; b2 < itmData.length; b2++) {
         if (itmData[b2]["ItemNumber"] == newitemData[db2]["ItemNumber"]) {
-          console.log("Check2");
           for (const b3 in itmData[b2]) {
             newitemData[db2][b3] = itmData[b2][b3];
           }
@@ -352,23 +345,14 @@ module.exports = {
   handleArray: function (newData, oldData) {
     let current = [];
     let docID = newData["documentId"];
-    console.log("NewID", docID);
     current.push(newData);
     for (let index = 0; index < oldData.length; index++) {
       if (oldData[index]["documentId"] == docID) {
-        console.log("OldID-M", oldData[index]["documentId"]);
-        // current.push(newData);
-        // move the file to Archive here......
       } else {
         console.log("OldID-NM", oldData[index]["documentId"]);
         current.push(oldData[index]);
       }
     }
-
-    //   current = oldData;
-    console.log("OldData", current);
-    //  current.push(newData);
-    console.log("NewItems", current);
     return current;
   },
   getApplication: function (app) {

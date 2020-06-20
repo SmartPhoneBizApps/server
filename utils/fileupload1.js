@@ -32,7 +32,6 @@ exports.uploadFile = asyncHandler(async (req, res, next) => {
     req.headers.applicationid,
     req.headers.businessrole
   );
-  console.log(cardConfig);
   let mydata = {};
   let outdata = [];
   let myitem = {};
