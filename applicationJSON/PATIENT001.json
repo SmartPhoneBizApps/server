@@ -316,13 +316,45 @@
     "type": "String",
     "maxlength": [100, "radiographicRep can not be more than 100"]
   },
+  "Terms": {
+    "type": "String",
+    "maxlength": [500, "Terms can not be more than 500"]
+  },
   "PrivacyPolicy": {
     "type": "String",
-    "maxlength": [500, "radiographicRep can not be more than 500"]
+    "maxlength": [200, "PrivacyPolicy can not be more than 200"]
   },
   "Agree": {
     "type": "String",
-    "maxlength": [100, "radiographicRep can not be more than 100"]
+    "maxlength": [100, "Agree can not be more than 100"]
+  },
+  "EmergencyContactName": {
+    "type": "String",
+    "maxlength": [100, "EmergencyContactName can not be more than 100"]
+  },
+  "EmergencyContactNo": {
+    "type": "String",
+    "maxlength": [20, "EmergencyContactNo can not be more than 20"]
+  },
+  "SMSUpdates": {
+    "type": "String",
+    "maxlength": [50, "SMSUpdates can not be more than 50"]
+  },
+  "EmailUpdates": {
+    "type": "String",
+    "maxlength": [50, "EmailUpdates can not be more than 50"]
+  },
+  "WhatsApp": {
+    "type": "String",
+    "maxlength": [50, "WhatsApp can not be more than 50"]
+  },
+  "Skype": {
+    "type": "String",
+    "maxlength": [50, "Skype can not be more than 50"]
+  },
+  "Notification": {
+    "type": "String",
+    "maxlength": [50, "Notification can not be more than 50"]
   },
 
   "USP_Name": { "type": "String" },

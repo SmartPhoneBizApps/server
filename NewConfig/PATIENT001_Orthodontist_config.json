@@ -181,7 +181,7 @@
     {
       "value": "Tab14",
       "name": "PatientLog",
-      "fioriicon": "sonography",
+      "fioriicon": "toaster-up",
       "type": "Table",
       "download": "Yes"
     }
@@ -232,7 +232,7 @@
       },
       {
         "GrpTitle": "Patient Contact Details",
-        "Fields": ["Email", "ContactNo"]
+        "Fields": ["Email", "ContactNo", "LetterTo"]
       },
       {
         "GrpTitle": "Emergency Contact Details",
@@ -245,13 +245,12 @@
           "EmailUpdates",
           "WhatsApp",
           "Skype",
-          "Notification",
-          "LetterTo"
+          "Notification"
         ]
       },
       {
         "GrpTitle": "Terms & Conditions",
-        "Fields": ["PrivacyPolicy", "Agree"]
+        "Fields": ["Terms", "PrivacyPolicy", "Agree"]
       }
     ],
 
@@ -901,7 +900,7 @@
     },
     {
       "name": "overBite",
-      "type": "String",
+      "type": "radiobutton",
       "width": "1",
       "Option": "Optional",
       "SLabel": "overBite",
@@ -916,8 +915,16 @@
       "LLabel": "openBite"
     },
     {
-      "name": "molarOccRight",
+      "name": "openBiteSize",
       "type": "String",
+      "width": "50",
+      "Option": "Optional",
+      "SLabel": "Open Bite(in mm)",
+      "LLabel": "Open Bite(in mm)"
+    },
+    {
+      "name": "molarOccRight",
+      "type": "radiobutton",
       "width": "1",
       "Option": "Optional",
       "SLabel": "molarOccRight",
@@ -925,7 +932,7 @@
     },
     {
       "name": "molarOccLeft",
-      "type": "String",
+      "type": "radiobutton",
       "width": "1",
       "Option": "Optional",
       "SLabel": "molarOccLeft",
@@ -933,7 +940,7 @@
     },
     {
       "name": "canineOcclRight",
-      "type": "String",
+      "type": "radiobutton",
       "width": "1",
       "Option": "Optional",
       "SLabel": "canineOcclRight",
@@ -941,7 +948,7 @@
     },
     {
       "name": "canineOcclLeft",
-      "type": "String",
+      "type": "radiobutton",
       "width": "1",
       "Option": "Optional",
       "SLabel": "canineOcclLeft",
@@ -949,7 +956,7 @@
     },
     {
       "name": "upperCLine",
-      "type": "String",
+      "type": "radiobutton",
       "width": "1",
       "Option": "Optional",
       "SLabel": "upperC/Line",
@@ -957,7 +964,7 @@
     },
     {
       "name": "lowerCLine",
-      "type": "String",
+      "type": "radiobutton",
       "width": "1",
       "Option": "Optional",
       "SLabel": "lowerC/Line",
@@ -965,7 +972,7 @@
     },
     {
       "name": "upperCrowding",
-      "type": "String",
+      "type": "radiobutton",
       "width": "1",
       "Option": "Optional",
       "SLabel": "upperCrowding",
@@ -973,7 +980,7 @@
     },
     {
       "name": "lowerCrowding",
-      "type": "String",
+      "type": "radiobutton",
       "width": "1",
       "Option": "Optional",
       "SLabel": "lowerCrowding",
@@ -981,7 +988,7 @@
     },
     {
       "name": "spacing",
-      "type": "String",
+      "type": "radiobutton",
       "width": "1",
       "Option": "Optional",
       "SLabel": "spacing",
@@ -989,15 +996,15 @@
     },
     {
       "name": "centricPrompt",
-      "type": "String",
+      "type": "radiobutton",
       "width": "1",
       "Option": "Optional",
       "SLabel": "centricPrompt",
       "LLabel": "centricPrompt"
     },
     {
-      "name": "Profile",
-      "type": "String",
+      "name": "profile",
+      "type": "radiobutton",
       "width": "50",
       "Option": "Optional",
       "SLabel": "Profile",
@@ -1037,7 +1044,7 @@
     },
     {
       "name": "generalHealth",
-      "type": "String",
+      "type": "radiobutton",
       "width": "50",
       "Option": "Optional",
       "SLabel": "generalHealth",
@@ -1045,7 +1052,7 @@
     },
     {
       "name": "dentalOralHealth",
-      "type": "String",
+      "type": "radiobutton",
       "width": "50",
       "Option": "Optional",
       "SLabel": "dental/OralHealth",
@@ -1077,7 +1084,7 @@
     },
     {
       "name": "softTissuesOrHabits",
-      "type": "String",
+      "type": "radiobutton",
       "width": "100",
       "Option": "Optional",
       "SLabel": "softTissuesOrHabits",
@@ -1092,9 +1099,17 @@
       "LLabel": "radiographicRep"
     },
     {
-      "name": "PrivacyPolicy",
+      "name": "Terms",
       "type": "hyperlink",
       "width": "500",
+      "Option": "Optional",
+      "SLabel": "Terms",
+      "LLabel": "Terms"
+    },
+    {
+      "name": "PrivacyPolicy",
+      "type": "hyperlink",
+      "width": "200",
       "Option": "Optional",
       "SLabel": "Privacy Policy",
       "LLabel": "Privacy Policy"
@@ -1106,6 +1121,70 @@
       "Option": "Optional",
       "SLabel": "Terms",
       "LLabel": "Terms"
+    },
+    {
+      "name": "EmergencyContactName",
+      "type": "string",
+      "width": "100",
+      "Option": "Optional",
+      "SLabel": "Emergency Contact Name",
+      "LLabel": "Terms"
+    },
+    {
+      "name": "EmergencyContactNo",
+      "type": "string",
+      "width": "50",
+      "Option": "Optional",
+      "SLabel": "Emergency ContactNo",
+      "LLabel": "Emergency ContactNo"
+    },
+    {
+      "name": "SMSUpdates",
+      "type": "switch",
+      "width": "100",
+      "Option": "Optional",
+      "SLabel": "SMS Updates",
+      "LLabel": "SMS Updates"
+    },
+    {
+      "name": "EmailUpdates",
+      "type": "switch",
+      "width": "100",
+      "Option": "Optional",
+      "SLabel": "Email Updates",
+      "LLabel": "Email Updates"
+    },
+    {
+      "name": "WhatsApp",
+      "type": "switch",
+      "width": "100",
+      "Option": "Optional",
+      "SLabel": "WhatsApp",
+      "LLabel": "WhatsApp"
+    },
+    {
+      "name": "Skype",
+      "type": "string",
+      "width": "100",
+      "Option": "Optional",
+      "SLabel": "Skype(ID)",
+      "LLabel": "Skype(ID)"
+    },
+    {
+      "name": "Messenger",
+      "type": "string",
+      "width": "100",
+      "Option": "Optional",
+      "SLabel": "Facebook Messenger(ID)",
+      "LLabel": "Facebook Messenger(ID)"
+    },
+    {
+      "name": "Notification",
+      "type": "string",
+      "width": "100",
+      "Option": "Optional",
+      "SLabel": "Notification",
+      "LLabel": "Notification"
     }
   ],
   "itemData": "Yes",
