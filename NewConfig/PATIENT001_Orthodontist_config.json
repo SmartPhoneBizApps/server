@@ -148,7 +148,7 @@
       "value": "Tab8",
       "name": "Appointments",
       "fioriicon": "appointment",
-      "type": "FieldGroup",
+      "type": "Table",
       "download": "Yes"
     },
     {
@@ -177,6 +177,13 @@
       "name": "AdminNotes",
       "fioriicon": "notes",
       "type": "Table",
+      "download": "Yes"
+    },
+    {
+      "value": "Tab16",
+      "name": "Prescriptions",
+      "fioriicon": "pharmacy",
+      "type": "MultiAttachments",
       "download": "Yes"
     },
     {
@@ -269,16 +276,7 @@
       }
     ],
 
-    "Tab8": [
-      {
-        "GrpTitle": "Appointments",
-        "Fields": ["Appointments"]
-      },
-      {
-        "GrpTitle": "Visits",
-        "Fields": ["Visits"]
-      }
-    ],
+    "Tab8": ["Appointments"],
     "Tab9": ["Radiology"],
     "Tab10": ["DentalImages"],
     "Tab5": ["TreatmentCost"],
@@ -352,6 +350,7 @@
     ],
     "Tab11": ["ClinicalNotes"],
     "Tab15": ["AdminNotes"],
+    "Tab16": ["Prescriptions"],
     "Tab12": ["HealthEvaluation"],
     "Tab13": ["Pathology"],
     "Tab14": ["PatientStatusLog"]
@@ -521,7 +520,7 @@
     },
     {
       "name": "PaymentBy",
-      "type": "checkbox",
+      "type": "combobox",
       "width": "100",
       "Option": "Optional",
       "SLabel": "PaymentBy",
@@ -650,14 +649,7 @@
       "SLabel": "Dental Images",
       "LLabel": "Dental Images"
     },
-    {
-      "name": "Visits",
-      "type": "string",
-      "width": "200",
-      "Option": "Optional",
-      "SLabel": "Visits",
-      "LLabel": "Visits"
-    },
+
     {
       "name": "DOB",
       "type": "Date",
@@ -1708,6 +1700,123 @@
         {
           "name": "ACreatedBy",
           "Tab": "Tab15",
+          "Sequence": "1",
+          "Mode": "Edit"
+        }
+      ]
+    },
+    "Appointments": {
+      "ItemFieldDefinition": [
+        {
+          "name": "ItemNumber",
+          "type": "string",
+          "width": "10",
+          "SLabel": "Item Number",
+          "Option": "Optional"
+        },
+        {
+          "name": "ID",
+          "type": "string",
+          "width": "20",
+          "SLabel": "Identification",
+          "Option": "Optional"
+        },
+        {
+          "name": "Date",
+          "type": "Date",
+          "width": "10",
+          "SLabel": "Date",
+          "Option": "Optional"
+        },
+        {
+          "name": "Slot",
+          "type": "string",
+          "width": "50",
+          "SLabel": "Slot",
+          "Option": "Optional"
+        },
+        {
+          "name": "Notes",
+          "type": "string",
+          "width": "500",
+          "SLabel": "Notes",
+          "Option": "Optional"
+        },
+        {
+          "name": "Doctor",
+          "type": "string",
+          "width": "100",
+          "SLabel": "Doctor",
+          "Option": "Optional"
+        },
+        {
+          "name": "Chair",
+          "type": "string",
+          "width": "100",
+          "SLabel": "Chair/Room",
+          "Option": "Optional"
+        },
+        {
+          "name": "AppStatus",
+          "type": "string",
+          "width": "100",
+          "SLabel": "Appointment Status",
+          "Option": "Optional"
+        },
+        {
+          "name": "Reason",
+          "type": "string",
+          "width": "100",
+          "SLabel": "Reason",
+          "Option": "Optional"
+        },
+        {
+          "name": "Reminder",
+          "type": "string",
+          "width": "100",
+          "SLabel": "Reminder",
+          "Option": "Optional"
+        },
+        {
+          "name": "Prescription",
+          "type": "string",
+          "width": "10",
+          "SLabel": "Prescription",
+          "Option": "Optional"
+        }
+      ],
+      "DisplayFields": ["Date", "Notes", "Slot", "Doctor"],
+      "ItemButtons": {
+        "itemDisplay": true,
+        "itemAdd": true,
+        "itemEdit": true,
+        "itemDelete": true
+      },
+      "CreateFields": ["ID", "Date", "Notes", "Slot", "Doctor"],
+      "ItemDetails": [
+        {
+          "name": "ItemNumber",
+          "Tab": "Tab8",
+          "Sequence": "1",
+          "Mode": "Edit"
+        },
+        {
+          "name": "ID",
+          "Tab": "Tab8",
+          "Sequence": "1",
+          "Mode": "Edit"
+        },
+        { "name": "Date", "Tab": "Tab8", "Sequence": "1", "Mode": "Edit" },
+        { "name": "Notes", "Tab": "Tab8", "Sequence": "1", "Mode": "Edit" },
+        {
+          "name": "Slot",
+          "Tab": "Tab8",
+          "Sequence": "1",
+          "Mode": "Edit"
+        },
+        {
+          "name": "Doctor",
+          "Tab": "Tab8",
           "Sequence": "1",
           "Mode": "Edit"
         }
