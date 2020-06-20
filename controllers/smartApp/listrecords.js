@@ -69,7 +69,7 @@ exports.getListrecords1 = asyncHandler(async (req, res, next) => {
     for (let i1 = 0; i1 < results.length; i1++) {
       results[i1].cardImage = application["photo"];
       if (req.headers.mode == "Web" || req.headers.mode == "web") {
-        if (config["Controls"]["USP"] == "UserProfile") {
+        if (config1["Controls"]["USP"] == "UserProfile") {
           results[i1].USP_Name = "Atul Gupta";
           results[i1].USP_Role = req.headers.businessrole;
           results[i1].USP_Image =
