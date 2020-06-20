@@ -52,8 +52,8 @@
     "softTissuesOrHabits",
     "EmailUpdates",
     "WhatsApp",
-    "Skype",
-    "Notification"
+    "Notification",
+    "Messenger"
   ],
   "MButtons": [
     {
@@ -333,10 +333,21 @@
           "molarOccRight"
         ]
       },
-
       {
-        "GrpTitle": "Dental Charting",
-        "Fields": ["DentalCharting"]
+        "GrpTitle": "C/Line",
+        "Fields": ["upperCLine", "lowerCLine"]
+      },
+      {
+        "GrpTitle": "Crowding",
+        "Fields": ["upperCrowding", "lowerCrowding", "Profile"]
+      },
+      {
+        "GrpTitle": "Others",
+        "Fields": ["spacing", "centricPrompt", "Profile", "softTissuesOrHabits"]
+      },
+      {
+        "GrpTitle": "Health",
+        "Fields": ["generalHealth", "dentalOralHealth"]
       }
     ],
     "Tab11": ["ClinicalNotes"],
