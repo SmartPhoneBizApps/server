@@ -1203,6 +1203,13 @@
       "Option": "Optional",
       "SLabel": "Notification",
       "LLabel": "Notification"
+    },
+    {
+      "name": "MultiAttachments",
+      "type": "attachment",
+      "width": "500",
+      "SLabel": "Prescription",
+      "Option": "Optional"
     }
   ],
   "itemData": "Yes",
@@ -1311,13 +1318,6 @@
         "SLabel": "Payment Date",
         "Option": "Optional",
         "Currency": "No"
-      },
-      {
-        "name": "MultiAttachments",
-        "type": "attachment",
-        "width": "500",
-        "SLabel": "Prescription",
-        "Option": "Optional"
       }
     ],
     "DisplayFields": ["Amount", "ItemStatus", "Description", "PaidAmount"],
@@ -1785,7 +1785,7 @@
           "Option": "Optional"
         }
       ],
-      "DisplayFields": ["Date", "Slot", "Doctor", "Status", "Notes"],
+      "DisplayFields": ["Date", "Slot", "Doctor", "AppStatus", "Notes"],
       "ItemButtons": {
         "itemDisplay": true,
         "itemAdd": true,
