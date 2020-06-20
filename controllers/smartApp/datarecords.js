@@ -317,7 +317,9 @@ exports.updateDataRecords = asyncHandler(async (req, res, next) => {
   // Find Exception fields
   myFieldArray = collectExceptionFields(cardConfig.FieldDef);
 
-  for (const key in req.body) {
+  // Disabled validation for Tables...
+
+  /*   for (const key in req.body) {
     if (req.body.hasOwnProperty(key)) {
       var resField = myFieldArray.includes(key);
       if (resField === false && key !== "ItemData") {
@@ -326,7 +328,7 @@ exports.updateDataRecords = asyncHandler(async (req, res, next) => {
         );
       }
     }
-  }
+  } */
   // -----------------------------------------------------
   // Get App from Header
   // -----------------------------------------------------
