@@ -1311,6 +1311,13 @@
         "SLabel": "Payment Date",
         "Option": "Optional",
         "Currency": "No"
+      },
+      {
+        "name": "MultiAttachments",
+        "type": "attachment",
+        "width": "500",
+        "SLabel": "Prescription",
+        "Option": "Optional"
       }
     ],
     "DisplayFields": ["Amount", "ItemStatus", "Description", "PaidAmount"],
@@ -1776,16 +1783,9 @@
           "width": "100",
           "SLabel": "Reminder",
           "Option": "Optional"
-        },
-        {
-          "name": "MultiAttachments",
-          "type": "attachment",
-          "width": "500",
-          "SLabel": "Prescription",
-          "Option": "Optional"
         }
       ],
-      "DisplayFields": ["Date", "Notes", "Slot", "Doctor"],
+      "DisplayFields": ["Date", "Slot", "Doctor", "Status", "Notes"],
       "ItemButtons": {
         "itemDisplay": true,
         "itemAdd": true,
