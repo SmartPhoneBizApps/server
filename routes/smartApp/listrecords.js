@@ -1,9 +1,14 @@
 const express = require("express");
-const { getListrecords } = require("../../controllers/smartApp/listrecords");
+const {
+  getListrecords,
+  getListrecords1,
+} = require("../../controllers/smartApp/listrecords");
 const router = express.Router();
 const advancedDataList = require("../../middleware/advancedDataList");
 const { protect, authorize } = require("../../middleware/auth");
-const BUS0000001 = require("../../models/smartApp/BUS0000002");
+router.route("/:id").get(protect, getListrecords1);
+
+/* const BUS0000001 = require("../../models/smartApp/BUS0000002");
 const BUS0000002 = require("../../models/smartApp/BUS0000002");
 const BUS0000003 = require("../../models/smartApp/BUS0000003");
 const BUS0000004 = require("../../models/smartApp/BUS0000004");
@@ -95,10 +100,11 @@ const ERP00011 = require("../../models/smartApp/ERP00011");
 const EMP00017 = require("../../models/smartApp/EMP00017");
 const EMPNEW01 = require("../../models/smartApp/EMPNEW01");
 const TIME0002 = require("../../models/smartApp/TIME0002");
-const PATIENT001 = require("../../models/smartApp/PATIENT001");
+const PATIENT001 = require("../../models/smartApp/PATIENT001"); */
 
 //router.use("/:smartappId/reviews", reviewRouter);
-router
+
+/* router
   .route("/PATIENT001")
   .get(
     protect,
@@ -714,5 +720,5 @@ router
     protect,
     advancedDataList(EMPBEN01, EMPBEN01, "EMPBEN01"),
     getListrecords
-  );
+  ); */
 module.exports = router;
