@@ -56,6 +56,8 @@
     "Messenger"
   ],
   "MButtons": [
+    { "type": "ADD", "name": "Add Record", "icon": "sap-icon://add" },
+    { "type": "UPLOAD", "name": "Upload Record", "icon": "sap-icon://upload" },
     {
       "type": "DOWNLOAD",
       "name": "Download File",
@@ -75,18 +77,29 @@
       "type": "VIEW",
       "name": "Change App View",
       "icon": "sap-icon://chart-table-view"
-    },
-    { "type": "ADD", "name": "Add Record", "icon": "sap-icon://add" },
-    { "type": "UPLOAD", "name": "Upload Record", "icon": "sap-icon://upload" }
+    }
   ],
   "DButtons": [
     {
-      "type": "ATTACHMENT",
-      "name": "View Attachments",
-      "icon": "sap-icon://attachment"
+      "type": "VIEW",
+      "name": "Create Appointment",
+      "icon": "sap-icon://appointment"
     },
-    { "type": "UPDATE", "name": "Update Record", "icon": "sap-icon://update" },
-    { "type": "ADD", "name": "Add Record", "icon": "sap-icon://add" }
+    {
+      "type": "VIEW",
+      "name": "Generate Letter",
+      "icon": "sap-icon://letter"
+    },
+    {
+      "type": "VIEW",
+      "name": "Generate Installments",
+      "icon": "sap-icon://instance"
+    },
+    {
+      "type": "VIEW",
+      "name": "Record Labwork",
+      "icon": "sap-icon://lab"
+    }
   ],
   "Tabs": [
     {
