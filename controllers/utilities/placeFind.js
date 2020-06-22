@@ -16,16 +16,18 @@ const https = require("https");
 // console.log(aa.Handler[ADD1()]);
 // return false;
 
-exports.placeDetails = asyncHandler(async (req, res, next) => {
-  var PLACEID = req.params.id;
-  //  var PLACEID = "ChIJN1t_tDeuEmsRUsoyG83frY4";
+exports.placeFind = asyncHandler(async (req, res, next) => {
+  var PLACE = req.params.id;
+  // var PLACE = "GSK House";
   var API_KEY = "AIzaSyC9b79SQJZc2m8aQpcX9QD87crX87ANDv8";
   var FIELDS =
-    "name,id,rating,business_status,geometry,icon,address_components,opening_hours,photos,types,formatted_phone_number,formatted_address,adr_address,website,vicinity,international_phone_number,price_level,reviews,url,utc_offset";
+    "name,id,rating,business_status,geometry,icon,opening_hours,photos,types,formatted_address,price_level";
+
   reqGoogle =
-    "https://maps.googleapis.com/maps/api/place/details/json" +
-    "?place_id=" +
-    PLACEID +
+    "https://maps.googleapis.com/maps/api/place/findplacefromtext/json" +
+    "?input=" +
+    PLACE +
+    "&inputtype=textquery" +
     "&fields=" +
     FIELDS +
     "&key=" +
@@ -45,9 +47,25 @@ exports.placeDetails = asyncHandler(async (req, res, next) => {
       }
 
       address = {};
-      outData = {};
+      out1 = {};
+      outData = [];
 
-      if (body.result.hasOwnProperty("international_phone_number")) {
+      for (let x = 0; x < body["candidates"].length; x++) {
+        const a1 = body["candidates"][x];
+        if (a1.hasOwnProperty("name")) {
+          out1["name"] = a1.name;
+        }
+        if (a1.hasOwnProperty("formatted_address")) {
+          out1["formatted_address"] = a1.formatted_address;
+        }
+        if (a1.hasOwnProperty("rating")) {
+          out1["rating"] = a1.formatted_address;
+        }
+        outData.push(out1);
+        out1 = {};
+      }
+
+      /*     if (body.result.hasOwnProperty("international_phone_number")) {
         outData["international_phone_number"] =
           body.result.international_phone_number;
       }
@@ -60,9 +78,7 @@ exports.placeDetails = asyncHandler(async (req, res, next) => {
       if (body.result.hasOwnProperty("geometry")) {
         outData["geometry"] = body.result.geometry;
       }
-      if (body.result.hasOwnProperty("formatted_address")) {
-        address["formatted_address"] = body.result.formatted_address;
-      }
+  
       for (let i = 0; i < body.result.address_components.length; i++) {
         const e2 = body.result.address_components[i];
         console.log(e2);
@@ -115,9 +131,9 @@ exports.placeDetails = asyncHandler(async (req, res, next) => {
       }
       if (body.result.hasOwnProperty("website")) {
         outData["website"] = body.result.website;
-      }
+      } */
 
-      console.log(res1.statusCode);
+      console.log(body);
       res.status(200).json({
         success: true,
         data: body,

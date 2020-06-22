@@ -158,6 +158,7 @@ app.use(
   "/api/v1/util/placeDetails",
   require("./routes/utilities/placeDetails")
 );
+app.use("/api/v1/util/placeFind", require("./routes/utilities/placeFind"));
 
 //  -------------------------------------------------
 //  ----------  ***** IGNORE *****  ---------
