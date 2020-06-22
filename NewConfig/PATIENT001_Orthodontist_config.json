@@ -1233,6 +1233,7 @@
   ],
   "itemData": "Yes",
   "itemConfig": {
+    "title": "Item Details",
     "ItemFieldDefinition": [
       {
         "name": "ItemNumber",
@@ -1373,19 +1374,13 @@
   },
   "tableConfig": {
     "PatientStatusLog": {
+      "title": "Patient Status Log",
       "ItemFieldDefinition": [
         {
           "name": "ItemNumber",
           "type": "string",
           "width": "10",
           "SLabel": "Item Number",
-          "Option": "Optional"
-        },
-        {
-          "name": "ID",
-          "type": "string",
-          "width": "20",
-          "SLabel": "Identification",
           "Option": "Optional"
         },
         {
@@ -1410,16 +1405,10 @@
         "itemEdit": false,
         "itemDelete": false
       },
-      "CreateFields": ["ID", "PatientStatus", "StatusDate"],
+      "CreateFields": ["PatientStatus", "StatusDate"],
       "ItemDetails": [
         {
           "name": "ItemNumber",
-          "Tab": "Tab14",
-          "Sequence": "1",
-          "Mode": "Edit"
-        },
-        {
-          "name": "ID",
           "Tab": "Tab14",
           "Sequence": "1",
           "Mode": "Edit"
@@ -1439,19 +1428,13 @@
       ]
     },
     "TreatmentPlan": {
+      "title": "Patient Treatment Plan",
       "ItemFieldDefinition": [
         {
           "name": "ItemNumber",
           "type": "string",
           "width": "10",
           "SLabel": "Item Number",
-          "Option": "Optional"
-        },
-        {
-          "name": "ID",
-          "type": "string",
-          "width": "20",
-          "SLabel": "Identification",
           "Option": "Optional"
         },
         {
@@ -1490,16 +1473,10 @@
         "itemEdit": true,
         "itemDelete": true
       },
-      "CreateFields": ["ID", "EventID", "Task", "ExpectedDate", "TPStatus"],
+      "CreateFields": ["EventID", "Task", "ExpectedDate", "TPStatus"],
       "ItemDetails": [
         {
           "name": "ItemNumber",
-          "Tab": "Tab6",
-          "Sequence": "1",
-          "Mode": "Edit"
-        },
-        {
-          "name": "ID",
           "Tab": "Tab6",
           "Sequence": "1",
           "Mode": "Edit"
@@ -1516,19 +1493,13 @@
       ]
     },
     "ClinicalNotes": {
+      "title": "Patient Clinical Notes",
       "ItemFieldDefinition": [
         {
           "name": "ItemNumber",
           "type": "string",
           "width": "10",
           "SLabel": "Item Number",
-          "Option": "Optional"
-        },
-        {
-          "name": "ID",
-          "type": "string",
-          "width": "20",
-          "SLabel": "Identification",
           "Option": "Optional"
         },
         {
@@ -1589,7 +1560,6 @@
         "itemDelete": true
       },
       "CreateFields": [
-        "ID",
         "VisitDate",
         "VisitReason",
         "ExaminationNotes",
@@ -1600,12 +1570,6 @@
       "ItemDetails": [
         {
           "name": "ItemNumber",
-          "Tab": "Tab11",
-          "Sequence": "1",
-          "Mode": "Edit"
-        },
-        {
-          "name": "ID",
           "Tab": "Tab11",
           "Sequence": "1",
           "Mode": "Edit"
@@ -1649,19 +1613,13 @@
       ]
     },
     "AdminNotes": {
+      "title": "Admin Notes",
       "ItemFieldDefinition": [
         {
           "name": "ItemNumber",
           "type": "string",
           "width": "10",
           "SLabel": "Item Number",
-          "Option": "Optional"
-        },
-        {
-          "name": "ID",
-          "type": "string",
-          "width": "20",
-          "SLabel": "Identification",
           "Option": "Optional"
         },
         {
@@ -1701,16 +1659,10 @@
         "itemEdit": true,
         "itemDelete": true
       },
-      "CreateFields": ["ID", "Date", "Notes", "Action", "ACreatedBy"],
+      "CreateFields": ["Date", "Notes", "Action", "ACreatedBy"],
       "ItemDetails": [
         {
           "name": "ItemNumber",
-          "Tab": "Tab15",
-          "Sequence": "1",
-          "Mode": "Edit"
-        },
-        {
-          "name": "ID",
           "Tab": "Tab15",
           "Sequence": "1",
           "Mode": "Edit"
@@ -1732,19 +1684,13 @@
       ]
     },
     "Appointments": {
+      "title": "Patient Appointments",
       "ItemFieldDefinition": [
         {
           "name": "ItemNumber",
           "type": "string",
           "width": "10",
           "SLabel": "Item Number",
-          "Option": "Optional"
-        },
-        {
-          "name": "ID",
-          "type": "string",
-          "width": "20",
-          "SLabel": "Identification",
           "Option": "Optional"
         },
         {
@@ -1811,16 +1757,10 @@
         "itemEdit": true,
         "itemDelete": true
       },
-      "CreateFields": ["ID", "Date", "Notes", "Slot", "Doctor"],
+      "CreateFields": ["Date", "Notes", "Slot", "Doctor"],
       "ItemDetails": [
         {
           "name": "ItemNumber",
-          "Tab": "Tab8",
-          "Sequence": "1",
-          "Mode": "Edit"
-        },
-        {
-          "name": "ID",
           "Tab": "Tab8",
           "Sequence": "1",
           "Mode": "Edit"
