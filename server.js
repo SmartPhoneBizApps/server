@@ -146,9 +146,18 @@ app.use("/api/v1/dummyUpload/", require("./routes/utilities/dummyUpload"));
 app.use("/api/v1/util/encode", require("./routes/utilities/utilities"));
 app.use("/api/v1/util/calculation", require("./routes/utilities/calculation"));
 app.use("/api/v1/util/validations", require("./routes/utilities/validations"));
-app.use("/api/v1/util/address", require("./routes/utilities/address"));
 app.use("/api/v1/util/possval", require("./routes/utilities/possVals"));
 app.use("/api/v1/util/fileupload/", require("./routes/utilities/fileupload"));
+//  -------------------------------------------------
+//  --  ***** UTILITIES / External APIs *****  ------
+//  -------------------------------------------------
+// https://api.getaddress.io/find/
+app.use("/api/v1/util/address", require("./routes/utilities/address"));
+// Google Place APIs
+app.use(
+  "/api/v1/util/placeDetails",
+  require("./routes/utilities/placeDetails")
+);
 
 //  -------------------------------------------------
 //  ----------  ***** IGNORE *****  ---------
