@@ -294,8 +294,12 @@
     },
     {
       "name": "PostCode",
-      "type": "string",
+      "type": "searchField",
       "width": "20",
+      "linkFields": "Address",
+      "URL": "{URL}/api/v1/util/address/{PostCode}",
+      "URLMethod": "GET",
+      "Token": true,
       "Option": "Optional",
       "SLabel": "Delivery Post Code",
       "LLabel": ""

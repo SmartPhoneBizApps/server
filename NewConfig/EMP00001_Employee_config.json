@@ -155,11 +155,15 @@
     },
     {
       "name": "PostCode",
-      "type": "string",
-      "width": "20",
+      "type": "searchField",
+      "width": "50",
+      "linkFields": "Address",
+      "URL": "{URL}/api/v1/util/address/{PostCode}",
+      "URLMethod": "GET",
+      "Token": true,
       "Option": "Optional",
-      "SLabel": "PostCode",
-      "LLabel": ""
+      "SLabel": "Post Code",
+      "LLabel": "Post Code"
     },
     {
       "name": "ContactNo",

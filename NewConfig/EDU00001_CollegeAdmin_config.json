@@ -188,12 +188,16 @@
       "LLabel": ""
     },
     {
-      "name": "Postcode",
-      "type": "string",
-      "width": "20",
+      "name": "PostCode",
+      "type": "searchField",
+      "width": "50",
+      "linkFields": "Address",
+      "URL": "{URL}/api/v1/util/address/{PostCode}",
+      "URLMethod": "GET",
+      "Token": true,
       "Option": "Optional",
-      "SLabel": "Postcode",
-      "LLabel": ""
+      "SLabel": "Post Code",
+      "LLabel": "Post Code"
     },
     {
       "name": "City",

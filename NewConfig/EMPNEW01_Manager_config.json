@@ -214,12 +214,16 @@
       "LLabel": "Address"
     },
     {
-      "name": "Postcode",
-      "type": "string",
-      "width": "200",
-      "Option": "Mandatory",
-      "SLabel": "PostCode",
-      "LLabel": "PostCode"
+      "name": "PostCode",
+      "type": "searchField",
+      "width": "50",
+      "linkFields": "Address",
+      "URL": "{URL}/api/v1/util/address/{PostCode}",
+      "URLMethod": "GET",
+      "Token": true,
+      "Option": "Optional",
+      "SLabel": "Post Code",
+      "LLabel": "Post Code"
     },
     {
       "name": "Sex",

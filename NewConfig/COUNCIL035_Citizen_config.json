@@ -251,9 +251,13 @@
       "LLabel": "Applicant Address"
     },
     {
-      "name": "Postcode",
-      "type": "string",
+      "name": "PostCode",
+      "type": "searchField",
       "width": "20",
+      "linkFields": "Address",
+      "URL": "{URL}/api/v1/util/address/{PostCode}",
+      "URLMethod": "GET",
+      "Token": true,
       "Option": "Optional",
       "SLabel": "Applicant Postcode",
       "LLabel": "Postcode"
