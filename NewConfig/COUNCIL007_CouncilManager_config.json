@@ -3,7 +3,10 @@
     "ApplicationTitle": "Order new bins and boxes",
     "DetailTitle": "Order new bins and boxes"
   },
-  "Controls": { "USP": "UserProfile" },
+  "Controls": {
+    "USP": "UserProfile",
+    "URL": "https://fierce-oasis-51455.herokuapp.com"
+  },
   "ListFields": {
     "IntroField": "Postcode",
     "TitleField": "HouseNo",
@@ -102,9 +105,13 @@
       "LLabel": ""
     },
     {
-      "name": "Postcode",
-      "type": "string",
-      "width": "10",
+      "name": "PostCode",
+      "type": "searchField",
+      "width": "20",
+      "linkFields": "Address",
+      "URL": "{URL}/api/v1/util/address/{PostCode}",
+      "URLMethod": "GET",
+      "Token": true,
       "Option": "Optional",
       "SLabel": "Postal Code",
       "LLabel": ""

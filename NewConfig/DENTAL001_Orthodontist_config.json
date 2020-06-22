@@ -3,7 +3,10 @@
     "ApplicationTitle": "Health Evaluation Form",
     "DetailTitle": "Evaluation Form"
   },
-  "Controls": { "USP": "UserProfile" },
+  "Controls": {
+    "USP": "UserProfile",
+    "URL": "https://fierce-oasis-51455.herokuapp.com"
+  },
   "ListFields": {
     "IntroField": "",
     "TitleField": "",
@@ -261,8 +264,12 @@
     },
     {
       "name": "PostCode",
-      "type": "string",
-      "width": "10",
+      "type": "searchField",
+      "width": "20",
+      "linkFields": "Address",
+      "URL": "{URL}/api/v1/util/address/{PostCode}",
+      "URLMethod": "GET",
+      "Token": true,
       "Option": "Mandatory",
       "SLabel": "Post Code",
       "LLabel": "Post Code"

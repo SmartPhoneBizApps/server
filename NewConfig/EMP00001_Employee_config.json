@@ -3,7 +3,10 @@
     "ApplicationTitle": "Leave Application",
     "DetailTitle": "Leave Application"
   },
-  "Controls": { "USP": "UserProfile" },
+  "Controls": {
+    "USP": "UserProfile",
+    "URL": "https://fierce-oasis-51455.herokuapp.com"
+  },
   "ListFields": {
     "IntroField": "LeaveFrom",
     "TitleField": "Name",
@@ -156,7 +159,7 @@
     {
       "name": "PostCode",
       "type": "searchField",
-      "width": "50",
+      "width": "20",
       "linkFields": "Address",
       "URL": "{URL}/api/v1/util/address/{PostCode}",
       "URLMethod": "GET",

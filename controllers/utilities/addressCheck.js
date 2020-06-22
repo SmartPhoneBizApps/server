@@ -16,7 +16,7 @@ const https = require("https");
 // console.log(aa.Handler[ADD1()]);
 // return false;
 
-exports.getpostcode = asyncHandler(async (req, res, next) => {
+exports.getaddress = asyncHandler(async (req, res, next) => {
   var postcode = "SL15DG";
   var houseNo = "35";
 
