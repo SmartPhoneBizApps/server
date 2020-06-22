@@ -1,43 +1,57 @@
-const axios = require("axios").default;
-// @desc      Perform Encoding
-// @route     GET /api/v1/roles
-// @access    Public
-exports.getaddress = (req, res, next) => {
-  //  req.params["api-key"] = "g0Obs9X3fE-Fqvt59gA3vA26300";
-  key = "?api-key=g0Obs9X3fE-Fqvt59gA3vA26300";
-  myURL = "api.getaddress.io/find/" + req.params.id + key;
-  ProcessOut = [];
-  ProcessLog = {};
-  console.log(myURL);
+const ErrorResponse = require("../../utils/errorResponse");
+const asyncHandler = require("../../middleware/async");
+const App = require("../../models/appSetup/App");
+const Role = require("../../models/appSetup/Role");
+//const postcode = require("../../models/utilities/postcode.js");
+const { getNewConfig, getpostcodeData } = require("../../modules/config");
 
-  $.ajax({
-    type: "GET",
-    url: myURL,
-    timeout: 600000,
-    success: function (data) {
-      console.log("SUCCESS : ", data);
-      res.status(200).json(data);
-    },
-    error: function (e) {
-      console.log("ERROR : ", e);
-      res.status(400).json(e);
-    },
-  });
+const request = require("request");
+const https = require("https");
 
-  /*   https: axios({
-    method: "get",
-    url: myURL,
-    //  params: { "api-key": "g0Obs9X3fE-Fqvt59gA3vA26300" },
-  })
-    .then(function (response) {
-      ProcessLog["sucess"] = response["sucess"];
-      ProcessOut.push(ProcessLog);
-      res.status(200).json(response);
-    })
-    .catch((error) => {
-      ProcessLog["error"] = error.message;
-      console.log("Error Message", error.message);
-      ProcessOut.push(ProcessLog);
-      res.status(400).json(error);
-    }); */
-};
+// @desc      Perform Calculations
+// @route     GET /api/v1/util/calculation
+// @access    Private (Application Users)
+
+// var aa = new calfunction();
+// console.log(aa.Handler[ADD1()]);
+// return false;
+
+exports.getaddress = asyncHandler(async (req, res, next) => {
+  var postcode = req.params.id;
+  var houseNo = "";
+
+  var API_KEY = "g0Obs9X3fE-Fqvt59gA3vA26300";
+
+  if (houseNo != "") {
+    postcode += "/" + houseNo;
+  }
+
+  //api.getaddress.io/find/SL15DGK?api-key=g0Obs9X3fE-Fqvt59gA3vA26300
+
+  https: request(
+    "https://api.getaddress.io/find/" + postcode + "?api-key=" + API_KEY,
+    {
+      json: true,
+    },
+    (err, res1, body) => {
+      if (err) {
+        res.status(201).json({
+          success: true,
+          data: [],
+        });
+      }
+      console.log(res1.statusCode);
+      if (res1.statusCode == 200) {
+        res.status(201).json({
+          success: true,
+          data: body["addresses"],
+        });
+      } else {
+        res.status(201).json({
+          success: true,
+          data: body["Message"],
+        });
+      }
+    }
+  );
+});

@@ -3,7 +3,10 @@
     "ApplicationTitle": "Employee Profile",
     "DetailTitle": "Employee Profile"
   },
-  "Controls": { "USP": "UserProfile" },
+  "Controls": {
+    "USP": "UserProfile",
+    "URL": "https://fierce-oasis-51455.herokuapp.com"
+  },
   "ListFields": {
     "IntroField": "EmpFirstName",
     "TitleField": "EmpLastName",
@@ -205,6 +208,17 @@
       "SLabel": "Date of Birth",
       "LLabel": "Date of Birth"
     },
+
+    {
+      "name": "PostCode",
+      "type": "string",
+      "width": "50",
+      "linkFields": "Address",
+      "URL": "{URL}/api/v1/util/address/{PostCode}",
+      "Option": "Optional",
+      "SLabel": "Post Code",
+      "LLabel": ""
+    },
     {
       "name": "Address",
       "type": "string",
@@ -212,14 +226,6 @@
       "Option": "Optional",
       "SLabel": "Address",
       "LLabel": "Address"
-    },
-    {
-      "name": "Postcode",
-      "type": "string",
-      "width": "200",
-      "Option": "Mandatory",
-      "SLabel": "PostCode",
-      "LLabel": "PostCode"
     },
     {
       "name": "Sex",

@@ -3,7 +3,10 @@
     "ApplicationTitle": "Daily Production Report",
     "DetailTitle": "Daily Production Report"
   },
-  "Controls": { "USP": "UserProfile" },
+  "Controls": {
+    "USP": "UserProfile",
+    "URL": "https://fierce-oasis-51455.herokuapp.com"
+  },
   "ListFields": {
     "IntroField": "Time",
     "TitleField": "Material",
@@ -172,6 +175,8 @@
       "name": "PostCode",
       "type": "string",
       "width": "50",
+      "linkFields": "Address",
+      "URL": "{URL}/api/v1/util/address/{PostCode}",
       "Option": "Optional",
       "SLabel": "Post Code",
       "LLabel": ""
