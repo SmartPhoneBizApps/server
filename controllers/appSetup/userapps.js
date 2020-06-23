@@ -101,10 +101,11 @@ exports.getUserapps = asyncHandler(async (req, res, next) => {
           appTemp["frameType"] = "OneByOne";
         }
         if (
-          approleX.Apps[j]["frameType"] == "Array" &&
+          approleX.Apps[j]["backgroundImage"] !== "" &&
           appTemp["frameType"] == "TwoByOne"
         ) {
           appTemp["backgroundImage"] = path + approleX.Apps[j].backgroundImage;
+          console.log(appTemp["backgroundImage"]);
           appTemp["icon"] = "";
         } else {
           appTemp["backgroundImage"] = "";
