@@ -112,7 +112,13 @@ exports.updateApprole = asyncHandler(async (req, res, next) => {
       new ErrorResponse(`Approle not found with id of ${req.params.id}`, 404)
     );
   }
-  approle = await Approle.findByIdAndUpdate(req.params.id, req.body, {
+
+  console.log(req.body);
+
+  //  updateApp = {}
+  //  updateApp["Apps"] = req.body["Apps"]
+
+  approle = await Approle.findByIdAndUpdate(approle.id, req.body, {
     new: true,
     runValidators: true,
   });

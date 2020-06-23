@@ -18,6 +18,8 @@ const {
   handleArray,
   checkItemData,
   getInitialValues,
+  tableFields,
+  tableValidate,
 } = require("../../modules/config");
 
 const { valAppNotNull } = require("../../modules/validationMessages");
@@ -318,7 +320,6 @@ exports.updateDataRecords = asyncHandler(async (req, res, next) => {
   myFieldArray = collectExceptionFields(cardConfig.FieldDef);
 
   // Disabled validation for Tables...
-
   /*   for (const key in req.body) {
     if (req.body.hasOwnProperty(key)) {
       var resField = myFieldArray.includes(key);
@@ -494,6 +495,20 @@ exports.updateDataRecords = asyncHandler(async (req, res, next) => {
   //---------------------------
   if (req.body["ItemData"]) {
     myData["ItemData"] = itemValidate(req.body["ItemData"], myData["ItemData"]);
+  }
+
+  // Update Table fields
+  let tblFields = tableFields(cardConfig.FieldDef);
+  console.log("Fields with Type table", tblFields);
+  for (const kk in req.body) {
+    if (req.body.hasOwnProperty(kk)) {
+      let tableField = false;
+      tableField = tblFields.includes(kk);
+      if (tableField == true) {
+        console.log("Tables Module called", kk);
+        myData[kk] = tableValidate(req.body[kk], myData[kk]);
+      }
+    }
   }
   //---------------------------
   // Attachment logic....

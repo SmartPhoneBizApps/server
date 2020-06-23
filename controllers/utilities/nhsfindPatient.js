@@ -11,7 +11,6 @@ const request = require("request");
 
 exports.nhsfindPatient = asyncHandler(async (req, res, next) => {
   outData = [];
-
   request(
     {
       method: "GET",

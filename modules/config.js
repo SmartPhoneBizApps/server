@@ -342,6 +342,40 @@ module.exports = {
     }
     return newitemData;
   },
+  tableValidate: function (itmData, newitemData) {
+    let kys = [];
+    let out1 = {};
+    var set1 = new Set([]);
+
+    for (let i = 0; i < newitemData.length; i++) {
+      kys.push(newitemData[i]["ItemNumber"]);
+    }
+    console.log(kys);
+    for (let x = 0; x < itmData.length; x++) {
+      out1 = {};
+      if (!kys.includes(itmData[x]["ItemNumber"])) {
+        console.log("Add Item");
+        out1 = { ...itmData[x] };
+        newitemData.push(out1);
+        set1.add(out1);
+      }
+    }
+
+    let itms = [];
+    ItemFields = {};
+    for (let db2 = 0; db2 < newitemData.length; db2++) {
+      for (let b2 = 0; b2 < itmData.length; b2++) {
+        if (itmData[b2]["ItemNumber"] == newitemData[db2]["ItemNumber"]) {
+          console.log("Update Item");
+          for (const b3 in itmData[b2]) {
+            newitemData[db2][b3] = itmData[b2][b3];
+          }
+        }
+      }
+    }
+    return newitemData;
+  },
+
   handleArray: function (newData, oldData) {
     let current = [];
     let docID = newData["documentId"];
@@ -471,6 +505,16 @@ module.exports = {
       "TransLog",
     ];
     myFieldArray.push.apply(myFieldArray, exclude_array);
+    return myFieldArray;
+  },
+  tableFields: function (FieldDef) {
+    myFieldArray = [];
+    for (let index = 0; index < FieldDef.length; index++) {
+      if (FieldDef[index].type == "Array") {
+        console.log(FieldDef[index].name);
+        myFieldArray.push(FieldDef[index].name);
+      }
+    }
     return myFieldArray;
   },
   getAdaptiveCard: function (appID, role) {

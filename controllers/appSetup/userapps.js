@@ -94,8 +94,22 @@ exports.getUserapps = asyncHandler(async (req, res, next) => {
         appTemp["subTileName"] = approleX.Apps[j].descriptions[0].area;
         appTemp["info"] = approleX.Apps[j].descriptions[0].appHelp;
         appTemp["extraInfo"] = "";
-        appTemp["frameType"] = "OneByOne";
-        appTemp["backgroundImage"] = "";
+        console.log("Role", approleX.role, approleX.Apps[j].frameType);
+        if (approleX.Apps[j]["frameType"]) {
+          appTemp["frameType"] = approleX.Apps[j].frameType;
+        } else {
+          appTemp["frameType"] = "OneByOne";
+        }
+        if (
+          approleX.Apps[j].hasOwnProperty("frameType") &&
+          appTemp["frameType"] == "TwoByOne"
+        ) {
+          appTemp["backgroundImage"] = path + roleX.photo;
+          appTemp["icon"] = "";
+        } else {
+          appTemp["backgroundImage"] = "";
+        }
+
         appTemp["footer"] = "";
         appTemp["userSpecific"] = approleX.Apps[j].userSpecific;
         appTemp["applicationID"] = approleX.Apps[j].applicationID;

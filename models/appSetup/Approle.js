@@ -58,6 +58,12 @@ const ApproleSchema = new mongoose.Schema({
       userSpecific: {
         type: Boolean,
       },
+      frameType: {
+        type: String,
+      },
+      backgroundImage: {
+        type: String,
+      },
       descriptions: [
         {
           Language: {
