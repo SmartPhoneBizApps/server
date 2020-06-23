@@ -1,0 +1,98 @@
+{
+  "ID": { "type": "string", "maxlength": [20, "ID can not be more than 20"] },
+  "Group": {
+    "type": "string",
+    "maxlength": [100, "Group can not be more than 100"]
+  },
+  "SubGroup": {
+    "type": "string",
+    "maxlength": [100, "SubGroup can not be more than 100"]
+  },
+  "Overview": {
+    "type": "string",
+    "maxlength": [500, "Overview can not be more than 500"]
+  },
+  "CreatedDate": {
+    "type": "Date",
+    "maxlength": [10, "CreatedDate can not be more than 10"]
+  },
+  "StartDate": {
+    "type": "Date",
+    "maxlength": [10, "StartDate can not be more than 10"]
+  },
+  "EndDate": {
+    "type": "Date",
+    "maxlength": [10, "EndDate can not be more than 10"]
+  },
+  "Regulatory": {
+    "type": "string",
+    "maxlength": [100, "Regulatory can not be more than 100"]
+  },
+  "Compliance": {
+    "type": "string",
+    "maxlength": [100, "Compliance can not be more than 100"]
+  },
+  "Exam": {
+    "type": "string",
+    "maxlength": [100, "Exam can not be more than 100"]
+  },
+  "ConfirmCompleted": {
+    "type": "switch",
+    "maxlength": [100, "ConfirmCompleted can not be more than 100"]
+  },
+  "Terms": {
+    "type": "string",
+    "maxlength": [100, "Terms can not be more than 100"]
+  },
+  "Agree": {
+    "type": "radiobutton",
+    "maxlength": [100, "Agree can not be more than 100"]
+  },
+  "External": {
+    "type": "string",
+    "maxlength": [100, "External can not be more than 100"]
+  },
+  "Cost": {
+    "type": "string",
+    "maxlength": [100, "Cost can not be more than 100"]
+  },
+  "CostCentre": {
+    "type": "string",
+    "maxlength": [100, "CostCentre can not be more than 100"]
+  },
+  "Status": {
+    "type": "string",
+    "maxlength": [100, "Status can not be more than 100"]
+  },
+  "ProjectNeed": {
+    "type": "radiobutton",
+    "maxlength": [50, "ProjectNeed can not be more than 50"]
+  },
+  "ProjectCode": {
+    "type": "string",
+    "maxlength": [50, "ProjectCode can not be more than 50"]
+  },
+  "Duration": {
+    "type": "string",
+    "maxlength": [50, "Duration can not be more than 50"]
+  },
+  "EmpDev": {
+    "type": "switch",
+    "maxlength": [50, "EmpDev can not be more than 50"]
+  },
+  "Area": {
+    "type": "radiobutton",
+    "maxlength": [50, "Area can not be more than 50"]
+  },
+  "DateRequested": {
+    "type": "Date",
+    "maxlength": [10, "DateRequested can not be more than 10"]
+  },
+  "USP_Name": { "type": "String" },
+  "USP_Role": { "type": "String" },
+  "USP_Image": { "type": "String" },
+  "carouselImage": [],
+  "MultiAttachments": {},
+  "TransLog": [],
+  "ItemData": []
+}
