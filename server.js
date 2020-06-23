@@ -163,6 +163,10 @@ app.use(
   "/api/v1/util/dentalCharting",
   require("./routes/utilities/dentalCharting")
 );
+app.use(
+  "/api/v1/util/nhsfindPatient",
+  require("./routes/utilities/nhsfindPatient")
+);
 
 //  -------------------------------------------------
 //  ----------  ***** IGNORE *****  ---------
