@@ -5,6 +5,6 @@ const {
 const router = express.Router({ mergeParams: true });
 const { protect, authorize } = require("../../middleware/auth");
 
-router.route("/").post(protect, assignCourseUser);
+router.route("/:fromApp/:toApp/:ID/:user").post(protect, assignCourseUser);
 
 module.exports = router;

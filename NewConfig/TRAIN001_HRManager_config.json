@@ -113,10 +113,15 @@
     },
     {
       "value": "Tab3",
+      "name": "Attachments",
+      "type": "MultiAttachments",
+      "fioriicon": "contacts"
+    },
+    {
+      "value": "Tab4",
       "name": "Video",
       "fioriicon": "step",
-      "type": "video",
-      "download": "No"
+      "type": "video"
     }
   ],
   "DetailFields": {
@@ -143,7 +148,8 @@
         ]
       }
     ],
-    "Tab3": ["Video"]
+    "Tab3": ["MultiAttachments"],
+    "Tab4": ["Video"]
   },
   "ControlDisplay": {},
   "FieldDef": [
@@ -346,6 +352,14 @@
       "Option": "Optional",
       "SLabel": "Date Requested",
       "LLabel": "Date Requested"
+    },
+    {
+      "name": "MultiAttachments",
+      "type": "attachment",
+      "width": "200",
+      "Option": "Optional",
+      "SLabel": "Learning Documents",
+      "LLabel": "Learning Documents"
     }
   ],
   "itemData": "No",
