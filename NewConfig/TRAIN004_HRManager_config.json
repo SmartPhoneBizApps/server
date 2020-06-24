@@ -1,0 +1,433 @@
+{
+  "Title": {
+    "ApplicationTitle": "Learning Create and Assingment",
+    "DetailTitle": "Learning Assingment"
+  },
+  "Controls": {
+    "USP": "UserProfile",
+    "URL": "https://fierce-oasis-51455.herokuapp.com"
+  },
+  "ListFields": {
+    "IntroField": "EndDate",
+    "TitleField": "SubGroup",
+    "sStatus": "",
+    "fStatus": "Status",
+    "LFields": ["ID", "StartDate"]
+  },
+  "ListBOTFields": {
+    "None": ["cardImage", "StatusState"],
+    "Title": ["Group", "SubGroup"],
+    "SubTitle": ["Status", "Duration"],
+    "Description": ["ID", "EmployeeID", "DateRequested", "Detail", "External"]
+  },
+  "PossibleValues": [
+    "Status",
+    "Area",
+    "ProjectCode",
+    "Duration",
+    "CostCentre",
+    "External",
+    "SubGroup",
+    "Regulatory",
+    "Compliance",
+    "Exam",
+    "Agree",
+    "SefAssign",
+    "ProjectNeed"
+  ],
+  "MButtons": [
+    {
+      "type": "DOWNLOAD",
+      "name": "Download File",
+      "icon": "sap-icon://download"
+    },
+    {
+      "type": "APPHELP",
+      "name": "Get App Help",
+      "icon": "sap-icon://sys-help-2"
+    },
+    {
+      "type": "BOT",
+      "name": "Launch Assistant",
+      "icon": "sap-icon://travel-request"
+    },
+    {
+      "type": "VIEW",
+      "name": "Change App View",
+      "icon": "sap-icon://chart-table-view"
+    },
+    { "type": "ADD", "name": "Add Record", "icon": "sap-icon://add" },
+    { "type": "UPLOAD", "name": "Upload Record", "icon": "sap-icon://upload" }
+  ],
+  "DButtons": [
+    {
+      "type": "ATTACHMENT",
+      "name": "View Attachments",
+      "icon": "sap-icon://attachment"
+    },
+    { "type": "UPDATE", "name": "Update Record", "icon": "sap-icon://update" },
+    { "type": "ADD", "name": "Add Record", "icon": "sap-icon://add" },
+    {
+      "type": "PUBLISH",
+      "name": "Publish Course",
+      "icon": "sap-icon://upload-to-cloud",
+      "Dialog": "{label:'Role',name:'role',type:'String'}",
+      "DialogSearch": "{URL}/api/v1/samrtApp/findRole/{role}",
+      "URL": "util/assignCourseRole/TRAIN001/TRAIN007/{ID}/{role}",
+      "Token": "Yes",
+      "URLMethod": "POST"
+    },
+    {
+      "type": "ASSIGN",
+      "name": "Assign Course",
+      "icon": "sap-icon://share-2",
+      "Dialog": "{label:'User',name:'user',type:'Email'}",
+      "DialogSearch": "{URL}/api/v1/samrtApp/findUser/{user}",
+      "URL": "util/assignCourseUser/TRAIN001/TRAIN007/{ID}/{user}",
+      "Token": "Yes",
+      "URLMethod": "POST"
+    },
+    {
+      "type": "SURVEY",
+      "name": "Exam",
+      "icon": "sap-icon://upload-to-cloud",
+      "URL": "util/getQuestioner/LEARNING/{ID}",
+      "Token": "Yes",
+      "URLMethod": "GET"
+    }
+  ],
+  "Tabs": [
+    {
+      "value": "Tab0",
+      "name": "Cards",
+      "type": "Cards",
+      "fioriicon": "responsive"
+    },
+    {
+      "value": "Tab1",
+      "name": "Employee Details",
+      "type": "FieldGroup",
+      "fioriicon": "notes"
+    },
+    {
+      "value": "Tab2",
+      "name": "Project Details",
+      "type": "Field",
+      "fioriicon": "request"
+    },
+    {
+      "value": "Tab3",
+      "name": "Attachments",
+      "type": "MultiAttachments",
+      "fioriicon": "contacts"
+    },
+    {
+      "value": "Tab4",
+      "name": "Video",
+      "fioriicon": "step",
+      "type": "video"
+    }
+  ],
+  "DetailFields": {
+    "headerTitle": ["USP_Name"],
+    "headerRole": ["USP_Role"],
+    "headerImage": ["USP_Image"],
+    "None": ["ID", "Status", "Group", "SubGroup", "StartDate", "EndDate"],
+    "Tab1": [
+      {
+        "GrpTitle": "Course Overview",
+        "Fields": ["Overview", "Regulatory", "Compliance", "Exam", "SefAssign"]
+      }
+    ],
+    "Tab2": [
+      {
+        "GrpTitle": "Course Overview",
+        "Fields": [
+          "ProjectNeed",
+          "Cost",
+          "CostCentre",
+          "ProjectCode",
+          "Duration",
+          "External"
+        ]
+      }
+    ],
+    "Tab3": ["MultiAttachments"],
+    "Tab4": ["Video"]
+  },
+  "ControlDisplay": {},
+  "FieldDef": [
+    {
+      "name": "ID",
+      "type": "string",
+      "width": "20",
+      "Option": "Mandatory",
+      "SLabel": "ID",
+      "LLabel": "ID"
+    },
+    {
+      "name": "Group",
+      "type": "string",
+      "width": "100",
+      "Option": "Optional",
+      "SLabel": "Group",
+      "LLabel": "Group"
+    },
+    {
+      "name": "SubGroup",
+      "type": "radiobutton",
+      "width": "100",
+      "Option": "Optional",
+      "SLabel": "Sub Group",
+      "LLabel": "Sub Group"
+    },
+    {
+      "name": "Overview",
+      "type": "string",
+      "width": "500",
+      "Option": "Optional",
+      "SLabel": "Overview",
+      "LLabel": "Overview"
+    },
+    {
+      "name": "CreatedDate",
+      "type": "Date",
+      "width": "10",
+      "Option": "Optional",
+      "SLabel": "Created Date",
+      "LLabel": "Created Date"
+    },
+    {
+      "name": "Video",
+      "type": "hyperlink",
+      "width": "10",
+      "Option": "Optional",
+      "SLabel": "Video",
+      "LLabel": "Video"
+    },
+    {
+      "name": "StartDate",
+      "type": "Date",
+      "width": "10",
+      "Option": "Optional",
+      "SLabel": "Start Date",
+      "LLabel": "Start Date"
+    },
+    {
+      "name": "EndDate",
+      "type": "Date",
+      "width": "10",
+      "Option": "Optional",
+      "SLabel": "End Date",
+      "LLabel": "End Date"
+    },
+    {
+      "name": "Regulatory",
+      "type": "switch",
+      "width": "100",
+      "Option": "Optional",
+      "SLabel": "Regulatory",
+      "LLabel": "Regulatory"
+    },
+    {
+      "name": "SelfAssign",
+      "type": "switch",
+      "width": "100",
+      "Option": "Optional",
+      "SLabel": "Self Assign",
+      "LLabel": "Self Assign"
+    },
+    {
+      "name": "Compliance",
+      "type": "switch",
+      "width": "100",
+      "Option": "Optional",
+      "SLabel": "Compliance",
+      "LLabel": "Compliance"
+    },
+    {
+      "name": "Exam",
+      "type": "switch",
+      "width": "100",
+      "Option": "Optional",
+      "SLabel": "Exam",
+      "LLabel": "Exam"
+    },
+    {
+      "name": "ConfirmCompleted",
+      "type": "switch",
+      "width": "100",
+      "Option": "Optional",
+      "SLabel": "Confirm Completed",
+      "LLabel": "Confirm Completed"
+    },
+    {
+      "name": "Terms",
+      "type": "string",
+      "width": "100",
+      "Option": "Optional",
+      "SLabel": "Terms",
+      "LLabel": "Terms"
+    },
+    {
+      "name": "Agree",
+      "type": "radiobutton",
+      "width": "100",
+      "Option": "Optional",
+      "SLabel": "Agree",
+      "LLabel": "Agree"
+    },
+    {
+      "name": "External",
+      "type": "switch",
+      "width": "100",
+      "Option": "Optional",
+      "SLabel": "External",
+      "LLabel": "External"
+    },
+    {
+      "name": "Cost",
+      "type": "string",
+      "width": "100",
+      "Option": "Optional",
+      "SLabel": "Cost",
+      "LLabel": "Cost"
+    },
+    {
+      "name": "CostCentre",
+      "type": "string",
+      "width": "100",
+      "Option": "Optional",
+      "SLabel": "Cost Centre",
+      "LLabel": "Cost Centre"
+    },
+    {
+      "name": "Status",
+      "type": "string",
+      "width": "100",
+      "Option": "Mandatory",
+      "SLabel": "Status",
+      "LLabel": "Status"
+    },
+    {
+      "name": "ProjectNeed",
+      "type": "switch",
+      "width": "50",
+      "Option": "Optional",
+      "SLabel": "Project Need",
+      "LLabel": "Project Need"
+    },
+    {
+      "name": "ProjectCode",
+      "type": "string",
+      "width": "50",
+      "Option": "Optional",
+      "SLabel": "Project Code",
+      "LLabel": "Project Code"
+    },
+    {
+      "name": "Duration",
+      "type": "string",
+      "width": "50",
+      "Option": "Optional",
+      "SLabel": "Duration",
+      "LLabel": "Duration"
+    },
+    {
+      "name": "EmpDev",
+      "type": "switch",
+      "width": "50",
+      "Option": "Optional",
+      "SLabel": "For Employee Development",
+      "LLabel": "For Employee Development"
+    },
+    {
+      "name": "Area",
+      "type": "radiobutton",
+      "width": "50",
+      "Option": "Optional",
+      "SLabel": "Training Area",
+      "LLabel": "Training Area"
+    },
+    {
+      "name": "DateRequested",
+      "type": "Date",
+      "width": "10",
+      "Option": "Optional",
+      "SLabel": "Date Requested",
+      "LLabel": "Date Requested"
+    },
+    {
+      "name": "MultiAttachments",
+      "type": "attachment",
+      "width": "200",
+      "Option": "Optional",
+      "SLabel": "Learning Documents",
+      "LLabel": "Learning Documents"
+    }
+  ],
+  "itemData": "No",
+  "itemConfig": {
+    "ItemFieldDefinition": [],
+    "DisplayFields": [],
+    "ItemButtons": {
+      "itemDisplay": false,
+      "itemAdd": false,
+      "itemEdit": false,
+      "itemDelete": false
+    },
+    "CreateFields": [],
+    "ItemDetails": []
+  },
+  "CalculatedFields": {},
+  "Create": "Yes",
+  "Wizard": [
+    {
+      "id": "Step1",
+      "fields": [
+        { "name": "Group", "Sequence": "1", "Mode": "Edit" },
+        { "name": "SubGroup", "Sequence": "1", "Mode": "Edit" },
+        { "name": "Overview", "Sequence": "1", "Mode": "Edit" },
+        { "name": "Regulatory", "Sequence": "1", "Mode": "Edit" },
+        { "name": "Compliance", "Sequence": "1", "Mode": "Edit" }
+      ],
+      "name": "Course Details",
+      "stepType": "FieldList",
+      "intro": "Learning : Classification"
+    },
+    {
+      "id": "Step2",
+      "fields": [
+        { "name": "StartDate", "Sequence": "1", "Mode": "Edit" },
+        { "name": "EndDate", "Sequence": "1", "Mode": "Edit" },
+        { "name": "Area", "Sequence": "1", "Mode": "Edit" },
+        { "name": "Exam", "Sequence": "1", "Mode": "Edit" }
+      ],
+
+      "name": "Course Details",
+      "stepType": "FieldList",
+      "intro": "Learning : More Details"
+    },
+    {
+      "id": "Step3",
+      "fields": [
+        { "name": "External", "Sequence": "1", "Mode": "Edit" },
+        { "name": "ProjectNeed", "Sequence": "1", "Mode": "Edit" },
+        { "name": "CostCentre", "Sequence": "1", "Mode": "Edit" },
+        { "name": "Cost", "Sequence": "1", "Mode": "Edit" },
+        { "name": "Duration", "Sequence": "1", "Mode": "Edit" },
+        { "name": "Status", "Sequence": "1", "Mode": "Display" }
+      ],
+      "name": "Course Details",
+      "stepType": "FieldList",
+      "intro": "Learning : For external trainings the cost will be cross charged to the cost centre"
+    },
+    {
+      "id": "Step4",
+      "fields": [{ "name": "Agree", "Sequence": "1", "Mode": "Edit" }],
+      "name": "Terms",
+      "stepType": "FieldList",
+      "intro": "You agree that Smartphone Biz Apps may collect, use your personal data which you have provided in this form, for providing marketing material and further communication that you have agreed to receive, in accordance with our privacy policy- http://smartphonebizapps.com/privacy-policy/"
+    }
+  ]
+}
