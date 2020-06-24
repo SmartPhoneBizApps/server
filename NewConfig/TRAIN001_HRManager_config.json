@@ -70,7 +70,11 @@
     {
       "type": "PUBLISH",
       "name": "Publish Course",
-      "icon": "sap-icon://upload-to-cloud"
+      "icon": "sap-icon://upload-to-cloud",
+      "Dialog": "{role}",
+      "DialogSearch": "{URL}/api/v1/samrtApp/findUser/{user}",
+      "URL": "{URL}/api/v1/samrtApp/assignUser/TRAIN001/TRAIN006/{ID}/{user}",
+      "URLMethod": "POST"
     },
     {
       "type": "ASSIGN",
@@ -78,8 +82,13 @@
       "icon": "sap-icon://share-2",
       "Dialog": "{user}",
       "DialogSearch": "{URL}/api/v1/samrtApp/findUser/{user}",
-      "URL": "{URL}/api/v1/samrtApp/assignUser/{ID}/{user}",
+      "URL": "{URL}/api/v1/samrtApp/assignUser/TRAIN001/TRAIN006/{ID}/{user}",
       "URLMethod": "POST"
+    },
+    {
+      "type": "SURVEY",
+      "name": "Exam",
+      "icon": "sap-icon://upload-to-cloud"
     }
   ],
   "Tabs": [
@@ -343,6 +352,56 @@
   "CalculatedFields": {},
   "Create": "Yes",
   "Wizard": [
+    {
+      "id": "Step1",
+      "fields": [
+        { "name": "Group", "Sequence": "1", "Mode": "Edit" },
+        { "name": "SubGroup", "Sequence": "1", "Mode": "Edit" },
+        { "name": "Overview", "Sequence": "1", "Mode": "Edit" },
+        { "name": "Regulatory", "Sequence": "1", "Mode": "Edit" },
+        { "name": "Compliance", "Sequence": "1", "Mode": "Edit" }
+      ],
+      "name": "Course Details",
+      "stepType": "FieldList",
+      "intro": "Learning : Classification"
+    },
+    {
+      "id": "Step2",
+      "fields": [
+        { "name": "StartDate", "Sequence": "1", "Mode": "Edit" },
+        { "name": "EndDate", "Sequence": "1", "Mode": "Edit" },
+        { "name": "Area", "Sequence": "1", "Mode": "Edit" },
+        { "name": "Exam", "Sequence": "1", "Mode": "Edit" }
+      ],
+
+      "name": "Course Details",
+      "stepType": "FieldList",
+      "intro": "Learning : More Details"
+    },
+    {
+      "id": "Step3",
+      "fields": [
+        { "name": "External", "Sequence": "1", "Mode": "Edit" },
+        { "name": "ProjectNeed", "Sequence": "1", "Mode": "Edit" },
+        { "name": "CostCentre", "Sequence": "1", "Mode": "Edit" },
+        { "name": "Cost", "Sequence": "1", "Mode": "Edit" },
+        { "name": "Duration", "Sequence": "1", "Mode": "Edit" },
+        { "name": "Status", "Sequence": "1", "Mode": "Display" }
+      ],
+      "name": "Course Details",
+      "stepType": "FieldList",
+      "intro": "Learning : For external trainings the cost will be cross charged to the cost centre"
+    },
+    {
+      "id": "Step4",
+      "fields": [{ "name": "Agree", "Sequence": "1", "Mode": "Edit" }],
+      "name": "Terms",
+      "stepType": "FieldList",
+      "intro": "You agree that Smartphone Biz Apps may collect, use your personal data which you have provided in this form, for providing marketing material and further communication that you have agreed to receive, in accordance with our privacy policy- http://smartphonebizapps.com/privacy-policy/"
+    }
+  ],
+
+  "SURVEY": [
     {
       "id": "Step1",
       "fields": [
