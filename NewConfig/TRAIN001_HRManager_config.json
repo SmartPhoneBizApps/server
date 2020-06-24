@@ -31,9 +31,9 @@
     "Regulatory",
     "Compliance",
     "Exam",
-    "Duration",
     "Agree",
-    "SefAssign"
+    "SefAssign",
+    "ProjectNeed"
   ],
   "MButtons": [
     {
@@ -175,7 +175,7 @@
     },
     {
       "name": "SubGroup",
-      "type": "string",
+      "type": "radiobutton",
       "width": "100",
       "Option": "Optional",
       "SLabel": "Sub Group",
@@ -223,7 +223,7 @@
     },
     {
       "name": "Regulatory",
-      "type": "string",
+      "type": "switch",
       "width": "100",
       "Option": "Optional",
       "SLabel": "Regulatory",
@@ -231,7 +231,7 @@
     },
     {
       "name": "SelfAssign",
-      "type": "string",
+      "type": "switch",
       "width": "100",
       "Option": "Optional",
       "SLabel": "Self Assign",
@@ -239,7 +239,7 @@
     },
     {
       "name": "Compliance",
-      "type": "string",
+      "type": "switch",
       "width": "100",
       "Option": "Optional",
       "SLabel": "Compliance",
@@ -247,7 +247,7 @@
     },
     {
       "name": "Exam",
-      "type": "string",
+      "type": "switch",
       "width": "100",
       "Option": "Optional",
       "SLabel": "Exam",
@@ -279,7 +279,7 @@
     },
     {
       "name": "External",
-      "type": "string",
+      "type": "switch",
       "width": "100",
       "Option": "Optional",
       "SLabel": "External",
@@ -311,7 +311,7 @@
     },
     {
       "name": "ProjectNeed",
-      "type": "string",
+      "type": "switch",
       "width": "50",
       "Option": "Optional",
       "SLabel": "Project Need",
