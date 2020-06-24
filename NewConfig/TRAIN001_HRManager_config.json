@@ -72,7 +72,7 @@
       "type": "PUBLISH",
       "name": "Publish Course",
       "icon": "sap-icon://upload-to-cloud",
-      "Dialog": "{role}",
+      "Dialog": "{label:'Role',name:'role',type:'String'}",
       "DialogSearch": "{URL}/api/v1/samrtApp/findRole/{role}",
       "URL": "{URL}/api/v1/util/assignCourseRole/TRAIN001/TRAIN007/{ID}/{role}",
       "URLMethod": "POST"
@@ -81,7 +81,7 @@
       "type": "ASSIGN",
       "name": "Assign Course",
       "icon": "sap-icon://share-2",
-      "Dialog": "{User:user}",
+      "Dialog": "{label:'User',name:'user',type:'Email'}",
       "DialogSearch": "{URL}/api/v1/samrtApp/findUser/{user}",
       "URL": "{URL}/api/v1/util/assignCourseUser/TRAIN001/TRAIN007/{ID}/{user}",
       "URLMethod": "POST"
