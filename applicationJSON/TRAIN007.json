@@ -1,15 +1,15 @@
 {
-  "ID": { "type": "string", "maxlength": [20, "ID can not be more than 20"] },
+  "ID": { "type": "String", "maxlength": [20, "ID can not be more than 20"] },
   "Group": {
-    "type": "string",
+    "type": "String",
     "maxlength": [100, "Group can not be more than 100"]
   },
   "SubGroup": {
-    "type": "string",
+    "type": "String",
     "maxlength": [100, "SubGroup can not be more than 100"]
   },
   "Overview": {
-    "type": "string",
+    "type": "String",
     "maxlength": [500, "Overview can not be more than 500"]
   },
   "CreatedDate": {
@@ -25,47 +25,47 @@
     "maxlength": [10, "EndDate can not be more than 10"]
   },
   "Regulatory": {
-    "type": "string",
+    "type": "String",
     "maxlength": [100, "Regulatory can not be more than 100"]
   },
   "Compliance": {
-    "type": "string",
+    "type": "String",
     "maxlength": [100, "Compliance can not be more than 100"]
   },
   "Exam": {
-    "type": "string",
+    "type": "String",
     "maxlength": [100, "Exam can not be more than 100"]
   },
   "ConfirmCompleted": {
-    "type": "string",
+    "type": "String",
     "maxlength": [100, "ConfirmCompleted can not be more than 100"]
   },
   "Terms": {
-    "type": "string",
+    "type": "String",
     "maxlength": [100, "Terms can not be more than 100"]
   },
   "Agree": {
-    "type": "string",
+    "type": "String",
     "maxlength": [100, "Agree can not be more than 100"]
   },
   "External": {
-    "type": "string",
+    "type": "String",
     "maxlength": [100, "External can not be more than 100"]
   },
   "Cost": {
-    "type": "string",
+    "type": "String",
     "maxlength": [100, "Cost can not be more than 100"]
   },
   "CostCentre": {
-    "type": "string",
+    "type": "String",
     "maxlength": [100, "CostCentre can not be more than 100"]
   },
   "Status": {
-    "type": "string",
+    "type": "String",
     "maxlength": [100, "Status can not be more than 100"]
   },
   "ProjectNeed": {
-    "type": "string",
+    "type": "String",
     "maxlength": [50, "ProjectNeed can not be more than 50"]
   },
   "ProjectCode": {
@@ -73,20 +73,26 @@
     "maxlength": [50, "ProjectCode can not be more than 50"]
   },
   "Duration": {
-    "type": "string",
+    "type": "String",
     "maxlength": [50, "Duration can not be more than 50"]
   },
   "EmpDev": {
-    "type": "string",
+    "type": "String",
     "maxlength": [50, "EmpDev can not be more than 50"]
   },
   "Area": {
-    "type": "string",
+    "type": "String",
     "maxlength": [50, "Area can not be more than 50"]
   },
   "DateRequested": {
     "type": "Date",
     "maxlength": [10, "DateRequested can not be more than 10"]
+  },
+  "Video": {},
+
+  "SefAssign": {
+    "type": "String",
+    "maxlength": [20, "SefAssign can not be more than 20"]
   },
   "USP_Name": { "type": "String" },
   "USP_Role": { "type": "String" },
