@@ -16,7 +16,13 @@
     "SubTitle": ["StudentName", "Percentage"],
     "Description": ["Score"]
   },
-  "PossibleValues": ["Status", "StudyYear", "Exam", "ResultStatus", "Subject"],
+  "PossibleValues": [
+    "Status",
+    "StudyYear",
+    "ExamType",
+    "ResultStatus",
+    "Subject"
+  ],
   "MButtons": [],
   "DButtons": [],
   "Tabs": [
@@ -62,7 +68,7 @@
       "ParentEmail"
     ],
     "Tab2": [
-      "Exam",
+      "ExamType",
       "ExamYear",
       "Score",
       "Percentage",
@@ -105,7 +111,7 @@
       "LLabel": ""
     },
     {
-      "name": "Exam",
+      "name": "ExamType",
       "type": "string",
       "width": "50",
       "Option": "Optional",

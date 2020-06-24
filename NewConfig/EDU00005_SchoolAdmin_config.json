@@ -16,40 +16,15 @@
     "SubTitle": ["StudentName", "Percentage"],
     "Description": ["Score"]
   },
-  "PossibleValues": ["Status", "StudyYear", "Exam", "ResultStatus", "Subject"],
-  "MButtons": [
-    {
-      "type": "DOWNLOAD",
-      "name": "Download File",
-      "icon": "sap-icon://download"
-    },
-    {
-      "type": "APPHELP",
-      "name": "Get App Help",
-      "icon": "sap-icon://sys-help-2"
-    },
-    {
-      "type": "BOT",
-      "name": "Launch Assistant",
-      "icon": "sap-icon://travel-request"
-    },
-    {
-      "type": "VIEW",
-      "name": "Change App View",
-      "icon": "sap-icon://chart-table-view"
-    },
-    { "type": "ADD", "name": "Add Record", "icon": "sap-icon://add" },
-    { "type": "UPLOAD", "name": "Upload Record", "icon": "sap-icon://upload" }
+  "PossibleValues": [
+    "Status",
+    "StudyYear",
+    "ExamType",
+    "ResultStatus",
+    "Subject"
   ],
-  "DButtons": [
-    {
-      "type": "ATTACHMENT",
-      "name": "View Attachments",
-      "icon": "sap-icon://attachment"
-    },
-    { "type": "UPDATE", "name": "Update Record", "icon": "sap-icon://update" },
-    { "type": "ADD", "name": "Add Record", "icon": "sap-icon://add" }
-  ],
+  "MButtons": [],
+  "DButtons": [],
   "Tabs": [
     {
       "value": "Tab0",
@@ -93,7 +68,7 @@
       "ParentEmail"
     ],
     "Tab2": [
-      "Exam",
+      "ExamType",
       "ExamYear",
       "Score",
       "Percentage",
@@ -122,21 +97,21 @@
     {
       "name": "Status",
       "type": "string",
-      "width": "20",
+      "width": "50",
       "Option": "Mandatory",
       "SLabel": "Status",
-      "LLabel": ""
+      "LLabel": "Status"
     },
     {
       "name": "StudyYear",
       "type": "string",
       "width": "20",
-      "Option": "Mandatory",
+      "Option": "Optional",
       "SLabel": "Study Year",
       "LLabel": ""
     },
     {
-      "name": "Exam",
+      "name": "ExamType",
       "type": "string",
       "width": "50",
       "Option": "Optional",
@@ -155,7 +130,7 @@
       "name": "StudentName",
       "type": "string",
       "width": "50",
-      "Option": "Mandatory",
+      "Option": "Optional",
       "SLabel": "Student Name",
       "LLabel": ""
     },
@@ -163,7 +138,7 @@
       "name": "StudentID",
       "type": "string",
       "width": "20",
-      "Option": "Mandatory",
+      "Option": "Optional",
       "SLabel": "Student ID",
       "LLabel": ""
     },
@@ -179,7 +154,7 @@
       "name": "Score",
       "type": "string",
       "width": "10",
-      "Option": "Mandatory",
+      "Option": "Optional",
       "SLabel": "Total Score",
       "LLabel": ""
     },
@@ -187,7 +162,7 @@
       "name": "Percentage",
       "type": "string",
       "width": "20",
-      "Option": "Mandatory",
+      "Option": "Optional",
       "SLabel": "Percentage",
       "LLabel": ""
     },
@@ -195,7 +170,7 @@
       "name": "MeritNo",
       "type": "string",
       "width": "10",
-      "Option": "Mandatory",
+      "Option": "Optional",
       "SLabel": "Rank",
       "LLabel": ""
     },
@@ -203,7 +178,7 @@
       "name": "ResultStatus",
       "type": "string",
       "width": "50",
-      "Option": "Mandatory",
+      "Option": "Optional",
       "SLabel": "Result Status",
       "LLabel": ""
     },
@@ -211,7 +186,7 @@
       "name": "Email",
       "type": "string",
       "width": "50",
-      "Option": "Mandatory",
+      "Option": "Optional",
       "SLabel": "Student Email",
       "LLabel": ""
     },
@@ -219,9 +194,9 @@
       "name": "ParentEmail",
       "type": "string",
       "width": "100",
-      "Option": "Mandatory",
+      "Option": "Optional",
       "SLabel": "Parent Email",
-      "LLabel": "ParentEmail"
+      "LLabel": ""
     }
   ],
   "itemData": "Yes",
@@ -264,11 +239,11 @@
     "DisplayFields": ["ItemNumber", "Subject", "Grade"],
     "ItemButtons": {
       "itemDisplay": true,
-      "itemAdd": true,
-      "itemEdit": true,
-      "itemDelete": true
+      "itemAdd": false,
+      "itemEdit": false,
+      "itemDelete": false
     },
-    "CreateFields": ["Subject", "Grade"],
+    "CreateFields": [],
     "ItemDetails": [
       {
         "name": "ItemNumber",
@@ -281,45 +256,6 @@
     ]
   },
   "CalculatedFields": {},
-  "Create": "Yes",
-  "Wizard": [
-    {
-      "id": "Step1",
-      "fields": [
-        { "name": "StudentName", "Sequence": "1", "Mode": "Edit" },
-        { "name": "StudentID", "Sequence": "1", "Mode": "Edit" },
-        { "name": "RollNumber", "Sequence": "1", "Mode": "Edit" },
-        { "name": "StudyYear", "Sequence": "1", "Mode": "Edit" },
-        { "name": "Email", "Sequence": "1", "Mode": "Edit" },
-        { "name": "MeritNo", "Sequence": "1", "Mode": "Edit" },
-        { "name": "ParentEmail", "Sequence": "1", "Mode": "Edit" }
-      ],
-      "name": "Student Details",
-      "stepType": "FieldList",
-      "intro": "Merit List : Student Details"
-    },
-    {
-      "id": "Step2",
-      "fields": [
-        { "name": "Exam", "Sequence": "1", "Mode": "Edit" },
-        { "name": "ExamYear", "Sequence": "1", "Mode": "Edit" },
-        { "name": "ResultDate", "Sequence": "1", "Mode": "Edit" },
-        { "name": "Score", "Sequence": "1", "Mode": "Edit" },
-        { "name": "Percentage", "Sequence": "1", "Mode": "Edit" }
-      ],
-      "name": "Other Details",
-      "stepType": "FieldList",
-      "intro": "Merit List : Other Details"
-    },
-    {
-      "id": "Step3",
-      "fields": [
-        { "name": "Status", "Sequence": "1", "Mode": "Edit" },
-        { "name": "ResultStatus", "Sequence": "1", "Mode": "Edit" }
-      ],
-      "name": "Admin",
-      "stepType": "FieldList",
-      "intro": "Merit List : Admin"
-    }
-  ]
+  "Create": "No",
+  "Wizard": []
 }

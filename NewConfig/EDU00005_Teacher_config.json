@@ -16,7 +16,13 @@
     "SubTitle": ["StudentName", "Percentage"],
     "Description": ["Score"]
   },
-  "PossibleValues": ["Status", "StudyYear", "Exam", "ResultStatus", "Subject"],
+  "PossibleValues": [
+    "Status",
+    "StudyYear",
+    "ExamType",
+    "ResultStatus",
+    "Subject"
+  ],
   "MButtons": [],
   "DButtons": [],
   "Tabs": [
@@ -35,7 +41,7 @@
     },
     {
       "value": "Tab2",
-      "name": "Other Details",
+      "name": "Result Details",
       "fioriicon": "database",
       "type": "Field",
       "download": "Yes"
@@ -52,18 +58,23 @@
     "headerTitle": ["USP_Name"],
     "headerRole": ["USP_Role"],
     "headerImage": ["USP_Image"],
-    "None": ["ID", "Status", "StudyYear", "ResultStatus"],
+    "None": ["ID", "Status", "ResultDate"],
     "Tab1": [
+      "StudyYear",
       "StudentName",
       "StudentID",
       "RollNumber",
-      "Score",
-      "Percentage",
-      "MeritNo",
       "Email",
       "ParentEmail"
     ],
-    "Tab2": ["ResultDate", "Exam", "ExamYear"]
+    "Tab2": [
+      "ExamType",
+      "ExamYear",
+      "Score",
+      "Percentage",
+      "MeritNo",
+      "ResultStatus"
+    ]
   },
   "ControlDisplay": {},
   "FieldDef": [
@@ -100,19 +111,19 @@
       "LLabel": ""
     },
     {
+      "name": "ExamType",
+      "type": "string",
+      "width": "50",
+      "Option": "Optional",
+      "SLabel": "Examination",
+      "LLabel": ""
+    },
+    {
       "name": "ExamYear",
       "type": "string",
       "width": "20",
       "Option": "Optional",
       "SLabel": "Exam Year",
-      "LLabel": ""
-    },
-    {
-      "name": "Exam",
-      "type": "string",
-      "width": "50",
-      "Option": "Optional",
-      "SLabel": "Examination",
       "LLabel": ""
     },
     {
@@ -185,7 +196,7 @@
       "width": "100",
       "Option": "Optional",
       "SLabel": "Parent Email",
-      "LLabel": "ParentEmail"
+      "LLabel": ""
     }
   ],
   "itemData": "Yes",
@@ -232,7 +243,7 @@
       "itemEdit": false,
       "itemDelete": false
     },
-    "CreateFields": ["Subject", "Grade"],
+    "CreateFields": [],
     "ItemDetails": [
       {
         "name": "ItemNumber",
