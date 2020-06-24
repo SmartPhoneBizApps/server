@@ -32,7 +32,8 @@
     "Regulatory",
     "Compliance",
     "Exam",
-    "Duration"
+    "Duration",
+    "Agree"
   ],
   "MButtons": [
     {
@@ -56,12 +57,7 @@
       "icon": "sap-icon://chart-table-view"
     },
     { "type": "ADD", "name": "Add Record", "icon": "sap-icon://add" },
-    { "type": "UPLOAD", "name": "Upload Record", "icon": "sap-icon://upload" },
-    {
-      "type": "PUBLISH",
-      "name": "Publish Course",
-      "icon": "sap-icon://upload-to-cloud"
-    }
+    { "type": "UPLOAD", "name": "Upload Record", "icon": "sap-icon://upload" }
   ],
   "DButtons": [
     {
@@ -70,7 +66,21 @@
       "icon": "sap-icon://attachment"
     },
     { "type": "UPDATE", "name": "Update Record", "icon": "sap-icon://update" },
-    { "type": "ADD", "name": "Add Record", "icon": "sap-icon://add" }
+    { "type": "ADD", "name": "Add Record", "icon": "sap-icon://add" },
+    {
+      "type": "PUBLISH",
+      "name": "Publish Course",
+      "icon": "sap-icon://upload-to-cloud"
+    },
+    {
+      "type": "ASSIGN",
+      "name": "Assign Course",
+      "icon": "sap-icon://share-2",
+      "Dialog": "{user}",
+      "DialogSearch": "{URL}/api/v1/samrtApp/findUser/{user}",
+      "URL": "{URL}/api/v1/samrtApp/assignUser/{ID}/{user}",
+      "URLMethod": "POST"
+    }
   ],
   "Tabs": [
     {
