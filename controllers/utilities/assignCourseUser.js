@@ -7,6 +7,7 @@ const {
 } = require("../../modules/config");
 const User = require("../../models/access/User");
 const App = require("../../models/appSetup/App");
+const sendEmail = require("../../utils/sendEmail");
 
 // @desc      Perform Calculations
 // @route     GET /api/v1/util/calculation
@@ -49,10 +50,42 @@ exports.assignCourseUser = asyncHandler(async (req, res, next) => {
   out1["area"] = userX.area;
 
   result = await createDocument(req.params.toApp, out1);
+  let message = "";
+  message =
+    "Hi " +
+    userX.name +
+    ", A new learning has been assigned to you for '" +
+    Appdata.Group +
+    "(" +
+    Appdata.SubGroup +
+    ")'. You need to complete this learning by " +
+    Appdata.EndDate +
+    ". Regards, Learning Team";
 
-  res.status(201).json({
+  let sub = "";
+  sub = "New Learning on " + Appdata.Group;
+
+  try {
+    await sendEmail({
+      email: req.params.user,
+      subject: sub,
+      message,
+    });
+    res.status(200).json({
+      success: true,
+      message: "Course assigned to the user & Email sent",
+    });
+  } catch (err) {
+    console.log(err);
+    res.status(200).json({
+      success: true,
+      message: "Course assigned to the user but Email could not be sent",
+    });
+  }
+
+  /*   res.status(201).json({
     success: true,
     data: result,
     message: "Course assigned to the user",
-  });
+  }); */
 });
