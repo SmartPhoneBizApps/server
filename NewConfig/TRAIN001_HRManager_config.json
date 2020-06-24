@@ -74,7 +74,8 @@
       "icon": "sap-icon://upload-to-cloud",
       "Dialog": "{label:'Role',name:'role',type:'String'}",
       "DialogSearch": "{URL}/api/v1/samrtApp/findRole/{role}",
-      "URL": "{URL}/api/v1/util/assignCourseRole/TRAIN001/TRAIN007/{ID}/{role}",
+      "URL": "util/assignCourseRole/TRAIN001/TRAIN007/{ID}/{role}",
+      "Token": "Yes",
       "URLMethod": "POST"
     },
     {
@@ -83,7 +84,8 @@
       "icon": "sap-icon://share-2",
       "Dialog": "{label:'User',name:'user',type:'Email'}",
       "DialogSearch": "{URL}/api/v1/samrtApp/findUser/{user}",
-      "URL": "{URL}/api/v1/util/assignCourseUser/TRAIN001/TRAIN007/{ID}/{user}",
+      "URL": "util/assignCourseUser/TRAIN001/TRAIN007/{ID}/{user}",
+      "Token": "Yes",
       "URLMethod": "POST"
     },
     {
@@ -431,8 +433,13 @@
     {
       "id": "Step1",
       "fields": [
-        { "name": "Group", "Sequence": "1", "Mode": "Edit" },
-        { "name": "SubGroup", "Sequence": "1", "Mode": "Edit" },
+        {
+          "name": "Q1",
+          "Sequence": "1",
+          "Mode": "Display",
+          "value": "Q1 : It is important that all staff that carry out physical activities in their day-to-day job role have"
+        },
+        { "name": "A1", "Sequence": "1", "Mode": "Edit" },
         { "name": "Overview", "Sequence": "1", "Mode": "Edit" },
         { "name": "Regulatory", "Sequence": "1", "Mode": "Edit" },
         { "name": "Compliance", "Sequence": "1", "Mode": "Edit" }
