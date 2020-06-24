@@ -503,6 +503,11 @@ module.exports = {
       "areaName",
       "ItemData",
       "TransLog",
+      "MultiAttachments",
+      "carouselImage",
+      "USP_Name",
+      "USP_Role",
+      "USP_Image",
     ];
     myFieldArray.push.apply(myFieldArray, exclude_array);
     return myFieldArray;

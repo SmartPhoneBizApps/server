@@ -31,6 +31,14 @@ const Possval = require("../../models/appSetup/Possval");
 // @route     POST /api/v1/datarecords/
 // @access    Private
 exports.addDataRecords = asyncHandler(async (req, res, next) => {
+  let multiAtt = {
+    items: [],
+  };
+
+  if (!req.body.MultiAttachments) {
+    req.body.MultiAttachments = multiAtt;
+  }
+  console.log(req.body.MultiAttachments);
   //Get Company
   const BodyApp = await getApplication(req.headers.applicationid);
   const BusinessRole = await getRole(req.headers.businessRole);
