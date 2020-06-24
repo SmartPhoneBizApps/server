@@ -1,7 +1,7 @@
 {
   "Title": {
-    "ApplicationTitle": "Training Request",
-    "DetailTitle": "Training Details"
+    "ApplicationTitle": "Learning Create and Assingment",
+    "DetailTitle": "Learning Assingment"
   },
   "Controls": {
     "USP": "UserProfile",
@@ -80,7 +80,7 @@
       "type": "ASSIGN",
       "name": "Assign Course",
       "icon": "sap-icon://share-2",
-      "Dialog": "{user}",
+      "Dialog": "{User:user}",
       "DialogSearch": "{URL}/api/v1/samrtApp/findUser/{user}",
       "URL": "{URL}/api/v1/samrtApp/assignUser/TRAIN001/TRAIN006/{ID}/{user}",
       "URLMethod": "POST"
