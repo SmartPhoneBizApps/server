@@ -91,8 +91,7 @@
     {
       "type": "SURVEY",
       "name": "Exam",
-      "icon": "sap-icon://upload-to-cloud",
-      "URL": "util/questioner/LEARNING/{ID}"
+      "icon": "sap-icon://upload-to-cloud"
     }
   ],
   "Tabs": [
@@ -440,36 +439,14 @@
           "Mode": "Display",
           "value": "Q1 : It is important that all staff that carry out physical activities in their day-to-day job role have"
         },
-        {
-          "name": "A1",
-          "Sequence": "1",
-          "Mode": "Edit",
-          "type": "radiobutton",
-          "select": [
-            "A. Appropriate life cover",
-            "B. Appropriate training",
-            "C. At least three other people supervising their work",
-            "D. At least two days off after carrying out physical activities"
-          ]
-        },
+        { "name": "A1", "Sequence": "1", "Mode": "Edit" },
         {
           "name": "Q2",
           "Sequence": "1",
           "Mode": "Display",
           "value": "Q2 : A company that has a minor health and safety breach is most likely to"
         },
-        {
-          "name": "A2",
-          "Sequence": "1",
-          "Mode": "Edit",
-          "type": "radiobutton",
-          "select": [
-            "A. Be served with an Improvement Notice",
-            "B. Be ordered to close down the premises indefinitely",
-            "C. Be issued fines by the magistrates’ court for up to £150,000",
-            "D. Have employees arrested for non-compliance for a minimum of 10 years"
-          ]
-        }
+        { "name": "A2", "Sequence": "1", "Mode": "Edit" }
       ],
       "name": "Test your knowledge",
       "stepType": "FieldList",
@@ -478,129 +455,36 @@
     {
       "id": "Step2",
       "fields": [
-        {
-          "name": "Q3",
-          "Sequence": "1",
-          "Mode": "Display",
-          "value": "Q3 : Which of these best describes the 'likelihood of an incident occurring?'"
-        },
-        {
-          "name": "A3",
-          "Sequence": "1",
-          "Mode": "Edit",
-          "type": "radiobutton",
-          "select": ["A. Risk", "B. Hazard", "C. An event", "D. An episode"]
-        },
-        {
-          "name": "Q4",
-          "Sequence": "1",
-          "Mode": "Display",
-          "value": "Q4 : Which of these is the first step to take when conducting a risk assessment"
-        },
-        {
-          "name": "A4",
-          "Sequence": "1",
-          "Mode": "Edit",
-          "type": "radiobutton",
-          "select": [
-            "A. Evaluate the risk",
-            "B. Identify the hazards",
-            "C. Review your findings",
-            "D. Update risk assessments"
-          ]
-        }
+        { "name": "StartDate", "Sequence": "1", "Mode": "Edit" },
+        { "name": "EndDate", "Sequence": "1", "Mode": "Edit" },
+        { "name": "Area", "Sequence": "1", "Mode": "Edit" },
+        { "name": "Exam", "Sequence": "1", "Mode": "Edit" }
       ],
-      "name": "Test your knowledge",
+
+      "name": "Course Details",
       "stepType": "FieldList",
-      "intro": "Learning : Health and Safety in the Workplace "
+      "intro": "Learning : More Details"
     },
     {
       "id": "Step3",
       "fields": [
-        {
-          "name": "Q5",
-          "Sequence": "1",
-          "Mode": "Display",
-          "value": "Q5 : Which of these is most likely to cause an accident in a workplace?'"
-        },
-        {
-          "name": "A5",
-          "Sequence": "1",
-          "Mode": "Edit",
-          "type": "radiobutton",
-          "select": [
-            "A. Administration",
-            "B. Manual handling",
-            "C. Adequate lighting",
-            "D. Excessive noise"
-          ]
-        },
-        {
-          "name": "Q6",
-          "Sequence": "1",
-          "Mode": "Display",
-          "value": "Q6 : Trailing electrical cables which trail through the middle of a busy walkway"
-        },
-        {
-          "name": "A6",
-          "Sequence": "1",
-          "Mode": "Edit",
-          "type": "radiobutton",
-          "select": [
-            "A. Are very unlikely to cause any injury",
-            "B. Are likely to injure someone if they trip over it",
-            "C. Can be defined as high level health and safety hazards",
-            "D. Can be defined as high level fire hazards"
-          ]
-        }
+        { "name": "External", "Sequence": "1", "Mode": "Edit" },
+        { "name": "ProjectNeed", "Sequence": "1", "Mode": "Edit" },
+        { "name": "CostCentre", "Sequence": "1", "Mode": "Edit" },
+        { "name": "Cost", "Sequence": "1", "Mode": "Edit" },
+        { "name": "Duration", "Sequence": "1", "Mode": "Edit" },
+        { "name": "Status", "Sequence": "1", "Mode": "Display" }
       ],
-      "name": "Test your knowledge",
+      "name": "Course Details",
       "stepType": "FieldList",
-      "intro": "Learning : Health and Safety in the Workplace "
+      "intro": "Learning : For external trainings the cost will be cross charged to the cost centre"
     },
     {
       "id": "Step4",
-      "fields": [
-        {
-          "name": "Q7",
-          "Sequence": "1",
-          "Mode": "Display",
-          "value": "Q7 : Which of these is most likely to be a result of handling an overloaded electrical socket?"
-        },
-        {
-          "name": "A7",
-          "Sequence": "1",
-          "Mode": "Edit",
-          "type": "radiobutton",
-          "select": [
-            "A. Frostbite",
-            "B. Asbestosis",
-            "C. Asphyxiation",
-            "D. Electric shock"
-          ]
-        },
-        {
-          "name": "Q8",
-          "Sequence": "1",
-          "Mode": "Display",
-          "value": "Q8 : Why should near misses be reported?"
-        },
-        {
-          "name": "A8",
-          "Sequence": "1",
-          "Mode": "Edit",
-          "type": "radiobutton",
-          "select": [
-            "A. To educate employees",
-            "B. To test the first aider",
-            "C. To ensure complete recovery",
-            "D. To stop a more serious event occurring"
-          ]
-        }
-      ],
-      "name": "Test your knowledge",
+      "fields": [{ "name": "Agree", "Sequence": "1", "Mode": "Edit" }],
+      "name": "Terms",
       "stepType": "FieldList",
-      "intro": "Learning : Health and Safety in the Workplace "
+      "intro": "You agree that Smartphone Biz Apps may collect, use your personal data which you have provided in this form, for providing marketing material and further communication that you have agreed to receive, in accordance with our privacy policy- http://smartphonebizapps.com/privacy-policy/"
     }
   ]
 }

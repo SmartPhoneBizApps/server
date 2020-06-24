@@ -156,6 +156,10 @@ app.use(
   "/api/v1/util/assignCourseRole/",
   require("./routes/utilities/assignCourseRole")
 );
+app.use(
+  "/api/v1/util/getQuestioner/",
+  require("./routes/utilities/getQuestioner")
+);
 //  -------------------------------------------------
 //  --  ***** UTILITIES / External APIs *****  ------
 //  -------------------------------------------------
