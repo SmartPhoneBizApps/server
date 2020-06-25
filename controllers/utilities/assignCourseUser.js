@@ -61,7 +61,7 @@ exports.assignCourseUser = asyncHandler(async (req, res, next) => {
       }
     }
   }
-
+  console.log("RefID", out1["ReferenceID"]);
   // console.log(Appdata);
   //Appdata.id = "";
   console.log(appX.id);
