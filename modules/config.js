@@ -200,6 +200,36 @@ module.exports = {
     var result = require(fn);
     return result;
   },
+  getNewCopyRecord: function (configData, Appdata, paramID, userX, appID) {
+    out1 = {};
+    for (let i = 0; i < configData.FieldDef.length; i++) {
+      const el1 = configData.FieldDef[i];
+      for (const key in Appdata) {
+        const element = Appdata[key];
+        if (key == el1.name) {
+          if (key == "ID") {
+            out1["ReferenceID"] = paramID;
+            out1[key] = Math.floor(100000 + Math.random() * 900000);
+          } else {
+            out1[key] = element;
+          }
+        }
+      }
+    }
+    out1["ReferenceID"] = paramID;
+    out1["appId"] = appID;
+    out1["user"] = userX.id;
+    out1["userName"] = userX.userName;
+    out1["userEmail"] = userX.email;
+    out1["company"] = userX.company;
+    out1["branch"] = userX.branch;
+    out1["area"] = userX.area;
+    console.log(appID);
+    console.log(paramID);
+    console.log(out1);
+    console.log(userX);
+    return out1;
+  },
   checkItemData: function (a, b) {
     // Read Create Map Config
     // These are converted old XML files from smartapp

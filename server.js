@@ -156,6 +156,11 @@ app.use(
   "/api/v1/util/assignCourseRole/",
   require("./routes/utilities/assignCourseRole")
 );
+app.use("/api/v1/util/copyCourse/", require("./routes/utilities/copyCourse"));
+app.use(
+  "/api/v1/util/addCourseCatalog/",
+  require("./routes/utilities/addCourseCatalog")
+);
 app.use(
   "/api/v1/util/getQuestioner/",
   require("./routes/utilities/getQuestioner")

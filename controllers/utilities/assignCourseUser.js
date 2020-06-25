@@ -4,6 +4,7 @@ const {
   getNewConfig,
   findOneAppData,
   createDocument,
+  getNewCopyRecord,
 } = require("../../modules/config");
 const User = require("../../models/access/User");
 const App = require("../../models/appSetup/App");
@@ -13,6 +14,7 @@ const sendEmail = require("../../utils/sendEmail");
 // @route     GET /api/v1/util/calculation
 // @access    Private (Application Users)
 exports.assignCourseUser = asyncHandler(async (req, res, next) => {
+  /// Validations....
   userX = await User.findOne({ email: req.params.user });
   if (!userX) {
     res.status(400).json({
@@ -27,13 +29,6 @@ exports.assignCourseUser = asyncHandler(async (req, res, next) => {
       message: "1st applicationID is incorrect",
     });
   }
-
-  console.log(appX);
-
-  console.log(req.params.fromApp);
-  console.log(req.params.toApp);
-  console.log(req.params.ID);
-  console.log(req.params.user);
   out1 = {};
   Appdata = await findOneAppData(req.params.ID, req.params.fromApp);
   if (!Appdata) {
@@ -43,11 +38,11 @@ exports.assignCourseUser = asyncHandler(async (req, res, next) => {
     });
   }
 
-  console.log("Appdata", Appdata);
+  // Read Config File
   configData = getNewConfig(req.params.toApp, "Employee");
-  for (let i = 0; i < configData.FieldDef.length; i++) {
+
+  /*   for (let i = 0; i < configData.FieldDef.length; i++) {
     const el1 = configData.FieldDef[i];
-    console.log(el1.name);
     for (const key in Appdata) {
       const element = Appdata[key];
       if (key == el1.name) {
@@ -55,25 +50,21 @@ exports.assignCourseUser = asyncHandler(async (req, res, next) => {
           out1["ReferenceID"] = req.params.ID;
           out1[key] = Math.floor(100000 + Math.random() * 900000);
         } else {
-          console.log("Appdata", el1.name, element);
           out1[key] = element;
         }
       }
     }
   }
   out1["ReferenceID"] = req.params.ID;
-  console.log("Out1", out1);
-  // console.log(Appdata);
-  //Appdata.id = "";
-  console.log(appX.id);
   out1["appId"] = appX.id;
   out1["user"] = userX.id;
   out1["userName"] = userX.userName;
   out1["userEmail"] = userX.email;
   out1["company"] = userX.company;
   out1["branch"] = userX.branch;
-  out1["area"] = userX.area;
+  out1["area"] = userX.area; */
 
+  out1 = getNewCopyRecord(configData, Appdata, req.params.ID, userX, appX.id);
   result = await createDocument(req.params.toApp, out1);
   let message = "";
   message =
