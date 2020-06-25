@@ -61,19 +61,20 @@
   ],
   "DButtons": [
     {
-      "type": "ATTACHMENT",
-      "name": "View Attachments",
-      "icon": "sap-icon://attachment"
-    },
-    { "type": "UPDATE", "name": "Update Record", "icon": "sap-icon://update" },
-    { "type": "ADD", "name": "Add Record", "icon": "sap-icon://add" },
-    {
       "type": "PUBLISH",
       "name": "Publish Course",
       "icon": "sap-icon://upload-to-cloud",
       "Dialog": "{label:'Role',name:'role',type:'String'}",
       "DialogSearch": "{URL}/api/v1/samrtApp/findRole/{role}",
       "URL": "util/assignCourseRole/TRAIN001/TRAIN007/{ID}/{role}",
+      "Token": "Yes",
+      "URLMethod": "POST"
+    },
+    {
+      "type": "CATALOG",
+      "name": "Add to Catalog",
+      "icon": "sap-icon://product",
+      "URL": "util/getQuestioner/CATALOG/TRAIN008",
       "Token": "Yes",
       "URLMethod": "POST"
     },
@@ -639,7 +640,8 @@
         { "name": "StartDate", "Sequence": "1", "Mode": "Edit" },
         { "name": "EndDate", "Sequence": "1", "Mode": "Edit" },
         { "name": "Area", "Sequence": "1", "Mode": "Edit" },
-        { "name": "Exam", "Sequence": "1", "Mode": "Edit" }
+        { "name": "Exam", "Sequence": "1", "Mode": "Edit" },
+        { "name": "SelfAssign", "Sequence": "1", "Mode": "Edit" }
       ],
 
       "name": "Course Details",

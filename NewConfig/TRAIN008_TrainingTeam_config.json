@@ -1,7 +1,7 @@
 {
   "Title": {
-    "ApplicationTitle": "Learning Create and Assingment",
-    "DetailTitle": "Learning Assingment"
+    "ApplicationTitle": "Learning Catalog",
+    "DetailTitle": "Learning Catalog"
   },
   "Controls": {
     "USP": "UserProfile",
@@ -12,7 +12,7 @@
     "TitleField": "SubGroup",
     "sStatus": "External",
     "fStatus": "Status",
-    "LFields": ["Title", "ID", "StartDate"]
+    "LFields": ["Title", "Group", "ReferenceID", "StartDate"]
   },
   "ListBOTFields": {
     "None": ["cardImage", "StatusState"],
@@ -55,38 +55,16 @@
       "type": "VIEW",
       "name": "Change App View",
       "icon": "sap-icon://chart-table-view"
-    },
-    { "type": "ADD", "name": "Add Record", "icon": "sap-icon://add" },
-    { "type": "UPLOAD", "name": "Upload Record", "icon": "sap-icon://upload" }
+    }
   ],
   "DButtons": [
     {
-      "type": "PUBLISH",
-      "name": "Publish Course",
-      "icon": "sap-icon://upload-to-cloud",
-      "Dialog": "{label:'Role',name:'role',type:'String'}",
-      "DialogSearch": "{URL}/api/v1/samrtApp/findRole/{role}",
-      "URL": "util/assignCourseRole/TRAIN001/TRAIN007/{ID}/{role}",
-      "Token": "Yes",
-      "URLMethod": "POST"
-    },
-    {
-      "type": "CATALOG",
-      "name": "Add to Catalog",
-      "icon": "sap-icon://product",
-      "URL": "util/getQuestioner/CATALOG/TRAIN008",
-      "Token": "Yes",
-      "URLMethod": "POST"
-    },
-    {
       "type": "ASSIGN",
-      "name": "Assign Course",
-      "icon": "sap-icon://share-2",
-      "Dialog": "{label:'User',name:'user',type:'Email'}",
-      "DialogSearch": "{URL}/api/v1/samrtApp/findUser/{user}",
-      "URL": "util/assignCourseUser/TRAIN003/TRAIN007/{ID}/{user}",
+      "name": "Assign Training",
+      "icon": "sap-icon://education",
+      "URL": "util/getQuestioner/LEARNING/{ID}",
       "Token": "Yes",
-      "URLMethod": "POST"
+      "URLMethod": "GET"
     }
   ],
   "Tabs": [
@@ -102,6 +80,7 @@
       "type": "FieldGroup",
       "fioriicon": "notes"
     },
+
     {
       "value": "Tab3",
       "name": "Learning Documents",
@@ -130,6 +109,7 @@
       {
         "GrpTitle": "Course Overview",
         "Fields": [
+          "ReferenceID",
           "Title",
           "Overview",
           "Regulatory",
@@ -170,14 +150,14 @@
         {
           "name": "Answer",
           "type": "string",
-          "width": "200",
+          "width": "20",
           "SLabel": "Answer",
           "Option": "Optional"
         },
         {
           "name": "CorrectAnswer",
           "type": "string",
-          "width": "200",
+          "width": "20",
           "SLabel": "Correct Ans",
           "Option": "Optional"
         },
