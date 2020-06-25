@@ -14,7 +14,19 @@ const sendEmail = require("../../utils/sendEmail");
 // @access    Private (Application Users)
 exports.assignCourseUser = asyncHandler(async (req, res, next) => {
   userX = await User.findOne({ email: req.params.user });
+  if (!userX) {
+    res.status(400).json({
+      success: true,
+      message: "EmailID is not setup as user, course can't be assigned",
+    });
+  }
   appX = await App.findOne({ applicationID: req.params.toApp });
+  if (!appX) {
+    res.status(400).json({
+      success: true,
+      message: "2nd applicationID is incorrect",
+    });
+  }
 
   console.log(appX);
 
