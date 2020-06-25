@@ -51,8 +51,13 @@ exports.assignCourseUser = asyncHandler(async (req, res, next) => {
     for (const key in Appdata) {
       const element = Appdata[key];
       if (key == el1.name) {
-        console.log("Appdata", el1.name, element);
-        out1[key] = element;
+        if (key == "ID") {
+          out1["ReferenceID"] = element;
+          out1[key] = Math.floor(100000 + Math.random() * 900000);
+        } else {
+          console.log("Appdata", el1.name, element);
+          out1[key] = element;
+        }
       }
     }
   }
