@@ -36,6 +36,13 @@ exports.assignCourseUser = asyncHandler(async (req, res, next) => {
   console.log(req.params.user);
   out1 = {};
   Appdata = await findOneAppData(req.params.ID, req.params.fromApp);
+  if (!Appdata) {
+    res.status(400).json({
+      success: true,
+      message: "Course ID not found",
+    });
+  }
+
   console.log("Appdata", Appdata);
   configData = getNewConfig(req.params.toApp, "Employee");
   for (let i = 0; i < configData.FieldDef.length; i++) {
