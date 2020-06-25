@@ -494,6 +494,7 @@ exports.updateDataRecords = asyncHandler(async (req, res, next) => {
   // Read data from DB
   // -----------------------------------------------------
   let myData = await findOneAppData(req.body.ID, req.body.applicationId);
+  console.log("Atul", req.body.applicationId, req.body.ID);
   // let myData = await SUPP00018.findOne({ ID: req.body.ID });
   if (!myData) {
     return next(new ErrorResponse(`Record with ${req.body.ID} Not found`, 400));
@@ -514,6 +515,8 @@ exports.updateDataRecords = asyncHandler(async (req, res, next) => {
       tableField = tblFields.includes(kk);
       if (tableField == true) {
         console.log("Tables Module called", kk);
+        console.log("New Data", req.body[kk]);
+        console.log("Old Data", myData[kk]);
         myData[kk] = tableValidate(req.body[kk], myData[kk]);
       }
     }

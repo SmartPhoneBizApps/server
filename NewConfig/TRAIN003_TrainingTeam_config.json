@@ -126,6 +126,12 @@
       "name": "Video",
       "fioriicon": "step",
       "type": "video"
+    },
+    {
+      "value": "Tab5",
+      "name": "Questioner",
+      "fioriicon": "toaster-up",
+      "type": "Table"
     }
   ],
   "DetailFields": {
@@ -153,7 +159,90 @@
       }
     ],
     "Tab3": ["MultiAttachments"],
-    "Tab4": ["Video"]
+    "Tab4": ["Video"],
+    "Tab5": ["Questioner"]
+  },
+  "tableConfig": {
+    "Questioner": {
+      "title": "Test",
+      "ItemFieldDefinition": [
+        {
+          "name": "ItemNumber",
+          "type": "string",
+          "width": "10",
+          "SLabel": "Item Number",
+          "Option": "Optional"
+        },
+        {
+          "name": "Question",
+          "type": "string",
+          "width": "10",
+          "SLabel": "Question",
+          "Option": "Optional"
+        },
+        {
+          "name": "Answer",
+          "type": "Date",
+          "width": "20",
+          "SLabel": "Answer",
+          "Option": "Optional"
+        },
+        {
+          "name": "CorrectAnswer",
+          "type": "Date",
+          "width": "20",
+          "SLabel": "Correct Ans",
+          "Option": "Optional"
+        },
+        {
+          "name": "Score",
+          "type": "string",
+          "width": "20",
+          "SLabel": "Score",
+          "Option": "Optional"
+        }
+      ],
+      "DisplayFields": ["Question", "Answer", "CorrectAnswer", "Score"],
+      "ItemButtons": {
+        "itemDisplay": true,
+        "itemAdd": false,
+        "itemEdit": false,
+        "itemDelete": false
+      },
+      "CreateFields": ["Question", "Answer", "CorrectAnswer", "Score"],
+      "ItemDetails": [
+        {
+          "name": "ItemNumber",
+          "Tab": "Tab5",
+          "Sequence": "1",
+          "Mode": "Edit"
+        },
+        {
+          "name": "Question",
+          "Tab": "Tab5",
+          "Sequence": "1",
+          "Mode": "Edit"
+        },
+        {
+          "name": "Answer",
+          "Tab": "Tab5",
+          "Sequence": "1",
+          "Mode": "Edit"
+        },
+        {
+          "name": "CorrectAnswer",
+          "Tab": "Tab5",
+          "Sequence": "1",
+          "Mode": "Edit"
+        },
+        {
+          "name": "Score",
+          "Tab": "Tab5",
+          "Sequence": "1",
+          "Mode": "Edit"
+        }
+      ]
+    }
   },
   "ControlDisplay": {},
   "FieldDef": [
@@ -364,6 +453,14 @@
       "Option": "Optional",
       "SLabel": "Learning Documents",
       "LLabel": "Learning Documents"
+    },
+    {
+      "name": "Questioner",
+      "type": "Array",
+      "width": "200",
+      "Option": "Optional",
+      "SLabel": "Questioner",
+      "LLabel": "Questioner"
     },
     {
       "name": "Q1",

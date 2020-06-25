@@ -346,10 +346,14 @@ module.exports = {
     let kys = [];
     let out1 = {};
     var set1 = new Set([]);
-
-    for (let i = 0; i < newitemData.length; i++) {
-      kys.push(newitemData[i]["ItemNumber"]);
+    if (newitemData) {
+      for (let i = 0; i < newitemData.length; i++) {
+        kys.push(newitemData[i]["ItemNumber"]);
+      }
+    } else {
+      newitemData = [];
     }
+
     console.log(kys);
     for (let x = 0; x < itmData.length; x++) {
       out1 = {};
