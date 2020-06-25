@@ -18,7 +18,14 @@
     "None": ["cardImage", "StatusState"],
     "Title": ["Group", "SubGroup"],
     "SubTitle": ["Status", "Duration"],
-    "Description": ["ID", "EmployeeID", "DateRequested", "Detail", "External"]
+    "Description": [
+      "ID",
+      "EmployeeID",
+      "DateRequested",
+      "Detail",
+      "External",
+      "ReferenceID"
+    ]
   },
   "PossibleValues": [
     "Status",
@@ -98,6 +105,12 @@
       "name": "Questioner",
       "fioriicon": "toaster-up",
       "type": "Table"
+    },
+    {
+      "value": "Tab6",
+      "name": "Declaration",
+      "fioriicon": "user-settings",
+      "type": "Field"
     }
   ],
   "DetailFields": {
@@ -124,6 +137,7 @@
         "Fields": ["ProjectNeed", "Cost", "Duration", "External"]
       }
     ],
+    "Tab6": ["Status"],
 
     "Tab3": ["MultiAttachments"],
     "Tab4": ["Video"],
@@ -333,7 +347,6 @@
       "SLabel": "Course ID",
       "LLabel": "Reference Course ID"
     },
-
     {
       "name": "ConfirmCompleted",
       "type": "string",
