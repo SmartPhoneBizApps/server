@@ -12,7 +12,7 @@
     "TitleField": "SubGroup",
     "sStatus": "External",
     "fStatus": "Status",
-    "LFields": ["ID", "StartDate"]
+    "LFields": ["Title", "ID", "StartDate"]
   },
   "ListBOTFields": {
     "None": ["cardImage", "StatusState"],
@@ -277,6 +277,22 @@
       "Option": "Optional",
       "SLabel": "Overview",
       "LLabel": "Overview"
+    },
+    {
+      "name": "CourseLink",
+      "type": "string",
+      "width": "500",
+      "Option": "Optional",
+      "SLabel": "Course Link",
+      "LLabel": "Course Link"
+    },
+    {
+      "name": "Title",
+      "type": "string",
+      "width": "500",
+      "Option": "Optional",
+      "SLabel": "Course Title",
+      "LLabel": "Course Title"
     },
     {
       "name": "CreatedDate",
@@ -620,6 +636,8 @@
       "fields": [
         { "name": "Group", "Sequence": "1", "Mode": "Edit" },
         { "name": "SubGroup", "Sequence": "1", "Mode": "Edit" },
+        { "name": "Title", "Sequence": "1", "Mode": "Edit" },
+
         { "name": "Overview", "Sequence": "1", "Mode": "Edit" },
         { "name": "Regulatory", "Sequence": "1", "Mode": "Edit" },
         { "name": "Compliance", "Sequence": "1", "Mode": "Edit" }
@@ -657,10 +675,10 @@
     },
     {
       "id": "Step4",
-      "fields": [{ "name": "Agree", "Sequence": "1", "Mode": "Edit" }],
-      "name": "Terms",
+      "fields": [{ "name": "CourseLink", "Sequence": "1", "Mode": "Edit" }],
+      "name": "Link to External Course (if Any)",
       "stepType": "FieldList",
-      "intro": "You agree that Smartphone Biz Apps may collect, use your personal data which you have provided in this form, for providing marketing material and further communication that you have agreed to receive, in accordance with our privacy policy- http://smartphonebizapps.com/privacy-policy/"
+      "intro": "Learning : External Links can be specified here"
     }
   ]
 }
