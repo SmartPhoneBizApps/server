@@ -10,7 +10,7 @@
   "ListFields": {
     "IntroField": "EndDate",
     "TitleField": "SubGroup",
-    "sStatus": "",
+    "sStatus": "External",
     "fStatus": "Status",
     "LFields": ["ID", "StartDate"]
   },
@@ -341,6 +341,14 @@
       "Option": "Optional",
       "SLabel": "Exam",
       "LLabel": "Exam"
+    },
+    {
+      "name": "ReferenceID",
+      "type": "string",
+      "width": "100",
+      "Option": "Optional",
+      "SLabel": "Course ID",
+      "LLabel": "Reference Course ID"
     },
     {
       "name": "ConfirmCompleted",
