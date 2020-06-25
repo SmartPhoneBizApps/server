@@ -20,11 +20,11 @@ exports.assignCourseUser = asyncHandler(async (req, res, next) => {
       message: "EmailID is not setup as user, course can't be assigned",
     });
   }
-  appX = await App.findOne({ applicationID: req.params.toApp });
+  appX = await App.findOne({ applicationID: req.params.fromApp });
   if (!appX) {
     res.status(400).json({
       success: true,
-      message: "2nd applicationID is incorrect",
+      message: "1st applicationID is incorrect",
     });
   }
 
