@@ -66,7 +66,7 @@
         { "label": "SubGroup", "name": "SubGroup", "type": "string" }
       ],
       "listFields": ["Title", "ReferenceID", "Group", "SubGroup"],
-      "SearchURL": "listrecords1/TRAIN008/TrainingTeam/{filter}",
+      "SearchURL": "listrecords/TRAIN008/TrainingTeam/{filter}",
       "URL": "util/copyCourse/EMP00012/TRAIN008/{ID}/",
       "Token": "Yes",
       "URLMethod": "POST"
@@ -90,6 +90,12 @@
       "name": "Appraisal",
       "type": "Field",
       "fioriicon": "comment"
+    },
+    {
+      "value": "Tab5",
+      "name": "MyTraining",
+      "fioriicon": "toaster-up",
+      "type": "Table"
     }
   ],
   "DetailFields": {
@@ -106,7 +112,117 @@
       "Area",
       "CompDesc"
     ],
-    "Tab2": ["ReviewPeriod", "Score", "MaxScore", "AppraiseeComm"]
+    "Tab2": ["ReviewPeriod", "Score", "MaxScore", "AppraiseeComm"],
+    "Tab5": ["MyTraining"]
+  },
+  "tableConfig": {
+    "Learning": {
+      "title": "My Learning",
+      "ItemFieldDefinition": [
+        {
+          "name": "ItemNumber",
+          "type": "string",
+          "width": "10",
+          "SLabel": "Item Number",
+          "Option": "Optional"
+        },
+        {
+          "name": "Group",
+          "type": "string",
+          "width": "10",
+          "SLabel": "Group",
+          "Option": "Optional"
+        },
+        {
+          "name": "SubGroup",
+          "type": "string",
+          "width": "200",
+          "SLabel": "SubGroup",
+          "Option": "Optional"
+        },
+        {
+          "name": "Title",
+          "type": "string",
+          "width": "200",
+          "SLabel": "Title",
+          "Option": "Optional"
+        },
+        {
+          "name": "ReferenceID",
+          "type": "string",
+          "width": "200",
+          "SLabel": "Course ID",
+          "Option": "Optional"
+        },
+        {
+          "name": "AssignDate",
+          "type": "Date",
+          "width": "10",
+          "SLabel": "Assignment Date",
+          "Option": "Optional"
+        },
+        {
+          "name": "TargetDate",
+          "type": "Date",
+          "width": "10",
+          "SLabel": "Target Date",
+          "Option": "Optional"
+        },
+        {
+          "name": "MyTraining",
+          "type": "Array",
+          "width": "200",
+          "SLabel": "My Trainings",
+          "Option": "Optional"
+        }
+      ],
+      "DisplayFields": ["SubGroup", "Title", "ReferenceID", "TargetDate"],
+      "ItemButtons": {
+        "itemDisplay": true,
+        "itemAdd": false,
+        "itemEdit": false,
+        "itemDelete": false
+      },
+      "CreateFields": ["SubGroup", "Title", "ReferenceID", "TargetDate"],
+      "ItemDetails": [
+        {
+          "name": "Group",
+          "Tab": "Tab5",
+          "Sequence": "1",
+          "Mode": "Edit"
+        },
+        {
+          "name": "SubGroup",
+          "Tab": "Tab5",
+          "Sequence": "1",
+          "Mode": "Edit"
+        },
+        {
+          "name": "Title",
+          "Tab": "Tab5",
+          "Sequence": "1",
+          "Mode": "Edit"
+        },
+        {
+          "name": "ReferenceID",
+          "Tab": "Tab5",
+          "Sequence": "1",
+          "Mode": "Edit"
+        },
+        {
+          "name": "AssignDate",
+          "Tab": "Tab5",
+          "Sequence": "1",
+          "Mode": "Edit"
+        },
+        {
+          "name": "TargetDate",
+          "Tab": "Tab5",
+          "Sequence": "1",
+          "Mode": "Edit"
+        }
+      ]
+    }
   },
   "ControlDisplay": {},
   "FieldDef": [
