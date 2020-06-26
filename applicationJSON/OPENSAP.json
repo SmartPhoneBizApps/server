@@ -1,0 +1,58 @@
+{
+  "ID": { "type": "String", "maxlength": [20, "ID can not be more than 20"] },
+  "end_date": {
+    "type": "Date",
+    "maxlength": [10, "end_date can not be more than 10"]
+  },
+  "start_date": {
+    "type": "Date",
+    "maxlength": [10, "start_date can not be more than 10"]
+  },
+  "teacher": {
+    "type": "String",
+    "maxlength": [200, "teacher can not be more than 200"]
+  },
+  "abstract": {
+    "type": "abstract",
+    "maxlength": [1000, "Compliance can not be more than 1000"]
+  },
+  "language": {
+    "type": "String",
+    "maxlength": [20, "language can not be more than 20"]
+  },
+  "categories": [],
+  "title": {
+    "type": "String",
+    "maxlength": [200, "title can not be more than 200"]
+  },
+  "url": {
+    "type": "String",
+    "maxlength": [400, "url can not be more than 400"]
+  },
+  "status": {
+    "type": "String",
+    "maxlength": [100, "status can not be more than 100"]
+  },
+  "code": {
+    "type": "String",
+    "maxlength": [100, "code can not be more than 100"]
+  },
+  "image": [],
+  "next_events": [],
+  "Status": {
+    "type": "String",
+    "maxlength": [100, "Status can not be more than 100"]
+  },
+  "description": {
+    "type": "String",
+    "maxlength": [200, "description can not be more than 200"]
+  },
+
+  "USP_Name": { "type": "String" },
+  "USP_Role": { "type": "String" },
+  "USP_Image": { "type": "String" },
+  "carouselImage": [],
+  "MultiAttachments": {},
+  "TransLog": [],
+  "ItemData": []
+}
