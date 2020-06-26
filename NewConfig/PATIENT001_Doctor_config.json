@@ -20,12 +20,12 @@
     "None": ["cardImage", "StatusState"],
     "Title": ["LastName"],
     "SubTitle": ["FirstName", "Email", "NHSNumber", "PatientStatus"],
-    "Description": ["ID", "Status", "PostCode", "Group"]
+    "Description": ["ID", "Status", "PostCode", "PatientGroup"]
   },
   "PossibleValues": [
     "Gender",
     "Status",
-    "Group",
+    "PatientGroup",
     "PatientType",
     "PatientStatus",
     "ItemStatus"
@@ -164,7 +164,7 @@
       "HouseNumber",
       "PostCode",
       "Address",
-      "Group",
+      "PatientGroup",
       "PatientType",
       "ProfileImage",
       "PatientStatus",
@@ -284,12 +284,12 @@
       "LLabel": "Address"
     },
     {
-      "name": "Group",
+      "name": "PatientGroup",
       "type": "string",
       "width": "20",
       "Option": "Optional",
-      "SLabel": "Group",
-      "LLabel": "Group"
+      "SLabel": "Patient Group",
+      "LLabel": "Patient Group"
     },
     {
       "name": "PatientType",
@@ -742,7 +742,7 @@
     {
       "id": "Step3",
       "fields": [
-        { "name": "Group", "Sequence": "1", "Mode": "Edit" },
+        { "name": "PatientGroup", "Sequence": "1", "Mode": "Edit" },
         { "name": "PatientType", "Sequence": "1", "Mode": "Edit" },
         { "name": "Status", "Sequence": "1", "Mode": "Edit" },
         { "name": "PatientStatus", "Sequence": "1", "Mode": "Edit" }
