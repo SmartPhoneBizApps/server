@@ -11,10 +11,11 @@ const asyncHandler = require("../../middleware/async");
 const advancedDataList = require("../../middleware/advancedDataList");
 
 exports.listrecordsnew = asyncHandler(async (req, res, next) => {
-  const applicationId = req.params.id;
+  const applicationId = req.params.app;
   const businessrole = req.params.businessrole;
   //  const Title = req.params.Title;
   const mode = req.params.mode;
+  console.log(applicationId, businessrole, mode);
 
   const application = await findOneApp(applicationId);
 
@@ -122,12 +123,12 @@ exports.listrecordsnew = asyncHandler(async (req, res, next) => {
   }
 
   // Read Possible Values Config.....(Required for Possible Values and BOT Buttons)
-  pvconfig1 = getPVConfig(req.headers.applicationid, businessrole);
-  qPV = getPVQuery(req.headers.applicationid, businessrole, pvconfig1);
+  pvconfig1 = getPVConfig(applicationId, businessrole);
+  qPV = getPVQuery(applicationId, businessrole, pvconfig1);
 
   let resPV = await qPV;
   if (mode == "BOTList") {
-    buttonData = getButtonData(resPV, req.headers.applicationid, businessrole);
+    buttonData = getButtonData(resPV, applicationId, businessrole);
   }
   if (mode == "BOTList") {
     res.status(200).json({
