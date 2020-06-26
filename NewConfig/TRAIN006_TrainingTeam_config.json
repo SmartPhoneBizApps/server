@@ -61,6 +61,14 @@
   ],
   "DButtons": [
     {
+      "type": "COPY",
+      "name": "Copy Course",
+      "icon": "sap-icon://copy",
+      "URL": "util/copyCourse/TRAIN006/TRAIN006/{ID}/{role}",
+      "Token": "Yes",
+      "URLMethod": "POST"
+    },
+    {
       "type": "PUBLISH",
       "name": "Publish Course",
       "icon": "sap-icon://upload-to-cloud",
@@ -74,7 +82,7 @@
       "type": "CATALOG",
       "name": "Add to Catalog",
       "icon": "sap-icon://product",
-      "URL": "util/getQuestioner/CATALOG/TRAIN008",
+      "URL": "util/addCourseCatalog/TRAIN006/TRAIN008/{ID}/{role}",
       "Token": "Yes",
       "URLMethod": "POST"
     },
