@@ -118,6 +118,7 @@ app.use("/api/v1/userapps", require("./routes/appSetup/userapps"));
 //  -------------------------------------------------
 // Listing of Data Records with Config Data
 app.use("/api/v1/listrecords", require("./routes/smartApp/listrecords"));
+app.use("/api/v1/listrecordsnew", require("./routes/smartApp/listrecordsnew"));
 // Create a new Record
 app.use("/api/v1/datarecords", require("./routes/smartApp/datarecords"));
 app.use("/api/v1/temp", require("./routes/smartApp/temp"));
