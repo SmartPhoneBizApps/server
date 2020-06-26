@@ -52,7 +52,7 @@ exports.addTraining = asyncHandler(async (req, res, next) => {
       }
     }
   }
-
+  //ADDTRAINING
   result = newOut;
   // result = await createDocument(req.params.toApp, out1);
   res.status(201).json({
