@@ -56,12 +56,21 @@
   ],
   "DButtons": [
     {
-      "type": "ATTACHMENT",
-      "name": "View Attachments",
-      "icon": "sap-icon://attachment"
-    },
-    { "type": "UPDATE", "name": "Update Record", "icon": "sap-icon://update" },
-    { "type": "ADD", "name": "Add Record", "icon": "sap-icon://add" }
+      "type": "ADDTRAINING",
+      "name": "Add Training",
+      "icon": "sap-icon://copy",
+      "Dialog": [
+        { "label": "Title", "name": "Title", "type": "string" },
+        { "label": "Course ID", "name": "ReferenceID", "type": "string" },
+        { "label": "Group", "name": "Group", "type": "string" },
+        { "label": "SubGroup", "name": "SubGroup", "type": "string" }
+      ],
+      "listFields": ["Title", "ReferenceID", "Group", "SubGroup"],
+      "SearchURL": "listrecords1/TRAIN008/TrainingTeam/{filter}",
+      "URL": "util/copyCourse/EMP00012/TRAIN008/{ID}/",
+      "Token": "Yes",
+      "URLMethod": "POST"
+    }
   ],
   "Tabs": [
     {
