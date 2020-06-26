@@ -12,21 +12,60 @@ const advancedDataList = require("../../middleware/advancedDataList");
 
 exports.getListrecords1 = asyncHandler(async (req, res, next) => {
   if (req.params.id == "OPENSAP") {
+    //app = req.params.id;
+    const application = await findOneApp(req.params.id);
+    pvconfig1 = getPVConfig(
+      req.headers.applicationid,
+      req.headers.businessrole
+    );
+    qPV = getPVQuery(
+      req.headers.applicationid,
+      req.headers.businessrole,
+      pvconfig1
+    );
+
+    let resPV = await qPV;
     outData = {};
-    /*     let fn =
+    let fn1 =
       "../../NewConfig/" +
       req.params.id +
       "_" +
       req.headers.businessrole +
-      "_config.json"; */
+      "_config.json";
+    var config1 = require(fn1);
 
     let fn = "../../NewConfig/openSAP_courses.json";
-    var temp = require(fn);
-    outData["data"] = temp["courses"];
+    var res1 = require(fn);
+    results = res1["courses"];
 
-    res.status(200).json({
-      outData,
-    });
+    for (let i1 = 0; i1 < results.length; i1++) {
+      results[i1].cardImage = application["photo"];
+      if (req.headers.mode == "Web" || req.headers.mode == "web") {
+        if (config1["Controls"]["USP"] == "UserProfile") {
+          results[i1].USP_Name = "Atul Gupta";
+          results[i1].USP_Role = req.headers.businessrole;
+          results[i1].USP_Image =
+            "https://www.espncricinfo.com/inline/content/image/1183835.html?alt=1";
+        }
+      }
+    }
+    outData["success"] = true;
+    //  outData["count"] = results.length;
+    //  outData["pagination"] = pagination;
+    outData["data"] = results;
+    outData["config"] = config1;
+
+    if (req.headers.mode == "Web" || req.headers.mode == "web") {
+      res.status(200).json({
+        outData,
+        possibleValues: resPV,
+        //     defaultValues: ival_out,
+      });
+    } else {
+      res.status(200).json({
+        outData,
+      });
+    }
   } else {
     //app = req.params.id;
     const application = await findOneApp(req.params.id);
