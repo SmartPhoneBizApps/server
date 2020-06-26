@@ -471,6 +471,15 @@ module.exports = {
     return result;
   },
   // Business Application Modules....
+  findOneAppDataRefID: function (TransID, app) {
+    let path = "../models/smartApp/" + app;
+    const Model = require(path);
+    result = Model.findOne({
+      ReferenceID: TransID,
+    });
+    return result;
+  },
+  // Business Application Modules....
   findOneAppDatabyid: function (TransID, app) {
     let path = "../models/smartApp/" + app;
     const Model = require(path);

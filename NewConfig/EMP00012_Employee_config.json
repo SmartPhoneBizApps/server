@@ -58,7 +58,7 @@
   ],
   "DButtons": [
     {
-      "type": "ADDTRAINING",
+      "type": "addTraining",
       "name": "Add Training",
       "icon": "sap-icon://copy",
       "Dialog": [
@@ -69,7 +69,13 @@
       ],
       "listFields": ["Title", "ReferenceID", "Group", "SubGroup"],
       "SearchURL": "listrecordsnew/Web/TRAIN008/TrainingTeam{filter}",
-      "URL": "util/copyCourse/EMP00012/TRAIN008/{ID}/",
+      "URL": "util/addTraining/MyTraining/TRAIN008/EMP00012/{ID}/{ReferenceID}/",
+      "Map": {
+        "Title": "Title1",
+        "ReferenceID": "ReferenceID1",
+        "Group": "Group1",
+        "SubGroup": "SubGroup1"
+      },
       "Token": "Yes",
       "URLMethod": "POST"
     }

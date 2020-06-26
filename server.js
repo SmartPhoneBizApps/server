@@ -166,6 +166,7 @@ app.use(
   "/api/v1/util/getQuestioner/",
   require("./routes/utilities/getQuestioner")
 );
+app.use("/api/v1/util/addTraining/", require("./routes/utilities/addTraining"));
 //  -------------------------------------------------
 //  --  ***** UTILITIES / External APIs *****  ------
 //  -------------------------------------------------
