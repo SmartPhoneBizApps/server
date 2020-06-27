@@ -79,22 +79,15 @@
     "headerTitle": ["USP_Name"],
     "headerRole": ["USP_Role"],
     "headerImage": ["USP_Image"],
-    "None": ["ID", "Status"],
+    "None": ["start_date", "end_date", "code", "status"],
     "Tab1": [
       {
         "GrpTitle": "Course Details",
-        "Fields": [
-          "title",
-          "url",
-          "abstract",
-          "start_date",
-          "end_date",
-          "teacher"
-        ]
+        "Fields": ["title", "url", "abstract", "teacher"]
       },
       {
         "GrpTitle": "Other Details",
-        "Fields": ["id", "code", "status", "language", "categories"]
+        "Fields": ["id", "language", "categories"]
       }
     ],
     "Tab4": ["image"]
@@ -106,55 +99,55 @@
       "type": "string",
       "width": "20",
       "SLabel": "ID",
-      "Option": "Mandatory"
+      "Option": "Optional"
     },
     {
       "name": "title",
       "type": "string",
       "width": "50",
-      "SLabel": "title",
+      "SLabel": "Course Title",
       "Option": ""
     },
     {
       "name": "url",
       "type": "string",
       "width": "1000",
-      "SLabel": "url",
+      "SLabel": "Course URL",
       "Option": ""
     },
     {
       "name": "start_date",
       "type": "Date",
       "width": "1000",
-      "SLabel": "start_date",
+      "SLabel": "Start Date",
       "Option": ""
     },
     {
       "name": "end_date",
       "type": "Date",
       "width": "1000",
-      "SLabel": "end_date",
+      "SLabel": "End Date",
       "Option": ""
     },
     {
       "name": "teacher",
       "type": "string",
       "width": "1000",
-      "SLabel": "teacher",
+      "SLabel": "Teacher",
       "Option": ""
     },
     {
       "name": "code",
       "type": "string",
       "width": "1000",
-      "SLabel": "code",
+      "SLabel": "Course Code",
       "Option": ""
     },
     {
       "name": "abstract",
       "type": "string",
       "width": "1000",
-      "SLabel": "abstract",
+      "SLabel": "Course Abstract",
       "Option": ""
     },
 
@@ -162,35 +155,35 @@
       "name": "description",
       "type": "string",
       "width": "20",
-      "SLabel": "description",
+      "SLabel": "Course Description",
       "Option": ""
     },
     {
       "name": "image",
-      "type": "string",
+      "type": "attachment",
       "width": "100",
-      "SLabel": "image",
+      "SLabel": "Images",
       "Option": ""
     },
     {
       "name": "next_events",
       "type": "string",
       "width": "100",
-      "SLabel": "next_events",
+      "SLabel": "Next Events",
       "Option": ""
     },
     {
       "name": "language",
       "type": "string",
       "width": "100",
-      "SLabel": "language",
+      "SLabel": "Language",
       "Option": ""
     },
     {
       "name": "categories",
       "type": "string",
       "width": "100",
-      "SLabel": "categories",
+      "SLabel": "Categories",
       "Option": ""
     },
     {
