@@ -90,7 +90,14 @@
       },
       {
         "GrpTitle": "Other Details",
-        "Fields": ["id", "language", "categories"]
+        "Fields": [
+          "id",
+          "code",
+          "status",
+          "language",
+          "categories",
+          "ReferenceID"
+        ]
       }
     ],
     "Tab4": ["image"]
@@ -202,6 +209,14 @@
       "width": "100",
       "SLabel": "Status",
       "Option": ""
+    },
+    {
+      "name": "ReferenceID",
+      "type": "string",
+      "width": "100",
+      "Option": "Optional",
+      "SLabel": "Course ID",
+      "LLabel": "Reference Course ID"
     }
   ],
   "itemData": "No",

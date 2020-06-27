@@ -42,6 +42,7 @@ exports.getListrecords1 = asyncHandler(async (req, res, next) => {
     for (let i1 = 0; i1 < results.length; i1++) {
       t_image = [];
       results[i1].cardImage = application["photo"];
+      results[i1].ReferenceID = results[i1].id;
       t_image.push(results[i1]["image"]);
       results[i1].image = t_image;
       if (req.headers.mode == "Web" || req.headers.mode == "web") {
