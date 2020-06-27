@@ -15,8 +15,10 @@ const sendEmail = require("../../utils/sendEmail");
 // @access    Private (Application Users)
 exports.assignCourseUser = asyncHandler(async (req, res, next) => {
   // Read Config File
+  configFrom = getNewConfig(req.params.fromApp, "EmployeeLearn");
   configData = getNewConfig(req.params.toApp, "EmployeeLearn");
-
+  console.log("From", req.params.fromApp);
+  console.log("To", req.params.toApp);
   /// Validations....
   userX = await User.findOne({ email: req.params.user });
   if (!userX) {
@@ -33,7 +35,24 @@ exports.assignCourseUser = asyncHandler(async (req, res, next) => {
     });
   }
   out1 = {};
-  Appdata = await findOneAppData(req.params.ID, req.params.fromApp);
+  Appdata = {};
+  console.log("Source", configFrom["Controls"]["Source"]["SourceName"]);
+  if (configFrom["Controls"]["Source"]["SourceName"] == "jsonData") {
+    let fn = "../.." + configFrom["Controls"]["Source"]["SourceFile"];
+    var res1 = require(fn);
+    for (let x = 0; x < res1["courses"].length; x++) {
+      if (res1["courses"][x]["id"] == req.params.ID) {
+        console.log(req.params.ID);
+        console.log(res1["courses"][x]["id"]);
+        Appdata = res1["courses"][x];
+        console.log("Data", Appdata);
+      }
+    }
+  }
+  if (configFrom["Controls"]["Source"]["SourceName"] == "mongoDB") {
+    Appdata = await findOneAppData(req.params.ID, req.params.fromApp);
+  }
+
   if (!Appdata) {
     res.status(400).json({
       success: true,
