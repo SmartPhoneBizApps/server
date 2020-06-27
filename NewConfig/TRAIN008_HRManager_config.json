@@ -60,12 +60,14 @@
   ],
   "DButtons": [
     {
-      "type": "ASSIGN",
-      "name": "Assign Training",
-      "icon": "sap-icon://education",
-      "URL": "util/getQuestioner/LEARNING/{ID}",
+      "type": "SELFASSIGN",
+      "name": "Assign Course",
+      "icon": "sap-icon://share-2",
+      "Dialog": "{label:'User',name:'user',type:'Email'}",
+      "DialogSearch": "{URL}/api/v1/samrtApp/findUser/{user}",
+      "URL": "util/assignCourseUser/TRAIN006/TRAIN007/{ReferenceID}/{user}",
       "Token": "Yes",
-      "URLMethod": "GET"
+      "URLMethod": "POST"
     }
   ],
   "Tabs": [
