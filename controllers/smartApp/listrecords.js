@@ -42,10 +42,10 @@ exports.getListrecords1 = asyncHandler(async (req, res, next) => {
       results[i1].cardImage = application["photo"];
       if (req.headers.mode == "Web" || req.headers.mode == "web") {
         if (config1["Controls"]["USP"] == "UserProfile") {
-          results[i1].USP_Name = "Atul Gupta";
-          results[i1].USP_Role = req.headers.businessrole;
+          results[i1].USP_Name = "OpenSAP course catalog";
+          results[i1].USP_Role = "copyright - SAP®";
           results[i1].USP_Image =
-            "https://www.espncricinfo.com/inline/content/image/1183835.html?alt=1";
+            "https://fierce-oasis-51455.herokuapp.com/logos/logo_opensap.png";
         }
       }
     }
