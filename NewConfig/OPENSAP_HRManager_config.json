@@ -59,7 +59,36 @@
       "DialogSearch": "{URL}/api/v1/samrtApp/findUser/{user}",
       "URL": "util/assignCourseUser/OPENSAP/TRAIN007/{ReferenceID}/{user}",
       "Token": "Yes",
-      "URLMethod": "POST"
+      "URLMethod": "POST",
+      "FieldMapping": {
+        "Teacher": "teacher",
+        "StartDate": "start_date",
+        "EndDate": "end_date",
+        "Group": "Group",
+        "SubGroup": "SubGroup",
+        "Title": "title",
+        "Overview": "abstract",
+        "CourseLink": "url",
+        "ReferenceID": "id",
+        "ExternalStatus": "status",
+        "Language": "language",
+        "ExternalCode": "code",
+        "Categories": "categories",
+        "Image": "image"
+      },
+      "FixedValues": {
+        "External": "External",
+        "Cost": "0.00",
+        "Status": "Assigned",
+        "Area": "SAP",
+        "Duration": "Self Paced",
+        "DateRequested": "@currentDate",
+        "SelfAssign": "Yes",
+        "Exam": "No",
+        "Regulatory": "No",
+        "Compliance": "No",
+        "CreatedDate": "@currentDate"
+      }
     }
   ],
   "Tabs": [

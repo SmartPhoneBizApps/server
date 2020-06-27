@@ -211,6 +211,7 @@ module.exports = {
             out1["ReferenceID"] = paramID;
             out1[key] = Math.floor(100000 + Math.random() * 900000);
           } else {
+            console.log("out1[key]", out1[key]);
             out1[key] = element;
           }
         }
@@ -226,8 +227,7 @@ module.exports = {
     out1["area"] = userX.area;
     console.log(appID);
     console.log(paramID);
-    console.log(out1);
-    console.log(userX);
+    console.log("out1[key]", out1);
     return out1;
   },
   checkItemData: function (a, b) {

@@ -5,6 +5,7 @@ const {
   findOneAppData,
   createDocument,
   getNewCopyRecord,
+  getDateValues,
 } = require("../../modules/config");
 const User = require("../../models/access/User");
 const App = require("../../models/appSetup/App");
@@ -42,13 +43,28 @@ exports.assignCourseUser = asyncHandler(async (req, res, next) => {
     var res1 = require(fn);
     for (let x = 0; x < res1["courses"].length; x++) {
       if (res1["courses"][x]["id"] == req.params.ID) {
-        console.log(req.params.ID);
-        console.log(res1["courses"][x]["id"]);
-        Appdata = res1["courses"][x];
-        console.log("Data", Appdata);
+        x1 = configFrom["Controls"]["Source"]["FieldMapping"];
+        //    Appdata = res1["courses"][x];
+        for (let y = 0; y < x1.length; y++) {
+          const e2 = x1[y];
+          for (const k3 in e2) {
+            Appdata[k3] = res1["courses"][x][e2[k3]];
+          }
+        }
+      }
+    }
+
+    x2 = configFrom["Controls"]["Source"]["FixedValues"];
+    //    Appdata = res1["courses"][x];
+    for (let y = 0; y < x2.length; y++) {
+      const e2 = x2[y];
+      for (const k3 in e2) {
+        e2[k3] = getDateValues(e2[k3]);
+        Appdata[k3] = e2[k3];
       }
     }
   }
+
   if (configFrom["Controls"]["Source"]["SourceName"] == "mongoDB") {
     Appdata = await findOneAppData(req.params.ID, req.params.fromApp);
   }
@@ -59,7 +75,7 @@ exports.assignCourseUser = asyncHandler(async (req, res, next) => {
       message: "Course ID not found",
     });
   }
-
+  console.log("Data for new Rec", Appdata);
   out1 = getNewCopyRecord(configData, Appdata, req.params.ID, userX, appX.id);
   result = await createDocument(req.params.toApp, out1);
   let message = "";
