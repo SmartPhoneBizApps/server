@@ -5,7 +5,8 @@
   },
   "Controls": {
     "USP": "UserProfile",
-    "URL": "https://fierce-oasis-51455.herokuapp.com"
+    "URL": "https://fierce-oasis-51455.herokuapp.com",
+    "Source": { "SourceName": "mongoDB", "SourceFile": "NA" }
   },
   "ListFields": {
     "IntroField": "code",
@@ -79,18 +80,11 @@
     "headerTitle": ["USP_Name"],
     "headerRole": ["USP_Role"],
     "headerImage": ["USP_Image"],
-    "None": ["ID", "Status"],
+    "None": ["start_date", "end_date", "SubGroup", "Group"],
     "Tab1": [
       {
         "GrpTitle": "Course Details",
-        "Fields": [
-          "title",
-          "url",
-          "abstract",
-          "start_date",
-          "end_date",
-          "teacher"
-        ]
+        "Fields": ["title", "url", "abstract", "teacher"]
       },
       {
         "GrpTitle": "Other Details",
@@ -114,6 +108,22 @@
       "width": "20",
       "SLabel": "ID",
       "Option": "Mandatory"
+    },
+    {
+      "name": "Group",
+      "type": "string",
+      "width": "100",
+      "Option": "Optional",
+      "SLabel": "Group",
+      "LLabel": "Group"
+    },
+    {
+      "name": "SubGroup",
+      "type": "radiobutton",
+      "width": "100",
+      "Option": "Optional",
+      "SLabel": "Sub Group",
+      "LLabel": "Sub Group"
     },
     {
       "name": "title",

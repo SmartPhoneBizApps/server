@@ -43,6 +43,8 @@ exports.getListrecords1 = asyncHandler(async (req, res, next) => {
       t_image = [];
       results[i1].cardImage = application["photo"];
       results[i1].ReferenceID = results[i1].id;
+      results[i1].Group = "ExternalCatalog";
+      results[i1].SubGroup = "OpenSAP";
       t_image.push(results[i1]["image"]);
       results[i1].image = t_image;
       if (req.headers.mode == "Web" || req.headers.mode == "web") {

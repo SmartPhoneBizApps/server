@@ -1,5 +1,13 @@
 {
   "ID": { "type": "String", "maxlength": [20, "ID can not be more than 20"] },
+  "Group": {
+    "type": "String",
+    "maxlength": [100, "Group can not be more than 100"]
+  },
+  "SubGroup": {
+    "type": "String",
+    "maxlength": [100, "SubGroup can not be more than 100"]
+  },
   "end_date": {
     "type": "Date",
     "maxlength": [10, "end_date can not be more than 10"]

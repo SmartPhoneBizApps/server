@@ -14,6 +14,9 @@ const sendEmail = require("../../utils/sendEmail");
 // @route     GET /api/v1/util/calculation
 // @access    Private (Application Users)
 exports.assignCourseUser = asyncHandler(async (req, res, next) => {
+  // Read Config File
+  configData = getNewConfig(req.params.toApp, "EmployeeLearn");
+
   /// Validations....
   userX = await User.findOne({ email: req.params.user });
   if (!userX) {
@@ -37,32 +40,6 @@ exports.assignCourseUser = asyncHandler(async (req, res, next) => {
       message: "Course ID not found",
     });
   }
-
-  // Read Config File
-  configData = getNewConfig(req.params.toApp, "Employee");
-
-  /*   for (let i = 0; i < configData.FieldDef.length; i++) {
-    const el1 = configData.FieldDef[i];
-    for (const key in Appdata) {
-      const element = Appdata[key];
-      if (key == el1.name) {
-        if (key == "ID") {
-          out1["ReferenceID"] = req.params.ID;
-          out1[key] = Math.floor(100000 + Math.random() * 900000);
-        } else {
-          out1[key] = element;
-        }
-      }
-    }
-  }
-  out1["ReferenceID"] = req.params.ID;
-  out1["appId"] = appX.id;
-  out1["user"] = userX.id;
-  out1["userName"] = userX.userName;
-  out1["userEmail"] = userX.email;
-  out1["company"] = userX.company;
-  out1["branch"] = userX.branch;
-  out1["area"] = userX.area; */
 
   out1 = getNewCopyRecord(configData, Appdata, req.params.ID, userX, appX.id);
   result = await createDocument(req.params.toApp, out1);
