@@ -11,7 +11,7 @@ const asyncHandler = require("../../middleware/async");
 const advancedDataList = require("../../middleware/advancedDataList");
 
 exports.getListrecords1 = asyncHandler(async (req, res, next) => {
-  if (req.params.id == "OPENSAP") {
+  if (req.params.id == "OPENSAP" || req.params.id == "EXTLEARN") {
     //app = req.params.id;
     const application = await findOneApp(req.params.id);
     pvconfig1 = getPVConfig(
@@ -38,8 +38,12 @@ exports.getListrecords1 = asyncHandler(async (req, res, next) => {
     var res1 = require(fn);
     results = res1["courses"];
 
+    let t_image = [];
     for (let i1 = 0; i1 < results.length; i1++) {
+      t_image = [];
       results[i1].cardImage = application["photo"];
+      t_image.push(results[i1]["image"]);
+      results[i1].image = t_image;
       if (req.headers.mode == "Web" || req.headers.mode == "web") {
         if (config1["Controls"]["USP"] == "UserProfile") {
           results[i1].USP_Name = "OpenSAP course catalog";
@@ -50,8 +54,6 @@ exports.getListrecords1 = asyncHandler(async (req, res, next) => {
       }
     }
     outData["success"] = true;
-    //  outData["count"] = results.length;
-    //  outData["pagination"] = pagination;
     outData["data"] = results;
     outData["config"] = config1;
 
