@@ -6,6 +6,7 @@ const {
   createDocument,
   getNewCopyRecord,
   getDateValues,
+  getInitialValues,
 } = require("../../modules/config");
 const User = require("../../models/access/User");
 const App = require("../../models/appSetup/App");
@@ -36,6 +37,24 @@ exports.assignCourseUser = asyncHandler(async (req, res, next) => {
       message: "1st applicationID is incorrect",
     });
   }
+
+  /*   /// Initial values..
+  var ivalue = getInitialValues(
+    req.params.id,
+    req.headers.businessrole,
+    req.user
+  );
+  let ival_out = [];
+  let ival = {};
+  for (let i = 0; i < ivalue.length; i++) {
+    ival = {};
+    const element = ivalue[i];
+    ival = { ...element };
+    o_val = getDateValues(ival.Value);
+    ival.Value = o_val;
+    ival_out.push(ival);
+  } */
+
   out1 = {};
   Appdata = {};
   console.log("Source", configFrom["Controls"]["Source"]["SourceName"]);
