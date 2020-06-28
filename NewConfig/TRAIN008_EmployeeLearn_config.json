@@ -6,7 +6,19 @@
   "Controls": {
     "USP": "UserProfile",
     "URL": "https://fierce-oasis-51455.herokuapp.com",
-    "Source": { "SourceName": "mongoDB", "SourceFile": "NA" }
+    "Source": {
+      "SourceName": "mongoDB",
+      "SourceFile": "NA",
+      "FieldMapping": [{ "ReferenceID": "ID" }],
+      "FixedValues": [
+        { "Status": "Assigned" },
+        { "DateRequested": "@currentDate" },
+        { "CreatedDate": "@currentDate" },
+        {
+          "Terms": "I declare that I have read all the documents, viewed the videos and passed the test (if any) required for the completion of this training."
+        }
+      ]
+    }
   },
 
   "ListFields": {
