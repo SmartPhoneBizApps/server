@@ -45,10 +45,17 @@ exports.assignCourseUser = asyncHandler(async (req, res, next) => {
       if (res1["courses"][x]["id"] == req.params.ID) {
         x1 = configFrom["Controls"]["Source"]["FieldMapping"];
         //    Appdata = res1["courses"][x];
+        //
         for (let y = 0; y < x1.length; y++) {
+          let t_image = [];
           const e2 = x1[y];
           for (const k3 in e2) {
-            Appdata[k3] = res1["courses"][x][e2[k3]];
+            if (k3 == "Image") {
+              t_image.push(res1["courses"][x][e2[k3]]);
+              Appdata[k3] = t_image;
+            } else {
+              Appdata[k3] = res1["courses"][x][e2[k3]];
+            }
           }
         }
       }

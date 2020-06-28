@@ -102,6 +102,12 @@
       "type": "video"
     },
     {
+      "value": "Tab2",
+      "name": "CourseImages",
+      "type": "carouselImage",
+      "fioriicon": "picture"
+    },
+    {
       "value": "Tab5",
       "name": "Questioner",
       "fioriicon": "toaster-up",
@@ -139,8 +145,8 @@
         "Fields": ["ProjectNeed", "Cost", "Duration", "External"]
       }
     ],
-    "Tab6": ["Status"],
-
+    "Tab6": ["Terms", "ConfirmCompleted", "Status"],
+    "Tab2": ["image"],
     "Tab3": ["MultiAttachments"],
     "Tab4": ["Video"],
     "Tab5": ["Questioner"]
@@ -460,6 +466,13 @@
       "Option": "Optional",
       "SLabel": "Date Requested",
       "LLabel": "Date Requested"
+    },
+    {
+      "name": "Image",
+      "type": "attachment",
+      "width": "200",
+      "SLabel": "Course Images",
+      "Option": "Course Images"
     },
     {
       "name": "MultiAttachments",

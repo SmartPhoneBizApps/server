@@ -9,11 +9,8 @@ const {
 const { readData, getTotalCount, nConfig } = require("../../modules/config2");
 const asyncHandler = require("../../middleware/async");
 const advancedDataList = require("../../middleware/advancedDataList");
-// @desc      Get all records
-// @route     GET /api/v1/listrecords
-// @access    Private
+
 exports.getListrecords1 = asyncHandler(async (req, res, next) => {
-  /// Application Details..
   const application = await findOneApp(req.params.id);
   let fn1 =
     "../../NewConfig/" +
@@ -23,36 +20,21 @@ exports.getListrecords1 = asyncHandler(async (req, res, next) => {
     "_config.json";
   var config1 = require(fn1);
 
-  /// Possible values..
-  pvconfig1 = getPVConfig(req.headers.applicationid, req.headers.businessrole);
-  qPV = getPVQuery(
-    req.headers.applicationid,
-    req.headers.businessrole,
-    pvconfig1
-  );
-  let resPV = await qPV;
-  var ivalue = getInitialValues(
-    req.params.id,
-    req.headers.businessrole,
-    req.user
-  );
-
-  /// Initial values..
-  let ival_out = [];
-  let ival = {};
-  for (let i = 0; i < ivalue.length; i++) {
-    ival = {};
-    const element = ivalue[i];
-    ival = { ...element };
-    o_val = getDateValues(ival.Value);
-    ival.Value = o_val;
-    ival_out.push(ival);
-  }
-
   //// Data Source is JSON Data
   if (req.params.id == "OPENSAP" || req.params.id == "EXTLEARN") {
+    pvconfig1 = getPVConfig(
+      req.headers.applicationid,
+      req.headers.businessrole
+    );
+    qPV = getPVQuery(
+      req.headers.applicationid,
+      req.headers.businessrole,
+      pvconfig1
+    );
+
+    let resPV = await qPV;
     outData = {};
-    // Read JSON source file
+
     let fn = "../../NewConfig/openSAP_courses.json";
     var res1 = require(fn);
     results = res1["courses"];
@@ -83,7 +65,7 @@ exports.getListrecords1 = asyncHandler(async (req, res, next) => {
       res.status(200).json({
         outData,
         possibleValues: resPV,
-        defaultValues: ival_out,
+        //     defaultValues: ival_out,
       });
     } else {
       res.status(200).json({
@@ -92,10 +74,14 @@ exports.getListrecords1 = asyncHandler(async (req, res, next) => {
     }
   } else {
     //// Data Source is mongoDB....
+    //app = req.params.id;
+    // Read New Config File
 
     // Get Table Schema
+
     let path = "../../models/smartApp/" + req.params.id;
     const model = require(path);
+
     if (config1["itemData"] == "Yes") {
       app2 = req.params.id + "_Itm";
       let path2 = "../../models/smartApp/" + app2;
@@ -103,7 +89,7 @@ exports.getListrecords1 = asyncHandler(async (req, res, next) => {
     } else {
       model2 = model;
     }
-    // Get total Count
+
     let query_c = getTotalCount(req.params.id, req, config1);
     let rec = await query_c;
     const count = rec.length;
@@ -111,7 +97,27 @@ exports.getListrecords1 = asyncHandler(async (req, res, next) => {
     let query = readData(req.params.id, req, config1);
     let results = await query;
 
-    // If Items are present...
+    /*   for (let a = 0; a < results.length; a++) {
+    for (const key in results[a]) {
+      for (let b = 0; b < config1.FieldDef.length; b++) {
+        if (
+          (config1.FieldDef[b]["type"] == "Date") &
+          (config1.FieldDef[b]["name"] == key)
+        ) {
+          let myTemp = results[a][key];
+          results[a][key] = typeof " ";
+          results[a][key] = results[a][key].toString(results[a][key]);
+          results[a]["New"] = String("2020-03-03");
+
+          console.log(results[a][key]);
+        }
+      }
+    }
+  } */
+
+    //  rag = [];
+
+    /////////////////////////////////////////////////////////////////
     if (model2 !== model) {
       // Create query string (Item)
       for (let i1 = 0; i1 < results.length; i1++) {
@@ -130,18 +136,7 @@ exports.getListrecords1 = asyncHandler(async (req, res, next) => {
         if (req.headers.mode !== "BOTList") {
           results[i1]["ItemData"] = results2;
         }
-
-        results[i1].cardImage = application["photo"];
-        if (req.headers.mode == "Web" || req.headers.mode == "web") {
-          if (config1["Controls"]["USP"] == "UserProfile") {
-            results[i1].USP_Name = "Atul Gupta";
-            results[i1].USP_Role = req.headers.businessrole;
-            results[i1].USP_Image =
-              "https://www.espncricinfo.com/inline/content/image/1183835.html?alt=1";
-          }
-        }
       }
-      // If Items are NOT present...
     } else {
       for (let i1 = 0; i1 < results.length; i1++) {
         results[i1].cardImage = application["photo"];
@@ -155,8 +150,9 @@ exports.getListrecords1 = asyncHandler(async (req, res, next) => {
         }
       }
     }
+
     /////////////////////////////////////////////////////////////////
-    const limit = parseInt(req.query.limit, 10) || 100;
+    const limit = parseInt(req.query.limit, 10) || 25;
     // Pagination
     const page = parseInt(req.query.page, 10) || 1;
     const startIndex = (page - 1) * limit;
@@ -177,6 +173,13 @@ exports.getListrecords1 = asyncHandler(async (req, res, next) => {
       };
     }
     let config = nConfig(req.params.id, req, config1);
+    var ivalue = getInitialValues(
+      req.params.id,
+      req.headers.businessrole,
+      req.user
+    );
+    ival_out = [];
+    ival = {};
 
     out = {};
     outData = {};
@@ -187,6 +190,27 @@ exports.getListrecords1 = asyncHandler(async (req, res, next) => {
     outData["data"] = results;
     outData["config"] = config1;
 
+    for (let i = 0; i < ivalue.length; i++) {
+      ival = {};
+      const element = ivalue[i];
+      ival = { ...element };
+      o_val = getDateValues(ival.Value);
+      ival.Value = o_val;
+      ival_out.push(ival);
+    }
+
+    // Read Possible Values Config.....(Required for Possible Values and BOT Buttons)
+    pvconfig1 = getPVConfig(
+      req.headers.applicationid,
+      req.headers.businessrole
+    );
+    qPV = getPVQuery(
+      req.headers.applicationid,
+      req.headers.businessrole,
+      pvconfig1
+    );
+
+    let resPV = await qPV;
     if (req.headers.mode == "BOTList") {
       buttonData = getButtonData(
         resPV,
@@ -214,5 +238,76 @@ exports.getListrecords1 = asyncHandler(async (req, res, next) => {
         defaultValues: ival_out,
       });
     }
+  }
+});
+// @desc      Get all bootcamps
+// @route     GET /api/v1/bootcamps
+// @access    Public
+exports.getListrecords = asyncHandler(async (req, res, next) => {
+  console.log("IP:", req.ip);
+  console.log("HostName:", req.hostname);
+  console.log("BaseURL:", req.baseUrl);
+  console.log("Path:", req.path);
+  console.log("Secure:", req.secure);
+  let outData = res.advancedDataList;
+  // Initial Values..
+  var ivalue = getInitialValues(
+    req.headers.applicationid,
+    req.headers.businessrole,
+    req.user
+  );
+  ival_out = [];
+  ival = {};
+
+  for (let i = 0; i < ivalue.length; i++) {
+    ival = {};
+    const element = ivalue[i];
+    ival = { ...element };
+    o_val = getDateValues(ival.Value);
+    ival.Value = o_val;
+    ival_out.push(ival);
+  }
+  // Add ID field in the Item Query... (Only for Items)
+  // Read Possible Values Config.....(Required for Possible Values and BOT Buttons)
+  // pvconfig1 = getPVConfig(req.headers.applicationid, req.headers.businessrole);
+  // query = getPVQuery(
+  //   req.headers.applicationid,
+  //   req.headers.businessrole,
+  //    pvconfig1
+  // );
+  let results = await query;
+  if (req.headers.mode == "BOTList") {
+    buttonData = getButtonData(
+      results,
+      req.headers.applicationid,
+      req.headers.businessrole
+    );
+  }
+  if (req.headers.mode == "BOTList") {
+    res.status(200).json({
+      outData,
+      buttons: buttonData,
+      defaultValues: ival_out,
+    });
+  }
+  if (req.headers.mode == "BOTDetail") {
+    res.status(200).json({
+      outData,
+      defaultValues: ival_out,
+    });
+  }
+  if (req.headers.mode == "Web" || req.headers.mode == "web") {
+    res.status(200).json({
+      outData,
+      possibleValues: results,
+      defaultValues: ival_out,
+    });
+  }
+  if (!req.headers.mode) {
+    res.status(200).json({
+      outData,
+      possibleValues: results,
+      defaultValues: ival_out,
+    });
   }
 });
