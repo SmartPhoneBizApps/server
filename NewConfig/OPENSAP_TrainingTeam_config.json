@@ -8,7 +8,41 @@
     "URL": "https://fierce-oasis-51455.herokuapp.com",
     "Source": {
       "SourceName": "jsonData",
-      "SourceFile": "/NewConfig/openSAP_courses.json"
+      "SourceFile": "/NewConfig/openSAP_courses.json",
+      "FieldMapping": [
+        { "Teacher": "teacher" },
+        { "StartDate": "start_date" },
+        { "EndDate": "end_date" },
+        { "Group": "Group" },
+        { "SubGroup": "SubGroup" },
+        { "Title": "title" },
+        { "Overview": "abstract" },
+        { "CourseLink": "url" },
+        { "ReferenceID": "id" },
+        { "ExternalStatus": "status" },
+        { "Language": "language" },
+        { "ExternalCode": "code" },
+        { "Categories": "categories" },
+        { "Image": "image" }
+      ],
+      "FixedValues": [
+        { "External": "External" },
+        { "Cost": "0.00" },
+        { "Status": "Assigned" },
+        { "Area": "SAP" },
+        { "Duration": "Self Paced" },
+        { "DateRequested": "@currentDate" },
+        { "SelfAssign": "Yes" },
+        { "Exam": "No" },
+        { "Regulatory": "No" },
+        { "Compliance": "No" },
+        { "CreatedDate": "@currentDate" },
+        { "Group": "ExternalCatalog" },
+        { "SubGroup": "openSAP" },
+        {
+          "Terms": "I declare that I have read all the documents, viewed the videos and passed the test (if any) required for the completion of this training."
+        }
+      ]
     }
   },
   "ListFields": {
@@ -59,36 +93,7 @@
       "DialogSearch": "{URL}/api/v1/samrtApp/findUser/{user}",
       "URL": "util/assignCourseUser/OPENSAP/TRAIN007/{ReferenceID}/{user}",
       "Token": "Yes",
-      "URLMethod": "POST",
-      "FieldMapping": {
-        "Teacher": "teacher",
-        "StartDate": "start_date",
-        "EndDate": "end_date",
-        "Group": "Group",
-        "SubGroup": "SubGroup",
-        "Title": "title",
-        "Overview": "abstract",
-        "CourseLink": "url",
-        "ReferenceID": "id",
-        "ExternalStatus": "status",
-        "Language": "language",
-        "ExternalCode": "code",
-        "Categories": "categories",
-        "Image": "image"
-      },
-      "FixedValues": {
-        "External": "External",
-        "Cost": "0.00",
-        "Status": "Assigned",
-        "Area": "SAP",
-        "Duration": "Self Paced",
-        "DateRequested": "@currentDate",
-        "SelfAssign": "Yes",
-        "Exam": "No",
-        "Regulatory": "No",
-        "Compliance": "No",
-        "CreatedDate": "@currentDate"
-      }
+      "URLMethod": "POST"
     }
   ],
   "Tabs": [
@@ -266,6 +271,14 @@
       "Option": "Optional",
       "SLabel": "Course ID",
       "LLabel": "Reference Course ID"
+    },
+    {
+      "name": "Terms",
+      "type": "string",
+      "width": "200",
+      "Option": "Optional",
+      "SLabel": "Course ID",
+      "LLabel": "Declaration"
     }
   ],
   "itemData": "No",

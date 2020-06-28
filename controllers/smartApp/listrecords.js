@@ -31,13 +31,13 @@ exports.getListrecords1 = asyncHandler(async (req, res, next) => {
     pvconfig1
   );
   let resPV = await qPV;
+
+  /// Initial values..
   var ivalue = getInitialValues(
     req.params.id,
     req.headers.businessrole,
     req.user
   );
-
-  /// Initial values..
   let ival_out = [];
   let ival = {};
   for (let i = 0; i < ivalue.length; i++) {

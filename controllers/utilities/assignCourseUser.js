@@ -70,12 +70,13 @@ exports.assignCourseUser = asyncHandler(async (req, res, next) => {
           let t_image = [];
           const e2 = x1[y];
           for (const k3 in e2) {
-            if (k3 == "Image") {
-              t_image.push(res1["courses"][x][e2[k3]]);
-              Appdata[k3] = t_image;
-            } else {
-              Appdata[k3] = res1["courses"][x][e2[k3]];
-            }
+            Appdata[k3] = res1["courses"][x][e2[k3]];
+            //       if (k3 == "Image") {
+            //    t_image.push(res1["courses"][x][e2[k3]]);
+            //   Appdata[k3] = t_image;
+            //     } else {
+            //      Appdata[k3] = res1["courses"][x][e2[k3]];
+            //       }
           }
         }
       }
