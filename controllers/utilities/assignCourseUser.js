@@ -16,8 +16,9 @@ const sendEmail = require("../../utils/sendEmail");
 // @access    Private (Application Users)
 exports.assignCourseUser = asyncHandler(async (req, res, next) => {
   // Read Config File
-  configFrom = getNewConfig(req.params.fromApp, "EmployeeLearn");
+
   configData = getNewConfig(req.params.toApp, "EmployeeLearn");
+  configFrom = getNewConfig(req.params.fromApp, "TrainingTeam");
   console.log("From", req.params.fromApp);
   console.log("To", req.params.toApp);
   /// Validations....
