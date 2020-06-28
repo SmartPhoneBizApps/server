@@ -211,8 +211,8 @@ module.exports = {
             out1["ReferenceID"] = paramID;
             out1[key] = Math.floor(100000 + Math.random() * 900000);
           } else {
-            console.log("out1[key]", out1[key]);
             out1[key] = element;
+            console.log("out1[key]", out1[key]);
           }
         }
       }
