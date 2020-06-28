@@ -49,12 +49,15 @@
   ],
   "DButtons": [
     {
-      "type": "ATTACHMENT",
-      "name": "View Attachments",
-      "icon": "sap-icon://attachment"
-    },
-    { "type": "UPDATE", "name": "Update Record", "icon": "sap-icon://update" },
-    { "type": "ADD", "name": "Add Record", "icon": "sap-icon://add" }
+      "type": "ASSIGN",
+      "name": "Assign Course",
+      "icon": "sap-icon://share-2",
+      "Dialog": "{label:'User',name:'user',type:'Email'}",
+      "DialogSearch": "{URL}/api/v1/samrtApp/findUser/{user}",
+      "URL": "util/assignCourseUser/TRAIN008/TRAIN007/{ReferenceID}/{user}",
+      "Token": "Yes",
+      "URLMethod": "POST"
+    }
   ],
   "Tabs": [
     {
