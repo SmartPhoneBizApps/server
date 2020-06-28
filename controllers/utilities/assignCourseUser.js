@@ -77,7 +77,7 @@ exports.assignCourseUser = asyncHandler(async (req, res, next) => {
   }
 
   if (configFrom["Controls"]["Source"]["SourceName"] == "mongoDB") {
-    if (req.params.ID == "TRAIN008") {
+    if (req.params.fromApp == "TRAIN008") {
       Appdata = await findOneAppDataRefID(req.params.ID, req.params.fromApp);
     } else {
       Appdata = await findOneAppData(req.params.ID, req.params.fromApp);
