@@ -7,6 +7,7 @@ const {
   getNewCopyRecord,
   getDateValues,
   getInitialValues,
+  findOneAppDataRefID,
 } = require("../../modules/config");
 const User = require("../../models/access/User");
 const App = require("../../models/appSetup/App");
@@ -66,7 +67,6 @@ exports.assignCourseUser = asyncHandler(async (req, res, next) => {
       if (res1["courses"][x]["id"] == req.params.ID) {
         x1 = configFrom["Controls"]["Source"]["FieldMapping"];
         for (let y = 0; y < x1.length; y++) {
-          let t_image = [];
           const e2 = x1[y];
           for (const k3 in e2) {
             Appdata[k3] = res1["courses"][x][e2[k3]];
@@ -77,13 +77,17 @@ exports.assignCourseUser = asyncHandler(async (req, res, next) => {
   }
 
   if (configFrom["Controls"]["Source"]["SourceName"] == "mongoDB") {
-    Appdata = await findOneAppData(req.params.ID, req.params.fromApp);
+    if (req.params.ID == "TRAIN008") {
+      Appdata = await findOneAppDataRefID(req.params.ID, req.params.fromApp);
+    } else {
+      Appdata = await findOneAppData(req.params.ID, req.params.fromApp);
+    }
+
     // Assign mapping values...
     for (let x = 0; x < Appdata.length; x++) {
       if (Appdata[x]["id"] == req.params.ID) {
         x1 = configFrom["Controls"]["Source"]["FieldMapping"];
         for (let y = 0; y < x1.length; y++) {
-          let t_image = [];
           const e2 = x1[y];
           for (const k3 in e2) {
             Appdata[k3] = Appdata[x][e2[k3]];
