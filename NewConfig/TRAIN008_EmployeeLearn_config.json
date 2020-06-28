@@ -8,12 +8,13 @@
     "URL": "https://fierce-oasis-51455.herokuapp.com",
     "Source": { "SourceName": "mongoDB", "SourceFile": "NA" }
   },
+
   "ListFields": {
-    "IntroField": "EndDate",
-    "TitleField": "SubGroup",
+    "IntroField": "SubGroup",
+    "TitleField": "Title",
     "sStatus": "External",
     "fStatus": "Status",
-    "LFields": ["Title", "Group", "ReferenceID", "StartDate"]
+    "LFields": ["Group", "ReferenceID", "StartDate", "EndDate"]
   },
   "ListBOTFields": {
     "None": ["cardImage", "StatusState"],
