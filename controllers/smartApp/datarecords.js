@@ -20,6 +20,7 @@ const {
   getInitialValues,
   tableFields,
   tableValidate,
+  processingLog,
 } = require("../../modules/config");
 
 const { valAppNotNull } = require("../../modules/validationMessages");
@@ -188,15 +189,27 @@ exports.addDataRecords = asyncHandler(async (req, res, next) => {
   // Set Processing/Transaction Log
   let pLog = {};
   let pg1 = [];
-  pLog["Type"] = "NEW_RECORD";
-  pLog["User"] = req.body.user;
-  pLog["UserName"] = req.body.userName;
-  pLog["Status"] = req.body.Status;
-  pLog["TimeStamp"] = Date.now();
-  pLog["ID"] = req.body.ID;
-  pLog["applicationId"] = req.body.applicationId;
-  pg1.push(pLog);
-  req.body.TransLog = pg1;
+  // pLog["Type"] = "NEW_RECORD";
+  // pLog["User"] = req.body.user;
+  //  pLog["UserName"] = req.body.userName;
+  // pLog["Status"] = req.body.Status;
+  // pLog["TimeStamp"] = Date.now();
+  // pLog["ID"] = req.body.ID;
+  // pLog["applicationId"] = req.body.applicationId;
+  //pg1.push(pLog);
+  //req.body.TransLog = pg1;
+
+  // Processing Log
+  req.body.TransLog = processingLog(
+    req.body.ID,
+    "NEW_RECORD",
+    req.body.user,
+    req.body.userName,
+    req.body.Status,
+    req.body.applicationId,
+    "New document created"
+  );
+
   req.body.ID = Math.floor(100000 + Math.random() * 900000);
   //req.body.OrgData = myorg;
   if (req.body.ItemData) {
@@ -474,27 +487,30 @@ exports.updateDataRecords = asyncHandler(async (req, res, next) => {
   // -----------------------------------------------------
   let pLog = {};
   let pg1 = [];
-  if (req.headers.mode) {
-    pLog["Type"] = "DATA_UPDATE";
-  } else {
+  if (!req.headers.mode) {
     return next(new ErrorResponse(`Please provide update mode`, 400));
   }
-  pLog["User"] = req.body.user;
-  pLog["UserName"] = req.body.userName;
+  let Status = "";
   if (req.body.Status) {
-    pLog["Status"] = req.body.Status;
+    Status = req.body.Status;
+  } else {
+    Status = "NoChange";
   }
-  pLog["TimeStamp"] = Date.now();
-  pLog["ID"] = req.body.ID;
-  pLog["applicationId"] = req.body.applicationId;
-  pg1.push(pLog);
-  req.body.TransLog = pLog;
+  req.body.TransLog = processingLog(
+    req.body.ID,
+    "DATA_UPDATE",
+    req.body.user,
+    req.body.userName,
+    Status,
+    req.body.applicationId,
+    "Document is updated"
+  );
+
   let nTrans = [];
   // -----------------------------------------------------
   // Read data from DB
   // -----------------------------------------------------
   let myData = await findOneAppData(req.body.ID, req.body.applicationId);
-  console.log("Atul", req.body.applicationId, req.body.ID);
   // let myData = await SUPP00018.findOne({ ID: req.body.ID });
   if (!myData) {
     return next(new ErrorResponse(`Record with ${req.body.ID} Not found`, 400));

@@ -6,7 +6,10 @@
   "Controls": {
     "USP": "UserProfile",
     "URL": "https://fierce-oasis-51455.herokuapp.com",
-    "Source": { "SourceName": "mongoDB", "SourceFile": "NA" }
+    "Source": {
+      "SourceName": "mongoDB",
+      "SourceFile": "NA"
+    }
   },
   "ListFields": {
     "IntroField": "ReviewPeriod",
@@ -71,12 +74,24 @@
       "listFields": ["Title", "ReferenceID", "Group", "SubGroup"],
       "SearchURL": "listrecordsnew/Web/TRAIN008/TrainingTeam{filter}",
       "URL": "util/addTraining/MyTraining/TRAIN008/EMP00012/{ID}/{ReferenceID}/{role}",
-      "Map": {
-        "Title": "Title1",
-        "ReferenceID": "ReferenceID1",
-        "Group": "Group1",
-        "SubGroup": "SubGroup1"
+      "FieldMapping": {
+        "ItemNumber": "ItemNumber",
+        "Group1": "Group",
+        "SubGroup1": "SubGroup",
+        "Title1": "Title",
+        "ReferenceID1": "ReferenceID",
+        "TargetDate1": "TargetDate"
       },
+
+      "FixedValues": [
+        { "Status": "Assigned" },
+        { "DateRequested": "@currentDate" },
+        { "AssignDate1": "@currentDate" },
+        { "CreatedDate": "@currentDate" },
+        {
+          "Terms": "I declare that I have read all the documents, viewed the videos and passed the test (if any) required for the completion of this training."
+        }
+      ],
       "Token": "Yes",
       "URLMethod": "POST"
     }

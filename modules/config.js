@@ -238,6 +238,24 @@ module.exports = {
     var result = result1["itemData"];
     return result;
   },
+
+  processingLog: function (ID, type, userid, userName, Status, app, comment) {
+    // Read Create Map Config
+    // These are converted old XML files from smartapp
+    let pLog = {};
+    let result = [];
+    pLog["Type"] = type;
+    pLog["User"] = userid;
+    pLog["UserName"] = userName;
+    pLog["Status"] = Status;
+    pLog["TimeStamp"] = Date.now();
+    pLog["ID"] = ID;
+    pLog["applicationId"] = app;
+    pLog["Comment"] = comment;
+    result.push(pLog);
+    return result;
+  },
+
   getPVConfig: function (a, b) {
     // Read Create Map Config
     // These are converted old XML files from smartapp
@@ -376,6 +394,8 @@ module.exports = {
     let kys = [];
     let out1 = {};
     var set1 = new Set([]);
+    console.log("A1", itmData);
+    console.log("A2", newitemData);
     if (newitemData) {
       for (let i = 0; i < newitemData.length; i++) {
         kys.push(newitemData[i]["ItemNumber"]);

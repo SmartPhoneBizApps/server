@@ -3,10 +3,11 @@ const asyncHandler = require("../../middleware/async");
 const {
   getNewConfig,
   findOneAppDataRefID,
-  createDocument,
-  getNewCopyRecord,
+  processingLog,
+  tableValidate,
+  findOneAppData,
+  findOneUpdateData,
 } = require("../../modules/config");
-const User = require("../../models/access/User");
 const App = require("../../models/appSetup/App");
 const sendEmail = require("../../utils/sendEmail");
 
@@ -14,8 +15,9 @@ const sendEmail = require("../../utils/sendEmail");
 // @route     GET /api/v1/util/calculation
 // @access    Private (Application Users)
 exports.addTraining = asyncHandler(async (req, res, next) => {
+  out1 = {};
+  newOut = {};
   /// Validations....
-  console.log("Heelo");
   appX = await App.findOne({ applicationID: req.params.fromApp });
   if (!appX) {
     res.status(400).json({
@@ -23,38 +25,45 @@ exports.addTraining = asyncHandler(async (req, res, next) => {
       message: "1st applicationID is incorrect",
     });
   }
-  out1 = {};
   Appdata = await findOneAppDataRefID(
     req.params.ReferenceID,
     req.params.fromApp
   );
-
-  console.log(req.params.ReferenceID, req.params.fromApp);
   if (!Appdata) {
     res.status(400).json({
       success: true,
       message: "Course ID not found",
     });
   }
-  newOut = {};
   // Read Config File
-
   configData = getNewConfig(req.params.toApp, req.params.role);
-  console.log(
-    configData["tableConfig"][req.params.table]["ItemFieldDefinition"]
-  );
+  let myData = await findOneAppData(req.params.ID, req.params.toApp);
+  if (!myData) {
+    return next(new ErrorResponse(`Record with ${req.body.ID} Not found`, 400));
+  }
+  let Status = "NoChange";
+  mytrain = {};
+  mytr = [];
+  mytrain["MyTraining"];
   for (let q = 0; q < configData["DButtons"].length; q++) {
-    for (const key in configData["DButtons"][q]["Map"]) {
-      if (configData["DButtons"][q]["Map"].hasOwnProperty(key)) {
-        console.log(key, req.body[key]);
-        const element = configData["DButtons"][q]["Map"][key];
-        newOut[element] = req.body[key];
-      }
+    for (const ky in configData["DButtons"][q]["FieldMapping"]) {
+      const ex = configData["DButtons"][q]["FieldMapping"][ky];
+      mytrain[ky] = req.body[ex];
     }
   }
-  //ADDTRAINING
-  result = newOut;
-  // result = await createDocument(req.params.toApp, out1);
+  mytr.push(mytrain);
+  myData["MyTraining"] = tableValidate(mytr, myData["MyTraining"]);
+  // Processing Log
+  myData["TransLog"] = processingLog(
+    req.params.ID,
+    "NEW_RECORD",
+    req.user.id,
+    req.user.name,
+    Status,
+    req.params.toApp,
+    "A new training assigned"
+  );
+  result = await findOneUpdateData(myData, req.params.toApp);
   res.status(201).json({
     success: true,
     data: result,
