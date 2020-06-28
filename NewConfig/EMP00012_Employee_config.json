@@ -72,15 +72,15 @@
         { "label": "SubGroup", "name": "SubGroup", "type": "string" }
       ],
       "listFields": ["Title", "ReferenceID", "Group", "SubGroup"],
+      "transferFields": ["Title", "ReferenceID", "Group", "SubGroup"],
       "SearchURL": "listrecordsnew/Web/TRAIN008/TrainingTeam{filter}",
       "URL": "util/addTraining/MyTraining/TRAIN008/EMP00012/{ID}/{ReferenceID}/{role}",
       "FieldMapping": {
-        "ItemNumber": "ItemNumber",
+        "ItemNumber": "@Timestamp",
         "Group1": "Group",
         "SubGroup1": "SubGroup",
         "Title1": "Title",
-        "ReferenceID1": "ReferenceID",
-        "TargetDate1": "TargetDate"
+        "ReferenceID1": "ReferenceID"
       },
 
       "FixedValues": [
