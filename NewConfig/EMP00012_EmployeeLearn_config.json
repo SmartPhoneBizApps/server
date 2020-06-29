@@ -131,6 +131,12 @@
       "name": "SupportingDocs",
       "type": "MultiAttachments",
       "fioriicon": "attachment"
+    },
+    {
+      "value": "Tab7",
+      "name": "360Feedback",
+      "fioriicon": "toaster-up",
+      "type": "Table"
     }
   ],
   "DetailFields": {
@@ -149,9 +155,90 @@
     "Tab2": ["Appraisal"],
     "Tab4": ["Goals"],
     "Tab5": ["MyTraining"],
-    "Tab6": ["MultiAttachments"]
+    "Tab6": ["MultiAttachments"],
+    "Tab7": ["Questioner"]
   },
   "tableConfig": {
+    "Questioner": {
+      "title": "Test",
+      "ItemFieldDefinition": [
+        {
+          "name": "ItemNumber",
+          "type": "string",
+          "width": "10",
+          "SLabel": "Item Number",
+          "Option": "Optional"
+        },
+        {
+          "name": "Question",
+          "type": "string",
+          "width": "10",
+          "SLabel": "Question",
+          "Option": "Optional"
+        },
+        {
+          "name": "Answer",
+          "type": "string",
+          "width": "20",
+          "SLabel": "Answer",
+          "Option": "Optional"
+        },
+        {
+          "name": "CorrectAnswer",
+          "type": "string",
+          "width": "20",
+          "SLabel": "Correct Ans",
+          "Option": "Optional"
+        },
+        {
+          "name": "Score",
+          "type": "string",
+          "width": "20",
+          "SLabel": "Score",
+          "Option": "Optional"
+        }
+      ],
+      "DisplayFields": ["Question", "Answer", "CorrectAnswer", "Score"],
+      "ItemButtons": {
+        "itemDisplay": true,
+        "itemAdd": false,
+        "itemEdit": false,
+        "itemDelete": false
+      },
+      "CreateFields": ["Question", "Answer", "CorrectAnswer", "Score"],
+      "ItemDetails": [
+        {
+          "name": "ItemNumber",
+          "Tab": "Tab5",
+          "Sequence": "1",
+          "Mode": "Edit"
+        },
+        {
+          "name": "Question",
+          "Tab": "Tab5",
+          "Sequence": "1",
+          "Mode": "Edit"
+        },
+        {
+          "name": "Answer",
+          "Tab": "Tab5",
+          "Sequence": "1",
+          "Mode": "Edit"
+        },
+        {
+          "name": "CorrectAnswer",
+          "Tab": "Tab5",
+          "Sequence": "1",
+          "Mode": "Edit"
+        },
+        {
+          "name": "Score",
+          "Tab": "Tab5",
+          "Sequence": "1",
+          "Mode": "Edit"
+        }
+      ]
+    },
     "Goals": {
       "title": "My Goals",
       "ItemFieldDefinition": [
