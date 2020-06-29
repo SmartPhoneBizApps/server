@@ -319,9 +319,11 @@ class calFun {
     if (config["HeaderItem"].length > 0) {
       if (outdata[tabname].length > 0) {
         config["HeaderItem"].forEach((configItem) => {
+          console.log("AG001", configItem["CalculatedFormula"]);
           if (this.hasNull(configItem["CalculatedFormula"], 4)) {
             var fieldObj = [];
             for (var i = 0; i < outdata[tabname].length; i++) {
+              console.log("AG002", outdata[tabname]);
               if (this.hasNull(configItem["Fields"][0], 2)) {
                 fieldObj.push(
                   parseFloat(
@@ -333,6 +335,8 @@ class calFun {
               }
             }
             var fun = configItem["CalculatedFormula"]["function"]; // get function name
+            console.log(this[fun](fieldObj));
+            console.log(configItem["CalculatedFormula"]["Target"]);
             if (typeof this[fun] !== "undefined") {
               outdata[configItem["CalculatedFormula"]["Target"]] = this[fun](
                 fieldObj
@@ -340,6 +344,7 @@ class calFun {
             } else {
               outdata[configItem["CalculatedFormula"]["Target"]] = "";
             }
+            console.log(outdata);
           }
         });
       }

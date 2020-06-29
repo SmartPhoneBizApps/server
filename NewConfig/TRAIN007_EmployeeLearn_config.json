@@ -504,7 +504,7 @@
     },
     {
       "name": "TestScore",
-      "type": "Array",
+      "type": "string",
       "width": "200",
       "Option": "Optional",
       "SLabel": "Test Score",
@@ -526,6 +526,7 @@
   },
 
   "CalculatedFields": {
+    "Item": [],
     "HeaderItem": [
       {
         "CalculatedFormula": {
@@ -536,7 +537,8 @@
         },
         "Fields": [{ "Source": "Score", "Type": { "type": "HeaderItem" } }]
       }
-    ]
+    ],
+    "Header": []
   },
   "Create": "Yes",
   "Wizard": [

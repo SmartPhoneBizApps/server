@@ -302,12 +302,14 @@ exports.addDataRecords = asyncHandler(async (req, res, next) => {
   if (req.headers.calculation == "Yes") {
     var Handler = new calfunction();
     // mydata = Handler["datacalculation"](mydata, cardConfig["CalculatedFields"]);
+    console.log("Atul - Calculation Starts");
     mydata = Handler["tablecalculation"](
       mydata,
       cardConfig["CalculatedFields"],
       "ItemData"
     );
   }
+
   // Create data in mongo DB ...
   let result = {};
   let result2 = {};
@@ -535,13 +537,26 @@ exports.updateDataRecords = asyncHandler(async (req, res, next) => {
       let tableField = false;
       tableField = tblFields.includes(kk);
       if (tableField == true) {
-        console.log("Tables Module called", kk);
-        console.log("New Data", req.body[kk]);
-        console.log("Old Data", myData[kk]);
         myData[kk] = tableValidate(req.body[kk], myData[kk]);
       }
     }
   }
+
+  for (let l = 0; l < tblFields.length; l++) {
+    if (req.headers.calculation == "Yes") {
+      var Handler = new calfunction();
+      console.log("Calculation for Tables Started..");
+      outdata = Handler["tablecalculation"](
+        myData,
+        cardConfig["CalculatedFields"],
+        tblFields[l]
+      );
+      console.log("Calculation for Tables Done..");
+      req.body = outdata;
+      myData = outdata;
+    }
+  }
+
   //---------------------------
   // Attachment logic....
   //---------------------------
@@ -584,11 +599,13 @@ exports.updateDataRecords = asyncHandler(async (req, res, next) => {
     //  req.body,
     //  cardConfig["CalculatedFields"]
     //);
+    console.log("Calculation Started..");
     outdata = Handler["tablecalculation"](
       req.body,
       cardConfig["CalculatedFields"],
       "ItemData"
     );
+    console.log("Calculation Done..");
     req.body = outdata;
   }
   itm = checkItemData(req.headers.applicationid, req.headers.businessrole);
