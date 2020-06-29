@@ -1,0 +1,729 @@
+{
+  "Title": {
+    "ApplicationTitle": "Competency Model",
+    "DetailTitle": "Competency Matrix"
+  },
+  "Controls": {
+    "USP": "UserProfile",
+    "URL": "https://fierce-oasis-51455.herokuapp.com",
+    "Source": {
+      "SourceName": "mongoDB",
+      "SourceFile": "NA"
+    }
+  },
+  "ListFields": {
+    "IntroField": "ReviewPeriod",
+    "TitleField": "Name",
+    "sStatus": "",
+    "fStatus": "Status",
+    "numberField": "",
+    "LFields": ["DevManager", "Band", "Area"],
+    "numberUnitField": ""
+  },
+  "ListBOTFields": {
+    "None": ["cardImage", "StatusState"],
+    "Title": ["Name"],
+    "SubTitle": ["Status", "ReviewPeriod"],
+    "Description": ["DevManager", "Band", "Area"]
+  },
+  "PossibleValues": [
+    "Status",
+    "ReviewPeriod",
+    "DevManager",
+    "Role",
+    "Band",
+    "Area",
+    "Group",
+    "SubGroup"
+  ],
+  "MButtons": [
+    {
+      "type": "DOWNLOAD",
+      "name": "Download File",
+      "icon": "sap-icon://download"
+    },
+    {
+      "type": "APPHELP",
+      "name": "Get App Help",
+      "icon": "sap-icon://sys-help-2"
+    },
+    {
+      "type": "BOT",
+      "name": "Launch Assistant",
+      "icon": "sap-icon://travel-request"
+    },
+    {
+      "type": "VIEW",
+      "name": "Change App View",
+      "icon": "sap-icon://chart-table-view"
+    },
+    { "type": "ADD", "name": "Add Record", "icon": "sap-icon://add" },
+    { "type": "UPLOAD", "name": "Upload Record", "icon": "sap-icon://upload" }
+  ],
+  "DButtons": [
+    {
+      "type": "ADDTRAINING",
+      "name": "Add Training",
+      "icon": "sap-icon://copy",
+      "Dialog": [
+        { "label": "Title", "name": "Title", "type": "string" },
+        { "label": "Course ID", "name": "ReferenceID", "type": "string" },
+        { "label": "Group", "name": "Group", "type": "string" },
+        { "label": "SubGroup", "name": "SubGroup", "type": "string" }
+      ],
+      "listFields": ["Title", "ReferenceID", "Group", "SubGroup"],
+      "transferFields": ["Title", "ReferenceID", "Group", "SubGroup"],
+      "SearchURL": "listrecordsnew/Web/TRAIN008/TrainingTeam{filter}",
+      "URL": "util/addTraining/MyTraining/TRAIN008/EMP00012/{ID}/{ReferenceID}/{role}",
+      "FieldMapping": {
+        "Group1": "Group",
+        "SubGroup1": "SubGroup",
+        "Title1": "Title",
+        "ReferenceID1": "ReferenceID"
+      },
+
+      "FixedValues": [
+        { "Status": "Assigned" },
+        { "DateRequested": "@currentDate" },
+        { "AssignDate1": "@currentDate" },
+        { "CreatedDate": "@currentDate" },
+        {
+          "Terms": "I declare that I have read all the documents, viewed the videos and passed the test (if any) required for the completion of this training."
+        }
+      ],
+      "Token": "Yes",
+      "URLMethod": "POST"
+    }
+  ],
+  "Tabs": [
+    {
+      "value": "Tab0",
+      "name": "Cards",
+      "type": "Cards",
+      "fioriicon": "responsive"
+    },
+    {
+      "value": "Tab1",
+      "name": "Reference",
+      "type": "Field",
+      "fioriicon": "request"
+    },
+    {
+      "value": "Tab2",
+      "name": "Appraisal",
+      "type": "Table",
+      "fioriicon": "comment"
+    },
+    {
+      "value": "Tab4",
+      "name": "Goals",
+      "type": "Table",
+      "fioriicon": "target-group"
+    },
+    {
+      "value": "Tab5",
+      "name": "MyTraining",
+      "fioriicon": "toaster-up",
+      "type": "Table"
+    },
+    {
+      "value": "Tab6",
+      "name": "SupportingDocs",
+      "type": "MultiAttachments",
+      "fioriicon": "attachment"
+    }
+  ],
+  "DetailFields": {
+    "headerTitle": ["USP_Name"],
+    "headerRole": ["USP_Role"],
+    "headerImage": ["USP_Image"],
+    "None": ["ID", "Status", "ReviewDate"],
+    "Tab1": [
+      "EmployeeID",
+      "Name",
+      "DevManager",
+      "Role",
+      "Band",
+      "ReviewPeriod"
+    ],
+    "Tab2": ["Appraisal"],
+    "Tab4": ["Goals"],
+    "Tab5": ["MyTraining"],
+    "Tab6": ["MultiAttachments"]
+  },
+  "tableConfig": {
+    "Goals": {
+      "title": "My Goals",
+      "ItemFieldDefinition": [
+        {
+          "name": "ItemNumber",
+          "type": "string",
+          "width": "10",
+          "SLabel": "Item Number",
+          "Option": "Optional"
+        },
+        {
+          "name": "Area2",
+          "type": "string",
+          "width": "10",
+          "SLabel": "Area",
+          "Option": "Optional"
+        },
+        {
+          "name": "Goal2",
+          "type": "string",
+          "width": "500",
+          "SLabel": "Goal",
+          "Option": "Optional"
+        },
+
+        {
+          "name": "Score2",
+          "type": "string",
+          "width": "200",
+          "SLabel": "Score",
+          "Option": "Optional"
+        },
+        {
+          "name": "MaxScore2",
+          "type": "string",
+          "width": "200",
+          "SLabel": "Max Score",
+          "Option": "Optional",
+          "Default": "5"
+        },
+        {
+          "name": "AppraiseComm2",
+          "type": "string",
+          "width": "1000",
+          "SLabel": "Appraise Comment",
+          "Option": "Optional"
+        },
+        {
+          "name": "SetDate2",
+          "type": "Date",
+          "width": "10",
+          "SLabel": "Set Date",
+          "Option": "Optional",
+          "Default": "@currentDate"
+        },
+        {
+          "name": "TargetDate2",
+          "type": "Date",
+          "width": "10",
+          "SLabel": "Target Date",
+          "Option": "Optional"
+        },
+        {
+          "name": "NextRevDate2",
+          "type": "Date",
+          "width": "10",
+          "SLabel": "Next Review Date",
+          "Option": "Optional"
+        }
+      ],
+      "DisplayFields": [
+        "Area2",
+        "Goal2",
+        "Score2",
+        "AppraiseComm2",
+        "TargetDate2"
+      ],
+      "ItemButtons": {
+        "itemDisplay": true,
+        "itemAdd": true,
+        "itemEdit": true,
+        "itemDelete": true
+      },
+      "CreateFields": [
+        "Area2",
+        "Goal2",
+        "Score2",
+        "AppraiseComm2",
+        "TargetDate2"
+      ],
+      "ItemDetails": [
+        {
+          "name": "Area2",
+          "Tab": "Tab4",
+          "Sequence": "1",
+          "Mode": "Edit"
+        },
+        {
+          "name": "Goal2",
+          "Tab": "Tab4",
+          "Sequence": "1",
+          "Mode": "Edit"
+        },
+        {
+          "name": "Score2",
+          "Tab": "Tab4",
+          "Sequence": "1",
+          "Mode": "Edit"
+        },
+        {
+          "name": "MaxScore2",
+          "Tab": "Tab4",
+          "Sequence": "1",
+          "Mode": "Edit"
+        },
+        {
+          "name": "AppraiseComm2",
+          "Tab": "Tab4",
+          "Sequence": "1",
+          "Mode": "Edit"
+        },
+        {
+          "name": "SetDate2",
+          "Tab": "Tab4",
+          "Sequence": "1",
+          "Mode": "Edit"
+        },
+        {
+          "name": "TargetDate2",
+          "Tab": "Tab4",
+          "Sequence": "1",
+          "Mode": "Edit"
+        },
+        {
+          "name": "NextRevDate2",
+          "Tab": "Tab4",
+          "Sequence": "1",
+          "Mode": "Edit"
+        }
+      ]
+    },
+    "Appraisal": {
+      "title": "My Appraisal",
+      "ItemFieldDefinition": [
+        {
+          "name": "ItemNumber",
+          "type": "string",
+          "width": "10",
+          "SLabel": "Item Number",
+          "Option": "Optional"
+        },
+        {
+          "name": "Area3",
+          "type": "string",
+          "width": "10",
+          "SLabel": "Group",
+          "Option": "Optional"
+        },
+        {
+          "name": "CompDesc3",
+          "type": "string",
+          "width": "10",
+          "SLabel": "Group",
+          "Option": "Optional"
+        },
+        {
+          "name": "Score3",
+          "type": "string",
+          "width": "200",
+          "SLabel": "Score",
+          "Option": "Optional"
+        },
+        {
+          "name": "MaxScore3",
+          "type": "string",
+          "width": "200",
+          "SLabel": "MaxScore",
+          "Option": "Optional",
+          "Default": "5"
+        },
+        {
+          "name": "AppraiseComm3",
+          "type": "string",
+          "width": "1000",
+          "SLabel": "AppraiseComm",
+          "Option": "Optional"
+        },
+        {
+          "name": "AssignDate3",
+          "type": "Date",
+          "width": "10",
+          "SLabel": "Assignment Date",
+          "Option": "Optional",
+          "Default": "@currentDate"
+        },
+        {
+          "name": "TargetDate3",
+          "type": "Date",
+          "width": "10",
+          "SLabel": "Target Date",
+          "Option": "Optional"
+        }
+      ],
+      "DisplayFields": [
+        "Area3",
+        "CompDesc3",
+        "Score3",
+        "AppraiseComm3",
+        "TargetDate3"
+      ],
+      "ItemButtons": {
+        "itemDisplay": true,
+        "itemAdd": true,
+        "itemEdit": true,
+        "itemDelete": true
+      },
+      "CreateFields": [
+        "Area3",
+        "CompDesc3",
+        "Score3",
+        "AppraiseComm3",
+        "TargetDate3"
+      ],
+      "ItemDetails": [
+        {
+          "name": "Area3",
+          "Tab": "Tab2",
+          "Sequence": "1",
+          "Mode": "Edit"
+        },
+        {
+          "name": "CompDesc3",
+          "Tab": "Tab2",
+          "Sequence": "1",
+          "Mode": "Edit"
+        },
+        {
+          "name": "Score3",
+          "Tab": "Tab2",
+          "Sequence": "1",
+          "Mode": "Edit"
+        },
+        {
+          "name": "MaxScore3",
+          "Tab": "Tab2",
+          "Sequence": "1",
+          "Mode": "Edit"
+        },
+        {
+          "name": "AppraiseComm3",
+          "Tab": "Tab2",
+          "Sequence": "1",
+          "Mode": "Edit"
+        },
+        {
+          "name": "AssignDate3",
+          "Tab": "Tab2",
+          "Sequence": "1",
+          "Mode": "Edit"
+        },
+        {
+          "name": "TargetDate3",
+          "Tab": "Tab2",
+          "Sequence": "1",
+          "Mode": "Edit"
+        }
+      ]
+    },
+    "MyTraining": {
+      "title": "My Learning",
+      "ItemFieldDefinition": [
+        {
+          "name": "ItemNumber",
+          "type": "string",
+          "width": "10",
+          "SLabel": "Item Number",
+          "Option": "Optional"
+        },
+        {
+          "name": "Group1",
+          "type": "string",
+          "width": "10",
+          "SLabel": "Group",
+          "Option": "Optional"
+        },
+        {
+          "name": "SubGroup1",
+          "type": "string",
+          "width": "200",
+          "SLabel": "SubGroup",
+          "Option": "Optional"
+        },
+        {
+          "name": "Title1",
+          "type": "string",
+          "width": "200",
+          "SLabel": "Title",
+          "Option": "Optional"
+        },
+        {
+          "name": "ReferenceID1",
+          "type": "string",
+          "width": "200",
+          "SLabel": "Course ID",
+          "Option": "Optional"
+        },
+        {
+          "name": "AssignDate1",
+          "type": "Date",
+          "width": "10",
+          "SLabel": "Assignment Date",
+          "Option": "Optional"
+        },
+        {
+          "name": "TargetDate1",
+          "type": "Date",
+          "width": "10",
+          "SLabel": "Target Date",
+          "Option": "Optional"
+        }
+      ],
+      "DisplayFields": ["SubGroup1", "Title1", "ReferenceID1", "TargetDate1"],
+      "ItemButtons": {
+        "itemDisplay": true,
+        "itemAdd": false,
+        "itemEdit": false,
+        "itemDelete": false
+      },
+      "CreateFields": ["SubGroup1", "Title1", "ReferenceID1", "TargetDate1"],
+      "ItemDetails": [
+        {
+          "name": "Group1",
+          "Tab": "Tab5",
+          "Sequence": "1",
+          "Mode": "Edit"
+        },
+        {
+          "name": "SubGroup1",
+          "Tab": "Tab5",
+          "Sequence": "1",
+          "Mode": "Edit"
+        },
+        {
+          "name": "Title1",
+          "Tab": "Tab5",
+          "Sequence": "1",
+          "Mode": "Edit"
+        },
+        {
+          "name": "ReferenceID1",
+          "Tab": "Tab5",
+          "Sequence": "1",
+          "Mode": "Edit"
+        },
+        {
+          "name": "AssignDate1",
+          "Tab": "Tab5",
+          "Sequence": "1",
+          "Mode": "Edit"
+        },
+        {
+          "name": "TargetDate1",
+          "Tab": "Tab5",
+          "Sequence": "1",
+          "Mode": "Edit"
+        }
+      ]
+    }
+  },
+  "ControlDisplay": {},
+  "FieldDef": [
+    {
+      "name": "ID",
+      "type": "string",
+      "width": "20",
+      "Option": "Mandatory",
+      "SLabel": "ID",
+      "LLabel": ""
+    },
+    {
+      "name": "Status",
+      "type": "string",
+      "width": "50",
+      "Option": "Mandatory",
+      "SLabel": "Status",
+      "LLabel": "Status"
+    },
+    {
+      "name": "MultiAttachments",
+      "type": "attachment",
+      "width": "200",
+      "Option": "Optional",
+      "SLabel": "Supporting Documents",
+      "LLabel": "Supporting Documents"
+    },
+    {
+      "name": "EmployeeID",
+      "type": "string",
+      "width": "50",
+      "Option": "Optional",
+      "SLabel": "Employee Reference",
+      "LLabel": ""
+    },
+    {
+      "name": "Name",
+      "type": "string",
+      "width": "50",
+      "Option": "Optional",
+      "SLabel": "Employee Name",
+      "LLabel": ""
+    },
+    {
+      "name": "ReviewPeriod",
+      "type": "string",
+      "width": "50",
+      "Option": "Optional",
+      "SLabel": "Review Period",
+      "LLabel": ""
+    },
+    {
+      "name": "DevManager",
+      "type": "string",
+      "width": "50",
+      "Option": "Optional",
+      "SLabel": "Development Manager",
+      "LLabel": ""
+    },
+    {
+      "name": "Role",
+      "type": "string",
+      "width": "50",
+      "Option": "Optional",
+      "SLabel": "Role",
+      "LLabel": ""
+    },
+    {
+      "name": "Band",
+      "type": "string",
+      "width": "50",
+      "Option": "Optional",
+      "SLabel": "Band",
+      "LLabel": ""
+    },
+    {
+      "name": "ReviewDate",
+      "type": "Date",
+      "width": "10",
+      "Option": "Optional",
+      "SLabel": "Review Date",
+      "LLabel": ""
+    },
+    {
+      "name": "NextReviewDt",
+      "type": "Date",
+      "width": "10",
+      "Option": "Optional",
+      "SLabel": "Next Review Date",
+      "LLabel": ""
+    },
+    {
+      "name": "Area",
+      "type": "string",
+      "width": "50",
+      "Option": "Optional",
+      "SLabel": "Area",
+      "LLabel": ""
+    },
+    {
+      "name": "CompDesc",
+      "type": "string",
+      "width": "500",
+      "Option": "Optional",
+      "SLabel": "Company Description",
+      "LLabel": ""
+    },
+    {
+      "name": "AppraiseComm",
+      "type": "string",
+      "width": "500",
+      "Option": "Optional",
+      "SLabel": "Appraise communication",
+      "LLabel": ""
+    },
+    {
+      "name": "AppraiserComm",
+      "type": "string",
+      "width": "500",
+      "Option": "Optional",
+      "SLabel": "Appraiser Communication",
+      "LLabel": ""
+    },
+    {
+      "name": "Grade",
+      "type": "string",
+      "width": "50",
+      "Option": "Optional",
+      "SLabel": "Grade",
+      "LLabel": ""
+    },
+    {
+      "name": "Score",
+      "type": "string",
+      "width": "50",
+      "Option": "Optional",
+      "SLabel": "Score (out of 5)",
+      "LLabel": ""
+    },
+    {
+      "name": "MaxScore",
+      "type": "string",
+      "width": "50",
+      "Option": "Optional",
+      "SLabel": "Maximum Score",
+      "LLabel": ""
+    },
+    {
+      "name": "Title",
+      "type": "string",
+      "width": "50",
+      "Option": "Optional",
+      "SLabel": "Title",
+      "LLabel": ""
+    },
+    {
+      "name": "ReferenceID",
+      "type": "string",
+      "width": "50",
+      "Option": "Optional",
+      "SLabel": "Course ID",
+      "LLabel": ""
+    },
+    {
+      "name": "Group",
+      "type": "string",
+      "width": "50",
+      "Option": "Optional",
+      "SLabel": "Group",
+      "LLabel": ""
+    },
+    {
+      "name": "SubGroup",
+      "type": "string",
+      "width": "50",
+      "Option": "Optional",
+      "SLabel": "SubGroup",
+      "LLabel": ""
+    },
+    {
+      "name": "MyTraining",
+      "type": "Array",
+      "width": "200",
+      "SLabel": "My Trainings",
+      "Option": "Optional"
+    },
+    {
+      "name": "Goals",
+      "type": "Array",
+      "width": "200",
+      "SLabel": "My Goals",
+      "Option": "Optional"
+    },
+    {
+      "name": "Appraisal",
+      "type": "Array",
+      "width": "200",
+      "SLabel": "My Appraisal",
+      "Option": "Optional"
+    }
+  ],
+  "itemData": "No",
+  "itemConfig": {},
+  "CalculatedFields": {},
+  "Create": "Yes",
+  "Wizard": []
+}
