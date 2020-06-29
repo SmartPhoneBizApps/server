@@ -60,13 +60,13 @@ exports.getListrecords1 = asyncHandler(async (req, res, next) => {
     let t_image = [];
     for (let i1 = 0; i1 < results.length; i1++) {
       t_image = [];
-      results[i1].image = [];
       results[i1].cardImage = application["photo"];
       results[i1].ReferenceID = results[i1].id;
       results[i1].Group = "ExternalCatalog";
       results[i1].SubGroup = "OpenSAP";
       t_image.push(results[i1]["image"]);
       results[i1].image = t_image;
+      t_image = [];
       if (req.headers.mode == "Web" || req.headers.mode == "web") {
         if (config1["Controls"]["USP"] == "UserProfile") {
           results[i1].USP_Name = "OpenSAP course catalog";
