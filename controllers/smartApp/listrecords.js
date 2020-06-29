@@ -60,6 +60,7 @@ exports.getListrecords1 = asyncHandler(async (req, res, next) => {
     let t_image = [];
     for (let i1 = 0; i1 < results.length; i1++) {
       t_image = [];
+      results[i1].image = [];
       results[i1].cardImage = application["photo"];
       results[i1].ReferenceID = results[i1].id;
       results[i1].Group = "ExternalCatalog";
