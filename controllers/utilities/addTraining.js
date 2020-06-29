@@ -65,6 +65,13 @@ exports.addTraining = asyncHandler(async (req, res, next) => {
     req.params.toApp,
     "A new training assigned"
   );
+
+  mydata = Handler["tablecalculation"](
+    mydata,
+    configData["CalculatedFields"],
+    "MyTraining"
+  );
+
   result = await findOneUpdateData(myData, req.params.toApp);
   res.status(201).json({
     success: true,

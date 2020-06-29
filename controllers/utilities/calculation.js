@@ -21,8 +21,8 @@ exports.getcalculation = asyncHandler(async (req, res, next) => {
   let config = appconfig["CalculatedFields"];
   let outdata = req.body;
   var Handler = new calfunction();
-  outdata = Handler["datacalculation"](outdata, config);
-
+  // outdata = Handler["datacalculation"](outdata, config);
+  outdata = Handler["tablecalculation"](outdata, config, "ItemData");
   res.status(201).json({
     success: true,
     data: outdata,

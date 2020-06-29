@@ -215,9 +215,19 @@ exports.createwithref = asyncHandler(async (req, res, next) => {
   //---------------------------
   if (req.headers.calculation == "Yes") {
     var Handler = new calfunction();
-    myInv = Handler["datacalculation"](myInv, cardConfig["CalculatedFields"]);
+    //  myInv = Handler["datacalculation"](myInv, cardConfig["CalculatedFields"]);
+    myInv = Handler["tablecalculation"](
+      myInv,
+      cardConfig["CalculatedFields"],
+      "ItemData"
+    );
     var Handler2 = new calfunction();
-    myPO = Handler2["datacalculation"](myPO, configS["CalculatedFields"]);
+    // myPO = Handler2["datacalculation"](myPO, configS["CalculatedFields"]);
+    myPO = Handler2["tablecalculation"](
+      myPO,
+      configS["CalculatedFields"],
+      "ItemData"
+    );
   }
   //---------------------------
   if (req.headers.applicationid != req.headers.applicationid2) {

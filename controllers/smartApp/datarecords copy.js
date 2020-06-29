@@ -300,7 +300,12 @@ exports.addDataRecords = asyncHandler(async (req, res, next) => {
   //---------------------------
   if (req.headers.calculation == "Yes") {
     var Handler = new calfunction();
-    mydata = Handler["datacalculation"](mydata, cardConfig["CalculatedFields"]);
+    // mydata = Handler["datacalculation"](mydata, cardConfig["CalculatedFields"]);
+    mydata = Handler["tablecalculation"](
+      mydata,
+      cardConfig["CalculatedFields"],
+      "ItemData"
+    );
   }
 
   // Create data in mongo DB ...
@@ -557,9 +562,14 @@ exports.updateDataRecords = asyncHandler(async (req, res, next) => {
   //---------------------------
   if (req.headers.calculation == "Yes") {
     var Handler = new calfunction();
-    outdata = Handler["datacalculation"](
+    //outdata = Handler["datacalculation"](
+    //  req.body,
+    //  cardConfig["CalculatedFields"]
+    //);
+    outdata = Handler["tablecalculation"](
       req.body,
-      cardConfig["CalculatedFields"]
+      cardConfig["CalculatedFields"],
+      "ItemData"
     );
     req.body = outdata;
   }
@@ -628,9 +638,14 @@ exports.updateDataRecords = asyncHandler(async (req, res, next) => {
     //---------------------------
     if (req.headers.calculation == "Yes") {
       var Handler = new calfunction();
-      outdata = Handler["datacalculation"](
+      //  outdata = Handler["datacalculation"](
+      //    req.body,
+      //    cardConfig["CalculatedFields"]
+      //  );
+      outdata = Handler["tablecalculation"](
         req.body,
-        cardConfig["CalculatedFields"]
+        cardConfig["CalculatedFields"],
+        "ItemData"
       );
       req.body = outdata;
     }
