@@ -690,8 +690,8 @@ module.exports = {
     cdata["json"] = cJson;
     cardSub1["type"] = "Calendar";
     cardSub1["data"] = cdata;
-    cardSub1["header"] = cardheader;
-    cardSub1["content"] = cardcontent;
+    cardSub1["header"] = cardheader["header"];
+    cardSub1["content"] = cardcontent["content"];
     card["sap.card"] = cardSub1;
     return card;
   },
