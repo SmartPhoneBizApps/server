@@ -656,4 +656,43 @@ module.exports = {
     card["sap.card"] = cardSub1;
     return card;
   },
+  getCalendarCard: function (appID, role) {
+    let path1 = "../cards/calendarCard/" + appID + "_" + role + "_content.json";
+    let path2 = "../cards/calendarCard/" + appID + "_" + role + "_header.json";
+    let path3 = "../cards/calendarCard/" + appID + "_" + role + "_item.json";
+    let path4 =
+      "../cards/calendarCard/" + appID + "_" + role + "_legendItem.json";
+    let path5 =
+      "../cards/calendarCard/" + appID + "_" + role + "_specialDate.json";
+    //let path6 = "../cards/calendarCard/Calendar1_template.json";
+
+    const cardcontent = require(path1);
+    const cardheader = require(path2);
+    const carditem = require(path3);
+    const cardlegendItem = require(path4);
+    const cardspecialDate = require(path5);
+    //const cardtemplate = require(path6);
+
+    let cJson = {};
+    let cdata = {};
+    let cardSub1 = {};
+    let card = {};
+    card["sap.app"] = {
+      type: "card",
+      id: "smartphoneapps",
+    };
+    card["cardMinRows"] = 4;
+    card["cardColumn"] = 4;
+
+    cJson["item"] = carditem["item"];
+    cJson["legendItem"] = cardlegendItem["legendItem"];
+    cJson["specialDate"] = cardspecialDate["specialDate"];
+    cdata["json"] = cJson;
+    cardSub1["type"] = "Calendar";
+    cardSub1["data"] = cdata;
+    cardSub1["header"] = cardheader;
+    cardSub1["content"] = cardcontent;
+    card["sap.card"] = cardSub1;
+    return card;
+  },
 };
