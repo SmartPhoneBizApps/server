@@ -1,11 +1,11 @@
 {
   "Title": {
-    "ApplicationTitle": "Competency Model",
-    "DetailTitle": "Competency Matrix"
+    "ApplicationTitle": "Annual Review",
+    "DetailTitle": "Annual Review"
   },
   "Controls": {
     "USP": "UserProfile",
-    "UserSpecific":"Yes",
+    "UserSpecific": "Yes",
     "Update": "Yes",
     "URL": "https://fierce-oasis-51455.herokuapp.com",
     "Source": { "SourceName": "mongoDB", "SourceFile": "NA" }
@@ -68,21 +68,21 @@
   ],
   "Tabs": [
     {
-            "value": "Tab0",
+      "value": "Tab0",
       "update": "No",
       "name": "Cards",
       "type": "Cards",
       "fioriicon": "responsive"
     },
     {
-            "value": "Tab1",
+      "value": "Tab1",
       "update": "Yes",
       "name": "Reference",
       "type": "Field",
       "fioriicon": "request"
     },
     {
-            "value": "Tab2",
+      "value": "Tab2",
       "update": "Yes",
       "name": "Appraisal",
       "type": "Field",
@@ -252,38 +252,38 @@
     {
       "id": "Step1",
       "fields": [
-        { "name": "Name",  "Mode": "Edit" },
-        { "name": "Role",  "Mode": "Edit" },
-        { "name": "Band",  "Mode": "Edit" }
+        { "name": "Name", "Mode": "Edit" },
+        { "name": "Role", "Mode": "Edit" },
+        { "name": "Band", "Mode": "Edit" }
       ],
       "name": "Employee Details",
       "stepType": "FieldList",
-      "intro": "Competency Model : Employee Details"
+      "intro": "Annual Review : Employee Details"
     },
     {
       "id": "Step2",
       "fields": [
-        { "name": "EmployeeID",  "Mode": "Edit" },
-        { "name": "ReviewPeriod",  "Mode": "Edit" }
+        { "name": "EmployeeID", "Mode": "Edit" },
+        { "name": "ReviewPeriod", "Mode": "Edit" }
       ],
       "name": "Other Details and Admin",
       "stepType": "FieldList",
-      "intro": "Competency Model : Other Details and Admin"
+      "intro": "Annual Review : Other Details and Admin"
     },
     {
       "id": "Step3",
-      "fields": [{ "name": "DevManager",  "Mode": "Edit" }],
+      "fields": [{ "name": "DevManager", "Mode": "Edit" }],
       "name": "Development Manager",
       "stepType": "FieldList",
-      "intro": "Competency Model : Development Manager"
+      "intro": "Annual Review : Development Manager"
     },
     {
       "id": "Step4",
       "fields": [
-        { "name": "Area",  "Mode": "Edit" },
-        { "name": "AppraiseeComm",  "Mode": "Edit" },
-        { "name": "Score",  "Mode": "Edit" },
-        { "name": "Status",  "Mode": "Edit" }
+        { "name": "Area", "Mode": "Edit" },
+        { "name": "AppraiseeComm", "Mode": "Edit" },
+        { "name": "Score", "Mode": "Edit" },
+        { "name": "Status", "Mode": "Edit" }
       ],
       "name": "Appraisal",
       "stepType": "FieldList",
