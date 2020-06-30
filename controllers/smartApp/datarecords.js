@@ -20,6 +20,7 @@ const {
   getInitialValues,
   tableFields,
   tableValidate,
+  tableDetails,
   processingLog,
 } = require("../../modules/config");
 
@@ -538,6 +539,8 @@ exports.updateDataRecords = asyncHandler(async (req, res, next) => {
       tableField = tblFields.includes(kk);
       if (tableField == true) {
         myData[kk] = tableValidate(req.body[kk], myData[kk]);
+        req.body[kk] = myData[kk];
+        console.log("After table check", myData[kk]);
       }
     }
   }
