@@ -204,31 +204,31 @@
         {
           "name": "ItemNumber",
           "Tab": "Tab5",
-          
+
           "Mode": "Edit"
         },
         {
           "name": "Question",
           "Tab": "Tab5",
-          
+
           "Mode": "Edit"
         },
         {
           "name": "Answer",
           "Tab": "Tab5",
-          
+
           "Mode": "Edit"
         },
         {
           "name": "CorrectAnswer",
           "Tab": "Tab5",
-          
+
           "Mode": "Edit"
         },
         {
           "name": "Score",
           "Tab": "Tab5",
-          
+
           "Mode": "Edit"
         }
       ]
@@ -302,7 +302,7 @@
     },
     {
       "name": "Teacher",
-      "type": "Date",
+      "type": "string",
       "width": "10",
       "Option": "Optional",
       "SLabel": "Teacher",
@@ -630,55 +630,5 @@
   },
   "CalculatedFields": {},
   "Create": "Yes",
-  "Wizard": [
-    {
-      "id": "Step1",
-      "fields": [
-        { "name": "Group",  "Mode": "Edit" },
-        { "name": "SubGroup",  "Mode": "Edit" },
-        { "name": "Title",  "Mode": "Edit" },
-
-        { "name": "Overview",  "Mode": "Edit" },
-        { "name": "Regulatory",  "Mode": "Edit" },
-        { "name": "Compliance",  "Mode": "Edit" }
-      ],
-      "name": "Course Details",
-      "stepType": "FieldList",
-      "intro": "Learning : Classification"
-    },
-    {
-      "id": "Step2",
-      "fields": [
-        { "name": "StartDate",  "Mode": "Edit" },
-        { "name": "EndDate",  "Mode": "Edit" },
-        { "name": "Area",  "Mode": "Edit" },
-        { "name": "Exam",  "Mode": "Edit" },
-        { "name": "SelfAssign",  "Mode": "Edit" }
-      ],
-
-      "name": "Course Details",
-      "stepType": "FieldList",
-      "intro": "Learning : More Details"
-    },
-    {
-      "id": "Step3",
-      "fields": [
-        { "name": "External",  "Mode": "Edit" },
-        { "name": "ProjectNeed",  "Mode": "Edit" },
-        { "name": "Cost",  "Mode": "Edit" },
-        { "name": "Duration",  "Mode": "Edit" },
-        { "name": "Status",  "Mode": "Display" }
-      ],
-      "name": "Course Details",
-      "stepType": "FieldList",
-      "intro": "Learning : For external trainings the cost will be cross charged to the cost centre"
-    },
-    {
-      "id": "Step4",
-      "fields": [{ "name": "CourseLink",  "Mode": "Edit" }],
-      "name": "Link to External Course (if Any)",
-      "stepType": "FieldList",
-      "intro": "Learning : External Links can be specified here"
-    }
-  ]
+  "Wizard": []
 }

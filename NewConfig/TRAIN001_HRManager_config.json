@@ -221,31 +221,31 @@
         {
           "name": "ItemNumber",
           "Tab": "Tab5",
-          
+
           "Mode": "Edit"
         },
         {
           "name": "Question",
           "Tab": "Tab5",
-          
+
           "Mode": "Edit"
         },
         {
           "name": "Answer",
           "Tab": "Tab5",
-          
+
           "Mode": "Edit"
         },
         {
           "name": "CorrectAnswer",
           "Tab": "Tab5",
-          
+
           "Mode": "Edit"
         },
         {
           "name": "Score",
           "Tab": "Tab5",
-          
+
           "Mode": "Edit"
         }
       ]
@@ -320,15 +320,7 @@
     },
     {
       "name": "Teacher",
-      "type": "Date",
-      "width": "10",
-      "Option": "Optional",
-      "SLabel": "Teacher",
-      "LLabel": "Teacher"
-    },
-    {
-      "name": "Teacher",
-      "type": "Date",
+      "type": "string",
       "width": "10",
       "Option": "Optional",
       "SLabel": "Teacher",
@@ -659,13 +651,13 @@
     {
       "id": "Step1",
       "fields": [
-        { "name": "Group",  "Mode": "Edit" },
-        { "name": "SubGroup",  "Mode": "Edit" },
-        { "name": "Title",  "Mode": "Edit" },
+        { "name": "Group", "Mode": "Edit" },
+        { "name": "SubGroup", "Mode": "Edit" },
+        { "name": "Title", "Mode": "Edit" },
 
-        { "name": "Overview",  "Mode": "Edit" },
-        { "name": "Regulatory",  "Mode": "Edit" },
-        { "name": "Compliance",  "Mode": "Edit" }
+        { "name": "Overview", "Mode": "Edit" },
+        { "name": "Regulatory", "Mode": "Edit" },
+        { "name": "Compliance", "Mode": "Edit" }
       ],
       "name": "Course Details",
       "stepType": "FieldList",
@@ -674,11 +666,12 @@
     {
       "id": "Step2",
       "fields": [
-        { "name": "StartDate",  "Mode": "Edit" },
-        { "name": "EndDate",  "Mode": "Edit" },
-        { "name": "Area",  "Mode": "Edit" },
-        { "name": "Exam",  "Mode": "Edit" },
-        { "name": "SelfAssign",  "Mode": "Edit" }
+        { "name": "StartDate", "Mode": "Edit" },
+        { "name": "EndDate", "Mode": "Edit" },
+        { "name": "Area", "Mode": "Edit" },
+        { "name": "Exam", "Mode": "Edit" },
+        { "name": "SelfAssign", "Mode": "Edit" },
+        { "name": "Teacher", "Mode": "Edit" }
       ],
 
       "name": "Course Details",
@@ -688,11 +681,11 @@
     {
       "id": "Step3",
       "fields": [
-        { "name": "External",  "Mode": "Edit" },
-        { "name": "ProjectNeed",  "Mode": "Edit" },
-        { "name": "Cost",  "Mode": "Edit" },
-        { "name": "Duration",  "Mode": "Edit" },
-        { "name": "Status",  "Mode": "Display" }
+        { "name": "External", "Mode": "Edit" },
+        { "name": "ProjectNeed", "Mode": "Edit" },
+        { "name": "Cost", "Mode": "Edit" },
+        { "name": "Duration", "Mode": "Edit" },
+        { "name": "Status", "Mode": "Display" }
       ],
       "name": "Course Details",
       "stepType": "FieldList",
@@ -700,7 +693,7 @@
     },
     {
       "id": "Step4",
-      "fields": [{ "name": "CourseLink",  "Mode": "Edit" }],
+      "fields": [{ "name": "CourseLink", "Mode": "Edit" }],
       "name": "Link to External Course (if Any)",
       "stepType": "FieldList",
       "intro": "Learning : External Links can be specified here"
