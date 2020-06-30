@@ -58,7 +58,10 @@ exports.getListrecords1 = asyncHandler(async (req, res, next) => {
     results = res1["courses"];
 
     let t_image = [];
+    tCount = 0;
+
     for (let i1 = 0; i1 < results.length; i1++) {
+      tCount = tCount + 1;
       t_image = [];
       results[i1].cardImage = application["photo"];
       results[i1].ReferenceID = results[i1].id;
@@ -76,8 +79,37 @@ exports.getListrecords1 = asyncHandler(async (req, res, next) => {
         }
       }
     }
+
+    const limit = parseInt(req.query.limit, 10) || 5;
+    // Pagination
+    const page = parseInt(req.query.page, 10) || 1;
+    const startIndex = (page - 1) * limit;
+    const endIndex = page * limit;
+
+    // Pagination result
+    const pagination = {};
+    if (endIndex < tCount) {
+      pagination.next = {
+        page: page + 1,
+        limit,
+      };
+    }
+    if (startIndex > 0) {
+      pagination.prev = {
+        page: page - 1,
+        limit,
+      };
+    }
+
+    oResult = [];
+    for (let q = startIndex; q < endIndex; q++) {
+      oResult.push(results[q]);
+    }
+
     outData["success"] = true;
-    outData["data"] = results;
+    outData["count"] = tCount;
+    outData["pagination"] = pagination;
+    outData["data"] = oResult;
     outData["config"] = config1;
 
     if (req.headers.mode == "Web" || req.headers.mode == "web") {

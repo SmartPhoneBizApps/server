@@ -81,6 +81,7 @@ const SUPP00015 = require("../../models/smartApp/SUPP00015");
 const SUPP00016 = require("../../models/smartApp/SUPP00016");
 const SUPP00018 = require("../../models/smartApp/SUPP00018");
 const SUPP00028 = require("../../models/smartApp/SUPP00028");
+const TRAIN008 = require("../../models/smartApp/TRAIN008");
 let myD = { json: [] };
 let myO = { json: {} };
 con = 0;
@@ -101,7 +102,7 @@ exports.adaptiveCard_card = async (req, res, next) => {
     role: req.params.role,
   });
   tab = req.params.tab;
-
+  console.log("OverviewCard/RoleAccess : ", role.roleAccess);
   //Validate Data...
   if (role.roleAccess != "External") {
     if (!req.user.company) {
@@ -142,6 +143,7 @@ exports.adaptiveCard_card = async (req, res, next) => {
   // Read Card Configuration for the Role (X1)
   let fileName = "../../cards/cardConfig/" + role.role + "_cardConfig.json";
   var cardConfig = require(fileName);
+  console.log("OverviewCard/CardConfig : ", fileName);
 
   // Read Color Configuration
   let fileNameColor = "../../cards/cardConfig/colorConfig.json";
@@ -150,10 +152,12 @@ exports.adaptiveCard_card = async (req, res, next) => {
   // Read card User Settings  for the Role
   let fileName2 = "../../userSettings/" + req.user.email + "_cardsSetup.json";
   var userSetCards = require(fileName2);
+  console.log("OverviewCard/UserSettings : ", fileName2);
 
   // When tab is "Tab1", a full template with Tab1 data will be returned, for all other cases on data for that tab
   if (tab == "Tab1") {
     let fileName1 = "../../cards/cardConfig/" + role.role + "_cardTabs.json";
+    console.log("OverviewCard/TabConfig : ", fileName1);
     var cardTemplate = require(fileName1);
   } else {
     cardTemplate = {};
@@ -183,7 +187,9 @@ exports.adaptiveCard_card = async (req, res, next) => {
           // Looping the USers Settings data
           for (const key4 in myData) {
             if (myData.hasOwnProperty(key4) & (myData[key4] == true)) {
+              console.log("OverviewCard/AG - X : ", configCardID);
               if (key4 == configCardID) {
+                console.log("OverviewCard/AG - X : ", configCardID);
                 //////////////////////////////////////////////////////////////////////////////
                 // Here user setup is matched with the card setup... Build the card output
                 //////////////////////////////////////////////////////////////////////////////
