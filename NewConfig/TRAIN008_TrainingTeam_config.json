@@ -204,31 +204,31 @@
         {
           "name": "ItemNumber",
           "Tab": "Tab5",
-          "Sequence": "1",
+          
           "Mode": "Edit"
         },
         {
           "name": "Question",
           "Tab": "Tab5",
-          "Sequence": "1",
+          
           "Mode": "Edit"
         },
         {
           "name": "Answer",
           "Tab": "Tab5",
-          "Sequence": "1",
+          
           "Mode": "Edit"
         },
         {
           "name": "CorrectAnswer",
           "Tab": "Tab5",
-          "Sequence": "1",
+          
           "Mode": "Edit"
         },
         {
           "name": "Score",
           "Tab": "Tab5",
-          "Sequence": "1",
+          
           "Mode": "Edit"
         }
       ]
@@ -633,13 +633,13 @@
     {
       "id": "Step1",
       "fields": [
-        { "name": "Group", "Sequence": "1", "Mode": "Edit" },
-        { "name": "SubGroup", "Sequence": "1", "Mode": "Edit" },
-        { "name": "Title", "Sequence": "1", "Mode": "Edit" },
+        { "name": "Group",  "Mode": "Edit" },
+        { "name": "SubGroup",  "Mode": "Edit" },
+        { "name": "Title",  "Mode": "Edit" },
 
-        { "name": "Overview", "Sequence": "1", "Mode": "Edit" },
-        { "name": "Regulatory", "Sequence": "1", "Mode": "Edit" },
-        { "name": "Compliance", "Sequence": "1", "Mode": "Edit" }
+        { "name": "Overview",  "Mode": "Edit" },
+        { "name": "Regulatory",  "Mode": "Edit" },
+        { "name": "Compliance",  "Mode": "Edit" }
       ],
       "name": "Course Details",
       "stepType": "FieldList",
@@ -648,11 +648,11 @@
     {
       "id": "Step2",
       "fields": [
-        { "name": "StartDate", "Sequence": "1", "Mode": "Edit" },
-        { "name": "EndDate", "Sequence": "1", "Mode": "Edit" },
-        { "name": "Area", "Sequence": "1", "Mode": "Edit" },
-        { "name": "Exam", "Sequence": "1", "Mode": "Edit" },
-        { "name": "SelfAssign", "Sequence": "1", "Mode": "Edit" }
+        { "name": "StartDate",  "Mode": "Edit" },
+        { "name": "EndDate",  "Mode": "Edit" },
+        { "name": "Area",  "Mode": "Edit" },
+        { "name": "Exam",  "Mode": "Edit" },
+        { "name": "SelfAssign",  "Mode": "Edit" }
       ],
 
       "name": "Course Details",
@@ -662,11 +662,11 @@
     {
       "id": "Step3",
       "fields": [
-        { "name": "External", "Sequence": "1", "Mode": "Edit" },
-        { "name": "ProjectNeed", "Sequence": "1", "Mode": "Edit" },
-        { "name": "Cost", "Sequence": "1", "Mode": "Edit" },
-        { "name": "Duration", "Sequence": "1", "Mode": "Edit" },
-        { "name": "Status", "Sequence": "1", "Mode": "Display" }
+        { "name": "External",  "Mode": "Edit" },
+        { "name": "ProjectNeed",  "Mode": "Edit" },
+        { "name": "Cost",  "Mode": "Edit" },
+        { "name": "Duration",  "Mode": "Edit" },
+        { "name": "Status",  "Mode": "Display" }
       ],
       "name": "Course Details",
       "stepType": "FieldList",
@@ -674,7 +674,7 @@
     },
     {
       "id": "Step4",
-      "fields": [{ "name": "CourseLink", "Sequence": "1", "Mode": "Edit" }],
+      "fields": [{ "name": "CourseLink",  "Mode": "Edit" }],
       "name": "Link to External Course (if Any)",
       "stepType": "FieldList",
       "intro": "Learning : External Links can be specified here"

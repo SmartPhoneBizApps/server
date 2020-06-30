@@ -254,14 +254,14 @@
     {
       "id": "Step1",
       "fields": [
-        { "name": "ProjectCode", "Sequence": "1", "Mode": "Edit" },
-        { "name": "Currency", "Sequence": "1", "Mode": "Edit" },
-        { "name": "CostCentre", "Sequence": "1", "Mode": "Edit" },
-        { "name": "EntryDate", "Sequence": "1", "Mode": "Edit" },
-        { "name": "ExpenseDetails", "Sequence": "1", "Mode": "Edit" },
-        { "name": "ExpType", "Sequence": "1", "Mode": "Edit" },
-        { "name": "ExpenseDate", "Sequence": "1", "Mode": "Edit" },
-        { "name": "TotalAmount", "Sequence": "1", "Mode": "Edit" }
+        { "name": "ProjectCode",  "Mode": "Edit" },
+        { "name": "Currency",  "Mode": "Edit" },
+        { "name": "CostCentre",  "Mode": "Edit" },
+        { "name": "EntryDate",  "Mode": "Edit" },
+        { "name": "ExpenseDetails",  "Mode": "Edit" },
+        { "name": "ExpType",  "Mode": "Edit" },
+        { "name": "ExpenseDate",  "Mode": "Edit" },
+        { "name": "TotalAmount",  "Mode": "Edit" }
       ],
       "name": "Expenses Details",
       "stepType": "FieldList",
@@ -270,8 +270,8 @@
     {
       "id": "Step2",
       "fields": [
-        { "name": "EmployeeID", "Sequence": "1", "Mode": "Edit" },
-        { "name": "Name", "Sequence": "1", "Mode": "Edit" }
+        { "name": "EmployeeID",  "Mode": "Edit" },
+        { "name": "Name",  "Mode": "Edit" }
       ],
       "name": "Employee Details",
       "stepType": "FieldList",
@@ -279,7 +279,7 @@
     },
     {
       "id": "Step3",
-      "fields": [{ "name": "Receipt", "Sequence": "1", "Mode": "Edit" }],
+      "fields": [{ "name": "Receipt",  "Mode": "Edit" }],
       "name": "Attachments",
       "stepType": "Attachments",
       "intro": "Expense : Attachments"
@@ -287,8 +287,8 @@
     {
       "id": "Step4",
       "fields": [
-        { "name": "Status", "Sequence": "1", "Mode": "Edit" },
-        { "name": "Approver", "Sequence": "1", "Mode": "Edit" }
+        { "name": "Status",  "Mode": "Edit" },
+        { "name": "Approver",  "Mode": "Edit" }
       ],
       "name": "Admin",
       "stepType": "FieldList",

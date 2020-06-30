@@ -558,40 +558,40 @@
       {
         "name": "ItemNumber",
         "Tab": "Tab3",
-        "Sequence": "1",
+        
         "Mode": "Display"
       },
-      { "name": "ItemName", "Tab": "Tab3", "Sequence": "1", "Mode": "Edit" },
-      { "name": "ItemPrice", "Tab": "Tab3", "Sequence": "1", "Mode": "Edit" },
+      { "name": "ItemName", "Tab": "Tab3",  "Mode": "Edit" },
+      { "name": "ItemPrice", "Tab": "Tab3",  "Mode": "Edit" },
       {
         "name": "ItemQuantity",
         "Tab": "Tab3",
-        "Sequence": "1",
+        
         "Mode": "Edit"
       },
       {
         "name": "ItemValue",
         "Tab": "Tab3",
-        "Sequence": "1",
+        
         "Mode": "Display"
       },
-      { "name": "iVAT", "Tab": "Tab3", "Sequence": "1", "Mode": "Edit" },
+      { "name": "iVAT", "Tab": "Tab3",  "Mode": "Edit" },
       {
         "name": "ItemGrossValue",
         "Tab": "Tab3",
-        "Sequence": "1",
+        
         "Mode": "Display"
       },
       {
         "name": "ItemVATValue",
         "Tab": "Tab3",
-        "Sequence": "1",
+        
         "Mode": "Edit"
       },
       {
         "name": "ItemTaxRate",
         "Tab": "Tab3",
-        "Sequence": "1",
+        
         "Mode": "Display"
       }
     ]
@@ -702,9 +702,9 @@
     {
       "id": "Step1",
       "fields": [
-        { "name": "Category", "Sequence": "1", "Mode": "Edit" },
-        { "name": "VendorName", "Sequence": "1", "Mode": "Edit" },
-        { "name": "Details", "Sequence": "1", "Mode": "Edit" }
+        { "name": "Category",  "Mode": "Edit" },
+        { "name": "VendorName",  "Mode": "Edit" },
+        { "name": "Details",  "Mode": "Edit" }
       ],
       "name": "Vendor Details",
       "stepType": "FieldList",
@@ -713,10 +713,10 @@
     {
       "id": "Step2",
       "fields": [
-        { "name": "SCQty", "Sequence": "1", "Mode": "Edit" },
-        { "name": "Price", "Sequence": "1", "Mode": "Edit" },
-        { "name": "Currency", "Sequence": "1", "Mode": "Edit" },
-        { "name": "VATRate", "Sequence": "1", "Mode": "Edit" }
+        { "name": "SCQty",  "Mode": "Edit" },
+        { "name": "Price",  "Mode": "Edit" },
+        { "name": "Currency",  "Mode": "Edit" },
+        { "name": "VATRate",  "Mode": "Edit" }
       ],
       "name": "Item Details",
       "stepType": "FieldList",
@@ -725,10 +725,10 @@
     {
       "id": "Step3",
       "fields": [
-        { "name": "Address", "Sequence": "1", "Mode": "Edit" },
-        { "name": "PostCode", "Sequence": "1", "Mode": "Edit" },
-        { "name": "State", "Sequence": "1", "Mode": "Edit" },
-        { "name": "Country", "Sequence": "1", "Mode": "Edit" }
+        { "name": "Address",  "Mode": "Edit" },
+        { "name": "PostCode",  "Mode": "Edit" },
+        { "name": "State",  "Mode": "Edit" },
+        { "name": "Country",  "Mode": "Edit" }
       ],
       "name": "Delivery",
       "stepType": "FieldList",
@@ -737,8 +737,8 @@
     {
       "id": "Step4",
       "fields": [
-        { "name": "ContactNo", "Sequence": "1", "Mode": "Edit" },
-        { "name": "Email", "Sequence": "1", "Mode": "Edit" }
+        { "name": "ContactNo",  "Mode": "Edit" },
+        { "name": "Email",  "Mode": "Edit" }
       ],
       "name": "Delivery Contact",
       "stepType": "FieldList",
@@ -747,8 +747,8 @@
     {
       "id": "Step5",
       "fields": [
-        { "name": "Status", "Sequence": "1", "Mode": "Edit" },
-        { "name": "Approver", "Sequence": "1", "Mode": "Edit" }
+        { "name": "Status",  "Mode": "Edit" },
+        { "name": "Approver",  "Mode": "Edit" }
       ],
       "name": "Admin",
       "stepType": "FieldList",

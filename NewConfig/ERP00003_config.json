@@ -434,12 +434,12 @@
     {
       "id": "Step1",
       "fields": [
-        { "name": "PONumber", "Sequence": "1", "Mode": "Edit" },
-        { "name": "POItem", "Sequence": "1", "Mode": "Edit" },
-        { "name": "GRQty", "Sequence": "1", "Mode": "Edit" },
-        { "name": "UoM", "Sequence": "1", "Mode": "Edit" },
-        { "name": "StorageLoc", "Sequence": "1", "Mode": "Edit" },
-        { "name": "Plant", "Sequence": "1", "Mode": "Edit" }
+        { "name": "PONumber",  "Mode": "Edit" },
+        { "name": "POItem",  "Mode": "Edit" },
+        { "name": "GRQty",  "Mode": "Edit" },
+        { "name": "UoM",  "Mode": "Edit" },
+        { "name": "StorageLoc",  "Mode": "Edit" },
+        { "name": "Plant",  "Mode": "Edit" }
       ],
       "name": "PO Reference",
       "stepType": "FieldList",
@@ -447,14 +447,14 @@
     },
     {
       "id": "Step2",
-      "fields": [{ "name": "Status", "Sequence": "1", "Mode": "Edit" }],
+      "fields": [{ "name": "Status",  "Mode": "Edit" }],
       "name": "Admin",
       "stepType": "FieldList",
       "intro": "Goods Receipt : Admin"
     },
     {
       "id": "Step3",
-      "fields": [{ "name": "Attachment", "Sequence": "1", "Mode": "Edit" }],
+      "fields": [{ "name": "Attachment",  "Mode": "Edit" }],
       "name": "Images and Attachment",
       "stepType": "FieldList",
       "intro": "Goods Receipt : Images and Attachment"
@@ -462,22 +462,22 @@
     {
       "id": "Step4",
       "fields": [
-        { "name": "Requsitioner", "Sequence": "1", "Mode": "Edit" },
-        { "name": "Vendor", "Sequence": "1", "Mode": "Edit" },
-        { "name": "PODate", "Sequence": "1", "Mode": "Edit" },
-        { "name": "Category", "Sequence": "1", "Mode": "Edit" },
-        { "name": "Details", "Sequence": "1", "Mode": "Edit" },
-        { "name": "POQty", "Sequence": "1", "Mode": "Edit" },
-        { "name": "Price", "Sequence": "1", "Mode": "Edit" },
-        { "name": "GRQtyHistory", "Sequence": "1", "Mode": "Edit" },
-        { "name": "InvQtyHistory", "Sequence": "1", "Mode": "Edit" },
-        { "name": "Currency", "Sequence": "1", "Mode": "Edit" },
-        { "name": "DeliveryNote", "Sequence": "1", "Mode": "Edit" },
-        { "name": "Quality", "Sequence": "1", "Mode": "Edit" },
-        { "name": "Packaging", "Sequence": "1", "Mode": "Edit" },
-        { "name": "ReturnQty", "Sequence": "1", "Mode": "Edit" },
-        { "name": "Reason", "Sequence": "1", "Mode": "Edit" },
-        { "name": "VATRate", "Sequence": "1", "Mode": "Edit" }
+        { "name": "Requsitioner",  "Mode": "Edit" },
+        { "name": "Vendor",  "Mode": "Edit" },
+        { "name": "PODate",  "Mode": "Edit" },
+        { "name": "Category",  "Mode": "Edit" },
+        { "name": "Details",  "Mode": "Edit" },
+        { "name": "POQty",  "Mode": "Edit" },
+        { "name": "Price",  "Mode": "Edit" },
+        { "name": "GRQtyHistory",  "Mode": "Edit" },
+        { "name": "InvQtyHistory",  "Mode": "Edit" },
+        { "name": "Currency",  "Mode": "Edit" },
+        { "name": "DeliveryNote",  "Mode": "Edit" },
+        { "name": "Quality",  "Mode": "Edit" },
+        { "name": "Packaging",  "Mode": "Edit" },
+        { "name": "ReturnQty",  "Mode": "Edit" },
+        { "name": "Reason",  "Mode": "Edit" },
+        { "name": "VATRate",  "Mode": "Edit" }
       ],
       "name": "Goods receipt details",
       "stepType": "FieldList",

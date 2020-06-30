@@ -272,9 +272,9 @@
     {
       "id": "Step1",
       "fields": [
-        { "name": "Material", "Sequence": "1", "Mode": "Edit" },
-        { "name": "Description", "Sequence": "1", "Mode": "Edit" },
-        { "name": "TotalStock", "Sequence": "1", "Mode": "Edit" }
+        { "name": "Material",  "Mode": "Edit" },
+        { "name": "Description",  "Mode": "Edit" },
+        { "name": "TotalStock",  "Mode": "Edit" }
       ],
       "name": "Stock Details",
       "stepType": "FieldList",
@@ -282,14 +282,14 @@
     },
     {
       "id": "Step2",
-      "fields": [{ "name": "StorageLoc", "Sequence": "1", "Mode": "Edit" }],
+      "fields": [{ "name": "StorageLoc",  "Mode": "Edit" }],
       "name": "Storage Location",
       "stepType": "FieldList",
       "intro": "Stock Report : Storage Location"
     },
     {
       "id": "Step3",
-      "fields": [{ "name": "Location", "Sequence": "1", "Mode": "Edit" }],
+      "fields": [{ "name": "Location",  "Mode": "Edit" }],
       "name": "Address details",
       "stepType": "FieldList",
       "intro": "Stock Report : Address details"
@@ -297,10 +297,10 @@
     {
       "id": "Step4",
       "fields": [
-        { "name": "Reserved", "Sequence": "1", "Mode": "Edit" },
-        { "name": "Sales", "Sequence": "1", "Mode": "Edit" },
-        { "name": "Returns", "Sequence": "1", "Mode": "Edit" },
-        { "name": "Blocked", "Sequence": "1", "Mode": "Edit" }
+        { "name": "Reserved",  "Mode": "Edit" },
+        { "name": "Sales",  "Mode": "Edit" },
+        { "name": "Returns",  "Mode": "Edit" },
+        { "name": "Blocked",  "Mode": "Edit" }
       ],
       "name": "Other Details",
       "stepType": "FieldList",
@@ -308,7 +308,7 @@
     },
     {
       "id": "Step5",
-      "fields": [{ "name": "Status", "Sequence": "1", "Mode": "Edit" }],
+      "fields": [{ "name": "Status",  "Mode": "Edit" }],
       "name": "Admin",
       "stepType": "FieldList",
       "intro": "Stock Report : Admin"

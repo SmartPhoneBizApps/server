@@ -273,13 +273,13 @@
       {
         "name": "ItemNumber",
         "Tab": "Tab3",
-        "Sequence": "1",
+        
         "Mode": "Display"
       },
-      { "name": "CourseName", "Tab": "Tab3", "Sequence": "1", "Mode": "Edit" },
-      { "name": "StudyLevel", "Tab": "Tab3", "Sequence": "1", "Mode": "Edit" },
-      { "name": "CollegeName", "Tab": "Tab3", "Sequence": "1", "Mode": "Edit" },
-      { "name": "CourseCode", "Tab": "Tab3", "Sequence": "1", "Mode": "Edit" }
+      { "name": "CourseName", "Tab": "Tab3",  "Mode": "Edit" },
+      { "name": "StudyLevel", "Tab": "Tab3",  "Mode": "Edit" },
+      { "name": "CollegeName", "Tab": "Tab3",  "Mode": "Edit" },
+      { "name": "CourseCode", "Tab": "Tab3",  "Mode": "Edit" }
     ]
   },
   "CalculatedFields": {},
@@ -288,10 +288,10 @@
     {
       "id": "Step1",
       "fields": [
-        { "name": "StudentName", "Sequence": "1", "Mode": "Edit" },
-        { "name": "StudentID", "Sequence": "1", "Mode": "Edit" },
-        { "name": "DoB", "Sequence": "1", "Mode": "Edit" },
-        { "name": "Email", "Sequence": "1", "Mode": "Edit" }
+        { "name": "StudentName",  "Mode": "Edit" },
+        { "name": "StudentID",  "Mode": "Edit" },
+        { "name": "DoB",  "Mode": "Edit" },
+        { "name": "Email",  "Mode": "Edit" }
       ],
       "name": "Details",
       "stepType": "FieldList",
@@ -300,8 +300,8 @@
     {
       "id": "Step2",
       "fields": [
-        { "name": "PostCode", "Sequence": "1", "Mode": "Edit" },
-        { "name": "Address", "Sequence": "1", "Mode": "Edit" }
+        { "name": "PostCode",  "Mode": "Edit" },
+        { "name": "Address",  "Mode": "Edit" }
       ],
       "name": "Address",
       "stepType": "FieldList",
@@ -309,7 +309,7 @@
     },
     {
       "id": "Step3",
-      "fields": [{ "name": "Status", "Sequence": "1", "Mode": "Edit" }],
+      "fields": [{ "name": "Status",  "Mode": "Edit" }],
       "name": "Admin",
       "stepType": "FieldList",
       "intro": "Course Selection Options : Admin"

@@ -287,10 +287,10 @@
     {
       "id": "Step1",
       "fields": [
-        { "name": "StartDate", "Sequence": "1", "Mode": "Edit" },
-        { "name": "StartTime", "Sequence": "1", "Mode": "Edit" },
-        { "name": "FinishDate", "Sequence": "1", "Mode": "Edit" },
-        { "name": "FinishTime", "Sequence": "1", "Mode": "Edit" }
+        { "name": "StartDate",  "Mode": "Edit" },
+        { "name": "StartTime",  "Mode": "Edit" },
+        { "name": "FinishDate",  "Mode": "Edit" },
+        { "name": "FinishTime",  "Mode": "Edit" }
       ],
       "name": "Date and Time",
       "stepType": "FieldList",
@@ -299,11 +299,11 @@
     {
       "id": "Step2",
       "fields": [
-        { "name": "IncidentType", "Sequence": "1", "Mode": "Edit" },
-        { "name": "Problem", "Sequence": "1", "Mode": "Edit" },
-        { "name": "Details", "Sequence": "1", "Mode": "Edit" },
-        { "name": "Area", "Sequence": "1", "Mode": "Edit" },
-        { "name": "Impact", "Sequence": "1", "Mode": "Edit" }
+        { "name": "IncidentType",  "Mode": "Edit" },
+        { "name": "Problem",  "Mode": "Edit" },
+        { "name": "Details",  "Mode": "Edit" },
+        { "name": "Area",  "Mode": "Edit" },
+        { "name": "Impact",  "Mode": "Edit" }
       ],
       "name": "Incident Details",
       "stepType": "FieldList",
@@ -312,12 +312,12 @@
     {
       "id": "Step3",
       "fields": [
-        { "name": "Agent", "Sequence": "1", "Mode": "Edit" },
-        { "name": "Company", "Sequence": "1", "Mode": "Edit" },
-        { "name": "WorkLog", "Sequence": "1", "Mode": "Edit" },
-        { "name": "Resolution", "Sequence": "1", "Mode": "Edit" },
-        { "name": "Urgency", "Sequence": "1", "Mode": "Edit" },
-        { "name": "Priority", "Sequence": "1", "Mode": "Edit" }
+        { "name": "Agent",  "Mode": "Edit" },
+        { "name": "Company",  "Mode": "Edit" },
+        { "name": "WorkLog",  "Mode": "Edit" },
+        { "name": "Resolution",  "Mode": "Edit" },
+        { "name": "Urgency",  "Mode": "Edit" },
+        { "name": "Priority",  "Mode": "Edit" }
       ],
       "name": "Other Details",
       "stepType": "FieldList",
@@ -326,8 +326,8 @@
     {
       "id": "Step4",
       "fields": [
-        { "name": "Name", "Sequence": "1", "Mode": "Edit" },
-        { "name": "Address", "Sequence": "1", "Mode": "Edit" }
+        { "name": "Name",  "Mode": "Edit" },
+        { "name": "Address",  "Mode": "Edit" }
       ],
       "name": "Your Details",
       "stepType": "FieldList",
@@ -335,7 +335,7 @@
     },
     {
       "id": "Step5",
-      "fields": [{ "name": "Status", "Sequence": "1", "Mode": "Edit" }],
+      "fields": [{ "name": "Status",  "Mode": "Edit" }],
       "name": " Admin",
       "stepType": "FieldList",
       "intro": "Incident Management : Admin"

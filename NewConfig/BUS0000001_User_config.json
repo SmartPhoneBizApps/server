@@ -262,7 +262,7 @@
     {
       "id": "Step1",
       "fields": [
-        { "name": "DescribeProblem", "Sequence": "1", "Mode": "Edit" }
+        { "name": "DescribeProblem",  "Mode": "Edit" }
       ],
       "name": "Incident Details",
       "stepType": "FieldList",
@@ -270,14 +270,14 @@
     },
     {
       "id": "Step2",
-      "fields": [{ "name": "UserAccount", "Sequence": "1", "Mode": "Edit" }],
+      "fields": [{ "name": "UserAccount",  "Mode": "Edit" }],
       "name": "User Details",
       "stepType": "FieldList",
       "intro": "IT Service Ticket : Details of the Problem"
     },
     {
       "id": "Step4",
-      "fields": [{ "name": "ComputerID", "Sequence": "1", "Mode": "Edit" }],
+      "fields": [{ "name": "ComputerID",  "Mode": "Edit" }],
       "name": "Asset",
       "stepType": "FieldList",
       "intro": "IT Service Ticket : Details of the Asset where you are facing Problem"
@@ -285,9 +285,9 @@
     {
       "id": "Step5",
       "fields": [
-        { "name": "Name", "Sequence": "1", "Mode": "Edit" },
-        { "name": "Email", "Sequence": "1", "Mode": "Edit" },
-        { "name": "Department", "Sequence": "1", "Mode": "Edit" }
+        { "name": "Name",  "Mode": "Edit" },
+        { "name": "Email",  "Mode": "Edit" },
+        { "name": "Department",  "Mode": "Edit" }
       ],
       "name": "Contact Details",
       "stepType": "FieldList",
@@ -296,8 +296,8 @@
     {
       "id": "Step7",
       "fields": [
-        { "name": "Status", "Sequence": "1", "Mode": "Edit" },
-        { "name": "DateCreated", "Sequence": "1", "Mode": "Edit" }
+        { "name": "Status",  "Mode": "Edit" },
+        { "name": "DateCreated",  "Mode": "Edit" }
       ],
       "name": "Admin",
       "stepType": "FieldList",

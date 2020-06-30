@@ -364,11 +364,11 @@
     {
       "id": "Step1",
       "fields": [
-        { "name": "StudentName", "Sequence": "1", "Mode": "Edit" },
-        { "name": "PhoneNumber", "Sequence": "1", "Mode": "Edit" },
-        { "name": "Email", "Sequence": "1", "Mode": "Edit" },
-        { "name": "GradeLevel", "Sequence": "1", "Mode": "Edit" },
-        { "name": "BirthDate", "Sequence": "1", "Mode": "Edit" }
+        { "name": "StudentName",  "Mode": "Edit" },
+        { "name": "PhoneNumber",  "Mode": "Edit" },
+        { "name": "Email",  "Mode": "Edit" },
+        { "name": "GradeLevel",  "Mode": "Edit" },
+        { "name": "BirthDate",  "Mode": "Edit" }
       ],
       "name": "Student Details",
       "stepType": "FieldList",
@@ -377,13 +377,13 @@
     {
       "id": "Step2",
       "fields": [
-        { "name": "GuidanceName", "Sequence": "1", "Mode": "Edit" },
-        { "name": "AdviserName", "Sequence": "1", "Mode": "Edit" },
-        { "name": "MotherName", "Sequence": "1", "Mode": "Edit" },
-        { "name": "MotherEmail", "Sequence": "1", "Mode": "Edit" },
-        { "name": "FatherName", "Sequence": "1", "Mode": "Edit" },
-        { "name": "FatherEmail", "Sequence": "1", "Mode": "Edit" },
-        { "name": "FatherContactNo", "Sequence": "1", "Mode": "Edit" }
+        { "name": "GuidanceName",  "Mode": "Edit" },
+        { "name": "AdviserName",  "Mode": "Edit" },
+        { "name": "MotherName",  "Mode": "Edit" },
+        { "name": "MotherEmail",  "Mode": "Edit" },
+        { "name": "FatherName",  "Mode": "Edit" },
+        { "name": "FatherEmail",  "Mode": "Edit" },
+        { "name": "FatherContactNo",  "Mode": "Edit" }
       ],
       "name": "Guidance and Parent Details",
       "stepType": "FieldList",
@@ -392,12 +392,12 @@
     {
       "id": "Step3",
       "fields": [
-        { "name": "Q1", "Sequence": "1", "Mode": "Display" },
-        { "name": "A1", "Sequence": "1", "Mode": "Edit" },
-        { "name": "Q2", "Sequence": "1", "Mode": "Display" },
-        { "name": "A2", "Sequence": "1", "Mode": "Edit" },
-        { "name": "Q3", "Sequence": "1", "Mode": "Display" },
-        { "name": "A3", "Sequence": "1", "Mode": "Edit" }
+        { "name": "Q1",  "Mode": "Display" },
+        { "name": "A1",  "Mode": "Edit" },
+        { "name": "Q2",  "Mode": "Display" },
+        { "name": "A2",  "Mode": "Edit" },
+        { "name": "Q3",  "Mode": "Display" },
+        { "name": "A3",  "Mode": "Edit" }
       ],
       "name": "Q and A",
       "stepType": "FieldList",
@@ -406,12 +406,12 @@
     {
       "id": "Step4",
       "fields": [
-        { "name": "Q4", "Sequence": "1", "Mode": "Display" },
-        { "name": "A4", "Sequence": "1", "Mode": "Edit" },
-        { "name": "Q5", "Sequence": "1", "Mode": "Display" },
-        { "name": "A5", "Sequence": "1", "Mode": "Edit" },
-        { "name": "Q6", "Sequence": "1", "Mode": "Display" },
-        { "name": "A6", "Sequence": "1", "Mode": "Edit" }
+        { "name": "Q4",  "Mode": "Display" },
+        { "name": "A4",  "Mode": "Edit" },
+        { "name": "Q5",  "Mode": "Display" },
+        { "name": "A5",  "Mode": "Edit" },
+        { "name": "Q6",  "Mode": "Display" },
+        { "name": "A6",  "Mode": "Edit" }
       ],
       "name": "Q and A",
       "stepType": "FieldList",
@@ -419,14 +419,14 @@
     },
     {
       "id": "Step5",
-      "fields": [{ "name": "Status", "Sequence": "1", "Mode": "Edit" }],
+      "fields": [{ "name": "Status",  "Mode": "Edit" }],
       "name": "Admin",
       "stepType": "FieldList",
       "intro": "Student Information Form : Admin"
     },
     {
       "id": "Step6",
-      "fields": [{ "name": "Image", "Sequence": "1", "Mode": "Edit" }],
+      "fields": [{ "name": "Image",  "Mode": "Edit" }],
       "name": "Images and Attachment",
       "stepType": "FieldList",
       "intro": "Student Information Form : Images and Attachment"

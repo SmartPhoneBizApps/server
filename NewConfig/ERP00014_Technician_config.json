@@ -246,9 +246,9 @@
     {
       "id": "Step1",
       "fields": [
-        { "name": "CalibDate", "Sequence": "1", "Mode": "Edit" },
-        { "name": "CalibStartDate", "Sequence": "1", "Mode": "Edit" },
-        { "name": "CalibExpireDate", "Sequence": "1", "Mode": "Edit" }
+        { "name": "CalibDate",  "Mode": "Edit" },
+        { "name": "CalibStartDate",  "Mode": "Edit" },
+        { "name": "CalibExpireDate",  "Mode": "Edit" }
       ],
       "name": "Calibration Details",
       "stepType": "FieldList",
@@ -257,9 +257,9 @@
     {
       "id": "Step2",
       "fields": [
-        { "name": "Equipment", "Sequence": "1", "Mode": "Edit" },
-        { "name": "Model", "Sequence": "1", "Mode": "Edit" },
-        { "name": "SerialNumber", "Sequence": "1", "Mode": "Edit" }
+        { "name": "Equipment",  "Mode": "Edit" },
+        { "name": "Model",  "Mode": "Edit" },
+        { "name": "SerialNumber",  "Mode": "Edit" }
       ],
       "name": "Instrument details",
       "stepType": "FieldList",
@@ -268,8 +268,8 @@
     {
       "id": "Step3",
       "fields": [
-        { "name": "CertificateAtt", "Sequence": "1", "Mode": "Edit" },
-        { "name": "ReportAtt", "Sequence": "1", "Mode": "Edit" }
+        { "name": "CertificateAtt",  "Mode": "Edit" },
+        { "name": "ReportAtt",  "Mode": "Edit" }
       ],
       "name": "Images and Attachment",
       "stepType": "FieldList",
@@ -278,11 +278,11 @@
     {
       "id": "Step4",
       "fields": [
-        { "name": "ReferenceNo", "Sequence": "1", "Mode": "Edit" },
-        { "name": "Result", "Sequence": "1", "Mode": "Edit" },
-        { "name": "Comment", "Sequence": "1", "Mode": "Edit" },
-        { "name": "Remark", "Sequence": "1", "Mode": "Edit" },
-        { "name": "InvoiceNo", "Sequence": "1", "Mode": "Edit" }
+        { "name": "ReferenceNo",  "Mode": "Edit" },
+        { "name": "Result",  "Mode": "Edit" },
+        { "name": "Comment",  "Mode": "Edit" },
+        { "name": "Remark",  "Mode": "Edit" },
+        { "name": "InvoiceNo",  "Mode": "Edit" }
       ],
       "name": "Other details",
       "stepType": "FieldList",
@@ -290,7 +290,7 @@
     },
     {
       "id": "Step5",
-      "fields": [{ "name": "Status", "Sequence": "1", "Mode": "Edit" }],
+      "fields": [{ "name": "Status",  "Mode": "Edit" }],
       "name": "Admin",
       "stepType": "FieldList",
       "intro": "Instrument Calibration : Admin"

@@ -253,7 +253,7 @@
   "Wizard": [
     {
       "id": "Step1",
-      "fields": [{ "name": "Name", "Sequence": "1", "Mode": "Edit" }],
+      "fields": [{ "name": "Name",  "Mode": "Edit" }],
       "name": "Development Goal",
       "stepType": "FieldList",
       "intro": "Development Goals  : Development Goal"
@@ -261,10 +261,10 @@
     {
       "id": "Step2",
       "fields": [
-        { "name": "Role", "Sequence": "1", "Mode": "Edit" },
-        { "name": "Band", "Sequence": "1", "Mode": "Edit" },
-        { "name": "Area", "Sequence": "1", "Mode": "Edit" },
-        { "name": "EmployeeID", "Sequence": "1", "Mode": "Edit" }
+        { "name": "Role",  "Mode": "Edit" },
+        { "name": "Band",  "Mode": "Edit" },
+        { "name": "Area",  "Mode": "Edit" },
+        { "name": "EmployeeID",  "Mode": "Edit" }
       ],
       "name": "Reference",
       "stepType": "FieldList",
@@ -273,8 +273,8 @@
     {
       "id": "Step3",
       "fields": [
-        { "name": "TargetDate", "Sequence": "1", "Mode": "Edit" },
-        { "name": "SetDate", "Sequence": "1", "Mode": "Edit" }
+        { "name": "TargetDate",  "Mode": "Edit" },
+        { "name": "SetDate",  "Mode": "Edit" }
       ],
       "name": "Dates",
       "stepType": "FieldList",
@@ -283,9 +283,9 @@
     {
       "id": "Step4",
       "fields": [
-        { "name": "Goal", "Sequence": "1", "Mode": "Edit" },
-        { "name": "ReviewPeriod", "Sequence": "1", "Mode": "Edit" },
-        { "name": "Score", "Sequence": "1", "Mode": "Edit" }
+        { "name": "Goal",  "Mode": "Edit" },
+        { "name": "ReviewPeriod",  "Mode": "Edit" },
+        { "name": "Score",  "Mode": "Edit" }
       ],
       "name": "Review",
       "stepType": "FieldList",
@@ -293,21 +293,21 @@
     },
     {
       "id": "Step5",
-      "fields": [{ "name": "DevManager", "Sequence": "1", "Mode": "Edit" }],
+      "fields": [{ "name": "DevManager",  "Mode": "Edit" }],
       "name": "Development Manager",
       "stepType": "FieldList",
       "intro": "Development Goals  : Development Manager"
     },
     {
       "id": "Step6",
-      "fields": [{ "name": "AppraiseeComm", "Sequence": "1", "Mode": "Edit" }],
+      "fields": [{ "name": "AppraiseeComm",  "Mode": "Edit" }],
       "name": "Appraisee Comments",
       "stepType": "FieldList",
       "intro": "Development Goals  : Appraisee Comments"
     },
     {
       "id": "Step8",
-      "fields": [{ "name": "Status", "Sequence": "1", "Mode": "Edit" }],
+      "fields": [{ "name": "Status",  "Mode": "Edit" }],
       "name": "Admin",
       "stepType": "FieldList",
       "intro": "Development Goals  : Admin"

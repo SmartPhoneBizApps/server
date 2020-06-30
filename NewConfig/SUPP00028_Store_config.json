@@ -648,33 +648,33 @@
       {
         "name": "ItemNumber",
         "Tab": "Tab3",
-        "Sequence": "1",
+        
         "Mode": "Display"
       },
-      { "name": "ItemDetails", "Tab": "Tab3", "Sequence": "1", "Mode": "Edit" },
-      { "name": "InvQty", "Tab": "Tab3", "Sequence": "1", "Mode": "Edit" },
-      { "name": "InvPrice", "Tab": "Tab3", "Sequence": "1", "Mode": "Edit" },
-      { "name": "InvUOM", "Tab": "Tab3", "Sequence": "1", "Mode": "Edit" },
+      { "name": "ItemDetails", "Tab": "Tab3",  "Mode": "Edit" },
+      { "name": "InvQty", "Tab": "Tab3",  "Mode": "Edit" },
+      { "name": "InvPrice", "Tab": "Tab3",  "Mode": "Edit" },
+      { "name": "InvUOM", "Tab": "Tab3",  "Mode": "Edit" },
       {
         "name": "InvNetValue",
         "Tab": "Tab3",
-        "Sequence": "1",
+        
         "Mode": "Display"
       },
-      { "name": "InvVATRate", "Tab": "Tab3", "Sequence": "1", "Mode": "Edit" },
+      { "name": "InvVATRate", "Tab": "Tab3",  "Mode": "Edit" },
       {
         "name": "InvVATVal",
         "Tab": "Tab3",
-        "Sequence": "1",
+        
         "Mode": "Display"
       },
       {
         "name": "InvGrossVal",
         "Tab": "Tab3",
-        "Sequence": "1",
+        
         "Mode": "Display"
       },
-      { "name": "InvVATPer", "Tab": "Tab3", "Sequence": "1", "Mode": "Display" }
+      { "name": "InvVATPer", "Tab": "Tab3",  "Mode": "Display" }
     ]
   },
   "CalculatedFields": {
@@ -828,9 +828,9 @@
     {
       "id": "Step1",
       "fields": [
-        { "name": "InvoiceType", "Sequence": "1", "Mode": "Display" },
-        { "name": "VendorName", "Sequence": "1", "Mode": "Edit" },
-        { "name": "VendorNumber", "Sequence": "1", "Mode": "Edit" }
+        { "name": "InvoiceType",  "Mode": "Display" },
+        { "name": "VendorName",  "Mode": "Edit" },
+        { "name": "VendorNumber",  "Mode": "Edit" }
       ],
       "name": "Vendor Details",
       "stepType": "FieldList",
@@ -839,12 +839,12 @@
     {
       "id": "Step2",
       "fields": [
-        { "name": "PONumber", "Sequence": "1", "Mode": "Edit" },
-        { "name": "PODate", "Sequence": "1", "Mode": "Edit" },
-        { "name": "TaxInvoice", "Sequence": "1", "Mode": "Edit" },
-        { "name": "PaymentTerm", "Sequence": "1", "Mode": "Edit" },
-        { "name": "Details", "Sequence": "1", "Mode": "Edit" },
-        { "name": "Company", "Sequence": "1", "Mode": "Edit" }
+        { "name": "PONumber",  "Mode": "Edit" },
+        { "name": "PODate",  "Mode": "Edit" },
+        { "name": "TaxInvoice",  "Mode": "Edit" },
+        { "name": "PaymentTerm",  "Mode": "Edit" },
+        { "name": "Details",  "Mode": "Edit" },
+        { "name": "Company",  "Mode": "Edit" }
       ],
       "name": "Purchaser Order Details",
       "stepType": "FieldList",
@@ -853,13 +853,13 @@
     {
       "id": "Step3",
       "fields": [
-        { "name": "SuppInvoiceNumber", "Sequence": "1", "Mode": "Edit" },
-        { "name": "TotInvNetValue", "Sequence": "1", "Mode": "Edit" },
-        { "name": "TotInvGrossVal", "Sequence": "1", "Mode": "Edit" },
-        { "name": "InvoiceDate", "Sequence": "1", "Mode": "Edit" },
-        { "name": "NetValue", "Sequence": "1", "Mode": "Display" },
-        { "name": "GrossValue", "Sequence": "1", "Mode": "Display" },
-        { "name": "Currency", "Sequence": "1", "Mode": "Display" }
+        { "name": "SuppInvoiceNumber",  "Mode": "Edit" },
+        { "name": "TotInvNetValue",  "Mode": "Edit" },
+        { "name": "TotInvGrossVal",  "Mode": "Edit" },
+        { "name": "InvoiceDate",  "Mode": "Edit" },
+        { "name": "NetValue",  "Mode": "Display" },
+        { "name": "GrossValue",  "Mode": "Display" },
+        { "name": "Currency",  "Mode": "Display" }
       ],
       "name": "Invoice Details",
       "stepType": "FieldList",
@@ -868,11 +868,11 @@
     {
       "id": "Step4",
       "fields": [
-        { "name": "Attachment", "Sequence": "1", "Mode": "Edit" },
-        { "name": "Status", "Sequence": "1", "Mode": "Edit" },
-        { "name": "InvoiceStatus", "Sequence": "1", "Mode": "Edit" },
-        { "name": "PaymentStatus", "Sequence": "1", "Mode": "Edit" },
-        { "name": "CurrentStatus", "Sequence": "1", "Mode": "Edit" }
+        { "name": "Attachment",  "Mode": "Edit" },
+        { "name": "Status",  "Mode": "Edit" },
+        { "name": "InvoiceStatus",  "Mode": "Edit" },
+        { "name": "PaymentStatus",  "Mode": "Edit" },
+        { "name": "CurrentStatus",  "Mode": "Edit" }
       ],
       "name": "Admin",
       "stepType": "FieldList",

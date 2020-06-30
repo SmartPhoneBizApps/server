@@ -185,12 +185,12 @@
       {
         "name": "ItemNumber",
         "Tab": "Tab2",
-        "Sequence": "1",
+        
         "Mode": "Display"
       },
-      { "name": "Subject", "Tab": "Tab2", "Sequence": "1", "Mode": "Edit" },
-      { "name": "Homework", "Tab": "Tab2", "Sequence": "1", "Mode": "Edit" },
-      { "name": "DueDate", "Tab": "Tab2", "Sequence": "1", "Mode": "Edit" }
+      { "name": "Subject", "Tab": "Tab2",  "Mode": "Edit" },
+      { "name": "Homework", "Tab": "Tab2",  "Mode": "Edit" },
+      { "name": "DueDate", "Tab": "Tab2",  "Mode": "Edit" }
     ]
   },
   "CalculatedFields": {},
@@ -199,8 +199,8 @@
     {
       "id": "Step1",
       "fields": [
-        { "name": "StudyYear", "Sequence": "1", "Mode": "Edit" },
-        { "name": "Section", "Sequence": "1", "Mode": "Edit" }
+        { "name": "StudyYear",  "Mode": "Edit" },
+        { "name": "Section",  "Mode": "Edit" }
       ],
       "name": "Details",
       "stepType": "FieldList",
@@ -209,8 +209,8 @@
     {
       "id": "Step2",
       "fields": [
-        { "name": "Date", "Sequence": "1", "Mode": "Edit" },
-        { "name": "Status", "Sequence": "1", "Mode": "Edit" }
+        { "name": "Date",  "Mode": "Edit" },
+        { "name": "Status",  "Mode": "Edit" }
       ],
       "name": "Admin",
       "stepType": "FieldList",

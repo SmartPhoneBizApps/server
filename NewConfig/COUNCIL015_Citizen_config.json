@@ -247,7 +247,7 @@
   "Wizard": [
     {
       "id": "Step1",
-      "fields": [{ "name": "AdditionalInfo", "Sequence": "1", "Mode": "Edit" }],
+      "fields": [{ "name": "AdditionalInfo",  "Mode": "Edit" }],
       "name": "Report Details",
       "stepType": "FieldList",
       "intro": "Problem in a play area : Report Details"
@@ -255,9 +255,9 @@
     {
       "id": "Step2",
       "fields": [
-        { "name": "YourName", "Sequence": "1", "Mode": "Edit" },
-        { "name": "ContactNo", "Sequence": "1", "Mode": "Edit" },
-        { "name": "Email", "Sequence": "1", "Mode": "Edit" }
+        { "name": "YourName",  "Mode": "Edit" },
+        { "name": "ContactNo",  "Mode": "Edit" },
+        { "name": "Email",  "Mode": "Edit" }
       ],
       "name": "Contact Details",
       "stepType": "FieldList",
@@ -266,8 +266,8 @@
     {
       "id": "Step3",
       "fields": [
-        { "name": "YourAddress", "Sequence": "1", "Mode": "Edit" },
-        { "name": "Postcode", "Sequence": "1", "Mode": "Edit" }
+        { "name": "YourAddress",  "Mode": "Edit" },
+        { "name": "Postcode",  "Mode": "Edit" }
       ],
       "name": "Address",
       "stepType": "FieldList",
@@ -276,10 +276,10 @@
     {
       "id": "Step4",
       "fields": [
-        { "name": "ProblemDetail", "Sequence": "1", "Mode": "Edit" },
-        { "name": "Address", "Sequence": "1", "Mode": "Edit" },
-        { "name": "IncidentDate", "Sequence": "1", "Mode": "Edit" },
-        { "name": "IncidentTime", "Sequence": "1", "Mode": "Edit" }
+        { "name": "ProblemDetail",  "Mode": "Edit" },
+        { "name": "Address",  "Mode": "Edit" },
+        { "name": "IncidentDate",  "Mode": "Edit" },
+        { "name": "IncidentTime",  "Mode": "Edit" }
       ],
       "name": "Problem Details",
       "stepType": "FieldList",
@@ -287,14 +287,14 @@
     },
     {
       "id": "Step5",
-      "fields": [{ "name": "Status", "Sequence": "1", "Mode": "Edit" }],
+      "fields": [{ "name": "Status",  "Mode": "Edit" }],
       "name": "Admin",
       "stepType": "FieldList",
       "intro": "Problem in a play area : Admin"
     },
     {
       "id": "Step6",
-      "fields": [{ "name": "Attachment", "Sequence": "1", "Mode": "Edit" }],
+      "fields": [{ "name": "Attachment",  "Mode": "Edit" }],
       "name": "Images and Attachment",
       "stepType": "FieldList",
       "intro": "Problem in a play area : Images and Attachment"

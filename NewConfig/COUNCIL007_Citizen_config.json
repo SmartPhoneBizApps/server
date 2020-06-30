@@ -325,7 +325,7 @@
   "Wizard": [
     {
       "id": "Step1",
-      "fields": [{ "name": "AdditionalInfo", "Sequence": "1", "Mode": "Edit" }],
+      "fields": [{ "name": "AdditionalInfo",  "Mode": "Edit" }],
       "name": "Request Details",
       "stepType": "FieldList",
       "intro": "Order new bins  boxes : Request Details"
@@ -333,10 +333,10 @@
     {
       "id": "Step2",
       "fields": [
-        { "name": "ContactName", "Sequence": "1", "Mode": "Edit" },
-        { "name": "ContactNo", "Sequence": "1", "Mode": "Edit" },
-        { "name": "Email", "Sequence": "1", "Mode": "Edit" },
-        { "name": "Country", "Sequence": "1", "Mode": "Edit" }
+        { "name": "ContactName",  "Mode": "Edit" },
+        { "name": "ContactNo",  "Mode": "Edit" },
+        { "name": "Email",  "Mode": "Edit" },
+        { "name": "Country",  "Mode": "Edit" }
       ],
       "name": "Contact Details",
       "stepType": "FieldList",
@@ -345,9 +345,9 @@
     {
       "id": "Step3",
       "fields": [
-        { "name": "HouseName", "Sequence": "1", "Mode": "Edit" },
-        { "name": "HouseNo", "Sequence": "1", "Mode": "Edit" },
-        { "name": "Postcode", "Sequence": "1", "Mode": "Edit" }
+        { "name": "HouseName",  "Mode": "Edit" },
+        { "name": "HouseNo",  "Mode": "Edit" },
+        { "name": "Postcode",  "Mode": "Edit" }
       ],
       "name": "Address",
       "stepType": "FieldList",
@@ -356,16 +356,16 @@
     {
       "id": "Step4",
       "fields": [
-        { "name": "Q1", "Sequence": "1", "Mode": "Display" },
-        { "name": "A1", "Sequence": "1", "Mode": "Edit" },
-        { "name": "Q2", "Sequence": "1", "Mode": "Display" },
-        { "name": "A2", "Sequence": "1", "Mode": "Edit" },
-        { "name": "Q3", "Sequence": "1", "Mode": "Display" },
-        { "name": "A3", "Sequence": "1", "Mode": "Edit" },
-        { "name": "Q4", "Sequence": "1", "Mode": "Display" },
-        { "name": "A4", "Sequence": "1", "Mode": "Edit" },
-        { "name": "Q5", "Sequence": "1", "Mode": "Display" },
-        { "name": "A5", "Sequence": "1", "Mode": "Edit" }
+        { "name": "Q1",  "Mode": "Display" },
+        { "name": "A1",  "Mode": "Edit" },
+        { "name": "Q2",  "Mode": "Display" },
+        { "name": "A2",  "Mode": "Edit" },
+        { "name": "Q3",  "Mode": "Display" },
+        { "name": "A3",  "Mode": "Edit" },
+        { "name": "Q4",  "Mode": "Display" },
+        { "name": "A4",  "Mode": "Edit" },
+        { "name": "Q5",  "Mode": "Display" },
+        { "name": "A5",  "Mode": "Edit" }
       ],
       "name": "Q and A",
       "stepType": "FieldList",
@@ -373,14 +373,14 @@
     },
     {
       "id": "Step5",
-      "fields": [{ "name": "RequestDate", "Sequence": "1", "Mode": "Edit" }],
+      "fields": [{ "name": "RequestDate",  "Mode": "Edit" }],
       "name": "Dates",
       "stepType": "FieldList",
       "intro": "Order new bins boxes : Dates"
     },
     {
       "id": "Step6",
-      "fields": [{ "name": "Status", "Sequence": "1", "Mode": "Edit" }],
+      "fields": [{ "name": "Status",  "Mode": "Edit" }],
       "name": "Admin",
       "stepType": "FieldList",
       "intro": "Order new bins boxes : Admin"

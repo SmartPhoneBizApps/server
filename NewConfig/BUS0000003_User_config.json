@@ -245,13 +245,13 @@
     {
       "id": "Step1",
       "fields": [
-        { "name": "From", "Sequence": "1", "Mode": "Edit" },
-        { "name": "To", "Sequence": "1", "Mode": "Edit" },
-        { "name": "StartDate", "Sequence": "1", "Mode": "Edit" },
-        { "name": "StartTime", "Sequence": "1", "Mode": "Edit" },
-        { "name": "ReturnJourney", "Sequence": "1", "Mode": "Edit" },
-        { "name": "ReturnDate", "Sequence": "1", "Mode": "Edit" },
-        { "name": "ReturnTime", "Sequence": "1", "Mode": "Edit" }
+        { "name": "From",  "Mode": "Edit" },
+        { "name": "To",  "Mode": "Edit" },
+        { "name": "StartDate",  "Mode": "Edit" },
+        { "name": "StartTime",  "Mode": "Edit" },
+        { "name": "ReturnJourney",  "Mode": "Edit" },
+        { "name": "ReturnDate",  "Mode": "Edit" },
+        { "name": "ReturnTime",  "Mode": "Edit" }
       ],
       "name": "Journey Details",
       "stepType": "FieldList",
@@ -260,8 +260,8 @@
     {
       "id": "Step2",
       "fields": [
-        { "name": "Phone", "Sequence": "1", "Mode": "Edit" },
-        { "name": "UserAccount", "Sequence": "1", "Mode": "Edit" }
+        { "name": "Phone",  "Mode": "Edit" },
+        { "name": "UserAccount",  "Mode": "Edit" }
       ],
       "name": "Personnel Details",
       "stepType": "FieldList",
@@ -270,9 +270,9 @@
     {
       "id": "Step3",
       "fields": [
-        { "name": "TaxiFare", "Sequence": "1", "Mode": "Edit" },
-        { "name": "Currency", "Sequence": "1", "Mode": "Edit" },
-        { "name": "CostCentre", "Sequence": "1", "Mode": "Edit" }
+        { "name": "TaxiFare",  "Mode": "Edit" },
+        { "name": "Currency",  "Mode": "Edit" },
+        { "name": "CostCentre",  "Mode": "Edit" }
       ],
       "name": "Finance Data",
       "stepType": "FieldList",
@@ -281,8 +281,8 @@
     {
       "id": "Step4",
       "fields": [
-        { "name": "Name", "Sequence": "1", "Mode": "Edit" },
-        { "name": "Email", "Sequence": "1", "Mode": "Edit" }
+        { "name": "Name",  "Mode": "Edit" },
+        { "name": "Email",  "Mode": "Edit" }
       ],
       "name": "Contact Details",
       "stepType": "FieldList",
@@ -290,7 +290,7 @@
     },
     {
       "id": "Step5",
-      "fields": [{ "name": "Status", "Sequence": "1", "Mode": "Edit" }],
+      "fields": [{ "name": "Status",  "Mode": "Edit" }],
       "name": "Admin",
       "stepType": "FieldList",
       "intro": "Online Taxi Booking : Admin"

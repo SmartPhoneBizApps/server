@@ -270,7 +270,7 @@
       {
         "name": "ItemNumber",
         "Tab": "Tab3",
-        "Sequence": "1",
+        
         "Mode": "Display"
       },
       { "name": "EntryDate", "Tab": "Tab3", "Sequence": "2", "Mode": "Edit" },
@@ -292,8 +292,8 @@
     {
       "id": "Step1",
       "fields": [
-        { "name": "EmployeeID", "Sequence": "1", "Mode": "Edit" },
-        { "name": "Name", "Sequence": "1", "Mode": "Edit" }
+        { "name": "EmployeeID",  "Mode": "Edit" },
+        { "name": "Name",  "Mode": "Edit" }
       ],
       "name": "Employee Details",
       "stepType": "FieldList",
@@ -302,10 +302,10 @@
     {
       "id": "Step2",
       "fields": [
-        { "name": "ProjectCode", "Sequence": "1", "Mode": "Edit" },
-        { "name": "CostCentre", "Sequence": "1", "Mode": "Edit" },
-        { "name": "CostDetail", "Sequence": "1", "Mode": "Edit" },
-        { "name": "Location", "Sequence": "1", "Mode": "Edit" }
+        { "name": "ProjectCode",  "Mode": "Edit" },
+        { "name": "CostCentre",  "Mode": "Edit" },
+        { "name": "CostDetail",  "Mode": "Edit" },
+        { "name": "Location",  "Mode": "Edit" }
       ],
       "name": "Expense Details",
       "stepType": "FieldList",
@@ -314,11 +314,11 @@
     {
       "id": "Step3",
       "fields": [
-        { "name": "TravelRequest", "Sequence": "1", "Mode": "Edit" },
-        { "name": "TravelDtFrom", "Sequence": "1", "Mode": "Edit" },
-        { "name": "TravelDateTo", "Sequence": "1", "Mode": "Edit" },
-        { "name": "TravelCost", "Sequence": "1", "Mode": "Edit" },
-        { "name": "TravelDetail", "Sequence": "1", "Mode": "Edit" }
+        { "name": "TravelRequest",  "Mode": "Edit" },
+        { "name": "TravelDtFrom",  "Mode": "Edit" },
+        { "name": "TravelDateTo",  "Mode": "Edit" },
+        { "name": "TravelCost",  "Mode": "Edit" },
+        { "name": "TravelDetail",  "Mode": "Edit" }
       ],
       "name": "Travel Details",
       "stepType": "FieldList",
@@ -327,8 +327,8 @@
     {
       "id": "Step4",
       "fields": [
-        { "name": "Status", "Sequence": "1", "Mode": "Edit" },
-        { "name": "Justification", "Sequence": "1", "Mode": "Edit" }
+        { "name": "Status",  "Mode": "Edit" },
+        { "name": "Justification",  "Mode": "Edit" }
       ],
       "name": "Admin And Justification",
       "stepType": "FieldList",

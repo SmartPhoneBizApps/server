@@ -208,7 +208,7 @@
     {
       "id": "Step1",
       "fields": [
-        { "name": "DateOfComplaint", "Sequence": "1", "Mode": "Edit" }
+        { "name": "DateOfComplaint",  "Mode": "Edit" }
       ],
       "name": "Complaint Details",
       "stepType": "FieldList",
@@ -217,8 +217,8 @@
     {
       "id": "Step2",
       "fields": [
-        { "name": "DescribeIncident", "Sequence": "1", "Mode": "Edit" },
-        { "name": "AdditionalComments", "Sequence": "1", "Mode": "Edit" }
+        { "name": "DescribeIncident",  "Mode": "Edit" },
+        { "name": "AdditionalComments",  "Mode": "Edit" }
       ],
       "name": "Incident Details",
       "stepType": "FieldList",
@@ -226,7 +226,7 @@
     },
     {
       "id": "Step3",
-      "fields": [{ "name": "AgainstWhom", "Sequence": "1", "Mode": "Edit" }],
+      "fields": [{ "name": "AgainstWhom",  "Mode": "Edit" }],
       "name": "Against Whom",
       "stepType": "FieldList",
       "intro": "Employee Complaint : Against Whom"
@@ -234,8 +234,8 @@
     {
       "id": "Step4",
       "fields": [
-        { "name": "Supervisor", "Sequence": "1", "Mode": "Edit" },
-        { "name": "SupervisorComment", "Sequence": "1", "Mode": "Edit" }
+        { "name": "Supervisor",  "Mode": "Edit" },
+        { "name": "SupervisorComment",  "Mode": "Edit" }
       ],
       "name": "Supervisor",
       "stepType": "FieldList",
@@ -244,9 +244,9 @@
     {
       "id": "Step5",
       "fields": [
-        { "name": "Name", "Sequence": "1", "Mode": "Edit" },
-        { "name": "Email", "Sequence": "1", "Mode": "Edit" },
-        { "name": "Phone", "Sequence": "1", "Mode": "Edit" }
+        { "name": "Name",  "Mode": "Edit" },
+        { "name": "Email",  "Mode": "Edit" },
+        { "name": "Phone",  "Mode": "Edit" }
       ],
       "name": "Contact Details",
       "stepType": "FieldList",
@@ -254,7 +254,7 @@
     },
     {
       "id": "Step6",
-      "fields": [{ "name": "Status", "Sequence": "1", "Mode": "Edit" }],
+      "fields": [{ "name": "Status",  "Mode": "Edit" }],
       "name": "Admin",
       "stepType": "FieldList",
       "intro": "Employee Complaint : Admin"

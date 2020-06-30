@@ -347,26 +347,26 @@
       {
         "name": "ItemNumber",
         "Tab": "Tab4",
-        "Sequence": "1",
+        
         "Mode": "Display"
       },
-      { "name": "Subject", "Tab": "Tab4", "Sequence": "1", "Mode": "Edit" },
-      { "name": "TeacherName", "Tab": "Tab4", "Sequence": "1", "Mode": "Edit" },
-      { "name": "TermGrade", "Tab": "Tab4", "Sequence": "1", "Mode": "Edit" },
-      { "name": "GoodPoints", "Tab": "Tab4", "Sequence": "1", "Mode": "Edit" },
+      { "name": "Subject", "Tab": "Tab4",  "Mode": "Edit" },
+      { "name": "TeacherName", "Tab": "Tab4",  "Mode": "Edit" },
+      { "name": "TermGrade", "Tab": "Tab4",  "Mode": "Edit" },
+      { "name": "GoodPoints", "Tab": "Tab4",  "Mode": "Edit" },
       {
         "name": "ImprovementNeeded",
         "Tab": "Tab4",
-        "Sequence": "1",
+        
         "Mode": "Edit"
       },
       {
         "name": "NextTermTarget",
         "Tab": "Tab4",
-        "Sequence": "1",
+        
         "Mode": "Edit"
       },
-      { "name": "TargetGrade", "Tab": "Tab4", "Sequence": "1", "Mode": "Edit" }
+      { "name": "TargetGrade", "Tab": "Tab4",  "Mode": "Edit" }
     ]
   },
   "CalculatedFields": { "Item": [], "HeaderItem": [], "Header": [] },
@@ -375,12 +375,12 @@
     {
       "id": "Step1",
       "fields": [
-        { "name": "StudentName", "Sequence": "1", "Mode": "Edit" },
-        { "name": "Surname", "Sequence": "1", "Mode": "Edit" },
-        { "name": "StudentID", "Sequence": "1", "Mode": "Edit" },
-        { "name": "ParentEmail", "Sequence": "1", "Mode": "Edit" },
-        { "name": "StudyYear", "Sequence": "1", "Mode": "Edit" },
-        { "name": "Section", "Sequence": "1", "Mode": "Edit" }
+        { "name": "StudentName",  "Mode": "Edit" },
+        { "name": "Surname",  "Mode": "Edit" },
+        { "name": "StudentID",  "Mode": "Edit" },
+        { "name": "ParentEmail",  "Mode": "Edit" },
+        { "name": "StudyYear",  "Mode": "Edit" },
+        { "name": "Section",  "Mode": "Edit" }
       ],
       "name": "Student Details",
       "stepType": "FieldList",
@@ -388,7 +388,7 @@
     },
     {
       "id": "Step2",
-      "fields": [{ "name": "Behaviour", "Sequence": "1", "Mode": "Edit" }],
+      "fields": [{ "name": "Behaviour",  "Mode": "Edit" }],
       "name": "Behaviour Details",
       "stepType": "FieldList",
       "intro": "Behaviour  Details"
@@ -396,8 +396,8 @@
     {
       "id": "Step3",
       "fields": [
-        { "name": "MeritPoints", "Sequence": "1", "Mode": "Edit" },
-        { "name": "Attendance", "Sequence": "1", "Mode": "Edit" }
+        { "name": "MeritPoints",  "Mode": "Edit" },
+        { "name": "Attendance",  "Mode": "Edit" }
       ],
       "name": "Progress Details",
       "stepType": "FieldList",
@@ -406,10 +406,10 @@
     {
       "id": "Step4",
       "fields": [
-        { "name": "TermReport", "Sequence": "1", "Mode": "Edit" },
-        { "name": "ReportDate", "Sequence": "1", "Mode": "Edit" },
-        { "name": "Status", "Sequence": "1", "Mode": "Edit" },
-        { "name": "Email", "Sequence": "1", "Mode": "Edit" }
+        { "name": "TermReport",  "Mode": "Edit" },
+        { "name": "ReportDate",  "Mode": "Edit" },
+        { "name": "Status",  "Mode": "Edit" },
+        { "name": "Email",  "Mode": "Edit" }
       ],
       "name": "other Details",
       "stepType": "FieldList",

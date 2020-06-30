@@ -336,11 +336,11 @@
     {
       "id": "Step1",
       "fields": [
-        { "name": "Name", "Sequence": "1", "Mode": "Edit" },
-        { "name": "ContactNo", "Sequence": "1", "Mode": "Edit" },
-        { "name": "Email", "Sequence": "1", "Mode": "Edit" },
-        { "name": "Postcode", "Sequence": "1", "Mode": "Edit" },
-        { "name": "Address", "Sequence": "1", "Mode": "Edit" }
+        { "name": "Name",  "Mode": "Edit" },
+        { "name": "ContactNo",  "Mode": "Edit" },
+        { "name": "Email",  "Mode": "Edit" },
+        { "name": "Postcode",  "Mode": "Edit" },
+        { "name": "Address",  "Mode": "Edit" }
       ],
       "name": "YourDetails",
       "stepType": "FieldList",
@@ -349,10 +349,10 @@
     {
       "id": "Step2",
       "fields": [
-        { "name": "FaultLocation", "Sequence": "1", "Mode": "Edit" },
-        { "name": "StreetName", "Sequence": "1", "Mode": "Edit" },
-        { "name": "NearestLandmark", "Sequence": "1", "Mode": "Edit" },
-        { "name": "PayDisplayMachineNo", "Sequence": "1", "Mode": "Edit" }
+        { "name": "FaultLocation",  "Mode": "Edit" },
+        { "name": "StreetName",  "Mode": "Edit" },
+        { "name": "NearestLandmark",  "Mode": "Edit" },
+        { "name": "PayDisplayMachineNo",  "Mode": "Edit" }
       ],
       "name": "FaultLocation",
       "stepType": "FieldList",
@@ -361,9 +361,9 @@
     {
       "id": "Step3",
       "fields": [
-        { "name": "Site", "Sequence": "1", "Mode": "Edit" },
-        { "name": "StreetLightNo", "Sequence": "1", "Mode": "Edit" },
-        { "name": "TrafficLightNo", "Sequence": "1", "Mode": "Edit" }
+        { "name": "Site",  "Mode": "Edit" },
+        { "name": "StreetLightNo",  "Mode": "Edit" },
+        { "name": "TrafficLightNo",  "Mode": "Edit" }
       ],
       "name": "Fault/Problem Details",
       "stepType": "FieldList",
@@ -371,7 +371,7 @@
     },
     {
       "id": "Step4",
-      "fields": [{ "name": "Attachment", "Sequence": "1", "Mode": "Edit" }],
+      "fields": [{ "name": "Attachment",  "Mode": "Edit" }],
       "name": "Attachment",
       "stepType": "FieldList",
       "intro": "Report Fault : Fault Images"
@@ -379,8 +379,8 @@
     {
       "id": "Step5",
       "fields": [
-        { "name": "ReportType", "Sequence": "1", "Mode": "Display" },
-        { "name": "Status", "Sequence": "1", "Mode": "Edit" }
+        { "name": "ReportType",  "Mode": "Display" },
+        { "name": "Status",  "Mode": "Edit" }
       ],
       "name": "OtherInfo",
       "stepType": "FieldList",

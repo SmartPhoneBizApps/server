@@ -646,27 +646,27 @@
     },
     "CreateFields": ["Description", "Amount", "ID", "Currency", "ItemStatus"],
     "ItemDetails": [
-      { "name": "ItemNumber", "Tab": "Tab3", "Sequence": "1", "Mode": "Edit" },
-      { "name": "Description", "Tab": "Tab3", "Sequence": "1", "Mode": "Edit" },
-      { "name": "Amount", "Tab": "Tab3", "Sequence": "1", "Mode": "Edit" },
-      { "name": "Currency", "Tab": "Tab3", "Sequence": "1", "Mode": "Edit" },
-      { "name": "ID", "Tab": "Tab3", "Sequence": "1", "Mode": "Edit" },
-      { "name": "ItemStatus", "Tab": "Tab3", "Sequence": "1", "Mode": "Edit" },
-      { "name": "DueDate", "Tab": "Tab3", "Sequence": "1", "Mode": "Edit" },
-      { "name": "PaidAmount", "Tab": "Tab3", "Sequence": "1", "Mode": "Edit" },
+      { "name": "ItemNumber", "Tab": "Tab3",  "Mode": "Edit" },
+      { "name": "Description", "Tab": "Tab3",  "Mode": "Edit" },
+      { "name": "Amount", "Tab": "Tab3",  "Mode": "Edit" },
+      { "name": "Currency", "Tab": "Tab3",  "Mode": "Edit" },
+      { "name": "ID", "Tab": "Tab3",  "Mode": "Edit" },
+      { "name": "ItemStatus", "Tab": "Tab3",  "Mode": "Edit" },
+      { "name": "DueDate", "Tab": "Tab3",  "Mode": "Edit" },
+      { "name": "PaidAmount", "Tab": "Tab3",  "Mode": "Edit" },
       {
         "name": "PaymentMethod",
         "Tab": "Tab3",
-        "Sequence": "1",
+        
         "Mode": "Edit"
       },
       {
         "name": "AuthorizationCode",
         "Tab": "Tab3",
-        "Sequence": "1",
+        
         "Mode": "Edit"
       },
-      { "name": "PaidBy", "Tab": "Tab3", "Sequence": "1", "Mode": "Edit" }
+      { "name": "PaidBy", "Tab": "Tab3",  "Mode": "Edit" }
     ]
   },
   "CalculatedFields": {
@@ -722,11 +722,11 @@
     {
       "id": "Step1",
       "fields": [
-        { "name": "FirstName", "Sequence": "1", "Mode": "Edit" },
-        { "name": "LastName", "Sequence": "1", "Mode": "Edit" },
-        { "name": "Gender", "Sequence": "1", "Mode": "Edit" },
-        { "name": "NHSNumber", "Sequence": "1", "Mode": "Edit" },
-        { "name": "ProfileImage", "Sequence": "1", "Mode": "Edit" }
+        { "name": "FirstName",  "Mode": "Edit" },
+        { "name": "LastName",  "Mode": "Edit" },
+        { "name": "Gender",  "Mode": "Edit" },
+        { "name": "NHSNumber",  "Mode": "Edit" },
+        { "name": "ProfileImage",  "Mode": "Edit" }
       ],
       "name": "Basic Information",
       "stepType": "FieldList",
@@ -735,11 +735,11 @@
     {
       "id": "Step2",
       "fields": [
-        { "name": "Email", "Sequence": "1", "Mode": "Edit" },
-        { "name": "ContactNo", "Sequence": "1", "Mode": "Edit" },
-        { "name": "PostCode", "Sequence": "1", "Mode": "Edit" },
-        { "name": "HouseNumber", "Sequence": "1", "Mode": "Edit" },
-        { "name": "Address", "Sequence": "1", "Mode": "Edit" }
+        { "name": "Email",  "Mode": "Edit" },
+        { "name": "ContactNo",  "Mode": "Edit" },
+        { "name": "PostCode",  "Mode": "Edit" },
+        { "name": "HouseNumber",  "Mode": "Edit" },
+        { "name": "Address",  "Mode": "Edit" }
       ],
       "name": "Contact Details",
       "stepType": "FieldList",
@@ -748,10 +748,10 @@
     {
       "id": "Step3",
       "fields": [
-        { "name": "Group", "Sequence": "1", "Mode": "Edit" },
-        { "name": "PatientType", "Sequence": "1", "Mode": "Edit" },
-        { "name": "Status", "Sequence": "1", "Mode": "Edit" },
-        { "name": "PatientStatus", "Sequence": "1", "Mode": "Edit" }
+        { "name": "Group",  "Mode": "Edit" },
+        { "name": "PatientType",  "Mode": "Edit" },
+        { "name": "Status",  "Mode": "Edit" },
+        { "name": "PatientStatus",  "Mode": "Edit" }
       ],
       "name": "Status Info",
       "stepType": "FieldList",

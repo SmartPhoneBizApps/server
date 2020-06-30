@@ -351,11 +351,11 @@
     {
       "id": "Step1",
       "fields": [
-        { "name": "LeaveFrom", "Sequence": "1", "Mode": "Edit" },
-        { "name": "LeaveTo", "Sequence": "1", "Mode": "Edit" },
-        { "name": "LeaveDays", "Sequence": "1", "Mode": "Edit" },
-        { "name": "LeaveType", "Sequence": "1", "Mode": "Edit" },
-        { "name": "LeaveReason", "Sequence": "1", "Mode": "Edit" }
+        { "name": "LeaveFrom",  "Mode": "Edit" },
+        { "name": "LeaveTo",  "Mode": "Edit" },
+        { "name": "LeaveDays",  "Mode": "Edit" },
+        { "name": "LeaveType",  "Mode": "Edit" },
+        { "name": "LeaveReason",  "Mode": "Edit" }
       ],
       "name": "Leave Details",
       "stepType": "FieldList",
@@ -364,10 +364,10 @@
     {
       "id": "Step2",
       "fields": [
-        { "name": "Name", "Sequence": "1", "Mode": "Edit" },
-        { "name": "ContactNo", "Sequence": "1", "Mode": "Edit" },
-        { "name": "EmployeeID", "Sequence": "1", "Mode": "Edit" },
-        { "name": "Email", "Sequence": "1", "Mode": "Edit" }
+        { "name": "Name",  "Mode": "Edit" },
+        { "name": "ContactNo",  "Mode": "Edit" },
+        { "name": "EmployeeID",  "Mode": "Edit" },
+        { "name": "Email",  "Mode": "Edit" }
       ],
       "name": "Employee Details",
       "stepType": "FieldList",
@@ -375,7 +375,7 @@
     },
     {
       "id": "Step3",
-      "fields": [{ "name": "PostCode", "Sequence": "1", "Mode": "Edit" }],
+      "fields": [{ "name": "PostCode",  "Mode": "Edit" }],
       "name": "Address",
       "stepType": "FieldList",
       "intro": "Leave Request  : Address"
@@ -383,8 +383,8 @@
     {
       "id": "Step4",
       "fields": [
-        { "name": "CostCentre", "Sequence": "1", "Mode": "Edit" },
-        { "name": "Approver", "Sequence": "1", "Mode": "Edit" }
+        { "name": "CostCentre",  "Mode": "Edit" },
+        { "name": "Approver",  "Mode": "Edit" }
       ],
       "name": "Cost Center",
       "stepType": "FieldList",
@@ -392,7 +392,7 @@
     },
     {
       "id": "Step7",
-      "fields": [{ "name": "Status", "Sequence": "1", "Mode": "Edit" }],
+      "fields": [{ "name": "Status",  "Mode": "Edit" }],
       "name": "Admin",
       "stepType": "FieldList",
       "intro": "Leave Request  : Admin"

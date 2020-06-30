@@ -378,24 +378,24 @@
       {
         "name": "ItemNumber",
         "Tab": "Tab4",
-        "Sequence": "1",
+        
         "Mode": "Display"
       },
-      { "name": "ProjectCode", "Tab": "Tab4", "Sequence": "1", "Mode": "Edit" },
-      { "name": "Date", "Tab": "Tab4", "Sequence": "1", "Mode": "Edit" },
+      { "name": "ProjectCode", "Tab": "Tab4",  "Mode": "Edit" },
+      { "name": "Date", "Tab": "Tab4",  "Mode": "Edit" },
       {
         "name": "TotalRegWorkHours",
         "Tab": "Tab4",
-        "Sequence": "1",
+        
         "Mode": "Edit"
       },
       {
         "name": "OvertimeHours",
         "Tab": "Tab4",
-        "Sequence": "1",
+        
         "Mode": "Edit"
       },
-      { "name": "Comment", "Tab": "Tab4", "Sequence": "1", "Mode": "Edit" }
+      { "name": "Comment", "Tab": "Tab4",  "Mode": "Edit" }
     ]
   },
   "CalculatedFields": {
@@ -501,9 +501,9 @@
     {
       "id": "Step1",
       "fields": [
-        { "name": "Name", "Sequence": "1", "Mode": "Edit" },
-        { "name": "EmployeeID", "Sequence": "1", "Mode": "Edit" },
-        { "name": "Approver", "Sequence": "1", "Mode": "Display" }
+        { "name": "Name",  "Mode": "Edit" },
+        { "name": "EmployeeID",  "Mode": "Edit" },
+        { "name": "Approver",  "Mode": "Display" }
       ],
       "name": "Employee Details",
       "stepType": "FieldList",
@@ -512,8 +512,8 @@
     {
       "id": "Step2",
       "fields": [
-        { "name": "StartDate", "Sequence": "1", "Mode": "Edit" },
-        { "name": "EndDate", "Sequence": "1", "Mode": "Edit" }
+        { "name": "StartDate",  "Mode": "Edit" },
+        { "name": "EndDate",  "Mode": "Edit" }
       ],
       "name": "Timesheet Duration",
       "stepType": "FieldList",
@@ -522,9 +522,9 @@
     {
       "id": "Step3",
       "fields": [
-        { "name": "TotalRegHours", "Sequence": "1", "Mode": "Display" },
-        { "name": "HourlyRate", "Sequence": "1", "Mode": "Display" },
-        { "name": "RegularNetAmount", "Sequence": "1", "Mode": "Display" }
+        { "name": "TotalRegHours",  "Mode": "Display" },
+        { "name": "HourlyRate",  "Mode": "Display" },
+        { "name": "RegularNetAmount",  "Mode": "Display" }
       ],
       "name": "Regular hours Details",
       "stepType": "FieldList",
@@ -533,9 +533,9 @@
     {
       "id": "Step4",
       "fields": [
-        { "name": "TotalOvertimeHours", "Sequence": "1", "Mode": "Display" },
-        { "name": "OvertimeRate", "Sequence": "1", "Mode": "Display" },
-        { "name": "OvertimeNetAmount", "Sequence": "1", "Mode": "Display" }
+        { "name": "TotalOvertimeHours",  "Mode": "Display" },
+        { "name": "OvertimeRate",  "Mode": "Display" },
+        { "name": "OvertimeNetAmount",  "Mode": "Display" }
       ],
       "name": "Overtime Details",
       "stepType": "FieldList",
@@ -544,11 +544,11 @@
     {
       "id": "Step5",
       "fields": [
-        { "name": "NetAmount", "Sequence": "1", "Mode": "Display" },
-        { "name": "VATRate", "Sequence": "1", "Mode": "Display" },
-        { "name": "VATAmount", "Sequence": "1", "Mode": "Display" },
-        { "name": "GrossAmount", "Sequence": "1", "Mode": "Display" },
-        { "name": "Status", "Sequence": "1", "Mode": "Edit" }
+        { "name": "NetAmount",  "Mode": "Display" },
+        { "name": "VATRate",  "Mode": "Display" },
+        { "name": "VATAmount",  "Mode": "Display" },
+        { "name": "GrossAmount",  "Mode": "Display" },
+        { "name": "Status",  "Mode": "Edit" }
       ],
       "name": "Amount",
       "stepType": "FieldList",
