@@ -5,7 +5,7 @@
   },
   "Controls": {
     "USP": "UserProfile",
-    "UserSpecific":"Yes",
+    "UserSpecific": "Yes",
     "Update": "Yes",
     "URL": "https://fierce-oasis-51455.herokuapp.com",
     "Source": { "SourceName": "mongoDB", "SourceFile": "NA" }
@@ -59,24 +59,28 @@
   "Tabs": [
     {
       "value": "Tab0",
+      "update": "No",
       "name": "Cards",
       "type": "Cards",
       "fioriicon": "responsive"
     },
     {
       "value": "Tab1",
+      "update": "Yes",
       "name": "XXX",
       "type": "Field",
       "fioriicon": "work-history"
     },
     {
       "value": "Tab2",
+      "update": "Yes",
       "name": "Attachments",
       "type": "MultiAttachments",
       "fioriicon": "contacts"
     },
     {
       "value": "Tab4",
+      "update": "Yes",
       "name": "Certifications",
       "type": "carouselImage",
       "fioriicon": "contacts"
@@ -120,6 +124,7 @@
     {
       "name": "MultiAttachments",
       "type": "attachment",
+      "metadata": "MultipleFields",
       "width": "200",
       "Option": "Optional",
       "SLabel": "CV",
@@ -128,6 +133,7 @@
     {
       "name": "carouselImage",
       "type": "attachment",
+      "metadata": "OnlyFileName",
       "width": "200",
       "Option": "Optional",
       "SLabel": "Certificates",

@@ -5,7 +5,7 @@
   },
   "Controls": {
     "USP": "UserProfile",
-    "UserSpecific":"Yes",
+    "UserSpecific": "Yes",
     "Update": "Yes",
     "URL": "https://fierce-oasis-51455.herokuapp.com",
     "Source": {
@@ -87,12 +87,14 @@
   "Tabs": [
     {
       "value": "Tab0",
+      "update": "No",
       "name": "Cards",
       "type": "Cards",
       "fioriicon": "responsive"
     },
     {
       "value": "Tab1",
+      "update": "Yes",
       "name": "Course Details",
       "type": "FieldGroup",
       "fioriicon": "notes"
@@ -100,18 +102,21 @@
 
     {
       "value": "Tab3",
+      "update": "Yes",
       "name": "Learning Documents",
       "type": "MultiAttachments",
       "fioriicon": "contacts"
     },
     {
       "value": "Tab4",
+      "update": "Yes",
       "name": "Video",
       "fioriicon": "step",
       "type": "video"
     },
     {
       "value": "Tab5",
+      "update": "Yes",
       "name": "Questioner",
       "fioriicon": "toaster-up",
       "type": "Table"
@@ -467,6 +472,7 @@
     {
       "name": "MultiAttachments",
       "type": "attachment",
+      "metadata": "MultipleFields",
       "width": "200",
       "Option": "Optional",
       "SLabel": "Learning Documents",

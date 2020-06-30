@@ -5,7 +5,7 @@
   },
   "Controls": {
     "USP": "UserProfile",
-    "UserSpecific":"Yes",
+    "UserSpecific": "Yes",
     "Update": "Yes",
     "URL": "https://fierce-oasis-51455.herokuapp.com",
     "Source": { "SourceName": "mongoDB", "SourceFile": "NA" }
@@ -62,24 +62,39 @@
   "Tabs": [
     {
       "value": "Tab0",
+      "update": "No",
       "name": "Cards",
       "type": "Cards",
       "fioriicon": "responsive"
     },
     {
       "value": "Tab1",
+      "update": "Yes",
       "name": "GR",
       "type": "Field",
       "fioriicon": "cargo-train"
     },
-    { "value": "Tab2", "name": "PO", "type": "Field", "fioriicon": "document" },
+    {
+      "value": "Tab2",
+      "update": "Yes",
+      "name": "PO",
+      "type": "Field",
+      "fioriicon": "document"
+    },
     {
       "value": "Tab4",
+      "update": "Yes",
       "name": "Attachment",
       "type": "Attachment",
       "fioriicon": "attachment"
     },
-    { "value": "Tab5", "name": "PO2", "type": "Field", "fioriicon": "document" }
+    {
+      "value": "Tab5",
+      "update": "Yes",
+      "name": "PO2",
+      "type": "Field",
+      "fioriicon": "document"
+    }
   ],
   "DetailFields": {
     "headerTitle": ["USP_Name"],
@@ -318,7 +333,8 @@
     {
       "name": "Attachment",
       "type": "attachment",
-      "width": "100",
+      "metadata": "MultipleFields",
+      "width": "200",
       "Option": "Optional",
       "SLabel": "Attachment",
       "LLabel": ""

@@ -5,7 +5,7 @@
   },
   "Controls": {
     "USP": "UserProfile",
-    "UserSpecific":"Yes",
+    "UserSpecific": "Yes",
     "Update": "Yes",
     "URL": "https://fierce-oasis-51455.herokuapp.com",
     "Source": { "SourceName": "mongoDB", "SourceFile": "NA" }
@@ -62,30 +62,35 @@
   "Tabs": [
     {
       "value": "Tab0",
+      "update": "No",
       "name": "Cards",
       "type": "Cards",
       "fioriicon": "responsive"
     },
     {
       "value": "Tab1",
+      "update": "Yes",
       "name": "Traveller",
       "fioriicon": "customer",
       "type": "Field"
     },
     {
       "value": "Tab2",
+      "update": "Yes",
       "name": "Flight",
       "fioriicon": "flight",
       "type": "Field"
     },
     {
       "value": "Tab3",
+      "update": "Yes",
       "name": "Booking",
       "fioriicon": "travel-expense",
       "type": "Field"
     },
     {
       "value": "Tab4",
+      "update": "Yes",
       "name": "Attachment",
       "fioriicon": "attachment",
       "type": "MultiAttachments",
@@ -93,6 +98,7 @@
     },
     {
       "value": "Tab5",
+      "update": "Yes",
       "name": "ScreenShots",
       "type": "carouselImage",
       "fioriicon": "contacts",
@@ -307,6 +313,7 @@
     {
       "name": "ScreenShot",
       "type": "attachment",
+      "metadata": "OnlyFileName",
       "width": "100",
       "Option": "Optional",
       "SLabel": "Screen Shot",
@@ -315,6 +322,7 @@
     {
       "name": "Attachment",
       "type": "attachment",
+      "metadata": "MultipleFields",
       "width": "100",
       "Option": "Optional",
       "SLabel": "Attachment",

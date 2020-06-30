@@ -2,7 +2,7 @@
   "Title": { "ApplicationTitle": "Expense", "DetailTitle": "Expense" },
   "Controls": {
     "USP": "UserProfile",
-    "UserSpecific":"Yes",
+    "UserSpecific": "Yes",
     "Update": "Yes",
     "URL": "https://fierce-oasis-51455.herokuapp.com",
     "Source": { "SourceName": "mongoDB", "SourceFile": "NA" }
@@ -28,12 +28,14 @@
   "Tabs": [
     {
       "value": "Tab0",
+      "update": "No",
       "name": "Cards",
       "type": "Cards",
       "fioriicon": "responsive"
     },
     {
       "value": "Tab1",
+      "update": "Yes",
       "name": "EmployeeDetail",
       "type": "Field",
       "fioriicon": "notes",
@@ -41,12 +43,14 @@
     },
     {
       "value": "Tab2",
+      "update": "Yes",
       "name": "Expenses",
       "type": "Field",
       "fioriicon": "expense-report"
     },
     {
       "value": "Tab3",
+      "update": "Yes",
       "name": "Attachment",
       "type": "Attachment",
       "fioriicon": "attachment",
@@ -54,6 +58,7 @@
     },
     {
       "value": "Tab4",
+      "update": "Yes",
       "name": "Process Log",
       "fioriicon": "step",
       "type": "Chat",
@@ -147,10 +152,11 @@
     {
       "name": "Receipt",
       "type": "attachment",
-      "width": "100",
+      "metadata": "MultipleFields",
+      "width": "200",
       "Option": "Optional",
       "SLabel": "Receipt",
-      "LLabel": ""
+      "LLabel": "Receipt"
     },
     {
       "name": "Status",
