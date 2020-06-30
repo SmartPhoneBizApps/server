@@ -1,0 +1,143 @@
+{
+  "Tabs": [
+    {
+      "TabName": "My Learning",
+      "icon": "sap-icon://e-learning",
+      "iconToolTip": "Employee Learning",
+      "TabID": "Tab1",
+      "Tiles": [
+        {
+          "CardID": "Adaptive1",
+          "applicationID": "TRAIN008",
+          "filters": {},
+          "fieldList": "",
+          "sortBy": "",
+          "limit": 5,
+          "Type": "Adaptive1"
+        }
+      ]
+    },
+
+    {
+      "TabName": "Tab 2",
+      "TabID": "Tab2",
+      "Tiles": [
+        {
+          "CardID": "EMPACC01_list2_RequestType_ApplicationLogin",
+          "applicationID": "EMPACC01",
+          "filters": {
+            "RequestType": "ApplicationLogin"
+          },
+          "limit": 5,
+          "fieldList": "ID Application DateOfRequest Status",
+          "fieldMap": {
+            "name": "ID",
+            "description": "Application",
+            "icon": "sap-icon://my-view"
+          },
+          "Type": "list2A",
+          "header": {
+            "title": "New Application Login Requests",
+            "subTitle": "Recent Requests..",
+            "icon": {
+              "src": "http://localhost/smartphonebizapps/appattachment/158644357443.png"
+            }
+          },
+          "ListTemplate": {
+            "name": "Alain Chevalier",
+            "icon": "sap-icon://my-view",
+            "description": "On Site"
+          },
+          "actions": [
+            {
+              "type": "Navigation",
+              "parameters": {
+                "url": "/EMPACC01/{name}"
+              }
+            }
+          ],
+          "json": []
+        },
+        {
+          "CardID": "EMP00004_Employee_table1A_01",
+          "applicationID": "EMP00004",
+          "filters": {},
+          "fieldList": "VendorName Details  GrossValue Status",
+          "sortBy": "ID",
+          "limit": 5,
+          "Type": "table1A",
+          "header": {
+            "title": "Shopping Cart",
+            "subTitle": "My Procurement",
+            "status": { "text": "Employee" }
+          },
+          "columns": [
+            { "title": "VendorName", "value": "{VendorName}" },
+            { "title": "Details", "value": "{Details}" },
+            { "title": "GrossValue", "value": "{GrossValue}" },
+            { "title": "Status", "value": "{Status}", "state": "{statusState}" }
+          ],
+          "json": []
+        },
+        {
+          "CardID": "EMP00004_Employee_list1A_01",
+          "applicationID": "EMP00004",
+          "filters": {},
+          "limit": 5,
+          "fieldList": "",
+          "fieldMap": {
+            "name": "Details",
+            "description": "VendorName",
+            "info": "Status",
+            "icon": "sap-icon://add-employee"
+          },
+          "Type": "list1A",
+          "header": {
+            "title": "Shopping Cart",
+            "status": { "text": "Employee" },
+            "subTitle": "My Procurement"
+          },
+          "ListTemplate": {
+            "name": "Details",
+            "icon": "sap-icon://add-employee",
+            "description": "VendorName",
+            "info": "Status",
+            "infoState": "Error"
+          },
+          "json": []
+        },
+        {
+          "CardID": "EMP00004_Employee_list2A_01",
+          "applicationID": "EMP00004",
+          "filters": {},
+          "limit": 5,
+          "fieldList": "ID Hardware AssetID DateOfRequest Status",
+          "fieldMap": {
+            "name": "Details",
+            "description": "VendorName",
+            "icon": "sap-icon://add-employee"
+          },
+          "Type": "list2A",
+          "header": {
+            "title": "Shopping Cart",
+            "subTitle": "My Procurement",
+            "icon": { "src": "sap-icon://add-employee" }
+          },
+          "ListTemplate": {
+            "name": "Details",
+            "icon": "sap-icon://add-employee",
+            "description": "VendorName",
+            "infoState": "Error"
+          },
+          "actions": [
+            {
+              "type": "Navigation",
+              "parameters": { "url": "/EMP00004/{name}" }
+            }
+          ],
+          "json": []
+        }
+      ]
+    }
+  ]
+}
