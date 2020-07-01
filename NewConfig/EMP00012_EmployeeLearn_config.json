@@ -96,6 +96,15 @@
       ],
       "Token": "Yes",
       "URLMethod": "POST"
+    },
+    {
+      "type": "SURVEY",
+      "Calculation": "Yes",
+      "name": "Feedback",
+      "icon": "sap-icon://upload-to-cloud",
+      "URL": "util/getQuestioner/LEARNING/{ID}",
+      "Token": "Yes",
+      "URLMethod": "GET"
     }
   ],
   "Tabs": [
@@ -676,6 +685,14 @@
       "Option": "Optional",
       "SLabel": "Role",
       "LLabel": ""
+    },
+    {
+      "name": "Questioner",
+      "type": "Array",
+      "width": "200",
+      "Option": "Optional",
+      "SLabel": "Questioner",
+      "LLabel": "Questioner"
     },
     {
       "name": "Band",
