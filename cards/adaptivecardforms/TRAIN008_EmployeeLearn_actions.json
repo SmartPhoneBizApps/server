@@ -1,0 +1,85 @@
+{
+  "actions": [
+    {
+      "type": "Action.ShowCard",
+      "title": "Additional Information",
+      "card": {
+        "type": "AdaptiveCard",
+        "body": [
+          {
+            "type": "TextBlock",
+            "text": "Website",
+            "isSubtle": true,
+            "size": "medium"
+          },
+          {
+            "type": "Input.Text",
+            "placeholder": "Website Url",
+            "style": "url",
+            "id": "UrlVal"
+          },
+          {
+            "type": "TextBlock",
+            "text": "Description",
+            "isSubtle": true,
+            "size": "medium"
+          },
+          {
+            "type": "Input.Text",
+            "style": "text",
+            "isMultiline": true,
+            "id": "MultiLineVal"
+          },
+          {
+            "type": "TextBlock",
+            "text": "Do you have a driver's license?",
+            "isSubtle": true
+          },
+          {
+            "type": "Input.ChoiceSet",
+            "id": "SingleSelectVal",
+            "style": "expanded",
+            "choices": [
+              {
+                "title": "Yes",
+                "value": "1"
+              },
+              {
+                "title": "No",
+                "value": "2"
+              }
+            ]
+          },
+          {
+            "type": "TextBlock",
+            "text": "How do you want to be notified?",
+            "isSubtle": true
+          },
+          {
+            "type": "Input.ChoiceSet",
+            "id": "MultiSelectVal",
+            "isMultiSelect": true,
+            "choices": [
+              {
+                "title": "Via mail",
+                "value": "1"
+              },
+              {
+                "title": "Via text message",
+                "value": "2"
+              },
+              {
+                "title": "Via Phone call",
+                "value": "3"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "type": "Action.Submit",
+      "title": "Submit"
+    }
+  ]
+}
