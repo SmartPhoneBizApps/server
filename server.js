@@ -167,7 +167,7 @@ app.use(
   require("./routes/utilities/getQuestioner")
 );
 app.use("/api/v1/util/addTraining/", require("./routes/utilities/addTraining"));
-app.use("/api/v1/util/createPDF/", require("./routes/utilities/createPDF"));
+//app.use("/api/v1/util/createPDF/", require("./routes/utilities/createPDF"));
 
 //  -------------------------------------------------
 //  --  ***** UTILITIES / External APIs *****  ------
