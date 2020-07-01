@@ -26,6 +26,43 @@
           "Type": "Adaptive1"
         },
         {
+          "CardID": "TRAIN007_table1",
+          "applicationID": "TRAIN007",
+          "filters": {
+            "Status": "Assigned"
+          },
+          "limit": 5,
+          "fieldList": "ReferenceID Title SubGroup Status",
+          "Type": "table1B",
+          "header": {
+            "title": "Upcoming Trainings",
+            "subTitle": "Sorted by due date",
+            "status": {
+              "text": "Status"
+            }
+          },
+          "columns": [
+            {
+              "title": "ReferenceID",
+              "value": "{ReferenceID}"
+            },
+            {
+              "title": "Title",
+              "value": "{Title}"
+            },
+            {
+              "title": "Area",
+              "value": "{SubGroup}"
+            },
+            {
+              "title": "Status",
+              "value": "{Status}",
+              "state": "{statusState}"
+            }
+          ],
+          "json": []
+        },
+        {
           "CardID": "TRAIN007_list2_TrainingList",
           "applicationID": "TRAIN007",
           "filters": {
@@ -38,7 +75,7 @@
             "description": "Training",
             "icon": "sap-icon://my-view"
           },
-          "Type": "list2A",
+          "Type": "TRAIN007_list2A",
           "header": {
             "title": "Upcoming Trainings",
             "subTitle": "Recent Requests..",

@@ -521,6 +521,14 @@ module.exports = {
     result = Model.create(mydata);
     return result;
   },
+
+  gerCardData: function (app, q1) {
+    let path = "../models/smartApp/" + app;
+    const Model = require(path);
+    qg1 = JSON.parse(q1);
+    query = Model.find(qg1, { _id: 0 });
+    return query;
+  },
   createMultipleDocument: function (app, mydata) {
     let path = "../models/smartApp/" + app;
     const Model = require(path);
