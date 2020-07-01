@@ -25,21 +25,21 @@
           "Type": "Adaptive1"
         },
         {
-          "CardID": "TRAIN008_list2_TrainingList",
-          "applicationID": "TRAIN008",
+          "CardID": "TRAIN007_list2_TrainingList",
+          "applicationID": "TRAIN007",
           "filters": {
             "Status": "Assigned"
           },
           "limit": 5,
-          "fieldList": "ID Application DateOfRequest Status",
+          "fieldList": "ReferenceID Title SubGroup Status",
           "fieldMap": {
             "name": "ID",
-            "description": "Application",
+            "description": "Training",
             "icon": "sap-icon://my-view"
           },
           "Type": "list2A",
           "header": {
-            "title": "New Application Login Requests",
+            "title": "Upcoming Trainings",
             "subTitle": "Recent Requests..",
             "icon": {
               "src": "http://localhost/smartphonebizapps/appattachment/158644357443.png"
@@ -54,7 +54,7 @@
             {
               "type": "Navigation",
               "parameters": {
-                "url": "/EMPACC01/{name}"
+                "url": "/TRAIN007/{name}"
               }
             }
           ],
