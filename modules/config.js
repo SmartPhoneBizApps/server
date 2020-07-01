@@ -616,6 +616,14 @@ module.exports = {
     card["cardColumn"] = 4;
     header["title"] = "Create Record";
     header["subTitle"] = "Create Form";
+    if (appID == "TRAIN008") {
+      header["title"] = "New Training Request";
+      header["subTitle"] = "Trainings not in Catalogue";
+    }
+    if (appID == "TRAIN007") {
+      header["title"] = "New Training Request";
+      header["subTitle"] = "Trainings not in Catalogue";
+    }
     if (appID == "BUS0000001") {
       header["title"] = "IT Service Ticket";
       header["subTitle"] = "Request IT Service Ticket";
@@ -628,6 +636,7 @@ module.exports = {
       header["title"] = "Taxi Booking";
       header["subTitle"] = "Request Online Taxi Booking";
     }
+
     if (appID == "BUS0000004") {
       header["title"] = "Train Booking";
       header["subTitle"] = "Request Train Booking";
