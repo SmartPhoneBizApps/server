@@ -369,7 +369,10 @@ exports.adaptiveCard_card = async (req, res, next) => {
                       };
                       jsonArray["json" + con] = [];
                     }
-
+                    let myD = { json: [] };
+                    let myO = { json: {} };
+                    let myX = { json: {}, path: "/measures" };
+                    let measures = [];
                     //Donut
                     if (tabCX[tab].Tiles[key3].Type == "donut1A") {
                       jsonOut = {};
