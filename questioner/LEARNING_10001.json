@@ -7,7 +7,7 @@
           "name": "Q1",
           "Mode": "Display",
           "type": "string",
-          "value": "How would you rate your performance for last 6 months?"
+          "value": "How would you rate your performance for this quarter?"
         },
         {
           "name": "A1",
@@ -69,35 +69,25 @@
           "name": "Q5",
           "Mode": "Display",
           "type": "string",
-          "value": "Q5 : Which of these is most likely to cause an accident in a workplace?'"
+          "value": "Are you happy with the frequency at which you receive recognition from your manager?'"
         },
         {
           "name": "A5",
           "Mode": "Edit",
           "type": "radiobutton",
-          "value": [
-            "A. Administration",
-            "B. Manual handling",
-            "C. Adequate lighting",
-            "D. Excessive noise"
-          ]
+          "value": ["Yes", "No"]
         },
         {
           "name": "Q6",
           "Mode": "Display",
           "type": "string",
-          "value": "Q6 : Trailing electrical cables which trail through the middle of a busy walkway"
+          "value": "Do you feel like your organization celebrates its accomplishments and learnings?"
         },
         {
           "name": "A6",
           "Mode": "Edit",
           "type": "radiobutton",
-          "value": [
-            "A. Are very unlikely to cause any injury",
-            "B. Are likely to injure someone if they trip over it",
-            "C. Can be defined as high level health and safety hazards",
-            "D. Can be defined as high level fire hazards"
-          ]
+          "value": ["Yes", "No"]
         }
       ],
       "name": "Set - 3",
@@ -111,35 +101,25 @@
           "name": "Q7",
           "Mode": "Display",
           "type": "string",
-          "value": "Q7 : Which of these is most likely to be a result of handling an overloaded electrical socket?"
+          "value": "Do you feel like recognition is meaningful when you receive it?"
         },
         {
           "name": "A7",
           "Mode": "Edit",
           "type": "radiobutton",
-          "value": [
-            "A. Frostbite",
-            "B. Asbestosis",
-            "C. Asphyxiation",
-            "D. Electric shock"
-          ]
+          "value": ["Yes", "No"]
         },
         {
           "name": "Q8",
           "Mode": "Display",
           "type": "string",
-          "value": "Q8 : Why should near misses be reported?"
+          "value": "Do you think that your peers welcome opinions that are different from their own?"
         },
         {
           "name": "A8",
           "Mode": "Edit",
           "type": "radiobutton",
-          "value": [
-            "A. To educate employees",
-            "B. To test the first aider",
-            "C. To ensure complete recovery",
-            "D. To stop a more serious event occurring"
-          ]
+          "value": ["Yes", "No"]
         }
       ],
       "name": "Set - 4",
@@ -149,16 +129,13 @@
   ],
   "TargetField": "Questioner",
   "CorrectAnswers": [
-    { "Q1": "A1", "CorrectAnswer": "A. Appropriate life cover" },
-    { "Q2": "A2", "CorrectAnswer": "A. Be served with an Improvement Notice" },
-    { "Q3": "A3", "CorrectAnswer": "A. Risk" },
-    { "Q4": "A4", "CorrectAnswer": "B. Identify the hazards" },
-    { "Q5": "A5", "CorrectAnswer": "B. Manual handling" },
-    {
-      "Q6": "A6",
-      "CorrectAnswer": "B. Are likely to injure someone if they trip over it"
-    },
-    { "Q7": "A7", "CorrectAnswer": "D. Electric shock" },
-    { "Q8": "A8", "CorrectAnswer": "D. To stop a more serious event occurring" }
+    { "Q1": "A1", "CorrectAnswer": "Excellent" },
+    { "Q2": "A2", "CorrectAnswer": "Yes" },
+    { "Q3": "A3", "CorrectAnswer": "Yes" },
+    { "Q4": "A4", "CorrectAnswer": "Yes" },
+    { "Q5": "A5", "CorrectAnswer": "Yes" },
+    { "Q6": "A6", "CorrectAnswer": "Yes" },
+    { "Q7": "A7", "CorrectAnswer": "Yes" },
+    { "Q8": "A8", "CorrectAnswer": "Yes" }
   ]
 }
