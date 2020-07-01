@@ -1,0 +1,65 @@
+{
+  "Tabs": [
+    {
+      "TabName": "Flow",
+      "TabID": "Tab4",
+      "icon": "sap-icon://customer-view",
+      "iconToolTip": "Role for - Employee",
+      "Tiles": [
+        {
+          "CardID": "TRAIN008_TimeLine1",
+          "applicationID": "TRAIN008",
+          "filters": {},
+          "fieldList": "ID Software AssetID DateOfRequest Status",
+          "sortBy": "ID Status",
+          "limit": 5,
+          "Type": "timeline1A",
+          "header": {
+            "title": "Document Flow",
+            "subTitle": "Status Change of Request",
+            "status": {
+              "text": "Current status"
+            },
+            "actions": [
+              {
+                "type": "Navigation",
+                "parameters": {
+                  "url": "/quickLinks"
+                }
+              }
+            ]
+          },
+          "item": {
+            "dateTime": {
+              "value": "{Time}"
+            },
+            "description": {
+              "value": "{Description}"
+            },
+            "title": {
+              "value": "{Title}"
+            },
+            "icon": {
+              "src": "{Icon}"
+            }
+          },
+
+          "json": []
+        },
+        {
+          "CardID": "TRAIN008_Donut1",
+          "applicationID": "TRAIN008",
+          "filters": {},
+          "fieldList": "ID Software AssetID DateOfRequest Status",
+          "sortBy": "ID Status",
+          "limit": 5,
+          "Type": "donut1A",
+          "header": {
+            "title": "Spend Analysis"
+          },
+          "measures": []
+        }
+      ]
+    }
+  ]
+}
