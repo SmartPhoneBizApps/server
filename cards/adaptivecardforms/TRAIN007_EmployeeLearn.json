@@ -2,18 +2,6 @@
   "body": [
     {
       "type": "TextBlock",
-      "text": "Your Name",
-      "isSubtle": true,
-      "size": "medium"
-    },
-    {
-      "type": "Input.Text",
-      "placeholder": "Last, First",
-      "style": "text",
-      "id": "SimpleVal"
-    },
-    {
-      "type": "TextBlock",
       "text": "Email address",
       "isSubtle": true,
       "size": "medium"
@@ -26,30 +14,17 @@
     },
     {
       "type": "TextBlock",
-      "text": "Phone Number",
+      "text": "Training Details",
       "isSubtle": true,
       "size": "medium"
     },
     {
       "type": "Input.Text",
-      "placeholder": "xxx.xxx.xxxx",
-      "style": "tel",
-      "id": "TelVal",
-      "maxLength": 10
+      "isMultiline": true,
+      "style": "text",
+      "id": "Title"
     },
-    {
-      "type": "TextBlock",
-      "text": "Age",
-      "isSubtle": true,
-      "size": "medium"
-    },
-    {
-      "type": "Input.Number",
-      "id": "NumVal",
-      "min": 0,
-      "max": 110,
-      "placeholder": "Age"
-    },
+
     {
       "type": "TextBlock",
       "text": "Starting Date",
