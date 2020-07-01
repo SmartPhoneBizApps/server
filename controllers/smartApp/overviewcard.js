@@ -369,6 +369,32 @@ exports.adaptiveCard_card = async (req, res, next) => {
                       };
                       jsonArray["json" + con] = [];
                     }
+
+                    //Donut
+                    if (tabCX[tab].Tiles[key3].Type == "donut1A") {
+                      jsonOut = {};
+                      jsonOutArray = [];
+
+                      jsonOut["measureName"] = "Learning Completed";
+                      jsonOut["value"] = 8;
+                      measures.push({ ...jsonOut });
+
+                      jsonOut["measureName"] = "Learning Due";
+                      jsonOut["value"] = 4;
+                      measures.push({ ...jsonOut });
+
+                      myX["json"]["measures"] = measures;
+                      key["con" + con]["sap.card"]["content"]["data"] = {
+                        ...myX,
+                      };
+                      myX = { json: {}, path: "/measures" };
+                      measures = [];
+
+                      /// Add Data
+
+                      jsonArray["json" + con] = [];
+                    }
+
                     //list1 - Data
                     if (tabCX[tab].Tiles[key3].Type == "list1A") {
                       jsonOut = {};
