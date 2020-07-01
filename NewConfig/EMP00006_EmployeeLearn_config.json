@@ -5,7 +5,7 @@
   },
   "Controls": {
     "USP": "UserProfile",
-    "UserSpecific":"Yes",
+    "UserSpecific": "Yes",
     "Update": "Yes",
     "URL": "https://fierce-oasis-51455.herokuapp.com",
     "Source": { "SourceName": "mongoDB", "SourceFile": "NA" }
@@ -68,28 +68,28 @@
   ],
   "Tabs": [
     {
-            "value": "Tab0",
+      "value": "Tab0",
       "update": "No",
       "name": "Cards",
       "type": "Cards",
       "fioriicon": "responsive"
     },
     {
-            "value": "Tab1",
+      "value": "Tab1",
       "update": "Yes",
       "name": "Employee Details",
       "type": "FieldGroup",
       "fioriicon": "notes"
     },
     {
-            "value": "Tab2",
+      "value": "Tab2",
       "update": "Yes",
       "name": "Project Details",
       "type": "Field",
       "fioriicon": "request"
     },
     {
-            "value": "Tab3",
+      "value": "Tab3",
       "update": "Yes",
       "name": "Process Log",
       "fioriicon": "step",
@@ -191,7 +191,7 @@
     },
     {
       "name": "External",
-      "type": "switch",
+      "type": "radiobutton",
       "width": "50",
       "Option": "Optional",
       "SLabel": "External Training",
@@ -273,11 +273,11 @@
     {
       "id": "Step1",
       "fields": [
-        { "name": "Detail",  "Mode": "Edit" },
-        { "name": "Duration",  "Mode": "Edit" },
-        { "name": "Area",  "Mode": "Edit" },
-        { "name": "External",  "Mode": "Edit" },
-        { "name": "ProjectNeed",  "Mode": "Edit" }
+        { "name": "Detail", "Mode": "Edit" },
+        { "name": "Duration", "Mode": "Edit" },
+        { "name": "Area", "Mode": "Edit" },
+        { "name": "External", "Mode": "Edit" },
+        { "name": "ProjectNeed", "Mode": "Edit" }
       ],
       "name": "Training Details",
       "stepType": "FieldList",
@@ -286,8 +286,8 @@
     {
       "id": "Step2",
       "fields": [
-        { "name": "EmployeeID",  "Mode": "Display" },
-        { "name": "Name",  "Mode": "Edit" }
+        { "name": "EmployeeID", "Mode": "Display" },
+        { "name": "Name", "Mode": "Edit" }
       ],
 
       "name": "Employee Details",
@@ -297,9 +297,9 @@
     {
       "id": "Step3",
       "fields": [
-        { "name": "CostCentre",  "Mode": "Edit" },
-        { "name": "Cost",  "Mode": "Edit" },
-        { "name": "Justification",  "Mode": "Edit" }
+        { "name": "CostCentre", "Mode": "Edit" },
+        { "name": "Cost", "Mode": "Edit" },
+        { "name": "Justification", "Mode": "Edit" }
       ],
       "name": "Training Cost",
       "stepType": "FieldList",
@@ -308,8 +308,8 @@
     {
       "id": "Step4",
       "fields": [
-        { "name": "Status",  "Mode": "Display" },
-        { "name": "Approver",  "Mode": "Edit" }
+        { "name": "Status", "Mode": "Display" },
+        { "name": "Approver", "Mode": "Edit" }
       ],
       "name": "Admin",
       "stepType": "FieldList",

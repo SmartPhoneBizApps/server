@@ -124,6 +124,8 @@ const UserSchema = new mongoose.Schema({
   Role_CollegeStudent: {},
   Role_CollegeAdmin: {},
   Role_CollegeParent: {},
+  Role_TrainingTeam: {},
+  Role_EmployeeLearn: {},
   Role_ScrumMaster: {},
   Role_HealthCareProfessional: {},
 });
