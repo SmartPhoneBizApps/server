@@ -153,6 +153,117 @@
     "Tab5": ["Questioner"]
   },
   "tableConfig": {
+    "calendar": {
+      "title": "Training Calendar",
+      "ItemFieldDefinition": [
+        {
+          "name": "ItemNumber",
+          "type": "string",
+          "width": "10",
+          "SLabel": "Item Number",
+          "Option": "Optional"
+        },
+        {
+          "name": "visualization",
+          "type": "string",
+          "width": "10",
+          "SLabel": "visualization",
+          "Option": "Optional"
+        },
+        {
+          "name": "startDate",
+          "type": "DateTime",
+          "width": "20",
+          "SLabel": "startDate",
+          "Option": "Optional"
+        },
+        {
+          "name": "endDate",
+          "type": "DateTime",
+          "width": "20",
+          "SLabel": "endDate",
+          "Option": "Optional"
+        },
+        {
+          "name": "title",
+          "type": "string",
+          "width": "20",
+          "SLabel": "title",
+          "Option": "Optional"
+        },
+        {
+          "name": "text",
+          "type": "string",
+          "width": "20",
+          "SLabel": "text",
+          "Option": "Optional"
+        },
+        {
+          "name": "icon",
+          "type": "string",
+          "width": "100",
+          "SLabel": "icon",
+          "Option": "Optional"
+        },
+        {
+          "name": "type",
+          "type": "string",
+          "width": "100",
+          "SLabel": "type",
+          "Option": "Optional"
+        }
+      ],
+      "DisplayFields": ["title", "text", "startDate", "endDate"],
+      "ItemButtons": {
+        "itemDisplay": true,
+        "itemAdd": true,
+        "itemEdit": true,
+        "itemDelete": true
+      },
+      "CreateFields": ["title", "text", "startDate", "endDate"],
+      "ItemDetails": [
+        {
+          "name": "ItemNumber",
+          "Tab": "Tab6",
+          "Mode": "Edit"
+        },
+        {
+          "name": "visualization",
+          "Tab": "Tab6",
+          "Mode": "Edit"
+        },
+        {
+          "name": "startDate",
+          "Tab": "Tab6",
+          "Mode": "Edit"
+        },
+        {
+          "name": "endDate",
+          "Tab": "Tab6",
+          "Mode": "Edit"
+        },
+        {
+          "name": "title",
+          "Tab": "Tab5",
+          "Mode": "Edit"
+        },
+        {
+          "name": "text",
+          "Tab": "Tab6",
+          "Mode": "Edit"
+        },
+        {
+          "name": "icon",
+          "Tab": "Tab6",
+          "Mode": "Edit"
+        },
+        {
+          "name": "type",
+          "Tab": "Tab6",
+          "Mode": "Edit"
+        }
+      ]
+    },
     "Questioner": {
       "title": "Test",
       "ItemFieldDefinition": [
