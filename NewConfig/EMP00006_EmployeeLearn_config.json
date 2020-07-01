@@ -104,12 +104,12 @@
     "None": ["ID", "Status", "DateRequested"],
     "Tab1": [
       {
-        "GrpTitle": "Employee Details",
-        "Fields": ["EmployeeID", "Name"]
+        "GrpTitle": "Training Details",
+        "Fields": ["Detail", "Area", "Duration", "External"]
       },
       {
-        "GrpTitle": "Training Details",
-        "Fields": ["Area", "Detail", "Duration", "External"]
+        "GrpTitle": "Employee Details",
+        "Fields": ["EmployeeID", "Name"]
       }
     ],
     "Tab2": ["ProjectNeed", "Cost", "CostCentre"],
@@ -287,7 +287,7 @@
       "id": "Step2",
       "fields": [
         { "name": "EmployeeID", "Mode": "Display" },
-        { "name": "Name", "Mode": "Edit" }
+        { "name": "Name", "Mode": "Display" }
       ],
 
       "name": "Employee Details",
