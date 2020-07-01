@@ -169,7 +169,8 @@
       "DevManager",
       "Role",
       "Band",
-      "ReviewPeriod"
+      "ReviewPeriod",
+      "TestScore"
     ],
     "Tab2": ["Appraisal"],
     "Tab4": ["Goals"],
@@ -836,6 +837,14 @@
       "Option": "Optional"
     },
     {
+      "name": "TestScore",
+      "type": "string",
+      "width": "200",
+      "Option": "Optional",
+      "SLabel": "Test Score",
+      "LLabel": "Test Score"
+    },
+    {
       "name": "Q1",
       "type": "string",
       "width": "200",
@@ -966,7 +975,22 @@
   ],
   "itemData": "No",
   "itemConfig": {},
-  "CalculatedFields": {},
-  "Create": "Yes",
+
+  "Create": "No",
+  "CalculatedFields": {
+    "Item": [],
+    "HeaderItem": [
+      {
+        "CalculatedFormula": {
+          "name": "ITEMSUM",
+          "function": "ITEMSUM",
+          "Target": "TestScore",
+          "type": "HeaderItem"
+        },
+        "Fields": [{ "Source": "Score", "Type": { "type": "HeaderItem" } }]
+      }
+    ],
+    "Header": []
+  },
   "Wizard": []
 }
