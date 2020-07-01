@@ -82,6 +82,7 @@ const SUPP00016 = require("../../models/smartApp/SUPP00016");
 const SUPP00018 = require("../../models/smartApp/SUPP00018");
 const SUPP00028 = require("../../models/smartApp/SUPP00028");
 const TRAIN008 = require("../../models/smartApp/TRAIN008");
+const TRAIN007 = require("../../models/smartApp/TRAIN007");
 let myD = { json: [] };
 let myO = { json: {} };
 con = 0;
@@ -586,6 +587,14 @@ exports.adaptiveCard_card = async (req, res, next) => {
                       qg1 = JSON.parse(q1);
                       query = SUPP00028.find(qg1, { _id: 0 });
                       break;
+                    case "TRAIN008":
+                      qg1 = JSON.parse(q1);
+                      query = TRAIN008.find(qg1, { _id: 0 });
+                      break;
+                    case "TRAIN007":
+                      qg1 = JSON.parse(q1);
+                      query = TRAIN007.find(qg1, { _id: 0 });
+                      break;
                     default:
                     // code block
                   }
@@ -593,6 +602,7 @@ exports.adaptiveCard_card = async (req, res, next) => {
                   // Select Fields
                   const fList = [];
                   if (tabCX[tab].Tiles[key3].fieldList) {
+                    console.log("AG:", query);
                     const fields = tabCX[tab].Tiles[key3].fieldList;
                     query = query.select(fields);
                     const fList = tabCX[tab].Tiles[key3].fieldList.split(" ");
