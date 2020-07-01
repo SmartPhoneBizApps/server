@@ -14,6 +14,51 @@
           "sortBy": "",
           "limit": 5,
           "Type": "Calendar1"
+        },
+        {
+          "CardID": "TRAIN008_Adaptive1",
+          "applicationID": "TRAIN008",
+          "filters": {},
+          "fieldList": "",
+          "sortBy": "",
+          "limit": 5,
+          "Type": "Adaptive1"
+        },
+        {
+          "CardID": "TRAIN008_list2_TrainingList",
+          "applicationID": "TRAIN008",
+          "filters": {
+            "Status": "Assigned"
+          },
+          "limit": 5,
+          "fieldList": "ID Application DateOfRequest Status",
+          "fieldMap": {
+            "name": "ID",
+            "description": "Application",
+            "icon": "sap-icon://my-view"
+          },
+          "Type": "list2A",
+          "header": {
+            "title": "New Application Login Requests",
+            "subTitle": "Recent Requests..",
+            "icon": {
+              "src": "http://localhost/smartphonebizapps/appattachment/158644357443.png"
+            }
+          },
+          "ListTemplate": {
+            "name": "Alain Chevalier",
+            "icon": "sap-icon://my-view",
+            "description": "On Site"
+          },
+          "actions": [
+            {
+              "type": "Navigation",
+              "parameters": {
+                "url": "/EMPACC01/{name}"
+              }
+            }
+          ],
+          "json": []
         }
       ]
     },
