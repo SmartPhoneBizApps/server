@@ -123,13 +123,6 @@
       "type": "video"
     },
     {
-      "value": "Tab5",
-      "update": "No",
-      "name": "Questioner",
-      "fioriicon": "toaster-up",
-      "type": "Table"
-    },
-    {
       "value": "Tab6",
       "update": "No",
       "name": "calendar",
@@ -165,7 +158,6 @@
 
     "Tab3": ["MultiAttachments"],
     "Tab4": ["Video"],
-    "Tab5": ["Questioner"],
     "Tab6": ["calendar"]
   },
   "tableConfig": {
@@ -276,86 +268,6 @@
         {
           "name": "type",
           "Tab": "Tab6",
-          "Mode": "Edit"
-        }
-      ]
-    },
-    "Questioner": {
-      "title": "Test",
-      "ItemFieldDefinition": [
-        {
-          "name": "ItemNumber",
-          "type": "string",
-          "width": "10",
-          "SLabel": "Item Number",
-          "Option": "Optional"
-        },
-        {
-          "name": "Question",
-          "type": "string",
-          "width": "10",
-          "SLabel": "Question",
-          "Option": "Optional"
-        },
-        {
-          "name": "Answer",
-          "type": "string",
-          "width": "20",
-          "SLabel": "Answer",
-          "Option": "Optional"
-        },
-        {
-          "name": "CorrectAnswer",
-          "type": "string",
-          "width": "20",
-          "SLabel": "Correct Ans",
-          "Option": "Optional"
-        },
-        {
-          "name": "Score",
-          "type": "string",
-          "width": "20",
-          "SLabel": "Score",
-          "Option": "Optional"
-        }
-      ],
-      "DisplayFields": ["Question", "Answer", "CorrectAnswer", "Score"],
-      "ItemButtons": {
-        "itemDisplay": true,
-        "itemAdd": false,
-        "itemEdit": false,
-        "itemDelete": false
-      },
-      "CreateFields": ["Question", "Answer", "CorrectAnswer", "Score"],
-      "ItemDetails": [
-        {
-          "name": "ItemNumber",
-          "Tab": "Tab5",
-
-          "Mode": "Edit"
-        },
-        {
-          "name": "Question",
-          "Tab": "Tab5",
-
-          "Mode": "Edit"
-        },
-        {
-          "name": "Answer",
-          "Tab": "Tab5",
-
-          "Mode": "Edit"
-        },
-        {
-          "name": "CorrectAnswer",
-          "Tab": "Tab5",
-
-          "Mode": "Edit"
-        },
-        {
-          "name": "Score",
-          "Tab": "Tab5",
-
           "Mode": "Edit"
         }
       ]
@@ -604,14 +516,7 @@
       "SLabel": "Learning Documents",
       "LLabel": "Learning Documents"
     },
-    {
-      "name": "Questioner",
-      "type": "Array",
-      "width": "200",
-      "Option": "Optional",
-      "SLabel": "Questioner",
-      "LLabel": "Questioner"
-    },
+
     {
       "name": "Q1",
       "type": "string",
