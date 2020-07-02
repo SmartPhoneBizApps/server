@@ -398,7 +398,8 @@
       "width": "1000",
       "Option": "Optional",
       "SLabel": "Terms",
-      "LLabel": "Terms"
+      "LLabel": "Terms",
+      "Update": "No"
     },
     {
       "name": "Agree",
@@ -437,8 +438,8 @@
       "type": "string",
       "width": "100",
       "Option": "Mandatory",
-      "SLabel": "Status",
-      "LLabel": "Status"
+      "SLabel": "Confirm Completed",
+      "LLabel": "Confirm Completed"
     },
     {
       "name": "ProjectNeed",
@@ -512,6 +513,14 @@
       "Option": "Optional",
       "SLabel": "Questioner",
       "LLabel": "Questioner"
+    },
+    {
+      "name": "TestScore",
+      "type": "string",
+      "width": "200",
+      "Option": "Optional",
+      "SLabel": "Test Score",
+      "LLabel": "Test Score"
     },
     {
       "name": "Q1",
@@ -655,7 +664,22 @@
     "CreateFields": [],
     "ItemDetails": []
   },
-  "CalculatedFields": {},
-  "Create": "Yes",
+
+  "CalculatedFields": {
+    "Item": [],
+    "HeaderItem": [
+      {
+        "CalculatedFormula": {
+          "name": "ITEMSUM",
+          "function": "ITEMSUM",
+          "Target": "TestScore",
+          "type": "HeaderItem"
+        },
+        "Fields": [{ "Source": "Score", "Type": { "type": "HeaderItem" } }]
+      }
+    ],
+    "Header": []
+  },
+
   "Wizard": []
 }
