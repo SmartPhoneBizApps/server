@@ -12,7 +12,7 @@
         {
           "name": "A1",
           "Mode": "Edit",
-          "type": "radiobutton",
+          "type": "checkbox",
           "value": [
             "A. Appropriate life cover",
             "B. Appropriate training",
@@ -29,13 +29,7 @@
         {
           "name": "A2",
           "Mode": "Edit",
-          "type": "radiobutton",
-          "value": [
-            "A. Be served with an Improvement Notice",
-            "B. Be ordered to close down the premises indefinitely",
-            "C. Be issued fines by the magistrates’ court for up to £150,000",
-            "D. Have employees arrested for non-compliance for a minimum of 10 years"
-          ]
+          "type": "rating,5"
         }
       ],
       "name": "Set - 1",
@@ -54,7 +48,7 @@
         {
           "name": "A3",
           "Mode": "Edit",
-          "type": "radiobutton",
+          "type": "combobox",
           "value": ["A. Risk", "B. Hazard", "C. An event", "D. An episode"]
         },
         {
@@ -66,13 +60,8 @@
         {
           "name": "A4",
           "Mode": "Edit",
-          "type": "radiobutton",
-          "value": [
-            "A. Evaluate the risk",
-            "B. Identify the hazards",
-            "C. Review your findings",
-            "D. Update risk assessments"
-          ]
+          "type": "switch",
+          "value": ["ON", "OFF"]
         }
       ],
       "name": "Set - 2",

@@ -150,6 +150,10 @@ app.use("/api/v1/util/validations", require("./routes/utilities/validations"));
 app.use("/api/v1/util/possval", require("./routes/utilities/possVals"));
 app.use("/api/v1/util/fileupload/", require("./routes/utilities/fileupload"));
 app.use(
+  "/api/v1/util/oneDriveUpload/",
+  require("./routes/utilities/oneDriveUpload")
+);
+app.use(
   "/api/v1/util/assignCourseUser/",
   require("./routes/utilities/assignCourseUser")
 );
