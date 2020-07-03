@@ -132,7 +132,7 @@
         "Fields": ["EmployeeID", "Name"]
       }
     ],
-    "Tab2": ["ProjectNeed", "Cost", "CostCentre"],
+    "Tab2": ["ProjectNeed", "Cost", "CostCentre", "ApproverComment"],
     "Tab3": ["ProcessingLog"]
   },
   "ControlDisplay": {},
@@ -255,6 +255,14 @@
       "width": "500",
       "Option": "Optional",
       "SLabel": "Justification",
+      "LLabel": ""
+    },
+    {
+      "name": "ApproverComment",
+      "type": "string",
+      "width": "500",
+      "Option": "Optional",
+      "SLabel": "ApproverComment",
       "LLabel": ""
     },
     {

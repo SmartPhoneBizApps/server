@@ -59,7 +59,7 @@
   ],
   "DButtons": [
     {
-      "type": "WORKFLOW",
+      "type": "APPROVE",
       "name": "Approve",
       "icon": "sap-icon://accept",
       "updateFields": [
@@ -68,7 +68,7 @@
       ]
     },
     {
-      "type": "WORKFLOW",
+      "type": "REJECT",
       "name": "Reject",
       "icon": "sap-icon://decline",
       "updateFields": [
@@ -77,7 +77,7 @@
       ]
     },
     {
-      "type": "WORKFLOW",
+      "type": "REFERBACK",
       "name": "Refer Back",
       "icon": "sap-icon://hint",
       "updateFields": [
@@ -132,7 +132,7 @@
         "Fields": ["EmployeeID", "Name"]
       }
     ],
-    "Tab2": ["ProjectNeed", "Cost", "CostCentre"],
+    "Tab2": ["ProjectNeed", "Cost", "CostCentre", "ApproverComment"],
     "Tab3": ["ProcessingLog"]
   },
   "ControlDisplay": {},
@@ -257,6 +257,15 @@
       "SLabel": "Justification",
       "LLabel": ""
     },
+    {
+      "name": "ApproverComment",
+      "type": "string",
+      "width": "500",
+      "Option": "Optional",
+      "SLabel": "ApproverComment",
+      "LLabel": ""
+    },
+
     {
       "name": "ProcessingLog",
       "type": "string",
