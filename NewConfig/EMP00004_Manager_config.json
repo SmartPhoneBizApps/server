@@ -1,8 +1,11 @@
 {
-  "Title": { "ApplicationTitle": "SC Approval", "DetailTitle": "SC Approval" },
+  "Title": {
+    "ApplicationTitle": "Shopping Cart",
+    "DetailTitle": "Shopping Cart"
+  },
   "Controls": {
     "USP": "UserProfile",
-    "UserSpecific":"Yes",
+    "UserSpecific": "Yes",
     "Update": "Yes",
     "URL": "https://fierce-oasis-51455.herokuapp.com",
     "Source": { "SourceName": "mongoDB", "SourceFile": "NA" }
@@ -25,42 +28,84 @@
     "VendorName",
     "UoM",
     "Category",
+    "Currency",
     "State",
     "Country",
     "Office",
     "CostCentre",
     "GLAccount",
     "VATRate",
-    "Currency",
+    "Status",
     "PaymentOption",
-    "Status"
+    "Currency",
+    "CostType"
   ],
-  "MButtons": [],
-  "DButtons": [],
+  "MButtons": [
+    {
+      "type": "DOWNLOAD",
+      "name": "Download File",
+      "icon": "sap-icon://download"
+    },
+    {
+      "type": "APPHELP",
+      "name": "Get App Help",
+      "icon": "sap-icon://sys-help-2"
+    },
+    {
+      "type": "BOT",
+      "name": "Launch Assistant",
+      "icon": "sap-icon://travel-request"
+    },
+    {
+      "type": "VIEW",
+      "name": "Change App View",
+      "icon": "sap-icon://chart-table-view"
+    },
+    { "type": "ADD", "name": "Add Record", "icon": "sap-icon://add" },
+    { "type": "UPLOAD", "name": "Upload Record", "icon": "sap-icon://upload" }
+  ],
+  "DButtons": [
+    {
+      "type": "APPROVE",
+      "name": "Approve",
+      "icon": "sap-icon://accept",
+      "update": [{ "ApproverComment": "Optional", "mode": "Append" }]
+    },
+    {
+      "type": "APPROVE",
+      "name": "Approve",
+      "icon": "sap-icon://accept",
+      "update": [{ "ApproverComment": "Required", "mode": "Append" }]
+    }
+  ],
   "Tabs": [
     {
-            "value": "Tab0",
+      "value": "Tab0",
       "update": "No",
       "name": "Cards",
       "type": "Cards",
       "fioriicon": "responsive"
     },
-    {       "value": "Tab1",
-      "update": "Yes", "name": "SC", "type": "Field", "fioriicon": "notes" },
     {
-            "value": "Tab2",
+      "value": "Tab1",
+      "update": "Yes",
+      "name": "SC",
+      "type": "Field",
+      "fioriicon": "notes"
+    },
+    {
+      "value": "Tab2",
       "update": "Yes",
       "name": "Delivery",
       "type": "Field",
       "fioriicon": "calendar"
     },
     {
-            "value": "Tab3",
+      "value": "Tab3",
       "update": "Yes",
-      "name": "Process Log",
-      "fioriicon": "step",
-      "type": "Chat",
-      "download": "No"
+      "name": "PaymentInfo",
+      "type": "Field",
+      "fioriicon": "expense-report"
     }
   ],
   "DetailFields": {
@@ -88,10 +133,20 @@
       "PostCode",
       "Country",
       "ContactNo",
-      "OtherInfo",
-      "CostCentre"
+      "Office",
+      "CostCentre",
+      "CostType",
+      "GLAccount",
+      "OtherInfo"
     ],
-    "Tab3": ["ProcessingLog"]
+    "Tab3": [
+      "PaymentAmount",
+      "Currency",
+      "PaymentOption",
+      "TransactionID",
+      "TransactionStatus",
+      "ApproverComment"
+    ]
   },
   "ControlDisplay": {},
   "FieldDef": [
@@ -100,7 +155,7 @@
       "type": "string",
       "width": "20",
       "Option": "Mandatory",
-      "SLabel": "ID",
+      "SLabel": "Identification",
       "LLabel": ""
     },
     {
@@ -132,7 +187,7 @@
       "type": "Date",
       "width": "10",
       "Option": "Optional",
-      "SLabel": "Shopping Cart Date",
+      "SLabel": "SC Date",
       "LLabel": ""
     },
     {
@@ -156,7 +211,7 @@
       "type": "string",
       "width": "10",
       "Option": "Optional",
-      "SLabel": "Shopping Cart Quantity",
+      "SLabel": "SC Quantity",
       "LLabel": ""
     },
     {
@@ -216,6 +271,14 @@
       "LLabel": ""
     },
     {
+      "name": "Currency",
+      "type": "string",
+      "width": "50",
+      "Option": "Optional",
+      "SLabel": "Currency",
+      "LLabel": ""
+    },
+    {
       "name": "Status",
       "type": "string",
       "width": "50",
@@ -250,7 +313,7 @@
     {
       "name": "GLAccount",
       "type": "string",
-      "width": "50",
+      "width": "20",
       "Option": "Optional",
       "SLabel": "GL Account",
       "LLabel": ""
@@ -274,7 +337,7 @@
     {
       "name": "DelTo",
       "type": "string",
-      "width": "50",
+      "width": "100",
       "Option": "Optional",
       "SLabel": "Delivery To",
       "LLabel": ""
@@ -282,22 +345,15 @@
     {
       "name": "Address",
       "type": "string",
-      "width": "50",
+      "width": "100",
       "Option": "Optional",
       "SLabel": "Delivery Address",
       "LLabel": ""
     },
     {
-      "type": "string",
-      "width": "50",
-      "Option": "Optional",
-      "SLabel": "Delivery City",
-      "LLabel": ""
-    },
-    {
       "name": "State",
       "type": "string",
-      "width": "50",
+      "width": "100",
       "Option": "Optional",
       "SLabel": "State",
       "LLabel": ""
@@ -311,13 +367,21 @@
       "URLMethod": "GET",
       "Token": true,
       "Option": "Optional",
-      "SLabel": "Delivery Post Code",
+      "SLabel": "Post Code",
+      "LLabel": "Post Code"
+    },
+    {
+      "name": "ApproverComment",
+      "type": "string",
+      "width": "500",
+      "Option": "Mandatory",
+      "SLabel": "Approver Comment",
       "LLabel": ""
     },
     {
       "name": "Country",
       "type": "string",
-      "width": "50",
+      "width": "100",
       "Option": "Optional",
       "SLabel": "Country",
       "LLabel": ""
@@ -325,7 +389,7 @@
     {
       "name": "ContactNo",
       "type": "string",
-      "width": "50",
+      "width": "100",
       "Option": "Optional",
       "SLabel": "Delivery Phone",
       "LLabel": ""
@@ -333,15 +397,15 @@
     {
       "name": "Email",
       "type": "string",
-      "width": "50",
-      "Option": "Optional",
-      "SLabel": "Delivery Email",
+      "width": "100",
+      "Option": "Mandatory",
+      "SLabel": "Delivey Email",
       "LLabel": ""
     },
     {
       "name": "DeliveryInstr",
       "type": "string",
-      "width": "50",
+      "width": "500",
       "Option": "Optional",
       "SLabel": "Delivery Instructor",
       "LLabel": ""
@@ -349,7 +413,7 @@
     {
       "name": "BudgetUsed",
       "type": "string",
-      "width": "20",
+      "width": "10",
       "Option": "Optional",
       "SLabel": "Budget Used",
       "LLabel": ""
@@ -360,14 +424,6 @@
       "width": "50",
       "Option": "Optional",
       "SLabel": "Payment Amount",
-      "LLabel": ""
-    },
-    {
-      "name": "Currency",
-      "type": "string",
-      "width": "50",
-      "Option": "Optional",
-      "SLabel": "Currency",
       "LLabel": ""
     },
     {
@@ -383,7 +439,7 @@
       "type": "string",
       "width": "50",
       "Option": "Optional",
-      "SLabel": "Transaction ID",
+      "SLabel": "TransactionID",
       "LLabel": ""
     },
     {
@@ -391,7 +447,7 @@
       "type": "string",
       "width": "50",
       "Option": "Optional",
-      "SLabel": "Transaction Status",
+      "SLabel": "TransactionStatus",
       "LLabel": ""
     },
     {
@@ -401,22 +457,6 @@
       "Option": "Optional",
       "SLabel": "VAT Percentage",
       "LLabel": ""
-    },
-    {
-      "name": "ProcessingLog",
-      "type": "string",
-      "width": "1000",
-      "Option": "Optional",
-      "SLabel": "Processing Log",
-      "LLabel": "Processing Log"
-    },
-    {
-      "name": "Approver",
-      "type": "string",
-      "width": "100",
-      "Option": "Optional",
-      "SLabel": "Approver",
-      "LLabel": "Approver"
     }
   ],
   "itemData": "No",
@@ -433,6 +473,89 @@
     "ItemDetails": []
   },
   "CalculatedFields": { "Item": [], "HeaderItem": [], "Header": [] },
-  "Create": "No",
-  "Wizard": []
+  "Create": "Yes",
+  "Wizard": [
+    {
+      "id": "Step1",
+      "fields": [{ "name": "OtherInfo", "Mode": "Edit" }],
+      "name": "Shopping Cart",
+      "stepType": "FieldList",
+      "intro": "Shopping Cart : Shopping Cart"
+    },
+    {
+      "id": "Step2",
+      "fields": [{ "name": "VendorName", "Mode": "Edit" }],
+      "name": "Vendor Details",
+      "stepType": "FieldList",
+      "intro": "Shopping Cart : Vendor Details"
+    },
+    {
+      "id": "Step3",
+      "fields": [{ "name": "Plant", "Mode": "Edit" }],
+      "name": "Organization",
+      "stepType": "FieldList",
+      "intro": "Shopping Cart : Organization"
+    },
+    {
+      "id": "Step4",
+      "fields": [
+        { "name": "Category", "Mode": "Edit" },
+        { "name": "SCQty", "Mode": "Edit" },
+        { "name": "UoM", "Mode": "Edit" },
+        { "name": "Price", "Mode": "Edit" },
+        { "name": "NetValue", "Mode": "Edit" },
+        { "name": "VATRate", "Mode": "Edit" },
+        { "name": "VATVal", "Mode": "Edit" },
+        { "name": "Currency", "Mode": "Edit" },
+        { "name": "PaymentAmount", "Mode": "Edit" },
+        { "name": "GrossValue", "Mode": "Edit" }
+      ],
+      "name": "Item Details",
+      "stepType": "FieldList",
+      "intro": "Shopping Cart : Item Details"
+    },
+    {
+      "id": "Step5",
+      "fields": [
+        { "name": "Address", "Mode": "Edit" },
+        { "name": "PostCode", "Mode": "Edit" },
+        { "name": "DeliveryDt", "Mode": "Edit" },
+        { "name": "State", "Mode": "Edit" },
+        { "name": "Country", "Mode": "Edit" }
+      ],
+      "name": "Delivery",
+      "stepType": "FieldList",
+      "intro": "Shopping Cart : Delivery"
+    },
+    {
+      "id": "Step6",
+      "fields": [
+        { "name": "ContactNo", "Mode": "Edit" },
+        { "name": "Email", "Mode": "Edit" },
+        { "name": "DeliveryInstr", "Mode": "Edit" }
+      ],
+      "name": "Delivery Contact",
+      "stepType": "FieldList",
+      "intro": "Shopping Cart : Delivery Contact"
+    },
+    {
+      "id": "Step7",
+      "fields": [
+        { "name": "CostType", "Mode": "Edit" },
+        { "name": "GLAccount", "Mode": "Edit" },
+        { "name": "BudgetUsed", "Mode": "Edit" },
+        { "name": "Budget", "Mode": "Edit" }
+      ],
+      "name": "Finance Data",
+      "stepType": "FieldList",
+      "intro": "Shopping Cart : Finance Data"
+    },
+    {
+      "id": "Step8",
+      "fields": [{ "name": "Status", "Mode": "Edit" }],
+      "name": "Admin",
+      "stepType": "FieldList",
+      "intro": "Shopping Cart : Admin"
+    }
+  ]
 }
