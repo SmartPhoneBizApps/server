@@ -1,11 +1,11 @@
 {
   "Title": {
-    "ApplicationTitle": "Daily Production Report",
-    "DetailTitle": "Daily Production Report"
+    "ApplicationTitle": "Daily Production",
+    "DetailTitle": "Daily Production"
   },
   "Controls": {
     "USP": "UserProfile",
-    "UserSpecific":"Yes",
+    "UserSpecific": "Yes",
     "Update": "Yes",
     "URL": "https://fierce-oasis-51455.herokuapp.com",
     "Source": { "SourceName": "mongoDB", "SourceFile": "NA" }
@@ -58,21 +58,21 @@
   ],
   "Tabs": [
     {
-            "value": "Tab0",
+      "value": "Tab0",
       "update": "No",
       "name": "Cards",
       "type": "Cards",
       "fioriicon": "responsive"
     },
     {
-            "value": "Tab1",
+      "value": "Tab1",
       "update": "Yes",
       "name": "Current",
       "type": "Field",
       "fioriicon": "appointment"
     },
     {
-            "value": "Tab2",
+      "value": "Tab2",
       "update": "Yes",
       "name": "Collective",
       "type": "Field",
@@ -249,10 +249,10 @@
     {
       "id": "Step1",
       "fields": [
-        { "name": "Time",  "Mode": "Edit" },
-        { "name": "Shift",  "Mode": "Edit" },
-        { "name": "Operator",  "Mode": "Edit" },
-        { "name": "Material",  "Mode": "Edit" }
+        { "name": "Time", "Mode": "Edit" },
+        { "name": "Shift", "Mode": "Edit" },
+        { "name": "Operator", "Mode": "Edit" },
+        { "name": "Material", "Mode": "Edit" }
       ],
       "name": "Shift Details",
       "stepType": "FieldList",
@@ -261,12 +261,12 @@
     {
       "id": "Step2",
       "fields": [
-        { "name": "Qty",  "Mode": "Edit" },
-        { "name": "UoM",  "Mode": "Edit" },
-        { "name": "CummQty",  "Mode": "Edit" },
-        { "name": "TargetQty",  "Mode": "Edit" },
-        { "name": "QtyPercent",  "Mode": "Edit" },
-        { "name": "CummPercent",  "Mode": "Edit" }
+        { "name": "Qty", "Mode": "Edit" },
+        { "name": "UoM", "Mode": "Edit" },
+        { "name": "CummQty", "Mode": "Edit" },
+        { "name": "TargetQty", "Mode": "Edit" },
+        { "name": "QtyPercent", "Mode": "Edit" },
+        { "name": "CummPercent", "Mode": "Edit" }
       ],
       "name": "PO Reference",
       "stepType": "FieldList",
@@ -275,8 +275,8 @@
     {
       "id": "Step3",
       "fields": [
-        { "name": "Address",  "Mode": "Edit" },
-        { "name": "PostCode",  "Mode": "Edit" }
+        { "name": "Address", "Mode": "Edit" },
+        { "name": "PostCode", "Mode": "Edit" }
       ],
       "name": "Address Details",
       "stepType": "FieldList",
@@ -285,8 +285,8 @@
     {
       "id": "Step4",
       "fields": [
-        { "name": "Reason",  "Mode": "Edit" },
-        { "name": "Status",  "Mode": "Edit" }
+        { "name": "Reason", "Mode": "Edit" },
+        { "name": "Status", "Mode": "Edit" }
       ],
       "name": "Admin and Other Details",
       "stepType": "FieldList",

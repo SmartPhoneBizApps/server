@@ -5,7 +5,7 @@
   },
   "Controls": {
     "USP": "UserProfile",
-    "UserSpecific":"Yes",
+    "UserSpecific": "Yes",
     "Update": "Yes",
     "URL": "https://fierce-oasis-51455.herokuapp.com",
     "Source": { "SourceName": "mongoDB", "SourceFile": "NA" }
@@ -23,63 +23,32 @@
     "Description": ["ID", "Equipment"]
   },
   "PossibleValues": ["Result", "Status"],
-  "MButtons": [
-    {
-      "type": "DOWNLOAD",
-      "name": "Download File",
-      "icon": "sap-icon://download"
-    },
-    {
-      "type": "APPHELP",
-      "name": "Get App Help",
-      "icon": "sap-icon://sys-help-2"
-    },
-    {
-      "type": "BOT",
-      "name": "Launch Assistant",
-      "icon": "sap-icon://travel-request"
-    },
-    {
-      "type": "VIEW",
-      "name": "Change App View",
-      "icon": "sap-icon://chart-table-view"
-    },
-    { "type": "ADD", "name": "Add Record", "icon": "sap-icon://add" },
-    { "type": "UPLOAD", "name": "Upload Record", "icon": "sap-icon://upload" }
-  ],
-  "DButtons": [
-    {
-      "type": "ATTACHMENT",
-      "name": "View Attachments",
-      "icon": "sap-icon://attachment"
-    },
-    { "type": "UPDATE", "name": "Update Record", "icon": "sap-icon://update" },
-    { "type": "ADD", "name": "Add Record", "icon": "sap-icon://add" }
-  ],
+  "MButtons": [],
+  "DButtons": [],
   "Tabs": [
     {
-            "value": "Tab0",
+      "value": "Tab0",
       "update": "No",
       "name": "Cards",
       "type": "Cards",
       "fioriicon": "responsive"
     },
     {
-            "value": "Tab1",
+      "value": "Tab1",
       "update": "Yes",
       "name": "Calib",
       "type": "Field",
       "fioriicon": "inspection"
     },
     {
-            "value": "Tab2",
+      "value": "Tab2",
       "update": "Yes",
       "name": "Document",
       "type": "Field",
       "fioriicon": "document"
     },
     {
-            "value": "Tab3",
+      "value": "Tab3",
       "update": "Yes",
       "name": "Attachment",
       "type": "Attachment",
@@ -241,59 +210,6 @@
     "ItemDetails": []
   },
   "CalculatedFields": {},
-  "Create": "Yes",
-  "Wizard": [
-    {
-      "id": "Step1",
-      "fields": [
-        { "name": "CalibDate",  "Mode": "Edit" },
-        { "name": "CalibStartDate",  "Mode": "Edit" },
-        { "name": "CalibExpireDate",  "Mode": "Edit" }
-      ],
-      "name": "Calibration Details",
-      "stepType": "FieldList",
-      "intro": "Instrument Calibration : Calibration details"
-    },
-    {
-      "id": "Step2",
-      "fields": [
-        { "name": "Equipment",  "Mode": "Edit" },
-        { "name": "Model",  "Mode": "Edit" },
-        { "name": "SerialNumber",  "Mode": "Edit" }
-      ],
-      "name": "Instrument details",
-      "stepType": "FieldList",
-      "intro": "Instrument Calibration : Instrument details"
-    },
-    {
-      "id": "Step3",
-      "fields": [
-        { "name": "CertificateAtt",  "Mode": "Edit" },
-        { "name": "ReportAtt",  "Mode": "Edit" }
-      ],
-      "name": "Images and Attachment",
-      "stepType": "FieldList",
-      "intro": "Instrument Calibration : Images and Attachment"
-    },
-    {
-      "id": "Step4",
-      "fields": [
-        { "name": "ReferenceNo",  "Mode": "Edit" },
-        { "name": "Result",  "Mode": "Edit" },
-        { "name": "Comment",  "Mode": "Edit" },
-        { "name": "Remark",  "Mode": "Edit" },
-        { "name": "InvoiceNo",  "Mode": "Edit" }
-      ],
-      "name": "Other details",
-      "stepType": "FieldList",
-      "intro": "Instrument Calibration : Other details"
-    },
-    {
-      "id": "Step5",
-      "fields": [{ "name": "Status",  "Mode": "Edit" }],
-      "name": "Admin",
-      "stepType": "FieldList",
-      "intro": "Instrument Calibration : Admin"
-    }
-  ]
+  "Create": "No",
+  "Wizard": []
 }

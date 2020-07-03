@@ -1,11 +1,11 @@
 {
   "Title": {
     "ApplicationTitle": "Incident Management",
-    "DetailTitle": "Technician Update"
+    "DetailTitle": "Incident Management"
   },
   "Controls": {
     "USP": "UserProfile",
-    "UserSpecific":"Yes",
+    "UserSpecific": "Yes",
     "Update": "Yes",
     "URL": "https://fierce-oasis-51455.herokuapp.com",
     "Source": { "SourceName": "mongoDB", "SourceFile": "NA" }
@@ -22,48 +22,88 @@
     "SubTitle": ["Status", "Area"],
     "Description": ["ID", "Problem"]
   },
-  "PossibleValues": ["Status", "Priority"],
-  "MButtons": [],
-  "DButtons": [],
+  "PossibleValues": ["Status", "Priority", "Agent", "Area"],
+  "MButtons": [
+    {
+      "type": "DOWNLOAD",
+      "name": "Download File",
+      "icon": "sap-icon://download"
+    },
+    {
+      "type": "APPHELP",
+      "name": "Get App Help",
+      "icon": "sap-icon://sys-help-2"
+    },
+    {
+      "type": "BOT",
+      "name": "Launch Assistant",
+      "icon": "sap-icon://travel-request"
+    },
+    {
+      "type": "VIEW",
+      "name": "Change App View",
+      "icon": "sap-icon://chart-table-view"
+    },
+    { "type": "ADD", "name": "Add Record", "icon": "sap-icon://add" },
+    { "type": "UPLOAD", "name": "Upload Record", "icon": "sap-icon://upload" }
+  ],
+  "DButtons": [
+    {
+      "type": "ATTACHMENT",
+      "name": "View Attachments",
+      "icon": "sap-icon://attachment"
+    },
+    { "type": "UPDATE", "name": "Update Record", "icon": "sap-icon://update" },
+    { "type": "ADD", "name": "Add Record", "icon": "sap-icon://add" }
+  ],
   "Tabs": [
     {
-            "value": "Tab0",
+      "value": "Tab0",
       "update": "No",
       "name": "Cards",
       "type": "Cards",
       "fioriicon": "responsive"
     },
     {
-            "value": "Tab1",
+      "value": "Tab1",
       "update": "Yes",
-      "name": "Details",
+      "name": "Incident Details",
       "type": "Field",
-      "fioriicon": "notes"
+      "fioriicon": "notes",
+      "download": "Yes"
     },
     {
-            "value": "Tab2",
+      "value": "Tab2",
       "update": "Yes",
       "name": "Action",
       "type": "Field",
       "fioriicon": "action"
     },
-    {       "value": "Tab3",
-      "update": "Yes", "name": "Location", "type": "Field", "fioriicon": "map" }
+    {
+      "value": "Tab3",
+      "update": "Yes",
+      "name": "Location",
+      "fioriicon": "map",
+      "type": "Field",
+      "download": "No"
+    }
   ],
   "DetailFields": {
     "headerTitle": ["USP_Name"],
     "headerRole": ["USP_Role"],
     "headerImage": ["USP_Image"],
-    "None": ["ID", "Status", "Problem", "Details"],
-    "Tab1": ["Area", "Priority", "Name", "Address", "Company"],
+    "None": ["ID", "Name", "Address"],
+    "Tab1": ["Problem", "Resolution", "Area", "Impact", "IncidentType"],
     "Tab2": [
       "StartDate",
       "StartTime",
-      "Agent",
-      "WorkLog",
       "FinishDate",
       "FinishTime",
-      "Resolution"
+      "Priority",
+      "Urgency",
+      "Agent",
+      "Company",
+      "Status"
     ]
   },
   "ControlDisplay": {},
@@ -157,54 +197,6 @@
       "LLabel": ""
     },
     {
-      "name": "Details",
-      "type": "string",
-      "width": "100",
-      "Option": "Optional",
-      "SLabel": "Details",
-      "LLabel": ""
-    },
-    {
-      "name": "Area",
-      "type": "string",
-      "width": "100",
-      "Option": "Optional",
-      "SLabel": "Area",
-      "LLabel": ""
-    },
-    {
-      "name": "Priority",
-      "type": "string",
-      "width": "100",
-      "Option": "Optional",
-      "SLabel": "Priority",
-      "LLabel": ""
-    },
-    {
-      "name": "Name",
-      "type": "string",
-      "width": "100",
-      "Option": "Optional",
-      "SLabel": "Name",
-      "LLabel": ""
-    },
-    {
-      "name": "Address",
-      "type": "string",
-      "width": "100",
-      "Option": "Optional",
-      "SLabel": "Address",
-      "LLabel": ""
-    },
-    {
-      "name": "Company",
-      "type": "string",
-      "width": "100",
-      "Option": "Optional",
-      "SLabel": "Company",
-      "LLabel": ""
-    },
-    {
       "name": "Latitude",
       "type": "Geocode",
       "width": "50",
@@ -235,6 +227,46 @@
       "Option": "Optional",
       "SLabel": "Impact",
       "LLabel": ""
+    },
+    {
+      "name": "Area",
+      "type": "string",
+      "width": "100",
+      "Option": "Optional",
+      "SLabel": "Area",
+      "LLabel": "Area"
+    },
+    {
+      "name": "Priority",
+      "type": "string",
+      "width": "100",
+      "Option": "Optional",
+      "SLabel": "Priority",
+      "LLabel": "Priority"
+    },
+    {
+      "name": "Name",
+      "type": "string",
+      "width": "100",
+      "Option": "Optional",
+      "SLabel": "Name",
+      "LLabel": "Name"
+    },
+    {
+      "name": "Address",
+      "type": "string",
+      "width": "100",
+      "Option": "Optional",
+      "SLabel": "Address",
+      "LLabel": "Address"
+    },
+    {
+      "name": "Company",
+      "type": "string",
+      "width": "100",
+      "Option": "Optional",
+      "SLabel": "Company",
+      "LLabel": "Company"
     }
   ],
   "itemData": "No",
@@ -251,6 +283,61 @@
     "ItemDetails": []
   },
   "CalculatedFields": {},
-  "Create": "No",
-  "Wizard": []
+  "Create": "Yes",
+  "Wizard": [
+    {
+      "id": "Step1",
+      "fields": [
+        { "name": "StartDate", "Mode": "Edit" },
+        { "name": "StartTime", "Mode": "Edit" },
+        { "name": "FinishDate", "Mode": "Edit" },
+        { "name": "FinishTime", "Mode": "Edit" },
+        { "name": "IncidentType", "Mode": "Edit" }
+      ],
+      "name": "Date and Time",
+      "stepType": "FieldList",
+      "intro": "Incident Management : Date and Time"
+    },
+    {
+      "id": "Step2",
+      "fields": [
+        { "name": "Problem", "Mode": "Edit" },
+        { "name": "Resolution", "Mode": "Edit" },
+        { "name": "Area", "Mode": "Edit" },
+        { "name": "Impact", "Mode": "Edit" },
+        { "name": "Urgency", "Mode": "Edit" }
+      ],
+      "name": "Incident Details",
+      "stepType": "FieldList",
+      "intro": "Incident Management : Incident Details"
+    },
+    {
+      "id": "Step3",
+      "fields": [
+        { "name": "Priority", "Mode": "Edit" },
+        { "name": "Agent", "Mode": "Edit" },
+        { "name": "Company", "Mode": "Edit" }
+      ],
+      "name": "Other Details",
+      "stepType": "FieldList",
+      "intro": "Incident Management : Other Details"
+    },
+    {
+      "id": "Step4",
+      "fields": [
+        { "name": "Name", "Mode": "Edit" },
+        { "name": "Address", "Mode": "Edit" }
+      ],
+      "name": "Your Details",
+      "stepType": "FieldList",
+      "intro": "Incident Management : Your Details"
+    },
+    {
+      "id": "Step5",
+      "fields": [{ "name": "Status", "Mode": "Edit" }],
+      "name": "Admin",
+      "stepType": "FieldList",
+      "intro": "Incident Management : Admin"
+    }
+  ]
 }

@@ -5,7 +5,7 @@
   },
   "Controls": {
     "USP": "UserProfile",
-    "UserSpecific":"Yes",
+    "UserSpecific": "Yes",
     "Update": "Yes",
     "URL": "https://fierce-oasis-51455.herokuapp.com",
     "Source": { "SourceName": "mongoDB", "SourceFile": "NA" }
@@ -32,71 +32,103 @@
     "CurrentJobType",
     "NoticePeriod",
     "ConsiderReLocation",
-    "ConsiderTravel",
     "UKResident",
-    "Eligibility",
     "Citizenship",
     "Visa",
     "JobType",
-    "Status"
+    "Status",
+    "ConsiderTravel"
   ],
-  "MButtons": [
-    {
-      "type": "DOWNLOAD",
-      "name": "Download File",
-      "icon": "sap-icon://download"
-    },
-    {
-      "type": "APPHELP",
-      "name": "Get App Help",
-      "icon": "sap-icon://sys-help-2"
-    },
-    {
-      "type": "BOT",
-      "name": "Launch Assistant",
-      "icon": "sap-icon://travel-request"
-    },
-    {
-      "type": "VIEW",
-      "name": "Change App View",
-      "icon": "sap-icon://chart-table-view"
-    },
-    { "type": "ADD", "name": "Add Record", "icon": "sap-icon://add" },
-    { "type": "UPLOAD", "name": "Upload Record", "icon": "sap-icon://upload" }
-  ],
+  "MButtons": [],
   "DButtons": [
     {
-      "type": "ATTACHMENT",
-      "name": "View Attachments",
-      "icon": "sap-icon://attachment"
+      "type": "WORKFLOW",
+      "name": "Approve",
+      "icon": "sap-icon://accept",
+      "Dialog": [
+        {
+          "label": "Approver Comment",
+          "name": "ApproverComment",
+          "type": "string",
+          "option": "Optional"
+        }
+      ],
+      "transferFields": [
+        { "field": "ID", "value": "@recorddata" },
+        { "field": "Status", "value": "Approved" },
+        { "field": "ApproverComment", "value": "@UserInput" }
+      ],
+      "URL": "datarecords/",
+      "Token": "Yes",
+      "URLMethod": "PUT"
     },
-    { "type": "UPDATE", "name": "Update Record", "icon": "sap-icon://update" },
-    { "type": "ADD", "name": "Add Record", "icon": "sap-icon://add" }
+    {
+      "type": "WORKFLOW",
+      "name": "Reject",
+      "icon": "sap-icon://decline",
+      "Dialog": [
+        {
+          "label": "Approver Comment",
+          "name": "ApproverComment",
+          "type": "string",
+          "option": "Optional"
+        }
+      ],
+      "transferFields": [
+        { "field": "ID", "value": "@recorddata" },
+        { "field": "Status", "value": "Rejected" },
+        { "field": "ApproverComment", "value": "@UserInput" }
+      ],
+      "URL": "datarecords/",
+      "Token": "Yes",
+      "URLMethod": "PUT"
+    },
+    {
+      "type": "WORKFLOW",
+      "name": "ReferBack",
+      "icon": "sap-icon://hint",
+      "Dialog": [
+        {
+          "label": "Approver Comment",
+          "name": "ApproverComment",
+          "type": "string",
+          "option": "Optional"
+        }
+      ],
+      "transferFields": [
+        { "field": "ID", "value": "@recorddata" },
+        { "field": "Status", "value": "ReferBack" },
+        { "field": "ApproverComment", "value": "@UserInput" }
+      ],
+      "URL": "datarecords/",
+      "Token": "Yes",
+      "URLMethod": "PUT"
+    }
   ],
   "Tabs": [
     {
-            "value": "Tab0",
+      "value": "Tab0",
       "update": "No",
       "name": "Cards",
       "type": "Cards",
       "fioriicon": "responsive"
     },
     {
-            "value": "Tab1",
+      "value": "Tab1",
       "update": "Yes",
       "name": "Profile",
       "type": "Field",
       "fioriicon": "business-card"
     },
     {
-            "value": "Tab2",
+      "value": "Tab2",
       "update": "Yes",
       "name": "Current",
       "type": "Field",
       "fioriicon": "appointment"
     },
     {
-            "value": "Tab3",
+      "value": "Tab3",
       "update": "Yes",
       "name": "Feedback",
       "type": "Field",
@@ -114,18 +146,15 @@
       "DOB",
       "Email",
       "ContactNo",
-      "AboutCompany",
-      "Communication",
-      "LeadershipSkills",
-      "ProblemSolvingSkills",
-      "MotivationalSkills",
       "ConsiderReLocation",
       "ConsiderTravel",
       "UKResident",
       "Eligibility",
       "Citizenship",
       "Visa",
-      "VisaValidity"
+      "VisaValidity",
+      "DateOfJoining",
+      "Location"
     ],
     "Tab2": [
       "CurrentJobType",
@@ -142,15 +171,18 @@
       "Bonus",
       "CompanyCar",
       "OtherAllowan",
-      "NoticePeriod"
-    ],
-    "Tab3": [
-      "DateOfJoining",
-      "Location",
+      "NoticePeriod",
       "Duration",
       "Rate",
       "BaseSalary",
-      "GrossSalary",
+      "GrossSalary"
+    ],
+    "Tab3": [
+      "AboutCompany",
+      "Communication",
+      "LeadershipSkills",
+      "ProblemSolvingSkills",
+      "MotivationalSkills",
       "JobType",
       "HRFeedback",
       "TechFeedback",
@@ -614,129 +646,6 @@
     "ItemDetails": []
   },
   "CalculatedFields": {},
-  "Create": "Yes",
-  "Wizard": [
-    {
-      "id": "Step1",
-      "fields": [
-        { "name": "InterviewDate",  "Mode": "Edit" },
-        { "name": "Position",  "Mode": "Edit" }
-      ],
-      "name": "Interview Details",
-      "stepType": "FieldList",
-      "intro": "Interview Feedback : Interview Details"
-    },
-    {
-      "id": "Step2",
-      "fields": [
-        { "name": "Candidate",  "Mode": "Edit" },
-        { "name": "DOB",  "Mode": "Edit" },
-        { "name": "Email",  "Mode": "Edit" },
-        { "name": "ContactNo",  "Mode": "Edit" }
-      ],
-      "name": "Candidate details",
-      "stepType": "FieldList",
-      "intro": "Interview Feedback : Candidate details"
-    },
-    {
-      "id": "Step3",
-      "fields": [
-        { "name": "AboutCompany",  "Mode": "Edit" },
-        { "name": "Communication",  "Mode": "Edit" },
-        { "name": "LeadershipSkills",  "Mode": "Edit" },
-        { "name": "ProblemSolvingSkills",  "Mode": "Edit" },
-        { "name": "MotivationalSkills",  "Mode": "Edit" }
-      ],
-      "name": "Company Details",
-      "stepType": "FieldList",
-      "intro": "Interview Feedback : Company Details"
-    },
-    {
-      "id": "Step4",
-      "fields": [
-        { "name": "CurrentJobType",  "Mode": "Edit" },
-        { "name": "CurrEmployer",  "Mode": "Edit" },
-        { "name": "CurrJobRole",  "Mode": "Edit" },
-        { "name": "Reasonleaving",  "Mode": "Edit" }
-      ],
-      "name": "Current Job Details",
-      "stepType": "FieldList",
-      "intro": "Interview Feedback : Current Job Details"
-    },
-    {
-      "id": "Step5",
-      "fields": [
-        { "name": "CurGrosSalary",  "Mode": "Edit" },
-        { "name": "CurBaseSalary",  "Mode": "Edit" },
-        { "name": "ExpBaseSalary",  "Mode": "Edit" },
-        { "name": "ExpGrossSal",  "Mode": "Edit" },
-        { "name": "BaseSalary",  "Mode": "Edit" },
-        { "name": "GrossSalary",  "Mode": "Edit" }
-      ],
-      "name": "Salary Details",
-      "stepType": "FieldList",
-      "intro": "Interview Feedback : Salary Details"
-    },
-    {
-      "id": "Step6",
-      "fields": [
-        { "name": "PensionPlan",  "Mode": "Edit" },
-        { "name": "HealthCare",  "Mode": "Edit" },
-        { "name": "LifeAssurance",  "Mode": "Edit" },
-        { "name": "Bonus",  "Mode": "Edit" },
-        { "name": "CompanyCar",  "Mode": "Edit" },
-        { "name": "OtherAllowan",  "Mode": "Edit" }
-      ],
-      "name": "Other benefit details",
-      "stepType": "FieldList",
-      "intro": "Interview Feedback : Other benefit details"
-    },
-    {
-      "id": "Step7",
-      "fields": [
-        { "name": "NoticePeriod",  "Mode": "Edit" },
-        { "name": "ConsiderReLocation",  "Mode": "Edit" },
-        { "name": "ConsiderTravel",  "Mode": "Edit" },
-        { "name": "DateOfJoining",  "Mode": "Edit" },
-        { "name": "Location",  "Mode": "Edit" },
-        { "name": "Duration",  "Mode": "Edit" },
-        { "name": "Rate",  "Mode": "Edit" },
-        { "name": "JobType",  "Mode": "Edit" }
-      ],
-      "name": "Leaving term details",
-      "stepType": "FieldList",
-      "intro": "Interview Feedback : Leaving term details"
-    },
-    {
-      "id": "Step8",
-      "fields": [
-        { "name": "UKResident",  "Mode": "Edit" },
-        { "name": "Eligibility",  "Mode": "Edit" },
-        { "name": "Citizenship",  "Mode": "Edit" },
-        { "name": "Visa",  "Mode": "Edit" },
-        { "name": "VisaValidity",  "Mode": "Edit" }
-      ],
-      "name": "Citizenship Details",
-      "stepType": "FieldList",
-      "intro": "Interview Feedback : Citizenship Details"
-    },
-    {
-      "id": "Step9",
-      "fields": [
-        { "name": "HRFeedback",  "Mode": "Edit" },
-        { "name": "TechFeedback",  "Mode": "Edit" },
-        { "name": "LeadFeedback",  "Mode": "Edit" }
-      ],
-      "name": "Feedback Details",
-      "stepType": "FieldList",
-      "intro": "Interview Feedback : Feedback Details"
-    },
-    {
-      "id": "Step10",
-      "fields": [{ "name": "Status",  "Mode": "Edit" }],
-      "name": "Admin ",
-      "stepType": "FieldList",
-      "intro": "Interview Feedback : Admin"
-    }
-  ]
+  "Create": "No",
+  "Wizard": []
 }

@@ -5,7 +5,7 @@
   },
   "Controls": {
     "USP": "UserProfile",
-    "UserSpecific":"Yes",
+    "UserSpecific": "Yes",
     "Update": "Yes",
     "URL": "https://fierce-oasis-51455.herokuapp.com",
     "Source": { "SourceName": "mongoDB", "SourceFile": "NA" }
@@ -32,40 +32,103 @@
     "CurrentJobType",
     "NoticePeriod",
     "ConsiderReLocation",
-    "ConsiderTravel",
     "UKResident",
-    "Eligibility",
     "Citizenship",
     "Visa",
     "JobType",
-    "Status"
+    "Status",
+    "ConsiderTravel"
   ],
   "MButtons": [],
-  "DButtons": [],
+  "DButtons": [
+    {
+      "type": "WORKFLOW",
+      "name": "Approve",
+      "icon": "sap-icon://accept",
+      "Dialog": [
+        {
+          "label": "Approver Comment",
+          "name": "ApproverComment",
+          "type": "string",
+          "option": "Optional"
+        }
+      ],
+      "transferFields": [
+        { "field": "ID", "value": "@recorddata" },
+        { "field": "Status", "value": "Approved" },
+        { "field": "ApproverComment", "value": "@UserInput" }
+      ],
+      "URL": "datarecords/",
+      "Token": "Yes",
+      "URLMethod": "PUT"
+    },
+    {
+      "type": "WORKFLOW",
+      "name": "Reject",
+      "icon": "sap-icon://decline",
+      "Dialog": [
+        {
+          "label": "Approver Comment",
+          "name": "ApproverComment",
+          "type": "string",
+          "option": "Optional"
+        }
+      ],
+      "transferFields": [
+        { "field": "ID", "value": "@recorddata" },
+        { "field": "Status", "value": "Rejected" },
+        { "field": "ApproverComment", "value": "@UserInput" }
+      ],
+      "URL": "datarecords/",
+      "Token": "Yes",
+      "URLMethod": "PUT"
+    },
+    {
+      "type": "WORKFLOW",
+      "name": "ReferBack",
+      "icon": "sap-icon://hint",
+      "Dialog": [
+        {
+          "label": "Approver Comment",
+          "name": "ApproverComment",
+          "type": "string",
+          "option": "Optional"
+        }
+      ],
+      "transferFields": [
+        { "field": "ID", "value": "@recorddata" },
+        { "field": "Status", "value": "ReferBack" },
+        { "field": "ApproverComment", "value": "@UserInput" }
+      ],
+      "URL": "datarecords/",
+      "Token": "Yes",
+      "URLMethod": "PUT"
+    }
+  ],
   "Tabs": [
     {
-            "value": "Tab0",
+      "value": "Tab0",
       "update": "No",
       "name": "Cards",
       "type": "Cards",
       "fioriicon": "responsive"
     },
     {
-            "value": "Tab1",
+      "value": "Tab1",
       "update": "Yes",
       "name": "Profile",
       "type": "Field",
       "fioriicon": "business-card"
     },
     {
-            "value": "Tab2",
+      "value": "Tab2",
       "update": "Yes",
       "name": "Current",
       "type": "Field",
       "fioriicon": "appointment"
     },
     {
-            "value": "Tab3",
+      "value": "Tab3",
       "update": "Yes",
       "name": "Feedback",
       "type": "Field",
@@ -83,18 +146,15 @@
       "DOB",
       "Email",
       "ContactNo",
-      "AboutCompany",
-      "Communication",
-      "LeadershipSkills",
-      "ProblemSolvingSkills",
-      "MotivationalSkills",
       "ConsiderReLocation",
       "ConsiderTravel",
       "UKResident",
       "Eligibility",
       "Citizenship",
       "Visa",
-      "VisaValidity"
+      "VisaValidity",
+      "DateOfJoining",
+      "Location"
     ],
     "Tab2": [
       "CurrentJobType",
@@ -111,15 +171,18 @@
       "Bonus",
       "CompanyCar",
       "OtherAllowan",
-      "NoticePeriod"
-    ],
-    "Tab3": [
-      "DateOfJoining",
-      "Location",
+      "NoticePeriod",
       "Duration",
       "Rate",
       "BaseSalary",
-      "GrossSalary",
+      "GrossSalary"
+    ],
+    "Tab3": [
+      "AboutCompany",
+      "Communication",
+      "LeadershipSkills",
+      "ProblemSolvingSkills",
+      "MotivationalSkills",
       "JobType",
       "HRFeedback",
       "TechFeedback",

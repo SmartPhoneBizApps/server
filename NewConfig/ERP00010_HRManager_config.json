@@ -5,7 +5,7 @@
   },
   "Controls": {
     "USP": "UserProfile",
-    "UserSpecific":"Yes",
+    "UserSpecific": "Yes",
     "Update": "Yes",
     "URL": "https://fierce-oasis-51455.herokuapp.com",
     "Source": { "SourceName": "mongoDB", "SourceFile": "NA" }
@@ -14,7 +14,7 @@
     "IntroField": "InterviewDate",
     "TitleField": "Position",
     "fStatus": "Status",
-    "LFields": ["ID", "Candidate"]
+    "LFields": ["ID"]
   },
   "ListBOTFields": {
     "None": ["cardImage", "StatusState"],
@@ -32,122 +32,105 @@
     "CurrentJobType",
     "NoticePeriod",
     "ConsiderReLocation",
-    "ConsiderTravel",
     "UKResident",
-    "Eligibility",
     "Citizenship",
     "Visa",
     "JobType",
-    "Status"
+    "Status",
+    "ConsiderTravel"
   ],
-  "MButtons": [
-    {
-      "type": "DOWNLOAD",
-      "name": "Download File",
-      "icon": "sap-icon://download"
-    },
-    {
-      "type": "APPHELP",
-      "name": "Get App Help",
-      "icon": "sap-icon://sys-help-2"
-    },
-    {
-      "type": "BOT",
-      "name": "Launch Assistant",
-      "icon": "sap-icon://travel-request"
-    },
-    {
-      "type": "VIEW",
-      "name": "Change App View",
-      "icon": "sap-icon://chart-table-view"
-    },
-    { "type": "ADD", "name": "Add Record", "icon": "sap-icon://add" },
-    { "type": "UPLOAD", "name": "Upload Record", "icon": "sap-icon://upload" }
-  ],
+  "MButtons": [],
   "DButtons": [
     {
-      "type": "ATTACHMENT",
-      "name": "View Attachments",
-      "icon": "sap-icon://attachment"
+      "type": "WORKFLOW",
+      "name": "Approve",
+      "icon": "sap-icon://accept",
+      "Dialog": [
+        {
+          "label": "Approver Comment",
+          "name": "ApproverComment",
+          "type": "string",
+          "option": "Optional"
+        }
+      ],
+      "transferFields": [
+        { "field": "ID", "value": "@recorddata" },
+        { "field": "Status", "value": "Approved" },
+        { "field": "ApproverComment", "value": "@UserInput" }
+      ],
+      "URL": "datarecords/",
+      "Token": "Yes",
+      "URLMethod": "PUT"
     },
-    { "type": "UPDATE", "name": "Update Record", "icon": "sap-icon://update" },
-    { "type": "ADD", "name": "Add Record", "icon": "sap-icon://add" }
+    {
+      "type": "WORKFLOW",
+      "name": "Reject",
+      "icon": "sap-icon://decline",
+      "Dialog": [
+        {
+          "label": "Approver Comment",
+          "name": "ApproverComment",
+          "type": "string",
+          "option": "Optional"
+        }
+      ],
+      "transferFields": [
+        { "field": "ID", "value": "@recorddata" },
+        { "field": "Status", "value": "Rejected" },
+        { "field": "ApproverComment", "value": "@UserInput" }
+      ],
+      "URL": "datarecords/",
+      "Token": "Yes",
+      "URLMethod": "PUT"
+    },
+    {
+      "type": "WORKFLOW",
+      "name": "ReferBack",
+      "icon": "sap-icon://hint",
+      "Dialog": [
+        {
+          "label": "Approver Comment",
+          "name": "ApproverComment",
+          "type": "string",
+          "option": "Optional"
+        }
+      ],
+      "transferFields": [
+        { "field": "ID", "value": "@recorddata" },
+        { "field": "Status", "value": "ReferBack" },
+        { "field": "ApproverComment", "value": "@UserInput" }
+      ],
+      "URL": "datarecords/",
+      "Token": "Yes",
+      "URLMethod": "PUT"
+    }
   ],
   "Tabs": [
     {
-            "value": "Tab0",
+      "value": "Tab0",
       "update": "No",
       "name": "Cards",
       "type": "Cards",
       "fioriicon": "responsive"
     },
     {
-            "value": "Tab1",
+      "value": "Tab1",
       "update": "Yes",
-      "name": "Candidate",
+      "name": "Profile",
       "type": "Field",
       "fioriicon": "business-card"
     },
     {
-            "value": "Tab2",
+      "value": "Tab2",
       "update": "Yes",
-      "name": "CurrentJob",
+      "name": "Current",
       "type": "Field",
       "fioriicon": "appointment"
     },
     {
-            "value": "Tab3",
+      "value": "Tab3",
       "update": "Yes",
-      "name": "InitialScreening",
-      "type": "Field",
-      "fioriicon": "comment"
-    },
-    {
-            "value": "Tab4",
-      "update": "Yes",
-      "name": "WorkEligibility",
-      "type": "Field",
-      "fioriicon": "comment"
-    },
-    {
-            "value": "Tab5",
-      "update": "Yes",
-      "name": "HRFeedback",
-      "type": "Field",
-      "fioriicon": "comment"
-    },
-    {
-            "value": "Tab6",
-      "update": "Yes",
-      "name": "TechFeedback",
-      "type": "Field",
-      "fioriicon": "comment"
-    },
-    {
-            "value": "Tab7",
-      "update": "Yes",
-      "name": "LeadFeedback",
-      "type": "Field",
-      "fioriicon": "comment"
-    },
-    {
-            "value": "Tab8",
-      "update": "Yes",
-      "name": "SoftSkills",
-      "type": "Field",
-      "fioriicon": "comment"
-    },
-    {
-            "value": "Tab9",
-      "update": "Yes",
-      "name": "FinalResult",
-      "type": "Field",
-      "fioriicon": "comment"
-    },
-    {
-            "value": "Tab10",
-      "update": "Yes",
-      "name": "Benefits",
+      "name": "Feedback",
       "type": "Field",
       "fioriicon": "comment"
     }
@@ -156,36 +139,54 @@
     "headerTitle": ["USP_Name"],
     "headerRole": ["USP_Role"],
     "headerImage": ["USP_Image"],
-    "None": ["ID"],
-    "Tab1": ["DOB", "Email", "ContactNo"],
-    "Tab2": [
-      "CurrentJobType",
-      "CurrEmployer",
-      "CurrJobRole",
-      "CurBaseSalary",
-      "CurGrosSalary"
-    ],
-    "Tab3": ["Reasonleaving", "ExpBaseSalary", "ExpGrossSal"],
-    "Tab4": [
+    "None": ["ID", "Candidate", "Status"],
+    "Tab1": [
+      "InterviewDate",
+      "Position",
+      "DOB",
+      "Email",
+      "ContactNo",
+      "ConsiderReLocation",
+      "ConsiderTravel",
       "UKResident",
       "Eligibility",
       "Citizenship",
       "Visa",
-      "VisaValidity"
-    ],
-    "Tab5": ["HR_Status", "HRFeedback", "HRInterviewDt"],
-    "Tab6": ["Tech_Status", "TechFeedback", "TechInterviewDt"],
-    "Tab7": ["Lead_Status", "LeadFeedback", "LeadInterviewDt"],
-    "Tab8": ["LeadershipSkills", "ProblemSolvingSkills", "MotivationalSkills"],
-    "Tab9": [
-      "Status",
-      "JobType",
+      "VisaValidity",
       "DateOfJoining",
-      "Location",
+      "Location"
+    ],
+    "Tab2": [
+      "CurrentJobType",
+      "CurrEmployer",
+      "CurrJobRole",
+      "Reasonleaving",
+      "CurBaseSalary",
+      "CurGrosSalary",
+      "ExpBaseSalary",
+      "ExpGrossSal",
+      "PensionPlan",
+      "HealthCare",
+      "LifeAssurance",
+      "Bonus",
+      "CompanyCar",
+      "OtherAllowan",
+      "NoticePeriod",
       "Duration",
       "Rate",
       "BaseSalary",
       "GrossSalary"
+    ],
+    "Tab3": [
+      "AboutCompany",
+      "Communication",
+      "LeadershipSkills",
+      "ProblemSolvingSkills",
+      "MotivationalSkills",
+      "JobType",
+      "HRFeedback",
+      "TechFeedback",
+      "LeadFeedback"
     ]
   },
   "ControlDisplay": {},
@@ -645,49 +646,6 @@
     "ItemDetails": []
   },
   "CalculatedFields": {},
-  "Create": "Yes",
-  "Wizard": [
-    {
-      "id": "Step1",
-      "fields": [
-        { "name": "Position",  "Mode": "Edit" },
-        { "name": "InterviewDate",  "Mode": "Edit" }
-      ],
-      "name": "Role",
-      "stepType": "FieldList",
-      "intro": "Role Details"
-    },
-    {
-      "id": "Step2",
-      "fields": [
-        { "name": "Candidate",  "Mode": "Edit" },
-        { "name": "DOB",  "Mode": "Edit" },
-        { "name": "Email",  "Mode": "Edit" },
-        { "name": "ContactNo",  "Mode": "Edit" }
-      ],
-      "name": "Candidate",
-      "stepType": "FieldList",
-      "intro": "Candidate"
-    },
-    {
-      "id": "Step3",
-      "fields": [
-        { "name": "CurrentJobType",  "Mode": "Edit" },
-        { "name": "CurrEmployer",  "Mode": "Edit" },
-        { "name": "CurrJobRole",  "Mode": "Edit" },
-        { "name": "CurBaseSalary",  "Mode": "Edit" },
-        { "name": "CurGrosSalary",  "Mode": "Edit" }
-      ],
-      "name": "CurrentJob",
-      "stepType": "FieldList",
-      "intro": "Current Job"
-    },
-    {
-      "id": "Step4",
-      "fields": [{ "name": "Status",  "Mode": "Edit" }],
-      "name": "Status",
-      "stepType": "FieldList",
-      "intro": "Status"
-    }
-  ]
+  "Create": "No",
+  "Wizard": []
 }

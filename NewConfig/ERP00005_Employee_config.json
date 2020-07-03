@@ -1,11 +1,11 @@
 {
   "Title": {
-    "ApplicationTitle": "Stock Report",
-    "DetailTitle": "Stock Report"
+    "ApplicationTitle": "Stock Check",
+    "DetailTitle": "Stock Check"
   },
   "Controls": {
     "USP": "UserProfile",
-    "UserSpecific":"Yes",
+    "UserSpecific": "Yes",
     "Update": "Yes",
     "URL": "https://fierce-oasis-51455.herokuapp.com",
     "Source": { "SourceName": "mongoDB", "SourceFile": "NA" }
@@ -58,28 +58,28 @@
   ],
   "Tabs": [
     {
-            "value": "Tab0",
+      "value": "Tab0",
       "update": "No",
       "name": "Cards",
       "type": "Cards",
       "fioriicon": "responsive"
     },
     {
-            "value": "Tab1",
+      "value": "Tab1",
       "update": "Yes",
       "name": "Location",
       "type": "Field",
       "fioriicon": "map"
     },
     {
-            "value": "Tab2",
+      "value": "Tab2",
       "update": "Yes",
       "name": "Breakup",
       "type": "Field",
       "fioriicon": "notes"
     },
     {
-            "value": "Tab3",
+      "value": "Tab3",
       "update": "Yes",
       "name": "Stock",
       "type": "Graph",
@@ -272,9 +272,9 @@
     {
       "id": "Step1",
       "fields": [
-        { "name": "Material",  "Mode": "Edit" },
-        { "name": "Description",  "Mode": "Edit" },
-        { "name": "TotalStock",  "Mode": "Edit" }
+        { "name": "Material", "Mode": "Edit" },
+        { "name": "Description", "Mode": "Edit" },
+        { "name": "TotalStock", "Mode": "Edit" }
       ],
       "name": "Stock Details",
       "stepType": "FieldList",
@@ -282,14 +282,14 @@
     },
     {
       "id": "Step2",
-      "fields": [{ "name": "StorageLoc",  "Mode": "Edit" }],
+      "fields": [{ "name": "StorageLoc", "Mode": "Edit" }],
       "name": "Storage Location",
       "stepType": "FieldList",
       "intro": "Stock Report : Storage Location"
     },
     {
       "id": "Step3",
-      "fields": [{ "name": "Location",  "Mode": "Edit" }],
+      "fields": [{ "name": "Location", "Mode": "Edit" }],
       "name": "Address details",
       "stepType": "FieldList",
       "intro": "Stock Report : Address details"
@@ -297,10 +297,10 @@
     {
       "id": "Step4",
       "fields": [
-        { "name": "Reserved",  "Mode": "Edit" },
-        { "name": "Sales",  "Mode": "Edit" },
-        { "name": "Returns",  "Mode": "Edit" },
-        { "name": "Blocked",  "Mode": "Edit" }
+        { "name": "Reserved", "Mode": "Edit" },
+        { "name": "Sales", "Mode": "Edit" },
+        { "name": "Returns", "Mode": "Edit" },
+        { "name": "Blocked", "Mode": "Edit" }
       ],
       "name": "Other Details",
       "stepType": "FieldList",
@@ -308,7 +308,7 @@
     },
     {
       "id": "Step5",
-      "fields": [{ "name": "Status",  "Mode": "Edit" }],
+      "fields": [{ "name": "Status", "Mode": "Edit" }],
       "name": "Admin",
       "stepType": "FieldList",
       "intro": "Stock Report : Admin"

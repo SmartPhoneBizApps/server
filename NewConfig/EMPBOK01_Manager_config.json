@@ -5,7 +5,7 @@
   },
   "Controls": {
     "USP": "UserProfile",
-    "UserSpecific":"Yes",
+    "UserSpecific": "Yes",
     "Update": "Yes",
     "URL": "https://fierce-oasis-51455.herokuapp.com",
     "Source": { "SourceName": "mongoDB", "SourceFile": "NA" }
@@ -56,23 +56,79 @@
   ],
   "DButtons": [
     {
-      "type": "ATTACHMENT",
-      "name": "View Attachments",
-      "icon": "sap-icon://attachment"
+      "type": "WORKFLOW",
+      "name": "Approve",
+      "icon": "sap-icon://accept",
+      "Dialog": [
+        {
+          "label": "Approver Comment",
+          "name": "ApproverComment",
+          "type": "string",
+          "option": "Optional"
+        }
+      ],
+      "transferFields": [
+        { "field": "ID", "value": "@recorddata" },
+        { "field": "Status", "value": "Approved" },
+        { "field": "ApproverComment", "value": "@UserInput" }
+      ],
+      "URL": "datarecords/",
+      "Token": "Yes",
+      "URLMethod": "PUT"
     },
-    { "type": "UPDATE", "name": "Update Record", "icon": "sap-icon://update" },
-    { "type": "ADD", "name": "Add Record", "icon": "sap-icon://add" }
+    {
+      "type": "WORKFLOW",
+      "name": "Reject",
+      "icon": "sap-icon://decline",
+      "Dialog": [
+        {
+          "label": "Approver Comment",
+          "name": "ApproverComment",
+          "type": "string",
+          "option": "Optional"
+        }
+      ],
+      "transferFields": [
+        { "field": "ID", "value": "@recorddata" },
+        { "field": "Status", "value": "Rejected" },
+        { "field": "ApproverComment", "value": "@UserInput" }
+      ],
+      "URL": "datarecords/",
+      "Token": "Yes",
+      "URLMethod": "PUT"
+    },
+    {
+      "type": "WORKFLOW",
+      "name": "ReferBack",
+      "icon": "sap-icon://hint",
+      "Dialog": [
+        {
+          "label": "Approver Comment",
+          "name": "ApproverComment",
+          "type": "string",
+          "option": "Optional"
+        }
+      ],
+      "transferFields": [
+        { "field": "ID", "value": "@recorddata" },
+        { "field": "Status", "value": "ReferBack" },
+        { "field": "ApproverComment", "value": "@UserInput" }
+      ],
+      "URL": "datarecords/",
+      "Token": "Yes",
+      "URLMethod": "PUT"
+    }
   ],
   "Tabs": [
     {
-            "value": "Tab0",
+      "value": "Tab0",
       "update": "No",
       "name": "Cards",
       "type": "Cards",
       "fioriicon": "responsive"
     },
     {
-            "value": "Tab1",
+      "value": "Tab1",
       "update": "Yes",
       "name": "Booking",
       "type": "Field",
@@ -80,7 +136,7 @@
       "download": "Yes"
     },
     {
-            "value": "Tab2",
+      "value": "Tab2",
       "update": "Yes",
       "name": "Contact",
       "type": "Field",
@@ -388,27 +444,27 @@
     {
       "id": "Step1",
       "fields": [
-        { "name": "BookingFor",  "Mode": "Display" },
-        { "name": "CarPark",  "Mode": "Edit" },
-        { "name": "StartDate",  "Mode": "Edit" },
+        { "name": "BookingFor", "Mode": "Display" },
+        { "name": "CarPark", "Mode": "Edit" },
+        { "name": "StartDate", "Mode": "Edit" },
 
-        { "name": "EndDate",  "Mode": "Edit" },
+        { "name": "EndDate", "Mode": "Edit" },
 
-        { "name": "MeetingDate",  "Mode": "Edit" },
-        { "name": "Slot",  "Mode": "Edit" },
-        { "name": "NoOfPeople",  "Mode": "Edit" },
-        { "name": "RoomLayout",  "Mode": "Edit" },
-        { "name": "LunchRequired",  "Mode": "Edit" },
-        { "name": "DietaryRequirement",  "Mode": "Edit" },
-        { "name": "HotDeskNo",  "Mode": "Edit" },
-        { "name": "Building",  "Mode": "Edit" },
-        { "name": "ParkingRequired",  "Mode": "Edit" },
+        { "name": "MeetingDate", "Mode": "Edit" },
+        { "name": "Slot", "Mode": "Edit" },
+        { "name": "NoOfPeople", "Mode": "Edit" },
+        { "name": "RoomLayout", "Mode": "Edit" },
+        { "name": "LunchRequired", "Mode": "Edit" },
+        { "name": "DietaryRequirement", "Mode": "Edit" },
+        { "name": "HotDeskNo", "Mode": "Edit" },
+        { "name": "Building", "Mode": "Edit" },
+        { "name": "ParkingRequired", "Mode": "Edit" },
 
-        { "name": "VisitorName",  "Mode": "Edit" },
-        { "name": "VisitorEmail",  "Mode": "Edit" },
-        { "name": "VisitorPhone",  "Mode": "Edit" },
-        { "name": "VisitorCompany",  "Mode": "Edit" },
-        { "name": "CarRegistration",  "Mode": "Edit" }
+        { "name": "VisitorName", "Mode": "Edit" },
+        { "name": "VisitorEmail", "Mode": "Edit" },
+        { "name": "VisitorPhone", "Mode": "Edit" },
+        { "name": "VisitorCompany", "Mode": "Edit" },
+        { "name": "CarRegistration", "Mode": "Edit" }
       ],
       "name": "Booking Details",
       "stepType": "FieldList",
@@ -417,9 +473,9 @@
     {
       "id": "Step2",
       "fields": [
-        { "name": "Name",  "Mode": "Edit" },
-        { "name": "ContactNo",  "Mode": "Edit" },
-        { "name": "Email",  "Mode": "Edit" }
+        { "name": "Name", "Mode": "Edit" },
+        { "name": "ContactNo", "Mode": "Edit" },
+        { "name": "Email", "Mode": "Edit" }
       ],
       "name": "Your Details",
       "stepType": "FieldList",
@@ -428,9 +484,9 @@
     {
       "id": "Step3",
       "fields": [
-        { "name": "StartTime",  "Mode": "Edit" },
-        { "name": "EndTime",  "Mode": "Edit" },
-        { "name": "Comments",  "Mode": "Edit" }
+        { "name": "StartTime", "Mode": "Edit" },
+        { "name": "EndTime", "Mode": "Edit" },
+        { "name": "Comments", "Mode": "Edit" }
       ],
       "name": "Additional Details",
       "stepType": "FieldList",
@@ -438,7 +494,7 @@
     },
     {
       "id": "Step4",
-      "fields": [{ "name": "Status",  "Mode": "Edit" }],
+      "fields": [{ "name": "Status", "Mode": "Edit" }],
       "name": "Admin and other details",
       "stepType": "FieldList",
       "intro": "Booking : Admin and other details"

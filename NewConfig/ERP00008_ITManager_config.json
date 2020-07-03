@@ -56,12 +56,68 @@
   ],
   "DButtons": [
     {
-      "type": "ATTACHMENT",
-      "name": "View Attachments",
-      "icon": "sap-icon://attachment"
+      "type": "WORKFLOW",
+      "name": "Approve",
+      "icon": "sap-icon://accept",
+      "Dialog": [
+        {
+          "label": "Approver Comment",
+          "name": "ApproverComment",
+          "type": "string",
+          "option": "Optional"
+        }
+      ],
+      "transferFields": [
+        { "field": "ID", "value": "@recorddata" },
+        { "field": "Status", "value": "Approved" },
+        { "field": "ApproverComment", "value": "@UserInput" }
+      ],
+      "URL": "datarecords/",
+      "Token": "Yes",
+      "URLMethod": "PUT"
     },
-    { "type": "UPDATE", "name": "Update Record", "icon": "sap-icon://update" },
-    { "type": "ADD", "name": "Add Record", "icon": "sap-icon://add" }
+    {
+      "type": "WORKFLOW",
+      "name": "Reject",
+      "icon": "sap-icon://decline",
+      "Dialog": [
+        {
+          "label": "Approver Comment",
+          "name": "ApproverComment",
+          "type": "string",
+          "option": "Optional"
+        }
+      ],
+      "transferFields": [
+        { "field": "ID", "value": "@recorddata" },
+        { "field": "Status", "value": "Rejected" },
+        { "field": "ApproverComment", "value": "@UserInput" }
+      ],
+      "URL": "datarecords/",
+      "Token": "Yes",
+      "URLMethod": "PUT"
+    },
+    {
+      "type": "WORKFLOW",
+      "name": "ReferBack",
+      "icon": "sap-icon://hint",
+      "Dialog": [
+        {
+          "label": "Approver Comment",
+          "name": "ApproverComment",
+          "type": "string",
+          "option": "Optional"
+        }
+      ],
+      "transferFields": [
+        { "field": "ID", "value": "@recorddata" },
+        { "field": "Status", "value": "ReferBack" },
+        { "field": "ApproverComment", "value": "@UserInput" }
+      ],
+      "URL": "datarecords/",
+      "Token": "Yes",
+      "URLMethod": "PUT"
+    }
   ],
   "Tabs": [
     {
@@ -322,11 +378,11 @@
     {
       "id": "Step1",
       "fields": [
-        { "name": "AssetType",  "Mode": "Edit" },
-        { "name": "SerialNo",  "Mode": "Edit" },
-        { "name": "Make",  "Mode": "Edit" },
-        { "name": "Model",  "Mode": "Edit" },
-        { "name": "RAM",  "Mode": "Edit" }
+        { "name": "AssetType", "Mode": "Edit" },
+        { "name": "SerialNo", "Mode": "Edit" },
+        { "name": "Make", "Mode": "Edit" },
+        { "name": "Model", "Mode": "Edit" },
+        { "name": "RAM", "Mode": "Edit" }
       ],
       "name": "Asset Details",
       "stepType": "FieldList",
@@ -335,12 +391,12 @@
     {
       "id": "Step2",
       "fields": [
-        { "name": "Processor",  "Mode": "Edit" },
-        { "name": "LapFrequency",  "Mode": "Edit" },
-        { "name": "Description",  "Mode": "Edit" },
-        { "name": "WarrantyEnd",  "Mode": "Edit" },
-        { "name": "IssuedTo",  "Mode": "Edit" },
-        { "name": "IssueDate",  "Mode": "Edit" }
+        { "name": "Processor", "Mode": "Edit" },
+        { "name": "LapFrequency", "Mode": "Edit" },
+        { "name": "Description", "Mode": "Edit" },
+        { "name": "WarrantyEnd", "Mode": "Edit" },
+        { "name": "IssuedTo", "Mode": "Edit" },
+        { "name": "IssueDate", "Mode": "Edit" }
       ],
       "name": "Asset Specification",
       "stepType": "FieldList",
@@ -348,7 +404,7 @@
     },
     {
       "id": "Step3",
-      "fields": [{ "name": "Image",  "Mode": "Edit" }],
+      "fields": [{ "name": "Image", "Mode": "Edit" }],
       "name": "Images and Attachment",
       "stepType": "FieldList",
       "intro": "IT Asset Tracking : Images and Attachment"
@@ -356,9 +412,9 @@
     {
       "id": "Step4",
       "fields": [
-        { "name": "EmpMobile",  "Mode": "Edit" },
-        { "name": "Email",  "Mode": "Edit" },
-        { "name": "Location",  "Mode": "Edit" }
+        { "name": "EmpMobile", "Mode": "Edit" },
+        { "name": "Email", "Mode": "Edit" },
+        { "name": "Location", "Mode": "Edit" }
       ],
       "name": "Employee Details",
       "stepType": "FieldList",
@@ -367,8 +423,8 @@
     {
       "id": "Step5",
       "fields": [
-        { "name": "Notes",  "Mode": "Edit" },
-        { "name": "Status",  "Mode": "Edit" }
+        { "name": "Notes", "Mode": "Edit" },
+        { "name": "Status", "Mode": "Edit" }
       ],
       "name": "Admin and other details",
       "stepType": "FieldList",
