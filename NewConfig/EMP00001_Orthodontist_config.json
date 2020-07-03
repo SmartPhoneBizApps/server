@@ -5,7 +5,7 @@
   },
   "Controls": {
     "USP": "UserProfile",
-    "UserSpecific":"Yes",
+    "UserSpecific": "Yes",
     "Update": "Yes",
     "URL": "https://fierce-oasis-51455.herokuapp.com",
     "Source": { "SourceName": "mongoDB", "SourceFile": "NA" }
@@ -24,7 +24,7 @@
     "SubTitle": ["LeaveType"],
     "Description": ["LeaveFrom"]
   },
-  "PossibleValues": ["LeaveType", "Approver", "Status", "CostCentre"],
+  "PossibleValues": ["LeaveType", "Status", "CostCentre"],
   "MButtons": [
     {
       "type": "DOWNLOAD",
@@ -60,46 +60,63 @@
   ],
   "Tabs": [
     {
-            "value": "Tab0",
+      "value": "Tab0",
       "update": "No",
       "name": "Cards",
       "type": "Cards",
       "fioriicon": "responsive"
     },
     {
-            "value": "Tab1",
+      "value": "Tab1",
       "update": "Yes",
       "name": "Leave",
       "type": "Field",
       "fioriicon": "employee"
     },
     {
-            "value": "Tab2",
+      "value": "Tab2",
       "update": "Yes",
       "name": "Employee",
       "type": "Field",
       "fioriicon": "employee"
     },
     {
-            "value": "Tab3",
+      "value": "Tab3",
       "update": "Yes",
       "name": "Address",
       "fioriicon": "addresses",
       "type": "Field"
     },
     {
-            "value": "Tab4",
+      "value": "Tab4",
       "update": "Yes",
       "name": "Contact",
       "fioriicon": "business-card",
       "type": "Field"
     },
     {
-            "value": "Tab5",
+      "value": "Tab5",
       "update": "Yes",
       "name": "Approval",
       "fioriicon": "accept",
       "type": "Field",
+      "download": "No"
+    },
+    {
+      "value": "Tab6",
+      "update": "Yes",
+      "name": "ProcessLog",
+      "fioriicon": "step",
+      "type": "Chat",
+      "download": "No"
+    },
+
+    {
+      "value": "Tab8",
+      "update": "Yes",
+      "name": "Attachment",
+      "fioriicon": "attachment",
+      "type": "MultiAttachments",
       "download": "No"
     }
   ],
@@ -112,7 +129,9 @@
     "Tab2": ["Name", "EmployeeID"],
     "Tab3": ["Address", "PostCode"],
     "Tab4": ["ContactNo", "Email"],
-    "Tab5": ["CostCentre", "Approver", "Comment"]
+    "Tab5": ["CostCentre", "Approver", "Comment"],
+    "Tab6": ["ProcessingLog"],
+    "Tab8": ["MultiAttachments"]
   },
   "ControlDisplay": {},
   "FieldDef": [
@@ -145,7 +164,7 @@
       "type": "string",
       "width": "200",
       "Option": "Optional",
-      "SLabel": "Employee Address",
+      "SLabel": "Address",
       "LLabel": ""
     },
     {
@@ -157,15 +176,15 @@
       "URLMethod": "GET",
       "Token": true,
       "Option": "Optional",
-      "SLabel": "Employee PostCode",
-      "LLabel": ""
+      "SLabel": "Post Code",
+      "LLabel": "Post Code"
     },
     {
       "name": "ContactNo",
       "type": "string",
       "width": "20",
       "Option": "Optional",
-      "SLabel": "Employee ContactNo No.",
+      "SLabel": "ContactNo No.",
       "LLabel": ""
     },
     {
@@ -181,7 +200,7 @@
       "type": "string",
       "width": "50",
       "Option": "Optional",
-      "SLabel": "Employee Email ID",
+      "SLabel": "Email ID",
       "LLabel": ""
     },
     {
@@ -255,6 +274,23 @@
       "Option": "Optional",
       "SLabel": "Comment",
       "LLabel": "Comment"
+    },
+    {
+      "name": "ProcessingLog",
+      "type": "string",
+      "width": "1000",
+      "Option": "Optional",
+      "SLabel": "Processing Log",
+      "LLabel": "Processing Log"
+    },
+    {
+      "name": "MultiAttachments",
+      "type": "attachment",
+      "width": "100",
+      "Option": "Optional",
+      "SLabel": "Attachment",
+      "LLabel": "Attachment",
+      "Currency": "No"
     }
   ],
   "itemData": "No",
@@ -276,11 +312,11 @@
     {
       "id": "Step1",
       "fields": [
-        { "name": "LeaveFrom",  "Mode": "Edit" },
-        { "name": "LeaveTo",  "Mode": "Edit" },
-        { "name": "LeaveDays",  "Mode": "Edit" },
-        { "name": "LeaveType",  "Mode": "Edit" },
-        { "name": "LeaveReason",  "Mode": "Edit" }
+        { "name": "LeaveFrom", "Mode": "Edit" },
+        { "name": "LeaveTo", "Mode": "Edit" },
+        { "name": "LeaveDays", "Mode": "Edit" },
+        { "name": "LeaveType", "Mode": "Edit" },
+        { "name": "LeaveReason", "Mode": "Edit" }
       ],
       "name": "Leave Details",
       "stepType": "FieldList",
@@ -289,10 +325,10 @@
     {
       "id": "Step2",
       "fields": [
-        { "name": "Name",  "Mode": "Edit" },
-        { "name": "ContactNo",  "Mode": "Edit" },
-        { "name": "EmployeeID",  "Mode": "Edit" },
-        { "name": "Email",  "Mode": "Edit" }
+        { "name": "Name", "Mode": "Edit" },
+        { "name": "ContactNo", "Mode": "Edit" },
+        { "name": "EmployeeID", "Mode": "Edit" },
+        { "name": "Email", "Mode": "Edit" }
       ],
       "name": "Employee Details",
       "stepType": "FieldList",
@@ -300,7 +336,10 @@
     },
     {
       "id": "Step3",
-      "fields": [{ "name": "PostCode",  "Mode": "Edit" }],
+      "fields": [
+        { "name": "PostCode", "Mode": "Edit" },
+        { "name": "Address", "Mode": "Edit" }
+      ],
       "name": "Address",
       "stepType": "FieldList",
       "intro": "Leave Request  : Address"
@@ -308,8 +347,8 @@
     {
       "id": "Step4",
       "fields": [
-        { "name": "CostCentre",  "Mode": "Edit" },
-        { "name": "Approver",  "Mode": "Edit" }
+        { "name": "CostCentre", "Mode": "Edit" },
+        { "name": "Approver", "Mode": "Edit" }
       ],
       "name": "Cost Center",
       "stepType": "FieldList",
@@ -317,7 +356,7 @@
     },
     {
       "id": "Step7",
-      "fields": [{ "name": "Status",  "Mode": "Edit" }],
+      "fields": [{ "name": "Status", "Mode": "Edit" }],
       "name": "Admin",
       "stepType": "FieldList",
       "intro": "Leave Request  : Admin"

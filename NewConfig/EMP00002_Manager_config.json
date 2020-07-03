@@ -5,7 +5,7 @@
   },
   "Controls": {
     "USP": "UserProfile",
-    "UserSpecific":"Yes",
+    "UserSpecific": "Yes",
     "Update": "Yes",
     "URL": "https://fierce-oasis-51455.herokuapp.com",
     "Source": { "SourceName": "mongoDB", "SourceFile": "NA" }
@@ -58,23 +58,79 @@
   ],
   "DButtons": [
     {
-      "type": "ATTACHMENT",
-      "name": "View Attachments",
-      "icon": "sap-icon://attachment"
+      "type": "WORKFLOW",
+      "name": "Approve",
+      "icon": "sap-icon://accept",
+      "Dialog": [
+        {
+          "label": "Approver Comment",
+          "name": "ApproverComment",
+          "type": "string",
+          "option": "Optional"
+        }
+      ],
+      "transferFields": [
+        { "field": "ID", "value": "@recorddata" },
+        { "field": "Status", "value": "Approved" },
+        { "field": "ApproverComment", "value": "@UserInput" }
+      ],
+      "URL": "datarecords/",
+      "Token": "Yes",
+      "URLMethod": "PUT"
     },
-    { "type": "UPDATE", "name": "Update Record", "icon": "sap-icon://update" },
-    { "type": "ADD", "name": "Add Record", "icon": "sap-icon://add" }
+    {
+      "type": "WORKFLOW",
+      "name": "Reject",
+      "icon": "sap-icon://decline",
+      "Dialog": [
+        {
+          "label": "Approver Comment",
+          "name": "ApproverComment",
+          "type": "string",
+          "option": "Optional"
+        }
+      ],
+      "transferFields": [
+        { "field": "ID", "value": "@recorddata" },
+        { "field": "Status", "value": "Rejected" },
+        { "field": "ApproverComment", "value": "@UserInput" }
+      ],
+      "URL": "datarecords/",
+      "Token": "Yes",
+      "URLMethod": "PUT"
+    },
+    {
+      "type": "WORKFLOW",
+      "name": "ReferBack",
+      "icon": "sap-icon://hint",
+      "Dialog": [
+        {
+          "label": "Approver Comment",
+          "name": "ApproverComment",
+          "type": "string",
+          "option": "Optional"
+        }
+      ],
+      "transferFields": [
+        { "field": "ID", "value": "@recorddata" },
+        { "field": "Status", "value": "ReferBack" },
+        { "field": "ApproverComment", "value": "@UserInput" }
+      ],
+      "URL": "datarecords/",
+      "Token": "Yes",
+      "URLMethod": "PUT"
+    }
   ],
   "Tabs": [
     {
-            "value": "Tab0",
+      "value": "Tab0",
       "update": "No",
       "name": "Cards",
       "type": "Cards",
       "fioriicon": "responsive"
     },
     {
-            "value": "Tab1",
+      "value": "Tab1",
       "update": "Yes",
       "name": "Travel details",
       "type": "Field",
@@ -82,7 +138,7 @@
       "download": "Yes"
     },
     {
-            "value": "Tab2",
+      "value": "Tab2",
       "update": "Yes",
       "name": "Stay details",
       "type": "Field",
@@ -90,7 +146,7 @@
       "download": "Yes"
     },
     {
-            "value": "Tab3",
+      "value": "Tab3",
       "update": "Yes",
       "name": "Processing Log",
       "fioriicon": "step",
@@ -98,12 +154,20 @@
       "download": "Yes"
     },
     {
-            "value": "Tab4",
+      "value": "Tab4",
       "update": "Yes",
       "name": "Other Details",
       "fioriicon": "customer-view",
       "type": "Field",
       "download": "Yes"
+    },
+    {
+      "value": "Tab5",
+      "update": "Yes",
+      "name": "Attachment",
+      "fioriicon": "attachment",
+      "type": "MultiAttachments",
+      "download": "No"
     }
   ],
   "DetailFields": {
@@ -127,7 +191,8 @@
       "CostCentre",
       "Approver",
       "Currency"
-    ]
+    ],
+    "Tab5": ["MultiAttachments"]
   },
   "ControlDisplay": {},
   "FieldDef": [
@@ -296,7 +361,7 @@
     },
     {
       "name": "OtherCost",
-      "type": "Num,2",
+      "type": "Num,0",
       "width": "20",
       "Option": "Optional",
       "SLabel": "Other Cost",
@@ -317,6 +382,15 @@
       "Option": "Optional",
       "SLabel": "Stay Details",
       "LLabel": "Stay Details"
+    },
+    {
+      "name": "MultiAttachments",
+      "type": "attachment",
+      "width": "100",
+      "Option": "Optional",
+      "SLabel": "Attachment",
+      "LLabel": "Attachment",
+      "Currency": "No"
     }
   ],
   "itemData": "No",
@@ -357,9 +431,9 @@
     {
       "id": "Step1",
       "fields": [
-        { "name": "EmployeeID",  "Mode": "Edit" },
-        { "name": "Name",  "Mode": "Edit" },
-        { "name": "Justification",  "Mode": "Edit" }
+        { "name": "EmployeeID", "Mode": "Edit" },
+        { "name": "Name", "Mode": "Edit" },
+        { "name": "Justification", "Mode": "Edit" }
       ],
       "name": "Request Details",
       "stepType": "FieldList",
@@ -368,12 +442,12 @@
     {
       "id": "Step4",
       "fields": [
-        { "name": "TravelDtFrom",  "Mode": "Edit" },
-        { "name": "TravelDateTo",  "Mode": "Edit" },
-        { "name": "TravelMode",  "Mode": "Edit" },
-        { "name": "TravelDetail",  "Mode": "Edit" },
-        { "name": "Status",  "Mode": "Edit" },
-        { "name": "Approver",  "Mode": "Edit" }
+        { "name": "TravelDtFrom", "Mode": "Edit" },
+        { "name": "TravelDateTo", "Mode": "Edit" },
+        { "name": "TravelMode", "Mode": "Edit" },
+        { "name": "TravelDetail", "Mode": "Edit" },
+        { "name": "Status", "Mode": "Edit" },
+        { "name": "Approver", "Mode": "Edit" }
       ],
       "name": "Travel Details",
       "stepType": "FieldList",
@@ -382,10 +456,10 @@
     {
       "id": "Step2",
       "fields": [
-        { "name": "FoodCost",  "Mode": "Edit" },
-        { "name": "TravelCost",  "Mode": "Edit" },
-        { "name": "StayCost",  "Mode": "Edit" },
-        { "name": "OtherCost",  "Mode": "Edit" }
+        { "name": "FoodCost", "Mode": "Edit" },
+        { "name": "TravelCost", "Mode": "Edit" },
+        { "name": "StayCost", "Mode": "Edit" },
+        { "name": "OtherCost", "Mode": "Edit" }
       ],
       "name": "Travel Cost",
       "stepType": "FieldList",

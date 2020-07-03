@@ -5,7 +5,7 @@
   },
   "Controls": {
     "USP": "UserProfile",
-    "UserSpecific":"Yes",
+    "UserSpecific": "Yes",
     "Update": "Yes",
     "URL": "https://fierce-oasis-51455.herokuapp.com",
     "Source": { "SourceName": "mongoDB", "SourceFile": "NA" }
@@ -61,77 +61,77 @@
   ],
   "Tabs": [
     {
-            "value": "Tab0",
+      "value": "Tab0",
       "update": "No",
       "name": "Cards",
       "type": "Cards",
       "fioriicon": "responsive"
     },
     {
-            "value": "Tab1",
+      "value": "Tab1",
       "update": "Yes",
       "name": "Personnel Details",
       "fioriicon": "developer-settings",
       "type": "Field"
     },
     {
-            "value": "Tab3",
+      "value": "Tab3",
       "update": "Yes",
       "name": "Skills",
       "fioriicon": "technical-object",
       "type": "Field"
     },
     {
-            "value": "Tab4",
+      "value": "Tab4",
       "update": "Yes",
       "name": "Emergency Contacts",
       "fioriicon": "accidental-leave",
       "type": "Field"
     },
     {
-            "value": "Tab5",
+      "value": "Tab5",
       "update": "Yes",
       "name": "Bank Details",
       "fioriicon": "loan",
       "type": "Field"
     },
     {
-            "value": "Tab6",
+      "value": "Tab6",
       "update": "Yes",
       "name": "Education",
       "fioriicon": "study-leave",
       "type": "Field"
     },
     {
-            "value": "Tab7",
+      "value": "Tab7",
       "update": "Yes",
       "name": "Previous Employer",
       "fioriicon": "addresses",
       "type": "Field"
     },
     {
-            "value": "Tab8",
+      "value": "Tab8",
       "update": "Yes",
       "name": "Attachments",
       "fioriicon": "attachment",
       "type": "MultiAttachments"
     },
     {
-            "value": "Tab9",
+      "value": "Tab9",
       "update": "Yes",
       "name": "Certifications",
       "fioriicon": "receipt",
       "type": "carouselImage"
     },
     {
-            "value": "Tab10",
+      "value": "Tab10",
       "update": "Yes",
       "name": "Remuneration",
       "fioriicon": "crm-sales",
       "type": "Field"
     },
     {
-            "value": "Tab11",
+      "value": "Tab11",
       "update": "Yes",
       "name": "Identification",
       "fioriicon": "hint",
@@ -142,7 +142,7 @@
     "headerTitle": ["USP_Name"],
     "headerRole": ["USP_Role"],
     "headerImage": ["USP_Image"],
-    "None": ["ID", "EmpFirstName", "EmpLastName", "Status"],
+    "None": ["EmpLastName", "EmpFirstName", "ID", "Status"],
     "Tab1": [
       "SpouseName",
       "FatherName",
@@ -159,7 +159,7 @@
     "Tab5": [
       "AccountNo",
       "BankName",
-      "Branch",
+      "BankBranch",
       "IBAN",
       "SWIFT",
       "IFSCcode",
@@ -187,16 +187,16 @@
       "type": "string",
       "width": "50",
       "Option": "Mandatory",
-      "SLabel": "Identification",
-      "LLabel": "Identification"
+      "SLabel": "First Name",
+      "LLabel": "First Name"
     },
     {
       "name": "EmpLastName",
       "type": "string",
       "width": "50",
       "Option": "Mandatory",
-      "SLabel": "Identification",
-      "LLabel": "Identification"
+      "SLabel": "Last Name",
+      "LLabel": "Last Name"
     },
     {
       "name": "SpouseName",
@@ -222,14 +222,7 @@
       "SLabel": "Date of Birth",
       "LLabel": "Date of Birth"
     },
-    {
-      "name": "Address",
-      "type": "string",
-      "width": "200",
-      "Option": "Optional",
-      "SLabel": "Address",
-      "LLabel": "Address"
-    },
+
     {
       "name": "PostCode",
       "type": "searchField",
@@ -241,6 +234,14 @@
       "Option": "Optional",
       "SLabel": "Post Code",
       "LLabel": "Post Code"
+    },
+    {
+      "name": "Address",
+      "type": "string",
+      "width": "200",
+      "Option": "Optional",
+      "SLabel": "Address",
+      "LLabel": "Address"
     },
     {
       "name": "Sex",
@@ -306,14 +307,7 @@
       "SLabel": "Remuneration",
       "LLabel": "Remuneration"
     },
-    {
-      "name": "EmpFirstName",
-      "type": "string",
-      "width": "100",
-      "Option": "Optional",
-      "SLabel": "Booking For",
-      "LLabel": "Booking For"
-    },
+
     {
       "name": "SSNumber",
       "type": "string",
@@ -343,8 +337,8 @@
       "type": "string",
       "width": "50",
       "Option": "Optional",
-      "SLabel": "Sort/Branch Code",
-      "LLabel": "Sort Code / Branch Code"
+      "SLabel": "Sort/BankBranch Code",
+      "LLabel": "Sort Code / BankBranch Code"
     },
     {
       "name": "IFSCcode",
@@ -379,12 +373,12 @@
       "LLabel": "Name of the Bank"
     },
     {
-      "name": "Branch",
+      "name": "BankBranch",
       "type": "string",
       "width": "100",
       "Option": "Optional",
-      "SLabel": "Branch",
-      "LLabel": "Name of Branch"
+      "SLabel": "BankBranch",
+      "LLabel": "Name of BankBranch"
     },
 
     {
@@ -392,8 +386,8 @@
       "type": "string",
       "width": "50",
       "Option": "Mandatory",
-      "SLabel": "Booking For",
-      "LLabel": "Booking For"
+      "SLabel": "Status",
+      "LLabel": "Status"
     },
     {
       "name": "Dependents",

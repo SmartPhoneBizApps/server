@@ -1,25 +1,25 @@
 {
   "Title": {
-    "ApplicationTitle": "Access to Office Buildings",
-    "DetailTitle": "Access to Office Buildings"
+    "ApplicationTitle": "Employee Request",
+    "DetailTitle": "Employee Request"
   },
   "Controls": {
     "USP": "UserProfile",
-    "UserSpecific":"Yes",
+    "UserSpecific": "Yes",
     "Update": "Yes",
     "URL": "https://fierce-oasis-51455.herokuapp.com",
     "Source": { "SourceName": "mongoDB", "SourceFile": "NA" }
   },
   "ListFields": {
-    "IntroField": "Name",
-    "TitleField": "EmployeeID",
-    "sStatus": "RequestType",
+    "IntroField": "RequestType",
+    "TitleField": "Name",
+    "sStatus": "EmployeeID",
     "fStatus": "Status",
-    "LFields": ["ID", "DateOfRequest", "ContactNo"]
+    "LFields": ["ID", "DateOfRequest"]
   },
   "ListBOTFields": {
     "None": ["cardImage", "StatusState"],
-    "Title": ["Name", "ContactNo"],
+    "Title": ["Name", "Email"],
     "SubTitle": ["Status", "RequestType"],
     "Description": ["ID", "DateOfRequest", "EmployeeID"]
   },
@@ -41,86 +41,130 @@
     "Mouse",
     "System"
   ],
-  "MButtons": [],
-  "DButtons": [],
+  "MButtons": [
+    {
+      "type": "DOWNLOAD",
+      "name": "Download File",
+      "icon": "sap-icon://download"
+    },
+    {
+      "type": "APPHELP",
+      "name": "Get App Help",
+      "icon": "sap-icon://sys-help-2"
+    },
+    {
+      "type": "BOT",
+      "name": "Launch Assistant",
+      "icon": "sap-icon://travel-request"
+    },
+    {
+      "type": "VIEW",
+      "name": "Change App View",
+      "icon": "sap-icon://chart-table-view"
+    },
+    { "type": "ADD", "name": "Add Record", "icon": "sap-icon://add" },
+    { "type": "UPLOAD", "name": "Upload Record", "icon": "sap-icon://upload" }
+  ],
+  "DButtons": [
+    {
+      "type": "ATTACHMENT",
+      "name": "View Attachments",
+      "icon": "sap-icon://attachment"
+    },
+    { "type": "UPDATE", "name": "Update Record", "icon": "sap-icon://update" },
+    { "type": "ADD", "name": "Add Record", "icon": "sap-icon://add" }
+  ],
   "Tabs": [
     {
-            "value": "Tab0",
+      "value": "Tab0",
       "update": "No",
       "name": "Cards",
       "type": "Cards",
       "fioriicon": "responsive"
     },
     {
-            "value": "Tab1",
+      "value": "Tab1",
       "update": "Yes",
       "name": "Requester",
       "fioriicon": "person-placeholder",
-      "type": "Field"
+      "type": "FieldGroup"
     },
     {
-            "value": "Tab2",
+      "value": "Tab2",
       "update": "Yes",
       "name": "Details",
       "fioriicon": "zoom-in",
-      "type": "Field"
-    },
-    {
-            "value": "Tab3",
-      "update": "Yes",
-      "name": "Approval",
-      "fioriicon": "approvals",
-      "type": "Field"
-    },
-    {
-            "value": "Tab4",
-      "update": "Yes",
-      "name": "Admin",
-      "fioriicon": "customer-and-supplier",
-      "type": "Field"
-    },
-    {
-            "value": "Tab5",
-      "update": "Yes",
-      "name": "AdditionalInfo",
-      "fioriicon": "message-information",
-      "type": "Field",
-      "download": "Yes"
+      "type": "FieldGroup"
     }
   ],
   "DetailFields": {
     "headerTitle": ["USP_Name"],
     "headerRole": ["USP_Role"],
     "headerImage": ["USP_Image"],
-    "None": ["ID", "Status", "RequestType"],
-    "Tab1": ["EmployeeID", "Name", "Email", "ContactNo"],
-    "Tab2": ["DateOfRequest", "StartDate", "EndDate", "Reason"],
-    "Tab3": ["Approver", "ApprovalDate", "ApproverComment"],
-    "Tab4": ["Officer"],
-    "Tab5": [
-      "AccessCardNo",
-      "BuildingName",
-      "Application",
-      "CostCentre",
-      "Hardware",
-      "AssetID",
-      "Processor",
-      "HardDrive",
-      "KeyBoard",
-      "OS",
-      "RAM",
-      "HDMIPort",
-      "USBPort",
-      "CDDrive",
-      "DockingStation",
-      "Bag",
-      "Mouse",
-      "Software",
-      "System",
-      "Environment",
-      "CloneUser",
-      "RolesRequired",
-      "TransactionsRequired"
+    "None": ["ID", "Status", "RequestType", "Name"],
+    "Tab1": [
+      {
+        "GrpTitle": "Employee Details",
+        "Fields": ["EmployeeID", "Email", "ContactNo"]
+      },
+      {
+        "GrpTitle": "Approval Details",
+        "Fields": ["Approver", "ApprovalDate", "ApproverComment"]
+      },
+      {
+        "GrpTitle": "Admin Details",
+        "Fields": ["DateOfRequest", "Reason", "Officer"]
+      }
+    ],
+    "Tab2": [
+      {
+        "GrpTitle": "Access Card Details",
+        "Fields": ["AccessCardNo"]
+      },
+      {
+        "GrpTitle": "Application Details",
+        "Fields": ["Application"]
+      },
+      {
+        "GrpTitle": "Hardware Details",
+        "Fields": ["Hardware"]
+      },
+      {
+        "GrpTitle": "Laptop Details",
+        "Fields": [
+          "Processor",
+          "HardDrive",
+          "KeyBoard",
+          "OS",
+          "RAM",
+          "HDMIPort",
+          "USBPort",
+          "CDDrive",
+          "DockingStation",
+          "Bag",
+          "Mouse"
+        ]
+      },
+      {
+        "GrpTitle": "User Details",
+        "Fields": [
+          "System",
+          "Environment",
+          "CloneUser",
+          "RolesRequired",
+          "TransactionsRequired",
+          "StartDate",
+          "EndDate"
+        ]
+      },
+      {
+        "GrpTitle": "Software Details",
+        "Fields": ["Software"]
+      },
+      {
+        "GrpTitle": "Validity Period",
+        "Fields": ["StartDate", "EndDate"]
+      }
     ]
   },
   "ControlDisplay": {
@@ -134,8 +178,6 @@
             "Name",
             "ContactNo",
             "DateOfRequest",
-            "StartDate",
-            "EndDate",
             "Reason",
             "RequestType",
             "Status",
@@ -146,7 +188,7 @@
             "Email"
           ]
         },
-        { "AccessCard": ["AccessCardNo"] },
+        { "AccessCard": ["AccessCardNo", "StartDate", "EndDate"] },
         { "ApplicationLogin": ["Application"] },
         { "HardwareUpgrade": ["Hardware"] },
         {
@@ -164,10 +206,10 @@
             "Mouse"
           ]
         },
-        { "OfficeBuilding": [] },
+        { "OfficeBuilding": ["StartDate", "EndDate"] },
         { "SoftwareRequest": ["Software"] },
         {
-          "UserAccount": [
+          "UserAccounts": [
             "System",
             "Environment",
             "CloneUser",
@@ -231,7 +273,7 @@
       "name": "AccessCardNo",
       "type": "string",
       "width": "50",
-      "Option": "Mandatory",
+      "Option": "Optional",
       "SLabel": "Access Card Number",
       "LLabel": ""
     },
@@ -239,7 +281,7 @@
       "name": "BuildingName",
       "type": "string",
       "width": "50",
-      "Option": "Mandatory",
+      "Option": "Optional",
       "SLabel": "Building Name",
       "LLabel": ""
     },
@@ -271,7 +313,7 @@
       "name": "Reason",
       "type": "string",
       "width": "500",
-      "Option": "Optional",
+      "Option": "Mandatory",
       "SLabel": "Reason",
       "LLabel": ""
     },
@@ -365,7 +407,7 @@
     },
     {
       "name": "KeyBoard",
-      "type": "string",
+      "type": "switch",
       "width": "100",
       "Option": "Optional",
       "SLabel": "KeyBoard",
@@ -389,7 +431,7 @@
     },
     {
       "name": "HDMIPort",
-      "type": "string",
+      "type": "switch",
       "width": "100",
       "Option": "Optional",
       "SLabel": "HDMI Port",
@@ -397,7 +439,7 @@
     },
     {
       "name": "USBPort",
-      "type": "string",
+      "type": "switch",
       "width": "100",
       "Option": "Optional",
       "SLabel": "USB Port",
@@ -405,7 +447,7 @@
     },
     {
       "name": "CDDrive",
-      "type": "string",
+      "type": "switch",
       "width": "100",
       "Option": "Optional",
       "SLabel": "CD Drive",
@@ -413,7 +455,7 @@
     },
     {
       "name": "DockingStation",
-      "type": "string",
+      "type": "switch",
       "width": "100",
       "Option": "Optional",
       "SLabel": "Docking Station",
@@ -421,7 +463,7 @@
     },
     {
       "name": "Bag",
-      "type": "string",
+      "type": "switch",
       "width": "100",
       "Option": "Optional",
       "SLabel": "Bag",
@@ -429,7 +471,7 @@
     },
     {
       "name": "Mouse",
-      "type": "string",
+      "type": "switch",
       "width": "100",
       "Option": "Optional",
       "SLabel": "Mouse",
@@ -498,6 +540,82 @@
     "ItemDetails": []
   },
   "CalculatedFields": {},
-  "Create": "No",
-  "Wizard": []
+  "Create": "Yes",
+  "Wizard": [
+    {
+      "id": "Step1",
+      "fields": [
+        { "name": "Name", "Mode": "Edit" },
+        { "name": "EmployeeID", "Mode": "Edit" },
+        { "name": "RequestType", "Mode": "Display" },
+        { "name": "DateOfRequest", "Mode": "Edit" }
+      ],
+      "name": "Request Details",
+      "stepType": "FieldList",
+      "intro": "Access : Request Details"
+    },
+    {
+      "id": "Step2",
+      "fields": [
+        { "name": "ContactNo", "Mode": "Edit" },
+        { "name": "Email", "Mode": "Edit" },
+        { "name": "StartDate", "Mode": "Edit" },
+        { "name": "EndDate", "Mode": "Edit" },
+        { "name": "Reason", "Mode": "Edit" }
+      ],
+      "name": "Contact Details and Dates",
+      "stepType": "FieldList",
+      "intro": "Access : Requester Contact Details and Dates"
+    },
+    {
+      "id": "Step3",
+      "fields": [
+        { "name": "AccessCardNo", "Mode": "Edit" },
+        { "name": "BuildingName", "Mode": "Edit" },
+        { "name": "Processor", "Mode": "Edit" },
+        { "name": "RAM", "Mode": "Edit" },
+        { "name": "OS", "Mode": "Edit" },
+        { "name": "Application", "Mode": "Edit" },
+        { "name": "CostCentre", "Mode": "Edit" },
+        { "name": "HardDrive", "Mode": "Edit" },
+
+        { "name": "Environment", "Mode": "Edit" },
+        { "name": "Software", "Mode": "Edit" },
+        { "name": "AssetID", "Mode": "Edit" },
+        { "name": "Hardware", "Mode": "Edit" }
+      ],
+      "name": "Key Details1",
+      "stepType": "FieldList",
+      "intro": "Access : Key Details1"
+    },
+    {
+      "id": "Step4",
+      "fields": [
+        { "name": "CDDrive", "Mode": "Edit" },
+        { "name": "HDMIPort", "Mode": "Edit" },
+        { "name": "USBPort", "Mode": "Edit" },
+        { "name": "DockingStation", "Mode": "Edit" },
+        { "name": "Bag", "Mode": "Edit" },
+        { "name": "Mouse", "Mode": "Edit" },
+        { "name": "System", "Mode": "Edit" },
+        { "name": "CloneUser", "Mode": "Edit" },
+        { "name": "RolesRequired", "Mode": "Edit" },
+        { "name": "TransactionsRequired", "Mode": "Edit" },
+        { "name": "KeyBoard", "Mode": "Edit" }
+      ],
+      "name": "Key Details2",
+      "stepType": "FieldList",
+      "intro": "Access : Key Details2"
+    },
+    {
+      "id": "Step7",
+      "fields": [
+        { "name": "Status", "Mode": "Edit" },
+        { "name": "Approver", "Mode": "Display" }
+      ],
+      "name": "Admin",
+      "stepType": "FieldList",
+      "intro": "Access : Status"
+    }
+  ]
 }

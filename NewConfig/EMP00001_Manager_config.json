@@ -1,11 +1,11 @@
 {
   "Title": {
-    "ApplicationTitle": "Leave Approval",
-    "DetailTitle": "Leave Details"
+    "ApplicationTitle": "Leave Application",
+    "DetailTitle": "Leave Application"
   },
   "Controls": {
     "USP": "UserProfile",
-    "UserSpecific":"Yes",
+    "UserSpecific": "Yes",
     "Update": "Yes",
     "URL": "https://fierce-oasis-51455.herokuapp.com",
     "Source": { "SourceName": "mongoDB", "SourceFile": "NA" }
@@ -20,43 +20,159 @@
   },
   "ListBOTFields": {
     "None": ["cardImage", "StatusState"],
-    "Title": ["ID", "LeaveType"],
-    "SubTitle": ["LeaveFrom", "LeaveTo"],
-    "Description": ["LeaveDays", "Status"]
+    "Title": ["ID"],
+    "SubTitle": ["LeaveType"],
+    "Description": ["LeaveFrom"]
   },
-  "PossibleValues": ["LeaveType", "Approver", "Status", "CostCentre"],
-  "MButtons": [],
-  "DButtons": [],
+  "PossibleValues": ["LeaveType", "Status", "CostCentre"],
+  "MButtons": [
+    {
+      "type": "DOWNLOAD",
+      "name": "Download File",
+      "icon": "sap-icon://download"
+    },
+    {
+      "type": "APPHELP",
+      "name": "Get App Help",
+      "icon": "sap-icon://sys-help-2"
+    },
+    {
+      "type": "BOT",
+      "name": "Launch Assistant",
+      "icon": "sap-icon://travel-request"
+    },
+    {
+      "type": "VIEW",
+      "name": "Change App View",
+      "icon": "sap-icon://chart-table-view"
+    },
+    { "type": "ADD", "name": "Add Record", "icon": "sap-icon://add" },
+    { "type": "UPLOAD", "name": "Upload Record", "icon": "sap-icon://upload" }
+  ],
+  "DButtons": [
+    {
+      "type": "WORKFLOW",
+      "name": "Approve",
+      "icon": "sap-icon://accept",
+      "Dialog": [
+        {
+          "label": "Approver Comment",
+          "name": "ApproverComment",
+          "type": "string",
+          "option": "Optional"
+        }
+      ],
+      "transferFields": [
+        { "field": "ID", "value": "@recorddata" },
+        { "field": "Status", "value": "Approved" },
+        { "field": "ApproverComment", "value": "@UserInput" }
+      ],
+      "URL": "datarecords/",
+      "Token": "Yes",
+      "URLMethod": "PUT"
+    },
+    {
+      "type": "WORKFLOW",
+      "name": "Reject",
+      "icon": "sap-icon://decline",
+      "Dialog": [
+        {
+          "label": "Approver Comment",
+          "name": "ApproverComment",
+          "type": "string",
+          "option": "Optional"
+        }
+      ],
+      "transferFields": [
+        { "field": "ID", "value": "@recorddata" },
+        { "field": "Status", "value": "Rejected" },
+        { "field": "ApproverComment", "value": "@UserInput" }
+      ],
+      "URL": "datarecords/",
+      "Token": "Yes",
+      "URLMethod": "PUT"
+    },
+    {
+      "type": "WORKFLOW",
+      "name": "ReferBack",
+      "icon": "sap-icon://hint",
+      "Dialog": [
+        {
+          "label": "Approver Comment",
+          "name": "ApproverComment",
+          "type": "string",
+          "option": "Optional"
+        }
+      ],
+      "transferFields": [
+        { "field": "ID", "value": "@recorddata" },
+        { "field": "Status", "value": "ReferBack" },
+        { "field": "ApproverComment", "value": "@UserInput" }
+      ],
+      "URL": "datarecords/",
+      "Token": "Yes",
+      "URLMethod": "PUT"
+    }
+  ],
   "Tabs": [
     {
-            "value": "Tab0",
+      "value": "Tab0",
       "update": "No",
       "name": "Cards",
       "type": "Cards",
       "fioriicon": "responsive"
     },
     {
-            "value": "Tab1",
+      "value": "Tab1",
       "update": "Yes",
-      "name": "Leave details",
+      "name": "Leave",
       "type": "Field",
-      "fioriicon": "create-leave-request",
-      "download": "Yes"
+      "fioriicon": "employee"
     },
     {
-            "value": "Tab2",
+      "value": "Tab2",
       "update": "Yes",
-      "name": "Employee details",
+      "name": "Employee",
       "type": "Field",
-      "fioriicon": "employee",
-      "download": "Yes"
+      "fioriicon": "employee"
     },
     {
-            "value": "Tab3",
+      "value": "Tab3",
       "update": "Yes",
-      "name": "ProcessingLog",
+      "name": "Address",
+      "fioriicon": "addresses",
+      "type": "Field"
+    },
+    {
+      "value": "Tab4",
+      "update": "Yes",
+      "name": "Contact",
+      "fioriicon": "business-card",
+      "type": "Field"
+    },
+    {
+      "value": "Tab5",
+      "update": "Yes",
+      "name": "Approval",
+      "fioriicon": "accept",
+      "type": "Field",
+      "download": "No"
+    },
+    {
+      "value": "Tab6",
+      "update": "Yes",
+      "name": "ProcessLog",
       "fioriicon": "step",
       "type": "Chat",
+      "download": "No"
+    },
+
+    {
+      "value": "Tab8",
+      "update": "Yes",
+      "name": "Attachment",
+      "fioriicon": "attachment",
+      "type": "MultiAttachments",
       "download": "No"
     }
   ],
@@ -64,10 +180,14 @@
     "headerTitle": ["USP_Name"],
     "headerRole": ["USP_Role"],
     "headerImage": ["USP_Image"],
-    "None": ["ID", "Name", "CostCentre", "Status"],
+    "None": ["ID", "Status"],
     "Tab1": ["LeaveType", "LeaveFrom", "LeaveTo", "LeaveDays", "LeaveReason"],
-    "Tab2": ["Address", "PostCode", "ContactNo", "Email", "Comment"],
-    "Tab3": ["ProcessingLog"]
+    "Tab2": ["Name", "EmployeeID"],
+    "Tab3": ["Address", "PostCode"],
+    "Tab4": ["ContactNo", "Email"],
+    "Tab5": ["CostCentre", "Approver", "Comment"],
+    "Tab6": ["ProcessingLog"],
+    "Tab8": ["MultiAttachments"]
   },
   "ControlDisplay": {},
   "FieldDef": [
@@ -76,24 +196,32 @@
       "type": "string",
       "width": "20",
       "Option": "Mandatory",
-      "SLabel": "Identification Number",
-      "LLabel": "Identification Number"
+      "SLabel": "ID",
+      "LLabel": ""
+    },
+    {
+      "name": "EmployeeID",
+      "type": "string",
+      "width": "20",
+      "Option": "Optional",
+      "SLabel": "Employee ID",
+      "LLabel": ""
     },
     {
       "name": "Name",
       "type": "string",
       "width": "50",
-      "Option": "Mandatory",
+      "Option": "Optional",
       "SLabel": "Employee Full Name",
-      "LLabel": "Employee Name"
+      "LLabel": ""
     },
     {
       "name": "Address",
       "type": "string",
       "width": "200",
       "Option": "Optional",
-      "SLabel": "Employee Address",
-      "LLabel": "Employee Address"
+      "SLabel": "Address",
+      "LLabel": ""
     },
     {
       "name": "PostCode",
@@ -107,14 +235,13 @@
       "SLabel": "Post Code",
       "LLabel": "Post Code"
     },
-
     {
       "name": "ContactNo",
       "type": "string",
       "width": "20",
       "Option": "Optional",
-      "SLabel": "Employee ContactNo",
-      "LLabel": "Employee ContactNo"
+      "SLabel": "ContactNo No.",
+      "LLabel": ""
     },
     {
       "name": "CostCentre",
@@ -122,63 +249,63 @@
       "width": "50",
       "Option": "Optional",
       "SLabel": "Cost Centre",
-      "LLabel": "Cost Centre"
+      "LLabel": ""
     },
     {
       "name": "Email",
       "type": "string",
       "width": "50",
       "Option": "Optional",
-      "SLabel": "Employee Email",
-      "LLabel": "Employee Email"
+      "SLabel": "Email ID",
+      "LLabel": ""
     },
     {
       "name": "Location",
       "type": "string",
-      "width": "20",
+      "width": "100",
       "Option": "Optional",
       "SLabel": "Location",
-      "LLabel": "Location"
+      "LLabel": ""
     },
     {
       "name": "LeaveType",
-      "type": "string",
-      "width": "50",
+      "type": "radiobutton",
+      "width": "100",
       "Option": "Optional",
-      "SLabel": "Leave Type",
-      "LLabel": "Leave Type"
+      "SLabel": "LeaveType",
+      "LLabel": ""
     },
     {
       "name": "LeaveFrom",
       "type": "Date",
       "width": "10",
       "Option": "Optional",
-      "SLabel": "Leave From",
-      "LLabel": "Leave From"
+      "SLabel": "LeaveFrom",
+      "LLabel": ""
     },
     {
       "name": "LeaveTo",
       "type": "Date",
       "width": "10",
       "Option": "Optional",
-      "SLabel": "Leave To",
-      "LLabel": "Leave To"
+      "SLabel": "LeaveTo",
+      "LLabel": ""
     },
     {
       "name": "LeaveDays",
       "type": "string",
       "width": "10",
       "Option": "Optional",
-      "SLabel": "Leave Days",
-      "LLabel": "Leave Days"
+      "SLabel": "Total no. of leave days ",
+      "LLabel": ""
     },
     {
       "name": "LeaveReason",
       "type": "string",
       "width": "500",
       "Option": "Optional",
-      "SLabel": "Leave Reason",
-      "LLabel": "Leave Reason"
+      "SLabel": "Reason For Leave",
+      "LLabel": ""
     },
     {
       "name": "Approver",
@@ -186,15 +313,15 @@
       "width": "50",
       "Option": "Optional",
       "SLabel": "Approver",
-      "LLabel": "Approver"
+      "LLabel": ""
     },
     {
       "name": "Status",
       "type": "string",
-      "width": "50",
+      "width": "20",
       "Option": "Mandatory",
-      "SLabel": "Status",
-      "LLabel": "Status"
+      "SLabel": "Request Status",
+      "LLabel": ""
     },
     {
       "name": "Comment",
@@ -205,20 +332,21 @@
       "LLabel": "Comment"
     },
     {
-      "name": "EmployeeID",
-      "type": "string",
-      "width": "20",
-      "Option": "Optional",
-      "SLabel": "Employee ID",
-      "LLabel": "EmployeeID"
-    },
-    {
       "name": "ProcessingLog",
       "type": "string",
       "width": "1000",
       "Option": "Optional",
       "SLabel": "Processing Log",
       "LLabel": "Processing Log"
+    },
+    {
+      "name": "MultiAttachments",
+      "type": "attachment",
+      "width": "100",
+      "Option": "Optional",
+      "SLabel": "Attachment",
+      "LLabel": "Attachment",
+      "Currency": "No"
     }
   ],
   "itemData": "No",
@@ -235,6 +363,59 @@
     "ItemDetails": []
   },
   "CalculatedFields": {},
-  "Create": "No",
-  "Wizard": []
+  "Create": "Yes",
+  "Wizard": [
+    {
+      "id": "Step1",
+      "fields": [
+        { "name": "LeaveFrom", "Mode": "Edit" },
+        { "name": "LeaveTo", "Mode": "Edit" },
+        { "name": "LeaveDays", "Mode": "Edit" },
+        { "name": "LeaveType", "Mode": "Edit" },
+        { "name": "LeaveReason", "Mode": "Edit" }
+      ],
+      "name": "Leave Details",
+      "stepType": "FieldList",
+      "intro": "Leave Request  : Leave Details"
+    },
+    {
+      "id": "Step2",
+      "fields": [
+        { "name": "Name", "Mode": "Edit" },
+        { "name": "ContactNo", "Mode": "Edit" },
+        { "name": "EmployeeID", "Mode": "Edit" },
+        { "name": "Email", "Mode": "Edit" }
+      ],
+      "name": "Employee Details",
+      "stepType": "FieldList",
+      "intro": "Leave Request  : Employee Details"
+    },
+    {
+      "id": "Step3",
+      "fields": [
+        { "name": "PostCode", "Mode": "Edit" },
+        { "name": "Address", "Mode": "Edit" }
+      ],
+      "name": "Address",
+      "stepType": "FieldList",
+      "intro": "Leave Request  : Address"
+    },
+    {
+      "id": "Step4",
+      "fields": [
+        { "name": "CostCentre", "Mode": "Edit" },
+        { "name": "Approver", "Mode": "Edit" }
+      ],
+      "name": "Cost Center",
+      "stepType": "FieldList",
+      "intro": "Leave Request  : Cost Center"
+    },
+    {
+      "id": "Step7",
+      "fields": [{ "name": "Status", "Mode": "Edit" }],
+      "name": "Admin",
+      "stepType": "FieldList",
+      "intro": "Leave Request  : Admin"
+    }
+  ]
 }

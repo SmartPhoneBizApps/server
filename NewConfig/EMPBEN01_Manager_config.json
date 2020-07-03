@@ -5,7 +5,7 @@
   },
   "Controls": {
     "USP": "UserProfile",
-    "UserSpecific":"Yes",
+    "UserSpecific": "Yes",
     "Update": "Yes",
     "URL": "https://fierce-oasis-51455.herokuapp.com",
     "Source": { "SourceName": "mongoDB", "SourceFile": "NA" }
@@ -76,14 +76,14 @@
   ],
   "Tabs": [
     {
-            "value": "Tab0",
+      "value": "Tab0",
       "update": "No",
       "name": "Cards",
       "type": "Cards",
       "fioriicon": "responsive"
     },
     {
-            "value": "Tab1",
+      "value": "Tab1",
       "update": "Yes",
       "name": "Employee details",
       "fioriicon": "employee",
@@ -91,7 +91,7 @@
       "download": "Yes"
     },
     {
-            "value": "Tab2",
+      "value": "Tab2",
       "update": "Yes",
       "name": "Benefits",
       "fioriicon": "notes",
@@ -99,7 +99,7 @@
       "download": "Yes"
     },
     {
-            "value": "Tab3",
+      "value": "Tab3",
       "update": "Yes",
       "name": "Dependent details",
       "fioriicon": "folder",
@@ -107,7 +107,7 @@
       "download": "Yes"
     },
     {
-            "value": "Tab4",
+      "value": "Tab4",
       "update": "Yes",
       "name": "Item Details",
       "fioriicon": "notes",
@@ -549,12 +549,12 @@
     {
       "id": "Step1",
       "fields": [
-        { "name": "Name",  "Mode": "Edit" },
-        { "name": "DOB",  "Mode": "Edit" },
-        { "name": "Gender",  "Mode": "Edit" },
-        { "name": "Address",  "Mode": "Edit" },
-        { "name": "MartialStatus",  "Mode": "Edit" },
-        { "name": "Email",  "Mode": "Edit" }
+        { "name": "Name", "Mode": "Edit" },
+        { "name": "DOB", "Mode": "Edit" },
+        { "name": "Gender", "Mode": "Edit" },
+        { "name": "Address", "Mode": "Edit" },
+        { "name": "MartialStatus", "Mode": "Edit" },
+        { "name": "Email", "Mode": "Edit" }
       ],
       "name": "Employee Details",
       "stepType": "FieldList",
@@ -563,11 +563,11 @@
     {
       "id": "Step2",
       "fields": [
-        { "name": "ChooseInsurancePlan",  "Mode": "Edit" },
-        { "name": "MedicalCoverage",  "Mode": "Edit" },
-        { "name": "Dentalcoverage",  "Mode": "Edit" },
-        { "name": "VisionCoverage",  "Mode": "Edit" },
-        { "name": "AccidentalDeathCoverage",  "Mode": "Edit" }
+        { "name": "ChooseInsurancePlan", "Mode": "Edit" },
+        { "name": "MedicalCoverage", "Mode": "Edit" },
+        { "name": "Dentalcoverage", "Mode": "Edit" },
+        { "name": "VisionCoverage", "Mode": "Edit" },
+        { "name": "AccidentalDeathCoverage", "Mode": "Edit" }
       ],
       "name": "Benefit Details",
       "stepType": "FieldList",
@@ -576,10 +576,10 @@
     {
       "id": "Step3",
       "fields": [
-        { "name": "Dependent1Name",  "Mode": "Edit" },
-        { "name": "Dependent1DOB",  "Mode": "Edit" },
-        { "name": "Dependent1Gender",  "Mode": "Edit" },
-        { "name": "Dependent1Relationship",  "Mode": "Edit" }
+        { "name": "Dependent1Name", "Mode": "Edit" },
+        { "name": "Dependent1DOB", "Mode": "Edit" },
+        { "name": "Dependent1Gender", "Mode": "Edit" },
+        { "name": "Dependent1Relationship", "Mode": "Edit" }
       ],
       "name": "Dependent 1 Details",
       "stepType": "FieldList",
@@ -588,10 +588,10 @@
     {
       "id": "Step4",
       "fields": [
-        { "name": "Dependent2Name",  "Mode": "Edit" },
-        { "name": "Dependent2DOB",  "Mode": "Edit" },
-        { "name": "Dependent2Gender",  "Mode": "Edit" },
-        { "name": "Dependent2Relationship",  "Mode": "Edit" }
+        { "name": "Dependent2Name", "Mode": "Edit" },
+        { "name": "Dependent2DOB", "Mode": "Edit" },
+        { "name": "Dependent2Gender", "Mode": "Edit" },
+        { "name": "Dependent2Relationship", "Mode": "Edit" }
       ],
       "name": "Dependent 2 Details",
       "stepType": "FieldList",
@@ -600,10 +600,10 @@
     {
       "id": "Step5",
       "fields": [
-        { "name": "Dependent3Name",  "Mode": "Edit" },
-        { "name": "Dependent3DOB",  "Mode": "Edit" },
-        { "name": "Dependent3Gender",  "Mode": "Edit" },
-        { "name": "Dependent3Relationship",  "Mode": "Edit" }
+        { "name": "Dependent3Name", "Mode": "Edit" },
+        { "name": "Dependent3DOB", "Mode": "Edit" },
+        { "name": "Dependent3Gender", "Mode": "Edit" },
+        { "name": "Dependent3Relationship", "Mode": "Edit" }
       ],
       "name": "Dependent 3 Details",
       "stepType": "FieldList",
@@ -611,7 +611,7 @@
     },
     {
       "id": "Step6",
-      "fields": [{ "name": "Status",  "Mode": "Edit" }],
+      "fields": [{ "name": "Status", "Mode": "Edit" }],
       "name": "Admin",
       "stepType": "FieldList",
       "intro": "Benefit Enrolment Form : Admin"
