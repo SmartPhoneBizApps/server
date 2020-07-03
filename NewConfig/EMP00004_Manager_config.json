@@ -78,10 +78,11 @@
         }
       ],
       "transferFields": [
+        { "field": "ID", "value": "@recorddata" },
         { "field": "Status", "value": "Approved" },
         { "field": "ApproverComment", "value": "@UserInput" }
       ],
-      "URL": "util/addTraining/MyTraining/TRAIN008/EMP00012/{ID}/{ReferenceID}/{role}",
+      "URL": "/api/v1/datarecords/",
       "Token": "Yes",
       "URLMethod": "PUT"
     },
@@ -98,10 +99,11 @@
         }
       ],
       "transferFields": [
+        { "field": "ID", "value": "@recorddata" },
         { "field": "Status", "value": "Rejected" },
         { "field": "ApproverComment", "value": "@UserInput" }
       ],
-      "URL": "util/addTraining/MyTraining/TRAIN008/EMP00012/{ID}/{ReferenceID}/{role}",
+      "URL": "/api/v1/datarecords/",
       "Token": "Yes",
       "URLMethod": "PUT"
     },
@@ -118,10 +120,11 @@
         }
       ],
       "transferFields": [
+        { "field": "ID", "value": "@recorddata" },
         { "field": "Status", "value": "ReferBack" },
         { "field": "ApproverComment", "value": "@UserInput" }
       ],
-      "URL": "util/addTraining/MyTraining/TRAIN008/EMP00012/{ID}/{ReferenceID}/{role}",
+      "URL": "/api/v1/datarecords/",
       "Token": "Yes",
       "URLMethod": "PUT"
     }
