@@ -22,9 +22,93 @@
     "SubTitle": ["TotalAmount", "Status"],
     "Description": ["ID", "EmployeeID"]
   },
-  "PossibleValues": ["Currency", "CostCentre", "Status"],
-  "MButtons": [],
-  "DButtons": [],
+  "PossibleValues": ["Currency", "CostCentre", "Status", "ExpType"],
+  "MButtons": [
+    {
+      "type": "DOWNLOAD",
+      "name": "Download File",
+      "icon": "sap-icon://download"
+    },
+    {
+      "type": "APPHELP",
+      "name": "Get App Help",
+      "icon": "sap-icon://sys-help-2"
+    },
+    {
+      "type": "BOT",
+      "name": "Launch Assistant",
+      "icon": "sap-icon://travel-request"
+    },
+    {
+      "type": "VIEW",
+      "name": "Change App View",
+      "icon": "sap-icon://chart-table-view"
+    },
+    { "type": "ADD", "name": "Add Record", "icon": "sap-icon://add" },
+    { "type": "UPLOAD", "name": "Upload Record", "icon": "sap-icon://upload" }
+  ],
+  "DButtons": [
+    {
+      "type": "WORKFLOW",
+      "name": "Approve",
+      "icon": "sap-icon://accept",
+      "Dialog": [
+        {
+          "label": "Approver Comment",
+          "name": "ApproverComment",
+          "type": "string",
+          "option": "Optional"
+        }
+      ],
+      "transferFields": [
+        { "field": "Status", "value": "Approved" },
+        { "field": "ApproverComment", "value": "@UserInput" }
+      ],
+      "URL": "util/addTraining/MyTraining/TRAIN008/EMP00012/{ID}/{ReferenceID}/{role}",
+      "Token": "Yes",
+      "URLMethod": "PUT"
+    },
+    {
+      "type": "WORKFLOW",
+      "name": "Reject",
+      "icon": "sap-icon://decline",
+      "Dialog": [
+        {
+          "label": "Approver Comment",
+          "name": "ApproverComment",
+          "type": "string",
+          "option": "Optional"
+        }
+      ],
+      "transferFields": [
+        { "field": "Status", "value": "Rejected" },
+        { "field": "ApproverComment", "value": "@UserInput" }
+      ],
+      "URL": "util/addTraining/MyTraining/TRAIN008/EMP00012/{ID}/{ReferenceID}/{role}",
+      "Token": "Yes",
+      "URLMethod": "PUT"
+    },
+    {
+      "type": "WORKFLOW",
+      "name": "ReferBack",
+      "icon": "sap-icon://hint",
+      "Dialog": [
+        {
+          "label": "Approver Comment",
+          "name": "ApproverComment",
+          "type": "string",
+          "option": "Optional"
+        }
+      ],
+      "transferFields": [
+        { "field": "Status", "value": "ReferBack" },
+        { "field": "ApproverComment", "value": "@UserInput" }
+      ],
+      "URL": "util/addTraining/MyTraining/TRAIN008/EMP00012/{ID}/{ReferenceID}/{role}",
+      "Token": "Yes",
+      "URLMethod": "PUT"
+    }
+  ],
   "Tabs": [
     {
       "value": "Tab0",
@@ -36,10 +120,9 @@
     {
       "value": "Tab1",
       "update": "Yes",
-      "name": "EmployeeDetail",
+      "name": "Detail",
       "type": "Field",
-      "fioriicon": "notes",
-      "download": "Yes"
+      "fioriicon": "notes"
     },
     {
       "value": "Tab2",
@@ -49,11 +132,11 @@
       "fioriicon": "expense-report"
     },
     {
-      "value": "Tab3",
+      "value": "Tab5",
       "update": "Yes",
-      "name": "Attachment",
-      "type": "Attachment",
+      "name": "Attachments",
       "fioriicon": "attachment",
+      "type": "carouselImage",
       "download": "Yes"
     },
     {
@@ -69,18 +152,16 @@
     "headerTitle": ["USP_Name"],
     "headerRole": ["USP_Role"],
     "headerImage": ["USP_Image"],
-    "None": ["ID", "EntryDate", "Status"],
-    "Tab1": ["EmployeeID", "Name"],
-    "Tab2": [
-      "Currency",
+    "None": ["ID", "EmployeeID", "Name", "TotalAmount", "Currency", "Status"],
+    "Tab1": [
+      "EntryDate",
       "ExpenseDate",
       "ProjectCode",
       "CostCentre",
-      "TotalAmount",
-      "ExpenseDetails",
-      "ExpType"
+      "ExpenseDetails"
     ],
-    "Tab3": ["Receipt"],
+    "Tab2": ["ExpType"],
+    "Tab5": ["Receipt"],
     "Tab4": ["ProcessingLog"]
   },
   "ControlDisplay": {},
@@ -107,6 +188,14 @@
       "width": "50",
       "Option": "Optional",
       "SLabel": "Employee Name",
+      "LLabel": ""
+    },
+    {
+      "name": "TotalAmount",
+      "type": "string",
+      "width": "20",
+      "Option": "Optional",
+      "SLabel": "Expense Amount",
       "LLabel": ""
     },
     {
@@ -159,19 +248,11 @@
       "LLabel": "Receipt"
     },
     {
-      "name": "Status",
-      "type": "string",
-      "width": "50",
-      "Option": "Mandatory",
-      "SLabel": "Status",
-      "LLabel": "Status"
-    },
-    {
-      "name": "TotalAmount",
-      "type": "string",
-      "width": "20",
+      "name": "ExpType",
+      "type": "combobox",
+      "width": "100",
       "Option": "Optional",
-      "SLabel": "Expense Amount",
+      "SLabel": "Expense Type",
       "LLabel": ""
     },
     {
@@ -179,16 +260,16 @@
       "type": "string",
       "width": "200",
       "Option": "Optional",
-      "SLabel": "Expense Details",
+      "SLabel": "Expense Detail",
       "LLabel": ""
     },
     {
-      "name": "ExpType",
-      "type": "combobox",
-      "width": "100",
-      "Option": "Optional",
-      "SLabel": "Expense Type",
-      "LLabel": ""
+      "name": "Status",
+      "type": "string",
+      "width": "50",
+      "Option": "Mandatory",
+      "SLabel": "Status",
+      "LLabel": "Status"
     },
     {
       "name": "ProcessingLog",
@@ -221,6 +302,50 @@
     "ItemDetails": []
   },
   "CalculatedFields": { "Item": [], "HeaderItem": [], "Header": [] },
-  "Create": "No",
-  "Wizard": []
+  "Create": "Yes",
+  "Wizard": [
+    {
+      "id": "Step1",
+      "fields": [
+        { "name": "ProjectCode", "Mode": "Edit" },
+        { "name": "Currency", "Mode": "Edit" },
+        { "name": "CostCentre", "Mode": "Edit" },
+        { "name": "EntryDate", "Mode": "Edit" },
+        { "name": "ExpenseDetails", "Mode": "Edit" },
+        { "name": "ExpType", "Mode": "Edit" },
+        { "name": "ExpenseDate", "Mode": "Edit" },
+        { "name": "TotalAmount", "Mode": "Edit" }
+      ],
+      "name": "Expenses Details",
+      "stepType": "FieldList",
+      "intro": "Expense : Expenses Details"
+    },
+    {
+      "id": "Step2",
+      "fields": [
+        { "name": "EmployeeID", "Mode": "Edit" },
+        { "name": "Name", "Mode": "Edit" }
+      ],
+      "name": "Employee Details",
+      "stepType": "FieldList",
+      "intro": "Expense : Employee Details"
+    },
+    {
+      "id": "Step3",
+      "fields": [{ "name": "Receipt", "Mode": "Edit" }],
+      "name": "Attachments",
+      "stepType": "Attachments",
+      "intro": "Expense : Attachments"
+    },
+    {
+      "id": "Step4",
+      "fields": [
+        { "name": "Status", "Mode": "Edit" },
+        { "name": "Approver", "Mode": "Edit" }
+      ],
+      "name": "Admin",
+      "stepType": "FieldList",
+      "intro": "Expense : Expense"
+    }
+  ]
 }

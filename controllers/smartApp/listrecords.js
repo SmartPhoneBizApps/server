@@ -111,6 +111,7 @@ exports.getListrecords1 = asyncHandler(async (req, res, next) => {
     outData["pagination"] = pagination;
     outData["data"] = oResult;
     outData["config"] = config1;
+    console.log(outData["config"]["ListFields"]["LFields"]);
 
     if (req.headers.mode == "Web" || req.headers.mode == "web") {
       res.status(200).json({
