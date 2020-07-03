@@ -5,7 +5,7 @@
   },
   "Controls": {
     "USP": "UserProfile",
-    "UserSpecific":"Yes",
+    "UserSpecific": "Yes",
     "Update": "Yes",
     "URL": "https://fierce-oasis-51455.herokuapp.com",
     "Source": { "SourceName": "mongoDB", "SourceFile": "NA" }
@@ -59,37 +59,57 @@
   ],
   "DButtons": [
     {
-      "type": "ATTACHMENT",
-      "name": "View Attachments",
-      "icon": "sap-icon://attachment"
+      "type": "WORKFLOW",
+      "name": "Booked",
+      "icon": "sap-icon://complete",
+      "updateFields": [
+        { "ApproverComment": "Optional", "mode": "Append" },
+        { "Status": "Booked", "mode": "Insert" }
+      ]
     },
-    { "type": "UPDATE", "name": "Update Record", "icon": "sap-icon://update" },
-    { "type": "ADD", "name": "Add Record", "icon": "sap-icon://add" }
+    {
+      "type": "WORKFLOW",
+      "name": "Reject",
+      "icon": "sap-icon://decline",
+      "updateFields": [
+        { "ApproverComment": "Required", "mode": "Append" },
+        { "Status": "NotBooked", "mode": "Insert" }
+      ]
+    },
+    {
+      "type": "WORKFLOW",
+      "name": "Refer Back",
+      "icon": "sap-icon://hint",
+      "updateFields": [
+        { "ApproverComment": "Optional", "mode": "Append" },
+        { "Status": "MoreInfo-HR", "mode": "Insert" }
+      ]
+    }
   ],
   "Tabs": [
     {
-            "value": "Tab0",
+      "value": "Tab0",
       "update": "No",
       "name": "Cards",
       "type": "Cards",
       "fioriicon": "responsive"
     },
     {
-            "value": "Tab1",
+      "value": "Tab1",
       "update": "Yes",
       "name": "Employee Details",
-      "type": "Field",
+      "type": "FieldGroup",
       "fioriicon": "notes"
     },
     {
-            "value": "Tab2",
+      "value": "Tab2",
       "update": "Yes",
       "name": "Project Details",
       "type": "Field",
       "fioriicon": "request"
     },
     {
-            "value": "Tab3",
+      "value": "Tab3",
       "update": "Yes",
       "name": "Process Log",
       "fioriicon": "step",
@@ -101,15 +121,16 @@
     "headerTitle": ["USP_Name"],
     "headerRole": ["USP_Role"],
     "headerImage": ["USP_Image"],
-    "None": ["ID", "Status"],
+    "None": ["ID", "Status", "DateRequested"],
     "Tab1": [
-      "EmployeeID",
-      "Name",
-      "DateRequested",
-      "Area",
-      "Detail",
-      "Duration",
-      "External"
+      {
+        "GrpTitle": "Training Details",
+        "Fields": ["Detail", "Area", "Duration", "External"]
+      },
+      {
+        "GrpTitle": "Employee Details",
+        "Fields": ["EmployeeID", "Name"]
+      }
     ],
     "Tab2": ["ProjectNeed", "Cost", "CostCentre"],
     "Tab3": ["ProcessingLog"]
@@ -128,7 +149,7 @@
       "name": "EmployeeID",
       "type": "string",
       "width": "50",
-      "Option": "Optional",
+      "Option": "Mandatory",
       "SLabel": "Employee ID",
       "LLabel": ""
     },
@@ -136,7 +157,7 @@
       "name": "Name",
       "type": "string",
       "width": "50",
-      "Option": "Optional",
+      "Option": "Mandatory",
       "SLabel": "Employee Name",
       "LLabel": ""
     },
@@ -150,7 +171,7 @@
     },
     {
       "name": "ProjectNeed",
-      "type": "string",
+      "type": "radiobutton",
       "width": "50",
       "Option": "Optional",
       "SLabel": "Project Need",
@@ -158,7 +179,7 @@
     },
     {
       "name": "EmpDev",
-      "type": "string",
+      "type": "switch",
       "width": "50",
       "Option": "Optional",
       "SLabel": "For Employee Development",
@@ -190,7 +211,7 @@
     },
     {
       "name": "External",
-      "type": "string",
+      "type": "radiobutton",
       "width": "50",
       "Option": "Optional",
       "SLabel": "External Training",
@@ -272,10 +293,11 @@
     {
       "id": "Step1",
       "fields": [
-        { "name": "Detail",  "Mode": "Edit" },
-        { "name": "Duration",  "Mode": "Edit" },
-        { "name": "Area",  "Mode": "Edit" },
-        { "name": "External",  "Mode": "Edit" }
+        { "name": "Detail", "Mode": "Edit" },
+        { "name": "Duration", "Mode": "Edit" },
+        { "name": "Area", "Mode": "Edit" },
+        { "name": "External", "Mode": "Edit" },
+        { "name": "ProjectNeed", "Mode": "Edit" }
       ],
       "name": "Training Details",
       "stepType": "FieldList",
@@ -283,7 +305,11 @@
     },
     {
       "id": "Step2",
-      "fields": [{ "name": "Name",  "Mode": "Edit" }],
+      "fields": [
+        { "name": "EmployeeID", "Mode": "Display" },
+        { "name": "Name", "Mode": "Display" }
+      ],
+
       "name": "Employee Details",
       "stepType": "FieldList",
       "intro": "Training Request : Employee Details"
@@ -291,8 +317,9 @@
     {
       "id": "Step3",
       "fields": [
-        { "name": "CostCentre",  "Mode": "Edit" },
-        { "name": "Cost",  "Mode": "Edit" }
+        { "name": "CostCentre", "Mode": "Edit" },
+        { "name": "Cost", "Mode": "Edit" },
+        { "name": "Justification", "Mode": "Edit" }
       ],
       "name": "Training Cost",
       "stepType": "FieldList",
@@ -300,16 +327,9 @@
     },
     {
       "id": "Step4",
-      "fields": [{ "name": "ProjectNeed",  "Mode": "Edit" }],
-      "name": "Project",
-      "stepType": "FieldList",
-      "intro": "Training Request : Project"
-    },
-    {
-      "id": "Step5",
       "fields": [
-        { "name": "Status",  "Mode": "Edit" },
-        { "name": "Approver",  "Mode": "Edit" }
+        { "name": "Status", "Mode": "Display" },
+        { "name": "Approver", "Mode": "Edit" }
       ],
       "name": "Admin",
       "stepType": "FieldList",

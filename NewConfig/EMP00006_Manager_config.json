@@ -1,11 +1,11 @@
 {
   "Title": {
-    "ApplicationTitle": "Training Approval Request",
+    "ApplicationTitle": "Training Request",
     "DetailTitle": "Training Details"
   },
   "Controls": {
     "USP": "UserProfile",
-    "UserSpecific":"Yes",
+    "UserSpecific": "Yes",
     "Update": "Yes",
     "URL": "https://fierce-oasis-51455.herokuapp.com",
     "Source": { "SourceName": "mongoDB", "SourceFile": "NA" }
@@ -23,33 +23,93 @@
     "SubTitle": ["Status", "Duration"],
     "Description": ["ID", "EmployeeID", "DateRequested", "Detail", "External"]
   },
-  "PossibleValues": ["Status"],
-  "MButtons": [],
-  "DButtons": [],
+  "PossibleValues": [
+    "Status",
+    "EmpDev",
+    "ProjectNeed",
+    "Area",
+    "ProjectCode",
+    "Duration",
+    "CostCentre",
+    "External"
+  ],
+  "MButtons": [
+    {
+      "type": "DOWNLOAD",
+      "name": "Download File",
+      "icon": "sap-icon://download"
+    },
+    {
+      "type": "APPHELP",
+      "name": "Get App Help",
+      "icon": "sap-icon://sys-help-2"
+    },
+    {
+      "type": "BOT",
+      "name": "Launch Assistant",
+      "icon": "sap-icon://travel-request"
+    },
+    {
+      "type": "VIEW",
+      "name": "Change App View",
+      "icon": "sap-icon://chart-table-view"
+    },
+    { "type": "ADD", "name": "Add Record", "icon": "sap-icon://add" },
+    { "type": "UPLOAD", "name": "Upload Record", "icon": "sap-icon://upload" }
+  ],
+  "DButtons": [
+    {
+      "type": "WORKFLOW",
+      "name": "Approve",
+      "icon": "sap-icon://accept",
+      "updateFields": [
+        { "ApproverComment": "Optional", "mode": "Append" },
+        { "Status": "Approved", "mode": "Insert" }
+      ]
+    },
+    {
+      "type": "WORKFLOW",
+      "name": "Reject",
+      "icon": "sap-icon://decline",
+      "updateFields": [
+        { "ApproverComment": "Required", "mode": "Append" },
+        { "Status": "Rejected", "mode": "Insert" }
+      ]
+    },
+    {
+      "type": "WORKFLOW",
+      "name": "Refer Back",
+      "icon": "sap-icon://hint",
+      "updateFields": [
+        { "ApproverComment": "Optional", "mode": "Append" },
+        { "Status": "MoreInfo-Manager", "mode": "Insert" }
+      ]
+    }
+  ],
   "Tabs": [
     {
-            "value": "Tab0",
+      "value": "Tab0",
       "update": "No",
       "name": "Cards",
       "type": "Cards",
       "fioriicon": "responsive"
     },
     {
-            "value": "Tab1",
+      "value": "Tab1",
       "update": "Yes",
       "name": "Employee Details",
-      "type": "Field",
+      "type": "FieldGroup",
       "fioriicon": "notes"
     },
     {
-            "value": "Tab2",
+      "value": "Tab2",
       "update": "Yes",
       "name": "Project Details",
       "type": "Field",
       "fioriicon": "request"
     },
     {
-            "value": "Tab3",
+      "value": "Tab3",
       "update": "Yes",
       "name": "Process Log",
       "fioriicon": "step",
@@ -61,8 +121,17 @@
     "headerTitle": ["USP_Name"],
     "headerRole": ["USP_Role"],
     "headerImage": ["USP_Image"],
-    "None": ["ID", "Status"],
-    "Tab1": ["Name", "DateRequested", "Area", "Detail", "Duration", "External"],
+    "None": ["ID", "Status", "DateRequested"],
+    "Tab1": [
+      {
+        "GrpTitle": "Training Details",
+        "Fields": ["Detail", "Area", "Duration", "External"]
+      },
+      {
+        "GrpTitle": "Employee Details",
+        "Fields": ["EmployeeID", "Name"]
+      }
+    ],
     "Tab2": ["ProjectNeed", "Cost", "CostCentre"],
     "Tab3": ["ProcessingLog"]
   },
@@ -74,29 +143,21 @@
       "width": "20",
       "Option": "Mandatory",
       "SLabel": "ID",
-      "LLabel": ""
-    },
-    {
-      "name": "Status",
-      "type": "string",
-      "width": "50",
-      "Option": "Mandatory",
-      "SLabel": "Status",
-      "LLabel": "Status"
+      "LLabel": "ID"
     },
     {
       "name": "EmployeeID",
       "type": "string",
       "width": "50",
-      "Option": "Optional",
-      "SLabel": "Employee Reference",
+      "Option": "Mandatory",
+      "SLabel": "Employee ID",
       "LLabel": ""
     },
     {
       "name": "Name",
       "type": "string",
       "width": "50",
-      "Option": "Optional",
+      "Option": "Mandatory",
       "SLabel": "Employee Name",
       "LLabel": ""
     },
@@ -110,7 +171,7 @@
     },
     {
       "name": "ProjectNeed",
-      "type": "string",
+      "type": "radiobutton",
       "width": "50",
       "Option": "Optional",
       "SLabel": "Project Need",
@@ -118,26 +179,26 @@
     },
     {
       "name": "EmpDev",
-      "type": "string",
+      "type": "switch",
       "width": "50",
       "Option": "Optional",
-      "SLabel": "Employee Devlopment",
+      "SLabel": "For Employee Development",
       "LLabel": ""
     },
     {
       "name": "Area",
-      "type": "string",
+      "type": "radiobutton",
       "width": "50",
       "Option": "Optional",
-      "SLabel": "Area",
+      "SLabel": "Training Area",
       "LLabel": ""
     },
     {
       "name": "Detail",
       "type": "string",
       "width": "500",
-      "Option": "Optional",
-      "SLabel": "Detail",
+      "Option": "Mandatory",
+      "SLabel": "Training Details",
       "LLabel": ""
     },
     {
@@ -150,10 +211,10 @@
     },
     {
       "name": "External",
-      "type": "string",
+      "type": "radiobutton",
       "width": "50",
       "Option": "Optional",
-      "SLabel": "External",
+      "SLabel": "External Training",
       "LLabel": ""
     },
     {
@@ -161,14 +222,14 @@
       "type": "string",
       "width": "50",
       "Option": "Optional",
-      "SLabel": "Cost",
+      "SLabel": "Training Cost",
       "LLabel": ""
     },
     {
       "name": "ProjectCode",
       "type": "string",
       "width": "50",
-      "Option": "Optional",
+      "Option": "Mandatory",
       "SLabel": "Project Code",
       "LLabel": ""
     },
@@ -181,11 +242,11 @@
       "LLabel": ""
     },
     {
-      "name": "LMComment",
+      "name": "Status",
       "type": "string",
-      "width": "1000",
-      "Option": "Optional",
-      "SLabel": "Leave Manager Comment",
+      "width": "50",
+      "Option": "Mandatory",
+      "SLabel": "Request Status",
       "LLabel": ""
     },
     {
@@ -194,22 +255,6 @@
       "width": "500",
       "Option": "Optional",
       "SLabel": "Justification",
-      "LLabel": ""
-    },
-    {
-      "name": "HRComment",
-      "type": "string",
-      "width": "500",
-      "Option": "Optional",
-      "SLabel": "HR Comment",
-      "LLabel": ""
-    },
-    {
-      "name": "AdminComment",
-      "type": "string",
-      "width": "1000",
-      "Option": "Optional",
-      "SLabel": "Admin Comment",
       "LLabel": ""
     },
     {
@@ -243,6 +288,52 @@
     "ItemDetails": []
   },
   "CalculatedFields": {},
-  "Create": "No",
-  "Wizard": []
+  "Create": "Yes",
+  "Wizard": [
+    {
+      "id": "Step1",
+      "fields": [
+        { "name": "Detail", "Mode": "Edit" },
+        { "name": "Duration", "Mode": "Edit" },
+        { "name": "Area", "Mode": "Edit" },
+        { "name": "External", "Mode": "Edit" },
+        { "name": "ProjectNeed", "Mode": "Edit" }
+      ],
+      "name": "Training Details",
+      "stepType": "FieldList",
+      "intro": "Training Request : Training Details"
+    },
+    {
+      "id": "Step2",
+      "fields": [
+        { "name": "EmployeeID", "Mode": "Display" },
+        { "name": "Name", "Mode": "Display" }
+      ],
+
+      "name": "Employee Details",
+      "stepType": "FieldList",
+      "intro": "Training Request : Employee Details"
+    },
+    {
+      "id": "Step3",
+      "fields": [
+        { "name": "CostCentre", "Mode": "Edit" },
+        { "name": "Cost", "Mode": "Edit" },
+        { "name": "Justification", "Mode": "Edit" }
+      ],
+      "name": "Training Cost",
+      "stepType": "FieldList",
+      "intro": "Training Request : Training Cost"
+    },
+    {
+      "id": "Step4",
+      "fields": [
+        { "name": "Status", "Mode": "Display" },
+        { "name": "Approver", "Mode": "Edit" }
+      ],
+      "name": "Admin",
+      "stepType": "FieldList",
+      "intro": "Training Request : Admin"
+    }
+  ]
 }
