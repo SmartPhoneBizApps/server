@@ -62,28 +62,61 @@
       "type": "WORKFLOW",
       "name": "Approve",
       "icon": "sap-icon://accept",
-      "updateFields": [
-        { "ApproverComment": "Optional", "mode": "Append" },
-        { "Status": "Approved", "mode": "Insert" }
-      ]
+      "Dialog": [
+        {
+          "label": "Approver Comment",
+          "name": "ApproverComment",
+          "type": "string",
+          "option": "Optional"
+        }
+      ],
+      "transferFields": [
+        { "field": "Status", "value": "Approved" },
+        { "field": "ApproverComment", "value": "@UserInput" }
+      ],
+      "URL": "util/addTraining/MyTraining/TRAIN008/EMP00012/{ID}/{ReferenceID}/{role}",
+      "Token": "Yes",
+      "URLMethod": "PUT"
     },
     {
       "type": "WORKFLOW",
       "name": "Reject",
       "icon": "sap-icon://decline",
-      "updateFields": [
-        { "ApproverComment": "Required", "mode": "Append" },
-        { "Status": "Rejected", "mode": "Insert" }
-      ]
+      "Dialog": [
+        {
+          "label": "Approver Comment",
+          "name": "ApproverComment",
+          "type": "string",
+          "option": "Optional"
+        }
+      ],
+      "transferFields": [
+        { "field": "Status", "value": "Rejected" },
+        { "field": "ApproverComment", "value": "@UserInput" }
+      ],
+      "URL": "util/addTraining/MyTraining/TRAIN008/EMP00012/{ID}/{ReferenceID}/{role}",
+      "Token": "Yes",
+      "URLMethod": "PUT"
     },
     {
       "type": "WORKFLOW",
       "name": "ReferBack",
       "icon": "sap-icon://hint",
-      "updateFields": [
-        { "ApproverComment": "Optional", "mode": "Append" },
-        { "Status": "MoreInfo-Manager", "mode": "Insert" }
-      ]
+      "Dialog": [
+        {
+          "label": "Approver Comment",
+          "name": "ApproverComment",
+          "type": "string",
+          "option": "Optional"
+        }
+      ],
+      "transferFields": [
+        { "field": "Status", "value": "ReferBack" },
+        { "field": "ApproverComment", "value": "@UserInput" }
+      ],
+      "URL": "util/addTraining/MyTraining/TRAIN008/EMP00012/{ID}/{ReferenceID}/{role}",
+      "Token": "Yes",
+      "URLMethod": "PUT"
     }
   ],
   "Tabs": [
