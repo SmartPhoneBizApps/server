@@ -59,7 +59,7 @@
   ],
   "DButtons": [
     {
-      "type": "APPROVE",
+      "type": "WORKFLOW",
       "name": "Approve",
       "icon": "sap-icon://accept",
       "updateFields": [
@@ -68,7 +68,7 @@
       ]
     },
     {
-      "type": "REJECT",
+      "type": "WORKFLOW",
       "name": "Reject",
       "icon": "sap-icon://decline",
       "updateFields": [
@@ -77,8 +77,8 @@
       ]
     },
     {
-      "type": "REFERBACK",
-      "name": "Refer Back",
+      "type": "WORKFLOW",
+      "name": "ReferBack",
       "icon": "sap-icon://hint",
       "updateFields": [
         { "ApproverComment": "Optional", "mode": "Append" },
