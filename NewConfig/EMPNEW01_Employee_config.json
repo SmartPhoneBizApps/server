@@ -26,7 +26,7 @@
     "SubTitle": ["EmployeeID", "Status"],
     "Description": ["Email", "DateOfJoining"]
   },
-  "PossibleValues": ["Status"],
+  "PossibleValues": ["Status", "Sex", "MaritalStatus"],
   "MButtons": [
     {
       "type": "DOWNLOAD",
@@ -208,7 +208,7 @@
     },
     {
       "name": "Sex",
-      "type": "string",
+      "type": "radiobutton",
       "width": "20",
       "Option": "Optional",
       "SLabel": "Sex",
