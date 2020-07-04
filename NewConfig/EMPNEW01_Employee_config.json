@@ -524,6 +524,72 @@
         }
       ]
     },
+    "Dependents": {
+      "title": "Employee Emergency Contacts",
+      "ItemFieldDefinition": [
+        {
+          "name": "ItemNumber",
+          "type": "string",
+          "width": "20",
+          "SLabel": "Item Number",
+          "Option": "Optional"
+        },
+        {
+          "name": "ContactName",
+          "type": "string",
+          "width": "200",
+          "SLabel": "ContactName",
+          "Option": "Optional"
+        },
+        {
+          "name": "ContactPhone",
+          "type": "string",
+          "width": "200",
+          "SLabel": "ContactPhone",
+          "Option": "Optional"
+        },
+        {
+          "name": "Relation",
+          "type": "string",
+          "width": "100",
+          "SLabel": "Relation",
+          "Option": "Optional"
+        },
+        {
+          "name": "Comments",
+          "type": "string",
+          "width": "500",
+          "SLabel": "Comments",
+          "Option": "Optional"
+        }
+      ],
+      "DisplayFields": ["ContactName", "ContactPhone", "Relation"],
+      "ItemButtons": {
+        "itemDisplay": true,
+        "itemAdd": true,
+        "itemEdit": true,
+        "itemDelete": true
+      },
+      "CreateFields": ["ContactName", "ContactPhone", "Relation", "Comments"],
+      "ItemDetails": [
+        {
+          "name": "ContactName",
+          "Mode": "Edit"
+        },
+        {
+          "name": "ContactPhone",
+          "Mode": "Edit"
+        },
+        {
+          "name": "Relation",
+          "Mode": "Edit"
+        },
+        {
+          "name": "Comments",
+          "Mode": "Edit"
+        }
+      ]
+    },
     "Certifications": {
       "title": "Employee Certifications",
       "ItemFieldDefinition": [
