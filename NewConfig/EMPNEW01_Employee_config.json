@@ -523,6 +523,252 @@
           "Mode": "Edit"
         }
       ]
+    },
+    "Certifications": {
+      "title": "Employee Certifications",
+      "ItemFieldDefinition": [
+        {
+          "name": "ItemNumber",
+          "type": "string",
+          "width": "20",
+          "SLabel": "Item Number",
+          "Option": "Optional"
+        },
+        {
+          "name": "CourseName",
+          "type": "string",
+          "width": "200",
+          "SLabel": "CourseName",
+          "Option": "Optional"
+        },
+        {
+          "name": "DateCertified",
+          "type": "string",
+          "width": "200",
+          "SLabel": "DateCertified",
+          "Option": "Optional"
+        },
+        {
+          "name": "Link",
+          "type": "string",
+          "width": "100",
+          "SLabel": "Relation",
+          "Option": "Optional"
+        },
+        {
+          "name": "Comments",
+          "type": "string",
+          "width": "500",
+          "SLabel": "Comments",
+          "Option": "Optional"
+        }
+      ],
+      "DisplayFields": ["CourseName", "DateCertified", "Link"],
+      "ItemButtons": {
+        "itemDisplay": true,
+        "itemAdd": true,
+        "itemEdit": true,
+        "itemDelete": true
+      },
+      "CreateFields": ["CourseName", "DateCertified", "Link", "Comments"],
+      "ItemDetails": [
+        {
+          "name": "CourseName",
+          "Mode": "Edit"
+        },
+        {
+          "name": "DateCertified",
+          "Mode": "Edit"
+        },
+        {
+          "name": "Link",
+          "Mode": "Edit"
+        },
+        {
+          "name": "Comments",
+          "Mode": "Edit"
+        }
+      ]
+    },
+    "P60": {
+      "title": "Employee P60",
+      "ItemFieldDefinition": [
+        {
+          "name": "ItemNumber",
+          "type": "string",
+          "width": "20",
+          "SLabel": "Item Number",
+          "Option": "Optional"
+        },
+        {
+          "name": "Year",
+          "type": "string",
+          "width": "200",
+          "SLabel": "CourseName",
+          "Option": "Optional"
+        },
+        {
+          "name": "Link",
+          "type": "string",
+          "width": "200",
+          "SLabel": "DateCertified",
+          "Option": "Optional"
+        },
+        {
+          "name": "Comments",
+          "type": "string",
+          "width": "500",
+          "SLabel": "Comments",
+          "Option": "Optional"
+        }
+      ],
+      "DisplayFields": ["Year", "Link"],
+      "ItemButtons": {
+        "itemDisplay": true,
+        "itemAdd": true,
+        "itemEdit": true,
+        "itemDelete": true
+      },
+      "CreateFields": ["Year", "Link", "Comments"],
+      "ItemDetails": [
+        {
+          "name": "Year",
+          "Mode": "Edit"
+        },
+        {
+          "name": "Link",
+          "Mode": "Edit"
+        },
+        {
+          "name": "Comments",
+          "Mode": "Edit"
+        }
+      ]
+    },
+    "Payship": {
+      "title": "Employee P60",
+      "ItemFieldDefinition": [
+        {
+          "name": "ItemNumber",
+          "type": "string",
+          "width": "20",
+          "SLabel": "Item Number",
+          "Option": "Optional"
+        },
+        {
+          "name": "YearPS",
+          "type": "string",
+          "width": "200",
+          "SLabel": "Year",
+          "Option": "Optional"
+        },
+        {
+          "name": "MonthPS",
+          "type": "string",
+          "width": "200",
+          "SLabel": "Month",
+          "Option": "Optional"
+        },
+        {
+          "name": "LinkPS",
+          "type": "string",
+          "width": "200",
+          "SLabel": "DateCertified",
+          "Option": "Optional"
+        },
+        {
+          "name": "Comments",
+          "type": "string",
+          "width": "500",
+          "SLabel": "Comments",
+          "Option": "Optional"
+        }
+      ],
+      "DisplayFields": ["YearPS", "MonthPS", "LinkPS"],
+      "ItemButtons": {
+        "itemDisplay": true,
+        "itemAdd": true,
+        "itemEdit": true,
+        "itemDelete": true
+      },
+      "CreateFields": ["YearPS", "MonthPS", "LinkPS"],
+      "ItemDetails": [
+        {
+          "name": "YearPS",
+          "Mode": "Edit"
+        },
+        {
+          "name": "MonthPS",
+          "Mode": "Edit"
+        },
+        {
+          "name": "LinkPS",
+          "Mode": "Edit"
+        },
+        {
+          "name": "Comments",
+          "Mode": "Edit"
+        }
+      ]
+    },
+    "Compensation": {
+      "title": "Employee P60",
+      "ItemFieldDefinition": [
+        {
+          "name": "ItemNumber",
+          "type": "string",
+          "width": "20",
+          "SLabel": "Item Number",
+          "Option": "Optional"
+        },
+        {
+          "name": "Question",
+          "type": "string",
+          "width": "200",
+          "SLabel": "Q1",
+          "Option": "Optional"
+        },
+        {
+          "name": "Answer",
+          "type": "string",
+          "width": "200",
+          "SLabel": "Q1",
+          "Option": "Optional"
+        },
+        {
+          "name": "Comments",
+          "type": "string",
+          "width": "500",
+          "SLabel": "Comments",
+          "Option": "Optional"
+        }
+      ],
+      "DisplayFields": ["YearPS", "MonthPS", "LinkPS"],
+      "ItemButtons": {
+        "itemDisplay": true,
+        "itemAdd": true,
+        "itemEdit": true,
+        "itemDelete": true
+      },
+      "CreateFields": ["YearPS", "MonthPS", "LinkPS"],
+      "ItemDetails": [
+        {
+          "name": "YearPS",
+          "Mode": "Edit"
+        },
+        {
+          "name": "MonthPS",
+          "Mode": "Edit"
+        },
+        {
+          "name": "LinkPS",
+          "Mode": "Edit"
+        },
+        {
+          "name": "Comments",
+          "Mode": "Edit"
+        }
+      ]
     }
   },
   "FieldDef": [
