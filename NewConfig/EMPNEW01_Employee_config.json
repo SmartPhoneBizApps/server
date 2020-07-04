@@ -32,7 +32,8 @@
     "MaritalStatus",
     "SkillLevel",
     "Area",
-    "Experience"
+    "Experience",
+    "Qualification"
   ],
   "MButtons": [
     {
@@ -325,12 +326,13 @@
           "Option": "Optional"
         },
         {
-          "name": "Level",
+          "name": "Subject",
           "type": "string",
           "width": "200",
-          "SLabel": "Level",
+          "SLabel": "Subject",
           "Option": "Optional"
         },
+
         {
           "name": "YearCompleted",
           "type": "string",
@@ -346,14 +348,14 @@
           "Option": "Optional"
         },
         {
-          "name": "Comments",
+          "name": "Comments2",
           "type": "string",
           "width": "500",
           "SLabel": "Comments",
           "Option": "Optional"
         }
       ],
-      "DisplayFields": ["Qualification", "Level", "YearCompleted", "College"],
+      "DisplayFields": ["Qualification", "Subject", "YearCompleted", "College"],
       "ItemButtons": {
         "itemDisplay": true,
         "itemAdd": true,
@@ -362,10 +364,10 @@
       },
       "CreateFields": [
         "Qualification",
-        "Level",
+        "Subject",
         "YearCompleted",
         "College",
-        "Comments"
+        "Comments2"
       ],
       "ItemDetails": [
         {
@@ -373,7 +375,7 @@
           "Mode": "Edit"
         },
         {
-          "name": "Level",
+          "name": "Subject",
           "Mode": "Edit"
         },
         {
@@ -385,13 +387,13 @@
           "Mode": "Edit"
         },
         {
-          "name": "Comments",
+          "name": "Comments2",
           "Mode": "Edit"
         }
       ]
     },
     "PreviousEmployer": {
-      "title": "Employee Education",
+      "title": "Previous Employers",
       "ItemFieldDefinition": [
         {
           "name": "ItemNumber",
@@ -422,10 +424,10 @@
           "Option": "Optional"
         },
         {
-          "name": "Client",
+          "name": "Employer",
           "type": "string",
           "width": "200",
-          "SLabel": "Client",
+          "SLabel": "Employer",
           "Option": "Optional"
         },
         {
@@ -436,21 +438,28 @@
           "Option": "Optional"
         },
         {
-          "name": "Comments",
+          "name": "Comments3",
           "type": "string",
           "width": "500",
           "SLabel": "Comments",
           "Option": "Optional"
         }
       ],
-      "DisplayFields": ["From", "To", "ExpYears", "Client", "Role", "Comments"],
+      "DisplayFields": ["From", "To", "ExpYears", "Employer", "Role"],
       "ItemButtons": {
         "itemDisplay": true,
         "itemAdd": true,
         "itemEdit": true,
         "itemDelete": true
       },
-      "CreateFields": ["From", "To", "ExpYears", "Client", "Role", "Comments"],
+      "CreateFields": [
+        "From",
+        "To",
+        "ExpYears",
+        "Employer",
+        "Role",
+        "Comments"
+      ],
       "ItemDetails": [
         {
           "name": "From",
@@ -465,7 +474,7 @@
           "Mode": "Edit"
         },
         {
-          "name": "Client",
+          "name": "Employer",
           "Mode": "Edit"
         },
         {
@@ -473,7 +482,7 @@
           "Mode": "Edit"
         },
         {
-          "name": "Comments",
+          "name": "Comments3",
           "Mode": "Edit"
         }
       ]
@@ -489,28 +498,28 @@
           "Option": "Optional"
         },
         {
-          "name": "ContactName",
+          "name": "ContactName1",
           "type": "string",
           "width": "200",
           "SLabel": "ContactName",
           "Option": "Optional"
         },
         {
-          "name": "ContactPhone",
+          "name": "ContactPhone1",
           "type": "string",
           "width": "200",
           "SLabel": "ContactPhone",
           "Option": "Optional"
         },
         {
-          "name": "Relation",
+          "name": "Relation1",
           "type": "string",
           "width": "100",
           "SLabel": "Relation",
           "Option": "Optional"
         },
         {
-          "name": "Comments",
+          "name": "Comments4",
           "type": "string",
           "width": "500",
           "SLabel": "Comments",
@@ -524,7 +533,7 @@
         "itemEdit": true,
         "itemDelete": true
       },
-      "CreateFields": ["ContactName", "ContactPhone", "Relation", "Comments"],
+      "CreateFields": ["ContactName", "ContactPhone", "Relation", "Comments4"],
       "ItemDetails": [
         {
           "name": "ContactName",
@@ -539,7 +548,7 @@
           "Mode": "Edit"
         },
         {
-          "name": "Comments",
+          "name": "Comments4",
           "Mode": "Edit"
         }
       ]
@@ -576,7 +585,7 @@
           "Option": "Optional"
         },
         {
-          "name": "Comments",
+          "name": "Comments5",
           "type": "string",
           "width": "500",
           "SLabel": "Comments",
@@ -590,7 +599,7 @@
         "itemEdit": true,
         "itemDelete": true
       },
-      "CreateFields": ["ContactName", "ContactPhone", "Relation", "Comments"],
+      "CreateFields": ["ContactName", "ContactPhone", "Relation", "Comments5"],
       "ItemDetails": [
         {
           "name": "ContactName",
@@ -605,7 +614,7 @@
           "Mode": "Edit"
         },
         {
-          "name": "Comments",
+          "name": "Comments5",
           "Mode": "Edit"
         }
       ]
@@ -629,34 +638,34 @@
         },
         {
           "name": "DateCertified",
-          "type": "string",
+          "type": "Date",
           "width": "200",
           "SLabel": "DateCertified",
           "Option": "Optional"
         },
         {
-          "name": "Link",
+          "name": "LinkC",
           "type": "string",
           "width": "100",
           "SLabel": "Relation",
           "Option": "Optional"
         },
         {
-          "name": "Comments",
+          "name": "CommentsC",
           "type": "string",
           "width": "500",
           "SLabel": "Comments",
           "Option": "Optional"
         }
       ],
-      "DisplayFields": ["CourseName", "DateCertified", "Link"],
+      "DisplayFields": ["CourseName", "DateCertified", "LinkC"],
       "ItemButtons": {
         "itemDisplay": true,
         "itemAdd": true,
         "itemEdit": true,
         "itemDelete": true
       },
-      "CreateFields": ["CourseName", "DateCertified", "Link", "Comments"],
+      "CreateFields": ["CourseName", "DateCertified", "LinkC", "CommentsC"],
       "ItemDetails": [
         {
           "name": "CourseName",
@@ -667,11 +676,11 @@
           "Mode": "Edit"
         },
         {
-          "name": "Link",
+          "name": "LinkC",
           "Mode": "Edit"
         },
         {
-          "name": "Comments",
+          "name": "CommentsC",
           "Mode": "Edit"
         }
       ]
@@ -687,52 +696,52 @@
           "Option": "Optional"
         },
         {
-          "name": "Year",
+          "name": "YearP6",
           "type": "string",
           "width": "200",
           "SLabel": "CourseName",
           "Option": "Optional"
         },
         {
-          "name": "Link",
+          "name": "LinkP6",
           "type": "string",
           "width": "200",
           "SLabel": "DateCertified",
           "Option": "Optional"
         },
         {
-          "name": "Comments",
+          "name": "CommentsP6",
           "type": "string",
           "width": "500",
           "SLabel": "Comments",
           "Option": "Optional"
         }
       ],
-      "DisplayFields": ["Year", "Link"],
+      "DisplayFields": ["YearP6", "LinkP6"],
       "ItemButtons": {
         "itemDisplay": true,
         "itemAdd": true,
         "itemEdit": true,
         "itemDelete": true
       },
-      "CreateFields": ["Year", "Link", "Comments"],
+      "CreateFields": ["YearP6", "LinkP6", "CommentsP6"],
       "ItemDetails": [
         {
-          "name": "Year",
+          "name": "YearP6",
           "Mode": "Edit"
         },
         {
-          "name": "Link",
+          "name": "LinkP6",
           "Mode": "Edit"
         },
         {
-          "name": "Comments",
+          "name": "CommentsP6",
           "Mode": "Edit"
         }
       ]
     },
     "Payslips": {
-      "title": "Employee P60",
+      "title": "Employee Payslip",
       "ItemFieldDefinition": [
         {
           "name": "ItemNumber",
@@ -763,7 +772,7 @@
           "Option": "Optional"
         },
         {
-          "name": "Comments",
+          "name": "CommentsPS",
           "type": "string",
           "width": "500",
           "SLabel": "Comments",
@@ -792,13 +801,13 @@
           "Mode": "Edit"
         },
         {
-          "name": "Comments",
+          "name": "CommentsPS",
           "Mode": "Edit"
         }
       ]
     },
     "Compensation": {
-      "title": "Employee P60",
+      "title": "Employee Compensation",
       "ItemFieldDefinition": [
         {
           "name": "ItemNumber",
@@ -808,21 +817,28 @@
           "Option": "Optional"
         },
         {
-          "name": "Question",
+          "name": "YearPS",
           "type": "string",
           "width": "200",
-          "SLabel": "Q1",
+          "SLabel": "Year",
           "Option": "Optional"
         },
         {
-          "name": "Answer",
+          "name": "MonthPS",
           "type": "string",
           "width": "200",
-          "SLabel": "Q1",
+          "SLabel": "Month",
           "Option": "Optional"
         },
         {
-          "name": "Comments",
+          "name": "LinkPS",
+          "type": "string",
+          "width": "200",
+          "SLabel": "Link",
+          "Option": "Optional"
+        },
+        {
+          "name": "Comments9",
           "type": "string",
           "width": "500",
           "SLabel": "Comments",
@@ -851,7 +867,7 @@
           "Mode": "Edit"
         },
         {
-          "name": "Comments",
+          "name": "Comments9",
           "Mode": "Edit"
         }
       ]
