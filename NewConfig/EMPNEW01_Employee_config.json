@@ -26,7 +26,7 @@
     "SubTitle": ["EmployeeID", "Status"],
     "Description": ["Email", "DateOfJoining"]
   },
-  "PossibleValues": ["Status", "Sex", "MaritalStatus"],
+  "PossibleValues": ["Status", "Sex", "MaritalStatus", "SkillLevel"],
   "MButtons": [
     {
       "type": "DOWNLOAD",
@@ -224,24 +224,24 @@
           "Option": "Optional"
         },
         {
-          "name": "experince1",
+          "name": "Experince1",
           "type": "string",
           "width": "100",
           "SLabel": "Experience",
           "Option": "Optional"
         },
         {
-          "name": "experienceRole1",
+          "name": "ExperienceRole1",
           "type": "string",
           "width": "100",
           "SLabel": "Role",
           "Option": "Optional"
         },
         {
-          "name": "skillLevel1",
+          "name": "SkillLevel",
           "type": "string",
           "width": "100",
-          "SLabel": "SkillLevel",
+          "SLabel": "Skill Level",
           "Option": "Optional"
         },
         {
@@ -255,9 +255,9 @@
       "DisplayFields": [
         "Area1",
         "Skill1",
-        "skillLevel1",
-        "experince1",
-        "experienceRole1"
+        "SkillLevel",
+        "Experince1",
+        "ExperienceRole1"
       ],
       "ItemButtons": {
         "itemDisplay": true,
@@ -268,16 +268,12 @@
       "CreateFields": [
         "Area1",
         "Skill1",
-        "skillLevel1",
-        "experince1",
-        "experienceRole1",
+        "SkillLevel",
+        "Experince1",
+        "ExperienceRole1",
         "Comments1"
       ],
       "ItemDetails": [
-        {
-          "name": "ItemNumber",
-          "Mode": "Edit"
-        },
         {
           "name": "Area1",
           "Mode": "Edit"
@@ -287,15 +283,15 @@
           "Mode": "Edit"
         },
         {
-          "name": "skillLevel1",
+          "name": "SkillLevel",
           "Mode": "Edit"
         },
         {
-          "name": "experince1",
+          "name": "Experince1",
           "Mode": "Edit"
         },
         {
-          "name": "experienceRole1",
+          "name": "ExperienceRole1",
           "Mode": "Edit"
         },
         {
