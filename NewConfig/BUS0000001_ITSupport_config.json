@@ -1,31 +1,29 @@
 {
   "Title": {
-    "ApplicationTitle": "Train Booking",
-    "DetailTitle": "Train Booking"
+    "ApplicationTitle": "IT Service Ticket",
+    "DetailTitle": "IT Service Ticket"
   },
   "Controls": {
     "USP": "UserProfile",
-    "UserSpecific":"Yes",
+    "UserSpecific": "Yes",
     "Update": "Yes",
     "URL": "https://fierce-oasis-51455.herokuapp.com",
     "Source": { "SourceName": "mongoDB", "SourceFile": "NA" }
   },
   "ListFields": {
-    "IntroField": "From",
-    "TitleField": "To",
-    "sStatus": "CostCentre",
+    "IntroField": "ID",
+    "TitleField": "DescribeProblem",
+    "sStatus": "Department",
     "fStatus": "Status",
-    "numberField": "TrainFare",
-    "LFields": ["ID", "Name", "UserAccount", "Email"],
-    "numberUnitField": "Currency"
+    "LFields": ["UserAccount", "Email", "Name"]
   },
   "ListBOTFields": {
     "None": ["cardImage", "StatusState"],
-    "Title": ["From", "To"],
-    "SubTitle": ["TrainFare", "CostCentre", "Status"],
-    "Description": ["ID", "Name", "UserAccount", "Email"]
+    "Title": ["DescribeProblem"],
+    "SubTitle": ["Name", "Department"],
+    "Description": ["UserAccount", "Email", "Status"]
   },
-  "PossibleValues": ["ReturnJourney", "Status"],
+  "PossibleValues": ["Department", "Status"],
   "MButtons": [
     {
       "type": "DOWNLOAD",
@@ -61,44 +59,64 @@
   ],
   "Tabs": [
     {
-            "value": "Tab0",
+      "value": "Tab0",
       "update": "No",
       "name": "Cards",
       "type": "Cards",
-      "fioriicon": "responsive"
+      "fioriicon": "responsive",
+      "download": "No"
     },
     {
-            "value": "Tab1",
+      "value": "Tab1",
       "update": "Yes",
-      "name": "Traveller",
-      "fioriicon": "customer",
-      "type": "Field"
+      "name": "Requester",
+      "fioriicon": "employee",
+      "type": "Field",
+      "download": "Yes"
     },
     {
-            "value": "Tab2",
+      "value": "Tab2",
       "update": "Yes",
-      "name": "Train",
-      "fioriicon": "passenger-train",
-      "type": "Field"
+      "name": "Problem",
+      "fioriicon": "quality-issue",
+      "type": "Field",
+      "download": "Yes"
+    },
+    {
+      "value": "Tab3",
+      "update": "Yes",
+      "name": "Resolution",
+      "fioriicon": "message-success",
+      "type": "Field",
+      "download": "Yes"
+    },
+    {
+      "value": "Tab4",
+      "update": "Yes",
+      "name": "Attachment",
+      "fioriicon": "attachment",
+      "type": "MultiAttachments",
+      "download": "No"
+    },
+    {
+      "value": "Tab5",
+      "update": "Yes",
+      "name": "ScreenShots",
+      "type": "carouselImage",
+      "fioriicon": "contacts",
+      "download": "No"
     }
   ],
   "DetailFields": {
     "headerTitle": ["USP_Name"],
     "headerRole": ["USP_Role"],
     "headerImage": ["USP_Image"],
-    "None": ["ID"],
-    "Tab1": ["Name", "UserAccount", "Email", "Phone", "CostCentre", "Status"],
-    "Tab2": [
-      "From",
-      "To",
-      "StartDate",
-      "StartTime",
-      "ReturnJourney",
-      "ReturnDate",
-      "ReturnTime",
-      "TrainFare",
-      "Currency"
-    ]
+    "None": ["ID", "Status"],
+    "Tab1": ["Name", "Email", "Department", "UserAccount"],
+    "Tab2": ["DescribeProblem", "ComputerID", "DateCreated"],
+    "Tab3": ["DateResolved", "ResolutionDetails", "UserFeedback", "Score"],
+    "Tab4": ["Attachment"],
+    "Tab5": ["ScreenShot"]
   },
   "ControlDisplay": {},
   "FieldDef": [
@@ -127,11 +145,19 @@
       "LLabel": "Email"
     },
     {
-      "name": "Phone",
+      "name": "Department",
+      "type": "string",
+      "width": "50",
+      "Option": "Optional",
+      "SLabel": "Department",
+      "LLabel": ""
+    },
+    {
+      "name": "ComputerID",
       "type": "string",
       "width": "20",
       "Option": "Optional",
-      "SLabel": "Phone",
+      "SLabel": "Computer ID",
       "LLabel": ""
     },
     {
@@ -143,83 +169,11 @@
       "LLabel": ""
     },
     {
-      "name": "From",
+      "name": "DescribeProblem",
       "type": "string",
-      "width": "50",
+      "width": "1000",
       "Option": "Optional",
-      "SLabel": "From",
-      "LLabel": ""
-    },
-    {
-      "name": "To",
-      "type": "string",
-      "width": "50",
-      "Option": "Optional",
-      "SLabel": "To",
-      "LLabel": ""
-    },
-    {
-      "name": "ReturnJourney",
-      "type": "string",
-      "width": "3",
-      "Option": "Optional",
-      "SLabel": "Return Journey",
-      "LLabel": ""
-    },
-    {
-      "name": "StartDate",
-      "type": "Date",
-      "width": "10",
-      "Option": "Optional",
-      "SLabel": "Start Date",
-      "LLabel": ""
-    },
-    {
-      "name": "StartTime",
-      "type": "Time",
-      "width": "10",
-      "Option": "Optional",
-      "SLabel": "Start Time",
-      "LLabel": ""
-    },
-    {
-      "name": "ReturnDate",
-      "type": "Date",
-      "width": "10",
-      "Option": "Optional",
-      "SLabel": "Return Date",
-      "LLabel": ""
-    },
-    {
-      "name": "ReturnTime",
-      "type": "Time",
-      "width": "10",
-      "Option": "Optional",
-      "SLabel": "Return Time",
-      "LLabel": ""
-    },
-    {
-      "name": "TrainFare",
-      "type": "string",
-      "width": "10",
-      "Option": "Optional",
-      "SLabel": "Train Fare",
-      "LLabel": ""
-    },
-    {
-      "name": "Currency",
-      "type": "string",
-      "width": "3",
-      "Option": "Optional",
-      "SLabel": "Currency",
-      "LLabel": ""
-    },
-    {
-      "name": "CostCentre",
-      "type": "string",
-      "width": "20",
-      "Option": "Optional",
-      "SLabel": "Cost Centre",
+      "SLabel": "Describe Problem",
       "LLabel": ""
     },
     {
@@ -229,6 +183,64 @@
       "Option": "Mandatory",
       "SLabel": "Status",
       "LLabel": "Status"
+    },
+    {
+      "name": "ScreenShot",
+      "type": "attachment",
+      "metadata": "OnlyFileName",
+      "width": "100",
+      "Option": "Optional",
+      "SLabel": "Screen Shot",
+      "LLabel": ""
+    },
+    {
+      "name": "Attachment",
+      "type": "attachment",
+      "metadata": "MultipleFields",
+      "width": "100",
+      "Option": "Optional",
+      "SLabel": "Attachment",
+      "LLabel": ""
+    },
+    {
+      "name": "DateCreated",
+      "type": "Date",
+      "width": "10",
+      "Option": "Optional",
+      "SLabel": "Date Created",
+      "LLabel": ""
+    },
+    {
+      "name": "DateResolved",
+      "type": "Date",
+      "width": "10",
+      "Option": "Optional",
+      "SLabel": "Date Resolved",
+      "LLabel": ""
+    },
+    {
+      "name": "ResolutionDetails",
+      "type": "string",
+      "width": "500",
+      "Option": "Optional",
+      "SLabel": "Resolution Details",
+      "LLabel": ""
+    },
+    {
+      "name": "UserFeedback",
+      "type": "string",
+      "width": "500",
+      "Option": "Optional",
+      "SLabel": "User Feedback",
+      "LLabel": ""
+    },
+    {
+      "name": "Score",
+      "type": "string",
+      "width": "20",
+      "Option": "Optional",
+      "SLabel": "Score",
+      "LLabel": ""
     }
   ],
   "itemData": "No",
@@ -249,56 +261,45 @@
   "Wizard": [
     {
       "id": "Step1",
-      "fields": [
-        { "name": "From",  "Mode": "Edit" },
-        { "name": "To",  "Mode": "Edit" },
-        { "name": "ReturnJourney",  "Mode": "Edit" },
-        { "name": "StartDate",  "Mode": "Edit" },
-        { "name": "StartTime",  "Mode": "Edit" },
-        { "name": "ReturnDate",  "Mode": "Edit" },
-        { "name": "ReturnTime",  "Mode": "Edit" }
-      ],
-      "name": "Journey Details",
+      "fields": [{ "name": "DescribeProblem", "Mode": "Edit" }],
+      "name": "Incident Details",
       "stepType": "FieldList",
-      "intro": "Train Booking : Journey Details"
+      "intro": "IT Service Ticket : Details of the Problem"
     },
     {
       "id": "Step2",
-      "fields": [
-        { "name": "Phone",  "Mode": "Edit" },
-        { "name": "UserAccount",  "Mode": "Edit" }
-      ],
-      "name": "Personnel Details",
+      "fields": [{ "name": "UserAccount", "Mode": "Edit" }],
+      "name": "User Details",
       "stepType": "FieldList",
-      "intro": "Train Booking : Personnel Details"
-    },
-    {
-      "id": "Step3",
-      "fields": [
-        { "name": "TrainFare",  "Mode": "Edit" },
-        { "name": "Currency",  "Mode": "Edit" },
-        { "name": "CostCentre",  "Mode": "Edit" }
-      ],
-      "name": "Finance Data",
-      "stepType": "FieldList",
-      "intro": "Train Booking : Finance Data"
+      "intro": "IT Service Ticket : Details of the Problem"
     },
     {
       "id": "Step4",
-      "fields": [
-        { "name": "Name",  "Mode": "Edit" },
-        { "name": "Email",  "Mode": "Edit" }
-      ],
-      "name": "Contact Details",
+      "fields": [{ "name": "ComputerID", "Mode": "Edit" }],
+      "name": "Asset",
       "stepType": "FieldList",
-      "intro": "Train Booking : Contact Details"
+      "intro": "IT Service Ticket : Details of the Asset where you are facing Problem"
     },
     {
       "id": "Step5",
-      "fields": [{ "name": "Status",  "Mode": "Edit" }],
+      "fields": [
+        { "name": "Name", "Mode": "Edit" },
+        { "name": "Email", "Mode": "Edit" },
+        { "name": "Department", "Mode": "Edit" }
+      ],
+      "name": "Contact Details",
+      "stepType": "FieldList",
+      "intro": "IT Service Ticket : Contact Details of user"
+    },
+    {
+      "id": "Step7",
+      "fields": [
+        { "name": "Status", "Mode": "Edit" },
+        { "name": "DateCreated", "Mode": "Edit" }
+      ],
       "name": "Admin",
       "stepType": "FieldList",
-      "intro": "Train Booking : Admin"
+      "intro": "IT Service Ticket : Administrative information"
     }
   ]
 }

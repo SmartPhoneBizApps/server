@@ -1,11 +1,11 @@
 {
   "Title": {
-    "ApplicationTitle": "Flight Booking",
-    "DetailTitle": "Flight Booking"
+    "ApplicationTitle": "Train Booking",
+    "DetailTitle": "Train Booking"
   },
   "Controls": {
     "USP": "UserProfile",
-    "UserSpecific":"Yes",
+    "UserSpecific": "Yes",
     "Update": "Yes",
     "URL": "https://fierce-oasis-51455.herokuapp.com",
     "Source": { "SourceName": "mongoDB", "SourceFile": "NA" }
@@ -15,17 +15,17 @@
     "TitleField": "To",
     "sStatus": "CostCentre",
     "fStatus": "Status",
-    "numberField": "AirFare",
+    "numberField": "TrainFare",
     "LFields": ["ID", "Name", "UserAccount", "Email"],
     "numberUnitField": "Currency"
   },
   "ListBOTFields": {
     "None": ["cardImage", "StatusState"],
-    "Title": ["Name"],
-    "SubTitle": ["From", "To"],
-    "Description": ["ID", "UserAccount", "Email", "Status"]
+    "Title": ["From", "To"],
+    "SubTitle": ["TrainFare", "CostCentre", "Status"],
+    "Description": ["ID", "Name", "UserAccount", "Email"]
   },
-  "PossibleValues": ["Status", "ReturnJourney"],
+  "PossibleValues": ["ReturnJourney", "Status"],
   "MButtons": [
     {
       "type": "DOWNLOAD",
@@ -61,32 +61,41 @@
   ],
   "Tabs": [
     {
-            "value": "Tab0",
+      "value": "Tab0",
       "update": "No",
       "name": "Cards",
       "type": "Cards",
       "fioriicon": "responsive"
     },
     {
-            "value": "Tab1",
+      "value": "Tab1",
       "update": "Yes",
       "name": "Traveller",
       "fioriicon": "customer",
       "type": "Field"
     },
     {
-            "value": "Tab2",
+      "value": "Tab2",
       "update": "Yes",
-      "name": "Flight",
-      "fioriicon": "flight",
+      "name": "Train",
+      "fioriicon": "passenger-train",
       "type": "Field"
     },
     {
-            "value": "Tab3",
+      "value": "Tab4",
       "update": "Yes",
-      "name": "Booking",
-      "fioriicon": "travel-expense",
-      "type": "Field"
+      "name": "Attachment",
+      "fioriicon": "attachment",
+      "type": "MultiAttachments",
+      "download": "No"
+    },
+    {
+      "value": "Tab5",
+      "update": "Yes",
+      "name": "ScreenShots",
+      "type": "carouselImage",
+      "fioriicon": "contacts",
+      "download": "No"
     }
   ],
   "DetailFields": {
@@ -103,16 +112,11 @@
       "ReturnJourney",
       "ReturnDate",
       "ReturnTime",
-      "AirFare",
+      "TrainFare",
       "Currency"
     ],
-    "Tab3": [
-      "DietaryRequirement",
-      "FlightNo",
-      "FlightDuration",
-      "Airline",
-      "Class"
-    ]
+    "Tab4": ["Attachment"],
+    "Tab5": ["ScreenShot"]
   },
   "ControlDisplay": {},
   "FieldDef": [
@@ -174,7 +178,7 @@
     },
     {
       "name": "ReturnJourney",
-      "type": "string",
+      "type": "switch",
       "width": "3",
       "Option": "Optional",
       "SLabel": "Return Journey",
@@ -213,11 +217,11 @@
       "LLabel": ""
     },
     {
-      "name": "AirFare",
+      "name": "TrainFare",
       "type": "string",
       "width": "10",
       "Option": "Optional",
-      "SLabel": "Air Fare",
+      "SLabel": "Train Fare",
       "LLabel": ""
     },
     {
@@ -245,52 +249,22 @@
       "LLabel": "Status"
     },
     {
-      "name": "Class",
-      "type": "string",
-      "width": "50",
+      "name": "ScreenShot",
+      "type": "attachment",
+      "metadata": "OnlyFileName",
+      "width": "100",
       "Option": "Optional",
-      "SLabel": "Class",
+      "SLabel": "Screen Shot",
       "LLabel": ""
     },
     {
-      "name": "Airline",
-      "type": "string",
-      "width": "50",
+      "name": "Attachment",
+      "type": "attachment",
+      "metadata": "MultipleFields",
+      "width": "100",
       "Option": "Optional",
-      "SLabel": "Airline",
+      "SLabel": "Attachment",
       "LLabel": ""
-    },
-    {
-      "name": "FlightDuration",
-      "type": "string",
-      "width": "10",
-      "Option": "Optional",
-      "SLabel": "Flight Duration",
-      "LLabel": ""
-    },
-    {
-      "name": "FlightNo",
-      "type": "string",
-      "width": "10",
-      "Option": "Optional",
-      "SLabel": "Flight Number",
-      "LLabel": ""
-    },
-    {
-      "name": "DietaryRequirement",
-      "type": "string",
-      "width": "20",
-      "Option": "Optional",
-      "SLabel": "Dietary Requirement",
-      "LLabel": ""
-    },
-    {
-      "name": "TaxiFare",
-      "type": "string",
-      "width": "50",
-      "Option": "Optional",
-      "SLabel": "Taxi Fare",
-      "LLabel": "Taxi Fare"
     }
   ],
   "itemData": "No",
@@ -314,15 +288,15 @@
       "fields": [
         { "name": "From",  "Mode": "Edit" },
         { "name": "To",  "Mode": "Edit" },
+        { "name": "ReturnJourney",  "Mode": "Edit" },
         { "name": "StartDate",  "Mode": "Edit" },
         { "name": "StartTime",  "Mode": "Edit" },
-        { "name": "ReturnJourney",  "Mode": "Edit" },
         { "name": "ReturnDate",  "Mode": "Edit" },
         { "name": "ReturnTime",  "Mode": "Edit" }
       ],
       "name": "Journey Details",
       "stepType": "FieldList",
-      "intro": "Flight Booking : Journey Details"
+      "intro": "Train Booking : Journey Details"
     },
     {
       "id": "Step2",
@@ -332,18 +306,18 @@
       ],
       "name": "Personnel Details",
       "stepType": "FieldList",
-      "intro": "Flight Booking : Personnel Details"
+      "intro": "Train Booking : Personnel Details"
     },
     {
       "id": "Step3",
       "fields": [
-        { "name": "AirFare",  "Mode": "Edit" },
+        { "name": "TrainFare",  "Mode": "Edit" },
         { "name": "Currency",  "Mode": "Edit" },
         { "name": "CostCentre",  "Mode": "Edit" }
       ],
       "name": "Finance Data",
       "stepType": "FieldList",
-      "intro": "Flight Booking : Finance Data"
+      "intro": "Train Booking : Finance Data"
     },
     {
       "id": "Step4",
@@ -353,14 +327,14 @@
       ],
       "name": "Contact Details",
       "stepType": "FieldList",
-      "intro": "Flight Booking : Contact Details"
+      "intro": "Train Booking : Contact Details"
     },
     {
       "id": "Step5",
       "fields": [{ "name": "Status",  "Mode": "Edit" }],
       "name": "Admin",
       "stepType": "FieldList",
-      "intro": "Flight Booking : Admin"
+      "intro": "Train Booking : Admin"
     }
   ]
 }

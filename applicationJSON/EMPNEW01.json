@@ -5,16 +5,20 @@
     "required": [true, "Please add Mandatory field :ID"],
     "maxlength": [20, "ID can not be more than 20 characters"]
   },
-
-  "EmpFirstName": {
+  "EmployeeID": {
     "type": "String",
-    "required": [true, "Please add Mandatory field :EmpName"],
-    "maxlength": [50, "EmpName can not be more than 50 characters"]
+    "required": [true, "Please add Mandatory field :EmployeeID"],
+    "maxlength": [50, "EmployeeID can not be more than 50 characters"]
   },
-  "EmpLastName": {
+  "FirstName": {
     "type": "String",
-    "required": [true, "Please add Mandatory field :EmpName"],
-    "maxlength": [50, "EmpName can not be more than 50 characters"]
+    "required": [true, "Please add Mandatory field :FirstName"],
+    "maxlength": [50, "FirstName can not be more than 50 characters"]
+  },
+  "LastName": {
+    "type": "String",
+    "required": [true, "Please add Mandatory field :LastName"],
+    "maxlength": [50, "LastName can not be more than 50 characters"]
   },
   "MaritalStatus": {
     "type": "String",

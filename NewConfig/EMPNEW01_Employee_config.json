@@ -5,24 +5,25 @@
   },
   "Controls": {
     "USP": "UserProfile",
-    "UserSpecific":"Yes",
+    "UserSpecific": "Yes",
     "Update": "Yes",
     "URL": "https://fierce-oasis-51455.herokuapp.com",
     "Source": { "SourceName": "mongoDB", "SourceFile": "NA" }
   },
+
   "ListFields": {
-    "IntroField": "EmpFirstName",
-    "TitleField": "EmpLastName",
+    "IntroField": "FirstName",
+    "TitleField": "LastName",
     "sStatus": "Status",
-    "fStatus": "",
+    "fStatus": "EmployeeID",
     "numberField": "",
     "LFields": ["ID", "Email", "DateOfJoining"],
     "numberUnitField": ""
   },
   "ListBOTFields": {
     "None": ["cardImage", "StatusState"],
-    "Title": ["EmpFirstName", "EmpLastName"],
-    "SubTitle": ["ID", "Status"],
+    "Title": ["FirstName", "LastName"],
+    "SubTitle": ["EmployeeID", "Status"],
     "Description": ["Email", "DateOfJoining"]
   },
   "PossibleValues": ["Status"],
@@ -61,77 +62,77 @@
   ],
   "Tabs": [
     {
-            "value": "Tab0",
+      "value": "Tab0",
       "update": "No",
       "name": "Cards",
       "type": "Cards",
       "fioriicon": "responsive"
     },
     {
-            "value": "Tab1",
+      "value": "Tab1",
       "update": "Yes",
       "name": "Personnel Details",
       "fioriicon": "developer-settings",
       "type": "Field"
     },
     {
-            "value": "Tab3",
+      "value": "Tab3",
       "update": "Yes",
       "name": "Skills",
       "fioriicon": "technical-object",
       "type": "Field"
     },
     {
-            "value": "Tab4",
+      "value": "Tab4",
       "update": "Yes",
       "name": "Emergency Contacts",
       "fioriicon": "accidental-leave",
       "type": "Field"
     },
     {
-            "value": "Tab5",
+      "value": "Tab5",
       "update": "Yes",
       "name": "Bank Details",
       "fioriicon": "loan",
       "type": "Field"
     },
     {
-            "value": "Tab6",
+      "value": "Tab6",
       "update": "Yes",
       "name": "Education",
       "fioriicon": "study-leave",
       "type": "Field"
     },
     {
-            "value": "Tab7",
+      "value": "Tab7",
       "update": "Yes",
       "name": "Previous Employer",
       "fioriicon": "addresses",
       "type": "Field"
     },
     {
-            "value": "Tab8",
+      "value": "Tab8",
       "update": "Yes",
       "name": "Attachments",
       "fioriicon": "attachment",
       "type": "MultiAttachments"
     },
     {
-            "value": "Tab9",
+      "value": "Tab9",
       "update": "Yes",
       "name": "Certifications",
       "fioriicon": "receipt",
       "type": "carouselImage"
     },
     {
-            "value": "Tab10",
+      "value": "Tab10",
       "update": "Yes",
       "name": "Remuneration",
       "fioriicon": "crm-sales",
       "type": "Field"
     },
     {
-            "value": "Tab11",
+      "value": "Tab11",
       "update": "Yes",
       "name": "Identification",
       "fioriicon": "hint",
@@ -142,7 +143,7 @@
     "headerTitle": ["USP_Name"],
     "headerRole": ["USP_Role"],
     "headerImage": ["USP_Image"],
-    "None": ["EmpLastName", "EmpFirstName", "ID", "Status"],
+    "None": ["LastName", "FirstName", "EmployeeID", "ID", "Status"],
     "Tab1": [
       "SpouseName",
       "FatherName",
@@ -173,6 +174,96 @@
     "Tab11": ["DOB", "SSNumber", "NINumber"]
   },
   "ControlDisplay": {},
+  "tableConfig": {
+    "skills": {
+      "title": "Employee Skill Matrix",
+      "ItemFieldDefinition": [
+        {
+          "name": "ItemNumber",
+          "type": "string",
+          "width": "10",
+          "SLabel": "Item Number",
+          "Option": "Optional"
+        },
+        {
+          "name": "Area",
+          "type": "string",
+          "width": "10",
+          "SLabel": "SkillLevel",
+          "Option": "Optional"
+        },
+        {
+          "name": "Skill",
+          "type": "string",
+          "width": "10",
+          "SLabel": "Skill",
+          "Option": "Optional"
+        },
+        {
+          "name": "experince",
+          "type": "string",
+          "width": "20",
+          "SLabel": "experince",
+          "Option": "Optional"
+        },
+        {
+          "name": "experinceRole",
+          "type": "string",
+          "width": "20",
+          "SLabel": "experinceRole",
+          "Option": "Optional"
+        },
+        {
+          "name": "skillLevel",
+          "type": "string",
+          "width": "10",
+          "SLabel": "SkillLevel",
+          "Option": "Optional"
+        },
+        {
+          "name": "Comments",
+          "type": "string",
+          "width": "20",
+          "SLabel": "Comments",
+          "Option": "Optional"
+        }
+      ],
+      "DisplayFields": ["Area", "Skill", "skillLevel", "experince"],
+      "ItemButtons": {
+        "itemDisplay": true,
+        "itemAdd": true,
+        "itemEdit": true,
+        "itemDelete": true
+      },
+      "CreateFields": ["Area", "Skill", "skillLevel", "experince", "Comments"],
+      "ItemDetails": [
+        {
+          "name": "ItemNumber",
+          "Mode": "Edit"
+        },
+        {
+          "name": "Area",
+          "Mode": "Edit"
+        },
+        {
+          "name": "Skill",
+          "Mode": "Edit"
+        },
+        {
+          "name": "skillLevel",
+          "Mode": "Edit"
+        },
+        {
+          "name": "experince",
+          "Mode": "Edit"
+        },
+        {
+          "name": "Comments",
+          "Mode": "Edit"
+        }
+      ]
+    }
+  },
   "FieldDef": [
     {
       "name": "ID",
@@ -183,7 +274,15 @@
       "LLabel": "Identification"
     },
     {
-      "name": "EmpFirstName",
+      "name": "EmployeeID",
+      "type": "string",
+      "width": "50",
+      "Option": "Mandatory",
+      "SLabel": "Employee ID",
+      "LLabel": "Employee ID"
+    },
+    {
+      "name": "FirstName",
       "type": "string",
       "width": "50",
       "Option": "Mandatory",
@@ -191,7 +290,7 @@
       "LLabel": "First Name"
     },
     {
-      "name": "EmpLastName",
+      "name": "LastName",
       "type": "string",
       "width": "50",
       "Option": "Mandatory",
@@ -307,7 +406,6 @@
       "SLabel": "Remuneration",
       "LLabel": "Remuneration"
     },
-
     {
       "name": "SSNumber",
       "type": "string",

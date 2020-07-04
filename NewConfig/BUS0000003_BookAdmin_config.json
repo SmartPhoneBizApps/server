@@ -5,7 +5,7 @@
   },
   "Controls": {
     "USP": "UserProfile",
-    "UserSpecific":"Yes",
+    "UserSpecific": "Yes",
     "Update": "Yes",
     "URL": "https://fierce-oasis-51455.herokuapp.com",
     "Source": { "SourceName": "mongoDB", "SourceFile": "NA" }
@@ -61,21 +61,42 @@
   ],
   "Tabs": [
     {
-            "value": "Tab0",
+      "value": "Tab0",
       "update": "No",
       "name": "Cards",
       "type": "Cards",
       "fioriicon": "responsive"
     },
     {
-            "value": "Tab1",
+      "value": "Tab1",
       "update": "Yes",
       "name": "Traveller",
       "fioriicon": "customer",
       "type": "Field"
     },
-    {       "value": "Tab2",
-      "update": "Yes", "name": "Taxi", "fioriicon": "taxi", "type": "Field" }
+    {
+      "value": "Tab2",
+      "update": "Yes",
+      "name": "Taxi",
+      "fioriicon": "taxi",
+      "type": "Field"
+    },
+    {
+      "value": "Tab4",
+      "update": "Yes",
+      "name": "Attachment",
+      "fioriicon": "attachment",
+      "type": "MultiAttachments",
+      "download": "No"
+    },
+    {
+      "value": "Tab5",
+      "update": "Yes",
+      "name": "ScreenShots",
+      "type": "carouselImage",
+      "fioriicon": "contacts",
+      "download": "No"
+    }
   ],
   "DetailFields": {
     "headerTitle": ["USP_Name"],
@@ -93,7 +114,9 @@
       "ReturnTime",
       "TaxiFare",
       "Currency"
-    ]
+    ],
+    "Tab4": ["Attachment"],
+    "Tab5": ["ScreenShot"]
   },
   "ControlDisplay": {},
   "FieldDef": [
@@ -155,7 +178,7 @@
     },
     {
       "name": "ReturnJourney",
-      "type": "string",
+      "type": "switch",
       "width": "20",
       "Option": "Optional",
       "SLabel": "Return Journey",
@@ -224,6 +247,24 @@
       "Option": "Mandatory",
       "SLabel": "Status",
       "LLabel": "Status"
+    },
+    {
+      "name": "ScreenShot",
+      "type": "attachment",
+      "metadata": "OnlyFileName",
+      "width": "100",
+      "Option": "Optional",
+      "SLabel": "Screen Shot",
+      "LLabel": ""
+    },
+    {
+      "name": "Attachment",
+      "type": "attachment",
+      "metadata": "MultipleFields",
+      "width": "100",
+      "Option": "Optional",
+      "SLabel": "Attachment",
+      "LLabel": ""
     }
   ],
   "itemData": "No",
