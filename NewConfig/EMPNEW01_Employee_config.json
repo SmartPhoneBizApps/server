@@ -26,7 +26,14 @@
     "SubTitle": ["EmployeeID", "Status"],
     "Description": ["Email", "DateOfJoining"]
   },
-  "PossibleValues": ["Status", "Sex", "MaritalStatus", "SkillLevel"],
+  "PossibleValues": [
+    "Status",
+    "Sex",
+    "MaritalStatus",
+    "SkillLevel",
+    "Area",
+    "Experience"
+  ],
   "MButtons": [
     {
       "type": "DOWNLOAD",
@@ -210,21 +217,21 @@
           "Option": "Optional"
         },
         {
-          "name": "Area1",
+          "name": "Area",
           "type": "string",
           "width": "200",
           "SLabel": "Area",
           "Option": "Optional"
         },
         {
-          "name": "Skill1",
+          "name": "Skill",
           "type": "string",
           "width": "200",
           "SLabel": "Skill",
           "Option": "Optional"
         },
         {
-          "name": "Experince1",
+          "name": "Experience",
           "type": "string",
           "width": "100",
           "SLabel": "Experience",
@@ -253,10 +260,10 @@
         }
       ],
       "DisplayFields": [
-        "Area1",
-        "Skill1",
+        "Area",
+        "Skill",
         "SkillLevel",
-        "Experince1",
+        "Experience",
         "ExperienceRole1"
       ],
       "ItemButtons": {
@@ -266,16 +273,16 @@
         "itemDelete": true
       },
       "CreateFields": [
-        "Area1",
-        "Skill1",
+        "Area",
+        "Skill",
         "SkillLevel",
-        "Experince1",
+        "Experience",
         "ExperienceRole1",
         "Comments1"
       ],
       "ItemDetails": [
         {
-          "name": "Area1",
+          "name": "Area",
           "Mode": "Edit"
         },
         {
@@ -287,7 +294,7 @@
           "Mode": "Edit"
         },
         {
-          "name": "Experince1",
+          "name": "Experience",
           "Mode": "Edit"
         },
         {
