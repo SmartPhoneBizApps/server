@@ -80,34 +80,62 @@
       "update": "Yes",
       "name": "Skills",
       "fioriicon": "technical-object",
-      "type": "Field"
-    },
-    {
-      "value": "Tab4",
-      "update": "Yes",
-      "name": "Emergency Contacts",
-      "fioriicon": "accidental-leave",
-      "type": "Field"
-    },
-    {
-      "value": "Tab5",
-      "update": "Yes",
-      "name": "Bank Details",
-      "fioriicon": "loan",
-      "type": "Field"
+      "type": "Table"
     },
     {
       "value": "Tab6",
       "update": "Yes",
       "name": "Education",
       "fioriicon": "study-leave",
-      "type": "Field"
+      "type": "Table"
     },
     {
       "value": "Tab7",
       "update": "Yes",
       "name": "Previous Employer",
       "fioriicon": "addresses",
+      "type": "Table"
+    },
+    {
+      "value": "Tab10",
+      "update": "Yes",
+      "name": "Compensation",
+      "fioriicon": "receipt",
+      "type": "Table"
+    },
+    {
+      "value": "Tab13",
+      "update": "Yes",
+      "name": "Payslips",
+      "fioriicon": "receipt",
+      "type": "Table"
+    },
+    {
+      "value": "Tab12",
+      "update": "Yes",
+      "name": "P60",
+      "fioriicon": "receipt",
+      "type": "Table"
+    },
+    {
+      "value": "Tab4",
+      "update": "Yes",
+      "name": "Emergency Contacts",
+      "fioriicon": "accidental-leave",
+      "type": "Table"
+    },
+    {
+      "value": "Tab9",
+      "update": "Yes",
+      "name": "Certifications",
+      "fioriicon": "receipt",
+      "type": "Table"
+    },
+    {
+      "value": "Tab5",
+      "update": "Yes",
+      "name": "Bank Details",
+      "fioriicon": "loan",
       "type": "Field"
     },
     {
@@ -118,25 +146,18 @@
       "type": "MultiAttachments"
     },
     {
-      "value": "Tab9",
-      "update": "Yes",
-      "name": "Certifications",
-      "fioriicon": "receipt",
-      "type": "carouselImage"
-    },
-    {
-      "value": "Tab10",
-      "update": "Yes",
-      "name": "Remuneration",
-      "fioriicon": "crm-sales",
-      "type": "Field"
-    },
-    {
       "value": "Tab11",
       "update": "Yes",
       "name": "Identification",
       "fioriicon": "hint",
       "type": "Field"
+    },
+    {
+      "value": "Tab14",
+      "update": "Yes",
+      "name": "Dependents",
+      "fioriicon": "hint",
+      "type": "Table"
     }
   ],
   "DetailFields": {
@@ -156,7 +177,14 @@
       "Address"
     ],
     "Tab3": ["Skills"],
-    "Tab4": ["Emergency Contacts"],
+    "Tab6": ["Education"],
+    "Tab7": ["PreviousEmployer"],
+    "Tab4": ["EmergencyContacts"],
+    "Tab9": ["Certifications"],
+    "Tab10": ["Compensation"],
+    "Tab13": ["Payslips"],
+    "Tab12": ["P60"],
+    "Tab14": ["Dependents"],
     "Tab5": [
       "AccountNo",
       "BankName",
@@ -166,11 +194,7 @@
       "IFSCcode",
       "Sortcode"
     ],
-    "Tab6": ["Education"],
-    "Tab7": ["PreviousEmployer"],
     "Tab8": ["Attachments"],
-    "Tab9": ["Certifications"],
-    "Tab10": ["Remuneration"],
     "Tab11": ["DOB", "SSNumber", "NINumber"]
   },
   "ControlDisplay": {},
@@ -181,49 +205,49 @@
         {
           "name": "ItemNumber",
           "type": "string",
-          "width": "10",
+          "width": "20",
           "SLabel": "Item Number",
           "Option": "Optional"
         },
         {
           "name": "Area",
           "type": "string",
-          "width": "10",
+          "width": "200",
           "SLabel": "SkillLevel",
           "Option": "Optional"
         },
         {
           "name": "Skill",
           "type": "string",
-          "width": "10",
+          "width": "200",
           "SLabel": "Skill",
           "Option": "Optional"
         },
         {
           "name": "experince",
           "type": "string",
-          "width": "20",
+          "width": "100",
           "SLabel": "experince",
           "Option": "Optional"
         },
         {
           "name": "experinceRole",
           "type": "string",
-          "width": "20",
+          "width": "100",
           "SLabel": "experinceRole",
           "Option": "Optional"
         },
         {
           "name": "skillLevel",
           "type": "string",
-          "width": "10",
+          "width": "100",
           "SLabel": "SkillLevel",
           "Option": "Optional"
         },
         {
           "name": "Comments",
           "type": "string",
-          "width": "20",
+          "width": "500",
           "SLabel": "Comments",
           "Option": "Optional"
         }
@@ -255,6 +279,243 @@
         },
         {
           "name": "experince",
+          "Mode": "Edit"
+        },
+        {
+          "name": "Comments",
+          "Mode": "Edit"
+        }
+      ]
+    },
+    "Education": {
+      "title": "Employee Education",
+      "ItemFieldDefinition": [
+        {
+          "name": "ItemNumber",
+          "type": "string",
+          "width": "20",
+          "SLabel": "Item Number",
+          "Option": "Optional"
+        },
+        {
+          "name": "Qualification",
+          "type": "string",
+          "width": "200",
+          "SLabel": "Qualification",
+          "Option": "Optional"
+        },
+        {
+          "name": "Level",
+          "type": "string",
+          "width": "200",
+          "SLabel": "Level",
+          "Option": "Optional"
+        },
+        {
+          "name": "YearCompleted",
+          "type": "string",
+          "width": "100",
+          "SLabel": "Year Completed",
+          "Option": "Optional"
+        },
+        {
+          "name": "College",
+          "type": "string",
+          "width": "100",
+          "SLabel": "Uni/College",
+          "Option": "Optional"
+        },
+        {
+          "name": "Comments",
+          "type": "string",
+          "width": "500",
+          "SLabel": "Comments",
+          "Option": "Optional"
+        }
+      ],
+      "DisplayFields": ["Qualification", "Level", "YearCompleted", "College"],
+      "ItemButtons": {
+        "itemDisplay": true,
+        "itemAdd": true,
+        "itemEdit": true,
+        "itemDelete": true
+      },
+      "CreateFields": [
+        "Qualification",
+        "Level",
+        "YearCompleted",
+        "College",
+        "Comments"
+      ],
+      "ItemDetails": [
+        {
+          "name": "Qualification",
+          "Mode": "Edit"
+        },
+        {
+          "name": "Level",
+          "Mode": "Edit"
+        },
+        {
+          "name": "YearCompleted",
+          "Mode": "Edit"
+        },
+        {
+          "name": "College",
+          "Mode": "Edit"
+        },
+        {
+          "name": "Comments",
+          "Mode": "Edit"
+        }
+      ]
+    },
+    "PreviousEmployer": {
+      "title": "Employee Education",
+      "ItemFieldDefinition": [
+        {
+          "name": "ItemNumber",
+          "type": "string",
+          "width": "20",
+          "SLabel": "Item Number",
+          "Option": "Optional"
+        },
+        {
+          "name": "From",
+          "type": "string",
+          "width": "200",
+          "SLabel": "From Date",
+          "Option": "Optional"
+        },
+        {
+          "name": "To",
+          "type": "string",
+          "width": "200",
+          "SLabel": "To Date",
+          "Option": "Optional"
+        },
+        {
+          "name": "ExpYears",
+          "type": "string",
+          "width": "200",
+          "SLabel": "Experience Years",
+          "Option": "Optional"
+        },
+        {
+          "name": "Client",
+          "type": "string",
+          "width": "200",
+          "SLabel": "Client",
+          "Option": "Optional"
+        },
+        {
+          "name": "Role",
+          "type": "string",
+          "width": "100",
+          "SLabel": "Role",
+          "Option": "Optional"
+        },
+        {
+          "name": "Comments",
+          "type": "string",
+          "width": "500",
+          "SLabel": "Comments",
+          "Option": "Optional"
+        }
+      ],
+      "DisplayFields": ["From", "To", "ExpYears", "Client", "Role", "Comments"],
+      "ItemButtons": {
+        "itemDisplay": true,
+        "itemAdd": true,
+        "itemEdit": true,
+        "itemDelete": true
+      },
+      "CreateFields": ["From", "To", "ExpYears", "Client", "Role", "Comments"],
+      "ItemDetails": [
+        {
+          "name": "From",
+          "Mode": "Edit"
+        },
+        {
+          "name": "To",
+          "Mode": "Edit"
+        },
+        {
+          "name": "ExpYears",
+          "Mode": "Edit"
+        },
+        {
+          "name": "Client",
+          "Mode": "Edit"
+        },
+        {
+          "name": "Role",
+          "Mode": "Edit"
+        },
+        {
+          "name": "Comments",
+          "Mode": "Edit"
+        }
+      ]
+    },
+    "EmergencyContacts": {
+      "title": "Employee Emergency Contacts",
+      "ItemFieldDefinition": [
+        {
+          "name": "ItemNumber",
+          "type": "string",
+          "width": "20",
+          "SLabel": "Item Number",
+          "Option": "Optional"
+        },
+        {
+          "name": "ContactName",
+          "type": "string",
+          "width": "200",
+          "SLabel": "ContactName",
+          "Option": "Optional"
+        },
+        {
+          "name": "ContactPhone",
+          "type": "string",
+          "width": "200",
+          "SLabel": "ContactPhone",
+          "Option": "Optional"
+        },
+        {
+          "name": "Relation",
+          "type": "string",
+          "width": "100",
+          "SLabel": "Relation",
+          "Option": "Optional"
+        },
+        {
+          "name": "Comments",
+          "type": "string",
+          "width": "500",
+          "SLabel": "Comments",
+          "Option": "Optional"
+        }
+      ],
+      "DisplayFields": ["ContactName", "ContactPhone", "Relation"],
+      "ItemButtons": {
+        "itemDisplay": true,
+        "itemAdd": true,
+        "itemEdit": true,
+        "itemDelete": true
+      },
+      "CreateFields": ["ContactName", "ContactPhone", "Relation", "Comments"],
+      "ItemDetails": [
+        {
+          "name": "ContactName",
+          "Mode": "Edit"
+        },
+        {
+          "name": "ContactPhone",
+          "Mode": "Edit"
+        },
+        {
+          "name": "Relation",
           "Mode": "Edit"
         },
         {
@@ -350,14 +611,7 @@
       "SLabel": "Sex",
       "LLabel": "Sex"
     },
-    {
-      "name": "Certifications",
-      "type": "string",
-      "width": "500",
-      "Option": "Optional",
-      "SLabel": "Certifications and Trainings",
-      "LLabel": "Certifications and Trainings"
-    },
+
     {
       "name": "Attachments",
       "type": "string",
@@ -399,12 +653,12 @@
       "LLabel": "Date Of Joining"
     },
     {
-      "name": "Remuneration",
+      "name": "Compensation",
       "type": "string",
       "width": "500",
       "Option": "Optional",
-      "SLabel": "Remuneration",
-      "LLabel": "Remuneration"
+      "SLabel": "Compensation",
+      "LLabel": "Compensation"
     },
     {
       "name": "SSNumber",
@@ -489,43 +743,67 @@
     },
     {
       "name": "Dependents",
-      "type": "string",
-      "width": "20",
+      "type": "Array",
+      "width": "200",
       "Option": "Optional",
       "SLabel": "Dependents",
       "LLabel": "Dependents"
     },
     {
       "name": "EmergencyContacts",
-      "type": "string",
-      "width": "20",
+      "type": "Array",
+      "width": "200",
       "Option": "Optional",
       "SLabel": "Emergency Contacts",
       "LLabel": "Emergency Contacts"
     },
     {
       "name": "Education",
-      "type": "string",
-      "width": "20",
+      "type": "Array",
+      "width": "200",
       "Option": "Optional",
       "SLabel": "Education",
       "LLabel": "Education"
     },
     {
       "name": "PreviousEmployer",
-      "type": "string",
-      "width": "20",
+      "type": "Array",
+      "width": "200",
       "Option": "Optional",
       "SLabel": "Previous Employer",
       "LLabel": "Previous Employer"
     },
     {
       "name": "Skills",
-      "type": "string",
-      "width": "20",
+      "type": "Array",
+      "width": "200",
       "Option": "Optional",
       "SLabel": "Skills",
       "LLabel": "Skills"
+    },
+    {
+      "name": "Certifications",
+      "type": "Array",
+      "width": "200",
+      "Option": "Optional",
+      "SLabel": "Certifications and Trainings",
+      "LLabel": "Certifications and Trainings"
+    },
+    {
+      "name": "Payslips",
+      "type": "Array",
+      "width": "200",
+      "Option": "Optional",
+      "SLabel": "Payslips",
+      "LLabel": "Payslips"
+    },
+    {
+      "name": "P60",
+      "type": "Array",
+      "width": "200",
+      "Option": "Optional",
+      "SLabel": "P60",
+      "LLabel": "P60"
     }
   ],
   "itemData": "No",
