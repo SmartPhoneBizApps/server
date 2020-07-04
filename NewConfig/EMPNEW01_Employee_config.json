@@ -210,79 +210,96 @@
           "Option": "Optional"
         },
         {
-          "name": "Area",
+          "name": "Area1",
           "type": "string",
           "width": "200",
-          "SLabel": "SkillLevel",
+          "SLabel": "Area",
           "Option": "Optional"
         },
         {
-          "name": "Skill",
+          "name": "Skill1",
           "type": "string",
           "width": "200",
           "SLabel": "Skill",
           "Option": "Optional"
         },
         {
-          "name": "experince",
+          "name": "experince1",
           "type": "string",
           "width": "100",
-          "SLabel": "experince",
+          "SLabel": "Experience",
           "Option": "Optional"
         },
         {
-          "name": "experinceRole",
+          "name": "experienceRole1",
           "type": "string",
           "width": "100",
-          "SLabel": "experinceRole",
+          "SLabel": "Role",
           "Option": "Optional"
         },
         {
-          "name": "skillLevel",
+          "name": "skillLevel1",
           "type": "string",
           "width": "100",
           "SLabel": "SkillLevel",
           "Option": "Optional"
         },
         {
-          "name": "Comments",
+          "name": "Comments1",
           "type": "string",
           "width": "500",
           "SLabel": "Comments",
           "Option": "Optional"
         }
       ],
-      "DisplayFields": ["Area", "Skill", "skillLevel", "experince"],
+      "DisplayFields": [
+        "Area1",
+        "Skill1",
+        "skillLevel1",
+        "experince1",
+        "experienceRole1"
+      ],
       "ItemButtons": {
         "itemDisplay": true,
         "itemAdd": true,
         "itemEdit": true,
         "itemDelete": true
       },
-      "CreateFields": ["Area", "Skill", "skillLevel", "experince", "Comments"],
+      "CreateFields": [
+        "Area1",
+        "Skill1",
+        "skillLevel1",
+        "experince1",
+        "experienceRole1",
+        "Comments1"
+      ],
       "ItemDetails": [
         {
           "name": "ItemNumber",
           "Mode": "Edit"
         },
         {
-          "name": "Area",
+          "name": "Area1",
           "Mode": "Edit"
         },
         {
-          "name": "Skill",
+          "name": "Skill1",
           "Mode": "Edit"
         },
         {
-          "name": "skillLevel",
+          "name": "skillLevel1",
           "Mode": "Edit"
         },
         {
-          "name": "experince",
+          "name": "experince1",
           "Mode": "Edit"
         },
         {
-          "name": "Comments",
+          "name": "experienceRole1",
+          "Mode": "Edit"
+        },
+        {
+          "name": "Comments1",
           "Mode": "Edit"
         }
       ]
