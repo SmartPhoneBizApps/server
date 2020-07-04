@@ -123,7 +123,7 @@
       "IFSCcode",
       "Sortcode"
     ],
-    "Tab8": ["Attachments"],
+    "Tab8": ["MultiAttachments"],
     "Tab11": ["DOB", "SSNumber", "NINumber"]
   },
   "ControlDisplay": {},
@@ -213,15 +213,6 @@
       "Option": "Optional",
       "SLabel": "Sex",
       "LLabel": "Sex"
-    },
-
-    {
-      "name": "Attachments",
-      "type": "string",
-      "width": "500",
-      "Option": "Optional",
-      "SLabel": "Attachments",
-      "LLabel": "Attachments"
     },
     {
       "name": "MaritalStatus",
@@ -407,6 +398,16 @@
       "Option": "Optional",
       "SLabel": "P60",
       "LLabel": "P60"
+    },
+
+    {
+      "name": "MultiAttachments",
+      "type": "attachment",
+      "metadata": "MultipleFields",
+      "width": "200",
+      "Option": "Optional",
+      "SLabel": "Learning Documents",
+      "LLabel": "Learning Documents"
     }
   ],
   "itemData": "No",
