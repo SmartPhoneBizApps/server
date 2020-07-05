@@ -6,8 +6,13 @@
   "Controls": {
     "USP": "UserProfile",
     "Filters": [
-      { "Status": { "$ne": "Approved" } },
-      { "Status": { "$ne": "Rejected" } }
+      {
+        "$and": [
+          { "Status": { "$ne": "Approved" } },
+          { "Status": { "$ne": "Rejected" } },
+          { "Status": { "$ne": "ReferredBack" } }
+        ]
+      }
     ],
     "Partner": "@user",
     "UserSpecific": "Yes",

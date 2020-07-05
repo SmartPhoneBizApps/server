@@ -22,7 +22,7 @@ exports.getListrecords1 = asyncHandler(async (req, res, next) => {
     req.headers.businessrole +
     "_config.json";
   var config1 = require(fn1);
-  console.log("Filters:", config1.Controls.Filters);
+
   /// Possible values..
   pvconfig1 = getPVConfig(req.headers.applicationid, req.headers.businessrole);
   qPV = getPVQuery(
@@ -144,7 +144,6 @@ exports.getListrecords1 = asyncHandler(async (req, res, next) => {
     let query = readData(req.params.id, req, config1);
     let results = await query;
 
-    console.log("Filters:", config1.Controls.Filters);
     // If Items are present...
     if (model2 !== model) {
       // Create query string (Item)

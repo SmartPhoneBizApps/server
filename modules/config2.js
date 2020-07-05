@@ -110,6 +110,8 @@ module.exports = {
                 }
               }
               break;
+
+            //     Status=ne|Complete
             default:
               reqQuery1[key] = config1.Controls.Filters[x][key];
               break;

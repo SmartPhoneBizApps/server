@@ -7,8 +7,13 @@
     "USP": "UserProfile",
     "Filters": [
       { "CostCentre": "@CostCentre" },
-      { "Status": { "$ne": "Approved" } },
-      { "Status": { "$ne": "Rejected" } }
+      {
+        "$and": [
+          { "Status": { "$ne": "Approved" } },
+          { "Status": { "$ne": "Rejected" } },
+          { "Status": { "$ne": "ReferredBack" } }
+        ]
+      }
     ],
     "Partner": "@user",
     "UserSpecific": "Yes",
