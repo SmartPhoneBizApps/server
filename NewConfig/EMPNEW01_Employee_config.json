@@ -61,12 +61,14 @@
   ],
   "DButtons": [
     {
-      "type": "ATTACHMENT",
-      "name": "View Attachments",
-      "icon": "sap-icon://attachment"
-    },
-    { "type": "UPDATE", "name": "Update Record", "icon": "sap-icon://update" },
-    { "type": "ADD", "name": "Add Record", "icon": "sap-icon://add" }
+      "type": "SURVEY",
+      "Calculation": "Yes",
+      "name": "Feedback",
+      "icon": "sap-icon://upload-to-cloud",
+      "URL": "util/getQuestioner/LEARNING/{ID}",
+      "Token": "Yes",
+      "URLMethod": "GET"
+    }
   ],
   "Tabs": [
     {
@@ -182,14 +184,15 @@
       "ContactNo",
       "Email",
       "PostCode",
-      "Address"
+      "Address",
+      "ReferenceID"
     ],
     "Tab3": ["Skills"],
     "Tab6": ["Education"],
     "Tab7": ["PreviousEmployer"],
     "Tab4": ["EmergencyContacts"],
     "Tab9": ["Certifications"],
-    "Tab10": ["Compensation"],
+    "Tab10": ["Questioner"],
     "Tab13": ["Payslips"],
     "Tab12": ["P60"],
     "Tab14": ["Dependents"],
@@ -766,9 +769,9 @@
         },
         {
           "name": "LinkPS",
-          "type": "string",
+          "type": "hyperlink",
           "width": "200",
-          "SLabel": "DateCertified",
+          "SLabel": "Payslip Link",
           "Option": "Optional"
         },
         {
@@ -807,7 +810,7 @@
       ]
     },
     "Compensation": {
-      "title": "Employee Compensation",
+      "title": "Employee Questioner",
       "ItemFieldDefinition": [
         {
           "name": "ItemNumber",
@@ -817,57 +820,57 @@
           "Option": "Optional"
         },
         {
-          "name": "YearPS",
+          "name": "Question",
           "type": "string",
-          "width": "200",
-          "SLabel": "Year",
+          "width": "10",
+          "SLabel": "Question",
           "Option": "Optional"
         },
         {
-          "name": "MonthPS",
+          "name": "Answer",
           "type": "string",
-          "width": "200",
-          "SLabel": "Month",
+          "width": "20",
+          "SLabel": "Answer",
           "Option": "Optional"
         },
         {
-          "name": "LinkPS",
+          "name": "CorrectAnswer",
           "type": "string",
-          "width": "200",
-          "SLabel": "Link",
+          "width": "20",
+          "SLabel": "Correct Ans",
           "Option": "Optional"
         },
         {
-          "name": "Comments9",
+          "name": "Score",
           "type": "string",
-          "width": "500",
-          "SLabel": "Comments",
+          "width": "20",
+          "SLabel": "Score",
           "Option": "Optional"
         }
       ],
-      "DisplayFields": ["YearPS", "MonthPS", "LinkPS"],
+      "DisplayFields": ["Question", "Answer", "CorrectAnswer", "CorrectAnswer"],
       "ItemButtons": {
         "itemDisplay": true,
         "itemAdd": true,
         "itemEdit": true,
         "itemDelete": true
       },
-      "CreateFields": ["YearPS", "MonthPS", "LinkPS"],
+      "CreateFields": ["Question", "Answer", "CorrectAnswer", "CorrectAnswer"],
       "ItemDetails": [
         {
-          "name": "YearPS",
+          "name": "Question",
           "Mode": "Edit"
         },
         {
-          "name": "MonthPS",
+          "name": "Answer",
           "Mode": "Edit"
         },
         {
-          "name": "LinkPS",
+          "name": "CorrectAnswer",
           "Mode": "Edit"
         },
         {
-          "name": "Comments9",
+          "name": "CorrectAnswer",
           "Mode": "Edit"
         }
       ]
@@ -992,7 +995,7 @@
       "LLabel": "Date Of Joining"
     },
     {
-      "name": "Compensation",
+      "name": "Questioner",
       "type": "string",
       "width": "500",
       "Option": "Optional",
@@ -1153,6 +1156,14 @@
       "Option": "Optional",
       "SLabel": "Learning Documents",
       "LLabel": "Learning Documents"
+    },
+    {
+      "name": "ReferenceID",
+      "type": "string",
+      "width": "50",
+      "Option": "Optional",
+      "SLabel": "ReferenceID",
+      "LLabel": "ReferenceID"
     }
   ],
   "itemData": "No",

@@ -1,0 +1,137 @@
+{
+  "Questions": [
+    {
+      "id": "Step1",
+      "fields": [
+        {
+          "name": "Q1",
+          "Mode": "Display",
+          "type": "string",
+          "value": "Basic Salary"
+        },
+        {
+          "name": "A1",
+          "Mode": "Edit",
+          "type": "string"
+        }
+      ],
+      "name": "Basic",
+      "stepType": "FieldList",
+      "intro": "Compensation : Earnings"
+    },
+    {
+      "id": "Step2",
+      "fields": [
+        {
+          "name": "Q2",
+          "Mode": "Display",
+          "type": "string",
+          "value": "Bonus Type"
+        },
+        {
+          "name": "A2",
+          "Mode": "Edit",
+          "type": "string",
+          "value": ["Bonus", "Sales/Commission", "Performance Bonus", "NA"]
+        },
+        {
+          "name": "Q3",
+          "Mode": "Display",
+          "type": "string",
+          "value": "Bonus Frequency"
+        },
+        {
+          "name": "A3",
+          "Mode": "Edit",
+          "type": "string",
+          "value": ["Annual", "Half-Yearly", "Quaterly", "NA"]
+        },
+        {
+          "name": "Q4",
+          "Mode": "Display",
+          "type": "string",
+          "value": "Bonus / Commission"
+        },
+        {
+          "name": "A4",
+          "Mode": "Edit",
+          "type": "string"
+        }
+      ],
+      "name": "Bonus",
+      "stepType": "FieldList",
+      "intro": "Compensation : Bonuses & Commission"
+    },
+    {
+      "id": "Step3",
+      "fields": [
+        {
+          "name": "Q5",
+          "Mode": "Display",
+          "type": "string",
+          "value": "Car Allowance"
+        },
+        {
+          "name": "A5",
+          "Mode": "Edit",
+          "type": "string"
+        },
+        {
+          "name": "Q6",
+          "Mode": "Display",
+          "type": "string",
+          "value": "Study Allowance"
+        },
+        {
+          "name": "A6",
+          "Mode": "Edit",
+          "type": "string"
+        }
+      ],
+      "name": "Allowance",
+      "stepType": "FieldList",
+      "intro": "Compensation : Allowances"
+    },
+    {
+      "id": "Step4",
+      "fields": [
+        {
+          "name": "Q7",
+          "Mode": "Display",
+          "type": "string",
+          "value": "Tax"
+        },
+        {
+          "name": "A7",
+          "Mode": "Edit",
+          "type": "string"
+        },
+        {
+          "name": "Q8",
+          "Mode": "Display",
+          "type": "string",
+          "value": "National Insurance(Employee)"
+        },
+        {
+          "name": "A8",
+          "Mode": "Edit",
+          "type": "string"
+        }
+      ],
+      "name": "Decuctions",
+      "stepType": "FieldList",
+      "intro": "Compensation : Allowances"
+    }
+  ],
+  "TargetField": "Questioner",
+  "CorrectAnswers": [
+    { "Q1": "A1", "CorrectAnswer": "Excellent" },
+    { "Q2": "A2", "CorrectAnswer": "Yes" },
+    { "Q3": "A3", "CorrectAnswer": "Yes" },
+    { "Q4": "A4", "CorrectAnswer": "Yes" },
+    { "Q5": "A5", "CorrectAnswer": "Yes" },
+    { "Q6": "A6", "CorrectAnswer": "Yes" },
+    { "Q7": "A7", "CorrectAnswer": "Yes" },
+    { "Q8": "A8", "CorrectAnswer": "Yes" }
+  ]
+}
