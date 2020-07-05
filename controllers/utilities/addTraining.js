@@ -63,7 +63,9 @@ exports.addTraining = asyncHandler(async (req, res, next) => {
     req.user.name,
     Status,
     req.params.toApp,
-    "A new training assigned"
+    "A new training assigned",
+    req.headers.buttonType,
+    req.headers.buttonName
   );
 
   result = await findOneUpdateData(myData, req.params.toApp);

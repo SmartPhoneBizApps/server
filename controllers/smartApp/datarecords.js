@@ -212,7 +212,9 @@ exports.addDataRecords = asyncHandler(async (req, res, next) => {
     req.body.userName,
     req.body.Status,
     req.body.applicationId,
-    "New document created"
+    "New document created",
+    req.headers.buttonType,
+    req.headers.buttonName
   );
 
   req.body.ID = Math.floor(100000 + Math.random() * 900000);
@@ -515,7 +517,9 @@ exports.updateDataRecords = asyncHandler(async (req, res, next) => {
     req.body.userName,
     Status,
     req.body.applicationId,
-    "Document is updated"
+    "Document is updated",
+    req.headers.buttonType,
+    req.headers.buttonName
   );
 
   let nTrans = [];

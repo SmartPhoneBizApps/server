@@ -239,7 +239,17 @@ module.exports = {
     return result;
   },
 
-  processingLog: function (ID, type, userid, userName, Status, app, comment) {
+  processingLog: function (
+    ID,
+    type,
+    userid,
+    userName,
+    Status,
+    app,
+    comment,
+    buttonType,
+    buttonName
+  ) {
     // Read Create Map Config
     // These are converted old XML files from smartapp
     let pLog = {};
@@ -252,7 +262,12 @@ module.exports = {
     pLog["ID"] = ID;
     pLog["applicationId"] = app;
     pLog["Comment"] = comment;
-
+    if (buttonType) {
+      pLog["buttonType"] = buttonType;
+    }
+    if (buttonName) {
+      pLog["buttonName"] = buttonName;
+    }
     //  result.push(pLog);
     //  return result;
 
@@ -397,8 +412,6 @@ module.exports = {
     let kys = [];
     let out1 = {};
     var set1 = new Set([]);
-    console.log("A1", itmData);
-    console.log("A2", newitemData);
     if (newitemData) {
       for (let i = 0; i < newitemData.length; i++) {
         kys.push(newitemData[i]["ItemNumber"]);
@@ -406,8 +419,6 @@ module.exports = {
     } else {
       newitemData = [];
     }
-
-    console.log(kys);
     for (let x = 0; x < itmData.length; x++) {
       out1 = {};
       if (!kys.includes(itmData[x]["ItemNumber"])) {
@@ -591,7 +602,7 @@ module.exports = {
     myFieldArray = [];
     for (let index = 0; index < FieldDef.length; index++) {
       if (FieldDef[index].type == "Array") {
-        console.log(FieldDef[index].name);
+        //  console.log(FieldDef[index].name);
         myFieldArray.push(FieldDef[index].name);
       }
     }
