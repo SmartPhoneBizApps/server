@@ -1298,7 +1298,21 @@
   ],
   "itemData": "No",
   "itemConfig": {},
-  "CalculatedFields": {},
+  "CalculatedFields": {
+    "Item": [],
+    "HeaderItem": [
+      {
+        "CalculatedFormula": {
+          "name": "ITEMSUM",
+          "function": "ITEMSUM",
+          "Target": "TestScore",
+          "type": "HeaderItem"
+        },
+        "Fields": [{ "Source": "Score", "Type": { "type": "HeaderItem" } }]
+      }
+    ],
+    "Header": []
+  },
   "Create": "No",
   "Wizard": []
 }
