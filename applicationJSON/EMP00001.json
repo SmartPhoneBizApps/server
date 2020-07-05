@@ -60,9 +60,19 @@
     "type": "String",
     "maxlength": [50, "Approver can not be more than 50 characters"]
   },
+  "Team": {
+    "type": "String",
+    "maxlength": [200, "Approver can not be more than 200 characters"]
+  },
+
   "Status": {
     "type": "String",
-    "maxlength": [20, "Status can not be more than 20 characters"]
+    "maxlength": [100, "Status can not be more than 100 characters"]
+  },
+  "Partner": {
+    "type": "String",
+    "required": [true, "Please add Mandatory field :Partner"],
+    "maxlength": [200, "Partner can not be more than 200 characters"]
   },
   "Comment": {
     "type": "String",

@@ -1,0 +1,437 @@
+{
+  "Title": {
+    "ApplicationTitle": "College Choice",
+    "DetailTitle": "College Choice"
+  },
+  "Controls": {
+    "USP": "UserProfile",
+    "Filters": [],
+    "Partner": "@user",
+    "UserSpecific": "Yes",
+    "Update": "Yes",
+    "URL": "https://fierce-oasis-51455.herokuapp.com",
+    "Source": { "SourceName": "mongoDB", "SourceFile": "NA" }
+  },
+  "ListFields": {
+    "IntroField": "Name",
+    "TitleField": "Surname",
+    "fStatus": "Status",
+    "LFields": ["ID", "Rank"]
+  },
+  "ListBOTFields": {
+    "None": ["cardImage", "StatusState"],
+    "Title": [],
+    "SubTitle": [],
+    "Description": []
+  },
+  "PossibleValues": [
+    "Status",
+    "CollegeChoice1",
+    "CollegeChoice2",
+    "CollegeChoice3",
+    "CollegeChoice4",
+    "CollegeChoice5",
+    "CollegeChoice6",
+    "CollegeChoice7",
+    "CollegeChoice8",
+    "BranchPrefer1",
+    "BranchPrefer2",
+    "Gender",
+    "State",
+    "Country"
+  ],
+  "MButtons": [],
+  "DButtons": [],
+  "Tabs": [
+    {
+      "value": "Tab0",
+      "update": "No",
+      "name": "Cards",
+      "type": "Cards",
+      "fioriicon": "responsive"
+    },
+    {
+      "value": "Tab1",
+      "update": "Yes",
+      "name": "Details",
+      "type": "Field",
+      "fioriicon": "notes"
+    },
+    {
+      "value": "Tab2",
+      "update": "Yes",
+      "name": "Merit",
+      "type": "Field",
+      "fioriicon": "chalkboard"
+    },
+    {
+      "value": "Tab3",
+      "update": "Yes",
+      "name": "Choice",
+      "type": "Field",
+      "fioriicon": "multi-select"
+    }
+  ],
+  "DetailFields": {
+    "headerTitle": ["USP_Name"],
+    "headerRole": ["USP_Role"],
+    "headerImage": ["USP_Image"],
+    "None": ["ID", "Status", "SubmitDate"],
+    "Tab1": [
+      "DoB",
+      "Name",
+      "Surname",
+      "Gender",
+      "Street",
+      "City",
+      "PostCode",
+      "State",
+      "Country"
+    ],
+    "Tab2": [
+      "ExamCentre",
+      "ScoreMaths",
+      "ScorePhysics",
+      "ScoreChemistry",
+      "DateOfReg",
+      "RegCentre",
+      "FeePaymentDate",
+      "ChoiceLockDate",
+      "ResultDate",
+      "FeeReference",
+      "FeeAmount",
+      "Rank"
+    ],
+    "Tab3": [
+      "CollegeChoice1",
+      "CollegeChoice2",
+      "CollegeChoice3",
+      "CollegeChoice4",
+      "CollegeChoice5",
+      "CollegeChoice6",
+      "CollegeChoice7",
+      "CollegeChoice8",
+      "BranchPrefer1",
+      "BranchPrefer2"
+    ]
+  },
+  "ControlDisplay": {},
+  "FieldDef": [
+    {
+      "name": "ID",
+      "type": "string",
+      "width": "20",
+      "Option": "Mandatory",
+      "SLabel": "ID",
+      "LLabel": ""
+    },
+    {
+      "name": "Status",
+      "type": "string",
+      "width": "50",
+      "Option": "Mandatory",
+      "SLabel": "Status",
+      "LLabel": "Status"
+    },
+    {
+      "name": "ExamCentre",
+      "type": "string",
+      "width": "500",
+      "Option": "Optional",
+      "SLabel": "Exam Centre",
+      "LLabel": ""
+    },
+    {
+      "name": "DoB",
+      "type": "Date",
+      "width": "10",
+      "Option": "Optional",
+      "SLabel": "Date Of Birth",
+      "LLabel": ""
+    },
+    {
+      "name": "ScoreMaths",
+      "type": "string",
+      "width": "100",
+      "Option": "Optional",
+      "SLabel": "Maths Score",
+      "LLabel": ""
+    },
+    {
+      "name": "ScorePhysics",
+      "type": "string",
+      "width": "100",
+      "Option": "Optional",
+      "SLabel": "Physics Score",
+      "LLabel": ""
+    },
+    {
+      "name": "ScoreChemistry",
+      "type": "string",
+      "width": "20",
+      "Option": "Optional",
+      "SLabel": "Chemistry Score",
+      "LLabel": ""
+    },
+    {
+      "name": "DateOfReg",
+      "type": "Date",
+      "width": "10",
+      "Option": "Optional",
+      "SLabel": "Date Of Registration",
+      "LLabel": ""
+    },
+    {
+      "name": "RegCentre",
+      "type": "string",
+      "width": "100",
+      "Option": "Optional",
+      "SLabel": "Registration Centre",
+      "LLabel": ""
+    },
+    {
+      "name": "FeePaymentDate",
+      "type": "Date",
+      "width": "10",
+      "Option": "Optional",
+      "SLabel": "Fee Payment Date",
+      "LLabel": ""
+    },
+    {
+      "name": "ChoiceLockDate",
+      "type": "Date",
+      "width": "10",
+      "Option": "Optional",
+      "SLabel": "Choice Lock Date",
+      "LLabel": ""
+    },
+    {
+      "name": "Name",
+      "type": "string",
+      "width": "100",
+      "Option": "Optional",
+      "SLabel": "Name",
+      "LLabel": ""
+    },
+    {
+      "name": "ResultDate",
+      "type": "Date",
+      "width": "10",
+      "Option": "Optional",
+      "SLabel": "Result Date",
+      "LLabel": ""
+    },
+    {
+      "name": "FeeReference",
+      "type": "string",
+      "width": "100",
+      "Option": "Optional",
+      "SLabel": "Fee Reference",
+      "LLabel": ""
+    },
+    {
+      "name": "FeeAmount",
+      "type": "string",
+      "width": "100",
+      "Option": "Optional",
+      "SLabel": "Fee Amount",
+      "LLabel": ""
+    },
+    {
+      "name": "CollegeChoice1",
+      "type": "string",
+      "width": "100",
+      "Option": "Optional",
+      "SLabel": "College Choice1",
+      "LLabel": ""
+    },
+    {
+      "name": "CollegeChoice2",
+      "type": "string",
+      "width": "100",
+      "Option": "Optional",
+      "SLabel": "College Choice2",
+      "LLabel": ""
+    },
+    {
+      "name": "CollegeChoice3",
+      "type": "string",
+      "width": "100",
+      "Option": "Optional",
+      "SLabel": "College Choice3",
+      "LLabel": ""
+    },
+    {
+      "name": "CollegeChoice4",
+      "type": "string",
+      "width": "100",
+      "Option": "Optional",
+      "SLabel": "College Choice4",
+      "LLabel": ""
+    },
+    {
+      "name": "CollegeChoice5",
+      "type": "string",
+      "width": "100",
+      "Option": "Optional",
+      "SLabel": "College Choice5",
+      "LLabel": ""
+    },
+    {
+      "name": "CollegeChoice6",
+      "type": "string",
+      "width": "100",
+      "Option": "Optional",
+      "SLabel": "College Choice6",
+      "LLabel": ""
+    },
+    {
+      "name": "CollegeChoice7",
+      "type": "string",
+      "width": "100",
+      "Option": "Optional",
+      "SLabel": "College Choice7",
+      "LLabel": ""
+    },
+    {
+      "name": "Surname",
+      "type": "string",
+      "width": "100",
+      "Option": "Optional",
+      "SLabel": "Surname",
+      "LLabel": ""
+    },
+    {
+      "name": "CollegeChoice8",
+      "type": "string",
+      "width": "100",
+      "Option": "Optional",
+      "SLabel": "College Choice8",
+      "LLabel": ""
+    },
+    {
+      "name": "BranchPrefer1",
+      "type": "string",
+      "width": "50",
+      "Option": "Optional",
+      "SLabel": "Branch Prefer1",
+      "LLabel": ""
+    },
+    {
+      "name": "BranchPrefer2",
+      "type": "string",
+      "width": "50",
+      "Option": "Optional",
+      "SLabel": "Branch Prefer2",
+      "LLabel": ""
+    },
+    {
+      "name": "Gender",
+      "type": "radiobutton",
+      "width": "50",
+      "Option": "Optional",
+      "SLabel": "Gender",
+      "LLabel": ""
+    },
+    {
+      "name": "SubmitDate",
+      "type": "Date",
+      "width": "10",
+      "Option": "Optional",
+      "SLabel": "Submit Date",
+      "LLabel": ""
+    },
+    {
+      "name": "Street",
+      "type": "string",
+      "width": "100",
+      "Option": "Optional",
+      "SLabel": "Street",
+      "LLabel": ""
+    },
+    {
+      "name": "City",
+      "type": "string",
+      "width": "100",
+      "Option": "Optional",
+      "SLabel": "City",
+      "LLabel": ""
+    },
+    {
+      "name": "PostCode",
+      "type": "searchField",
+      "width": "20",
+      "linkFields": "Address",
+      "URL": "{URL}/api/v1/util/address/{PostCode}",
+      "URLMethod": "GET",
+      "Token": true,
+      "Option": "Optional",
+      "SLabel": "Post Code",
+      "LLabel": ""
+    },
+    {
+      "name": "State",
+      "type": "string",
+      "width": "100",
+      "Option": "Optional",
+      "SLabel": "State",
+      "LLabel": ""
+    },
+    {
+      "name": "Country",
+      "type": "string",
+      "width": "100",
+      "Option": "Optional",
+      "SLabel": "Country",
+      "LLabel": ""
+    },
+    {
+      "name": "Rank",
+      "type": "string",
+      "width": "100",
+      "Option": "Optional",
+      "SLabel": "Rank",
+      "LLabel": ""
+    },
+    {
+      "name": "Quota",
+      "type": "string",
+      "width": "100",
+      "Option": "Optional",
+      "SLabel": "Quota",
+      "LLabel": ""
+    },
+    {
+      "name": "AllocatedBranch",
+      "type": "string",
+      "width": "100",
+      "Option": "Optional",
+      "SLabel": "Allocated Branch",
+      "LLabel": ""
+    },
+    {
+      "name": "AllocatedCollege",
+      "type": "string",
+      "width": "50",
+      "Option": "Optional",
+      "SLabel": "Allocated College",
+      "LLabel": ""
+    }
+  ],
+  "itemData": "No",
+  "itemConfig": {
+    "ItemFieldDefinition": [],
+    "DisplayFields": [],
+    "ItemButtons": {
+      "itemDisplay": false,
+      "itemAdd": false,
+      "itemEdit": false,
+      "itemDelete": false
+    },
+    "CreateFields": [],
+    "ItemDetails": []
+  },
+  "CalculatedFields": {},
+  "Create": "No",
+  "Wizard": []
+}

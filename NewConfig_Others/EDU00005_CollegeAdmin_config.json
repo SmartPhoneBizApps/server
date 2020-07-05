@@ -1,0 +1,353 @@
+{
+  "Title": { "ApplicationTitle": "Merit List", "DetailTitle": "Merit List" },
+  "Controls": {
+    "USP": "UserProfile",
+    "Filters": [],
+    "Partner": "@user",
+    "UserSpecific": "Yes",
+    "Update": "Yes",
+    "URL": "https://fierce-oasis-51455.herokuapp.com",
+    "Source": { "SourceName": "mongoDB", "SourceFile": "NA" }
+  },
+  "ListFields": {
+    "IntroField": "Name",
+    "TitleField": "Surname",
+    "fStatus": "Status",
+    "LFields": ["ID", "Rank"]
+  },
+  "ListBOTFields": {
+    "None": ["cardImage", "StatusState"],
+    "Title": [],
+    "SubTitle": [],
+    "Description": []
+  },
+  "PossibleValues": ["Status", "State", "Country"],
+  "MButtons": [
+    {
+      "type": "DOWNLOAD",
+      "name": "Download File",
+      "icon": "sap-icon://download"
+    },
+    {
+      "type": "APPHELP",
+      "name": "Get App Help",
+      "icon": "sap-icon://sys-help-2"
+    },
+    {
+      "type": "BOT",
+      "name": "Launch Assistant",
+      "icon": "sap-icon://travel-request"
+    },
+    {
+      "type": "VIEW",
+      "name": "Change App View",
+      "icon": "sap-icon://chart-table-view"
+    },
+    { "type": "ADD", "name": "Add Record", "icon": "sap-icon://add" },
+    { "type": "UPLOAD", "name": "Upload Record", "icon": "sap-icon://upload" }
+  ],
+  "DButtons": [
+    {
+      "type": "ATTACHMENT",
+      "name": "View Attachments",
+      "icon": "sap-icon://attachment"
+    },
+    { "type": "UPDATE", "name": "Update Record", "icon": "sap-icon://update" },
+    { "type": "ADD", "name": "Add Record", "icon": "sap-icon://add" }
+  ],
+  "Tabs": [
+    {
+      "value": "Tab0",
+      "update": "No",
+      "name": "Cards",
+      "type": "Cards",
+      "fioriicon": "responsive"
+    },
+    {
+      "value": "Tab1",
+      "update": "Yes",
+      "name": "Details",
+      "type": "Field",
+      "fioriicon": "notes"
+    },
+    {
+      "value": "Tab2",
+      "update": "Yes",
+      "name": "Merit",
+      "type": "Field",
+      "fioriicon": "chalkboard"
+    },
+    {
+      "value": "Tab3",
+      "update": "Yes",
+      "name": "KeyDates",
+      "type": "Field",
+      "fioriicon": "database"
+    }
+  ],
+  "DetailFields": {
+    "headerTitle": ["USP_Name"],
+    "headerRole": ["USP_Role"],
+    "headerImage": ["USP_Image"],
+    "None": ["ID", "Status", "ExamCentre"],
+    "Tab1": [
+      "DoB",
+      "Name",
+      "Surname",
+      "Street",
+      "City",
+      "PostCode",
+      "State",
+      "Country"
+    ],
+    "Tab2": ["ScoreMaths", "ScorePhysics", "ScoreChemistry", "Rank"],
+    "Tab3": [
+      "DateOfReg",
+      "RegCentre",
+      "FeePaymentDate",
+      "ChoiceLockDate",
+      "ResultDate"
+    ]
+  },
+  "ControlDisplay": {},
+  "FieldDef": [
+    {
+      "name": "ID",
+      "type": "string",
+      "width": "20",
+      "Option": "Mandatory",
+      "SLabel": "ID",
+      "LLabel": ""
+    },
+    {
+      "name": "Name",
+      "type": "string",
+      "width": "100",
+      "Option": "Optional",
+      "SLabel": "Name",
+      "LLabel": ""
+    },
+    {
+      "name": "Surname",
+      "type": "string",
+      "width": "100",
+      "Option": "Optional",
+      "SLabel": "Surname",
+      "LLabel": ""
+    },
+    {
+      "name": "DoB",
+      "type": "Date",
+      "width": "10",
+      "Option": "Optional",
+      "SLabel": "Date of birth",
+      "LLabel": ""
+    },
+    {
+      "name": "DateOfReg",
+      "type": "Date",
+      "width": "10",
+      "Option": "Optional",
+      "SLabel": "Date of Registration",
+      "LLabel": ""
+    },
+    {
+      "name": "RegCentre",
+      "type": "string",
+      "width": "100",
+      "Option": "Optional",
+      "SLabel": "Registration Center",
+      "LLabel": ""
+    },
+    {
+      "name": "Street",
+      "type": "string",
+      "width": "100",
+      "Option": "Optional",
+      "SLabel": "Street",
+      "LLabel": ""
+    },
+    {
+      "name": "City",
+      "type": "string",
+      "width": "100",
+      "Option": "Optional",
+      "SLabel": "City",
+      "LLabel": ""
+    },
+    {
+      "name": "PostCode",
+      "type": "searchField",
+      "width": "20",
+      "linkFields": "Address",
+      "URL": "{URL}/api/v1/util/address/{PostCode}",
+      "URLMethod": "GET",
+      "Token": true,
+      "Option": "Optional",
+      "SLabel": "Post Code",
+      "LLabel": ""
+    },
+    {
+      "name": "State",
+      "type": "string",
+      "width": "100",
+      "Option": "Optional",
+      "SLabel": "State",
+      "LLabel": ""
+    },
+    {
+      "name": "Country",
+      "type": "string",
+      "width": "100",
+      "Option": "Optional",
+      "SLabel": "Country",
+      "LLabel": ""
+    },
+    {
+      "name": "ExamCentre",
+      "type": "string",
+      "width": "100",
+      "Option": "Optional",
+      "SLabel": "Exam Centre",
+      "LLabel": ""
+    },
+    {
+      "name": "ResultDate",
+      "type": "Date",
+      "width": "10",
+      "Option": "Optional",
+      "SLabel": "Result Date",
+      "LLabel": ""
+    },
+    {
+      "name": "Rank",
+      "type": "string",
+      "width": "100",
+      "Option": "Optional",
+      "SLabel": "Rank",
+      "LLabel": ""
+    },
+    {
+      "name": "ScoreMaths",
+      "type": "string",
+      "width": "100",
+      "Option": "Optional",
+      "SLabel": "Math Score",
+      "LLabel": ""
+    },
+    {
+      "name": "ScorePhysics",
+      "type": "string",
+      "width": "100",
+      "Option": "Optional",
+      "SLabel": "Physics Score",
+      "LLabel": ""
+    },
+    {
+      "name": "ScoreChemistry",
+      "type": "string",
+      "width": "100",
+      "Option": "Optional",
+      "SLabel": "Chemistry Score",
+      "LLabel": ""
+    },
+    {
+      "name": "FeePaymentDate",
+      "type": "Date",
+      "width": "10",
+      "Option": "Optional",
+      "SLabel": "Fee payment Date",
+      "LLabel": ""
+    },
+    {
+      "name": "ChoiceLockDate",
+      "type": "Date",
+      "width": "10",
+      "Option": "Optional",
+      "SLabel": "Lock date for choices",
+      "LLabel": ""
+    },
+    {
+      "name": "Status",
+      "type": "string",
+      "width": "50",
+      "Option": "Mandatory",
+      "SLabel": "Status",
+      "LLabel": "Status"
+    }
+  ],
+  "itemData": "No",
+  "itemConfig": {
+    "ItemFieldDefinition": [],
+    "DisplayFields": [],
+    "ItemButtons": {
+      "itemDisplay": false,
+      "itemAdd": false,
+      "itemEdit": false,
+      "itemDelete": false
+    },
+    "CreateFields": [],
+    "ItemDetails": []
+  },
+  "CalculatedFields": {},
+  "Create": "Yes",
+  "Wizard": [
+    {
+      "id": "Step1",
+      "fields": [
+        { "name": "Name", "Mode": "Edit" },
+        { "name": "Surname", "Mode": "Edit" },
+        { "name": "DoB", "Mode": "Edit" },
+        { "name": "DateOfReg", "Mode": "Edit" },
+        { "name": "RegCentre", "Mode": "Edit" }
+      ],
+      "name": "Registration Details",
+      "stepType": "FieldList",
+      "intro": "Merit List : Registration Details"
+    },
+    {
+      "id": "Step2",
+      "fields": [
+        { "name": "Street", "Mode": "Edit" },
+        { "name": "City", "Mode": "Edit" },
+        { "name": "PostCode", "Mode": "Edit" },
+        { "name": "State", "Mode": "Edit" },
+        { "name": "Country", "Mode": "Edit" },
+        { "name": "ExamCentre", "Mode": "Edit" }
+      ],
+      "name": "Centre Details",
+      "stepType": "FieldList",
+      "intro": "Merit List : Centre Details"
+    },
+    {
+      "id": "Step3",
+      "fields": [
+        { "name": "ResultDate", "Mode": "Edit" },
+        { "name": "ScoreMaths", "Mode": "Edit" },
+        { "name": "ScorePhysics", "Mode": "Edit" },
+        { "name": "ScoreChemistry", "Mode": "Edit" },
+        { "name": "Rank", "Mode": "Edit" }
+      ],
+      "name": "Result ",
+      "stepType": "FieldList",
+      "intro": "Merit List : Result "
+    },
+    {
+      "id": "Step4",
+      "fields": [
+        { "name": "FeePaymentDate", "Mode": "Edit" },
+        { "name": "ChoiceLockDate", "Mode": "Edit" }
+      ],
+      "name": "Other Details",
+      "stepType": "FieldList",
+      "intro": "Merit List : Other Details"
+    },
+    {
+      "id": "Step5",
+      "fields": [{ "name": "Status", "Mode": "Edit" }],
+      "name": "Status",
+      "stepType": "FieldList",
+      "intro": "Merit List : Status"
+    }
+  ]
+}

@@ -1,0 +1,178 @@
+{
+  "Title": {
+    "ApplicationTitle": "Pupil Dues",
+    "DetailTitle": "Details of Pupil Dues"
+  },
+  "Controls": {
+    "USP": "UserProfile",
+    "Filters": [],
+    "Partner": "@user",
+    "UserSpecific": "Yes",
+    "Update": "Yes",
+    "URL": "https://fierce-oasis-51455.herokuapp.com",
+    "Source": { "SourceName": "mongoDB", "SourceFile": "NA" }
+  },
+  "ListFields": {
+    "IntroField": "StudentName",
+    "TitleField": "Surname",
+    "fStatus": "Status",
+    "LFields": ["ID", "YearGroup"]
+  },
+  "ListBOTFields": {
+    "None": ["cardImage", "StatusState"],
+    "Title": [],
+    "SubTitle": [],
+    "Description": []
+  },
+  "PossibleValues": ["Status"],
+  "MButtons": [],
+  "DButtons": [],
+  "Tabs": [
+    {
+      "value": "Tab0",
+      "update": "No",
+      "name": "Cards",
+      "type": "Cards",
+      "fioriicon": "responsive"
+    },
+    {
+      "value": "Tab1",
+      "update": "Yes",
+      "name": "PupilDetail",
+      "fioriicon": "account",
+      "type": "Field",
+      "download": "Yes"
+    },
+    {
+      "value": "Tab2",
+      "update": "Yes",
+      "name": "Due Details",
+      "fioriicon": "customer-history",
+      "type": "Field",
+      "download": "Yes"
+    }
+  ],
+  "DetailFields": {
+    "headerTitle": ["USP_Name"],
+    "headerRole": ["USP_Role"],
+    "headerImage": ["USP_Image"],
+    "None": ["ID", "Status"],
+    "Tab1": ["StudentName", "Surname", "DateOfBirth", "YearGroup", "Section"],
+    "Tab2": ["DueFor", "DueReason", "DueAmt", "DueDate", "Balance"]
+  },
+  "ControlDisplay": {},
+  "FieldDef": [
+    {
+      "name": "ID",
+      "type": "string",
+      "width": "20",
+      "Option": "Mandatory",
+      "SLabel": "Identification",
+      "LLabel": "Identification"
+    },
+    {
+      "name": "StudentName",
+      "type": "string",
+      "width": "20",
+      "Option": "Mandatory",
+      "SLabel": "Student Name",
+      "LLabel": "Student Name"
+    },
+    {
+      "name": "Surname",
+      "type": "string",
+      "width": "20",
+      "Option": "Optional",
+      "SLabel": "Surname",
+      "LLabel": "Surname"
+    },
+    {
+      "name": "DateOfBirth",
+      "type": "Date",
+      "width": "10",
+      "Option": "Optional",
+      "SLabel": "Date Of Birth",
+      "LLabel": "DateOfBirth"
+    },
+    {
+      "name": "YearGroup",
+      "type": "string",
+      "width": "10",
+      "Option": "Optional",
+      "SLabel": "Year Group",
+      "LLabel": "YearGroup"
+    },
+    {
+      "name": "Section",
+      "type": "string",
+      "width": "20",
+      "Option": "Mandatory",
+      "SLabel": "Section",
+      "LLabel": "Section"
+    },
+    {
+      "name": "DueFor",
+      "type": "string",
+      "width": "200",
+      "Option": "Optional",
+      "SLabel": "Due For",
+      "LLabel": "DueFor"
+    },
+    {
+      "name": "DueReason",
+      "type": "string",
+      "width": "500",
+      "Option": "Optional",
+      "SLabel": "Due Reason",
+      "LLabel": "DueReason"
+    },
+    {
+      "name": "DueAmt",
+      "type": "string",
+      "width": "20",
+      "Option": "Optional",
+      "SLabel": "Due amount",
+      "LLabel": "DueAmt"
+    },
+    {
+      "name": "DueDate",
+      "type": "Date",
+      "width": "10",
+      "Option": "Optional",
+      "SLabel": "Due Date",
+      "LLabel": "Due Date"
+    },
+    {
+      "name": "Balance",
+      "type": "string",
+      "width": "20",
+      "Option": "Optional",
+      "SLabel": "OutstandingBalance",
+      "LLabel": "OutstandingBalance"
+    },
+    {
+      "name": "Status",
+      "type": "string",
+      "width": "50",
+      "Option": "Mandatory",
+      "SLabel": "Status",
+      "LLabel": "Status"
+    }
+  ],
+  "itemData": "No",
+  "itemConfig": {
+    "ItemFieldDefinition": [],
+    "DisplayFields": [],
+    "ItemButtons": {
+      "itemDisplay": true,
+      "itemAdd": true,
+      "itemEdit": true,
+      "itemDelete": true
+    },
+    "CreateFields": [],
+    "ItemDetails": []
+  },
+  "CalculatedFields": { "Item": [], "HeaderItem": [], "Header": [] },
+  "Create": "No",
+  "Wizard": []
+}

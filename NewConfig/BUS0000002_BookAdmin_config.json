@@ -5,6 +5,8 @@
   },
   "Controls": {
     "USP": "UserProfile",
+    "Filters": [],
+    "Partner": "@user",
     "UserSpecific": "Yes",
     "Update": "Yes",
     "URL": "https://fierce-oasis-51455.herokuapp.com",
@@ -348,13 +350,13 @@
     {
       "id": "Step1",
       "fields": [
-        { "name": "From",  "Mode": "Edit" },
-        { "name": "To",  "Mode": "Edit" },
-        { "name": "StartDate",  "Mode": "Edit" },
-        { "name": "StartTime",  "Mode": "Edit" },
-        { "name": "ReturnJourney",  "Mode": "Edit" },
-        { "name": "ReturnDate",  "Mode": "Edit" },
-        { "name": "ReturnTime",  "Mode": "Edit" }
+        { "name": "From", "Mode": "Edit" },
+        { "name": "To", "Mode": "Edit" },
+        { "name": "StartDate", "Mode": "Edit" },
+        { "name": "StartTime", "Mode": "Edit" },
+        { "name": "ReturnJourney", "Mode": "Edit" },
+        { "name": "ReturnDate", "Mode": "Edit" },
+        { "name": "ReturnTime", "Mode": "Edit" }
       ],
       "name": "Journey Details",
       "stepType": "FieldList",
@@ -363,8 +365,8 @@
     {
       "id": "Step2",
       "fields": [
-        { "name": "Phone",  "Mode": "Edit" },
-        { "name": "UserAccount",  "Mode": "Edit" }
+        { "name": "Phone", "Mode": "Edit" },
+        { "name": "UserAccount", "Mode": "Edit" }
       ],
       "name": "Personnel Details",
       "stepType": "FieldList",
@@ -373,9 +375,9 @@
     {
       "id": "Step3",
       "fields": [
-        { "name": "AirFare",  "Mode": "Edit" },
-        { "name": "Currency",  "Mode": "Edit" },
-        { "name": "CostCentre",  "Mode": "Edit" }
+        { "name": "AirFare", "Mode": "Edit" },
+        { "name": "Currency", "Mode": "Edit" },
+        { "name": "CostCentre", "Mode": "Edit" }
       ],
       "name": "Finance Data",
       "stepType": "FieldList",
@@ -384,8 +386,8 @@
     {
       "id": "Step4",
       "fields": [
-        { "name": "Name",  "Mode": "Edit" },
-        { "name": "Email",  "Mode": "Edit" }
+        { "name": "Name", "Mode": "Edit" },
+        { "name": "Email", "Mode": "Edit" }
       ],
       "name": "Contact Details",
       "stepType": "FieldList",
@@ -393,7 +395,7 @@
     },
     {
       "id": "Step5",
-      "fields": [{ "name": "Status",  "Mode": "Edit" }],
+      "fields": [{ "name": "Status", "Mode": "Edit" }],
       "name": "Admin",
       "stepType": "FieldList",
       "intro": "Flight Booking : Admin"

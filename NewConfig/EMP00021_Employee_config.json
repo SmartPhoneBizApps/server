@@ -2,7 +2,9 @@
   "Title": { "ApplicationTitle": "Time Sheet", "DetailTitle": "Time Sheet" },
   "Controls": {
     "USP": "UserProfile",
-    "UserSpecific":"Yes",
+    "Filters": [{ "Partner": "@user" }],
+    "Partner": "@user",
+    "UserSpecific": "Yes",
     "Update": "Yes",
     "URL": "https://fierce-oasis-51455.herokuapp.com",
     "Source": { "SourceName": "mongoDB", "SourceFile": "NA" }
@@ -57,14 +59,14 @@
   ],
   "Tabs": [
     {
-            "value": "Tab0",
+      "value": "Tab0",
       "update": "No",
       "name": "Cards",
       "type": "Cards",
       "fioriicon": "responsive"
     },
     {
-            "value": "Tab1",
+      "value": "Tab1",
       "update": "Yes",
       "name": "RegularHoursDetails",
       "type": "Field",
@@ -72,7 +74,7 @@
       "download": "Yes"
     },
     {
-            "value": "Tab2",
+      "value": "Tab2",
       "update": "Yes",
       "name": "OvertimeHoursDetails",
       "type": "Field",
@@ -80,7 +82,7 @@
       "download": "Yes"
     },
     {
-            "value": "Tab3",
+      "value": "Tab3",
       "update": "Yes",
       "name": "TotalAmount",
       "fioriicon": "batch-payments",
@@ -88,7 +90,7 @@
       "download": "Yes"
     },
     {
-            "value": "Tab4",
+      "value": "Tab4",
       "update": "Yes",
       "name": "Items",
       "fioriicon": "activity-items",
@@ -96,7 +98,7 @@
       "download": "No"
     },
     {
-            "value": "Tab6",
+      "value": "Tab6",
       "update": "Yes",
       "name": "Attachments",
       "fioriicon": "attachment",
@@ -104,7 +106,7 @@
       "download": "No"
     },
     {
-            "value": "Tab5",
+      "value": "Tab5",
       "update": "Yes",
       "name": "Process log",
       "fioriicon": "step",
@@ -378,24 +380,24 @@
       {
         "name": "ItemNumber",
         "Tab": "Tab4",
-        
+
         "Mode": "Display"
       },
-      { "name": "ProjectCode", "Tab": "Tab4",  "Mode": "Edit" },
-      { "name": "Date", "Tab": "Tab4",  "Mode": "Edit" },
+      { "name": "ProjectCode", "Tab": "Tab4", "Mode": "Edit" },
+      { "name": "Date", "Tab": "Tab4", "Mode": "Edit" },
       {
         "name": "TotalRegWorkHours",
         "Tab": "Tab4",
-        
+
         "Mode": "Edit"
       },
       {
         "name": "OvertimeHours",
         "Tab": "Tab4",
-        
+
         "Mode": "Edit"
       },
-      { "name": "Comment", "Tab": "Tab4",  "Mode": "Edit" }
+      { "name": "Comment", "Tab": "Tab4", "Mode": "Edit" }
     ]
   },
   "CalculatedFields": {
@@ -501,9 +503,9 @@
     {
       "id": "Step1",
       "fields": [
-        { "name": "Name",  "Mode": "Edit" },
-        { "name": "EmployeeID",  "Mode": "Edit" },
-        { "name": "Approver",  "Mode": "Display" }
+        { "name": "Name", "Mode": "Edit" },
+        { "name": "EmployeeID", "Mode": "Edit" },
+        { "name": "Approver", "Mode": "Display" }
       ],
       "name": "Employee Details",
       "stepType": "FieldList",
@@ -512,8 +514,8 @@
     {
       "id": "Step2",
       "fields": [
-        { "name": "StartDate",  "Mode": "Edit" },
-        { "name": "EndDate",  "Mode": "Edit" }
+        { "name": "StartDate", "Mode": "Edit" },
+        { "name": "EndDate", "Mode": "Edit" }
       ],
       "name": "Timesheet Duration",
       "stepType": "FieldList",
@@ -522,9 +524,9 @@
     {
       "id": "Step3",
       "fields": [
-        { "name": "TotalRegHours",  "Mode": "Display" },
-        { "name": "HourlyRate",  "Mode": "Display" },
-        { "name": "RegularNetAmount",  "Mode": "Display" }
+        { "name": "TotalRegHours", "Mode": "Display" },
+        { "name": "HourlyRate", "Mode": "Display" },
+        { "name": "RegularNetAmount", "Mode": "Display" }
       ],
       "name": "Regular hours Details",
       "stepType": "FieldList",
@@ -533,9 +535,9 @@
     {
       "id": "Step4",
       "fields": [
-        { "name": "TotalOvertimeHours",  "Mode": "Display" },
-        { "name": "OvertimeRate",  "Mode": "Display" },
-        { "name": "OvertimeNetAmount",  "Mode": "Display" }
+        { "name": "TotalOvertimeHours", "Mode": "Display" },
+        { "name": "OvertimeRate", "Mode": "Display" },
+        { "name": "OvertimeNetAmount", "Mode": "Display" }
       ],
       "name": "Overtime Details",
       "stepType": "FieldList",
@@ -544,11 +546,11 @@
     {
       "id": "Step5",
       "fields": [
-        { "name": "NetAmount",  "Mode": "Display" },
-        { "name": "VATRate",  "Mode": "Display" },
-        { "name": "VATAmount",  "Mode": "Display" },
-        { "name": "GrossAmount",  "Mode": "Display" },
-        { "name": "Status",  "Mode": "Edit" }
+        { "name": "NetAmount", "Mode": "Display" },
+        { "name": "VATRate", "Mode": "Display" },
+        { "name": "VATAmount", "Mode": "Display" },
+        { "name": "GrossAmount", "Mode": "Display" },
+        { "name": "Status", "Mode": "Edit" }
       ],
       "name": "Amount",
       "stepType": "FieldList",

@@ -1,0 +1,88 @@
+{
+  "Title": {
+    "ApplicationTitle": "Change in Circumstances",
+    "DetailTitle": "Change in Circumstances"
+  },
+  "Controls": {
+    "USP": "UserProfile",
+    "Filters": [],
+    "Partner": "@user",
+    "UserSpecific": "Yes",
+    "Update": "Yes",
+    "URL": "https://fierce-oasis-51455.herokuapp.com",
+    "Source": { "SourceName": "mongoDB", "SourceFile": "NA" }
+  },
+  "ListFields": {
+    "IntroField": "ReportNo",
+    "TitleField": "YourName",
+    "fStatus": "Status",
+    "LFields": ["Email"]
+  },
+  "ListBOTFields": {
+    "None": ["cardImage", "StatusState"],
+    "Title": [],
+    "SubTitle": [],
+    "Description": []
+  },
+  "PossibleValues": ["Status"],
+  "MButtons": [],
+  "DButtons": [],
+  "Tabs": [
+    {
+      "value": "Tab0",
+      "update": "No",
+      "name": "Cards",
+      "type": "Cards",
+      "fioriicon": "responsive"
+    },
+    { "value": "Tab1", "update": "Yes", "name": "Report It", "type": "Field" },
+    {
+      "value": "Tab2",
+      "update": "Yes",
+      "name": "Additional Info",
+      "type": "Field"
+    }
+  ],
+  "DetailFields": {
+    "headerTitle": ["USP_Name"],
+    "headerRole": ["USP_Role"],
+    "headerImage": ["USP_Image"],
+    "None": ["ReportNo", "YourName", "ContactNo", "Email", "Status"],
+    "Tab1": ["Address", "Q1", "A1", "Q2", "A2", "Q3", "A3", "Q4", "A4"],
+    "Tab2": ["AdditionalInfo"]
+  },
+  "ControlDisplay": {},
+  "FieldDef": [
+    { "name": "ReportNo", "type": "string", "width": "20" },
+    { "name": "YourName", "type": "string", "width": "50" },
+    { "name": "ContactNo", "type": "string", "width": "20" },
+    { "name": "Email", "type": "string", "width": "100" },
+    { "name": "Address", "type": "string", "width": "500" },
+    { "name": "Q1", "type": "string", "width": "500" },
+    { "name": "A1", "type": "string", "width": "500" },
+    { "name": "Q2", "type": "string", "width": "500" },
+    { "name": "A2", "type": "string", "width": "500" },
+    { "name": "Q3", "type": "string", "width": "500" },
+    { "name": "A3", "type": "string", "width": "500" },
+    { "name": "Q4", "type": "string", "width": "500" },
+    { "name": "A4", "type": "Date", "width": "10" },
+    { "name": "AdditionalInfo", "type": "string", "width": "1000" },
+    { "name": "Status", "type": "string", "width": "20" }
+  ],
+  "itemData": "No",
+  "itemConfig": {
+    "ItemFieldDefinition": [],
+    "DisplayFields": [],
+    "ItemButtons": {
+      "itemDisplay": false,
+      "itemAdd": false,
+      "itemEdit": false,
+      "itemDelete": false
+    },
+    "CreateFields": [],
+    "ItemDetails": []
+  },
+  "CalculatedFields": {},
+  "Create": "No",
+  "Wizard": []
+}

@@ -5,7 +5,9 @@
   },
   "Controls": {
     "USP": "UserProfile",
-    "UserSpecific":"Yes",
+    "Filters": [],
+    "Partner": "@user",
+    "UserSpecific": "Yes",
     "Update": "Yes",
     "URL": "https://fierce-oasis-51455.herokuapp.com",
     "Source": { "SourceName": "mongoDB", "SourceFile": "NA" }
@@ -37,25 +39,29 @@
   "DButtons": [],
   "Tabs": [
     {
-            "value": "Tab0",
+      "value": "Tab0",
       "update": "No",
       "name": "Cards",
       "type": "Cards",
       "fioriicon": "responsive"
     },
     {
-            "value": "Tab1",
+      "value": "Tab1",
       "update": "Yes",
       "name": "Invoice",
       "type": "Field",
       "fioriicon": "customer-financial-fact-sheet"
     },
-    {       "value": "Tab2",
-      "update": "Yes", "name": "PO", "type": "Field", "fioriicon": "document" },
-    {       "value": "Tab3",
-      "update": "Yes", "name": "History", "type": "Graph" },
     {
-            "value": "Tab4",
+      "value": "Tab2",
+      "update": "Yes",
+      "name": "PO",
+      "type": "Field",
+      "fioriicon": "document"
+    },
+    { "value": "Tab3", "update": "Yes", "name": "History", "type": "Graph" },
+    {
+      "value": "Tab4",
       "update": "Yes",
       "name": "Attachment",
       "type": "Attachment",

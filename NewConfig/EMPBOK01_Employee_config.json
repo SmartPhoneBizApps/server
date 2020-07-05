@@ -5,7 +5,9 @@
   },
   "Controls": {
     "USP": "UserProfile",
-    "UserSpecific":"Yes",
+    "Filters": [{ "Partner": "@user" }],
+    "Partner": "@user",
+    "UserSpecific": "Yes",
     "Update": "Yes",
     "URL": "https://fierce-oasis-51455.herokuapp.com",
     "Source": { "SourceName": "mongoDB", "SourceFile": "NA" }
@@ -65,14 +67,14 @@
   ],
   "Tabs": [
     {
-            "value": "Tab0",
+      "value": "Tab0",
       "update": "No",
       "name": "Cards",
       "type": "Cards",
       "fioriicon": "responsive"
     },
     {
-            "value": "Tab1",
+      "value": "Tab1",
       "update": "Yes",
       "name": "Booking",
       "type": "Field",
@@ -80,7 +82,7 @@
       "download": "Yes"
     },
     {
-            "value": "Tab2",
+      "value": "Tab2",
       "update": "Yes",
       "name": "Contact",
       "type": "Field",
@@ -388,27 +390,27 @@
     {
       "id": "Step1",
       "fields": [
-        { "name": "BookingFor",  "Mode": "Display" },
-        { "name": "CarPark",  "Mode": "Edit" },
-        { "name": "StartDate",  "Mode": "Edit" },
+        { "name": "BookingFor", "Mode": "Display" },
+        { "name": "CarPark", "Mode": "Edit" },
+        { "name": "StartDate", "Mode": "Edit" },
 
-        { "name": "EndDate",  "Mode": "Edit" },
+        { "name": "EndDate", "Mode": "Edit" },
 
-        { "name": "MeetingDate",  "Mode": "Edit" },
-        { "name": "Slot",  "Mode": "Edit" },
-        { "name": "NoOfPeople",  "Mode": "Edit" },
-        { "name": "RoomLayout",  "Mode": "Edit" },
-        { "name": "LunchRequired",  "Mode": "Edit" },
-        { "name": "DietaryRequirement",  "Mode": "Edit" },
-        { "name": "HotDeskNo",  "Mode": "Edit" },
-        { "name": "Building",  "Mode": "Edit" },
-        { "name": "ParkingRequired",  "Mode": "Edit" },
+        { "name": "MeetingDate", "Mode": "Edit" },
+        { "name": "Slot", "Mode": "Edit" },
+        { "name": "NoOfPeople", "Mode": "Edit" },
+        { "name": "RoomLayout", "Mode": "Edit" },
+        { "name": "LunchRequired", "Mode": "Edit" },
+        { "name": "DietaryRequirement", "Mode": "Edit" },
+        { "name": "HotDeskNo", "Mode": "Edit" },
+        { "name": "Building", "Mode": "Edit" },
+        { "name": "ParkingRequired", "Mode": "Edit" },
 
-        { "name": "VisitorName",  "Mode": "Edit" },
-        { "name": "VisitorEmail",  "Mode": "Edit" },
-        { "name": "VisitorPhone",  "Mode": "Edit" },
-        { "name": "VisitorCompany",  "Mode": "Edit" },
-        { "name": "CarRegistration",  "Mode": "Edit" }
+        { "name": "VisitorName", "Mode": "Edit" },
+        { "name": "VisitorEmail", "Mode": "Edit" },
+        { "name": "VisitorPhone", "Mode": "Edit" },
+        { "name": "VisitorCompany", "Mode": "Edit" },
+        { "name": "CarRegistration", "Mode": "Edit" }
       ],
       "name": "Booking Details",
       "stepType": "FieldList",
@@ -417,9 +419,9 @@
     {
       "id": "Step2",
       "fields": [
-        { "name": "Name",  "Mode": "Edit" },
-        { "name": "ContactNo",  "Mode": "Edit" },
-        { "name": "Email",  "Mode": "Edit" }
+        { "name": "Name", "Mode": "Edit" },
+        { "name": "ContactNo", "Mode": "Edit" },
+        { "name": "Email", "Mode": "Edit" }
       ],
       "name": "Your Details",
       "stepType": "FieldList",
@@ -428,9 +430,9 @@
     {
       "id": "Step3",
       "fields": [
-        { "name": "StartTime",  "Mode": "Edit" },
-        { "name": "EndTime",  "Mode": "Edit" },
-        { "name": "Comments",  "Mode": "Edit" }
+        { "name": "StartTime", "Mode": "Edit" },
+        { "name": "EndTime", "Mode": "Edit" },
+        { "name": "Comments", "Mode": "Edit" }
       ],
       "name": "Additional Details",
       "stepType": "FieldList",
@@ -438,7 +440,7 @@
     },
     {
       "id": "Step4",
-      "fields": [{ "name": "Status",  "Mode": "Edit" }],
+      "fields": [{ "name": "Status", "Mode": "Edit" }],
       "name": "Admin and other details",
       "stepType": "FieldList",
       "intro": "Booking : Admin and other details"

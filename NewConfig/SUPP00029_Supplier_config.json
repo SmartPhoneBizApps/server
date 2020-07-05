@@ -2,7 +2,9 @@
   "Title": { "ApplicationTitle": "Help page", "DetailTitle": "Help page" },
   "Controls": {
     "USP": "UserProfile",
-    "UserSpecific":"Yes",
+    "Filters": [],
+    "Partner": "@vendorNumber",
+    "UserSpecific": "Yes",
     "Update": "Yes",
     "URL": "https://fierce-oasis-51455.herokuapp.com",
     "Source": { "SourceName": "mongoDB", "SourceFile": "NA" }
@@ -55,28 +57,33 @@
   ],
   "Tabs": [
     {
-            "value": "Tab0",
+      "value": "Tab0",
       "update": "No",
       "name": "Cards",
       "type": "Cards",
       "fioriicon": "responsive"
     },
     {
-            "value": "Tab1",
+      "value": "Tab1",
       "update": "Yes",
       "name": "Help",
       "fioriicon": "sys-help",
       "type": "Field"
     },
     {
-            "value": "Tab2",
+      "value": "Tab2",
       "update": "Yes",
       "name": "Help link",
       "fioriicon": "chain-link",
       "type": "Field"
     },
-    {       "value": "Tab3",
-      "update": "Yes", "name": "Admin", "fioriicon": "log", "type": "Field" }
+    {
+      "value": "Tab3",
+      "update": "Yes",
+      "name": "Admin",
+      "fioriicon": "log",
+      "type": "Field"
+    }
   ],
   "DetailFields": {
     "headerTitle": ["USP_Name"],
@@ -181,8 +188,8 @@
     {
       "id": "Step1",
       "fields": [
-        { "name": "Area",  "Mode": "Edit" },
-        { "name": "Language",  "Mode": "Edit" }
+        { "name": "Area", "Mode": "Edit" },
+        { "name": "Language", "Mode": "Edit" }
       ],
       "name": "Area",
       "stepType": "FieldList",
@@ -191,9 +198,9 @@
     {
       "id": "Step2",
       "fields": [
-        { "name": "Title",  "Mode": "Edit" },
-        { "name": "Finfo",  "Mode": "Edit" },
-        { "name": "Url",  "Mode": "Edit" }
+        { "name": "Title", "Mode": "Edit" },
+        { "name": "Finfo", "Mode": "Edit" },
+        { "name": "Url", "Mode": "Edit" }
       ],
       "name": "Help Details",
       "stepType": "FieldList",
@@ -202,9 +209,9 @@
     {
       "id": "Step3",
       "fields": [
-        { "name": "Status",  "Mode": "Edit" },
-        { "name": "Crdate",  "Mode": "Edit" },
-        { "name": "gstin",  "Mode": "Edit" }
+        { "name": "Status", "Mode": "Edit" },
+        { "name": "Crdate", "Mode": "Edit" },
+        { "name": "gstin", "Mode": "Edit" }
       ],
       "name": "Status",
       "stepType": "FieldList",

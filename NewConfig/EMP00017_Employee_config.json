@@ -5,7 +5,9 @@
   },
   "Controls": {
     "USP": "UserProfile",
-    "UserSpecific":"Yes",
+    "Filters": [{ "Partner": "@user" }],
+    "Partner": "@user",
+    "UserSpecific": "Yes",
     "Update": "Yes",
     "URL": "https://fierce-oasis-51455.herokuapp.com",
     "Source": { "SourceName": "mongoDB", "SourceFile": "NA" }
@@ -61,14 +63,14 @@
   ],
   "Tabs": [
     {
-            "value": "Tab0",
+      "value": "Tab0",
       "update": "No",
       "name": "Cards",
       "type": "Cards",
       "fioriicon": "responsive"
     },
     {
-            "value": "Tab1",
+      "value": "Tab1",
       "update": "Yes",
       "name": "Reference",
       "type": "Field",
@@ -76,7 +78,7 @@
       "download": "No"
     },
     {
-            "value": "Tab2",
+      "value": "Tab2",
       "update": "Yes",
       "name": "Travel Details",
       "type": "Field",
@@ -84,7 +86,7 @@
       "download": "No"
     },
     {
-            "value": "Tab3",
+      "value": "Tab3",
       "update": "Yes",
       "name": "ItemDetails",
       "type": "Items",
@@ -270,7 +272,7 @@
       {
         "name": "ItemNumber",
         "Tab": "Tab3",
-        
+
         "Mode": "Display"
       },
       { "name": "EntryDate", "Tab": "Tab3", "Sequence": "2", "Mode": "Edit" },
@@ -292,8 +294,8 @@
     {
       "id": "Step1",
       "fields": [
-        { "name": "EmployeeID",  "Mode": "Edit" },
-        { "name": "Name",  "Mode": "Edit" }
+        { "name": "EmployeeID", "Mode": "Edit" },
+        { "name": "Name", "Mode": "Edit" }
       ],
       "name": "Employee Details",
       "stepType": "FieldList",
@@ -302,10 +304,10 @@
     {
       "id": "Step2",
       "fields": [
-        { "name": "ProjectCode",  "Mode": "Edit" },
-        { "name": "CostCentre",  "Mode": "Edit" },
-        { "name": "CostDetail",  "Mode": "Edit" },
-        { "name": "Location",  "Mode": "Edit" }
+        { "name": "ProjectCode", "Mode": "Edit" },
+        { "name": "CostCentre", "Mode": "Edit" },
+        { "name": "CostDetail", "Mode": "Edit" },
+        { "name": "Location", "Mode": "Edit" }
       ],
       "name": "Expense Details",
       "stepType": "FieldList",
@@ -314,11 +316,11 @@
     {
       "id": "Step3",
       "fields": [
-        { "name": "TravelRequest",  "Mode": "Edit" },
-        { "name": "TravelDtFrom",  "Mode": "Edit" },
-        { "name": "TravelDateTo",  "Mode": "Edit" },
-        { "name": "TravelCost",  "Mode": "Edit" },
-        { "name": "TravelDetail",  "Mode": "Edit" }
+        { "name": "TravelRequest", "Mode": "Edit" },
+        { "name": "TravelDtFrom", "Mode": "Edit" },
+        { "name": "TravelDateTo", "Mode": "Edit" },
+        { "name": "TravelCost", "Mode": "Edit" },
+        { "name": "TravelDetail", "Mode": "Edit" }
       ],
       "name": "Travel Details",
       "stepType": "FieldList",
@@ -327,8 +329,8 @@
     {
       "id": "Step4",
       "fields": [
-        { "name": "Status",  "Mode": "Edit" },
-        { "name": "Justification",  "Mode": "Edit" }
+        { "name": "Status", "Mode": "Edit" },
+        { "name": "Justification", "Mode": "Edit" }
       ],
       "name": "Admin And Justification",
       "stepType": "FieldList",

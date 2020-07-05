@@ -5,6 +5,12 @@
   },
   "Controls": {
     "USP": "UserProfile",
+    "Filters": [
+      { "CostCentre": "@CostCentre" },
+      { "Status": { "$ne": "Approved" } },
+      { "Status": { "$ne": "Rejected" } }
+    ],
+    "Partner": "@user",
     "UserSpecific": "Yes",
     "Update": "Yes",
     "URL": "https://fierce-oasis-51455.herokuapp.com",

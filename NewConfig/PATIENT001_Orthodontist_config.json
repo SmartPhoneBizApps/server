@@ -5,7 +5,9 @@
   },
   "Controls": {
     "USP": "UserProfile",
-    "UserSpecific":"Yes",
+    "Filters": [],
+    "Partner": "@user",
+    "UserSpecific": "Yes",
     "Update": "Yes",
     "URL": "https://fierce-oasis-51455.herokuapp.com",
     "Source": { "SourceName": "mongoDB", "SourceFile": "NA" }
@@ -109,14 +111,14 @@
   ],
   "Tabs": [
     {
-            "value": "Tab0",
+      "value": "Tab0",
       "update": "No",
       "name": "Cards",
       "type": "Cards",
       "fioriicon": "responsive"
     },
     {
-            "value": "Tab1",
+      "value": "Tab1",
       "update": "Yes",
       "name": "KeyData",
       "fioriicon": "flag",
@@ -124,7 +126,7 @@
       "download": "Yes"
     },
     {
-            "value": "Tab2",
+      "value": "Tab2",
       "update": "Yes",
       "name": "Communication",
       "fioriicon": "batch-payments",
@@ -132,7 +134,7 @@
       "download": "Yes"
     },
     {
-            "value": "Tab3",
+      "value": "Tab3",
       "update": "Yes",
       "name": "ItemDetails",
       "fioriicon": "activity-items",
@@ -140,7 +142,7 @@
       "download": "Yes"
     },
     {
-            "value": "Tab4",
+      "value": "Tab4",
       "update": "Yes",
       "name": "Referrals and GP",
       "fioriicon": "doctor",
@@ -148,7 +150,7 @@
       "download": "Yes"
     },
     {
-            "value": "Tab5",
+      "value": "Tab5",
       "update": "Yes",
       "name": "Payment",
       "fioriicon": "batch-payments",
@@ -156,7 +158,7 @@
       "download": "Yes"
     },
     {
-            "value": "Tab6",
+      "value": "Tab6",
       "update": "Yes",
       "name": "TreatmentPlan",
       "fioriicon": "legend",
@@ -164,7 +166,7 @@
       "download": "Yes"
     },
     {
-            "value": "Tab7",
+      "value": "Tab7",
       "update": "Yes",
       "name": "DentalProfile",
       "fioriicon": "business-card",
@@ -172,7 +174,7 @@
       "download": "Yes"
     },
     {
-            "value": "Tab8",
+      "value": "Tab8",
       "update": "Yes",
       "name": "Appointments",
       "fioriicon": "appointment",
@@ -180,7 +182,7 @@
       "download": "Yes"
     },
     {
-            "value": "Tab9",
+      "value": "Tab9",
       "update": "Yes",
       "name": "Radiology",
       "fioriicon": "x-ray",
@@ -188,7 +190,7 @@
       "download": "Yes"
     },
     {
-            "value": "Tab10",
+      "value": "Tab10",
       "update": "Yes",
       "name": "DentalImages",
       "fioriicon": "camera",
@@ -196,7 +198,7 @@
       "download": "Yes"
     },
     {
-            "value": "Tab11",
+      "value": "Tab11",
       "update": "Yes",
       "name": "ClinicalNotes",
       "fioriicon": "notes",
@@ -204,7 +206,7 @@
       "download": "Yes"
     },
     {
-            "value": "Tab15",
+      "value": "Tab15",
       "update": "Yes",
       "name": "AdminNotes",
       "fioriicon": "notes",
@@ -212,14 +214,14 @@
       "download": "Yes"
     },
     {
-            "value": "Tab16",
+      "value": "Tab16",
       "update": "Yes",
       "name": "Prescriptions",
       "fioriicon": "pharmacy",
       "type": "MultiAttachments"
     },
     {
-            "value": "Tab12",
+      "value": "Tab12",
       "update": "Yes",
       "name": "HealthEvaluation",
       "fioriicon": "e-care",
@@ -227,7 +229,7 @@
       "download": "Yes"
     },
     {
-            "value": "Tab13",
+      "value": "Tab13",
       "update": "Yes",
       "name": "Pathology",
       "fioriicon": "sonography",
@@ -235,7 +237,7 @@
       "download": "Yes"
     },
     {
-            "value": "Tab14",
+      "value": "Tab14",
       "update": "Yes",
       "name": "PatientLog",
       "fioriicon": "toaster-up",
@@ -1369,27 +1371,27 @@
     },
     "CreateFields": ["ID", "Description", "Amount", "Currency", "ItemStatus"],
     "ItemDetails": [
-      { "name": "ItemNumber", "Tab": "Tab3",  "Mode": "Edit" },
-      { "name": "Description", "Tab": "Tab3",  "Mode": "Edit" },
-      { "name": "Amount", "Tab": "Tab3",  "Mode": "Edit" },
-      { "name": "Currency", "Tab": "Tab3",  "Mode": "Edit" },
-      { "name": "ID", "Tab": "Tab3",  "Mode": "Edit" },
-      { "name": "ItemStatus", "Tab": "Tab3",  "Mode": "Edit" },
-      { "name": "DueDate", "Tab": "Tab3",  "Mode": "Edit" },
-      { "name": "PaidAmount", "Tab": "Tab3",  "Mode": "Edit" },
+      { "name": "ItemNumber", "Tab": "Tab3", "Mode": "Edit" },
+      { "name": "Description", "Tab": "Tab3", "Mode": "Edit" },
+      { "name": "Amount", "Tab": "Tab3", "Mode": "Edit" },
+      { "name": "Currency", "Tab": "Tab3", "Mode": "Edit" },
+      { "name": "ID", "Tab": "Tab3", "Mode": "Edit" },
+      { "name": "ItemStatus", "Tab": "Tab3", "Mode": "Edit" },
+      { "name": "DueDate", "Tab": "Tab3", "Mode": "Edit" },
+      { "name": "PaidAmount", "Tab": "Tab3", "Mode": "Edit" },
       {
         "name": "PaymentMethod",
         "Tab": "Tab3",
-        
+
         "Mode": "Edit"
       },
       {
         "name": "AuthorizationCode",
         "Tab": "Tab3",
-        
+
         "Mode": "Edit"
       },
-      { "name": "PaidBy", "Tab": "Tab3",  "Mode": "Edit" }
+      { "name": "PaidBy", "Tab": "Tab3", "Mode": "Edit" }
     ]
   },
   "tableConfig": {
@@ -1430,19 +1432,19 @@
         {
           "name": "ItemNumber",
           "Tab": "Tab14",
-          
+
           "Mode": "Edit"
         },
         {
           "name": "PatientStatus",
           "Tab": "Tab14",
-          
+
           "Mode": "Edit"
         },
         {
           "name": "StatusDate",
           "Tab": "Tab14",
-          
+
           "Mode": "Edit"
         }
       ]
@@ -1498,18 +1500,18 @@
         {
           "name": "ItemNumber",
           "Tab": "Tab6",
-          
+
           "Mode": "Edit"
         },
-        { "name": "EventID", "Tab": "Tab6",  "Mode": "Edit" },
-        { "name": "Task", "Tab": "Tab6",  "Mode": "Edit" },
+        { "name": "EventID", "Tab": "Tab6", "Mode": "Edit" },
+        { "name": "Task", "Tab": "Tab6", "Mode": "Edit" },
         {
           "name": "ExpectedDate",
           "Tab": "Tab6",
-          
+
           "Mode": "Edit"
         },
-        { "name": "TPStatus", "Tab": "Tab6",  "Mode": "Edit" }
+        { "name": "TPStatus", "Tab": "Tab6", "Mode": "Edit" }
       ]
     },
     "ClinicalNotes": {
@@ -1591,43 +1593,43 @@
         {
           "name": "ItemNumber",
           "Tab": "Tab11",
-          
+
           "Mode": "Edit"
         },
         {
           "name": "VisitDate",
           "Tab": "Tab11",
-          
+
           "Mode": "Edit"
         },
         {
           "name": "VisitReason",
           "Tab": "Tab11",
-          
+
           "Mode": "Edit"
         },
         {
           "name": "ExaminationNotes",
           "Tab": "Tab11",
-          
+
           "Mode": "Edit"
         },
         {
           "name": "Examination",
           "Tab": "Tab11",
-          
+
           "Mode": "Edit"
         },
         {
           "name": "MedicalNotes",
           "Tab": "Tab11",
-          
+
           "Mode": "Edit"
         },
         {
           "name": "Doctor",
           "Tab": "Tab11",
-          
+
           "Mode": "Edit"
         }
       ]
@@ -1684,21 +1686,21 @@
         {
           "name": "ItemNumber",
           "Tab": "Tab15",
-          
+
           "Mode": "Edit"
         },
-        { "name": "Date", "Tab": "Tab15",  "Mode": "Edit" },
-        { "name": "Notes", "Tab": "Tab15",  "Mode": "Edit" },
+        { "name": "Date", "Tab": "Tab15", "Mode": "Edit" },
+        { "name": "Notes", "Tab": "Tab15", "Mode": "Edit" },
         {
           "name": "Action",
           "Tab": "Tab15",
-          
+
           "Mode": "Edit"
         },
         {
           "name": "ACreatedBy",
           "Tab": "Tab15",
-          
+
           "Mode": "Edit"
         }
       ]
@@ -1782,21 +1784,21 @@
         {
           "name": "ItemNumber",
           "Tab": "Tab8",
-          
+
           "Mode": "Edit"
         },
-        { "name": "Date", "Tab": "Tab8",  "Mode": "Edit" },
-        { "name": "Notes", "Tab": "Tab8",  "Mode": "Edit" },
+        { "name": "Date", "Tab": "Tab8", "Mode": "Edit" },
+        { "name": "Notes", "Tab": "Tab8", "Mode": "Edit" },
         {
           "name": "Slot",
           "Tab": "Tab8",
-          
+
           "Mode": "Edit"
         },
         {
           "name": "Doctor",
           "Tab": "Tab8",
-          
+
           "Mode": "Edit"
         }
       ]
@@ -1856,13 +1858,13 @@
     {
       "id": "Step1",
       "fields": [
-        { "name": "FirstName",  "Mode": "Edit" },
-        { "name": "LastName",  "Mode": "Edit" },
-        { "name": "Gender",  "Mode": "Edit" },
-        { "name": "NHSNumber",  "Mode": "Edit" },
-        { "name": "DOB",  "Mode": "Edit" },
-        { "name": "PatientGroup",  "Mode": "Edit" },
-        { "name": "PatientType",  "Mode": "Edit" }
+        { "name": "FirstName", "Mode": "Edit" },
+        { "name": "LastName", "Mode": "Edit" },
+        { "name": "Gender", "Mode": "Edit" },
+        { "name": "NHSNumber", "Mode": "Edit" },
+        { "name": "DOB", "Mode": "Edit" },
+        { "name": "PatientGroup", "Mode": "Edit" },
+        { "name": "PatientType", "Mode": "Edit" }
       ],
       "name": "Basic Information",
       "stepType": "FieldList",
@@ -1871,11 +1873,11 @@
     {
       "id": "Step2",
       "fields": [
-        { "name": "Email",  "Mode": "Edit" },
-        { "name": "ContactNo",  "Mode": "Edit" },
-        { "name": "PostCode",  "Mode": "Edit" },
-        { "name": "HouseNumber",  "Mode": "Edit" },
-        { "name": "Address",  "Mode": "Edit" }
+        { "name": "Email", "Mode": "Edit" },
+        { "name": "ContactNo", "Mode": "Edit" },
+        { "name": "PostCode", "Mode": "Edit" },
+        { "name": "HouseNumber", "Mode": "Edit" },
+        { "name": "Address", "Mode": "Edit" }
       ],
       "name": "Contact Details",
       "stepType": "FieldList",
@@ -1884,12 +1886,12 @@
     {
       "id": "Step3",
       "fields": [
-        { "name": "PaymentBy",  "Mode": "Edit" },
-        { "name": "PatientStatus",  "Mode": "Edit" },
-        { "name": "MaritalStatus",  "Mode": "Edit" },
-        { "name": "SpouseName",  "Mode": "Edit" },
-        { "name": "Height",  "Mode": "Edit" },
-        { "name": "Weight",  "Mode": "Edit" }
+        { "name": "PaymentBy", "Mode": "Edit" },
+        { "name": "PatientStatus", "Mode": "Edit" },
+        { "name": "MaritalStatus", "Mode": "Edit" },
+        { "name": "SpouseName", "Mode": "Edit" },
+        { "name": "Height", "Mode": "Edit" },
+        { "name": "Weight", "Mode": "Edit" }
       ],
       "name": "Status Info",
       "stepType": "FieldList",
@@ -1898,11 +1900,11 @@
     {
       "id": "Step4",
       "fields": [
-        { "name": "GPName",  "Mode": "Edit" },
-        { "name": "SurgeryName",  "Mode": "Edit" },
-        { "name": "SurgeryAddress",  "Mode": "Edit" },
-        { "name": "SurgeryPhone",  "Mode": "Edit" },
-        { "name": "SurgeryEmail",  "Mode": "Edit" }
+        { "name": "GPName", "Mode": "Edit" },
+        { "name": "SurgeryName", "Mode": "Edit" },
+        { "name": "SurgeryAddress", "Mode": "Edit" },
+        { "name": "SurgeryPhone", "Mode": "Edit" },
+        { "name": "SurgeryEmail", "Mode": "Edit" }
       ],
       "name": "GP Details",
       "stepType": "FieldList",
@@ -1911,11 +1913,11 @@
     {
       "id": "Step5",
       "fields": [
-        { "name": "DentalGPName",  "Mode": "Edit" },
-        { "name": "DentalSurgeryName",  "Mode": "Edit" },
-        { "name": "DentalSurgeryAddress",  "Mode": "Edit" },
-        { "name": "DentalSurgeryPhone",  "Mode": "Edit" },
-        { "name": "DentalSurgeryEmail",  "Mode": "Edit" }
+        { "name": "DentalGPName", "Mode": "Edit" },
+        { "name": "DentalSurgeryName", "Mode": "Edit" },
+        { "name": "DentalSurgeryAddress", "Mode": "Edit" },
+        { "name": "DentalSurgeryPhone", "Mode": "Edit" },
+        { "name": "DentalSurgeryEmail", "Mode": "Edit" }
       ],
       "name": "Dentist Details",
       "stepType": "FieldList",
@@ -1924,10 +1926,10 @@
     {
       "id": "Step6",
       "fields": [
-        { "name": "Occupation",  "Mode": "Edit" },
-        { "name": "PatientCompany",  "Mode": "Edit" },
-        { "name": "School",  "Mode": "Edit" },
-        { "name": "Status",  "Mode": "Edit" }
+        { "name": "Occupation", "Mode": "Edit" },
+        { "name": "PatientCompany", "Mode": "Edit" },
+        { "name": "School", "Mode": "Edit" },
+        { "name": "Status", "Mode": "Edit" }
       ],
       "name": "Occupation / School",
       "stepType": "FieldList",
@@ -1936,8 +1938,8 @@
     {
       "id": "Step7",
       "fields": [
-        { "name": "PrivacyPolicy",  "Mode": "Display" },
-        { "name": "Agree",  "Mode": "Edit" }
+        { "name": "PrivacyPolicy", "Mode": "Display" },
+        { "name": "Agree", "Mode": "Edit" }
       ],
       "name": "Terms",
       "stepType": "FieldList",

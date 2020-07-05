@@ -6,7 +6,7 @@ const Agent = require("../models/access/Agent");
 const App = require("../models/appSetup/App");
 const Role = require("../models/appSetup/Role");
 const User = require("../models/access/User");
-const { getBotListFields } = require("./config");
+const { getBotListFields, getInitialValues } = require("./config");
 
 module.exports = {
   getTotalCount: function (app, req, config1) {
@@ -70,7 +70,6 @@ module.exports = {
     // Get Table Schema
     let path = "../models/smartApp/" + app;
     const model = require(path);
-
     if (config1["itemData"] == "Yes") {
       app2 = app + "_Itm";
       let path = "../models/smartApp/" + app2;
@@ -78,17 +77,48 @@ module.exports = {
     } else {
       model2 = model;
     }
-
     // Get BOT List Fields
     if (req.headers.mode == "BOTList") {
       let lf = getBotListFields(config1);
     }
-
     /////////////////////////////////////////////////////////////////////////////////////////////////
     // Executing query
     ////////////////////////////////////////////////////////////////////////////////////////////////
     let query;
     const reqQuery1 = { ...req.query };
+    reqQuery1["company"] = req.user.company;
+    /// Initial values..
+    var ivalue = getInitialValues(
+      req.params.id,
+      req.headers.businessrole,
+      req.user
+    );
+    // Filters
+    for (let x = 0; x < config1.Controls.Filters.length; x++) {
+      for (const key in config1.Controls.Filters[x]) {
+        if (config1.Controls.Filters[x].hasOwnProperty(key)) {
+          switch (config1.Controls.Filters[x][key]) {
+            case "@user":
+              reqQuery1[key] = req.user.email;
+              break;
+            case "@CostCentre":
+              for (let y = 0; y < ivalue.length; y++) {
+                for (const key in ivalue[y]) {
+                  if (ivalue[y]["Field"] == "CostCentre") {
+                    reqQuery1["CostCentre"] = ivalue[y]["Value"];
+                  }
+                }
+              }
+              break;
+            default:
+              reqQuery1[key] = config1.Controls.Filters[x][key];
+              break;
+          }
+        }
+      }
+    }
+
+    console.log("Filters:", reqQuery1);
     const removeFields = ["select", "sort", "page", "limit"];
     removeFields.forEach((param) => delete reqQuery1[param]);
     reqQuery2 = {};

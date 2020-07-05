@@ -5,7 +5,9 @@
   },
   "Controls": {
     "USP": "UserProfile",
-    "UserSpecific":"Yes",
+    "Filters": [],
+    "Partner": "@user",
+    "UserSpecific": "Yes",
     "Update": "Yes",
     "URL": "https://fierce-oasis-51455.herokuapp.com",
     "Source": { "SourceName": "mongoDB", "SourceFile": "NA" }
@@ -68,21 +70,21 @@
   ],
   "Tabs": [
     {
-            "value": "Tab0",
+      "value": "Tab0",
       "update": "No",
       "name": "Cards",
       "type": "Cards",
       "fioriicon": "responsive"
     },
     {
-            "value": "Tab1",
+      "value": "Tab1",
       "update": "Yes",
       "name": "Supplier",
       "fioriicon": "shipping-status",
       "type": "Field"
     },
     {
-            "value": "Tab2",
+      "value": "Tab2",
       "update": "Yes",
       "name": "PO",
       "fioriicon": "company-view",
@@ -90,7 +92,7 @@
       "download": "Yes"
     },
     {
-            "value": "Tab3",
+      "value": "Tab3",
       "update": "Yes",
       "name": "Invoice",
       "fioriicon": "accounting-document-verification",
@@ -98,7 +100,7 @@
       "download": "Yes"
     },
     {
-            "value": "Tab4",
+      "value": "Tab4",
       "update": "Yes",
       "name": "Purchaser",
       "fioriicon": "company-view",
@@ -106,7 +108,7 @@
       "download": "Yes"
     },
     {
-            "value": "Tab5",
+      "value": "Tab5",
       "update": "Yes",
       "name": "Finance",
       "fioriicon": "accounting-document-verification",
@@ -114,7 +116,7 @@
       "download": "Yes"
     },
     {
-            "value": "Tab6",
+      "value": "Tab6",
       "update": "Yes",
       "name": "Admin",
       "fioriicon": "company-view",
@@ -122,7 +124,7 @@
       "download": "Yes"
     },
     {
-            "value": "Tab7",
+      "value": "Tab7",
       "update": "Yes",
       "name": "Chat",
       "fioriicon": "comment",
@@ -555,10 +557,10 @@
     {
       "id": "Step1",
       "fields": [
-        { "name": "VendorName",  "Mode": "Edit" },
-        { "name": "QuestionDate",  "Mode": "Edit" },
-        { "name": "Question_Response",  "Mode": "Edit" },
-        { "name": "VendorNumber",  "Mode": "Edit" }
+        { "name": "VendorName", "Mode": "Edit" },
+        { "name": "QuestionDate", "Mode": "Edit" },
+        { "name": "Question_Response", "Mode": "Edit" },
+        { "name": "VendorNumber", "Mode": "Edit" }
       ],
       "name": "Details",
       "stepType": "FieldList",
@@ -566,7 +568,7 @@
     },
     {
       "id": "Step2",
-      "fields": [{ "name": "Status",  "Mode": "Edit" }],
+      "fields": [{ "name": "Status", "Mode": "Edit" }],
       "name": "Admin",
       "stepType": "FieldList",
       "intro": " General Comms : Admin"

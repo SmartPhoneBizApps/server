@@ -1,0 +1,235 @@
+{
+  "Title": {
+    "ApplicationTitle": "Course Material Access",
+    "DetailTitle": "Access to the course material covered in specific lecture"
+  },
+  "Controls": {
+    "USP": "UserProfile",
+    "Filters": [],
+    "Partner": "@user",
+    "UserSpecific": "Yes",
+    "Update": "Yes",
+    "URL": "https://fierce-oasis-51455.herokuapp.com",
+    "Source": { "SourceName": "mongoDB", "SourceFile": "NA" }
+  },
+  "ListFields": {
+    "IntroField": "Subject",
+    "TitleField": "Topic",
+    "fStatus": "Status",
+    "LFields": ["ID"]
+  },
+  "ListBOTFields": {
+    "None": ["cardImage", "StatusState"],
+    "Title": [],
+    "SubTitle": [],
+    "Description": []
+  },
+  "PossibleValues": ["Status"],
+  "MButtons": [
+    {
+      "type": "DOWNLOAD",
+      "name": "Download File",
+      "icon": "sap-icon://download"
+    },
+    {
+      "type": "APPHELP",
+      "name": "Get App Help",
+      "icon": "sap-icon://sys-help-2"
+    },
+    {
+      "type": "BOT",
+      "name": "Launch Assistant",
+      "icon": "sap-icon://travel-request"
+    },
+    {
+      "type": "VIEW",
+      "name": "Change App View",
+      "icon": "sap-icon://chart-table-view"
+    },
+    { "type": "ADD", "name": "Add Record", "icon": "sap-icon://add" },
+    { "type": "UPLOAD", "name": "Upload Record", "icon": "sap-icon://upload" }
+  ],
+  "DButtons": [
+    {
+      "type": "ATTACHMENT",
+      "name": "View Attachments",
+      "icon": "sap-icon://attachment"
+    },
+    { "type": "UPDATE", "name": "Update Record", "icon": "sap-icon://update" },
+    { "type": "ADD", "name": "Add Record", "icon": "sap-icon://add" }
+  ],
+  "Tabs": [
+    {
+      "value": "Tab0",
+      "update": "No",
+      "name": "Cards",
+      "type": "Cards",
+      "fioriicon": "responsive"
+    },
+    {
+      "value": "Tab1",
+      "update": "Yes",
+      "name": "Study Material",
+      "fioriicon": "course-program",
+      "type": "Field",
+      "download": "Yes"
+    },
+    {
+      "value": "Tab2",
+      "update": "Yes",
+      "name": "Attachment",
+      "fioriicon": "attachment",
+      "type": "Attachment",
+      "download": "Yes"
+    }
+  ],
+  "DetailFields": {
+    "headerTitle": ["USP_Name"],
+    "headerRole": ["USP_Role"],
+    "headerImage": ["USP_Image"],
+    "None": [
+      "ID",
+      "StudyYear",
+      "Batch",
+      "Subject",
+      "Topic",
+      "LectureDate",
+      "Status"
+    ],
+    "Tab1": ["LectureBrief"],
+    "Tab2": ["StudyMaterial", "StudyMaterialLink"]
+  },
+  "ControlDisplay": {},
+  "FieldDef": [
+    {
+      "name": "ID",
+      "type": "string",
+      "width": "20",
+      "Option": "Mandatory",
+      "SLabel": "Identification",
+      "LLabel": "Identification"
+    },
+    {
+      "name": "StudyYear",
+      "type": "string",
+      "width": "100",
+      "Option": "Optional",
+      "SLabel": "Study year",
+      "LLabel": "Study year"
+    },
+    {
+      "name": "Batch",
+      "type": "string",
+      "width": "100",
+      "Option": "Optional",
+      "SLabel": "Batch",
+      "LLabel": "Batch"
+    },
+    {
+      "name": "Subject",
+      "type": "string",
+      "width": "200",
+      "Option": "Optional",
+      "SLabel": "Subject",
+      "LLabel": "Subject"
+    },
+    {
+      "name": "Topic",
+      "type": "string",
+      "width": "200",
+      "Option": "Optional",
+      "SLabel": "Topic",
+      "LLabel": "Topic"
+    },
+    {
+      "name": "LectureDate",
+      "type": "Date",
+      "width": "10",
+      "Option": "Optional",
+      "SLabel": "Lecture Date",
+      "LLabel": "Lecture Date"
+    },
+    {
+      "name": "LectureBrief",
+      "type": "string",
+      "width": "500",
+      "Option": "Optional",
+      "SLabel": "Lecture Brief",
+      "LLabel": "Lecture Brief"
+    },
+    {
+      "name": "StudyMaterial",
+      "type": "attachment",
+      "width": "500",
+      "Option": "Optional",
+      "SLabel": "Study Material",
+      "LLabel": "Study Material"
+    },
+    {
+      "name": "Status",
+      "type": "string",
+      "width": "50",
+      "Option": "Mandatory",
+      "SLabel": "Status",
+      "LLabel": "Status"
+    },
+    {
+      "name": "StudyMaterialLink",
+      "type": "hyperlink",
+      "width": "100",
+      "Option": "Optional",
+      "SLabel": "Study Material Link",
+      "LLabel": "Study Material Link"
+    }
+  ],
+  "itemData": "No",
+  "itemConfig": {
+    "ItemFieldDefinition": [],
+    "DisplayFields": [],
+    "ItemButtons": {
+      "itemDisplay": true,
+      "itemAdd": true,
+      "itemEdit": true,
+      "itemDelete": true
+    },
+    "CreateFields": [],
+    "ItemDetails": []
+  },
+  "CalculatedFields": { "Item": [], "HeaderItem": [], "Header": [] },
+  "Create": "Yes",
+  "Wizard": [
+    {
+      "id": "Step1",
+      "fields": [
+        { "name": "StudyYear", "Mode": "Edit" },
+        { "name": "Batch", "Mode": "Edit" },
+        { "name": "Subject", "Mode": "Edit" },
+        { "name": "Topic", "Mode": "Edit" },
+        { "name": "LectureDate", "Mode": "Edit" }
+      ],
+      "name": "Study Material",
+      "stepType": "FieldList",
+      "intro": "Course Material Access : Study Material"
+    },
+    {
+      "id": "Step2",
+      "fields": [
+        { "name": "LectureBrief", "Mode": "Edit" },
+        { "name": "Status", "Mode": "Edit" }
+      ],
+      "name": "Additional Information and Admin",
+      "stepType": "FieldList",
+      "intro": "Course Material Access : Additional Information and Admin"
+    },
+    {
+      "id": "Step3",
+      "fields": [
+        { "name": "StudyMaterial", "Mode": "Edit" },
+        { "name": "StudyMaterialLink", "Mode": "Edit" }
+      ],
+      "name": "Images and Attachments",
+      "stepType": "FieldList",
+      "intro": "Course Material Access : Images and Attachments"
+    }
+  ]
+}

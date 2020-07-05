@@ -53,6 +53,11 @@
     "required": [true, "Please add Mandatory field :Status"],
     "maxlength": [50, "Status can not be more than 50 characters"]
   },
+  "Partner": {
+    "type": "String",
+    "required": [true, "Please add Mandatory field :Partner"],
+    "maxlength": [200, "Partner can not be more than 200 characters"]
+  },
   "Attachment": {
     "type": "String",
     "maxlength": [500, "Attachment can not be more than 500 characters"]

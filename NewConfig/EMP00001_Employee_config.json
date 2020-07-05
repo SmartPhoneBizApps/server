@@ -5,7 +5,9 @@
   },
   "Controls": {
     "USP": "UserProfile",
-    "UserSpecific":"Yes",
+    "Filters": [{ "Partner": "@user" }],
+    "Partner": "@user",
+    "UserSpecific": "Yes",
     "Update": "Yes",
     "URL": "https://fierce-oasis-51455.herokuapp.com",
     "Source": { "SourceName": "mongoDB", "SourceFile": "NA" }
@@ -60,42 +62,42 @@
   ],
   "Tabs": [
     {
-            "value": "Tab0",
+      "value": "Tab0",
       "update": "No",
       "name": "Cards",
       "type": "Cards",
       "fioriicon": "responsive"
     },
     {
-            "value": "Tab1",
+      "value": "Tab1",
       "update": "Yes",
       "name": "Leave",
       "type": "Field",
       "fioriicon": "employee"
     },
     {
-            "value": "Tab2",
+      "value": "Tab2",
       "update": "Yes",
       "name": "Employee",
       "type": "Field",
       "fioriicon": "employee"
     },
     {
-            "value": "Tab3",
+      "value": "Tab3",
       "update": "Yes",
       "name": "Address",
       "fioriicon": "addresses",
       "type": "Field"
     },
     {
-            "value": "Tab4",
+      "value": "Tab4",
       "update": "Yes",
       "name": "Contact",
       "fioriicon": "business-card",
       "type": "Field"
     },
     {
-            "value": "Tab5",
+      "value": "Tab5",
       "update": "Yes",
       "name": "Approval",
       "fioriicon": "accept",
@@ -103,7 +105,7 @@
       "download": "No"
     },
     {
-            "value": "Tab6",
+      "value": "Tab6",
       "update": "Yes",
       "name": "ProcessLog",
       "fioriicon": "step",
@@ -112,7 +114,7 @@
     },
 
     {
-            "value": "Tab8",
+      "value": "Tab8",
       "update": "Yes",
       "name": "Attachment",
       "fioriicon": "attachment",
@@ -252,6 +254,14 @@
       "LLabel": ""
     },
     {
+      "name": "Team",
+      "type": "string",
+      "width": "50",
+      "Option": "Optional",
+      "SLabel": "Team",
+      "LLabel": ""
+    },
+    {
       "name": "Approver",
       "type": "string",
       "width": "50",
@@ -312,11 +322,11 @@
     {
       "id": "Step1",
       "fields": [
-        { "name": "LeaveFrom",  "Mode": "Edit" },
-        { "name": "LeaveTo",  "Mode": "Edit" },
-        { "name": "LeaveDays",  "Mode": "Edit" },
-        { "name": "LeaveType",  "Mode": "Edit" },
-        { "name": "LeaveReason",  "Mode": "Edit" }
+        { "name": "LeaveFrom", "Mode": "Edit" },
+        { "name": "LeaveTo", "Mode": "Edit" },
+        { "name": "LeaveDays", "Mode": "Edit" },
+        { "name": "LeaveType", "Mode": "Edit" },
+        { "name": "LeaveReason", "Mode": "Edit" }
       ],
       "name": "Leave Details",
       "stepType": "FieldList",
@@ -325,10 +335,10 @@
     {
       "id": "Step2",
       "fields": [
-        { "name": "Name",  "Mode": "Edit" },
-        { "name": "ContactNo",  "Mode": "Edit" },
-        { "name": "EmployeeID",  "Mode": "Edit" },
-        { "name": "Email",  "Mode": "Edit" }
+        { "name": "Name", "Mode": "Edit" },
+        { "name": "ContactNo", "Mode": "Edit" },
+        { "name": "EmployeeID", "Mode": "Edit" },
+        { "name": "Email", "Mode": "Edit" }
       ],
       "name": "Employee Details",
       "stepType": "FieldList",
@@ -337,8 +347,8 @@
     {
       "id": "Step3",
       "fields": [
-        { "name": "PostCode",  "Mode": "Edit" },
-        { "name": "Address",  "Mode": "Edit" }
+        { "name": "PostCode", "Mode": "Edit" },
+        { "name": "Address", "Mode": "Edit" }
       ],
       "name": "Address",
       "stepType": "FieldList",
@@ -346,17 +356,14 @@
     },
     {
       "id": "Step4",
-      "fields": [
-        { "name": "CostCentre",  "Mode": "Edit" },
-        { "name": "Approver",  "Mode": "Edit" }
-      ],
+      "fields": [{ "name": "CostCentre", "Mode": "Edit" }],
       "name": "Cost Center",
       "stepType": "FieldList",
       "intro": "Leave Request  : Cost Center"
     },
     {
       "id": "Step7",
-      "fields": [{ "name": "Status",  "Mode": "Edit" }],
+      "fields": [{ "name": "Status", "Mode": "Edit" }],
       "name": "Admin",
       "stepType": "FieldList",
       "intro": "Leave Request  : Admin"

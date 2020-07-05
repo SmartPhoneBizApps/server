@@ -64,6 +64,11 @@
     "type": "String",
     "maxlength": [100, "Status can not be more than 100"]
   },
+  "Partner": {
+    "type": "String",
+    "required": [true, "Please add Mandatory field :Partner"],
+    "maxlength": [200, "Partner can not be more than 200 characters"]
+  },
   "ProjectNeed": {
     "type": "String",
     "maxlength": [50, "ProjectNeed can not be more than 50"]

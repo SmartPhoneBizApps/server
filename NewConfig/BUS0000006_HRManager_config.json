@@ -5,7 +5,9 @@
   },
   "Controls": {
     "USP": "UserProfile",
-    "UserSpecific":"Yes",
+    "Filters": [],
+    "Partner": "@user",
+    "UserSpecific": "Yes",
     "Update": "Yes",
     "URL": "https://fierce-oasis-51455.herokuapp.com",
     "Source": { "SourceName": "mongoDB", "SourceFile": "NA" }
@@ -61,21 +63,21 @@
   ],
   "Tabs": [
     {
-            "value": "Tab0",
+      "value": "Tab0",
       "update": "No",
       "name": "Cards",
       "type": "Cards",
       "fioriicon": "responsive"
     },
     {
-            "value": "Tab1",
+      "value": "Tab1",
       "update": "Yes",
       "name": "Complaint",
       "fioriicon": "warning2",
       "type": "Field"
     },
     {
-            "value": "Tab2",
+      "value": "Tab2",
       "update": "Yes",
       "name": "Supervisor",
       "fioriicon": "group",
@@ -196,9 +198,7 @@
   "Wizard": [
     {
       "id": "Step1",
-      "fields": [
-        { "name": "DateOfComplaint",  "Mode": "Edit" }
-      ],
+      "fields": [{ "name": "DateOfComplaint", "Mode": "Edit" }],
       "name": "Complaint Details",
       "stepType": "FieldList",
       "intro": "Employee Complaint : Complaint Details"
@@ -206,8 +206,8 @@
     {
       "id": "Step2",
       "fields": [
-        { "name": "DescribeIncident",  "Mode": "Edit" },
-        { "name": "AdditionalComments",  "Mode": "Edit" }
+        { "name": "DescribeIncident", "Mode": "Edit" },
+        { "name": "AdditionalComments", "Mode": "Edit" }
       ],
       "name": "Incident Details",
       "stepType": "FieldList",
@@ -215,7 +215,7 @@
     },
     {
       "id": "Step3",
-      "fields": [{ "name": "AgainstWhom",  "Mode": "Edit" }],
+      "fields": [{ "name": "AgainstWhom", "Mode": "Edit" }],
       "name": "Against Whom",
       "stepType": "FieldList",
       "intro": "Employee Complaint : Against Whom"
@@ -223,8 +223,8 @@
     {
       "id": "Step4",
       "fields": [
-        { "name": "Supervisor",  "Mode": "Edit" },
-        { "name": "SupervisorComment",  "Mode": "Edit" }
+        { "name": "Supervisor", "Mode": "Edit" },
+        { "name": "SupervisorComment", "Mode": "Edit" }
       ],
       "name": "Supervisor",
       "stepType": "FieldList",
@@ -233,9 +233,9 @@
     {
       "id": "Step5",
       "fields": [
-        { "name": "Name",  "Mode": "Edit" },
-        { "name": "Email",  "Mode": "Edit" },
-        { "name": "Phone",  "Mode": "Edit" }
+        { "name": "Name", "Mode": "Edit" },
+        { "name": "Email", "Mode": "Edit" },
+        { "name": "Phone", "Mode": "Edit" }
       ],
       "name": "Contact Details",
       "stepType": "FieldList",
@@ -243,7 +243,7 @@
     },
     {
       "id": "Step6",
-      "fields": [{ "name": "Status",  "Mode": "Edit" }],
+      "fields": [{ "name": "Status", "Mode": "Edit" }],
       "name": "Admin",
       "stepType": "FieldList",
       "intro": "Employee Complaint : Admin"

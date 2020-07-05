@@ -1,0 +1,326 @@
+{
+  "Title": {
+    "ApplicationTitle": "Book Lessons",
+    "DetailTitle": "Book for Lessons"
+  },
+  "Controls": {
+    "USP": "UserProfile",
+    "Filters": [],
+    "Partner": "@user",
+    "UserSpecific": "Yes",
+    "Update": "Yes",
+    "URL": "https://fierce-oasis-51455.herokuapp.com",
+    "Source": { "SourceName": "mongoDB", "SourceFile": "NA" }
+  },
+  "ListFields": {
+    "IntroField": "BookingFor",
+    "TitleField": "ParticipantFirstName",
+    "fStatus": "Status",
+    "LFields": ["ID"]
+  },
+  "ListBOTFields": {
+    "None": ["cardImage", "StatusState"],
+    "Title": ["ID", "ParticipantFirstName", "ParticipantLastName"],
+    "SubTitle": ["Status", "ApplicationDate"],
+    "Description": ["ParticipantGender", "BookingFor"]
+  },
+  "PossibleValues": [
+    "ParticipantGender",
+    "Status",
+    "PreferredTime",
+    "PreferredCenter",
+    "BookingFor",
+    "A2"
+  ],
+  "MButtons": [],
+  "DButtons": [],
+  "Tabs": [
+    {
+      "value": "Tab0",
+      "update": "No",
+      "name": "Cards",
+      "type": "Cards",
+      "fioriicon": "responsive"
+    },
+    {
+      "value": "Tab1",
+      "update": "Yes",
+      "name": "Participant Details",
+      "type": "Field",
+      "fioriicon": "notes",
+      "download": "Yes"
+    },
+    {
+      "value": "Tab2",
+      "update": "Yes",
+      "name": "Applicant Details",
+      "type": "Field",
+      "fioriicon": "citizen-connect",
+      "download": "Yes"
+    },
+    {
+      "value": "Tab3",
+      "update": "Yes",
+      "name": "Additional Info",
+      "fioriicon": "hint",
+      "type": "Field",
+      "download": "Yes"
+    },
+    {
+      "value": "Tab4",
+      "update": "Yes",
+      "name": "Chat",
+      "fioriicon": "comment",
+      "type": "Chat",
+      "download": "Yes"
+    },
+    {
+      "value": "Tab5",
+      "update": "Yes",
+      "name": "Processing Log",
+      "fioriicon": "comment",
+      "type": "Chat",
+      "download": "Yes"
+    }
+  ],
+  "DetailFields": {
+    "headerTitle": ["USP_Name"],
+    "headerRole": ["USP_Role"],
+    "headerImage": ["USP_Image"],
+    "None": ["ID", "Status", "BookingFor", "ApplicationDate"],
+    "Tab1": [
+      "ParticipantLastName",
+      "ParticipantFirstName",
+      "BirthDate",
+      "ParticipantGender",
+      "Q1",
+      "A1",
+      "Q2",
+      "A2"
+    ],
+    "Tab2": ["ApplicantName", "ContactNo", "Email", "Address", "Postcode"],
+    "Tab3": [
+      "PreferredStartDate",
+      "PreferredDay",
+      "PreferredTime",
+      "PreferredCenter"
+    ],
+    "Tab4": ["Question_Response"],
+    "Tab5": ["ProcessingLog"]
+  },
+  "ControlDisplay": {},
+  "FieldDef": [
+    {
+      "name": "ID",
+      "type": "string",
+      "width": "20",
+      "Option": "Mandatory",
+      "SLabel": "Identification",
+      "LLabel": ""
+    },
+    {
+      "name": "ApplicantName",
+      "type": "string",
+      "width": "50",
+      "Option": "Optional",
+      "SLabel": "Applicant Name",
+      "LLabel": "ApplicantName"
+    },
+    {
+      "name": "ContactNo",
+      "type": "string",
+      "width": "50",
+      "Option": "Optional",
+      "SLabel": "Contact No",
+      "LLabel": "ContactNo"
+    },
+    {
+      "name": "Email",
+      "type": "string",
+      "width": "50",
+      "Option": "Optional",
+      "SLabel": "Email",
+      "LLabel": "Email"
+    },
+    {
+      "name": "Address",
+      "type": "string",
+      "width": "200",
+      "Option": "Optional",
+      "SLabel": "Address",
+      "LLabel": "Address"
+    },
+    {
+      "name": "PostCode",
+      "type": "searchField",
+      "width": "20",
+      "linkFields": "Address",
+      "URL": "{URL}/api/v1/util/address/{PostCode}",
+      "URLMethod": "GET",
+      "Token": true,
+      "Option": "Optional",
+      "SLabel": "Postcode",
+      "LLabel": "Postcode"
+    },
+    {
+      "name": "ParticipantLastName",
+      "type": "string",
+      "width": "50",
+      "Option": "Optional",
+      "SLabel": "Participant Last Name",
+      "LLabel": ""
+    },
+    {
+      "name": "ParticipantFirstName",
+      "type": "string",
+      "width": "50",
+      "Option": "Optional",
+      "SLabel": "Participant First Name",
+      "LLabel": ""
+    },
+    {
+      "name": "BirthDate",
+      "type": "string",
+      "width": "20",
+      "Option": "Optional",
+      "SLabel": "Age",
+      "LLabel": "Age"
+    },
+    {
+      "name": "ParticipantGender",
+      "type": "switch",
+      "width": "10",
+      "Option": "Optional",
+      "SLabel": "Participant Gender",
+      "LLabel": ""
+    },
+    {
+      "name": "PreferredStartDate",
+      "type": "Date",
+      "width": "10",
+      "Option": "Optional",
+      "SLabel": "Preferred Start Date",
+      "LLabel": ""
+    },
+    {
+      "name": "PreferredDay",
+      "type": "string",
+      "width": "50",
+      "Option": "Optional",
+      "SLabel": "Preferred Day",
+      "LLabel": ""
+    },
+    {
+      "name": "PreferredTime",
+      "type": "string",
+      "width": "100",
+      "Option": "Optional",
+      "SLabel": "Preferred Time",
+      "LLabel": "PreferredTime"
+    },
+    {
+      "name": "PreferredCenter",
+      "type": "string",
+      "width": "200",
+      "Option": "Optional",
+      "SLabel": "Preferred Center",
+      "LLabel": ""
+    },
+    {
+      "name": "Status",
+      "type": "string",
+      "width": "50",
+      "Option": "Mandatory",
+      "SLabel": "Status",
+      "LLabel": "Status"
+    },
+    {
+      "name": "BookingFor",
+      "type": "string",
+      "width": "200",
+      "Option": "Mandatory",
+      "SLabel": "You are booking for",
+      "LLabel": "You are booking for"
+    },
+    {
+      "name": "Q1",
+      "type": "string",
+      "width": "200",
+      "Option": "Optional",
+      "SLabel": "Question 1",
+      "LLabel": "Q"
+    },
+    {
+      "name": "A1",
+      "type": "string",
+      "width": "500",
+      "Option": "Optional",
+      "SLabel": "Answer 1",
+      "LLabel": "A"
+    },
+    {
+      "name": "Q2",
+      "type": "string",
+      "width": "200",
+      "Option": "Optional",
+      "SLabel": "Question 2",
+      "LLabel": "Q"
+    },
+    {
+      "name": "A2",
+      "type": "string",
+      "width": "100",
+      "Option": "Optional",
+      "SLabel": "Answer 2",
+      "LLabel": "A"
+    },
+    {
+      "name": "ApplicationDate",
+      "type": "Date",
+      "width": "10",
+      "Option": "Optional",
+      "SLabel": "Application Date",
+      "LLabel": "ApplicationDate"
+    },
+    {
+      "name": "Approver",
+      "type": "string",
+      "width": "100",
+      "Option": "Optional",
+      "SLabel": "Approver",
+      "LLabel": "Approver"
+    },
+    {
+      "name": "ProcessingLog",
+      "type": "string",
+      "width": "500",
+      "Option": "Optional",
+      "SLabel": "Processing Log",
+      "LLabel": "Processing Log"
+    },
+    {
+      "name": "Question_Response",
+      "type": "string",
+      "width": "500",
+      "Option": "Optional",
+      "SLabel": "Here Is Chat Details",
+      "LLabel": "Question_Response"
+    }
+  ],
+  "itemData": "No",
+  "itemConfig": {
+    "ItemFieldDefinition": [],
+    "DisplayFields": [],
+    "ItemButtons": {
+      "itemDisplay": false,
+      "itemAdd": false,
+      "itemEdit": false,
+      "itemDelete": false
+    },
+    "CreateFields": [],
+    "ItemDetails": []
+  },
+  "CalculatedFields": {},
+  "Create": "No",
+  "Wizard": []
+}

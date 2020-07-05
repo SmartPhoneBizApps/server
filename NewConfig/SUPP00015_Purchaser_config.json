@@ -5,7 +5,9 @@
   },
   "Controls": {
     "USP": "UserProfile",
-    "UserSpecific":"Yes",
+    "Filters": [],
+    "Partner": "@user",
+    "UserSpecific": "Yes",
     "Update": "Yes",
     "URL": "https://fierce-oasis-51455.herokuapp.com",
     "Source": { "SourceName": "mongoDB", "SourceFile": "NA" }
@@ -80,28 +82,28 @@
   ],
   "Tabs": [
     {
-            "value": "Tab0",
+      "value": "Tab0",
       "update": "No",
       "name": "Cards",
       "type": "Cards",
       "fioriicon": "responsive"
     },
     {
-            "value": "Tab1",
+      "value": "Tab1",
       "update": "Yes",
       "name": "Detail",
       "type": "Field",
       "fioriicon": "notes"
     },
     {
-            "value": "Tab2",
+      "value": "Tab2",
       "update": "Yes",
       "name": "Assessment",
       "type": "Field",
       "fioriicon": "settings"
     },
     {
-            "value": "Tab3",
+      "value": "Tab3",
       "update": "Yes",
       "name": "Rating",
       "type": "Field",
@@ -211,9 +213,9 @@
     {
       "id": "Step1",
       "fields": [
-        { "name": "SupplierID",  "Mode": "Edit" },
-        { "name": "SupplierName",  "Mode": "Edit" },
-        { "name": "SurveyDate",  "Mode": "Edit" }
+        { "name": "SupplierID", "Mode": "Edit" },
+        { "name": "SupplierName", "Mode": "Edit" },
+        { "name": "SurveyDate", "Mode": "Edit" }
       ],
       "name": "Supplier Details",
       "stepType": "FieldList",
@@ -222,11 +224,11 @@
     {
       "id": "Step2",
       "fields": [
-        { "name": "Phone",  "Mode": "Edit" },
-        { "name": "SeeSalesRepresentative",  "Mode": "Edit" },
-        { "name": "Email",  "Mode": "Edit" },
-        { "name": "Assessor",  "Mode": "Edit" },
-        { "name": "Assesse",  "Mode": "Edit" }
+        { "name": "Phone", "Mode": "Edit" },
+        { "name": "SeeSalesRepresentative", "Mode": "Edit" },
+        { "name": "Email", "Mode": "Edit" },
+        { "name": "Assessor", "Mode": "Edit" },
+        { "name": "Assesse", "Mode": "Edit" }
       ],
       "name": "Contact Details",
       "stepType": "FieldList",
@@ -237,28 +239,28 @@
       "fields": [
         {
           "name": "ClarityOfPriceListInformation",
-          
+
           "Mode": "Edit"
         },
         {
           "name": "ConditionOfDeliveredProduct",
-          
+
           "Mode": "Edit"
         },
-        { "name": "DiscountingPolicies",  "Mode": "Edit" },
-        { "name": "Friendliness",  "Mode": "Edit" },
+        { "name": "DiscountingPolicies", "Mode": "Edit" },
+        { "name": "Friendliness", "Mode": "Edit" },
         {
           "name": "PresentationOfNewProductsAndPackage",
-          
+
           "Mode": "Edit"
         },
-        { "name": "Professionalism",  "Mode": "Edit" },
-        { "name": "PromotionalEffectiveness",  "Mode": "Edit" },
-        { "name": "Responsiveness",  "Mode": "Edit" },
-        { "name": "TimelinessOfDeliveries",  "Mode": "Edit" },
-        { "name": "AbilityToSolveProblems",  "Mode": "Edit" },
-        { "name": "DriverProfessionalism",  "Mode": "Edit" },
-        { "name": "UnderstandingOfMyNeeds",  "Mode": "Edit" }
+        { "name": "Professionalism", "Mode": "Edit" },
+        { "name": "PromotionalEffectiveness", "Mode": "Edit" },
+        { "name": "Responsiveness", "Mode": "Edit" },
+        { "name": "TimelinessOfDeliveries", "Mode": "Edit" },
+        { "name": "AbilityToSolveProblems", "Mode": "Edit" },
+        { "name": "DriverProfessionalism", "Mode": "Edit" },
+        { "name": "UnderstandingOfMyNeeds", "Mode": "Edit" }
       ],
       "name": "Survey Response",
       "stepType": "FieldList",
@@ -266,9 +268,7 @@
     },
     {
       "id": "Step4",
-      "fields": [
-        { "name": "FurtherComments",  "Mode": "Edit" }
-      ],
+      "fields": [{ "name": "FurtherComments", "Mode": "Edit" }],
       "name": "Additional Details",
       "stepType": "FieldList",
       "intro": "Supplier Performance : Additional Details"
@@ -276,8 +276,8 @@
     {
       "id": "Step5",
       "fields": [
-        { "name": "Customer",  "Mode": "Edit" },
-        { "name": "Courtesy",  "Mode": "Edit" }
+        { "name": "Customer", "Mode": "Edit" },
+        { "name": "Courtesy", "Mode": "Edit" }
       ],
       "name": "Customer Details",
       "stepType": "FieldList",
@@ -286,8 +286,8 @@
     {
       "id": "Step6",
       "fields": [
-        { "name": "AccuracyOfInvoices",  "Mode": "Edit" },
-        { "name": "AccuracyOfOrderFill",  "Mode": "Edit" }
+        { "name": "AccuracyOfInvoices", "Mode": "Edit" },
+        { "name": "AccuracyOfOrderFill", "Mode": "Edit" }
       ],
       "name": "Fulfillment and Invoicing",
       "stepType": "FieldList",
@@ -296,10 +296,10 @@
     {
       "id": "Step7",
       "fields": [
-        { "name": "OverallRating",  "Mode": "Edit" },
+        { "name": "OverallRating", "Mode": "Edit" },
         {
           "name": "OverallServicePerformanceCompareToLastYear",
-          
+
           "Mode": "Edit"
         }
       ],
@@ -309,7 +309,7 @@
     },
     {
       "id": "Step8",
-      "fields": [{ "name": "Status",  "Mode": "Edit" }],
+      "fields": [{ "name": "Status", "Mode": "Edit" }],
       "name": "Admin",
       "stepType": "FieldList",
       "intro": "Supplier Performance : Admin"

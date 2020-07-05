@@ -5,7 +5,9 @@
   },
   "Controls": {
     "USP": "UserProfile",
-    "UserSpecific":"Yes",
+    "Filters": [],
+    "Partner": "@user",
+    "UserSpecific": "Yes",
     "Update": "Yes",
     "URL": "https://fierce-oasis-51455.herokuapp.com",
     "Source": { "SourceName": "mongoDB", "SourceFile": "NA" }
@@ -67,28 +69,28 @@
   ],
   "Tabs": [
     {
-            "value": "Tab0",
+      "value": "Tab0",
       "update": "No",
       "name": "Cards",
       "type": "Cards",
       "fioriicon": "responsive"
     },
     {
-            "value": "Tab1",
+      "value": "Tab1",
       "update": "Yes",
       "name": "Business",
       "type": "Field",
       "fioriicon": "factory"
     },
     {
-            "value": "Tab2",
+      "value": "Tab2",
       "update": "Yes",
       "name": "Address",
       "type": "Field",
       "fioriicon": "addresses"
     },
     {
-            "value": "Tab3",
+      "value": "Tab3",
       "update": "Yes",
       "name": "Details",
       "type": "Field",
@@ -216,8 +218,8 @@
     {
       "id": "Step1",
       "fields": [
-        { "name": "CompanyName",  "Mode": "Edit" },
-        { "name": "GoogleProfile",  "Mode": "Edit" }
+        { "name": "CompanyName", "Mode": "Edit" },
+        { "name": "GoogleProfile", "Mode": "Edit" }
       ],
       "name": "Supplier Details",
       "stepType": "FieldList",
@@ -226,9 +228,9 @@
     {
       "id": "Step2",
       "fields": [
-        { "name": "DateOfRegistration",  "Mode": "Edit" },
-        { "name": "YearEstablish",  "Mode": "Edit" },
-        { "name": "AnnualTurnover",  "Mode": "Edit" }
+        { "name": "DateOfRegistration", "Mode": "Edit" },
+        { "name": "YearEstablish", "Mode": "Edit" },
+        { "name": "AnnualTurnover", "Mode": "Edit" }
       ],
       "name": "Organization Size and Age",
       "stepType": "FieldList",
@@ -237,13 +239,13 @@
     {
       "id": "Step3",
       "fields": [
-        { "name": "HouseNo",  "Mode": "Edit" },
-        { "name": "POBox",  "Mode": "Edit" },
-        { "name": "Street",  "Mode": "Edit" },
-        { "name": "City",  "Mode": "Edit" },
-        { "name": "PostCode",  "Mode": "Edit" },
-        { "name": "State",  "Mode": "Edit" },
-        { "name": "Country",  "Mode": "Edit" }
+        { "name": "HouseNo", "Mode": "Edit" },
+        { "name": "POBox", "Mode": "Edit" },
+        { "name": "Street", "Mode": "Edit" },
+        { "name": "City", "Mode": "Edit" },
+        { "name": "PostCode", "Mode": "Edit" },
+        { "name": "State", "Mode": "Edit" },
+        { "name": "Country", "Mode": "Edit" }
       ],
       "name": "Address",
       "stepType": "FieldList",
@@ -252,11 +254,11 @@
     {
       "id": "Step4",
       "fields": [
-        { "name": "ContactPerson",  "Mode": "Edit" },
-        { "name": "JobTitle",  "Mode": "Edit" },
-        { "name": "Email",  "Mode": "Edit" },
-        { "name": "Phone",  "Mode": "Edit" },
-        { "name": "Fax",  "Mode": "Edit" }
+        { "name": "ContactPerson", "Mode": "Edit" },
+        { "name": "JobTitle", "Mode": "Edit" },
+        { "name": "Email", "Mode": "Edit" },
+        { "name": "Phone", "Mode": "Edit" },
+        { "name": "Fax", "Mode": "Edit" }
       ],
       "name": "Contact Details",
       "stepType": "FieldList",
@@ -267,16 +269,16 @@
       "fields": [
         {
           "name": "CompanyRegistrationNumber",
-          
+
           "Mode": "Edit"
         },
-        { "name": "BusinessType",  "Mode": "Edit" },
-        { "name": "VATRegistration",  "Mode": "Edit" },
-        { "name": "DUNSNumber",  "Mode": "Edit" },
-        { "name": "WebSiteURL",  "Mode": "Edit" },
-        { "name": "Language",  "Mode": "Edit" },
-        { "name": "CompanyType",  "Mode": "Edit" },
-        { "name": "PastSupplier",  "Mode": "Edit" }
+        { "name": "BusinessType", "Mode": "Edit" },
+        { "name": "VATRegistration", "Mode": "Edit" },
+        { "name": "DUNSNumber", "Mode": "Edit" },
+        { "name": "WebSiteURL", "Mode": "Edit" },
+        { "name": "Language", "Mode": "Edit" },
+        { "name": "CompanyType", "Mode": "Edit" },
+        { "name": "PastSupplier", "Mode": "Edit" }
       ],
       "name": "Other Info",
       "stepType": "FieldList",
@@ -285,10 +287,10 @@
     {
       "id": "Step6",
       "fields": [
-        { "name": "DetailsOfProducts",  "Mode": "Edit" },
-        { "name": "DetailsOfServices",  "Mode": "Edit" },
-        { "name": "IntrestArea",  "Mode": "Edit" },
-        { "name": "GeographicalCoverage",  "Mode": "Edit" }
+        { "name": "DetailsOfProducts", "Mode": "Edit" },
+        { "name": "DetailsOfServices", "Mode": "Edit" },
+        { "name": "IntrestArea", "Mode": "Edit" },
+        { "name": "GeographicalCoverage", "Mode": "Edit" }
       ],
       "name": "Products and Services",
       "stepType": "FieldList",

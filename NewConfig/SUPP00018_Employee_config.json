@@ -5,7 +5,9 @@
   },
   "Controls": {
     "USP": "UserProfile",
-    "UserSpecific":"Yes",
+    "Filters": [],
+    "Partner": "@vendorNumber",
+    "UserSpecific": "Yes",
     "Update": "Yes",
     "URL": "https://fierce-oasis-51455.herokuapp.com",
     "Source": { "SourceName": "mongoDB", "SourceFile": "NA" }
@@ -79,14 +81,14 @@
   ],
   "Tabs": [
     {
-            "value": "Tab0",
+      "value": "Tab0",
       "update": "No",
       "name": "Cards",
       "type": "Cards",
       "fioriicon": "responsive"
     },
     {
-            "value": "Tab2",
+      "value": "Tab2",
       "update": "Yes",
       "name": "Purchase Order",
       "type": "Field",
@@ -94,7 +96,7 @@
       "download": "Yes"
     },
     {
-            "value": "Tab1",
+      "value": "Tab1",
       "update": "Yes",
       "name": "Delivery Details",
       "type": "Field",
@@ -102,14 +104,14 @@
       "download": "Yes"
     },
     {
-            "value": "Tab3",
+      "value": "Tab3",
       "update": "Yes",
       "name": "ItemDetails",
       "type": "Items",
       "fioriicon": "notes"
     },
     {
-            "value": "Tab6",
+      "value": "Tab6",
       "update": "Yes",
       "name": "Shipping Details",
       "fioriicon": "flight",
@@ -117,7 +119,7 @@
       "download": "Yes"
     },
     {
-            "value": "Tab7",
+      "value": "Tab7",
       "update": "Yes",
       "name": "Invoice Details",
       "fioriicon": "collections-insight",
@@ -125,7 +127,7 @@
       "download": "Yes"
     },
     {
-            "value": "Tab4",
+      "value": "Tab4",
       "update": "Yes",
       "name": "Attachment",
       "fioriicon": "attachment",
@@ -133,7 +135,7 @@
       "download": "No"
     },
     {
-            "value": "Tab5",
+      "value": "Tab5",
       "update": "Yes",
       "name": "Status Details",
       "fioriicon": "question-mark",
@@ -141,7 +143,7 @@
       "download": "Yes"
     },
     {
-            "value": "Tab8",
+      "value": "Tab8",
       "update": "Yes",
       "name": "Supplier Query",
       "fioriicon": "sys-help",
@@ -149,7 +151,7 @@
       "download": "Yes"
     },
     {
-            "value": "Tab9",
+      "value": "Tab9",
       "update": "Yes",
       "name": "Supplier Chat",
       "fioriicon": "comment",
@@ -157,7 +159,7 @@
       "download": "No"
     },
     {
-            "value": "Tab10",
+      "value": "Tab10",
       "update": "Yes",
       "name": "Process log",
       "fioriicon": "comment",
@@ -738,125 +740,125 @@
       {
         "name": "ItemNumber",
         "Tab": "Tab3",
-        
+
         "Mode": "Display"
       },
-      { "name": "ItemDetails", "Tab": "Tab3",  "Mode": "Edit" },
-      { "name": "ItemQty", "Tab": "Tab3",  "Mode": "Edit" },
-      { "name": "ItemPrice", "Tab": "Tab3",  "Mode": "Edit" },
-      { "name": "ItemUOM", "Tab": "Tab3",  "Mode": "Edit" },
+      { "name": "ItemDetails", "Tab": "Tab3", "Mode": "Edit" },
+      { "name": "ItemQty", "Tab": "Tab3", "Mode": "Edit" },
+      { "name": "ItemPrice", "Tab": "Tab3", "Mode": "Edit" },
+      { "name": "ItemUOM", "Tab": "Tab3", "Mode": "Edit" },
       {
         "name": "ItemNetValue",
         "Tab": "Tab3",
-        
+
         "Mode": "Display"
       },
-      { "name": "ItemVATRate", "Tab": "Tab3",  "Mode": "Edit" },
+      { "name": "ItemVATRate", "Tab": "Tab3", "Mode": "Edit" },
       {
         "name": "ItemVATVal",
         "Tab": "Tab3",
-        
+
         "Mode": "Display"
       },
       {
         "name": "ItemGrossVal",
         "Tab": "Tab3",
-        
+
         "Mode": "Display"
       },
       {
         "name": "ItemVATPer",
         "Tab": "Tab3",
-        
+
         "Mode": "Display"
       },
       {
         "name": "SuppInvoiceNumber",
         "Tab": "Tab3",
-        
+
         "Mode": "Edit"
       },
-      { "name": "InvQty", "Tab": "Tab3",  "Mode": "Display" },
-      { "name": "InvPrice", "Tab": "Tab3",  "Mode": "Display" },
+      { "name": "InvQty", "Tab": "Tab3", "Mode": "Display" },
+      { "name": "InvPrice", "Tab": "Tab3", "Mode": "Display" },
       {
         "name": "InvVATRate",
         "Tab": "Tab3",
-        
+
         "Mode": "Display"
       },
       {
         "name": "InvNetValue",
         "Tab": "Tab3",
-        
+
         "Mode": "Display"
       },
       {
         "name": "InvVATVal",
         "Tab": "Tab3",
-        
+
         "Mode": "Display"
       },
       {
         "name": "InvGrossVal",
         "Tab": "Tab3",
-        
+
         "Mode": "Display"
       },
       {
         "name": "ItemInvoiceStatus",
         "Tab": "Tab3",
-        
+
         "Mode": "Display"
       },
       {
         "name": "InvCummQty",
         "Tab": "Tab3",
-        
+
         "Mode": "Display"
       },
       {
         "name": "BalanceInvQty",
         "Tab": "Tab3",
-        
+
         "Mode": "Display"
       },
       {
         "name": "PlannedShippingDate",
         "Tab": "Tab3",
-        
+
         "Mode": "Display"
       },
       {
         "name": "ShippingDate",
         "Tab": "Tab3",
-        
+
         "Mode": "Display"
       },
       {
         "name": "DeliveryCompany",
         "Tab": "Tab3",
-        
+
         "Mode": "Display"
       },
       {
         "name": "TrackingNumber",
         "Tab": "Tab3",
-        
+
         "Mode": "Display"
       },
       {
         "name": "TrackingWebsite",
         "Tab": "Tab3",
-        
+
         "Mode": "Display"
       },
       {
         "name": "ItemShippingStatus",
         "Tab": "Tab3",
-        
+
         "Mode": "Display"
       },
-      { "name": "InvVATPer", "Tab": "Tab3",  "Mode": "Display" }
+      { "name": "InvVATPer", "Tab": "Tab3", "Mode": "Display" }
     ]
   },
   "CalculatedFields": {
@@ -1051,12 +1053,12 @@
     {
       "id": "Step1",
       "fields": [
-        { "name": "VendorName",  "Mode": "Edit" },
-        { "name": "PODate",  "Mode": "Edit" },
-        { "name": "PaymentTerm",  "Mode": "Edit" },
-        { "name": "Currency",  "Mode": "Edit" },
-        { "name": "PONumber",  "Mode": "Edit" },
-        { "name": "VendorNumber",  "Mode": "Display" }
+        { "name": "VendorName", "Mode": "Edit" },
+        { "name": "PODate", "Mode": "Edit" },
+        { "name": "PaymentTerm", "Mode": "Edit" },
+        { "name": "Currency", "Mode": "Edit" },
+        { "name": "PONumber", "Mode": "Edit" },
+        { "name": "VendorNumber", "Mode": "Display" }
       ],
       "name": "Vendor Details",
       "stepType": "FieldList",
@@ -1065,14 +1067,14 @@
     {
       "id": "Step2",
       "fields": [
-        { "name": "DelCountry",  "Mode": "Edit" },
-        { "name": "Address",  "Mode": "Edit" },
-        { "name": "PostCode",  "Mode": "Edit" },
-        { "name": "ContactNo",  "Mode": "Edit" },
-        { "name": "Email",  "Mode": "Edit" },
-        { "name": "DeliveryInstr",  "Mode": "Edit" },
-        { "name": "Company",  "Mode": "Edit" },
-        { "name": "DelTo",  "Mode": "Edit" }
+        { "name": "DelCountry", "Mode": "Edit" },
+        { "name": "Address", "Mode": "Edit" },
+        { "name": "PostCode", "Mode": "Edit" },
+        { "name": "ContactNo", "Mode": "Edit" },
+        { "name": "Email", "Mode": "Edit" },
+        { "name": "DeliveryInstr", "Mode": "Edit" },
+        { "name": "Company", "Mode": "Edit" },
+        { "name": "DelTo", "Mode": "Edit" }
       ],
       "name": "Delivery Details",
       "stepType": "FieldList",
@@ -1081,10 +1083,10 @@
     {
       "id": "Step3",
       "fields": [
-        { "name": "AddDetails",  "Mode": "Edit" },
-        { "name": "Attachment",  "Mode": "Edit" },
-        { "name": "Status",  "Mode": "Edit" },
-        { "name": "CurrentStatus",  "Mode": "Edit" }
+        { "name": "AddDetails", "Mode": "Edit" },
+        { "name": "Attachment", "Mode": "Edit" },
+        { "name": "Status", "Mode": "Edit" },
+        { "name": "CurrentStatus", "Mode": "Edit" }
       ],
       "name": "Admin",
       "stepType": "FieldList",

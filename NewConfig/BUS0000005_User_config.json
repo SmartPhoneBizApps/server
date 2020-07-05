@@ -2,6 +2,8 @@
   "Title": { "ApplicationTitle": "Contact Us", "DetailTitle": "Contact Us" },
   "Controls": {
     "USP": "UserProfile",
+    "Filters": [],
+    "Partner": "@user",
     "UserSpecific": "Yes",
     "Update": "Yes",
     "URL": "https://fierce-oasis-51455.herokuapp.com",
@@ -229,9 +231,9 @@
     {
       "id": "Step1",
       "fields": [
-        { "name": "Subject",  "Mode": "Edit" },
-        { "name": "YourMessage",  "Mode": "Edit" },
-        { "name": "ContactDate",  "Mode": "Edit" }
+        { "name": "Subject", "Mode": "Edit" },
+        { "name": "YourMessage", "Mode": "Edit" },
+        { "name": "ContactDate", "Mode": "Edit" }
       ],
       "name": "Message",
       "stepType": "FieldList",
@@ -240,10 +242,10 @@
     {
       "id": "Step2",
       "fields": [
-        { "name": "YourPhone",  "Mode": "Edit" },
-        { "name": "Email",  "Mode": "Edit" },
-        { "name": "YourBusiness",  "Mode": "Edit" },
-        { "name": "YourDepartment",  "Mode": "Edit" }
+        { "name": "YourPhone", "Mode": "Edit" },
+        { "name": "Email", "Mode": "Edit" },
+        { "name": "YourBusiness", "Mode": "Edit" },
+        { "name": "YourDepartment", "Mode": "Edit" }
       ],
       "name": "Personnel Details",
       "stepType": "FieldList",
@@ -251,14 +253,14 @@
     },
     {
       "id": "Step3",
-      "fields": [{ "name": "YourName",  "Mode": "Edit" }],
+      "fields": [{ "name": "YourName", "Mode": "Edit" }],
       "name": "Contact Details",
       "stepType": "FieldList",
       "intro": "Contact Us : Contact Details"
     },
     {
       "id": "Step4",
-      "fields": [{ "name": "Status",  "Mode": "Edit" }],
+      "fields": [{ "name": "Status", "Mode": "Edit" }],
       "name": "Admin",
       "stepType": "FieldList",
       "intro": "Contact Us : Admin"

@@ -2,6 +2,11 @@
   "Title": { "ApplicationTitle": "Expense", "DetailTitle": "Expense" },
   "Controls": {
     "USP": "UserProfile",
+    "Filters": [
+      { "Status": { "$ne": "Approved" } },
+      { "Status": { "$ne": "Rejected" } }
+    ],
+    "Partner": "@user",
     "UserSpecific": "Yes",
     "Update": "Yes",
     "URL": "https://fierce-oasis-51455.herokuapp.com",

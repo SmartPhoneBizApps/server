@@ -1,0 +1,212 @@
+{
+  "Title": {
+    "ApplicationTitle": "Guest Pass Request Form",
+    "DetailTitle": "Guest Pass Request Form"
+  },
+  "Controls": {
+    "USP": "UserProfile",
+    "Filters": [],
+    "Partner": "@user",
+    "UserSpecific": "Yes",
+    "Update": "Yes",
+    "URL": "https://fierce-oasis-51455.herokuapp.com",
+    "Source": { "SourceName": "mongoDB", "SourceFile": "NA" }
+  },
+  "ListFields": {
+    "IntroField": "StudentName",
+    "TitleField": "GuestName",
+    "fStatus": "Status",
+    "LFields": ["ID"]
+  },
+  "ListBOTFields": {
+    "None": ["cardImage", "StatusState"],
+    "Title": [],
+    "SubTitle": [],
+    "Description": []
+  },
+  "PossibleValues": ["Status"],
+  "MButtons": [
+    {
+      "type": "DOWNLOAD",
+      "name": "Download File",
+      "icon": "sap-icon://download"
+    },
+    {
+      "type": "APPHELP",
+      "name": "Get App Help",
+      "icon": "sap-icon://sys-help-2"
+    },
+    {
+      "type": "BOT",
+      "name": "Launch Assistant",
+      "icon": "sap-icon://travel-request"
+    },
+    {
+      "type": "VIEW",
+      "name": "Change App View",
+      "icon": "sap-icon://chart-table-view"
+    },
+    { "type": "ADD", "name": "Add Record", "icon": "sap-icon://add" },
+    { "type": "UPLOAD", "name": "Upload Record", "icon": "sap-icon://upload" }
+  ],
+  "DButtons": [
+    {
+      "type": "ATTACHMENT",
+      "name": "View Attachments",
+      "icon": "sap-icon://attachment"
+    },
+    { "type": "UPDATE", "name": "Update Record", "icon": "sap-icon://update" },
+    { "type": "ADD", "name": "Add Record", "icon": "sap-icon://add" }
+  ],
+  "Tabs": [],
+  "DetailFields": {
+    "headerTitle": ["USP_Name"],
+    "headerRole": ["USP_Role"],
+    "headerImage": ["USP_Image"],
+    "None": [
+      "ID",
+      "StudentName",
+      "StudentID",
+      "StudentEmail",
+      "GuestName",
+      "GuestEmail",
+      "StudentContactNo",
+      "GuestContactNo",
+      "Status",
+      "EntryDate"
+    ]
+  },
+  "ControlDisplay": {},
+  "FieldDef": [
+    {
+      "name": "ID",
+      "type": "string",
+      "width": "20",
+      "Option": "Mandatory",
+      "SLabel": "ID",
+      "LLabel": ""
+    },
+    {
+      "name": "StudentName",
+      "type": "string",
+      "width": "50",
+      "Option": "Mandatory",
+      "SLabel": "Student Name",
+      "LLabel": ""
+    },
+    {
+      "name": "StudentID",
+      "type": "string",
+      "width": "50",
+      "Option": "Mandatory",
+      "SLabel": "Student ID",
+      "LLabel": ""
+    },
+    {
+      "name": "StudentEmail",
+      "type": "string",
+      "width": "50",
+      "Option": "Optional",
+      "SLabel": "Student Email",
+      "LLabel": ""
+    },
+    {
+      "name": "GuestName",
+      "type": "string",
+      "width": "50",
+      "Option": "Mandatory",
+      "SLabel": "Guest Name",
+      "LLabel": ""
+    },
+    {
+      "name": "GuestEmail",
+      "type": "string",
+      "width": "50",
+      "Option": "Optional",
+      "SLabel": "Guest Email ID",
+      "LLabel": ""
+    },
+    {
+      "name": "StudentContactNo",
+      "type": "string",
+      "width": "50",
+      "Option": "Optional",
+      "SLabel": "Student Phone No.",
+      "LLabel": ""
+    },
+    {
+      "name": "GuestContactNo",
+      "type": "string",
+      "width": "50",
+      "Option": "Optional",
+      "SLabel": "Guest Phone No.",
+      "LLabel": ""
+    },
+    {
+      "name": "Status",
+      "type": "string",
+      "width": "20",
+      "Option": "Mandatory",
+      "SLabel": "Status",
+      "LLabel": ""
+    },
+    {
+      "name": "EntryDate",
+      "type": "Date",
+      "width": "10",
+      "Option": "Mandatory",
+      "SLabel": "Date",
+      "LLabel": ""
+    }
+  ],
+  "itemData": "No",
+  "itemConfig": {
+    "ItemFieldDefinition": [],
+    "DisplayFields": [],
+    "ItemButtons": {
+      "itemDisplay": false,
+      "itemAdd": false,
+      "itemEdit": false,
+      "itemDelete": false
+    },
+    "CreateFields": [],
+    "ItemDetails": []
+  },
+  "CalculatedFields": {},
+  "Create": "Yes",
+  "Wizard": [
+    {
+      "id": "Step1",
+      "fields": [
+        { "name": "StudentName", "Mode": "Edit" },
+        { "name": "StudentID", "Mode": "Edit" },
+        { "name": "StudentEmail", "Mode": "Edit" },
+        { "name": "StudentContactNo", "Mode": "Edit" }
+      ],
+      "name": "Student Information",
+      "stepType": "FieldList",
+      "intro": "Guest Pass Request Form : Student Information"
+    },
+    {
+      "id": "Step2",
+      "fields": [
+        { "name": "GuestName", "Mode": "Edit" },
+        { "name": "GuestEmail", "Mode": "Edit" },
+        { "name": "GuestContactNo", "Mode": "Edit" }
+      ],
+      "name": "Guest Information",
+      "stepType": "FieldList",
+      "intro": "Guest Pass Request Form : Guest Information"
+    },
+    {
+      "id": "Step3",
+      "fields": [
+        { "name": "Status", "Mode": "Edit" },
+        { "name": "EntryDate", "Mode": "Edit" }
+      ],
+      "name": "Admin",
+      "stepType": "FieldList",
+      "intro": "Guest Pass Request Form : Admin"
+    }
+  ]
+}

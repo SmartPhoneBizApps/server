@@ -1,0 +1,181 @@
+{
+  "Title": { "ApplicationTitle": "Test", "DetailTitle": "Test" },
+  "Controls": {
+    "USP": "UserProfile",
+    "Filters": [],
+    "Partner": "@user",
+    "UserSpecific": "Yes",
+    "Update": "Yes",
+    "URL": "https://fierce-oasis-51455.herokuapp.com",
+    "Source": { "SourceName": "mongoDB", "SourceFile": "NA" }
+  },
+  "ListFields": {
+    "IntroField": "Area",
+    "TitleField": "Topic",
+    "fStatus": "Status",
+    "LFields": ["ID"]
+  },
+  "ListBOTFields": {
+    "None": ["cardImage", "StatusState"],
+    "Title": ["ID"],
+    "SubTitle": ["Topic"],
+    "Description": ["Area", "Status"]
+  },
+  "PossibleValues": ["Answer", "Status"],
+  "MButtons": [],
+  "DButtons": [],
+  "Tabs": [
+    {
+      "value": "Tab0",
+      "update": "No",
+      "name": "Cards",
+      "type": "Cards",
+      "fioriicon": "responsive"
+    },
+    {
+      "value": "Tab1",
+      "update": "Yes",
+      "name": "Question",
+      "type": "Field",
+      "fioriicon": "question-mark"
+    },
+    {
+      "value": "Tab2",
+      "update": "Yes",
+      "name": "Answer",
+      "type": "Field",
+      "fioriicon": "accept"
+    }
+  ],
+  "DetailFields": {
+    "headerTitle": ["USP_Name"],
+    "headerRole": ["USP_Role"],
+    "headerImage": ["USP_Image"],
+    "None": ["ID", "ExamDate", "Area", "Topic", "Status"],
+    "Tab1": ["Question", "A", "B", "C", "D", "E"],
+    "Tab2": ["Answer", "Reasoning"]
+  },
+  "ControlDisplay": {},
+  "FieldDef": [
+    {
+      "name": "ID",
+      "type": "string",
+      "width": "20",
+      "Option": "Mandatory",
+      "SLabel": "ID",
+      "LLabel": ""
+    },
+    {
+      "name": "Area",
+      "type": "string",
+      "width": "100",
+      "Option": "Optional",
+      "SLabel": "Area",
+      "LLabel": ""
+    },
+    {
+      "name": "Topic",
+      "type": "string",
+      "width": "100",
+      "Option": "Optional",
+      "SLabel": "Topic",
+      "LLabel": ""
+    },
+    {
+      "name": "ExamDate",
+      "type": "Date",
+      "width": "10",
+      "Option": "Optional",
+      "SLabel": "Exam Date",
+      "LLabel": ""
+    },
+    {
+      "name": "Question",
+      "type": "string",
+      "width": "100",
+      "Option": "Optional",
+      "SLabel": "Questions",
+      "LLabel": ""
+    },
+    {
+      "name": "A",
+      "type": "string",
+      "width": "100",
+      "Option": "Optional",
+      "SLabel": "Option A",
+      "LLabel": ""
+    },
+    {
+      "name": "B",
+      "type": "string",
+      "width": "100",
+      "Option": "Optional",
+      "SLabel": " Option B",
+      "LLabel": ""
+    },
+    {
+      "name": "C",
+      "type": "string",
+      "width": "100",
+      "Option": "Optional",
+      "SLabel": "Option C",
+      "LLabel": ""
+    },
+    {
+      "name": "D",
+      "type": "string",
+      "width": "100",
+      "Option": "Optional",
+      "SLabel": "Option D",
+      "LLabel": ""
+    },
+    {
+      "name": "E",
+      "type": "string",
+      "width": "100",
+      "Option": "Optional",
+      "SLabel": "Option E",
+      "LLabel": ""
+    },
+    {
+      "name": "Answer",
+      "type": "string",
+      "width": "100",
+      "Option": "Optional",
+      "SLabel": "Answer",
+      "LLabel": ""
+    },
+    {
+      "name": "Reasoning",
+      "type": "string",
+      "width": "500",
+      "Option": "Optional",
+      "SLabel": "Reasoning",
+      "LLabel": ""
+    },
+    {
+      "name": "Status",
+      "type": "string",
+      "width": "50",
+      "Option": "Mandatory",
+      "SLabel": "Status",
+      "LLabel": "Status"
+    }
+  ],
+  "itemData": "No",
+  "itemConfig": {
+    "ItemFieldDefinition": [],
+    "DisplayFields": [],
+    "ItemButtons": {
+      "itemDisplay": false,
+      "itemAdd": false,
+      "itemEdit": false,
+      "itemDelete": false
+    },
+    "CreateFields": [],
+    "ItemDetails": []
+  },
+  "CalculatedFields": { "Item": [], "HeaderItem": [], "Header": [] },
+  "Create": "No",
+  "Wizard": []
+}

@@ -1,0 +1,1189 @@
+{
+  "Title": {
+    "ApplicationTitle": "Lodge Your Complaint",
+    "DetailTitle": "Lodge Your Complaint"
+  },
+  "Controls": {
+    "USP": "UserProfile",
+    "Filters": [],
+    "Partner": "@user",
+    "UserSpecific": "Yes",
+    "Update": "Yes",
+    "URL": "https://fierce-oasis-51455.herokuapp.com",
+    "Source": { "SourceName": "mongoDB", "SourceFile": "NA" }
+  },
+  "ListFields": {
+    "IntroField": "ComplaintType",
+    "TitleField": "Name",
+    "fStatus": "Status",
+    "LFields": ["ID"]
+  },
+  "ListBOTFields": {
+    "None": ["cardImage", "StatusState"],
+    "Title": ["ComplaintDate"],
+    "SubTitle": ["ID"],
+    "Description": ["Name", "ComplaintType"]
+  },
+  "PossibleValues": [
+    "Status",
+    "ComplaintType",
+    "Center",
+    "ComplaintCategory",
+    "PrivateProperty",
+    "WantCallBack",
+    "A2",
+    "A4",
+    "A5",
+    "A6",
+    "A7",
+    "A8",
+    "A9",
+    "A10",
+    "A11",
+    "A14",
+    "A16",
+    "A17",
+    "A19",
+    "A20",
+    "A23",
+    "A26",
+    "A27",
+    "FoodCompType",
+    "A25",
+    "AnyWitness"
+  ],
+  "MButtons": [
+    {
+      "type": "DOWNLOAD",
+      "name": "Download File",
+      "icon": "sap-icon://download"
+    },
+    {
+      "type": "APPHELP",
+      "name": "Get App Help",
+      "icon": "sap-icon://sys-help-2"
+    },
+    {
+      "type": "BOT",
+      "name": "Launch Assistant",
+      "icon": "sap-icon://travel-request"
+    },
+    {
+      "type": "VIEW",
+      "name": "Change App View",
+      "icon": "sap-icon://chart-table-view"
+    },
+    { "type": "ADD", "name": "Add Record", "icon": "sap-icon://add" },
+    { "type": "UPLOAD", "name": "Upload Record", "icon": "sap-icon://upload" }
+  ],
+  "DButtons": [
+    {
+      "type": "ATTACHMENT",
+      "name": "View Attachments",
+      "icon": "sap-icon://attachment"
+    },
+    { "type": "UPDATE", "name": "Update Record", "icon": "sap-icon://update" },
+    { "type": "ADD", "name": "Add Record", "icon": "sap-icon://add" }
+  ],
+  "Tabs": [
+    {
+      "value": "Tab0",
+      "update": "No",
+      "name": "Cards",
+      "type": "Cards",
+      "fioriicon": "responsive"
+    },
+    {
+      "value": "Tab1",
+      "update": "Yes",
+      "name": "Complaint Details",
+      "type": "Field",
+      "fioriicon": "request",
+      "download": "Yes"
+    },
+    {
+      "value": "Tab2",
+      "update": "Yes",
+      "name": "Other Details",
+      "type": "Field",
+      "fioriicon": "action-settings",
+      "download": "Yes"
+    },
+    {
+      "value": "Tab3",
+      "update": "Yes",
+      "name": "Location",
+      "type": "Field",
+      "fioriicon": "locate-me",
+      "download": "Yes"
+    },
+    {
+      "value": "Tab4",
+      "update": "Yes",
+      "name": "Your Details",
+      "fioriicon": "notes",
+      "type": "Field",
+      "download": "Yes"
+    },
+    {
+      "value": "Tab5",
+      "update": "Yes",
+      "name": "Chat",
+      "fioriicon": "comment",
+      "type": "Chat",
+      "download": "Yes"
+    },
+    {
+      "value": "Tab6",
+      "update": "Yes",
+      "name": "Processing Log",
+      "fioriicon": "comment",
+      "type": "Chat",
+      "download": "Yes"
+    }
+  ],
+  "DetailFields": {
+    "headerTitle": ["USP_Name"],
+    "headerRole": ["USP_Role"],
+    "headerImage": ["USP_Image"],
+    "None": ["ID", "Status", "ComplaintDate"],
+    "Tab1": [
+      "ComplaintType",
+      "IssueDescription",
+      "Center",
+      "FoodType",
+      "ComplaintCategory",
+      "NearestStreet",
+      "PrivateProperty",
+      "OwnerInfo",
+      "IncidentDate",
+      "Q1",
+      "A1",
+      "Q2",
+      "A2",
+      "Q3",
+      "A3",
+      "Q4",
+      "A4",
+      "Q5",
+      "A5",
+      "Q6",
+      "A6",
+      "Q7",
+      "A7",
+      "Q8",
+      "A8",
+      "Q9",
+      "A9",
+      "Q10",
+      "A10",
+      "Q11",
+      "A11",
+      "Q12",
+      "A12",
+      "Q13",
+      "A13",
+      "Q14",
+      "A14",
+      "Q15",
+      "A15",
+      "Q16",
+      "A16",
+      "Q17",
+      "A17",
+      "Q19",
+      "A19",
+      "Q20",
+      "A20",
+      "Q21",
+      "A21",
+      "Q22",
+      "A22",
+      "Q23",
+      "A23",
+      "Q24",
+      "A24",
+      "Q25",
+      "A25",
+      "Q26",
+      "A26",
+      "Q27",
+      "A27",
+      "FoodCompType"
+    ],
+    "Tab2": [
+      "Attachment",
+      "AdditionalInfo",
+      "PurchaseDate",
+      "UseByDate",
+      "AnyWitness",
+      "WitnessDetails",
+      "MissedDate",
+      "WantCallBack"
+    ],
+    "Tab3": [
+      "BusinessName",
+      "BusinessAddress",
+      "IncidentLocation",
+      "Location",
+      "Q18",
+      "A18"
+    ],
+    "Tab4": ["Name", "Email", "YourAddress"],
+    "Tab5": ["Question_Response"],
+    "Tab6": ["ProcessingLog"]
+  },
+  "ControlDisplay": {
+    "ControlField": "ComplaintType",
+    "Fields": [
+      [
+        {
+          "ALL": [
+            "ID",
+            "Name",
+            "Email",
+            "YourAddress",
+            "ComplaintType",
+            "AdditionalInfo",
+            "Status",
+            "IssueDescription",
+            "ComplaintDate",
+            "Approver",
+            "ProcessingLog",
+            "Question_Response"
+          ]
+        },
+        {
+          "AntiSocialBehaviour": [
+            "AnyWitness",
+            "WitnessDetails",
+            "Q23",
+            "A23",
+            "Q24",
+            "Q25",
+            "Q26",
+            "A24",
+            "A25",
+            "A26"
+          ]
+        },
+        {
+          "FlyTipping": [
+            "Q18",
+            "A18",
+            "Q19",
+            "A19",
+            "Q20",
+            "A20",
+            "Q21",
+            "A21",
+            "Q22",
+            "A22"
+          ]
+        },
+        {
+          "FoodComplaint": [
+            "BusinessAddress",
+            "PurchaseDate",
+            "UseByDate",
+            "FoodType",
+            "Q1",
+            "Q2",
+            "Q3",
+            "Q4",
+            "Q5",
+            "A1",
+            "A2",
+            "A3",
+            "A4",
+            "A5",
+            "FoodCompType"
+          ]
+        },
+        {
+          "GraffitiFlyPosting": [
+            "Q6",
+            "Q7",
+            "Q8",
+            "Q9",
+            "Q10",
+            "A6",
+            "A7",
+            "A8",
+            "A9",
+            "A10"
+          ]
+        },
+        {
+          "MissedRecyclingBin": [
+            "Q11",
+            "A11",
+            "MissedDate",
+            "Q12",
+            "Q13",
+            "A12",
+            "A13"
+          ]
+        },
+        {
+          "NoisePollutionComplaint": [
+            "ComplaintCategory",
+            "Q15",
+            "Q16",
+            "Q17",
+            "A15",
+            "A16",
+            "A17"
+          ]
+        },
+        {
+          "NuisanceDogStray": [
+            "NearestStreet",
+            "PrivateProperty",
+            "OwnerInfo",
+            "Q27",
+            "A27"
+          ]
+        },
+        { "OverflowingRecyclingCentre": ["Center", "Q14", "A14"] }
+      ]
+    ]
+  },
+  "FieldDef": [
+    {
+      "name": "ID",
+      "type": "string",
+      "width": "20",
+      "Option": "Mandatory",
+      "SLabel": "Identification ",
+      "LLabel": ""
+    },
+    {
+      "name": "Name",
+      "type": "string",
+      "width": "20",
+      "Option": "Optional",
+      "SLabel": "Your Name",
+      "LLabel": "Your Name"
+    },
+    {
+      "name": "Email",
+      "type": "Email",
+      "width": "100",
+      "Option": "Optional",
+      "SLabel": "Your Email",
+      "LLabel": "Your Email"
+    },
+    {
+      "name": "YourAddress",
+      "type": "string",
+      "width": "500",
+      "Option": "Optional",
+      "SLabel": "Your Address",
+      "LLabel": "Your Address"
+    },
+    {
+      "name": "ComplaintType",
+      "type": "radiobutton",
+      "width": "200",
+      "Option": "Mandatory",
+      "SLabel": "Your complaint is for",
+      "LLabel": "ComplaintType"
+    },
+    {
+      "name": "Attachment",
+      "type": "attachment",
+      "width": "500",
+      "Option": "Optional",
+      "SLabel": "Upload Image",
+      "LLabel": "Upload Image"
+    },
+    {
+      "name": "AdditionalInfo",
+      "type": "string",
+      "width": "1000",
+      "Option": "Optional",
+      "SLabel": "Any Additional Information",
+      "LLabel": "Any Additional Information"
+    },
+    {
+      "name": "Status",
+      "type": "string",
+      "width": "50",
+      "Option": "Mandatory",
+      "SLabel": "Complaint Status",
+      "LLabel": "Complaint Status"
+    },
+    {
+      "name": "BusinessName",
+      "type": "string",
+      "width": "100",
+      "Option": "Optional",
+      "SLabel": "Business Name",
+      "LLabel": "BusinessName"
+    },
+    {
+      "name": "BusinessAddress",
+      "type": "string",
+      "width": "100",
+      "Option": "Optional",
+      "SLabel": "Business Address",
+      "LLabel": "BusinessAddress"
+    },
+    {
+      "name": "PurchaseDate",
+      "type": "Date",
+      "width": "10",
+      "Option": "Optional",
+      "SLabel": "Purchase Date",
+      "LLabel": "Purchase Date"
+    },
+    {
+      "name": "IncidentLocation",
+      "type": "string",
+      "width": "100",
+      "Option": "Optional",
+      "SLabel": "Incident Location",
+      "LLabel": "IncidentLocation"
+    },
+    {
+      "name": "IssueDescription",
+      "type": "string",
+      "width": "500",
+      "Option": "Optional",
+      "SLabel": "Complaint Details",
+      "LLabel": "IssueDescription"
+    },
+    {
+      "name": "UseByDate",
+      "type": "Date",
+      "width": "10",
+      "Option": "Optional",
+      "SLabel": "Use By Date",
+      "LLabel": "UseByDate"
+    },
+    {
+      "name": "Center",
+      "type": "string",
+      "width": "200",
+      "Option": "Optional",
+      "SLabel": "Center",
+      "LLabel": "Center"
+    },
+    {
+      "name": "FoodType",
+      "type": "string",
+      "width": "200",
+      "Option": "Optional",
+      "SLabel": "Food Type",
+      "LLabel": "Food Type"
+    },
+    {
+      "name": "ComplaintCategory",
+      "type": "string",
+      "width": "200",
+      "Option": "Optional",
+      "SLabel": "Complaint Category",
+      "LLabel": "ComplaintCategory"
+    },
+    {
+      "name": "Location",
+      "type": "string",
+      "width": "200",
+      "Option": "Optional",
+      "SLabel": "Location",
+      "LLabel": "Location"
+    },
+    {
+      "name": "AnyWitness",
+      "type": "string",
+      "width": "20",
+      "Option": "Optional",
+      "SLabel": "Any Witness",
+      "LLabel": "AnyWitness"
+    },
+    {
+      "name": "WitnessDetails",
+      "type": "string",
+      "width": "500",
+      "Option": "Optional",
+      "SLabel": "Witness Details",
+      "LLabel": "WitnessDetails"
+    },
+    {
+      "name": "NearestStreet",
+      "type": "string",
+      "width": "100",
+      "Option": "Optional",
+      "SLabel": "Nearest Street",
+      "LLabel": "NearestStreet"
+    },
+    {
+      "name": "PrivateProperty",
+      "type": "string",
+      "width": "100",
+      "Option": "Optional",
+      "SLabel": "Private Property",
+      "LLabel": "PrivateProperty"
+    },
+    {
+      "name": "OwnerInfo",
+      "type": "string",
+      "width": "200",
+      "Option": "Optional",
+      "SLabel": "Owner Info",
+      "LLabel": "OwnerInfo"
+    },
+    {
+      "name": "IncidentDate",
+      "type": "Date",
+      "width": "10",
+      "Option": "Optional",
+      "SLabel": "Incident Date",
+      "LLabel": "Incident Date"
+    },
+    {
+      "name": "Q1",
+      "type": "string",
+      "width": "200",
+      "Option": "Optional",
+      "SLabel": "Question",
+      "LLabel": "Question"
+    },
+    {
+      "name": "Q2",
+      "type": "string",
+      "width": "200",
+      "Option": "Optional",
+      "SLabel": "Question",
+      "LLabel": "Question"
+    },
+    {
+      "name": "Q3",
+      "type": "string",
+      "width": "200",
+      "Option": "Optional",
+      "SLabel": "Question",
+      "LLabel": "Question"
+    },
+    {
+      "name": "Q4",
+      "type": "string",
+      "width": "200",
+      "Option": "Optional",
+      "SLabel": "Question",
+      "LLabel": "Question"
+    },
+    {
+      "name": "Q5",
+      "type": "string",
+      "width": "200",
+      "Option": "Optional",
+      "SLabel": "Question",
+      "LLabel": "Question"
+    },
+    {
+      "name": "Q6",
+      "type": "string",
+      "width": "200",
+      "Option": "Optional",
+      "SLabel": "Question",
+      "LLabel": "Question"
+    },
+    {
+      "name": "Q7",
+      "type": "string",
+      "width": "200",
+      "Option": "Optional",
+      "SLabel": "Question",
+      "LLabel": "Question"
+    },
+    {
+      "name": "Q8",
+      "type": "string",
+      "width": "200",
+      "Option": "Optional",
+      "SLabel": "Question",
+      "LLabel": "Question"
+    },
+    {
+      "name": "Q9",
+      "type": "string",
+      "width": "200",
+      "Option": "Optional",
+      "SLabel": "Question",
+      "LLabel": "Question"
+    },
+    {
+      "name": "Q10",
+      "type": "string",
+      "width": "200",
+      "Option": "Optional",
+      "SLabel": "Question",
+      "LLabel": "Question"
+    },
+    {
+      "name": "Q11",
+      "type": "string",
+      "width": "200",
+      "Option": "Optional",
+      "SLabel": "Question",
+      "LLabel": "Question"
+    },
+    {
+      "name": "A1",
+      "type": "string",
+      "width": "200",
+      "Option": "Optional",
+      "SLabel": "Answer",
+      "LLabel": "Answer"
+    },
+    {
+      "name": "A2",
+      "type": "string",
+      "width": "200",
+      "Option": "Optional",
+      "SLabel": "Answer",
+      "LLabel": "Answer"
+    },
+    {
+      "name": "A3",
+      "type": "Date",
+      "width": "10",
+      "Option": "Optional",
+      "SLabel": "Answer",
+      "LLabel": "Answer"
+    },
+    {
+      "name": "A4",
+      "type": "string",
+      "width": "200",
+      "Option": "Optional",
+      "SLabel": "Answer",
+      "LLabel": "Answer"
+    },
+    {
+      "name": "A5",
+      "type": "string",
+      "width": "200",
+      "Option": "Optional",
+      "SLabel": "Answer",
+      "LLabel": "Answer"
+    },
+    {
+      "name": "A6",
+      "type": "string",
+      "width": "200",
+      "Option": "Optional",
+      "SLabel": "Answer",
+      "LLabel": "Answer"
+    },
+    {
+      "name": "A7",
+      "type": "string",
+      "width": "200",
+      "Option": "Optional",
+      "SLabel": "Answer",
+      "LLabel": "Answer"
+    },
+    {
+      "name": "A8",
+      "type": "string",
+      "width": "200",
+      "Option": "Optional",
+      "SLabel": "Answer",
+      "LLabel": "Answer"
+    },
+    {
+      "name": "A9",
+      "type": "string",
+      "width": "200",
+      "Option": "Optional",
+      "SLabel": "Answer",
+      "LLabel": "Answer"
+    },
+    {
+      "name": "A10",
+      "type": "string",
+      "width": "200",
+      "Option": "Optional",
+      "SLabel": "Answer",
+      "LLabel": "Answer"
+    },
+    {
+      "name": "A11",
+      "type": "string",
+      "width": "200",
+      "Option": "Optional",
+      "SLabel": "Answer",
+      "LLabel": "Answer"
+    },
+    {
+      "name": "MissedDate",
+      "type": "Date",
+      "width": "10",
+      "Option": "Optional",
+      "SLabel": "Missed Date",
+      "LLabel": "MissedDate"
+    },
+    {
+      "name": "Q12",
+      "type": "string",
+      "width": "100",
+      "Option": "Optional",
+      "SLabel": "Question",
+      "LLabel": "Question"
+    },
+    {
+      "name": "Q13",
+      "type": "string",
+      "width": "100",
+      "Option": "Optional",
+      "SLabel": "Question",
+      "LLabel": "Question"
+    },
+    {
+      "name": "Q14",
+      "type": "string",
+      "width": "100",
+      "Option": "Optional",
+      "SLabel": "Question",
+      "LLabel": "Question"
+    },
+    {
+      "name": "Q15",
+      "type": "string",
+      "width": "100",
+      "Option": "Optional",
+      "SLabel": "Question",
+      "LLabel": "Question"
+    },
+    {
+      "name": "Q16",
+      "type": "string",
+      "width": "100",
+      "Option": "Optional",
+      "SLabel": "Question",
+      "LLabel": "Question"
+    },
+    {
+      "name": "Q17",
+      "type": "string",
+      "width": "100",
+      "Option": "Optional",
+      "SLabel": "Question",
+      "LLabel": "Question"
+    },
+    {
+      "name": "Q18",
+      "type": "string",
+      "width": "100",
+      "Option": "Optional",
+      "SLabel": "Question",
+      "LLabel": "Question"
+    },
+    {
+      "name": "Q19",
+      "type": "string",
+      "width": "100",
+      "Option": "Optional",
+      "SLabel": "Question",
+      "LLabel": "Question"
+    },
+    {
+      "name": "Q20",
+      "type": "string",
+      "width": "100",
+      "Option": "Optional",
+      "SLabel": "Question",
+      "LLabel": "Question"
+    },
+    {
+      "name": "Q21",
+      "type": "string",
+      "width": "100",
+      "Option": "Optional",
+      "SLabel": "Question",
+      "LLabel": "Question"
+    },
+    {
+      "name": "Q22",
+      "type": "string",
+      "width": "100",
+      "Option": "Optional",
+      "SLabel": "Question",
+      "LLabel": "Question"
+    },
+    {
+      "name": "Q23",
+      "type": "string",
+      "width": "100",
+      "Option": "Optional",
+      "SLabel": "Question",
+      "LLabel": "Question"
+    },
+    {
+      "name": "Q24",
+      "type": "string",
+      "width": "100",
+      "Option": "Optional",
+      "SLabel": "Question",
+      "LLabel": "Question"
+    },
+    {
+      "name": "Q25",
+      "type": "string",
+      "width": "100",
+      "Option": "Optional",
+      "SLabel": "Question",
+      "LLabel": "Question"
+    },
+    {
+      "name": "Q26",
+      "type": "string",
+      "width": "100",
+      "Option": "Optional",
+      "SLabel": "Question",
+      "LLabel": "Question"
+    },
+    {
+      "name": "Q27",
+      "type": "string",
+      "width": "100",
+      "Option": "Optional",
+      "SLabel": "Question",
+      "LLabel": "Question"
+    },
+    {
+      "name": "A12",
+      "type": "string",
+      "width": "100",
+      "Option": "Optional",
+      "SLabel": "Answer",
+      "LLabel": "Answer"
+    },
+    {
+      "name": "A13",
+      "type": "string",
+      "width": "100",
+      "Option": "Optional",
+      "SLabel": "Answer",
+      "LLabel": "Answer"
+    },
+    {
+      "name": "A14",
+      "type": "string",
+      "width": "100",
+      "Option": "Optional",
+      "SLabel": "Answer",
+      "LLabel": "Answer"
+    },
+    {
+      "name": "A15",
+      "type": "string",
+      "width": "100",
+      "Option": "Optional",
+      "SLabel": "Answer",
+      "LLabel": "Answer"
+    },
+    {
+      "name": "A16",
+      "type": "string",
+      "width": "100",
+      "Option": "Optional",
+      "SLabel": "Answer",
+      "LLabel": "Answer"
+    },
+    {
+      "name": "A17",
+      "type": "string",
+      "width": "100",
+      "Option": "Optional",
+      "SLabel": "Answer",
+      "LLabel": "Answer"
+    },
+    {
+      "name": "A18",
+      "type": "string",
+      "width": "100",
+      "Option": "Optional",
+      "SLabel": "Answer",
+      "LLabel": "Answer"
+    },
+    {
+      "name": "A19",
+      "type": "string",
+      "width": "100",
+      "Option": "Optional",
+      "SLabel": "Answer",
+      "LLabel": "Answer"
+    },
+    {
+      "name": "A20",
+      "type": "string",
+      "width": "100",
+      "Option": "Optional",
+      "SLabel": "Answer",
+      "LLabel": "Answer"
+    },
+    {
+      "name": "A21",
+      "type": "string",
+      "width": "100",
+      "Option": "Optional",
+      "SLabel": "Answer",
+      "LLabel": "Answer"
+    },
+    {
+      "name": "A22",
+      "type": "string",
+      "width": "100",
+      "Option": "Optional",
+      "SLabel": "Answer",
+      "LLabel": "Answer"
+    },
+    {
+      "name": "A23",
+      "type": "string",
+      "width": "100",
+      "Option": "Optional",
+      "SLabel": "Answer",
+      "LLabel": "Answer"
+    },
+    {
+      "name": "A24",
+      "type": "string",
+      "width": "100",
+      "Option": "Optional",
+      "SLabel": "Answer",
+      "LLabel": "Answer"
+    },
+    {
+      "name": "A25",
+      "type": "string",
+      "width": "100",
+      "Option": "Optional",
+      "SLabel": "Answer",
+      "LLabel": "Answer"
+    },
+    {
+      "name": "A26",
+      "type": "string",
+      "width": "100",
+      "Option": "Optional",
+      "SLabel": "Answer",
+      "LLabel": "Answer"
+    },
+    {
+      "name": "A27",
+      "type": "string",
+      "width": "100",
+      "Option": "Optional",
+      "SLabel": "Answer",
+      "LLabel": "Answer"
+    },
+    {
+      "name": "WantCallBack",
+      "type": "string",
+      "width": "200",
+      "Option": "Optional",
+      "SLabel": "Do you Want Call Back",
+      "LLabel": "WantCallBack"
+    },
+    {
+      "name": "FoodCompType",
+      "type": "string",
+      "width": "200",
+      "Option": "Optional",
+      "SLabel": "Food Complaint Type",
+      "LLabel": "FoodCompType"
+    },
+    {
+      "name": "ComplaintDate",
+      "type": "Date",
+      "width": "10",
+      "Option": "Optional",
+      "SLabel": "Complaint Date",
+      "LLabel": "ComplaintDate"
+    },
+    {
+      "name": "Approver",
+      "type": "string",
+      "width": "50",
+      "Option": "Optional",
+      "SLabel": "Council Admin Approver",
+      "LLabel": "Council Admin Approver"
+    },
+    {
+      "name": "ProcessingLog",
+      "type": "string",
+      "width": "1000",
+      "Option": "Optional",
+      "SLabel": "Processing Log",
+      "LLabel": "Processing Log"
+    },
+    {
+      "name": "Question_Response",
+      "type": "string",
+      "width": "100",
+      "Option": "Optional",
+      "SLabel": "Here Is Chat Details",
+      "LLabel": "Question_Response"
+    }
+  ],
+  "itemData": "No",
+  "itemConfig": {
+    "ItemFieldDefinition": [],
+    "DisplayFields": [],
+    "ItemButtons": {
+      "itemDisplay": false,
+      "itemAdd": false,
+      "itemEdit": false,
+      "itemDelete": false
+    },
+    "CreateFields": [],
+    "ItemDetails": []
+  },
+  "CalculatedFields": {},
+  "Create": "Yes",
+  "Wizard": [
+    {
+      "id": "Step1",
+      "fields": [
+        { "name": "Email", "Mode": "Edit" },
+        { "name": "YourAddress", "Mode": "Edit" },
+        { "name": "Name", "Mode": "Edit" },
+        { "name": "ComplaintDate", "Mode": "Edit" },
+        { "name": "ComplaintType", "Mode": "Display" }
+      ],
+      "name": "YourDetails",
+      "stepType": "FieldList",
+      "intro": "Complaint : Your Details"
+    },
+    {
+      "id": "Step2",
+      "fields": [
+        { "name": "BusinessName", "Mode": "Edit" },
+        { "name": "BusinessAddress", "Mode": "Edit" },
+        { "name": "FoodCompType", "Mode": "Edit" },
+        { "name": "FoodType", "Mode": "Edit" },
+        { "name": "Q1", "Mode": "Display" },
+        { "name": "A1", "Mode": "Edit" },
+        { "name": "Q2", "Mode": "Display" },
+        { "name": "A2", "Mode": "Edit" },
+        { "name": "Q3", "Mode": "Display" },
+        { "name": "A3", "Mode": "Edit" },
+        { "name": "Q4", "Mode": "Display" },
+        { "name": "A4", "Mode": "Edit" },
+        { "name": "Q5", "Mode": "Display" },
+        { "name": "A5", "Mode": "Edit" },
+        { "name": "PurchaseDate", "Mode": "Edit" },
+        { "name": "UseByDate", "Mode": "Edit" }
+      ],
+      "name": "ComplaintDetails",
+      "stepType": "FieldList",
+      "intro": "Complaint : Complaint Details"
+    },
+    {
+      "id": "Step3",
+      "fields": [
+        { "name": "Q6", "Mode": "Display" },
+        { "name": "A6", "Mode": "Edit" },
+        { "name": "IncidentLocation", "Mode": "Edit" },
+        { "name": "IncidentDate", "Mode": "Edit" },
+        { "name": "IssueDescription", "Mode": "Edit" },
+        { "name": "Q7", "Mode": "Display" },
+        { "name": "A7", "Mode": "Edit" },
+        { "name": "Q8", "Mode": "Display" },
+        { "name": "A8", "Mode": "Edit" },
+        { "name": "Q9", "Mode": "Display" },
+        { "name": "A9", "Mode": "Edit" },
+        { "name": "Q10", "Mode": "Display" },
+        { "name": "A10", "Mode": "Edit" }
+      ],
+      "name": "OtherInfo",
+      "stepType": "FieldList",
+      "intro": "Complaint :Other Info"
+    },
+    {
+      "id": "Step4",
+      "fields": [
+        { "name": "MissedDate", "Mode": "Edit" },
+        { "name": "Q11", "Mode": "Display" },
+        { "name": "A11", "Mode": "Edit" },
+        { "name": "Q12", "Mode": "Display" },
+        { "name": "A12", "Mode": "Edit" },
+        { "name": "Q13", "Mode": "Display" },
+        { "name": "A13", "Mode": "Edit" },
+        { "name": "Q14", "Mode": "Display" },
+        { "name": "A14", "Mode": "Edit" },
+        { "name": "Center", "Mode": "Edit" },
+        { "name": "Location", "Mode": "Edit" },
+        { "name": "ComplaintCategory", "Mode": "Edit" }
+      ],
+      "name": "MoreInfo",
+      "stepType": "FieldList",
+      "intro": "Complaint : MoreInfo"
+    },
+    {
+      "id": "Step5",
+      "fields": [
+        { "name": "Q15", "Mode": "Display" },
+        { "name": "A15", "Mode": "Edit" },
+        { "name": "Q16", "Mode": "Display" },
+        { "name": "A16", "Mode": "Edit" },
+        { "name": "Q17", "Mode": "Display" },
+        { "name": "A17", "Mode": "Edit" },
+        { "name": "Q18", "Mode": "Display" },
+        { "name": "A18", "Mode": "Edit" },
+        { "name": "Q19", "Mode": "Display" },
+        { "name": "A19", "Mode": "Edit" },
+        { "name": "Q20", "Mode": "Display" },
+        { "name": "A20", "Mode": "Edit" },
+        { "name": "Q21", "Mode": "Display" },
+        { "name": "A21", "Mode": "Edit" },
+        { "name": "Q22", "Mode": "Display" },
+        { "name": "A22", "Mode": "Edit" }
+      ],
+      "name": "Info",
+      "stepType": "FieldList",
+      "intro": "Complaint : Info"
+    },
+    {
+      "id": "Step6",
+      "fields": [
+        { "name": "Q23", "Mode": "Display" },
+        { "name": "A23", "Mode": "Edit" },
+        { "name": "Q24", "Mode": "Display" },
+        { "name": "A24", "Mode": "Edit" },
+        { "name": "Q25", "Mode": "Display" },
+        { "name": "A25", "Mode": "Edit" },
+        { "name": "Q26", "Mode": "Display" },
+        { "name": "A26", "Mode": "Edit" },
+        { "name": "AnyWitness", "Mode": "Edit" },
+        { "name": "WitnessDetails", "Mode": "Edit" }
+      ],
+      "name": "Step 6",
+      "stepType": "FieldList",
+      "intro": "Complaint: Info2"
+    },
+    {
+      "id": "Step7",
+      "fields": [
+        { "name": "Q27", "Mode": "Display" },
+        { "name": "A27", "Mode": "Edit" },
+        { "name": "NearestStreet", "Mode": "Edit" },
+        { "name": "PrivateProperty", "Mode": "Edit" },
+        { "name": "OwnerInfo", "Mode": "Edit" },
+        { "name": "WantCallBack", "Mode": "Edit" },
+        { "name": "AdditionalInfo", "Mode": "Edit" },
+        { "name": "Attachment", "Mode": "Edit" },
+        { "name": "Status", "Mode": "Edit" },
+        { "name": "Approver", "Mode": "Edit" }
+      ],
+      "name": "Step 7",
+      "stepType": "FieldList",
+      "intro": "Complaint: Info3"
+    }
+  ]
+}

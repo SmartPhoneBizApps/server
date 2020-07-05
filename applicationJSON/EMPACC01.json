@@ -41,6 +41,10 @@
     "type": "String",
     "maxlength": [50, "Approver can not be more than 50 characters"]
   },
+  "Team": {
+    "type": "String",
+    "maxlength": [200, "Approver can not be more than 200 characters"]
+  },
   "Reason": {
     "type": "String",
     "maxlength": [500, "Reason can not be more than 500 characters"]
@@ -49,6 +53,11 @@
     "type": "String",
     "required": [true, "Please add Mandatory field :Status"],
     "maxlength": [50, "Status can not be more than 50 characters"]
+  },
+  "Partner": {
+    "type": "String",
+    "required": [true, "Please add Mandatory field :Partner"],
+    "maxlength": [200, "Partner can not be more than 200 characters"]
   },
   "Officer": {
     "type": "String",

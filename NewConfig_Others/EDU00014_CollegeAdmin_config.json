@@ -1,0 +1,325 @@
+{
+  "Title": {
+    "ApplicationTitle": "List of Uni/College",
+    "DetailTitle": "Detail of Course offered"
+  },
+  "Controls": {
+    "USP": "UserProfile",
+    "Filters": [],
+    "Partner": "@user",
+    "UserSpecific": "Yes",
+    "Update": "Yes",
+    "URL": "https://fierce-oasis-51455.herokuapp.com",
+    "Source": { "SourceName": "mongoDB", "SourceFile": "NA" }
+  },
+  "ListFields": {
+    "IntroField": "CollegeOrUniversity",
+    "TitleField": "courseTitle",
+    "fStatus": "Status",
+    "LFields": ["ID"]
+  },
+  "ListBOTFields": {
+    "None": ["cardImage", "StatusState"],
+    "Title": [],
+    "SubTitle": [],
+    "Description": []
+  },
+  "PossibleValues": ["Status"],
+  "MButtons": [
+    {
+      "type": "DOWNLOAD",
+      "name": "Download File",
+      "icon": "sap-icon://download"
+    },
+    {
+      "type": "APPHELP",
+      "name": "Get App Help",
+      "icon": "sap-icon://sys-help-2"
+    },
+    {
+      "type": "BOT",
+      "name": "Launch Assistant",
+      "icon": "sap-icon://travel-request"
+    },
+    {
+      "type": "VIEW",
+      "name": "Change App View",
+      "icon": "sap-icon://chart-table-view"
+    },
+    { "type": "ADD", "name": "Add Record", "icon": "sap-icon://add" },
+    { "type": "UPLOAD", "name": "Upload Record", "icon": "sap-icon://upload" }
+  ],
+  "DButtons": [
+    {
+      "type": "ATTACHMENT",
+      "name": "View Attachments",
+      "icon": "sap-icon://attachment"
+    },
+    { "type": "UPDATE", "name": "Update Record", "icon": "sap-icon://update" },
+    { "type": "ADD", "name": "Add Record", "icon": "sap-icon://add" }
+  ],
+  "Tabs": [
+    {
+      "value": "Tab0",
+      "update": "No",
+      "name": "Cards",
+      "type": "Cards",
+      "fioriicon": "responsive"
+    },
+    {
+      "value": "Tab1",
+      "update": "Yes",
+      "name": "CourseDetails",
+      "fioriicon": "bullet-text",
+      "type": "Field",
+      "download": "Yes"
+    },
+    {
+      "value": "Tab2",
+      "update": "Yes",
+      "name": "ContactUs",
+      "fioriicon": "document-text",
+      "type": "Field",
+      "download": "Yes"
+    },
+    {
+      "value": "Tab3",
+      "update": "Yes",
+      "name": "ApplicationDownload",
+      "fioriicon": "call",
+      "type": "Field",
+      "download": "Yes"
+    },
+    {
+      "value": "Tab4",
+      "update": "Yes",
+      "name": "FindOnMap",
+      "fioriicon": "map",
+      "type": "Field",
+      "download": "Yes"
+    }
+  ],
+  "DetailFields": {
+    "headerTitle": ["USP_Name"],
+    "headerRole": ["USP_Role"],
+    "headerImage": ["USP_Image"],
+    "None": [
+      "ID",
+      "CollegeOrUniversity",
+      "StudyLevel",
+      "City",
+      "Ranking",
+      "Status"
+    ],
+    "Tab1": [
+      "courseTitle",
+      "courseDescription",
+      "SeatsAvailable",
+      "courseFee",
+      "ScholarshipAvailable"
+    ],
+    "Tab2": ["Address", "ContactNo", "Email"],
+    "Tab3": ["DownloadApplication"]
+  },
+  "ControlDisplay": {},
+  "FieldDef": [
+    {
+      "name": "ID",
+      "type": "string",
+      "width": "20",
+      "Option": "Mandatory",
+      "SLabel": "Identification",
+      "LLabel": "Identification"
+    },
+    {
+      "name": "StudyLevel",
+      "type": "string",
+      "width": "50",
+      "Option": "Optional",
+      "SLabel": "Study Level",
+      "LLabel": "Study Level"
+    },
+    {
+      "name": "CollegeOrUniversity",
+      "type": "string",
+      "width": "100",
+      "Option": "Optional",
+      "SLabel": "College/University",
+      "LLabel": "College/Uni"
+    },
+    {
+      "name": "City",
+      "type": "string",
+      "width": "100",
+      "Option": "Optional",
+      "SLabel": "City",
+      "LLabel": "City"
+    },
+    {
+      "name": "Ranking",
+      "type": "string",
+      "width": "5",
+      "Option": "Optional",
+      "SLabel": "College Ranking",
+      "LLabel": "College Ranking"
+    },
+    {
+      "name": "courseTitle",
+      "type": "string",
+      "width": "100",
+      "Option": "Optional",
+      "SLabel": "Course Title",
+      "LLabel": "Course Title"
+    },
+    {
+      "name": "courseDescription",
+      "type": "string",
+      "width": "1000",
+      "Option": "Optional",
+      "SLabel": "CourseDescription",
+      "LLabel": "CourseDescription"
+    },
+    {
+      "name": "SeatsAvailable",
+      "type": "string",
+      "width": "10",
+      "Option": "Optional",
+      "SLabel": "SeatsAvailable",
+      "LLabel": "SeatsAvailable"
+    },
+    {
+      "name": "courseFee",
+      "type": "string",
+      "width": "50",
+      "Option": "Optional",
+      "SLabel": "Course Fee",
+      "LLabel": "Course Fee"
+    },
+    {
+      "name": "ScholarshipAvailable",
+      "type": "string",
+      "width": "10",
+      "Option": "Optional",
+      "SLabel": "ScholarshipAvailable",
+      "LLabel": "ScholarshipAvailable"
+    },
+    {
+      "name": "DownloadApplication",
+      "type": "hyperlink",
+      "width": "100",
+      "Option": "Optional",
+      "SLabel": "Download Application",
+      "LLabel": "Download Application"
+    },
+    {
+      "name": "Address",
+      "type": "string",
+      "width": "500",
+      "Option": "Optional",
+      "SLabel": "Address",
+      "LLabel": "Address"
+    },
+    {
+      "name": "ContactNo",
+      "type": "string",
+      "width": "20",
+      "Option": "Optional",
+      "SLabel": "Phone No",
+      "LLabel": "Phone No"
+    },
+    {
+      "name": "Email",
+      "type": "string",
+      "width": "100",
+      "Option": "Mandatory",
+      "SLabel": "Email",
+      "LLabel": "Email"
+    },
+    {
+      "name": "Longitude",
+      "type": "Geocode",
+      "width": "50",
+      "Option": "Optional",
+      "SLabel": "Longitude",
+      "LLabel": "Longitude"
+    },
+    {
+      "name": "Latitude",
+      "type": "Geocode",
+      "width": "50",
+      "Option": "Optional",
+      "SLabel": "Latitude",
+      "LLabel": "Latitude"
+    },
+    {
+      "name": "Status",
+      "type": "string",
+      "width": "50",
+      "Option": "Mandatory",
+      "SLabel": "Status",
+      "LLabel": "Status"
+    },
+    {
+      "name": "Date",
+      "type": "Date",
+      "width": "10",
+      "Option": "Optional",
+      "SLabel": "Date",
+      "LLabel": "Date"
+    }
+  ],
+  "itemData": "No",
+  "itemConfig": {
+    "ItemFieldDefinition": [],
+    "DisplayFields": [],
+    "ItemButtons": {
+      "itemDisplay": true,
+      "itemAdd": true,
+      "itemEdit": true,
+      "itemDelete": true
+    },
+    "CreateFields": [],
+    "ItemDetails": []
+  },
+  "CalculatedFields": { "Item": [], "HeaderItem": [], "Header": [] },
+  "Create": "Yes",
+  "Wizard": [
+    {
+      "id": "Step1",
+      "fields": [
+        { "name": "StudyLevel", "Mode": "Edit" },
+        { "name": "CollegeOrUniversity", "Mode": "Edit" },
+        { "name": "City", "Mode": "Edit" },
+        { "name": "Ranking", "Mode": "Edit" },
+        { "name": "Address", "Mode": "Edit" },
+        { "name": "ContactNo", "Mode": "Edit" },
+        { "name": "Email", "Mode": "Edit" },
+        { "name": "Date", "Mode": "Edit" }
+      ],
+      "name": "College Details",
+      "stepType": "FieldList",
+      "intro": "List of Uni/College : College Details"
+    },
+    {
+      "id": "Step2",
+      "fields": [
+        { "name": "courseTitle", "Mode": "Edit" },
+        { "name": "courseDescription", "Mode": "Edit" },
+        { "name": "SeatsAvailable", "Mode": "Edit" },
+        { "name": "courseFee", "Mode": "Edit" },
+        { "name": "ScholarshipAvailable", "Mode": "Edit" },
+        { "name": "DownloadApplication", "Mode": "Edit" }
+      ],
+      "name": "Course Details",
+      "stepType": "FieldList",
+      "intro": "List of Uni/College : Course Details"
+    },
+    {
+      "id": "Step3",
+      "fields": [{ "name": "Status", "Mode": "Edit" }],
+      "name": "Admin",
+      "stepType": "FieldList",
+      "intro": "List of Uni/College : Admin"
+    }
+  ]
+}

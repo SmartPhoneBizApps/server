@@ -103,6 +103,11 @@
     "required": [true, "Please add Mandatory field :Status"],
     "maxlength": [50, "Status can not be more than 50 characters"]
   },
+  "Partner": {
+    "type": "String",
+    "required": [true, "Please add Mandatory field :Partner"],
+    "maxlength": [200, "Partner can not be more than 200 characters"]
+  },
   "ReportDate": {
     "type": "Date",
     "maxlength": [10, "ReportDate can not be more than 10 characters"],

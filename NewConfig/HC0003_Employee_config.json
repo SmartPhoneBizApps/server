@@ -2,7 +2,9 @@
   "Title": { "ApplicationTitle": "Events", "DetailTitle": "Events" },
   "Controls": {
     "USP": "UserProfile",
-    "UserSpecific":"Yes",
+    "Filters": [{ "Partner": "@user" }],
+    "Partner": "@user",
+    "UserSpecific": "Yes",
     "Update": "Yes",
     "URL": "https://fierce-oasis-51455.herokuapp.com",
     "Source": { "SourceName": "mongoDB", "SourceFile": "NA" }
@@ -27,14 +29,14 @@
   "DButtons": [],
   "Tabs": [
     {
-            "value": "Tab0",
+      "value": "Tab0",
       "update": "No",
       "name": "Cards",
       "type": "Cards",
       "fioriicon": "responsive"
     },
     {
-            "value": "Tab1",
+      "value": "Tab1",
       "update": "Yes",
       "name": "Event Details",
       "fioriicon": "notes",
@@ -42,7 +44,7 @@
       "download": "Yes"
     },
     {
-            "value": "Tab2",
+      "value": "Tab2",
       "update": "Yes",
       "name": "Contact Details",
       "fioriicon": "discussion",

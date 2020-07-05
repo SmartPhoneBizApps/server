@@ -61,12 +61,16 @@ exports.addDataRecords = asyncHandler(async (req, res, next) => {
   // ---------------------
   req.body.appId = BodyApp.id;
   req.body.applicationId = req.headers.applicationid;
+
   if (!req.body.appId) {
     return next(new ErrorResponse(`Please provide App ID`, 400));
   }
   req.body.user = req.user.id;
   req.body.userName = req.user.name;
   req.body.userEmail = req.user.email;
+  if (cardConfig.Controls.Partner == "@user") {
+    req.body.Partner = req.user.email;
+  }
   // ---------------------------------
   // Get Company Details and Validate
   // ---------------------------------

@@ -1,0 +1,366 @@
+{
+  "Title": {
+    "ApplicationTitle": "Pupil Report",
+    "DetailTitle": "Pupil Report"
+  },
+  "Controls": {
+    "USP": "UserProfile",
+    "Filters": [],
+    "Partner": "@user",
+    "UserSpecific": "Yes",
+    "Update": "Yes",
+    "URL": "https://fierce-oasis-51455.herokuapp.com",
+    "Source": { "SourceName": "mongoDB", "SourceFile": "NA" }
+  },
+  "ListFields": {
+    "IntroField": "StudentName",
+    "TitleField": "TermReport",
+    "fStatus": "Status",
+    "LFields": ["ID", "Section"]
+  },
+  "ListBOTFields": {
+    "None": ["cardImage", "StatusState"],
+    "Title": ["ID"],
+    "SubTitle": ["TermReport", "StudyYear"],
+    "Description": ["StudentName"]
+  },
+  "PossibleValues": [
+    "Status",
+    "TermReport",
+    "Section",
+    "StudyYear",
+    "Subject",
+    "TermGrade",
+    "TargetGrade"
+  ],
+  "MButtons": [],
+  "DButtons": [],
+  "Tabs": [
+    {
+      "value": "Tab0",
+      "update": "No",
+      "name": "Cards",
+      "type": "Cards",
+      "fioriicon": "responsive"
+    },
+    {
+      "value": "Tab1",
+      "update": "Yes",
+      "name": "PupilDetail",
+      "fioriicon": "account",
+      "type": "Field",
+      "download": "Yes"
+    },
+    {
+      "value": "Tab2",
+      "update": "Yes",
+      "name": "Other Details",
+      "fioriicon": "comment",
+      "type": "Field",
+      "download": "Yes"
+    },
+    {
+      "value": "Tab3",
+      "update": "Yes",
+      "name": "Chat Details",
+      "fioriicon": "discussion-2",
+      "type": "Chat",
+      "download": "Yes"
+    },
+    {
+      "value": "Tab4",
+      "update": "Yes",
+      "name": "Item",
+      "fioriicon": "notes",
+      "type": "Items",
+      "download": "Yes"
+    }
+  ],
+  "DetailFields": {
+    "headerTitle": ["USP_Name"],
+    "headerRole": ["USP_Role"],
+    "headerImage": ["USP_Image"],
+    "None": ["ID", "Status", "Email", "TermReport", "ReportDate"],
+    "Tab1": [
+      "StudentName",
+      "Surname",
+      "StudentID",
+      "StudyYear",
+      "Section",
+      "ParentEmail"
+    ],
+    "Tab2": ["MeritPoints", "Behaviour", "Attendance"],
+    "Tab3": ["Question_Response"]
+  },
+  "ControlDisplay": {},
+  "FieldDef": [
+    {
+      "name": "ID",
+      "type": "string",
+      "width": "20",
+      "Option": "Mandatory",
+      "SLabel": "Identification",
+      "LLabel": "Identification"
+    },
+    {
+      "name": "StudentName",
+      "type": "string",
+      "width": "20",
+      "Option": "Mandatory",
+      "SLabel": "Student Name",
+      "LLabel": "StudentName"
+    },
+    {
+      "name": "Surname",
+      "type": "string",
+      "width": "20",
+      "Option": "Optional",
+      "SLabel": "Surname",
+      "LLabel": "Surname"
+    },
+    {
+      "name": "StudyYear",
+      "type": "string",
+      "width": "10",
+      "Option": "Optional",
+      "SLabel": "Study Year",
+      "LLabel": "Study Year"
+    },
+    {
+      "name": "TermReport",
+      "type": "string",
+      "width": "50",
+      "Option": "Mandatory",
+      "SLabel": "Term Report",
+      "LLabel": "Term Report"
+    },
+    {
+      "name": "MeritPoints",
+      "type": "string",
+      "width": "50",
+      "Option": "Optional",
+      "SLabel": "Merit Points Earned",
+      "LLabel": "Merit Points Earned"
+    },
+    {
+      "name": "Status",
+      "type": "string",
+      "width": "50",
+      "Option": "Mandatory",
+      "SLabel": "Status",
+      "LLabel": "Status"
+    },
+    {
+      "name": "Email",
+      "type": "string",
+      "width": "50",
+      "Option": "Optional",
+      "SLabel": "Student Email",
+      "LLabel": ""
+    },
+    {
+      "name": "Question_Response",
+      "type": "string",
+      "width": "500",
+      "Option": "Optional",
+      "SLabel": "Question_Response",
+      "LLabel": ""
+    },
+    {
+      "name": "Behaviour",
+      "type": "string",
+      "width": "500",
+      "Option": "Optional",
+      "SLabel": "Behaviour",
+      "LLabel": ""
+    },
+    {
+      "name": "StudentID",
+      "type": "string",
+      "width": "50",
+      "Option": "Optional",
+      "SLabel": "Student ID",
+      "LLabel": "StudentID"
+    },
+    {
+      "name": "Attendance",
+      "type": "string",
+      "width": "100",
+      "Option": "Optional",
+      "SLabel": "Attendance",
+      "LLabel": "Attendance"
+    },
+    {
+      "name": "ReportDate",
+      "type": "Date",
+      "width": "10",
+      "Option": "Optional",
+      "SLabel": "Report Date",
+      "LLabel": "Report Date"
+    },
+    {
+      "name": "Section",
+      "type": "string",
+      "width": "10",
+      "Option": "Optional",
+      "SLabel": "Section",
+      "LLabel": "Section"
+    },
+    {
+      "name": "ParentEmail",
+      "type": "string",
+      "width": "50",
+      "Option": "Optional",
+      "SLabel": "Parent Email",
+      "LLabel": ""
+    }
+  ],
+  "itemData": "Yes",
+  "itemConfig": {
+    "title": "Item Details",
+    "ItemFieldDefinition": [
+      {
+        "name": "ItemNumber",
+        "type": "string",
+        "width": "20",
+        "SLabel": "Item Number",
+        "Option": "Optional",
+        "Currency": "No"
+      },
+      {
+        "name": "ID",
+        "type": "string",
+        "width": "20",
+        "SLabel": "ID",
+        "Option": "Optional",
+        "Currency": "No"
+      },
+      {
+        "name": "Subject",
+        "type": "string",
+        "width": "50",
+        "SLabel": "Subject",
+        "Option": "Optional",
+        "Currency": "No"
+      },
+      {
+        "name": "TeacherName",
+        "type": "string",
+        "width": "50",
+        "SLabel": "Teacher Name",
+        "Option": "Optional",
+        "Currency": "No"
+      },
+      {
+        "name": "TermGrade",
+        "type": "string",
+        "width": "50",
+        "SLabel": "Term Grade",
+        "Option": "Optional",
+        "Currency": "No"
+      },
+      {
+        "name": "GoodPoints",
+        "type": "string",
+        "width": "500",
+        "SLabel": "Area of excellence",
+        "Option": "Optional",
+        "Currency": "No"
+      },
+      {
+        "name": "ImprovementNeeded",
+        "type": "string",
+        "width": "500",
+        "SLabel": "Area of improvement",
+        "Option": "Optional",
+        "Currency": "No"
+      },
+      {
+        "name": "NextTermTarget",
+        "type": "string",
+        "width": "500",
+        "SLabel": "Next Term Target",
+        "Option": "Optional",
+        "Currency": "No"
+      },
+      {
+        "name": "TargetGrade",
+        "type": "string",
+        "width": "20",
+        "SLabel": "Target Grade",
+        "Option": "Optional",
+        "Currency": "No"
+      }
+    ],
+    "DisplayFields": [
+      "ItemNumber",
+      "Subject",
+      "TeacherName",
+      "TermGrade",
+      "TargetGrade"
+    ],
+    "ItemButtons": {
+      "itemDisplay": true,
+      "itemAdd": false,
+      "itemEdit": false,
+      "itemDelete": false
+    },
+    "CreateFields": [
+      "Subject",
+      "TeacherName",
+      "TermGrade",
+      "GoodPoints",
+      "ImprovementNeeded",
+      "NextTermTarget",
+      "TargetGrade"
+    ],
+    "ItemDetails": [
+      {
+        "name": "ItemNumber",
+        "Tab": "Tab4",
+
+        "Mode": "Display"
+      },
+      { "name": "Subject", "Tab": "Tab4", "Mode": "Display" },
+      {
+        "name": "TeacherName",
+        "Tab": "Tab4",
+
+        "Mode": "Display"
+      },
+      {
+        "name": "TermGrade",
+        "Tab": "Tab4",
+
+        "Mode": "Display"
+      },
+      {
+        "name": "GoodPoints",
+        "Tab": "Tab4",
+
+        "Mode": "Display"
+      },
+      {
+        "name": "ImprovementNeeded",
+        "Tab": "Tab4",
+
+        "Mode": "Display"
+      },
+      {
+        "name": "NextTermTarget",
+        "Tab": "Tab4",
+
+        "Mode": "Display"
+      },
+      {
+        "name": "TargetGrade",
+        "Tab": "Tab4",
+
+        "Mode": "Display"
+      }
+    ]
+  },
+  "CalculatedFields": { "Item": [], "HeaderItem": [], "Header": [] },
+  "Create": "No",
+  "Wizard": []
+}

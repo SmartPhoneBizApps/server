@@ -5,7 +5,9 @@
   },
   "Controls": {
     "USP": "UserProfile",
-    "UserSpecific":"Yes",
+    "Filters": [],
+    "Partner": "@user",
+    "UserSpecific": "Yes",
     "Update": "Yes",
     "URL": "https://fierce-oasis-51455.herokuapp.com",
     "Source": { "SourceName": "mongoDB", "SourceFile": "NA" }
@@ -75,23 +77,28 @@
   ],
   "Tabs": [
     {
-            "value": "Tab0",
+      "value": "Tab0",
       "update": "No",
       "name": "Cards",
       "type": "Cards",
       "fioriicon": "responsive"
     },
-    {       "value": "Tab1",
-      "update": "Yes", "name": "SC", "type": "Field", "fioriicon": "notes" },
     {
-            "value": "Tab2",
+      "value": "Tab1",
+      "update": "Yes",
+      "name": "SC",
+      "type": "Field",
+      "fioriicon": "notes"
+    },
+    {
+      "value": "Tab2",
       "update": "Yes",
       "name": "Delivery",
       "type": "Field",
       "fioriicon": "calendar"
     },
     {
-            "value": "Tab3",
+      "value": "Tab3",
       "update": "Yes",
       "name": "PaymentInfo",
       "type": "Field",
@@ -458,21 +465,21 @@
   "Wizard": [
     {
       "id": "Step1",
-      "fields": [{ "name": "OtherInfo",  "Mode": "Edit" }],
+      "fields": [{ "name": "OtherInfo", "Mode": "Edit" }],
       "name": "Shopping Cart",
       "stepType": "FieldList",
       "intro": "Shopping Cart : Shopping Cart"
     },
     {
       "id": "Step2",
-      "fields": [{ "name": "VendorName",  "Mode": "Edit" }],
+      "fields": [{ "name": "VendorName", "Mode": "Edit" }],
       "name": "Vendor Details",
       "stepType": "FieldList",
       "intro": "Shopping Cart : Vendor Details"
     },
     {
       "id": "Step3",
-      "fields": [{ "name": "Plant",  "Mode": "Edit" }],
+      "fields": [{ "name": "Plant", "Mode": "Edit" }],
       "name": "Organization",
       "stepType": "FieldList",
       "intro": "Shopping Cart : Organization"
@@ -480,16 +487,16 @@
     {
       "id": "Step4",
       "fields": [
-        { "name": "Category",  "Mode": "Edit" },
-        { "name": "SCQty",  "Mode": "Edit" },
-        { "name": "UoM",  "Mode": "Edit" },
-        { "name": "Price",  "Mode": "Edit" },
-        { "name": "NetValue",  "Mode": "Edit" },
-        { "name": "VATRate",  "Mode": "Edit" },
-        { "name": "VATVal",  "Mode": "Edit" },
-        { "name": "Currency",  "Mode": "Edit" },
-        { "name": "PaymentAmount",  "Mode": "Edit" },
-        { "name": "GrossValue",  "Mode": "Edit" }
+        { "name": "Category", "Mode": "Edit" },
+        { "name": "SCQty", "Mode": "Edit" },
+        { "name": "UoM", "Mode": "Edit" },
+        { "name": "Price", "Mode": "Edit" },
+        { "name": "NetValue", "Mode": "Edit" },
+        { "name": "VATRate", "Mode": "Edit" },
+        { "name": "VATVal", "Mode": "Edit" },
+        { "name": "Currency", "Mode": "Edit" },
+        { "name": "PaymentAmount", "Mode": "Edit" },
+        { "name": "GrossValue", "Mode": "Edit" }
       ],
       "name": "Item Details",
       "stepType": "FieldList",
@@ -498,11 +505,11 @@
     {
       "id": "Step5",
       "fields": [
-        { "name": "Address",  "Mode": "Edit" },
-        { "name": "PostCode",  "Mode": "Edit" },
-        { "name": "DeliveryDt",  "Mode": "Edit" },
-        { "name": "State",  "Mode": "Edit" },
-        { "name": "Country",  "Mode": "Edit" }
+        { "name": "Address", "Mode": "Edit" },
+        { "name": "PostCode", "Mode": "Edit" },
+        { "name": "DeliveryDt", "Mode": "Edit" },
+        { "name": "State", "Mode": "Edit" },
+        { "name": "Country", "Mode": "Edit" }
       ],
       "name": "Delivery",
       "stepType": "FieldList",
@@ -511,9 +518,9 @@
     {
       "id": "Step6",
       "fields": [
-        { "name": "ContactNo",  "Mode": "Edit" },
-        { "name": "Email",  "Mode": "Edit" },
-        { "name": "DeliveryInstr",  "Mode": "Edit" }
+        { "name": "ContactNo", "Mode": "Edit" },
+        { "name": "Email", "Mode": "Edit" },
+        { "name": "DeliveryInstr", "Mode": "Edit" }
       ],
       "name": "Delivery Contact",
       "stepType": "FieldList",
@@ -522,10 +529,10 @@
     {
       "id": "Step7",
       "fields": [
-        { "name": "CostType",  "Mode": "Edit" },
-        { "name": "GLAccount",  "Mode": "Edit" },
-        { "name": "BudgetUsed",  "Mode": "Edit" },
-        { "name": "Budget",  "Mode": "Edit" }
+        { "name": "CostType", "Mode": "Edit" },
+        { "name": "GLAccount", "Mode": "Edit" },
+        { "name": "BudgetUsed", "Mode": "Edit" },
+        { "name": "Budget", "Mode": "Edit" }
       ],
       "name": "Finance Data",
       "stepType": "FieldList",
@@ -533,7 +540,7 @@
     },
     {
       "id": "Step8",
-      "fields": [{ "name": "Status",  "Mode": "Edit" }],
+      "fields": [{ "name": "Status", "Mode": "Edit" }],
       "name": "Admin",
       "stepType": "FieldList",
       "intro": "Shopping Cart : Admin"

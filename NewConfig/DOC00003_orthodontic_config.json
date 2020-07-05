@@ -5,7 +5,9 @@
   },
   "Controls": {
     "USP": "UserProfile",
-    "UserSpecific":"Yes",
+    "Filters": [],
+    "Partner": "@user",
+    "UserSpecific": "Yes",
     "Update": "Yes",
     "URL": "https://fierce-oasis-51455.herokuapp.com",
     "Source": { "SourceName": "mongoDB", "SourceFile": "NA" }
@@ -59,14 +61,14 @@
   ],
   "Tabs": [
     {
-            "value": "Tab0",
+      "value": "Tab0",
       "update": "No",
       "name": "Cards",
       "type": "Cards",
       "fioriicon": "responsive"
     },
     {
-            "value": "Tab1",
+      "value": "Tab1",
       "update": "Yes",
       "name": "Physician Information",
       "fioriicon": "add-contact",
@@ -74,7 +76,7 @@
       "download": "Yes"
     },
     {
-            "value": "Tab2",
+      "value": "Tab2",
       "update": "Yes",
       "name": "Patient Information",
       "fioriicon": "add-contact",
@@ -82,7 +84,7 @@
       "download": "Yes"
     },
     {
-            "value": "Tab3",
+      "value": "Tab3",
       "update": "Yes",
       "name": "Appointment Information",
       "fioriicon": "appointment",
@@ -90,7 +92,7 @@
       "download": "Yes"
     },
     {
-            "value": "Tab4",
+      "value": "Tab4",
       "update": "Yes",
       "name": "Attachment",
       "fioriicon": "attachment",
@@ -324,10 +326,10 @@
     {
       "id": "Step1",
       "fields": [
-        { "name": "S1",  "Mode": "Display" },
-        { "name": "ReferringPhysician",  "Mode": "Edit" },
-        { "name": "Fax",  "Mode": "Edit" },
-        { "name": "ReferralTo",  "Mode": "Edit" }
+        { "name": "S1", "Mode": "Display" },
+        { "name": "ReferringPhysician", "Mode": "Edit" },
+        { "name": "Fax", "Mode": "Edit" },
+        { "name": "ReferralTo", "Mode": "Edit" }
       ],
       "name": "Physician Information",
       "stepType": "FieldList",
@@ -336,12 +338,12 @@
     {
       "id": "Step2",
       "fields": [
-        { "name": "S2",  "Mode": "Display" },
-        { "name": "PatientName",  "Mode": "Edit" },
-        { "name": "HomeContactNo",  "Mode": "Edit" },
-        { "name": "ContactNo",  "Mode": "Edit" },
-        { "name": "DOB",  "Mode": "Edit" },
-        { "name": "Gender",  "Mode": "Edit" }
+        { "name": "S2", "Mode": "Display" },
+        { "name": "PatientName", "Mode": "Edit" },
+        { "name": "HomeContactNo", "Mode": "Edit" },
+        { "name": "ContactNo", "Mode": "Edit" },
+        { "name": "DOB", "Mode": "Edit" },
+        { "name": "Gender", "Mode": "Edit" }
       ],
       "name": "Patient Information",
       "stepType": "FieldList",
@@ -350,11 +352,11 @@
     {
       "id": "Step3",
       "fields": [
-        { "name": "Address",  "Mode": "Edit" },
-        { "name": "Employer",  "Mode": "Edit" },
-        { "name": "Insurance",  "Mode": "Edit" },
-        { "name": "SubscribeName",  "Mode": "Edit" },
-        { "name": "MemberID",  "Mode": "Edit" }
+        { "name": "Address", "Mode": "Edit" },
+        { "name": "Employer", "Mode": "Edit" },
+        { "name": "Insurance", "Mode": "Edit" },
+        { "name": "SubscribeName", "Mode": "Edit" },
+        { "name": "MemberID", "Mode": "Edit" }
       ],
       "name": "Address and Additional information",
       "stepType": "FieldList",
@@ -363,10 +365,10 @@
     {
       "id": "Step4",
       "fields": [
-        { "name": "S3",  "Mode": "Display" },
-        { "name": "Problem",  "Mode": "Edit" },
-        { "name": "ReqAppointmentDate",  "Mode": "Edit" },
-        { "name": "AppointmentTime",  "Mode": "Edit" }
+        { "name": "S3", "Mode": "Display" },
+        { "name": "Problem", "Mode": "Edit" },
+        { "name": "ReqAppointmentDate", "Mode": "Edit" },
+        { "name": "AppointmentTime", "Mode": "Edit" }
       ],
       "name": "Appointment Information",
       "stepType": "FieldList",
@@ -374,14 +376,14 @@
     },
     {
       "id": "Step5",
-      "fields": [{ "name": "Status",  "Mode": "Edit" }],
+      "fields": [{ "name": "Status", "Mode": "Edit" }],
       "name": "Admin",
       "stepType": "FieldList",
       "intro": "Orthopaedic Evaluation : Admin"
     },
     {
       "id": "Step6",
-      "fields": [{ "name": "Attachment",  "Mode": "Edit" }],
+      "fields": [{ "name": "Attachment", "Mode": "Edit" }],
       "name": "Images and Attachment",
       "stepType": "FieldList",
       "intro": "Orthopaedic Evaluation : Images and Attachment"

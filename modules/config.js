@@ -579,6 +579,7 @@ module.exports = {
       "USP_Name",
       "USP_Role",
       "USP_Image",
+      "Partner",
     ];
     myFieldArray.push.apply(myFieldArray, exclude_array);
     return myFieldArray;

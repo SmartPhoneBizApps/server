@@ -1,0 +1,337 @@
+{
+  "Title": {
+    "ApplicationTitle": "Student Registration",
+    "DetailTitle": "Student Registration"
+  },
+  "Controls": {
+    "USP": "UserProfile",
+    "Filters": [],
+    "Partner": "@user",
+    "UserSpecific": "Yes",
+    "Update": "Yes",
+    "URL": "https://fierce-oasis-51455.herokuapp.com",
+    "Source": { "SourceName": "mongoDB", "SourceFile": "NA" }
+  },
+  "ListFields": {
+    "IntroField": "Name",
+    "TitleField": "Surname",
+    "fStatus": "Status",
+    "LFields": ["ID"]
+  },
+  "ListBOTFields": {
+    "None": ["cardImage", "StatusState"],
+    "Title": [],
+    "SubTitle": [],
+    "Description": []
+  },
+  "PossibleValues": ["Status"],
+  "MButtons": [
+    {
+      "type": "DOWNLOAD",
+      "name": "Download File",
+      "icon": "sap-icon://download"
+    },
+    {
+      "type": "APPHELP",
+      "name": "Get App Help",
+      "icon": "sap-icon://sys-help-2"
+    },
+    {
+      "type": "BOT",
+      "name": "Launch Assistant",
+      "icon": "sap-icon://travel-request"
+    },
+    {
+      "type": "VIEW",
+      "name": "Change App View",
+      "icon": "sap-icon://chart-table-view"
+    },
+    { "type": "ADD", "name": "Add Record", "icon": "sap-icon://add" },
+    { "type": "UPLOAD", "name": "Upload Record", "icon": "sap-icon://upload" }
+  ],
+  "DButtons": [
+    {
+      "type": "ATTACHMENT",
+      "name": "View Attachments",
+      "icon": "sap-icon://attachment"
+    },
+    { "type": "UPDATE", "name": "Update Record", "icon": "sap-icon://update" },
+    { "type": "ADD", "name": "Add Record", "icon": "sap-icon://add" }
+  ],
+  "Tabs": [
+    {
+      "value": "Tab0",
+      "update": "No",
+      "name": "Cards",
+      "type": "Cards",
+      "fioriicon": "responsive"
+    },
+    {
+      "value": "Tab1",
+      "update": "Yes",
+      "name": "Detail",
+      "type": "Field",
+      "fioriicon": "notes"
+    },
+    {
+      "value": "Tab2",
+      "update": "Yes",
+      "name": "Address",
+      "type": "Field",
+      "fioriicon": "addresses"
+    },
+    {
+      "value": "Tab3",
+      "update": "Yes",
+      "name": "Location",
+      "type": "Field",
+      "fioriicon": "map"
+    }
+  ],
+  "DetailFields": {
+    "headerTitle": ["USP_Name"],
+    "headerRole": ["USP_Role"],
+    "headerImage": ["USP_Image"],
+    "None": ["ID", "Name", "Surname", "Status"],
+    "Tab1": [
+      "SchoolNo",
+      "SchoolName",
+      "DOB",
+      "RegDate",
+      "Year",
+      "Section",
+      "ClassTeacher",
+      "WaitListNo",
+      "Email"
+    ],
+    "Tab2": ["Street", "Postcode", "City", "Country", "Phone"]
+  },
+  "ControlDisplay": {},
+  "FieldDef": [
+    {
+      "name": "ID",
+      "type": "string",
+      "width": "20",
+      "Option": "Mandatory",
+      "SLabel": "ID",
+      "LLabel": ""
+    },
+    {
+      "name": "Name",
+      "type": "string",
+      "width": "50",
+      "Option": "Optional",
+      "SLabel": "Name",
+      "LLabel": ""
+    },
+    {
+      "name": "Surname",
+      "type": "string",
+      "width": "50",
+      "Option": "Optional",
+      "SLabel": "Surname",
+      "LLabel": ""
+    },
+    {
+      "name": "SchoolNo",
+      "type": "string",
+      "width": "20",
+      "Option": "Optional",
+      "SLabel": "School No",
+      "LLabel": ""
+    },
+    {
+      "name": "SchoolName",
+      "type": "string",
+      "width": "500",
+      "Option": "Optional",
+      "SLabel": "School Name",
+      "LLabel": ""
+    },
+    {
+      "name": "DOB",
+      "type": "Date",
+      "width": "10",
+      "Option": "Optional",
+      "SLabel": "Date of Birth",
+      "LLabel": ""
+    },
+    {
+      "name": "RegDate",
+      "type": "Date",
+      "width": "10",
+      "Option": "Optional",
+      "SLabel": "Registration date",
+      "LLabel": ""
+    },
+    {
+      "name": "Year",
+      "type": "string",
+      "width": "50",
+      "Option": "Optional",
+      "SLabel": "Year",
+      "LLabel": ""
+    },
+    {
+      "name": "Section",
+      "type": "string",
+      "width": "100",
+      "Option": "Optional",
+      "SLabel": "Section",
+      "LLabel": ""
+    },
+    {
+      "name": "ClassTeacher",
+      "type": "string",
+      "width": "100",
+      "Option": "Optional",
+      "SLabel": "Class Teacher",
+      "LLabel": ""
+    },
+    {
+      "name": "WaitListNo",
+      "type": "string",
+      "width": "50",
+      "Option": "Optional",
+      "SLabel": "Waiting List Number",
+      "LLabel": ""
+    },
+    {
+      "name": "Street",
+      "type": "string",
+      "width": "500",
+      "Option": "Optional",
+      "SLabel": "Street",
+      "LLabel": ""
+    },
+    {
+      "name": "PostCode",
+      "type": "searchField",
+      "width": "20",
+      "linkFields": "Address",
+      "URL": "{URL}/api/v1/util/address/{PostCode}",
+      "URLMethod": "GET",
+      "Token": true,
+      "Option": "Optional",
+      "SLabel": "Post Code",
+      "LLabel": "Post Code"
+    },
+    {
+      "name": "City",
+      "type": "string",
+      "width": "50",
+      "Option": "Optional",
+      "SLabel": "City",
+      "LLabel": ""
+    },
+    {
+      "name": "Country",
+      "type": "string",
+      "width": "20",
+      "Option": "Optional",
+      "SLabel": "Country",
+      "LLabel": ""
+    },
+    {
+      "name": "Phone",
+      "type": "string",
+      "width": "20",
+      "Option": "Optional",
+      "SLabel": "Phone",
+      "LLabel": ""
+    },
+    {
+      "name": "Email",
+      "type": "string",
+      "width": "100",
+      "Option": "Mandatory",
+      "SLabel": "Email",
+      "LLabel": "Email"
+    },
+    {
+      "name": "Status",
+      "type": "string",
+      "width": "50",
+      "Option": "Mandatory",
+      "SLabel": "Status",
+      "LLabel": "Status"
+    },
+    {
+      "name": "Latitude",
+      "type": "Geocode",
+      "width": "50",
+      "Option": "Optional",
+      "SLabel": "Latitude",
+      "LLabel": ""
+    },
+    {
+      "name": "Longitude",
+      "type": "Geocode",
+      "width": "50",
+      "Option": "Optional",
+      "SLabel": "Longitude",
+      "LLabel": ""
+    }
+  ],
+  "itemData": "No",
+  "itemConfig": {
+    "ItemFieldDefinition": [],
+    "DisplayFields": [],
+    "ItemButtons": {
+      "itemDisplay": false,
+      "itemAdd": false,
+      "itemEdit": false,
+      "itemDelete": false
+    },
+    "CreateFields": [],
+    "ItemDetails": []
+  },
+  "CalculatedFields": {},
+  "Create": "Yes",
+  "Wizard": [
+    {
+      "id": "Step1",
+      "fields": [
+        { "name": "Name", "Mode": "Edit" },
+        { "name": "Surname", "Mode": "Edit" },
+        { "name": "DOB", "Mode": "Edit" }
+      ],
+      "name": "PersonnelDetails",
+      "stepType": "FieldList",
+      "intro": "PersonnelDetails"
+    },
+    {
+      "id": "Step2",
+      "fields": [
+        { "name": "Phone", "Mode": "Edit" },
+        { "name": "Email", "Mode": "Edit" }
+      ],
+      "name": "ContactDetails",
+      "stepType": "FieldList",
+      "intro": "ContactDetails"
+    },
+    {
+      "id": "Step3",
+      "fields": [
+        { "name": "Street", "Mode": "Edit" },
+        { "name": "City", "Mode": "Edit" },
+        { "name": "Postcode", "Mode": "Edit" },
+        { "name": "Country", "Mode": "Edit" },
+        { "name": "RegDate", "Mode": "Edit" }
+      ],
+      "name": "Address",
+      "stepType": "FieldList",
+      "intro": "Address"
+    },
+    {
+      "id": "Step4",
+      "fields": [
+        { "name": "Year", "Mode": "Edit" },
+        { "name": "Status", "Mode": "Edit" }
+      ],
+      "name": "Status",
+      "stepType": "FieldList",
+      "intro": "Status"
+    }
+  ]
+}

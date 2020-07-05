@@ -5,7 +5,9 @@
   },
   "Controls": {
     "USP": "UserProfile",
-    "UserSpecific":"Yes",
+    "Filters": [],
+    "Partner": "@user",
+    "UserSpecific": "Yes",
     "Update": "Yes",
     "URL": "https://fierce-oasis-51455.herokuapp.com",
     "Source": { "SourceName": "mongoDB", "SourceFile": "NA" }
@@ -67,14 +69,14 @@
   ],
   "Tabs": [
     {
-            "value": "Tab0",
+      "value": "Tab0",
       "update": "No",
       "name": "Cards",
       "type": "Cards",
       "fioriicon": "responsive"
     },
     {
-            "value": "Tab1",
+      "value": "Tab1",
       "update": "Yes",
       "name": "Dentist Information",
       "fioriicon": "add-contact",
@@ -82,7 +84,7 @@
       "download": "Yes"
     },
     {
-            "value": "Tab2",
+      "value": "Tab2",
       "update": "Yes",
       "name": "Patient Information",
       "fioriicon": "add-contact",
@@ -90,7 +92,7 @@
       "download": "Yes"
     },
     {
-            "value": "Tab3",
+      "value": "Tab3",
       "update": "Yes",
       "name": "Appointment Information",
       "fioriicon": "appointment",
@@ -98,7 +100,7 @@
       "download": "No"
     },
     {
-            "value": "Tab4",
+      "value": "Tab4",
       "update": "Yes",
       "name": "Referral Information",
       "fioriicon": "appointment",
@@ -106,7 +108,7 @@
       "download": "Yes"
     },
     {
-            "value": "Tab5",
+      "value": "Tab5",
       "update": "Yes",
       "name": "Attachment",
       "fioriicon": "attachment",
@@ -376,13 +378,13 @@
     {
       "id": "Step1",
       "fields": [
-        { "name": "DentistName",  "Mode": "Display" },
-        { "name": "DentistAddress",  "Mode": "Display" },
-        { "name": "DentistPhone",  "Mode": "Display" },
-        { "name": "DentistEmail",  "Mode": "Display" },
-        { "name": "ReferralTo",  "Mode": "Edit" },
-        { "name": "ReferringDentist",  "Mode": "Edit" },
-        { "name": "Reason",  "Mode": "Edit" }
+        { "name": "DentistName", "Mode": "Display" },
+        { "name": "DentistAddress", "Mode": "Display" },
+        { "name": "DentistPhone", "Mode": "Display" },
+        { "name": "DentistEmail", "Mode": "Display" },
+        { "name": "ReferralTo", "Mode": "Edit" },
+        { "name": "ReferringDentist", "Mode": "Edit" },
+        { "name": "Reason", "Mode": "Edit" }
       ],
       "name": "Dentist Information",
       "stepType": "FieldList",
@@ -391,11 +393,11 @@
     {
       "id": "Step2",
       "fields": [
-        { "name": "PatientFirstName",  "Mode": "Edit" },
-        { "name": "PatientLastName",  "Mode": "Edit" },
-        { "name": "ContactNo",  "Mode": "Edit" },
-        { "name": "Patient_Email",  "Mode": "Edit" },
-        { "name": "NHS_Number",  "Mode": "Edit" }
+        { "name": "PatientFirstName", "Mode": "Edit" },
+        { "name": "PatientLastName", "Mode": "Edit" },
+        { "name": "ContactNo", "Mode": "Edit" },
+        { "name": "Patient_Email", "Mode": "Edit" },
+        { "name": "NHS_Number", "Mode": "Edit" }
       ],
       "name": "Patient Information",
       "stepType": "FieldList",
@@ -404,9 +406,9 @@
     {
       "id": "Step3",
       "fields": [
-        { "name": "PostCode",  "Mode": "Edit" },
-        { "name": "Address",  "Mode": "Edit" },
-        { "name": "HouseNo",  "Mode": "Edit" }
+        { "name": "PostCode", "Mode": "Edit" },
+        { "name": "Address", "Mode": "Edit" },
+        { "name": "HouseNo", "Mode": "Edit" }
       ],
       "name": "Address and Additional information",
       "stepType": "FieldList",
@@ -415,10 +417,10 @@
     {
       "id": "Step5",
       "fields": [
-        { "name": "Status",  "Mode": "Edit" },
-        { "name": "ReasonForReferral",  "Mode": "Edit" },
-        { "name": "OtherProblems",  "Mode": "Edit" },
-        { "name": "TreatmentOptions",  "Mode": "Edit" }
+        { "name": "Status", "Mode": "Edit" },
+        { "name": "ReasonForReferral", "Mode": "Edit" },
+        { "name": "OtherProblems", "Mode": "Edit" },
+        { "name": "TreatmentOptions", "Mode": "Edit" }
       ],
       "name": "Admin",
       "stepType": "FieldList",
@@ -427,9 +429,9 @@
     {
       "id": "Step6",
       "fields": [
-        { "name": "X_Ray",  "Mode": "Edit" },
-        { "name": "IOTN",  "Mode": "Edit" },
-        { "name": "Attachment",  "Mode": "Edit" }
+        { "name": "X_Ray", "Mode": "Edit" },
+        { "name": "IOTN", "Mode": "Edit" },
+        { "name": "Attachment", "Mode": "Edit" }
       ],
       "name": "Images and Attachment",
       "stepType": "FieldList",
