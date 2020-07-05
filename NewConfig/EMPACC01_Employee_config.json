@@ -97,6 +97,13 @@
       "name": "Details",
       "fioriicon": "zoom-in",
       "type": "FieldGroup"
+    },
+    {
+      "value": "Tab3",
+      "update": "No",
+      "name": "Approval Details",
+      "fioriicon": "zoom-in",
+      "type": "FieldGroup"
     }
   ],
   "DetailFields": {
@@ -108,16 +115,9 @@
       {
         "GrpTitle": "Employee Details",
         "Fields": ["EmployeeID", "Email", "ContactNo"]
-      },
-      {
-        "GrpTitle": "Approval Details",
-        "Fields": ["Approver", "ApprovalDate", "ApproverComment"]
-      },
-      {
-        "GrpTitle": "Admin Details",
-        "Fields": ["DateOfRequest", "Reason", "Officer"]
       }
     ],
+
     "Tab2": [
       {
         "GrpTitle": "Access Card Details",
@@ -166,6 +166,16 @@
       {
         "GrpTitle": "Validity Period",
         "Fields": ["StartDate", "EndDate"]
+      }
+    ],
+    "Tab3": [
+      {
+        "GrpTitle": "Approval Details",
+        "Fields": ["Approver", "ApprovalDate", "ApproverComment"]
+      },
+      {
+        "GrpTitle": "Admin Details",
+        "Fields": ["DateOfRequest", "Reason", "Officer"]
       }
     ]
   },

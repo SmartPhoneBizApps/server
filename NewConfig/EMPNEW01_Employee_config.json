@@ -170,6 +170,13 @@
       "name": "Dependents",
       "fioriicon": "hint",
       "type": "Table"
+    },
+    {
+      "value": "Tab15",
+      "update": "Yes",
+      "name": "Benefits",
+      "fioriicon": "hint",
+      "type": "Table"
     }
   ],
   "DetailFields": {
@@ -198,6 +205,7 @@
     "Tab13": ["Payslips"],
     "Tab12": ["P60"],
     "Tab14": ["Dependents"],
+    "Tab15": ["Benefits"],
     "Tab5": [
       "AccountNo",
       "BankName",
@@ -876,6 +884,141 @@
           "Mode": "Edit"
         }
       ]
+    },
+    "Benefits": {
+      "title": "Employee Benefits",
+      "ItemFieldDefinition": [
+        {
+          "name": "ItemNumber",
+          "type": "string",
+          "width": "20",
+          "SLabel": "Item Number",
+          "Option": "Optional"
+        },
+        {
+          "name": "InsurancePlan",
+          "type": "string",
+          "width": "200",
+          "SLabel": "Insurance Plan",
+          "Option": "Optional"
+        },
+        {
+          "name": "InsurancePlanLink",
+          "type": "hyperlink",
+          "width": "200",
+          "SLabel": "Insurance Plan Link",
+          "Option": "Optional"
+        },
+        {
+          "name": "MedicalCoverage",
+          "type": "string",
+          "width": "200",
+          "SLabel": "Medical Coverage",
+          "Option": "Optional"
+        },
+        {
+          "name": "MedicalCoverageLink",
+          "type": "hyperlink",
+          "width": "200",
+          "SLabel": "Medical Coverage Link",
+          "Option": "Optional"
+        },
+        {
+          "name": "DentalCoverage",
+          "type": "string",
+          "width": "200",
+          "SLabel": "Dental Coverage",
+          "Option": "Optional"
+        },
+        {
+          "name": "DentalCoverageLink",
+          "type": "hyperlink",
+          "width": "200",
+          "SLabel": "Dental Coverage Link",
+          "Option": "Optional"
+        },
+        {
+          "name": "VisionCoverage",
+          "type": "string",
+          "width": "200",
+          "SLabel": "Vision Coverage",
+          "Option": "Optional"
+        },
+        {
+          "name": "VisionCoverageLink",
+          "type": "hyperlink",
+          "width": "200",
+          "SLabel": "Vision Coverage Link",
+          "Option": "Optional"
+        },
+        {
+          "name": "AccidentalDeath",
+          "type": "string",
+          "width": "200",
+          "SLabel": "Accidental Death",
+          "Option": "Optional"
+        },
+        {
+          "name": "AccidentalDeathLink",
+          "type": "hyperlink",
+          "width": "200",
+          "SLabel": "Accidental Death Link",
+          "Option": "Optional"
+        },
+        {
+          "name": "CommentsPS",
+          "type": "string",
+          "width": "500",
+          "SLabel": "Comments",
+          "Option": "Optional"
+        }
+      ],
+      "DisplayFields": [
+        "InsurancePlan",
+        "MedicalCoverage",
+        "DentalCoverage",
+        "VisionCoverage",
+        "AccidentalDeath"
+      ],
+      "ItemButtons": {
+        "itemDisplay": true,
+        "itemAdd": true,
+        "itemEdit": true,
+        "itemDelete": true
+      },
+      "CreateFields": [
+        "InsurancePlan",
+        "MedicalCoverage",
+        "DentalCoverage",
+        "VisionCoverage",
+        "AccidentalDeath"
+      ],
+      "ItemDetails": [
+        {
+          "name": "InsurancePlan",
+          "Mode": "Edit"
+        },
+        {
+          "name": "MedicalCoverage",
+          "Mode": "Edit"
+        },
+        {
+          "name": "DentalCoverage",
+          "Mode": "Edit"
+        },
+        {
+          "name": "VisionCoverage",
+          "Mode": "Edit"
+        },
+        {
+          "name": "AccidentalDeath",
+          "Mode": "Edit"
+        },
+        {
+          "name": "CommentsPS",
+          "Mode": "Edit"
+        }
+      ]
     }
   },
   "FieldDef": [
@@ -1092,6 +1235,14 @@
       "Option": "Optional",
       "SLabel": "Dependents",
       "LLabel": "Dependents"
+    },
+    {
+      "name": "Benefits",
+      "type": "Array",
+      "width": "200",
+      "Option": "Optional",
+      "SLabel": "Benefits",
+      "LLabel": "Benefits"
     },
     {
       "name": "EmergencyContacts",
