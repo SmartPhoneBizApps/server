@@ -252,8 +252,11 @@ module.exports = {
     pLog["ID"] = ID;
     pLog["applicationId"] = app;
     pLog["Comment"] = comment;
-    result.push(pLog);
-    return result;
+
+    //  result.push(pLog);
+    //  return result;
+
+    return pLog;
   },
 
   getPVConfig: function (a, b) {
