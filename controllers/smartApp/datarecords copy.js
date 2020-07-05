@@ -206,6 +206,12 @@ exports.addDataRecords = asyncHandler(async (req, res, next) => {
   pLog["TimeStamp"] = Date.now();
   pLog["ID"] = req.body.ID;
   pLog["applicationId"] = req.body.applicationId;
+  if (req.headers.buttonType) {
+    pLog["buttonType"] = req.headers.buttonType;
+  }
+  if (req.headers.buttonName) {
+    pLog["buttonName"] = req.headers.buttonName;
+  }
   pg1.push(pLog);
   req.body.TransLog = pg1;
   req.body.ID = Math.floor(100000 + Math.random() * 900000);
@@ -509,8 +515,16 @@ exports.updateDataRecords = asyncHandler(async (req, res, next) => {
   pLog["TimeStamp"] = Date.now();
   pLog["ID"] = req.body.ID;
   pLog["applicationId"] = req.body.applicationId;
+  if (req.headers.buttonType) {
+    pLog["buttonType"] = req.headers.buttonType;
+  }
+  if (req.headers.buttonName) {
+    pLog["buttonName"] = req.headers.buttonName;
+  }
+
   pg1.push(pLog);
-  req.body.TransLog = pLog;
+  req.body.TransLog = pg1;
+  //req.body.TransLog = pLog;
   let nTrans = [];
 
   // -----------------------------------------------------
