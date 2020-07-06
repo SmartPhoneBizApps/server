@@ -194,15 +194,6 @@ exports.addDataRecords = asyncHandler(async (req, res, next) => {
   // Set Processing/Transaction Log
   let pLog = {};
   let pg1 = [];
-  // pLog["Type"] = "NEW_RECORD";
-  // pLog["User"] = req.body.user;
-  //  pLog["UserName"] = req.body.userName;
-  // pLog["Status"] = req.body.Status;
-  // pLog["TimeStamp"] = Date.now();
-  // pLog["ID"] = req.body.ID;
-  // pLog["applicationId"] = req.body.applicationId;
-  //pg1.push(pLog);
-  //req.body.TransLog = pg1;
 
   // Processing Log
   req.body.TransLog = processingLog(
@@ -214,7 +205,8 @@ exports.addDataRecords = asyncHandler(async (req, res, next) => {
     req.body.applicationId,
     "New document created",
     req.headers.buttonType,
-    req.headers.buttonName
+    req.headers.buttonName,
+    req.body.ApproverComment
   );
 
   req.body.ID = Math.floor(100000 + Math.random() * 900000);
@@ -519,7 +511,8 @@ exports.updateDataRecords = asyncHandler(async (req, res, next) => {
     req.body.applicationId,
     "Document is updated",
     req.headers.buttonType,
-    req.headers.buttonName
+    req.headers.buttonName,
+    req.body.ApproverComment
   );
 
   let nTrans = [];

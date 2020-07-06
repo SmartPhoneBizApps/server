@@ -248,7 +248,8 @@ module.exports = {
     app,
     comment,
     buttonType,
-    buttonName
+    buttonName,
+    comment2
   ) {
     // Read Create Map Config
     // These are converted old XML files from smartapp
@@ -264,6 +265,9 @@ module.exports = {
     pLog["Comment"] = comment;
     if (buttonType) {
       pLog["buttonType"] = buttonType;
+    }
+    if (comment2) {
+      pLog["UserComment"] = comment2;
     }
     if (buttonName) {
       pLog["buttonName"] = buttonName;
