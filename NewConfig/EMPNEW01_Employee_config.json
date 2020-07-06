@@ -36,7 +36,12 @@
     "SkillLevel",
     "Area",
     "Experience",
-    "Qualification"
+    "Qualification",
+    "InsurancePlan",
+    "MedicalCoverage",
+    "DentalCoverage",
+    "VisionCoverage",
+    "AccidentalDeath"
   ],
   "MButtons": [
     {
@@ -659,9 +664,9 @@
         },
         {
           "name": "LinkC",
-          "type": "string",
+          "type": "hyperlink",
           "width": "100",
-          "SLabel": "Relation",
+          "SLabel": "Certificate Link",
           "Option": "Optional"
         },
         {
@@ -718,7 +723,7 @@
         },
         {
           "name": "LinkP6",
-          "type": "string",
+          "type": "hyperlink",
           "width": "200",
           "SLabel": "DateCertified",
           "Option": "Optional"
