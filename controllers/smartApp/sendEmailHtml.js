@@ -5,9 +5,6 @@ const asyncHandler = require("../../middleware/async");
 // @route     POST /api/v1/datarecords/
 // @access    Private
 exports.sendEmailHtml = asyncHandler(async (req, res, next) => {
-  console.log("Test");
+  console.log("Test", process.env.APPURL);
   await sendHtmlEmail(req, res);
-  //   res.status(200).json({
-  //     success: true,
-  //   });
 });

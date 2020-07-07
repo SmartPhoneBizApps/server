@@ -52,8 +52,9 @@ exports.getListrecords1 = asyncHandler(async (req, res, next) => {
         if (config1["Controls"]["USP"] == "UserProfile") {
           results[i1].USP_Name = "OpenSAP course catalog";
           results[i1].USP_Role = "copyright - SAP®";
-          results[i1].USP_Image =
-            "https://fierce-oasis-51455.herokuapp.com/logos/logo_opensap.png";
+          //   results[i1].USP_Image =
+          //     "https://fierce-oasis-51455.herokuapp.com/logos/logo_opensap.png";
+          results[i1].USP_Image = process.env.APPURL + "logos/logo_opensap.png";
         }
       }
     }
