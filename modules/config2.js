@@ -1,6 +1,6 @@
 const asyncHandler = require("../middleware/async");
 const Possval = require("../models/appSetup/Possval");
-const ErrorResponse = require("../utils/errorResponse");
+//const ErrorResponse = require("../utils/errorResponse");
 var button = require("../bot/Supplier_button.json");
 const Agent = require("../models/access/Agent");
 const App = require("../models/appSetup/App");
@@ -9,16 +9,30 @@ const User = require("../models/access/User");
 const { getBotListFields, getInitialValues } = require("./config");
 
 module.exports = {
-  sendErrorMessage: function (chkVal, user, msg, code) {
-    rep = msg + " " + code;
-    if (!chkVal) {
-      return next(
-        new ErrorResponse(
-          `User setup for Company is not complete for : ${user}`,
-          404
-        )
-      );
+  sendErrorMessage: function (what, chkVal, user) {
+    const ErrorResponse = require("../utils/errorResponse");
+    switch (what) {
+      case "company":
+        outMsg = `Company can not be determined for : ${user}`;
+        break;
+      case "role":
+        outMsg = `Role can not be determined for : ${user}`;
+        break;
+      case "branch":
+        outMsg = `Branch can not be determined for : ${user}`;
+        break;
+      case "area":
+        outMsg = `Area can not be determined for : ${user}`;
+        break;
+      default:
+        break;
     }
+    let mgsObj;
+    if (!chkVal) {
+      mgsObj = new ErrorResponse(outMsg, 404);
+    }
+
+    return mgsObj;
   },
 
   getTotalCount: function (app, req, config1) {

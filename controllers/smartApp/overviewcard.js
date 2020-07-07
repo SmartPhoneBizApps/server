@@ -25,24 +25,13 @@ exports.adaptiveCard_card = async (req, res, next) => {
   });
 
   tab = req.params.tab;
-  console.log("OverviewCard/RoleAccess : ", role.roleAccess);
   //Validate Data...
 
-  sendErrorMessage(
-    req.user.company,
-    req.user.email,
-    "User setup for Company is not complete for :",
-    "404"
-  );
-
   if (role.roleAccess != "External") {
-    if (!req.user.company) {
-      return next(
-        new ErrorResponse(
-          `User setup for Company is not complete for : ${req.user.email}`,
-          404
-        )
-      );
+    // Company Validation
+    err1 = sendErrorMessage("company", req.user.company, req.user.email);
+    if (err1) {
+      return next(err1);
     }
     if (
       !req.user.branch &

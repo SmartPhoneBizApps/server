@@ -1,4 +1,5 @@
 const ErrorResponse = require("../../utils/errorResponse");
+const { sendErrorMessage } = require("../../modules/config2");
 
 const User = require("../../models/access/User");
 const Approle = require("../../models/appSetup/Approle");
@@ -105,14 +106,20 @@ exports.adaptiveCard_card = async (req, res, next) => {
   tab = req.params.tab;
   //Validate Data...
   if (req.user.userAccess != "External") {
-    if (!req.user.company) {
-      return next(
-        new ErrorResponse(
-          `User setup for Company is not complete ${req.user.email}`,
-          404
-        )
-      );
+    // if (!req.user.company) {
+    //   return next(
+    //     new ErrorResponse(
+    //       `User setup for Company is not complete ${req.user.email}`,
+    //       404
+    //     )
+    //   );
+    // }
+
+    err1 = sendErrorMessage("company", req.user.company, req.user.email);
+    if (err1) {
+      return next(err1);
     }
+
     if (
       !req.user.branch &
       (req.user.role == "BranchAdmin" || req.user.role == "BranchUser")

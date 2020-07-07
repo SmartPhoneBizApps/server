@@ -5,6 +5,7 @@ const Branch = require("../../models/orgSetup/Branch");
 const Area = require("../../models/orgSetup/Area");
 const App = require("../../models/appSetup/App");
 const Role = require("../../models/appSetup/Role");
+const { sendErrorMessage } = require("../../modules/config2");
 const {
   getNewConfig,
   createDocument,
@@ -76,14 +77,21 @@ exports.addDataRecords = asyncHandler(async (req, res, next) => {
   // ---------------------------------
   const CompanyDetails = await Company.findById(req.user.company);
   // Check if user setup has company (Pass)
-  if (!req.user.company) {
-    return next(
-      new ErrorResponse(
-        `The user with ID ${req.user.email} is not setup for any company`,
-        400
-      )
-    );
+  // if (!req.user.company) {
+  //   return next(
+  //     new ErrorResponse(
+  //       `The user with ID ${req.user.email} is not setup for any company`,
+  //       400
+  //     )
+  //   );
+  // }
+
+  // Company Validation
+  err1 = sendErrorMessage("company", req.user.company, req.user.email);
+  if (err1) {
+    return next(err1);
   }
+
   // Validate if user is creating documents in their own company (Pass)
   if (req.headers.company) {
     if (req.headers.company != CompanyDetails.id) {
@@ -126,13 +134,18 @@ exports.addDataRecords = asyncHandler(async (req, res, next) => {
   }
   // Validate if user has provided Branch details (Pass)
   if (!req.headers.branch) {
-    if (!req.user.branch) {
-      return next(
-        new ErrorResponse(
-          `The user with ID ${req.user.email} can't create document as branch is not provided`,
-          400
-        )
-      );
+    // if (!req.user.branch) {
+    //   return next(
+    //     new ErrorResponse(
+    //       `The user with ID ${req.user.email} can't create document as branch is not provided`,
+    //       400
+    //     )
+    //   );
+    // }
+
+    err1 = sendErrorMessage("branch", req.user.branch, req.user.email);
+    if (err1) {
+      return next(err1);
     }
   }
   // If user record has got Branch then validate is it matches with body Branch
@@ -379,14 +392,20 @@ exports.updateDataRecords = asyncHandler(async (req, res, next) => {
   const CompanyDetails = await Company.findById(req.user.company);
   ///  +++++++++++  VALIDATIONS STARTS +++++++++++++++++++++++ /////////
   // Check if user setup has company (Pass)
-  if (!req.user.company) {
-    return next(
-      new ErrorResponse(
-        `The user with ID ${req.user.email} is not setup for any company`,
-        400
-      )
-    );
+  // if (!req.user.company) {
+  //   return next(
+  //     new ErrorResponse(
+  //       `The user with ID ${req.user.email} is not setup for any company`,
+  //       400
+  //     )
+  //   );
+  // }
+
+  err1 = sendErrorMessage("company", req.user.company, req.user.email);
+  if (err1) {
+    return next(err1);
   }
+
   // Validate if user is creating documents in their own company (Pass)
   if (req.headers.company) {
     if (req.headers.company != CompanyDetails.id) {
@@ -425,13 +444,18 @@ exports.updateDataRecords = asyncHandler(async (req, res, next) => {
   }
   // Validate if user has provided Branch details (Pass)
   if (!req.headers.branch) {
-    if (!req.user.branch) {
-      return next(
-        new ErrorResponse(
-          `The user with ID ${req.user.email} can't create document as branch is not provided`,
-          400
-        )
-      );
+    // if (!req.user.branch) {
+    //   return next(
+    //     new ErrorResponse(
+    //       `The user with ID ${req.user.email} can't create document as branch is not provided`,
+    //       400
+    //     )
+    //   );
+    // }
+
+    err1 = sendErrorMessage("branch", req.user.branch, req.user.email);
+    if (err1) {
+      return next(err1);
     }
   }
   // If user record has got Branch then validate is it matches with body Branch

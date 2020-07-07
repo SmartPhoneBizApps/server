@@ -520,7 +520,7 @@
           "name": "ContactName1",
           "type": "string",
           "width": "200",
-          "SLabel": "ContactName",
+          "SLabel": "Contact Name",
           "Option": "Optional"
         },
         {
@@ -588,10 +588,10 @@
           "Option": "Optional"
         },
         {
-          "name": "ContactName",
+          "name": "Name1",
           "type": "string",
           "width": "200",
-          "SLabel": "ContactName",
+          "SLabel": "Name",
           "Option": "Optional"
         },
         {
@@ -616,17 +616,17 @@
           "Option": "Optional"
         }
       ],
-      "DisplayFields": ["ContactName", "ContactPhone", "Relation"],
+      "DisplayFields": ["Name1", "ContactPhone", "Relation"],
       "ItemButtons": {
         "itemDisplay": true,
         "itemAdd": true,
         "itemEdit": true,
         "itemDelete": true
       },
-      "CreateFields": ["ContactName", "ContactPhone", "Relation", "Comments5"],
+      "CreateFields": ["Name1", "ContactPhone", "Relation", "Comments5"],
       "ItemDetails": [
         {
-          "name": "ContactName",
+          "name": "Name1",
           "Mode": "Edit"
         },
         {
