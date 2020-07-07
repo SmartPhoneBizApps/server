@@ -55,12 +55,47 @@
   ],
   "DButtons": [
     {
-      "type": "ATTACHMENT",
-      "name": "View Attachments",
-      "icon": "sap-icon://attachment"
+      "type": "WORKFLOW",
+      "name": "Investigation Completed",
+      "icon": "sap-icon://close-command-field",
+      "Dialog": [
+        {
+          "label": "Investigation Completion Comment",
+          "name": "ApproverComment",
+          "type": "string",
+          "option": "Optional"
+        }
+      ],
+      "transferFields": [
+        { "field": "ID", "value": "@recorddata" },
+        { "field": "Status", "value": "InvestigationCompleted" },
+        { "field": "ApproverComment", "value": "@UserInput" }
+      ],
+      "URL": "datarecords/",
+      "Token": "Yes",
+      "URLMethod": "PUT"
     },
-    { "type": "UPDATE", "name": "Update Record", "icon": "sap-icon://update" },
-    { "type": "ADD", "name": "Add Record", "icon": "sap-icon://add" }
+    {
+      "type": "WORKFLOW",
+      "name": "Under Investigation",
+      "icon": "sap-icon://close-command-field",
+      "Dialog": [
+        {
+          "label": "Under Investigation Comment",
+          "name": "ApproverComment",
+          "type": "string",
+          "option": "Optional"
+        }
+      ],
+      "transferFields": [
+        { "field": "ID", "value": "@recorddata" },
+        { "field": "Status", "value": "UnderInvestigation" },
+        { "field": "ApproverComment", "value": "@UserInput" }
+      ],
+      "URL": "datarecords/",
+      "Token": "Yes",
+      "URLMethod": "PUT"
+    }
   ],
   "Tabs": [
     {

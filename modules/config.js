@@ -6,6 +6,8 @@ const Agent = require("../models/access/Agent");
 const App = require("../models/appSetup/App");
 const Role = require("../models/appSetup/Role");
 const User = require("../models/access/User");
+const sendEmail = require("../utils/sendEmail");
+const sendEmail1 = require("../utils/sendEmailProd");
 
 module.exports = {
   getCreateMap: function (sapp, tapp, trans) {
@@ -15,6 +17,34 @@ module.exports = {
       "../NewConfig/" + sapp + "_" + tapp + "_" + trans + "_createmap.json";
     var result = require(fn);
     return result;
+  },
+
+  sendHtmlEmail: function (req, res) {
+    //   let message = "Simple Test message";
+    let message =
+      '<!DOCTYPE html><html><body><table border="1"><th><td>AAA</td></th><tr ><td>BBB</td></tr></table></body></html>';
+    try {
+      sendEmail({
+        //email: req.params.user,
+        //subject: sub,
+        //message,
+
+        email: "gst@smartphonebizapps.com",
+        subject: "Test Email",
+
+        message,
+      });
+      res.status(200).json({
+        success: true,
+        message: "Course assigned to the user & Email sent",
+      });
+    } catch (err) {
+      console.log(err);
+      res.status(200).json({
+        success: true,
+        message: "Course assigned to the user but Email could not be sent",
+      });
+    }
   },
 
   getInitialValues: function (a, b, c) {
