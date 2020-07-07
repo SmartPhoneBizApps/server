@@ -43,7 +43,7 @@
       "Dialog": [
         {
           "label": "Approver Comment",
-          "name": "ApproverComment",
+          "name": "ProgressComment",
           "type": "string",
           "option": "Optional"
         }
@@ -51,7 +51,7 @@
       "transferFields": [
         { "field": "ID", "value": "@recorddata" },
         { "field": "Status", "value": "Approved" },
-        { "field": "ApproverComment", "value": "@UserInput" }
+        { "field": "ProgressComment", "value": "@UserInput" }
       ],
       "URL": "datarecords/",
       "Token": "Yes",
@@ -65,7 +65,7 @@
       "Dialog": [
         {
           "label": "Approver Comment",
-          "name": "ApproverComment",
+          "name": "ProgressComment",
           "type": "string",
           "option": "Optional"
         }
@@ -73,7 +73,7 @@
       "transferFields": [
         { "field": "ID", "value": "@recorddata" },
         { "field": "Status", "value": "Rejected" },
-        { "field": "ApproverComment", "value": "@UserInput" }
+        { "field": "ProgressComment", "value": "@UserInput" }
       ],
       "URL": "datarecords/",
       "Token": "Yes",
@@ -87,7 +87,7 @@
       "Dialog": [
         {
           "label": "Approver Comment",
-          "name": "ApproverComment",
+          "name": "ProgressComment",
           "type": "string",
           "option": "Optional"
         }
@@ -95,7 +95,7 @@
       "transferFields": [
         { "field": "ID", "value": "@recorddata" },
         { "field": "Status", "value": "ReferBack" },
-        { "field": "ApproverComment", "value": "@UserInput" }
+        { "field": "ProgressComment", "value": "@UserInput" }
       ],
       "URL": "datarecords/",
       "Token": "Yes",
@@ -258,6 +258,14 @@
       "LLabel": "Status"
     },
     {
+      "name": "ProgressComment",
+      "type": "string",
+      "width": "1000",
+      "Option": "Optional",
+      "SLabel": "ProgressComment",
+      "LLabel": "ProgressComment"
+    },
+    {
       "name": "Comment",
       "type": "string",
       "width": "50",
@@ -266,7 +274,7 @@
       "LLabel": ""
     },
     {
-      "name": "ApproverComment",
+      "name": "ProgressComment",
       "type": "string",
       "width": "500",
       "Option": "Mandatory",

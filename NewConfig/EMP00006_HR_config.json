@@ -66,7 +66,7 @@
       "name": "Booked",
       "icon": "sap-icon://complete",
       "updateFields": [
-        { "ApproverComment": "Optional", "mode": "Append" },
+        { "ProgressComment": "Optional", "mode": "Append" },
         { "Status": "Booked", "mode": "Insert" }
       ]
     },
@@ -75,7 +75,7 @@
       "name": "Reject",
       "icon": "sap-icon://decline",
       "updateFields": [
-        { "ApproverComment": "Required", "mode": "Append" },
+        { "ProgressComment": "Required", "mode": "Append" },
         { "Status": "NotBooked", "mode": "Insert" }
       ]
     },
@@ -84,7 +84,7 @@
       "name": "Refer Back",
       "icon": "sap-icon://hint",
       "updateFields": [
-        { "ApproverComment": "Optional", "mode": "Append" },
+        { "ProgressComment": "Optional", "mode": "Append" },
         { "Status": "MoreInfo-HR", "mode": "Insert" }
       ]
     }
@@ -135,7 +135,7 @@
         "Fields": ["EmployeeID", "Name"]
       }
     ],
-    "Tab2": ["ProjectNeed", "Cost", "CostCentre", "ApproverComment"],
+    "Tab2": ["ProjectNeed", "Cost", "CostCentre", "ProgressComment"],
     "Tab3": ["ProcessingLog"]
   },
   "ControlDisplay": {},
@@ -261,11 +261,11 @@
       "LLabel": ""
     },
     {
-      "name": "ApproverComment",
+      "name": "ProgressComment",
       "type": "string",
       "width": "500",
       "Option": "Optional",
-      "SLabel": "ApproverComment",
+      "SLabel": "ProgressComment",
       "LLabel": ""
     },
     {

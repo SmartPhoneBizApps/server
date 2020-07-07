@@ -60,7 +60,7 @@
       "Dialog": [
         {
           "label": "Approver Comment",
-          "name": "ApproverComment",
+          "name": "ProgressComment",
           "type": "string",
           "option": "Optional"
         }
@@ -68,7 +68,7 @@
       "transferFields": [
         { "field": "ID", "value": "@recorddata" },
         { "field": "Status", "value": "Approved" },
-        { "field": "ApproverComment", "value": "@UserInput" }
+        { "field": "ProgressComment", "value": "@UserInput" }
       ],
       "URL": "datarecords/",
       "Token": "Yes",
@@ -81,7 +81,7 @@
       "Dialog": [
         {
           "label": "Approver Comment",
-          "name": "ApproverComment",
+          "name": "ProgressComment",
           "type": "string",
           "option": "Optional"
         }
@@ -89,7 +89,7 @@
       "transferFields": [
         { "field": "ID", "value": "@recorddata" },
         { "field": "Status", "value": "Rejected" },
-        { "field": "ApproverComment", "value": "@UserInput" }
+        { "field": "ProgressComment", "value": "@UserInput" }
       ],
       "URL": "datarecords/",
       "Token": "Yes",
@@ -102,7 +102,7 @@
       "Dialog": [
         {
           "label": "Approver Comment",
-          "name": "ApproverComment",
+          "name": "ProgressComment",
           "type": "string",
           "option": "Optional"
         }
@@ -110,7 +110,7 @@
       "transferFields": [
         { "field": "ID", "value": "@recorddata" },
         { "field": "Status", "value": "ReferBack" },
-        { "field": "ApproverComment", "value": "@UserInput" }
+        { "field": "ProgressComment", "value": "@UserInput" }
       ],
       "URL": "datarecords/",
       "Token": "Yes",

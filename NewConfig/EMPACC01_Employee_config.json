@@ -76,7 +76,7 @@
       "Dialog": [
         {
           "label": "Cancellation Comment",
-          "name": "ApproverComment",
+          "name": "ProgressComment",
           "type": "string",
           "option": "Optional"
         }
@@ -84,7 +84,7 @@
       "transferFields": [
         { "field": "ID", "value": "@recorddata" },
         { "field": "Status", "value": "Cancelled" },
-        { "field": "ApproverComment", "value": "@UserInput" }
+        { "field": "ProgressComment", "value": "@UserInput" }
       ],
       "URL": "datarecords/",
       "Token": "Yes",
@@ -186,7 +186,7 @@
     "Tab3": [
       {
         "GrpTitle": "Approval Details",
-        "Fields": ["Approver", "ApprovalDate", "ApproverComment"]
+        "Fields": ["Approver", "ApprovalDate", "ProgressComment"]
       },
       {
         "GrpTitle": "Admin Details",
@@ -208,7 +208,7 @@
             "Reason",
             "RequestType",
             "Status",
-            "ApproverComment",
+            "ProgressComment",
             "ApprovalDate",
             "Officer",
             "Approver",
@@ -353,6 +353,14 @@
       "LLabel": "Status"
     },
     {
+      "name": "ProgressComment",
+      "type": "string",
+      "width": "1000",
+      "Option": "Optional",
+      "SLabel": "ProgressComment",
+      "LLabel": "ProgressComment"
+    },
+    {
       "name": "ApprovalDate",
       "type": "Date",
       "width": "10",
@@ -361,7 +369,7 @@
       "LLabel": ""
     },
     {
-      "name": "ApproverComment",
+      "name": "ProgressComment",
       "type": "string",
       "width": "500",
       "Option": "Optional",

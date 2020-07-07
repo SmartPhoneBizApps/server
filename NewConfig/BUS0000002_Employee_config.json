@@ -61,7 +61,7 @@
       "Dialog": [
         {
           "label": "Cancellation Comment",
-          "name": "ApproverComment",
+          "name": "ProgressComment",
           "type": "string",
           "option": "Optional"
         }
@@ -69,7 +69,7 @@
       "transferFields": [
         { "field": "ID", "value": "@recorddata" },
         { "field": "Status", "value": "Cancelled" },
-        { "field": "ApproverComment", "value": "@UserInput" }
+        { "field": "ProgressComment", "value": "@UserInput" }
       ],
       "URL": "datarecords/",
       "Token": "Yes",
@@ -278,6 +278,14 @@
       "Option": "Mandatory",
       "SLabel": "Status",
       "LLabel": "Status"
+    },
+    {
+      "name": "ProgressComment",
+      "type": "string",
+      "width": "1000",
+      "Option": "Optional",
+      "SLabel": "ProgressComment",
+      "LLabel": "ProgressComment"
     },
     {
       "name": "Class",

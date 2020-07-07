@@ -55,11 +55,11 @@
     {
       "type": "WORKFLOW",
       "name": "Resolved",
-      "icon": "sap-icon://decline",
+      "icon": "sap-icon://sys-enter",
       "Dialog": [
         {
           "label": "Resolution Comment",
-          "name": "ApproverComment",
+          "name": "ProgressComment",
           "type": "string",
           "option": "Optional"
         }
@@ -67,7 +67,7 @@
       "transferFields": [
         { "field": "ID", "value": "@recorddata" },
         { "field": "Status", "value": "Resolved" },
-        { "field": "ApproverComment", "value": "@UserInput" }
+        { "field": "ProgressComment", "value": "@UserInput" }
       ],
       "URL": "datarecords/",
       "Token": "Yes",
@@ -80,15 +80,15 @@
       "Dialog": [
         {
           "label": "More Info Required Comment",
-          "name": "ApproverComment",
+          "name": "ProgressComment",
           "type": "string",
           "option": "Optional"
         }
       ],
       "transferFields": [
         { "field": "ID", "value": "@recorddata" },
-        { "field": "Status", "value": "MoreInfo" },
-        { "field": "ApproverComment", "value": "@UserInput" }
+        { "field": "Status", "value": "message-information" },
+        { "field": "ProgressComment", "value": "@UserInput" }
       ],
       "URL": "datarecords/",
       "Token": "Yes",
@@ -97,11 +97,11 @@
     {
       "type": "WORKFLOW",
       "name": "InProgress",
-      "icon": "sap-icon://decline",
+      "icon": "sap-icon://drill-up",
       "Dialog": [
         {
           "label": "In Progress Comment",
-          "name": "ApproverComment",
+          "name": "ProgressComment",
           "type": "string",
           "option": "Optional"
         }
@@ -109,7 +109,7 @@
       "transferFields": [
         { "field": "ID", "value": "@recorddata" },
         { "field": "Status", "value": "InProgress" },
-        { "field": "ApproverComment", "value": "@UserInput" }
+        { "field": "ProgressComment", "value": "@UserInput" }
       ],
       "URL": "datarecords/",
       "Token": "Yes",
@@ -242,6 +242,14 @@
       "Option": "Mandatory",
       "SLabel": "Status",
       "LLabel": "Status"
+    },
+    {
+      "name": "ProgressComment",
+      "type": "string",
+      "width": "1000",
+      "Option": "Optional",
+      "SLabel": "ProgressComment",
+      "LLabel": "ProgressComment"
     },
     {
       "name": "ScreenShot",

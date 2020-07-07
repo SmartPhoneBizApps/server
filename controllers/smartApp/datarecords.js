@@ -206,7 +206,7 @@ exports.addDataRecords = asyncHandler(async (req, res, next) => {
     "New document created",
     req.headers.buttonType,
     req.headers.buttonName,
-    req.body.ApproverComment
+    req.body.ProgressComment
   );
 
   req.body.ID = Math.floor(100000 + Math.random() * 900000);
@@ -512,7 +512,7 @@ exports.updateDataRecords = asyncHandler(async (req, res, next) => {
     "Document is updated",
     req.headers.buttonType,
     req.headers.buttonName,
-    req.body.ApproverComment
+    req.body.ProgressComment
   );
 
   let nTrans = [];
