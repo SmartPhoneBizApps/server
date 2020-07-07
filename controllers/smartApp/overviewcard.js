@@ -2,6 +2,7 @@ const ErrorResponse = require("../../utils/errorResponse");
 const Role = require("../../models/appSetup/Role");
 const Approle = require("../../models/appSetup/Approle");
 const { gerCardData } = require("../../modules/config");
+const { sendErrorMessage } = require("../../modules/config2");
 
 let myD = { json: [] };
 let myO = { json: {} };
@@ -22,14 +23,23 @@ exports.adaptiveCard_card = async (req, res, next) => {
   const role = await Role.findOne({
     role: req.params.role,
   });
+
   tab = req.params.tab;
   console.log("OverviewCard/RoleAccess : ", role.roleAccess);
   //Validate Data...
+
+  sendErrorMessage(
+    req.user.company,
+    req.user.email,
+    "User setup for Company is not complete for :",
+    "404"
+  );
+
   if (role.roleAccess != "External") {
     if (!req.user.company) {
       return next(
         new ErrorResponse(
-          `User setup for Company is not complete ${req.user.email}`,
+          `User setup for Company is not complete for : ${req.user.email}`,
           404
         )
       );

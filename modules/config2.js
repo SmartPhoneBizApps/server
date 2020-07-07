@@ -9,6 +9,18 @@ const User = require("../models/access/User");
 const { getBotListFields, getInitialValues } = require("./config");
 
 module.exports = {
+  sendErrorMessage: function (chkVal, user, msg, code) {
+    rep = msg + " " + code;
+    if (!chkVal) {
+      return next(
+        new ErrorResponse(
+          `User setup for Company is not complete for : ${user}`,
+          404
+        )
+      );
+    }
+  },
+
   getTotalCount: function (app, req, config1) {
     let config = {};
     fl1 = {};

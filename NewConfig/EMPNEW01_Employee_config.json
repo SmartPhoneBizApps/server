@@ -306,7 +306,7 @@
           "Mode": "Edit"
         },
         {
-          "name": "Skill1",
+          "name": "Skill",
           "Mode": "Edit"
         },
         {
@@ -534,7 +534,7 @@
           "name": "Relation1",
           "type": "string",
           "width": "100",
-          "SLabel": "Relation",
+          "SLabel": "Relation1",
           "Option": "Optional"
         },
         {
@@ -545,25 +545,30 @@
           "Option": "Optional"
         }
       ],
-      "DisplayFields": ["ContactName", "ContactPhone", "Relation"],
+      "DisplayFields": ["ContactName1", "ContactPhone1", "Relation1"],
       "ItemButtons": {
         "itemDisplay": true,
         "itemAdd": true,
         "itemEdit": true,
         "itemDelete": true
       },
-      "CreateFields": ["ContactName", "ContactPhone", "Relation", "Comments4"],
+      "CreateFields": [
+        "ContactName1",
+        "ContactPhone1",
+        "Relation1",
+        "Comments4"
+      ],
       "ItemDetails": [
         {
-          "name": "ContactName",
+          "name": "ContactName1",
           "Mode": "Edit"
         },
         {
-          "name": "ContactPhone",
+          "name": "ContactPhone1",
           "Mode": "Edit"
         },
         {
-          "name": "Relation",
+          "name": "Relation1",
           "Mode": "Edit"
         },
         {
@@ -864,14 +869,14 @@
           "Option": "Optional"
         }
       ],
-      "DisplayFields": ["Question", "Answer", "CorrectAnswer", "CorrectAnswer"],
+      "DisplayFields": ["Question", "Answer"],
       "ItemButtons": {
         "itemDisplay": true,
         "itemAdd": true,
         "itemEdit": true,
         "itemDelete": true
       },
-      "CreateFields": ["Question", "Answer", "CorrectAnswer", "CorrectAnswer"],
+      "CreateFields": ["Question", "Answer"],
       "ItemDetails": [
         {
           "name": "Question",
@@ -879,10 +884,6 @@
         },
         {
           "name": "Answer",
-          "Mode": "Edit"
-        },
-        {
-          "name": "CorrectAnswer",
           "Mode": "Edit"
         },
         {
