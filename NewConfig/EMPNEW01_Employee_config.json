@@ -848,14 +848,21 @@
           "name": "Question",
           "type": "string",
           "width": "10",
-          "SLabel": "Question",
+          "SLabel": "Salary Details",
           "Option": "Optional"
         },
         {
           "name": "Answer",
           "type": "string",
           "width": "20",
-          "SLabel": "Answer",
+          "SLabel": "Earnings",
+          "Option": "Optional"
+        },
+        {
+          "name": "Deductions",
+          "type": "string",
+          "width": "20",
+          "SLabel": "Deductions",
           "Option": "Optional"
         },
         {
@@ -873,14 +880,14 @@
           "Option": "Optional"
         }
       ],
-      "DisplayFields": ["Question", "Answer"],
+      "DisplayFields": ["Question", "Answer", "Deductions"],
       "ItemButtons": {
         "itemDisplay": true,
         "itemAdd": false,
         "itemEdit": false,
         "itemDelete": false
       },
-      "CreateFields": ["Question", "Answer"],
+      "CreateFields": ["Question", "Answer", "Deductions"],
       "ItemDetails": [
         {
           "name": "Question",
@@ -891,7 +898,7 @@
           "Mode": "Edit"
         },
         {
-          "name": "CorrectAnswer",
+          "name": "Deductions",
           "Mode": "Edit"
         }
       ]
