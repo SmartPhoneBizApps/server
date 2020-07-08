@@ -22,17 +22,18 @@
     }
   },
   "sap.card": {
+    "component1": ["header", "type"],
     "timeline1": ["header", "type", "content"],
     "adaptivecard": ["header", "type", "content"],
     "adaptivecard2": ["header", "type", "content"],
     "adaptivecard3": ["header", "type", "content"],
-    "calendar": ["header", "type", "content", "data"],
-    "component1": ["header", "type"],
     "donut": ["header", "type", "content"],
     "list1": ["header", "type", "content"],
     "list2": ["header", "type", "content"],
-    "quicklink1": ["header", "json", "item"],
-    "table1": ["header", "type", "content"]
+    "table1": ["header", "type", "content"],
+    "calendar": ["header", "type", "content", "data"],
+    "objectPerson": ["header", "type", "content", "data"],
+    "quicklink1": ["header", "json", "item"]
   },
   "header": {
     "timeline1": {
@@ -41,6 +42,21 @@
       "status": {
         "text": "@StatusText"
       },
+      "actions": [
+        {
+          "type": "Navigation",
+          "parameters": {
+            "url": "@HeaderActionURL"
+          }
+        }
+      ]
+    },
+    "objectPerson": {
+      "icon": {
+        "text": "DM"
+      },
+      "title": "{firstName} {lastName}",
+      "subTitle": "{position}",
       "actions": [
         {
           "type": "Navigation",
@@ -123,7 +139,8 @@
     }
   },
   "type": {
-    "timeline1": "AdaptiveCard",
+    "timeline1": "Timeline",
+    "objectPerson": "Object",
     "adaptivecard": "AdaptiveCard",
     "adaptivecard2": "AdaptiveCard",
     "adaptivecard3": "AdaptiveCard",
@@ -136,10 +153,28 @@
     "table1": "Table"
   },
   "content": {
-    "timeline1": ["data", "item"],
-    "adaptivecard": ["$schema", "type", "version", "body", "actions"],
-    "adaptivecard2": ["$schema", "type", "version", "body"],
-    "adaptivecard3": ["$schema", "type", "version", "body", "$data"],
+    "timeline1": { "data": { "json": [] }, "item": {} },
+    "objectPerson": ["groups", "actions"],
+    "adaptivecard": {
+      "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+      "type": "AdaptiveCard",
+      "version": "1.0",
+      "body": [],
+      "actions": []
+    },
+    "adaptivecard2": {
+      "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+      "type": "AdaptiveCard",
+      "version": "1.2",
+      "body": []
+    },
+    "adaptivecard3": {
+      "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+      "type": "AdaptiveCard",
+      "version": "1.0",
+      "$data": {},
+      "body": []
+    },
     "calendar": [
       "date",
       "maxItems",

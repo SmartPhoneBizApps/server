@@ -17,66 +17,85 @@ module.exports = {
     grp1 = [];
     grp_cont = [];
     hdr = {};
+    typ = "";
     switch (cardType) {
       case "timeline1":
         grp1 = cardConfig["sap.card"]["timeline1"];
         grp_cont = cardConfig["content"]["timeline1"];
         hdr = cardConfig["header"]["timeline1"];
+        typ = "Timeline";
+        break;
+      case "objectPerson":
+        grp1 = cardConfig["sap.card"]["objectPerson"];
+        grp_cont = cardConfig["content"]["objectPerson"];
+        hdr = cardConfig["header"]["objectPerson"];
+        typ = "Object";
         break;
       case "adaptivecard":
         grp1 = cardConfig["sap.card"]["adaptivecard"];
         grp_cont = cardConfig["content"]["adaptivecard"];
         hdr = cardConfig["header"]["adaptivecard"];
+        typ = "AdaptiveCard";
         break;
       case "adaptivecard2":
         grp1 = cardConfig["sap.card"]["adaptivecard2"];
         grp_cont = cardConfig["content"]["adaptivecard2"];
         hdr = cardConfig["header"]["adaptivecard2"];
+        typ = "AdaptiveCard";
         break;
       case "adaptivecard3":
         grp1 = cardConfig["sap.card"]["adaptivecard3"];
         grp_cont = cardConfig["content"]["adaptivecard3"];
         hdr = cardConfig["header"]["adaptivecard3"];
+        typ = "AdaptiveCard";
         break;
       case "calendar":
         grp1 = cardConfig["sap.card"]["calendar"];
         grp_cont = cardConfig["content"]["calendar"];
         hdr = cardConfig["header"]["calendar"];
+        typ = "Calendar";
         break;
       case "component1":
         grp1 = cardConfig["sap.card"]["component1"];
         grp_cont = cardConfig["content"]["timeline1"];
         hdr = cardConfig["header"]["component1"];
+        typ = "Component";
         break;
       case "donut":
         grp1 = cardConfig["sap.card"]["donut"];
         grp_cont = cardConfig["content"]["component1"];
         hdr = cardConfig["header"]["donut"];
+        typ = "Analytical";
         break;
       case "list1":
         grp1 = cardConfig["sap.card"]["list1"];
         grp_cont = cardConfig["content"]["list1"];
         hdr = cardConfig["header"]["list1"];
+        typ = "List";
         break;
       case "list2":
         grp1 = cardConfig["sap.card"]["list2"];
         grp_cont = cardConfig["content"]["list2"];
         hdr = cardConfig["header"]["list2"];
+        typ = "List";
         break;
       case "quicklink1":
         grp1 = cardConfig["sap.card"]["quicklink1"];
         grp_cont = cardConfig["content"]["quicklink1"];
         hdr = cardConfig["header"]["quicklink1"];
+        typ = "List";
         break;
       case "table1":
         grp1 = cardConfig["sap.card"]["table1"];
         grp_cont = cardConfig["content"]["table1"];
         hdr = cardConfig["header"]["table1"];
+        typ = "Table";
         break;
       default:
         break;
     }
     stru = cardConfig["Structure"];
+    stru["sap.card"]["type"] = typ;
     stru["sap.card"]["header"] = hdr;
     stru["sap.card"]["content"] = grp_cont;
 

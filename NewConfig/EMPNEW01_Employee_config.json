@@ -162,7 +162,10 @@
       "name": "Attachments",
       "fioriicon": "attachment",
       "type": "MultiAttachments",
-      "docType": ["Certificate", "Qualification"]
+      "docType": [
+        { "text": "Certificate", "state": "Success" },
+        { "text": "Exp", "state": "Information" }
+      ]
     },
     {
       "value": "Tab11",
