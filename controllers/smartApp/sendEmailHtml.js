@@ -7,10 +7,10 @@ const asyncHandler = require("../../middleware/async");
 exports.sendEmailHtml = asyncHandler(async (req, res, next) => {
   let fn = "../../NewConfig/emailTemplate.json";
   var res1 = require(fn);
-  var passData = res1["AssignTraining"];
+  var passData = res1["Certificate"];
   passData["userName"] = "Divyesh";
   passData["imageURL"] =
-    process.env.APPURL + res1["AssignTraining"]["emailImage"];
+    process.env.APPURL + "appImages/" + res1["AssignTraining"]["emailImage"];
   passData["buttonLink"] = "https://www.google.com";
   passData["req"] = req;
   passData["res"] = res;

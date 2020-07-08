@@ -10,6 +10,78 @@ const sendEmail = require("../utils/sendEmail");
 const sendEmail1 = require("../utils/sendEmailProd");
 
 module.exports = {
+  getCard: function (data, cardType) {
+    let cardConfigFile = "../cards/cardConfig/card_template.json";
+    var cardConfig = require(cardConfigFile);
+
+    grp1 = [];
+    grp_cont = [];
+    hdr = {};
+    switch (cardType) {
+      case "timeline1":
+        grp1 = cardConfig["sap.card"]["timeline1"];
+        grp_cont = cardConfig["content"]["timeline1"];
+        hdr = cardConfig["header"]["timeline1"];
+        break;
+      case "adaptivecard":
+        grp1 = cardConfig["sap.card"]["adaptivecard"];
+        grp_cont = cardConfig["content"]["adaptivecard"];
+        hdr = cardConfig["header"]["adaptivecard"];
+        break;
+      case "adaptivecard2":
+        grp1 = cardConfig["sap.card"]["adaptivecard2"];
+        grp_cont = cardConfig["content"]["adaptivecard2"];
+        hdr = cardConfig["header"]["adaptivecard2"];
+        break;
+      case "adaptivecard3":
+        grp1 = cardConfig["sap.card"]["adaptivecard3"];
+        grp_cont = cardConfig["content"]["adaptivecard3"];
+        hdr = cardConfig["header"]["adaptivecard3"];
+        break;
+      case "calendar":
+        grp1 = cardConfig["sap.card"]["calendar"];
+        grp_cont = cardConfig["content"]["calendar"];
+        hdr = cardConfig["header"]["calendar"];
+        break;
+      case "component1":
+        grp1 = cardConfig["sap.card"]["component1"];
+        grp_cont = cardConfig["content"]["timeline1"];
+        hdr = cardConfig["header"]["component1"];
+        break;
+      case "donut":
+        grp1 = cardConfig["sap.card"]["donut"];
+        grp_cont = cardConfig["content"]["component1"];
+        hdr = cardConfig["header"]["donut"];
+        break;
+      case "list1":
+        grp1 = cardConfig["sap.card"]["list1"];
+        grp_cont = cardConfig["content"]["list1"];
+        hdr = cardConfig["header"]["list1"];
+        break;
+      case "list2":
+        grp1 = cardConfig["sap.card"]["list2"];
+        grp_cont = cardConfig["content"]["list2"];
+        hdr = cardConfig["header"]["list2"];
+        break;
+      case "quicklink1":
+        grp1 = cardConfig["sap.card"]["quicklink1"];
+        grp_cont = cardConfig["content"]["quicklink1"];
+        hdr = cardConfig["header"]["quicklink1"];
+        break;
+      case "table1":
+        grp1 = cardConfig["sap.card"]["table1"];
+        grp_cont = cardConfig["content"]["table1"];
+        hdr = cardConfig["header"]["table1"];
+        break;
+      default:
+        break;
+    }
+    stru = cardConfig["Structure"];
+    stru["sap.card"]["header"] = hdr;
+    stru["sap.card"]["content"] = grp_cont;
+
+    return stru;
+  },
   getCreateMap: function (sapp, tapp, trans) {
     // Read Create Map Config
     // This will be used only when you create record copying data from sapp to tapp

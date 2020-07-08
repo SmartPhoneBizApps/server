@@ -76,7 +76,6 @@ exports.adaptiveCard_card = async (req, res, next) => {
 
   // When tab is "Tab1", a full template with Tab1 data will be returned, for all other cases on data for that tab
   if (tab == "Tab1") {
-    //  let fileName1 = "../../cards/cardConfig/" + role.role + "_cardTabs.json";
     let fileName1 = "../../cards/cardConfig/" + role.role + "_cardTabs.json";
     var cardTemplate = require(fileName1);
   } else {

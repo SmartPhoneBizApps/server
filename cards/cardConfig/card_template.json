@@ -1,0 +1,202 @@
+{
+  "Structure": {
+    "sap.app": {
+      "type": "card",
+      "id": "smartphoneapps"
+    },
+    "cardColumn": 4,
+    "cardMinRows": 4,
+    "sap.card": {
+      "header": {
+        "title": "@Title",
+        "subTitle": "@SubTitle",
+        "status": {},
+        "actions": [],
+        "icon": {}
+      },
+      "type": "@Type",
+      "content": {},
+      "data": {},
+      "json": {},
+      "item": {}
+    }
+  },
+  "sap.card": {
+    "timeline1": ["header", "type", "content"],
+    "adaptivecard": ["header", "type", "content"],
+    "adaptivecard2": ["header", "type", "content"],
+    "adaptivecard3": ["header", "type", "content"],
+    "calendar": ["header", "type", "content", "data"],
+    "component1": ["header", "type"],
+    "donut": ["header", "type", "content"],
+    "list1": ["header", "type", "content"],
+    "list2": ["header", "type", "content"],
+    "quicklink1": ["header", "json", "item"],
+    "table1": ["header", "type", "content"]
+  },
+  "header": {
+    "timeline1": {
+      "title": "@Title",
+      "subTitle": "@SubTitle",
+      "status": {
+        "text": "@StatusText"
+      },
+      "actions": [
+        {
+          "type": "Navigation",
+          "parameters": {
+            "url": "@HeaderActionURL"
+          }
+        }
+      ]
+    },
+    "adaptivecard": {
+      "title": "@Title",
+      "subTitle": "@SubTitle",
+      "icon": {
+        "src": "@HeaderIcon"
+      }
+    },
+    "adaptivecard2": {
+      "title": "@Title",
+      "subTitle": "@SubTitle",
+      "icon": {
+        "src": "@HeaderIcon"
+      }
+    },
+    "adaptivecard3": {
+      "title": "@Title",
+      "subTitle": "@SubTitle"
+    },
+    "calendar": {
+      "title": "@Title",
+      "subTitle": "@SubTitle",
+      "status": {
+        "text": {
+          "format": {
+            "translationKey": "i18n>CARD.COUNT_X_OF_Y",
+            "parts": ["parameters>/visibleItems", "parameters>/allItems"]
+          }
+        }
+      }
+    },
+    "component1": {
+      "icon": {
+        "src": "@HeaderIcon"
+      },
+      "title": "@Title",
+      "subTitle": "@SubTitle"
+    },
+    "donut": {
+      "title": "@Title"
+    },
+    "list1": {
+      "title": "@Title",
+      "status": {
+        "text": "3 of 3"
+      }
+    },
+    "list2": {
+      "title": "@Title",
+      "subTitle": "@SubTitle",
+      "icon": {
+        "src": "@HeaderImage"
+      }
+    },
+    "quicklink1": {
+      "title": "@Title",
+      "actions": [
+        {
+          "type": "Navigation",
+          "parameters": {
+            "url": "@HeaderActionURL"
+          }
+        }
+      ]
+    },
+    "table1": {
+      "title": "@Title",
+      "subTitle": "@SubTitle",
+      "status": {
+        "text": "Status text"
+      }
+    }
+  },
+  "type": {
+    "timeline1": "AdaptiveCard",
+    "adaptivecard": "AdaptiveCard",
+    "adaptivecard2": "AdaptiveCard",
+    "adaptivecard3": "AdaptiveCard",
+    "calendar": "Calendar",
+    "component1": "Component",
+    "donut": "Analytical",
+    "list1": "List",
+    "list2": "List",
+    "quicklink1": "NA",
+    "table1": "Table"
+  },
+  "content": {
+    "timeline1": ["data", "item"],
+    "adaptivecard": ["$schema", "type", "version", "body", "actions"],
+    "adaptivecard2": ["$schema", "type", "version", "body"],
+    "adaptivecard3": ["$schema", "type", "version", "body", "$data"],
+    "calendar": [
+      "date",
+      "maxItems",
+      "maxLegendItems",
+      "noItemsText",
+      "item",
+      "specialDate",
+      "legendItem",
+      "moreItems"
+    ],
+    "component1": [],
+    "donut": [
+      "chartType",
+      "legend",
+      "plotArea",
+      "title",
+      "measureAxis",
+      "dimensionAxis",
+      "data",
+      "dimensions",
+      "measures"
+    ],
+    "list1": ["data", "item"],
+    "list2": ["data", "item"],
+    "quicklink1": ["data", "item"],
+    "table1": ["row"]
+  },
+  "data": {
+    "timeline1": ["data", "item"],
+    "adaptivecard": ["$schema", "type", "version", "body", "actions"],
+    "adaptivecard2": ["$schema", "type", "version", "body"],
+    "adaptivecard3": ["$schema", "type", "version", "body", "$data"],
+    "calendar": [
+      "date",
+      "maxItems",
+      "maxLegendItems",
+      "noItemsText",
+      "item",
+      "specialDate",
+      "legendItem",
+      "moreItems"
+    ],
+    "component1": [],
+    "donut": [
+      "chartType",
+      "legend",
+      "plotArea",
+      "title",
+      "measureAxis",
+      "dimensionAxis",
+      "data",
+      "dimensions",
+      "measures"
+    ],
+    "list1": ["data", "item"],
+    "list2": ["data", "item"],
+    "quicklink1": ["data", "item"],
+    "table1": ["row"]
+  }
+}
