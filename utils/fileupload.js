@@ -65,6 +65,7 @@ exports.uploadFile = asyncHandler(async (req, res, next) => {
     version = req.headers.version + 1;
   }
   let statuses = [];
+  console.log(req.body.key);
   rg01 = req.body.key.split(",");
   st1 = {};
   st1["title"] = rg01[0];
