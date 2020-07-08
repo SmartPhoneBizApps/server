@@ -11,6 +11,7 @@ const App = require("../models/appSetup/App");
 exports.uploadFile = asyncHandler(async (req, res, next) => {
   // Note the logic currently supports only one file at a time..
   console.log("Inside Upload...");
+  console.log(req.body.key);
   const file = req.files.file;
   /////////////////////////////////////////////////////////////////////////
   //   --------  Input - Validations  -------------------

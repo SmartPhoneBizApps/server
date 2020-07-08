@@ -103,6 +103,30 @@
       "URL": "util/addCourseCatalog/TRAIN003/TRAIN008/{ID}/{role}",
       "Token": "Yes",
       "URLMethod": "POST"
+    },
+
+    {
+      "type": "ADDVIDEO",
+      "name": "Add video",
+      "icon": "sap-icon://attachment-video",
+      "Dialog": [
+        {
+          "label": "Video Link",
+          "name": "src",
+          "type": "string",
+          "option": "Mandatory"
+        }
+      ],
+      "transferFields": [
+        { "field": "ID", "value": "@recorddata" },
+        {
+          "field": "Video",
+          "value": "@UserInput"
+        }
+      ],
+      "URL": "datarecords/",
+      "Token": "Yes",
+      "URLMethod": "PUT"
     }
   ],
   "Tabs": [
