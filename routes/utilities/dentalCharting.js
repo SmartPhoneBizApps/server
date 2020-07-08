@@ -5,6 +5,6 @@ const {
 const router = express.Router({ mergeParams: true });
 const { protect, authorize } = require("../../middleware/auth");
 
-router.route("/").put(dentalCharting);
+router.route("/").get(dentalCharting);
 
 module.exports = router;
