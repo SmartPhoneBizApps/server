@@ -7,13 +7,14 @@ const { getCard } = require("../../modules/config");
 // @access    Public
 exports.overviewcardNew = async (req, res, next) => {
   // Read Color Configuration
+  console.log(req.query.mycard);
 
   var mycard = {};
   mycard["title"] = "SmartApp App";
   mycard["subTitle"] = "List of Items";
   mycard["headerIcon"] = "sap-icon://form";
 
-  result = getCard(mycard, "timeline1");
+  result = getCard(mycard, req.query.mycard);
 
   res.status(200).json({ success: true, data: result });
 };

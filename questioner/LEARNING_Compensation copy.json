@@ -4,6 +4,12 @@
       "id": "Step1",
       "fields": [
         {
+          "name": "Q1",
+          "Mode": "Display",
+          "type": "string",
+          "value": "Basic salary offered to the employee"
+        },
+        {
           "name": "A1",
           "Mode": "Edit",
           "type": "string"
@@ -17,16 +23,34 @@
       "id": "Step2",
       "fields": [
         {
+          "name": "Q2",
+          "Mode": "Display",
+          "type": "string",
+          "value": "Bonus or Commission types"
+        },
+        {
           "name": "A2",
           "Mode": "Edit",
           "type": "string",
           "value": ["Bonus", "Sales/Commission", "Performance Bonus", "NA"]
         },
         {
+          "name": "Q3",
+          "Mode": "Display",
+          "type": "string",
+          "value": "Pls specify Bonus Frequency"
+        },
+        {
           "name": "A3",
           "Mode": "Edit",
           "type": "string",
           "value": ["Annual", "Half-Yearly", "Quaterly", "NA"]
+        },
+        {
+          "name": "Q4",
+          "Mode": "Display",
+          "type": "string",
+          "value": "Pls specify bonus/commission rate in percentage, example : 10% or 15%"
         },
         {
           "name": "A4",
@@ -42,9 +66,21 @@
       "id": "Step3",
       "fields": [
         {
+          "name": "Q5",
+          "Mode": "Display",
+          "type": "string",
+          "value": "If employee don't use company car and eligable for car allowance, pls specify the value of car allowance"
+        },
+        {
           "name": "A5",
           "Mode": "Edit",
           "type": "string"
+        },
+        {
+          "name": "Q6",
+          "Mode": "Display",
+          "type": "string",
+          "value": "Study Allowance"
         },
         {
           "name": "A6",
@@ -60,9 +96,21 @@
       "id": "Step4",
       "fields": [
         {
+          "name": "Q7",
+          "Mode": "Display",
+          "type": "string",
+          "value": "Tax"
+        },
+        {
           "name": "A7",
           "Mode": "Edit",
           "type": "string"
+        },
+        {
+          "name": "Q8",
+          "Mode": "Display",
+          "type": "string",
+          "value": "National Insurance(Employee)"
         },
         {
           "name": "A8",

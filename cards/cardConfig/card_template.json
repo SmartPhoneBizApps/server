@@ -153,8 +153,57 @@
     "table1": "Table"
   },
   "content": {
-    "timeline1": { "data": { "json": [] }, "item": {} },
-    "objectPerson": ["groups", "actions"],
+    "timeline1": {
+      "data": {
+        "json": []
+      },
+      "item": {
+        "dateTime": {
+          "value": "{Time}"
+        },
+        "description": {
+          "value": "{Description}"
+        },
+        "title": {
+          "value": "{Title}"
+        },
+        "icon": {
+          "src": "{Icon}"
+        }
+      }
+    },
+    "objectPerson": {
+      "groups": [
+        {
+          "title": "@GroupTitle",
+          "items": [
+            {
+              "label": "Mobile",
+              "value": "{mobile}",
+              "type": "phone"
+            },
+            {
+              "label": "Phone",
+              "value": "{phone}",
+              "type": "phone"
+            },
+            {
+              "label": "Email",
+              "value": "{email}",
+              "type": "email"
+            }
+          ]
+        }
+      ],
+      "actions": [
+        {
+          "type": "Navigation",
+          "parameters": {
+            "url": "@contentActionURL"
+          }
+        }
+      ]
+    },
     "adaptivecard": {
       "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
       "type": "AdaptiveCard",
@@ -175,16 +224,49 @@
       "$data": {},
       "body": []
     },
-    "calendar": [
-      "date",
-      "maxItems",
-      "maxLegendItems",
-      "noItemsText",
-      "item",
-      "specialDate",
-      "legendItem",
-      "moreItems"
-    ],
+    "calendar": {
+      "date": "2020-7-7",
+      "maxItems": 5,
+      "maxLegendItems": 3,
+      "noItemsText": "You have nothing planned for that day",
+      "item": {
+        "template": {
+          "visualization": "{visualization}",
+          "startDate": "{start}",
+          "endDate": "{end}",
+          "title": "{title}",
+          "text": "{text}",
+          "icon": "{icon}",
+          "type": "{type}"
+        },
+        "path": "/item"
+      },
+      "specialDate": {
+        "template": {
+          "startDate": "{start}",
+          "endDate": "{end}",
+          "type": "{type}"
+        },
+        "path": "/specialDate"
+      },
+      "legendItem": {
+        "template": {
+          "category": "{category}",
+          "text": "{text}",
+          "type": "{type}"
+        },
+        "path": "/legendItem"
+      },
+      "moreItems": {
+        "actions": [
+          {
+            "type": "Navigation",
+            "enabled": true,
+            "url": "@contentActionURL"
+          }
+        ]
+      }
+    },
     "component1": [],
     "donut": [
       "chartType",
@@ -200,7 +282,11 @@
     "list1": ["data", "item"],
     "list2": ["data", "item"],
     "quicklink1": ["data", "item"],
-    "table1": ["row"]
+    "table1": {
+      "row": {
+        "columns": []
+      }
+    }
   },
   "data": {
     "timeline1": ["data", "item"],
@@ -230,8 +316,52 @@
       "measures"
     ],
     "list1": ["data", "item"],
-    "list2": ["data", "item"],
-    "quicklink1": ["data", "item"],
-    "table1": ["row"]
+    "list2": {
+      "data": {
+        "json": []
+      },
+      "item": {
+        "icon": {
+          "src": "{icon}"
+        },
+        "title": {
+          "value": "{name}"
+        },
+        "description": {
+          "value": "{description}"
+        },
+        "actions": [
+          {
+            "type": "Navigation",
+            "parameters": {
+              "url": "/appID/{name}"
+            }
+          }
+        ]
+      }
+    },
+    "quicklink1": {
+      "data": {
+        "json": []
+      },
+      "item": {
+        "icon": {
+          "src": "{icon}"
+        },
+        "title": "{Name}",
+        "actions": [
+          {
+            "type": "Navigation",
+            "enabled": "{= ${url}}",
+            "parameters": {
+              "url": "{url}"
+            }
+          }
+        ]
+      }
+    },
+    "table1": {
+      "json": []
+    }
   }
 }

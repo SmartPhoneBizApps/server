@@ -17,6 +17,7 @@ module.exports = {
     grp1 = [];
     grp_cont = [];
     hdr = {};
+    tdata = {};
     typ = "";
     switch (cardType) {
       case "timeline1":
@@ -24,12 +25,33 @@ module.exports = {
         grp_cont = cardConfig["content"]["timeline1"];
         hdr = cardConfig["header"]["timeline1"];
         typ = "Timeline";
+        datajson = ["dateTime", "description", "title", "icon"];
         break;
       case "objectPerson":
         grp1 = cardConfig["sap.card"]["objectPerson"];
         grp_cont = cardConfig["content"]["objectPerson"];
         hdr = cardConfig["header"]["objectPerson"];
         typ = "Object";
+        datajson = [
+          "firstName",
+          "lastName",
+          "position",
+          "mobile",
+          "phone",
+          "email",
+        ];
+        break;
+      case "calendar":
+        grp1 = cardConfig["sap.card"]["calendar"];
+        grp_cont = cardConfig["content"]["calendar"];
+        hdr = cardConfig["header"]["calendar"];
+        typ = "Calendar";
+        datajson = {
+          item: [],
+          specialDate: [],
+          legendItem: [],
+        };
+
         break;
       case "adaptivecard":
         grp1 = cardConfig["sap.card"]["adaptivecard"];
@@ -49,18 +71,13 @@ module.exports = {
         hdr = cardConfig["header"]["adaptivecard3"];
         typ = "AdaptiveCard";
         break;
-      case "calendar":
-        grp1 = cardConfig["sap.card"]["calendar"];
-        grp_cont = cardConfig["content"]["calendar"];
-        hdr = cardConfig["header"]["calendar"];
-        typ = "Calendar";
-        break;
+
       case "component1":
         grp1 = cardConfig["sap.card"]["component1"];
-        grp_cont = cardConfig["content"]["timeline1"];
         hdr = cardConfig["header"]["component1"];
         typ = "Component";
         break;
+
       case "donut":
         grp1 = cardConfig["sap.card"]["donut"];
         grp_cont = cardConfig["content"]["component1"];
@@ -89,6 +106,9 @@ module.exports = {
         grp1 = cardConfig["sap.card"]["table1"];
         grp_cont = cardConfig["content"]["table1"];
         hdr = cardConfig["header"]["table1"];
+        tdata = {
+          json: [],
+        };
         typ = "Table";
         break;
       default:
@@ -98,6 +118,7 @@ module.exports = {
     stru["sap.card"]["type"] = typ;
     stru["sap.card"]["header"] = hdr;
     stru["sap.card"]["content"] = grp_cont;
+    stru["sap.card"]["data"] = tdata;
 
     return stru;
   },
