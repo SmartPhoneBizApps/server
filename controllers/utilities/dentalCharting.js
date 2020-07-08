@@ -18,7 +18,7 @@ const https = require("https");
 
 exports.dentalCharting = asyncHandler(async (req, res, next) => {
   let out = {};
-  switch (req.params.patientID) {
+  switch (req.query.patientId) {
     case "1000":
       out["patientID"] = "1000";
       out["patientName"] = "Atul Gupta";
