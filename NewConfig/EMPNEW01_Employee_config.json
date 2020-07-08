@@ -859,6 +859,13 @@
           "Option": "Optional"
         },
         {
+          "name": "AddComments",
+          "type": "string",
+          "width": "200",
+          "SLabel": "Comments",
+          "Option": "Optional"
+        },
+        {
           "name": "CorrectAnswer",
           "type": "string",
           "width": "20",
@@ -873,14 +880,14 @@
           "Option": "Optional"
         }
       ],
-      "DisplayFields": ["Question", "Answer", "Deductions"],
+      "DisplayFields": ["Question", "Answer", "Deductions", "AddComments"],
       "ItemButtons": {
         "itemDisplay": true,
         "itemAdd": false,
         "itemEdit": false,
         "itemDelete": false
       },
-      "CreateFields": ["Question", "Answer", "Deductions"],
+      "CreateFields": ["Question", "Answer", "Deductions", "AddComments"],
       "ItemDetails": [
         {
           "name": "Question",
@@ -892,6 +899,10 @@
         },
         {
           "name": "Deductions",
+          "Mode": "Edit"
+        },
+        {
+          "name": "AddComments",
           "Mode": "Edit"
         }
       ]
