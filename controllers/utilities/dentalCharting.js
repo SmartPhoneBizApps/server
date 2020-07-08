@@ -17,23 +17,54 @@ const https = require("https");
 // return false;
 
 exports.dentalCharting = asyncHandler(async (req, res, next) => {
-  out = {};
-  outData = [];
-  out["UL"] = "8L,7L,6L,5L,4L,CL,2L,1L";
-  outData.push(out);
-  out = {};
-  out["UR"] = "1R,2R,3R,4R,ER,6R,7R,8R";
-  outData.push(out);
-  out = {};
-  out["LL"] = "8L,7L,6L,EL,4L,3L,2L,1L";
-  outData.push(out);
-  out = {};
-  out["LR"] = "1R,2R,CR,4R,5R,6R,7R,8R";
-  outData.push(out);
-  out = {};
+  let out = {};
+  switch (req.params.id) {
+    case "1000":
+      out["patientID"] = "1000";
+      out["patientName"] = "Atul Gupta";
+      out["topleft"] = "8764321";
+      out["topright"] = "1234E678";
+      out["bottomleft"] = "8765421";
+      out["bottomright"] = "12345678";
+      break;
+    case "1001":
+      out["patientID"] = "1000";
+      out["patientName"] = "Rashmi Gupta";
+      out["topleft"] = "87654321";
+      out["topright"] = "1345678";
+      out["bottomleft"] = "8654321";
+      out["bottomright"] = "1234568";
+      break;
+    case "1002":
+      out["patientID"] = "1000";
+      out["patientName"] = "Ankit Jain";
+      out["topleft"] = "8765431";
+      out["topright"] = "12345678";
+      out["bottomleft"] = "8754321";
+      out["bottomright"] = "12C45678";
+      break;
+    case "1003":
+      out["patientID"] = "1000";
+      out["patientName"] = "Rakesh Sharma";
+      out["topleft"] = "87653B1";
+      out["topright"] = "12345678";
+      out["bottomleft"] = "8764321";
+      out["bottomright"] = "12345678";
+      break;
+    case "1004":
+      out["patientID"] = "1000";
+      out["patientName"] = "Akash Sharma";
+      out["topleft"] = "8765432A";
+      out["topright"] = "1234578";
+      out["bottomleft"] = "876543B1";
+      out["bottomright"] = "12345678";
+      break;
+    default:
+      break;
+  }
 
   res.status(201).json({
     success: true,
-    data: outData,
+    data: out,
   });
 });
