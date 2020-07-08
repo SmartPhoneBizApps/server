@@ -11,7 +11,7 @@ const App = require("../models/appSetup/App");
 exports.uploadFile = asyncHandler(async (req, res, next) => {
   // Note the logic currently supports only one file at a time..
   console.log("Inside Upload...");
-  console.log(req.body.key);
+
   const file = req.files.file;
   /////////////////////////////////////////////////////////////////////////
   //   --------  Input - Validations  -------------------
@@ -64,19 +64,26 @@ exports.uploadFile = asyncHandler(async (req, res, next) => {
   if (req.headers.type == "NewVersion") {
     version = req.headers.version + 1;
   }
+  let statuses = [];
+  rg01 = req.body.key.split(",");
+  st1 = {};
+  st1["title"] = rg01[0];
+  st1["text"] = rg01[1];
+  st1["state"] = rg01[2];
+  statuses.push(st1);
 
-  let statuses = [
-    {
-      title: "Status",
-      text: "Approved",
-      state: "Success",
-    },
-    {
-      title: "DocumentType",
-      text: "Attachment",
-      state: "None",
-    },
-  ];
+  // let statuses = [
+  //   {
+  //     title: "Status",
+  //     text: "Approved",
+  //     state: "Success",
+  //   },
+  //   {
+  //     title: "DocumentType",
+  //     text: "Attachment",
+  //     state: "None",
+  //   },
+  // ];
   /////////////////////////////////////////////////////////////////////////
   //   --------  App Data  -------------------
   /////////////////////////////////////////////////////////////////////////
