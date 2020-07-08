@@ -5,30 +5,44 @@
   },
   "Controls": {
     "USP": "UserProfile",
-    "Filters": [],
+    "Filters": [{ "Partner": "@user" }],
     "Partner": "@user",
     "UserSpecific": "Yes",
     "Update": "Yes",
     "URL": "https://fierce-oasis-51455.herokuapp.com",
     "Source": { "SourceName": "mongoDB", "SourceFile": "NA" }
   },
+
   "dataFilter": [{ "field": "Status" }],
   "ListFields": {
-    "IntroField": "EmpFirstName",
-    "TitleField": "EmpLastName",
+    "IntroField": "FirstName",
+    "TitleField": "LastName",
     "sStatus": "Status",
-    "fStatus": "",
+    "fStatus": "EmployeeID",
     "numberField": "",
     "LFields": ["ID", "Email", "DateOfJoining"],
     "numberUnitField": ""
   },
   "ListBOTFields": {
     "None": ["cardImage", "StatusState"],
-    "Title": ["EmpFirstName", "EmpLastName"],
-    "SubTitle": ["ID", "Status"],
+    "Title": ["FirstName", "LastName"],
+    "SubTitle": ["EmployeeID", "Status"],
     "Description": ["Email", "DateOfJoining"]
   },
-  "PossibleValues": ["Status"],
+  "PossibleValues": [
+    "Status",
+    "Sex",
+    "MaritalStatus",
+    "SkillLevel",
+    "Area",
+    "Experience",
+    "Qualification",
+    "InsurancePlan",
+    "MedicalCoverage",
+    "DentalCoverage",
+    "VisionCoverage",
+    "AccidentalDeath"
+  ],
   "MButtons": [
     {
       "type": "DOWNLOAD",
@@ -55,12 +69,14 @@
   ],
   "DButtons": [
     {
-      "type": "ATTACHMENT",
-      "name": "View Attachments",
-      "icon": "sap-icon://attachment"
-    },
-    { "type": "UPDATE", "name": "Update Record", "icon": "sap-icon://update" },
-    { "type": "ADD", "name": "Add Record", "icon": "sap-icon://add" }
+      "type": "SURVEY",
+      "Calculation": "Yes",
+      "name": "Feedback",
+      "icon": "sap-icon://upload-to-cloud",
+      "URL": "util/getQuestioner/LEARNING/{ID}",
+      "Token": "Yes",
+      "URLMethod": "GET"
+    }
   ],
   "Tabs": [
     {
@@ -82,14 +98,56 @@
       "update": "Yes",
       "name": "Skills",
       "fioriicon": "technical-object",
-      "type": "Field"
+      "type": "Table"
+    },
+    {
+      "value": "Tab6",
+      "update": "Yes",
+      "name": "Education",
+      "fioriicon": "study-leave",
+      "type": "Table"
+    },
+    {
+      "value": "Tab7",
+      "update": "Yes",
+      "name": "Previous Employer",
+      "fioriicon": "addresses",
+      "type": "Table"
+    },
+    {
+      "value": "Tab10",
+      "update": "Yes",
+      "name": "Compensation",
+      "fioriicon": "receipt",
+      "type": "Table"
+    },
+    {
+      "value": "Tab13",
+      "update": "Yes",
+      "name": "Payslips",
+      "fioriicon": "sales-order-item",
+      "type": "Table"
+    },
+    {
+      "value": "Tab12",
+      "update": "Yes",
+      "name": "P60",
+      "fioriicon": "receipt",
+      "type": "Table"
     },
     {
       "value": "Tab4",
       "update": "Yes",
       "name": "Emergency Contacts",
       "fioriicon": "accidental-leave",
-      "type": "Field"
+      "type": "Table"
+    },
+    {
+      "value": "Tab9",
+      "update": "Yes",
+      "name": "Certifications",
+      "fioriicon": "receipt",
+      "type": "Table"
     },
     {
       "value": "Tab5",
@@ -99,39 +157,15 @@
       "type": "Field"
     },
     {
-      "value": "Tab6",
-      "update": "Yes",
-      "name": "Education",
-      "fioriicon": "study-leave",
-      "type": "Field"
-    },
-    {
-      "value": "Tab7",
-      "update": "Yes",
-      "name": "Previous Employer",
-      "fioriicon": "addresses",
-      "type": "Field"
-    },
-    {
       "value": "Tab8",
       "update": "Yes",
-      "name": "Attachments",
+      "name": "MultiAttachments",
       "fioriicon": "attachment",
-      "type": "MultiAttachments"
-    },
-    {
-      "value": "Tab9",
-      "update": "Yes",
-      "name": "Certifications",
-      "fioriicon": "receipt",
-      "type": "carouselImage"
-    },
-    {
-      "value": "Tab10",
-      "update": "Yes",
-      "name": "Remuneration",
-      "fioriicon": "crm-sales",
-      "type": "Field"
+      "type": "MultiAttachments",
+      "docType": [
+        { "text": "Certificate", "state": "Success" },
+        { "text": "Exp", "state": "Information" }
+      ]
     },
     {
       "value": "Tab11",
@@ -139,13 +173,27 @@
       "name": "Identification",
       "fioriicon": "hint",
       "type": "Field"
+    },
+    {
+      "value": "Tab14",
+      "update": "Yes",
+      "name": "Dependents",
+      "fioriicon": "family-protection",
+      "type": "Table"
+    },
+    {
+      "value": "Tab15",
+      "update": "Yes",
+      "name": "Benefits",
+      "fioriicon": "customer-view",
+      "type": "Table"
     }
   ],
   "DetailFields": {
     "headerTitle": ["USP_Name"],
     "headerRole": ["USP_Role"],
     "headerImage": ["USP_Image"],
-    "None": ["EmpLastName", "EmpFirstName", "ID", "Status"],
+    "None": ["LastName", "FirstName", "EmployeeID", "ID", "Status"],
     "Tab1": [
       "SpouseName",
       "FatherName",
@@ -155,10 +203,19 @@
       "ContactNo",
       "Email",
       "PostCode",
-      "Address"
+      "Address",
+      "ReferenceID"
     ],
     "Tab3": ["Skills"],
-    "Tab4": ["Emergency Contacts"],
+    "Tab6": ["Education"],
+    "Tab7": ["PreviousEmployer"],
+    "Tab4": ["EmergencyContacts"],
+    "Tab9": ["Certifications"],
+    "Tab10": ["Questioner"],
+    "Tab13": ["Payslips"],
+    "Tab12": ["P60"],
+    "Tab14": ["Dependents"],
+    "Tab15": ["Benefits"],
     "Tab5": [
       "AccountNo",
       "BankName",
@@ -168,14 +225,820 @@
       "IFSCcode",
       "Sortcode"
     ],
-    "Tab6": ["Education"],
-    "Tab7": ["PreviousEmployer"],
-    "Tab8": ["Attachments"],
-    "Tab9": ["Certifications"],
-    "Tab10": ["Remuneration"],
+    "Tab8": ["MultiAttachments"],
     "Tab11": ["DOB", "SSNumber", "NINumber"]
   },
   "ControlDisplay": {},
+  "tableConfig": {
+    "Skills": {
+      "title": "Employee Skill Matrix",
+      "ItemFieldDefinition": [
+        {
+          "name": "ItemNumber",
+          "type": "string",
+          "width": "20",
+          "SLabel": "Item Number",
+          "Option": "Optional"
+        },
+        {
+          "name": "Area",
+          "type": "string",
+          "width": "200",
+          "SLabel": "Area",
+          "Option": "Optional"
+        },
+        {
+          "name": "Skill",
+          "type": "string",
+          "width": "200",
+          "SLabel": "Skill",
+          "Option": "Optional"
+        },
+        {
+          "name": "Experience",
+          "type": "string",
+          "width": "100",
+          "SLabel": "Experience",
+          "Option": "Optional"
+        },
+        {
+          "name": "ExperienceRole1",
+          "type": "string",
+          "width": "100",
+          "SLabel": "Role",
+          "Option": "Optional"
+        },
+        {
+          "name": "SkillLevel",
+          "type": "string",
+          "width": "100",
+          "SLabel": "Skill Level",
+          "Option": "Optional"
+        },
+        {
+          "name": "Comments1",
+          "type": "string",
+          "width": "500",
+          "SLabel": "Comments",
+          "Option": "Optional"
+        }
+      ],
+      "DisplayFields": [
+        "Area",
+        "Skill",
+        "SkillLevel",
+        "Experience",
+        "ExperienceRole1"
+      ],
+      "ItemButtons": {
+        "itemDisplay": true,
+        "itemAdd": true,
+        "itemEdit": true,
+        "itemDelete": true
+      },
+      "CreateFields": [
+        "Area",
+        "Skill",
+        "SkillLevel",
+        "Experience",
+        "ExperienceRole1",
+        "Comments1"
+      ],
+      "ItemDetails": [
+        {
+          "name": "Area",
+          "Mode": "Edit"
+        },
+        {
+          "name": "Skill",
+          "Mode": "Edit"
+        },
+        {
+          "name": "SkillLevel",
+          "Mode": "Edit"
+        },
+        {
+          "name": "Experience",
+          "Mode": "Edit"
+        },
+        {
+          "name": "ExperienceRole1",
+          "Mode": "Edit"
+        },
+        {
+          "name": "Comments1",
+          "Mode": "Edit"
+        }
+      ]
+    },
+    "Education": {
+      "title": "Employee Education",
+      "ItemFieldDefinition": [
+        {
+          "name": "ItemNumber",
+          "type": "string",
+          "width": "20",
+          "SLabel": "Item Number",
+          "Option": "Optional"
+        },
+        {
+          "name": "Qualification",
+          "type": "string",
+          "width": "200",
+          "SLabel": "Qualification",
+          "Option": "Optional"
+        },
+        {
+          "name": "Subject",
+          "type": "string",
+          "width": "200",
+          "SLabel": "Subject",
+          "Option": "Optional"
+        },
+
+        {
+          "name": "YearCompleted",
+          "type": "string",
+          "width": "100",
+          "SLabel": "Year Completed",
+          "Option": "Optional"
+        },
+        {
+          "name": "College",
+          "type": "string",
+          "width": "100",
+          "SLabel": "Uni/College",
+          "Option": "Optional"
+        },
+        {
+          "name": "Comments2",
+          "type": "string",
+          "width": "500",
+          "SLabel": "Comments",
+          "Option": "Optional"
+        }
+      ],
+      "DisplayFields": ["Qualification", "Subject", "YearCompleted", "College"],
+      "ItemButtons": {
+        "itemDisplay": true,
+        "itemAdd": true,
+        "itemEdit": true,
+        "itemDelete": true
+      },
+      "CreateFields": [
+        "Qualification",
+        "Subject",
+        "YearCompleted",
+        "College",
+        "Comments2"
+      ],
+      "ItemDetails": [
+        {
+          "name": "Qualification",
+          "Mode": "Edit"
+        },
+        {
+          "name": "Subject",
+          "Mode": "Edit"
+        },
+        {
+          "name": "YearCompleted",
+          "Mode": "Edit"
+        },
+        {
+          "name": "College",
+          "Mode": "Edit"
+        },
+        {
+          "name": "Comments2",
+          "Mode": "Edit"
+        }
+      ]
+    },
+    "PreviousEmployer": {
+      "title": "Previous Employers",
+      "ItemFieldDefinition": [
+        {
+          "name": "ItemNumber",
+          "type": "string",
+          "width": "20",
+          "SLabel": "Item Number",
+          "Option": "Optional"
+        },
+        {
+          "name": "From",
+          "type": "string",
+          "width": "200",
+          "SLabel": "From Date",
+          "Option": "Optional"
+        },
+        {
+          "name": "To",
+          "type": "string",
+          "width": "200",
+          "SLabel": "To Date",
+          "Option": "Optional"
+        },
+        {
+          "name": "ExpYears",
+          "type": "string",
+          "width": "200",
+          "SLabel": "Experience Years",
+          "Option": "Optional"
+        },
+        {
+          "name": "Employer",
+          "type": "string",
+          "width": "200",
+          "SLabel": "Employer",
+          "Option": "Optional"
+        },
+        {
+          "name": "Role",
+          "type": "string",
+          "width": "100",
+          "SLabel": "Role",
+          "Option": "Optional"
+        },
+        {
+          "name": "Comments3",
+          "type": "string",
+          "width": "500",
+          "SLabel": "Comments",
+          "Option": "Optional"
+        }
+      ],
+      "DisplayFields": ["From", "To", "ExpYears", "Employer", "Role"],
+      "ItemButtons": {
+        "itemDisplay": true,
+        "itemAdd": true,
+        "itemEdit": true,
+        "itemDelete": true
+      },
+      "CreateFields": [
+        "From",
+        "To",
+        "ExpYears",
+        "Employer",
+        "Role",
+        "Comments3"
+      ],
+      "ItemDetails": [
+        {
+          "name": "From",
+          "Mode": "Edit"
+        },
+        {
+          "name": "To",
+          "Mode": "Edit"
+        },
+        {
+          "name": "ExpYears",
+          "Mode": "Edit"
+        },
+        {
+          "name": "Employer",
+          "Mode": "Edit"
+        },
+        {
+          "name": "Role",
+          "Mode": "Edit"
+        },
+        {
+          "name": "Comments3",
+          "Mode": "Edit"
+        }
+      ]
+    },
+    "EmergencyContacts": {
+      "title": "Employee Emergency Contacts",
+      "ItemFieldDefinition": [
+        {
+          "name": "ItemNumber",
+          "type": "string",
+          "width": "20",
+          "SLabel": "Item Number",
+          "Option": "Optional"
+        },
+        {
+          "name": "ContactName1",
+          "type": "string",
+          "width": "200",
+          "SLabel": "Contact Name",
+          "Option": "Optional"
+        },
+        {
+          "name": "ContactPhone1",
+          "type": "Date",
+          "width": "200",
+          "SLabel": "ContactPhone",
+          "Option": "Optional"
+        },
+        {
+          "name": "Relation1",
+          "type": "string",
+          "width": "100",
+          "SLabel": "Relation1",
+          "Option": "Optional"
+        },
+        {
+          "name": "Comments4",
+          "type": "string",
+          "width": "500",
+          "SLabel": "Comments",
+          "Option": "Optional"
+        }
+      ],
+      "DisplayFields": ["ContactName1", "ContactPhone1", "Relation1"],
+      "ItemButtons": {
+        "itemDisplay": true,
+        "itemAdd": true,
+        "itemEdit": true,
+        "itemDelete": true
+      },
+      "CreateFields": [
+        "ContactName1",
+        "ContactPhone1",
+        "Relation1",
+        "Comments4"
+      ],
+      "ItemDetails": [
+        {
+          "name": "ContactName1",
+          "Mode": "Edit"
+        },
+        {
+          "name": "ContactPhone1",
+          "Mode": "Edit"
+        },
+        {
+          "name": "Relation1",
+          "Mode": "Edit"
+        },
+        {
+          "name": "Comments4",
+          "Mode": "Edit"
+        }
+      ]
+    },
+    "Dependents": {
+      "title": "Employee Emergency Contacts",
+      "ItemFieldDefinition": [
+        {
+          "name": "ItemNumber",
+          "type": "string",
+          "width": "20",
+          "SLabel": "Item Number",
+          "Option": "Optional"
+        },
+        {
+          "name": "Name1",
+          "type": "string",
+          "width": "200",
+          "SLabel": "Name",
+          "Option": "Optional"
+        },
+        {
+          "name": "ContactPhone",
+          "type": "string",
+          "width": "200",
+          "SLabel": "ContactPhone",
+          "Option": "Optional"
+        },
+        {
+          "name": "Relation",
+          "type": "string",
+          "width": "100",
+          "SLabel": "Relation",
+          "Option": "Optional"
+        },
+        {
+          "name": "Comments5",
+          "type": "string",
+          "width": "500",
+          "SLabel": "Comments",
+          "Option": "Optional"
+        }
+      ],
+      "DisplayFields": ["Name1", "ContactPhone", "Relation"],
+      "ItemButtons": {
+        "itemDisplay": true,
+        "itemAdd": true,
+        "itemEdit": true,
+        "itemDelete": true
+      },
+      "CreateFields": ["Name1", "ContactPhone", "Relation", "Comments5"],
+      "ItemDetails": [
+        {
+          "name": "Name1",
+          "Mode": "Edit"
+        },
+        {
+          "name": "ContactPhone",
+          "Mode": "Edit"
+        },
+        {
+          "name": "Relation",
+          "Mode": "Edit"
+        },
+        {
+          "name": "Comments5",
+          "Mode": "Edit"
+        }
+      ]
+    },
+    "Certifications": {
+      "title": "Employee Certifications",
+      "ItemFieldDefinition": [
+        {
+          "name": "ItemNumber",
+          "type": "string",
+          "width": "20",
+          "SLabel": "Item Number",
+          "Option": "Optional"
+        },
+        {
+          "name": "CourseName",
+          "type": "string",
+          "width": "200",
+          "SLabel": "CourseName",
+          "Option": "Optional"
+        },
+        {
+          "name": "DateCertified",
+          "type": "Date",
+          "width": "200",
+          "SLabel": "DateCertified",
+          "Option": "Optional"
+        },
+        {
+          "name": "LinkC",
+          "type": "hyperlink",
+          "width": "100",
+          "SLabel": "Certificate Link",
+          "Option": "Optional"
+        },
+        {
+          "name": "CommentsC",
+          "type": "string",
+          "width": "500",
+          "SLabel": "Comments",
+          "Option": "Optional"
+        }
+      ],
+      "DisplayFields": ["CourseName", "DateCertified", "LinkC"],
+      "ItemButtons": {
+        "itemDisplay": true,
+        "itemAdd": true,
+        "itemEdit": true,
+        "itemDelete": true
+      },
+      "CreateFields": ["CourseName", "DateCertified", "LinkC", "CommentsC"],
+      "ItemDetails": [
+        {
+          "name": "CourseName",
+          "Mode": "Edit"
+        },
+        {
+          "name": "DateCertified",
+          "Mode": "Edit"
+        },
+        {
+          "name": "LinkC",
+          "Mode": "Edit"
+        },
+        {
+          "name": "CommentsC",
+          "Mode": "Edit"
+        }
+      ]
+    },
+    "P60": {
+      "title": "Employee P60",
+      "ItemFieldDefinition": [
+        {
+          "name": "ItemNumber",
+          "type": "string",
+          "width": "20",
+          "SLabel": "Item Number",
+          "Option": "Optional"
+        },
+        {
+          "name": "YearP6",
+          "type": "string",
+          "width": "200",
+          "SLabel": "Year",
+          "Option": "Optional"
+        },
+        {
+          "name": "LinkP6",
+          "type": "hyperlink",
+          "width": "200",
+          "SLabel": "P60 Link",
+          "Option": "Optional"
+        },
+        {
+          "name": "CommentsP6",
+          "type": "string",
+          "width": "500",
+          "SLabel": "Comments",
+          "Option": "Optional"
+        }
+      ],
+      "DisplayFields": ["YearP6", "LinkP6"],
+      "ItemButtons": {
+        "itemDisplay": true,
+        "itemAdd": true,
+        "itemEdit": true,
+        "itemDelete": true
+      },
+      "CreateFields": ["YearP6", "LinkP6", "CommentsP6"],
+      "ItemDetails": [
+        {
+          "name": "YearP6",
+          "Mode": "Edit"
+        },
+        {
+          "name": "LinkP6",
+          "Mode": "Edit"
+        },
+        {
+          "name": "CommentsP6",
+          "Mode": "Edit"
+        }
+      ]
+    },
+    "Payslips": {
+      "title": "Employee Payslip",
+      "ItemFieldDefinition": [
+        {
+          "name": "ItemNumber",
+          "type": "string",
+          "width": "20",
+          "SLabel": "Item Number",
+          "Option": "Optional"
+        },
+        {
+          "name": "YearPS",
+          "type": "string",
+          "width": "200",
+          "SLabel": "Year",
+          "Option": "Optional"
+        },
+        {
+          "name": "MonthPS",
+          "type": "string",
+          "width": "200",
+          "SLabel": "Month",
+          "Option": "Optional"
+        },
+        {
+          "name": "LinkPS",
+          "type": "hyperlink",
+          "width": "200",
+          "SLabel": "Payslip Link",
+          "Option": "Optional"
+        },
+        {
+          "name": "CommentsPS",
+          "type": "string",
+          "width": "500",
+          "SLabel": "Comments",
+          "Option": "Optional"
+        }
+      ],
+      "DisplayFields": ["YearPS", "MonthPS", "LinkPS"],
+      "ItemButtons": {
+        "itemDisplay": true,
+        "itemAdd": true,
+        "itemEdit": true,
+        "itemDelete": true
+      },
+      "CreateFields": ["YearPS", "MonthPS", "LinkPS"],
+      "ItemDetails": [
+        {
+          "name": "YearPS",
+          "Mode": "Edit"
+        },
+        {
+          "name": "MonthPS",
+          "Mode": "Edit"
+        },
+        {
+          "name": "LinkPS",
+          "Mode": "Edit"
+        },
+        {
+          "name": "CommentsPS",
+          "Mode": "Edit"
+        }
+      ]
+    },
+    "Questioner": {
+      "title": "Employee Questioner",
+      "ItemFieldDefinition": [
+        {
+          "name": "ItemNumber",
+          "type": "string",
+          "width": "20",
+          "SLabel": "Item Number",
+          "Option": "Optional"
+        },
+        {
+          "name": "Question",
+          "type": "string",
+          "width": "10",
+          "SLabel": "Salary Details",
+          "Option": "Optional"
+        },
+        {
+          "name": "Answer",
+          "type": "string",
+          "width": "20",
+          "SLabel": "Earnings",
+          "Option": "Optional"
+        },
+        {
+          "name": "Deductions",
+          "type": "string",
+          "width": "20",
+          "SLabel": "Deductions",
+          "Option": "Optional"
+        },
+        {
+          "name": "CorrectAnswer",
+          "type": "string",
+          "width": "20",
+          "SLabel": "Correct Ans",
+          "Option": "Optional"
+        },
+        {
+          "name": "Score",
+          "type": "string",
+          "width": "20",
+          "SLabel": "Score",
+          "Option": "Optional"
+        }
+      ],
+      "DisplayFields": ["Question", "Answer", "Deductions"],
+      "ItemButtons": {
+        "itemDisplay": true,
+        "itemAdd": false,
+        "itemEdit": false,
+        "itemDelete": false
+      },
+      "CreateFields": ["Question", "Answer", "Deductions"],
+      "ItemDetails": [
+        {
+          "name": "Question",
+          "Mode": "Edit"
+        },
+        {
+          "name": "Answer",
+          "Mode": "Edit"
+        },
+        {
+          "name": "Deductions",
+          "Mode": "Edit"
+        }
+      ]
+    },
+    "Benefits": {
+      "title": "Employee Benefits",
+      "ItemFieldDefinition": [
+        {
+          "name": "ItemNumber",
+          "type": "string",
+          "width": "20",
+          "SLabel": "Item Number",
+          "Option": "Optional"
+        },
+        {
+          "name": "InsurancePlan",
+          "type": "string",
+          "width": "200",
+          "SLabel": "Insurance Plan",
+          "Option": "Optional"
+        },
+        {
+          "name": "InsurancePlanLink",
+          "type": "hyperlink",
+          "width": "200",
+          "SLabel": "Insurance Plan Link",
+          "Option": "Optional"
+        },
+        {
+          "name": "MedicalCoverage",
+          "type": "string",
+          "width": "200",
+          "SLabel": "Medical Coverage",
+          "Option": "Optional"
+        },
+        {
+          "name": "MedicalCoverageLink",
+          "type": "hyperlink",
+          "width": "200",
+          "SLabel": "Medical Coverage Link",
+          "Option": "Optional"
+        },
+        {
+          "name": "DentalCoverage",
+          "type": "string",
+          "width": "200",
+          "SLabel": "Dental Coverage",
+          "Option": "Optional"
+        },
+        {
+          "name": "DentalCoverageLink",
+          "type": "hyperlink",
+          "width": "200",
+          "SLabel": "Dental Coverage Link",
+          "Option": "Optional"
+        },
+        {
+          "name": "VisionCoverage",
+          "type": "string",
+          "width": "200",
+          "SLabel": "Vision Coverage",
+          "Option": "Optional"
+        },
+        {
+          "name": "VisionCoverageLink",
+          "type": "hyperlink",
+          "width": "200",
+          "SLabel": "Vision Coverage Link",
+          "Option": "Optional"
+        },
+        {
+          "name": "AccidentalDeath",
+          "type": "string",
+          "width": "200",
+          "SLabel": "Accidental Death",
+          "Option": "Optional"
+        },
+        {
+          "name": "AccidentalDeathLink",
+          "type": "hyperlink",
+          "width": "200",
+          "SLabel": "Accidental Death Link",
+          "Option": "Optional"
+        },
+        {
+          "name": "CommentsPS",
+          "type": "string",
+          "width": "500",
+          "SLabel": "Comments",
+          "Option": "Optional"
+        }
+      ],
+      "DisplayFields": [
+        "InsurancePlan",
+        "MedicalCoverage",
+        "DentalCoverage",
+        "VisionCoverage",
+        "AccidentalDeath"
+      ],
+      "ItemButtons": {
+        "itemDisplay": true,
+        "itemAdd": true,
+        "itemEdit": true,
+        "itemDelete": true
+      },
+      "CreateFields": [
+        "InsurancePlan",
+        "MedicalCoverage",
+        "DentalCoverage",
+        "VisionCoverage",
+        "AccidentalDeath"
+      ],
+      "ItemDetails": [
+        {
+          "name": "InsurancePlan",
+          "Mode": "Edit"
+        },
+        {
+          "name": "MedicalCoverage",
+          "Mode": "Edit"
+        },
+        {
+          "name": "DentalCoverage",
+          "Mode": "Edit"
+        },
+        {
+          "name": "VisionCoverage",
+          "Mode": "Edit"
+        },
+        {
+          "name": "AccidentalDeath",
+          "Mode": "Edit"
+        },
+        {
+          "name": "CommentsPS",
+          "Mode": "Edit"
+        }
+      ]
+    }
+  },
   "FieldDef": [
     {
       "name": "ID",
@@ -186,7 +1049,15 @@
       "LLabel": "Identification"
     },
     {
-      "name": "EmpFirstName",
+      "name": "EmployeeID",
+      "type": "string",
+      "width": "50",
+      "Option": "Mandatory",
+      "SLabel": "Employee ID",
+      "LLabel": "Employee ID"
+    },
+    {
+      "name": "FirstName",
       "type": "string",
       "width": "50",
       "Option": "Mandatory",
@@ -194,7 +1065,7 @@
       "LLabel": "First Name"
     },
     {
-      "name": "EmpLastName",
+      "name": "LastName",
       "type": "string",
       "width": "50",
       "Option": "Mandatory",
@@ -248,27 +1119,11 @@
     },
     {
       "name": "Sex",
-      "type": "string",
+      "type": "radiobutton",
       "width": "20",
       "Option": "Optional",
       "SLabel": "Sex",
       "LLabel": "Sex"
-    },
-    {
-      "name": "Certifications",
-      "type": "string",
-      "width": "500",
-      "Option": "Optional",
-      "SLabel": "Certifications and Trainings",
-      "LLabel": "Certifications and Trainings"
-    },
-    {
-      "name": "Attachments",
-      "type": "string",
-      "width": "500",
-      "Option": "Optional",
-      "SLabel": "Attachments",
-      "LLabel": "Attachments"
     },
     {
       "name": "MaritalStatus",
@@ -303,14 +1158,13 @@
       "LLabel": "Date Of Joining"
     },
     {
-      "name": "Remuneration",
-      "type": "string",
+      "name": "Questioner",
+      "type": "Array",
       "width": "500",
       "Option": "Optional",
-      "SLabel": "Remuneration",
-      "LLabel": "Remuneration"
+      "SLabel": "Compensation",
+      "LLabel": "Compensation"
     },
-
     {
       "name": "SSNumber",
       "type": "string",
@@ -402,48 +1256,242 @@
     },
     {
       "name": "Dependents",
-      "type": "string",
-      "width": "20",
+      "type": "Array",
+      "width": "200",
       "Option": "Optional",
       "SLabel": "Dependents",
       "LLabel": "Dependents"
     },
     {
+      "name": "Benefits",
+      "type": "Array",
+      "width": "200",
+      "Option": "Optional",
+      "SLabel": "Benefits",
+      "LLabel": "Benefits"
+    },
+    {
       "name": "EmergencyContacts",
-      "type": "string",
-      "width": "20",
+      "type": "Array",
+      "width": "200",
       "Option": "Optional",
       "SLabel": "Emergency Contacts",
       "LLabel": "Emergency Contacts"
     },
     {
       "name": "Education",
-      "type": "string",
-      "width": "20",
+      "type": "Array",
+      "width": "200",
       "Option": "Optional",
       "SLabel": "Education",
       "LLabel": "Education"
     },
     {
       "name": "PreviousEmployer",
-      "type": "string",
-      "width": "20",
+      "type": "Array",
+      "width": "200",
       "Option": "Optional",
       "SLabel": "Previous Employer",
       "LLabel": "Previous Employer"
     },
     {
       "name": "Skills",
-      "type": "string",
-      "width": "20",
+      "type": "Array",
+      "width": "200",
       "Option": "Optional",
       "SLabel": "Skills",
       "LLabel": "Skills"
+    },
+    {
+      "name": "Certifications",
+      "type": "Array",
+      "width": "200",
+      "Option": "Optional",
+      "SLabel": "Certifications and Trainings",
+      "LLabel": "Certifications and Trainings"
+    },
+    {
+      "name": "Payslips",
+      "type": "Array",
+      "width": "200",
+      "Option": "Optional",
+      "SLabel": "Payslips",
+      "LLabel": "Payslips"
+    },
+    {
+      "name": "P60",
+      "type": "Array",
+      "width": "200",
+      "Option": "Optional",
+      "SLabel": "P60",
+      "LLabel": "P60"
+    },
+
+    {
+      "name": "MultiAttachments",
+      "type": "attachment",
+      "metadata": "MultipleFields",
+      "width": "200",
+      "Option": "Optional",
+      "SLabel": "Learning Documents",
+      "LLabel": "Learning Documents"
+    },
+    {
+      "name": "ReferenceID",
+      "type": "string",
+      "width": "50",
+      "Option": "Optional",
+      "SLabel": "ReferenceID",
+      "LLabel": "ReferenceID"
+    },
+    {
+      "name": "Q1",
+      "type": "string",
+      "width": "200",
+      "Option": "Mandatory",
+      "SLabel": "Basic Pay",
+      "LLabel": "Basic Pay"
+    },
+    {
+      "name": "Q2",
+      "type": "string",
+      "width": "200",
+      "Option": "Optional",
+      "SLabel": "BonusType",
+      "LLabel": "BonusType"
+    },
+
+    {
+      "name": "Q3",
+      "type": "string",
+      "width": "200",
+      "Option": "Optional",
+      "SLabel": "BonuFrequency",
+      "LLabel": "BonuFrequency"
+    },
+    {
+      "name": "Q4",
+      "type": "string",
+      "width": "200",
+      "Option": "Optional",
+      "SLabel": "Bonus/Commission",
+      "LLabel": "Bonus/Commission"
+    },
+    {
+      "name": "Q5",
+      "type": "string",
+      "width": "200",
+      "Option": "Optional",
+      "SLabel": "CarAllowance",
+      "LLabel": "CarAllowance"
+    },
+    {
+      "name": "Q6",
+      "type": "string",
+      "width": "200",
+      "Option": "Optional",
+      "SLabel": "StudyAllowance",
+      "LLabel": "StudyAllowance"
+    },
+    {
+      "name": "Q7",
+      "type": "string",
+      "width": "200",
+      "Option": "Optional",
+      "SLabel": "Tax",
+      "LLabel": "Tax"
+    },
+    {
+      "name": "Q8",
+      "type": "string",
+      "width": "200",
+      "Option": "Optional",
+      "SLabel": "NI",
+      "LLabel": "NI"
+    },
+    {
+      "name": "A1",
+      "type": "string",
+      "width": "200",
+      "Option": "Mandatory",
+      "SLabel": "Basic Pay",
+      "LLabel": "Basic Pay"
+    },
+    {
+      "name": "A2",
+      "type": "string",
+      "width": "200",
+      "Option": "Optional",
+      "SLabel": "BonusType",
+      "LLabel": "BonusType"
+    },
+
+    {
+      "name": "A3",
+      "type": "string",
+      "width": "200",
+      "Option": "Optional",
+      "SLabel": "BonuFrequency",
+      "LLabel": "BonuFrequency"
+    },
+    {
+      "name": "A4",
+      "type": "string",
+      "width": "200",
+      "Option": "Optional",
+      "SLabel": "Bonus/Commission",
+      "LLabel": "Bonus/Commission"
+    },
+    {
+      "name": "A5",
+      "type": "string",
+      "width": "200",
+      "Option": "Optional",
+      "SLabel": "CarAllowance",
+      "LLabel": "CarAllowance"
+    },
+    {
+      "name": "A6",
+      "type": "string",
+      "width": "200",
+      "Option": "Optional",
+      "SLabel": "StudyAllowance",
+      "LLabel": "StudyAllowance"
+    },
+    {
+      "name": "A7",
+      "type": "string",
+      "width": "200",
+      "Option": "Optional",
+      "SLabel": "Tax",
+      "LLabel": "Tax"
+    },
+    {
+      "name": "A8",
+      "type": "string",
+      "width": "200",
+      "Option": "Optional",
+      "SLabel": "NI",
+      "LLabel": "NI"
     }
   ],
   "itemData": "No",
   "itemConfig": {},
-  "CalculatedFields": {},
+  "CalculatedFields": {
+    "Item": [],
+    "HeaderItem": [
+      {
+        "CalculatedFormula": {
+          "name": "ITEMSUM",
+          "function": "ITEMSUM",
+          "Target": "TestScore",
+          "type": "HeaderItem"
+        },
+        "Fields": [{ "Source": "Score", "Type": { "type": "HeaderItem" } }]
+      }
+    ],
+    "Header": []
+  },
   "Create": "No",
   "Wizard": []
 }
