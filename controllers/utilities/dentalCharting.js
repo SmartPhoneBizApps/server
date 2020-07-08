@@ -28,7 +28,7 @@ exports.dentalCharting = asyncHandler(async (req, res, next) => {
       out["bottomright"] = "12345678";
       break;
     case "1001":
-      out["patientID"] = "1000";
+      out["patientID"] = "1001";
       out["patientName"] = "Rashmi Gupta";
       out["topleft"] = "87654321";
       out["topright"] = "1345678";
@@ -36,7 +36,7 @@ exports.dentalCharting = asyncHandler(async (req, res, next) => {
       out["bottomright"] = "1234568";
       break;
     case "1002":
-      out["patientID"] = "1000";
+      out["patientID"] = "1002";
       out["patientName"] = "Ankit Jain";
       out["topleft"] = "8765431";
       out["topright"] = "12345678";
@@ -44,7 +44,7 @@ exports.dentalCharting = asyncHandler(async (req, res, next) => {
       out["bottomright"] = "12C45678";
       break;
     case "1003":
-      out["patientID"] = "1000";
+      out["patientID"] = "1003";
       out["patientName"] = "Rakesh Sharma";
       out["topleft"] = "87653B1";
       out["topright"] = "12345678";
@@ -52,7 +52,7 @@ exports.dentalCharting = asyncHandler(async (req, res, next) => {
       out["bottomright"] = "12345678";
       break;
     case "1004":
-      out["patientID"] = "1000";
+      out["patientID"] = "1004";
       out["patientName"] = "Akash Sharma";
       out["topleft"] = "8765432A";
       out["topright"] = "1234578";
