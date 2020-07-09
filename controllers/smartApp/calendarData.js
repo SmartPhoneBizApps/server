@@ -60,6 +60,8 @@ exports.calendarData = asyncHandler(async (req, res, next) => {
         if (element.calendar[x].title) {
           temp["icon"] = "sap-icon://desktop-mobile";
           temp["type"] = "Type06";
+          temp["start"] = temp["startDate"];
+          temp["end"] = temp["endDate"];
           temp["ID"] = element.ID;
           temp2.push(temp);
           temp = {};
