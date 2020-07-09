@@ -8,7 +8,48 @@ const Role = require("../models/appSetup/Role");
 const User = require("../models/access/User");
 const { getBotListFields, getInitialValues } = require("./config");
 
+const fs = require("fs");
+const path = require("path");
+const utils = require("util");
+const puppeteer = require("puppeteer");
+const hb = require("handlebars");
+const readFile = utils.promisify(fs.readFile);
+
 module.exports = {
+  generatePdfCertificate: async function (getData) {
+    let data = {};
+    var html1 =
+      '<!DOCTYPE html><html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="x-apple-disable-message-reformatting"><title></title><link href="https://fonts.googleapis.com/css?family=Lato:300,400,700" rel="stylesheet"><style>table {font-family: arial, sans-serif;border-collapse: collapse;width: 100%;}td, th {border: 1px solid #dddddd;text-align: left;padding: 8px;}tr:nth-child(even) {background-color: #dddddd;}</style></head><body width="100%" style="margin: 0; padding: 0 !important; mso-line-height-rule: exactly; background-color: #f1f1f1;"><div style="width:800px; height:600px; padding:20px; text-align:center; border: 10px solid #787878"><div style="width:750px; height:550px; padding:20px; text-align:center; border: 5px solid #787878"><span style="font-size:50px; font-weight:bold">Certificate of Completion</span><br><br><span style="font-size:25px"><i>This is to certify that</i></span><br><br><span style="font-size:30px"><b>[FULLNAME]</b></span><br/><br/><span style="font-size:25px"><i>has completed the course</i></span> <br/><br/><span style="font-size:30px">[COURSENAME]</span> <br/><br/><span style="font-size:20px">with score of <b>[SCORE]</b></span> <br/><br/><span style="font-size:25px"><i>dated</i></span><br>[DATE]</span></div></div></body></html>';
+
+    html1 = html1.replace("[FULLNAME]", getData["fullName"]);
+    html1 = html1.replace("[SCORE]", getData["score"]);
+    html1 = html1.replace("[DATE]", getData["generatedDate"]);
+    html1 = html1.replace("[COURSENAME]", getData["courseName"]);
+
+    const template = hb.compile(html1, {
+      strict: true,
+    });
+    const result = template(data);
+    const html = result;
+    const browser = await puppeteer.launch();
+    const page = await browser.newPage();
+    await page.setContent(html);
+    await page.pdf({
+      path: "public/certificates/" + getData["fileName"] + ".pdf",
+      format: "A4",
+      // margin: {
+      // top: '20px',
+      // right: '20px',
+      // bottom: '0px',
+      // left: '0px'
+      // },
+      printBackground: true,
+      // scale: 0.5
+    });
+    await browser.close();
+    console.log("PDF Generated");
+  },
+
   sendErrorMessage: function (what, chkVal, user) {
     const ErrorResponse = require("../utils/errorResponse");
     switch (what) {

@@ -130,6 +130,9 @@ app.use("/api/v1/cardsNew", require("./routes/smartApp/overviewcardNew"));
 // Route to get the cards for application Tab (only one tab can have cards)
 app.use("/api/v1/detailcards/", require("./routes/smartApp/detailcards"));
 // Route to get the cards for application Tab (only one tab can have cards)
+
+app.use("/api/v1/generatePDF/", require("./routes/utilities/generatePDF"));
+
 app.use(
   "/api/v1/uploadHeaderFile/",
   require("./routes/smartApp/uploadHeaderFile")
