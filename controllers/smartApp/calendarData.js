@@ -50,11 +50,12 @@ exports.calendarData = asyncHandler(async (req, res, next) => {
 
   for (let i = 0; i < results.length; i++) {
     const element = results[i];
-    person["name"] = "Atul Gupta";
-    person["role"] = "Director";
-    person["pic"] =
-      "https://www.espncricinfo.com/inline/content/image/1224532.html";
+
     if (element.calendar !== undefined) {
+      person["name"] = element["Title"];
+      person["role"] = element["SubGroup"];
+      person["pic"] =
+        "https://www.espncricinfo.com/inline/content/image/1224532.html";
       for (let x = 0; x < element.calendar.length; x++) {
         temp = { ...element.calendar[x] };
         if (element.calendar[x].title) {
