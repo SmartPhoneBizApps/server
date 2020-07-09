@@ -73,18 +73,6 @@ exports.uploadFile = asyncHandler(async (req, res, next) => {
   st1["state"] = rg01[2];
   statuses.push(st1);
 
-  // let statuses = [
-  //   {
-  //     title: "Status",
-  //     text: "Approved",
-  //     state: "Success",
-  //   },
-  //   {
-  //     title: "DocumentType",
-  //     text: "Attachment",
-  //     state: "None",
-  //   },
-  // ];
   /////////////////////////////////////////////////////////////////////////
   //   --------  App Data  -------------------
   /////////////////////////////////////////////////////////////////////////
