@@ -112,7 +112,10 @@ module.exports = {
     ////////////////////////////////////////////////////////////////////////////////////////////////
     let query;
     const reqQuery1 = { ...req.query };
-    reqQuery1["company"] = req.user.company;
+    console.log(req.user);
+    if (reqQuery1) {
+      reqQuery1["company"] = req.user.company;
+    }
     /// Initial values..
     var ivalue = getInitialValues(
       req.params.id,
