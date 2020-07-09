@@ -24,7 +24,7 @@ module.exports = {
     html1 = html1.replace("[FULLNAME]", getData["fullName"]);
     html1 = html1.replace("[SCORE]", getData["score"]);
     html1 = html1.replace("[DATE]", getData["generatedDate"]);
-    html1 = html1.replace("[COURSENAME]", getData["courseName"]);
+    html1 = html1.replace("[COURSENAME]", getData["Title"]);
 
     const template = hb.compile(html1, {
       strict: true,
@@ -34,8 +34,9 @@ module.exports = {
     const browser = await puppeteer.launch();
     const page = await browser.newPage();
     await page.setContent(html);
+    console.log(getData["ID"]);
     await page.pdf({
-      path: "public/certificates/" + getData["fileName"] + ".pdf",
+      path: "public/certificates/" + getData["ID"] + ".pdf",
       format: "A4",
       // margin: {
       // top: '20px',

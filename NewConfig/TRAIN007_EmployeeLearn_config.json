@@ -91,6 +91,31 @@
       "URL": "util/getQuestioner/LEARNING/{ID}",
       "Token": "Yes",
       "URLMethod": "GET"
+    },
+
+    {
+      "type": "WORKFLOW",
+      "name": "PDF Certificate",
+      "icon": "sap-icon://upload-to-cloud",
+      "Dialog": [
+        {
+          "label": "Certificate Comment",
+          "name": "ProgressComment",
+          "type": "string",
+          "option": "Optional"
+        }
+      ],
+      "transferFields": [
+        { "field": "ID", "value": "@recorddata" },
+        { "field": "Status", "value": "CertificateIssues" },
+        { "field": "ProgressComment", "value": "@UserInput" },
+        { "field": "Title", "value": "@recorddata" },
+        { "field": "ReferenceID", "value": "@recorddata" },
+        { "field": "TestScore", "value": "@recorddata" }
+      ],
+      "URL": "generatePDF/",
+      "Token": "Yes",
+      "URLMethod": "GET"
     }
   ],
   "Tabs": [
