@@ -24,6 +24,7 @@
       ]
     }
   },
+  "calendarConfig": { "type": "Group", "icon": "Group" },
 
   "dataFilter": [{ "field": "Status" }],
   "ListFields": {
@@ -182,13 +183,7 @@
           "SLabel": "Item Number",
           "Option": "Optional"
         },
-        {
-          "name": "visualization",
-          "type": "string",
-          "width": "10",
-          "SLabel": "visualization",
-          "Option": "Optional"
-        },
+
         {
           "name": "startDate",
           "type": "DateTime",
@@ -216,20 +211,6 @@
           "width": "20",
           "SLabel": "text",
           "Option": "Optional"
-        },
-        {
-          "name": "icon",
-          "type": "string",
-          "width": "100",
-          "SLabel": "icon",
-          "Option": "Optional"
-        },
-        {
-          "name": "type",
-          "type": "string",
-          "width": "100",
-          "SLabel": "type",
-          "Option": "Optional"
         }
       ],
       "DisplayFields": ["title", "text", "startDate", "endDate"],
@@ -246,11 +227,7 @@
           "Tab": "Tab6",
           "Mode": "Edit"
         },
-        {
-          "name": "visualization",
-          "Tab": "Tab6",
-          "Mode": "Edit"
-        },
+
         {
           "name": "startDate",
           "Tab": "Tab6",
@@ -268,16 +245,6 @@
         },
         {
           "name": "text",
-          "Tab": "Tab6",
-          "Mode": "Edit"
-        },
-        {
-          "name": "icon",
-          "Tab": "Tab6",
-          "Mode": "Edit"
-        },
-        {
-          "name": "type",
           "Tab": "Tab6",
           "Mode": "Edit"
         }

@@ -27,6 +27,12 @@ const PossiblevalueSchema = new mongoose.Schema({
   Score: {
     type: String,
   },
+  type: {
+    type: String,
+  },
+  icon: {
+    type: String,
+  },
   EditLock: {
     type: String,
   },
