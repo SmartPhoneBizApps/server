@@ -24,7 +24,6 @@
       ]
     }
   },
-  "calendarConfig": { "type": "Group", "icon": "Group" },
 
   "dataFilter": [{ "field": "Status" }],
   "ListFields": {
@@ -89,7 +88,8 @@
       "icon": "sap-icon://upload",
       "URL": "smartApp/calendarData/TRAIN008",
       "Token": "Yes",
-      "URLMethod": "GET"
+      "URLMethod": "GET",
+      "calendarConfig": { "type": "Group", "icon": "Group" }
     }
   ],
   "DButtons": [
