@@ -65,7 +65,24 @@
       "icon": "sap-icon://chart-table-view"
     },
     { "type": "ADD", "name": "Add Record", "icon": "sap-icon://add" },
-    { "type": "UPLOAD", "name": "Upload Record", "icon": "sap-icon://upload" }
+    {
+      "type": "UPLOAD",
+      "name": "Upload Record",
+      "icon": "sap-icon://upload",
+      "Option": ["Header", "Items"],
+      "ItemOptions": ["Package", "Payslips", "P60"],
+      "URL": "datarecords/",
+      "URLMethod": "PUT",
+      "dataFields": "FieldName"
+    },
+    {
+      "type": "TABLEFILTER",
+      "name": "Copy Course",
+      "icon": "sap-icon://copy",
+      "URL": "util/copyCourse/TRAIN001/TRAIN001/{ID}/{role}",
+      "Token": "Yes",
+      "URLMethod": "POST"
+    }
   ],
   "DButtons": [],
   "Tabs": [
