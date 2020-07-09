@@ -171,6 +171,11 @@ app.use(
   "/api/v1/util/getQuestioner/",
   require("./routes/utilities/getQuestioner")
 );
+
+app.use(
+  "/api/v1/smartApp/calendarData/",
+  require("./routes/smartApp/calendarData")
+);
 app.use("/api/v1/util/addTraining/", require("./routes/utilities/addTraining"));
 app.use("/api/v1/sendEmailHtml/", require("./routes/smartApp/sendEmailHtml"));
 //app.use("/api/v1/util/createPDF/", require("./routes/utilities/createPDF"));
