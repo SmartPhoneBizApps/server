@@ -46,7 +46,6 @@ exports.addTraining = asyncHandler(async (req, res, next) => {
   mytr = [];
   mytrain["MyTraining"];
   mytrain["ItemNumber"] = Math.floor(100 + Math.random() * 900);
-  console.log(mytrain["ItemNumber"]);
   for (let q = 0; q < configData["DButtons"].length; q++) {
     for (const ky in configData["DButtons"][q]["FieldMapping"]) {
       const ex = configData["DButtons"][q]["FieldMapping"][ky];

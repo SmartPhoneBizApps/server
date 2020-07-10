@@ -113,8 +113,6 @@ exports.updateApprole = asyncHandler(async (req, res, next) => {
     );
   }
 
-  console.log(req.body);
-
   //  updateApp = {}
   //  updateApp["Apps"] = req.body["Apps"]
 

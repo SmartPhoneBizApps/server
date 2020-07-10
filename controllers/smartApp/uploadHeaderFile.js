@@ -37,7 +37,6 @@ exports.uploadHeaderFile = asyncHandler(async (req, res, next) => {
     req.headers.applicationid,
     req.headers.businessrole
   );
-  console.log(cardConfig);
   let mydata = {};
   let outdata = [];
   let myitem = {};
@@ -70,7 +69,7 @@ exports.uploadHeaderFile = asyncHandler(async (req, res, next) => {
       outdata.push(mydata);
       mydata = {};
     }
-    console.log("Data", outdata);
+
     result = await createMultipleDocument(req.headers.applicationid, outdata);
     if (!result) {
       return next(new ErrorResponse(`Problem with the file data`), 404);

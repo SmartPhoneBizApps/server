@@ -40,7 +40,6 @@ exports.getaddress = asyncHandler(async (req, res, next) => {
           data: [],
         });
       }
-      console.log(res1.statusCode);
       if (res1.statusCode == 200) {
         res.status(201).json({
           success: true,

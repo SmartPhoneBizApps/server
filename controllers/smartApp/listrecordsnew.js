@@ -15,7 +15,6 @@ exports.listrecordsnew = asyncHandler(async (req, res, next) => {
   const businessrole = req.params.businessrole;
   //  const Title = req.params.Title;
   const mode = req.params.mode;
-  console.log(applicationId, businessrole, mode);
 
   const application = await findOneApp(applicationId);
 

@@ -39,7 +39,6 @@ exports.calendarData = asyncHandler(async (req, res, next) => {
   let query = readData(req.params.id, req, config1);
   let results = await query;
 
-  console.log(count);
   temp = {};
   temp2 = [];
   person = {};

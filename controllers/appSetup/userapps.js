@@ -95,7 +95,6 @@ exports.getUserapps = asyncHandler(async (req, res, next) => {
         appTemp["subTileName"] = approleX.Apps[j].descriptions[0].area;
         appTemp["info"] = approleX.Apps[j].descriptions[0].appHelp;
         appTemp["extraInfo"] = "";
-        console.log("Role", approleX.role, approleX.Apps[j].frameType);
         if (approleX.Apps[j]["frameType"]) {
           appTemp["frameType"] = approleX.Apps[j].frameType;
         } else {
@@ -106,7 +105,6 @@ exports.getUserapps = asyncHandler(async (req, res, next) => {
           appTemp["frameType"] == "TwoByOne"
         ) {
           appTemp["backgroundImage"] = path + approleX.Apps[j].backgroundImage;
-          console.log(appTemp["backgroundImage"]);
           appTemp["icon"] = "";
         } else {
           appTemp["backgroundImage"] = "";

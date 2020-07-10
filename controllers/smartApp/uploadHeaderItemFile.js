@@ -35,7 +35,6 @@ exports.uploadHeaderItemFile = asyncHandler(async (req, res, next) => {
     req.headers.applicationid,
     req.headers.businessrole
   );
-  console.log(cardConfig);
 
   let mydata = {};
   let outdata = [];
@@ -70,7 +69,7 @@ exports.uploadHeaderItemFile = asyncHandler(async (req, res, next) => {
       outdata.push(mydata);
       mydata = {};
     }
-    console.log(outdata);
+
     if (item) {
       if (!item.mimetype.startsWith("text/csv")) {
         return next(new ErrorResponse(`Please upload an csv file(item)`, 400));
@@ -121,7 +120,6 @@ exports.uploadHeaderItemFile = asyncHandler(async (req, res, next) => {
           );
           finalOutput.push(finalData);
         }
-        console.log(finalOutput);
         result = await createMultipleDocument(
           req.headers.applicationid,
           finalOutput

@@ -75,7 +75,17 @@
       "icon": "sap-icon://chart-table-view"
     },
     { "type": "ADD", "name": "Add Record", "icon": "sap-icon://add" },
-    { "type": "UPLOAD", "name": "Upload Record", "icon": "sap-icon://upload" }
+    {
+      "type": "UPLOAD",
+      "name": "Upload Record",
+      "icon": "sap-icon://upload",
+      "Option": ["Header", "Items"],
+      "ItemOptions": ["Questioner"],
+      "URL": "datarecords/",
+      "URLMethodHDR": "POST",
+      "URLMethodTable": "PUT",
+      "dataFields": "FieldName"
+    }
   ],
   "DButtons": [
     {

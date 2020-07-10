@@ -41,7 +41,7 @@ exports.addDataRecords = asyncHandler(async (req, res, next) => {
   if (!req.body.MultiAttachments) {
     req.body.MultiAttachments = multiAtt;
   }
-  console.log(req.body.MultiAttachments);
+
   //Get Company
   const BodyApp = await getApplication(req.headers.applicationid);
   const BusinessRole = await getRole(req.headers.businessRole);
@@ -345,8 +345,6 @@ exports.addDataRecords = asyncHandler(async (req, res, next) => {
 // -----------------------------------------------------
 // -----------------------------------------------------
 exports.updateDataRecords = asyncHandler(async (req, res, next) => {
-  console.log("Table Data Request");
-  console.log(req.body);
   if (!req.headers.applicationid) {
     return next(new ErrorResponse(`Please provide App ID(Header)`, 400));
   }
@@ -559,7 +557,6 @@ exports.updateDataRecords = asyncHandler(async (req, res, next) => {
 
   // Update Table fields
   let tblFields = tableFields(cardConfig.FieldDef);
-  console.log("Fields with Type table", tblFields);
   for (const kk in req.body) {
     if (req.body.hasOwnProperty(kk)) {
       let tableField = false;
@@ -567,7 +564,6 @@ exports.updateDataRecords = asyncHandler(async (req, res, next) => {
       if (tableField == true) {
         myData[kk] = tableValidate(req.body[kk], myData[kk]);
         req.body[kk] = myData[kk];
-        console.log("After table check", myData[kk]);
       }
     }
   }
