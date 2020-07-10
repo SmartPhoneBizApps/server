@@ -8,34 +8,19 @@ const { generatePdfCertificate } = require("../../modules/config2");
 exports.generatePDF = asyncHandler(async (req, res, next) => {
   var passData = {};
   // passData = { ...req.body };
+  passData["ID"] = req.query.ID;
 
-  passData["ID"] = req.body.ID;
-  if (req.body["ReferenceID"]) {
+  if (req.query["ReferenceID"]) {
     passData["Title"] =
-      req.body["Title"] + " (" + req.body["ReferenceID"] + ")";
+      req.query["Title"] + " (" + req.query["ReferenceID"] + ")";
   } else {
-    passData["Title"] = req.body.Title;
+    passData["Title"] = req.query.Title;
   }
-  passData["score"] = req.body.TestScore;
+  passData["score"] = req.query.TestScore;
   passData["generatedDate"] = new Date();
   passData["fullName"] = req.user.name;
-  console.log(req.body.ID);
   passData["req"] = req;
   passData["res"] = res;
-  //   passData["fullName"] = "Divyesh Trambadia";
-  //   passData["score"] = "65";
-  //   passData["generatedDate"] = "July 8,2020";
-  //   passData["fileName"] = "divyeshcertificate";
-  //   passData["courseName"] = "SAPUI5";
-  //   passData["req"] = req;
-  //   passData["res"] = res;
 
   await generatePdfCertificate(passData);
-  //  pth = process.env.APPURL + "certificates/" + req.body["ID"] + ".pdf";
-  // console.log(req.user.name);
-  // res.status(201).json({
-  //   success: true,
-  //   message: "Certificated created",
-  //   file: pth,
-  // });
 });
