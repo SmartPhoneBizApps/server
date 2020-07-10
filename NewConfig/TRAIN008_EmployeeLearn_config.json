@@ -89,7 +89,24 @@
       "URL": "smartApp/calendarData/TRAIN008",
       "Token": "Yes",
       "URLMethod": "GET",
-      "calendarConfig": { "type": "Group", "icon": "Group" }
+      "calendarConfig": {
+        "type": "Group",
+        "icon": "Group",
+        "add": false,
+        "edit": false,
+        "defaultView": "Hours",
+        "appDisplay": {
+          "button": true,
+          "buttons": [
+            {
+              "name": "Book",
+              "URL": "smartApp/calendarData/TRAIN008",
+              "Token": "Yes",
+              "URLMethod": "GET"
+            }
+          ]
+        }
+      }
     }
   ],
   "DButtons": [
