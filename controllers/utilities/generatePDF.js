@@ -9,7 +9,7 @@ exports.generatePDF = asyncHandler(async (req, res, next) => {
   var passData = {};
   // passData = { ...req.body };
   passData["ID"] = req.query.ID;
-
+  console.log(req.query);
   if (req.query["ReferenceID"]) {
     passData["Title"] =
       req.query["Title"] + " (" + req.query["ReferenceID"] + ")";
