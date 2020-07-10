@@ -8,7 +8,7 @@ const { generatePdfCertificate } = require("../../modules/config2");
 exports.generatePDF = asyncHandler(async (req, res, next) => {
   var passData = {};
   // passData = { ...req.body };
-  passData["ID"] = req.query.ID;
+  passData["ID"] = req.query;
   console.log("Req:", req.query);
   if (req.query["ReferenceID"]) {
     passData["Title"] =
@@ -19,7 +19,7 @@ exports.generatePDF = asyncHandler(async (req, res, next) => {
   passData["score"] = req.query.TestScore;
   passData["generatedDate"] = new Date();
   passData["fullName"] = req.user.name;
-  console.log("Req:", passData);
+  console.log("CertData1:", passData);
   // console.log(passData);
   passData["req"] = req;
   passData["res"] = res;
