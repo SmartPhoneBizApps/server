@@ -319,11 +319,9 @@ class calFun {
     if (config["HeaderItem"].length > 0) {
       if (outdata[tabname].length > 0) {
         config["HeaderItem"].forEach((configItem) => {
-          console.log("AG001", configItem["CalculatedFormula"]);
           if (this.hasNull(configItem["CalculatedFormula"], 4)) {
             var fieldObj = [];
             for (var i = 0; i < outdata[tabname].length; i++) {
-              console.log("AG002", outdata[tabname]);
               if (this.hasNull(configItem["Fields"][0], 2)) {
                 fieldObj.push(
                   parseFloat(
