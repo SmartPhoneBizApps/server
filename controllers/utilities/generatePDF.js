@@ -30,12 +30,12 @@ exports.generatePDF = asyncHandler(async (req, res, next) => {
   //   passData["req"] = req;
   //   passData["res"] = res;
 
-  cert = await generatePdfCertificate(passData);
-  pth = process.env.APPURL + "certificates/" + req.body["ID"] + ".pdf";
-  console.log(req.user.name);
-  res.status(201).json({
-    success: true,
-    message: "Certificated created",
-    file: pth,
-  });
+  await generatePdfCertificate(passData);
+  //  pth = process.env.APPURL + "certificates/" + req.body["ID"] + ".pdf";
+  // console.log(req.user.name);
+  // res.status(201).json({
+  //   success: true,
+  //   message: "Certificated created",
+  //   file: pth,
+  // });
 });

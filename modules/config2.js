@@ -14,7 +14,8 @@ const utils = require("util");
 const puppeteer = require("puppeteer");
 const hb = require("handlebars");
 const readFile = utils.promisify(fs.readFile);
-
+const sendEmail = require("../utils/sendEmail");
+const sendEmail1 = require("../utils/sendEmailProd");
 module.exports = {
   generatePdfCertificate: async function (getData) {
     let data = {};
@@ -25,32 +26,55 @@ module.exports = {
     html1 = html1.replace("[SCORE]", getData["score"]);
     html1 = html1.replace("[DATE]", getData["generatedDate"]);
     html1 = html1.replace("[COURSENAME]", getData["Title"]);
+    message = html1;
+    try {
+      sendEmail({
+        //email: req.params.user,
+        //subject: sub,
+        //message,
 
-    const template = hb.compile(html1, {
-      strict: true,
-    });
-    const result = template(data);
-    const html = result;
-    const browser = await puppeteer.launch({
-      args: ["--no-sandbox", "--disable-setuid-sandbox"],
-    });
-    const page = await browser.newPage();
-    await page.setContent(html);
-    console.log(getData["ID"]);
-    await page.pdf({
-      path: "public/certificates/" + getData["ID"] + ".pdf",
-      format: "A4",
-      // margin: {
-      // top: '20px',
-      // right: '20px',
-      // bottom: '0px',
-      // left: '0px'
-      // },
-      printBackground: true,
-      // scale: 0.5
-    });
-    await browser.close();
-    console.log("PDF Generated");
+        email: "gst@smartphonebizapps.com",
+        subject: "Congratulation you have completed the course",
+        message,
+      });
+
+      getData["res"].status(200).json({
+        success: true,
+        message: "Course assigned to the user & Email sent 123",
+      });
+    } catch (err) {
+      console.log(err);
+      getData["res"].status(200).json({
+        success: true,
+        message: "Course assigned to the user but Email could not be sent",
+      });
+    }
+
+    // const template = hb.compile(html1, {
+    //   strict: true,
+    // });
+    // const result = template(data);
+    // const html = result;
+    // const browser = await puppeteer.launch({
+    //   args: ["--no-sandbox", "--disable-setuid-sandbox"],
+    // });
+    // const page = await browser.newPage();
+    // await page.setContent(html);
+    // console.log(getData["ID"]);
+    // await page.pdf({
+    //   path: "public/certificates/" + getData["ID"] + ".pdf",
+    //   format: "A4",
+    //   // margin: {
+    //   // top: '20px',
+    //   // right: '20px',
+    //   // bottom: '0px',
+    //   // left: '0px'
+    //   // },
+    //   printBackground: true,
+    //   // scale: 0.5
+    // });
+    //await browser.close();
+    console.log("Certificate Sent..");
   },
 
   sendErrorMessage: function (what, chkVal, user) {
