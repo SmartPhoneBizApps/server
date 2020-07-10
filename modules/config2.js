@@ -31,7 +31,9 @@ module.exports = {
     });
     const result = template(data);
     const html = result;
-    const browser = await puppeteer.launch();
+    const browser = await puppeteer.launch({
+      args: ["--no-sandbox", "--disable-setuid-sandbox"],
+    });
     const page = await browser.newPage();
     await page.setContent(html);
     console.log(getData["ID"]);
