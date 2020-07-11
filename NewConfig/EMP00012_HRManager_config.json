@@ -362,14 +362,14 @@
         {
           "name": "Area3",
           "type": "string",
-          "width": "10",
+          "width": "100",
           "SLabel": "Appraisal Area",
           "Option": "Optional"
         },
         {
           "name": "CompDesc3",
           "type": "string",
-          "width": "10",
+          "width": "500",
           "SLabel": "Appraisal Description",
           "Option": "Optional"
         },
@@ -377,12 +377,12 @@
           "name": "Score3",
           "type": "string",
           "width": "200",
-          "SLabel": "Appraisal Score",
+          "SLabel": "Appraisal Score(Max 5)",
           "Option": "Optional"
         },
         {
           "name": "MaxScore3",
-          "type": "string",
+          "type": "rating,5",
           "width": "200",
           "SLabel": "Appraisal MaxScore",
           "Option": "Optional",
@@ -435,12 +435,12 @@
         {
           "name": "Area3",
           "Tab": "Tab2",
-          "Mode": "Edit"
+          "Mode": "Display"
         },
         {
           "name": "CompDesc3",
           "Tab": "Tab2",
-          "Mode": "Edit"
+          "Mode": "Display"
         },
         {
           "name": "Score3",
