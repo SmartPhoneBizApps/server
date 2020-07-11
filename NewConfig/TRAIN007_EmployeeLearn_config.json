@@ -92,7 +92,6 @@
       "Token": "Yes",
       "URLMethod": "GET"
     },
-
     {
       "type": "WORKFLOW",
       "name": "PDF Certificate",
@@ -107,11 +106,11 @@
       ],
       "transferFields": [
         { "field": "ID", "value": "@recorddata" },
-        { "field": "Status", "value": "CertificateIssues" },
-        { "field": "ProgressComment", "value": "@UserInput" },
         { "field": "Title", "value": "@recorddata" },
         { "field": "ReferenceID", "value": "@recorddata" },
-        { "field": "TestScore", "value": "@recorddata" }
+        { "field": "TestScore", "value": "@recorddata" },
+        { "field": "ProgressComment", "value": "@UserInput" },
+        { "field": "Status", "value": "CertificateIssues" }
       ],
       "URL": "generatePDF/",
       "Token": "Yes",

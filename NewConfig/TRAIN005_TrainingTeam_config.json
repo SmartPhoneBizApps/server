@@ -80,7 +80,7 @@
       "name": "Upload Record",
       "icon": "sap-icon://upload",
       "Option": ["Header", "Items"],
-      "ItemOptions": ["Questioner"],
+      "ItemOptions": [],
       "URL": "datarecords/",
       "URLMethodHDR": "POST",
       "URLMethodTable": "PUT",
@@ -160,7 +160,12 @@
       "update": "Yes",
       "name": "Learning Documents",
       "type": "MultiAttachments",
-      "fioriicon": "contacts"
+      "fioriicon": "contacts",
+      "docType": [
+        { "text": "UserGuide", "state": "Success" },
+        { "text": "CourseMaterial", "state": "Information" },
+        { "text": "FactSheet", "state": "Information" }
+      ]
     },
     {
       "value": "Tab4",
@@ -168,13 +173,6 @@
       "name": "Video",
       "fioriicon": "step",
       "type": "video"
-    },
-    {
-      "value": "Tab5",
-      "update": "Yes",
-      "name": "Questioner",
-      "fioriicon": "toaster-up",
-      "type": "Table"
     }
   ],
   "DetailFields": {
@@ -203,91 +201,9 @@
     ],
 
     "Tab3": ["MultiAttachments"],
-    "Tab4": ["Video"],
-    "Tab5": ["Questioner"]
+    "Tab4": ["Video"]
   },
-  "tableConfig": {
-    "Questioner": {
-      "title": "Test",
-      "ItemFieldDefinition": [
-        {
-          "name": "ItemNumber",
-          "type": "string",
-          "width": "10",
-          "SLabel": "Item Number",
-          "Option": "Optional"
-        },
-        {
-          "name": "Question",
-          "type": "string",
-          "width": "10",
-          "SLabel": "Question",
-          "Option": "Optional"
-        },
-        {
-          "name": "Answer",
-          "type": "string",
-          "width": "200",
-          "SLabel": "Answer",
-          "Option": "Optional"
-        },
-        {
-          "name": "CorrectAnswer",
-          "type": "string",
-          "width": "200",
-          "SLabel": "Correct Ans",
-          "Option": "Optional"
-        },
-        {
-          "name": "Score",
-          "type": "string",
-          "width": "20",
-          "SLabel": "Score",
-          "Option": "Optional"
-        }
-      ],
-      "DisplayFields": ["Question", "Answer", "CorrectAnswer", "Score"],
-      "ItemButtons": {
-        "itemDisplay": true,
-        "itemAdd": false,
-        "itemEdit": false,
-        "itemDelete": false
-      },
-      "CreateFields": ["Question", "Answer", "CorrectAnswer", "Score"],
-      "ItemDetails": [
-        {
-          "name": "ItemNumber",
-          "Tab": "Tab5",
-
-          "Mode": "Edit"
-        },
-        {
-          "name": "Question",
-          "Tab": "Tab5",
-
-          "Mode": "Edit"
-        },
-        {
-          "name": "Answer",
-          "Tab": "Tab5",
-
-          "Mode": "Edit"
-        },
-        {
-          "name": "CorrectAnswer",
-          "Tab": "Tab5",
-
-          "Mode": "Edit"
-        },
-        {
-          "name": "Score",
-          "Tab": "Tab5",
-
-          "Mode": "Edit"
-        }
-      ]
-    }
-  },
+  "tableConfig": {},
   "ControlDisplay": {},
   "FieldDef": [
     {
@@ -531,14 +447,7 @@
       "SLabel": "Learning Documents",
       "LLabel": "Learning Documents"
     },
-    {
-      "name": "Questioner",
-      "type": "Array",
-      "width": "200",
-      "Option": "Optional",
-      "SLabel": "Questioner",
-      "LLabel": "Questioner"
-    },
+
     {
       "name": "Q1",
       "type": "string",
