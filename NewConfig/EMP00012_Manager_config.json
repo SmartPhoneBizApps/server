@@ -5,15 +5,7 @@
   },
   "Controls": {
     "USP": "UserProfile",
-    "Filters": [
-      {
-        "$and": [
-          { "Status": { "$ne": "Approved" } },
-          { "Status": { "$ne": "Rejected" } },
-          { "Status": { "$ne": "ReferredBack" } }
-        ]
-      }
-    ],
+    "Filters": [{ "DevManager": "@user" }],
     "Partner": "@user",
     "UserSpecific": "Yes",
     "Update": "Yes",
@@ -50,91 +42,34 @@
       "name": "Download File",
       "icon": "sap-icon://download"
     },
-    {
-      "type": "APPHELP",
-      "name": "Get App Help",
-      "icon": "sap-icon://sys-help-2"
-    },
+
     {
       "type": "BOT",
       "name": "Launch Assistant",
       "icon": "sap-icon://travel-request"
     },
-    {
-      "type": "VIEW",
-      "name": "Change App View",
-      "icon": "sap-icon://chart-table-view"
-    },
     { "type": "ADD", "name": "Add Record", "icon": "sap-icon://add" },
-    { "type": "UPLOAD", "name": "Upload Record", "icon": "sap-icon://upload" }
+    {
+      "type": "UPLOAD",
+      "name": "Upload Record",
+      "icon": "sap-icon://upload",
+      "Option": ["Header", "Items"],
+      "ItemOptions": ["Goals", "Appraisal", "MyTraining"],
+      "URL": "datarecords/",
+      "URLMethodHDR": "POST",
+      "URLMethodTable": "PUT",
+      "dataFields": "FieldName",
+      "ID": "External"
+    }
   ],
   "DButtons": [
     {
-      "type": "WORKFLOW",
-      "name": "Approve",
-      "icon": "sap-icon://accept",
-      "Dialog": [
-        {
-          "label": "Approver Comment",
-          "name": "ProgressComment",
-          "type": "string",
-          "option": "Optional"
-        }
-      ],
-      "transferFields": [
-        { "field": "ID", "value": "@recorddata" },
-        { "field": "Status", "value": "Approved" },
-        { "field": "ProgressComment", "value": "@UserInput" }
-      ],
-      "URL": "datarecords/",
-      "Token": "Yes",
-      "URLMethod": "PUT",
-      "hideRecord": "Yes"
+      "type": "ATTACHMENT",
+      "name": "View Attachments",
+      "icon": "sap-icon://attachment"
     },
-    {
-      "type": "WORKFLOW",
-      "name": "Reject",
-      "icon": "sap-icon://decline",
-      "Dialog": [
-        {
-          "label": "Approver Comment",
-          "name": "ProgressComment",
-          "type": "string",
-          "option": "Optional"
-        }
-      ],
-      "transferFields": [
-        { "field": "ID", "value": "@recorddata" },
-        { "field": "Status", "value": "Rejected" },
-        { "field": "ProgressComment", "value": "@UserInput" }
-      ],
-      "URL": "datarecords/",
-      "Token": "Yes",
-      "URLMethod": "PUT",
-      "hideRecord": "Yes"
-    },
-    {
-      "type": "WORKFLOW",
-      "name": "ReferBack",
-      "icon": "sap-icon://hint",
-      "Dialog": [
-        {
-          "label": "Approver Comment",
-          "name": "ProgressComment",
-          "type": "string",
-          "option": "Optional"
-        }
-      ],
-      "transferFields": [
-        { "field": "ID", "value": "@recorddata" },
-        { "field": "Status", "value": "ReferBack" },
-        { "field": "ProgressComment", "value": "@UserInput" }
-      ],
-      "URL": "datarecords/",
-      "Token": "Yes",
-      "URLMethod": "PUT",
-      "hideRecord": "Yes"
-    }
+    { "type": "UPDATE", "name": "Update Record", "icon": "sap-icon://update" },
+    { "type": "ADD", "name": "Add Record", "icon": "sap-icon://add" }
   ],
   "Tabs": [
     {
@@ -286,7 +221,7 @@
           "name": "Area2",
           "type": "string",
           "width": "10",
-          "SLabel": "Area",
+          "SLabel": "Goal Area",
           "Option": "Optional"
         },
         {
@@ -301,14 +236,14 @@
           "name": "Score2",
           "type": "string",
           "width": "200",
-          "SLabel": "Score",
+          "SLabel": "Goal Score",
           "Option": "Optional"
         },
         {
           "name": "MaxScore2",
           "type": "string",
           "width": "200",
-          "SLabel": "Max Score",
+          "SLabel": "Goal Max Score",
           "Option": "Optional",
           "Default": "5"
         },
@@ -316,14 +251,14 @@
           "name": "AppraiseComm2",
           "type": "string",
           "width": "1000",
-          "SLabel": "Appraise Comment",
+          "SLabel": "Appraise Comment(Goal)",
           "Option": "Optional"
         },
         {
           "name": "SetDate2",
           "type": "Date",
           "width": "10",
-          "SLabel": "Set Date",
+          "SLabel": "Goal Set Date",
           "Option": "Optional",
           "Default": "@currentDate"
         },
@@ -331,7 +266,7 @@
           "name": "TargetDate2",
           "type": "Date",
           "width": "10",
-          "SLabel": "Target Date",
+          "SLabel": "Goal Target Date",
           "Option": "Optional"
         },
         {
@@ -419,29 +354,29 @@
         {
           "name": "Area3",
           "type": "string",
-          "width": "10",
-          "SLabel": "Group",
+          "width": "100",
+          "SLabel": "Appraisal Area",
           "Option": "Optional"
         },
         {
           "name": "CompDesc3",
           "type": "string",
-          "width": "10",
-          "SLabel": "Group",
+          "width": "500",
+          "SLabel": "Appraisal Description",
           "Option": "Optional"
         },
         {
           "name": "Score3",
-          "type": "string",
+          "type": "rating,5",
           "width": "200",
-          "SLabel": "Score",
+          "SLabel": "Appraisal Score(Max 5)",
           "Option": "Optional"
         },
         {
           "name": "MaxScore3",
           "type": "string",
           "width": "200",
-          "SLabel": "MaxScore",
+          "SLabel": "Appraisal MaxScore",
           "Option": "Optional",
           "Default": "5"
         },
@@ -449,7 +384,7 @@
           "name": "AppraiseComm3",
           "type": "string",
           "width": "1000",
-          "SLabel": "AppraiseComm",
+          "SLabel": "Appraise Comment",
           "Option": "Optional"
         },
         {
@@ -464,7 +399,7 @@
           "name": "TargetDate3",
           "type": "Date",
           "width": "10",
-          "SLabel": "Target Date",
+          "SLabel": "Appraisal Target Date",
           "Option": "Optional"
         }
       ],
@@ -490,45 +425,39 @@
       ],
       "ItemDetails": [
         {
+          "name": "Score3",
+          "Tab": "Tab2",
+          "Mode": "Edit"
+        },
+        {
           "name": "Area3",
           "Tab": "Tab2",
-
-          "Mode": "Edit"
+          "Mode": "Display"
         },
         {
           "name": "CompDesc3",
           "Tab": "Tab2",
-
-          "Mode": "Edit"
+          "Mode": "Display"
         },
-        {
-          "name": "Score3",
-          "Tab": "Tab2",
 
-          "Mode": "Edit"
-        },
         {
           "name": "MaxScore3",
           "Tab": "Tab2",
-
-          "Mode": "Edit"
+          "Mode": "Display"
         },
         {
           "name": "AppraiseComm3",
           "Tab": "Tab2",
-
           "Mode": "Edit"
         },
         {
           "name": "AssignDate3",
           "Tab": "Tab2",
-
           "Mode": "Edit"
         },
         {
           "name": "TargetDate3",
           "Tab": "Tab2",
-
           "Mode": "Edit"
         }
       ]
@@ -985,14 +914,6 @@
       "Option": "Optional",
       "SLabel": "Answer 7",
       "LLabel": "Answer 7"
-    },
-    {
-      "name": "ProgressComment",
-      "type": "string",
-      "width": "500",
-      "Option": "Mandatory",
-      "SLabel": "Approver Comment",
-      "LLabel": ""
     },
     {
       "name": "A8",

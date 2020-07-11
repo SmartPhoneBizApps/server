@@ -21,19 +21,16 @@ const {
   getInitialValues,
   tableFields,
   tableValidate,
-  tableDetails,
   processingLog,
 } = require("../../modules/config");
-
-const { valAppNotNull } = require("../../modules/validationMessages");
-
 const calfunction = require("../../models/utilities/calfunction.js");
-const Possval = require("../../models/appSetup/Possval");
 
 // @desc      Add record
 // @route     POST /api/v1/datarecords/
 // @access    Private
 exports.addDataRecords = asyncHandler(async (req, res, next) => {
+  console.log(req.query);
+  console.log(req.body);
   let multiAtt = {
     items: [],
   };
@@ -41,28 +38,18 @@ exports.addDataRecords = asyncHandler(async (req, res, next) => {
   if (!req.body.MultiAttachments) {
     req.body.MultiAttachments = multiAtt;
   }
-
   //Get Company
   const BodyApp = await getApplication(req.headers.applicationid);
-  const BusinessRole = await getRole(req.headers.businessRole);
   // Read New Config File
   var cardConfig = getNewConfig(
     req.headers.applicationid,
     req.headers.businessrole
   );
-  // Get initial Values / UserProfile
-  var ivalue = getInitialValues(
-    req.headers.applicationid,
-    req.headers.businessrole,
-    req.user
-  );
-
   // ---------------------
   // App ID and Validate
   // ---------------------
   req.body.appId = BodyApp.id;
   req.body.applicationId = req.headers.applicationid;
-
   if (!req.body.appId) {
     return next(new ErrorResponse(`Please provide App ID`, 400));
   }
@@ -76,16 +63,6 @@ exports.addDataRecords = asyncHandler(async (req, res, next) => {
   // Get Company Details and Validate
   // ---------------------------------
   const CompanyDetails = await Company.findById(req.user.company);
-  // Check if user setup has company (Pass)
-  // if (!req.user.company) {
-  //   return next(
-  //     new ErrorResponse(
-  //       `The user with ID ${req.user.email} is not setup for any company`,
-  //       400
-  //     )
-  //   );
-  // }
-
   // Company Validation
   err1 = sendErrorMessage("company", req.user.company, req.user.email);
   if (err1) {
@@ -134,15 +111,6 @@ exports.addDataRecords = asyncHandler(async (req, res, next) => {
   }
   // Validate if user has provided Branch details (Pass)
   if (!req.headers.branch) {
-    // if (!req.user.branch) {
-    //   return next(
-    //     new ErrorResponse(
-    //       `The user with ID ${req.user.email} can't create document as branch is not provided`,
-    //       400
-    //     )
-    //   );
-    // }
-
     err1 = sendErrorMessage("branch", req.user.branch, req.user.email);
     if (err1) {
       return next(err1);
