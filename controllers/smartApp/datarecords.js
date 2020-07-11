@@ -29,7 +29,10 @@ const calfunction = require("../../models/utilities/calfunction.js");
 // @route     POST /api/v1/datarecords/
 // @access    Private
 exports.addDataRecords = asyncHandler(async (req, res, next) => {
-  console.log(req.query);
+  let sourceID = "Internal";
+  if (req.headers.buttonName == "UPLOAD") {
+    sourceID = "External";
+  }
   console.log(req.body);
   let multiAtt = {
     items: [],
@@ -190,7 +193,12 @@ exports.addDataRecords = asyncHandler(async (req, res, next) => {
     req.body.ProgressComment
   );
 
-  req.body.ID = Math.floor(100000 + Math.random() * 900000);
+  if ((sourceID = "External")) {
+    console.log("ID is read from the file");
+  } else {
+    req.body.ID = Math.floor(100000 + Math.random() * 900000);
+  }
+
   //req.body.OrgData = myorg;
   if (req.body.ItemData) {
     for (let index = 0; index < req.body.ItemData.length; index++) {
