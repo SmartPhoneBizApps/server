@@ -91,43 +91,6 @@
     "required": [true, "Please add Mandatory field :Email"],
     "match": ["EMAIL_V1", "Invalid Email for field :Email"]
   },
-  "AccountNo": {
-    "type": "String",
-    "maxlength": [100, "AccountNo can not be more than 100 characters"]
-  },
-  "BankName": {
-    "type": "String",
-    "maxlength": [100, "BankName can not be more than 100 characters"]
-  },
-  "BankBranch": {
-    "type": "String",
-    "maxlength": [100, "Branch can not be more than 100 characters"]
-  },
-  "IBAN": {
-    "type": "String",
-    "maxlength": [100, "IBAN can not be more than 100 characters"]
-  },
-  "SWIFT": {
-    "type": "String",
-    "maxlength": [100, "SWIFT can not be more than 100 characters"],
-    "match": [
-      "UK_PHONE_V1",
-      "Please provide valid UK Phone number in field :ContactNo"
-    ]
-  },
-  "IFSCcode": {
-    "type": "String",
-    "maxlength": [100, "IFSCcode can not be more than 100 characters"]
-  },
-  "ReferenceID": {
-    "type": "String",
-    "maxlength": [100, "ReferenceID can not be more than 100 characters"]
-  },
-
-  "Sortcode": {
-    "type": "String",
-    "maxlength": [500, "Sortcode can not be more than 500 characters"]
-  },
   "USP_Name": { "type": "String" },
   "USP_Role": { "type": "String" },
   "USP_Image": { "type": "String" },
