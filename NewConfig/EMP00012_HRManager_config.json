@@ -388,7 +388,7 @@
           "name": "PerformanceRating",
           "type": "string",
           "width": "100",
-          "SLabel": "Appraisal Description",
+          "SLabel": "Performance Rating",
           "Option": "Optional"
         },
         {
@@ -447,13 +447,14 @@
         "PerformanceRating",
         "Score3",
         "AppraiseComm3",
+        "ManagerComm3",
         "TargetDate3"
       ],
       "ItemButtons": {
         "itemDisplay": true,
-        "itemAdd": true,
-        "itemEdit": true,
-        "itemDelete": true
+        "itemAdd": false,
+        "itemEdit": false,
+        "itemDelete": false
       },
       "CreateFields": [
         "Area3",
@@ -466,7 +467,7 @@
         {
           "name": "Score3",
           "Tab": "Tab2",
-          "Mode": "Edit"
+          "Mode": "Display"
         },
         {
           "name": "Area3",
@@ -481,32 +482,32 @@
         {
           "name": "AppraiseComm3",
           "Tab": "Tab2",
-          "Mode": "Edit"
+          "Mode": "Display"
         },
         {
           "name": "ManagerComm3",
           "Tab": "Tab2",
-          "Mode": "Edit"
+          "Mode": "Display"
         },
         {
           "name": "PositiveComments",
           "Tab": "Tab2",
-          "Mode": "Edit"
+          "Mode": "Display"
         },
         {
           "name": "NeedsImprovement",
           "Tab": "Tab2",
-          "Mode": "Edit"
+          "Mode": "Display"
         },
         {
           "name": "AssignDate3",
           "Tab": "Tab2",
-          "Mode": "Edit"
+          "Mode": "Display"
         },
         {
           "name": "TargetDate3",
           "Tab": "Tab2",
-          "Mode": "Edit"
+          "Mode": "Display"
         }
       ]
     },
