@@ -38,7 +38,8 @@
     "Band",
     "Area",
     "Group",
-    "SubGroup"
+    "SubGroup",
+    "PerformanceRating"
   ],
   "MButtons": [
     {
@@ -277,7 +278,7 @@
           "name": "AppraiseComm2",
           "type": "string",
           "width": "1000",
-          "SLabel": "Appraise Comment",
+          "SLabel": "Employee Comments",
           "Option": "Optional"
         },
         {
@@ -323,7 +324,8 @@
         "Goal2",
         "Score2",
         "AppraiseComm2",
-        "TargetDate2"
+        "TargetDate2",
+        "GoalStatus"
       ],
       "ItemButtons": {
         "itemDisplay": true,
@@ -337,7 +339,8 @@
         "Score2",
         "AppraiseComm2",
         "TargetDate2",
-        "ManagerComm2"
+        "ManagerComm2",
+        "GoalStatus"
       ],
       "ItemDetails": [
         {
@@ -351,12 +354,17 @@
           "Mode": "Display"
         },
         {
-          "name": "Score2",
+          "name": "SetDate2",
           "Tab": "Tab4",
           "Mode": "Display"
         },
         {
-          "name": "MaxScore2",
+          "name": "GoalStatus",
+          "Tab": "Tab4",
+          "Mode": "Display"
+        },
+        {
+          "name": "Score2",
           "Tab": "Tab4",
           "Mode": "Display"
         },
@@ -367,16 +375,6 @@
         },
         {
           "name": "ManagerComm2",
-          "Tab": "Tab4",
-          "Mode": "Display"
-        },
-        {
-          "name": "GoalStatus",
-          "Tab": "Tab4",
-          "Mode": "Edit"
-        },
-        {
-          "name": "SetDate2",
           "Tab": "Tab4",
           "Mode": "Display"
         },
@@ -410,9 +408,9 @@
           "Option": "Optional"
         },
         {
-          "name": "CompDesc3",
+          "name": "PerformanceRating",
           "type": "string",
-          "width": "500",
+          "width": "100",
           "SLabel": "Competency Description",
           "Option": "Optional"
         },
@@ -422,14 +420,6 @@
           "width": "200",
           "SLabel": "Score",
           "Option": "Optional"
-        },
-        {
-          "name": "MaxScore3",
-          "type": "string",
-          "width": "200",
-          "SLabel": "MaxScore",
-          "Option": "Optional",
-          "Default": "5"
         },
         {
           "name": "AppraiseComm3",
@@ -456,7 +446,7 @@
       ],
       "DisplayFields": [
         "Area3",
-        "CompDesc3",
+        "PerformanceRating",
         "Score3",
         "AppraiseComm3",
         "TargetDate3"
@@ -469,7 +459,7 @@
       },
       "CreateFields": [
         "Area3",
-        "CompDesc3",
+        "PerformanceRating",
         "Score3",
         "AppraiseComm3",
         "TargetDate3"
@@ -478,43 +468,31 @@
         {
           "name": "Area3",
           "Tab": "Tab2",
-
           "Mode": "Edit"
         },
         {
-          "name": "CompDesc3",
+          "name": "PerformanceRating",
           "Tab": "Tab2",
-
           "Mode": "Edit"
         },
         {
           "name": "Score3",
           "Tab": "Tab2",
-
-          "Mode": "Edit"
-        },
-        {
-          "name": "MaxScore3",
-          "Tab": "Tab2",
-
           "Mode": "Edit"
         },
         {
           "name": "AppraiseComm3",
           "Tab": "Tab2",
-
           "Mode": "Edit"
         },
         {
           "name": "AssignDate3",
           "Tab": "Tab2",
-
           "Mode": "Edit"
         },
         {
           "name": "TargetDate3",
           "Tab": "Tab2",
-
           "Mode": "Edit"
         }
       ]

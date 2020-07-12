@@ -33,7 +33,8 @@
     "DevManager",
     "Role",
     "Band",
-    "Area"
+    "Area",
+    "PerformanceRating"
   ],
   "MButtons": [
     {
@@ -377,9 +378,9 @@
           "Option": "Optional"
         },
         {
-          "name": "CompDesc3",
+          "name": "PerformanceRating",
           "type": "string",
-          "width": "500",
+          "width": "100",
           "SLabel": "Appraisal Description",
           "Option": "Optional"
         },
@@ -389,14 +390,6 @@
           "width": "200",
           "SLabel": "Appraisal Score(Max 5)",
           "Option": "Optional"
-        },
-        {
-          "name": "MaxScore3",
-          "type": "string",
-          "width": "200",
-          "SLabel": "Appraisal MaxScore",
-          "Option": "Optional",
-          "Default": "5"
         },
         {
           "name": "AppraiseComm3",
@@ -423,7 +416,7 @@
       ],
       "DisplayFields": [
         "Area3",
-        "CompDesc3",
+        "PerformanceRating",
         "Score3",
         "AppraiseComm3",
         "TargetDate3"
@@ -436,7 +429,7 @@
       },
       "CreateFields": [
         "Area3",
-        "CompDesc3",
+        "PerformanceRating",
         "Score3",
         "AppraiseComm3",
         "TargetDate3"
@@ -453,13 +446,7 @@
           "Mode": "Display"
         },
         {
-          "name": "CompDesc3",
-          "Tab": "Tab2",
-          "Mode": "Display"
-        },
-
-        {
-          "name": "MaxScore3",
+          "name": "PerformanceRating",
           "Tab": "Tab2",
           "Mode": "Display"
         },
