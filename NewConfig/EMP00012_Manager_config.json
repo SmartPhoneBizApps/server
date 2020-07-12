@@ -6,7 +6,6 @@
   "Controls": {
     "USP": "UserProfile",
     "Filters": [{ "DevManager": "@user" }],
-    "Partner": "@user",
     "UserSpecific": "Yes",
     "Update": "Yes",
     "URL": "https://fierce-oasis-51455.herokuapp.com",
@@ -126,7 +125,7 @@
     "headerTitle": ["USP_Name"],
     "headerRole": ["USP_Role"],
     "headerImage": ["USP_Image"],
-    "None": ["ID", "Status", "ReviewDate"],
+    "None": ["ID", "Status", "ReviewDate", "Email"],
     "Tab1": [
       "EmployeeID",
       "Name",
@@ -294,7 +293,7 @@
         "Area2",
         "Goal2",
         "Score2",
-        "AppraiseComm2",
+        "ManagerComm2",
         "GoalStatus",
         "TargetDate2"
       ],
@@ -308,7 +307,7 @@
         "Area2",
         "Goal2",
         "Score2",
-        "AppraiseComm2",
+        "ManagerComm2",
         "GoalStatus",
         "TargetDate2"
       ],
@@ -631,6 +630,14 @@
       "width": "50",
       "Option": "Optional",
       "SLabel": "Employee Reference",
+      "LLabel": ""
+    },
+    {
+      "name": "Email",
+      "type": "string",
+      "width": "200",
+      "Option": "Optional",
+      "SLabel": "Employee Email",
       "LLabel": ""
     },
     {
