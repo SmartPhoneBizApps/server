@@ -37,7 +37,8 @@
     "Area3",
     "Area2",
     "PerformanceRating",
-    "GoalStatus"
+    "GoalStatus",
+    "ProjFeedback"
   ],
   "MButtons": [
     {
@@ -102,11 +103,19 @@
       "fioriicon": "responsive"
     },
     {
-      "value": "Tab1",
+      "value": "Tab8",
       "update": "Yes",
-      "name": "Reference",
-      "type": "Field",
+      "name": "ProjectFeedback",
+      "type": "Table",
       "fioriicon": "request"
+    },
+
+    {
+      "value": "Tab2",
+      "update": "Yes",
+      "name": "Appraisal",
+      "type": "Table",
+      "fioriicon": "comment"
     },
     {
       "value": "Tab2",
@@ -162,7 +171,8 @@
     "Tab4": ["Goals"],
     "Tab5": ["MyTraining"],
     "Tab6": ["MultiAttachments"],
-    "Tab7": ["Questioner"]
+    "Tab7": ["Questioner"],
+    "Tab8": ["ProjectFeedback"]
   },
   "tableConfig": {
     "Questioner": {
@@ -379,6 +389,170 @@
         },
         {
           "name": "NextRevDate2",
+          "Tab": "Tab4",
+          "Mode": "Display"
+        }
+      ]
+    },
+    "ProjectFeedback": {
+      "title": "Project Feedback",
+      "ItemFieldDefinition": [
+        {
+          "name": "ItemNumber",
+          "type": "string",
+          "width": "10",
+          "SLabel": "Item Number",
+          "Option": "Optional"
+        },
+        {
+          "name": "ProjectName",
+          "type": "string",
+          "width": "200",
+          "SLabel": "Project Name",
+          "Option": "Optional"
+        },
+        {
+          "name": "ProjectRole",
+          "type": "string",
+          "width": "200",
+          "SLabel": "Project Role",
+          "Option": "Optional"
+        },
+        {
+          "name": "StarDate",
+          "type": "Date",
+          "width": "10",
+          "SLabel": "StarD ate",
+          "Option": "Optional"
+        },
+        {
+          "name": "EndDate",
+          "type": "Date",
+          "width": "10",
+          "SLabel": "StarD ate",
+          "Option": "Optional"
+        },
+        {
+          "name": "Duration",
+          "type": "string",
+          "width": "50",
+          "SLabel": "Duration",
+          "Option": "Optional"
+        },
+        {
+          "name": "ProjectManager",
+          "type": "string",
+          "width": "200",
+          "SLabel": "EmailID of Project Manager",
+          "Option": "Optional"
+        },
+        {
+          "name": "KeyAchivements",
+          "type": "string",
+          "width": "1000",
+          "SLabel": "Key Achivements",
+          "Option": "Optional"
+        },
+        {
+          "name": "Strengths",
+          "type": "string",
+          "width": "1000",
+          "SLabel": "Goal Status",
+          "Option": "Optional"
+        },
+        {
+          "name": "AreaofImprovement",
+          "type": "string",
+          "width": "1000",
+          "SLabel": "Area of Improvement",
+          "Option": "Optional"
+        },
+        {
+          "name": "ProjFeedback",
+          "type": "string",
+          "width": "10",
+          "SLabel": "Project Feedback Required?",
+          "Option": "Optional"
+        }
+      ],
+      "DisplayFields": [
+        "ProjectName",
+        "ProjectRole",
+        "StartDate",
+        "EndDate",
+        "Duration",
+        "ProjectManager",
+        "KeyAchivements",
+        "Strengths",
+        "AreaofImprovement",
+        "ProjFeedback"
+      ],
+      "ItemButtons": {
+        "itemDisplay": true,
+        "itemAdd": false,
+        "itemEdit": false,
+        "itemDelete": false
+      },
+      "CreateFields": [
+        "ProjectName",
+        "ProjectRole",
+        "StartDate",
+        "EndDate",
+        "Duration",
+        "ProjectManager",
+        "KeyAchivements",
+        "Strengths",
+        "AreaofImprovement",
+        "ProjFeedback"
+      ],
+      "ItemDetails": [
+        {
+          "name": "ProjectName",
+          "Tab": "Tab4",
+          "Mode": "Display"
+        },
+        {
+          "name": "ProjectRole",
+          "Tab": "Tab4",
+          "Mode": "Display"
+        },
+        {
+          "name": "StartDate",
+          "Tab": "Tab4",
+          "Mode": "Display"
+        },
+        {
+          "name": "EndDate",
+          "Tab": "Tab4",
+          "Mode": "Display"
+        },
+        {
+          "name": "Duration",
+          "Tab": "Tab4",
+          "Mode": "Display"
+        },
+        {
+          "name": "ProjectManager",
+          "Tab": "Tab4",
+          "Mode": "Display"
+        },
+        {
+          "name": "KeyAchivements",
+          "Tab": "Tab4",
+          "Mode": "Display"
+        },
+        {
+          "name": "Strengths",
+          "Tab": "Tab4",
+          "Mode": "Display"
+        },
+        {
+          "name": "AreaofImprovement",
+          "Tab": "Tab4",
+          "Mode": "Display"
+        },
+        {
+          "name": "ProjFeedback",
           "Tab": "Tab4",
           "Mode": "Display"
         }
@@ -869,6 +1043,15 @@
       "SLabel": "Test Score",
       "LLabel": "Test Score"
     },
+    {
+      "name": "ProjectFeedback",
+      "type": "string",
+      "width": "200",
+      "Option": "Optional",
+      "SLabel": "Project Feedback",
+      "LLabel": "Project Feedback"
+    },
+
     {
       "name": "Q1",
       "type": "string",
