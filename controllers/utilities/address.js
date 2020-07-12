@@ -20,7 +20,7 @@ exports.getaddress = asyncHandler(async (req, res, next) => {
   var postcode = req.params.id;
   var houseNo = "";
 
-  var API_KEY = "g0Obs9X3fE-Fqvt59gA3vA26300";
+  var API_KEY = "rq7ITJiW3Ey4G3xlP-o9EQ27190";
 
   if (houseNo != "") {
     postcode += "/" + houseNo;
