@@ -151,13 +151,6 @@
       "type": "Field"
     },
     {
-      "value": "Tab14",
-      "update": "Yes",
-      "name": "Dependents",
-      "fioriicon": "family-protection",
-      "type": "Table"
-    },
-    {
       "value": "Tab15",
       "update": "Yes",
       "name": "Benefits",
@@ -191,7 +184,6 @@
     "Tab4": ["EmergencyContacts"],
     "Tab9": ["Certifications"],
     "Tab10": ["Package"],
-    "Tab14": ["Dependents"],
     "Tab15": ["Benefits"],
     "Tab8": ["MultiAttachments"],
     "Tab11": ["DOB", "SSNumber", "NINumber"]
@@ -549,72 +541,7 @@
         }
       ]
     },
-    "Dependents": {
-      "title": "Employee Emergency Contacts",
-      "ItemFieldDefinition": [
-        {
-          "name": "ItemNumber",
-          "type": "string",
-          "width": "20",
-          "SLabel": "Item Number",
-          "Option": "Optional"
-        },
-        {
-          "name": "Name1",
-          "type": "string",
-          "width": "200",
-          "SLabel": "Name",
-          "Option": "Optional"
-        },
-        {
-          "name": "ContactPhone",
-          "type": "string",
-          "width": "200",
-          "SLabel": "ContactPhone",
-          "Option": "Optional"
-        },
-        {
-          "name": "Relation",
-          "type": "string",
-          "width": "100",
-          "SLabel": "Relation",
-          "Option": "Optional"
-        },
-        {
-          "name": "Comments5",
-          "type": "string",
-          "width": "500",
-          "SLabel": "Comments",
-          "Option": "Optional"
-        }
-      ],
-      "DisplayFields": ["Name1", "ContactPhone", "Relation"],
-      "ItemButtons": {
-        "itemDisplay": true,
-        "itemAdd": true,
-        "itemEdit": true,
-        "itemDelete": true
-      },
-      "CreateFields": ["Name1", "ContactPhone", "Relation", "Comments5"],
-      "ItemDetails": [
-        {
-          "name": "Name1",
-          "Mode": "Edit"
-        },
-        {
-          "name": "ContactPhone",
-          "Mode": "Edit"
-        },
-        {
-          "name": "Relation",
-          "Mode": "Edit"
-        },
-        {
-          "name": "Comments5",
-          "Mode": "Edit"
-        }
-      ]
-    },
+
     "Certifications": {
       "title": "Employee Certifications",
       "ItemFieldDefinition": [
