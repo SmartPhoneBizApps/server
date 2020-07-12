@@ -97,6 +97,28 @@
       "URL": "util/getQuestioner/LEARNING/{ID}",
       "Token": "Yes",
       "URLMethod": "GET"
+    },
+    {
+      "type": "WORKFLOW",
+      "name": "Approve",
+      "icon": "sap-icon://accept",
+      "Dialog": [
+        {
+          "label": "Employee Comment",
+          "name": "ProgressComment",
+          "type": "string",
+          "option": "Optional"
+        }
+      ],
+      "transferFields": [
+        { "field": "ID", "value": "@recorddata" },
+        { "field": "Status", "value": "SubmitReview" },
+        { "field": "ProgressComment", "value": "@UserInput" }
+      ],
+      "URL": "datarecords/",
+      "Token": "Yes",
+      "URLMethod": "PUT",
+      "hideRecord": "Yes"
     }
   ],
   "Tabs": [

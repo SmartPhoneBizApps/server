@@ -65,12 +65,27 @@
   ],
   "DButtons": [
     {
-      "type": "ATTACHMENT",
-      "name": "View Attachments",
-      "icon": "sap-icon://attachment"
-    },
-    { "type": "UPDATE", "name": "Update Record", "icon": "sap-icon://update" },
-    { "type": "ADD", "name": "Add Record", "icon": "sap-icon://add" }
+      "type": "WORKFLOW",
+      "name": "Approve",
+      "icon": "sap-icon://accept",
+      "Dialog": [
+        {
+          "label": "Employee Comment",
+          "name": "ProgressComment",
+          "type": "string",
+          "option": "Optional"
+        }
+      ],
+      "transferFields": [
+        { "field": "ID", "value": "@recorddata" },
+        { "field": "Status", "value": "ManagerReviewed" },
+        { "field": "ProgressComment", "value": "@UserInput" }
+      ],
+      "URL": "datarecords/",
+      "Token": "Yes",
+      "URLMethod": "PUT",
+      "hideRecord": "Yes"
+    }
   ],
   "Tabs": [
     {
@@ -477,7 +492,7 @@
         {
           "name": "AppraiseComm3",
           "Tab": "Tab2",
-          "Mode": "Edit"
+          "Mode": "Display"
         },
         {
           "name": "ManagerComm3",
