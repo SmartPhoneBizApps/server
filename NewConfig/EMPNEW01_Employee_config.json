@@ -112,20 +112,6 @@
       "type": "Table"
     },
     {
-      "value": "Tab13",
-      "update": "Yes",
-      "name": "Payslips",
-      "fioriicon": "sales-order-item",
-      "type": "Table"
-    },
-    {
-      "value": "Tab12",
-      "update": "Yes",
-      "name": "P60",
-      "fioriicon": "receipt",
-      "type": "Table"
-    },
-    {
       "value": "Tab4",
       "update": "Yes",
       "name": "Emergency Contacts",
@@ -140,13 +126,6 @@
       "type": "Table"
     },
     {
-      "value": "Tab5",
-      "update": "Yes",
-      "name": "Bank Details",
-      "fioriicon": "loan",
-      "type": "Field"
-    },
-    {
       "value": "Tab8",
       "update": "Yes",
       "name": "MultiAttachments",
@@ -154,7 +133,14 @@
       "type": "MultiAttachments",
       "docType": [
         { "text": "Certificate", "state": "Success" },
-        { "text": "Exp", "state": "Information" }
+        { "text": "ExperienceLetter", "state": "Success" },
+        { "text": "OfferLetter", "state": "Success" },
+        { "text": "Qualifications", "state": "Information" },
+        { "text": "Payslip", "state": "Error" },
+        { "text": "P60", "state": "Error" },
+        { "text": "BankStatment", "state": "Error" },
+        { "text": "NI", "state": "Information" },
+        { "text": "References", "state": "Information" }
       ]
     },
     {
@@ -205,19 +191,8 @@
     "Tab4": ["EmergencyContacts"],
     "Tab9": ["Certifications"],
     "Tab10": ["Package"],
-    "Tab13": ["Payslips"],
-    "Tab12": ["P60"],
     "Tab14": ["Dependents"],
     "Tab15": ["Benefits"],
-    "Tab5": [
-      "AccountNo",
-      "BankName",
-      "BankBranch",
-      "IBAN",
-      "SWIFT",
-      "IFSCcode",
-      "Sortcode"
-    ],
     "Tab8": ["MultiAttachments"],
     "Tab11": ["DOB", "SSNumber", "NINumber"]
   },
@@ -706,127 +681,7 @@
         }
       ]
     },
-    "P60": {
-      "title": "Employee P60",
-      "ItemFieldDefinition": [
-        {
-          "name": "ItemNumber",
-          "type": "string",
-          "width": "20",
-          "SLabel": "Item Number",
-          "Option": "Optional"
-        },
-        {
-          "name": "YearP6",
-          "type": "string",
-          "width": "200",
-          "SLabel": "Year",
-          "Option": "Optional"
-        },
-        {
-          "name": "LinkP6",
-          "type": "hyperlink",
-          "width": "200",
-          "SLabel": "P60 Link",
-          "Option": "Optional"
-        },
-        {
-          "name": "CommentsP6",
-          "type": "string",
-          "width": "500",
-          "SLabel": "Comments",
-          "Option": "Optional"
-        }
-      ],
-      "DisplayFields": ["YearP6", "LinkP6"],
-      "ItemButtons": {
-        "itemDisplay": true,
-        "itemAdd": true,
-        "itemEdit": true,
-        "itemDelete": true
-      },
-      "CreateFields": ["YearP6", "LinkP6", "CommentsP6"],
-      "ItemDetails": [
-        {
-          "name": "YearP6",
-          "Mode": "Edit"
-        },
-        {
-          "name": "LinkP6",
-          "Mode": "Edit"
-        },
-        {
-          "name": "CommentsP6",
-          "Mode": "Edit"
-        }
-      ]
-    },
-    "Payslips": {
-      "title": "Employee Payslip",
-      "ItemFieldDefinition": [
-        {
-          "name": "ItemNumber",
-          "type": "string",
-          "width": "20",
-          "SLabel": "Item Number",
-          "Option": "Optional"
-        },
-        {
-          "name": "YearPS",
-          "type": "string",
-          "width": "200",
-          "SLabel": "Year",
-          "Option": "Optional"
-        },
-        {
-          "name": "MonthPS",
-          "type": "string",
-          "width": "200",
-          "SLabel": "Month",
-          "Option": "Optional"
-        },
-        {
-          "name": "LinkPS",
-          "type": "hyperlink",
-          "width": "200",
-          "SLabel": "Payslip Link",
-          "Option": "Optional"
-        },
-        {
-          "name": "CommentsPS",
-          "type": "string",
-          "width": "500",
-          "SLabel": "Comments",
-          "Option": "Optional"
-        }
-      ],
-      "DisplayFields": ["YearPS", "MonthPS", "LinkPS"],
-      "ItemButtons": {
-        "itemDisplay": true,
-        "itemAdd": true,
-        "itemEdit": true,
-        "itemDelete": true
-      },
-      "CreateFields": ["YearPS", "MonthPS", "LinkPS"],
-      "ItemDetails": [
-        {
-          "name": "YearPS",
-          "Mode": "Edit"
-        },
-        {
-          "name": "MonthPS",
-          "Mode": "Edit"
-        },
-        {
-          "name": "LinkPS",
-          "Mode": "Edit"
-        },
-        {
-          "name": "CommentsPS",
-          "Mode": "Edit"
-        }
-      ]
-    },
+
     "Package": {
       "title": "Employee Compensation Package",
       "ItemFieldDefinition": [
@@ -1185,63 +1040,6 @@
       "SLabel": "NI Number",
       "LLabel": "NI Number"
     },
-    {
-      "name": "AccountNo",
-      "type": "string",
-      "width": "50",
-      "Option": "Optional",
-      "SLabel": "Account No",
-      "LLabel": "Account No"
-    },
-    {
-      "name": "Sortcode",
-      "type": "string",
-      "width": "50",
-      "Option": "Optional",
-      "SLabel": "Sort/BankBranch Code",
-      "LLabel": "Sort Code / BankBranch Code"
-    },
-    {
-      "name": "IFSCcode",
-      "type": "string",
-      "width": "100",
-      "Option": "Optional",
-      "SLabel": "IFSC code",
-      "LLabel": "IFSC code"
-    },
-    {
-      "name": "SWIFT",
-      "type": "string",
-      "width": "100",
-      "Option": "Optional",
-      "SLabel": "SWIFT code",
-      "LLabel": "SWIFT code"
-    },
-    {
-      "name": "IBAN",
-      "type": "string",
-      "width": "50",
-      "Option": "Optional",
-      "SLabel": "IBAN Number",
-      "LLabel": "IBAN Number"
-    },
-    {
-      "name": "BankName",
-      "type": "string",
-      "width": "100",
-      "Option": "Optional",
-      "SLabel": "Bank Name",
-      "LLabel": "Name of the Bank"
-    },
-    {
-      "name": "BankBranch",
-      "type": "string",
-      "width": "100",
-      "Option": "Optional",
-      "SLabel": "BankBranch",
-      "LLabel": "Name of BankBranch"
-    },
-
     {
       "name": "Status",
       "type": "string",
