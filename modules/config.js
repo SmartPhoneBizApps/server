@@ -884,4 +884,43 @@ module.exports = {
     card["sap.card"] = cardSub1;
     return card;
   },
+  generateID: function (buttonName, body, MButtons) {
+    /// Calculate ID
+    let sourceID = "Internal";
+
+    if (buttonName == "UPLOAD") {
+      for (let a = 0; a < MButtons.length; a++) {
+        if (
+          MButtons[a]["type"] == "UPLOAD" &&
+          MButtons[a]["key"]["ID"] == "External"
+        ) {
+          sourceID = "External";
+          for (let k = 0; k < MButtons[a]["key"]["generateID"].length; k++) {
+            console.log(body);
+            console.log(
+              "A1",
+              k,
+              MButtons[a]["key"]["generateID"][k],
+              body[MButtons[a]["key"]["generateID"][k]]
+            );
+            if (k == 0) {
+              body["ID"] = body[MButtons[a]["key"]["generateID"][k]];
+            } else {
+              body["ID"] =
+                body["ID"] +
+                MButtons[a]["key"]["seperator"] +
+                body[MButtons[a]["key"]["generateID"][k]];
+            }
+          }
+        }
+      }
+    }
+    if (sourceID == "External") {
+      console.log("ID is read from the file", sourceID);
+    } else {
+      console.log("Internal ID");
+      body["ID"] = Math.floor(100000 + Math.random() * 900000);
+    }
+    return body;
+  },
 };

@@ -3,7 +3,7 @@
     "type": "String",
     "unique": true,
     "required": [true, "Please add Mandatory field :ID"],
-    "maxlength": [20, "ID can not be more than 20 characters"]
+    "maxlength": [100, "ID can not be more than 100 characters"]
   },
   "Status": {
     "type": "String",
@@ -12,7 +12,6 @@
   },
   "Partner": {
     "type": "String",
-    "required": [true, "Please add Mandatory field :Partner"],
     "maxlength": [200, "Partner can not be more than 200 characters"]
   },
 

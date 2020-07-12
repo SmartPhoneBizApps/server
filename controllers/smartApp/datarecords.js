@@ -22,6 +22,7 @@ const {
   tableFields,
   tableValidate,
   processingLog,
+  generateID,
 } = require("../../modules/config");
 const calfunction = require("../../models/utilities/calfunction.js");
 
@@ -29,10 +30,6 @@ const calfunction = require("../../models/utilities/calfunction.js");
 // @route     POST /api/v1/datarecords/
 // @access    Private
 exports.addDataRecords = asyncHandler(async (req, res, next) => {
-  let sourceID = "Internal";
-  if (req.headers.buttonName == "UPLOAD") {
-    sourceID = "External";
-  }
   console.log(req.body);
   let multiAtt = {
     items: [],
@@ -48,6 +45,7 @@ exports.addDataRecords = asyncHandler(async (req, res, next) => {
     req.headers.applicationid,
     req.headers.businessrole
   );
+
   // ---------------------
   // App ID and Validate
   // ---------------------
@@ -174,30 +172,6 @@ exports.addDataRecords = asyncHandler(async (req, res, next) => {
     req.body.areaName = AreaDetails.areaName;
     req.body.area = AreaDetails.id;
   }
-  // Field Translation..
-  // Set Processing/Transaction Log
-  let pLog = {};
-  let pg1 = [];
-
-  // Processing Log
-  req.body.TransLog = processingLog(
-    req.body.ID,
-    "NEW_RECORD",
-    req.body.user,
-    req.body.userName,
-    req.body.Status,
-    req.body.applicationId,
-    "New document created",
-    req.headers.buttonType,
-    req.headers.buttonName,
-    req.body.ProgressComment
-  );
-
-  if ((sourceID = "External")) {
-    console.log("ID is read from the file");
-  } else {
-    req.body.ID = Math.floor(100000 + Math.random() * 900000);
-  }
 
   //req.body.OrgData = myorg;
   if (req.body.ItemData) {
@@ -248,6 +222,7 @@ exports.addDataRecords = asyncHandler(async (req, res, next) => {
         );
       }
       /// Item Validations....
+      console.log(key);
       if (key === "ItemData") {
         myItemArray = [];
         for (
@@ -284,6 +259,26 @@ exports.addDataRecords = asyncHandler(async (req, res, next) => {
       }
     }
   }
+
+  /////--------------------------------------------------
+  /// Calculate ID
+  console.log(req.headers.buttonname);
+  req.body = generateID(req.headers.buttonname, req.body, cardConfig.MButtons);
+  console.log("NewID", req.body.ID);
+
+  // Processing Log
+  req.body.TransLog = processingLog(
+    req.body.ID,
+    "NEW_RECORD",
+    req.body.user,
+    req.body.userName,
+    req.body.Status,
+    req.body.applicationId,
+    "New document created",
+    req.headers.buttonType,
+    req.headers.buttonName,
+    req.body.ProgressComment
+  );
   //---------------------------
   // Perform Calculations ....
   //---------------------------
@@ -491,8 +486,6 @@ exports.updateDataRecords = asyncHandler(async (req, res, next) => {
   // -----------------------------------------------------
   // Processing Log
   // -----------------------------------------------------
-  let pLog = {};
-  let pg1 = [];
   if (!req.headers.mode) {
     return next(new ErrorResponse(`Please provide update mode`, 400));
   }
