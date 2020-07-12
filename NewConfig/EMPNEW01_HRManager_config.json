@@ -1149,20 +1149,28 @@
       }
     ]
   },
-  "Create": "No",
+  "Create": "Yes",
   "Wizard": [
     {
       "id": "Step1",
       "fields": [
         { "name": "FirstName", "Mode": "Edit" },
         { "name": "LastName", "Mode": "Edit" },
-        { "name": "EmployeeID", "Mode": "Edit" },
+        { "name": "EmployeeID", "Mode": "Edit" }
+      ],
+      "name": "Employee Details",
+      "stepType": "FieldList",
+      "intro": "Employee  : Key Details"
+    },
+    {
+      "id": "Step3",
+      "fields": [
         { "name": "SSNumber", "Mode": "Edit" },
         { "name": "NINumber", "Mode": "Edit" }
       ],
       "name": "Employee Details",
       "stepType": "FieldList",
-      "intro": "Employee  : Key Details"
+      "intro": "Employee  : Address Details"
     },
     {
       "id": "Step2",
@@ -1185,6 +1193,14 @@
       "name": "Employee Details",
       "stepType": "FieldList",
       "intro": "Employee  : Address Details"
+    },
+
+    {
+      "id": "Step7",
+      "fields": [{ "name": "Status", "Mode": "Edit" }],
+      "name": "Employee Details",
+      "stepType": "FieldList",
+      "intro": "Employee  : Status"
     },
     {
       "id": "Step7",
