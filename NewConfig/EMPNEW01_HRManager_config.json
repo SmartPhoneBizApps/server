@@ -1224,5 +1224,46 @@
     ]
   },
   "Create": "No",
-  "Wizard": []
+  "Wizard": [
+    {
+      "id": "Step1",
+      "fields": [
+        { "name": "FirstName", "Mode": "Edit" },
+        { "name": "LastName", "Mode": "Edit" },
+        { "name": "EmployeeID", "Mode": "Edit" }
+      ],
+      "name": "Employee Details",
+      "stepType": "FieldList",
+      "intro": "Employee  : Key Details"
+    },
+    {
+      "id": "Step2",
+      "fields": [
+        { "name": "SpouseName", "Mode": "Edit" },
+        { "name": "FatherName", "Mode": "Edit" },
+        { "name": "ContactNo", "Mode": "Edit" },
+        { "name": "Email", "Mode": "Edit" }
+      ],
+      "name": "Employee Details",
+      "stepType": "FieldList",
+      "intro": "Employee  : Contact Details"
+    },
+    {
+      "id": "Step3",
+      "fields": [
+        { "name": "PostCode", "Mode": "Edit" },
+        { "name": "Address", "Mode": "Edit" }
+      ],
+      "name": "Employee Details",
+      "stepType": "FieldList",
+      "intro": "Employee  : Address Details"
+    },
+    {
+      "id": "Step7",
+      "fields": [{ "name": "Status", "Mode": "Edit" }],
+      "name": "Employee Details",
+      "stepType": "FieldList",
+      "intro": "Employee  : Status"
+    }
+  ]
 }
