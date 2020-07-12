@@ -116,7 +116,8 @@
       "update": "Yes",
       "name": "SupportingDocs",
       "type": "MultiAttachments",
-      "fioriicon": "attachment"
+      "fioriicon": "Supporting Documents",
+      "docType": [{ "text": "AnnualReviewGuide", "state": "Success" }]
     },
     {
       "value": "Tab7",
@@ -255,7 +256,21 @@
           "name": "AppraiseComm2",
           "type": "string",
           "width": "1000",
-          "SLabel": "Appraise Comment(Goal)",
+          "SLabel": "Employee Comments",
+          "Option": "Optional"
+        },
+        {
+          "name": "ManagerComm2",
+          "type": "string",
+          "width": "1000",
+          "SLabel": "Manager Comment",
+          "Option": "Optional"
+        },
+        {
+          "name": "GoalStatus",
+          "type": "string",
+          "width": "200",
+          "SLabel": "Goal Status",
           "Option": "Optional"
         },
         {
@@ -286,7 +301,8 @@
         "Goal2",
         "Score2",
         "AppraiseComm2",
-        "TargetDate2"
+        "TargetDate2",
+        "GoalStatus"
       ],
       "ItemButtons": {
         "itemDisplay": true,
@@ -299,49 +315,54 @@
         "Goal2",
         "Score2",
         "AppraiseComm2",
-        "TargetDate2"
+        "TargetDate2",
+        "GoalStatus"
       ],
       "ItemDetails": [
         {
           "name": "Area2",
           "Tab": "Tab4",
-          "Mode": "Edit"
+          "Mode": "Display"
         },
         {
           "name": "Goal2",
           "Tab": "Tab4",
-          "Mode": "Edit"
+          "Mode": "Display"
         },
         {
           "name": "Score2",
           "Tab": "Tab4",
-          "Mode": "Edit"
-        },
-        {
-          "name": "MaxScore2",
-          "Tab": "Tab4",
-          "Mode": "Edit"
+          "Mode": "Display"
         },
         {
           "name": "AppraiseComm2",
           "Tab": "Tab4",
-          "Mode": "Edit"
+          "Mode": "Display"
+        },
+        {
+          "name": "ManagerComm2",
+          "Tab": "Tab4",
+          "Mode": "Display"
+        },
+        {
+          "name": "GoalStatus",
+          "Tab": "Tab4",
+          "Mode": "Display"
         },
         {
           "name": "SetDate2",
           "Tab": "Tab4",
-          "Mode": "Edit"
+          "Mode": "Display"
         },
         {
           "name": "TargetDate2",
           "Tab": "Tab4",
-          "Mode": "Edit"
+          "Mode": "Display"
         },
         {
           "name": "NextRevDate2",
           "Tab": "Tab4",
-
-          "Mode": "Edit"
+          "Mode": "Display"
         }
       ]
     },

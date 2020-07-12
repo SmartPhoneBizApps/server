@@ -231,7 +231,13 @@
           "SLabel": "Goal",
           "Option": "Optional"
         },
-
+        {
+          "name": "GoalStatus",
+          "type": "string",
+          "width": "200",
+          "SLabel": "Goal Status",
+          "Option": "Optional"
+        },
         {
           "name": "Score2",
           "type": "string",
@@ -251,7 +257,14 @@
           "name": "AppraiseComm2",
           "type": "string",
           "width": "1000",
-          "SLabel": "Appraise Comment(Goal)",
+          "SLabel": "Employee Comments",
+          "Option": "Optional"
+        },
+        {
+          "name": "ManagerComm2",
+          "type": "string",
+          "width": "1000",
+          "SLabel": "Manager Comment",
           "Option": "Optional"
         },
         {
@@ -282,6 +295,7 @@
         "Goal2",
         "Score2",
         "AppraiseComm2",
+        "GoalStatus",
         "TargetDate2"
       ],
       "ItemButtons": {
@@ -295,6 +309,7 @@
         "Goal2",
         "Score2",
         "AppraiseComm2",
+        "GoalStatus",
         "TargetDate2"
       ],
       "ItemDetails": [
@@ -314,12 +329,17 @@
           "Mode": "Edit"
         },
         {
-          "name": "MaxScore2",
+          "name": "AppraiseComm2",
+          "Tab": "Tab4",
+          "Mode": "Display"
+        },
+        {
+          "name": "ManagerComm2",
           "Tab": "Tab4",
           "Mode": "Edit"
         },
         {
-          "name": "AppraiseComm2",
+          "name": "GoalStatus",
           "Tab": "Tab4",
           "Mode": "Edit"
         },
@@ -336,7 +356,6 @@
         {
           "name": "NextRevDate2",
           "Tab": "Tab4",
-
           "Mode": "Edit"
         }
       ]
@@ -596,7 +615,15 @@
       "width": "200",
       "Option": "Optional",
       "SLabel": "Supporting Documents",
-      "LLabel": "Supporting Documents"
+      "LLabel": "Supporting Documents",
+      "docType": [
+        { "text": "ProjectFeedback", "state": "Error" },
+        { "text": "PeerFeedback", "state": "Success" },
+        { "text": "CustomerFeedback", "state": "Information" },
+        { "text": "Awards", "state": "Error" },
+        { "text": "Appreciation", "state": "Success" },
+        { "text": "Certifications", "state": "Information" }
+      ]
     },
     {
       "name": "EmployeeID",

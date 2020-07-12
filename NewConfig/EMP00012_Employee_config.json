@@ -48,21 +48,10 @@
       "icon": "sap-icon://download"
     },
     {
-      "type": "APPHELP",
-      "name": "Get App Help",
-      "icon": "sap-icon://sys-help-2"
-    },
-    {
       "type": "BOT",
       "name": "Launch Assistant",
       "icon": "sap-icon://travel-request"
-    },
-    {
-      "type": "VIEW",
-      "name": "Change App View",
-      "icon": "sap-icon://chart-table-view"
-    },
-    { "type": "ADD", "name": "Add Record", "icon": "sap-icon://add" }
+    }
   ],
   "DButtons": [
     {
@@ -76,6 +65,7 @@
         { "label": "SubGroup", "name": "SubGroup", "type": "string" }
       ],
       "listFields": ["Title", "ReferenceID", "Group", "SubGroup"],
+      "tableField": "MyTraining",
       "transferFields": ["Title", "ReferenceID", "Group", "SubGroup"],
       "SearchURL": "listrecordsnew/Web/TRAIN008/TrainingTeam{filter}",
       "URL": "util/addTraining/MyTraining/TRAIN008/EMP00012/{ID}/{ReferenceID}/{role}",
@@ -97,6 +87,15 @@
       ],
       "Token": "Yes",
       "URLMethod": "POST"
+    },
+    {
+      "type": "SURVEY",
+      "Calculation": "Yes",
+      "name": "Feedback",
+      "icon": "sap-icon://upload-to-cloud",
+      "URL": "util/getQuestioner/LEARNING/{ID}",
+      "Token": "Yes",
+      "URLMethod": "GET"
     }
   ],
   "Tabs": [
@@ -141,6 +140,13 @@
       "name": "SupportingDocs",
       "type": "MultiAttachments",
       "fioriicon": "attachment"
+    },
+    {
+      "value": "Tab7",
+      "update": "Yes",
+      "name": "360Feedback",
+      "fioriicon": "toaster-up",
+      "type": "Table"
     }
   ],
   "DetailFields": {
@@ -159,9 +165,75 @@
     "Tab2": ["Appraisal"],
     "Tab4": ["Goals"],
     "Tab5": ["MyTraining"],
-    "Tab6": ["MultiAttachments"]
+    "Tab6": ["MultiAttachments"],
+    "Tab7": ["Questioner"]
   },
   "tableConfig": {
+    "Questioner": {
+      "title": "Test",
+      "ItemFieldDefinition": [
+        {
+          "name": "ItemNumber",
+          "type": "string",
+          "width": "10",
+          "SLabel": "Item Number",
+          "Option": "Optional"
+        },
+        {
+          "name": "Question",
+          "type": "string",
+          "width": "10",
+          "SLabel": "Question",
+          "Option": "Optional"
+        },
+        {
+          "name": "Answer",
+          "type": "string",
+          "width": "20",
+          "SLabel": "Answer",
+          "Option": "Optional"
+        },
+        {
+          "name": "CorrectAnswer",
+          "type": "string",
+          "width": "20",
+          "SLabel": "Correct Ans",
+          "Option": "Optional"
+        },
+        {
+          "name": "Score",
+          "type": "string",
+          "width": "20",
+          "SLabel": "Score",
+          "Option": "Optional"
+        }
+      ],
+      "DisplayFields": ["Question", "Answer"],
+      "ItemButtons": {
+        "itemDisplay": true,
+        "itemAdd": false,
+        "itemEdit": false,
+        "itemDelete": false
+      },
+      "CreateFields": ["Question", "Answer", "CorrectAnswer", "Score"],
+      "ItemDetails": [
+        {
+          "name": "ItemNumber",
+          "Tab": "Tab5",
+          "Mode": "Edit"
+        },
+        {
+          "name": "Question",
+          "Tab": "Tab5",
+          "Mode": "Edit"
+        },
+        {
+          "name": "Answer",
+          "Tab": "Tab5",
+          "Mode": "Edit"
+        }
+      ]
+    },
     "Goals": {
       "title": "My Goals",
       "ItemFieldDefinition": [
@@ -210,6 +282,21 @@
           "Option": "Optional"
         },
         {
+          "name": "ManagerComm2",
+          "type": "string",
+          "width": "1000",
+          "SLabel": "Manager Comment",
+          "Option": "Optional"
+        },
+        {
+          "name": "GoalStatus",
+          "type": "string",
+          "width": "200",
+          "SLabel": "Goal Status",
+          "Option": "Optional"
+        },
+
+        {
           "name": "SetDate2",
           "type": "Date",
           "width": "10",
@@ -250,56 +337,59 @@
         "Goal2",
         "Score2",
         "AppraiseComm2",
-        "TargetDate2"
+        "TargetDate2",
+        "ManagerComm2"
       ],
       "ItemDetails": [
         {
           "name": "Area2",
           "Tab": "Tab4",
-
-          "Mode": "Edit"
+          "Mode": "Display"
         },
         {
           "name": "Goal2",
           "Tab": "Tab4",
-
-          "Mode": "Edit"
+          "Mode": "Display"
         },
         {
           "name": "Score2",
           "Tab": "Tab4",
-
-          "Mode": "Edit"
+          "Mode": "Display"
         },
         {
           "name": "MaxScore2",
           "Tab": "Tab4",
-
-          "Mode": "Edit"
+          "Mode": "Display"
         },
         {
           "name": "AppraiseComm2",
           "Tab": "Tab4",
-
+          "Mode": "Edit"
+        },
+        {
+          "name": "ManagerComm2",
+          "Tab": "Tab4",
+          "Mode": "Display"
+        },
+        {
+          "name": "GoalStatus",
+          "Tab": "Tab4",
           "Mode": "Edit"
         },
         {
           "name": "SetDate2",
           "Tab": "Tab4",
-
-          "Mode": "Edit"
+          "Mode": "Display"
         },
         {
           "name": "TargetDate2",
           "Tab": "Tab4",
-
-          "Mode": "Edit"
+          "Mode": "Display"
         },
         {
           "name": "NextRevDate2",
           "Tab": "Tab4",
-
-          "Mode": "Edit"
+          "Mode": "Display"
         }
       ]
     },
@@ -316,15 +406,15 @@
         {
           "name": "Area3",
           "type": "string",
-          "width": "10",
-          "SLabel": "Group",
+          "width": "100",
+          "SLabel": "Area",
           "Option": "Optional"
         },
         {
           "name": "CompDesc3",
           "type": "string",
-          "width": "10",
-          "SLabel": "Group",
+          "width": "500",
+          "SLabel": "Competency Description",
           "Option": "Optional"
         },
         {
@@ -487,7 +577,7 @@
       "ItemButtons": {
         "itemDisplay": true,
         "itemAdd": false,
-        "itemEdit": false,
+        "itemEdit": true,
         "itemDelete": false
       },
       "CreateFields": ["SubGroup1", "Title1", "ReferenceID1", "TargetDate1"],
@@ -560,10 +650,19 @@
     {
       "name": "MultiAttachments",
       "type": "attachment",
+      "metadata": "MultipleFields",
       "width": "200",
       "Option": "Optional",
       "SLabel": "Supporting Documents",
-      "LLabel": "Supporting Documents"
+      "LLabel": "Supporting Documents",
+      "docType": [
+        { "text": "ProjectFeedback", "state": "Error" },
+        { "text": "PeerFeedback", "state": "Success" },
+        { "text": "CustomerFeedback", "state": "Information" },
+        { "text": "Awards", "state": "Error" },
+        { "text": "Appreciation", "state": "Success" },
+        { "text": "Certifications", "state": "Information" }
+      ]
     },
     {
       "name": "EmployeeID",
@@ -571,6 +670,14 @@
       "width": "50",
       "Option": "Optional",
       "SLabel": "Employee Reference",
+      "LLabel": ""
+    },
+    {
+      "name": "ReferenceID",
+      "type": "string",
+      "width": "50",
+      "Option": "Optional",
+      "SLabel": "ReferenceID",
       "LLabel": ""
     },
     {
@@ -604,6 +711,14 @@
       "Option": "Optional",
       "SLabel": "Role",
       "LLabel": ""
+    },
+    {
+      "name": "Questioner",
+      "type": "Array",
+      "width": "200",
+      "Option": "Optional",
+      "SLabel": "Questioner",
+      "LLabel": "Questioner"
     },
     {
       "name": "Band",
@@ -737,6 +852,142 @@
       "width": "200",
       "SLabel": "My Appraisal",
       "Option": "Optional"
+    },
+    {
+      "name": "TestScore",
+      "type": "string",
+      "width": "200",
+      "Option": "Optional",
+      "SLabel": "Test Score",
+      "LLabel": "Test Score"
+    },
+    {
+      "name": "Q1",
+      "type": "string",
+      "width": "200",
+      "Option": "Optional",
+      "SLabel": "Question 1",
+      "LLabel": "Question 1"
+    },
+    {
+      "name": "Q2",
+      "type": "string",
+      "width": "200",
+      "Option": "Optional",
+      "SLabel": "Question 2",
+      "LLabel": "Question 2"
+    },
+    {
+      "name": "Q3",
+      "type": "string",
+      "width": "200",
+      "Option": "Optional",
+      "SLabel": "Question 3",
+      "LLabel": "Question 3"
+    },
+    {
+      "name": "Q4",
+      "type": "string",
+      "width": "200",
+      "Option": "Optional",
+      "SLabel": "Question 4",
+      "LLabel": "Question 4"
+    },
+    {
+      "name": "Q5",
+      "type": "string",
+      "width": "200",
+      "Option": "Optional",
+      "SLabel": "Question 5",
+      "LLabel": "Question 5"
+    },
+    {
+      "name": "Q6",
+      "type": "string",
+      "width": "200",
+      "Option": "Optional",
+      "SLabel": "Question 6",
+      "LLabel": "Question 6"
+    },
+    {
+      "name": "Q7",
+      "type": "string",
+      "width": "200",
+      "Option": "Optional",
+      "SLabel": "Question 7",
+      "LLabel": "Question 7"
+    },
+    {
+      "name": "Q8",
+      "type": "string",
+      "width": "200",
+      "Option": "Optional",
+      "SLabel": "Question 8",
+      "LLabel": "Question 8"
+    },
+    {
+      "name": "A1",
+      "type": "string",
+      "width": "200",
+      "Option": "Optional",
+      "SLabel": "Answer 1",
+      "LLabel": "Answer 1"
+    },
+    {
+      "name": "A2",
+      "type": "string",
+      "width": "200",
+      "Option": "Optional",
+      "SLabel": "Answer 2",
+      "LLabel": "Answer 2"
+    },
+    {
+      "name": "A3",
+      "type": "string",
+      "width": "500",
+      "Option": "Optional",
+      "SLabel": "Answer 3",
+      "LLabel": "Answer 3"
+    },
+    {
+      "name": "A4",
+      "type": "string",
+      "width": "500",
+      "Option": "Optional",
+      "SLabel": "Answer 4",
+      "LLabel": "Answer 4"
+    },
+    {
+      "name": "A5",
+      "type": "string",
+      "width": "200",
+      "Option": "Optional",
+      "SLabel": "Answer 5",
+      "LLabel": "Answer 5"
+    },
+    {
+      "name": "A6",
+      "type": "string",
+      "width": "200",
+      "Option": "Optional",
+      "SLabel": "Answer 6",
+      "LLabel": "Answer 6"
+    },
+    {
+      "name": "A7",
+      "type": "string",
+      "width": "200",
+      "Option": "Optional",
+      "SLabel": "Answer 7",
+      "LLabel": "Answer 7"
+    },
+    {
+      "name": "A8",
+      "type": "string",
+      "width": "200",
+      "Option": "Optional",
+      "SLabel": "Answer 8",
+      "LLabel": "Answer 8"
     }
   ],
   "itemData": "No",
@@ -752,7 +1003,22 @@
     "CreateFields": [],
     "ItemDetails": []
   },
-  "CalculatedFields": {},
-  "Create": "Yes",
+
+  "Create": "No",
+  "CalculatedFields": {
+    "Item": [],
+    "HeaderItem": [
+      {
+        "CalculatedFormula": {
+          "name": "ITEMSUM",
+          "function": "ITEMSUM",
+          "Target": "TestScore",
+          "type": "HeaderItem"
+        },
+        "Fields": [{ "Source": "Score", "Type": { "type": "HeaderItem" } }]
+      }
+    ],
+    "Header": []
+  },
   "Wizard": []
 }
