@@ -137,6 +137,16 @@
       "URL": "datarecords/",
       "Token": "Yes",
       "URLMethod": "PUT"
+    },
+    {
+      "type": "UPLOAD",
+      "name": "Upload Questions",
+      "icon": "sap-icon://upload",
+      "Option": ["Header"],
+      "ItemOptions": [],
+      "URL": "uploadFile/questioner/{ID}",
+      "URLMethodHDR": "POST",
+      "dataFields": "FieldName"
     }
   ],
   "Tabs": [

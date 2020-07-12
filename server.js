@@ -137,6 +137,7 @@ app.use(
   "/api/v1/uploadHeaderFile/",
   require("./routes/smartApp/uploadHeaderFile")
 );
+app.use("/api/v1/uploadFile/", require("./routes/utilities/fileuploadonly"));
 app.use(
   "/api/v1/uploadHeaderItemFile/",
   require("./routes/smartApp/uploadHeaderItemFile")

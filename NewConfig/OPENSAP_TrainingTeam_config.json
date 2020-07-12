@@ -99,6 +99,16 @@
       "URL": "util/assignCourseUser/OPENSAP/TRAIN007/{ReferenceID}/{user}",
       "Token": "Yes",
       "URLMethod": "POST"
+    },
+    {
+      "type": "UPLOAD",
+      "name": "Upload SAP Catalog",
+      "icon": "sap-icon://upload",
+      "Option": ["Header"],
+      "ItemOptions": [],
+      "URL": "uploadFile/openSAP/{ID}",
+      "URLMethodHDR": "POST",
+      "dataFields": "FieldName"
     }
   ],
   "Tabs": [
