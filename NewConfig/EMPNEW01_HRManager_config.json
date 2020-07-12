@@ -132,7 +132,7 @@
     {
       "value": "Tab4",
       "update": "Yes",
-      "name": "Emergency Contacts",
+      "name": "Contacts/Dependents",
       "fioriicon": "accidental-leave",
       "type": "Table"
     },
@@ -162,13 +162,6 @@
       ]
     },
     {
-      "value": "Tab11",
-      "update": "Yes",
-      "name": "Identification",
-      "fioriicon": "hint",
-      "type": "Field"
-    },
-    {
       "value": "Tab15",
       "update": "Yes",
       "name": "Benefits",
@@ -180,10 +173,8 @@
     "headerTitle": ["USP_Name"],
     "headerRole": ["USP_Role"],
     "headerImage": ["USP_Image"],
-    "None": ["LastName", "FirstName", "EmployeeID", "ID", "Status"],
+    "None": ["LastName", "FirstName", "EmployeeID", "ID", "Status", "DOB"],
     "Tab1": [
-      "SpouseName",
-      "FatherName",
       "DateOfJoining",
       "MaritalStatus",
       "Sex",
@@ -191,10 +182,8 @@
       "Email",
       "PostCode",
       "Address",
-      "ReferenceID",
-      "TotalEarning",
-      "TotalDeductions",
-      "NetPay"
+      "SSNumber",
+      "NINumber"
     ],
     "Tab3": ["Skills"],
     "Tab6": ["Education"],
@@ -203,8 +192,7 @@
     "Tab9": ["Certifications"],
     "Tab10": ["Package"],
     "Tab15": ["Benefits"],
-    "Tab8": ["MultiAttachments"],
-    "Tab11": ["DOB", "SSNumber", "NINumber"]
+    "Tab8": ["MultiAttachments"]
   },
   "ControlDisplay": {},
   "tableConfig": {
@@ -489,7 +477,7 @@
       ]
     },
     "EmergencyContacts": {
-      "title": "Employee Emergency Contacts",
+      "title": "Employee Emergency Contacts / Dependents",
       "ItemFieldDefinition": [
         {
           "name": "ItemNumber",
@@ -525,9 +513,21 @@
           "width": "500",
           "SLabel": "Comments",
           "Option": "Optional"
+        },
+        {
+          "name": "ContactType",
+          "type": "string",
+          "width": "100",
+          "SLabel": "Contact Type",
+          "Option": "Optional"
         }
       ],
-      "DisplayFields": ["ContactName1", "ContactPhone1", "Relation1"],
+      "DisplayFields": [
+        "ContactName1",
+        "ContactPhone1",
+        "Relation1",
+        "ContactType"
+      ],
       "ItemButtons": {
         "itemDisplay": true,
         "itemAdd": true,
@@ -538,7 +538,8 @@
         "ContactName1",
         "ContactPhone1",
         "Relation1",
-        "Comments4"
+        "Comments4",
+        "ContactType"
       ],
       "ItemDetails": [
         {
@@ -555,6 +556,10 @@
         },
         {
           "name": "Comments4",
+          "Mode": "Edit"
+        },
+        {
+          "name": "ContactType",
           "Mode": "Edit"
         }
       ]
@@ -876,22 +881,6 @@
       "LLabel": "Last Name"
     },
     {
-      "name": "SpouseName",
-      "type": "string",
-      "width": "50",
-      "Option": "Optional",
-      "SLabel": "Spouse Name",
-      "LLabel": "Spouse Name"
-    },
-    {
-      "name": "FatherName",
-      "type": "string",
-      "width": "50",
-      "Option": "Optional",
-      "SLabel": "Father Name",
-      "LLabel": "Father Name"
-    },
-    {
       "name": "DOB",
       "type": "Date",
       "width": "10",
@@ -1166,23 +1155,13 @@
       "id": "Step2",
       "fields": [
         { "name": "SSNumber", "Mode": "Edit" },
-        { "name": "NINumber", "Mode": "Edit" }
-      ],
-      "name": "Employee Details",
-      "stepType": "FieldList",
-      "intro": "Employee  : Address Details"
-    },
-    {
-      "id": "Step3",
-      "fields": [
-        { "name": "SpouseName", "Mode": "Edit" },
-        { "name": "FatherName", "Mode": "Edit" },
+        { "name": "NINumber", "Mode": "Edit" },
         { "name": "ContactNo", "Mode": "Edit" },
         { "name": "Email", "Mode": "Edit" }
       ],
       "name": "Employee Details",
       "stepType": "FieldList",
-      "intro": "Employee  : Contact Details"
+      "intro": "Employee  : Address Details"
     },
     {
       "id": "Step4",
