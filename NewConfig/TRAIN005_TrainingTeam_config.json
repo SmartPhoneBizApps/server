@@ -69,11 +69,7 @@
       "name": "Launch Assistant",
       "icon": "sap-icon://travel-request"
     },
-    {
-      "type": "VIEW",
-      "name": "Change App View",
-      "icon": "sap-icon://chart-table-view"
-    },
+
     { "type": "ADD", "name": "Add Record", "icon": "sap-icon://add" },
     {
       "type": "UPLOAD",
@@ -93,16 +89,6 @@
       "name": "Copy Course",
       "icon": "sap-icon://copy",
       "URL": "util/copyCourse/TRAIN005/TRAIN005/{ID}/{role}",
-      "Token": "Yes",
-      "URLMethod": "POST"
-    },
-    {
-      "type": "PUBLISH",
-      "name": "Publish Course",
-      "icon": "sap-icon://upload-to-cloud",
-      "Dialog": "{label:'Role',name:'role',type:'String'}",
-      "DialogSearch": "{URL}/api/v1/samrtApp/findRole/{role}",
-      "URL": "util/assignCourseRole/TRAIN001/TRAIN007/{ID}/{role}",
       "Token": "Yes",
       "URLMethod": "POST"
     },
