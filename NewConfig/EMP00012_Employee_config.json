@@ -38,9 +38,11 @@
     "Band",
     "Area",
     "Area3",
+    "Area2",
     "Group",
     "SubGroup",
-    "PerformanceRating"
+    "PerformanceRating",
+    "GoalStatus"
   ],
   "MButtons": [
     {
@@ -104,7 +106,7 @@
       "icon": "sap-icon://accept",
       "Dialog": [
         {
-          "label": "Approver Comment",
+          "label": "Employee Comment",
           "name": "ProgressComment",
           "type": "string",
           "option": "Optional"
@@ -112,7 +114,7 @@
       ],
       "transferFields": [
         { "field": "ID", "value": "@recorddata" },
-        { "field": "Status", "value": "Approved" },
+        { "field": "Status", "value": "SubmitReview" },
         { "field": "ProgressComment", "value": "@UserInput" }
       ],
       "URL": "datarecords/",
@@ -162,7 +164,16 @@
       "update": "Yes",
       "name": "SupportingDocs",
       "type": "MultiAttachments",
-      "fioriicon": "attachment"
+      "fioriicon": "attachment",
+      "docType": [
+        { "text": "ProjectFeedback", "state": "Success" },
+        { "text": "PeerFeedback", "state": "Information" },
+        { "text": "CustomerFeedback", "state": "Error" },
+        { "text": "Awards", "state": "Success" },
+        { "text": "Appreciation", "state": "Error" },
+        { "text": "Certifications", "state": "Success" },
+        { "text": "Others", "state": "Information" }
+      ]
     },
     {
       "value": "Tab7",
@@ -270,7 +281,7 @@
         {
           "name": "Area2",
           "type": "string",
-          "width": "10",
+          "width": "100",
           "SLabel": "Area",
           "Option": "Optional"
         },
