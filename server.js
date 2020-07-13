@@ -143,6 +143,7 @@ app.use(
   require("./routes/smartApp/uploadHeaderItemFile")
 );
 app.use("/api/v1/detaillist/", require("./routes/smartApp/detaillist"));
+app.use("/api/v1/dataFilter/", require("./routes/smartApp/dataFilters"));
 app.use("/api/v1/dummyUpload/", require("./routes/utilities/dummyUpload"));
 
 //  -------------------------------------------------
@@ -166,6 +167,7 @@ app.use(
   "/api/v1/util/assignCourseRole/",
   require("./routes/utilities/assignCourseRole")
 );
+
 app.use("/api/v1/util/copyCourse/", require("./routes/utilities/copyCourse"));
 app.use(
   "/api/v1/util/addCourseCatalog/",

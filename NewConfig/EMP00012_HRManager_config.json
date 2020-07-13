@@ -9,9 +9,10 @@
     "UserSpecific": "Yes",
     "Update": "Yes",
     "URL": "https://fierce-oasis-51455.herokuapp.com",
-    "Source": { "SourceName": "mongoDB", "SourceFile": "NA" }
+    "Source": { "SourceName": "mongoDB", "SourceFile": "NA" },
+    "dataFilter": [{ "field": "Status" }]
   },
-  "dataFilter": [{ "field": "Status" }],
+
   "ListFields": {
     "IntroField": "ReviewPeriod",
     "TitleField": "Name",
@@ -462,7 +463,7 @@
           "name": "Strengths",
           "type": "string",
           "width": "1000",
-          "SLabel": "Goal Status",
+          "SLabel": "Strengths",
           "Option": "Optional"
         },
         {
