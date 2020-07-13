@@ -8,7 +8,7 @@ const { generatePdfCertificate } = require("../../modules/config2");
 exports.generatePDF = asyncHandler(async (req, res, next) => {
   var passData = {};
   // passData = { ...req.body };
-  passData["ID"] = req.query;
+  passData["ID"] = req.query["ID"];
   console.log("Req:", req.query);
   if (req.query["ReferenceID"]) {
     passData["Title"] =
