@@ -41,14 +41,12 @@ module.exports = {
       getData["res"].status(200).json({
         success: true,
         message: "Course assigned to the user & Email sent 123",
-        data: getData,
       });
     } catch (err) {
       console.log(err);
       getData["res"].status(200).json({
         success: true,
         message: "Course assigned to the user but Email could not be sent",
-        data: getData,
       });
     }
 
