@@ -102,14 +102,15 @@
 
     { "type": "ADD", "name": "Add Record", "icon": "sap-icon://add" },
     {
-      "type": "UPLOAD",
+      "type": "FILEUPLOAD",
       "name": "Upload SAP Catalog",
       "icon": "sap-icon://upload",
       "Option": ["Header"],
       "ItemOptions": [],
       "URL": "uploadFile/openSAP",
       "URLMethodHDR": "POST",
-      "dataFields": "FieldName"
+      "dataFields": "FieldName",
+      "Token": "Yes"
     }
   ],
   "DButtons": [

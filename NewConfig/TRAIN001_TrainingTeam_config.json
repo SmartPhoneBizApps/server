@@ -147,14 +147,15 @@
       "URLMethod": "PUT"
     },
     {
-      "type": "UPLOAD",
+      "type": "FILEUPLOAD",
       "name": "Upload Questions",
       "icon": "sap-icon://upload",
       "Option": ["Header"],
       "ItemOptions": [],
       "URL": "uploadFile/questioner/{ID}",
       "URLMethodHDR": "POST",
-      "dataFields": "FieldName"
+      "dataFields": "FieldName",
+      "Token": "Yes"
     }
   ],
   "Tabs": [

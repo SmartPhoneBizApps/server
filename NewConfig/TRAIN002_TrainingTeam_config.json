@@ -93,15 +93,15 @@
 
     { "type": "ADD", "name": "Add Record", "icon": "sap-icon://add" },
     {
-      "type": "UPLOAD",
-      "name": "Upload Record",
+      "type": "FILEUPLOAD",
+      "name": "Upload Questions",
       "icon": "sap-icon://upload",
-      "Option": ["Header", "Items"],
+      "Option": ["Header"],
       "ItemOptions": [],
-      "URL": "datarecords/",
+      "URL": "uploadFile/questioner/{ID}",
       "URLMethodHDR": "POST",
-      "URLMethodTable": "PUT",
-      "dataFields": "FieldName"
+      "dataFields": "FieldName",
+      "Token": "Yes"
     }
   ],
   "DButtons": [
