@@ -39,29 +39,13 @@ exports.assignCourseUser = asyncHandler(async (req, res, next) => {
     });
   }
 
-  /*   /// Initial values..
-  var ivalue = getInitialValues(
-    req.params.id,
-    req.headers.businessrole,
-    req.user
-  );
-  let ival_out = [];
-  let ival = {};
-  for (let i = 0; i < ivalue.length; i++) {
-    ival = {};
-    const element = ivalue[i];
-    ival = { ...element };
-    o_val = getDateValues(ival.Value);
-    ival.Value = o_val;
-    ival_out.push(ival);
-  } */
-
   out1 = {};
   Appdata = {};
-  console.log("Source", configFrom["Controls"]["Source"]["SourceName"]);
+
   if (configFrom["Controls"]["Source"]["SourceName"] == "jsonData") {
     let fn = "../.." + configFrom["Controls"]["Source"]["SourceFile"];
     var res1 = require(fn);
+    i_temp = [];
     // Assign mapping values...
     for (let x = 0; x < res1["courses"].length; x++) {
       if (res1["courses"][x]["id"] == req.params.ID) {
@@ -69,7 +53,12 @@ exports.assignCourseUser = asyncHandler(async (req, res, next) => {
         for (let y = 0; y < x1.length; y++) {
           const e2 = x1[y];
           for (const k3 in e2) {
-            Appdata[k3] = res1["courses"][x][e2[k3]];
+            if (k3 == "Image") {
+              i_temp.push(res1["courses"][x][e2[k3]]);
+              Appdata[k3] = i_temp;
+            } else {
+              Appdata[k3] = res1["courses"][x][e2[k3]];
+            }
           }
         }
       }
