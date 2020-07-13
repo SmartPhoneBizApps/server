@@ -581,7 +581,7 @@
           "width": "100",
           "SLabel": "Area",
           "Option": "Optional",
-          "update": "No"
+          "Update": "No"
         },
         {
           "name": "PerformanceRating",
@@ -589,14 +589,15 @@
           "width": "100",
           "SLabel": "Competency Description",
           "Option": "Optional",
-          "update": "No"
+          "Update": "No"
         },
         {
           "name": "Score3",
           "type": "string",
           "width": "200",
           "SLabel": "Score",
-          "Option": "Optional"
+          "Option": "Optional",
+          "Update": "No"
         },
         {
           "name": "AppraiseComm3",
@@ -610,7 +611,8 @@
           "type": "string",
           "width": "1000",
           "SLabel": "Appraise Comment",
-          "Option": "Optional"
+          "Option": "Optional",
+          "Update": "No"
         },
         {
           "name": "PositiveComments",
@@ -632,14 +634,16 @@
           "width": "10",
           "SLabel": "Assignment Date",
           "Option": "Optional",
-          "Default": "@currentDate"
+          "Default": "@currentDate",
+          "Update": "No"
         },
         {
           "name": "TargetDate3",
           "type": "Date",
           "width": "10",
           "SLabel": "Target Date",
-          "Option": "Optional"
+          "Option": "Optional",
+          "Update": "No"
         }
       ],
       "DisplayFields": [
@@ -675,6 +679,31 @@
         },
         {
           "name": "AppraiseComm3",
+          "Tab": "Tab2",
+          "Mode": "Edit"
+        },
+        {
+          "name": "ManagerComm3",
+          "Tab": "Tab2",
+          "Mode": "Edit"
+        },
+        {
+          "name": "PositiveComments",
+          "Tab": "Tab2",
+          "Mode": "Edit"
+        },
+        {
+          "name": "NeedsImprovement",
+          "Tab": "Tab2",
+          "Mode": "Edit"
+        },
+        {
+          "name": "AssignDate3",
+          "Tab": "Tab2",
+          "Mode": "Edit"
+        },
+        {
+          "name": "TargetDate3",
           "Tab": "Tab2",
           "Mode": "Edit"
         }
