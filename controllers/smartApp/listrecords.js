@@ -54,34 +54,39 @@ exports.getListrecords1 = asyncHandler(async (req, res, next) => {
     outData = {};
     // Read JSON source file
     let results = [];
+
+    let results1 = [];
     let res1 = {};
 
     let fn = "../../NewConfig/openSAP_courses.json";
     res1 = require(fn);
-    results = res1["courses"];
+    results1 = res1["courses"];
 
     let t_image = [];
     tCount = 0;
 
-    for (let i1 = 0; i1 < results.length; i1++) {
+    for (let i1 = 0; i1 < results1.length; i1++) {
+      let results2 = {};
       tCount = tCount + 1;
       t_image = [];
-      results[i1].cardImage = application["photo"];
-      results[i1].ReferenceID = results[i1].id;
-      results[i1].Group = "ExternalCatalog";
-      results[i1].SubGroup = "OpenSAP";
-      t_image.push(results[i1]["image"]);
-      results[i1].image = t_image;
+      results2["cardImage"] = application["photo"];
+      results2["ReferenceID"] = results1[i1].id;
+      results2["Group"] = "ExternalCatalog";
+      results2["SubGroup"] = "OpenSAP";
+      t_image.push(results1[i1]["image"]);
+      results2["image"] = t_image;
       t_image = [];
       if (req.headers.mode == "Web" || req.headers.mode == "web") {
         if (config1["Controls"]["USP"] == "UserProfile") {
-          results[i1].USP_Name = "OpenSAP course catalog";
-          results[i1].USP_Role = "copyright - SAP®";
+          results2["USP_Name"] = "OpenSAP course catalog";
+          results2["USP_Role"] = "copyright - SAP®";
           //   results[i1].USP_Image =
           //     "https://fierce-oasis-51455.herokuapp.com/logos/logo_opensap.png";
-          results[i1].USP_Image = process.env.APPURL + "logos/logo_opensap.png";
+          results2["USP_Image"] = process.env.APPURL + "logos/logo_opensap.png";
         }
       }
+
+      results.push(results2);
     }
 
     const limit = parseInt(req.query.limit, 10) || 100;

@@ -365,7 +365,6 @@ module.exports = {
             out1[key] = Math.floor(100000 + Math.random() * 900000);
           } else {
             out1[key] = element;
-            console.log("out1[key]", out1[key]);
           }
         }
       }
@@ -378,9 +377,6 @@ module.exports = {
     out1["company"] = userX.company;
     out1["branch"] = userX.branch;
     out1["area"] = userX.area;
-    console.log(appID);
-    console.log(paramID);
-    console.log("out1[key]", out1);
     return out1;
   },
   checkItemData: function (a, b) {

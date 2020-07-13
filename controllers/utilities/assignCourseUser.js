@@ -21,8 +21,7 @@ exports.assignCourseUser = asyncHandler(async (req, res, next) => {
 
   configData = getNewConfig(req.params.toApp, "EmployeeLearn");
   configFrom = getNewConfig(req.params.fromApp, "TrainingTeam");
-  console.log("From", req.params.fromApp);
-  console.log("To", req.params.toApp);
+
   /// Validations....
   userX = await User.findOne({ email: req.params.user });
   if (!userX) {
@@ -41,23 +40,25 @@ exports.assignCourseUser = asyncHandler(async (req, res, next) => {
 
   out1 = {};
   Appdata = {};
+  let results1 = [];
 
   if (configFrom["Controls"]["Source"]["SourceName"] == "jsonData") {
     let fn = "../.." + configFrom["Controls"]["Source"]["SourceFile"];
-    var res1 = require(fn);
+    results1 = require(fn);
     i_temp = [];
     // Assign mapping values...
-    for (let x = 0; x < res1["courses"].length; x++) {
-      if (res1["courses"][x]["id"] == req.params.ID) {
+    for (let x = 0; x < results1["courses"].length; x++) {
+      if (results1["courses"][x]["id"] == req.params.ID) {
         x1 = configFrom["Controls"]["Source"]["FieldMapping"];
         for (let y = 0; y < x1.length; y++) {
           const e2 = x1[y];
           for (const k3 in e2) {
+            console.log(results1["courses"][x][e2[k3]]);
             if (k3 == "Image") {
-              i_temp.push(res1["courses"][x][e2[k3]]);
+              i_temp.push(results1["courses"][x][e2[k3]]);
               Appdata[k3] = i_temp;
             } else {
-              Appdata[k3] = res1["courses"][x][e2[k3]];
+              Appdata[k3] = results1["courses"][x][e2[k3]];
             }
           }
         }
@@ -103,7 +104,7 @@ exports.assignCourseUser = asyncHandler(async (req, res, next) => {
       message: "Course ID not found",
     });
   }
-  console.log("Data for new Rec", Appdata);
+
   out1 = getNewCopyRecord(configData, Appdata, req.params.ID, userX, appX.id);
   result = await createDocument(req.params.toApp, out1);
   let message = "";
