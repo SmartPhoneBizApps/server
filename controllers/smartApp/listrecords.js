@@ -69,6 +69,9 @@ exports.getListrecords1 = asyncHandler(async (req, res, next) => {
       let results2 = {};
       tCount = tCount + 1;
       t_image = [];
+      result2 = { ...results1[i1] };
+
+      console.log(result2);
       results2["cardImage"] = application["photo"];
       results2["ReferenceID"] = results1[i1].id;
       results2["Group"] = "ExternalCatalog";
