@@ -77,13 +77,23 @@
       "icon": "sap-icon://sys-help-2"
     },
     {
-      "type": "BOT",
-      "name": "Launch Assistant",
-      "icon": "sap-icon://travel-request"
+      "type": "OPENURL",
+      "name": "Launch BOT",
+      "icon": "sap-icon://travel-request",
+      "URL": "https://www.messenger.com/t/295020207695029"
     },
 
     { "type": "ADD", "name": "Add Record", "icon": "sap-icon://add" },
-    { "type": "UPLOAD", "name": "Upload Record", "icon": "sap-icon://upload" }
+    {
+      "type": "UPLOAD",
+      "name": "Upload SAP Catalog",
+      "icon": "sap-icon://upload",
+      "Option": ["Header"],
+      "ItemOptions": [],
+      "URL": "uploadFile/openSAP/{ID}",
+      "URLMethodHDR": "POST",
+      "dataFields": "FieldName"
+    }
   ],
   "DButtons": [
     {
@@ -95,16 +105,6 @@
       "URL": "util/assignCourseUser/OPENSAP/TRAIN007/{ReferenceID}/{user}",
       "Token": "Yes",
       "URLMethod": "POST"
-    },
-    {
-      "type": "UPLOAD",
-      "name": "Upload SAP Catalog",
-      "icon": "sap-icon://upload",
-      "Option": ["Header"],
-      "ItemOptions": [],
-      "URL": "uploadFile/openSAP/{ID}",
-      "URLMethodHDR": "POST",
-      "dataFields": "FieldName"
     }
   ],
   "Tabs": [
