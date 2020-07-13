@@ -53,8 +53,11 @@ exports.getListrecords1 = asyncHandler(async (req, res, next) => {
   if (req.params.id == "OPENSAP" || req.params.id == "EXTLEARN") {
     outData = {};
     // Read JSON source file
+    let results = [];
+    let res1 = {};
+
     let fn = "../../NewConfig/openSAP_courses.json";
-    var res1 = require(fn);
+    res1 = require(fn);
     results = res1["courses"];
 
     let t_image = [];
