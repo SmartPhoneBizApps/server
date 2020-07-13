@@ -619,14 +619,16 @@
           "type": "string",
           "width": "1000",
           "SLabel": "Positive Comments",
-          "Option": "Optional"
+          "Option": "Optional",
+          "Update": "No"
         },
         {
           "name": "NeedsImprovement",
           "type": "string",
           "width": "1000",
           "SLabel": "Needs Improvement Comments",
-          "Option": "Optional"
+          "Option": "Optional",
+          "Update": "No"
         },
         {
           "name": "AssignDate3",
@@ -1060,7 +1062,7 @@
     },
     {
       "name": "ProjectFeedback",
-      "type": "string",
+      "type": "Array",
       "width": "200",
       "Option": "Optional",
       "SLabel": "Project Feedback",
