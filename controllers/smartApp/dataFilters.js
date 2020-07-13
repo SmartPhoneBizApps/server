@@ -10,27 +10,27 @@ exports.dataFilters = asyncHandler(async (req, res, next) => {
       {
         val: "Submitted",
         key: "Submitted",
-        count: 20,
+        count: 2,
       },
       {
         val: "new",
         key: "new",
-        count: 10,
+        count: 1,
       },
     ],
 
-    FirstName: [
-      {
-        val: "Amit",
-        key: "Amit",
-        count: 2,
-      },
-      {
-        val: "Atul",
-        key: "Atul",
-        count: 10,
-      },
-    ],
+    // FirstName: [
+    //   {
+    //     val: "Amit",
+    //     key: "Amit",
+    //     count: 2,
+    //   },
+    //   {
+    //     val: "Atul",
+    //     key: "Atul",
+    //     count: 10,
+    //   },
+    // ],
   };
 
   res.status(200).json({
