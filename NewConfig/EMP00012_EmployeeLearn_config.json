@@ -580,14 +580,16 @@
           "type": "string",
           "width": "100",
           "SLabel": "Area",
-          "Option": "Optional"
+          "Option": "Optional",
+          "update": "No"
         },
         {
           "name": "PerformanceRating",
           "type": "string",
           "width": "100",
           "SLabel": "Competency Description",
-          "Option": "Optional"
+          "Option": "Optional",
+          "update": "No"
         },
         {
           "name": "Score3",
@@ -661,6 +663,16 @@
         "TargetDate3"
       ],
       "ItemDetails": [
+        {
+          "name": "PerformanceRating",
+          "Tab": "Tab2",
+          "Mode": "Edit"
+        },
+        {
+          "name": "Area3",
+          "Tab": "Tab2",
+          "Mode": "Edit"
+        },
         {
           "name": "AppraiseComm3",
           "Tab": "Tab2",

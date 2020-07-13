@@ -31,7 +31,7 @@ exports.uploadFileOnly = asyncHandler(async (req, res, next) => {
   if (!req.headers.mode) {
     return next(new ErrorResponse(`Please provide header data mode`, 400));
   }
-  console.log(req.params.ID);
+
   let filePath;
   switch (req.params.mode) {
     case "questioner":
