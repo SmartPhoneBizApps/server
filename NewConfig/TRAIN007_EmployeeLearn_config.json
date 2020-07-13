@@ -113,7 +113,8 @@
       "icon": "sap-icon://upload-to-cloud",
       "URL": "util/getQuestioner/LEARNING/{ID}",
       "Token": "Yes",
-      "URLMethod": "GET"
+      "URLMethod": "GET",
+      "Condition": { "Field": "Exam", "value": "Yes" }
     },
     {
       "type": "WORKFLOW",
@@ -121,7 +122,7 @@
       "icon": "sap-icon://upload-to-cloud",
       "Dialog": [
         {
-          "label": "Certificate Comment",
+          "label": "Course Feedback",
           "name": "ProgressComment",
           "type": "string",
           "option": "Optional"
