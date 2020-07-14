@@ -46,9 +46,11 @@ exports.dataFilters = asyncHandler(async (req, res, next) => {
     let tableOut = [];
 
     let filter = config1["Controls"]["dataFilter"];
+    let tableFields = config1["Controls"]["filterFieldSource"];
 
     for (let x = 0; x < filter.length; x++) {
       stat["field"] = filter[x]["field"];
+      // Possible Values
       for (let a = 0; a < resPV.length; a++) {
         if (filter[x]["field"] == resPV[a]["PossibleValues"]) {
           stat["key"] = resPV[a]["Value"];
@@ -57,6 +59,7 @@ exports.dataFilters = asyncHandler(async (req, res, next) => {
           tableOut.push({ ...stat });
         }
       }
+      // Table Fields
     }
 
     for (let y = 0; y < results.length; y++) {
