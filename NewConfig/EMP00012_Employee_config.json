@@ -46,6 +46,7 @@
       }
     ]
   },
+
   "ListFields": {
     "IntroField": "ReviewPeriod",
     "TitleField": "Name",
@@ -246,7 +247,8 @@
       "DevManager",
       "Role",
       "Band",
-      "ReviewPeriod"
+      "ReviewPeriod",
+      "Area"
     ],
     "Tab2": ["Appraisal"],
     "Tab4": ["Goals"],
@@ -576,9 +578,9 @@
       ],
       "ItemButtons": {
         "itemDisplay": true,
-        "itemAdd": true,
+        "itemAdd": false,
         "itemEdit": true,
-        "itemDelete": true
+        "itemDelete": false
       },
       "CreateFields": [
         "GoalsArea",
@@ -591,9 +593,49 @@
       ],
       "ItemDetails": [
         {
+          "name": "GoalsArea",
+          "Tab": "Tab4",
+          "Mode": "Display"
+        },
+        {
+          "name": "Goal2",
+          "Tab": "Tab4",
+          "Mode": "Display"
+        },
+        {
+          "name": "Score2",
+          "Tab": "Tab4",
+          "Mode": "Display"
+        },
+        {
           "name": "AppraiseComm2",
           "Tab": "Tab4",
           "Mode": "Edit"
+        },
+        {
+          "name": "ManagerComm2",
+          "Tab": "Tab4",
+          "Mode": "Display"
+        },
+        {
+          "name": "GoalStatus",
+          "Tab": "Tab4",
+          "Mode": "Display"
+        },
+        {
+          "name": "SetDate2",
+          "Tab": "Tab4",
+          "Mode": "Display"
+        },
+        {
+          "name": "TargetDate2",
+          "Tab": "Tab4",
+          "Mode": "Display"
+        },
+        {
+          "name": "NextRevDate2",
+          "Tab": "Tab4",
+          "Mode": "Display"
         }
       ]
     },
@@ -611,22 +653,25 @@
           "name": "AppraisalArea",
           "type": "string",
           "width": "100",
-          "SLabel": "Area",
-          "Option": "Optional"
+          "SLabel": "Appraisal Area",
+          "Option": "Optional",
+          "Update": "No"
         },
         {
           "name": "PerformanceRating",
           "type": "string",
           "width": "100",
           "SLabel": "Competency Description",
-          "Option": "Optional"
+          "Option": "Optional",
+          "Update": "No"
         },
         {
           "name": "Score3",
           "type": "string",
           "width": "200",
           "SLabel": "Score",
-          "Option": "Optional"
+          "Option": "Optional",
+          "Update": "No"
         },
         {
           "name": "AppraiseComm3",
@@ -640,21 +685,24 @@
           "type": "string",
           "width": "1000",
           "SLabel": "Appraise Comment",
-          "Option": "Optional"
+          "Option": "Optional",
+          "Update": "No"
         },
         {
           "name": "PositiveComments",
           "type": "string",
           "width": "1000",
           "SLabel": "Positive Comments",
-          "Option": "Optional"
+          "Option": "Optional",
+          "Update": "No"
         },
         {
           "name": "NeedsImprovement",
           "type": "string",
           "width": "1000",
           "SLabel": "Needs Improvement Comments",
-          "Option": "Optional"
+          "Option": "Optional",
+          "Update": "No"
         },
         {
           "name": "AssignDate3",
@@ -662,14 +710,16 @@
           "width": "10",
           "SLabel": "Assignment Date",
           "Option": "Optional",
-          "Default": "@currentDate"
+          "Default": "@currentDate",
+          "Update": "No"
         },
         {
           "name": "TargetDate3",
           "type": "Date",
           "width": "10",
           "SLabel": "Target Date",
-          "Option": "Optional"
+          "Option": "Optional",
+          "Update": "No"
         }
       ],
       "DisplayFields": [
@@ -694,7 +744,42 @@
       ],
       "ItemDetails": [
         {
+          "name": "PerformanceRating",
+          "Tab": "Tab2",
+          "Mode": "Edit"
+        },
+        {
+          "name": "AppraisalArea",
+          "Tab": "Tab2",
+          "Mode": "Edit"
+        },
+        {
           "name": "AppraiseComm3",
+          "Tab": "Tab2",
+          "Mode": "Edit"
+        },
+        {
+          "name": "ManagerComm3",
+          "Tab": "Tab2",
+          "Mode": "Edit"
+        },
+        {
+          "name": "PositiveComments",
+          "Tab": "Tab2",
+          "Mode": "Edit"
+        },
+        {
+          "name": "NeedsImprovement",
+          "Tab": "Tab2",
+          "Mode": "Edit"
+        },
+        {
+          "name": "AssignDate3",
+          "Tab": "Tab2",
+          "Mode": "Edit"
+        },
+        {
+          "name": "TargetDate3",
           "Tab": "Tab2",
           "Mode": "Edit"
         }
