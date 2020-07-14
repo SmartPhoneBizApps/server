@@ -47,9 +47,14 @@
           "Terms": "I declare that I have read all the documents, viewed the videos and passed the test (if any) required for the completion of this training."
         }
       ]
-    }
+    },
+    "dataFilter": [
+      { "field": "Status" },
+      { "field": "SubGroup" },
+      { "field": "Group" }
+    ]
   },
-  
+
   "ListFields": {
     "IntroField": "code",
     "TitleField": "title",
@@ -64,7 +69,7 @@
     "SubTitle": ["code"],
     "Description": ["start_date", "end_date", "categories"]
   },
-  "PossibleValues": ["Status"],
+  "PossibleValues": ["Status", "SubGroup", "Group"],
   "MButtons": [
     {
       "type": "DOWNLOAD",
