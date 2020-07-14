@@ -134,7 +134,7 @@
       "type": "CALENDAR",
       "name": "View Calendar",
       "icon": "sap-icon://upload",
-      "URL": "smartApp/calendarData/TRAIN008",
+      "displayURL": "smartApp/calendarData/TRAIN008",
       "Token": "Yes",
       "URLMethod": "GET",
       "calendarConfig": {
@@ -148,8 +148,8 @@
           "buttons": [
             {
               "type": "BOOK",
-              "name": "Book",
-              "URL": "smartApp/calendarData/TRAIN008/{user}/{TrainingTeam}",
+              "name": "Book Training",
+              "URL": "util/addCourseCatalog/TRAIN008/TRAIN009/{ID}/TrainingTeam/calendar/{ItemNumber}/{userEmail}",
               "Token": "Yes",
               "URLMethod": "GET"
             }
@@ -158,6 +158,7 @@
       }
     }
   ],
+
   "DButtons": [
     {
       "type": "SELFASSIGN",
