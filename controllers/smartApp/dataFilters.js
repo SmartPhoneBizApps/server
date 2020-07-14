@@ -96,8 +96,9 @@ exports.dataFilters = asyncHandler(async (req, res, next) => {
           vl1 = {};
         }
       }
+      xObject[element] = nTab;
     });
-    vl1["field"] = "GoalsArea";
+
     vl1["key"] = "Leadership";
     vl1["value"] = "Leadership";
     vl1["count"] = 1;
