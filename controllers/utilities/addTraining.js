@@ -68,9 +68,17 @@ exports.addTraining = asyncHandler(async (req, res, next) => {
   );
 
   result = await findOneUpdateData(myData, req.params.toApp);
-  res.status(201).json({
-    success: true,
-    data: result,
-    message: "Training Added",
-  });
+  if (result) {
+    res.status(201).json({
+      success: true,
+      data: result,
+      message: "Training Added",
+    });
+  } else {
+    res.status(400).json({
+      success: false,
+      data: result,
+      message: "Training not added, error occured",
+    });
+  }
 });
