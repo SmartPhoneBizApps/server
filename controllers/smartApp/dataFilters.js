@@ -59,9 +59,8 @@ exports.dataFilters = asyncHandler(async (req, res, next) => {
           tableOut.push({ ...stat });
         }
       }
-      // Table Fields
     }
-
+    // Get Header Counts
     for (let y = 0; y < results.length; y++) {
       for (let k = 0; k < tableOut.length; k++) {
         if (results[y][tableOut[k]["field"]] == tableOut[k]["value"]) {
@@ -69,6 +68,8 @@ exports.dataFilters = asyncHandler(async (req, res, next) => {
         }
       }
     }
+
+
 
     let data = {};
     let nTable = [];

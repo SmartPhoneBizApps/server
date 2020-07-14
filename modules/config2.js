@@ -180,7 +180,6 @@ module.exports = {
     ////////////////////////////////////////////////////////////////////////////////////////////////
     let query;
     const reqQuery1 = { ...req.query };
-    console.log(req.user);
     if (reqQuery1) {
       reqQuery1["company"] = req.user.company;
     }
