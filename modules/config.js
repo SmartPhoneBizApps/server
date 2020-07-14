@@ -891,22 +891,27 @@ module.exports = {
           MButtons[a]["key"]["ID"] == "External"
         ) {
           sourceID = "External";
-          for (let k = 0; k < MButtons[a]["key"]["generateID"].length; k++) {
-            console.log(body);
-            console.log(
-              "A1",
-              k,
-              MButtons[a]["key"]["generateID"][k],
-              body[MButtons[a]["key"]["generateID"][k]]
-            );
-            if (k == 0) {
-              body["ID"] = body[MButtons[a]["key"]["generateID"][k]];
-            } else {
-              body["ID"] =
-                body["ID"] +
-                MButtons[a]["key"]["seperator"] +
-                body[MButtons[a]["key"]["generateID"][k]];
+
+          if (MButtons[a]["key"]["generateID"].length > 0) {
+            for (let k = 0; k < MButtons[a]["key"]["generateID"].length; k++) {
+              console.log(body);
+              console.log(
+                "A1",
+                k,
+                MButtons[a]["key"]["generateID"][k],
+                body[MButtons[a]["key"]["generateID"][k]]
+              );
+              if (k == 0) {
+                body["ID"] = body[MButtons[a]["key"]["generateID"][k]];
+              } else {
+                body["ID"] =
+                  body["ID"] +
+                  MButtons[a]["key"]["seperator"] +
+                  body[MButtons[a]["key"]["generateID"][k]];
+              }
             }
+          } else {
+            console.log(body["ID"]);
           }
         }
       }
