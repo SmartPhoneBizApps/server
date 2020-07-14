@@ -96,7 +96,10 @@ exports.dataFilters = asyncHandler(async (req, res, next) => {
           vl1 = {};
         }
       }
-
+      vl1["key"] = "GoalsArea";
+      vl1["value"] = "Goals Area";
+      vl1["count"] = 1;
+      nTab.push({ ...vl1 });
       xObject[element] = nTab;
       nTab = [];
     });

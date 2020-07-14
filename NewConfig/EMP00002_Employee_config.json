@@ -10,10 +10,16 @@
     "UserSpecific": "Yes",
     "Update": "Yes",
     "URL": "https://fierce-oasis-51455.herokuapp.com",
-        "Source": { "SourceName": "mongoDB", "SourceFile": "NA" },
-    "dataFilter": [{ "field": "Status" }]
+    "Source": { "SourceName": "mongoDB", "SourceFile": "NA" },
+    "dataFilter": [
+      { "field": "TravelMode" },
+      { "field": "Status" },
+      { "field": "CostCentre" },
+      { "field": "ProjectCode" },
+      { "field": "Currency" }
+    ]
   },
-  
+
   "ListFields": {
     "IntroField": "Name",
     "TitleField": "NoValue",

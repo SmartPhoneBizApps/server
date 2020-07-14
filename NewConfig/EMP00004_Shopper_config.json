@@ -10,10 +10,19 @@
     "UserSpecific": "Yes",
     "Update": "Yes",
     "URL": "https://fierce-oasis-51455.herokuapp.com",
-        "Source": { "SourceName": "mongoDB", "SourceFile": "NA" },
-    "dataFilter": [{ "field": "Status" }]
+    "Source": { "SourceName": "mongoDB", "SourceFile": "NA" },
+    "dataFilter": [
+      { "field": "VendorName" },
+      { "field": "Status" },
+      { "field": "CostCentre" },
+      { "field": "Category" },
+      { "field": "Currency" },
+      { "field": "VATRate" },
+      { "field": "PaymentOption" },
+      { "field": "GLAccount" }
+    ]
   },
-  
+
   "ListFields": {
     "IntroField": "VendorName",
     "TitleField": "Details",
