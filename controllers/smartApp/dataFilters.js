@@ -32,7 +32,6 @@ exports.dataFilters = asyncHandler(async (req, res, next) => {
     pvconfig1
   );
   let resPV = await qPV;
-  // console.log("PossValues", resPV);
 
   if (
     req.headers.applicationid == "OPENSAP" ||
@@ -62,8 +61,6 @@ exports.dataFilters = asyncHandler(async (req, res, next) => {
 
     for (let y = 0; y < results.length; y++) {
       for (let k = 0; k < tableOut.length; k++) {
-        console.log("Field", tableOut[k]["field"]);
-        console.log("Value", tableOut[k]["value"]);
         if (results[y][tableOut[k]["field"]] == tableOut[k]["value"]) {
           tableOut[k]["count"] = tableOut[k]["count"] + 1;
         }
@@ -81,8 +78,7 @@ exports.dataFilters = asyncHandler(async (req, res, next) => {
         set1.add(tableOut[m]["field"]);
       }
     }
-    console.log("DataOut", nTable);
-    console.log("DataOut", set1);
+    set1.add("GoalsArea");
 
     set1.forEach((element) => {
       for (let b = 0; b < nTable.length; b++) {
@@ -97,17 +93,18 @@ exports.dataFilters = asyncHandler(async (req, res, next) => {
         }
       }
       xObject[element] = nTab;
+      nTab = [];
     });
 
-    vl1["key"] = "Leadership";
-    vl1["value"] = "Leadership";
-    vl1["count"] = 1;
-    nTab.push({ ...vl1 });
-    xObject["GoalsArea"] = nTab;
-    nTab = [];
+    // vl1["key"] = "Leadership";
+    // vl1["value"] = "Leadership";
+    // vl1["count"] = 1;
+    // nTab.push(vl1);
+    // xObject["GoalsArea"] = nTab;
 
     console.log("DataOut", xObject);
   }
+
   data = {
     Status: [
       {
