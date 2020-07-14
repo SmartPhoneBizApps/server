@@ -5,6 +5,7 @@
   },
   "Controls": {
     "USP": "UserProfile",
+    "SearchString":{"Search":false},
     "Filters": [{ "Partner": "@user" }],
     "Partner": "@user",
     "UserSpecific": "Yes",
@@ -257,13 +258,14 @@
       "SLabel": "Cost Centre",
       "LLabel": ""
     },
+    { "name": "Status", "type": "string", "SLabel": "Status", "width": "50" },
     {
-      "name": "Status",
+      "name": "SearchString",
       "type": "string",
-      "width": "50",
+      "width": "200",
       "Option": "Mandatory",
-      "SLabel": "Request Status",
-      "LLabel": ""
+      "SLabel": "Search String",
+      "LLabel": "Search String"
     },
     {
       "name": "Justification",
@@ -272,6 +274,14 @@
       "Option": "Optional",
       "SLabel": "Justification",
       "LLabel": ""
+    },
+    {
+      "name": "SearchString",
+      "type": "string",
+      "width": "200",
+      "Option": "Mandatory",
+      "SLabel": "Search String",
+      "LLabel": "Search String"
     },
     {
       "name": "ProcessingLog",

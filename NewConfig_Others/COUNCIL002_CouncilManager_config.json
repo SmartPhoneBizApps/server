@@ -5,13 +5,14 @@
   },
   "Controls": {
     "USP": "UserProfile",
+    "SearchString":{"Search":false},
     "Filters": [],
     "Partner": "@user",
     "UserSpecific": "Yes",
     "Update": "Yes",
     "URL": "https://fierce-oasis-51455.herokuapp.com",
-        "Source": { "SourceName": "mongoDB", "SourceFile": "NA" },
-       "dataFilter": [{ "field": "Status" }],
+    "Source": { "SourceName": "mongoDB", "SourceFile": "NA" },
+    "dataFilter": [{ "field": "Status" }],
     "filterFieldSource": {
       "header": ["Status"]
     }
@@ -71,7 +72,15 @@
     { "name": "Q4", "type": "string", "width": "500" },
     { "name": "A4", "type": "Date", "width": "10" },
     { "name": "AdditionalInfo", "type": "string", "width": "1000" },
-    { "name": "Status", "type": "string", "width": "20" }
+    { "name": "Status", "type": "string", "SLabel": "Status", "width": "50" },
+    {
+      "name": "SearchString",
+      "type": "string",
+      "width": "200",
+      "Option": "Mandatory",
+      "SLabel": "Search String",
+      "LLabel": "Search String"
+    }
   ],
   "itemData": "No",
   "itemConfig": {

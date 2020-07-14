@@ -155,6 +155,22 @@ exports.getListrecords1 = asyncHandler(async (req, res, next) => {
     let query = readData(req.params.id, req, config1);
     let results = await query;
 
+    tabObj = {};
+    tabArr = [];
+    if (config1["Controls"]["SearchString"]["Search"] == true) {
+      tableString = config1["Controls"]["SearchString"]["table"];
+      for (const key in tableString) {
+        console.log("table:", key);
+        tabObj["table"] = key;
+        for (let k = 0; k < tableString[key].length; k++) {
+          tabObj["field"] = tableString[key][k];
+          tabArr.push({ ...tabObj });
+          tabObj = {};
+        }
+      }
+    }
+    console.log(tabArr);
+
     // If Items are present...
     if (model2 !== model) {
       // Create query string (Item)
@@ -196,6 +212,16 @@ exports.getListrecords1 = asyncHandler(async (req, res, next) => {
             results[i1].USP_Image =
               "https://www.espncricinfo.com/inline/content/image/1183835.html?alt=1";
           }
+          results[i1].SearchString = "";
+          for (let l = 0; l < tabArr.length; l++) {
+            for (let x = 0; x < results[i1][tabArr[l]["table"]].length; x++) {
+              results[i1].SearchString =
+                results[i1].SearchString +
+                results[i1][tabArr[l]["table"]][x][tabArr[l]["field"]] +
+                " ";
+            }
+          }
+          console.log(results[i1].SearchString);
         }
       }
     }

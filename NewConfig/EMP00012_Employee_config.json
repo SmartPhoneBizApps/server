@@ -5,6 +5,11 @@
   },
   "Controls": {
     "USP": "UserProfile",
+    "SearchString": {
+      "Search": false,
+      "header": [],
+      "table": { "ProjectFeedback": [] }
+    },
     "Filters": [{ "Email": "@user" }],
     "UserSpecific": "Yes",
     "Update": "Yes",
@@ -899,10 +904,18 @@
     {
       "name": "Status",
       "type": "string",
-      "width": "50",
+      "width": "200",
       "Option": "Mandatory",
       "SLabel": "Status",
       "LLabel": "Status"
+    },
+    {
+      "name": "SearchString",
+      "type": "string",
+      "width": "200",
+      "Option": "Mandatory",
+      "SLabel": "Search String",
+      "LLabel": "Search String"
     },
     {
       "name": "ProgressComment",

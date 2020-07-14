@@ -5,6 +5,7 @@
   },
   "Controls": {
     "USP": "UserProfile",
+    "SearchString":{"Search":false},
     "Filters": [],
     "Partner": "@user",
     "UserSpecific": "Yes",
@@ -143,7 +144,15 @@
     { "name": "AnyAllergy", "type": "string", "width": "1000" },
     { "name": "AnyMedication", "type": "string", "width": "50" },
     { "name": "PlsList", "type": "string", "width": "500" },
-    { "name": "Status", "type": "string", "width": "20" }
+       { "name": "Status", "type": "string","SLabel": "Status", "width": "50" },
+    {
+      "name": "SearchString",
+      "type": "string",
+      "width": "200",
+      "Option": "Mandatory",
+      "SLabel": "Search String",
+      "LLabel": "Search String"
+    }
   ],
   "itemData": "No",
   "itemConfig": {

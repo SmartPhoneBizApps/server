@@ -5,6 +5,7 @@
   },
   "Controls": {
     "USP": "UserProfile",
+    "SearchString":{"Search":false},
     "Filters": [
       {
         "$and": [
@@ -310,13 +311,14 @@
       "SLabel": "Cost Centre",
       "LLabel": ""
     },
+    { "name": "Status", "type": "string", "SLabel": "Status", "width": "50" },
     {
-      "name": "Status",
+      "name": "SearchString",
       "type": "string",
-      "width": "50",
+      "width": "200",
       "Option": "Mandatory",
-      "SLabel": "Request Status",
-      "LLabel": ""
+      "SLabel": "Search String",
+      "LLabel": "Search String"
     },
     {
       "name": "Justification",
@@ -341,6 +343,14 @@
       "Option": "Mandatory",
       "SLabel": "Approver Comment",
       "LLabel": ""
+    },
+    {
+      "name": "SearchString",
+      "type": "string",
+      "width": "200",
+      "Option": "Mandatory",
+      "SLabel": "Search String",
+      "LLabel": "Search String"
     },
     {
       "name": "Approver",

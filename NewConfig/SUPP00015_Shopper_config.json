@@ -5,6 +5,7 @@
   },
   "Controls": {
     "USP": "UserProfile",
+    "SearchString":{"Search":false},
     "Filters": [],
     "Partner": "@user",
     "UserSpecific": "Yes",
@@ -149,7 +150,15 @@
     { "name": "SeeSalesRepresentative", "type": "string", "width": "50" },
     { "name": "FurtherComments", "type": "string", "width": "50" },
     { "name": "OverallRating", "type": "string", "width": "50" },
-    { "name": "Status", "type": "string", "width": "50" },
+    { "name": "Status", "type": "string","SLabel": "Status", "width": "50" },
+    {
+      "name": "SearchString",
+      "type": "string",
+      "width": "200",
+      "Option": "Mandatory",
+      "SLabel": "Search String",
+      "LLabel": "Search String"
+    },
     {
       "name": "PresentationOfNewProductsAndPackage",
       "type": "string",

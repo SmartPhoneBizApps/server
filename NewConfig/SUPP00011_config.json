@@ -2,6 +2,7 @@
   "Title": { "ApplicationTitle": "Quotation", "DetailTitle": "Quotation" },
   "Controls": {
     "USP": "UserProfile",
+    "SearchString":{"Search":false},
     "Filters": [],
     "Partner": "@user",
     "UserSpecific": "Yes",
@@ -124,7 +125,15 @@
     { "name": "VATRate", "type": "string", "width": "100" },
     { "name": "VATVal", "type": "string", "width": "100" },
     { "name": "Comment", "type": "string", "width": "1000" },
-    { "name": "Status", "type": "string", "width": "20" }
+    { "name": "Status", "type": "string","SLabel": "Status", "width": "50" },
+    {
+      "name": "SearchString",
+      "type": "string",
+      "width": "200",
+      "Option": "Mandatory",
+      "SLabel": "Search String",
+      "LLabel": "Search String"
+    }
   ],
   "itemData": "No",
   "itemConfig": {

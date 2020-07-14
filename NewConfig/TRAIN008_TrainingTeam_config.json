@@ -5,6 +5,7 @@
   },
   "Controls": {
     "USP": "UserProfile",
+    "SearchString":{"Search":false},
     "Filters": [],
     "Partner": "",
     "UserSpecific": "Yes",
@@ -127,7 +128,7 @@
       "type": "CALENDAR",
       "name": "View Calendar",
       "icon": "sap-icon://upload",
-      "URL": "smartApp/calendarData/TRAIN008",
+      "displayURL": "smartApp/calendarData/TRAIN008",
       "Token": "Yes",
       "URLMethod": "GET",
       "calendarConfig": {
@@ -140,10 +141,11 @@
           "button": true,
           "buttons": [
             {
-              "name": "Book",
-              "URL": "smartApp/calendarData/TRAIN008",
+              "type": "BOOK",
+              "name": "Book Training",
+              "URL": "util/addCourseCatalog/TRAIN008/TRAIN009/{ID}/TrainingTeam/calendar/{ItemNumber}/{userEmail}",
               "Token": "Yes",
-              "URLMethod": "GET"
+              "URLMethod": "POST"
             }
           ]
         }
@@ -496,6 +498,14 @@
       "Option": "Mandatory",
       "SLabel": "Status",
       "LLabel": "Status"
+    },
+    {
+      "name": "SearchString",
+      "type": "string",
+      "width": "200",
+      "Option": "Mandatory",
+      "SLabel": "Search String",
+      "LLabel": "Search String"
     },
     {
       "name": "calendar",

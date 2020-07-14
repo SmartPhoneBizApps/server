@@ -2,6 +2,7 @@
   "Title": { "ApplicationTitle": "Bids", "DetailTitle": "Bids" },
   "Controls": {
     "USP": "UserProfile",
+    "SearchString":{"Search":false},
     "Filters": [],
     "Partner": "@user",
     "UserSpecific": "Yes",
@@ -151,7 +152,15 @@
     { "name": "QuestionerAns", "type": "string", "width": "100" },
     { "name": "Attachment1", "type": "attachment", "width": "100" },
     { "name": "Attachment2", "type": "attachment", "width": "100" },
-    { "name": "Status", "type": "string", "width": "20" }
+    { "name": "Status", "type": "string","SLabel": "Status", "width": "50" },
+    {
+      "name": "SearchString",
+      "type": "string",
+      "width": "200",
+      "Option": "Mandatory",
+      "SLabel": "Search String",
+      "LLabel": "Search String"
+    }
   ],
   "itemData": "No",
   "itemConfig": {

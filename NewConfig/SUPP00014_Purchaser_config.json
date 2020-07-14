@@ -5,6 +5,7 @@
   },
   "Controls": {
     "USP": "UserProfile",
+    "SearchString":{"Search":false},
     "Filters": [],
     "Partner": "@user",
     "UserSpecific": "Yes",
@@ -176,13 +177,14 @@
     { "name": "Fax", "type": "string", "width": "100" },
     { "name": "Language", "type": "string", "width": "100" },
     { "name": "DateOfRegistration", "type": "Date", "width": "10" },
+    { "name": "Status", "type": "string","SLabel": "Status", "width": "50" },
     {
-      "name": "Status",
+      "name": "SearchString",
       "type": "string",
-      "width": "50",
+      "width": "200",
       "Option": "Mandatory",
-      "SLabel": "",
-      "LLabel": ""
+      "SLabel": "Search String",
+      "LLabel": "Search String"
     },
     {
       "name": "NumberOfEmployees",

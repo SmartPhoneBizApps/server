@@ -5,6 +5,7 @@
   },
   "Controls": {
     "USP": "UserProfile",
+    "SearchString":{"Search":false},
     "Filters": [],
     "Partner": "@user",
     "UserSpecific": "Yes",
@@ -147,7 +148,15 @@
   },
   "ControlDisplay": {},
   "FieldDef": [
-    { "name": "Status", "type": "string", "width": "20" },
+       { "name": "Status", "type": "string","SLabel": "Status", "width": "50" },
+    {
+      "name": "SearchString",
+      "type": "string",
+      "width": "200",
+      "Option": "Mandatory",
+      "SLabel": "Search String",
+      "LLabel": "Search String"
+    },
     { "name": "Attachment", "type": "attachment", "width": "50" },
     { "name": "RegNo", "type": "string", "width": "20" },
     { "name": "CompanyName", "type": "string", "width": "50" },

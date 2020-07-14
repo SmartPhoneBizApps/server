@@ -5,6 +5,7 @@
   },
   "Controls": {
     "USP": "UserProfile",
+    "SearchString":{"Search":false},
     "Filters": [],
     "Partner": "@user",
     "UserSpecific": "Yes",
@@ -122,7 +123,15 @@
     { "name": "NextService", "type": "Date", "width": "10" },
     { "name": "Millage", "type": "string", "width": "50" },
     { "name": "MillageDate", "type": "Date", "width": "10" },
-    { "name": "Status", "type": "string", "width": "20" }
+    { "name": "Status", "type": "string","SLabel": "Status", "width": "50" },
+    {
+      "name": "SearchString",
+      "type": "string",
+      "width": "200",
+      "Option": "Mandatory",
+      "SLabel": "Search String",
+      "LLabel": "Search String"
+    }
   ],
   "itemData": "No",
   "itemConfig": {

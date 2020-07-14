@@ -5,12 +5,17 @@
   },
   "Controls": {
     "USP": "UserProfile",
+    "SearchString": {
+      "Search": true,
+      "header": [],
+      "table": { "Skills": ["Skill"] }
+    },
     "Filters": [],
     "UserSpecific": "Yes",
     "Update": "Yes",
     "URL": "https://fierce-oasis-51455.herokuapp.com",
     "Source": { "SourceName": "mongoDB", "SourceFile": "NA" },
-       "dataFilter": [{ "field": "Status" }],
+    "dataFilter": [{ "field": "Status" }],
     "filterFieldSource": {
       "header": ["Status"]
     }
@@ -22,7 +27,7 @@
     "sStatus": "Status",
     "fStatus": "EmployeeID",
     "numberField": "",
-    "LFields": ["ID", "Email", "DateOfJoining"],
+    "LFields": ["ID", "Email", "DateOfJoining", "SearchString"],
     "numberUnitField": ""
   },
   "ListBOTFields": {
@@ -65,7 +70,8 @@
         "PostCode",
         "Address",
         "SSNumber",
-        "NINumber"
+        "NINumber",
+        "SearchString"
       ]
     },
     {
@@ -993,10 +999,18 @@
     {
       "name": "Status",
       "type": "string",
-      "width": "50",
+      "width": "200",
       "Option": "Mandatory",
       "SLabel": "Status",
       "LLabel": "Status"
+    },
+    {
+      "name": "SearchString",
+      "type": "string",
+      "width": "200",
+      "Option": "Mandatory",
+      "SLabel": "Search String",
+      "LLabel": "Search String"
     },
     {
       "name": "ProgressComment",

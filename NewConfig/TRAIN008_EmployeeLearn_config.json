@@ -5,6 +5,7 @@
   },
   "Controls": {
     "USP": "UserProfile",
+    "SearchString":{"Search":false},
     "UserSpecific": "Yes",
     "Filters": [{ "SelfAssign": "Yes" }],
     "Update": "Yes",
@@ -503,6 +504,14 @@
       "Option": "Mandatory",
       "SLabel": "Status",
       "LLabel": "Status"
+    },
+    {
+      "name": "SearchString",
+      "type": "string",
+      "width": "200",
+      "Option": "Mandatory",
+      "SLabel": "Search String",
+      "LLabel": "Search String"
     },
     {
       "name": "ProjectNeed",

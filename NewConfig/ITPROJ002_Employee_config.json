@@ -5,6 +5,7 @@
   },
   "Controls": {
     "USP": "UserProfile",
+    "SearchString":{"Search":false},
     "Filters": [],
     "Partner": "@user",
     "UserSpecific": "Yes",
@@ -146,7 +147,15 @@
     { "name": "RequestedRoles", "type": "string", "width": "1000" },
     { "name": "Systems", "type": "string", "width": "100" },
     { "name": "Client", "type": "string", "width": "10" },
-    { "name": "Status", "type": "string", "width": "20" },
+       { "name": "Status", "type": "string","SLabel": "Status", "width": "50" },
+    {
+      "name": "SearchString",
+      "type": "string",
+      "width": "200",
+      "Option": "Mandatory",
+      "SLabel": "Search String",
+      "LLabel": "Search String"
+    },
     { "name": "UserAccount", "type": "string", "width": "20" },
     { "name": "RequestedDate", "type": "Date", "width": "10" },
     { "name": "Signature", "type": "signature", "width": "50", "Option": "" }

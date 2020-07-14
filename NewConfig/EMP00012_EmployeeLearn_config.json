@@ -5,9 +5,11 @@
   },
   "Controls": {
     "USP": "UserProfile",
+    "SearchString":{"Search":false},
     "Filters": [{ "Email": "@user" }],
     "UserSpecific": "Yes",
     "Update": "Yes",
+    
     "URL": "https://fierce-oasis-51455.herokuapp.com",
     "Source": {
       "SourceName": "mongoDB",
@@ -909,10 +911,18 @@
     {
       "name": "Status",
       "type": "string",
-      "width": "50",
+      "width": "200",
       "Option": "Mandatory",
       "SLabel": "Status",
       "LLabel": "Status"
+    },
+    {
+      "name": "SearchString",
+      "type": "string",
+      "width": "200",
+      "Option": "Mandatory",
+      "SLabel": "Search String",
+      "LLabel": "Search String"
     },
     {
       "name": "ProgressComment",

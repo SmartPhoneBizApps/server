@@ -2,6 +2,7 @@
   "Title": { "ApplicationTitle": "Merit List", "DetailTitle": "Merit List" },
   "Controls": {
     "USP": "UserProfile",
+    "SearchString":{"Search":false},
     "Filters": [],
     "Partner": "@user",
     "UserSpecific": "Yes",
@@ -271,10 +272,18 @@
     {
       "name": "Status",
       "type": "string",
-      "width": "50",
+      "width": "200",
       "Option": "Mandatory",
       "SLabel": "Status",
       "LLabel": "Status"
+    },
+    {
+      "name": "SearchString",
+      "type": "string",
+      "width": "200",
+      "Option": "Mandatory",
+      "SLabel": "Search String",
+      "LLabel": "Search String"
     }
   ],
   "itemData": "No",

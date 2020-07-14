@@ -2,6 +2,7 @@
   "Title": { "ApplicationTitle": "Time Sheet", "DetailTitle": "Time Sheet" },
   "Controls": {
     "USP": "UserProfile",
+    "SearchString":{"Search":false},
     "Filters": [{ "Partner": "@user" }],
     "Partner": "@user",
     "UserSpecific": "Yes",
@@ -362,6 +363,14 @@
         "SLabel": "Overtime Hours",
         "Option": "Optional",
         "Currency": "No"
+      },
+      {
+        "name": "SearchString",
+        "type": "string",
+        "width": "200",
+        "Option": "Mandatory",
+        "SLabel": "Search String",
+        "LLabel": "Search String"
       },
       {
         "name": "Comment",

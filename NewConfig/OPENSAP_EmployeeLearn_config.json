@@ -5,6 +5,7 @@
   },
   "Controls": {
     "USP": "UserProfile",
+    "SearchString":{"Search":false},
     "Filters": [],
     "Partner": "@user",
     "UserSpecific": "Yes",
@@ -210,6 +211,14 @@
       "Option": ""
     },
     {
+      "name": "SearchString",
+      "type": "string",
+      "width": "200",
+      "Option": "Mandatory",
+      "SLabel": "Search String",
+      "LLabel": "Search String"
+    },
+    {
       "name": "start_date",
       "type": "Date",
       "width": "1000",
@@ -281,19 +290,23 @@
       "SLabel": "Categories",
       "Option": ""
     },
+    { "name": "Status", "type": "string", "SLabel": "Status", "width": "50" },
     {
-      "name": "status",
+      "name": "SearchString",
       "type": "string",
-      "width": "100",
-      "SLabel": "status",
-      "Option": ""
+      "width": "200",
+      "Option": "Mandatory",
+      "SLabel": "Search String",
+      "LLabel": "Search String"
     },
+    { "name": "Status", "type": "string", "SLabel": "Status", "width": "50" },
     {
-      "name": "Status",
+      "name": "SearchString",
       "type": "string",
-      "width": "100",
-      "SLabel": "Status",
-      "Option": ""
+      "width": "200",
+      "Option": "Mandatory",
+      "SLabel": "Search String",
+      "LLabel": "Search String"
     },
     {
       "name": "ReferenceID",

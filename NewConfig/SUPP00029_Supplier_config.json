@@ -2,6 +2,7 @@
   "Title": { "ApplicationTitle": "Help page", "DetailTitle": "Help page" },
   "Controls": {
     "USP": "UserProfile",
+    "SearchString":{"Search":false},
     "Filters": [],
     "Partner": "@vendorNumber",
     "UserSpecific": "Yes",
@@ -149,10 +150,18 @@
     {
       "name": "Status",
       "type": "string",
-      "width": "50",
+      "width": "200",
       "Option": "Mandatory",
       "SLabel": "Status",
       "LLabel": "Status"
+    },
+    {
+      "name": "SearchString",
+      "type": "string",
+      "width": "200",
+      "Option": "Mandatory",
+      "SLabel": "Search String",
+      "LLabel": "Search String"
     },
     {
       "name": "ProgressComment",

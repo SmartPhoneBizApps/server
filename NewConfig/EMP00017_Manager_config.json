@@ -5,6 +5,7 @@
   },
   "Controls": {
     "USP": "UserProfile",
+    "SearchString":{"Search":false},
     "Filters": [
       {
         "$and": [
@@ -18,13 +19,13 @@
     "UserSpecific": "Yes",
     "Update": "Yes",
     "URL": "https://fierce-oasis-51455.herokuapp.com",
-        "Source": { "SourceName": "mongoDB", "SourceFile": "NA" },
-       "dataFilter": [{ "field": "Status" }],
+    "Source": { "SourceName": "mongoDB", "SourceFile": "NA" },
+    "dataFilter": [{ "field": "Status" }],
     "filterFieldSource": {
       "header": ["Status"]
     }
   },
-  
+
   "ListFields": {
     "IntroField": "EmployeeID",
     "TitleField": "Name",
@@ -309,6 +310,14 @@
       "Option": "Mandatory",
       "SLabel": "Status",
       "LLabel": "Status"
+    },
+    {
+      "name": "SearchString",
+      "type": "string",
+      "width": "200",
+      "Option": "Mandatory",
+      "SLabel": "Search String",
+      "LLabel": "Search String"
     }
   ],
   "itemData": "Yes",

@@ -5,6 +5,7 @@
   },
   "Controls": {
     "USP": "UserProfile",
+    "SearchString":{"Search":false},
     "Filters": [],
     "Partner": "@user",
     "UserSpecific": "Yes",
@@ -154,7 +155,15 @@
     { "name": "InvVATVal", "type": "Num,2", "width": "50" },
     { "name": "InvGrossVal", "type": "Num,2", "width": "50" },
     { "name": "VendorInvoice", "type": "string", "width": "50" },
-    { "name": "Status", "type": "string", "width": "20" },
+       { "name": "Status", "type": "string","SLabel": "Status", "width": "50" },
+    {
+      "name": "SearchString",
+      "type": "string",
+      "width": "200",
+      "Option": "Mandatory",
+      "SLabel": "Search String",
+      "LLabel": "Search String"
+    },
     { "name": "InvoiceRemark", "type": "string", "width": "500" },
     { "name": "InvoiceDate", "type": "Date", "width": "10" },
     { "name": "Attachment", "type": "attachment", "width": "500" },

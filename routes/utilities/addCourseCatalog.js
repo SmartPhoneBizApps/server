@@ -4,5 +4,8 @@ const router = express.Router({ mergeParams: true });
 const { protect, authorize } = require("../../middleware/auth");
 
 router.route("/:fromApp/:toApp/:ID/:role").post(protect, copyCourse);
+router
+  .route("/:fromApp/:toApp/:ID/:role/:table/:ItemNumber/:userEmail")
+  .post(protect, copyCourse);
 
 module.exports = router;
