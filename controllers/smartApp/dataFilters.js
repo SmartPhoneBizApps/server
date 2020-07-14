@@ -102,7 +102,7 @@ exports.dataFilters = asyncHandler(async (req, res, next) => {
     vl1["value"] = "Leadership";
     vl1["count"] = 1;
     nTab.push({ ...vl1 });
-    xObject[element] = nTab;
+    xObject["GoalsArea"] = nTab;
     nTab = [];
 
     console.log("DataOut", xObject);
