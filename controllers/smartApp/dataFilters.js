@@ -69,8 +69,6 @@ exports.dataFilters = asyncHandler(async (req, res, next) => {
       }
     }
 
-
-
     let data = {};
     let nTable = [];
     var set1 = new Set();
