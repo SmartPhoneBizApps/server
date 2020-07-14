@@ -1,11 +1,109 @@
 const { findOneAppDatabyid } = require("../../modules/config");
 const ErrorResponse = require("../../utils/errorResponse");
+const {
+  getPVConfig,
+  getPVQuery,
+  getButtonData,
+  getInitialValues,
+  getDateValues,
+  findOneApp,
+} = require("../../modules/config");
+const { readData, getTotalCount, nConfig } = require("../../modules/config2");
 const asyncHandler = require("../../middleware/async");
 // @desc      Add record
 // @route     POST /api/v1/datarecords/
 // @access    Private
 exports.dataFilters = asyncHandler(async (req, res, next) => {
-  var data = {
+  let xObject = {};
+  // Read Config File...
+  let fn1 =
+    "../../NewConfig/" +
+    req.headers.applicationid +
+    "_" +
+    req.headers.businessrole +
+    "_config.json";
+  var config1 = require(fn1);
+
+  /// Possible values..
+  pvconfig1 = getPVConfig(req.headers.applicationid, req.headers.businessrole);
+  qPV = getPVQuery(
+    req.headers.applicationid,
+    req.headers.businessrole,
+    pvconfig1
+  );
+  let resPV = await qPV;
+  // console.log("PossValues", resPV);
+
+  if (
+    req.headers.applicationid == "OPENSAP" ||
+    req.headers.applicationid == "EXTLEARN"
+  ) {
+    // JSON Data
+  } else {
+    // mongoDB Data
+    let query = readData(req.headers.applicationid, req, config1);
+    let results = await query;
+    let stat = {};
+    let tableOut = [];
+
+    let filter = config1["Controls"]["dataFilter"];
+
+    for (let x = 0; x < filter.length; x++) {
+      stat["field"] = filter[x]["field"];
+      for (let a = 0; a < resPV.length; a++) {
+        if (filter[x]["field"] == resPV[a]["PossibleValues"]) {
+          stat["key"] = resPV[a]["Value"];
+          stat["value"] = resPV[a]["Description"];
+          stat["count"] = 0;
+          tableOut.push({ ...stat });
+        }
+      }
+    }
+
+    for (let y = 0; y < results.length; y++) {
+      for (let k = 0; k < tableOut.length; k++) {
+        console.log("Field", tableOut[k]["field"]);
+        console.log("Value", tableOut[k]["value"]);
+        if (results[y][tableOut[k]["field"]] == tableOut[k]["value"]) {
+          tableOut[k]["count"] = tableOut[k]["count"] + 1;
+        }
+      }
+    }
+
+    let data = {};
+    let nTable = [];
+    var set1 = new Set();
+    let nTab = [];
+
+    for (let m = 0; m < tableOut.length; m++) {
+      if (tableOut[m]["count"] > 0) {
+        nTable.push({ ...tableOut[m] });
+        set1.add(tableOut[m]["field"]);
+      }
+    }
+    console.log("DataOut", nTable);
+    console.log("DataOut", set1);
+
+    set1.forEach((element) => {
+      for (let b = 0; b < nTable.length; b++) {
+        vl1 = {};
+        const el01 = nTable[b];
+        if (nTable[b]["field"] == element) {
+          vl1["key"] = nTable[b]["key"];
+          vl1["value"] = nTable[b]["value"];
+          vl1["count"] = nTable[b]["count"];
+          nTab.push({ ...vl1 });
+          vl1 = {};
+        }
+      }
+
+      xObject[element] = nTab;
+      nTab = [];
+    });
+
+    console.log("DataOut", xObject);
+  }
+  data = {
     Status: [
       {
         val: "Submitted",
@@ -35,6 +133,6 @@ exports.dataFilters = asyncHandler(async (req, res, next) => {
 
   res.status(200).json({
     success: true,
-    data: data,
+    data: xObject,
   });
 });

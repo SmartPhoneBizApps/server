@@ -10,9 +10,39 @@
     "Update": "Yes",
     "URL": "https://fierce-oasis-51455.herokuapp.com",
     "Source": { "SourceName": "mongoDB", "SourceFile": "NA" },
-    "dataFilter": [{ "field": "Status" }]
+    "dataFilter": [
+      { "field": "Status" },
+      { "field": "ReviewPeriod" },
+      { "field": "DevManager" },
+      { "field": "Role" },
+      { "field": "Band" },
+      { "field": "Area" },
+      { "field": "AppraisalArea" },
+      { "field": "GoalsArea" },
+      { "field": "Group" },
+      { "field": "SubGroup" },
+      { "field": "PerformanceRating" },
+      { "field": "GoalStatus" },
+      { "field": "ProjFeedback" }
+    ],
+
+    "fieldSource": [
+      {
+        "header": [
+          "Status",
+          "ReviewPeriod",
+          "DevManager",
+          "Role",
+          "Band",
+          "Area"
+        ],
+        "Appraisal": ["AppraisalArea", "PerformanceRating"],
+        "Goals": ["GoalsArea", "GoalStatus"],
+        "ProjectFeedback": ["ProjFeedback"],
+        "MyTraining": ["Group", "SubGroup"]
+      }
+    ]
   },
-  "dataFilter": [{ "field": "Status" }],
   "ListFields": {
     "IntroField": "ReviewPeriod",
     "TitleField": "Name",
@@ -35,8 +65,8 @@
     "Role",
     "Band",
     "Area",
-    "Area3",
-    "Area2",
+    "AppraisalArea",
+    "GoalsArea",
     "PerformanceRating",
     "GoalStatus",
     "ProjFeedback"
@@ -434,7 +464,7 @@
           "Option": "Optional"
         },
         {
-          "name": "Area2",
+          "name": "GoalsArea",
           "type": "string",
           "width": "10",
           "SLabel": "Goal Area",
@@ -507,7 +537,7 @@
         }
       ],
       "DisplayFields": [
-        "Area2",
+        "GoalsArea",
         "Goal2",
         "Score2",
         "ManagerComm2",
@@ -521,7 +551,7 @@
         "itemDelete": true
       },
       "CreateFields": [
-        "Area2",
+        "GoalsArea",
         "Goal2",
         "Score2",
         "ManagerComm2",
@@ -530,7 +560,7 @@
       ],
       "ItemDetails": [
         {
-          "name": "Area2",
+          "name": "GoalsArea",
           "Tab": "Tab4",
           "Mode": "Edit"
         },
@@ -582,7 +612,7 @@
           "Option": "Optional"
         },
         {
-          "name": "Area3",
+          "name": "AppraisalArea",
           "type": "string",
           "width": "100",
           "SLabel": "Appraisal Area",
@@ -648,7 +678,7 @@
         }
       ],
       "DisplayFields": [
-        "Area3",
+        "AppraisalArea",
         "PerformanceRating",
         "Score3",
         "ManagerComm3",
@@ -661,7 +691,7 @@
         "itemDelete": true
       },
       "CreateFields": [
-        "Area3",
+        "AppraisalArea",
         "PerformanceRating",
         "Score3",
         "ManagerComm3",
@@ -676,7 +706,7 @@
           "Mode": "Edit"
         },
         {
-          "name": "Area3",
+          "name": "AppraisalArea",
           "Tab": "Tab2",
           "Mode": "Edit"
         },
