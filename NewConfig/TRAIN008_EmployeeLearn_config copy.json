@@ -1,0 +1,717 @@
+{
+  "Title": {
+    "ApplicationTitle": "Internal Catalogue",
+    "DetailTitle": "Internal Catalogue"
+  },
+  "Controls": {
+    "USP": "UserProfile",
+    "UserSpecific": "Yes",
+    "Filters": [{ "SelfAssign": "Yes" }],
+    "Update": "Yes",
+    "Partner": "",
+    "URL": "https://fierce-oasis-51455.herokuapp.com",
+    "Source": {
+      "SourceName": "mongoDB",
+      "SourceFile": "NA",
+      "FieldMapping": [{ "ReferenceID": "ID" }],
+      "FixedValues": [
+        { "Status": "Assigned" },
+        { "DateRequested": "@currentDate" },
+        { "CreatedDate": "@currentDate" },
+        {
+          "Terms": "I declare that I have read all the documents, viewed the videos and passed the test (if any) required for the completion of this training."
+        }
+      ]
+    },
+    "dataFilter": [
+      { "field": "Status" },
+      { "field": "Area" },
+      { "field": "ProjectCode" },
+      { "field": "Duration" },
+      { "field": "CostCentre" },
+      { "field": "External" },
+      { "field": "SubGroup" },
+      { "field": "Regulatory" },
+      { "field": "Compliance" },
+      { "field": "Exam" },
+      { "field": "Agree" },
+      { "field": "SelfAssign" },
+      { "field": "ProjectNeed" }
+    ],
+    "filterFieldSource": {
+      "header": [
+        "Status",
+        "Area",
+        "ProjectCode",
+        "Duration",
+        "CostCentre",
+        "External",
+        "SubGroup",
+        "Regulatory",
+        "Compliance",
+        "Exam",
+        "Agree",
+        "SelfAssign",
+        "ProjectNeed"
+      ]
+    }
+  },
+
+  "ListFields": {
+    "IntroField": "SubGroup",
+    "TitleField": "Title",
+    "sStatus": "External",
+    "fStatus": "Status",
+    "LFields": ["Group", "ReferenceID", "StartDate", "EndDate"]
+  },
+  "ListBOTFields": {
+    "None": ["cardImage", "StatusState"],
+    "Title": ["Group", "SubGroup"],
+    "SubTitle": ["Status", "Duration"],
+    "Description": [
+      "ID",
+      "EmployeeID",
+      "DateRequested",
+      "Detail",
+      "External",
+      "ReferenceID"
+    ]
+  },
+  "PossibleValues": [
+    "Status",
+    "Area",
+    "ProjectCode",
+    "Duration",
+    "CostCentre",
+    "External",
+    "SubGroup",
+    "Regulatory",
+    "Compliance",
+    "Exam",
+    "Agree",
+    "SelfAssign",
+    "ProjectNeed"
+  ],
+  "MButtons": [
+    {
+      "type": "DOWNLOAD",
+      "name": "Download File",
+      "icon": "sap-icon://download",
+      "downloadFields": [
+        "ID",
+        "Status",
+        "Group",
+        "SubGroup",
+        "StartDate",
+        "EndDate",
+        "Title",
+        "Overview",
+        "Regulatory",
+        "Compliance",
+        "Exam",
+        "SelfAssign",
+        "CourseLink",
+        "Teacher",
+        "ProjectNeed",
+        "Cost",
+        "Duration",
+        "External"
+      ]
+    },
+    {
+      "type": "APPHELP",
+      "name": "Get App Help",
+      "icon": "sap-icon://sys-help-2"
+    },
+    {
+      "type": "OPENURL",
+      "name": "Launch BOT",
+      "icon": "sap-icon://travel-request",
+      "URL": "https://www.messenger.com/t/295020207695029"
+    },
+
+    {
+      "type": "CALENDAR",
+      "name": "View Calendar",
+      "icon": "sap-icon://upload",
+      "URL": "smartApp/calendarData/TRAIN008",
+      "Token": "Yes",
+      "URLMethod": "GET",
+      "calendarConfig": {
+        "type": "Group",
+        "icon": "Group",
+        "add": false,
+        "edit": false,
+        "defaultView": "Hours",
+        "appDisplay": {
+          "button": true,
+          "buttons": [
+            {
+              "type": "BOOK",
+              "name": "Book",
+              "URL": "smartApp/calendarData/TRAIN008/{user}/{TrainingTeam}",
+              "Token": "Yes",
+              "URLMethod": "GET"
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "DButtons": [
+    {
+      "type": "SELFASSIGN",
+      "name": "Assign Course",
+      "icon": "sap-icon://share-2",
+      "Dialog": "{label:'User',name:'user',type:'Email'}",
+      "DialogSearch": "{URL}/api/v1/samrtApp/findUser/{user}",
+      "URL": "util/assignCourseUser/TRAIN008/TRAIN007/{ReferenceID}/{user}",
+      "Token": "Yes",
+      "URLMethod": "POST"
+    }
+  ],
+  "Tabs": [
+    {
+      "value": "Tab0",
+      "update": "No",
+      "name": "Cards",
+      "type": "Cards",
+      "fioriicon": "responsive"
+    },
+    {
+      "value": "Tab1",
+      "update": "No",
+      "name": "Course Details",
+      "type": "FieldGroup",
+      "fioriicon": "notes"
+    },
+
+    {
+      "value": "Tab3",
+      "update": "No",
+      "name": "Learning Documents",
+      "type": "MultiAttachments",
+      "fioriicon": "contacts"
+    },
+    {
+      "value": "Tab4",
+      "update": "No",
+      "name": "Video",
+      "fioriicon": "step",
+      "type": "video"
+    },
+    {
+      "value": "Tab6",
+      "update": "No",
+      "name": "calendar",
+      "fioriicon": "toaster-up",
+      "type": "Table"
+    }
+  ],
+  "DetailFields": {
+    "headerTitle": ["USP_Name"],
+    "headerRole": ["USP_Role"],
+    "headerImage": ["USP_Image"],
+    "None": ["ID", "Status", "Group", "SubGroup", "StartDate", "EndDate"],
+    "Tab1": [
+      {
+        "GrpTitle": "Course Overview",
+        "Fields": [
+          "ReferenceID",
+          "Title",
+          "Overview",
+          "Regulatory",
+          "Compliance",
+          "Exam",
+          "SelfAssign",
+          "CourseLink",
+          "Teacher"
+        ]
+      },
+      {
+        "GrpTitle": "Other Details",
+        "Fields": ["ProjectNeed", "Cost", "Duration", "External"]
+      }
+    ],
+
+    "Tab3": ["MultiAttachments"],
+    "Tab4": ["Video"],
+    "Tab6": ["calendar"]
+  },
+  "tableConfig": {
+    "calendar": {
+      "title": "Training Calendar",
+      "ItemFieldDefinition": [
+        {
+          "name": "ItemNumber",
+          "type": "string",
+          "width": "10",
+          "SLabel": "Item Number",
+          "Option": "Optional"
+        },
+
+        {
+          "name": "startDate",
+          "type": "DateTime",
+          "width": "20",
+          "SLabel": "startDate",
+          "Option": "Optional"
+        },
+        {
+          "name": "endDate",
+          "type": "DateTime",
+          "width": "20",
+          "SLabel": "endDate",
+          "Option": "Optional"
+        },
+        {
+          "name": "title",
+          "type": "string",
+          "width": "20",
+          "SLabel": "title",
+          "Option": "Optional"
+        },
+        {
+          "name": "text",
+          "type": "string",
+          "width": "20",
+          "SLabel": "text",
+          "Option": "Optional"
+        }
+      ],
+      "DisplayFields": ["title", "text", "startDate", "endDate"],
+      "ItemButtons": {
+        "itemDisplay": true,
+        "itemAdd": false,
+        "itemEdit": false,
+        "itemDelete": false
+      },
+      "CreateFields": ["title", "text", "startDate", "endDate"],
+      "ItemDetails": [
+        {
+          "name": "ItemNumber",
+          "Tab": "Tab6",
+          "Mode": "Edit"
+        },
+
+        {
+          "name": "startDate",
+          "Tab": "Tab6",
+          "Mode": "Edit"
+        },
+        {
+          "name": "endDate",
+          "Tab": "Tab6",
+          "Mode": "Edit"
+        },
+        {
+          "name": "title",
+          "Tab": "Tab5",
+          "Mode": "Edit"
+        },
+        {
+          "name": "text",
+          "Tab": "Tab6",
+          "Mode": "Edit"
+        }
+      ]
+    }
+  },
+  "ControlDisplay": {},
+  "FieldDef": [
+    {
+      "name": "ID",
+      "type": "string",
+      "width": "20",
+      "Option": "Mandatory",
+      "SLabel": "ID",
+      "LLabel": "ID"
+    },
+    {
+      "name": "Group",
+      "type": "string",
+      "width": "100",
+      "Option": "Optional",
+      "SLabel": "Group",
+      "LLabel": "Group"
+    },
+    {
+      "name": "SubGroup",
+      "type": "radiobutton",
+      "width": "100",
+      "Option": "Optional",
+      "SLabel": "Sub Group",
+      "LLabel": "Sub Group"
+    },
+    {
+      "name": "Overview",
+      "type": "string",
+      "width": "2000",
+      "Option": "Optional",
+      "SLabel": "Overview",
+      "LLabel": "Overview"
+    },
+    {
+      "name": "CourseLink",
+      "type": "hyperlink",
+      "width": "500",
+      "Option": "Optional",
+      "SLabel": "Course Link",
+      "LLabel": "Course Link"
+    },
+    {
+      "name": "Title",
+      "type": "string",
+      "width": "500",
+      "Option": "Optional",
+      "SLabel": "Course Title",
+      "LLabel": "Course Title"
+    },
+    {
+      "name": "CreatedDate",
+      "type": "Date",
+      "width": "10",
+      "Option": "Optional",
+      "SLabel": "Created Date",
+      "LLabel": "Created Date"
+    },
+    {
+      "name": "Video",
+      "type": "hyperlink",
+      "width": "200",
+      "Option": "Optional",
+      "SLabel": "Video",
+      "LLabel": "Video"
+    },
+    {
+      "name": "Teacher",
+      "type": "string",
+      "width": "10",
+      "Option": "Optional",
+      "SLabel": "Teacher",
+      "LLabel": "Teacher"
+    },
+    {
+      "name": "StartDate",
+      "type": "Date",
+      "width": "10",
+      "Option": "Optional",
+      "SLabel": "Start Date",
+      "LLabel": "Start Date"
+    },
+    {
+      "name": "EndDate",
+      "type": "Date",
+      "width": "10",
+      "Option": "Optional",
+      "SLabel": "End Date",
+      "LLabel": "End Date"
+    },
+    {
+      "name": "Regulatory",
+      "type": "string",
+      "width": "100",
+      "Option": "Optional",
+      "SLabel": "Regulatory",
+      "LLabel": "Regulatory"
+    },
+    {
+      "name": "SelfAssign",
+      "type": "string",
+      "width": "100",
+      "Option": "Optional",
+      "SLabel": "Self Assign",
+      "LLabel": "Self Assign"
+    },
+    {
+      "name": "Compliance",
+      "type": "string",
+      "width": "100",
+      "Option": "Optional",
+      "SLabel": "Compliance",
+      "LLabel": "Compliance"
+    },
+    {
+      "name": "Exam",
+      "type": "string",
+      "width": "100",
+      "Option": "Optional",
+      "SLabel": "Exam",
+      "LLabel": "Exam"
+    },
+    {
+      "name": "ReferenceID",
+      "type": "string",
+      "width": "100",
+      "Option": "Optional",
+      "SLabel": "Course ID",
+      "LLabel": "Reference Course ID"
+    },
+    {
+      "name": "ConfirmCompleted",
+      "type": "string",
+      "width": "100",
+      "Option": "Optional",
+      "SLabel": "Confirm Completed",
+      "LLabel": "Confirm Completed"
+    },
+    {
+      "name": "Terms",
+      "type": "string",
+      "width": "1000",
+      "Option": "Optional",
+      "SLabel": "Terms",
+      "LLabel": "Terms"
+    },
+    {
+      "name": "Agree",
+      "type": "radiobutton",
+      "width": "100",
+      "Option": "Optional",
+      "SLabel": "Agree",
+      "LLabel": "Agree"
+    },
+    {
+      "name": "External",
+      "type": "string",
+      "width": "100",
+      "Option": "Optional",
+      "SLabel": "External",
+      "LLabel": "External"
+    },
+    {
+      "name": "Cost",
+      "type": "string",
+      "width": "100",
+      "Option": "Optional",
+      "SLabel": "Cost",
+      "LLabel": "Cost"
+    },
+    {
+      "name": "CostCentre",
+      "type": "string",
+      "width": "100",
+      "Option": "Optional",
+      "SLabel": "Cost Centre",
+      "LLabel": "Cost Centre"
+    },
+    {
+      "name": "Status",
+      "type": "string",
+      "width": "100",
+      "Option": "Mandatory",
+      "SLabel": "Status",
+      "LLabel": "Status"
+    },
+    {
+      "name": "ProjectNeed",
+      "type": "string",
+      "width": "50",
+      "Option": "Optional",
+      "SLabel": "Project Need",
+      "LLabel": "Project Need"
+    },
+    {
+      "name": "ProjectCode",
+      "type": "string",
+      "width": "50",
+      "Option": "Optional",
+      "SLabel": "Project Code",
+      "LLabel": "Project Code"
+    },
+    {
+      "name": "Duration",
+      "type": "string",
+      "width": "50",
+      "Option": "Optional",
+      "SLabel": "Duration",
+      "LLabel": "Duration"
+    },
+    {
+      "name": "EmpDev",
+      "type": "string",
+      "width": "50",
+      "Option": "Optional",
+      "SLabel": "For Employee Development",
+      "LLabel": "For Employee Development"
+    },
+    {
+      "name": "Area",
+      "type": "string",
+      "width": "50",
+      "Option": "Optional",
+      "SLabel": "Training Area",
+      "LLabel": "Training Area"
+    },
+    {
+      "name": "calendar",
+      "type": "Array",
+      "width": "200",
+      "Option": "Optional",
+      "SLabel": "calendar",
+      "LLabel": "calendar"
+    },
+    {
+      "name": "DateRequested",
+      "type": "Date",
+      "width": "10",
+      "Option": "Optional",
+      "SLabel": "Date Requested",
+      "LLabel": "Date Requested"
+    },
+    {
+      "name": "MultiAttachments",
+      "type": "attachment",
+      "metadata": "MultipleFields",
+      "width": "200",
+      "Option": "Optional",
+      "SLabel": "Learning Documents",
+      "LLabel": "Learning Documents"
+    },
+
+    {
+      "name": "Q1",
+      "type": "string",
+      "width": "200",
+      "Option": "Optional",
+      "SLabel": "Question 1",
+      "LLabel": "Question 1"
+    },
+    {
+      "name": "Q2",
+      "type": "string",
+      "width": "200",
+      "Option": "Optional",
+      "SLabel": "Question 2",
+      "LLabel": "Question 2"
+    },
+    {
+      "name": "Q3",
+      "type": "string",
+      "width": "200",
+      "Option": "Optional",
+      "SLabel": "Question 3",
+      "LLabel": "Question 3"
+    },
+    {
+      "name": "Q4",
+      "type": "string",
+      "width": "200",
+      "Option": "Optional",
+      "SLabel": "Question 4",
+      "LLabel": "Question 4"
+    },
+    {
+      "name": "Q5",
+      "type": "string",
+      "width": "200",
+      "Option": "Optional",
+      "SLabel": "Question 5",
+      "LLabel": "Question 5"
+    },
+    {
+      "name": "Q6",
+      "type": "string",
+      "width": "200",
+      "Option": "Optional",
+      "SLabel": "Question 6",
+      "LLabel": "Question 6"
+    },
+    {
+      "name": "Q7",
+      "type": "string",
+      "width": "200",
+      "Option": "Optional",
+      "SLabel": "Question 7",
+      "LLabel": "Question 7"
+    },
+    {
+      "name": "Q8",
+      "type": "string",
+      "width": "200",
+      "Option": "Optional",
+      "SLabel": "Question 8",
+      "LLabel": "Question 8"
+    },
+    {
+      "name": "A1",
+      "type": "string",
+      "width": "200",
+      "Option": "Optional",
+      "SLabel": "Answer 1",
+      "LLabel": "Answer 1"
+    },
+    {
+      "name": "A2",
+      "type": "string",
+      "width": "200",
+      "Option": "Optional",
+      "SLabel": "Answer 2",
+      "LLabel": "Answer 2"
+    },
+    {
+      "name": "A3",
+      "type": "string",
+      "width": "200",
+      "Option": "Optional",
+      "SLabel": "Answer 3",
+      "LLabel": "Answer 3"
+    },
+    {
+      "name": "A4",
+      "type": "string",
+      "width": "200",
+      "Option": "Optional",
+      "SLabel": "Answer 4",
+      "LLabel": "Answer 4"
+    },
+    {
+      "name": "A5",
+      "type": "string",
+      "width": "200",
+      "Option": "Optional",
+      "SLabel": "Answer 5",
+      "LLabel": "Answer 5"
+    },
+    {
+      "name": "A6",
+      "type": "string",
+      "width": "200",
+      "Option": "Optional",
+      "SLabel": "Answer 6",
+      "LLabel": "Answer 6"
+    },
+    {
+      "name": "A7",
+      "type": "string",
+      "width": "200",
+      "Option": "Optional",
+      "SLabel": "Answer 7",
+      "LLabel": "Answer 7"
+    },
+    {
+      "name": "A8",
+      "type": "string",
+      "width": "200",
+      "Option": "Optional",
+      "SLabel": "Answer 8",
+      "LLabel": "Answer 8"
+    }
+  ],
+  "itemData": "No",
+  "itemConfig": {
+    "ItemFieldDefinition": [],
+    "DisplayFields": [],
+    "ItemButtons": {
+      "itemDisplay": false,
+      "itemAdd": false,
+      "itemEdit": false,
+      "itemDelete": false
+    },
+    "CreateFields": [],
+    "ItemDetails": []
+  },
+  "CalculatedFields": {},
+  "Create": "Yes",
+  "Wizard": []
+}
