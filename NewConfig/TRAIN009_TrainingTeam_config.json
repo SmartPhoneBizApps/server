@@ -1,6 +1,6 @@
 {
   "Title": {
-    "ApplicationTitle": "Internal Catalogue",
+    "ApplicationTitle": "Session Booking ",
     "DetailTitle": "Internal Catalogue"
   },
   "Controls": {
@@ -97,6 +97,9 @@
         "SubGroup",
         "StartDate",
         "EndDate",
+        "ReferenceID",
+        "sessionFrom",
+        "sessionTo",
         "Title",
         "Overview",
         "Regulatory",
@@ -223,7 +226,14 @@
       },
       {
         "GrpTitle": "Other Details",
-        "Fields": ["ProjectNeed", "Cost", "Duration", "External"]
+        "Fields": [
+          "ProjectNeed",
+          "Cost",
+          "Duration",
+          "External",
+          "sessionTo",
+          "sessionFrom"
+        ]
       }
     ],
 
@@ -243,7 +253,6 @@
           "SLabel": "Item Number",
           "Option": "Optional"
         },
-
         {
           "name": "startDate",
           "type": "DateTime",
@@ -328,6 +337,22 @@
       "Option": "Optional",
       "SLabel": "Group",
       "LLabel": "Group"
+    },
+    {
+      "name": "sessionFrom",
+      "type": "string",
+      "width": "100",
+      "Option": "Optional",
+      "SLabel": "Session From",
+      "LLabel": "Session From"
+    },
+    {
+      "name": "sessionTo",
+      "type": "string",
+      "width": "100",
+      "Option": "Optional",
+      "SLabel": "Session To",
+      "LLabel": "Session To"
     },
     {
       "name": "SubGroup",
