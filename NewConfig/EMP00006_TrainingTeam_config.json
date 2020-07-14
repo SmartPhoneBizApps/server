@@ -1,0 +1,369 @@
+{
+  "Title": {
+    "ApplicationTitle": "Training Request",
+    "DetailTitle": "Training Details"
+  },
+  "Controls": {
+    "USP": "UserProfile",
+    "Filters": [],
+    "Partner": "@user",
+    "UserSpecific": "Yes",
+    "Update": "Yes",
+    "URL": "https://fierce-oasis-51455.herokuapp.com",
+    "Source": { "SourceName": "mongoDB", "SourceFile": "NA" },
+    "dataFilter": [
+      { "field": "Status" },
+      { "field": "CostCentre" },
+      { "field": "ProjectNeed" },
+      { "field": "Area" },
+      { "field": "ProjectCode" },
+      { "field": "Duration" },
+      { "field": "External" },
+      { "field": "EmpDev" }
+    ],
+    "filterFieldSource": {
+      "header": [
+        "Status",
+        "ProjectNeed",
+        "CostCentre",
+        "Area",
+        "ProjectCode",
+        "Duration",
+        "External",
+        "EmpDev"
+      ]
+    }
+  },
+
+  "ListFields": {
+    "IntroField": "Area",
+    "TitleField": "Name",
+    "sStatus": "Duration",
+    "fStatus": "Status",
+    "LFields": ["ID", "EmployeeID", "DateRequested", "Detail", "External"]
+  },
+  "ListBOTFields": {
+    "None": ["cardImage", "StatusState"],
+    "Title": ["Area", "Name"],
+    "SubTitle": ["Status", "Duration"],
+    "Description": ["ID", "EmployeeID", "DateRequested", "Detail", "External"]
+  },
+  "PossibleValues": [
+    "Status",
+    "EmpDev",
+    "ProjectNeed",
+    "Area",
+    "ProjectCode",
+    "Duration",
+    "CostCentre",
+    "External"
+  ],
+  "MButtons": [
+    {
+      "type": "DOWNLOAD",
+      "name": "Download File",
+      "icon": "sap-icon://download"
+    },
+    {
+      "type": "APPHELP",
+      "name": "Get App Help",
+      "icon": "sap-icon://sys-help-2"
+    },
+    {
+      "type": "OPENURL",
+      "name": "Launch BOT",
+      "icon": "sap-icon://travel-request",
+      "URL": "https://www.messenger.com/t/295020207695029"
+    },
+
+    { "type": "ADD", "name": "Add Record", "icon": "sap-icon://add" },
+    { "type": "UPLOAD", "name": "Upload Record", "icon": "sap-icon://upload" }
+  ],
+  "DButtons": [
+    {
+      "type": "WORKFLOW",
+      "name": "Booked",
+      "icon": "sap-icon://complete",
+      "updateFields": [
+        { "ProgressComment": "Optional", "mode": "Append" },
+        { "Status": "Booked", "mode": "Insert" }
+      ]
+    },
+    {
+      "type": "WORKFLOW",
+      "name": "Reject",
+      "icon": "sap-icon://decline",
+      "updateFields": [
+        { "ProgressComment": "Required", "mode": "Append" },
+        { "Status": "NotBooked", "mode": "Insert" }
+      ]
+    },
+    {
+      "type": "WORKFLOW",
+      "name": "Refer Back",
+      "icon": "sap-icon://hint",
+      "updateFields": [
+        { "ProgressComment": "Optional", "mode": "Append" },
+        { "Status": "MoreInfo-HR", "mode": "Insert" }
+      ]
+    }
+  ],
+  "Tabs": [
+    {
+      "value": "Tab0",
+      "update": "No",
+      "name": "Cards",
+      "type": "Cards",
+      "fioriicon": "responsive"
+    },
+    {
+      "value": "Tab1",
+      "update": "Yes",
+      "name": "Employee Details",
+      "type": "FieldGroup",
+      "fioriicon": "notes"
+    },
+    {
+      "value": "Tab2",
+      "update": "Yes",
+      "name": "Project Details",
+      "type": "Field",
+      "fioriicon": "request"
+    },
+    {
+      "value": "Tab3",
+      "update": "Yes",
+      "name": "Process Log",
+      "fioriicon": "step",
+      "type": "Chat",
+      "download": "No"
+    }
+  ],
+  "DetailFields": {
+    "headerTitle": ["USP_Name"],
+    "headerRole": ["USP_Role"],
+    "headerImage": ["USP_Image"],
+    "None": ["ID", "Status", "DateRequested"],
+    "Tab1": [
+      {
+        "GrpTitle": "Training Details",
+        "Fields": ["Detail", "Area", "Duration", "External"]
+      },
+      {
+        "GrpTitle": "Employee Details",
+        "Fields": ["EmployeeID", "Name"]
+      }
+    ],
+    "Tab2": ["ProjectNeed", "Cost", "CostCentre", "ProgressComment"],
+    "Tab3": ["ProcessingLog"]
+  },
+  "ControlDisplay": {},
+  "FieldDef": [
+    {
+      "name": "ID",
+      "type": "string",
+      "width": "20",
+      "Option": "Mandatory",
+      "SLabel": "ID",
+      "LLabel": "ID"
+    },
+    {
+      "name": "EmployeeID",
+      "type": "string",
+      "width": "50",
+      "Option": "Mandatory",
+      "SLabel": "Employee ID",
+      "LLabel": ""
+    },
+    {
+      "name": "Name",
+      "type": "string",
+      "width": "50",
+      "Option": "Mandatory",
+      "SLabel": "Employee Name",
+      "LLabel": ""
+    },
+    {
+      "name": "DateRequested",
+      "type": "Date",
+      "width": "10",
+      "Option": "Optional",
+      "SLabel": "Date Requested",
+      "LLabel": ""
+    },
+    {
+      "name": "ProjectNeed",
+      "type": "radiobutton",
+      "width": "50",
+      "Option": "Optional",
+      "SLabel": "Project Need",
+      "LLabel": ""
+    },
+    {
+      "name": "EmpDev",
+      "type": "switch",
+      "width": "50",
+      "Option": "Optional",
+      "SLabel": "For Employee Development",
+      "LLabel": ""
+    },
+    {
+      "name": "Area",
+      "type": "radiobutton",
+      "width": "50",
+      "Option": "Optional",
+      "SLabel": "Training Area",
+      "LLabel": ""
+    },
+    {
+      "name": "Detail",
+      "type": "string",
+      "width": "500",
+      "Option": "Mandatory",
+      "SLabel": "Training Details",
+      "LLabel": ""
+    },
+    {
+      "name": "Duration",
+      "type": "string",
+      "width": "50",
+      "Option": "Optional",
+      "SLabel": "Duration",
+      "LLabel": ""
+    },
+    {
+      "name": "External",
+      "type": "radiobutton",
+      "width": "50",
+      "Option": "Optional",
+      "SLabel": "External Training",
+      "LLabel": ""
+    },
+    {
+      "name": "Cost",
+      "type": "string",
+      "width": "50",
+      "Option": "Optional",
+      "SLabel": "Training Cost",
+      "LLabel": ""
+    },
+    {
+      "name": "ProjectCode",
+      "type": "string",
+      "width": "50",
+      "Option": "Mandatory",
+      "SLabel": "Project Code",
+      "LLabel": ""
+    },
+    {
+      "name": "CostCentre",
+      "type": "string",
+      "width": "50",
+      "Option": "Optional",
+      "SLabel": "Cost Centre",
+      "LLabel": ""
+    },
+    {
+      "name": "Status",
+      "type": "string",
+      "width": "50",
+      "Option": "Mandatory",
+      "SLabel": "Request Status",
+      "LLabel": ""
+    },
+    {
+      "name": "Justification",
+      "type": "string",
+      "width": "500",
+      "Option": "Optional",
+      "SLabel": "Justification",
+      "LLabel": ""
+    },
+    {
+      "name": "ProgressComment",
+      "type": "string",
+      "width": "500",
+      "Option": "Optional",
+      "SLabel": "ProgressComment",
+      "LLabel": ""
+    },
+    {
+      "name": "ProcessingLog",
+      "type": "string",
+      "width": "1000",
+      "Option": "Optional",
+      "SLabel": "Processing Log",
+      "LLabel": "Processing Log"
+    },
+    {
+      "name": "Approver",
+      "type": "string",
+      "width": "100",
+      "Option": "Optional",
+      "SLabel": "Approver",
+      "LLabel": "Approver"
+    }
+  ],
+  "itemData": "No",
+  "itemConfig": {
+    "ItemFieldDefinition": [],
+    "DisplayFields": [],
+    "ItemButtons": {
+      "itemDisplay": false,
+      "itemAdd": false,
+      "itemEdit": false,
+      "itemDelete": false
+    },
+    "CreateFields": [],
+    "ItemDetails": []
+  },
+  "CalculatedFields": {},
+  "Create": "Yes",
+  "Wizard": [
+    {
+      "id": "Step1",
+      "fields": [
+        { "name": "Detail", "Mode": "Edit" },
+        { "name": "Duration", "Mode": "Edit" },
+        { "name": "Area", "Mode": "Edit" },
+        { "name": "External", "Mode": "Edit" },
+        { "name": "ProjectNeed", "Mode": "Edit" }
+      ],
+      "name": "Training Details",
+      "stepType": "FieldList",
+      "intro": "Training Request : Training Details"
+    },
+    {
+      "id": "Step2",
+      "fields": [
+        { "name": "EmployeeID", "Mode": "Display" },
+        { "name": "Name", "Mode": "Display" }
+      ],
+
+      "name": "Employee Details",
+      "stepType": "FieldList",
+      "intro": "Training Request : Employee Details"
+    },
+    {
+      "id": "Step3",
+      "fields": [
+        { "name": "CostCentre", "Mode": "Edit" },
+        { "name": "Cost", "Mode": "Edit" },
+        { "name": "Justification", "Mode": "Edit" }
+      ],
+      "name": "Training Cost",
+      "stepType": "FieldList",
+      "intro": "Training Request : Training Cost"
+    },
+    {
+      "id": "Step4",
+      "fields": [
+        { "name": "Status", "Mode": "Display" },
+        { "name": "Approver", "Mode": "Edit" }
+      ],
+      "name": "Admin",
+      "stepType": "FieldList",
+      "intro": "Training Request : Admin"
+    }
+  ]
+}
