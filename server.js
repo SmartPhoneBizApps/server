@@ -153,6 +153,10 @@ app.use("/api/v1/dummyUpload/", require("./routes/utilities/dummyUpload"));
 app.use("/api/v1/util/encode", require("./routes/utilities/utilities"));
 app.use("/api/v1/util/calculation", require("./routes/utilities/calculation"));
 app.use("/api/v1/util/validations", require("./routes/utilities/validations"));
+app.use(
+  "/api/v1/util/validateAppSetup",
+  require("./routes/utilities/validateAppSetup")
+);
 app.use("/api/v1/util/possval", require("./routes/utilities/possVals"));
 app.use("/api/v1/util/fileupload/", require("./routes/utilities/fileupload"));
 app.use(

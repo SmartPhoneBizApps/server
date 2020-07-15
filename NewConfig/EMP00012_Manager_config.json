@@ -106,7 +106,12 @@
       "URLMethodHDR": "POST",
       "URLMethodTable": "PUT",
       "dataFields": "FieldName",
-      "sourceID": "External"
+      "sourceID": "External",
+      "key": {
+        "ID": "External",
+        "generateID": ["EmployeeID", "ReviewPeriod"],
+        "seperator": "-"
+      }
     },
     {
       "type": "OPENURL",
@@ -237,7 +242,7 @@
   },
   "tableConfig": {
     "ManagerFB": {
-      "title": "Test",
+      "title": "Manager Feedback",
       "ItemFieldDefinition": [
         {
           "name": "ItemNumber",
