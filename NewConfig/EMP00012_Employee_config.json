@@ -145,7 +145,7 @@
       "Calculation": "Yes",
       "name": "Feedback",
       "icon": "sap-icon://upload-to-cloud",
-      "URL": "util/getQuestioner/LEARNING/{ID}",
+      "URL": "util/getEmployeeFB/LEARNING/{ID}",
       "Token": "Yes",
       "URLMethod": "GET"
     },
@@ -257,11 +257,11 @@
     "Tab4": ["Goals"],
     "Tab5": ["MyTraining"],
     "Tab6": ["MultiAttachments"],
-    "Tab7": ["Questioner"],
+    "Tab7": ["EmployeeFB"],
     "Tab8": ["ProjectFeedback"]
   },
   "tableConfig": {
-    "Questioner": {
+    "EmployeeFB": {
       "title": "Test",
       "ItemFieldDefinition": [
         {
@@ -997,12 +997,12 @@
       "LLabel": ""
     },
     {
-      "name": "Questioner",
+      "name": "EmployeeFB",
       "type": "Array",
       "width": "200",
       "Option": "Optional",
-      "SLabel": "Questioner",
-      "LLabel": "Questioner"
+      "SLabel": "EmployeeFB",
+      "LLabel": "EmployeeFB"
     },
     {
       "name": "Band",
