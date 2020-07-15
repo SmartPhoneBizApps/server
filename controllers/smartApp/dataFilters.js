@@ -80,7 +80,7 @@ exports.dataFilters = asyncHandler(async (req, res, next) => {
         set1.add(tableOut[m]["field"]);
       }
     }
-    set1.add("GoalsArea");
+    //set1.add("GoalsArea");
 
     set1.forEach((element) => {
       for (let b = 0; b < nTable.length; b++) {
