@@ -5,14 +5,11 @@
   },
   "Controls": {
     "USP": "UserProfile",
-    "SearchString": {
-      "Search": false,
-      "header": [],
-      "table": { "ProjectFeedback": [] }
-    },
+    "SearchString": { "Search": false },
     "Filters": [{ "Email": "@user" }],
     "UserSpecific": "Yes",
     "Update": "Yes",
+
     "URL": "https://fierce-oasis-51455.herokuapp.com",
     "Source": {
       "SourceName": "mongoDB",
@@ -34,7 +31,7 @@
       { "field": "ProjFeedback" }
     ],
 
-    "fieldSource": {
+    "filterFieldSource": {
       "header": [
         "Status",
         "ReviewPeriod",
@@ -142,10 +139,10 @@
     },
     {
       "type": "SURVEY",
-      "Calculation": "Yes",
+      "Calculation": "No",
       "name": "Feedback",
       "icon": "sap-icon://upload-to-cloud",
-      "URL": "util/getEmployeeFB/LEARNING/{ID}",
+      "URL": "util/getQuestioner/LEARNING/EmployeeFeedback",
       "Token": "Yes",
       "URLMethod": "GET"
     },
@@ -234,7 +231,7 @@
     {
       "value": "Tab7",
       "update": "Yes",
-      "name": "360Feedback",
+      "name": "360(Employee)",
       "fioriicon": "toaster-up",
       "type": "Table"
     }
@@ -257,11 +254,11 @@
     "Tab4": ["Goals"],
     "Tab5": ["MyTraining"],
     "Tab6": ["MultiAttachments"],
-    "Tab7": ["EmployeeFB"],
+    "Tab7": ["Questioner"],
     "Tab8": ["ProjectFeedback"]
   },
   "tableConfig": {
-    "EmployeeFB": {
+    "Questioner": {
       "title": "Test",
       "ItemFieldDefinition": [
         {
@@ -501,14 +498,16 @@
           "type": "string",
           "width": "100",
           "SLabel": "Goals Area",
-          "Option": "Optional"
+          "Option": "Optional",
+          "Update": "No"
         },
         {
           "name": "Goal2",
           "type": "string",
           "width": "500",
           "SLabel": "Goal",
-          "Option": "Optional"
+          "Option": "Optional",
+          "Update": "No"
         },
 
         {
@@ -516,7 +515,8 @@
           "type": "string",
           "width": "200",
           "SLabel": "Score",
-          "Option": "Optional"
+          "Option": "Optional",
+          "Update": "No"
         },
         {
           "name": "MaxScore2",
@@ -524,28 +524,32 @@
           "width": "200",
           "SLabel": "Max Score",
           "Option": "Optional",
-          "Default": "5"
+          "Default": "5",
+          "Update": "No"
         },
         {
           "name": "AppraiseComm2",
           "type": "string",
           "width": "1000",
           "SLabel": "Employee Comments",
-          "Option": "Optional"
+          "Option": "Optional",
+          "Update": "Yes"
         },
         {
           "name": "ManagerComm2",
           "type": "string",
           "width": "1000",
           "SLabel": "Manager Comment",
-          "Option": "Optional"
+          "Option": "Optional",
+          "Update": "No"
         },
         {
           "name": "GoalStatus",
           "type": "string",
           "width": "200",
           "SLabel": "Goal Status",
-          "Option": "Optional"
+          "Option": "Optional",
+          "Update": "No"
         },
 
         {
@@ -554,21 +558,24 @@
           "width": "10",
           "SLabel": "Set Date",
           "Option": "Optional",
-          "Default": "@currentDate"
+          "Default": "@currentDate",
+          "Update": "No"
         },
         {
           "name": "TargetDate2",
           "type": "Date",
           "width": "10",
           "SLabel": "Target Date",
-          "Option": "Optional"
+          "Option": "Optional",
+          "Update": "No"
         },
         {
           "name": "NextRevDate2",
           "type": "Date",
           "width": "10",
           "SLabel": "Next Review Date",
-          "Option": "Optional"
+          "Option": "Optional",
+          "Update": "No"
         }
       ],
       "DisplayFields": [
@@ -598,17 +605,17 @@
         {
           "name": "GoalsArea",
           "Tab": "Tab4",
-          "Mode": "Display"
+          "Mode": "Edit"
         },
         {
           "name": "Goal2",
           "Tab": "Tab4",
-          "Mode": "Display"
+          "Mode": "Edit"
         },
         {
           "name": "Score2",
           "Tab": "Tab4",
-          "Mode": "Display"
+          "Mode": "Edit"
         },
         {
           "name": "AppraiseComm2",
@@ -618,27 +625,27 @@
         {
           "name": "ManagerComm2",
           "Tab": "Tab4",
-          "Mode": "Display"
+          "Mode": "Edit"
         },
         {
           "name": "GoalStatus",
           "Tab": "Tab4",
-          "Mode": "Display"
+          "Mode": "Edit"
         },
         {
           "name": "SetDate2",
           "Tab": "Tab4",
-          "Mode": "Display"
+          "Mode": "Edit"
         },
         {
           "name": "TargetDate2",
           "Tab": "Tab4",
-          "Mode": "Display"
+          "Mode": "Edit"
         },
         {
           "name": "NextRevDate2",
           "Tab": "Tab4",
-          "Mode": "Display"
+          "Mode": "Edit"
         }
       ]
     },
@@ -997,12 +1004,12 @@
       "LLabel": ""
     },
     {
-      "name": "EmployeeFB",
+      "name": "Questioner",
       "type": "Array",
       "width": "200",
       "Option": "Optional",
-      "SLabel": "EmployeeFB",
-      "LLabel": "EmployeeFB"
+      "SLabel": "Questioner",
+      "LLabel": "Questioner"
     },
     {
       "name": "Band",
@@ -1010,7 +1017,7 @@
       "width": "50",
       "Option": "Optional",
       "SLabel": "Band",
-      "LLabel": ""
+      "LLabel": "Band"
     },
     {
       "name": "ReviewDate",
