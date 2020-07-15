@@ -34,22 +34,20 @@
       { "field": "ProjFeedback" }
     ],
 
-    "fieldSource": [
-      {
-        "header": [
-          "Status",
-          "ReviewPeriod",
-          "DevManager",
-          "Role",
-          "Band",
-          "Area"
-        ],
-        "Appraisal": ["AppraisalArea", "PerformanceRating"],
-        "Goals": ["GoalsArea", "GoalStatus"],
-        "ProjectFeedback": ["ProjFeedback"],
-        "MyTraining": ["Group", "SubGroup"]
-      }
-    ]
+    "fieldSource": {
+      "header": [
+        "Status",
+        "ReviewPeriod",
+        "DevManager",
+        "Role",
+        "Band",
+        "Area"
+      ],
+      "Appraisal": ["AppraisalArea", "PerformanceRating"],
+      "Goals": ["GoalsArea", "GoalStatus"],
+      "ProjectFeedback": ["ProjFeedback"],
+      "MyTraining": ["Group", "SubGroup"]
+    }
   },
 
   "ListFields": {

@@ -31,22 +31,20 @@
       { "field": "ProjFeedback" }
     ],
 
-    "filterFieldSource": [
-      {
-        "header": [
-          "Status",
-          "ReviewPeriod",
-          "DevManager",
-          "Role",
-          "Band",
-          "Area"
-        ],
-        "Appraisal": ["AppraisalArea", "PerformanceRating"],
-        "Goals": ["GoalsArea", "GoalStatus"],
-        "ProjectFeedback": ["ProjFeedback"],
-        "MyTraining": ["Group", "SubGroup"]
-      }
-    ]
+    "filterFieldSource": {
+      "header": [
+        "Status",
+        "ReviewPeriod",
+        "DevManager",
+        "Role",
+        "Band",
+        "Area"
+      ],
+      "Appraisal": ["AppraisalArea", "PerformanceRating"],
+      "Goals": ["GoalsArea", "GoalStatus"],
+      "ProjectFeedback": ["ProjFeedback"],
+      "MyTraining": ["Group", "SubGroup"]
+    }
   },
 
   "ListFields": {
@@ -1019,7 +1017,7 @@
       "width": "50",
       "Option": "Optional",
       "SLabel": "Band",
-      "LLabel": ""
+      "LLabel": "Band"
     },
     {
       "name": "ReviewDate",
