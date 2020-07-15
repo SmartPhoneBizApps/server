@@ -247,42 +247,42 @@
           "Option": "Optional"
         },
         {
-          "name": "Question",
+          "name": "MQuestion",
           "type": "string",
           "width": "10",
           "SLabel": "Question",
           "Option": "Optional"
         },
         {
-          "name": "Answer",
+          "name": "MAnswer",
           "type": "string",
           "width": "20",
           "SLabel": "Answer",
           "Option": "Optional"
         },
         {
-          "name": "CorrectAnswer",
+          "name": "MCorrectAnswer",
           "type": "string",
           "width": "20",
           "SLabel": "Correct Ans",
           "Option": "Optional"
         },
         {
-          "name": "Score",
+          "name": "MScore",
           "type": "string",
           "width": "20",
           "SLabel": "Score",
           "Option": "Optional"
         }
       ],
-      "DisplayFields": ["Question", "Answer"],
+      "DisplayFields": ["MQuestion", "MAnswer"],
       "ItemButtons": {
         "itemDisplay": true,
         "itemAdd": false,
         "itemEdit": false,
         "itemDelete": false
       },
-      "CreateFields": ["Question", "Answer", "CorrectAnswer", "Score"],
+      "CreateFields": ["MQuestion", "MAnswer", "MCorrectAnswer", "MScore"],
       "ItemDetails": [
         {
           "name": "ItemNumber",
@@ -290,12 +290,12 @@
           "Mode": "Edit"
         },
         {
-          "name": "Question",
+          "name": "MQuestion",
           "Tab": "Tab5",
           "Mode": "Edit"
         },
         {
-          "name": "Answer",
+          "name": "MAnswer",
           "Tab": "Tab5",
           "Mode": "Edit"
         }
