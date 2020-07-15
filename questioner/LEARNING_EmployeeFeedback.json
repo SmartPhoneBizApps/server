@@ -7,161 +7,198 @@
           "name": "Q1",
           "Mode": "Display",
           "type": "string",
-          "value": "Q1 : It is important that all staff that carry out physical activities in their day-to-day job role have"
+          "value": "Do you have the flexibility to take time off when you need to?"
         },
         {
           "name": "A1",
           "Mode": "Edit",
-          "type": "radiobutton",
-          "value": [
-            "A. Appropriate life cover",
-            "B. Appropriate training",
-            "C. At least three other people supervising their work",
-            "D. At least two days off after carrying out physical activities"
-          ]
+          "type": "switch",
+          "value": ["Yes", "No"]
         },
         {
           "name": "Q2",
           "Mode": "Display",
           "type": "string",
-          "value": "Q2 : A company that has a minor health and safety breach is most likely to"
+          "value": "Do you feel that you maintain a healthy balance between work and your personal life?"
         },
         {
           "name": "A2",
           "Mode": "Edit",
-          "type": "radiobutton",
-          "value": [
-            "A. Be served with an Improvement Notice",
-            "B. Be ordered to close down the premises indefinitely",
-            "C. Be issued fines by the magistrates’ court for up to £150,000",
-            "D. Have employees arrested for non-compliance for a minimum of 10 years"
-          ]
-        }
-      ],
-      "name": "Set - 1",
-      "stepType": "FieldList",
-      "intro": "Learning : Health and Safety in the Workplace "
-    },
-    {
-      "id": "Step2",
-      "fields": [
+          "type": "switch",
+          "value": ["Yes", "No"]
+        },
         {
           "name": "Q3",
           "Mode": "Display",
           "type": "string",
-          "value": "Q3 : Which of these best describes the 'likelihood of an incident occurring?'"
+          "value": "Do you feel like your work contributes to the goals of your organization?"
         },
         {
           "name": "A3",
           "Mode": "Edit",
-          "type": "radiobutton",
-          "value": ["A. Risk", "B. Hazard", "C. An event", "D. An episode"]
+          "type": "switch",
+          "value": ["Yes", "No"]
         },
         {
           "name": "Q4",
           "Mode": "Display",
           "type": "string",
-          "value": "Q4 : Which of these is the first step to take when conducting a risk assessment"
+          "value": "Do you think that your responsibilities are clear?"
         },
         {
           "name": "A4",
           "Mode": "Edit",
-          "type": "radiobutton",
-          "value": [
-            "A. Evaluate the risk",
-            "B. Identify the hazards",
-            "C. Review your findings",
-            "D. Update risk assessments"
-          ]
+          "type": "switch",
+          "value": ["Yes", "No"]
         }
       ],
-      "name": "Set - 2",
+      "name": "Satisfaction",
       "stepType": "FieldList",
-      "intro": "Learning : Health and Safety in the Workplace "
+      "intro": "Employees : Satisfaction"
     },
     {
-      "id": "Step3",
+      "id": "Step2",
       "fields": [
         {
           "name": "Q5",
           "Mode": "Display",
           "type": "string",
-          "value": "Q5 : Which of these is most likely to cause an accident in a workplace?'"
+          "value": "Do you feel you have enough freedom to decide how you do your work?"
         },
         {
           "name": "A5",
           "Mode": "Edit",
-          "type": "radiobutton",
-          "value": [
-            "A. Administration",
-            "B. Manual handling",
-            "C. Adequate lighting",
-            "D. Excessive noise"
-          ]
+          "type": "switch",
+          "value": ["Yes", "No"]
         },
         {
           "name": "Q6",
           "Mode": "Display",
           "type": "string",
-          "value": "Q6 : Trailing electrical cables which trail through the middle of a busy walkway"
+          "value": "Do you think that your responsibilities are clear?"
         },
         {
           "name": "A6",
           "Mode": "Edit",
-          "type": "radiobutton",
-          "value": [
-            "A. Are very unlikely to cause any injury",
-            "B. Are likely to injure someone if they trip over it",
-            "C. Can be defined as high level health and safety hazards",
-            "D. Can be defined as high level fire hazards"
-          ]
-        }
-      ],
-      "name": "Set - 3",
-      "stepType": "FieldList",
-      "intro": "Learning : Health and Safety in the Workplace "
-    },
-    {
-      "id": "Step4",
-      "fields": [
+          "type": "switch",
+          "value": ["Yes", "No"]
+        },
         {
           "name": "Q7",
           "Mode": "Display",
           "type": "string",
-          "value": "Q7 : Which of these is most likely to be a result of handling an overloaded electrical socket?"
+          "value": "Do you feel like you have the opportunity to improve your skills?"
         },
         {
           "name": "A7",
           "Mode": "Edit",
           "type": "radiobutton",
-          "value": [
-            "A. Frostbite",
-            "B. Asbestosis",
-            "C. Asphyxiation",
-            "D. Electric shock"
-          ]
+          "value": ["Always", "SomeTimes", "Never"]
         },
         {
           "name": "Q8",
           "Mode": "Display",
           "type": "string",
-          "value": "Q8 : Why should near misses be reported?"
+          "value": "How would you rate the way your organization makes use of your strengths?"
         },
         {
           "name": "A8",
           "Mode": "Edit",
-          "type": "radiobutton",
-          "value": [
-            "A. To educate employees",
-            "B. To test the first aider",
-            "C. To ensure complete recovery",
-            "D. To stop a more serious event occurring"
-          ]
+          "type": "rating,5",
+          "value": ""
         }
       ],
-      "name": "Set - 4",
+      "name": "Personal Growth",
       "stepType": "FieldList",
-      "intro": "Learning : Health and Safety in the Workplace "
+      "intro": "Employee : Personal Growth"
+    },
+    {
+      "id": "Step3",
+      "fields": [
+        {
+          "name": "Q9",
+          "Mode": "Display",
+          "type": "string",
+          "value": "Are you happy with the frequency at which you receive recognition from your manager?"
+        },
+        {
+          "name": "A9",
+          "Mode": "Edit",
+          "type": "switch",
+          "value": ["Yes", "No"]
+        },
+        {
+          "name": "Q10",
+          "Mode": "Display",
+          "type": "string",
+          "value": "Do you feel like your organization celebrates its accomplishments and learnings?"
+        },
+        {
+          "name": "A10",
+          "Mode": "Edit",
+          "type": "switch",
+          "value": ["Yes", "No"]
+        },
+        {
+          "name": "Q11",
+          "Mode": "Display",
+          "type": "string",
+          "value": "Do you feel like recognition is meaningful when you receive it?"
+        },
+        {
+          "name": "A11",
+          "Mode": "Edit",
+          "type": "switch",
+          "value": ["Yes", "No"]
+        }
+      ],
+      "name": "Recognition",
+      "stepType": "FieldList",
+      "intro": "Employee : Recognition"
+    },
+    {
+      "id": "Step4",
+      "fields": [
+        {
+          "name": "Q12",
+          "Mode": "Display",
+          "type": "string",
+          "value": "Do you feel like your manager is someone you can trust?"
+        },
+        {
+          "name": "A12",
+          "Mode": "Edit",
+          "type": "radiobutton",
+          "value": ["Always", "SomeTimes", "Never"]
+        },
+        {
+          "name": "Q13",
+          "Mode": "Display",
+          "type": "string",
+          "value": "Do you feel like your manager has a good level of transparency with you and your team?"
+        },
+        {
+          "name": "A13",
+          "Mode": "Edit",
+          "type": "radiobutton",
+          "value": ["Always", "SomeTimes", "Never"]
+        },
+        {
+          "name": "Q14",
+          "Mode": "Display",
+          "type": "string",
+          "value": "Do you feel like you can share your honest thoughts with your manager?"
+        },
+        {
+          "name": "A14",
+          "Mode": "Edit",
+          "type": "string",
+          "value": ""
+        }
+      ],
+      "name": "My Manager",
+      "stepType": "FieldList",
+      "intro": "Employee : Relationship with their Manager"
     }
   ],
   "TargetField": "EmployeeFB",
@@ -174,6 +211,12 @@
     { "Q5": "A5", "CorrectAnswer": "NA" },
     { "Q6": "A6", "CorrectAnswer": "NA" },
     { "Q7": "A7", "CorrectAnswer": "NA" },
-    { "Q8": "A8", "CorrectAnswer": "NA" }
+    { "Q8": "A8", "CorrectAnswer": "NA" },
+    { "Q9": "A9", "CorrectAnswer": "NA" },
+    { "Q10": "A10", "CorrectAnswer": "NA" },
+    { "Q11": "A11", "CorrectAnswer": "NA" },
+    { "Q12": "A12", "CorrectAnswer": "NA" },
+    { "Q13": "A13", "CorrectAnswer": "NA" },
+    { "Q14": "A14", "CorrectAnswer": "NA" }
   ]
 }
