@@ -5,7 +5,7 @@
   },
   "Controls": {
     "USP": "UserProfile",
-    "SearchString":{"Search":true},
+    "SearchString": { "Search": true },
     "Filters": [
       {
         "$and": [
@@ -19,13 +19,13 @@
     "UserSpecific": "Yes",
     "Update": "Yes",
     "URL": "https://fierce-oasis-51455.herokuapp.com",
-        "Source": { "SourceName": "mongoDB", "SourceFile": "NA" },
-       "dataFilter": [{ "field": "Status" }],
+    "Source": { "SourceName": "mongoDB", "SourceFile": "NA" },
+    "dataFilter": [{ "field": "Status" }, { "field": "BookingFor" }],
     "filterFieldSource": {
-      "header": ["Status"]
+      "header": ["Status", "BookingFor"]
     }
   },
-  
+
   "ListFields": {
     "IntroField": "Email",
     "TitleField": "BookingFor",
