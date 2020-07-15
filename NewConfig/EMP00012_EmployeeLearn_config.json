@@ -142,9 +142,9 @@
       "Calculation": "Yes",
       "name": "Feedback",
       "icon": "sap-icon://upload-to-cloud",
-      "URL": "util/getQuestioner/LEARNING/{ID}",
+      "URL": "util/getQuestioner/LEARNING/EmployeeFeedback",
       "Token": "Yes",
-      "URLMethod": "GET"
+      "URLMethod": "PUT"
     },
     {
       "type": "WORKFLOW",
@@ -231,7 +231,7 @@
     {
       "value": "Tab7",
       "update": "Yes",
-      "name": "360Feedback",
+      "name": "360Feedback(Employee)",
       "fioriicon": "toaster-up",
       "type": "Table"
     }
