@@ -13,9 +13,20 @@ const { readData, getTotalCount, nConfig } = require("../../modules/config2");
 // @desc      Add record
 // @route     POST /api/v1/datarecords/
 // @access    Private
-exports.appointmentsGet = asyncHandler(async (req, res, next) => {
+exports.appointmentsGenerate = asyncHandler(async (req, res, next) => {
+  data = [];
+
   res.status(200).json({
     success: true,
-    data: person1,
+    data: data,
+  });
+});
+
+exports.appointmentsGet = asyncHandler(async (req, res, next) => {
+  data = [];
+
+  res.status(200).json({
+    success: true,
+    data: data,
   });
 });
