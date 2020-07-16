@@ -68,7 +68,8 @@
     "GoalsArea",
     "PerformanceRating",
     "GoalStatus",
-    "ProjFeedback"
+    "ProjFeedback",
+    "MAnswer"
   ],
   "MButtons": [
     {
@@ -257,28 +258,32 @@
           "type": "string",
           "width": "10",
           "SLabel": "Question",
-          "Option": "Optional"
+          "Option": "Optional",
+          "Update": "No"
         },
         {
           "name": "MAnswer",
           "type": "string",
           "width": "20",
           "SLabel": "Answer",
-          "Option": "Optional"
+          "Option": "Optional",
+          "Update": "Yes"
         },
         {
           "name": "MCorrectAnswer",
           "type": "string",
           "width": "20",
           "SLabel": "Correct Ans",
-          "Option": "Optional"
+          "Option": "Optional",
+          "Update": "No"
         },
         {
           "name": "MScore",
           "type": "Num,0",
           "width": "20",
           "SLabel": "Score",
-          "Option": "Optional"
+          "Option": "Optional",
+          "Update": "No"
         }
       ],
       "DisplayFields": ["MQuestion", "MAnswer"],

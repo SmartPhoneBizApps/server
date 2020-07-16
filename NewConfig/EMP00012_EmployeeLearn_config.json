@@ -75,7 +75,8 @@
     "SubGroup",
     "PerformanceRating",
     "GoalStatus",
-    "ProjFeedback"
+    "ProjFeedback",
+    "Answer"
   ],
   "MButtons": [
     {
@@ -273,28 +274,32 @@
           "type": "string",
           "width": "10",
           "SLabel": "Question",
-          "Option": "Optional"
+          "Option": "Optional",
+          "Update": "No"
         },
         {
           "name": "Answer",
           "type": "string",
           "width": "20",
           "SLabel": "Answer",
-          "Option": "Optional"
+          "Option": "Optional",
+          "Update": "Yes"
         },
         {
           "name": "CorrectAnswer",
           "type": "string",
           "width": "20",
           "SLabel": "Correct Ans",
-          "Option": "Optional"
+          "Option": "Optional",
+          "Update": "No"
         },
         {
           "name": "Score",
           "type": "Num,0",
           "width": "20",
           "SLabel": "Score",
-          "Option": "Optional"
+          "Option": "Optional",
+          "Update": "No"
         }
       ],
       "DisplayFields": ["Question", "Answer"],
