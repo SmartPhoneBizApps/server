@@ -5,19 +5,19 @@
   },
   "Controls": {
     "USP": "UserProfile",
-    "SearchString":{"Search":false},
+    "SearchString": { "Search": false },
     "Filters": [],
     "Partner": "@user",
     "UserSpecific": "Yes",
     "Update": "Yes",
     "URL": "https://fierce-oasis-51455.herokuapp.com",
-        "Source": { "SourceName": "mongoDB", "SourceFile": "NA" },
-       "dataFilter": [{ "field": "Status" }],
+    "Source": { "SourceName": "mongoDB", "SourceFile": "NA" },
+    "dataFilter": [{ "field": "Status" }],
     "filterFieldSource": {
       "header": ["Status"]
     }
   },
-  
+
   "ListFields": {
     "IntroField": "",
     "TitleField": "",
@@ -60,7 +60,34 @@
     },
 
     { "type": "ADD", "name": "Add Record", "icon": "sap-icon://add" },
-    { "type": "UPLOAD", "name": "Upload Record", "icon": "sap-icon://upload" }
+    { "type": "UPLOAD", "name": "Upload Record", "icon": "sap-icon://upload" },
+    {
+      "type": "CALENDAR",
+      "name": "View Calendar",
+      "icon": "sap-icon://upload",
+      "displayURL": "smartApp/calendarData/TRAIN008",
+      "Token": "Yes",
+      "URLMethod": "GET",
+      "calendarConfig": {
+        "type": "Group",
+        "icon": "Group",
+        "add": false,
+        "edit": false,
+        "defaultView": "Hours",
+        "appDisplay": {
+          "button": true,
+          "buttons": [
+            {
+              "type": "BOOK",
+              "name": "Book Training",
+              "URL": "util/addCourseCatalog/TRAIN008/TRAIN009/{ID}/TrainingTeam/calendar/{ItemNumber}/{userEmail}",
+              "Token": "Yes",
+              "URLMethod": "POST"
+            }
+          ]
+        }
+      }
+    }
   ],
   "DButtons": [
     {
