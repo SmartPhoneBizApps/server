@@ -71,8 +71,20 @@ exports.appointmentsGet = asyncHandler(async (req, res, next) => {
     slot["DoctorID"] = "001";
     slot["DoctorName"] = "Dr. Aneel J";
     slot["Status"] = 0;
-    cnt = cnt + 1;
 
+    if (cnt == 5) {
+      slot["PatientName"] = "Divyesh T";
+      slot["Status"] = 1;
+    }
+    if (cnt == 3) {
+      slot["PatientName"] = "Roshni Gupta";
+      slot["Status"] = 1;
+    }
+    if (cnt == 12) {
+      slot["PatientName"] = "Atul Gupta";
+      slot["Status"] = 1;
+    }
+    cnt = cnt + 1;
     data.push({ ...slot });
     slot = {};
 
