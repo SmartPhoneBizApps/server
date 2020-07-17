@@ -146,7 +146,31 @@
       "Token": "Yes",
       "URLMethod": "POST"
     },
-
+    {
+      "type": "CODE",
+      "name": "Exam Questions",
+      "icon": "sap-icon://internet-browser",
+      "tabconfig": {
+        "tabs": [
+          {
+            "value": "codeTab1",
+            "field": "examQuestions",
+            "name": "Code1",
+            "theme": "chrome",
+            "type": "json",
+            "editable": true
+          },
+          {
+            "value": "codeTab2",
+            "field": "examQuestions2",
+            "name": "Code1",
+            "theme": "chrome",
+            "type": "json",
+            "editable": true
+          }
+        ]
+      }
+    },
     {
       "type": "CATALOG",
       "name": "Add to Catalogue",
@@ -231,18 +255,6 @@
       "name": "Course Link",
       "fioriicon": "internet-browser",
       "type": "webpage"
-    },
-    {
-      "value": "Tab6",
-      "update": "Yes",
-      "name": "Exam Questions",
-      "fioriicon": "internet-browser",
-      "type": "jsoncode",
-      "tabconfig": {
-        "theme": "chrome",
-        "type": "json",
-        "editable": true
-      }
     }
   ],
   "DetailFields": {
@@ -284,8 +296,7 @@
 
     "Tab3": ["MultiAttachments"],
     "Tab4": ["Video"],
-    "Tab5": ["CourseLink"],
-    "Tab6": ["examQuestions"]
+    "Tab5": ["CourseLink"]
   },
   "tableConfig": {},
   "ControlDisplay": {},
@@ -333,12 +344,19 @@
     {
       "name": "examQuestions",
       "type": "json",
-      "width": "500",
+      "width": "1000",
       "Option": "Optional",
       "SLabel": "Exam Questions",
       "LLabel": "Exam Questions"
     },
-
+    {
+      "name": "examQuestions2",
+      "type": "json",
+      "width": "1000",
+      "Option": "Optional",
+      "SLabel": "Exam Questions",
+      "LLabel": "Exam Questions"
+    },
     {
       "name": "Title",
       "type": "string",

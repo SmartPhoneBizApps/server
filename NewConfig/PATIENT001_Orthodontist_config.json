@@ -100,7 +100,6 @@
       "displayURL": "smartApp/appointmentsGet/{date}/{chair}",
       "Token": "Yes",
       "URLMethod": "GET",
-      "calendarConfig": {},
       "displayFields": [
         "ChairID",
         "Date",
@@ -111,9 +110,34 @@
         "DoctorID",
         "DoctorName"
       ],
-      "displayButton": ["AMEND", "CANCEL"],
-      "createFields": ["PatientID", "PatientName"],
-      "createButton": ["BOOK"]
+      "createButton": [
+        {
+          "type": "ADDTRAINING",
+          "name": "Book Appointment",
+          "icon": "sap-icon://share-2",
+          "Dialog": [
+            { "label": "Patient ID", "name": "PatientID", "type": "string" },
+            {
+              "label": "Patient Name",
+              "name": "PatientName",
+              "type": "string"
+            },
+            { "label": "DOB", "name": "DOB", "type": "Date" }
+          ],
+          "tableField": "",
+          "listFields": ["PatientID", "PatientName", "DOB"],
+          "transferFields": ["PatientID", "PatientName"],
+          "SearchURL": "listrecordsnew/Web/PATIENT001/TrainingTeam{filter}",
+          "URL": "util/assignCourseUser/PATIENT001/PATIENT002/{PatientID}/{Date}/{Time}",
+          "Token": "Yes",
+          "URLMethod": "POST",
+          "FieldMapping": {
+            "PatientID": "PatientID",
+            "PatientName": "PatientName"
+          }
+        }
+      ],
+      "displayButton": ["AMEND", "CANCEL"]
     }
   ],
   "DButtons": [
