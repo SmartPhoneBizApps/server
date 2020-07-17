@@ -100,7 +100,20 @@
       "displayURL": "smartApp/calendarData/TRAIN008",
       "Token": "Yes",
       "URLMethod": "GET",
-      "calendarConfig": {}
+      "calendarConfig": {},
+      "displayFields": [
+        "ChairID",
+        "Date",
+        "Time",
+        "SlotLength",
+        "PatientID",
+        "PatientName",
+        "DoctorID",
+        "DoctorName"
+      ],
+      "displayButton": ["AMEND", "CANCEL"],
+      "createFields": ["PatientID", "PatientName"],
+      "createButton": ["BOOK"]
     }
   ],
   "DButtons": [
