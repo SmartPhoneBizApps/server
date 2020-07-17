@@ -231,6 +231,13 @@
       "name": "Course Link",
       "fioriicon": "internet-browser",
       "type": "webpage"
+    },
+    {
+      "value": "Tab6",
+      "update": "Yes",
+      "name": "Exam Questions",
+      "fioriicon": "internet-browser",
+      "type": "jsoncode"
     }
   ],
   "DetailFields": {
@@ -272,7 +279,8 @@
 
     "Tab3": ["MultiAttachments"],
     "Tab4": ["Video"],
-    "Tab5": ["CourseLink"]
+    "Tab5": ["CourseLink"],
+    "Tab6": ["examQuestions"]
   },
   "tableConfig": {},
   "ControlDisplay": {},
@@ -317,6 +325,15 @@
       "SLabel": "Course Link",
       "LLabel": "Course Link"
     },
+    {
+      "name": "examQuestions",
+      "type": "hyperlink",
+      "width": "500",
+      "Option": "Optional",
+      "SLabel": "Exam Questions",
+      "LLabel": "Exam Questions"
+    },
+
     {
       "name": "Title",
       "type": "string",

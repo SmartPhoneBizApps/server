@@ -4,5 +4,5 @@ const {
 } = require("../../controllers/smartApp/appointments");
 const router = express.Router();
 const { protect } = require("../../middleware/auth");
-router.route("/").post(protect, appointmentsGenerate);
+router.route("/:date/:chr").post(protect, appointmentsGenerate);
 module.exports = router;

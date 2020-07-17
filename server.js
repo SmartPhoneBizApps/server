@@ -157,6 +157,15 @@ app.use(
   "/api/v1/util/validateAppSetup",
   require("./routes/utilities/validateAppSetup")
 );
+app.use(
+  "/api/v1/smartApp/appointmentsGet",
+  require("./routes/smartApp/appointmentsGet")
+);
+app.use(
+  "/api/v1/smartApp/appointmentsGenerate",
+  require("./routes/smartApp/appointmentsGenerate")
+);
+
 app.use("/api/v1/util/possval", require("./routes/utilities/possVals"));
 app.use("/api/v1/util/fileupload/", require("./routes/utilities/fileupload"));
 app.use(
