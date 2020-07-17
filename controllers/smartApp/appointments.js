@@ -24,24 +24,17 @@ exports.appointmentsGet = asyncHandler(async (req, res, next) => {
   slot = {};
   let fn1 = "../../NewConfig/appointmentSchedule.json";
   var appSchedule = require(fn1);
-  console.log("Date", req.params.date);
-  console.log("Chair", req.params.chr);
   startTime = new Date(req.params.date);
   endTime = new Date(req.params.date);
-
   day1 = startTime.getDay();
-  console.log("Day", day1);
 
   for (let a = 0; a < appSchedule["Chairs"].length; a++) {
-    console.log("Day", appSchedule["Chairs"][a][req.params.chr][day1]);
     BeginTime = appSchedule["Chairs"][a][req.params.chr][day1]["BeginTime"];
     CloseTime = appSchedule["Chairs"][a][req.params.chr][day1]["CloseTime"];
     startTime.setMinutes(BeginTime.split(":")[1]);
     startTime.setHours(BeginTime.split(":")[0]);
     endTime.setMinutes(CloseTime.split(":")[1]);
     endTime.setHours(CloseTime.split(":")[0]);
-    console.log("StartDateTime", startTime);
-    console.log("EndDateTime", endTime);
   }
 
   data = [];
@@ -55,7 +48,7 @@ exports.appointmentsGet = asyncHandler(async (req, res, next) => {
       : "0" + startTime.getMinutes();
 
   slotStart = stHrs + ":" + stMin;
-
+  let cnt = 0;
   while (startTime < endTime) {
     startTime.setMinutes(startTime.getMinutes() + 10);
     stHrs =
@@ -68,8 +61,7 @@ exports.appointmentsGet = asyncHandler(async (req, res, next) => {
         : "0" + startTime.getMinutes();
 
     endSlot = stHrs + ":" + stMin;
-    console.log(slotStart, " - ", endSlot);
-
+    slot["ID"] = cnt;
     slot["ChairID"] = req.params.chr;
     slot["Date"] = startTime;
     slot["Time"] = slotStart + " - " + endSlot;
@@ -79,6 +71,7 @@ exports.appointmentsGet = asyncHandler(async (req, res, next) => {
     slot["DoctorID"] = "001";
     slot["DoctorName"] = "Dr. Aneel J";
     slot["Status"] = 0;
+    cnt = cnt + 1;
 
     data.push({ ...slot });
     slot = {};

@@ -280,6 +280,7 @@
     "headerImage": ["USP_Image"],
     "None": [
       "ID",
+      "PatientID",
       "NHSNumber",
       "FirstName",
       "LastName",
@@ -425,6 +426,14 @@
   "FieldDef": [
     {
       "name": "ID",
+      "type": "string",
+      "width": "20",
+      "Option": "Mandatory",
+      "SLabel": "Identification",
+      "LLabel": "Identification"
+    },
+    {
+      "name": "PatientID",
       "type": "string",
       "width": "20",
       "Option": "Mandatory",
