@@ -75,7 +75,7 @@ exports.appointmentsGet = asyncHandler(async (req, res, next) => {
     slot["Time"] = slotStart + " - " + endSlot;
     slot["SlotLength"] = 1;
     slot["PatientID"] = "";
-    slot["PatientName"] = "";
+    slot["PatientName"] = "Free";
     slot["DoctorID"] = "001";
     slot["DoctorName"] = "Dr. Aneel J";
     slot["Status"] = 0;
