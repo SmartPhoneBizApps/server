@@ -1,0 +1,62 @@
+{
+  "ID": {
+    "type": "String",
+    "unique": true,
+    "required": [true, "Please add Mandatory field :ID"],
+    "maxlength": [20, "ID can not be more than 20 characters"]
+  },
+  "Status": {
+    "type": "String",
+    "required": [true, "Please add Mandatory field :Status"],
+    "maxlength": [50, "Status can not be more than 50 characters"]
+  },
+  "Partner": {
+    "type": "String",
+    "required": [true, "Please add Mandatory field :Partner"],
+    "maxlength": [200, "Partner can not be more than 200 characters"]
+  },
+
+  "ChairID": {
+    "type": "String",
+    "maxlength": [20, "ChairID can not be more than 20"]
+  },
+  "Date": {
+    "type": "Date"
+  },
+  "Time": {
+    "type": "String",
+    "maxlength": [50, "Time can not be more than 50"]
+  },
+  "SlotLength": {
+    "type": "String",
+    "maxlength": [20, "SlotLength can not be more than 20"]
+  },
+  "PatientID": {
+    "type": "String",
+    "maxlength": [50, "PatientID can not be more than 50"]
+  },
+  "PatientName": {
+    "type": "String",
+    "maxlength": [200, "PatientName can not be more than 200"]
+  },
+  "DoctorID": {
+    "type": "String",
+    "maxlength": [20, "DoctorID can not be more than 20"]
+  },
+  "DoctorName": {
+    "type": "String",
+    "maxlength": [100, "DoctorName can not be more than 100"]
+  },
+  "USP_Name": { "type": "String" },
+  "USP_Role": { "type": "String" },
+  "USP_Image": { "type": "String" },
+  "carouselImage": [],
+  "MultiAttachments": {},
+  "TransLog": [],
+  "ProgressComment": [],
+  "SearchString": {
+    "type": "String",
+    "maxlength": [500, "ContactName can not be more than 500 characters"]
+  },
+  "ItemData": []
+}
