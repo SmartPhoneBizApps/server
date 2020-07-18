@@ -23,6 +23,7 @@ exports.appointmentsGenerate = asyncHandler(async (req, res, next) => {
 exports.appointmentsGet = asyncHandler(async (req, res, next) => {
   slot = {};
   let drSch = [];
+  let SlotLen = 0;
   // Appointment Schedule
   let fn1 = "../../NewConfig/appointmentSchedule.json";
   var appSchedule = require(fn1);
@@ -40,6 +41,7 @@ exports.appointmentsGet = asyncHandler(async (req, res, next) => {
   for (let a = 0; a < appSchedule["Chairs"].length; a++) {
     BeginTime = appSchedule["Chairs"][a][req.params.chr][day1]["BeginTime"];
     CloseTime = appSchedule["Chairs"][a][req.params.chr][day1]["CloseTime"];
+    SlotLen = appSchedule["Chairs"][a][req.params.chr][day1]["SlotLen"];
     startTime.setMinutes(BeginTime.split(":")[1]);
     startTime.setHours(BeginTime.split(":")[0]);
     endTime.setMinutes(CloseTime.split(":")[1]);
@@ -64,7 +66,7 @@ exports.appointmentsGet = asyncHandler(async (req, res, next) => {
   let cnt = 0;
   while (startTime < endTime) {
     scStart = startTime;
-    scEnd = startTime.setMinutes(startTime.getMinutes() + 10);
+    scEnd = startTime.setMinutes(startTime.getMinutes() + SlotLen);
 
     for (let p = 0; p < drSch.length; p++) {
       const ep = drSch[p];
