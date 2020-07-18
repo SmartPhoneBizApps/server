@@ -21,6 +21,24 @@ exports.appointmentsGenerate = asyncHandler(async (req, res, next) => {
 });
 
 exports.appointmentsGet = asyncHandler(async (req, res, next) => {
+  console.log(req.query);
+
+  let fn3 =
+    "../../NewConfig/" +
+    req.headers.applicationid +
+    "_" +
+    req.headers.businessrole +
+    "_config.json";
+  var config1 = require(fn3);
+
+  // Get Table Schema
+  //  let path = "../../models/smartApp/" + req.headers.applicationid;
+  // const model = require(path);
+
+  let query = readData(req.headers.applicationid, req, config1);
+  let results = await query;
+  // console.log(results);
+
   slot = {};
   let drSch = [];
   let SlotLen = 0;
@@ -31,10 +49,10 @@ exports.appointmentsGet = asyncHandler(async (req, res, next) => {
   let fn2 = "../../NewConfig/appointmentDoctors.json";
   var drSchedule = require(fn2);
   // Appointment Date
-  startTime = new Date(req.params.date);
-  endTime = new Date(req.params.date);
-  drstartTime = new Date(req.params.date);
-  drendTime = new Date(req.params.date);
+  startTime = new Date(req.query.Date);
+  endTime = new Date(req.query.Date);
+  drstartTime = new Date(req.query.Date);
+  drendTime = new Date(req.query.Date);
   // Find Day
   day1 = startTime.getDay();
   console.log(day1);
@@ -42,7 +60,7 @@ exports.appointmentsGet = asyncHandler(async (req, res, next) => {
   for (let a = 0; a < appSchedule["Chairs"].length; a++) {
     for (const key in appSchedule["Chairs"][a]) {
       //     console.log("AG", appSchedule["Chairs"][a][key]);
-      if (key == req.params.chr) {
+      if (key == req.query.ChairID) {
         console.log("AG", key);
         console.log("AG", appSchedule["Chairs"][a][key]);
         BeginTime = appSchedule["Chairs"][a][key][day1]["BeginTime"];
@@ -56,8 +74,7 @@ exports.appointmentsGet = asyncHandler(async (req, res, next) => {
     }
   }
   for (let a = 0; a < drSchedule["Chairs"].length; a++) {
-    drSch = drSchedule["Chairs"][a][req.params.chr][day1];
-    console.log(drSch);
+    drSch = drSchedule["Chairs"][a][req.query.ChairID][day1];
   }
 
   data = [];
@@ -74,8 +91,6 @@ exports.appointmentsGet = asyncHandler(async (req, res, next) => {
   let cnt = 0;
   while (startTime < endTime) {
     scStart = startTime;
-    console.log(SlotLen);
-
     scEnd = startTime.setMinutes(startTime.getMinutes() + SlotLen);
 
     for (let p = 0; p < drSch.length; p++) {
@@ -86,7 +101,7 @@ exports.appointmentsGet = asyncHandler(async (req, res, next) => {
       drstartTime.setHours(drBeginTime.split(":")[0]);
       drendTime.setMinutes(drCloseTime.split(":")[1]);
       drendTime.setHours(drCloseTime.split(":")[0]);
-      //  console.log(drstartTime, drendTime, drSch[p]["DoctorName"]);
+
       if (startTime >= drstartTime && startTime <= drendTime) {
         slot["DoctorID"] = drSch[p]["DoctorID"];
         slot["DoctorName"] = drSch[p]["DoctorName"];
@@ -111,24 +126,21 @@ exports.appointmentsGet = asyncHandler(async (req, res, next) => {
 
     endSlot = stHrs + ":" + stMin;
     slot["ID"] = cnt;
-    slot["ChairID"] = req.params.chr;
+    slot["ChairID"] = req.query.ChairID;
     slot["Date"] = startTime;
-    slot["Time"] = slotStart + " - " + endSlot;
+    slot["Time"] = slotStart + "-" + endSlot;
     slot["SlotLength"] = 1;
     slot["PatientID"] = "";
 
-    if (cnt == 5) {
-      slot["PatientName"] = "Divyesh T";
-      slot["Status"] = 1;
+    for (let k = 0; k < results.length; k++) {
+      console.log(results[k]["Time"], slot["Time"]);
+      if (results[k]["Time"] == slot["Time"]) {
+        slot["PatientID"] = results[k]["PatientID"];
+        slot["PatientName"] = results[k]["PatientName"];
+        console.log(slot["PatientID"]);
+      }
     }
-    if (cnt == 3) {
-      slot["PatientName"] = "Roshni Gupta";
-      slot["Status"] = 1;
-    }
-    if (cnt == 12) {
-      slot["PatientName"] = "Atul Gupta";
-      slot["Status"] = 1;
-    }
+
     cnt = cnt + 1;
     data.push({ ...slot });
     slot = {};
