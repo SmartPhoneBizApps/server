@@ -22,10 +22,19 @@ exports.appointmentsGenerate = asyncHandler(async (req, res, next) => {
 
 exports.appointmentsGet = asyncHandler(async (req, res, next) => {
   slot = {};
+  let drSch = [];
+  // Appointment Schedule
   let fn1 = "../../NewConfig/appointmentSchedule.json";
   var appSchedule = require(fn1);
+  // Doctor Schedule
+  let fn2 = "../../NewConfig/appointmentDoctors.json";
+  var drSchedule = require(fn2);
+  // Appointment Date
   startTime = new Date(req.params.date);
   endTime = new Date(req.params.date);
+  drstartTime = new Date(req.params.date);
+  drendTime = new Date(req.params.date);
+  // Find Day
   day1 = startTime.getDay();
 
   for (let a = 0; a < appSchedule["Chairs"].length; a++) {
@@ -35,6 +44,10 @@ exports.appointmentsGet = asyncHandler(async (req, res, next) => {
     startTime.setHours(BeginTime.split(":")[0]);
     endTime.setMinutes(CloseTime.split(":")[1]);
     endTime.setHours(CloseTime.split(":")[0]);
+  }
+  for (let a = 0; a < drSchedule["Chairs"].length; a++) {
+    drSch = drSchedule["Chairs"][a][req.params.chr][day1];
+    console.log(drSch);
   }
 
   data = [];
@@ -50,7 +63,29 @@ exports.appointmentsGet = asyncHandler(async (req, res, next) => {
   slotStart = stHrs + ":" + stMin;
   let cnt = 0;
   while (startTime < endTime) {
-    startTime.setMinutes(startTime.getMinutes() + 10);
+    scStart = startTime;
+    scEnd = startTime.setMinutes(startTime.getMinutes() + 10);
+
+    for (let p = 0; p < drSch.length; p++) {
+      const ep = drSch[p];
+      drBeginTime = drSch[p]["BeginTime"];
+      drCloseTime = drSch[p]["CloseTime"];
+      drstartTime.setMinutes(drBeginTime.split(":")[1]);
+      drstartTime.setHours(drBeginTime.split(":")[0]);
+      drendTime.setMinutes(drCloseTime.split(":")[1]);
+      drendTime.setHours(drCloseTime.split(":")[0]);
+      console.log(drstartTime, drendTime, drSch[p]["DoctorName"]);
+      if (startTime >= drstartTime && startTime <= drendTime) {
+        slot["DoctorID"] = drSch[p]["DoctorID"];
+        slot["DoctorName"] = drSch[p]["DoctorName"];
+        if (drSch[p]["BusinessStatus"] == "Break") {
+          slot["Status"] = 2;
+        } else {
+          slot["Status"] = 0;
+        }
+      }
+    }
+
     stHrs =
       startTime.getHours() > 9
         ? "" + startTime.getHours()
@@ -68,9 +103,6 @@ exports.appointmentsGet = asyncHandler(async (req, res, next) => {
     slot["SlotLength"] = 1;
     slot["PatientID"] = "";
     slot["PatientName"] = "Free";
-    slot["DoctorID"] = "001";
-    slot["DoctorName"] = "Dr. Aneel J";
-    slot["Status"] = 0;
 
     if (cnt == 5) {
       slot["PatientName"] = "Divyesh T";
