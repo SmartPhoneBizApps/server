@@ -37,15 +37,23 @@ exports.appointmentsGet = asyncHandler(async (req, res, next) => {
   drendTime = new Date(req.params.date);
   // Find Day
   day1 = startTime.getDay();
+  console.log(day1);
 
   for (let a = 0; a < appSchedule["Chairs"].length; a++) {
-    BeginTime = appSchedule["Chairs"][a][req.params.chr][day1]["BeginTime"];
-    CloseTime = appSchedule["Chairs"][a][req.params.chr][day1]["CloseTime"];
-    SlotLen = appSchedule["Chairs"][a][req.params.chr][day1]["SlotLen"];
-    startTime.setMinutes(BeginTime.split(":")[1]);
-    startTime.setHours(BeginTime.split(":")[0]);
-    endTime.setMinutes(CloseTime.split(":")[1]);
-    endTime.setHours(CloseTime.split(":")[0]);
+    for (const key in appSchedule["Chairs"][a]) {
+      //     console.log("AG", appSchedule["Chairs"][a][key]);
+      if (key == req.params.chr) {
+        console.log("AG", key);
+        console.log("AG", appSchedule["Chairs"][a][key]);
+        BeginTime = appSchedule["Chairs"][a][key][day1]["BeginTime"];
+        CloseTime = appSchedule["Chairs"][a][key][day1]["CloseTime"];
+        SlotLen = Number(appSchedule["Chairs"][a][key][day1]["SlotLen"]);
+        startTime.setMinutes(BeginTime.split(":")[1]);
+        startTime.setHours(BeginTime.split(":")[0]);
+        endTime.setMinutes(CloseTime.split(":")[1]);
+        endTime.setHours(CloseTime.split(":")[0]);
+      }
+    }
   }
   for (let a = 0; a < drSchedule["Chairs"].length; a++) {
     drSch = drSchedule["Chairs"][a][req.params.chr][day1];
@@ -66,7 +74,7 @@ exports.appointmentsGet = asyncHandler(async (req, res, next) => {
   let cnt = 0;
   while (startTime < endTime) {
     scStart = startTime;
-    scEnd = startTime.setMinutes(startTime.getMinutes() + SlotLen);
+    scEnd = startTime.setMinutes(startTime.getMinutes() + 5);
 
     for (let p = 0; p < drSch.length; p++) {
       const ep = drSch[p];
@@ -76,7 +84,7 @@ exports.appointmentsGet = asyncHandler(async (req, res, next) => {
       drstartTime.setHours(drBeginTime.split(":")[0]);
       drendTime.setMinutes(drCloseTime.split(":")[1]);
       drendTime.setHours(drCloseTime.split(":")[0]);
-      console.log(drstartTime, drendTime, drSch[p]["DoctorName"]);
+      //  console.log(drstartTime, drendTime, drSch[p]["DoctorName"]);
       if (startTime >= drstartTime && startTime <= drendTime) {
         slot["DoctorID"] = drSch[p]["DoctorID"];
         slot["DoctorName"] = drSch[p]["DoctorName"];
