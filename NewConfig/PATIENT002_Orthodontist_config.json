@@ -1,7 +1,7 @@
 {
   "Title": {
-    "ApplicationTitle": "App Name - XXX",
-    "DetailTitle": "App Details - XXX"
+    "ApplicationTitle": "Patient Appointments",
+    "DetailTitle": "Patient Appointments"
   },
   "Controls": {
     "USP": "UserProfile",
@@ -74,7 +74,110 @@
     },
 
     { "type": "ADD", "name": "Add Record", "icon": "sap-icon://add" },
-    { "type": "UPLOAD", "name": "Upload Record", "icon": "sap-icon://upload" }
+    { "type": "UPLOAD", "name": "Upload Record", "icon": "sap-icon://upload" },
+    {
+      "type": "BOOKAPPOINT",
+      "name": "Book Appointment",
+      "icon": "sap-icon://upload",
+      "displayURL": "smartApp/appointmentsGet/{date}/{chair}",
+      "Token": "Yes",
+      "URLMethod": "GET",
+      "displayFields": [
+        "ChairID",
+        "Date",
+        "Time",
+        "SlotLength",
+        "PatientID",
+        "PatientName",
+        "DoctorID",
+        "DoctorName",
+        "Comments"
+      ],
+      "createButton": [
+        {
+          "type": "ADDTRAINING",
+          "name": "Book Appointment",
+          "icon": "sap-icon://share-2",
+          "Dialog": [
+            { "label": "Patient ID", "name": "PatientID", "type": "string" },
+            {
+              "label": "Patient Name",
+              "name": "PatientName",
+              "type": "string"
+            },
+            { "label": "DOB", "name": "DOB", "type": "Date" }
+          ],
+          "tableField": "",
+          "listFields": ["PatientID", "PatientName", "DOB"],
+          "transferFields": ["PatientID", "PatientName"],
+          "SearchURL": "listrecordsnew/Web/PATIENT001/TrainingTeam{filter}",
+          "URL": "util/assignCourseUser/PATIENT001/PATIENT002/{PatientID}/{Date}/{Time}",
+          "Token": "Yes",
+          "URLMethod": "POST",
+          "FieldMapping": {
+            "PatientID": "PatientID",
+            "PatientName": "PatientName"
+          }
+        }
+      ],
+      "displayButton": ["AMEND", "CANCEL"],
+      "appointmentStatus": [
+        {
+          "Status": 0,
+          "StatusCode": "Free",
+          "Color": "Green",
+          "Filled": false
+        },
+        {
+          "Status": 1,
+          "StatusCode": "Booked",
+          "Color": "Red",
+          "Filled": false
+        },
+        {
+          "Status": 2,
+          "StatusCode": "Break-NotWorking",
+          "Color": "Blue",
+          "Filled": true
+        },
+        {
+          "Status": 3,
+          "StatusCode": "Completed",
+          "Color": "Blue",
+          "Filled": false
+        },
+        {
+          "Status": 4,
+          "StatusCode": "InWitingRoom-CheckedIn",
+          "Color": "Amber",
+          "Filled": true
+        },
+        {
+          "Status": 5,
+          "StatusCode": "InProgress",
+          "Color": "Amber",
+          "Filled": false
+        },
+        {
+          "Status": 6,
+          "StatusCode": "Cancelled",
+          "Color": "Green",
+          "Filled": true
+        },
+        {
+          "Status": 7,
+          "StatusCode": "NoShow",
+          "Color": "Red",
+          "Filled": true
+        },
+        {
+          "Status": 8,
+          "StatusCode": "Requested",
+          "Color": "Black",
+          "Filled": false
+        }
+      ]
+    }
   ],
   "DButtons": [
     {
@@ -114,7 +217,8 @@
       "PatientID",
       "PatientName",
       "DoctorID",
-      "DoctorName"
+      "DoctorName",
+      "Comments"
     ]
   },
 
@@ -131,11 +235,20 @@
     {
       "name": "ChairID",
       "type": "string",
-      "width": "500",
+      "width": "100",
       "Option": "Optional",
       "SLabel": "Chair ID",
       "LLabel": "Chair ID"
     },
+    {
+      "name": "Comments",
+      "type": "string",
+      "width": "500",
+      "Option": "Optional",
+      "SLabel": "Comments",
+      "LLabel": "Comments"
+    },
+
     {
       "name": "Date",
       "type": "Date",
