@@ -47,7 +47,7 @@ exports.appointmentsGet = asyncHandler(async (req, res, next) => {
         console.log("AG", appSchedule["Chairs"][a][key]);
         BeginTime = appSchedule["Chairs"][a][key][day1]["BeginTime"];
         CloseTime = appSchedule["Chairs"][a][key][day1]["CloseTime"];
-        SlotLen = Number(appSchedule["Chairs"][a][key][day1]["SlotLen"]);
+        SlotLen = appSchedule["Chairs"][a][key]["SlotLen"];
         startTime.setMinutes(BeginTime.split(":")[1]);
         startTime.setHours(BeginTime.split(":")[0]);
         endTime.setMinutes(CloseTime.split(":")[1]);
@@ -74,7 +74,9 @@ exports.appointmentsGet = asyncHandler(async (req, res, next) => {
   let cnt = 0;
   while (startTime < endTime) {
     scStart = startTime;
-    scEnd = startTime.setMinutes(startTime.getMinutes() + 5);
+    console.log(SlotLen);
+
+    scEnd = startTime.setMinutes(startTime.getMinutes() + SlotLen);
 
     for (let p = 0; p < drSch.length; p++) {
       const ep = drSch[p];
