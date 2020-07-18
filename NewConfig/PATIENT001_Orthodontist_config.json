@@ -137,7 +137,63 @@
           }
         }
       ],
-      "displayButton": ["AMEND", "CANCEL"]
+      "displayButton": ["AMEND", "CANCEL"],
+      "appointmentStatus": [
+        {
+          "Status": 0,
+          "StatusCode": "Free",
+          "Color": "Green",
+          "Filled": false
+        },
+        {
+          "Status": 1,
+          "StatusCode": "Booked",
+          "Color": "Red",
+          "Filled": false
+        },
+        {
+          "Status": 2,
+          "StatusCode": "Break-NotWorking",
+          "Color": "Blue",
+          "Filled": true
+        },
+        {
+          "Status": 3,
+          "StatusCode": "Completed",
+          "Color": "Blue",
+          "Filled": false
+        },
+        {
+          "Status": 4,
+          "StatusCode": "InWitingRoom-CheckedIn",
+          "Color": "Amber",
+          "Filled": true
+        },
+        {
+          "Status": 5,
+          "StatusCode": "InProgress",
+          "Color": "Amber",
+          "Filled": false
+        },
+        {
+          "Status": 6,
+          "StatusCode": "Cancelled",
+          "Color": "Green",
+          "Filled": true
+        },
+        {
+          "Status": 7,
+          "StatusCode": "NoShow",
+          "Color": "Red",
+          "Filled": true
+        },
+        {
+          "Status": 8,
+          "StatusCode": "Requested",
+          "Color": "Black",
+          "Filled": false
+        }
+      ]
     }
   ],
   "DButtons": [

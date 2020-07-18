@@ -80,8 +80,10 @@ exports.appointmentsGet = asyncHandler(async (req, res, next) => {
         slot["DoctorName"] = drSch[p]["DoctorName"];
         if (drSch[p]["BusinessStatus"] == "Break") {
           slot["Status"] = 2;
+          slot["PatientName"] = "Break";
         } else {
           slot["Status"] = 0;
+          slot["PatientName"] = "Free";
         }
       }
     }
@@ -102,7 +104,6 @@ exports.appointmentsGet = asyncHandler(async (req, res, next) => {
     slot["Time"] = slotStart + " - " + endSlot;
     slot["SlotLength"] = 1;
     slot["PatientID"] = "";
-    slot["PatientName"] = "Free";
 
     if (cnt == 5) {
       slot["PatientName"] = "Divyesh T";

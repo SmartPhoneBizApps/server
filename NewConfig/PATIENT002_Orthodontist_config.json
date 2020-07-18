@@ -1,14 +1,14 @@
 {
   "Title": {
-    "ApplicationTitle": "Patient Appointments",
-    "DetailTitle": "Patient Appointments"
+    "ApplicationTitle": "App Name - XXX",
+    "DetailTitle": "App Details - XXX"
   },
   "Controls": {
     "USP": "UserProfile",
     "SearchString": { "Search": false },
     "Filters": [],
     "Partner": "@user",
-    "UserSpecific": "Yes",
+    "UserSpecific": "No",
     "Update": "Yes",
     "URL": "https://fierce-oasis-51455.herokuapp.com",
     "Source": { "SourceName": "mongoDB", "SourceFile": "NA" },
@@ -17,20 +17,44 @@
       "header": ["Status"]
     }
   },
-
+  "dataFilter": [
+    { "field": "Status" },
+    { "field": "ChairID" },
+    { "field": "Date" },
+    { "field": "Time" },
+    { "field": "SlotLength" },
+    { "field": "PatientID" },
+    { "field": "PatientName" },
+    { "field": "DoctorID" },
+    { "field": "DoctorName" }
+  ],
+  "filterFieldSource": {
+    "header": [
+      "Status",
+      "ChairID",
+      "Date",
+      "Time",
+      "SlotLength",
+      "PatientID",
+      "PatientName",
+      "DoctorID",
+      "DoctorName"
+    ]
+  },
   "ListFields": {
-    "IntroField": "XXX",
-    "TitleField": "XXX",
+    "IntroField": "Date",
+    "TitleField": "Time",
+    "sStatus": "PatientName",
     "fStatus": "Status",
-    "LFields": ["XXX"]
+    "LFields": ["DoctorID", "DoctorName", "PatientID", "SlotLength", "ChairID"]
   },
   "ListBOTFields": {
     "None": ["cardImage", "StatusState"],
-    "Title": ["XXX"],
-    "SubTitle": ["XXX"],
-    "Description": ["XXX"]
+    "Title": ["Date", "Time"],
+    "SubTitle": ["PatientName", "DoctorName"],
+    "Description": ["DoctorID", "Status", "PatientID", "SlotLength", "ChairID"]
   },
-  "PossibleValues": ["XXX"],
+  "PossibleValues": [],
   "MButtons": [
     {
       "type": "DOWNLOAD",
@@ -72,34 +96,28 @@
     {
       "value": "Tab1",
       "update": "Yes",
-      "name": "XXX",
+      "name": "Appointment Details",
       "type": "Field",
       "fioriicon": "work-history"
-    },
-    {
-      "value": "Tab2",
-      "update": "Yes",
-      "name": "Attachments",
-      "type": "MultiAttachments",
-      "fioriicon": "contacts"
-    },
-    {
-      "value": "Tab4",
-      "update": "Yes",
-      "name": "Certifications",
-      "type": "carouselImage",
-      "fioriicon": "contacts"
     }
   ],
   "DetailFields": {
     "headerTitle": ["USP_Name"],
     "headerRole": ["USP_Role"],
     "headerImage": ["USP_Image"],
-    "None": ["XXX", "Status"],
-    "Tab1": ["ID", "XXX"],
-    "Tab2": ["MultiAttachments"],
-    "Tab4": ["carouselImage"]
+    "None": ["ID", "Status"],
+    "Tab1": [
+      "ChairID",
+      "Date",
+      "Time",
+      "SlotLength",
+      "PatientID",
+      "PatientName",
+      "DoctorID",
+      "DoctorName"
+    ]
   },
+
   "ControlDisplay": {},
   "FieldDef": [
     {
@@ -111,12 +129,69 @@
       "LLabel": ""
     },
     {
-      "name": "XXX",
+      "name": "ChairID",
       "type": "string",
       "width": "500",
       "Option": "Optional",
-      "SLabel": "Job Title",
-      "LLabel": "Job Title"
+      "SLabel": "Chair ID",
+      "LLabel": "Chair ID"
+    },
+    {
+      "name": "Date",
+      "type": "Date",
+      "width": "200",
+      "Option": "Mandatory",
+      "SLabel": "Date",
+      "LLabel": "Date"
+    },
+    {
+      "name": "Time",
+      "type": "string",
+      "width": "200",
+      "Option": "Mandatory",
+      "SLabel": "Time",
+      "LLabel": "Time"
+    },
+    {
+      "name": "SlotLength",
+      "type": "string",
+      "width": "200",
+      "Option": "Mandatory",
+      "SLabel": "Slot Length",
+      "LLabel": "Slot Length"
+    },
+    {
+      "name": "PatientID",
+      "type": "string",
+      "width": "200",
+      "Option": "Mandatory",
+      "SLabel": "Patient ID",
+      "LLabel": "Patient ID"
+    },
+
+    {
+      "name": "PatientName",
+      "type": "string",
+      "width": "200",
+      "Option": "Mandatory",
+      "SLabel": "Patient Name",
+      "LLabel": "Patient Name"
+    },
+    {
+      "name": "DoctorID",
+      "type": "string",
+      "width": "200",
+      "Option": "Mandatory",
+      "SLabel": "Doctor ID",
+      "LLabel": "Doctor ID"
+    },
+    {
+      "name": "DoctorName",
+      "type": "string",
+      "width": "200",
+      "Option": "Mandatory",
+      "SLabel": "Doctor Name",
+      "LLabel": "Doctor Name"
     },
     {
       "name": "Status",
