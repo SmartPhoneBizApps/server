@@ -62,31 +62,120 @@
     { "type": "ADD", "name": "Add Record", "icon": "sap-icon://add" },
     { "type": "UPLOAD", "name": "Upload Record", "icon": "sap-icon://upload" },
     {
-      "type": "CALENDAR",
-      "name": "View Calendar",
+      "type": "BOOKAPPOINT",
+      "name": "Book Appointment",
       "icon": "sap-icon://upload",
-      "displayURL": "smartApp/calendarData/TRAIN008",
+      "displayURL": "smartApp/appointmentsGet?Date={date}&ChairID={chair}",
       "Token": "Yes",
       "URLMethod": "GET",
-      "calendarConfig": {
-        "type": "Group",
-        "icon": "Group",
-        "add": false,
-        "edit": false,
-        "defaultView": "Hours",
-        "appDisplay": {
-          "button": true,
-          "buttons": [
+      "displayFields": [
+        "ChairID",
+        "Date",
+        "Time",
+        "SlotLength",
+        "PatientID",
+        "PatientName",
+        "DoctorID",
+        "DoctorName",
+        "Comments"
+      ],
+      "createButton": [
+        {
+          "type": "ADDTRAINING",
+          "name": "Book Appointment",
+          "icon": "sap-icon://share-2",
+          "Dialog": [
+            { "label": "Patient ID", "name": "PatientID", "type": "string" },
             {
-              "type": "BOOK",
-              "name": "Book Training",
-              "URL": "util/addCourseCatalog/TRAIN008/TRAIN009/{ID}/TrainingTeam/calendar/{ItemNumber}/{userEmail}",
-              "Token": "Yes",
-              "URLMethod": "POST"
-            }
-          ]
+              "label": "Patient Name",
+              "name": "PatientName",
+              "type": "string"
+            },
+            { "label": "DOB", "name": "DOB", "type": "Date" }
+          ],
+          "SearchURL": "listrecordsnew/Web/PATIENT001/Orthodontist{filter}",
+          "tableField": "",
+          "listFields": ["PatientID", "PatientName", "DOB"],
+          "listConfirmation": ["SlotLength"],
+          "transferFields": [
+            "ID",
+            "PatientID",
+            "PatientName",
+            "DoctorID",
+            "DoctorName",
+            "Time",
+            "Date",
+            "SlotLength",
+            "Status"
+          ],
+
+          "URL": "datarecords/",
+          "Token": "Yes",
+          "URLMethod": "POST",
+          "targetApp": "PATIENT002",
+          "FieldMapping": {
+            "PatientID": "PatientID",
+            "PatientName": "PatientName"
+          }
         }
-      }
+      ],
+      "displayButton": ["AMEND", "CANCEL"],
+      "appointmentStatus": [
+        {
+          "Status": 0,
+          "StatusCode": "Free",
+          "Color": "Green",
+          "Filled": false
+        },
+        {
+          "Status": 1,
+          "StatusCode": "Booked",
+          "Color": "Red",
+          "Filled": false
+        },
+        {
+          "Status": 2,
+          "StatusCode": "Break-NotWorking",
+          "Color": "Blue",
+          "Filled": true
+        },
+        {
+          "Status": 3,
+          "StatusCode": "Completed",
+          "Color": "Blue",
+          "Filled": false
+        },
+        {
+          "Status": 4,
+          "StatusCode": "InWitingRoom-CheckedIn",
+          "Color": "Amber",
+          "Filled": true
+        },
+        {
+          "Status": 5,
+          "StatusCode": "InProgress",
+          "Color": "Amber",
+          "Filled": false
+        },
+        {
+          "Status": 6,
+          "StatusCode": "Cancelled",
+          "Color": "Green",
+          "Filled": true
+        },
+        {
+          "Status": 7,
+          "StatusCode": "NoShow",
+          "Color": "Red",
+          "Filled": true
+        },
+        {
+          "Status": 8,
+          "StatusCode": "Requested",
+          "Color": "Black",
+          "Filled": false
+        }
+      ]
     }
   ],
   "DButtons": [

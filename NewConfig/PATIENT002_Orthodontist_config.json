@@ -107,11 +107,22 @@
             },
             { "label": "DOB", "name": "DOB", "type": "Date" }
           ],
+          "SearchURL": "listrecordsnew/Web/PATIENT001/Orthodontist{filter}",
           "tableField": "",
           "listFields": ["PatientID", "PatientName", "DOB"],
-          "transferFields": ["PatientID", "PatientName"],
-          "SearchURL": "listrecordsnew/Web/PATIENT001/TrainingTeam{filter}",
-          "URL": "util/assignCourseUser/PATIENT001/PATIENT002/{PatientID}/{Date}/{Time}",
+          "transferFields": [
+            "ID",
+            "PatientID",
+            "PatientName",
+            "DoctorID",
+            "DoctorName",
+            "Time",
+            "Date",
+            "SlotLength",
+            "Status"
+          ],
+
+          "URL": "datarecords/",
           "Token": "Yes",
           "URLMethod": "POST",
           "FieldMapping": {
