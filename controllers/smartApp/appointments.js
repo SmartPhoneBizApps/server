@@ -61,6 +61,7 @@ exports.appointmentsGet = asyncHandler(async (req, res, next) => {
     for (const key in appSchedule["Chairs"][a]) {
       //     console.log("AG", appSchedule["Chairs"][a][key]);
       if (key == req.query.ChairID) {
+        console.log("AA", appSchedule["Chairs"][a][key]);
         console.log("AG", key);
         console.log("AG", appSchedule["Chairs"][a][key]);
         BeginTime = appSchedule["Chairs"][a][key][day1]["BeginTime"];
