@@ -38,7 +38,7 @@ exports.appointmentsGet = asyncHandler(async (req, res, next) => {
   let query = readData(req.headers.applicationid, req, config1);
   let results = await query;
   // console.log(results);
-
+  console.log("App:", results);
   slot = {};
   let drSch = [];
   let SlotLen = 0;
@@ -49,6 +49,7 @@ exports.appointmentsGet = asyncHandler(async (req, res, next) => {
   let fn2 = "../../NewConfig/appointmentDoctors.json";
   var drSchedule = require(fn2);
   // Appointment Date
+  outDate = new Date(req.query.Date);
   startTime = new Date(req.query.Date);
   endTime = new Date(req.query.Date);
   drstartTime = new Date(req.query.Date);
@@ -128,7 +129,7 @@ exports.appointmentsGet = asyncHandler(async (req, res, next) => {
     endSlot = stHrs + ":" + stMin;
     slot["ID"] = cnt;
     slot["ChairID"] = req.query.ChairID;
-    slot["Date"] = startTime;
+    slot["Date"] = outDate;
     slot["Time"] = slotStart + "-" + endSlot;
     slot["SlotLength"] = 1;
     slot["PatientID"] = "";
