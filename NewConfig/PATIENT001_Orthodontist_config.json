@@ -155,6 +155,7 @@
           "listConfirmation": ["SlotLength"],
           "transferFields": [
             "ID",
+            "ChairID",
             "PatientID",
             "PatientName",
             "DoctorID",
@@ -171,7 +172,8 @@
           "targetApp": "PATIENT002",
           "FieldMapping": {
             "PatientID": "PatientID",
-            "PatientName": "PatientName"
+            "PatientName": "PatientName",
+            "Status": 1
           }
         }
       ],
