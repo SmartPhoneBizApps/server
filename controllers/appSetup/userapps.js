@@ -5,6 +5,7 @@ const Approle = require("../../models/appSetup/Approle");
 const Role = require("../../models/appSetup/Role");
 const User = require("../../models/access/User");
 const App = require("../../models/appSetup/App");
+const { readData, getTotalCount, nConfig } = require("../../modules/config2");
 
 // @desc      Get all approles
 // @route     GET /api/v1/userapps
@@ -113,7 +114,24 @@ exports.getUserapps = asyncHandler(async (req, res, next) => {
         appTemp["footer"] = "";
         appTemp["userSpecific"] = approleX.Apps[j].userSpecific;
         appTemp["applicationID"] = approleX.Apps[j].applicationID;
-        appTemp["count"] = 10;
+        /////////////////////////
+        let fn1 =
+          "../../NewConfig/" +
+          approleX.Apps[j].applicationID +
+          "_" +
+          approleX.role +
+          "_config.json";
+        var config1 = require(fn1);
+        // Get total Count
+        let query_c = getTotalCount(
+          approleX.Apps[j].applicationID,
+          req,
+          config1
+        );
+        let rec = await query_c;
+        let count = rec.length;
+        appTemp["count"] = count;
+        /////////////////////////
         appTemp["tileType"] = "MasterDetail";
         tile[j + 1] = { ...appTemp };
       }

@@ -174,7 +174,11 @@
   "InvoiceDate": {
     "type": "Date",
     "required": [true, "Please add Mandatory field :InvoiceDate"],
-    "maxlength": [10, "InvoiceDate can not be more than 10 characters"]
+    "maxlength": [10, "InvoiceDate can not be more than 10 characters"],
+    "match": [
+      "DATE_V1",
+      "Please provide date in YYYY-MM-DD format for field :InvoiceDate"
+    ]
   },
   "NetValue": {
     "type": "Number",
@@ -248,7 +252,9 @@
       "Please provide date in YYYY-MM-DD format for field :EventStartDate"
     ]
   },
-
+  "cardImage": {
+    "type": "String"
+  },
   "USP_Name": { "type": "String" },
   "USP_Role": { "type": "String" },
   "USP_Image": { "type": "String" },
