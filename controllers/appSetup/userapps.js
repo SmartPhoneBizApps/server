@@ -113,6 +113,7 @@ exports.getUserapps = asyncHandler(async (req, res, next) => {
         appTemp["footer"] = "";
         appTemp["userSpecific"] = approleX.Apps[j].userSpecific;
         appTemp["applicationID"] = approleX.Apps[j].applicationID;
+        appTemp["count"] = 10;
         appTemp["tileType"] = "MasterDetail";
         tile[j + 1] = { ...appTemp };
       }
