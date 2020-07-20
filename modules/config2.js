@@ -123,6 +123,42 @@ module.exports = {
     }
     let query;
     const reqQuery1 = { ...req.query };
+    // Filters...
+    if (reqQuery1) {
+      reqQuery1["company"] = req.user.company;
+    }
+    /// Initial values..
+    var ivalue = getInitialValues(
+      req.params.id,
+      req.headers.businessrole,
+      req.user
+    );
+    // Filters
+    for (let x = 0; x < config1.Controls.Filters.length; x++) {
+      for (const key in config1.Controls.Filters[x]) {
+        if (config1.Controls.Filters[x].hasOwnProperty(key)) {
+          switch (config1.Controls.Filters[x][key]) {
+            case "@user":
+              reqQuery1[key] = req.user.email;
+              break;
+            case "@CostCentre":
+              for (let y = 0; y < ivalue.length; y++) {
+                for (const key in ivalue[y]) {
+                  if (ivalue[y]["Field"] == "CostCentre") {
+                    reqQuery1["CostCentre"] = ivalue[y]["Value"];
+                  }
+                }
+              }
+              break;
+
+            //     Status=ne|Complete
+            default:
+              reqQuery1[key] = config1.Controls.Filters[x][key];
+              break;
+          }
+        }
+      }
+    }
     const removeFields = ["select", "sort", "page", "limit"];
     removeFields.forEach((param) => delete reqQuery1[param]);
     reqQuery2 = {};
