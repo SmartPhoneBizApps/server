@@ -162,8 +162,8 @@ app.use(
   require("./routes/smartApp/appointmentsGet")
 );
 app.use(
-  "/api/v1/smartApp/appointmentsGenerate",
-  require("./routes/smartApp/appointmentsGenerate")
+  "/api/v1/smartApp/tilecountGet",
+  require("./routes/smartApp/tilecountGet")
 );
 
 app.use("/api/v1/util/possval", require("./routes/utilities/possVals"));

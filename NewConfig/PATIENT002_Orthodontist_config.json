@@ -110,6 +110,7 @@
           "SearchURL": "listrecordsnew/Web/PATIENT001/Orthodontist{filter}",
           "tableField": "",
           "listFields": ["PatientID", "PatientName", "DOB"],
+          "listConfirmation": ["SlotLength"],
           "transferFields": [
             "ID",
             "PatientID",
@@ -125,6 +126,7 @@
           "URL": "datarecords/",
           "Token": "Yes",
           "URLMethod": "POST",
+          "targetApp": "PATIENT002",
           "FieldMapping": {
             "PatientID": "PatientID",
             "PatientName": "PatientName"

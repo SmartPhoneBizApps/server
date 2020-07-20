@@ -24,13 +24,13 @@
     "sStatus": "PatientStatus",
     "fStatus": "Status",
     "numberField": "",
-    "LFields": ["FirstName", "LastName"],
+    "LFields": ["PatientName"],
     "numberUnitField": ""
   },
   "ListBOTFields": {
     "None": ["cardImage", "StatusState"],
-    "Title": ["LastName"],
-    "SubTitle": ["FirstName", "Email", "NHSNumber", "PatientStatus"],
+    "Title": ["PatientName"],
+    "SubTitle": ["Email", "NHSNumber", "PatientStatus"],
     "Description": ["ID", "Status", "PostCode", "PatientGroup"]
   },
   "PossibleValues": [
@@ -113,7 +113,7 @@
       ],
       "createButton": [
         {
-          "type": "ADDTRAINING",
+          "type": "ADDTRAINING01",
           "name": "Book Appointment",
           "icon": "sap-icon://share-2",
           "Dialog": [
@@ -123,11 +123,31 @@
               "name": "PatientName",
               "type": "string"
             },
+            {
+              "label": "First Name",
+              "name": "FirstName",
+              "type": "string"
+            },
+            {
+              "label": "Patient Name",
+              "name": "PatientName",
+              "type": "string"
+            },
+            {
+              "label": "Last Name",
+              "name": "LastName",
+              "type": "string"
+            },
+            {
+              "label": "NHS Number",
+              "name": "NHSNumber",
+              "type": "string"
+            },
             { "label": "DOB", "name": "DOB", "type": "Date" }
           ],
           "SearchURL": "listrecordsnew/Web/PATIENT001/Orthodontist{filter}",
           "tableField": "",
-          "listFields": ["PatientID", "PatientName", "DOB"],
+          "listFields": ["PatientID", "PatientName", "DOB", "NHSNumber"],
           "listConfirmation": ["SlotLength"],
           "transferFields": [
             "ID",
@@ -377,6 +397,7 @@
       "PatientID",
       "NHSNumber",
       "FirstName",
+      "PatientName",
       "LastName",
       "PatientGroup",
       "PatientType",
@@ -541,6 +562,14 @@
       "Option": "Mandatory",
       "SLabel": "First Name",
       "LLabel": "First Name"
+    },
+    {
+      "name": "PatientName",
+      "type": "string",
+      "width": "20",
+      "Option": "Mandatory",
+      "SLabel": "Patient Name",
+      "LLabel": "Patient Name"
     },
     {
       "name": "LastName",
@@ -2007,6 +2036,7 @@
       "id": "Step1",
       "fields": [
         { "name": "FirstName", "Mode": "Edit" },
+        { "name": "PatientName", "Mode": "Edit" },
         { "name": "LastName", "Mode": "Edit" },
         { "name": "Gender", "Mode": "Edit" },
         { "name": "NHSNumber", "Mode": "Edit" },
