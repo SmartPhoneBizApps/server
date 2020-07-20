@@ -103,7 +103,7 @@
           "name": "Book Appointment",
           "icon": "sap-icon://share-2",
           "Dialog": [
-            { "label": "Patient ID", "name": "PatientID", "type": "string" },
+            { "label": "Patient ID", "name": "ID", "type": "string" },
             {
               "label": "Patient Name",
               "name": "PatientName",
@@ -130,9 +130,10 @@
           "URL": "datarecords/",
           "Token": "Yes",
           "URLMethod": "POST",
+          "mode": "Create",
           "targetApp": "PATIENT002",
           "FieldMapping": {
-            "PatientID": "PatientID",
+            "PatientID": "ID",
             "PatientName": "PatientName"
           }
         }
