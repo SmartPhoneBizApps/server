@@ -18,11 +18,15 @@
 
   "FirstName": {
     "type": "String",
-    "maxlength": [20, "FirstName can not be more than 20"]
+    "maxlength": [200, "FirstName can not be more than 20"]
   },
   "LastName": {
     "type": "String",
-    "maxlength": [20, "LastName can not be more than 20"]
+    "maxlength": [200, "LastName can not be more than 20"]
+  },
+  "PatientName": {
+    "type": "String",
+    "maxlength": [100, "LastName can not be more than 100"]
   },
   "Gender": {
     "type": "String",
@@ -368,7 +372,7 @@
   "carouselImage": [],
   "MultiAttachments": {},
   "TransLog": [],
-    "ProgressComment": [],
+  "ProgressComment": [],
   "SearchString": {
     "type": "String",
     "maxlength": [500, "ContactName can not be more than 500 characters"]
