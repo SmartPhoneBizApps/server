@@ -430,11 +430,6 @@ module.exports = {
   getPVConfig: function (a, b) {
     // Read Create Map Config
     // These are converted old XML files from smartapp
-
-    /*     const newPv = "../PossibleValues/" + a + "_" + b + "_pv.json";
-    var pvconfig1 = require(newPv);
-    return pvconfig1; */
-
     const newPv = "../NewConfig/" + a + "_" + b + "_config.json";
     var pvconfig1 = require(newPv);
     return pvconfig1["PossibleValues"];
@@ -457,6 +452,21 @@ module.exports = {
     query = query.select(fields);
     return query;
   },
+
+  getPVField: function (a, b) {
+    const fields = "PossibleValues Value Description ColorSAP Score EditLock";
+    let query;
+    query = Possval.find(
+      {
+        PossibleValues: b,
+        ApplicationID: a,
+      },
+      { _id: 0 }
+    );
+    query = query.select(fields);
+    return query;
+  },
+
   getButtonData: function (results, app, role1) {
     buttonData = {};
     if (app == "SUPP00028" || app == "SUPP00018") {

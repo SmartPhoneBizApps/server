@@ -5,6 +5,7 @@ const {
   getInitialValues,
   getDateValues,
   findOneApp,
+  getPVField,
 } = require("../../modules/config");
 const { readData, getTotalCount, nConfig } = require("../../modules/config2");
 const asyncHandler = require("../../middleware/async");
@@ -31,6 +32,10 @@ exports.getListrecords1 = asyncHandler(async (req, res, next) => {
     pvconfig1
   );
   let resPV = await qPV;
+
+  /// Possible values for Status..
+  sPV = getPVField(req.headers.applicationid, "Status");
+  let statusPV = await sPV;
 
   /// Initial values..
   var ivalue = getInitialValues(
@@ -127,6 +132,7 @@ exports.getListrecords1 = asyncHandler(async (req, res, next) => {
       res.status(200).json({
         outData,
         possibleValues: resPV,
+        statusValues: statusPV,
         defaultValues: ival_out,
       });
     } else {
@@ -281,6 +287,7 @@ exports.getListrecords1 = asyncHandler(async (req, res, next) => {
       res.status(200).json({
         outData,
         possibleValues: resPV,
+        statusValues: statusPV,
         defaultValues: ival_out,
       });
     }
