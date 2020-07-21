@@ -139,6 +139,7 @@ exports.appointmentsGet = asyncHandler(async (req, res, next) => {
       console.log(results[k]["Time"], slot["Time"]);
       if (results[k]["Time"] == slot["Time"]) {
         slot["PatientID"] = results[k]["PatientID"];
+        slot["ID"] = results[k]["ID"];
         slot["PatientName"] = results[k]["PatientName"];
         slot["Status"] = results[k]["Status"];
         console.log(slot["PatientID"]);
