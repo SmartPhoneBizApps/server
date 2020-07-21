@@ -83,6 +83,7 @@
       "Token": "Yes",
       "URLMethod": "GET",
       "displayFields": [
+        "ID",
         "ChairID",
         "Date",
         "Time",
@@ -109,11 +110,16 @@
               "name": "PatientName",
               "type": "string"
             },
-            { "label": "DOB", "name": "DOB", "type": "Date" }
+            { "label": "DOB", "name": "DOB", "type": "Date" },
+            {
+              "label": "NHS Number",
+              "name": "NHSNumber",
+              "type": "string"
+            }
           ],
           "SearchURL": "listrecordsnew/Web/PATIENT001/Orthodontist{filter}",
           "tableField": "",
-          "listFields": ["PatientID", "PatientName", "DOB"],
+          "listFields": ["ID", "PatientName", "DOB", "NHSNumber", "PostCode"],
           "listConfirmation": ["SlotLength"],
           "transferFields": [
             "ID",
@@ -152,7 +158,19 @@
             { "Status": 2, "Button": "NotWorking" },
             { "Status": 8, "Button": "Requested" }
           ],
-          "transferFields": ["ID", "Comments", "Status"],
+          "transferFields": [
+            "ID",
+            "Comments",
+            "Status",
+            "ChairID",
+            "PatientID",
+            "PatientName",
+            "DoctorID",
+            "DoctorName",
+            "Time",
+            "Date"
+          ],
+
           "headers": [
             { "applicationid": "PATIENT002" },
             { "businessrole": "Orthodontist" }
