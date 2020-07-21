@@ -2,7 +2,7 @@
   "Title": { "ApplicationTitle": "Time Sheet", "DetailTitle": "Time Sheet" },
   "Controls": {
     "USP": "UserProfile",
-    "SearchString":{"Search":false},
+    "SearchString": { "Search": false },
     "Filters": [
       {
         "$and": [
@@ -16,13 +16,13 @@
     "UserSpecific": "Yes",
     "Update": "Yes",
     "URL": "https://fierce-oasis-51455.herokuapp.com",
-        "Source": { "SourceName": "mongoDB", "SourceFile": "NA" },
-       "dataFilter": [{ "field": "Status" }],
+    "Source": { "SourceName": "mongoDB", "SourceFile": "NA" },
+    "dataFilter": [{ "field": "Status" }],
     "filterFieldSource": {
       "header": ["Status"]
     }
   },
-  
+
   "ListFields": {
     "IntroField": "ID",
     "TitleField": "Name",
@@ -54,10 +54,7 @@
       "name": "Launch BOT",
       "icon": "sap-icon://travel-request",
       "URL": "https://www.messenger.com/t/295020207695029"
-    },
-
-    { "type": "ADD", "name": "Add Record", "icon": "sap-icon://add" },
-    { "type": "UPLOAD", "name": "Upload Record", "icon": "sap-icon://upload" }
+    }
   ],
   "DButtons": [
     {
@@ -363,7 +360,8 @@
       "Option": "Optional",
       "SLabel": "Attachments",
       "LLabel": "Attachments"
-    },    {
+    },
+    {
       "name": "SearchString",
       "type": "string",
       "width": "200",
