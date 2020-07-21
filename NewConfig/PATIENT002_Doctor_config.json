@@ -146,8 +146,7 @@
         {
           "Status": 0,
           "StatusCode": "Free",
-          "Color": "Green",
-          "Filled": false,
+          "Class": "Accept",
           "NextStatus": [
             { "Status": 1, "Button": "Book" },
             { "Status": 2, "Button": "NotWorking" },
@@ -166,8 +165,7 @@
         {
           "Status": 1,
           "StatusCode": "Book",
-          "Color": "Red",
-          "Filled": false,
+          "Class": "Reject",
           "NextStatus": [
             { "Status": 3, "Button": "Completed" },
             { "Status": 4, "Button": "CheckedIn" },
@@ -188,8 +186,7 @@
         {
           "Status": 2,
           "StatusCode": "NotWorking",
-          "Color": "Blue",
-          "Filled": true,
+          "Class": "Emphasized",
           "NextStatus": [{ "Status": 0, "Button": "Free" }],
           "headers": [
             { "applicationid": "PATIENT002" },
@@ -204,8 +201,7 @@
         {
           "Status": 3,
           "StatusCode": "Completed",
-          "Color": "Blue",
-          "Filled": false,
+          "Class": "Default",
           "NextStatus": [],
           "transferFields": ["ID", "Comments", "Status"],
           "headers": [
@@ -220,8 +216,7 @@
         {
           "Status": 4,
           "StatusCode": "CheckedIn",
-          "Color": "Amber",
-          "Filled": true,
+          "Class": "Critical",
           "NextStatus": [
             { "Status": 3, "Button": "Completed" },
             { "Status": 5, "Button": "InProgress" }
@@ -239,8 +234,7 @@
         {
           "Status": 5,
           "StatusCode": "InProgress",
-          "Color": "Amber",
-          "Filled": false,
+          "Class": "Ghost",
           "NextStatus": [{ "Status": 3, "Button": "Completed" }],
           "headers": [
             { "applicationid": "PATIENT002" },
@@ -255,8 +249,7 @@
         {
           "Status": 6,
           "StatusCode": "Cancelled",
-          "Color": "Green",
-          "Filled": true,
+          "Class": "Negative",
           "NextStatus": [{ "Status": 1, "Button": "Book" }],
           "headers": [
             { "applicationid": "PATIENT002" },
@@ -271,8 +264,7 @@
         {
           "Status": 7,
           "StatusCode": "NoShow",
-          "Color": "Red",
-          "Filled": true,
+          "Class": "Neutral",
           "NextStatus": [],
           "transferFields": ["ID", "Comments", "Status"],
           "headers": [
@@ -287,8 +279,7 @@
         {
           "Status": 8,
           "StatusCode": "Requested",
-          "Color": "Black",
-          "Filled": false,
+          "Class": "Success",
           "NextStatus": [{ "Status": 1, "Button": "Book" }],
           "headers": [
             { "applicationid": "PATIENT002" },
