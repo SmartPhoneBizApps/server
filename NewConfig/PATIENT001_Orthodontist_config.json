@@ -128,11 +128,21 @@
               "name": "PatientName",
               "type": "string"
             },
-            { "label": "DOB", "name": "DOB", "type": "Date" }
+            { "label": "DOB", "name": "DOB", "type": "Date" },
+            {
+              "label": "NHS Number",
+              "name": "NHSNumber",
+              "type": "string"
+            },
+            {
+              "label": "Post Code",
+              "name": "PostCode",
+              "type": "string"
+            }
           ],
           "SearchURL": "listrecordsnew/Web/PATIENT001/Orthodontist{filter}",
           "tableField": "",
-          "listFields": ["ID", "PatientName", "DOB"],
+          "listFields": ["ID", "PatientName", "DOB", "NHSNumber", "PostCode"],
           "listConfirmation": ["SlotLength"],
           "transferFields": [
             "ID",
