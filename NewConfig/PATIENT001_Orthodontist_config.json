@@ -170,7 +170,19 @@
             { "Status": 2, "Button": "NotWorking" },
             { "Status": 8, "Button": "Requested" }
           ],
-          "transferFields": ["ID", "Comments", "Status"],
+          "transferFields": [
+            "ID",
+            "Comments",
+            "Status",
+            "ChairID",
+            "PatientID",
+            "PatientName",
+            "DoctorID",
+            "DoctorName",
+            "Time",
+            "Date"
+          ],
+
           "headers": [
             { "applicationid": "PATIENT002" },
             { "businessrole": "Orthodontist" }

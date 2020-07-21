@@ -132,7 +132,7 @@ exports.appointmentsGet = asyncHandler(async (req, res, next) => {
     slot["ChairID"] = req.query.ChairID;
     slot["Date"] = outDate;
     slot["Time"] = slotStart + "-" + endSlot;
-    slot["SlotLength"] = 1;
+    slot["SlotLength"] = "";
     slot["PatientID"] = "";
 
     for (let k = 0; k < results.length; k++) {
