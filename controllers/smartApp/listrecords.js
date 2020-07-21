@@ -14,6 +14,9 @@ const advancedDataList = require("../../middleware/advancedDataList");
 // @route     GET /api/v1/listrecords
 // @access    Private
 exports.getListrecords1 = asyncHandler(async (req, res, next) => {
+  // Read Color Configuration
+  let fileNameColor = "../../config/colorConfig.json";
+  var colorConfig = require(fileNameColor);
   /// Application Details..
   const application = await findOneApp(req.params.id);
   let fn1 =
@@ -196,7 +199,7 @@ exports.getListrecords1 = asyncHandler(async (req, res, next) => {
         if (req.headers.mode !== "BOTList") {
           results[i1]["ItemData"] = results2;
         }
-
+        console.log(config1["Controls"]["StatusColor"]);
         results[i1].cardImage = application["photo"];
         if (req.headers.mode == "Web" || req.headers.mode == "web") {
           if (config1["Controls"]["USP"] == "UserProfile") {
@@ -204,6 +207,11 @@ exports.getListrecords1 = asyncHandler(async (req, res, next) => {
             results[i1].USP_Role = req.headers.businessrole;
             results[i1].USP_Image =
               "https://www.espncricinfo.com/inline/content/image/1183835.html?alt=1";
+          }
+          console.log(config1["Controls"]["StatusColor"]);
+          if (config1["Controls"]["StatusColor"] == "Yes") {
+            results[i1].StatusState =
+              colorConfig["Status"][results[i1]["Status"]];
           }
         }
       }
@@ -217,6 +225,17 @@ exports.getListrecords1 = asyncHandler(async (req, res, next) => {
             results[i1].USP_Role = req.headers.businessrole;
             results[i1].USP_Image =
               "https://www.espncricinfo.com/inline/content/image/1183835.html?alt=1";
+          }
+
+          if (config1["Controls"]["StatusColor"] == "Yes") {
+            if (colorConfig["Status"][results[i1]["Status"]] == undefined) {
+              results[i1]["StatusState"] = "None";
+            } else {
+              results[i1]["StatusState"] =
+                colorConfig["Status"][results[i1]["Status"]];
+            }
+
+            console.log(results[i1]["StatusState"]);
           }
           results[i1].SearchString = "";
           for (let l = 0; l < tabArr.length; l++) {

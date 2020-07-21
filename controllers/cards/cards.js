@@ -150,7 +150,7 @@ exports.adaptiveCard_card = async (req, res, next) => {
   let fileName = "../../cards/cardConfig/" + role + "_cardConfig.json";
   var cardConfig = require(fileName);
   // Read Color Configuration
-  let fileNameColor = "../../cards/cardConfig/colorConfig.json";
+  let fileNameColor = "../../config/colorConfig.json";
   var colorConfig = require(fileNameColor);
   // Read card User Settings  for the Role
   let fileName2 = "../../userSettings/" + req.user.email + "_cardsSetup.json";

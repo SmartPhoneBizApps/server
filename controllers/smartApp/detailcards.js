@@ -171,7 +171,7 @@ exports.getDetailCards = async (req, res, next) => {
   var cardConfig = require(fileName);
 
   // Read Color Configuration
-  let fileNameColor = "../../cards/cardConfig/colorConfig.json";
+  let fileNameColor = "../../config/colorConfig.json";
   var colorConfig = require(fileNameColor);
 
   // Read card User Settings  for the Role
