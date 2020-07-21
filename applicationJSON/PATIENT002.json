@@ -50,6 +50,15 @@
     "type": "String",
     "maxlength": [100, "DoctorName can not be more than 100"]
   },
+  "NHSNumber": {
+    "type": "String",
+    "maxlength": [50, "NHSNumber can not be more than 50"]
+  },
+  "PostCode": {
+    "type": "String",
+    "maxlength": [20, "DoctorName can not be more than 20"]
+  },
+
   "USP_Name": { "type": "String" },
   "USP_Role": { "type": "String" },
   "USP_Image": { "type": "String" },

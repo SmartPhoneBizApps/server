@@ -108,7 +108,9 @@
         "PatientName",
         "DoctorID",
         "DoctorName",
-        "Comments"
+        "Comments",
+        "NHSNumber",
+        "PostCode"
       ],
       "headers": [
         { "applicationid": "PATIENT002" },
@@ -148,7 +150,9 @@
             "Date",
             "SlotLength",
             "Status",
-            "Comments"
+            "Comments",
+            "NHSNumber",
+            "PostCode"
           ],
 
           "URL": "datarecords/",
@@ -158,8 +162,7 @@
           "targetApp": "PATIENT002",
           "FieldMapping": {
             "PatientID": "ID",
-            "PatientName": "PatientName",
-            "Status": 1
+            "PatientName": "PatientName"
           }
         }
       ],
@@ -397,7 +400,22 @@
       "SLabel": "Comments",
       "LLabel": "Comments"
     },
-
+    {
+      "name": "NHSNumber",
+      "type": "string",
+      "width": "20",
+      "Option": "Optional",
+      "SLabel": "NHS Number",
+      "LLabel": "NHS Number"
+    },
+    {
+      "name": "PostCode",
+      "type": "searchField",
+      "width": "20",
+      "Option": "Optional",
+      "SLabel": "Post Code",
+      "LLabel": "Post Code"
+    },
     {
       "name": "Date",
       "type": "Date",
