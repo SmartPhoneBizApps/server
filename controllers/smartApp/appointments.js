@@ -94,6 +94,7 @@ exports.appointmentsGet = asyncHandler(async (req, res, next) => {
   while (startTime < endTime) {
     scStart = startTime;
     scEnd = startTime.setMinutes(startTime.getMinutes() + SlotLen);
+    slot["Status"] = 0;
 
     for (let p = 0; p < drSch.length; p++) {
       const ep = drSch[p];
@@ -127,7 +128,7 @@ exports.appointmentsGet = asyncHandler(async (req, res, next) => {
         : "0" + startTime.getMinutes();
 
     endSlot = stHrs + ":" + stMin;
-    slot["ID"] = cnt;
+    slot["ID"] = outDate + slot["Time"];
     slot["ChairID"] = req.query.ChairID;
     slot["Date"] = outDate;
     slot["Time"] = slotStart + "-" + endSlot;
