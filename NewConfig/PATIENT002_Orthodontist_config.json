@@ -26,7 +26,8 @@
     { "field": "PatientID" },
     { "field": "PatientName" },
     { "field": "DoctorID" },
-    { "field": "DoctorName" }
+    { "field": "DoctorName" },
+    { "field": "Comments" }
   ],
   "filterFieldSource": {
     "header": [
@@ -38,7 +39,8 @@
       "PatientID",
       "PatientName",
       "DoctorID",
-      "DoctorName"
+      "DoctorName",
+      "Comments"
     ]
   },
   "ListFields": {
@@ -46,13 +48,27 @@
     "TitleField": "Time",
     "sStatus": "PatientName",
     "fStatus": "Status",
-    "LFields": ["DoctorID", "DoctorName", "PatientID", "SlotLength", "ChairID"]
+    "LFields": [
+      "DoctorID",
+      "DoctorName",
+      "PatientID",
+      "SlotLength",
+      "ChairID",
+      "Comments"
+    ]
   },
   "ListBOTFields": {
     "None": ["cardImage", "StatusState"],
     "Title": ["Date", "Time"],
     "SubTitle": ["PatientName", "DoctorName"],
-    "Description": ["DoctorID", "Status", "PatientID", "SlotLength", "ChairID"]
+    "Description": [
+      "DoctorID",
+      "Status",
+      "PatientID",
+      "SlotLength",
+      "ChairID",
+      "Comments"
+    ]
   },
   "PossibleValues": [],
   "MButtons": [
@@ -125,7 +141,8 @@
             "Time",
             "Date",
             "SlotLength",
-            "Status"
+            "Status",
+            "Comments"
           ],
 
           "URL": "datarecords/",
@@ -140,61 +157,164 @@
           }
         }
       ],
-      "displayButton": ["AMEND", "CANCEL"],
+
       "appointmentStatus": [
         {
           "Status": 0,
           "StatusCode": "Free",
           "Color": "Green",
-          "Filled": false
+          "Filled": false,
+          "NextStatus": [
+            { "Status": 1, "Button": "Book" },
+            { "Status": 2, "Button": "NotWorking" },
+            { "Status": 8, "Button": "Requested" }
+          ],
+          "transferFields": ["ID", "Comments", "Status"],
+          "headers": [
+            { "applicationid": "PATIENT002" },
+            { "businessrole": "Orthodontist" }
+          ],
+          "URL": "datarecords/",
+          "Token": "Yes",
+          "mode": "FieldUpdate",
+          "URLMethod": "PUT"
         },
         {
           "Status": 1,
-          "StatusCode": "Booked",
+          "StatusCode": "Book",
           "Color": "Red",
-          "Filled": false
+          "Filled": false,
+          "NextStatus": [
+            { "Status": 3, "Button": "Completed" },
+            { "Status": 4, "Button": "CheckedIn" },
+            { "Status": 6, "Button": "Cancelled" },
+            { "Status": 7, "Button": "NoShow" },
+            { "Status": 5, "Button": "InProgress" }
+          ],
+          "headers": [
+            { "applicationid": "PATIENT002" },
+            { "businessrole": "Orthodontist" }
+          ],
+          "transferFields": ["ID", "Comments", "Status"],
+          "URL": "datarecords/",
+          "Token": "Yes",
+          "mode": "FieldUpdate",
+          "URLMethod": "PUT"
         },
         {
           "Status": 2,
-          "StatusCode": "Break-NotWorking",
+          "StatusCode": "NotWorking",
           "Color": "Blue",
-          "Filled": true
+          "Filled": true,
+          "NextStatus": [{ "Status": 0, "Button": "Free" }],
+          "headers": [
+            { "applicationid": "PATIENT002" },
+            { "businessrole": "Orthodontist" }
+          ],
+          "transferFields": ["ID", "Comments", "Status"],
+          "URL": "datarecords/",
+          "Token": "Yes",
+          "mode": "FieldUpdate",
+          "URLMethod": "PUT"
         },
         {
           "Status": 3,
           "StatusCode": "Completed",
           "Color": "Blue",
-          "Filled": false
+          "Filled": false,
+          "NextStatus": [],
+          "transferFields": ["ID", "Comments", "Status"],
+          "headers": [
+            { "applicationid": "PATIENT002" },
+            { "businessrole": "Orthodontist" }
+          ],
+          "URL": "datarecords/",
+          "Token": "Yes",
+          "mode": "FieldUpdate",
+          "URLMethod": "PUT"
         },
         {
           "Status": 4,
-          "StatusCode": "InWitingRoom-CheckedIn",
+          "StatusCode": "CheckedIn",
           "Color": "Amber",
-          "Filled": true
+          "Filled": true,
+          "NextStatus": [
+            { "Status": 3, "Button": "Completed" },
+            { "Status": 5, "Button": "InProgress" }
+          ],
+          "transferFields": ["ID", "Comments", "Status"],
+          "headers": [
+            { "applicationid": "PATIENT002" },
+            { "businessrole": "Orthodontist" }
+          ],
+          "URL": "datarecords/",
+          "Token": "Yes",
+          "mode": "FieldUpdate",
+          "URLMethod": "PUT"
         },
         {
           "Status": 5,
           "StatusCode": "InProgress",
           "Color": "Amber",
-          "Filled": false
+          "Filled": false,
+          "NextStatus": [{ "Status": 3, "Button": "Completed" }],
+          "headers": [
+            { "applicationid": "PATIENT002" },
+            { "businessrole": "Orthodontist" }
+          ],
+          "transferFields": ["ID", "Comments", "Status"],
+          "URL": "datarecords/",
+          "Token": "Yes",
+          "mode": "FieldUpdate",
+          "URLMethod": "PUT"
         },
         {
           "Status": 6,
           "StatusCode": "Cancelled",
           "Color": "Green",
-          "Filled": true
+          "Filled": true,
+          "NextStatus": [{ "Status": 1, "Button": "Book" }],
+          "headers": [
+            { "applicationid": "PATIENT002" },
+            { "businessrole": "Orthodontist" }
+          ],
+          "transferFields": ["ID", "Comments", "Status"],
+          "URL": "datarecords/",
+          "Token": "Yes",
+          "mode": "FieldUpdate",
+          "URLMethod": "PUT"
         },
         {
           "Status": 7,
           "StatusCode": "NoShow",
           "Color": "Red",
-          "Filled": true
+          "Filled": true,
+          "NextStatus": [],
+          "transferFields": ["ID", "Comments", "Status"],
+          "headers": [
+            { "applicationid": "PATIENT002" },
+            { "businessrole": "Orthodontist" }
+          ],
+          "URL": "datarecords/",
+          "Token": "Yes",
+          "mode": "FieldUpdate",
+          "URLMethod": "PUT"
         },
         {
           "Status": 8,
           "StatusCode": "Requested",
           "Color": "Black",
-          "Filled": false
+          "Filled": false,
+          "NextStatus": [{ "Status": 1, "Button": "Book" }],
+          "headers": [
+            { "applicationid": "PATIENT002" },
+            { "businessrole": "Orthodontist" }
+          ],
+          "transferFields": ["ID", "Comments", "Status"],
+          "URL": "datarecords/",
+          "Token": "Yes",
+          "mode": "FieldUpdate",
+          "URLMethod": "PUT"
         }
       ]
     }
