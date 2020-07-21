@@ -5,6 +5,7 @@
   },
   "Controls": {
     "USP": "UserProfile",
+    "StatusColor": "Yes",
     "SearchString": { "Search": false },
     "Filters": [
       { "CostCentre": "@CostCentre" },
@@ -101,7 +102,7 @@
       ],
       "transferFields": [
         { "field": "ID", "value": "@recorddata" },
-        { "field": "Status", "value": "Request Rejected" },
+        { "field": "Status", "value": "Rejected" },
         { "field": "ProgressComment", "value": "@UserInput" }
       ],
       "URL": "datarecords/",
