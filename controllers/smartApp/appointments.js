@@ -128,7 +128,7 @@ exports.appointmentsGet = asyncHandler(async (req, res, next) => {
         : "0" + startTime.getMinutes();
 
     endSlot = stHrs + ":" + stMin;
-    slot["ID"] = outDate + slot["Time"];
+    slot["ID"] = cnt;
     slot["ChairID"] = req.query.ChairID;
     slot["Date"] = outDate;
     slot["Time"] = slotStart + "-" + endSlot;
