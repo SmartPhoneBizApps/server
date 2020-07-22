@@ -76,6 +76,8 @@ exports.appointmentsGet = asyncHandler(async (req, res, next) => {
     }
   }
   for (let a = 0; a < drSchedule["Chairs"].length; a++) {
+    console.log("AK", drSchedule["Chairs"][a][req.query.ChairID]);
+    console.log("AK", a);
     drSch = drSchedule["Chairs"][a][req.query.ChairID][day1];
   }
 
