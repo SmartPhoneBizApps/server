@@ -1,0 +1,602 @@
+{
+  "Title": {
+    "ApplicationTitle": "Patient Appointments",
+    "DetailTitle": "Patient Appointments"
+  },
+  "Controls": {
+    "USP": "UserProfile",
+    "StatusColor": "Yes",
+    "SearchString": { "Search": false },
+    "Filters": [],
+    "Partner": "@user",
+    "UserSpecific": "No",
+    "Update": "Yes",
+    "URL": "https://fierce-oasis-51455.herokuapp.com",
+    "Source": { "SourceName": "mongoDB", "SourceFile": "NA" },
+    "dataFilter": [{ "field": "Status" }],
+    "filterFieldSource": {
+      "header": ["Status"]
+    }
+  },
+  "dataFilter": [
+    { "field": "Status" },
+    { "field": "ChairID" },
+    { "field": "Date" },
+    { "field": "Time" },
+    { "field": "SlotLength" },
+    { "field": "PatientID" },
+    { "field": "PatientName" },
+    { "field": "DoctorID" },
+    { "field": "DoctorName" },
+    { "field": "Comments" }
+  ],
+  "filterFieldSource": {
+    "header": [
+      "Status",
+      "ChairID",
+      "Date",
+      "Time",
+      "SlotLength",
+      "PatientID",
+      "PatientName",
+      "DoctorID",
+      "DoctorName",
+      "Comments"
+    ]
+  },
+  "ListFields": {
+    "IntroField": "Date",
+    "TitleField": "Time",
+    "sStatus": "PatientName",
+    "fStatus": "Status",
+    "LFields": [
+      "DoctorID",
+      "DoctorName",
+      "PatientID",
+      "SlotLength",
+      "ChairID",
+      "Comments"
+    ]
+  },
+  "ListBOTFields": {
+    "None": ["cardImage", "StatusState"],
+    "Title": ["Date", "Time"],
+    "SubTitle": ["PatientName", "DoctorName"],
+    "Description": [
+      "DoctorID",
+      "Status",
+      "PatientID",
+      "SlotLength",
+      "ChairID",
+      "Comments"
+    ]
+  },
+  "PossibleValues": [],
+  "MButtons": [
+    {
+      "type": "DOWNLOAD",
+      "name": "Download File",
+      "icon": "sap-icon://download"
+    },
+    {
+      "type": "APPHELP",
+      "name": "Get App Help",
+      "icon": "sap-icon://sys-help-2"
+    },
+    {
+      "type": "OPENURL",
+      "name": "Launch BOT",
+      "icon": "sap-icon://travel-request",
+      "URL": "https://www.messenger.com/t/295020207695029"
+    },
+
+    { "type": "ADD", "name": "Add Record", "icon": "sap-icon://add" },
+    { "type": "UPLOAD", "name": "Upload Record", "icon": "sap-icon://upload" },
+    {
+      "type": "BOOKAPPOINT",
+      "name": "Book Appointment",
+      "icon": "sap-icon://upload",
+      "displayURL": "smartApp/appointmentsGet?Date={date}&ChairID={chair}",
+      "Token": "Yes",
+      "URLMethod": "GET",
+      "displayFields": [
+        "ID",
+        "ChairID",
+        "Date",
+        "Time",
+        "SlotLength",
+        "PatientID",
+        "PatientName",
+        "DoctorID",
+        "DoctorName",
+        "Comments",
+        "NHSNumber",
+        "PostCode"
+      ],
+      "headers": [
+        { "applicationid": "PATIENT002" },
+        { "businessrole": "Orthodontist" }
+      ],
+      "createButton": [
+        {
+          "type": "ADDTRAINING",
+          "name": "Book Appointment",
+          "icon": "sap-icon://share-2",
+          "Dialog": [
+            { "label": "Patient ID", "name": "ID", "type": "string" },
+            {
+              "label": "Patient Name",
+              "name": "PatientName",
+              "type": "string"
+            },
+            { "label": "DOB", "name": "DOB", "type": "Date" },
+            {
+              "label": "NHS Number",
+              "name": "NHSNumber",
+              "type": "string"
+            }
+          ],
+          "SearchURL": "listrecordsnew/Web/PATIENT001/Orthodontist{filter}",
+          "tableField": "",
+          "listFields": ["ID", "PatientName", "DOB", "NHSNumber", "PostCode"],
+          "listConfirmation": ["SlotLength"],
+          "transferFields": [
+            "ID",
+            "ChairID",
+            "PatientID",
+            "PatientName",
+            "DoctorID",
+            "DoctorName",
+            "Time",
+            "Date",
+            "SlotLength",
+            "Status",
+            "Comments",
+            "NHSNumber",
+            "PostCode"
+          ],
+
+          "URL": "datarecords/",
+          "Token": "Yes",
+          "URLMethod": "POST",
+          "mode": "Create",
+          "targetApp": "PATIENT002",
+          "FieldMapping": {
+            "PatientID": "ID",
+            "PatientName": "PatientName"
+          }
+        }
+      ],
+      "chairID": [
+        { "ID": "01", "Name": "Chair One" },
+        { "ID": "02", "Name": "Chair Two" },
+        { "ID": "03", "Name": "Chair Three" }
+      ],
+      "appointmentStatus": [
+        {
+          "Status": 0,
+          "StatusCode": "Free",
+          "Class": "Accept",
+          "NextStatus": [
+            { "Status": 1, "Button": "Book" },
+            { "Status": 2, "Button": "NotWorking" },
+            { "Status": 8, "Button": "Requested" }
+          ],
+          "transferFields": [
+            "ID",
+            "Comments",
+            "Status",
+            "ChairID",
+            "PatientID",
+            "PatientName",
+            "DoctorID",
+            "DoctorName",
+            "Time",
+            "Date"
+          ],
+
+          "headers": [
+            { "applicationid": "PATIENT002" },
+            { "businessrole": "Orthodontist" }
+          ],
+          "URL": "datarecords/",
+          "Token": "Yes",
+          "mode": "Create",
+          "URLMethod": "POST"
+        },
+        {
+          "Status": 1,
+          "StatusCode": "Book",
+          "Class": "Reject",
+          "NextStatus": [
+            { "Status": 3, "Button": "Completed" },
+            { "Status": 4, "Button": "CheckedIn" },
+            { "Status": 6, "Button": "Cancelled" },
+            { "Status": 7, "Button": "NoShow" },
+            { "Status": 5, "Button": "InProgress" }
+          ],
+          "headers": [
+            { "applicationid": "PATIENT002" },
+            { "businessrole": "Orthodontist" }
+          ],
+          "transferFields": ["ID", "Comments", "Status"],
+          "URL": "datarecords/",
+          "Token": "Yes",
+          "mode": "FieldUpdate",
+          "URLMethod": "PUT"
+        },
+        {
+          "Status": 2,
+          "StatusCode": "NotWorking",
+          "Class": "Emphasized",
+          "NextStatus": [{ "Status": 0, "Button": "Free" }],
+          "headers": [
+            { "applicationid": "PATIENT002" },
+            { "businessrole": "Orthodontist" }
+          ],
+          "transferFields": ["ID", "Comments", "Status"],
+          "URL": "datarecords/",
+          "Token": "Yes",
+          "mode": "FieldUpdate",
+          "URLMethod": "PUT"
+        },
+        {
+          "Status": 3,
+          "StatusCode": "Completed",
+          "Class": "Default",
+          "NextStatus": [],
+          "transferFields": ["ID", "Comments", "Status"],
+          "headers": [
+            { "applicationid": "PATIENT002" },
+            { "businessrole": "Orthodontist" }
+          ],
+          "URL": "datarecords/",
+          "Token": "Yes",
+          "mode": "FieldUpdate",
+          "URLMethod": "PUT"
+        },
+        {
+          "Status": 4,
+          "StatusCode": "CheckedIn",
+          "Class": "Critical",
+          "NextStatus": [
+            { "Status": 3, "Button": "Completed" },
+            { "Status": 5, "Button": "InProgress" }
+          ],
+          "transferFields": ["ID", "Comments", "Status"],
+          "headers": [
+            { "applicationid": "PATIENT002" },
+            { "businessrole": "Orthodontist" }
+          ],
+          "URL": "datarecords/",
+          "Token": "Yes",
+          "mode": "FieldUpdate",
+          "URLMethod": "PUT"
+        },
+        {
+          "Status": 5,
+          "StatusCode": "InProgress",
+          "Class": "Ghost",
+          "NextStatus": [{ "Status": 3, "Button": "Completed" }],
+          "headers": [
+            { "applicationid": "PATIENT002" },
+            { "businessrole": "Orthodontist" }
+          ],
+          "transferFields": ["ID", "Comments", "Status"],
+          "URL": "datarecords/",
+          "Token": "Yes",
+          "mode": "FieldUpdate",
+          "URLMethod": "PUT"
+        },
+        {
+          "Status": 6,
+          "StatusCode": "Cancelled",
+          "Class": "Negative",
+          "NextStatus": [{ "Status": 1, "Button": "Book" }],
+          "headers": [
+            { "applicationid": "PATIENT002" },
+            { "businessrole": "Orthodontist" }
+          ],
+          "transferFields": ["ID", "Comments", "Status"],
+          "URL": "datarecords/",
+          "Token": "Yes",
+          "mode": "FieldUpdate",
+          "URLMethod": "PUT"
+        },
+        {
+          "Status": 7,
+          "StatusCode": "NoShow",
+          "Class": "Neutral",
+          "NextStatus": [],
+          "transferFields": ["ID", "Comments", "Status"],
+          "headers": [
+            { "applicationid": "PATIENT002" },
+            { "businessrole": "Orthodontist" }
+          ],
+          "URL": "datarecords/",
+          "Token": "Yes",
+          "mode": "FieldUpdate",
+          "URLMethod": "PUT"
+        },
+        {
+          "Status": 8,
+          "StatusCode": "Requested",
+          "Class": "Success",
+          "NextStatus": [{ "Status": 1, "Button": "Book" }],
+          "headers": [
+            { "applicationid": "PATIENT002" },
+            { "businessrole": "Orthodontist" }
+          ],
+          "transferFields": ["ID", "Comments", "Status"],
+          "URL": "datarecords/",
+          "Token": "Yes",
+          "mode": "FieldUpdate",
+          "URLMethod": "PUT"
+        }
+      ]
+    }
+  ],
+  "DButtons": [
+    {
+      "type": "ATTACHMENT",
+      "name": "View Attachments",
+      "icon": "sap-icon://attachment"
+    },
+    { "type": "UPDATE", "name": "Update Record", "icon": "sap-icon://update" },
+    { "type": "ADD", "name": "Add Record", "icon": "sap-icon://add" }
+  ],
+  "Tabs": [
+    {
+      "value": "Tab0",
+      "update": "No",
+      "name": "Cards",
+      "type": "Cards",
+      "fioriicon": "responsive"
+    },
+    {
+      "value": "Tab1",
+      "update": "Yes",
+      "name": "Appointment Details",
+      "type": "Field",
+      "fioriicon": "work-history"
+    }
+  ],
+  "DetailFields": {
+    "headerTitle": ["USP_Name"],
+    "headerRole": ["USP_Role"],
+    "headerImage": ["USP_Image"],
+    "None": ["ID", "Status"],
+    "Tab1": [
+      "ChairID",
+      "Date",
+      "Time",
+      "SlotLength",
+      "PatientID",
+      "PatientName",
+      "DoctorID",
+      "DoctorName",
+      "Comments"
+    ]
+  },
+
+  "ControlDisplay": {},
+  "FieldDef": [
+    {
+      "name": "ID",
+      "type": "string",
+      "width": "100",
+      "Option": "Mandatory",
+      "SLabel": "Identification",
+      "LLabel": "Identification"
+    },
+    {
+      "name": "ChairID",
+      "type": "string",
+      "width": "100",
+      "Option": "Optional",
+      "SLabel": "Chair ID",
+      "LLabel": "Chair ID"
+    },
+    {
+      "name": "Comments",
+      "type": "string",
+      "width": "500",
+      "Option": "Optional",
+      "SLabel": "Comments",
+      "LLabel": "Comments"
+    },
+    {
+      "name": "NHSNumber",
+      "type": "string",
+      "width": "20",
+      "Option": "Optional",
+      "SLabel": "NHS Number",
+      "LLabel": "NHS Number"
+    },
+    {
+      "name": "DOB",
+      "type": "Date",
+      "width": "10",
+      "Option": "Optional",
+      "SLabel": "Date of Birth",
+      "LLabel": "Date of Birth"
+    },
+    {
+      "name": "PostCode",
+      "type": "searchField",
+      "width": "20",
+      "Option": "Optional",
+      "SLabel": "Post Code",
+      "LLabel": "Post Code"
+    },
+    {
+      "name": "Date",
+      "type": "Date",
+      "width": "200",
+      "Option": "Mandatory",
+      "SLabel": "Date",
+      "LLabel": "Date"
+    },
+    {
+      "name": "Time",
+      "type": "string",
+      "width": "200",
+      "Option": "Mandatory",
+      "SLabel": "Time",
+      "LLabel": "Time"
+    },
+    {
+      "name": "SlotLength",
+      "type": "string",
+      "width": "200",
+      "Option": "Mandatory",
+      "SLabel": "Slot Length",
+      "LLabel": "Slot Length"
+    },
+    {
+      "name": "PatientID",
+      "type": "string",
+      "width": "200",
+      "Option": "Mandatory",
+      "SLabel": "Patient ID",
+      "LLabel": "Patient ID"
+    },
+
+    {
+      "name": "PatientName",
+      "type": "string",
+      "width": "200",
+      "Option": "Mandatory",
+      "SLabel": "Patient Name",
+      "LLabel": "Patient Name"
+    },
+    {
+      "name": "DoctorID",
+      "type": "string",
+      "width": "200",
+      "Option": "Mandatory",
+      "SLabel": "Doctor ID",
+      "LLabel": "Doctor ID"
+    },
+    {
+      "name": "DoctorName",
+      "type": "string",
+      "width": "200",
+      "Option": "Mandatory",
+      "SLabel": "Doctor Name",
+      "LLabel": "Doctor Name"
+    },
+    {
+      "name": "Status",
+      "type": "string",
+      "width": "200",
+      "Option": "Mandatory",
+      "SLabel": "Status",
+      "LLabel": "Status"
+    },
+    {
+      "name": "SearchString",
+      "type": "string",
+      "width": "200",
+      "Option": "Mandatory",
+      "SLabel": "Search String",
+      "LLabel": "Search String"
+    },
+    {
+      "name": "ProgressComment",
+      "type": "string",
+      "width": "1000",
+      "Option": "Optional",
+      "SLabel": "ProgressComment",
+      "LLabel": "ProgressComment"
+    },
+    {
+      "name": "MultiAttachments",
+      "type": "attachment",
+      "metadata": "MultipleFields",
+      "width": "200",
+      "Option": "Optional",
+      "SLabel": "CV",
+      "LLabel": "CV"
+    },
+    {
+      "name": "carouselImage",
+      "type": "attachment",
+      "metadata": "OnlyFileName",
+      "width": "200",
+      "Option": "Optional",
+      "SLabel": "Certificates",
+      "LLabel": "Certificates"
+    },
+    {
+      "name": "USP_Role",
+      "type": "string",
+      "width": "50",
+      "Option": "Optional",
+      "SLabel": "User Role",
+      "LLabel": "User Role"
+    },
+    {
+      "name": "USP_Name",
+      "type": "string",
+      "width": "100",
+      "Option": "Optional",
+      "SLabel": "User Name",
+      "LLabel": "User Name"
+    },
+    {
+      "name": "USP_Image",
+      "type": "string",
+      "width": "200",
+      "Option": "Optional",
+      "SLabel": "Profile Image",
+      "LLabel": "Profile Image"
+    }
+  ],
+
+  "itemData": "No",
+  "itemConfig": {
+    "ItemFieldDefinition": [],
+    "DisplayFields": [],
+    "ItemButtons": {
+      "itemDisplay": false,
+      "itemAdd": false,
+      "itemEdit": false,
+      "itemDelete": false
+    },
+    "CreateFields": [],
+    "ItemDetails": []
+  },
+  "CalculatedFields": {},
+  "Create": "Yes",
+  "Wizard": [
+    {
+      "id": "Step1",
+      "fields": [{ "name": "XXX", "Mode": "Edit" }],
+      "name": "About Job",
+      "stepType": "FieldList",
+      "intro": "About Job : Job Details"
+    },
+    {
+      "id": "Step2",
+      "fields": [{ "name": "XXXX", "Mode": "Edit" }],
+      "name": "About Job",
+      "stepType": "FieldList",
+      "intro": "About Job : Job Details"
+    },
+    {
+      "id": "Step3",
+      "fields": [{ "name": "XXXXX", "Mode": "Edit" }],
+      "name": "Your Experience",
+      "stepType": "FieldList",
+      "intro": "Job Requirements : Your Experience"
+    },
+    {
+      "id": "Step4",
+      "fields": [{ "name": "XXXXXX", "Mode": "Edit" }],
+      "name": "Contact Details",
+      "stepType": "FieldList",
+      "intro": "Job Contacts : Posted By"
+    }
+  ]
+}
