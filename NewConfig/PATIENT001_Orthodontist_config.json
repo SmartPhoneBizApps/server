@@ -381,7 +381,7 @@
       "update": "Yes",
       "name": "Communication",
       "fioriicon": "batch-payments",
-      "type": "FieldGroup",
+      "type": "Field",
       "download": "Yes"
     },
     {
@@ -535,12 +535,6 @@
       {
         "GrpTitle": "Total Payment Summary",
         "Fields": ["TotalCost", "TotalPayment", "TotalBalance"]
-      }
-    ],
-    "Tab2": [
-      {
-        "GrpTitle": "Address Details",
-        "Fields": ["Address", "HouseNumber", "PostCode"]
       },
       {
         "GrpTitle": "Patient Contact Details",
@@ -565,7 +559,7 @@
         "Fields": ["Terms", "PrivacyPolicy", "Agree"]
       }
     ],
-
+    "Tab2": ["Address", "HouseNumber", "PostCode"],
     "Tab8": ["Appointments"],
     "Tab9": ["Radiology"],
     "Tab10": ["DentalImages"],

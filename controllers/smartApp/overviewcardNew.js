@@ -17,6 +17,8 @@ exports.overviewcardNew = async (req, res, next) => {
   mycard["headerIcon"] = "sap-icon://form";
   mycard["businessrole"] = req.headers.businessrole;
   mycard["applicationid"] = "EMP00001";
+  mycard["HeaderIcon"] = "sap-icon://bus-public-transport";
+  mycard["statusText"] = "Status Text 001";
 
   let fn1 =
     "../../NewConfig/" +

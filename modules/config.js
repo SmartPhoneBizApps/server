@@ -64,57 +64,111 @@ module.exports = {
 
         break;
       case "adaptivecard":
-        grp1 = cardConfig["sap.card"]["adaptivecard"];
-        grp_cont = cardConfig["content"]["adaptivecard"];
-        hdr = cardConfig["header"]["adaptivecard"];
         typ = "AdaptiveCard";
+        //Header data
+        hdr = cardConfig["header"]["adaptivecard"];
+        hdr["title"] = data["title"];
+        hdr["subTitle"] = data["subTitle"];
+        hdr["icon"]["src"] = data["HeaderIcon"];
+        grp_cont = cardConfig["content"]["adaptivecard"];
+        let fn01 =
+          "../cards/adaptivecardforms/" +
+          data["applicationid"] +
+          "_" +
+          data["businessrole"] +
+          ".json";
+        var adaptBody = require(fn01);
+        grp_cont["body"] = adaptBody["body"];
+        let fn02 =
+          "../cards/adaptivecardforms/" +
+          data["applicationid"] +
+          "_" +
+          data["businessrole"] +
+          "_actions.json";
+        var adaptActions = require(fn02);
+        grp_cont["actions"] = adaptActions["actions"];
+        grp1 = cardConfig["sap.card"]["adaptivecard"];
+        stru["sap.card"]["content"] = grp_cont;
         break;
 
       case "adaptivecard2":
+        // ********** NOT IN USE **********
+        typ = "AdaptiveCard";
+        //Header data
+        hdr = cardConfig["header"]["adaptivecard2"];
+        hdr["title"] = data["title"];
+        hdr["subTitle"] = data["subTitle"];
         grp1 = cardConfig["sap.card"]["adaptivecard2"];
         grp_cont = cardConfig["content"]["adaptivecard2"];
-        hdr = cardConfig["header"]["adaptivecard2"];
-        typ = "AdaptiveCard";
+        stru["sap.card"]["content"] = grp_cont;
+
         break;
       case "adaptivecard3":
+        // ********** NOT IN USE **********
+        typ = "AdaptiveCard";
+        //Header data
+        hdr = cardConfig["header"]["adaptivecard3"];
+        hdr["title"] = data["title"];
+        hdr["subTitle"] = data["subTitle"];
         grp1 = cardConfig["sap.card"]["adaptivecard3"];
         grp_cont = cardConfig["content"]["adaptivecard3"];
-        hdr = cardConfig["header"]["adaptivecard3"];
-        typ = "AdaptiveCard";
+        grp_cont["$data"] = stru["sap.card"]["content"] = grp_cont;
+
         break;
 
       case "component1":
-        grp1 = cardConfig["sap.card"]["component1"];
-        hdr = cardConfig["header"]["component1"];
         typ = "Component";
+        //Header data
+        hdr = cardConfig["header"]["component1"];
+        hdr["title"] = data["title"];
+        hdr["subTitle"] = data["subTitle"];
+        hdr["icon"]["src"] = data["HeaderIcon"];
+        grp1 = cardConfig["sap.card"]["component1"];
+
         break;
 
       case "donut":
+        typ = "Analytical";
+        //Header data
+        hdr = cardConfig["header"]["donut"];
+        hdr["title"] = data["title"];
+        hdr["subTitle"] = data["subTitle"];
         grp1 = cardConfig["sap.card"]["donut"];
         grp_cont = cardConfig["content"]["component1"];
-        hdr = cardConfig["header"]["donut"];
-        typ = "Analytical";
+
         break;
       case "list1":
+        typ = "List";
+        //Header data
+        hdr = cardConfig["header"]["list1"];
+        hdr["title"] = data["title"];
+        hdr["subTitle"] = data["subTitle"];
+        hdr["status"]["text"] = data["statusText"];
         grp1 = cardConfig["sap.card"]["list1"];
         grp_cont = cardConfig["content"]["list1"];
-        hdr = cardConfig["header"]["list1"];
-        typ = "List";
+
         break;
       case "list2":
+        typ = "List";
+        //Header data
+        hdr = cardConfig["header"]["list2"];
+        hdr["title"] = data["title"];
+        hdr["subTitle"] = data["subTitle"];
         grp1 = cardConfig["sap.card"]["list2"];
         grp_cont = cardConfig["content"]["list2"];
-        hdr = cardConfig["header"]["list2"];
-        typ = "List";
+
         break;
       case "quicklink1":
+        typ = "List";
+        //Header data
+        hdr = cardConfig["header"]["quicklink1"];
+        hdr["title"] = data["title"];
+        hdr["subTitle"] = data["subTitle"];
         grp1 = cardConfig["sap.card"]["quicklink1"];
         grp_cont = cardConfig["content"]["quicklink1"];
-        hdr = cardConfig["header"]["quicklink1"];
-        typ = "List";
+
         break;
       case "table1":
-        // Table Type
         typ = "Table";
         //Header data
         hdr = cardConfig["header"]["table1"];
@@ -144,13 +198,13 @@ module.exports = {
 
         tdata["json"] = json;
         json = [];
-
+        stru["sap.card"]["content"] = xrow;
         break;
 
       default:
         break;
     }
-    stru["sap.card"]["content"] = xrow;
+
     stru["sap.card"]["type"] = typ;
     stru["sap.card"]["header"] = hdr;
     stru["sap.card"]["data"] = tdata;
