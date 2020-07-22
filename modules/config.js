@@ -10,15 +10,24 @@ const sendEmail = require("../utils/sendEmail");
 const sendEmail1 = require("../utils/sendEmailProd");
 
 module.exports = {
-  getCard: function (data, cardType) {
-    let cardConfigFile = "../cards/cardConfig/card_template.json";
-    var cardConfig = require(cardConfigFile);
-
+  getCard: function (data, cardType, results) {
     grp1 = [];
     grp_cont = [];
     hdr = {};
     tdata = {};
     typ = "";
+    xjson = {};
+    json = [];
+    xcol = {};
+    columns = [];
+    xrow = {};
+    xrow1 = {};
+
+    //   stru = {};
+    let cardConfigFile = "../cards/cardConfig/card_template.json";
+    var cardConfig = require(cardConfigFile);
+    stru = cardConfig["Structure"];
+
     switch (cardType) {
       case "timeline1":
         grp1 = cardConfig["sap.card"]["timeline1"];
@@ -27,6 +36,7 @@ module.exports = {
         typ = "Timeline";
         datajson = ["dateTime", "description", "title", "icon"];
         break;
+
       case "objectPerson":
         grp1 = cardConfig["sap.card"]["objectPerson"];
         grp_cont = cardConfig["content"]["objectPerson"];
@@ -59,6 +69,7 @@ module.exports = {
         hdr = cardConfig["header"]["adaptivecard"];
         typ = "AdaptiveCard";
         break;
+
       case "adaptivecard2":
         grp1 = cardConfig["sap.card"]["adaptivecard2"];
         grp_cont = cardConfig["content"]["adaptivecard2"];
@@ -103,25 +114,51 @@ module.exports = {
         typ = "List";
         break;
       case "table1":
-        grp1 = cardConfig["sap.card"]["table1"];
-        grp_cont = cardConfig["content"]["table1"];
-        hdr = cardConfig["header"]["table1"];
-        tdata = {
-          json: [],
-        };
+        // Table Type
         typ = "Table";
+        //Header data
+        hdr = cardConfig["header"]["table1"];
+        hdr["title"] = data["title"];
+        hdr["subTitle"] = data["subTitle"];
+        // Loop data
+        for (let a = 0; a < results.length; a++) {
+          // Loop Table fields from config
+          for (let b = 0; b < data["TableFields"].length; b++) {
+            // Set values in content/row/coloumn
+            xjson[data["TableFields"][b]] = results[a][data["TableFields"][b]];
+            xcol["title"] = data["TableFields"][b];
+            xcol["value"] = "{" + data["TableFields"][b] + "}";
+            columns.push({ ...xcol });
+            xcol = {};
+          }
+          // Set values in json
+          json.push({ ...xjson });
+          xjson = {};
+          // Set values in content/row/coloumn
+          xrow1["columns"] = columns;
+          xrow["row"] = { ...xrow1 };
+          columns = [];
+          xrow1 = {};
+        }
+        grp1 = cardConfig["sap.card"]["table1"];
+
+        tdata["json"] = json;
+        json = [];
+
         break;
+
       default:
         break;
     }
-    stru = cardConfig["Structure"];
+    stru["sap.card"]["content"] = xrow;
     stru["sap.card"]["type"] = typ;
     stru["sap.card"]["header"] = hdr;
-    stru["sap.card"]["content"] = grp_cont;
     stru["sap.card"]["data"] = tdata;
-
+    tdata = [];
+    columns = [];
     return stru;
   },
+
   getCreateMap: function (sapp, tapp, trans) {
     // Read Create Map Config
     // This will be used only when you create record copying data from sapp to tapp
