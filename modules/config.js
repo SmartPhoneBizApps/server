@@ -10,7 +10,16 @@ const sendEmail = require("../utils/sendEmail");
 const sendEmail1 = require("../utils/sendEmailProd");
 
 module.exports = {
-  getCard: function (data, cardType, results) {
+  getCard: function (
+    data,
+    cardType,
+    results,
+    list1_json,
+    list1_item,
+    list2_json,
+    list2_item,
+    donut_content
+  ) {
     grp1 = [];
     grp_cont = [];
     hdr = {};
@@ -30,10 +39,18 @@ module.exports = {
 
     switch (cardType) {
       case "timeline1":
-        grp1 = cardConfig["sap.card"]["timeline1"];
-        grp_cont = cardConfig["content"]["timeline1"];
-        hdr = cardConfig["header"]["timeline1"];
         typ = "Timeline";
+        hdr = cardConfig["header"]["timeline1"];
+        hdr["title"] = data["title"];
+        hdr["subTitle"] = data["subTitle"];
+        hdr["status"]["text"] = data["statusText"];
+        hdr["actions"][0]["parameters"]["url"] = data["HeaderActionURL"];
+        //    grp1 = cardConfig["sap.card"]["timeline1"];
+
+        // mycard["HeaderActionURL"];
+
+        grp_cont = cardConfig["content"]["timeline1"];
+
         datajson = ["dateTime", "description", "title", "icon"];
         break;
 
@@ -133,8 +150,9 @@ module.exports = {
         hdr = cardConfig["header"]["donut"];
         hdr["title"] = data["title"];
         hdr["subTitle"] = data["subTitle"];
-        grp1 = cardConfig["sap.card"]["donut"];
-        grp_cont = cardConfig["content"]["component1"];
+        //   grp1 = cardConfig["sap.card"]["donut"];
+        //   grp_cont = cardConfig["content"]["component1"];
+        stru["sap.card"]["content"] = donut_content;
 
         break;
       case "list1":
@@ -144,8 +162,11 @@ module.exports = {
         hdr["title"] = data["title"];
         hdr["subTitle"] = data["subTitle"];
         hdr["status"]["text"] = data["statusText"];
-        grp1 = cardConfig["sap.card"]["list1"];
+        //       grp1 = cardConfig["sap.card"]["list1"];
         grp_cont = cardConfig["content"]["list1"];
+        grp_cont["item"] = list1_item;
+        grp_cont["data"]["json"] = list1_json;
+        stru["sap.card"]["content"] = grp_cont;
 
         break;
       case "list2":
@@ -154,8 +175,12 @@ module.exports = {
         hdr = cardConfig["header"]["list2"];
         hdr["title"] = data["title"];
         hdr["subTitle"] = data["subTitle"];
-        grp1 = cardConfig["sap.card"]["list2"];
+        hdr["icon"]["src"] = data["HeaderIcon"];
+        //     grp1 = cardConfig["sap.card"]["list2"];
         grp_cont = cardConfig["content"]["list2"];
+        grp_cont["item"] = list2_item;
+        grp_cont["data"]["json"] = list2_json;
+        stru["sap.card"]["content"] = grp_cont;
 
         break;
       case "quicklink1":
@@ -164,7 +189,7 @@ module.exports = {
         hdr = cardConfig["header"]["quicklink1"];
         hdr["title"] = data["title"];
         hdr["subTitle"] = data["subTitle"];
-        grp1 = cardConfig["sap.card"]["quicklink1"];
+        //     grp1 = cardConfig["sap.card"]["quicklink1"];
         grp_cont = cardConfig["content"]["quicklink1"];
 
         break;
@@ -194,7 +219,7 @@ module.exports = {
           columns = [];
           xrow1 = {};
         }
-        grp1 = cardConfig["sap.card"]["table1"];
+        //   grp1 = cardConfig["sap.card"]["table1"];
 
         tdata["json"] = json;
         json = [];
