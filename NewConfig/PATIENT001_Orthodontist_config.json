@@ -348,7 +348,20 @@
     {
       "type": "LETTERS",
       "name": "Generate Letter",
-      "icon": "sap-icon://letter"
+      "icon": "sap-icon://letter",
+      "Letters": [
+        { "type": "TPLAN", "template": "tplan.html", "name": "Treatment Plan" },
+        {
+          "type": "PAYMENTSCH",
+          "template": "paymentschedule.html",
+          "name": "Payment Schedule"
+        },
+        {
+          "type": "REFERAL",
+          "template": "referal.html",
+          "name": "Referal Letter"
+        }
+      ]
     },
     {
       "type": "VIEW",
