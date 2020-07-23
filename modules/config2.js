@@ -29,10 +29,6 @@ module.exports = {
 
     try {
       sendEmail({
-        //email: req.params.user,
-        //subject: sub,
-        //message,
-
         email: "gst@smartphonebizapps.com",
         subject: "Congratulation you have completed the course",
         message,
@@ -50,30 +46,6 @@ module.exports = {
       });
     }
 
-    // const template = hb.compile(html1, {
-    //   strict: true,
-    // });
-    // const result = template(data);
-    // const html = result;
-    // const browser = await puppeteer.launch({
-    //   args: ["--no-sandbox", "--disable-setuid-sandbox"],
-    // });
-    // const page = await browser.newPage();
-    // await page.setContent(html);
-    // console.log(getData["ID"]);
-    // await page.pdf({
-    //   path: "public/certificates/" + getData["ID"] + ".pdf",
-    //   format: "A4",
-    //   // margin: {
-    //   // top: '20px',
-    //   // right: '20px',
-    //   // bottom: '0px',
-    //   // left: '0px'
-    //   // },
-    //   printBackground: true,
-    //   // scale: 0.5
-    // });
-    //await browser.close();
     console.log("Certificate Sent..");
   },
 
