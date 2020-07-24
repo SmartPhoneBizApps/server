@@ -188,9 +188,20 @@
     "headerImage": ["USP_Image"],
     "headerColorFields": ["Status"],
     "None": ["ID", "Name", "EmployeeID", "StartDate", "EndDate"],
-    "Tab1": ["TotalRegHours", "HourlyRate", "RegularNetAmount"],
-    "Tab2": ["TotalOvertimeHours", "OvertimeRate", "OvertimeNetAmount"],
-    "Tab3": ["NetAmount", "VATRate", "VATAmount", "GrossAmount"],
+    "Tab1": [
+      {
+        "GrpTitle": "Regular Hours",
+        "Fields": ["TotalRegHours", "HourlyRate", "RegularNetAmount"]
+      },
+      {
+        "GrpTitle": "OverTime Hours",
+        "Fields": ["TotalOvertimeHours", "OvertimeRate", "OvertimeNetAmount"]
+      },
+      {
+        "GrpTitle": "Totals",
+        "Fields": ["NetAmount", "VATRate", "VATAmount", "GrossAmount"]
+      }
+    ],
     "Tab5": ["ProcessingLog"],
     "Tab6": ["MultiAttachments"]
   },

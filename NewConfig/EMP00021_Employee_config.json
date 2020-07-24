@@ -3,19 +3,19 @@
   "Controls": {
     "USP": "UserProfile",
     "StatusColor": "Yes",
-    "SearchString":{"Search":false},
+    "SearchString": { "Search": false },
     "Filters": [{ "Partner": "@user" }],
     "Partner": "@user",
     "UserSpecific": "Yes",
     "Update": "Yes",
     "URL": "https://fierce-oasis-51455.herokuapp.com",
-        "Source": { "SourceName": "mongoDB", "SourceFile": "NA" },
-       "dataFilter": [{ "field": "Status" }],
+    "Source": { "SourceName": "mongoDB", "SourceFile": "NA" },
+    "dataFilter": [{ "field": "Status" }],
     "filterFieldSource": {
       "header": ["Status"]
     }
   },
-  
+
   "ListFields": {
     "IntroField": "ID",
     "TitleField": "Name",
@@ -86,25 +86,9 @@
     {
       "value": "Tab1",
       "update": "Yes",
-      "name": "RegularHoursDetails",
-      "type": "Field",
+      "name": "Hours Amounts",
+      "type": "FieldGroup",
       "fioriicon": "per-diem",
-      "download": "Yes"
-    },
-    {
-      "value": "Tab2",
-      "update": "Yes",
-      "name": "OvertimeHoursDetails",
-      "type": "Field",
-      "fioriicon": "create-entry-time",
-      "download": "Yes"
-    },
-    {
-      "value": "Tab3",
-      "update": "Yes",
-      "name": "TotalAmount",
-      "fioriicon": "batch-payments",
-      "type": "Field",
       "download": "Yes"
     },
     {
@@ -137,10 +121,21 @@
     "headerRole": ["USP_Role"],
     "headerImage": ["USP_Image"],
     "headerColorFields": ["Status"],
-    "None": ["ID", "Name", "EmployeeID",  "StartDate", "EndDate"],
-    "Tab1": ["TotalRegHours", "HourlyRate", "RegularNetAmount"],
-    "Tab2": ["TotalOvertimeHours", "OvertimeRate", "OvertimeNetAmount"],
-    "Tab3": ["NetAmount", "VATRate", "VATAmount", "GrossAmount"],
+    "None": ["ID", "Name", "EmployeeID", "StartDate", "EndDate"],
+    "Tab1": [
+      {
+        "GrpTitle": "Regular Hours",
+        "Fields": ["TotalRegHours", "HourlyRate", "RegularNetAmount"]
+      },
+      {
+        "GrpTitle": "OverTime Hours",
+        "Fields": ["TotalOvertimeHours", "OvertimeRate", "OvertimeNetAmount"]
+      },
+      {
+        "GrpTitle": "Totals",
+        "Fields": ["NetAmount", "VATRate", "VATAmount", "GrossAmount"]
+      }
+    ],
     "Tab5": ["ProcessingLog"],
     "Tab6": ["MultiAttachments"]
   },

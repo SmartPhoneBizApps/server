@@ -1,7 +1,7 @@
 {
   "Title": {
-    "ApplicationTitle": "Car Park Booking",
-    "DetailTitle": "Car Park Booking"
+    "ApplicationTitle": "Approve Car Park Booking",
+    "DetailTitle": "Approve Car Park Booking"
   },
   "Controls": {
     "USP": "UserProfile",
@@ -18,7 +18,7 @@
     ],
     "Partner": "@user",
     "UserSpecific": "Yes",
-    "Update": "Yes",
+    "update": "No",
     "URL": "https://fierce-oasis-51455.herokuapp.com",
     "Source": { "SourceName": "mongoDB", "SourceFile": "NA" },
     "dataFilter": [{ "field": "Status" }, { "field": "BookingFor" }],
@@ -143,7 +143,7 @@
     },
     {
       "value": "Tab1",
-      "update": "Yes",
+      "update": "No",
       "name": "Booking",
       "type": "Field",
       "fioriicon": "hint",
@@ -151,7 +151,7 @@
     },
     {
       "value": "Tab2",
-      "update": "Yes",
+      "update": "No",
       "name": "Contact",
       "type": "Field",
       "fioriicon": "hint",
@@ -163,7 +163,7 @@
     "headerRole": ["USP_Role"],
     "headerImage": ["USP_Image"],
     "headerColorFields": ["Status"],
-    "None": ["ID",  "BookingFor"],
+    "None": ["ID", "BookingFor"],
     "Tab1": [
       "MeetingDate",
       "NoOfPeople",
