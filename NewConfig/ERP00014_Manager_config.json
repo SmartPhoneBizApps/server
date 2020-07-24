@@ -6,7 +6,7 @@
   "Controls": {
     "USP": "UserProfile",
     "StatusColor": "Yes",
-    "SearchString":{"Search":false},
+    "SearchString": { "Search": false },
     "Filters": [
       {
         "$and": [
@@ -18,15 +18,15 @@
     ],
     "Partner": "@user",
     "UserSpecific": "Yes",
-    "Update": "Yes",
+    "update": "No",
     "URL": "https://fierce-oasis-51455.herokuapp.com",
-        "Source": { "SourceName": "mongoDB", "SourceFile": "NA" },
-       "dataFilter": [{ "field": "Status" }],
+    "Source": { "SourceName": "mongoDB", "SourceFile": "NA" },
+    "dataFilter": [{ "field": "Status" }],
     "filterFieldSource": {
       "header": ["Status"]
     }
   },
-  
+
   "ListFields": {
     "IntroField": "ReferenceNo",
     "TitleField": "CalibDate",
@@ -119,21 +119,21 @@
     },
     {
       "value": "Tab1",
-      "update": "Yes",
+      "update": "No",
       "name": "Calib",
       "type": "Field",
       "fioriicon": "inspection"
     },
     {
       "value": "Tab2",
-      "update": "Yes",
+      "update": "No",
       "name": "Document",
       "type": "Field",
       "fioriicon": "document"
     },
     {
       "value": "Tab3",
-      "update": "Yes",
+      "update": "No",
       "name": "Attachment",
       "type": "Attachment",
       "fioriicon": "attachment"

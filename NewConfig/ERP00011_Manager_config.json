@@ -6,7 +6,7 @@
   "Controls": {
     "USP": "UserProfile",
     "StatusColor": "Yes",
-    "SearchString":{"Search":false},
+    "SearchString": { "Search": false },
     "Filters": [
       {
         "$and": [
@@ -18,15 +18,15 @@
     ],
     "Partner": "@user",
     "UserSpecific": "Yes",
-    "Update": "Yes",
+    "update": "No",
     "URL": "https://fierce-oasis-51455.herokuapp.com",
-        "Source": { "SourceName": "mongoDB", "SourceFile": "NA" },
-       "dataFilter": [{ "field": "Status" }],
+    "Source": { "SourceName": "mongoDB", "SourceFile": "NA" },
+    "dataFilter": [{ "field": "Status" }],
     "filterFieldSource": {
       "header": ["Status"]
     }
   },
-  
+
   "ListFields": {
     "IntroField": "Candidate",
     "TitleField": "Position",
@@ -122,7 +122,7 @@
     },
     {
       "value": "Tab1",
-      "update": "Yes",
+      "update": "No",
       "name": "Employee Details",
       "type": "Field",
       "fioriicon": "notes",
@@ -130,7 +130,7 @@
     },
     {
       "value": "Tab2",
-      "update": "Yes",
+      "update": "No",
       "name": "Job Details",
       "type": "Field",
       "fioriicon": "notes",
@@ -138,7 +138,7 @@
     },
     {
       "value": "Tab3",
-      "update": "Yes",
+      "update": "No",
       "name": "Item Details",
       "fioriicon": "notes",
       "type": "Items",

@@ -15,7 +15,7 @@
     ],
     "Partner": "@user",
     "UserSpecific": "Yes",
-    "Update": "Yes",
+    "update": "No",
     "URL": "https://fierce-oasis-51455.herokuapp.com",
     "Source": { "SourceName": "mongoDB", "SourceFile": "NA" },
     "dataFilter": [{ "field": "Status" }],
@@ -135,7 +135,7 @@
     },
     {
       "value": "Tab1",
-      "update": "Yes",
+      "update": "No",
       "name": "RegularHoursDetails",
       "type": "Field",
       "fioriicon": "per-diem",
@@ -143,7 +143,7 @@
     },
     {
       "value": "Tab2",
-      "update": "Yes",
+      "update": "No",
       "name": "OvertimeHoursDetails",
       "type": "Field",
       "fioriicon": "create-entry-time",
@@ -151,7 +151,7 @@
     },
     {
       "value": "Tab3",
-      "update": "Yes",
+      "update": "No",
       "name": "TotalAmount",
       "fioriicon": "batch-payments",
       "type": "Field",
@@ -159,7 +159,7 @@
     },
     {
       "value": "Tab4",
-      "update": "Yes",
+      "update": "No",
       "name": "Items",
       "fioriicon": "activity-items",
       "type": "Items",
@@ -167,7 +167,7 @@
     },
     {
       "value": "Tab6",
-      "update": "Yes",
+      "update": "No",
       "name": "Attachments",
       "fioriicon": "attachment",
       "type": "MultiAttachments",
@@ -175,7 +175,7 @@
     },
     {
       "value": "Tab5",
-      "update": "Yes",
+      "update": "No",
       "name": "Process log",
       "fioriicon": "step",
       "type": "Chat",
@@ -187,7 +187,7 @@
     "headerRole": ["USP_Role"],
     "headerImage": ["USP_Image"],
     "headerColorFields": ["Status"],
-    "None": ["ID", "Name", "EmployeeID",  "StartDate", "EndDate"],
+    "None": ["ID", "Name", "EmployeeID", "StartDate", "EndDate"],
     "Tab1": ["TotalRegHours", "HourlyRate", "RegularNetAmount"],
     "Tab2": ["TotalOvertimeHours", "OvertimeRate", "OvertimeNetAmount"],
     "Tab3": ["NetAmount", "VATRate", "VATAmount", "GrossAmount"],

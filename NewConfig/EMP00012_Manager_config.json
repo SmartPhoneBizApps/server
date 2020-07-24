@@ -9,7 +9,7 @@
     "SearchString": { "Search": false },
     "Filters": [{ "DevManager": "@user" }],
     "UserSpecific": "Yes",
-    "Update": "Yes",
+    "update": "No",
     "URL": "https://fierce-oasis-51455.herokuapp.com",
     "Source": { "SourceName": "mongoDB", "SourceFile": "NA" },
     "dataFilter": [
@@ -163,42 +163,42 @@
     },
     {
       "value": "Tab1",
-      "update": "Yes",
+      "update": "No",
       "name": "Reference",
       "type": "Field",
       "fioriicon": "request"
     },
     {
       "value": "Tab8",
-      "update": "Yes",
+      "update": "No",
       "name": "ProjectFeedback",
       "type": "Table",
       "fioriicon": "request"
     },
     {
       "value": "Tab2",
-      "update": "Yes",
+      "update": "No",
       "name": "Appraisal",
       "type": "Table",
       "fioriicon": "comment"
     },
     {
       "value": "Tab4",
-      "update": "Yes",
+      "update": "No",
       "name": "Goals",
       "type": "Table",
       "fioriicon": "target-group"
     },
     {
       "value": "Tab5",
-      "update": "Yes",
+      "update": "No",
       "name": "MyTraining",
       "fioriicon": "toaster-up",
       "type": "Table"
     },
     {
       "value": "Tab6",
-      "update": "Yes",
+      "update": "No",
       "name": "SupportingDocs",
       "type": "MultiAttachments",
       "fioriicon": "attachment",
@@ -214,7 +214,7 @@
     },
     {
       "value": "Tab7",
-      "update": "Yes",
+      "update": "No",
       "name": "360(Manager)",
       "fioriicon": "toaster-up",
       "type": "Table"
@@ -225,7 +225,7 @@
     "headerRole": ["USP_Role"],
     "headerImage": ["USP_Image"],
     "headerColorFields": ["Status"],
-    "None": ["ID",  "ReviewDate", "Email"],
+    "None": ["ID", "ReviewDate", "Email"],
     "Tab1": [
       "EmployeeID",
       "Name",
