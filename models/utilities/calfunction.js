@@ -279,6 +279,8 @@ class calFun {
   }
 
   tablecalculation(outdata, config, tabname) {
+    console.log("AG-Debug", tabname);
+    console.log("AG-Debug", outdata);
     if (outdata[tabname].length > 0) {
       if (config["Item"].length > 0) {
         for (var i = 0; i < outdata[tabname].length; i++) {
