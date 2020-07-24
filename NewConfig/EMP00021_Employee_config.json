@@ -73,6 +73,27 @@
       "URL": "datarecords/",
       "Token": "Yes",
       "URLMethod": "PUT"
+    },
+    {
+      "type": "WORKFLOW",
+      "name": "Submit",
+      "icon": "sap-icon://feeder-arrow",
+      "Dialog": [
+        {
+          "label": "Submit Comment",
+          "name": "ProgressComment",
+          "type": "string",
+          "option": "Optional"
+        }
+      ],
+      "transferFields": [
+        { "field": "ID", "value": "@recorddata" },
+        { "field": "Status", "value": "Submitted" },
+        { "field": "ProgressComment", "value": "@UserInput" }
+      ],
+      "URL": "datarecords/",
+      "Token": "Yes",
+      "URLMethod": "PUT"
     }
   ],
   "Tabs": [
@@ -525,9 +546,8 @@
     {
       "id": "Step1",
       "fields": [
-        { "name": "Name", "Mode": "Edit" },
-        { "name": "EmployeeID", "Mode": "Edit" },
-        { "name": "Approver", "Mode": "Display" }
+        { "name": "Name", "Mode": "Display" },
+        { "name": "EmployeeID", "Mode": "Display" }
       ],
       "name": "Employee Details",
       "stepType": "FieldList",
@@ -544,39 +564,18 @@
       "intro": "Time Sheet : Duration"
     },
     {
-      "id": "Step3",
-      "fields": [
-        { "name": "TotalRegHours", "Mode": "Display" },
-        { "name": "HourlyRate", "Mode": "Display" },
-        { "name": "RegularNetAmount", "Mode": "Display" }
-      ],
-      "name": "Regular hours Details",
-      "stepType": "FieldList",
-      "intro": "Time Sheet : Regular hours  Details"
-    },
-    {
       "id": "Step4",
-      "fields": [
-        { "name": "TotalOvertimeHours", "Mode": "Display" },
-        { "name": "OvertimeRate", "Mode": "Display" },
-        { "name": "OvertimeNetAmount", "Mode": "Display" }
-      ],
-      "name": "Overtime Details",
+      "fields": [{ "name": "VATRate", "Mode": "Edit" }],
+      "name": "VAT",
       "stepType": "FieldList",
-      "intro": "Time Sheet : Overtime Details"
+      "intro": "Time Sheet : VAT Details"
     },
     {
       "id": "Step5",
-      "fields": [
-        { "name": "NetAmount", "Mode": "Display" },
-        { "name": "VATRate", "Mode": "Display" },
-        { "name": "VATAmount", "Mode": "Display" },
-        { "name": "GrossAmount", "Mode": "Display" },
-        { "name": "Status", "Mode": "Edit" }
-      ],
+      "fields": [{ "name": "Status", "Mode": "Edit" }],
       "name": "Amount",
       "stepType": "FieldList",
-      "intro": "Time Sheet : Amount"
+      "intro": "Time Sheet : Status"
     }
   ]
 }

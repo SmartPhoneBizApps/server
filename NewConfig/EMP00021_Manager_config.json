@@ -594,63 +594,6 @@
       }
     ]
   },
-  "Create": "Yes",
-  "Wizard": [
-    {
-      "id": "Step1",
-      "fields": [
-        { "name": "Name", "Mode": "Edit" },
-        { "name": "EmployeeID", "Mode": "Edit" },
-        { "name": "Approver", "Mode": "Display" }
-      ],
-      "name": "Employee Details",
-      "stepType": "FieldList",
-      "intro": "Time Sheet : Employee Details"
-    },
-    {
-      "id": "Step2",
-      "fields": [
-        { "name": "StartDate", "Mode": "Edit" },
-        { "name": "EndDate", "Mode": "Edit" }
-      ],
-      "name": "Timesheet Duration",
-      "stepType": "FieldList",
-      "intro": "Time Sheet : Duration"
-    },
-    {
-      "id": "Step3",
-      "fields": [
-        { "name": "TotalRegHours", "Mode": "Display" },
-        { "name": "HourlyRate", "Mode": "Display" },
-        { "name": "RegularNetAmount", "Mode": "Display" }
-      ],
-      "name": "Regular hours Details",
-      "stepType": "FieldList",
-      "intro": "Time Sheet : Regular hours  Details"
-    },
-    {
-      "id": "Step4",
-      "fields": [
-        { "name": "TotalOvertimeHours", "Mode": "Display" },
-        { "name": "OvertimeRate", "Mode": "Display" },
-        { "name": "OvertimeNetAmount", "Mode": "Display" }
-      ],
-      "name": "Overtime Details",
-      "stepType": "FieldList",
-      "intro": "Time Sheet : Overtime Details"
-    },
-    {
-      "id": "Step5",
-      "fields": [
-        { "name": "NetAmount", "Mode": "Display" },
-        { "name": "VATRate", "Mode": "Display" },
-        { "name": "VATAmount", "Mode": "Display" },
-        { "name": "GrossAmount", "Mode": "Display" },
-        { "name": "Status", "Mode": "Edit" }
-      ],
-      "name": "Amount",
-      "stepType": "FieldList",
-      "intro": "Time Sheet : Amount"
-    }
-  ]
+  "Create": "No",
+  "Wizard": []
 }
