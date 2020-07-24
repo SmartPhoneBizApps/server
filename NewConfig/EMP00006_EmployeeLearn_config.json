@@ -6,7 +6,7 @@
   "Controls": {
     "USP": "UserProfile",
     "StatusColor": "Yes",
-    "SearchString":{"Search":false},
+    "SearchString": { "Search": false },
     "Filters": [{ "Partner": "@user" }],
     "Partner": "@user",
     "UserSpecific": "Yes",
@@ -222,7 +222,7 @@
     },
     {
       "name": "Duration",
-      "type": "string",
+      "type": "Num,0",
       "width": "50",
       "Option": "Optional",
       "SLabel": "Duration",
@@ -292,14 +292,6 @@
       "Option": "Optional",
       "SLabel": "Processing Log",
       "LLabel": "Processing Log"
-    },
-    {
-      "name": "Approver",
-      "type": "string",
-      "width": "100",
-      "Option": "Optional",
-      "SLabel": "Approver",
-      "LLabel": "Approver"
     }
   ],
   "itemData": "No",
@@ -355,13 +347,10 @@
     },
     {
       "id": "Step4",
-      "fields": [
-        { "name": "Status", "Mode": "Display" },
-        { "name": "Approver", "Mode": "Edit" }
-      ],
+      "fields": [{ "name": "Status", "Mode": "Display" }],
       "name": "Admin",
       "stepType": "FieldList",
-      "intro": "Training Request : Admin"
+      "intro": "Training Request : Submit"
     }
   ]
 }
