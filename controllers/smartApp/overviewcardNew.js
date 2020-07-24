@@ -3,14 +3,13 @@ const Role = require("../../models/appSetup/Role");
 const Approle = require("../../models/appSetup/Approle");
 const { getCard } = require("../../modules/config");
 const { readData, getTotalCount, nConfig } = require("../../modules/config2");
+const { json } = require("express");
 // @desc      Get adaptiveCard_card
 // @route     GET /api/v1/adaptiveCard_card/:id
 // @access    Public
 exports.overviewcardNew = async (req, res, next) => {
   let result = {};
   // Read Color Configuration
-  console.log(req.headers.mycard);
-
   var mycard = {};
   mycard["title"] = "SmartApp App";
   mycard["subTitle"] = "List of Items";
@@ -28,46 +27,11 @@ exports.overviewcardNew = async (req, res, next) => {
     req.headers.businessrole +
     "_config.json";
   var config1 = require(fn1);
-  console.log(fn1);
 
   //mycard["Type"] = "sap-icon://form";
   let query = readData("EMP00001", req, config1);
   let results = await query;
-  list1_item = {
-    icon: {
-      src: "{icon}",
-    },
-    title: {
-      value: "{name}",
-    },
-    description: {
-      value: "{description}",
-    },
-    info: {
-      value: "{info}",
-      state: "{infoState}",
-    },
-  };
 
-  list2_item = {
-    icon: {
-      src: "{icon}",
-    },
-    title: {
-      value: "{name}",
-    },
-    description: {
-      value: "{description}",
-    },
-    actions: [
-      {
-        type: "Navigation",
-        parameters: {
-          url: "/appID/{name}",
-        },
-      },
-    ],
-  };
   list2_json = [
     {
       name: "Alain Chevalier",
@@ -195,21 +159,74 @@ exports.overviewcardNew = async (req, res, next) => {
       },
     ],
   };
-
+  let xjson = {};
+  let json = [];
   //console.log(results);
-  if (config1["cardData"]) {
-    for (let k = 0; k < config1["cardData"].length; k++) {
-      if (config1["cardData"][k]["table1"]) {
-        mycard["TableFields"] = config1["cardData"][k]["TableFields"];
+  if (config1["cardSetup"]) {
+    for (let k = 0; k < config1["cardSetup"].length; k++) {
+      if (config1["cardSetup"][k]["cardType"] == req.headers.mycard) {
+        t_item = config1["cardSetup"][k]["item"];
+        console.log(config1["cardSetup"][k]["json"]);
+
+        if (
+          req.headers.mycard == "list1" ||
+          req.headers.mycard == "list2" ||
+          req.headers.mycard == "timeline1"
+        ) {
+          for (let n = 0; n < results.length; n++) {
+            for (let m = 0; m < config1["cardSetup"][k]["json"].length; m++) {
+              var ele1 = config1["cardSetup"][k]["json"][m];
+              for (const key in ele1) {
+                console.log("222", key, ele1[key]);
+                arr1 = ele1[key].split("+");
+                for (let s = 0; s < arr1.length; s++) {
+                  if (key == "infoState") {
+                    xjson["infoState"] = arr1[s];
+                  }
+                  if (results[n][arr1[s]] != undefined) {
+                    console.log(results[n][arr1[s]]);
+                    if (key == "name") {
+                      xjson["name"] = results[n][arr1[s]];
+                    }
+                    if (key == "icon") {
+                      xjson["icon"] = "sap-icon://" + results[n][arr1[s]];
+                    }
+                    if (key == "info") {
+                      xjson["info"] = results[n][arr1[s]];
+                    }
+
+                    if (key == "description") {
+                      //    arr2 = String(results[n][arr1[s]]).split("T")[0];
+                      //   console.log(arr2);
+                      if (s == 0) {
+                        xjson["description"] = results[n][arr1[s]];
+                      } else {
+                        xjson["description"] =
+                          xjson["description"] + " " + results[n][arr1[s]];
+                      }
+                    }
+                  }
+                }
+                console.log("KK", arr1);
+                arr1 = [];
+              }
+            }
+            json.push({ ...xjson });
+            xjson = {};
+            console.log("jsonData", json);
+          }
+        }
+
+        mycard["TableFields"] = config1["cardSetup"][k]["TableFields"];
         result = getCard(
           mycard,
           req.headers.mycard,
           results,
-          list1_json,
-          list1_item,
+          json,
+          t_item,
           list2_json,
-          list2_item,
-          donut_content
+          donut_content,
+          timeline1_json
         );
       }
     }

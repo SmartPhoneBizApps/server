@@ -15,11 +15,12 @@ module.exports = {
     cardType,
     results,
     list1_json,
-    list1_item,
+    t_item,
     list2_json,
-    list2_item,
-    donut_content
+    donut_content,
+    timeline1_json
   ) {
+    console.log(t_item);
     grp1 = [];
     grp_cont = [];
     hdr = {};
@@ -36,7 +37,7 @@ module.exports = {
     let cardConfigFile = "../cards/cardConfig/card_template.json";
     var cardConfig = require(cardConfigFile);
     stru = cardConfig["Structure"];
-
+    console.log(cardType);
     switch (cardType) {
       case "timeline1":
         typ = "Timeline";
@@ -45,13 +46,14 @@ module.exports = {
         hdr["subTitle"] = data["subTitle"];
         hdr["status"]["text"] = data["statusText"];
         hdr["actions"][0]["parameters"]["url"] = data["HeaderActionURL"];
-        //    grp1 = cardConfig["sap.card"]["timeline1"];
+        grp_cont["item"] = t_item;
+        grp_cont = cardConfig["content"]["timeline1"];
+        stru["sap.card"]["content"] = grp_cont;
 
+        //    grp1 = cardConfig["sap.card"]["timeline1"];
         // mycard["HeaderActionURL"];
 
-        grp_cont = cardConfig["content"]["timeline1"];
-
-        datajson = ["dateTime", "description", "title", "icon"];
+        //  datajson = ["dateTime", "description", "title", "icon"];
         break;
 
       case "objectPerson":
@@ -164,10 +166,10 @@ module.exports = {
         hdr["status"]["text"] = data["statusText"];
         //       grp1 = cardConfig["sap.card"]["list1"];
         grp_cont = cardConfig["content"]["list1"];
-        grp_cont["item"] = list1_item;
+        grp_cont["item"] = t_item;
         grp_cont["data"]["json"] = list1_json;
         stru["sap.card"]["content"] = grp_cont;
-
+        console.log(stru);
         break;
       case "list2":
         typ = "List";
@@ -178,7 +180,7 @@ module.exports = {
         hdr["icon"]["src"] = data["HeaderIcon"];
         //     grp1 = cardConfig["sap.card"]["list2"];
         grp_cont = cardConfig["content"]["list2"];
-        grp_cont["item"] = list2_item;
+        grp_cont["item"] = t_item;
         grp_cont["data"]["json"] = list2_json;
         stru["sap.card"]["content"] = grp_cont;
 
