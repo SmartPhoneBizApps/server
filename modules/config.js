@@ -20,7 +20,6 @@ module.exports = {
     donut_content,
     timeline1_json
   ) {
-    console.log(t_item);
     grp1 = [];
     grp_cont = [];
     hdr = {};
@@ -37,7 +36,6 @@ module.exports = {
     let cardConfigFile = "../cards/cardConfig/card_template.json";
     var cardConfig = require(cardConfigFile);
     stru = cardConfig["Structure"];
-    console.log(cardType);
     switch (cardType) {
       case "timeline1":
         typ = "Timeline";
@@ -169,7 +167,6 @@ module.exports = {
         grp_cont["item"] = t_item;
         grp_cont["data"]["json"] = list1_json;
         stru["sap.card"]["content"] = grp_cont;
-        console.log(stru);
         break;
       case "list2":
         typ = "List";
@@ -727,12 +724,12 @@ module.exports = {
 
   handleArray: function (newData, oldData) {
     let current = [];
+    console.log(newData);
     let docID = newData["documentId"];
     current.push(newData);
     for (let index = 0; index < oldData.length; index++) {
       if (oldData[index]["documentId"] == docID) {
       } else {
-        console.log("OldID-NM", oldData[index]["documentId"]);
         current.push(oldData[index]);
       }
     }
@@ -883,7 +880,6 @@ module.exports = {
     myFieldArray = [];
     for (let index = 0; index < FieldDef.length; index++) {
       if (FieldDef[index].type == "Array") {
-        //  console.log(FieldDef[index].name);
         myFieldArray.push(FieldDef[index].name);
       }
     }
@@ -1022,13 +1018,6 @@ module.exports = {
 
           if (MButtons[a]["key"]["generateID"].length > 0) {
             for (let k = 0; k < MButtons[a]["key"]["generateID"].length; k++) {
-              console.log(body);
-              console.log(
-                "A1",
-                k,
-                MButtons[a]["key"]["generateID"][k],
-                body[MButtons[a]["key"]["generateID"][k]]
-              );
               if (k == 0) {
                 body["ID"] = body[MButtons[a]["key"]["generateID"][k]];
               } else {
@@ -1038,8 +1027,6 @@ module.exports = {
                   body[MButtons[a]["key"]["generateID"][k]];
               }
             }
-          } else {
-            console.log(body["ID"]);
           }
         }
       }

@@ -555,23 +555,24 @@ exports.updateDataRecords = asyncHandler(async (req, res, next) => {
   //---------------------------
   // Attachment logic....
   //---------------------------
-
-  if (req.body["MultiAttachments"]) {
-    if (myData["MultiAttachments"]) {
-      if (myData["MultiAttachments"]["items"]) {
-        console.log("Multiple Attachments");
-        req.body["MultiAttachments"]["items"] = handleArray(
-          req.body["MultiAttachments"]["items"][0],
-          myData["MultiAttachments"]["items"]
-        );
-        myData["MultiAttachments"] = req.body["MultiAttachments"];
+  if (req.body.hasOwnProperty("MultiAttachments")) {
+    if (req.body["MultiAttachments"]) {
+      if (myData["MultiAttachments"]) {
+        if (myData["MultiAttachments"]["items"]) {
+          console.log("Multiple Attachments");
+          req.body["MultiAttachments"]["items"] = handleArray(
+            req.body["MultiAttachments"]["items"][0],
+            myData["MultiAttachments"]["items"]
+          );
+          myData["MultiAttachments"] = req.body["MultiAttachments"];
+        } else {
+          console.log("Single Attachments");
+          myData["MultiAttachments"] = req.body["MultiAttachments"];
+        }
       } else {
-        console.log("Single Attachments");
+        console.log("Single Attachments - No Tag");
         myData["MultiAttachments"] = req.body["MultiAttachments"];
       }
-    } else {
-      console.log("Single Attachments - No Tag");
-      myData["MultiAttachments"] = req.body["MultiAttachments"];
     }
   }
 
