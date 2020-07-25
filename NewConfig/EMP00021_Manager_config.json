@@ -136,38 +136,22 @@
     {
       "value": "Tab1",
       "update": "No",
-      "name": "RegularHoursDetails",
-      "type": "Field",
+      "name": "Hours Amounts",
+      "type": "FieldGroup",
       "fioriicon": "per-diem",
       "download": "Yes"
     },
     {
-      "value": "Tab2",
-      "update": "No",
-      "name": "OvertimeHoursDetails",
-      "type": "Field",
-      "fioriicon": "create-entry-time",
-      "download": "Yes"
-    },
-    {
-      "value": "Tab3",
-      "update": "No",
-      "name": "TotalAmount",
-      "fioriicon": "batch-payments",
-      "type": "Field",
-      "download": "Yes"
-    },
-    {
       "value": "Tab4",
-      "update": "No",
-      "name": "Items",
+      "update": "Yes",
+      "name": "Daily Time",
       "fioriicon": "activity-items",
-      "type": "Items",
+      "type": "Table",
       "download": "No"
     },
     {
       "value": "Tab6",
-      "update": "No",
+      "update": "Yes",
       "name": "Attachments",
       "fioriicon": "attachment",
       "type": "MultiAttachments",
@@ -191,19 +175,24 @@
     "Tab1": [
       {
         "GrpTitle": "Regular Hours",
-        "Fields": ["TotalRegHours", "HourlyRate", "RegularNetAmount"]
+        "Fields": ["TotalRegHours", "RegularNetAmount"]
       },
       {
         "GrpTitle": "OverTime Hours",
-        "Fields": ["TotalOvertimeHours", "OvertimeRate", "OvertimeNetAmount"]
+        "Fields": ["TotalOvertimeHours", "OvertimeNetAmount"]
       },
       {
         "GrpTitle": "Totals",
-        "Fields": ["NetAmount", "VATRate", "VATAmount", "GrossAmount"]
+        "Fields": ["NetAmount", "VATAmount", "GrossAmount"]
+      },
+      {
+        "GrpTitle": "Rates",
+        "Fields": ["HourlyRate", "OvertimeRate", "VATRate"]
       }
     ],
     "Tab5": ["ProcessingLog"],
-    "Tab6": ["MultiAttachments"]
+    "Tab6": ["MultiAttachments"],
+    "Tab4": ["myTime"]
   },
   "ControlDisplay": {},
   "FieldDef": [
@@ -259,7 +248,7 @@
       "name": "HourlyRate",
       "type": "Num,2",
       "width": "50",
-      "Option": "Optional",
+      "Option": "Mandatory",
       "SLabel": "Hourly Rate",
       "LLabel": "Hourly Rate",
       "Currency": "Yes"
@@ -285,7 +274,7 @@
       "name": "OvertimeRate",
       "type": "Num,2",
       "width": "50",
-      "Option": "Optional",
+      "Option": "Mandatory",
       "SLabel": "Overtime Rate",
       "LLabel": "Overtime Rate",
       "Currency": "Yes"
@@ -335,6 +324,14 @@
       "Currency": "Yes"
     },
     {
+      "name": "myTime",
+      "type": "Array",
+      "width": "200",
+      "Option": "Optional",
+      "SLabel": "myTime",
+      "LLabel": "myTime"
+    },
+    {
       "name": "Status",
       "type": "string",
       "width": "20",
@@ -373,129 +370,134 @@
       "Option": "Optional",
       "SLabel": "Attachments",
       "LLabel": "Attachments"
-    },
-    {
-      "name": "SearchString",
-      "type": "string",
-      "width": "200",
-      "Option": "Mandatory",
-      "SLabel": "Search String",
-      "LLabel": "Search String"
     }
   ],
-  "itemData": "Yes",
+  "itemData": "No",
   "itemConfig": {
-    "title": "Item Details",
-    "ItemFieldDefinition": [
-      {
-        "name": "ItemNumber",
-        "type": "string",
-        "width": "20",
-        "SLabel": "ItemNumber",
-        "Option": "Optional",
-        "Currency": "No"
-      },
-      {
-        "name": "ID",
-        "type": "string",
-        "width": "20",
-        "SLabel": "Identification",
-        "Option": "Optional",
-        "Currency": "No"
-      },
-      {
-        "name": "ProjectCode",
-        "type": "string",
-        "width": "50",
-        "SLabel": "Project Code",
-        "Option": "Mandatory",
-        "Currency": "No"
-      },
-      {
-        "name": "Date",
-        "type": "Date",
-        "width": "10",
-        "SLabel": "Timesheet Date",
-        "Option": "Mandatory",
-        "Currency": "No"
-      },
-      {
-        "name": "TotalRegWorkHours",
-        "type": "Num,1",
-        "width": "50",
-        "SLabel": "Regular work hours",
-        "Option": "Optional",
-        "Currency": "No"
-      },
-      {
-        "name": "OvertimeHours",
-        "type": "Num,1",
-        "width": "50",
-        "SLabel": "Overtime Hours",
-        "Option": "Optional",
-        "Currency": "No"
-      },
-      {
-        "name": "ProgressComment",
-        "type": "string",
-        "width": "500",
-        "Option": "Mandatory",
-        "SLabel": "Approver Comment",
-        "LLabel": ""
-      },
-      {
-        "name": "Comment",
-        "type": "string",
-        "width": "1000",
-        "SLabel": "Comment",
-        "Option": "Optional",
-        "Currency": "No"
-      }
-    ],
-    "DisplayFields": [
-      "ItemNumber",
-      "ProjectCode",
-      "Date",
-      "TotalRegWorkHours",
-      "OvertimeHours"
-    ],
+    "ItemFieldDefinition": [],
+    "DisplayFields": [],
     "ItemButtons": {
       "itemDisplay": true,
       "itemAdd": true,
       "itemEdit": true,
       "itemDelete": true
     },
-    "CreateFields": [
-      "ProjectCode",
-      "Date",
-      "TotalRegWorkHours",
-      "OvertimeHours",
-      "Comment"
-    ],
-    "ItemDetails": [
-      {
-        "name": "ItemNumber",
-        "Tab": "Tab4",
-
-        "Mode": "Display"
-      },
-      { "name": "ProjectCode", "Tab": "Tab4", "Mode": "Edit" },
-      { "name": "Date", "Tab": "Tab4", "Mode": "Edit" },
-      {
-        "name": "TotalRegWorkHours",
-        "Tab": "Tab4",
-
-        "Mode": "Edit"
-      },
-      {
-        "name": "OvertimeHours",
-        "Tab": "Tab4",
-
-        "Mode": "Edit"
-      },
-      { "name": "Comment", "Tab": "Tab4", "Mode": "Edit" }
-    ]
+    "CreateFields": [],
+    "ItemDetails": []
   },
+  "tableConfig": {
+    "myTime": {
+      "calculation": "Yes",
+      "title": "Daily time booking",
+      "ItemFieldDefinition": [
+        {
+          "name": "ItemNumber",
+          "type": "string",
+          "width": "20",
+          "SLabel": "ItemNumber",
+          "Option": "Optional",
+          "Currency": "No"
+        },
+        {
+          "name": "ID",
+          "type": "string",
+          "width": "20",
+          "SLabel": "Identification",
+          "Option": "Optional",
+          "Currency": "No"
+        },
+        {
+          "name": "ProjectCode",
+          "type": "string",
+          "width": "50",
+          "SLabel": "Project Code",
+          "Option": "Mandatory",
+          "Currency": "No"
+        },
+        {
+          "name": "Date",
+          "type": "Date",
+          "width": "10",
+          "SLabel": "Timesheet Date",
+          "Option": "Mandatory",
+          "Currency": "No"
+        },
+        {
+          "name": "TotalRegWorkHours",
+          "type": "Num,1",
+          "width": "50",
+          "SLabel": "Regular work hours",
+          "Option": "Optional",
+          "Currency": "No"
+        },
+        {
+          "name": "OvertimeHours",
+          "type": "Num,1",
+          "width": "50",
+          "SLabel": "Overtime Hours",
+          "Option": "Optional",
+          "Currency": "No"
+        },
+        {
+          "name": "SearchString",
+          "type": "string",
+          "width": "200",
+          "Option": "Mandatory",
+          "SLabel": "Search String",
+          "LLabel": "Search String"
+        },
+        {
+          "name": "Comment",
+          "type": "string",
+          "width": "1000",
+          "SLabel": "Comment",
+          "Option": "Optional",
+          "Currency": "No"
+        }
+      ],
+      "DisplayFields": [
+        "ItemNumber",
+        "ProjectCode",
+        "Date",
+        "TotalRegWorkHours",
+        "OvertimeHours"
+      ],
+      "ItemButtons": {
+        "itemDisplay": true,
+        "itemAdd": true,
+        "itemEdit": true,
+        "itemDelete": true
+      },
+      "CreateFields": [
+        "ProjectCode",
+        "Date",
+        "TotalRegWorkHours",
+        "OvertimeHours",
+        "Comment"
+      ],
+      "ItemDetails": [
+        {
+          "name": "ItemNumber",
+          "Tab": "Tab4",
+          "Mode": "Display"
+        },
+        { "name": "ProjectCode", "Tab": "Tab4", "Mode": "Edit" },
+        { "name": "Date", "Tab": "Tab4", "Mode": "Edit" },
+        {
+          "name": "TotalRegWorkHours",
+          "Tab": "Tab4",
+          "Mode": "Edit"
+        },
+        {
+          "name": "OvertimeHours",
+          "Tab": "Tab4",
+          "Mode": "Edit"
+        },
+        { "name": "Comment", "Tab": "Tab4", "Mode": "Edit" }
+      ]
+    }
+  },
+
   "CalculatedFields": {
     "Item": [],
     "HeaderItem": [

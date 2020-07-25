@@ -6,7 +6,7 @@
   "Controls": {
     "USP": "UserProfile",
     "StatusColor": "Yes",
-    "SearchString":{"Search":false},
+    "SearchString": { "Search": false },
     "Filters": [{ "Partner": "@user" }],
     "Partner": "@user",
     "UserSpecific": "Yes",
@@ -55,6 +55,7 @@
     "VendorName",
     "UoM",
     "Category",
+    "Currency",
     "State",
     "Country",
     "Office",
@@ -139,7 +140,7 @@
       "update": "Yes",
       "name": "Item",
       "fioriicon": "notes",
-      "type": "Items",
+      "type": "Table",
       "download": "No"
     },
     {
@@ -180,7 +181,8 @@
       "ContactNo",
       "OtherInfo"
     ],
-    "Tab4": ["ProcessingLog"]
+    "Tab4": ["ProcessingLog"],
+    "Tab3": ["ItemData"]
   },
   "ControlDisplay": {},
   "FieldDef": [
@@ -221,7 +223,7 @@
       "type": "Date",
       "width": "10",
       "Option": "Optional",
-      "SLabel": "Shopping Cart Date",
+      "SLabel": "SC Date",
       "LLabel": ""
     },
     {
@@ -245,7 +247,7 @@
       "type": "Num,1",
       "width": "10",
       "Option": "Optional",
-      "SLabel": "Shopping Cart Quantity",
+      "SLabel": "SC Quantity",
       "LLabel": ""
     },
     {
@@ -266,7 +268,7 @@
     },
     {
       "name": "NetValue",
-      "type": "Num,3",
+      "type": "Num,2",
       "width": "50",
       "Option": "Optional",
       "SLabel": "Net Value",
@@ -274,7 +276,7 @@
     },
     {
       "name": "VATRate",
-      "type": "Num,0",
+      "type": "Num,1",
       "width": "10",
       "Option": "Optional",
       "SLabel": "VAT Rate",
@@ -282,7 +284,7 @@
     },
     {
       "name": "VATVal",
-      "type": "Num,3",
+      "type": "Num,2",
       "width": "50",
       "Option": "Optional",
       "SLabel": "VAT Value",
@@ -290,18 +292,18 @@
     },
     {
       "name": "GrossValue",
-      "type": "Num,3",
+      "type": "Num,2",
       "width": "50",
       "Option": "Optional",
       "SLabel": "Gross Value",
       "LLabel": ""
     },
     {
-      "name": "Budget",
+      "name": "Currency",
       "type": "string",
-      "width": "10",
+      "width": "50",
       "Option": "Optional",
-      "SLabel": "Budget",
+      "SLabel": "Currency",
       "LLabel": ""
     },
     {
@@ -373,7 +375,7 @@
       "type": "Date",
       "width": "10",
       "Option": "Optional",
-      "SLabel": "Req Delivery Date ",
+      "SLabel": "Delivery Date",
       "LLabel": ""
     },
     {
@@ -410,8 +412,16 @@
       "URLMethod": "GET",
       "Token": true,
       "Option": "Optional",
-      "SLabel": "Delivery PostCode",
-      "LLabel": "Delivery PostCode"
+      "SLabel": "Post Code",
+      "LLabel": "Post Code"
+    },
+    {
+      "name": "ProgressComment",
+      "type": "string",
+      "width": "500",
+      "Option": "Mandatory",
+      "SLabel": "Approver Comment",
+      "LLabel": ""
     },
     {
       "name": "Country",
@@ -434,7 +444,7 @@
       "type": "string",
       "width": "100",
       "Option": "Mandatory",
-      "SLabel": "Delivery Email",
+      "SLabel": "Delivey Email",
       "LLabel": ""
     },
     {
@@ -461,14 +471,7 @@
       "SLabel": "Payment Amount",
       "LLabel": ""
     },
-    {
-      "name": "Currency",
-      "type": "string",
-      "width": "50",
-      "Option": "Optional",
-      "SLabel": "Currency",
-      "LLabel": ""
-    },
+
     {
       "name": "PaymentOption",
       "type": "radiobutton",
@@ -495,7 +498,7 @@
     },
     {
       "name": "VATPer",
-      "type": "Num,3",
+      "type": "Num,1",
       "width": "100",
       "Option": "Optional",
       "SLabel": "VAT Percentage",
@@ -509,14 +512,7 @@
       "SLabel": "Approver",
       "LLabel": "Approver"
     },
-    {
-      "name": "ProcessingLog",
-      "type": "string",
-      "width": "1000",
-      "Option": "Optional",
-      "SLabel": "Processing Log",
-      "LLabel": "Processing Log"
-    },
+
     {
       "name": "MutiItems",
       "type": "string",
@@ -524,133 +520,156 @@
       "Option": "Optional",
       "SLabel": "MutiItems",
       "LLabel": "MutiItems"
+    },
+    {
+      "name": "ItemData",
+      "type": "Array",
+      "width": "200",
+      "Option": "Optional",
+      "SLabel": "ItemData",
+      "LLabel": "ItemData"
     }
   ],
-  "itemData": "Yes",
+  "itemData": "No",
   "itemConfig": {
-    "title": "Item Details",
-    "ItemFieldDefinition": [
-      {
-        "name": "ItemNumber",
-        "type": "string",
-        "width": "20",
-        "SLabel": "Item Number"
-      },
-      { "name": "ID", "type": "string", "width": "20", "SLabel": "ID" },
-      {
-        "name": "ItemName",
-        "type": "string",
-        "width": "100",
-        "SLabel": "item Name"
-      },
-      {
-        "name": "ItemPrice",
-        "type": "Num,2",
-        "width": "100",
-        "SLabel": "Item Price"
-      },
-      {
-        "name": "ItemQuantity",
-        "type": "Num,2",
-        "width": "100",
-        "SLabel": "Item Quantity"
-      },
-      {
-        "name": "ItemValue",
-        "type": "Num,2",
-        "width": "100",
-        "SLabel": "Item Value"
-      },
-      {
-        "name": "iVAT",
-        "type": "Num,2",
-        "width": "100",
-        "SLabel": "Item Value Added Tax"
-      },
-      {
-        "name": "ItemGrossValue",
-        "type": "Num,2",
-        "width": "100",
-        "SLabel": "Item Gross Value"
-      },
-      {
-        "name": "ItemTaxRate",
-        "type": "Num,2",
-        "width": "100",
-        "SLabel": "Item Tax Rate"
-      },
-      {
-        "name": "ItemVATValue",
-        "type": "Num,3",
-        "width": "20",
-        "SLabel": "Item VAT Value"
-      }
-    ],
-    "DisplayFields": [
-      "ItemNumber",
-      "ItemName",
-      "ItemValue",
-      "iVAT",
-      "ItemVATValue",
-      "ItemGrossValue"
-    ],
+    "ItemFieldDefinition": [],
+    "DisplayFields": [],
     "ItemButtons": {
-      "itemDisplay": false,
+      "itemDisplay": true,
       "itemAdd": true,
       "itemEdit": true,
       "itemDelete": true
     },
-    "CreateFields": [
-      "ItemName",
-      "ItemPrice",
-      "ItemQuantity",
-      "ItemValue",
-      "ItemTaxRate",
-      "iVAT",
-      "ItemGrossValue",
-      "ItemVATValue"
-    ],
-    "ItemDetails": [
-      {
-        "name": "ItemNumber",
-        "Tab": "Tab3",
-
-        "Mode": "Display"
+    "CreateFields": [],
+    "ItemDetails": []
+  },
+  "tableConfig": {
+    "ItemData": {
+      "calculation": "Yes",
+      "title": "Item Details",
+      "ItemFieldDefinition": [
+        {
+          "name": "ItemNumber",
+          "type": "string",
+          "width": "20",
+          "SLabel": "Item Number"
+        },
+        { "name": "ID", "type": "string", "width": "20", "SLabel": "ID" },
+        {
+          "name": "ItemName",
+          "type": "string",
+          "width": "100",
+          "SLabel": "item Name"
+        },
+        {
+          "name": "ItemPrice",
+          "type": "Num,2",
+          "width": "100",
+          "SLabel": "Item Price"
+        },
+        {
+          "name": "ItemQuantity",
+          "type": "Num,2",
+          "width": "100",
+          "SLabel": "Item Quantity"
+        },
+        {
+          "name": "ItemValue",
+          "type": "Num,2",
+          "width": "100",
+          "SLabel": "Item Value"
+        },
+        {
+          "name": "iVAT",
+          "type": "Num,2",
+          "width": "100",
+          "SLabel": "Item Value Added Tax"
+        },
+        {
+          "name": "ItemGrossValue",
+          "type": "Num,2",
+          "width": "100",
+          "SLabel": "Item Gross Value"
+        },
+        {
+          "name": "ItemTaxRate",
+          "type": "Num,2",
+          "width": "100",
+          "SLabel": "Item Tax Rate"
+        },
+        {
+          "name": "ItemVATValue",
+          "type": "Num,3",
+          "width": "20",
+          "SLabel": "Item VAT Value"
+        }
+      ],
+      "DisplayFields": [
+        "ItemNumber",
+        "ItemName",
+        "ItemValue",
+        "iVAT",
+        "ItemVATValue",
+        "ItemGrossValue"
+      ],
+      "ItemButtons": {
+        "itemDisplay": false,
+        "itemAdd": true,
+        "itemEdit": true,
+        "itemDelete": true
       },
-      { "name": "ItemName", "Tab": "Tab3", "Mode": "Edit" },
-      { "name": "ItemPrice", "Tab": "Tab3", "Mode": "Edit" },
-      {
-        "name": "ItemQuantity",
-        "Tab": "Tab3",
+      "CreateFields": [
+        "ItemName",
+        "ItemPrice",
+        "ItemQuantity",
+        "ItemValue",
+        "ItemTaxRate",
+        "iVAT",
+        "ItemGrossValue",
+        "ItemVATValue"
+      ],
+      "ItemDetails": [
+        {
+          "name": "ItemNumber",
+          "Tab": "Tab3",
 
-        "Mode": "Edit"
-      },
-      {
-        "name": "ItemValue",
-        "Tab": "Tab3",
+          "Mode": "Display"
+        },
+        { "name": "ItemName", "Tab": "Tab3", "Mode": "Edit" },
+        { "name": "ItemPrice", "Tab": "Tab3", "Mode": "Edit" },
+        {
+          "name": "ItemQuantity",
+          "Tab": "Tab3",
 
-        "Mode": "Display"
-      },
-      { "name": "iVAT", "Tab": "Tab3", "Mode": "Edit" },
-      {
-        "name": "ItemGrossValue",
-        "Tab": "Tab3",
+          "Mode": "Edit"
+        },
+        {
+          "name": "ItemValue",
+          "Tab": "Tab3",
 
-        "Mode": "Display"
-      },
-      {
-        "name": "ItemVATValue",
-        "Tab": "Tab3",
+          "Mode": "Display"
+        },
+        { "name": "iVAT", "Tab": "Tab3", "Mode": "Edit" },
+        {
+          "name": "ItemGrossValue",
+          "Tab": "Tab3",
 
-        "Mode": "Edit"
-      },
-      {
-        "name": "ItemTaxRate",
-        "Tab": "Tab3",
+          "Mode": "Display"
+        },
+        {
+          "name": "ItemVATValue",
+          "Tab": "Tab3",
 
-        "Mode": "Display"
-      }
-    ]
+          "Mode": "Edit"
+        },
+        {
+          "name": "ItemTaxRate",
+          "Tab": "Tab3",
+
+          "Mode": "Display"
+        }
+      ]
+    }
   },
   "CalculatedFields": {
     "Item": [
