@@ -106,7 +106,7 @@
     },
     {
       "value": "Tab1",
-      "update": "Yes",
+      "update": "No",
       "name": "Hours Amounts",
       "type": "FieldGroup",
       "fioriicon": "per-diem",
@@ -130,7 +130,7 @@
     },
     {
       "value": "Tab5",
-      "update": "Yes",
+      "update": "No",
       "name": "Process log",
       "fioriicon": "step",
       "type": "Chat",
@@ -155,6 +155,10 @@
       {
         "GrpTitle": "Totals",
         "Fields": ["NetAmount", "VATRate", "VATAmount", "GrossAmount"]
+      },
+      {
+        "GrpTitle": "Rates",
+        "Fields": ["HourlyRate", "OvertimeRate"]
       }
     ],
     "Tab5": ["ProcessingLog"],
@@ -215,7 +219,7 @@
       "name": "HourlyRate",
       "type": "Num,2",
       "width": "50",
-      "Option": "Optional",
+      "Option": "Mandatory",
       "SLabel": "Hourly Rate",
       "LLabel": "Hourly Rate",
       "Currency": "Yes"
@@ -241,7 +245,7 @@
       "name": "OvertimeRate",
       "type": "Num,2",
       "width": "50",
-      "Option": "Optional",
+      "Option": "Mandatory",
       "SLabel": "Overtime Rate",
       "LLabel": "Overtime Rate",
       "Currency": "Yes"
@@ -587,10 +591,14 @@
     },
     {
       "id": "Step4",
-      "fields": [{ "name": "VATRate", "Mode": "Edit" }],
+      "fields": [
+        { "name": "HourlyRate", "Mode": "Edit" },
+        { "name": "OvertimeRate", "Mode": "Edit" },
+        { "name": "VATRate", "Mode": "Edit" }
+      ],
       "name": "VAT",
       "stepType": "FieldList",
-      "intro": "Time Sheet : VAT Details"
+      "intro": "Time Sheet : Rates"
     },
     {
       "id": "Step5",
