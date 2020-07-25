@@ -554,16 +554,7 @@
         "itemEdit": true,
         "itemDelete": true
       },
-      "CreateFields": [
-        "ItemName",
-        "ItemPrice",
-        "ItemQuantity",
-        "ItemValue",
-        "ItemTaxRate",
-        "iVAT",
-        "ItemGrossValue",
-        "ItemVATValue"
-      ],
+      "CreateFields": ["ItemName", "ItemPrice", "ItemQuantity", "ItemTaxRate"],
       "ItemDetails": [
         {
           "name": "ItemNumber",
@@ -612,8 +603,7 @@
         },
         "Fields": [
           { "Source": "ItemPrice", "Type": { "type": "Item" } },
-          { "Source": "ItemQuantity", "Type": { "type": "Item" } },
-          { "Source": "ItemValue", "Type": { "type": "Item" } }
+          { "Source": "ItemQuantity", "Type": { "type": "Item" } }
         ]
       },
       {
