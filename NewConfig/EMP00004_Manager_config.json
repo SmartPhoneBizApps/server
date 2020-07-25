@@ -64,8 +64,6 @@
     "UoM",
     "Category",
     "Currency",
-    "State",
-    "Country",
     "Office",
     "CostCentre",
     "GLAccount",
@@ -216,16 +214,13 @@
       "NetValue",
       "VATRate",
       "VATVal",
-      "GrossValue",
-      "CostType"
+      "GrossValue"
     ],
     "Tab2": [
       "DeliveryDt",
       "DelTo",
       "Address",
-      "State",
       "PostCode",
-      "Country",
       "ContactNo",
       "OtherInfo"
     ],
@@ -395,14 +390,7 @@
       "SLabel": "Cost Object",
       "LLabel": ""
     },
-    {
-      "name": "CostType",
-      "type": "combobox",
-      "width": "50",
-      "Option": "Optional",
-      "SLabel": "Cost Type",
-      "LLabel": ""
-    },
+
     {
       "name": "GLAccount",
       "type": "string",
@@ -444,14 +432,6 @@
       "LLabel": ""
     },
     {
-      "name": "State",
-      "type": "string",
-      "width": "100",
-      "Option": "Optional",
-      "SLabel": "State",
-      "LLabel": ""
-    },
-    {
       "name": "PostCode",
       "type": "searchField",
       "width": "20",
@@ -472,12 +452,12 @@
       "LLabel": ""
     },
     {
-      "name": "Country",
+      "name": "ProcessingLog",
       "type": "string",
-      "width": "100",
+      "width": "1000",
       "Option": "Optional",
-      "SLabel": "Country",
-      "LLabel": ""
+      "SLabel": "Processing Log",
+      "LLabel": "Processing Log"
     },
     {
       "name": "ContactNo",

@@ -167,8 +167,7 @@
       "NetValue",
       "VATRate",
       "VATVal",
-      "GrossValue",
-      "CostType"
+      "GrossValue"
     ],
     "Tab2": [
       "DeliveryDt",
@@ -330,6 +329,14 @@
       "LLabel": "ProgressComment"
     },
     {
+      "name": "ProcessingLog",
+      "type": "string",
+      "width": "1000",
+      "Option": "Optional",
+      "SLabel": "Processing Log",
+      "LLabel": "Processing Log"
+    },
+    {
       "name": "Office",
       "type": "string",
       "width": "50",
@@ -345,14 +352,7 @@
       "SLabel": "Cost Object",
       "LLabel": ""
     },
-    {
-      "name": "CostType",
-      "type": "combobox",
-      "width": "50",
-      "Option": "Optional",
-      "SLabel": "Cost Type",
-      "LLabel": ""
-    },
+
     {
       "name": "GLAccount",
       "type": "string",
@@ -775,8 +775,7 @@
         { "name": "SCQty", "Mode": "Edit" },
         { "name": "Price", "Mode": "Edit" },
         { "name": "Currency", "Mode": "Edit" },
-        { "name": "VATRate", "Mode": "Edit" },
-        { "name": "CostType", "Mode": "Edit" }
+        { "name": "VATRate", "Mode": "Edit" }
       ],
       "name": "Item Details",
       "stepType": "FieldList",

@@ -52,10 +52,6 @@
     "type": "String",
     "maxlength": [50, "CostCentre can not be more than 50 characters"]
   },
-  "CostType": {
-    "type": "String",
-    "maxlength": [50, "CostType can not be more than 50 characters"]
-  },
   "GLAccount": {
     "type": "String",
     "maxlength": [20, "GLAccount can not be more than 20 characters"]
@@ -80,10 +76,7 @@
       "Please provide valid UK Post Code in field :PostCode"
     ]
   },
-  "Country": {
-    "type": "String",
-    "maxlength": [100, "Country can not be more than 100 characters"]
-  },
+
   "ContactNo": {
     "type": "String",
     "maxlength": [100, "ContactNo can not be more than 100 characters"],
@@ -184,14 +177,6 @@
     "match": [
       "NUM_2_DEC_PLACE_V1",
       "Please provide value with 2 decimal places in the field :GrossValue"
-    ]
-  },
-  "Budget": {
-    "type": "Number",
-    "maxlength": [10, "Budget can not be more than 10 characters"],
-    "match": [
-      "NUM_2_DEC_PLACE_V1",
-      "Please provide value with 2 decimal places in the field :Budget"
     ]
   },
   "DeliveryDt": {

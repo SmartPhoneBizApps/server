@@ -12,6 +12,17 @@ const {
 // @route     GET /api/v1/roles
 // @access    Public
 exports.validateAppSetup = asyncHandler(async (req, res, next) => {
+  schemaExclude = [
+    "TransLog",
+    "MultiAttachments",
+    "carouselImage",
+    "StatusState",
+    "USP_Image",
+    "USP_Role",
+    "USP_Name",
+    "Partner",
+  ];
+  DetailFieldsExclude = ["USP_Image", "USP_Role", "USP_Name"];
   let messages = [];
   let mStru = {};
 
@@ -93,6 +104,9 @@ exports.validateAppSetup = asyncHandler(async (req, res, next) => {
       if (config["FieldDef"][a]["name"] == key) {
         match = true;
       }
+      if (schemaExclude.includes(key)) {
+        match = true;
+      }
     }
     if (match == false) {
       mStru["type"] = "error";
@@ -137,6 +151,29 @@ exports.validateAppSetup = asyncHandler(async (req, res, next) => {
   // 003B - Validation  - Table Validations.....
   //----------------------------------------------
   for (let a = 0; a < config["Tabs"].length; a++) {
+    if (config["Tabs"][a]["type"] == "Field") {
+      fieldArr = config["DetailFields"][config["Tabs"][a]["value"]];
+      for (let r = 0; r < fieldArr.length; r++) {
+        match = false;
+        for (let y = 0; y < config["FieldDef"].length; y++) {
+          if (fieldArr[r] == config["FieldDef"][y]["name"]) {
+            match = true;
+          }
+        }
+        if (match == false) {
+          mStru["type"] = "error";
+          mStru["number"] = "190";
+          mStru[
+            "message"
+          ] = `Detail Field ${fieldArr[r]} is missing in FieldDef for App: ${req.headers.applicationid}`;
+          messages.push({ ...mStru });
+          mStru = {};
+        }
+      }
+
+      console.log(fieldArr);
+    }
+
     if (config["Tabs"][a]["type"] == "Table") {
       console.log(config["Tabs"][a]["value"]);
       console.log(config["Tabs"][a]["name"]);
@@ -144,6 +181,9 @@ exports.validateAppSetup = asyncHandler(async (req, res, next) => {
       console.log(config["DetailFields"][config["Tabs"][a]["value"]][0]);
     }
   }
+  //----------------------------------------------
+  // 003B - Validation  - Table Validations.....
+  //----------------------------------------------
 
   res.status(200).json({
     success: true,
