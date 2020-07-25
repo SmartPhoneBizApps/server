@@ -22,18 +22,7 @@
     "type": "String",
     "maxlength": [20, "PaymentTerm can not be more than 20 characters"]
   },
-  "Category": {
-    "type": "String",
-    "maxlength": [50, "Category can not be more than 50 characters"]
-  },
-  "Details": {
-    "type": "String",
-    "maxlength": [50, "Details can not be more than 50 characters"]
-  },
-  "UoM": {
-    "type": "String",
-    "maxlength": [10, "UoM can not be more than 10 characters"]
-  },
+
   "Status": {
     "type": "String",
     "required": [true, "Please add Mandatory field :Status"],
@@ -131,22 +120,7 @@
       "Please provide date in YYYY-MM-DD format for field :SCDate"
     ]
   },
-  "SCQty": {
-    "type": "Number",
-    "maxlength": [10, "SCQty can not be more than 10 characters"],
-    "match": [
-      "NUM_INT_MAX_10D_V1",
-      "Please provide an Integer value for field :SCQty"
-    ]
-  },
-  "Price": {
-    "type": "Number",
-    "maxlength": [50, "Price can not be more than 50 characters"],
-    "match": [
-      "NUM_2_DEC_PLACE_V1",
-      "Please provide value with 2 decimal places in the field :Price"
-    ]
-  },
+
   "NetValue": {
     "type": "Number",
     "maxlength": [50, "NetValue can not be more than 50 characters"],
@@ -155,14 +129,7 @@
       "Please provide value with 2 decimal places in the field :NetValue"
     ]
   },
-  "VATRate": {
-    "type": "Number",
-    "maxlength": [10, "VATRate can not be more than 10 characters"],
-    "match": [
-      "NUM_2_DEC_PLACE_V1",
-      "Please provide value with 2 decimal places in the field :VATRate"
-    ]
-  },
+
   "VATVal": {
     "type": "Number",
     "maxlength": [50, "VATVal can not be more than 50 characters"],
