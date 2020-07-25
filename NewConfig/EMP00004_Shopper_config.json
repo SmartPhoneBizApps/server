@@ -56,8 +56,7 @@
     "UoM",
     "Category",
     "Currency",
-    "State",
-    "Country",
+
     "Office",
     "CostCentre",
     "GLAccount",
@@ -175,9 +174,9 @@
       "DeliveryDt",
       "DelTo",
       "Address",
-      "State",
+
       "PostCode",
-      "Country",
+
       "ContactNo",
       "OtherInfo"
     ],
@@ -396,14 +395,6 @@
     },
 
     {
-      "name": "State",
-      "type": "string",
-      "width": "100",
-      "Option": "Optional",
-      "SLabel": "State",
-      "LLabel": ""
-    },
-    {
       "name": "PostCode",
       "type": "searchField",
       "width": "20",
@@ -423,14 +414,7 @@
       "SLabel": "Approver Comment",
       "LLabel": ""
     },
-    {
-      "name": "Country",
-      "type": "string",
-      "width": "100",
-      "Option": "Optional",
-      "SLabel": "Country",
-      "LLabel": ""
-    },
+
     {
       "name": "ContactNo",
       "type": "string",
@@ -802,9 +786,7 @@
       "id": "Step3",
       "fields": [
         { "name": "Address", "Mode": "Edit" },
-        { "name": "PostCode", "Mode": "Edit" },
-        { "name": "State", "Mode": "Edit" },
-        { "name": "Country", "Mode": "Edit" }
+        { "name": "PostCode", "Mode": "Edit" }
       ],
       "name": "Delivery",
       "stepType": "FieldList",
@@ -822,10 +804,7 @@
     },
     {
       "id": "Step5",
-      "fields": [
-        { "name": "Status", "Mode": "Edit" },
-        { "name": "Approver", "Mode": "Edit" }
-      ],
+      "fields": [{ "name": "Status", "Mode": "Edit" }],
       "name": "Admin",
       "stepType": "FieldList",
       "intro": "Shopping Cart : Admin"
