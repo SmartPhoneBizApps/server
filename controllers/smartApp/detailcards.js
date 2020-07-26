@@ -56,17 +56,23 @@ exports.getDetailCardsNew = async (req, res, next) => {
         if (results[m]["ID"] == appData["ID"]) {
           timeline1_json = [];
           for (let n = 0; n < results[m]["TransLog"].length; n++) {
+            xjson["Icon"] = "sap-icon://accept";
             xjson["Title"] = results[m]["TransLog"][n]["Comment"];
-
-            if (results[m]["TransLog"][n].hasOwnProperty("buttonname")) {
+            console.log(results[m]["TransLog"][n]);
+            if (results[m]["TransLog"][n].hasOwnProperty("buttonName")) {
               xjson["Title"] =
                 xjson["Title"] +
                 " >> " +
-                results[m]["TransLog"][n]["buttonname"];
+                results[m]["TransLog"][n]["buttonName"];
+              xjson["Icon"] =
+                GlobalCardConfig[a]["Icons"][
+                  results[m]["TransLog"][n]["buttonName"]
+                ];
+              console.log(xjson["Icon"]);
             }
 
-            xjson["Title"] = results[m]["TransLog"][n]["Comment"];
-            xjson["Icon"] = "sap-icon://outgoing-call";
+            //            xjson["Title"] = results[m]["TransLog"][n]["Comment"];
+
             xjson["Time"] = new Date(results[m]["TransLog"][n]["TimeStamp"]);
             xjson["Description"] = results[m]["TransLog"][n]["UserName"];
             if (results[m]["TransLog"][n].hasOwnProperty("UserComment")) {
