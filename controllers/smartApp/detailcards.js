@@ -4,88 +4,12 @@ const geocoder = require("../../utils/geocoder");
 const path = require("path");
 const { getNewConfig } = require("../../modules/config");
 const { sendErrorMessage } = require("../../modules/config2");
+const { readData, getTotalCount, nConfig } = require("../../modules/config2");
+const EMP00001 = require("../../models/smartApp/EMP00001");
 
 const User = require("../../models/access/User");
 //const Approle = require("../../models/appSetup/Approle");
-const BUS0000001 = require("../../models/smartApp/BUS0000002");
-const BUS0000002 = require("../../models/smartApp/BUS0000002");
-const BUS0000003 = require("../../models/smartApp/BUS0000003");
-const BUS0000004 = require("../../models/smartApp/BUS0000004");
-const BUS0000005 = require("../../models/smartApp/BUS0000005");
-const BUS0000006 = require("../../models/smartApp/BUS0000006");
-const COUNCIL001 = require("../../models/smartApp/COUNCIL001");
-const COUNCIL002 = require("../../models/smartApp/COUNCIL002");
-const COUNCIL003 = require("../../models/smartApp/COUNCIL003");
-const COUNCIL007 = require("../../models/smartApp/COUNCIL007");
-const COUNCIL012 = require("../../models/smartApp/COUNCIL012");
-const COUNCIL015 = require("../../models/smartApp/COUNCIL015");
-const COUNCIL022 = require("../../models/smartApp/COUNCIL022");
-const COUNCIL023 = require("../../models/smartApp/COUNCIL023");
-const COUNCIL026 = require("../../models/smartApp/COUNCIL026");
-const COUNCIL029 = require("../../models/smartApp/COUNCIL029");
-const COUNCIL033 = require("../../models/smartApp/COUNCIL033");
-const COUNCIL034 = require("../../models/smartApp/COUNCIL034");
-const COUNCIL035 = require("../../models/smartApp/COUNCIL035");
-const COUNCIL036 = require("../../models/smartApp/COUNCIL036");
-const DOC00001 = require("../../models/smartApp/DOC00001");
-const DOC00002 = require("../../models/smartApp/DOC00002");
-const DOC00003 = require("../../models/smartApp/DOC00003");
-const EDU00001 = require("../../models/smartApp/EDU00001");
-const EDU00002 = require("../../models/smartApp/EDU00002");
-const EDU00003 = require("../../models/smartApp/EDU00003");
-const EDU00004 = require("../../models/smartApp/EDU00004");
-const EDU00005 = require("../../models/smartApp/EDU00005");
-const EDU00006 = require("../../models/smartApp/EDU00006");
-const EDU00007 = require("../../models/smartApp/EDU00007");
-const EDU00008 = require("../../models/smartApp/EDU00008");
-const EDU00009 = require("../../models/smartApp/EDU00009");
-const EDU00010 = require("../../models/smartApp/EDU00010");
-const EDU00011 = require("../../models/smartApp/EDU00011");
-const EDU00013 = require("../../models/smartApp/EDU00013");
-const EDU00014 = require("../../models/smartApp/EDU00014");
-const EDU00015 = require("../../models/smartApp/EDU00015");
-const EDU00016 = require("../../models/smartApp/EDU00016");
-const EDU00018 = require("../../models/smartApp/EDU00018");
-const EDU00019 = require("../../models/smartApp/EDU00019");
-const EDU00021 = require("../../models/smartApp/EDU00021");
-const EDU00097 = require("../../models/smartApp/EDU00097");
-const EDU00098 = require("../../models/smartApp/EDU00098");
-const EDU0100 = require("../../models/smartApp/EDU0100");
-const EMP00001 = require("../../models/smartApp/EMP00001");
-const EMP00002 = require("../../models/smartApp/EMP00002");
-const EMP00004 = require("../../models/smartApp/EMP00004");
-const EMP00006 = require("../../models/smartApp/EMP00006");
-const EMP00006OLD = require("../../models/smartApp/EMP00006OLD");
-const EMP00008 = require("../../models/smartApp/EMP00008");
-const EMP00013 = require("../../models/smartApp/EMP00013");
-const EMP00021 = require("../../models/smartApp/EMP00021");
-const EMPACC01 = require("../../models/smartApp/EMPACC01");
-const EMPBOK01 = require("../../models/smartApp/EMPBOK01");
-const ERP00002 = require("../../models/smartApp/ERP00002");
-const ERP00003 = require("../../models/smartApp/ERP00003");
-const ERP00004 = require("../../models/smartApp/ERP00004");
-const ERP00005 = require("../../models/smartApp/ERP00005");
-const ERP00008 = require("../../models/smartApp/ERP00008");
-const ERP00009 = require("../../models/smartApp/ERP00009");
-const ERP00010 = require("../../models/smartApp/ERP00010");
-const ERP00014 = require("../../models/smartApp/ERP00014");
-const HOSP0003 = require("../../models/smartApp/HOSP0003");
-const HOSP0004 = require("../../models/smartApp/HOSP0004");
-const ITPROJ002 = require("../../models/smartApp/ITPROJ002");
-const JOB00001 = require("../../models/smartApp/JOB00001");
-const LOG00001 = require("../../models/smartApp/LOG00001");
-const LOG00002 = require("../../models/smartApp/LOG00002");
-const LOG00003 = require("../../models/smartApp/LOG00003");
-const LOG00004 = require("../../models/smartApp/LOG00004");
-const PM00001 = require("../../models/smartApp/PM00001");
-const SUPP00011 = require("../../models/smartApp/SUPP00011");
-const SUPP00012 = require("../../models/smartApp/SUPP00012");
-const SUPP00013 = require("../../models/smartApp/SUPP00013");
-const SUPP00014 = require("../../models/smartApp/SUPP00014");
-const SUPP00015 = require("../../models/smartApp/SUPP00015");
-const SUPP00016 = require("../../models/smartApp/SUPP00016");
-const SUPP00018 = require("../../models/smartApp/SUPP00018");
-const SUPP00028 = require("../../models/smartApp/SUPP00028");
+
 let myD = { json: [] };
 let myO = { json: {} };
 let myX = { json: {}, path: "/measures" };
@@ -103,9 +27,86 @@ counter = 0;
 tabCX = {};
 let cardTemplate = {};
 
+const { getCard, findOneAppDatabyid } = require("../../modules/config");
 // @desc      Get adaptiveCard_card
 // @route     GET /api/v1/adaptiveCard_card/:id
 // @access    Public
+exports.getDetailCardsNew = async (req, res, next) => {
+  // Read New Config File
+  var appconfig = getNewConfig(req.params.app, req.params.role);
+  // Detail Card Tab
+  appconfig["Tabs"].forEach((element) => {
+    if (element["type"] == "Cards") {
+      tab = element.value;
+    }
+  });
+
+  let appData = await findOneAppDatabyid(req.params.record, req.params.app);
+
+  // Read Card Configuration for the Role (X1)
+  let t_item = {};
+  let fileName2q = "../../cards/cardConfig/ALL_cardConfig.json";
+  var GlobalCardConfig = require(fileName2q);
+  t_item = GlobalCardConfig["ListItem"]["item"];
+
+  // Read Global Card Configuration for the Role (X1)
+  let fileName =
+    "../../cards/cardConfig/" + req.params.role + "_detailCardConfig.json";
+  var cardConfig = require(fileName);
+
+  // Read Color Configuration
+  let fileNameColor = "../../config/colorConfig.json";
+  var colorConfig = require(fileNameColor);
+
+  //mycard["Type"] = "sap-icon://form";
+  let query = readData(req.params.app, req, appconfig);
+  let results = await query;
+  let xjson = {};
+  let timeline1_json = [];
+  var mycard = {};
+  let json = [];
+  let rec1 = {};
+  let outStru = {};
+
+  let list2_json = [];
+  let donut_content = [];
+  mycard["title"] = "SmartApp App";
+  mycard["subTitle"] = "List of Items";
+  mycard["headerIcon"] = "sap-icon://form";
+  mycard["businessrole"] = req.params.role;
+  mycard["applicationid"] = "EMP00001";
+  mycard["HeaderIcon"] = "sap-icon://bus-public-transport";
+  mycard["HeaderActionURL"] = "https://smartphonebizapps.com/";
+  mycard["statusText"] = "Status Text 001";
+  for (let m = 0; m < results.length; m++) {
+    if (results[m]["ID"] == appData["ID"]) {
+      timeline1_json = [];
+      for (let n = 0; n < results[m]["TransLog"].length; n++) {
+        xjson["Title"] = results[m]["TransLog"][n]["Comment"];
+        xjson["Icon"] = "sap-icon://outgoing-call";
+        xjson["Time"] = new Date(results[m]["TransLog"][n]["TimeStamp"]);
+        xjson["Description"] = results[m]["TransLog"][n]["UserName"];
+        timeline1_json.push({ ...xjson });
+        xjson = {};
+      }
+      rec1 = getCard(
+        mycard,
+        "timeline1",
+        results,
+        json,
+        t_item,
+        list2_json,
+        donut_content,
+        timeline1_json
+      );
+      let st1 = "timeline1" + "_" + results[m]["ID"];
+      outStru[st1] = rec1;
+    }
+  }
+
+  res.status(200).json({ success: true, data: outStru });
+};
+
 exports.getDetailCards = async (req, res, next) => {
   // Read Role from Parameter..
   role = req.params.role;

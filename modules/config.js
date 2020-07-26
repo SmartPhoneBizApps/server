@@ -46,7 +46,9 @@ module.exports = {
         hdr["actions"][0]["parameters"]["url"] = data["HeaderActionURL"];
         grp_cont["item"] = t_item;
         grp_cont = cardConfig["content"]["timeline1"];
+        grp_cont["data"]["json"] = timeline1_json;
         stru["sap.card"]["content"] = grp_cont;
+        console.log(grp_cont);
 
         //    grp1 = cardConfig["sap.card"]["timeline1"];
         // mycard["HeaderActionURL"];
@@ -180,7 +182,6 @@ module.exports = {
         grp_cont["item"] = t_item;
         grp_cont["data"]["json"] = list2_json;
         stru["sap.card"]["content"] = grp_cont;
-
         break;
       case "quicklink1":
         typ = "List";

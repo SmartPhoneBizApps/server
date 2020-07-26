@@ -1,5 +1,5 @@
 const express = require("express");
-const { getDetailCards } = require("../../controllers/smartApp/detailcards");
+const { getDetailCardsNew } = require("../../controllers/smartApp/detailcards");
 //const reviewRouter = require("../reviews");
 const router = express.Router();
 //const advancedResults = require("../../middleware/advancedResults");
@@ -20,7 +20,7 @@ router
       "AreaUser",
       "user"
     ),
-    getDetailCards
+    getDetailCardsNew
   );
 
 module.exports = router;
