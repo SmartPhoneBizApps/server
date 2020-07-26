@@ -528,6 +528,7 @@ module.exports = {
     pLog["ID"] = ID;
     pLog["applicationId"] = app;
     pLog["Comment"] = comment;
+    console.log("AA", buttonType);
     if (buttonType) {
       pLog["buttonType"] = buttonType;
     }

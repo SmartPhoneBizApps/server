@@ -265,7 +265,7 @@ exports.addDataRecords = asyncHandler(async (req, res, next) => {
   console.log(req.headers.buttonname);
   req.body = generateID(req.headers.buttonname, req.body, cardConfig.MButtons);
   console.log("NewID", req.body.ID);
-
+  console.log(req.headers.buttonName);
   // Processing Log
   req.body.TransLog = processingLog(
     req.body.ID,
