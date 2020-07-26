@@ -58,11 +58,11 @@ exports.getDetailCardsNew = async (req, res, next) => {
           for (let n = 0; n < results[m]["TransLog"].length; n++) {
             xjson["Title"] = results[m]["TransLog"][n]["Comment"];
 
-            if (results[m]["TransLog"][n].hasOwnProperty("buttonName")) {
+            if (results[m]["TransLog"][n].hasOwnProperty("buttonname")) {
               xjson["Title"] =
                 xjson["Title"] +
                 " >> " +
-                results[m]["TransLog"][n]["buttonName"];
+                results[m]["TransLog"][n]["buttonname"];
             }
 
             xjson["Title"] = results[m]["TransLog"][n]["Comment"];
