@@ -57,9 +57,24 @@ exports.getDetailCardsNew = async (req, res, next) => {
           timeline1_json = [];
           for (let n = 0; n < results[m]["TransLog"].length; n++) {
             xjson["Title"] = results[m]["TransLog"][n]["Comment"];
+
+            if (results[m]["TransLog"][n].hasOwnProperty("buttonName")) {
+              xjson["Title"] =
+                xjson["Title"] +
+                " >> " +
+                results[m]["TransLog"][n]["buttonName"];
+            }
+
+            xjson["Title"] = results[m]["TransLog"][n]["Comment"];
             xjson["Icon"] = "sap-icon://outgoing-call";
             xjson["Time"] = new Date(results[m]["TransLog"][n]["TimeStamp"]);
             xjson["Description"] = results[m]["TransLog"][n]["UserName"];
+            if (results[m]["TransLog"][n].hasOwnProperty("UserComment")) {
+              xjson["Description"] =
+                xjson["Description"] +
+                " >> " +
+                results[m]["TransLog"][n]["UserComment"];
+            }
             timeline1_json.push({ ...xjson });
             xjson = {};
           }
