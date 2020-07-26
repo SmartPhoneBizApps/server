@@ -528,14 +528,13 @@ module.exports = {
     pLog["ID"] = ID;
     pLog["applicationId"] = app;
     pLog["Comment"] = comment;
-    console.log("AA", buttonType);
-    if (buttonType) {
+    if (buttonType != undefined) {
       pLog["buttonType"] = buttonType;
     }
-    if (comment2) {
+    if (comment2 != undefined) {
       pLog["UserComment"] = comment2;
     }
-    if (buttonName) {
+    if (buttonName != undefined) {
       pLog["buttonName"] = buttonName;
     }
     //  result.push(pLog);

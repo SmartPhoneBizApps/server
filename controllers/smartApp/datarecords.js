@@ -275,8 +275,8 @@ exports.addDataRecords = asyncHandler(async (req, res, next) => {
     req.body.Status,
     req.body.applicationId,
     "New document created",
-    req.headers.buttonType,
-    req.headers.buttonName,
+    req.headers.buttontype,
+    req.headers.buttonname,
     req.body.ProgressComment
   );
   //---------------------------
@@ -503,8 +503,8 @@ exports.updateDataRecords = asyncHandler(async (req, res, next) => {
     Status,
     req.body.applicationId,
     "Document is updated",
-    req.headers.buttonType,
-    req.headers.buttonName,
+    req.headers.buttontype,
+    req.headers.buttonname,
     req.body.ProgressComment
   );
 
