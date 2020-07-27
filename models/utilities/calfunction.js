@@ -50,18 +50,22 @@ class calFun {
 
   ITEMMUL(arr) {
     var a = 0;
-    var b = 0;
+    var cnt = 1;
     arr.forEach((aa) => {
-      if (aa != undefined && !isNaN(aa) && aa != "") {
-        b = 1;
-        a *= aa;
+      if (cnt) {
+        a = aa;
+        cnt = 0;
+      } else {
+        if (aa != undefined && !isNaN(aa) && aa != "") {
+          a *= aa;
+        } else {
+          aa = 0;
+          a *= aa;
+        }
       }
     });
-    if (b) {
-      a = this.isInt(a);
-      return a;
-    }
-    return "";
+    a = this.isInt(a);
+    return a;
   }
 
   MUL(arr) {

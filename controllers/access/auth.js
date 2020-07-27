@@ -139,9 +139,16 @@ exports.logout = asyncHandler(async (req, res, next) => {
 // @access    Private
 exports.getMe = asyncHandler(async (req, res, next) => {
   const user = await User.findById(req.user.id);
+  outStru = {};
+
+  // Global Cards
+  let fileName2q = "../../controllers/access/user.json";
+  var outStru = require(fileName2q);
+
   res.status(200).json({
     success: true,
     data: user,
+    config: outStru,
   });
 });
 // @desc      Update user details

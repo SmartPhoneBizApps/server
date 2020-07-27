@@ -1,0 +1,145 @@
+{
+  "header": ["name", "email", "createdAt"],
+  "headerFieldDef": [
+    {
+      "name": "name",
+      "type": "string",
+      "width": "100",
+      "SLabel": "Name"
+    },
+    {
+      "name": "email",
+      "type": "Email",
+      "width": "100",
+      "SLabel": "Your Email"
+    },
+    {
+      "name": "createdAt",
+      "type": "Date",
+      "width": "50",
+      "SLabel": "Created At"
+    }
+  ],
+
+  "RoleSettings": {
+    "Role_Employee": [
+      "EmployeeID",
+      "Name",
+      "Email",
+      "Designation",
+      "PostCode",
+      "Address",
+      "ContactNo",
+      "Approver",
+      "CostCentre"
+    ],
+    "Role_EmployeeLearn": ["EmployeeID", "Name", "Email", "CostCentre"],
+    "Role_HealthCareProfessional": [
+      "VendorName",
+      "HCPEmail",
+      "VendorEmail",
+      "StudyType",
+      "EventType",
+      "ContractType"
+    ],
+    "Role_Manager": ["CostCentre"]
+  },
+  "RoleFieldsDef": [
+    {
+      "name": "EmployeeID",
+      "type": "string",
+      "width": "100",
+      "SLabel": "Employee ID"
+    },
+    {
+      "name": "Name",
+      "type": "string",
+      "width": "100",
+      "SLabel": "Name"
+    },
+    {
+      "name": "Email",
+      "type": "Email",
+      "width": "100",
+      "SLabel": "Email"
+    },
+    {
+      "name": "Designation",
+      "type": "string",
+      "width": "100",
+      "SLabel": "Designation"
+    },
+
+    {
+      "name": "PostCode",
+      "type": "searchField",
+      "width": "20",
+      "linkFields": "Address",
+      "URL": "{URL}/api/v1/util/address/{PostCode}",
+      "URLMethod": "GET",
+      "Token": true,
+      "SLabel": "Post Code"
+    },
+    {
+      "name": "Address",
+      "type": "string",
+      "width": "200",
+      "SLabel": "Address"
+    },
+    {
+      "name": "ContactNo",
+      "type": "string",
+      "width": "20",
+      "SLabel": "Contact No"
+    },
+
+    {
+      "name": "Approver",
+      "type": "Email",
+      "width": "100",
+      "SLabel": "Approver Email"
+    },
+    {
+      "name": "CostCentre",
+      "type": "Email",
+      "width": "100",
+      "SLabel": "CostCentre"
+    },
+    {
+      "name": "VendorName",
+      "type": "string",
+      "width": "100",
+      "SLabel": "Vendor Name"
+    },
+    {
+      "name": "HCPEmail",
+      "type": "Email",
+      "width": "100",
+      "SLabel": "HCP Email"
+    },
+    {
+      "name": "VendorEmail",
+      "type": "Email",
+      "width": "100",
+      "SLabel": "Vendor Email"
+    },
+    {
+      "name": "StudyType",
+      "type": "string",
+      "width": "100",
+      "SLabel": "Study Type"
+    },
+    {
+      "name": "EventType",
+      "type": "string",
+      "width": "100",
+      "SLabel": "Event Type"
+    },
+    {
+      "name": "ContractType",
+      "type": "string",
+      "width": "100",
+      "SLabel": "Contract Type"
+    }
+  ]
+}
