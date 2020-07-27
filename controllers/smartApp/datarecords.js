@@ -304,6 +304,7 @@ exports.addDataRecords = asyncHandler(async (req, res, next) => {
   mydata = {};
   // Send Response .....
   res.status(200).json({
+    message: "New record created",
     success: true,
     data: result,
   });
@@ -614,6 +615,7 @@ exports.updateDataRecords = asyncHandler(async (req, res, next) => {
     );
   }
   res.status(200).json({
+    message: "Record updated",
     success: true,
     data: result,
   });
