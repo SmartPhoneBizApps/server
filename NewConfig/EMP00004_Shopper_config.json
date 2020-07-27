@@ -36,11 +36,11 @@
   },
 
   "ListFields": {
-    "IntroField": "VendorName",
-    "TitleField": "SCDate",
+    "IntroField": "ID",
+    "TitleField":"VendorName",
     "fStatus": "Status",
     "numberField": "GrossValue",
-    "LFields": ["ID"],
+    "LFields": ["SCDate"],
     "numberUnitField": "Currency"
   },
   "ListBOTFields": {
@@ -173,8 +173,8 @@
       "type": "string",
       "width": "20",
       "Option": "Mandatory",
-      "SLabel": "ID",
-      "LLabel": ""
+      "SLabel": "Identification",
+      "LLabel": "Identification"
     },
     {
       "name": "VendorName",
@@ -330,7 +330,6 @@
       "SLabel": "Delivery Address",
       "LLabel": ""
     },
-
     {
       "name": "PostCode",
       "type": "searchField",
@@ -351,7 +350,6 @@
       "SLabel": "Approver Comment",
       "LLabel": ""
     },
-
     {
       "name": "ContactNo",
       "type": "string",
@@ -392,7 +390,6 @@
       "SLabel": "Payment Amount",
       "LLabel": ""
     },
-
     {
       "name": "PaymentOption",
       "type": "radiobutton",
@@ -456,10 +453,10 @@
     "ItemFieldDefinition": [],
     "DisplayFields": [],
     "ItemButtons": {
-      "itemDisplay": true,
-      "itemAdd": true,
-      "itemEdit": true,
-      "itemDelete": true
+      "itemDisplay": false,
+      "itemAdd": false,
+      "itemEdit": false,
+      "itemDelete": false
     },
     "CreateFields": [],
     "ItemDetails": []
