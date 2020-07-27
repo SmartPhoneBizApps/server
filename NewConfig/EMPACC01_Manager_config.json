@@ -13,7 +13,8 @@
           { "Status": { "$ne": "Approved" } },
           { "Status": { "$ne": "Rejected" } },
           { "Status": { "$ne": "ReferredBack" } },
-          { "Status": { "$ne": "Saved" } }
+          { "Status": { "$ne": "Saved" } },
+          { "Status": { "$ne": "Cancelled" } }
         ]
       }
     ],

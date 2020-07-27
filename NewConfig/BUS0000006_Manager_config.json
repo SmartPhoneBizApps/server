@@ -7,7 +7,15 @@
     "USP": "UserProfile",
     "StatusColor": "Yes",
     "SearchString": { "Search": false },
-    "Filters": [],
+    "Filters": [      {
+      "$and": [
+        { "Status": { "$ne": "Approved" } },
+        { "Status": { "$ne": "Rejected" } },
+        { "Status": { "$ne": "ReferredBack" } },
+        { "Status": { "$ne": "Saved" } },
+        { "Status": { "$ne": "Cancelled" } }
+      ]
+    }],
     "Partner": "@user",
     "UserSpecific": "Yes",
     "update": "No",
