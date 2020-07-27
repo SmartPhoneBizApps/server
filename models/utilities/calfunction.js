@@ -49,7 +49,7 @@ class calFun {
   }
 
   ITEMMUL(arr) {
-    var a = 1;
+    var a = 0;
     var b = 0;
     arr.forEach((aa) => {
       if (aa != undefined && !isNaN(aa) && aa != "") {
@@ -65,7 +65,7 @@ class calFun {
   }
 
   MUL(arr) {
-    var a = 1;
+    var a = 0;
     var b = 0;
     arr.forEach((aa) => {
       if (aa != undefined && !isNaN(aa) && aa != "") {

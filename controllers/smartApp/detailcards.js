@@ -8,22 +8,9 @@ const {
 // @route     GET /api/v1/adaptiveCard_card/:id
 // @access    Public
 exports.getDetailCardsNew = async (req, res, next) => {
-  // Read New Config File
-  var appconfig = getNewConfig(req.params.app, req.params.role);
-  // Get the Record
-  let appData = await findOneAppDatabyid(req.params.record, req.params.app);
-  // Read Global Card Configuration for the Role (X1)
-  let fileName =
-    "../../cards/cardConfig/" + req.params.role + "_detailCardConfig.json";
-  var cardConfig = require(fileName);
-  // Read Color Configuration
-  let fileNameColor = "../../config/colorConfig.json";
-  var colorConfig = require(fileNameColor);
-
   // Read Global Card Configuration
   let t_item = {};
   let t_type = "";
-  let t_title = "";
   let xjson = {};
   let timeline1_json = [];
   var mycard = {};
@@ -32,15 +19,39 @@ exports.getDetailCardsNew = async (req, res, next) => {
   let outStru = {};
   let list2_json = [];
   let donut_content = [];
+  // Read New Config File
+  var appconfig = getNewConfig(req.params.app, req.params.role);
 
   // Read Data
   let query = readData(req.params.app, req, appconfig);
   let results = await query;
 
+  // Global Cards
   let fileName2q = "../../cards/cardConfig/ALL_cardConfig.json";
   var GlobalCardConfig = require(fileName2q);
 
+  // Get the Record
+  let appData = await findOneAppDatabyid(req.params.record, req.params.app);
+
+  // Read Global Card Configuration for the Role (X1)
+  let fileName =
+    "../../cards/cardConfig/" + req.params.role + "_detailCardConfig.json";
+  var cardConfig = require(fileName);
+
+  // Read Color Configuration
+  let fileNameColor = "../../config/colorConfig.json";
+  var colorConfig = require(fileNameColor);
+
   for (let m = 0; m < results.length; m++) {
+    // App Specific Cards...
+    for (let k = 0; k < appconfig["Tabs"].length; k++) {
+      if (appconfig["Tabs"][k]["type"] == "Table") {
+        //"DetailFields"
+        // Table Card
+      }
+    }
+
+    // Global Cards...
     for (let a = 0; a < GlobalCardConfig.length; a++) {
       t_type = GlobalCardConfig[a]["cardType"];
       mycard["businessrole"] = req.params.role;

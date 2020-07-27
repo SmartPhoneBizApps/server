@@ -1,0 +1,164 @@
+{
+  "Employee": [
+    {
+      "cardType": "table1",
+      "table": "Skills",
+      "title": "Skills List",
+      "subTitle": "Skills"
+    },
+    {
+      "TabName": "My Learning",
+      "icon": "sap-icon://e-learning",
+      "iconToolTip": "Employee Learning",
+      "TabID": "Tab1",
+      "Tiles": [
+        {
+          "CardID": "TRAIN008_Calendar1",
+          "applicationID": "TRAIN008",
+          "filters": {},
+          "fieldList": "",
+          "sortBy": "",
+          "limit": 5,
+          "Type": "Calendar1"
+        },
+
+        {
+          "CardID": "TRAIN008_Adaptive1",
+          "applicationID": "TRAIN008",
+          "filters": {},
+          "fieldList": "",
+          "sortBy": "",
+          "limit": 5,
+          "Type": "Adaptive1"
+        },
+        {
+          "CardID": "TRAIN007_table1",
+          "applicationID": "TRAIN007",
+          "filters": {
+            "Status": "Assigned"
+          },
+          "limit": 5,
+          "fieldList": "ReferenceID Title SubGroup Status",
+          "Type": "table1B",
+          "header": {
+            "title": "Upcoming Trainings",
+            "subTitle": "Sorted by due date",
+            "status": {
+              "text": "Status"
+            }
+          },
+          "columns": [
+            {
+              "title": "ReferenceID",
+              "value": "{ReferenceID}"
+            },
+            {
+              "title": "Title",
+              "value": "{Title}"
+            },
+            {
+              "title": "Area",
+              "value": "{SubGroup}"
+            },
+            {
+              "title": "Status",
+              "value": "{Status}",
+              "state": "{statusState}"
+            }
+          ],
+          "json": []
+        },
+        {
+          "CardID": "TRAIN007_Donut1",
+          "applicationID": "TRAIN007",
+          "filters": {},
+          "fieldList": "ReferenceID Title SubGroup Status",
+          "sortBy": "ReferenceID Status",
+          "limit": 5,
+          "Type": "donut1A",
+          "header": {
+            "title": "Learning Analysis"
+          },
+          "measures": []
+        },
+        {
+          "CardID": "TRAIN007_list2_TrainingList",
+          "applicationID": "TRAIN007",
+          "filters": {
+            "Status": "Assigned"
+          },
+          "limit": 5,
+          "fieldList": "ReferenceID Title SubGroup Status",
+          "fieldMap": {
+            "name": "ID",
+            "description": "Training",
+            "icon": "sap-icon://my-view"
+          },
+          "Type": "TRAIN007_list2A",
+          "header": {
+            "title": "Upcoming Trainings",
+            "subTitle": "Recent Requests..",
+            "icon": {
+              "src": "http://localhost/smartphonebizapps/appattachment/158644357443.png"
+            }
+          },
+          "ListTemplate": {
+            "name": "Alain Chevalier",
+            "icon": "sap-icon://my-view",
+            "description": "On Site"
+          },
+          "actions": [
+            {
+              "type": "Navigation",
+              "parameters": {
+                "url": "/TRAIN007/{name}"
+              }
+            }
+          ],
+          "json": []
+        }
+      ]
+    },
+
+    {
+      "cardType": "timeline1",
+      "title": "Progress Card",
+      "subTitle": "Document Flow",
+      "HeaderActionURL": "https://smartphonebizapps.com/",
+      "statusText": "Arranged by latest on top",
+      "HeaderIcon": "sap-icon://bus-public-transport",
+      "Icons": {
+        "Resolved": "sap-icon://accept",
+        "MoreInfo": "sap-icon://question-mark",
+        "InProgress": "sap-icon://trend-up",
+        "NotAvailable": "sap-icon://notification",
+        "Booked": "sap-icon://accept",
+        "Cancel": "sap-icon://decline",
+        "Close": "sap-icon://decline",
+        "UnderInvestigation": "sap-icon://search",
+        "Approve": "sap-icon://accept",
+        "Reject": "sap-icon://decline",
+        "ReferBack": "sap-icon://undo",
+        "PDFCertificate": "sap-icon://pdf-attachment"
+      },
+
+      "ListItem": {
+        "item": {
+          "icon": {
+            "src": "{icon}"
+          },
+          "title": {
+            "value": "{name}"
+          },
+          "description": {
+            "value": "{description}"
+          },
+          "info": {
+            "value": "{info}",
+            "state": "{infoState}"
+          }
+        }
+      }
+    }
+  ]
+}
