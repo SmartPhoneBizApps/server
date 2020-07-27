@@ -66,7 +66,7 @@ class calFun {
 
   MUL(arr) {
     var a = 0;
-    cnt = 1;
+    var cnt = 1;
     arr.forEach((aa) => {
       if (cnt) {
         a = aa;
