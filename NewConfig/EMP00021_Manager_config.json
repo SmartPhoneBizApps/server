@@ -9,7 +9,8 @@
         "$and": [
           { "Status": { "$ne": "Approved" } },
           { "Status": { "$ne": "Rejected" } },
-          { "Status": { "$ne": "ReferredBack" } }
+          { "Status": { "$ne": "ReferredBack" } },
+          { "Status": { "$ne": "Saved" } }
         ]
       }
     ],
