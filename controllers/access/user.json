@@ -1,5 +1,5 @@
 {
-  "header": ["name", "email", "createdAt"],
+  "header": ["name", "email", "createdAt", "profileImage", "companyLogo"],
   "headerFieldDef": [
     {
       "name": "name",
@@ -18,6 +18,18 @@
       "type": "Date",
       "width": "50",
       "SLabel": "Created At"
+    },
+    {
+      "name": "profileImage",
+      "type": "attachment",
+      "width": "500",
+      "SLabel": "Profile Image"
+    },
+    {
+      "name": "companyLogo",
+      "type": "attachment",
+      "width": "500",
+      "SLabel": "company Logo"
     }
   ],
 
