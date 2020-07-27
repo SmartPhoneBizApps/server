@@ -9,7 +9,8 @@
         "$and": [
           { "Status": { "$ne": "Approved" } },
           { "Status": { "$ne": "Rejected" } },
-          { "Status": { "$ne": "ReferredBack" } }
+          { "Status": { "$ne": "ReferredBack" } },
+          { "Status": { "$ne": "Saved" } }
         ]
       }
     ],
@@ -122,7 +123,7 @@
       ],
       "transferFields": [
         { "field": "ID", "value": "@recorddata" },
-        { "field": "Status", "value": "ReferBack" },
+        { "field": "Status", "value": "ReferredBack" },
         { "field": "ProgressComment", "value": "@UserInput" }
       ],
       "URL": "datarecords/",
