@@ -9,6 +9,7 @@ const Socialmedia = require("../../models/access/Socialmedia");
 const Agent = require("../../models/access/Agent");
 const { createUser } = require("../../modules/config");
 const { valAlreadyReg } = require("../../modules/validationMessages");
+const Possval = require("../../models/appSetup/Possval");
 // @desc      Register user(PIN)
 // @route     POST /api/v1/auth/register
 // @access    Public
@@ -144,6 +145,38 @@ exports.getMe = asyncHandler(async (req, res, next) => {
   // user settings control file
   let fileName2q = "../../controllers/access/user.json";
   var outStru = require(fileName2q);
+  let brole = ["ALL"];
+  for (let t = 0; t < user["businessRoles"].length; t++) {
+    brole.push(user["businessRoles"][t]["role"]);
+  }
+  outStru["Roles"] = user["businessRoles"];
+
+  for (let p = 0; p < outStru["Roles"].length; p++) {
+    let rl = {};
+    rl = await Role.find(
+      {
+        role: outStru["Roles"][p]["role"],
+      },
+      { _id: 0 }
+    );
+
+    if (rl.length > 0) {
+      outStru["Roles"][p]["icon"] = rl[0]["icon"];
+      outStru["Roles"][p]["description"] =
+        rl[0]["descriptions"][0]["RoleDescription"];
+    }
+  }
+
+  let pval = await Possval.find(
+    {
+      PossibleValues: { $in: outStru["PossibleValues"] },
+      ApplicationID: "GLOBAL",
+      Role: { $in: brole },
+    },
+    { _id: 0 }
+  );
+  outStru["PossibleValuesData"] = pval;
+
   // Header fields..
   for (let s = 0; s < outStru["headerFieldDef"].length; s++) {
     if (user[outStru["headerFieldDef"][s]["name"]] !== undefined) {
@@ -154,7 +187,6 @@ exports.getMe = asyncHandler(async (req, res, next) => {
     for (let j = 0; j < user["businessRoles"].length; j++) {
       var roleTab = "Role_" + user["businessRoles"][j]["role"];
       if (user[roleTab] != undefined) {
-        console.log(user[roleTab][outStru["headerFieldDef"][s]["name"]]);
         if (user[roleTab][outStru["headerFieldDef"][s]["name"]] !== undefined) {
           outStru["headerFieldDef"][s]["value"] =
             user[roleTab][outStru["headerFieldDef"][s]["name"]];
@@ -170,12 +202,8 @@ exports.getMe = asyncHandler(async (req, res, next) => {
     }
     for (let j = 0; j < user["businessRoles"].length; j++) {
       var roleTab = "Role_" + user["businessRoles"][j]["role"];
-      // console.log("============");
-      // console.log(roleTab);
-      // console.log(outStru["RoleFieldsDef"][s]["name"]);
+
       if (user[roleTab] != undefined) {
-        // console.log(user[roleTab]);
-        // console.log(user[roleTab][outStru["RoleFieldsDef"][s]["name"]]);
         if (user[roleTab][outStru["RoleFieldsDef"][s]["name"]] !== undefined) {
           outStru["RoleFieldsDef"][s]["value"] =
             user[roleTab][outStru["RoleFieldsDef"][s]["name"]];
