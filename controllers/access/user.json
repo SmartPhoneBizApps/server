@@ -29,40 +29,6 @@
       "type": "attachment",
       "width": "500",
       "SLabel": "company Logo"
-    },
-    {
-      "name": "Name",
-      "type": "string",
-      "width": "100",
-      "SLabel": "Name"
-    },
-    {
-      "name": "Email",
-      "type": "Email",
-      "width": "100",
-      "SLabel": "Email"
-    },
-    {
-      "name": "PostCode",
-      "type": "searchField",
-      "width": "20",
-      "linkFields": "Address",
-      "URL": "{URL}/api/v1/util/address/{PostCode}",
-      "URLMethod": "GET",
-      "Token": true,
-      "SLabel": "Post Code"
-    },
-    {
-      "name": "Address",
-      "type": "string",
-      "width": "200",
-      "SLabel": "Address"
-    },
-    {
-      "name": "ContactNo",
-      "type": "string",
-      "width": "20",
-      "SLabel": "Contact No"
     }
   ],
   "PossibleValues": [
@@ -151,6 +117,40 @@
       "type": "string",
       "width": "100",
       "SLabel": "Contract Type"
+    },
+    {
+      "name": "Name",
+      "type": "string",
+      "width": "100",
+      "SLabel": "Name"
+    },
+    {
+      "name": "Email",
+      "type": "Email",
+      "width": "100",
+      "SLabel": "Email"
+    },
+    {
+      "name": "PostCode",
+      "type": "searchField",
+      "width": "20",
+      "linkFields": "Address",
+      "URL": "{URL}/api/v1/util/address/{PostCode}",
+      "URLMethod": "GET",
+      "Token": true,
+      "SLabel": "Post Code"
+    },
+    {
+      "name": "Address",
+      "type": "string",
+      "width": "200",
+      "SLabel": "Address"
+    },
+    {
+      "name": "ContactNo",
+      "type": "string",
+      "width": "20",
+      "SLabel": "Contact No"
     }
   ]
 }
