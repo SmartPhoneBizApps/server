@@ -218,6 +218,125 @@ exports.getMe = asyncHandler(async (req, res, next) => {
     //   data: user,
   });
 });
+
+// @desc      Get current logged in user
+// @route     POST /api/v1/auth/me
+// @access    Private
+exports.getMeUpdate = asyncHandler(async (req, res, next) => {
+  var user = await User.findOne({ email: req.body.email });
+  // Get user Data
+  //const user = await User.findById(req.user.id);
+  // user settings control file
+  let outStru = {};
+  let fileName2q = "../../controllers/access/user.json";
+  outStru = require(fileName2q);
+  let brole = ["ALL"];
+  for (let t = 0; t < user["businessRoles"].length; t++) {
+    brole.push(user["businessRoles"][t]["role"]);
+  }
+  outStru["Roles"] = user["businessRoles"];
+
+  for (let p = 0; p < outStru["Roles"].length; p++) {
+    let rl = {};
+    rl = await Role.find(
+      {
+        role: outStru["Roles"][p]["role"],
+      },
+      { _id: 0 }
+    );
+
+    if (rl.length > 0) {
+      outStru["Roles"][p]["icon"] = rl[0]["icon"];
+      outStru["Roles"][p]["description"] =
+        rl[0]["descriptions"][0]["RoleDescription"];
+    }
+  }
+  // Possible values
+  let pval = await Possval.find(
+    {
+      PossibleValues: { $in: outStru["PossibleValues"] },
+      ApplicationID: "GLOBAL",
+      Role: { $in: brole },
+    },
+    { _id: 0 }
+  );
+  outStru["PossibleValuesData"] = pval;
+  updFields = [];
+  xupdField = {};
+
+  // Collect update fields...
+  for (let j = 0; j < user["businessRoles"].length; j++) {
+    var roleTab = "Role_" + user["businessRoles"][j]["role"];
+    if (req.body.hasOwnProperty(roleTab)) {
+      for (const key in req.body[roleTab]) {
+        xupdField["field"] = key;
+        xupdField["value"] = req.body[roleTab][key];
+        updFields.push({ ...xupdField });
+        xupdField = {};
+      }
+    }
+  }
+  // Update Role tabs with common fields...
+  for (let j = 0; j < user["businessRoles"].length; j++) {
+    var roleTab = "Role_" + user["businessRoles"][j]["role"];
+    for (const key in user[roleTab]) {
+      req.body[roleTab] = user[roleTab];
+      for (let w = 0; w < updFields.length; w++) {
+        if (key == updFields[w]["field"]) {
+          req.body[roleTab][key] = updFields[w]["value"];
+        }
+      }
+    }
+  }
+
+  // Update the User table
+  user = await User.findOneAndUpdate({ email: req.body.email }, req.body, {
+    new: true,
+    runValidators: true,
+  });
+  // Now reload the data...
+  // Header fields..
+  for (let s = 0; s < outStru["headerFieldDef"].length; s++) {
+    if (user[outStru["headerFieldDef"][s]["name"]] !== undefined) {
+      outStru["headerFieldDef"][s]["value"] =
+        user[outStru["headerFieldDef"][s]["name"]];
+    }
+    // Check in Role data
+    for (let j = 0; j < user["businessRoles"].length; j++) {
+      var roleTab = "Role_" + user["businessRoles"][j]["role"];
+      if (user[roleTab] != undefined) {
+        if (user[roleTab][outStru["headerFieldDef"][s]["name"]] !== undefined) {
+          outStru["headerFieldDef"][s]["value"] =
+            user[roleTab][outStru["headerFieldDef"][s]["name"]];
+        }
+      }
+    }
+  }
+
+  for (let s = 0; s < outStru["RoleFieldsDef"].length; s++) {
+    if (user[outStru["RoleFieldsDef"][s]["name"]] !== undefined) {
+      outStru["RoleFieldsDef"][s]["value"] =
+        user[outStru["RoleFieldsDef"][s]["name"]];
+    }
+    for (let j = 0; j < user["businessRoles"].length; j++) {
+      var roleTab = "Role_" + user["businessRoles"][j]["role"];
+
+      if (user[roleTab] != undefined) {
+        if (user[roleTab][outStru["RoleFieldsDef"][s]["name"]] !== undefined) {
+          outStru["RoleFieldsDef"][s]["value"] =
+            user[roleTab][outStru["RoleFieldsDef"][s]["name"]];
+        }
+      }
+    }
+  }
+
+  res.status(200).json({
+    success: true,
+    message: "User record updated",
+    data: outStru,
+  });
+});
+
 // @desc      Update user details
 // @route     PUT /api/v1/auth/updatearea
 // @access    Private
