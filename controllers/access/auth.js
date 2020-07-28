@@ -138,20 +138,23 @@ exports.logout = asyncHandler(async (req, res, next) => {
 // @route     POST /api/v1/auth/me
 // @access    Private
 exports.getMe = asyncHandler(async (req, res, next) => {
-  const user = await User.findById(req.user.id);
   outStru = {};
-
-  // Global Cards
+  // Get user Data
+  const user = await User.findById(req.user.id);
+  // user settings control file
   let fileName2q = "../../controllers/access/user.json";
   var outStru = require(fileName2q);
+  // Header fields..
   for (let s = 0; s < outStru["headerFieldDef"].length; s++) {
     if (user[outStru["headerFieldDef"][s]["name"]] !== undefined) {
       outStru["headerFieldDef"][s]["value"] =
         user[outStru["headerFieldDef"][s]["name"]];
     }
+    // Check in Role data
     for (let j = 0; j < user["businessRoles"].length; j++) {
-      var roleTab = "Role_" + user["businessRoles"][j];
+      var roleTab = "Role_" + user["businessRoles"][j]["role"];
       if (user[roleTab] != undefined) {
+        console.log(user[roleTab][outStru["headerFieldDef"][s]["name"]]);
         if (user[roleTab][outStru["headerFieldDef"][s]["name"]] !== undefined) {
           outStru["headerFieldDef"][s]["value"] =
             user[roleTab][outStru["headerFieldDef"][s]["name"]];
@@ -166,8 +169,13 @@ exports.getMe = asyncHandler(async (req, res, next) => {
         user[outStru["RoleFieldsDef"][s]["name"]];
     }
     for (let j = 0; j < user["businessRoles"].length; j++) {
-      var roleTab = "Role_" + user["businessRoles"][j];
+      var roleTab = "Role_" + user["businessRoles"][j]["role"];
+      // console.log("============");
+      // console.log(roleTab);
+      // console.log(outStru["RoleFieldsDef"][s]["name"]);
       if (user[roleTab] != undefined) {
+        // console.log(user[roleTab]);
+        // console.log(user[roleTab][outStru["RoleFieldsDef"][s]["name"]]);
         if (user[roleTab][outStru["RoleFieldsDef"][s]["name"]] !== undefined) {
           outStru["RoleFieldsDef"][s]["value"] =
             user[roleTab][outStru["RoleFieldsDef"][s]["name"]];
