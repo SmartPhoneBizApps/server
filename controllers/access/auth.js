@@ -144,16 +144,13 @@ exports.getMe = asyncHandler(async (req, res, next) => {
   // Global Cards
   let fileName2q = "../../controllers/access/user.json";
   var outStru = require(fileName2q);
-
   for (let s = 0; s < outStru["headerFieldDef"].length; s++) {
     if (user[outStru["headerFieldDef"][s]["name"]] !== undefined) {
       outStru["headerFieldDef"][s]["value"] =
         user[outStru["headerFieldDef"][s]["name"]];
     }
-    for (let j = 0; j < outStru["Roles"].length; j++) {
-      var roleTab = "Role_" + outStru["Roles"][j];
-      console.log(outStru["headerFieldDef"][s]["name"]);
-      console.log(roleTab, user[roleTab]);
+    for (let j = 0; j < user["businessRoles"].length; j++) {
+      var roleTab = "Role_" + user["businessRoles"][j];
       if (user[roleTab] != undefined) {
         if (user[roleTab][outStru["headerFieldDef"][s]["name"]] !== undefined) {
           outStru["headerFieldDef"][s]["value"] =
@@ -168,8 +165,8 @@ exports.getMe = asyncHandler(async (req, res, next) => {
       outStru["RoleFieldsDef"][s]["value"] =
         user[outStru["RoleFieldsDef"][s]["name"]];
     }
-    for (let j = 0; j < outStru["Roles"].length; j++) {
-      var roleTab = "Role_" + outStru["Roles"][j];
+    for (let j = 0; j < user["businessRoles"].length; j++) {
+      var roleTab = "Role_" + user["businessRoles"][j];
       if (user[roleTab] != undefined) {
         if (user[roleTab][outStru["RoleFieldsDef"][s]["name"]] !== undefined) {
           outStru["RoleFieldsDef"][s]["value"] =
