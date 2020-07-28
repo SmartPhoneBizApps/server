@@ -142,6 +142,7 @@ exports.getMe = asyncHandler(async (req, res, next) => {
   outStru = {};
   // Get user Data
   const user = await User.findById(req.user.id);
+
   // user settings control file
   let fileName2q = "../../controllers/access/user.json";
   var outStru = require(fileName2q);
@@ -149,7 +150,22 @@ exports.getMe = asyncHandler(async (req, res, next) => {
   for (let t = 0; t < user["businessRoles"].length; t++) {
     brole.push(user["businessRoles"][t]["role"]);
   }
+
   outStru["Roles"] = user["businessRoles"];
+  let noneRole = {
+    role: "None",
+    roleId: "None",
+    icon: "sap-icon://blank-tag",
+    description: "Key Data",
+  };
+  outStru["Roles"].push(noneRole);
+  outStru["RoleFields"]["Role_None"] = [
+    "Name",
+    "Email",
+    "PostCode",
+    "Address",
+    "ContactNo",
+  ];
 
   for (let p = 0; p < outStru["Roles"].length; p++) {
     let rl = {};
