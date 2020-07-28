@@ -145,10 +145,44 @@ exports.getMe = asyncHandler(async (req, res, next) => {
   let fileName2q = "../../controllers/access/user.json";
   var outStru = require(fileName2q);
 
+  for (let s = 0; s < outStru["headerFieldDef"].length; s++) {
+    if (user[outStru["headerFieldDef"][s]["name"]] !== undefined) {
+      outStru["headerFieldDef"][s]["value"] =
+        user[outStru["headerFieldDef"][s]["name"]];
+    }
+    for (let j = 0; j < outStru["Roles"].length; j++) {
+      var roleTab = "Role_" + outStru["Roles"][j];
+      console.log(outStru["headerFieldDef"][s]["name"]);
+      console.log(roleTab, user[roleTab]);
+      if (user[roleTab] != undefined) {
+        if (user[roleTab][outStru["headerFieldDef"][s]["name"]] !== undefined) {
+          outStru["headerFieldDef"][s]["value"] =
+            user[roleTab][outStru["headerFieldDef"][s]["name"]];
+        }
+      }
+    }
+  }
+
+  for (let s = 0; s < outStru["RoleFieldsDef"].length; s++) {
+    if (user[outStru["RoleFieldsDef"][s]["name"]] !== undefined) {
+      outStru["RoleFieldsDef"][s]["value"] =
+        user[outStru["RoleFieldsDef"][s]["name"]];
+    }
+    for (let j = 0; j < outStru["Roles"].length; j++) {
+      var roleTab = "Role_" + outStru["Roles"][j];
+      if (user[roleTab] != undefined) {
+        if (user[roleTab][outStru["RoleFieldsDef"][s]["name"]] !== undefined) {
+          outStru["RoleFieldsDef"][s]["value"] =
+            user[roleTab][outStru["RoleFieldsDef"][s]["name"]];
+        }
+      }
+    }
+  }
+
   res.status(200).json({
     success: true,
-    data: user,
-    config: outStru,
+    data: outStru,
+    //   data: user,
   });
 });
 // @desc      Update user details

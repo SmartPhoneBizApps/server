@@ -18,7 +18,9 @@ module.exports = {
     t_item,
     list2_json,
     donut_content,
-    timeline1_json
+    timeline1_json,
+    col_table1,
+    json_table1
   ) {
     grp1 = [];
     grp_cont = [];
@@ -194,33 +196,16 @@ module.exports = {
 
         break;
       case "table1":
-        typ = "Table";
         //Header data
+        typ = "Table";
         hdr = cardConfig["header"]["table1"];
         hdr["title"] = data["title"];
         hdr["subTitle"] = data["subTitle"];
-        // Loop data
-        for (let a = 0; a < results.length; a++) {
-          // Loop Table fields from config
-          for (let b = 0; b < data["TableFields"].length; b++) {
-            // Set values in content/row/coloumn
-            xjson[data["TableFields"][b]] = results[a][data["TableFields"][b]];
-            xcol["title"] = data["TableFields"][b];
-            xcol["value"] = "{" + data["TableFields"][b] + "}";
-            columns.push({ ...xcol });
-            xcol = {};
-          }
-          // Set values in json
-          json.push({ ...xjson });
-          xjson = {};
-          // Set values in content/row/coloumn
-          xrow1["columns"] = columns;
-          xrow["row"] = { ...xrow1 };
-          columns = [];
-          xrow1 = {};
-        }
-        //   grp1 = cardConfig["sap.card"]["table1"];
-
+        xrow1["columns"] = col_table1;
+        xrow["row"] = { ...xrow1 };
+        col_table1 = [];
+        xrow1 = {};
+        json = json_table1;
         tdata["json"] = json;
         json = [];
         stru["sap.card"]["content"] = xrow;

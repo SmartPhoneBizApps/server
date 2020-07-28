@@ -33,29 +33,57 @@ exports.getDetailCardsNew = async (req, res, next) => {
   // Get the Record
   let appData = await findOneAppDatabyid(req.params.record, req.params.app);
 
-  // Read Global Card Configuration for the Role (X1)
-  let fileName =
-    "../../cards/cardConfig/" + req.params.role + "_detailCardConfig.json";
-  var cardConfig = require(fileName);
-
   // Read Color Configuration
   let fileNameColor = "../../config/colorConfig.json";
   var colorConfig = require(fileNameColor);
-
+  let json_table1 = [];
+  let xj_table1 = {};
+  let col_table1 = [];
+  let xc_table1 = {};
   for (let m = 0; m < results.length; m++) {
-    // App Specific Cards...
-    for (let k = 0; k < appconfig["Tabs"].length; k++) {
-      if (appconfig["Tabs"][k]["type"] == "Table") {
-        //"DetailFields"
-        // Table Card
+    // App Specific Cards...(Table cards)
+    t_type = "table1";
+    for (const key in appconfig["tableConfig"]) {
+      tabFields = appconfig["tableConfig"][key]["DisplayFields"];
+      for (let w = 0; w < results[m][key].length; w++) {
+        mycard["businessrole"] = req.params.role;
+        mycard["applicationid"] = req.params.app;
+        mycard["title"] = appconfig["tableConfig"][key]["title"];
+        mycard["subTitle"] = "Recent Transactions";
+
+        if (results[m]["ID"] == appData["ID"]) {
+          for (let b = 0; b < tabFields.length; b++) {
+            xc_table1["title"] = tabFields[b];
+            xc_table1["value"] = "{" + tabFields[b] + "}";
+            xc_table1["identifier"] = false;
+            col_table1.push({ ...xc_table1 });
+            xj_table1[tabFields[b]] = results[m][key][w][tabFields[b]];
+          }
+          json_table1.push({ ...xj_table1 });
+          xj_table1 = {};
+          rec1 = getCard(
+            mycard,
+            t_type,
+            results,
+            json,
+            t_item,
+            list2_json,
+            donut_content,
+            timeline1_json,
+            col_table1,
+            json_table1
+          );
+          let st1 = t_type + "_" + results[m]["ID"] + "_" + key;
+          outStru[st1] = { ...rec1 };
+          console.log(rec1);
+          rec1 = {};
+        }
       }
     }
 
     // Global Cards...
     for (let a = 0; a < GlobalCardConfig.length; a++) {
       t_type = GlobalCardConfig[a]["cardType"];
-      mycard["businessrole"] = req.params.role;
-      mycard["applicationid"] = req.params.app;
       mycard["title"] = GlobalCardConfig[a]["title"];
       mycard["subTitle"] = GlobalCardConfig[a]["subTitle"];
       mycard["HeaderActionURL"] = GlobalCardConfig[a]["HeaderActionURL"];
@@ -69,7 +97,6 @@ exports.getDetailCardsNew = async (req, res, next) => {
           for (let n = 0; n < results[m]["TransLog"].length; n++) {
             xjson["Icon"] = "sap-icon://accept";
             xjson["Title"] = results[m]["TransLog"][n]["Comment"];
-            console.log(results[m]["TransLog"][n]);
             if (results[m]["TransLog"][n].hasOwnProperty("buttonName")) {
               xjson["Title"] =
                 xjson["Title"] +
@@ -79,11 +106,7 @@ exports.getDetailCardsNew = async (req, res, next) => {
                 GlobalCardConfig[a]["Icons"][
                   results[m]["TransLog"][n]["buttonName"]
                 ];
-              console.log(xjson["Icon"]);
             }
-
-            //            xjson["Title"] = results[m]["TransLog"][n]["Comment"];
-
             xjson["Time"] = new Date(results[m]["TransLog"][n]["TimeStamp"]);
             xjson["Description"] = results[m]["TransLog"][n]["UserName"];
             if (results[m]["TransLog"][n].hasOwnProperty("UserComment")) {
@@ -103,7 +126,9 @@ exports.getDetailCardsNew = async (req, res, next) => {
             t_item,
             list2_json,
             donut_content,
-            timeline1_json
+            timeline1_json,
+            col_table1,
+            json_table1
           );
           let st1 = t_type + "_" + results[m]["ID"];
           outStru[st1] = { ...rec1 };

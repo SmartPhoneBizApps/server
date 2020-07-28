@@ -1,5 +1,4 @@
 {
-  "header": ["name", "email", "createdAt", "profileImage", "companyLogo"],
   "headerFieldDef": [
     {
       "name": "name",
@@ -30,38 +29,6 @@
       "type": "attachment",
       "width": "500",
       "SLabel": "company Logo"
-    }
-  ],
-
-  "RoleSettings": {
-    "Role_Employee": [
-      "EmployeeID",
-      "Name",
-      "Email",
-      "Designation",
-      "PostCode",
-      "Address",
-      "ContactNo",
-      "Approver",
-      "CostCentre"
-    ],
-    "Role_EmployeeLearn": ["EmployeeID", "Name", "Email", "CostCentre"],
-    "Role_HealthCareProfessional": [
-      "VendorName",
-      "HCPEmail",
-      "VendorEmail",
-      "StudyType",
-      "EventType",
-      "ContractType"
-    ],
-    "Role_Manager": ["CostCentre"]
-  },
-  "RoleFieldsDef": [
-    {
-      "name": "EmployeeID",
-      "type": "string",
-      "width": "100",
-      "SLabel": "Employee ID"
     },
     {
       "name": "Name",
@@ -75,13 +42,6 @@
       "width": "100",
       "SLabel": "Email"
     },
-    {
-      "name": "Designation",
-      "type": "string",
-      "width": "100",
-      "SLabel": "Designation"
-    },
-
     {
       "name": "PostCode",
       "type": "searchField",
@@ -103,8 +63,52 @@
       "type": "string",
       "width": "20",
       "SLabel": "Contact No"
+    }
+  ],
+  "Roles": [
+    "Employee",
+    "EmployeeLearn",
+    "HealthCareProfessional",
+    "Manager",
+    "TrainingTeam",
+    "Shopper",
+    "Supplier",
+    "HRManager",
+    "Orthodontist",
+    "Patient"
+  ],
+  "RoleFields": {
+    "Role_Employee": ["EmployeeID", "Designation", "Approver", "CostCentre"],
+    "Role_EmployeeLearn": ["EmployeeID", "CostCentre"],
+    "Role_HealthCareProfessional": [
+      "VendorName",
+      "HCPEmail",
+      "VendorEmail",
+      "StudyType",
+      "EventType",
+      "ContractType"
+    ],
+    "Role_Manager": ["CostCentre"],
+    "Role_Shopper": ["VendorName", "VendorEmail", "CostCentre"],
+    "Role_Supplier": ["VendorName", "VendorEmail"],
+    "Role_TrainingTeam": [],
+    "Role_HRManager": [],
+    "Role_Orthodontist": [],
+    "Role_Patient": []
+  },
+  "RoleFieldsDef": [
+    {
+      "name": "EmployeeID",
+      "type": "string",
+      "width": "100",
+      "SLabel": "Employee ID"
     },
-
+    {
+      "name": "Designation",
+      "type": "string",
+      "width": "100",
+      "SLabel": "Designation"
+    },
     {
       "name": "Approver",
       "type": "Email",
