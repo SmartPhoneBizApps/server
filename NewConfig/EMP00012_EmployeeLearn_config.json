@@ -242,7 +242,7 @@
     "headerRole": ["USP_Role"],
     "headerImage": ["USP_Image"],
     "headerColorFields": ["Status"],
-    "None": ["ID",  "ReviewDate", "Email"],
+    "None": ["ID", "ReviewDate", "Email"],
     "Tab1": [
       "EmployeeID",
       "Name",
@@ -304,6 +304,7 @@
         }
       ],
       "DisplayFields": ["Question", "Answer"],
+      "tableCardFields": ["Question", "Answer"],
       "ItemButtons": {
         "itemDisplay": true,
         "itemAdd": false,
@@ -407,6 +408,12 @@
         "StartDate",
         "EndDate",
         "Duration",
+        "ProjectManager"
+      ],
+      "tableCardFields": [
+        "ProjectName",
+        "StartDate",
+        "EndDate",
         "ProjectManager"
       ],
       "ItemButtons": {
@@ -583,6 +590,7 @@
         "TargetDate2",
         "GoalStatus"
       ],
+      "tableCardFields": ["GoalsArea", "Goal2", "TargetDate2"],
       "ItemButtons": {
         "itemDisplay": true,
         "itemAdd": false,
@@ -736,6 +744,7 @@
         "AppraiseComm3",
         "TargetDate3"
       ],
+      "tableCardFields": ["AppraisalArea", "PerformanceRating", "TargetDate3"],
       "ItemButtons": {
         "itemDisplay": true,
         "itemAdd": false,
@@ -846,6 +855,7 @@
         }
       ],
       "DisplayFields": ["SubGroup1", "Title1", "ReferenceID1", "TargetDate1"],
+      "tableCardFields": ["SubGroup1", "Title1", "TargetDate1"],
       "ItemButtons": {
         "itemDisplay": true,
         "itemAdd": false,

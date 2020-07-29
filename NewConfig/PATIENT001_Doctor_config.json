@@ -151,7 +151,9 @@
             "Date",
             "SlotLength",
             "Status",
-            "Comments"
+            "Comments",
+            "NHSNumber",
+            "PostCode"
           ],
 
           "URL": "datarecords/",
@@ -168,7 +170,8 @@
       "chairID": [
         { "ID": "01", "Name": "Chair One" },
         { "ID": "02", "Name": "Chair Two" },
-        { "ID": "03", "Name": "Chair Three" }
+        { "ID": "03", "Name": "Chair Three" },
+        { "ID": "ALL", "Name": "All Chairs" }
       ],
       "appointmentStatus": [
         {
@@ -190,7 +193,9 @@
             "DoctorID",
             "DoctorName",
             "Time",
-            "Date"
+            "Date",
+            "NHSNumber",
+            "PostCode"
           ],
 
           "headers": [
@@ -341,9 +346,22 @@
       "icon": "sap-icon://appointment"
     },
     {
-      "type": "VIEW",
+      "type": "LETTERS",
       "name": "Generate Letter",
-      "icon": "sap-icon://letter"
+      "icon": "sap-icon://letter",
+      "Letters": [
+        { "type": "TPLAN", "template": "tplan.html", "name": "Treatment Plan" },
+        {
+          "type": "PAYMENTSCH",
+          "template": "paymentschedule.html",
+          "name": "Payment Schedule"
+        },
+        {
+          "type": "REFERAL",
+          "template": "referal.html",
+          "name": "Referal Letter"
+        }
+      ]
     },
     {
       "type": "VIEW",
@@ -377,7 +395,7 @@
       "update": "Yes",
       "name": "Communication",
       "fioriicon": "batch-payments",
-      "type": "FieldGroup",
+      "type": "Field",
       "download": "Yes"
     },
     {
@@ -556,7 +574,6 @@
       }
     ],
     "Tab2": ["Address", "HouseNumber", "PostCode"],
-
     "Tab8": ["Appointments"],
     "Tab9": ["Radiology"],
     "Tab10": ["DentalImages"],
@@ -1697,6 +1714,7 @@
         }
       ],
       "DisplayFields": ["PatientStatus", "StatusDate"],
+      "tableCardFields": ["PatientStatus", "StatusDate"],
       "ItemButtons": {
         "itemDisplay": true,
         "itemAdd": false,
@@ -1765,6 +1783,7 @@
         }
       ],
       "DisplayFields": ["EventID", "Task", "ExpectedDate", "TPStatus"],
+      "tableCardFields": ["Task", "ExpectedDate", "TPStatus"],
       "ItemButtons": {
         "itemDisplay": true,
         "itemAdd": true,
@@ -1848,9 +1867,9 @@
         "VisitReason",
         "ExaminationNotes",
         "Examination",
-
         "Doctor"
       ],
+      "tableCardFields": ["VisitDate", "Examination", "Doctor"],
       "ItemButtons": {
         "itemDisplay": true,
         "itemAdd": true,
@@ -1951,6 +1970,7 @@
         }
       ],
       "DisplayFields": ["Date", "Notes", "Action", "ACreatedBy"],
+      "tableCardFields": ["Date", "Notes", "Action"],
       "ItemButtons": {
         "itemDisplay": true,
         "itemAdd": true,
@@ -2049,6 +2069,7 @@
         }
       ],
       "DisplayFields": ["Date", "Slot", "Doctor", "AppStatus", "Notes"],
+      "tableCardFields": ["Date", "Slot", "Doctor", "AppStatus"],
       "ItemButtons": {
         "itemDisplay": true,
         "itemAdd": true,

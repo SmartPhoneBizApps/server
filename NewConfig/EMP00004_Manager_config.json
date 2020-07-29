@@ -48,7 +48,7 @@
 
   "ListFields": {
     "IntroField": "ID",
-    "TitleField":"VendorName",
+    "TitleField": "VendorName",
     "fStatus": "Status",
     "numberField": "GrossValue",
     "LFields": ["SCDate"],
@@ -270,7 +270,7 @@
       "SLabel": "SC Date",
       "LLabel": ""
     },
-    
+
     {
       "name": "NetValue",
       "type": "Num,2",
@@ -605,6 +605,12 @@
         "ItemValue",
         "iVAT",
         "ItemVATValue",
+        "ItemGrossValue"
+      ],
+      "tableCardFields": [
+        "ItemNumber",
+        "ItemName",
+        "ItemValue",
         "ItemGrossValue"
       ],
       "ItemButtons": {

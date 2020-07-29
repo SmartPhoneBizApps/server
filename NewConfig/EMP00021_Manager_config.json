@@ -12,7 +12,6 @@
           { "Status": { "$ne": "ReferredBack" } },
           { "Status": { "$ne": "Saved" } },
           { "Status": { "$ne": "Cancelled" } }
-          
         ]
       }
     ],
@@ -468,6 +467,12 @@
       ],
       "DisplayFields": [
         "ItemNumber",
+        "ProjectCode",
+        "Date",
+        "TotalRegWorkHours",
+        "OvertimeHours"
+      ],
+      "tableCardFields": [
         "ProjectCode",
         "Date",
         "TotalRegWorkHours",

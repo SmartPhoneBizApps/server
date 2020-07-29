@@ -31,7 +31,7 @@ exports.getDetailCardsNew = async (req, res, next) => {
     mycard = {};
     t_type = "table1";
     stru = cardConfig["Structure"];
-    tabFields = appconfig["tableConfig"][key]["DisplayFields"];
+    tabFields = appconfig["tableConfig"][key]["tableCardFields"];
     console.log("------ NEW CARD ----------");
     console.log(key);
     console.log(tabFields);
