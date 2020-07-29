@@ -261,6 +261,7 @@
         }
       ],
       "DisplayFields": ["Question", "Answer"],
+      "cards": ["Table"],
       "tableCardFields": ["Question", "Answer"],
       "ItemButtons": {
         "itemDisplay": true,
@@ -321,6 +322,7 @@
         }
       ],
       "DisplayFields": ["MQuestion", "MAnswer"],
+      "cards": ["Table"],
       "tableCardFields": ["MQuestion", "MAnswer"],
       "ItemButtons": {
         "itemDisplay": true,
@@ -427,6 +429,10 @@
         "TargetDate2",
         "GoalStatus"
       ],
+      "cards": ["Table", "Analytical"],
+      "analyticsCard": {
+        "chartType": "StackedColumn"
+      },
       "tableCardFields": ["GoalsArea", "Goal2", "TargetDate2"],
       "ItemButtons": {
         "itemDisplay": true,
@@ -579,6 +585,7 @@
         "Duration",
         "ProjectManager"
       ],
+      "cards": ["Table"],
       "tableCardFields": [
         "ProjectName",
         "StartDate",
@@ -739,6 +746,7 @@
         "ManagerComm3",
         "TargetDate3"
       ],
+      "cards": ["Table"],
       "tableCardFields": ["AppraisalArea", "PerformanceRating", "TargetDate3"],
       "ItemButtons": {
         "itemDisplay": true,
@@ -855,6 +863,7 @@
         }
       ],
       "DisplayFields": ["SubGroup1", "Title1", "ReferenceID1", "TargetDate1"],
+      "cards": ["Table"],
       "tableCardFields": ["SubGroup1", "Title1", "TargetDate1"],
       "ItemButtons": {
         "itemDisplay": true,

@@ -1,0 +1,111 @@
+{
+  "Structure": {
+    "sap.app": {
+      "type": "card",
+      "id": "smartphoneapps"
+    },
+    "cardColumn": 4,
+    "cardMinRows": 5,
+    "sap.card": {
+      "header": {
+        "type": "Numeric",
+        "title": "@Title",
+        "data": {
+          "json": {
+            "n": "43.2",
+            "u": "%",
+            "trend": "Down",
+            "valueColor": "Good"
+          }
+        },
+        "mainIndicator": {
+          "number": "{n}",
+          "unit": "{u}",
+          "trend": "{trend}",
+          "state": "{valueColor}"
+        },
+        "subTitle": "",
+        "status": {},
+        "actions": [],
+        "icon": {}
+      },
+      "type": "Analytical",
+      "content": {
+        "chartType": "StackedColumn",
+        "legend": {
+          "visible": true,
+          "position": "Bottom",
+          "alignment": "Left"
+        },
+        "plotArea": {
+          "dataLabel": {
+            "visible": false,
+            "showTotal": false
+          },
+          "categoryAxisText": {
+            "visible": false
+          },
+          "valueAxisText": {
+            "visible": false
+          }
+        },
+        "title": {
+          "visible": false
+        },
+        "measureAxis": "valueAxis",
+        "dimensionAxis": "categoryAxis",
+        "data": {
+          "json": {
+            "list": [
+              {
+                "Category": "Weather",
+                "Revenue": 431000.22,
+                "Cost": 230000.0,
+                "Target": 500000.0,
+                "Budget": 210000.0
+              },
+              {
+                "Category": "Mechanics",
+                "Revenue": 494000.3,
+                "Cost": 238000.0,
+                "Target": 500000.0,
+                "Budget": 224000.0
+              },
+              {
+                "Category": "Software",
+                "Revenue": 491000.17,
+                "Cost": 221000.0,
+                "Target": 500000.0,
+                "Budget": 238000.0
+              }
+            ]
+          },
+          "path": "/list"
+        },
+        "dimensions": [
+          {
+            "label": "Categories",
+            "value": "{Category}"
+          }
+        ],
+        "measures": [
+          {
+            "label": "Revenue",
+            "value": "{Revenue}"
+          },
+          {
+            "label": "Cost",
+            "value": "{Cost}"
+          },
+          {
+            "label": "Target",
+            "value": "{Target}"
+          }
+        ]
+      },
+      "data": {},
+      "json": {},
+      "item": {}
+    }
+  }
+}
