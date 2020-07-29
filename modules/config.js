@@ -24,7 +24,7 @@ module.exports = {
   ) {
     grp1 = [];
     grp_cont = [];
-    hdr = {};
+
     tdata = {};
     typ = "";
     xjson = {};
@@ -33,13 +33,17 @@ module.exports = {
     columns = [];
     xrow = {};
     xrow1 = {};
-
+    stru = {};
     //   stru = {};
     let cardConfigFile = "../cards/cardConfig/card_template.json";
     var cardConfig = require(cardConfigFile);
     stru = cardConfig["Structure"];
     switch (cardType) {
       case "timeline1":
+        hdr = {};
+        grp_cont = {};
+        stru = {};
+        stru = cardConfig["Structure"];
         typ = "Timeline";
         hdr = cardConfig["header"]["timeline1"];
         hdr["title"] = data["title"];
@@ -49,16 +53,18 @@ module.exports = {
         grp_cont["item"] = t_item;
         grp_cont = cardConfig["content"]["timeline1"];
         grp_cont["data"]["json"] = timeline1_json;
-        stru["sap.card"]["content"] = grp_cont;
-        console.log(grp_cont);
-
-        //    grp1 = cardConfig["sap.card"]["timeline1"];
-        // mycard["HeaderActionURL"];
-
-        //  datajson = ["dateTime", "description", "title", "icon"];
+        stru["sap.card"]["content"] = { ...grp_cont };
+        grp_cont = {};
+        stru["sap.card"]["type"] = typ;
+        stru["sap.card"]["header"] = hdr;
+        stru["sap.card"]["data"] = tdata;
+        tdata = [];
+        columns = [];
+        return stru;
         break;
 
       case "objectPerson":
+        hdr = {};
         grp1 = cardConfig["sap.card"]["objectPerson"];
         grp_cont = cardConfig["content"]["objectPerson"];
         hdr = cardConfig["header"]["objectPerson"];
@@ -73,6 +79,7 @@ module.exports = {
         ];
         break;
       case "calendar":
+        hdr = {};
         grp1 = cardConfig["sap.card"]["calendar"];
         grp_cont = cardConfig["content"]["calendar"];
         hdr = cardConfig["header"]["calendar"];
@@ -85,6 +92,7 @@ module.exports = {
 
         break;
       case "adaptivecard":
+        hdr = {};
         typ = "AdaptiveCard";
         //Header data
         hdr = cardConfig["header"]["adaptivecard"];
@@ -113,6 +121,7 @@ module.exports = {
         break;
 
       case "adaptivecard2":
+        hdr = {};
         // ********** NOT IN USE **********
         typ = "AdaptiveCard";
         //Header data
@@ -125,6 +134,7 @@ module.exports = {
 
         break;
       case "adaptivecard3":
+        hdr = {};
         // ********** NOT IN USE **********
         typ = "AdaptiveCard";
         //Header data
@@ -138,6 +148,7 @@ module.exports = {
         break;
 
       case "component1":
+        hdr = {};
         typ = "Component";
         //Header data
         hdr = cardConfig["header"]["component1"];
@@ -149,6 +160,7 @@ module.exports = {
         break;
 
       case "donut":
+        hdr = {};
         typ = "Analytical";
         //Header data
         hdr = cardConfig["header"]["donut"];
@@ -160,6 +172,7 @@ module.exports = {
 
         break;
       case "list1":
+        hdr = {};
         typ = "List";
         //Header data
         hdr = cardConfig["header"]["list1"];
@@ -173,6 +186,7 @@ module.exports = {
         stru["sap.card"]["content"] = grp_cont;
         break;
       case "list2":
+        hdr = {};
         typ = "List";
         //Header data
         hdr = cardConfig["header"]["list2"];
@@ -196,31 +210,31 @@ module.exports = {
 
         break;
       case "table1":
-        //Header data
+        hdr = {};
+        stru = {};
+        xrow1 = {};
+        col_table1 = [];
+        xrow = {};
+        stru = cardConfig["Structure"];
         typ = "Table";
         hdr = cardConfig["header"]["table1"];
         hdr["title"] = data["title"];
         hdr["subTitle"] = data["subTitle"];
         xrow1["columns"] = col_table1;
         xrow["row"] = { ...xrow1 };
-        col_table1 = [];
-        xrow1 = {};
-        json = json_table1;
-        tdata["json"] = json;
-        json = [];
+        tdata["json"] = json_table1;
         stru["sap.card"]["content"] = xrow;
+        stru["sap.card"]["type"] = typ;
+        stru["sap.card"]["header"] = hdr;
+        stru["sap.card"]["data"] = tdata;
+        tdata = [];
+        columns = [];
+        return stru;
         break;
-
       default:
+        return stru;
         break;
     }
-
-    stru["sap.card"]["type"] = typ;
-    stru["sap.card"]["header"] = hdr;
-    stru["sap.card"]["data"] = tdata;
-    tdata = [];
-    columns = [];
-    return stru;
   },
 
   getCreateMap: function (sapp, tapp, trans) {
