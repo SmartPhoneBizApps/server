@@ -94,10 +94,10 @@
         { "label": "Phase", "name": "Phase", "type": "string" }
       ],
       "listFields": ["StudyType", "StudyName", "Phase"],
-      "tableField": "MyStudy",
+      "tableField": "myStudy",
       "transferFields": ["StudyType", "StudyName", "Phase"],
       "SearchURL": "listrecordsnew/Web/HC0002/HealthCareProfessional{filter}",
-      "URL": "util/addTraining/MyStudy/HC0002/HC0001C/{ID}/{ReferenceID}/{role}",
+      "URL": "util/addTraining/myStudy/HC0002/HC0001C/{ID}/{ReferenceID}/{role}",
       "FieldMapping": {
         "StudyType": "StudyType",
         "StudyName": "StudyName",
@@ -162,10 +162,10 @@
     "Tab5": ["PostCode", "Address"],
     "Tab2": ["MultiAttachments"],
     "Tab4": ["carouselImage"],
-    "Tab6": ["MyStudy"]
+    "Tab6": ["myStudy"]
   },
   "tableConfig": {
-    "MyStudy": {
+    "myStudy": {
       "title": "My Learning",
       "ItemFieldDefinition": [
         {
@@ -407,7 +407,7 @@
       "LLabel": ""
     },
     {
-      "name": "MyStudy",
+      "name": "myStudy",
       "type": "Array",
       "width": "200",
       "SLabel": "My Study",
