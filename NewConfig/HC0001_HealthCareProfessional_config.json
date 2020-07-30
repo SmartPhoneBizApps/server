@@ -81,9 +81,9 @@
     {
       "value": "Tab1",
       "update": "Yes",
-      "name": "XXX",
-      "type": "Field",
-      "fioriicon": "work-history"
+      "name": "Personnel Details",
+      "fioriicon": "developer-settings",
+      "type": "Field"
     },
     {
       "value": "Tab2",
@@ -98,6 +98,13 @@
       "name": "Certifications",
       "type": "carouselImage",
       "fioriicon": "contacts"
+    },
+    {
+      "value": "Tab5",
+      "update": "Yes",
+      "name": "Address",
+      "type": "Field",
+      "fioriicon": "contacts"
     }
   ],
   "DetailFields": {
@@ -105,8 +112,9 @@
     "headerRole": ["USP_Role"],
     "headerImage": ["USP_Image"],
     "headerColorFields": ["Status"],
-    "None": ["XXX"],
-    "Tab1": ["ID", "XXX"],
+    "None": ["Status"],
+    "Tab1": ["ID", "Title", "FirstName", "LastName", "Speciality"],
+    "Tab5": ["PostCode", "Address"],
     "Tab2": ["MultiAttachments"],
     "Tab4": ["carouselImage"]
   },
