@@ -258,31 +258,43 @@
   "Wizard": [
     {
       "id": "Step1",
-      "fields": [{ "name": "XXX", "Mode": "Edit" }],
-      "name": "About Job",
+      "fields": [
+        { "name": "Title", "Mode": "Edit" },
+        { "name": "FirstName", "Mode": "Edit" },
+        { "name": "LastName", "Mode": "Edit" }
+      ],
+      "name": "Leave Details",
       "stepType": "FieldList",
-      "intro": "About Job : Job Details"
+      "intro": "HCP - HCO  : Personal Details"
     },
     {
       "id": "Step2",
-      "fields": [{ "name": "XXXX", "Mode": "Edit" }],
-      "name": "About Job",
+      "fields": [
+        { "name": "Speciality", "Mode": "Edit" },
+        { "name": "PharmaCompany", "Mode": "Edit" },
+        { "name": "Email", "Mode": "Edit" },
+        { "name": "ContactNo", "Mode": "Edit" }
+      ],
+      "name": "Employee Details",
       "stepType": "FieldList",
-      "intro": "About Job : Job Details"
+      "intro": "HCP - HCO  : Experties and Contact"
     },
     {
       "id": "Step3",
-      "fields": [{ "name": "XXXXX", "Mode": "Edit" }],
-      "name": "Your Experience",
+      "fields": [
+        { "name": "PostCode", "Mode": "Edit" },
+        { "name": "Address", "Mode": "Edit" }
+      ],
+      "name": "Address",
       "stepType": "FieldList",
-      "intro": "Job Requirements : Your Experience"
+      "intro": "HCP - HCO  : Address"
     },
     {
       "id": "Step4",
-      "fields": [{ "name": "XXXXXX", "Mode": "Edit" }],
-      "name": "Contact Details",
+      "fields": [{ "name": "Status", "Mode": "Edit" }],
+      "name": "Pharma Company / Institution Name",
       "stepType": "FieldList",
-      "intro": "Job Contacts : Posted By"
+      "intro": "HCP - HCO  : Pharma Company / Institution Name"
     }
   ]
 }
