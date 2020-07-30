@@ -26,6 +26,8 @@ exports.addTraining = asyncHandler(async (req, res, next) => {
       message: "1st applicationID is incorrect",
     });
   }
+  console.log("AA1", req.params.ReferenceID);
+  console.log("AA1", req.params.fromApp);
   Appdata = await findOneAppDataRefID(
     req.params.ReferenceID,
     req.params.fromApp
@@ -33,7 +35,7 @@ exports.addTraining = asyncHandler(async (req, res, next) => {
   if (!Appdata) {
     res.status(400).json({
       success: true,
-      message: "Course ID not found",
+      message: "Record not found",
     });
   }
   // Read Config File

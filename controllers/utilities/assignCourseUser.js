@@ -101,7 +101,7 @@ exports.assignCourseUser = asyncHandler(async (req, res, next) => {
   if (!Appdata) {
     res.status(400).json({
       success: true,
-      message: "Course ID not found",
+      message: "Record not found",
     });
   }
 
