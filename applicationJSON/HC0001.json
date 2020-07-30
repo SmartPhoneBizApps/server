@@ -1,0 +1,66 @@
+{
+  "ID": {
+    "type": "String",
+    "unique": true,
+    "required": [true, "Please add Mandatory field :ID"],
+    "maxlength": [20, "ID can not be more than 20 characters"]
+  },
+  "Status": {
+    "type": "String",
+    "required": [true, "Please add Mandatory field :Status"],
+    "maxlength": [50, "Status can not be more than 50 characters"]
+  },
+  "Partner": {
+    "type": "String",
+    "required": [true, "Please add Mandatory field :Partner"],
+    "maxlength": [200, "Partner can not be more than 200 characters"]
+  },
+
+  "StudyType": {
+    "type": "String",
+    "maxlength": [50, "StudyType can not be more than 50"]
+  },
+  "StudyName": {
+    "type": "String",
+    "maxlength": [100, "StudyName can not be more than 100"]
+  },
+  "PharmaContact": {
+    "type": "String",
+    "maxlength": [50, "PharmaContact can not be more than 50"]
+  },
+  "PharmaContactEmail": {
+    "type": "String",
+    "maxlength": [50, "PharmaContactEmail can not be more than 50"]
+  },
+  "StudyDetails": {
+    "type": "String",
+    "maxlength": [500, "StudyDetails can not be more than 500"]
+  },
+  "Phase": {
+    "type": "String",
+    "maxlength": [50, "Phase can not be more than 50"]
+  },
+  "Date": { "type": "Date", "maxlength": [10, "Date can not be more than 10"] },
+  "HCPEmail": {
+    "type": "String",
+    "maxlength": [50, "HCPEmail can not be more than 50"]
+  },
+  "VendorName": {
+    "type": "String",
+    "maxlength": [100, "VendorName can not be more than 100"]
+  },
+
+  "USP_Name": { "type": "String" },
+  "USP_Role": { "type": "String" },
+  "USP_Image": { "type": "String" },
+  "StatusState": { "type": "String" },
+  "carouselImage": [],
+  "MultiAttachments": {},
+  "TransLog": [],
+  "ProgressComment": [],
+  "SearchString": {
+    "type": "String",
+    "maxlength": [500, "ContactName can not be more than 500 characters"]
+  },
+  "ItemData": []
+}
