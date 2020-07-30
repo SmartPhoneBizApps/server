@@ -57,6 +57,7 @@ exports.addDataRecords = asyncHandler(async (req, res, next) => {
   req.body.user = req.user.id;
   req.body.userName = req.user.name;
   req.body.userEmail = req.user.email;
+  console.log("AA", cardConfig.Controls.Partner);
   if (cardConfig.Controls.Partner == "@user") {
     req.body.Partner = req.user.email;
   }

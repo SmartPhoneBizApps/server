@@ -34,6 +34,10 @@ exports.copyCourse = asyncHandler(async (req, res, next) => {
   // Read Config File
   configData = getNewConfig(req.params.toApp, req.params.role);
 
+  if (configData.Controls.Partner == "@user") {
+    req.body.Partner = req.user.email;
+  }
+
   out1 = getNewCopyRecord(
     configData,
     Appdata,
