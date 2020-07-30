@@ -17,6 +17,7 @@ const https = require("https");
 // return false;
 
 exports.getaddress = asyncHandler(async (req, res, next) => {
+  console.log("Function - utilities/getaddress");
   var postcode = req.params.id;
   var houseNo = "";
 

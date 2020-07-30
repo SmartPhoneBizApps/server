@@ -6,11 +6,7 @@ const { getNewConfig } = require("../../modules/config");
 // @route     GET /api/v1/util/calculation
 // @access    Private (Application Users)
 exports.assignCourseRole = asyncHandler(async (req, res, next) => {
-  console.log(req.params.fromApp);
-  console.log(req.params.toApp);
-  console.log(req.params.ID);
-  console.log(req.params.role);
-
+  console.log("Function - utilities/assignCourseRole");
   res.status(201).json({
     success: true,
     message: "Course assigned to all users for the Role",

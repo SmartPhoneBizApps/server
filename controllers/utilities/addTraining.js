@@ -15,6 +15,7 @@ const sendEmail = require("../../utils/sendEmail");
 // @route     GET /api/v1/util/calculation
 // @access    Private (Application Users)
 exports.addTraining = asyncHandler(async (req, res, next) => {
+  console.log("Function - utilities/addTraining");
   out1 = {};
   newOut = {};
   /// Validations....

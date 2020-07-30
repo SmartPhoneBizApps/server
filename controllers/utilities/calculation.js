@@ -7,6 +7,7 @@ const { getNewConfig } = require("../../modules/config");
 // @route     GET /api/v1/util/calculation
 // @access    Private (Application Users)
 exports.getcalculation = asyncHandler(async (req, res, next) => {
+  console.log("Function - utilities/getcalculation");
   if (!req.headers.applicationid) {
     return next(new ErrorResponse(`Please provide App ID(Header)`, 400));
   }

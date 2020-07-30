@@ -17,10 +17,10 @@ const sendEmail = require("../../utils/sendEmail");
 // @route     GET /api/v1/util/calculation
 // @access    Private (Application Users)
 exports.assignCourseUser = asyncHandler(async (req, res, next) => {
+  console.log("Function - utilities/assignCourseUser");
   // Read Config File
-
   configData = getNewConfig(req.params.toApp, "EmployeeLearn");
-  configFrom = getNewConfig(req.params.fromApp, "TrainingTeam");
+  configFrom = getNewConfig(req.params.fromApp, req.params.role);
 
   /// Validations....
   userX = await User.findOne({ email: req.params.user });
