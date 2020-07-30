@@ -133,7 +133,14 @@
   },
   "ControlDisplay": {},
   "FieldDef": [
-    { "name": "ID", "type": "string", "width": "20" },
+    { "name": "ID", "type": "string", "width": "20" ,"Option": "Mandatory",  "SLabel": "ID"},
+    {
+      "name": "ReferenceID",
+      "type": "string",
+      "width": "20",
+      "Option": "Optional",
+      "SLabel": "ReferenceID"
+    },
     { "name": "RequesterName", "type": "string", "width": "50" },
     { "name": "RequesterPosition", "type": "string", "width": "50" },
     { "name": "Division", "type": "string", "width": "50" },

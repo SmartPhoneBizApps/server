@@ -93,10 +93,6 @@
     "type": "Date",
     "maxlength": [10, "DateRequested can not be more than 10"]
   },
-  "ReferenceID": {
-    "type": "String",
-    "maxlength": [50, "ReferenceID can not be more than 50"]
-  },
   "Video": {},
   "Questioner": {},
   "CourseLink": {
@@ -115,6 +111,10 @@
   "Teacher": {
     "type": "String",
     "maxlength": [200, "Teacher can not be more than 200"]
+  },
+  "ReferenceID": {
+    "type": "String",
+    "maxlength": [50, "ReferenceID can not be more than 50"]
   },
   "USP_Name": { "type": "String" },
   "USP_Role": { "type": "String" },

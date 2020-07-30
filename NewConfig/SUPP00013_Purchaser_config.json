@@ -116,7 +116,20 @@
   },
   "ControlDisplay": {},
   "FieldDef": [
-    { "name": "ID", "type": "string", "width": "20" },
+    {
+      "name": "ID",
+      "type": "string",
+      "width": "20",
+      "Option": "Mandatory",
+      "SLabel": "Identification"
+    },
+    {
+      "name": "ReferenceID",
+      "type": "string",
+      "width": "20",
+      "Option": "Optional",
+      "SLabel": "ReferenceID"
+    },
     { "name": "ContractType", "type": "string", "width": "50" },
     { "name": "TargetValue", "type": "string", "width": "50" },
     { "name": "TargetQuantity", "type": "string", "width": "50" },

@@ -123,7 +123,14 @@
           "name": "Book Appointment",
           "icon": "sap-icon://share-2",
           "Dialog": [
-            { "label": "Patient ID", "name": "ID", "type": "string" },
+            { "name": "ID", "type": "string", "width": "20" ,"Option": "Mandatory",  "SLabel": "ID"},
+            {
+              "name": "ReferenceID",
+              "type": "string",
+              "width": "20",
+              "Option": "Mandatory",
+              "SLabel": "ReferenceID"
+            },
             {
               "label": "Patient Name",
               "name": "PatientName",
@@ -662,6 +669,13 @@
       "Option": "Mandatory",
       "SLabel": "Identification",
       "LLabel": "Identification"
+    },
+    {
+      "name": "ReferenceID",
+      "type": "string",
+      "width": "20",
+      "Option": "Optional",
+      "SLabel": "ReferenceID"
     },
     {
       "name": "PatientID",

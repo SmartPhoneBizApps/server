@@ -83,6 +83,10 @@
       "Please provide date in YYYY-MM-DD format for field :ReportDate"
     ]
   },
+  "ReferenceID": {
+    "type": "String",
+    "maxlength": [50, "ReferenceID can not be more than 50"]
+  },
   "USP_Name": { "type": "String" },
   "USP_Role": { "type": "String" },
   "USP_Image": { "type": "String" },

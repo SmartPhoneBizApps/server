@@ -111,6 +111,20 @@
   },
   "ControlDisplay": {},
   "FieldDef": [
+    {
+      "name": "ID",
+      "type": "string",
+      "width": "20",
+      "Option": "Mandatory",
+      "SLabel": "Identification"
+    },
+    {
+      "name": "ReferenceID",
+      "type": "string",
+      "width": "20",
+      "Option": "Optional",
+      "SLabel": "ReferenceID"
+    },
     { "name": "InvoiceNo", "type": "string", "width": "20" },
     { "name": "PONumber", "type": "string", "width": "20" },
     { "name": "VendorName", "type": "string", "width": "50" },

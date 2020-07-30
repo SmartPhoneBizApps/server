@@ -120,7 +120,14 @@
   },
   "ControlDisplay": {},
   "FieldDef": [
-    { "name": "ID", "type": "string", "width": "20" },
+    { "name": "ID", "type": "string", "width": "20" ,"Option": "Mandatory",  "SLabel": "ID"},
+    {
+      "name": "ReferenceID",
+      "type": "string",
+      "width": "20",
+      "Option": "Optional",
+      "SLabel": "ReferenceID"
+    },
     { "name": "FirstName", "type": "string", "width": "20" },
     { "name": "LastName", "type": "string", "width": "20" },
     { "name": "DOB", "type": "Date", "width": "10" },

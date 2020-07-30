@@ -102,6 +102,10 @@
     "required": [true, "Please add Mandatory field :RequestedDate"],
     "maxlength": [10, "RequestedDate can not be more than 10 characters"]
   },
+  "ReferenceID": {
+    "type": "String",
+    "maxlength": [50, "ReferenceID can not be more than 50"]
+  },
   "USP_Name": { "type": "String" },
   "USP_Role": { "type": "String" },
   "USP_Image": { "type": "String" },
