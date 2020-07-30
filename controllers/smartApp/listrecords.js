@@ -156,6 +156,7 @@ exports.getListrecords1 = asyncHandler(async (req, res, next) => {
     } else {
       model2 = model;
     }
+
     // Get total Count
     let query_c = getTotalCount(req.params.id, req, config1);
     let rec = await query_c;
@@ -166,6 +167,7 @@ exports.getListrecords1 = asyncHandler(async (req, res, next) => {
 
     tabObj = {};
     tabArr = [];
+
     if (config1["Controls"]["SearchString"]["Search"] == true) {
       tableString = config1["Controls"]["SearchString"]["table"];
       for (const key in tableString) {
@@ -178,6 +180,7 @@ exports.getListrecords1 = asyncHandler(async (req, res, next) => {
         }
       }
     }
+
     console.log(tabArr);
 
     // If Items are present...
@@ -219,6 +222,10 @@ exports.getListrecords1 = asyncHandler(async (req, res, next) => {
     } else {
       for (let i1 = 0; i1 < results.length; i1++) {
         results[i1].cardImage = application["photo"];
+
+        if (req.headers.mode == "") {
+          req.headers.mode = "Web";
+        }
         if (req.headers.mode == "Web" || req.headers.mode == "web") {
           if (config1["Controls"]["USP"] == "UserProfile") {
             results[i1].USP_Name = "Atul Gupta";
