@@ -9,6 +9,6 @@ exports.assignCourseRole = asyncHandler(async (req, res, next) => {
   console.log("Function - utilities/assignCourseRole");
   res.status(201).json({
     success: true,
-    message: "Course assigned to all users for the Role",
+    message: "Record assigned to all users for the Role",
   });
 });

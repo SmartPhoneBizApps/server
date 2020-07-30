@@ -83,7 +83,31 @@
       }
     }
   ],
-  "DButtons": [],
+  "DButtons": [
+    {
+      "type": "ADDTRAINING",
+      "name": "Add Study",
+      "icon": "sap-icon://copy",
+      "Dialog": [
+        { "label": "StudyType", "name": "StudyType", "type": "string" },
+        { "label": "StudyName", "name": "StudyName", "type": "string" },
+        { "label": "Phase", "name": "Phase", "type": "string" }
+      ],
+      "listFields": ["StudyType", "StudyName", "Phase"],
+      "tableField": "MyStudy",
+      "transferFields": ["StudyType", "StudyName", "Phase"],
+      "SearchURL": "listrecordsnew/Web/HC0002/HealthCareProfessional{filter}",
+      "URL": "util/addTraining/MyTraining/HC0002/HC0001C/{ID}/{ReferenceID}/{role}",
+      "FieldMapping": {
+        "StudyType": "StudyType",
+        "StudyName": "StudyName",
+        "Phase": "Phase"
+      },
+      "FixedValues": [{ "Status": "Assigned" }],
+      "Token": "Yes",
+      "URLMethod": "POST"
+    }
+  ],
   "Tabs": [
     {
       "value": "Tab0",
@@ -130,7 +154,68 @@
     "Tab1": ["ID", "Title", "FirstName", "LastName", "Speciality"],
     "Tab5": ["PostCode", "Address"],
     "Tab2": ["MultiAttachments"],
-    "Tab4": ["carouselImage"]
+    "Tab4": ["carouselImage"],
+    "Tab6": ["MyStudy"]
+  },
+  "tableConfig": {
+    "MyStudy": {
+      "title": "My Learning",
+      "ItemFieldDefinition": [
+        {
+          "name": "ItemNumber",
+          "type": "string",
+          "width": "10",
+          "SLabel": "Item Number",
+          "Option": "Optional"
+        },
+
+        {
+          "name": "StudyType",
+          "type": "string",
+          "width": "10",
+          "SLabel": "StudyType",
+          "Option": "Optional"
+        },
+        {
+          "name": "StudyName",
+          "type": "string",
+          "width": "200",
+          "SLabel": "StudyName",
+          "Option": "Optional"
+        },
+        {
+          "name": "Phase",
+          "type": "string",
+          "width": "200",
+          "SLabel": "Phase",
+          "Option": "Optional"
+        }
+      ],
+      "DisplayFields": ["StudyType", "StudyName", "Phase"],
+      "cards": ["Table"],
+      "tableCardFields": ["StudyType", "StudyName", "Phase"],
+      "ItemButtons": {
+        "itemDisplay": true,
+        "itemAdd": false,
+        "itemEdit": true,
+        "itemDelete": false
+      },
+      "CreateFields": ["StudyType", "StudyName", "Phase"],
+      "ItemDetails": [
+        {
+          "name": "StudyType",
+          "Mode": "Edit"
+        },
+        {
+          "name": "StudyName",
+          "Mode": "Edit"
+        },
+        {
+          "name": "Phase",
+          "Mode": "Edit"
+        }
+      ]
+    }
   },
   "ControlDisplay": {},
   "FieldDef": [
@@ -283,6 +368,37 @@
       "Option": "Optional",
       "SLabel": "PharmaCompany",
       "LLabel": "PharmaCompany"
+    },
+    {
+      "name": "Phase",
+      "type": "string",
+      "width": "50",
+      "Option": "Optional",
+      "SLabel": "Phase",
+      "LLabel": ""
+    },
+    {
+      "name": "StudyType",
+      "type": "string",
+      "width": "50",
+      "Option": "Optional",
+      "SLabel": "Study Type",
+      "LLabel": ""
+    },
+    {
+      "name": "StudyName",
+      "type": "string",
+      "width": "100",
+      "Option": "Optional",
+      "SLabel": "Study Name",
+      "LLabel": ""
+    },
+    {
+      "name": "MyTraining",
+      "type": "Array",
+      "width": "200",
+      "SLabel": "My Trainings",
+      "Option": "Optional"
     }
   ],
 

@@ -130,13 +130,13 @@ exports.assignCourseUser = asyncHandler(async (req, res, next) => {
     });
     res.status(200).json({
       success: true,
-      message: "Course assigned to the user & Email sent",
+      message: "Record assigned to the user & Email sent",
     });
   } catch (err) {
     console.log(err);
     res.status(200).json({
       success: true,
-      message: "Course assigned to the user but Email could not be sent",
+      message: "Record assigned to the user but Email could not be sent",
     });
   }
 

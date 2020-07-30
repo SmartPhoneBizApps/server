@@ -47,6 +47,6 @@ exports.copyCourse = asyncHandler(async (req, res, next) => {
   res.status(201).json({
     success: true,
     data: result,
-    message: "Course added to the catalog",
+    message: "Record added",
   });
 });

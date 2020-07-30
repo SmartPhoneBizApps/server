@@ -14,6 +14,9 @@ exports.getcalculation = asyncHandler(async (req, res, next) => {
   if (!req.headers.businessrole) {
     return next(new ErrorResponse(`Please provide Role(Header)`, 400));
   }
+  if (!req.headers.tab) {
+    return next(new ErrorResponse(`Please provide Tab`, 400));
+  }
   // Read New Config File
   var appconfig = getNewConfig(
     req.headers.applicationid,
@@ -22,8 +25,8 @@ exports.getcalculation = asyncHandler(async (req, res, next) => {
   let config = appconfig["CalculatedFields"];
   let outdata = req.body;
   var Handler = new calfunction();
-  // outdata = Handler["datacalculation"](outdata, config);
-  outdata = Handler["tablecalculation"](outdata, config, "ItemData");
+
+  outdata = Handler["tablecalculation"](outdata, config, req.headers.tab);
   res.status(201).json({
     success: true,
     data: outdata,
