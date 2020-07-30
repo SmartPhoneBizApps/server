@@ -6,11 +6,7 @@
   "Controls": {
     "USP": "UserProfile",
     "StatusColor": "Yes",
-    "SearchString": {
-      "Search": true,
-      "header": [],
-      "table": { "Skills": ["Skill"] }
-    },
+    "SearchString": { "Search": false },
     "Filters": [{ "Partner": "@user" }],
     "Partner": "@user",
     "UserSpecific": "Yes",
@@ -87,16 +83,7 @@
       }
     }
   ],
-  "DButtons": [
-    {
-      "type": "CATALOG",
-      "name": "Add to Catalogue",
-      "icon": "sap-icon://product",
-      "URL": "util/addCourseCatalog/TRAIN002/TRAIN008/{ID}/{role}",
-      "Token": "Yes",
-      "URLMethod": "POST"
-    }
-  ],
+  "DButtons": [],
   "Tabs": [
     {
       "value": "Tab0",

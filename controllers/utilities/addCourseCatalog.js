@@ -32,7 +32,7 @@ exports.copyCourse = asyncHandler(async (req, res, next) => {
   }
 
   // Read Config File
-  configData = getNewConfig(req.params.toApp, "TrainingTeam");
+  configData = getNewConfig(req.params.toApp, req.params.role);
 
   out1 = getNewCopyRecord(
     configData,
