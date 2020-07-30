@@ -142,19 +142,22 @@
     "headerRole": ["USP_Role"],
     "headerImage": ["USP_Image"],
     "headerColorFields": ["Status"],
-    "None": ["ID", "Name", "EmployeeID", "StartDate", "EndDate"],
+    "None": [
+      "ID",
+      "Name",
+      "EmployeeID",
+      "TotalOvertimeHours",
+      "OvertimeNetAmount",
+      "TotalRegHours",
+      "RegularNetAmount",
+      "NetAmount",
+      "VATAmount",
+      "GrossAmount"
+    ],
     "Tab1": [
       {
-        "GrpTitle": "Regular Hours",
-        "Fields": ["TotalRegHours", "RegularNetAmount"]
-      },
-      {
-        "GrpTitle": "OverTime Hours",
-        "Fields": ["TotalOvertimeHours", "OvertimeNetAmount"]
-      },
-      {
-        "GrpTitle": "Totals",
-        "Fields": ["NetAmount", "VATAmount", "GrossAmount"]
+        "GrpTitle": "Dates",
+        "Fields": ["StartDate", "EndDate"]
       },
       {
         "GrpTitle": "Rates",
@@ -375,7 +378,8 @@
           "width": "20",
           "SLabel": "ItemNumber",
           "Option": "Optional",
-          "Currency": "No"
+          "Currency": "No",
+          "Update": "Yes"
         },
         {
           "name": "ID",
@@ -383,7 +387,8 @@
           "width": "20",
           "SLabel": "Identification",
           "Option": "Optional",
-          "Currency": "No"
+          "Currency": "No",
+          "Update": "Yes"
         },
         {
           "name": "ProjectCode",
@@ -391,7 +396,8 @@
           "width": "50",
           "SLabel": "Project Code",
           "Option": "Mandatory",
-          "Currency": "No"
+          "Currency": "No",
+          "Update": "Yes"
         },
         {
           "name": "Date",
@@ -399,7 +405,8 @@
           "width": "10",
           "SLabel": "Timesheet Date",
           "Option": "Mandatory",
-          "Currency": "No"
+          "Currency": "No",
+          "Update": "Yes"
         },
         {
           "name": "TotalRegWorkHours",
@@ -407,7 +414,8 @@
           "width": "50",
           "SLabel": "Regular work hours",
           "Option": "Optional",
-          "Currency": "No"
+          "Currency": "No",
+          "Update": "Yes"
         },
         {
           "name": "OvertimeHours",
@@ -415,7 +423,17 @@
           "width": "50",
           "SLabel": "Overtime Hours",
           "Option": "Optional",
-          "Currency": "No"
+          "Currency": "No",
+          "Update": "Yes"
+        },
+        {
+          "name": "TotalHours",
+          "type": "Num,1",
+          "width": "50",
+          "SLabel": "Total Hours",
+          "Option": "Optional",
+          "Currency": "No",
+          "Update": "No"
         },
         {
           "name": "SearchString",
@@ -423,7 +441,8 @@
           "width": "200",
           "Option": "Mandatory",
           "SLabel": "Search String",
-          "LLabel": "Search String"
+          "LLabel": "Search String",
+          "Update": "No"
         },
         {
           "name": "Comment",
@@ -439,7 +458,8 @@
         "ProjectCode",
         "Date",
         "TotalRegWorkHours",
-        "OvertimeHours"
+        "OvertimeHours",
+        "TotalHours"
       ],
       "cards": ["Table"],
       "tableCardFields": [
@@ -459,7 +479,8 @@
         "Date",
         "TotalRegWorkHours",
         "OvertimeHours",
-        "Comment"
+        "Comment",
+        "TotalHours"
       ],
       "ItemDetails": [
         {
@@ -479,13 +500,27 @@
           "Tab": "Tab4",
           "Mode": "Edit"
         },
-        { "name": "Comment", "Tab": "Tab4", "Mode": "Edit" }
+        { "name": "Comment", "Tab": "Tab4", "Mode": "Edit" },
+        { "name": "TotalHours", "Tab": "Tab4", "Mode": "Display" }
       ]
     }
   },
 
   "CalculatedFields": {
-    "Item": [],
+    "Item": [
+      {
+        "CalculatedFormula": {
+          "name": "Addition",
+          "function": "ADD",
+          "Target": "TotalHours",
+          "type": "Item"
+        },
+        "Fields": [
+          { "Source": "TotalRegWorkHours", "Type": { "type": "Item" } },
+          { "Source": "OvertimeHours", "Type": { "type": "Item" } }
+        ]
+      }
+    ],
     "HeaderItem": [
       {
         "CalculatedFormula": {
