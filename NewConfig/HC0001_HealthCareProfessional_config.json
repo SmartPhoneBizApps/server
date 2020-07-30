@@ -237,6 +237,22 @@
       "Option": "Optional",
       "SLabel": "Email Id",
       "LLabel": "Email Id"
+    },
+    {
+      "name": "Speciality",
+      "type": "string",
+      "width": "50",
+      "Option": "Optional",
+      "SLabel": "Speciality",
+      "LLabel": "Speciality"
+    },
+    {
+      "name": "PharmaCompany",
+      "type": "string",
+      "width": "200",
+      "Option": "Optional",
+      "SLabel": "PharmaCompany",
+      "LLabel": "PharmaCompany"
     }
   ],
 
@@ -271,7 +287,6 @@
       "id": "Step2",
       "fields": [
         { "name": "Speciality", "Mode": "Edit" },
-        { "name": "PharmaCompany", "Mode": "Edit" },
         { "name": "Email", "Mode": "Edit" },
         { "name": "ContactNo", "Mode": "Edit" }
       ],
