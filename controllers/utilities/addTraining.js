@@ -26,12 +26,12 @@ exports.addTraining = asyncHandler(async (req, res, next) => {
       message: "1st applicationID is incorrect",
     });
   }
-  console.log("AA1", req.params.ReferenceID);
-  console.log("AA1", req.params.fromApp);
+
   Appdata = await findOneAppDataRefID(
     req.params.ReferenceID,
     req.params.fromApp
   );
+
   if (!Appdata) {
     res.status(400).json({
       success: true,
@@ -47,7 +47,8 @@ exports.addTraining = asyncHandler(async (req, res, next) => {
   let Status = "NoChange";
   mytrain = {};
   mytr = [];
-  mytrain["MyTraining"];
+  console.log(req.params.table)
+  //mytrain[req.params.table];
   mytrain["ItemNumber"] = Math.floor(100 + Math.random() * 900);
   for (let q = 0; q < configData["DButtons"].length; q++) {
     for (const ky in configData["DButtons"][q]["FieldMapping"]) {
@@ -56,7 +57,8 @@ exports.addTraining = asyncHandler(async (req, res, next) => {
     }
   }
   mytr.push(mytrain);
-  myData["MyTraining"] = tableValidate(mytr, myData["MyTraining"]);
+  myData[req.params.table] = tableValidate(mytr, myData[req.params.table]);
+  console.log(myData)
   // Processing Log
   myData["TransLog"] = processingLog(
     req.params.ID,
@@ -65,7 +67,7 @@ exports.addTraining = asyncHandler(async (req, res, next) => {
     req.user.name,
     Status,
     req.params.toApp,
-    "A new training assigned",
+    "An assingment done",
     req.headers.buttontype,
     req.headers.buttonname
   );
@@ -75,13 +77,13 @@ exports.addTraining = asyncHandler(async (req, res, next) => {
     res.status(201).json({
       success: true,
       data: result,
-      message: "Training Added",
+      message: "Assingment Done",
     });
   } else {
     res.status(400).json({
       success: false,
       data: result,
-      message: "Training not added, error occured",
+      message: "Assingment error occured",
     });
   }
 });

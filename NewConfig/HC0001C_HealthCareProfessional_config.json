@@ -106,7 +106,54 @@
       "FixedValues": [{ "Status": "Assigned" }],
       "Token": "Yes",
       "URLMethod": "POST"
+    },
+    {
+      "type": "ADDTRAINING",
+      "name": "Add Event",
+      "icon": "sap-icon://copy",
+      "Dialog": [
+        { "label": "StudyType", "name": "StudyType", "type": "string" },
+        { "label": "StudyName", "name": "StudyName", "type": "string" },
+        { "label": "Phase", "name": "Phase", "type": "string" }
+      ],
+      "listFields": ["StudyType", "StudyName", "Phase"],
+      "tableField": "myEvent",
+      "transferFields": ["StudyType", "StudyName", "Phase"],
+      "SearchURL": "listrecordsnew/Web/HC0003/HealthCareProfessional{filter}",
+      "URL": "util/addTraining/myEvent/HC0003/HC0001C/{ID}/{ReferenceID}/{role}",
+      "FieldMapping": {
+        "StudyType": "StudyType",
+        "StudyName": "StudyName",
+        "Phase": "Phase"
+      },
+      "FixedValues": [{ "Status": "Assigned" }],
+      "Token": "Yes",
+      "URLMethod": "POST"
+    },
+    {
+      "type": "ADDTRAINING",
+      "name": "Add Contract",
+      "icon": "sap-icon://copy",
+      "Dialog": [
+        { "label": "StudyType", "name": "StudyType", "type": "string" },
+        { "label": "StudyName", "name": "StudyName", "type": "string" },
+        { "label": "Phase", "name": "Phase", "type": "string" }
+      ],
+      "listFields": ["StudyType", "StudyName", "Phase"],
+      "tableField": "myContract",
+      "transferFields": ["StudyType", "StudyName", "Phase"],
+      "SearchURL": "listrecordsnew/Web/HC0003/HealthCareProfessional{filter}",
+      "URL": "util/addTraining/myContract/HC0003/HC0001C/{ID}/{ReferenceID}/{role}",
+      "FieldMapping": {
+        "StudyType": "StudyType",
+        "StudyName": "StudyName",
+        "Phase": "Phase"
+      },
+      "FixedValues": [{ "Status": "Assigned" }],
+      "Token": "Yes",
+      "URLMethod": "POST"
     }
+
   ],
   "Tabs": [
     {

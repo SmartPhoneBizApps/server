@@ -46,11 +46,14 @@
         "Title",
         "LastName",
         "FirstName",
+        "FullName",
+        "Role",
         "Speciality",
         "ContactNo",
         "Email",
         "PostCode",
-        "Address"
+        "Address",
+        "Country"
       ]
     },
     {
@@ -137,8 +140,16 @@
     "headerImage": ["USP_Image"],
     "headerColorFields": ["Status"],
     "None": ["Status"],
-    "Tab1": ["ID", "Title", "FirstName", "LastName", "Speciality"],
-    "Tab5": ["PostCode", "Address"],
+    "Tab1": [
+      "ID",
+      "Title",
+      "FirstName",
+      "LastName",
+      "FullName",
+      "Role",
+      "Speciality"
+    ],
+    "Tab5": ["PostCode", "Address", "Country"],
     "Tab2": ["MultiAttachments"],
     "Tab4": ["carouselImage"]
   },
@@ -182,6 +193,31 @@
       "SLabel": "Last Name",
       "LLabel": "Last Name"
     },
+    {
+      "name": "FullName",
+      "type": "string",
+      "width": "50",
+      "Option": "Optional",
+      "SLabel": "Full Name",
+      "LLabel": "Full Name"
+    },
+    {
+      "name": "Role",
+      "type": "string",
+      "width": "50",
+      "Option": "Optional",
+      "SLabel": "Role",
+      "LLabel": "Role"
+    },
+    {
+      "name": "Country",
+      "type": "string",
+      "width": "50",
+      "Option": "Optional",
+      "SLabel": "Country",
+      "LLabel": "Country"
+    },
+
     {
       "name": "PostCode",
       "type": "searchField",
