@@ -484,6 +484,9 @@ module.exports = {
         }
       }
     }
+    if (configData.Controls.Partner == "@user") {
+      out1["Partner"] = userX.email;
+    }
     out1["ReferenceID"] = paramID;
     out1["appId"] = appID;
     out1["user"] = userX.id;
