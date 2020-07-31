@@ -124,11 +124,12 @@
       "URLMethod": "GET",
       "postURL": "datarecords/",
       "checkAnswers": "No",
-      "postHeaders": [
-        { "businessrole": "{role}" },
-        { "applicationid": "SUPP00028" },
-        { "calculation": "Yes" }
-      ],
+      "postHeaders": {
+        "businessrole": "HealthCareProfessional",
+        "applicationid": "SUPP00028",
+        "calculation": "Yes"
+      },
+      "postToken": "Yes",
       "postMethod": "POST"
     },
     {
