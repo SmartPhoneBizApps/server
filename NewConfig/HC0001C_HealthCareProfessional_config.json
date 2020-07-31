@@ -119,9 +119,16 @@
       "Calculation": "Yes",
       "name": "Study Invoice",
       "icon": "sap-icon://upload-to-cloud",
-      "URL": "util/getQuestioner/INVOICE/studyInvoice",
       "Token": "Yes",
-      "URLMethod": "GET"
+      "URL": "util/getQuestioner/INVOICE/studyInvoice",
+      "URLMethod": "GET",
+      "postURL": "datarecords/",
+      "postHeaders": [
+        { "businessrole": "{role}" },
+        { "applicationid": "SUPP00028" },
+        { "calculation": "Yes" }
+      ],
+      "postMethod": "POST"
     }
   ],
   "Tabs": [

@@ -236,6 +236,375 @@
       ]
     ]
   },
+  "tableConfig": {
+    "myStudy": {
+      "title": "My Studies",
+      "ItemFieldDefinition": [
+        {
+          "name": "ItemNumber",
+          "type": "string",
+          "width": "10",
+          "SLabel": "Item Number",
+          "Option": "Optional"
+        },
+        {
+          "name": "StudyID",
+          "type": "string",
+          "width": "50",
+          "SLabel": "StudyID",
+          "Option": "Optional"
+        },
+        {
+          "name": "StudyType",
+          "type": "string",
+          "width": "10",
+          "SLabel": "StudyType",
+          "Option": "Optional"
+        },
+        {
+          "name": "StudyName",
+          "type": "string",
+          "width": "200",
+          "SLabel": "StudyName",
+          "Option": "Optional"
+        },
+        {
+          "name": "StudyDetails",
+          "type": "string",
+          "width": "200",
+          "SLabel": "StudyDetails",
+          "Option": "Optional"
+        },
+        {
+          "name": "Phase",
+          "type": "string",
+          "width": "200",
+          "SLabel": "Phase",
+          "Option": "Optional"
+        }
+      ],
+      "DisplayFields": ["StudyID", "StudyType", "StudyName", "Phase"],
+      "cards": ["Table"],
+      "tableCardFields": ["StudyType", "StudyName", "Phase"],
+      "ItemButtons": {
+        "itemDisplay": true,
+        "itemAdd": false,
+        "itemEdit": true,
+        "itemDelete": false
+      },
+      "CreateFields": [
+        "StudyID",
+        "StudyType",
+        "StudyName",
+        "Phase",
+        "StudyDetails"
+      ],
+      "ItemDetails": [
+        {
+          "name": "StudyType",
+          "Mode": "Edit"
+        },
+        {
+          "name": "StudyName",
+          "Mode": "Edit"
+        },
+        {
+          "name": "Phase",
+          "Mode": "Edit"
+        },
+        {
+          "name": "StudyID",
+          "Mode": "Edit"
+        },
+        {
+          "name": "StudyDetails",
+          "Mode": "Edit"
+        }
+      ]
+    },
+    "myEvent": {
+      "title": "My Events",
+      "ItemFieldDefinition": [
+        {
+          "name": "ItemNumber",
+          "type": "string",
+          "width": "10",
+          "SLabel": "Item Number",
+          "Option": "Optional"
+        },
+        {
+          "name": "EventID",
+          "type": "string",
+          "width": "50",
+          "SLabel": "StudyID",
+          "Option": "Optional"
+        },
+        {
+          "name": "EventType",
+          "type": "string",
+          "width": "10",
+          "SLabel": "EventType",
+          "Option": "Optional"
+        },
+        {
+          "name": "EventName",
+          "type": "string",
+          "width": "200",
+          "SLabel": "EventName",
+          "Option": "Optional"
+        },
+        {
+          "name": "EventStartDate",
+          "type": "Date",
+          "width": "200",
+          "SLabel": "EventStartDate",
+          "Option": "Optional"
+        },
+        {
+          "name": "Time",
+          "type": "string",
+          "width": "200",
+          "SLabel": "Time",
+          "Option": "Optional"
+        },
+        {
+          "name": "Duration",
+          "type": "string",
+          "width": "200",
+          "SLabel": "Duration",
+          "Option": "Optional"
+        },
+        {
+          "name": "Agenda",
+          "type": "string",
+          "width": "200",
+          "SLabel": "Agenda",
+          "Option": "Optional"
+        },
+        {
+          "name": "Address",
+          "type": "string",
+          "width": "200",
+          "SLabel": "Address",
+          "Option": "Optional"
+        },
+        {
+          "name": "PostCode",
+          "type": "string",
+          "width": "50",
+          "SLabel": "PostCode",
+          "Option": "Optional"
+        }
+      ],
+      "DisplayFields": [
+        "EventID",
+        "EventType",
+        "EventName",
+        "EventStartDate",
+        "Time"
+      ],
+      "cards": ["Table"],
+      "tableCardFields": ["EventType", "EventName", "EventStartDate"],
+      "ItemButtons": {
+        "itemDisplay": true,
+        "itemAdd": false,
+        "itemEdit": true,
+        "itemDelete": false
+      },
+      "CreateFields": [
+        "EventID",
+        "EventType",
+        "EventName",
+        "EventStartDate",
+        "Time",
+        "Duration",
+        "Agenda",
+        "Address",
+        "PostCode"
+      ],
+      "ItemDetails": [
+        {
+          "name": "EventType",
+          "Mode": "Edit"
+        },
+        {
+          "name": "EventName",
+          "Mode": "Edit"
+        },
+        {
+          "name": "EventStartDate",
+          "Mode": "Edit"
+        },
+        {
+          "name": "EventID",
+          "Mode": "Edit"
+        },
+        {
+          "name": "Time",
+          "Mode": "Edit"
+        },
+        {
+          "name": "Duration",
+          "Mode": "Edit"
+        },
+        {
+          "name": "Agenda",
+          "Mode": "Edit"
+        },
+        {
+          "name": "Address",
+          "Mode": "Edit"
+        },
+        {
+          "name": "PostCode",
+          "Mode": "Edit"
+        }
+      ]
+    },
+    "myContract": {
+      "title": "My Contracts",
+      "ItemFieldDefinition": [
+        {
+          "name": "ItemNumber",
+          "type": "string",
+          "width": "10",
+          "SLabel": "Item Number",
+          "Option": "Optional"
+        },
+        {
+          "name": "ContractID",
+          "type": "string",
+          "width": "50",
+          "SLabel": "ContractID",
+          "Option": "Optional"
+        },
+        {
+          "name": "ContractType",
+          "type": "string",
+          "width": "10",
+          "SLabel": "ContractType",
+          "Option": "Optional"
+        },
+        {
+          "name": "ContractName",
+          "type": "string",
+          "width": "200",
+          "SLabel": "ContractName",
+          "Option": "Optional"
+        },
+        {
+          "name": "ContractStartDate",
+          "type": "Date",
+          "width": "50",
+          "SLabel": "ContractStartDate",
+          "Option": "Optional"
+        },
+        {
+          "name": "ContractEndDate",
+          "type": "Date",
+          "width": "50",
+          "SLabel": "ContractEndDate",
+          "Option": "Optional"
+        },
+        {
+          "name": "ContractValue",
+          "type": "Num,1",
+          "width": "50",
+          "SLabel": "ContractValue",
+          "Option": "Optional"
+        },
+        {
+          "name": "BalanceValue",
+          "type": "Num,1",
+          "width": "50",
+          "SLabel": "BalanceValue",
+          "Option": "Optional"
+        },
+        {
+          "name": "UsedValue",
+          "type": "Num,1",
+          "width": "50",
+          "SLabel": "UsedValue",
+          "Option": "Optional"
+        },
+        {
+          "name": "Services",
+          "type": "string",
+          "width": "500",
+          "SLabel": "Services",
+          "Option": "Optional"
+        }
+      ],
+      "DisplayFields": [
+        "ContractID",
+        "ContractType",
+        "ContractName",
+        "ContractStartDate",
+        "ContractEndDate",
+        "BalanceValue"
+      ],
+      "cards": ["Table"],
+      "tableCardFields": [
+        "ContractType",
+        "ContractName",
+        "ContractStartDate",
+        "BalanceValue"
+      ],
+      "ItemButtons": {
+        "itemDisplay": true,
+        "itemAdd": false,
+        "itemEdit": true,
+        "itemDelete": false
+      },
+      "CreateFields": [
+        "ContractID",
+        "ContractType",
+        "ContractName",
+        "ContractStartDate",
+        "ContractEndDate",
+        "ContractValue",
+        "Services"
+      ],
+      "ItemDetails": [
+        {
+          "name": "ContractType",
+          "Mode": "Edit"
+        },
+        {
+          "name": "ContractName",
+          "Mode": "Edit"
+        },
+        {
+          "name": "ContractStartDate",
+          "Mode": "Edit"
+        },
+        {
+          "name": "ContractEndDate",
+          "Mode": "Edit"
+        },
+        {
+          "name": "ContractID",
+          "Mode": "Edit"
+        },
+        {
+          "name": "ContractValue",
+          "Mode": "Edit"
+        },
+        {
+          "name": "UsedValue",
+          "Mode": "Edit"
+        },
+        {
+          "name": "BalanceValue",
+          "Mode": "Edit"
+        },
+        {
+          "name": "Services",
+          "Mode": "Edit"
+        }
+      ]
+    }
+  },
   "FieldDef": [
     {
       "name": "ID",
