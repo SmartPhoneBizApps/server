@@ -1,7 +1,7 @@
 {
   "Title": {
-    "ApplicationTitle": "HCP / HCO Directory",
-    "DetailTitle": "HCP / HCO Directory"
+    "ApplicationTitle": "HCP/HCO Company View",
+    "DetailTitle": "HCP/HCO Company View"
   },
   "Controls": {
     "USP": "UserProfile",
@@ -112,50 +112,13 @@
       "URLMethod": "POST"
     },
     {
-      "type": "ADDTRAINING",
-      "name": "Add Event",
-      "icon": "sap-icon://copy",
-      "Dialog": [
-        { "label": "StudyType", "name": "StudyType", "type": "string" },
-        { "label": "StudyName", "name": "StudyName", "type": "string" },
-        { "label": "Phase", "name": "Phase", "type": "string" }
-      ],
-      "listFields": ["StudyType", "StudyName", "Phase"],
-      "tableField": "myEvent",
-      "transferFields": ["StudyType", "StudyName", "Phase"],
-      "SearchURL": "listrecordsnew/Web/HC0003/HealthCareProfessional{filter}",
-      "URL": "util/addTraining/myEvent/HC0003/HC0001C/{ID}/{ReferenceID}/{role}",
-      "FieldMapping": {
-        "StudyType": "StudyType",
-        "StudyName": "StudyName",
-        "Phase": "Phase"
-      },
-      "FixedValues": [{ "Status": "Assigned" }],
+      "type": "SURVEY",
+      "Calculation": "Yes",
+      "name": "Study Invoice",
+      "icon": "sap-icon://upload-to-cloud",
+      "URL": "util/getQuestioner/INVOICE/studyInvoice",
       "Token": "Yes",
-      "URLMethod": "POST"
-    },
-    {
-      "type": "ADDTRAINING",
-      "name": "Add Contract",
-      "icon": "sap-icon://copy",
-      "Dialog": [
-        { "label": "StudyType", "name": "StudyType", "type": "string" },
-        { "label": "StudyName", "name": "StudyName", "type": "string" },
-        { "label": "Phase", "name": "Phase", "type": "string" }
-      ],
-      "listFields": ["StudyType", "StudyName", "Phase"],
-      "tableField": "myContract",
-      "transferFields": ["StudyType", "StudyName", "Phase"],
-      "SearchURL": "listrecordsnew/Web/HC0003/HealthCareProfessional{filter}",
-      "URL": "util/addTraining/myContract/HC0003/HC0001C/{ID}/{ReferenceID}/{role}",
-      "FieldMapping": {
-        "StudyType": "StudyType",
-        "StudyName": "StudyName",
-        "Phase": "Phase"
-      },
-      "FixedValues": [{ "Status": "Assigned" }],
-      "Token": "Yes",
-      "URLMethod": "POST"
+      "URLMethod": "GET"
     }
   ],
   "Tabs": [
@@ -218,7 +181,7 @@
       "Speciality",
       "InstitutionName"
     ],
-    "Tab5": ["PostCode", "Address"],
+    "Tab5": ["PostCode", "Address", "Country"],
     "Tab2": ["MultiAttachments"],
     "Tab4": ["carouselImage"],
     "Tab6": ["myStudy"]
@@ -458,12 +421,12 @@
       "LLabel": "Speciality"
     },
     {
-      "name": "PharmaCompany",
+      "name": "InstitutionName",
       "type": "string",
       "width": "200",
       "Option": "Optional",
-      "SLabel": "PharmaCompany",
-      "LLabel": "PharmaCompany"
+      "SLabel": "Institution Name",
+      "LLabel": "Institution Name"
     },
     {
       "name": "Phase",
