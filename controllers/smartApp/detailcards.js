@@ -75,11 +75,13 @@ exports.getDetailCardsNew = async (req, res, next) => {
           xj_table1 = {};
         }
         let st1 = t_type + "_" + appData["ID"] + "_" + key;
+
         hdr = cardConfig["header"]["table1"];
         hdr["title"] = appconfig["tableConfig"][key]["title"];
         hdr["subTitle"] = "Recent Transactions";
         console.log("Card", key);
-        hdr["actions"][0]["parameters"]["url"] = "/" + key;
+        var TabName = Object.assign(key);
+        hdr["actions"][0]["parameters"]["url"] = "/" + TabName;
         xrow1["columns"] = col_table1;
         xrow["row"] = { ...xrow1 };
         xrow1 = {};
@@ -101,6 +103,7 @@ exports.getDetailCardsNew = async (req, res, next) => {
 
   // Golobal
   hdr = {};
+  hdr["actions"] = {};
   xrow1 = {};
   col_table1 = [];
   xrow = {};

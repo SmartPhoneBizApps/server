@@ -28,7 +28,7 @@
       "id": "Step2",
       "fields": [
         {
-          "name": "Amount",
+          "name": "TotInvGrossVal",
           "width": "20",
           "Option": "Optional",
           "SLabel": "Amount",
@@ -73,6 +73,31 @@
           "width": "100",
           "Option": "Optional",
           "SLabel": "SuppInvoiceNumber",
+          "Mode": "Edit",
+          "type": "string"
+        },
+        {
+          "name": "InvoiceDate",
+          "width": "20",
+          "Option": "Optional",
+          "SLabel": "InvoiceDate",
+          "Mode": "Edit",
+          "type": "Date"
+        },
+        {
+          "name": "TaxInvoice",
+          "width": "20",
+          "Option": "Optional",
+          "SLabel": "TaxInvoice",
+          "Mode": "Edit",
+          "type": "string",
+          "value": ["Yes", "No"]
+        },
+        {
+          "name": "VendorNumber",
+          "width": "20",
+          "Option": "Optional",
+          "SLabel": "VendorNumber",
           "Mode": "Edit",
           "type": "string"
         }
