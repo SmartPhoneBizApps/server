@@ -4,16 +4,7 @@
       "id": "Step1",
       "fields": [
         {
-          "name": "Q1",
-          "width": "400",
-          "Option": "Optional",
-          "SLabel": "Select Study",
-          "Mode": "Display",
-          "type": "string",
-          "value": "Please select the study for which you will like to raise invoice"
-        },
-        {
-          "name": "A1",
+          "name": "myStudy",
           "width": "400",
           "Option": "Optional",
           "SLabel": "Selection Options",
@@ -37,15 +28,6 @@
       "id": "Step2",
       "fields": [
         {
-          "name": "AmountDetails",
-          "width": "400",
-          "Option": "Optional",
-          "SLabel": "Details of Amounts",
-          "Mode": "Display",
-          "type": "string",
-          "value": "Please provide amount details'"
-        },
-        {
           "name": "Amount",
           "width": "20",
           "Option": "Optional",
@@ -54,134 +36,50 @@
           "type": "Num,1"
         },
         {
-          "name": "ClaimType",
+          "name": "InvoiceType",
           "width": "400",
           "Option": "Optional",
-          "SLabel": "Claim Type",
-          "Mode": "Edit",
+          "SLabel": "Invoice Type",
+          "Mode": "Display",
           "type": "string",
-          "value": ["Joint Working", "Donations, Grants, Benefits"]
-        },
-        {
-          "name": "Details",
-          "width": "500",
-          "Option": "Optional",
-          "SLabel": "Details",
-          "Mode": "Edit",
-          "type": "string"
+          "value": ["StudyInvoice"]
         }
       ],
       "name": "Set - 2",
       "stepType": "FieldList",
-      "intro": "Learning : Health and Safety in the Workplace "
+      "intro": "HCP / HCO : Health and Safety in the Workplace "
     },
     {
       "id": "Step3",
       "fields": [
         {
-          "name": "Q5",
-          "width": "400",
+          "name": "VendorName",
+          "width": "100",
           "Option": "Optional",
-          "SLabel": "Question 5",
-          "Mode": "Display",
-          "type": "string",
-          "value": "Q5 : Which of these is most likely to cause an accident in a workplace?'"
-        },
-        {
-          "name": "A5",
-          "width": "400",
-          "Option": "Optional",
-          "SLabel": "Answer 5",
+          "SLabel": "VendorName",
           "Mode": "Edit",
-          "type": "radiobutton",
-          "value": [
-            "A. Administration",
-            "B. Manual handling",
-            "C. Adequate lighting",
-            "D. Excessive noise"
-          ]
-        },
-        {
-          "name": "Q6",
-          "width": "400",
-          "Option": "Optional",
-          "SLabel": "Question 6",
-          "Mode": "Display",
-          "type": "string",
-          "value": "Q6 : Trailing electrical cables which trail through the middle of a busy walkway"
-        },
-        {
-          "name": "A6",
-          "width": "400",
-          "Option": "Optional",
-          "SLabel": "Answer 6",
-          "Mode": "Edit",
-          "type": "radiobutton",
-          "value": [
-            "A. Are very unlikely to cause any injury",
-            "B. Are likely to injure someone if they trip over it",
-            "C. Can be defined as high level health and safety hazards",
-            "D. Can be defined as high level fire hazards"
-          ]
+          "type": "string"
         }
       ],
       "name": "Set - 3",
       "stepType": "FieldList",
-      "intro": "Learning : Health and Safety in the Workplace "
+      "intro": "HCP / HCO : Health and Safety in the Workplace "
     },
     {
       "id": "Step4",
       "fields": [
         {
-          "name": "Q7",
-          "width": "400",
+          "name": "SuppInvoiceNumber",
+          "width": "100",
           "Option": "Optional",
-          "SLabel": "Question 7",
-          "Mode": "Display",
-          "type": "string",
-          "value": "Q7 : Which of these is most likely to be a result of handling an overloaded electrical socket?"
-        },
-        {
-          "name": "A7",
-          "width": "400",
-          "Option": "Optional",
-          "SLabel": "Answer 7",
+          "SLabel": "SuppInvoiceNumber",
           "Mode": "Edit",
-          "type": "radiobutton",
-          "value": [
-            "A. Frostbite",
-            "B. Asbestosis",
-            "C. Asphyxiation",
-            "D. Electric shock"
-          ]
-        },
-        {
-          "name": "Q8",
-          "width": "400",
-          "Option": "Optional",
-          "SLabel": "Question 8",
-          "Mode": "Display",
-          "type": "string",
-          "value": "Q8 : Why should near misses be reported?"
-        },
-        {
-          "name": "A8",
-          "width": "400",
-          "Option": "Optional",
-          "SLabel": "Answer 8",
-          "Mode": "Edit",
-          "type": "radiobutton",
-          "value": [
-            "A. To educate employees",
-            "B. To test the first aider",
-            "C. To ensure complete recovery",
-            "D. To stop a more serious event occurring"
-          ]
+          "type": "string"
         }
       ],
       "name": "Set - 4",
       "stepType": "FieldList",
-      "intro": "Learning : Health and Safety in the Workplace "
+      "intro": "HCP / HCO : Health and Safety in the Workplace "
     }
   ],
   "TargetField": "ManagerFB",
