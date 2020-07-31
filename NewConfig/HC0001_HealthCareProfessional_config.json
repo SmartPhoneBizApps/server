@@ -140,6 +140,27 @@
       "name": "Study",
       "type": "Table",
       "fioriicon": "contacts"
+    },
+    {
+      "value": "Tab7",
+      "update": "Yes",
+      "name": "Event",
+      "type": "Table",
+      "fioriicon": "contacts"
+    },
+    {
+      "value": "Tab8",
+      "update": "Yes",
+      "name": "Contract",
+      "type": "Table",
+      "fioriicon": "contacts"
+    },
+    {
+      "value": "Tab9",
+      "update": "Yes",
+      "name": "POs",
+      "type": "Table",
+      "fioriicon": "contacts"
     }
   ],
   "DetailFields": {
@@ -161,7 +182,10 @@
     "Tab5": ["PostCode", "Address", "Country"],
     "Tab2": ["MultiAttachments"],
     "Tab4": ["carouselImage"],
-    "Tab6": ["myStudy"]
+    "Tab6": ["myStudy"],
+    "Tab7": ["myEvent"],
+    "Tab8": ["myContract"],
+    "Tab9": ["myPO"]
   },
   "tableConfig": {
     "myStudy": {
@@ -174,7 +198,13 @@
           "SLabel": "Item Number",
           "Option": "Optional"
         },
-
+        {
+          "name": "StudyID",
+          "type": "string",
+          "width": "50",
+          "SLabel": "StudyID",
+          "Option": "Optional"
+        },
         {
           "name": "StudyType",
           "type": "string",
@@ -190,6 +220,13 @@
           "Option": "Optional"
         },
         {
+          "name": "StudyDetails",
+          "type": "string",
+          "width": "200",
+          "SLabel": "StudyDetails",
+          "Option": "Optional"
+        },
+        {
           "name": "Phase",
           "type": "string",
           "width": "200",
@@ -197,7 +234,7 @@
           "Option": "Optional"
         }
       ],
-      "DisplayFields": ["StudyType", "StudyName", "Phase"],
+      "DisplayFields": ["StudyID", "StudyType", "StudyName", "Phase"],
       "cards": ["Table"],
       "tableCardFields": ["StudyType", "StudyName", "Phase"],
       "ItemButtons": {
@@ -206,7 +243,13 @@
         "itemEdit": true,
         "itemDelete": false
       },
-      "CreateFields": ["StudyType", "StudyName", "Phase"],
+      "CreateFields": [
+        "StudyID",
+        "StudyType",
+        "StudyName",
+        "Phase",
+        "StudyDetails"
+      ],
       "ItemDetails": [
         {
           "name": "StudyType",
@@ -218,6 +261,153 @@
         },
         {
           "name": "Phase",
+          "Mode": "Edit"
+        },
+        {
+          "name": "StudyID",
+          "Mode": "Edit"
+        },
+        {
+          "name": "StudyDetails",
+          "Mode": "Edit"
+        }
+      ]
+    },
+    "myEvent": {
+      "title": "My Learning",
+      "ItemFieldDefinition": [
+        {
+          "name": "ItemNumber",
+          "type": "string",
+          "width": "10",
+          "SLabel": "Item Number",
+          "Option": "Optional"
+        },
+        {
+          "name": "EventID",
+          "type": "string",
+          "width": "50",
+          "SLabel": "StudyID",
+          "Option": "Optional"
+        },
+        {
+          "name": "EventType",
+          "type": "string",
+          "width": "10",
+          "SLabel": "EventType",
+          "Option": "Optional"
+        },
+        {
+          "name": "EventName",
+          "type": "string",
+          "width": "200",
+          "SLabel": "EventName",
+          "Option": "Optional"
+        },
+        {
+          "name": "EventStartDate",
+          "type": "Date",
+          "width": "200",
+          "SLabel": "EventStartDate",
+          "Option": "Optional"
+        },
+        {
+          "name": "Time",
+          "type": "string",
+          "width": "200",
+          "SLabel": "Time",
+          "Option": "Optional"
+        },
+        {
+          "name": "Duration",
+          "type": "string",
+          "width": "200",
+          "SLabel": "Duration",
+          "Option": "Optional"
+        },
+        {
+          "name": "Agenda",
+          "type": "string",
+          "width": "200",
+          "SLabel": "Agenda",
+          "Option": "Optional"
+        },
+        {
+          "name": "Address",
+          "type": "string",
+          "width": "200",
+          "SLabel": "Address",
+          "Option": "Optional"
+        },
+        {
+          "name": "PostCode",
+          "type": "string",
+          "width": "50",
+          "SLabel": "PostCode",
+          "Option": "Optional"
+        }
+      ],
+      "DisplayFields": [
+        "EventID",
+        "EventType",
+        "EventName",
+        "EventStartDate",
+        "Time"
+      ],
+      "cards": ["Table"],
+      "tableCardFields": ["EventType", "EventName", "EventStartDate"],
+      "ItemButtons": {
+        "itemDisplay": true,
+        "itemAdd": false,
+        "itemEdit": true,
+        "itemDelete": false
+      },
+      "CreateFields": [
+        "EventID",
+        "EventType",
+        "EventName",
+        "EventStartDate",
+        "Time",
+        "Duration",
+        "Agenda",
+        "Address",
+        "PostCode"
+      ],
+      "ItemDetails": [
+        {
+          "name": "EventType",
+          "Mode": "Edit"
+        },
+        {
+          "name": "EventName",
+          "Mode": "Edit"
+        },
+        {
+          "name": "EventStartDate",
+          "Mode": "Edit"
+        },
+        {
+          "name": "EventID",
+          "Mode": "Edit"
+        },
+        {
+          "name": "Time",
+          "Mode": "Edit"
+        },
+        {
+          "name": "Duration",
+          "Mode": "Edit"
+        },
+        {
+          "name": "Agenda",
+          "Mode": "Edit"
+        },
+        {
+          "name": "Address",
+          "Mode": "Edit"
+        },
+        {
+          "name": "PostCode",
           "Mode": "Edit"
         }
       ]
@@ -434,6 +624,27 @@
       "type": "Array",
       "width": "200",
       "SLabel": "My Study",
+      "Option": "Optional"
+    },
+    {
+      "name": "myEvent",
+      "type": "Array",
+      "width": "200",
+      "SLabel": "My Event",
+      "Option": "Optional"
+    },
+    {
+      "name": "myPO",
+      "type": "Array",
+      "width": "200",
+      "SLabel": "My PO",
+      "Option": "Optional"
+    },
+    {
+      "name": "myContract",
+      "type": "Array",
+      "width": "200",
+      "SLabel": "My Contract",
       "Option": "Optional"
     }
   ],

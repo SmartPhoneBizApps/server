@@ -37,45 +37,38 @@
       "id": "Step2",
       "fields": [
         {
-          "name": "Q3",
+          "name": "AmountDetails",
           "width": "400",
           "Option": "Optional",
-          "SLabel": "Question 3",
+          "SLabel": "Details of Amounts",
           "Mode": "Display",
           "type": "string",
-          "value": "Q3 : Which of these best describes the 'likelihood of an incident occurring?'"
+          "value": "Please provide amount details'"
         },
         {
-          "name": "A3",
-          "width": "400",
+          "name": "Amount",
+          "width": "20",
           "Option": "Optional",
-          "SLabel": "Answer 3",
+          "SLabel": "Amount",
           "Mode": "Edit",
-          "type": "radiobutton",
-          "value": ["A. Risk", "B. Hazard", "C. An event", "D. An episode"]
+          "type": "Num,1"
         },
         {
-          "name": "Q4",
+          "name": "ClaimType",
           "width": "400",
           "Option": "Optional",
-          "SLabel": "Question 4",
-          "Mode": "Display",
+          "SLabel": "Claim Type",
+          "Mode": "Edit",
           "type": "string",
-          "value": "Q4 : Which of these is the first step to take when conducting a risk assessment"
+          "value": ["Joint Working", "Donations, Grants, Benefits"]
         },
         {
-          "name": "A4",
-          "width": "400",
+          "name": "Details",
+          "width": "500",
           "Option": "Optional",
-          "SLabel": "Answer 4",
+          "SLabel": "Details",
           "Mode": "Edit",
-          "type": "radiobutton",
-          "value": [
-            "A. Evaluate the risk",
-            "B. Identify the hazards",
-            "C. Review your findings",
-            "D. Update risk assessments"
-          ]
+          "type": "string"
         }
       ],
       "name": "Set - 2",
