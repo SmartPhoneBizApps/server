@@ -4,7 +4,7 @@
       "id": "Step1",
       "fields": [
         {
-          "name": "SelectStudy",
+          "name": "Q1",
           "width": "400",
           "Option": "Optional",
           "SLabel": "Select Study",
@@ -14,7 +14,7 @@
         },
 
         {
-          "name": "SelectedStudy",
+          "name": "A1",
           "width": "400",
           "Option": "Optional",
           "SLabel": "Selection Options",
@@ -28,6 +28,29 @@
           ],
           "tableName": ["myStudy"],
           "tableFields": ["StudyID", "StudyType", "StudyName", "Phase"]
+        },
+        {
+          "name": "Q2",
+          "width": "400",
+          "Option": "Optional",
+          "SLabel": "Question 2",
+          "Mode": "Display",
+          "type": "string",
+          "value": "Q2 : A company that has a minor health and safety breach is most likely to"
+        },
+        {
+          "name": "A2",
+          "width": "400",
+          "Option": "Optional",
+          "SLabel": "Answer 2",
+          "Mode": "Edit",
+          "type": "radiobutton",
+          "value": [
+            "A. Be served with an Improvement Notice",
+            "B. Be ordered to close down the premises indefinitely",
+            "C. Be issued fines by the magistrates’ court for up to £150,000",
+            "D. Have employees arrested for non-compliance for a minimum of 10 years"
+          ]
         }
       ],
       "name": "Study",
