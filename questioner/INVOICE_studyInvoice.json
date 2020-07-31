@@ -12,13 +12,20 @@
           "type": "string",
           "value": "Please select the study for which you will like to raise invoice"
         },
+
         {
           "name": "SelectedStudy",
           "width": "400",
-          "Option": "Mandatory",
+          "Option": "Optional",
           "SLabel": "Selection Options",
-          "Mode": "Display",
-          "type": "string",
+          "Mode": "Edit",
+          "type": "radiobutton",
+          "value": [
+            "A. Appropriate life cover",
+            "B. Appropriate training",
+            "C. At least three other people supervising their work",
+            "D. At least two days off after carrying out physical activities"
+          ],
           "tableName": ["myStudy"],
           "tableFields": ["StudyID", "StudyType", "StudyName", "Phase"]
         }
@@ -31,55 +38,85 @@
       "id": "Step2",
       "fields": [
         {
-          "name": "Amount",
+          "name": "Q3",
           "width": "400",
           "Option": "Optional",
-          "SLabel": "Amount Details",
+          "SLabel": "Question 3",
           "Mode": "Display",
           "type": "string",
-          "value": "Please provide all the details and pls select correct category of the spend"
+          "value": "Q3 : Which of these best describes the 'likelihood of an incident occurring?'"
         },
         {
-          "name": "Amount1",
-          "width": "20",
-          "Option": "Optional",
-          "SLabel": "Amount",
-          "Mode": "Edit",
-          "type": "Num,1"
-        },
-        {
-          "name": "Details1",
+          "name": "A3",
           "width": "400",
           "Option": "Optional",
-          "SLabel": "Details of the spend",
+          "SLabel": "Answer 3",
           "Mode": "Edit",
-          "type": "string"
+          "type": "radiobutton",
+          "value": ["A. Risk", "B. Hazard", "C. An event", "D. An episode"]
         },
         {
-          "name": "A6A",
+          "name": "Q4",
           "width": "400",
           "Option": "Optional",
-          "SLabel": "Answer 6",
+          "SLabel": "Question 4",
+          "Mode": "Display",
+          "type": "string",
+          "value": "Q4 : Which of these is the first step to take when conducting a risk assessment"
+        },
+        {
+          "name": "A4",
+          "width": "400",
+          "Option": "Optional",
+          "SLabel": "Answer 4",
           "Mode": "Edit",
-          "type": "switch",
+          "type": "radiobutton",
           "value": [
-            "Registration Fees",
-            "Travel & Accommodation",
-            "Fees",
-            "Service Expenses",
-            "Event Sponsorship",
-            "Donations, Grants, Benefits",
-            "Joint Working"
+            "A. Evaluate the risk",
+            "B. Identify the hazards",
+            "C. Review your findings",
+            "D. Update risk assessments"
+          ]
+        }
+      ],
+      "name": "Set - 2",
+      "stepType": "FieldList",
+      "intro": "Learning : Health and Safety in the Workplace "
+    },
+    {
+      "id": "Step3",
+      "fields": [
+        {
+          "name": "Q5",
+          "width": "400",
+          "Option": "Optional",
+          "SLabel": "Question 5",
+          "Mode": "Display",
+          "type": "string",
+          "value": "Q5 : Which of these is most likely to cause an accident in a workplace?'"
+        },
+        {
+          "name": "A5",
+          "width": "400",
+          "Option": "Optional",
+          "SLabel": "Answer 5",
+          "Mode": "Edit",
+          "type": "radiobutton",
+          "value": [
+            "A. Administration",
+            "B. Manual handling",
+            "C. Adequate lighting",
+            "D. Excessive noise"
           ]
         },
         {
-          "name": "Q6A",
+          "name": "Q6",
           "width": "400",
           "Option": "Optional",
           "SLabel": "Question 6",
           "Mode": "Display",
           "type": "string",
-          "value": "Do you think that your responsibilities are clear?"
+          "value": "Q6 : Trailing electrical cables which trail through the middle of a busy walkway"
         },
         {
           "name": "A6",
@@ -87,9 +124,22 @@
           "Option": "Optional",
           "SLabel": "Answer 6",
           "Mode": "Edit",
-          "type": "switch",
-          "value": ["Yes", "No"]
-        },
+          "type": "radiobutton",
+          "value": [
+            "A. Are very unlikely to cause any injury",
+            "B. Are likely to injure someone if they trip over it",
+            "C. Can be defined as high level health and safety hazards",
+            "D. Can be defined as high level fire hazards"
+          ]
+        }
+      ],
+      "name": "Set - 3",
+      "stepType": "FieldList",
+      "intro": "Learning : Health and Safety in the Workplace "
+    },
+    {
+      "id": "Step4",
+      "fields": [
         {
           "name": "Q7",
           "width": "400",
@@ -97,7 +147,7 @@
           "SLabel": "Question 7",
           "Mode": "Display",
           "type": "string",
-          "value": "Do you feel like you have the opportunity to improve your skills?"
+          "value": "Q7 : Which of these is most likely to be a result of handling an overloaded electrical socket?"
         },
         {
           "name": "A7",
@@ -106,7 +156,12 @@
           "SLabel": "Answer 7",
           "Mode": "Edit",
           "type": "radiobutton",
-          "value": ["Always", "SomeTimes", "Never"]
+          "value": [
+            "A. Frostbite",
+            "B. Asbestosis",
+            "C. Asphyxiation",
+            "D. Electric shock"
+          ]
         },
         {
           "name": "Q8",
@@ -115,7 +170,7 @@
           "SLabel": "Question 8",
           "Mode": "Display",
           "type": "string",
-          "value": "How would you rate the way your organization makes use of your strengths?"
+          "value": "Q8 : Why should near misses be reported?"
         },
         {
           "name": "A8",
@@ -123,137 +178,18 @@
           "Option": "Optional",
           "SLabel": "Answer 8",
           "Mode": "Edit",
-          "type": "rating,5",
-          "value": ""
+          "type": "radiobutton",
+          "value": [
+            "A. To educate employees",
+            "B. To test the first aider",
+            "C. To ensure complete recovery",
+            "D. To stop a more serious event occurring"
+          ]
         }
       ],
-      "name": "Amounts",
+      "name": "Set - 4",
       "stepType": "FieldList",
-      "intro": "HCP/HCO : Invoice Amounts"
-    },
-    {
-      "id": "Step3",
-      "fields": [
-        {
-          "name": "Q9",
-          "width": "400",
-          "Option": "Optional",
-          "SLabel": "Question 9",
-          "Mode": "Display",
-          "type": "string",
-          "value": "Are you happy with the frequency at which you receive recognition from your manager?"
-        },
-        {
-          "name": "A9",
-          "width": "400",
-          "Option": "Optional",
-          "SLabel": "Answer 9",
-          "Mode": "Edit",
-          "type": "radiobutton",
-          "value": ["Yes", "No"]
-        },
-        {
-          "name": "Q10",
-          "width": "400",
-          "Option": "Optional",
-          "SLabel": "Question 10",
-          "Mode": "Display",
-          "type": "string",
-          "value": "Do you feel like your organization celebrates its accomplishments and learnings?"
-        },
-        {
-          "name": "A10",
-          "width": "400",
-          "Option": "Optional",
-          "SLabel": "Answer 10",
-          "Mode": "Edit",
-          "type": "radiobutton",
-          "value": ["Yes", "No"]
-        },
-        {
-          "name": "Q11",
-          "width": "400",
-          "Option": "Optional",
-          "SLabel": "Question 11",
-          "Mode": "Display",
-          "type": "string",
-          "value": "Do you feel like recognition is meaningful when you receive it?"
-        },
-        {
-          "name": "A11",
-          "width": "400",
-          "Option": "Optional",
-          "SLabel": "Answer 11",
-          "Mode": "Edit",
-          "type": "radiobutton",
-          "value": ["Yes", "No"]
-        }
-      ],
-      "name": "Recognition",
-      "stepType": "FieldList",
-      "intro": "Employee : Recognition"
-    },
-    {
-      "id": "Step4",
-      "fields": [
-        {
-          "name": "Q12",
-          "width": "400",
-          "Option": "Optional",
-          "SLabel": "Question 12",
-          "Mode": "Display",
-          "type": "string",
-          "value": "Do you feel like your manager is someone you can trust?"
-        },
-        {
-          "name": "A12",
-          "width": "400",
-          "Option": "Optional",
-          "SLabel": "Answer 12",
-          "Mode": "Edit",
-          "type": "radiobutton",
-          "value": ["Always", "SomeTimes", "Never"]
-        },
-        {
-          "name": "Q13",
-          "width": "400",
-          "Option": "Optional",
-          "SLabel": "Question 13",
-          "Mode": "Display",
-          "type": "string",
-          "value": "Do you feel like your manager has a good level of transparency with you and your team?"
-        },
-        {
-          "name": "A13",
-          "width": "400",
-          "Option": "Optional",
-          "SLabel": "Answer 13",
-          "Mode": "Edit",
-          "type": "radiobutton",
-          "value": ["Always", "SomeTimes", "Never"]
-        },
-        {
-          "name": "Q14",
-          "width": "400",
-          "Option": "Optional",
-          "SLabel": "Question 14",
-          "Mode": "Display",
-          "type": "string",
-          "value": "Do you feel like you can share your honest thoughts with your manager?"
-        },
-        {
-          "name": "A14",
-          "width": "400",
-          "Option": "Mandatory",
-          "SLabel": "Answer 14",
-          "Mode": "Edit",
-          "type": "string",
-          "value": ""
-        }
-      ],
-      "name": "My Manager",
-      "stepType": "FieldList",
-      "intro": "Employee : Relationship with their Manager"
+      "intro": "Learning : Health and Safety in the Workplace "
     }
   ],
   "TargetField": "ManagerFB",
