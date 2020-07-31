@@ -110,14 +110,30 @@
       "title": "@Title",
       "status": {
         "text": "3 of 3"
-      }
+      },
+      "actions": [
+        {
+          "type": "Navigation",
+          "parameters": {
+            "url": "@HeaderActionURL"
+          }
+        }
+      ]
     },
     "list2": {
       "title": "@Title",
       "subTitle": "@SubTitle",
       "icon": {
         "src": "@HeaderImage"
-      }
+      },
+      "actions": [
+        {
+          "type": "Navigation",
+          "parameters": {
+            "url": "@HeaderActionURL"
+          }
+        }
+      ]
     },
     "quicklink1": {
       "title": "@Title",
@@ -135,7 +151,15 @@
       "subTitle": "@SubTitle",
       "status": {
         "text": "Status text"
-      }
+      },
+      "actions": [
+        {
+          "type": "Navigation",
+          "parameters": {
+            "url": "@HeaderActionURL"
+          }
+        }
+      ]
     }
   },
   "type": {

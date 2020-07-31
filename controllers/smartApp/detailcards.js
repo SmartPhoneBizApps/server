@@ -78,6 +78,7 @@ exports.getDetailCardsNew = async (req, res, next) => {
         hdr = cardConfig["header"]["table1"];
         hdr["title"] = appconfig["tableConfig"][key]["title"];
         hdr["subTitle"] = "Recent Transactions";
+        hdr["actions"][0]["parameters"]["url"] = "/" + key;
         xrow1["columns"] = col_table1;
         xrow["row"] = { ...xrow1 };
         xrow1 = {};
