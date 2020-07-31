@@ -93,8 +93,10 @@
       "name": "Add Study",
       "icon": "sap-icon://copy",
       "Dialog": [
+        { "label": "StudyID", "name": "StudyID", "type": "string" },
         { "label": "StudyType", "name": "StudyType", "type": "string" },
         { "label": "StudyName", "name": "StudyName", "type": "string" },
+        { "label": "StudyDetails", "name": "StudyDetails", "type": "string" },
         { "label": "Phase", "name": "Phase", "type": "string" }
       ],
       "listFields": ["StudyType", "StudyName", "Phase"],
@@ -126,19 +128,28 @@
       "name": "Add Event",
       "icon": "sap-icon://copy",
       "Dialog": [
-        { "label": "StudyType", "name": "StudyType", "type": "string" },
-        { "label": "StudyName", "name": "StudyName", "type": "string" },
-        { "label": "Phase", "name": "Phase", "type": "string" }
+        { "label": "EventID", "name": "EventID", "type": "string" },
+        { "label": "EventType", "name": "EventType", "type": "string" },
+        { "label": "EventName", "name": "EventName", "type": "string" },
+        { "label": "Address", "name": "Address", "type": "string" },
+        { "label": "PostCode", "name": "PostCode", "type": "string" },
+        { "label": "EventStartDate", "name": "EventStartDate", "type": "Date" }
       ],
-      "listFields": ["StudyType", "StudyName", "Phase"],
+      "listFields": ["EventType", "EventName", "Phase"],
       "tableField": "myEvent",
-      "transferFields": ["StudyType", "StudyName", "Phase"],
+      "transferFields": [
+        "EventID",
+        "EventType",
+        "EventName",
+        "Address",
+        "PostCode",
+        "EventStartDate"
+      ],
       "SearchURL": "listrecordsnew/Web/HC0003/HealthCareProfessional{filter}",
       "URL": "util/addTraining/myEvent/HC0003/HC0001C/{ID}/{ReferenceID}/{role}",
       "FieldMapping": {
-        "StudyType": "StudyType",
-        "StudyName": "StudyName",
-        "Phase": "Phase"
+        "StudyType": "EventType",
+        "StudyName": "EventName"
       },
       "FixedValues": [{ "Status": "Assigned" }],
       "Token": "Yes",
@@ -149,19 +160,40 @@
       "name": "Add Contract",
       "icon": "sap-icon://copy",
       "Dialog": [
-        { "label": "StudyType", "name": "StudyType", "type": "string" },
-        { "label": "StudyName", "name": "StudyName", "type": "string" },
-        { "label": "Phase", "name": "Phase", "type": "string" }
+        { "label": "ContractID", "name": "ContractID", "type": "string" },
+        { "label": "ContractType", "name": "ContractType", "type": "string" },
+        { "label": "ContractName", "name": "ContractName", "type": "string" },
+        {
+          "label": "ContractEndDate",
+          "name": "ContractEndDate",
+          "type": "string"
+        },
+        {
+          "label": "ContractStartDate",
+          "name": "ContractStartDate",
+          "type": "Date"
+        }
       ],
-      "listFields": ["StudyType", "StudyName", "Phase"],
+      "listFields": [
+        "ContractType",
+        "ContractName",
+        "BalanceValue",
+        "ContractEndDate"
+      ],
       "tableField": "myContract",
-      "transferFields": ["StudyType", "StudyName", "Phase"],
+      "transferFields": [
+        "ContractID",
+        "ContractType",
+        "ContractName",
+        "BalanceValue",
+        "ContractEndDate",
+        "ContractStartDate"
+      ],
       "SearchURL": "listrecordsnew/Web/HC0004/HealthCareProfessional{filter}",
       "URL": "util/addTraining/myContract/HC0004/HC0001C/{ID}/{ReferenceID}/{role}",
       "FieldMapping": {
-        "StudyType": "StudyType",
-        "StudyName": "StudyName",
-        "Phase": "Phase"
+        "StudyType": "ContractType",
+        "StudyName": "ContractName"
       },
       "FixedValues": [{ "Status": "Assigned" }],
       "Token": "Yes",
@@ -210,6 +242,27 @@
       "name": "Study",
       "type": "Table",
       "fioriicon": "contacts"
+    },
+    {
+      "value": "Tab7",
+      "update": "Yes",
+      "name": "Event",
+      "type": "Table",
+      "fioriicon": "contacts"
+    },
+    {
+      "value": "Tab8",
+      "update": "Yes",
+      "name": "Contract",
+      "type": "Table",
+      "fioriicon": "contacts"
+    },
+    {
+      "value": "Tab9",
+      "update": "Yes",
+      "name": "PO",
+      "type": "Table",
+      "fioriicon": "contacts"
     }
   ],
   "DetailFields": {
@@ -231,11 +284,14 @@
     "Tab5": ["PostCode", "Address", "Country"],
     "Tab2": ["MultiAttachments"],
     "Tab4": ["carouselImage"],
-    "Tab6": ["myStudy"]
+    "Tab6": ["myStudy"],
+    "Tab7": ["myEvent"],
+    "Tab8": ["myContract"],
+    "Tab9": ["myPO"]
   },
   "tableConfig": {
     "myStudy": {
-      "title": "My Learning",
+      "title": "My Studies",
       "ItemFieldDefinition": [
         {
           "name": "ItemNumber",
@@ -244,7 +300,13 @@
           "SLabel": "Item Number",
           "Option": "Optional"
         },
-
+        {
+          "name": "StudyID",
+          "type": "string",
+          "width": "50",
+          "SLabel": "StudyID",
+          "Option": "Optional"
+        },
         {
           "name": "StudyType",
           "type": "string",
@@ -260,6 +322,13 @@
           "Option": "Optional"
         },
         {
+          "name": "StudyDetails",
+          "type": "string",
+          "width": "200",
+          "SLabel": "StudyDetails",
+          "Option": "Optional"
+        },
+        {
           "name": "Phase",
           "type": "string",
           "width": "200",
@@ -267,7 +336,7 @@
           "Option": "Optional"
         }
       ],
-      "DisplayFields": ["StudyType", "StudyName", "Phase"],
+      "DisplayFields": ["StudyID", "StudyType", "StudyName", "Phase"],
       "cards": ["Table"],
       "tableCardFields": ["StudyType", "StudyName", "Phase"],
       "ItemButtons": {
@@ -276,7 +345,13 @@
         "itemEdit": true,
         "itemDelete": false
       },
-      "CreateFields": ["StudyType", "StudyName", "Phase"],
+      "CreateFields": [
+        "StudyID",
+        "StudyType",
+        "StudyName",
+        "Phase",
+        "StudyDetails"
+      ],
       "ItemDetails": [
         {
           "name": "StudyType",
@@ -288,6 +363,296 @@
         },
         {
           "name": "Phase",
+          "Mode": "Edit"
+        },
+        {
+          "name": "StudyID",
+          "Mode": "Edit"
+        },
+        {
+          "name": "StudyDetails",
+          "Mode": "Edit"
+        }
+      ]
+    },
+    "myEvent": {
+      "title": "My Events",
+      "ItemFieldDefinition": [
+        {
+          "name": "ItemNumber",
+          "type": "string",
+          "width": "10",
+          "SLabel": "Item Number",
+          "Option": "Optional"
+        },
+        {
+          "name": "EventID",
+          "type": "string",
+          "width": "50",
+          "SLabel": "StudyID",
+          "Option": "Optional"
+        },
+        {
+          "name": "EventType",
+          "type": "string",
+          "width": "10",
+          "SLabel": "EventType",
+          "Option": "Optional"
+        },
+        {
+          "name": "EventName",
+          "type": "string",
+          "width": "200",
+          "SLabel": "EventName",
+          "Option": "Optional"
+        },
+        {
+          "name": "EventStartDate",
+          "type": "Date",
+          "width": "200",
+          "SLabel": "EventStartDate",
+          "Option": "Optional"
+        },
+        {
+          "name": "Time",
+          "type": "string",
+          "width": "200",
+          "SLabel": "Time",
+          "Option": "Optional"
+        },
+        {
+          "name": "Duration",
+          "type": "string",
+          "width": "200",
+          "SLabel": "Duration",
+          "Option": "Optional"
+        },
+        {
+          "name": "Agenda",
+          "type": "string",
+          "width": "200",
+          "SLabel": "Agenda",
+          "Option": "Optional"
+        },
+        {
+          "name": "Address",
+          "type": "string",
+          "width": "200",
+          "SLabel": "Address",
+          "Option": "Optional"
+        },
+        {
+          "name": "PostCode",
+          "type": "string",
+          "width": "50",
+          "SLabel": "PostCode",
+          "Option": "Optional"
+        }
+      ],
+      "DisplayFields": [
+        "EventID",
+        "EventType",
+        "EventName",
+        "EventStartDate",
+        "Time"
+      ],
+      "cards": ["Table"],
+      "tableCardFields": ["EventType", "EventName", "EventStartDate"],
+      "ItemButtons": {
+        "itemDisplay": true,
+        "itemAdd": false,
+        "itemEdit": true,
+        "itemDelete": false
+      },
+      "CreateFields": [
+        "EventID",
+        "EventType",
+        "EventName",
+        "EventStartDate",
+        "Time",
+        "Duration",
+        "Agenda",
+        "Address",
+        "PostCode"
+      ],
+      "ItemDetails": [
+        {
+          "name": "EventType",
+          "Mode": "Edit"
+        },
+        {
+          "name": "EventName",
+          "Mode": "Edit"
+        },
+        {
+          "name": "EventStartDate",
+          "Mode": "Edit"
+        },
+        {
+          "name": "EventID",
+          "Mode": "Edit"
+        },
+        {
+          "name": "Time",
+          "Mode": "Edit"
+        },
+        {
+          "name": "Duration",
+          "Mode": "Edit"
+        },
+        {
+          "name": "Agenda",
+          "Mode": "Edit"
+        },
+        {
+          "name": "Address",
+          "Mode": "Edit"
+        },
+        {
+          "name": "PostCode",
+          "Mode": "Edit"
+        }
+      ]
+    },
+    "myContract": {
+      "title": "My Contracts",
+      "ItemFieldDefinition": [
+        {
+          "name": "ItemNumber",
+          "type": "string",
+          "width": "10",
+          "SLabel": "Item Number",
+          "Option": "Optional"
+        },
+        {
+          "name": "ContractID",
+          "type": "string",
+          "width": "50",
+          "SLabel": "ContractID",
+          "Option": "Optional"
+        },
+        {
+          "name": "ContractType",
+          "type": "string",
+          "width": "10",
+          "SLabel": "ContractType",
+          "Option": "Optional"
+        },
+        {
+          "name": "ContractName",
+          "type": "string",
+          "width": "200",
+          "SLabel": "ContractName",
+          "Option": "Optional"
+        },
+        {
+          "name": "ContractStartDate",
+          "type": "Date",
+          "width": "50",
+          "SLabel": "ContractStartDate",
+          "Option": "Optional"
+        },
+        {
+          "name": "ContractEndDate",
+          "type": "Date",
+          "width": "50",
+          "SLabel": "ContractEndDate",
+          "Option": "Optional"
+        },
+        {
+          "name": "ContractValue",
+          "type": "Num,1",
+          "width": "50",
+          "SLabel": "ContractValue",
+          "Option": "Optional"
+        },
+        {
+          "name": "BalanceValue",
+          "type": "Num,1",
+          "width": "50",
+          "SLabel": "BalanceValue",
+          "Option": "Optional"
+        },
+        {
+          "name": "UsedValue",
+          "type": "Num,1",
+          "width": "50",
+          "SLabel": "UsedValue",
+          "Option": "Optional"
+        },
+        {
+          "name": "Services",
+          "type": "string",
+          "width": "500",
+          "SLabel": "Services",
+          "Option": "Optional"
+        }
+      ],
+      "DisplayFields": [
+        "ContractID",
+        "ContractType",
+        "ContractName",
+        "ContractStartDate",
+        "ContractEndDate",
+        "BalanceValue"
+      ],
+      "cards": ["Table"],
+      "tableCardFields": [
+        "ContractType",
+        "ContractName",
+        "ContractStartDate",
+        "BalanceValue"
+      ],
+      "ItemButtons": {
+        "itemDisplay": true,
+        "itemAdd": false,
+        "itemEdit": true,
+        "itemDelete": false
+      },
+      "CreateFields": [
+        "ContractID",
+        "ContractType",
+        "ContractName",
+        "ContractStartDate",
+        "ContractEndDate",
+        "ContractValue",
+        "Services"
+      ],
+      "ItemDetails": [
+        {
+          "name": "ContractType",
+          "Mode": "Edit"
+        },
+        {
+          "name": "ContractName",
+          "Mode": "Edit"
+        },
+        {
+          "name": "ContractStartDate",
+          "Mode": "Edit"
+        },
+        {
+          "name": "ContractEndDate",
+          "Mode": "Edit"
+        },
+        {
+          "name": "ContractID",
+          "Mode": "Edit"
+        },
+        {
+          "name": "ContractValue",
+          "Mode": "Edit"
+        },
+        {
+          "name": "UsedValue",
+          "Mode": "Edit"
+        },
+        {
+          "name": "BalanceValue",
+          "Mode": "Edit"
+        },
+        {
+          "name": "Services",
           "Mode": "Edit"
         }
       ]

@@ -3,19 +3,19 @@
   "Controls": {
     "USP": "UserProfile",
     "StatusColor": "Yes",
-    "SearchString":{"Search":false},
+    "SearchString": { "Search": false },
     "Filters": [],
     "Partner": "@user",
     "UserSpecific": "Yes",
     "Update": "Yes",
     "URL": "https://fierce-oasis-51455.herokuapp.com",
-        "Source": { "SourceName": "mongoDB", "SourceFile": "NA" },
-       "dataFilter": [{ "field": "Status" }],
+    "Source": { "SourceName": "mongoDB", "SourceFile": "NA" },
+    "dataFilter": [{ "field": "Status" }],
     "filterFieldSource": {
       "header": ["Status"]
     }
   },
-  
+
   "ListFields": {
     "IntroField": "VendorName",
     "TitleField": "ContractName",
@@ -64,8 +64,9 @@
     "headerRole": ["USP_Role"],
     "headerImage": ["USP_Image"],
     "headerColorFields": ["Status"],
-    "None": ["ID",  "HCPEmail", "VendorName"],
+    "None": ["ID", "HCPEmail", "VendorName"],
     "Tab1": [
+      "ContractID",
       "ContractName",
       "ContractType",
       "ContractStartDate",
@@ -93,6 +94,14 @@
       "width": "20",
       "Option": "Optional",
       "SLabel": "ReferenceID"
+    },
+    {
+      "name": "ContractID",
+      "type": "string",
+      "width": "100",
+      "Option": "Optional",
+      "SLabel": "Contract ID",
+      "LLabel": ""
     },
     {
       "name": "ContractName",
