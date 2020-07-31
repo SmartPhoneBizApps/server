@@ -12,45 +12,15 @@
           "type": "string",
           "value": "Please select the study for which you will like to raise invoice"
         },
-
         {
           "name": "A1",
           "width": "400",
           "Option": "Optional",
           "SLabel": "Selection Options",
-          "Mode": "Edit",
-          "type": "radiobutton",
-          "value": [
-            "A. Appropriate life cover",
-            "B. Appropriate training",
-            "C. At least three other people supervising their work",
-            "D. At least two days off after carrying out physical activities"
-          ],
+          "Mode": "tableSingleSelect",
+          "type": "Table",
           "tableName": ["myStudy"],
           "tableFields": ["StudyID", "StudyType", "StudyName", "Phase"]
-        },
-        {
-          "name": "Q2",
-          "width": "400",
-          "Option": "Optional",
-          "SLabel": "Question 2",
-          "Mode": "Display",
-          "type": "string",
-          "value": "Q2 : A company that has a minor health and safety breach is most likely to"
-        },
-        {
-          "name": "A2",
-          "width": "400",
-          "Option": "Optional",
-          "SLabel": "Answer 2",
-          "Mode": "Edit",
-          "type": "radiobutton",
-          "value": [
-            "A. Be served with an Improvement Notice",
-            "B. Be ordered to close down the premises indefinitely",
-            "C. Be issued fines by the magistrates’ court for up to £150,000",
-            "D. Have employees arrested for non-compliance for a minimum of 10 years"
-          ]
         }
       ],
       "name": "Study",
