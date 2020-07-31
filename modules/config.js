@@ -876,6 +876,7 @@ module.exports = {
       "USP_Image",
       "Partner",
       "TaxInvoicekey",
+      "InvoiceTypekey",
     ];
     myFieldArray.push.apply(myFieldArray, exclude_array);
     return myFieldArray;
