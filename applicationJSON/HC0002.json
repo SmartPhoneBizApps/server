@@ -15,7 +15,10 @@
     "required": [true, "Please add Mandatory field :Partner"],
     "maxlength": [200, "Partner can not be more than 200 characters"]
   },
-
+  "StudyID": {
+    "type": "String",
+    "maxlength": [50, "StudyID can not be more than 50"]
+  },
   "StudyType": {
     "type": "String",
     "maxlength": [50, "StudyType can not be more than 50"]
