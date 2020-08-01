@@ -30,11 +30,9 @@ const calfunction = require("../../models/utilities/calfunction.js");
 // @route     POST /api/v1/datarecords/
 // @access    Private
 exports.addDataRecords = asyncHandler(async (req, res, next) => {
-  console.log(req.body);
   let multiAtt = {
     items: [],
   };
-
   if (!req.body.MultiAttachments) {
     req.body.MultiAttachments = multiAtt;
   }
@@ -45,7 +43,6 @@ exports.addDataRecords = asyncHandler(async (req, res, next) => {
     req.headers.applicationid,
     req.headers.businessrole
   );
-
   // ---------------------
   // App ID and Validate
   // ---------------------
@@ -57,7 +54,6 @@ exports.addDataRecords = asyncHandler(async (req, res, next) => {
   req.body.user = req.user.id;
   req.body.userName = req.user.name;
   req.body.userEmail = req.user.email;
-
   if (cardConfig.Controls.Partner == "@user") {
     req.body.Partner = req.user.email;
   }
@@ -70,7 +66,6 @@ exports.addDataRecords = asyncHandler(async (req, res, next) => {
   if (err1) {
     return next(err1);
   }
-
   // Validate if user is creating documents in their own company (Pass)
   if (req.headers.company) {
     if (req.headers.company != CompanyDetails.id) {
@@ -265,6 +260,9 @@ exports.addDataRecords = asyncHandler(async (req, res, next) => {
   /// Calculate ID
   console.log(req.headers.buttonname);
   req.body = generateID(req.headers.buttonname, req.body, cardConfig.MButtons);
+  if (req.body.ReferenceID == undefined || req.body.ReferenceID == "") {
+    req.body.ReferenceID = req.body.ID;
+  }
   console.log("NewID", req.body.ID);
   console.log(req.headers.buttonName);
   // Processing Log
@@ -296,7 +294,6 @@ exports.addDataRecords = asyncHandler(async (req, res, next) => {
 
   // Create data in mongo DB ...
   let result = {};
-  let result2 = {};
   result = await createDocument(req.headers.applicationid, mydata);
   if (mydata.ItemData) {
     app_itm = req.headers.applicationid + "_Itm";
@@ -607,6 +604,9 @@ exports.updateDataRecords = asyncHandler(async (req, res, next) => {
     req.body = outdata;
   }
   itm = checkItemData(req.headers.applicationid, req.headers.businessrole);
+  if (req.body.ReferenceID == undefined || req.body.ReferenceID == "") {
+    req.body.ReferenceID = req.body.ID;
+  }
   //---------------------------
   result = await findOneUpdateData(req.body, req.headers.applicationid);
   if (itm == "Yes") {
