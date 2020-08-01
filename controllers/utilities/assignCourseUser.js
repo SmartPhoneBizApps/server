@@ -19,8 +19,8 @@ const sendEmail = require("../../utils/sendEmail");
 exports.assignCourseUser = asyncHandler(async (req, res, next) => {
   console.log("Function - utilities/assignCourseUser");
   // Read Config File
-  configData = getNewConfig(req.params.toApp, "EmployeeLearn");
-  configFrom = getNewConfig(req.params.fromApp, req.params.role);
+  configData = getNewConfig(req.params.toApp, req.params.targetRole);
+  configFrom = getNewConfig(req.params.fromApp, req.params.sourceRole);
 
   /// Validations....
   userX = await User.findOne({ email: req.params.user });
