@@ -47,18 +47,21 @@ exports.addTraining = asyncHandler(async (req, res, next) => {
   let Status = "NoChange";
   mytrain = {};
   mytr = [];
-  console.log(req.params.table)
+  console.log(req.params.table);
   //mytrain[req.params.table];
   mytrain["ItemNumber"] = Math.floor(100 + Math.random() * 900);
   for (let q = 0; q < configData["DButtons"].length; q++) {
     for (const ky in configData["DButtons"][q]["FieldMapping"]) {
       const ex = configData["DButtons"][q]["FieldMapping"][ky];
-      mytrain[ky] = req.body[ex];
+      if (ex == ky) {
+        mytrain[ky] = req.body[ex];
+        console.log("Key: ", ky, "/", ex);
+      }
     }
   }
   mytr.push(mytrain);
   myData[req.params.table] = tableValidate(mytr, myData[req.params.table]);
-  console.log(myData)
+  console.log("Table Data", myData);
   // Processing Log
   myData["TransLog"] = processingLog(
     req.params.ID,

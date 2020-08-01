@@ -107,7 +107,9 @@
       "FieldMapping": {
         "StudyType": "StudyType",
         "StudyName": "StudyName",
-        "Phase": "Phase"
+        "Phase": "Phase",
+        "StudyID": "StudyID",
+        "StudyDetails": "StudyDetails"
       },
       "FixedValues": [{ "Status": "Assigned" }],
       "Token": "Yes",
@@ -157,8 +159,12 @@
       "SearchURL": "listrecordsnew/Web/HC0003/HealthCareProfessional{filter}",
       "URL": "util/addTraining/myEvent/HC0003/HC0001C/{ID}/{ReferenceID}/{role}",
       "FieldMapping": {
-        "StudyType": "EventType",
-        "StudyName": "EventName"
+        "EventID": "EventID",
+        "EventType": "EventType",
+        "EventName": "EventName",
+        "Address": "Address",
+        "PostCode": "PostCode",
+        "EventStartDate": "EventStartDate"
       },
       "FixedValues": [{ "Status": "Assigned" }],
       "Token": "Yes",
@@ -201,8 +207,11 @@
       "SearchURL": "listrecordsnew/Web/HC0004/HealthCareProfessional{filter}",
       "URL": "util/addTraining/myContract/HC0004/HC0001C/{ID}/{ReferenceID}/{role}",
       "FieldMapping": {
-        "StudyType": "ContractType",
-        "StudyName": "ContractName"
+        "ContractID": "ContractID",
+        "ContractType": "ContractType",
+        "ContractName": "ContractName",
+        "ContractEndDate": "ContractEndDate",
+        "ContractStartDate": "ContractStartDate"
       },
       "FixedValues": [{ "Status": "Assigned" }],
       "Token": "Yes",
