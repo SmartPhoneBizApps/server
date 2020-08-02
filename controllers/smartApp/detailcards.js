@@ -21,7 +21,7 @@ exports.getDetailCardsNew = async (req, res, next) => {
   var appconfig = getNewConfig(req.params.app, req.params.role);
   // Get the Record
   let appData = await findOneAppDatabyid(req.params.record, req.params.app);
-  console.log(appData);
+
   // Global Cards
   let fileName2q = "../../cards/cardConfig/ALL_cardConfig.json";
   var GlobalCardConfig = require(fileName2q);
@@ -29,13 +29,11 @@ exports.getDetailCardsNew = async (req, res, next) => {
   // Table View
   for (const key in appconfig["tableConfig"]) {
     for (let g = 0; g < appconfig["tableConfig"][key]["cards"].length; g++) {
-      console.log("001", appconfig["tableConfig"][key]["cards"][g]);
       if (appconfig["tableConfig"][key]["cards"][g] == "Analytical") {
         stru1 = anacardConfig["Structure"];
         t_type = "Analytical";
         let st1 = t_type + "_" + appData["ID"] + "_" + key;
         outStru[st1] = { ...stru1 };
-        console.log(stru1);
         stru1["sap.card"] = {};
         stru1 = {};
         console.log("---------- Analytical ------------");
@@ -50,10 +48,7 @@ exports.getDetailCardsNew = async (req, res, next) => {
         t_type = "table1";
         stru = cardConfig["Structure"];
         tabFields = appconfig["tableConfig"][key]["tableCardFields"];
-        console.log("------ NEW CARD ----------");
-        console.log(key);
-        console.log(tabFields);
-        console.log(appData[key]);
+        console.log("------ T A B L E  - C A R D ----------");
         xc_table1 = {};
         xj_table1 = {};
         col_table1 = [];
@@ -68,27 +63,27 @@ exports.getDetailCardsNew = async (req, res, next) => {
         }
         for (let u = 0; u < appData[key].length; u++) {
           for (let b = 0; b < tabFields.length; b++) {
-            //   console.log(appData[key][u][tabFields[b]]);
             xj_table1[tabFields[b]] = appData[key][u][tabFields[b]];
           }
-          console.log(xj_table1);
           json_table1.push({ ...xj_table1 });
           xj_table1 = {};
         }
         let st1 = t_type + "_" + appData["ID"] + "_" + key;
-       
-
-        
+        nav = {};
+        par = {};
+        par1 = [];
+        nav["type"] = "tabNavigation";
+        nav["tab"] = key;
+        par["parameters"] = nav;
+        par1.push(par);
 
         hdr = cardConfig["header"]["table1"];
         hdr["title"] = appconfig["tableConfig"][key]["title"];
         hdr["subTitle"] = "Recent Transactions";
-        hdr["actions"][0]["parameters"]["tab"] = key
-        hdr["actions"][0]["parameters"]["type"] = "tabNavigation"
-        
-     
-        
-        
+        hdr["actions"] = par1;
+        //hdr["actions"][0]["parameters"]["tab"] = key;
+        //hdr["actions"][0]["parameters"]["type"] = "tabNavigation";
+
         xrow1["columns"] = col_table1;
         xrow["row"] = { ...xrow1 };
         xrow1 = {};
@@ -107,7 +102,7 @@ exports.getDetailCardsNew = async (req, res, next) => {
       }
     }
 
-    hdr["actions"] = []
+    hdr["actions"] = [];
   }
 
   // Golobal
@@ -169,7 +164,6 @@ exports.getDetailCardsNew = async (req, res, next) => {
         col_table1,
         json_table1
       );
-      console.log(rec2);
       let st1 = t_type + "_" + appData["ID"];
       outStru[st1] = { ...rec2 };
       rec2["sap.card"] = {};
