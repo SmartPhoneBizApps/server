@@ -14,9 +14,6 @@ exports.getDetailCardsNew = async (req, res, next) => {
   let cardConfigFile = "../../cards/cardConfig/card_template.json";
   var cardConfig = require(cardConfigFile);
 
-  let cardConfigFile1 = "../../cards/cardConfig/analyticalCard_template.json";
-  var anacardConfig = require(cardConfigFile1);
-
   // Read New Config File
   var appconfig = getNewConfig(req.params.app, req.params.role);
   // Get the Record
@@ -30,6 +27,10 @@ exports.getDetailCardsNew = async (req, res, next) => {
   for (const key in appconfig["tableConfig"]) {
     for (let g = 0; g < appconfig["tableConfig"][key]["cards"].length; g++) {
       if (appconfig["tableConfig"][key]["cards"][g] == "Analytical") {
+        let cardConfigFile1 =
+          "../../cards/cardConfig/" +
+          appconfig["tableConfig"][key]["analyticsCard"]["template"];
+        var anacardConfig = require(cardConfigFile1);
         stru1 = anacardConfig["Structure"];
         t_type = "Analytical";
         let st1 = t_type + "_" + appData["ID"] + "_" + key;

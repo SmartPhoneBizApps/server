@@ -431,7 +431,8 @@
       ],
       "cards": ["Table", "Analytical"],
       "analyticsCard": {
-        "chartType": "StackedColumn"
+        "chartType": "line",
+        "template": "analyticalCard_line_template.json"
       },
       "tableCardFields": ["GoalsArea", "Goal2", "TargetDate2"],
       "ItemButtons": {
@@ -914,7 +915,7 @@
   },
   "ControlDisplay": {},
   "FieldDef": [
-   {
+    {
       "name": "ID",
       "type": "string",
       "width": "20",
