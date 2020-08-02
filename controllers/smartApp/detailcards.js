@@ -36,7 +36,7 @@ exports.getDetailCardsNew = async (req, res, next) => {
         outStru[st1] = { ...stru1 };
         stru1["sap.card"] = {};
         stru1 = {};
-        console.log("---------- Analytical ------------");
+        console.log("---------- A n a l y t i c a l ------------");
       }
       if (appconfig["tableConfig"][key]["cards"][g] == "Table") {
         hdr = {};
@@ -75,6 +75,7 @@ exports.getDetailCardsNew = async (req, res, next) => {
         nav["type"] = "tabNavigation";
         nav["tab"] = key;
         par["parameters"] = nav;
+        par["type"] = "Custom";
         par1.push(par);
 
         hdr = cardConfig["header"]["table1"];
