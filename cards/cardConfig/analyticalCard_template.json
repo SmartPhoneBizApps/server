@@ -42,7 +42,7 @@
             "visible": false,
             "showTotal": false
           },
-          "categoryAxisText": {
+          "AreaAxisText": {
             "visible": false
           },
           "valueAxisText": {
@@ -53,30 +53,29 @@
           "visible": false
         },
         "measureAxis": "valueAxis",
-        "dimensionAxis": "categoryAxis",
+        "dimensionAxis": "AreaAxis",
         "data": {
           "json": {
             "list": [
               {
-                "Category": "Weather",
-                "Revenue": 431000.22,
-                "Cost": 230000.0,
-                "Target": 500000.0,
-                "Budget": 210000.0
+                "Area": "Leadership",
+                "Value": 4
               },
               {
-                "Category": "Mechanics",
-                "Revenue": 494000.3,
-                "Cost": 238000.0,
-                "Target": 500000.0,
-                "Budget": 224000.0
+                "Area": "Teamwork",
+                "Value": 3
               },
               {
-                "Category": "Software",
-                "Revenue": 491000.17,
-                "Cost": 221000.0,
-                "Target": 500000.0,
-                "Budget": 238000.0
+                "Area": "Communication",
+                "Value": 3.5
+              },
+              {
+                "Area": "ProblemSolving",
+                "Value": 5
+              },
+              {
+                "Area": "Organization&Admin",
+                "Value": 1
               }
             ]
           },
@@ -84,22 +83,14 @@
         },
         "dimensions": [
           {
-            "label": "Categories",
-            "value": "{Category}"
+            "label": "Area",
+            "value": "{Area}"
           }
         ],
         "measures": [
           {
-            "label": "Revenue",
-            "value": "{Revenue}"
-          },
-          {
-            "label": "Cost",
-            "value": "{Cost}"
-          },
-          {
-            "label": "Target",
-            "value": "{Target}"
+            "label": "Value",
+            "value": "{Value}"
           }
         ]
       },
