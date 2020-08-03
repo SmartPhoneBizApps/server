@@ -165,7 +165,7 @@ app.use(
   "/api/v1/smartApp/tilecountGet",
   require("./routes/smartApp/tilecountGet")
 );
-
+app.use("/api/v1/util/getjsonFile/", require("./routes/utilities/getjsonFile"));
 app.use("/api/v1/util/possval", require("./routes/utilities/possVals"));
 app.use("/api/v1/util/fileupload/", require("./routes/utilities/fileupload"));
 app.use(

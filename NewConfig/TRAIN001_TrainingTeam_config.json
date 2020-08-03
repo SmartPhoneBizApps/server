@@ -151,17 +151,19 @@
       "type": "CODE",
       "name": "Exam Questions",
       "icon": "sap-icon://internet-browser",
+      "jsonURL": "util/getjsonFile/questioner/{ID}",
 
       "tabconfig": {
         "tabs": [
           {
             "value": "codeTab1",
-            "field": "examQuestions",
+            "field": "Questions",
             "name": "Questions",
             "theme": "chrome",
             "type": "json",
             "editable": true,
-            "jsonURL": "jsonFile/questioner/{ID}"
+
+            "token": "Yes"
           },
           {
             "value": "codeTab2",
@@ -354,12 +356,12 @@
       "LLabel": "Course Link"
     },
     {
-      "name": "examQuestions",
+      "name": "Questions",
       "type": "json",
       "width": "1000",
       "Option": "Optional",
-      "SLabel": "Exam Questions",
-      "LLabel": "Exam Questions"
+      "SLabel": "Questions",
+      "LLabel": "Questions"
     },
     {
       "name": "examQuestions2",
