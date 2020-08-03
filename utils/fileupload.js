@@ -88,6 +88,7 @@ exports.uploadFile = asyncHandler(async (req, res, next) => {
     let Multiattachment = false;
     for (let index = 0; index < cardConfig["Tabs"].length; index++) {
       const element = cardConfig["Tabs"][index];
+      console.log(element);
       if (element["type"] == "MultiAttachments") {
         Multiattachment = true;
       }

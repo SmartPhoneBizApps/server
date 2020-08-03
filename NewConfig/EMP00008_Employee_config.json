@@ -3,7 +3,7 @@
   "Controls": {
     "USP": "UserProfile",
     "StatusColor": "Yes",
-    "SearchString":{"Search":false},
+    "SearchString": { "Search": false },
     "Filters": [{ "Partner": "@user" }],
     "Partner": "@user",
     "UserSpecific": "Yes",
@@ -106,9 +106,9 @@
     {
       "value": "Tab5",
       "update": "Yes",
-      "name": "Attachments",
+      "name": "MultiAttachment",
       "fioriicon": "attachment",
-      "type": "carouselImage",
+      "type": "MultiAttachments",
       "download": "Yes"
     },
     {
@@ -134,7 +134,7 @@
       "ExpenseDetails"
     ],
     "Tab2": ["ExpType"],
-    "Tab5": ["Receipt"],
+    "Tab5": ["MultiAttachments"],
     "Tab4": ["ProcessingLog"]
   },
   "ControlDisplay": {},
@@ -218,14 +218,15 @@
       "LLabel": ""
     },
     {
-      "name": "Receipt",
+      "name": "MultiAttachments",
       "type": "attachment",
       "metadata": "MultipleFields",
       "width": "200",
       "Option": "Optional",
-      "SLabel": "Receipt",
-      "LLabel": "Receipt"
+      "SLabel": "MultiAttachments",
+      "LLabel": "MultiAttachments"
     },
+
     {
       "name": "ExpType",
       "type": "combobox",
@@ -327,10 +328,17 @@
     },
     {
       "id": "Step3",
-      "fields": [{ "name": "Receipt", "Mode": "Edit" }],
-      "name": "Attachments",
+      "fields": [{ "name": "MultiAttachments", "Mode": "Edit" }],
+      "name": "MultiAttachments",
       "stepType": "Attachments",
-      "intro": "Expense : Attachments"
+      "intro": "Expense : Attachments",
+      "attachmentAttribute": {
+        "applicationid": "{applicationid}",
+        "businessrole": "{businessrole}",
+        "mode": "File",
+        "type": "NewUpload",
+        "text": "docType,CourseMaterial,Information"
+      }
     },
     {
       "id": "Step4",
