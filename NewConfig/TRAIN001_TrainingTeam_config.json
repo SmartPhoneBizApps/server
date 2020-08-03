@@ -151,20 +151,21 @@
       "type": "CODE",
       "name": "Exam Questions",
       "icon": "sap-icon://internet-browser",
-      "jsonURL": "util/getjsonFile/questioner/{ID}",
-      "Token": "Yes",
+
       "tabconfig": {
         "tabs": [
           {
-            "value": "codeTab1",
-            "field": "Questions",
+            "value": "codeTab0",
+            "field": "questioner",
             "name": "Questions",
             "theme": "chrome",
             "type": "json",
+            "jsonURL": "util/getjsonFile/questioner/{ID}",
+            "Token": "Yes",
             "editable": true
           },
           {
-            "value": "codeTab2",
+            "value": "codeTab1",
             "field": "examQuestions2",
             "name": "Code1",
             "theme": "chrome",
