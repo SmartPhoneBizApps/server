@@ -151,15 +151,17 @@
       "type": "CODE",
       "name": "Exam Questions",
       "icon": "sap-icon://internet-browser",
+
       "tabconfig": {
         "tabs": [
           {
             "value": "codeTab1",
             "field": "examQuestions",
-            "name": "Code1",
+            "name": "Questions",
             "theme": "chrome",
             "type": "json",
-            "editable": true
+            "editable": true,
+            "jsonURL": "jsonFile/questioner/{ID}"
           },
           {
             "value": "codeTab2",
@@ -167,7 +169,8 @@
             "name": "Code1",
             "theme": "chrome",
             "type": "json",
-            "editable": true
+            "editable": true,
+            "jsonURL": ""
           }
         ]
       }
