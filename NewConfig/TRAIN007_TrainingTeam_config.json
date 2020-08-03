@@ -243,6 +243,7 @@
   "tableConfig": {
     "Questioner": {
       "title": "Test",
+      "subtitle": "Test",
       "ItemFieldDefinition": [
         {
           "name": "ItemNumber",
@@ -281,7 +282,11 @@
         }
       ],
       "DisplayFields": ["Question", "Answer", "CorrectAnswer", "Score"],
-      "cards": ["Table"],
+      "cards": ["Table", "Analytical"],
+      "analyticsCard": {
+        "chartType": "line",
+        "template": "analyticalCard_line_template.json"
+      },
       "tableCardFields": ["Question", "Answer"],
       "ItemButtons": {
         "itemDisplay": true,

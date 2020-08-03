@@ -302,6 +302,7 @@
   "tableConfig": {
     "myStudy": {
       "title": "My Studies",
+      "subtitle": "Studies",
       "ItemFieldDefinition": [
         {
           "name": "ItemNumber",
@@ -347,7 +348,11 @@
         }
       ],
       "DisplayFields": ["StudyID", "StudyType", "StudyName", "Phase"],
-      "cards": ["Table"],
+      "cards": ["Table", "Analytical"],
+      "analyticsCard": {
+        "chartType": "line",
+        "template": "analyticalCard_line_template.json"
+      },
       "tableCardFields": ["StudyType", "StudyName", "Phase"],
       "ItemButtons": {
         "itemDisplay": true,
@@ -387,6 +392,7 @@
     },
     "myEvent": {
       "title": "My Events",
+      "subtitle": "Events",
       "ItemFieldDefinition": [
         {
           "name": "ItemNumber",
@@ -466,7 +472,11 @@
         "EventStartDate",
         "Time"
       ],
-      "cards": ["Table"],
+      "cards": ["Table", "Analytical"],
+      "analyticsCard": {
+        "chartType": "line",
+        "template": "analyticalCard_line_template.json"
+      },
       "tableCardFields": ["EventType", "EventName", "EventStartDate"],
       "ItemButtons": {
         "itemDisplay": true,
@@ -526,6 +536,7 @@
     },
     "myContract": {
       "title": "My Contracts",
+      "subtitle": "Contracts",
       "ItemFieldDefinition": [
         {
           "name": "ItemNumber",
@@ -606,7 +617,11 @@
         "ContractEndDate",
         "BalanceValue"
       ],
-      "cards": ["Table"],
+      "cards": ["Table", "Analytical"],
+      "analyticsCard": {
+        "chartType": "line",
+        "template": "analyticalCard_line_template.json"
+      },
       "tableCardFields": [
         "ContractType",
         "ContractName",

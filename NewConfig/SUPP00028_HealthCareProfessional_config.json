@@ -284,7 +284,11 @@
         }
       ],
       "DisplayFields": ["StudyID", "StudyType", "StudyName", "Phase"],
-      "cards": ["Table"],
+      "cards": ["Table", "Analytical"],
+      "analyticsCard": {
+        "chartType": "line",
+        "template": "analyticalCard_line_template.json"
+      },
       "tableCardFields": ["StudyType", "StudyName", "Phase"],
       "ItemButtons": {
         "itemDisplay": true,
@@ -403,7 +407,11 @@
         "EventStartDate",
         "Time"
       ],
-      "cards": ["Table"],
+      "cards": ["Table", "Analytical"],
+      "analyticsCard": {
+        "chartType": "line",
+        "template": "analyticalCard_line_template.json"
+      },
       "tableCardFields": ["EventType", "EventName", "EventStartDate"],
       "ItemButtons": {
         "itemDisplay": true,
@@ -543,7 +551,11 @@
         "ContractEndDate",
         "BalanceValue"
       ],
-      "cards": ["Table"],
+      "cards": ["Table", "Analytical"],
+      "analyticsCard": {
+        "chartType": "line",
+        "template": "analyticalCard_line_template.json"
+      },
       "tableCardFields": [
         "ContractType",
         "ContractName",

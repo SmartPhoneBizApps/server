@@ -207,6 +207,7 @@
   "tableConfig": {
     "Skills": {
       "title": "Employee Skill Matrix",
+      "subtitle": "Skill Matrix",
       "ItemFieldDefinition": [
         {
           "name": "ItemNumber",
@@ -310,6 +311,7 @@
     },
     "Education": {
       "title": "Employee Education",
+      "subtitle": "Education",
       "ItemFieldDefinition": [
         {
           "name": "ItemNumber",
@@ -396,6 +398,7 @@
     },
     "PreviousEmployer": {
       "title": "Previous Employers",
+      "subtitle": "Employers",
       "ItemFieldDefinition": [
         {
           "name": "ItemNumber",
@@ -493,6 +496,7 @@
     },
     "EmergencyContacts": {
       "title": "Employee Emergency Contacts / Dependents",
+      "subtitle": "Contacts / Dependents",
       "ItemFieldDefinition": [
         {
           "name": "ItemNumber",
@@ -584,6 +588,7 @@
 
     "Certifications": {
       "title": "Employee Certifications",
+      "subtitle": "Certifications",
       "ItemFieldDefinition": [
         {
           "name": "ItemNumber",
@@ -653,6 +658,7 @@
 
     "Package": {
       "title": "Employee Compensation Package",
+      "subtitle": "Employee Compensation Package",
       "detailCard": "Yes",
       "ItemFieldDefinition": [
         {
@@ -706,7 +712,11 @@
         }
       ],
       "DisplayFields": ["Question", "Answer", "Deductions", "AddComments"],
-      "cards": ["Table"],
+      "cards": ["Table", "Analytical"],
+      "analyticsCard": {
+        "chartType": "line",
+        "template": "analyticalCard_line_template.json"
+      },
       "tableCardFields": ["Question", "Answer", "Deductions"],
       "ItemButtons": {
         "itemDisplay": true,
@@ -736,6 +746,7 @@
     },
     "Benefits": {
       "title": "Employee Benefits",
+      "subtitle": "Employee Benefits",
       "ItemFieldDefinition": [
         {
           "name": "ItemNumber",

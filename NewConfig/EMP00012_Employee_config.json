@@ -261,7 +261,8 @@
   },
   "tableConfig": {
     "Questioner": {
-      "title": "Test",
+      "title": "Exam/Test",
+      "subtitle": "Test score",
       "ItemFieldDefinition": [
         {
           "name": "ItemNumber",
@@ -323,6 +324,7 @@
     },
     "ProjectFeedback": {
       "title": "Project Feedback",
+      "subtitle": "Feedback result",
       "ItemFieldDefinition": [
         {
           "name": "ItemNumber",
@@ -470,6 +472,7 @@
     },
     "Goals": {
       "title": "My Goals",
+      "subtitle": "Score",
       "ItemFieldDefinition": [
         {
           "name": "ItemNumber",
@@ -624,6 +627,7 @@
     },
     "Appraisal": {
       "title": "My Appraisal",
+      "subtitle": "Score",
       "ItemFieldDefinition": [
         {
           "name": "ItemNumber",
@@ -712,7 +716,11 @@
         "AppraiseComm3",
         "TargetDate3"
       ],
-      "cards": ["Table"],
+      "cards": ["Table", "Analytical"],
+      "analyticsCard": {
+        "chartType": "line",
+        "template": "analyticalCard_line_template.json"
+      },
       "tableCardFields": ["AppraisalArea", "PerformanceRating", "TargetDate3"],
       "ItemButtons": {
         "itemDisplay": true,
@@ -772,6 +780,7 @@
     },
     "MyTraining": {
       "title": "My Learning",
+      "subtitle": "List",
       "ItemFieldDefinition": [
         {
           "name": "ItemNumber",

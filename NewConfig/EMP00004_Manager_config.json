@@ -533,6 +533,7 @@
     "ItemData": {
       "calculation": "Yes",
       "title": "Item Details",
+      "subtitle": "Shopping items",
       "ItemFieldDefinition": [
         {
           "name": "ItemNumber",
@@ -613,7 +614,11 @@
         "ItemVATValue",
         "ItemGrossValue"
       ],
-      "cards": ["Table"],
+      "cards": ["Table", "Analytical"],
+      "analyticsCard": {
+        "chartType": "line",
+        "template": "analyticalCard_line_template.json"
+      },
       "tableCardFields": [
         "ItemNumber",
         "ItemName",

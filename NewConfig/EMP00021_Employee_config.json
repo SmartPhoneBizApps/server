@@ -377,6 +377,7 @@
     "myTime": {
       "calculation": "Yes",
       "title": "Daily time booking",
+      "subtitle": "Timesheets",
       "ItemFieldDefinition": [
         {
           "name": "ItemNumber",
@@ -467,7 +468,11 @@
         "OvertimeHours",
         "TotalHours"
       ],
-      "cards": ["Table"],
+      "cards": ["Table", "Analytical"],
+      "analyticsCard": {
+        "chartType": "line",
+        "template": "analyticalCard_line_template.json"
+      },
       "tableCardFields": [
         "ProjectCode",
         "Date",
