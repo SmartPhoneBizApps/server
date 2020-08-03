@@ -34,6 +34,7 @@ exports.getDetailCardsNew = async (req, res, next) => {
         stru1 = anacardConfig["Structure"];
         t_type = "Analytical";
         let st1 = t_type + "_" + appData["ID"] + "_" + key;
+        console.log("Card", stru1);
         outStru[st1] = { ...stru1 };
         stru1["sap.card"] = {};
         stru1 = {};
