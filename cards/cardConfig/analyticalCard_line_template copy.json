@@ -25,10 +25,14 @@
             "unit": "",
             "trend": "Down",
             "state": "Error",
-            "total": 25,
-            "per": 74,
-            "dev": 3,
-            "details": "2019-2020"
+            "max": {
+              "number": 25,
+              "unit": ""
+            },
+            "percentage": {
+              "number": 74
+            },
+            "details": "Q1, 2018"
           }
         },
         "title": "@headerTitle",
@@ -44,17 +48,17 @@
         "sideIndicators": [
           {
             "title": "max",
-            "number": "{number}",
-            "unit": "{unit}"
+            "number": "{max/number}",
+            "unit": "{max/unit}"
           },
           {
             "title": "percentage",
-            "number": "{per}",
+            "number": "{percentage/number}",
             "unit": "%"
           },
           {
             "title": "deviation",
-            "number": "{dev}",
+            "number": "{percentage/number}",
             "unit": "%"
           }
         ]
