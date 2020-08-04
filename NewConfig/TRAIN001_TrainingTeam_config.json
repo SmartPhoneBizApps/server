@@ -160,6 +160,9 @@
             "theme": "chrome",
             "type": "json",
             "jsonURL": "util/getjsonFile/questioner/{ID}",
+            "readMethod": "GET",
+            "updateMethod": "PUT",
+            "updateJSON": "body",
             "Token": "Yes",
             "editable": true
           },
@@ -269,6 +272,9 @@
       "fioriicon": "internet-browser",
       "type": "jsoncode",
       "jsonURL": "util/getjsonFile/questioner/{ID}",
+      "readMethod": "GET",
+      "updateMethod": "PUT",
+      "updateJSON": "body",
       "Token": "Yes",
       "theme": "chrome"
     }
