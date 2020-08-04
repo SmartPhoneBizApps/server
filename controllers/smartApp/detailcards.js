@@ -52,7 +52,9 @@ exports.getDetailCardsNew = async (req, res, next) => {
 
         // Update Header data
         head1 = {};
+        content1 = {};
         head1 = { ...anacardConfig["Structure"]["sap.card"].header };
+        content1 = { ...anacardConfig["Structure"]["sap.card"].content };
 
         if (
           appconfig["tableConfig"][key]["analyticsCard"]["chartType"] == "line"
@@ -74,12 +76,22 @@ exports.getDetailCardsNew = async (req, res, next) => {
           appconfig["tableConfig"][key]["analyticsCard"]["chartType"] == "donut"
         ) {
           head1["title"] = appconfig["tableConfig"][key]["title"];
+          //     content1["title"] = anacardConfig["Structure"]["sap.card"].content.["data"]
         }
         if (
           appconfig["tableConfig"][key]["analyticsCard"]["chartType"] ==
           "stackedcolumn"
         ) {
           head1["title"] = appconfig["tableConfig"][key]["title"];
+
+          js1 = {};
+          js1 = { ...anacardConfig["Structure"]["sap.card"].header.data.json };
+          js1["number"] = sum1;
+          js1["trend"] = trend1;
+          js1["state"] = state1;
+          js1["unit"] = appconfig["tableConfig"][key]["unitOfMeasurement"];
+          head1["data"]["json"] = { ...js1 };
+          js1 = {};
         }
         anacardConfig["Structure"]["sap.card"].header = { ...head1 };
         head1 = {};
