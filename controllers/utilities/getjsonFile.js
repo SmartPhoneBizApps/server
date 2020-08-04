@@ -10,7 +10,7 @@ exports.getjsonFile = async (req, res, next) => {
     config["questioner"] = require(fn01);
   }
   if (req.params.group == "examQuestions2") {
-    config = {
+    config["examQuestions2"] = {
       Name: "Atul Gupta",
       Phone: "078123123133",
     };
