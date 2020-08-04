@@ -53,14 +53,14 @@ exports.getDetailCardsNew = async (req, res, next) => {
         // Update Header data
         head1 = {};
         head1 = { ...anacardConfig["Structure"]["sap.card"].header };
-        head1["title"] = appconfig["tableConfig"][key]["title"];
-        head1["subTitle"] = appconfig["tableConfig"][key]["subTitle"];
-        head1["unitOfMeasurement"] =
-          appconfig["tableConfig"][key]["unitOfMeasurement"];
 
         if (
           appconfig["tableConfig"][key]["analyticsCard"]["chartType"] == "line"
         ) {
+          head1["title"] = appconfig["tableConfig"][key]["title"];
+          head1["subTitle"] = appconfig["tableConfig"][key]["subTitle"];
+          head1["unitOfMeasurement"] =
+            appconfig["tableConfig"][key]["unitOfMeasurement"];
           js1 = {};
           js1 = { ...anacardConfig["Structure"]["sap.card"].header.data.json };
           js1["number"] = sum1;
@@ -70,7 +70,17 @@ exports.getDetailCardsNew = async (req, res, next) => {
           head1["data"]["json"] = { ...js1 };
           js1 = {};
         }
-
+        if (
+          appconfig["tableConfig"][key]["analyticsCard"]["chartType"] == "donut"
+        ) {
+          head1["title"] = appconfig["tableConfig"][key]["title"];
+        }
+        if (
+          appconfig["tableConfig"][key]["analyticsCard"]["chartType"] ==
+          "stackedcolumn"
+        ) {
+          head1["title"] = appconfig["tableConfig"][key]["title"];
+        }
         anacardConfig["Structure"]["sap.card"].header = { ...head1 };
         head1 = {};
 

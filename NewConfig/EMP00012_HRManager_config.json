@@ -759,8 +759,8 @@
       ],
       "cards": ["Table", "Analytical"],
       "analyticsCard": {
-        "chartType": "line",
-        "template": "analyticalCard_line_template.json"
+        "chartType": "donut",
+        "template": "analyticalCard_donut_template.json"
       },
       "tableCardFields": ["AppraisalArea", "PerformanceRating", "TargetDate3"],
       "ItemButtons": {
@@ -880,7 +880,11 @@
         }
       ],
       "DisplayFields": ["SubGroup1", "Title1", "ReferenceID1", "TargetDate1"],
-      "cards": ["Table"],
+      "cards": ["Table", "Analytical"],
+      "analyticsCard": {
+        "chartType": "stackedcolumn",
+        "template": "analyticalCard_stackedcolumn_template.json"
+      },
       "tableCardFields": ["SubGroup1", "Title1", "TargetDate1"],
       "ItemButtons": {
         "itemDisplay": true,
