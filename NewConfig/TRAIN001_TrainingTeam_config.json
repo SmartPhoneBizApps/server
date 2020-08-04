@@ -261,6 +261,16 @@
       "name": "Course Link",
       "fioriicon": "internet-browser",
       "type": "webpage"
+    },
+    {
+      "value": "Tab6",
+      "update": "Yes",
+      "name": "Questions",
+      "fioriicon": "internet-browser",
+      "type": "jsoncode",
+      "jsonURL": "util/getjsonFile/questioner/{ID}",
+      "Token": "Yes",
+      "theme": "chrome"
     }
   ],
   "DetailFields": {
@@ -303,7 +313,8 @@
 
     "Tab3": ["MultiAttachments"],
     "Tab4": ["Video"],
-    "Tab5": ["CourseLink"]
+    "Tab5": ["CourseLink"],
+    "Tab6": ["questioner"]
   },
   "tableConfig": {},
   "ControlDisplay": {},
