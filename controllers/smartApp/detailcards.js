@@ -54,7 +54,7 @@ exports.getDetailCardsNew = async (req, res, next) => {
         head1 = {};
         head1 = { ...anacardConfig["Structure"]["sap.card"].header };
         head1["title"] = appconfig["tableConfig"][key]["title"];
-        head1["subtitle"] = appconfig["tableConfig"][key]["subtitle"];
+        head1["subTitle"] = appconfig["tableConfig"][key]["subTitle"];
         head1["unitOfMeasurement"] =
           appconfig["tableConfig"][key]["unitOfMeasurement"];
 

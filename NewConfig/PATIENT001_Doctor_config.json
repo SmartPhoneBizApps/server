@@ -123,7 +123,13 @@
           "name": "Book Appointment",
           "icon": "sap-icon://share-2",
           "Dialog": [
-            { "name": "ID", "type": "string", "width": "20" ,"Option": "Mandatory",  "SLabel": "ID"},
+            {
+              "name": "ID",
+              "type": "string",
+              "width": "20",
+              "Option": "Mandatory",
+              "SLabel": "ID"
+            },
             {
               "name": "ReferenceID",
               "type": "string",
@@ -580,7 +586,7 @@
         "Fields": ["Terms", "PrivacyPolicy", "Agree"]
       }
     ],
-    "Tab2": ["Address", "HouseNumber", "PostCode"],
+    "Tab2": ["Address", "PostCode"],
     "Tab8": ["Appointments"],
     "Tab9": ["Radiology"],
     "Tab10": ["DentalImages"],
@@ -774,14 +780,7 @@
       "SLabel": "NHS Number",
       "LLabel": "NHS Number"
     },
-    {
-      "name": "HouseNumber",
-      "type": "string",
-      "width": "20",
-      "Option": "Optional",
-      "SLabel": "House Number",
-      "LLabel": "House Number"
-    },
+
     {
       "name": "PostCode",
       "type": "searchField",
@@ -2193,7 +2192,6 @@
         { "name": "Email", "Mode": "Edit" },
         { "name": "ContactNo", "Mode": "Edit" },
         { "name": "PostCode", "Mode": "Edit" },
-        { "name": "HouseNumber", "Mode": "Edit" },
         { "name": "Address", "Mode": "Edit" }
       ],
       "name": "Contact Details",

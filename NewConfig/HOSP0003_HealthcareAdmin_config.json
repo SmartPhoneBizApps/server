@@ -6,7 +6,7 @@
   "Controls": {
     "USP": "UserProfile",
     "StatusColor": "Yes",
-    "SearchString":{"Search":false},
+    "SearchString": { "Search": false },
     "Filters": [],
     "Partner": "@user",
     "UserSpecific": "Yes",
@@ -99,15 +99,7 @@
     "headerColorFields": ["Status"],
     "None": ["ID", "ReasonForVisit"],
     "Tab1": ["FirstName", "LastName", "DOB", "Gender"],
-    "Tab2": [
-      "StreetAdd",
-      "City",
-      "PostCode",
-      "Country",
-      "Email",
-      "HomePh",
-      "MobileNo"
-    ],
+    "Tab2": ["City", "PostCode", "Country", "Email", "HomePh", "MobileNo"],
     "Tab3": [
       "GP",
       "GPOffice",
@@ -120,7 +112,13 @@
   },
   "ControlDisplay": {},
   "FieldDef": [
-    { "name": "ID", "type": "string", "width": "20" ,"Option": "Mandatory",  "SLabel": "ID"},
+    {
+      "name": "ID",
+      "type": "string",
+      "width": "20",
+      "Option": "Mandatory",
+      "SLabel": "ID"
+    },
     {
       "name": "ReferenceID",
       "type": "string",
@@ -131,7 +129,6 @@
     { "name": "FirstName", "type": "string", "width": "20" },
     { "name": "LastName", "type": "string", "width": "20" },
     { "name": "DOB", "type": "Date", "width": "10" },
-    { "name": "StreetAdd", "type": "string", "width": "100" },
     { "name": "City", "type": "string", "width": "100" },
     { "name": "PostCode", "type": "string", "width": "100" },
     { "name": "Country", "type": "string", "width": "100" },

@@ -6,19 +6,19 @@
   "Controls": {
     "USP": "UserProfile",
     "StatusColor": "Yes",
-    "SearchString":{"Search":false},
+    "SearchString": { "Search": false },
     "Filters": [],
     "Partner": "@user",
     "UserSpecific": "Yes",
     "Update": "Yes",
     "URL": "https://fierce-oasis-51455.herokuapp.com",
-        "Source": { "SourceName": "mongoDB", "SourceFile": "NA" },
-       "dataFilter": [{ "field": "Status" }],
+    "Source": { "SourceName": "mongoDB", "SourceFile": "NA" },
+    "dataFilter": [{ "field": "Status" }],
     "filterFieldSource": {
       "header": ["Status"]
     }
   },
-  
+
   "ListFields": {
     "IntroField": "",
     "TitleField": "",
@@ -182,7 +182,6 @@
       "Email",
       "ContactNo",
       "NHSNumber",
-      "HouseNumber",
       "PostCode",
       "Address",
       "Group",
@@ -298,14 +297,7 @@
       "SLabel": "NHS Number",
       "LLabel": "NHS Number"
     },
-    {
-      "name": "HouseNumber",
-      "type": "string",
-      "width": "20",
-      "Option": "Optional",
-      "SLabel": "House Number",
-      "LLabel": "House Number"
-    },
+
     {
       "name": "PostCode",
       "type": "searchField",
@@ -767,7 +759,6 @@
         { "name": "Email", "Mode": "Edit" },
         { "name": "ContactNo", "Mode": "Edit" },
         { "name": "PostCode", "Mode": "Edit" },
-        { "name": "HouseNumber", "Mode": "Edit" },
         { "name": "Address", "Mode": "Edit" }
       ],
       "name": "Contact Details",

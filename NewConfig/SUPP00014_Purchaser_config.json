@@ -6,19 +6,19 @@
   "Controls": {
     "USP": "UserProfile",
     "StatusColor": "Yes",
-    "SearchString":{"Search":false},
+    "SearchString": { "Search": false },
     "Filters": [],
     "Partner": "@user",
     "UserSpecific": "Yes",
     "Update": "Yes",
     "URL": "https://fierce-oasis-51455.herokuapp.com",
-        "Source": { "SourceName": "mongoDB", "SourceFile": "NA" },
-       "dataFilter": [{ "field": "Status" }],
+    "Source": { "SourceName": "mongoDB", "SourceFile": "NA" },
+    "dataFilter": [{ "field": "Status" }],
     "filterFieldSource": {
       "header": ["Status"]
     }
   },
-  
+
   "ListFields": {
     "IntroField": "CompanyRegistrationNumber",
     "TitleField": "CompanyName",
@@ -124,7 +124,6 @@
     "Tab2": [
       "YearEstablish",
       "HouseNo",
-      "Street",
       "City",
       "POBox",
       "PostCode",
@@ -167,7 +166,6 @@
     { "name": "AnnualTurnover", "type": "string", "width": "50" },
     { "name": "YearEstablish", "type": "string", "width": "100" },
     { "name": "HouseNo", "type": "string", "width": "50" },
-    { "name": "Street", "type": "string", "width": "50" },
     { "name": "City", "type": "string", "width": "50" },
     { "name": "POBox", "type": "string", "width": "50" },
     { "name": "PostCode", "type": "string", "width": "50" },
@@ -186,7 +184,7 @@
     { "name": "Fax", "type": "string", "width": "100" },
     { "name": "Language", "type": "string", "width": "100" },
     { "name": "DateOfRegistration", "type": "Date", "width": "10" },
-    { "name": "Status", "type": "string","SLabel": "Status", "width": "50" },
+    { "name": "Status", "type": "string", "SLabel": "Status", "width": "50" },
     {
       "name": "SearchString",
       "type": "string",
@@ -254,7 +252,6 @@
       "fields": [
         { "name": "HouseNo", "Mode": "Edit" },
         { "name": "POBox", "Mode": "Edit" },
-        { "name": "Street", "Mode": "Edit" },
         { "name": "City", "Mode": "Edit" },
         { "name": "PostCode", "Mode": "Edit" },
         { "name": "State", "Mode": "Edit" },

@@ -3,19 +3,19 @@
   "Controls": {
     "USP": "UserProfile",
     "StatusColor": "Yes",
-    "SearchString":{"Search":false},
+    "SearchString": { "Search": false },
     "Filters": [{ "Partner": "@user" }],
     "Partner": "@user",
     "UserSpecific": "Yes",
     "Update": "Yes",
     "URL": "https://fierce-oasis-51455.herokuapp.com",
-        "Source": { "SourceName": "mongoDB", "SourceFile": "NA" },
-       "dataFilter": [{ "field": "Status" }],
+    "Source": { "SourceName": "mongoDB", "SourceFile": "NA" },
+    "dataFilter": [{ "field": "Status" }],
     "filterFieldSource": {
       "header": ["Status"]
     }
   },
-  
+
   "ListFields": {
     "IntroField": "PayDate",
     "TitleField": "Name",
@@ -121,7 +121,7 @@
       "TaxPaidYear",
       "NIYear"
     ],
-    "Tab4": ["Location", "Street", "City", "PostCode", "State", "Country"]
+    "Tab4": ["Location", "City", "PostCode", "State", "Country"]
   },
   "ControlDisplay": {},
   "FieldDef": [
@@ -217,14 +217,6 @@
       "width": "50",
       "Option": "Optional",
       "SLabel": "NI Number",
-      "LLabel": ""
-    },
-    {
-      "name": "Street",
-      "type": "string",
-      "width": "50",
-      "Option": "Optional",
-      "SLabel": "Street",
       "LLabel": ""
     },
     {

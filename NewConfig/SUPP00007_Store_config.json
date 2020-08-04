@@ -6,19 +6,19 @@
   "Controls": {
     "USP": "UserProfile",
     "StatusColor": "Yes",
-    "SearchString":{"Search":false},
+    "SearchString": { "Search": false },
     "Filters": [],
     "Partner": "@user",
     "UserSpecific": "Yes",
     "Update": "Yes",
     "URL": "https://fierce-oasis-51455.herokuapp.com",
-        "Source": { "SourceName": "mongoDB", "SourceFile": "NA" },
-       "dataFilter": [{ "field": "Status" }],
+    "Source": { "SourceName": "mongoDB", "SourceFile": "NA" },
+    "dataFilter": [{ "field": "Status" }],
     "filterFieldSource": {
       "header": ["Status"]
     }
   },
-  
+
   "ListFields": {
     "IntroField": "ID",
     "TitleField": "CommsType",
@@ -142,7 +142,7 @@
     "headerRole": ["USP_Role"],
     "headerImage": ["USP_Image"],
     "headerColorFields": ["Status"],
-    "None": ["ID", "VendorName",  "TransType", "VendorNumber"],
+    "None": ["ID", "VendorName", "TransType", "VendorNumber"],
     "Tab1": [
       "QuestionDate",
       "CommsType",
@@ -152,7 +152,6 @@
       "OldBusinessName",
       "NewBusinessName",
       "PostCode",
-      "HouseNumber",
       "NewAddress",
       "ContactNumber",
       "DateOfNameChange"
@@ -516,14 +515,6 @@
       "Option": "Optional",
       "SLabel": "Post Code",
       "LLabel": "Post Code"
-    },
-    {
-      "name": "HouseNumber",
-      "type": "string",
-      "width": "50",
-      "Option": "Optional",
-      "SLabel": "House Number",
-      "LLabel": "House Number"
     },
     {
       "name": "NewAddress",
