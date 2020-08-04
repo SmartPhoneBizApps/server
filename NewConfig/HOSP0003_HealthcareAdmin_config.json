@@ -31,7 +31,7 @@
     "SubTitle": ["Status"],
     "Description": ["ID", "Email"]
   },
-  "PossibleValues": ["Country", "Gender", "Status"],
+  "PossibleValues": ["Gender", "Status"],
   "MButtons": [
     {
       "type": "DOWNLOAD",
@@ -99,7 +99,7 @@
     "headerColorFields": ["Status"],
     "None": ["ID", "ReasonForVisit"],
     "Tab1": ["FirstName", "LastName", "DOB", "Gender"],
-    "Tab2": ["City", "PostCode", "Country", "Email", "HomePh", "MobileNo"],
+    "Tab2": ["Address", "PostCode", "Email", "HomePh", "MobileNo"],
     "Tab3": [
       "GP",
       "GPOffice",
@@ -129,9 +129,8 @@
     { "name": "FirstName", "type": "string", "width": "20" },
     { "name": "LastName", "type": "string", "width": "20" },
     { "name": "DOB", "type": "Date", "width": "10" },
-    { "name": "City", "type": "string", "width": "100" },
+    { "name": "Address", "type": "string", "width": "100" },
     { "name": "PostCode", "type": "string", "width": "100" },
-    { "name": "Country", "type": "string", "width": "100" },
     { "name": "Email", "type": "string", "width": "100" },
     { "name": "Gender", "type": "switch", "width": "100" },
     { "name": "HomePh", "type": "string", "width": "100" },

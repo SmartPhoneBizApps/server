@@ -6,7 +6,7 @@
   "Controls": {
     "USP": "UserProfile",
     "StatusColor": "Yes",
-    "SearchString":{"Search":false},
+    "SearchString": { "Search": false },
     "Filters": [],
     "Partner": "@user",
     "UserSpecific": "Yes",
@@ -139,7 +139,6 @@
       "PatientLastName",
       "PostCode",
       "Address",
-      "HouseNo",
       "Patient_Email",
       "ContactNo",
       "NHS_Number",
@@ -356,14 +355,7 @@
       "SLabel": "Dentist Phone",
       "LLabel": "Dentist Phone"
     },
-    {
-      "name": "HouseNo",
-      "type": "string",
-      "width": "100",
-      "Option": "Optional",
-      "SLabel": "House Number",
-      "LLabel": ""
-    },
+
     {
       "name": "Title",
       "type": "string",
@@ -448,7 +440,6 @@
       "id": "Step3",
       "fields": [
         { "name": "PostCode", "Mode": "Edit" },
-        { "name": "HouseNo", "Mode": "Edit" },
         { "name": "Address", "Mode": "Display" }
       ],
       "name": "Address and Additional information",

@@ -97,6 +97,6 @@ exports.updatejsonFile = async (req, res, next) => {
     success: out["success"],
     message: out["message"],
     error: out["error"],
-    data: config,
+    //    data: config,
   });
 };

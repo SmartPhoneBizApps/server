@@ -121,15 +121,7 @@
       "DetailsOfServices",
       "DetailsOfProducts"
     ],
-    "Tab2": [
-      "YearEstablish",
-      "HouseNo",
-      "City",
-      "POBox",
-      "PostCode",
-      "State",
-      "Country"
-    ],
+    "Tab2": ["YearEstablish", "Address", "PostCode"],
     "Tab3": [
       "ContactPerson",
       "JobTitle",
@@ -165,12 +157,8 @@
     { "name": "DUNSNumber", "type": "string", "width": "50" },
     { "name": "AnnualTurnover", "type": "string", "width": "50" },
     { "name": "YearEstablish", "type": "string", "width": "100" },
-    { "name": "HouseNo", "type": "string", "width": "50" },
-    { "name": "City", "type": "string", "width": "50" },
-    { "name": "POBox", "type": "string", "width": "50" },
+    { "name": "Address", "type": "string", "width": "50" },
     { "name": "PostCode", "type": "string", "width": "50" },
-    { "name": "State", "type": "string", "width": "50" },
-    { "name": "Country", "type": "string", "width": "50" },
     { "name": "GeographicalCoverage", "type": "string", "width": "100" },
     { "name": "PastSupplier", "type": "string", "width": "100" },
     { "name": "BusinessType", "type": "string", "width": "100" },
@@ -250,12 +238,8 @@
     {
       "id": "Step3",
       "fields": [
-        { "name": "HouseNo", "Mode": "Edit" },
-        { "name": "POBox", "Mode": "Edit" },
-        { "name": "City", "Mode": "Edit" },
-        { "name": "PostCode", "Mode": "Edit" },
-        { "name": "State", "Mode": "Edit" },
-        { "name": "Country", "Mode": "Edit" }
+        { "name": "Address", "Mode": "Edit" },
+        { "name": "PostCode", "Mode": "Edit" }
       ],
       "name": "Address",
       "stepType": "FieldList",

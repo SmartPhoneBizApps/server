@@ -28,7 +28,7 @@
     "SubTitle": ["PayDate"],
     "Description": ["Status", "ID"]
   },
-  "PossibleValues": ["State", "Country", "Status"],
+  "PossibleValues": ["Status"],
   "MButtons": [],
   "DButtons": [
     {
@@ -121,7 +121,7 @@
       "TaxPaidYear",
       "NIYear"
     ],
-    "Tab4": ["Location", "City", "PostCode", "State", "Country"]
+    "Tab4": ["Location", "Address", "PostCode"]
   },
   "ControlDisplay": {},
   "FieldDef": [
@@ -220,11 +220,11 @@
       "LLabel": ""
     },
     {
-      "name": "City",
+      "name": "Address",
       "type": "string",
       "width": "50",
       "Option": "Optional",
-      "SLabel": "City",
+      "SLabel": "Address",
       "LLabel": ""
     },
     {
@@ -239,22 +239,7 @@
       "SLabel": "Post Code",
       "LLabel": ""
     },
-    {
-      "name": "State",
-      "type": "string",
-      "width": "50",
-      "Option": "Optional",
-      "SLabel": "State",
-      "LLabel": ""
-    },
-    {
-      "name": "Country",
-      "type": "string",
-      "width": "50",
-      "Option": "Optional",
-      "SLabel": "Country",
-      "LLabel": ""
-    },
+
     {
       "name": "Base",
       "type": "string",

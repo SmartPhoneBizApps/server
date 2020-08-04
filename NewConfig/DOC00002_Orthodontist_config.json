@@ -6,7 +6,7 @@
   "Controls": {
     "USP": "UserProfile",
     "StatusColor": "Yes",
-    "SearchString":{"Search":false},
+    "SearchString": { "Search": false },
     "Filters": [],
     "Partner": "@user",
     "UserSpecific": "Yes",
@@ -140,7 +140,6 @@
       "PatientLastName",
       "PostCode",
       "Address",
-      "HouseNo",
       "Patient_Email",
       "ContactNo",
       "NHS_Number"
@@ -361,14 +360,6 @@
       "Option": "Optional",
       "SLabel": "Dentist Name",
       "LLabel": "Dentist Name"
-    },
-    {
-      "name": "HouseNo",
-      "type": "string",
-      "width": "100",
-      "Option": "Optional",
-      "SLabel": "House Number",
-      "LLabel": ""
     }
   ],
   "itemData": "No",
@@ -419,8 +410,7 @@
       "id": "Step3",
       "fields": [
         { "name": "PostCode", "Mode": "Edit" },
-        { "name": "Address", "Mode": "Edit" },
-        { "name": "HouseNo", "Mode": "Edit" }
+        { "name": "Address", "Mode": "Edit" }
       ],
       "name": "Address and Additional information",
       "stepType": "FieldList",
