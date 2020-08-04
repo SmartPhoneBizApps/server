@@ -73,10 +73,9 @@ exports.getDetailCardsNew = async (req, res, next) => {
               }
             }
             list1.push(list1x);
-            console.log(list1);
           }
           json1["list"] = list1;
-          list1 = [];
+          //  list1 = [];
           head1["title"] = appconfig["tableConfig"][key]["title"];
           head1["subTitle"] = appconfig["tableConfig"][key]["subTitle"];
           head1["unitOfMeasurement"] =
@@ -107,7 +106,8 @@ exports.getDetailCardsNew = async (req, res, next) => {
           js1 = {};
         }
         anacardConfig["Structure"]["sap.card"].header = { ...head1 };
-        anacardConfig["Structure"]["sap.card"].content.data.json = { ...json1 };
+        anacardConfig["Structure"]["sap.card"].content.data.json.item = list1;
+        list1 = [];
         json1 = {};
         head1 = {};
 
