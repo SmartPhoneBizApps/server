@@ -25,20 +25,66 @@ exports.getDetailCardsNew = async (req, res, next) => {
 
   // Table View
   for (const key in appconfig["tableConfig"]) {
+    // Loop at Tabs with Table views...
+    console.log("----------------------------------");
+    console.log("Cards for TabName : ", key);
     for (let g = 0; g < appconfig["tableConfig"][key]["cards"].length; g++) {
       if (appconfig["tableConfig"][key]["cards"][g] == "Analytical") {
+        console.log("** A n a l y t i c a l **");
+        // Analytical card...
+        // Read cart Analytical Template...
         let cardConfigFile1 =
           "../../cards/cardConfig/" +
           appconfig["tableConfig"][key]["analyticsCard"]["template"];
         var anacardConfig = require(cardConfigFile1);
+        console.log(
+          "Template:",
+          appconfig["tableConfig"][key]["analyticsCard"]["template"]
+        );
+        console.log(
+          "chartType:",
+          appconfig["tableConfig"][key]["analyticsCard"]["chartType"]
+        );
+        let sum1 = 10;
+        let trend1 = "Down";
+        let state1 = "Error";
+        let details1 = "2019-2020";
+
+        // Update Header data
+        head1 = {};
+        head1 = { ...anacardConfig["Structure"]["sap.card"].header };
+        head1["title"] = appconfig["tableConfig"][key]["title"];
+        head1["subtitle"] = appconfig["tableConfig"][key]["subtitle"];
+        head1["unitOfMeasurement"] =
+          appconfig["tableConfig"][key]["unitOfMeasurement"];
+
+        if (
+          appconfig["tableConfig"][key]["analyticsCard"]["chartType"] == "line"
+        ) {
+          js1 = {};
+          js1 = { ...anacardConfig["Structure"]["sap.card"].header.data.json };
+          js1["number"] = sum1;
+          js1["trend"] = trend1;
+          js1["state"] = state1;
+          js1["details"] = details1;
+          head1["data"]["json"] = { ...js1 };
+          js1 = {};
+        }
+
+        anacardConfig["Structure"]["sap.card"].header = { ...head1 };
+        head1 = {};
+
+        // anacardConfig["Structure"]["sap.card"].header.title =
+        //   appconfig["tableConfig"][key]["title"];
+
         stru1 = anacardConfig["Structure"];
         t_type = "Analytical";
         let st1 = t_type + "_" + appData["ID"] + "_" + key;
-        console.log("Card", stru1);
+
         outStru[st1] = { ...stru1 };
-        stru1["sap.card"] = {};
+
+        // stru1["sap.card"] = {};
         stru1 = {};
-        console.log("---------- A n a l y t i c a l ------------");
       }
       if (appconfig["tableConfig"][key]["cards"][g] == "Table") {
         hdr = {};
@@ -50,7 +96,7 @@ exports.getDetailCardsNew = async (req, res, next) => {
         t_type = "table1";
         stru = cardConfig["Structure"];
         tabFields = appconfig["tableConfig"][key]["tableCardFields"];
-        console.log("------ T A B L E  - C A R D ----------");
+        console.log("** T A B L E  - C A R D **");
         xc_table1 = {};
         xj_table1 = {};
         col_table1 = [];
