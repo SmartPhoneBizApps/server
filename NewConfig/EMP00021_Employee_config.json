@@ -482,6 +482,22 @@
           "type": "Analytical",
           "analyticsCard": {
             "chartType": "line",
+            "itemvalueMap": {
+              "Score": "TotalRegWorkHours",
+              "Target": "OvertimeHours"
+            },
+            "itemkeyMap": {
+              "Area": "Date"
+            },
+            "itemfixedVal": [{ "Total": 5 }],
+            "sumField": [
+              { "sumScore": "TotalRegWorkHours" },
+              { "sumtargetScore": "OvertimeHours" }
+            ],
+            "headerfieldMap": [
+              { "j_number": "sumScore" },
+              { "j_target": "sumtargetScore" }
+            ],
             "template": "analyticalCard_line_template.json"
           }
         }

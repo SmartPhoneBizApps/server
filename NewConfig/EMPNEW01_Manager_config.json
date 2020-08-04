@@ -762,6 +762,22 @@
           "type": "Analytical",
           "analyticsCard": {
             "chartType": "line",
+            "itemvalueMap": {
+              "Score": "Answer",
+              "Target": "Deductions"
+            },
+            "itemkeyMap": {
+              "Area": "Question"
+            },
+            "itemfixedVal": [{ "Total": 5 }],
+            "sumField": [
+              { "sumScore": "Answer" },
+              { "sumtargetScore": "Deductions" }
+            ],
+            "headerfieldMap": [
+              { "j_number": "sumScore" },
+              { "j_target": "sumtargetScore" }
+            ],
             "template": "analyticalCard_line_template.json"
           }
         }

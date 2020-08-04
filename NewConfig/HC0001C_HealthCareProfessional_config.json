@@ -646,6 +646,18 @@
           "type": "Analytical",
           "analyticsCard": {
             "chartType": "line",
+            "itemvalueMap": {
+              "Score": "BalanceValue"
+            },
+            "itemkeyMap": {
+              "Area": "ContractName"
+            },
+            "itemfixedVal": [{ "Total": 5 }],
+            "sumField": [{ "sumScore": "BalanceValue" }],
+            "headerfieldMap": [
+              { "j_number": "sumScore" },
+              { "j_target": "sumtargetScore" }
+            ],
             "template": "analyticalCard_line_template.json"
           }
         }
