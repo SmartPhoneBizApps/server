@@ -552,17 +552,25 @@
         "ItemVATValue",
         "ItemGrossValue"
       ],
-      "cards": ["Table", "Analytical"],
-      "analyticsCard": {
-        "chartType": "line",
-        "template": "analyticalCard_line_template.json"
-      },
-      "tableCardFields": [
-        "ItemNumber",
-        "ItemName",
-        "ItemValue",
-        "ItemGrossValue"
+      "cards": [
+        {
+          "type": "Table",
+          "tableCardFields": [
+            "ItemNumber",
+            "ItemName",
+            "ItemValue",
+            "ItemGrossValue"
+          ]
+        },
+        {
+          "type": "Analytical",
+          "analyticsCard": {
+            "chartType": "donut",
+            "template": "analyticalCard_donut_template.json"
+          }
+        }
       ],
+
       "ItemButtons": {
         "itemDisplay": true,
         "itemAdd": true,

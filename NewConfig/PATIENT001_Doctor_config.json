@@ -1727,8 +1727,10 @@
         }
       ],
       "DisplayFields": ["PatientStatus", "StatusDate"],
-      "cards": ["Table"],
-      "tableCardFields": ["PatientStatus", "StatusDate"],
+      "cards": [
+        { "type": "Table", "tableCardFields": ["PatientStatus", "StatusDate"] }
+      ],
+
       "ItemButtons": {
         "itemDisplay": true,
         "itemAdd": false,
@@ -1797,8 +1799,13 @@
         }
       ],
       "DisplayFields": ["EventID", "Task", "ExpectedDate", "TPStatus"],
-      "cards": ["Table"],
-      "tableCardFields": ["Task", "ExpectedDate", "TPStatus"],
+      "cards": [
+        {
+          "type": "Table",
+          "tableCardFields": ["Task", "ExpectedDate", "TPStatus"]
+        }
+      ],
+
       "ItemButtons": {
         "itemDisplay": true,
         "itemAdd": true,
@@ -1884,8 +1891,13 @@
         "Examination",
         "Doctor"
       ],
-      "cards": ["Table"],
-      "tableCardFields": ["VisitDate", "Examination", "Doctor"],
+      "cards": [
+        {
+          "type": "Table",
+          "tableCardFields": ["VisitDate", "Examination", "Doctor"]
+        }
+      ],
+
       "ItemButtons": {
         "itemDisplay": true,
         "itemAdd": true,
@@ -1986,8 +1998,10 @@
         }
       ],
       "DisplayFields": ["Date", "Notes", "Action", "ACreatedBy"],
-      "cards": ["Table"],
-      "tableCardFields": ["Date", "Notes", "Action"],
+      "cards": [
+        { "type": "Table", "tableCardFields": ["Date", "Notes", "Action"] }
+      ],
+
       "ItemButtons": {
         "itemDisplay": true,
         "itemAdd": true,
@@ -2086,8 +2100,13 @@
         }
       ],
       "DisplayFields": ["Date", "Slot", "Doctor", "AppStatus", "Notes"],
-      "cards": ["Table"],
-      "tableCardFields": ["Date", "Slot", "Doctor", "AppStatus"],
+      "cards": [
+        {
+          "type": "Table",
+          "tableCardFields": ["Date", "Slot", "Doctor", "AppStatus"]
+        }
+      ],
+
       "ItemButtons": {
         "itemDisplay": true,
         "itemAdd": true,

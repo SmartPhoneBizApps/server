@@ -266,8 +266,10 @@
         "Experience",
         "ExperienceRole1"
       ],
-      "cards": ["Table"],
-      "tableCardFields": ["Area", "Skill", "Experience"],
+      "cards": [
+        { "type": "Table", "tableCardFields": ["Area", "Skill", "Experience"] }
+      ],
+
       "ItemButtons": {
         "itemDisplay": true,
         "itemAdd": true,
@@ -358,8 +360,13 @@
         }
       ],
       "DisplayFields": ["Qualification", "Subject", "YearCompleted", "College"],
-      "cards": ["Table"],
-      "tableCardFields": ["Qualification", "Subject", "YearCompleted"],
+      "cards": [
+        {
+          "type": "Table",
+          "tableCardFields": ["Qualification", "Subject", "YearCompleted"]
+        }
+      ],
+
       "ItemButtons": {
         "itemDisplay": true,
         "itemAdd": true,
@@ -451,8 +458,10 @@
         }
       ],
       "DisplayFields": ["From", "To", "ExpYears", "Employer", "Role"],
-      "cards": ["Table"],
-      "tableCardFields": ["From", "To", "Employer"],
+      "cards": [
+        { "type": "Table", "tableCardFields": ["From", "To", "Employer"] }
+      ],
+
       "ItemButtons": {
         "itemDisplay": true,
         "itemAdd": true,
@@ -547,8 +556,13 @@
         "Relation1",
         "ContactType"
       ],
-      "cards": ["Table"],
-      "tableCardFields": ["ContactName1", "ContactPhone1", "Relation1"],
+      "cards": [
+        {
+          "type": "Table",
+          "tableCardFields": ["ContactName1", "ContactPhone1", "Relation1"]
+        }
+      ],
+
       "ItemButtons": {
         "itemDisplay": true,
         "itemAdd": true,
@@ -627,8 +641,13 @@
         }
       ],
       "DisplayFields": ["CourseName", "DateCertified", "LinkC"],
-      "cards": ["Table"],
-      "tableCardFields": ["CourseName", "DateCertified", "LinkC"],
+      "cards": [
+        {
+          "type": "Table",
+          "tableCardFields": ["CourseName", "DateCertified", "LinkC"]
+        }
+      ],
+
       "ItemButtons": {
         "itemDisplay": true,
         "itemAdd": true,
@@ -712,12 +731,20 @@
         }
       ],
       "DisplayFields": ["Question", "Answer", "Deductions", "AddComments"],
-      "cards": ["Table", "Analytical"],
-      "analyticsCard": {
-        "chartType": "line",
-        "template": "analyticalCard_line_template.json"
-      },
-      "tableCardFields": ["Question", "Answer", "Deductions"],
+      "cards": [
+        {
+          "type": "Table",
+          "tableCardFields": ["Question", "Answer", "Deductions"]
+        },
+        {
+          "type": "Analytical",
+          "analyticsCard": {
+            "chartType": "line",
+            "template": "analyticalCard_line_template.json"
+          }
+        }
+      ],
+
       "ItemButtons": {
         "itemDisplay": true,
         "itemAdd": false,
@@ -840,14 +867,19 @@
         "VisionCoverage",
         "AccidentalDeath"
       ],
-      "cards": ["Table"],
-      "tableCardFields": [
-        "InsurancePlan",
-        "MedicalCoverage",
-        "DentalCoverage",
-        "VisionCoverage",
-        "AccidentalDeath"
+      "cards": [
+        {
+          "type": "Table",
+          "tableCardFields": [
+            "InsurancePlan",
+            "MedicalCoverage",
+            "DentalCoverage",
+            "VisionCoverage",
+            "AccidentalDeath"
+          ]
+        }
       ],
+
       "ItemButtons": {
         "itemDisplay": true,
         "itemAdd": true,

@@ -10,6 +10,7 @@ const { find } = require("../../models/access/User");
 // @access    Public
 exports.getDetailCardsNew = async (req, res, next) => {
   outStru = {};
+
   // Card Template
   let cardConfigFile = "../../cards/cardConfig/card_template.json";
   var cardConfig = require(cardConfigFile);
@@ -22,30 +23,24 @@ exports.getDetailCardsNew = async (req, res, next) => {
   // Global Cards
   let fileName2q = "../../cards/cardConfig/ALL_cardConfig.json";
   var GlobalCardConfig = require(fileName2q);
-
   // Table View
   for (const key in appconfig["tableConfig"]) {
     // Loop at Tabs with Table views...
     console.log("----------------------------------");
     console.log("Cards for TabName : ", key);
     for (let g = 0; g < appconfig["tableConfig"][key]["cards"].length; g++) {
-      if (appconfig["tableConfig"][key]["cards"][g] == "Analytical") {
+      var mycard = {};
+      mycard = appconfig["tableConfig"][key]["cards"][g];
+      console.log(mycard);
+      if (mycard["type"] == "Analytical") {
         console.log("** A n a l y t i c a l **");
-        // Analytical card...
         // Read cart Analytical Template...
         let cardConfigFile1 =
-          "../../cards/cardConfig/" +
-          appconfig["tableConfig"][key]["analyticsCard"]["template"];
+          "../../cards/cardConfig/" + mycard["analyticsCard"]["template"];
         var anacardConfig = require(cardConfigFile1);
-        console.log(
-          "Template:",
-          appconfig["tableConfig"][key]["analyticsCard"]["template"]
-        );
-        console.log(
-          "chartType:",
-          appconfig["tableConfig"][key]["analyticsCard"]["chartType"]
-        );
-        let sum1 = 10;
+        console.log("Template:", mycard["analyticsCard"]["template"]);
+        console.log("chartType:", mycard["analyticsCard"]["chartType"]);
+        let j_number = 10;
         let trend1 = "Down";
         let state1 = "Error";
         let details1 = "2019-2020";
@@ -53,40 +48,58 @@ exports.getDetailCardsNew = async (req, res, next) => {
         // Update Header data
         head1 = {};
         content1 = {};
+        list1 = [];
+        list1x = {};
         head1 = { ...anacardConfig["Structure"]["sap.card"].header };
-        content1 = { ...anacardConfig["Structure"]["sap.card"].content };
+        json1 = { ...anacardConfig["Structure"]["sap.card"].content.data.json };
 
-        if (
-          appconfig["tableConfig"][key]["analyticsCard"]["chartType"] == "line"
-        ) {
+        if (mycard["analyticsCard"]["chartType"] == "line") {
+          content1 = { ...anacardConfig["Structure"]["sap.card"].content };
+          for (let q = 0; q < appData[key].length; q++) {
+            for (const k1 in mycard["analyticsCard"]["itemvalueMap"]) {
+              const ek1 = mycard["analyticsCard"]["itemvalueMap"][k1];
+              if (appData[key][q][ek1] != undefined) {
+                list1x[k1] = appData[key][q][ek1];
+              } else {
+                list1x[k1] = 0;
+              }
+            }
+            for (const k1 in mycard["analyticsCard"]["itemkeyMap"]) {
+              const ek1 = mycard["analyticsCard"]["itemkeyMap"][k1];
+              if (appData[key][q][ek1] != undefined) {
+                list1x[k1] = appData[key][q][ek1];
+              } else {
+                list1x[k1] = "NA";
+              }
+            }
+            list1.push(list1x);
+            console.log(list1);
+          }
+          json1["list"] = list1;
+          list1 = [];
           head1["title"] = appconfig["tableConfig"][key]["title"];
           head1["subTitle"] = appconfig["tableConfig"][key]["subTitle"];
           head1["unitOfMeasurement"] =
             appconfig["tableConfig"][key]["unitOfMeasurement"];
           js1 = {};
           js1 = { ...anacardConfig["Structure"]["sap.card"].header.data.json };
-          js1["number"] = sum1;
+          js1["number"] = j_number;
           js1["trend"] = trend1;
           js1["state"] = state1;
           js1["details"] = details1;
           head1["data"]["json"] = { ...js1 };
           js1 = {};
         }
-        if (
-          appconfig["tableConfig"][key]["analyticsCard"]["chartType"] == "donut"
-        ) {
+        if (mycard["analyticsCard"]["chartType"] == "donut") {
           head1["title"] = appconfig["tableConfig"][key]["title"];
           //     content1["title"] = anacardConfig["Structure"]["sap.card"].content.["data"]
         }
-        if (
-          appconfig["tableConfig"][key]["analyticsCard"]["chartType"] ==
-          "stackedcolumn"
-        ) {
+        if (mycard["analyticsCard"]["chartType"] == "stackedcolumn") {
           head1["title"] = appconfig["tableConfig"][key]["title"];
 
           js1 = {};
           js1 = { ...anacardConfig["Structure"]["sap.card"].header.data.json };
-          js1["number"] = sum1;
+          js1["number"] = j_number;
           js1["trend"] = trend1;
           js1["state"] = state1;
           js1["unit"] = appconfig["tableConfig"][key]["unitOfMeasurement"];
@@ -94,6 +107,8 @@ exports.getDetailCardsNew = async (req, res, next) => {
           js1 = {};
         }
         anacardConfig["Structure"]["sap.card"].header = { ...head1 };
+        anacardConfig["Structure"]["sap.card"].content.data.json = { ...json1 };
+        json1 = {};
         head1 = {};
 
         // anacardConfig["Structure"]["sap.card"].header.title =
@@ -108,22 +123,24 @@ exports.getDetailCardsNew = async (req, res, next) => {
         // stru1["sap.card"] = {};
         stru1 = {};
       }
-      if (appconfig["tableConfig"][key]["cards"][g] == "Table") {
+      if (mycard["type"] == "Table") {
         hdr = {};
         xrow1 = {};
         col_table1 = [];
         xrow = {};
         json_table1 = [];
-        mycard = {};
+        // mycard = {};
         t_type = "table1";
         stru = cardConfig["Structure"];
-        tabFields = appconfig["tableConfig"][key]["tableCardFields"];
+        tabFields = mycard["tableCardFields"];
+
         console.log("** T A B L E  - C A R D **");
         xc_table1 = {};
         xj_table1 = {};
         col_table1 = [];
         json_table1 = [];
         tdata = [];
+        console.log(mycard);
         for (let b = 0; b < tabFields.length; b++) {
           xc_table1["title"] = tabFields[b];
           xc_table1["value"] = "{" + tabFields[b] + "}";

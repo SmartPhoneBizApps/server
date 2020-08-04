@@ -282,12 +282,17 @@
         }
       ],
       "DisplayFields": ["Question", "Answer", "CorrectAnswer", "Score"],
-      "cards": ["Table", "Analytical"],
-      "analyticsCard": {
-        "chartType": "line",
-        "template": "analyticalCard_line_template.json"
-      },
-      "tableCardFields": ["Question", "Answer"],
+      "cards": [
+        { "type": "Table", "tableCardFields": ["Question", "Answer"] },
+        {
+          "type": "Analytical",
+          "analyticsCard": {
+            "chartType": "line",
+            "template": "analyticalCard_line_template.json"
+          }
+        }
+      ],
+
       "ItemButtons": {
         "itemDisplay": true,
         "itemAdd": false,

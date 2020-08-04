@@ -287,8 +287,10 @@
         }
       ],
       "DisplayFields": ["title", "text", "startDate", "endDate"],
-      "cards": ["Table"],
-      "tableCardFields": ["title", "text", "startDate"],
+      "cards": [
+        { "type": "Table", "tableCardFields": ["title", "text", "startDate"] }
+      ],
+
       "ItemButtons": {
         "itemDisplay": true,
         "itemAdd": true,

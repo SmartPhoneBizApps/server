@@ -289,8 +289,10 @@
         }
       ],
       "DisplayFields": ["MQuestion", "MAnswer"],
-      "cards": ["Table"],
-      "tableCardFields": ["MQuestion", "MAnswer"],
+      "cards": [
+        { "type": "Table", "tableCardFields": ["MQuestion", "MAnswer"] }
+      ],
+
       "ItemButtons": {
         "itemDisplay": true,
         "itemAdd": false,
@@ -398,13 +400,18 @@
         "Duration",
         "ProjectManager"
       ],
-      "cards": ["Table"],
-      "tableCardFields": [
-        "ProjectName",
-        "StartDate",
-        "EndDate",
-        "ProjectManager"
+      "cards": [
+        {
+          "type": "Table",
+          "tableCardFields": [
+            "ProjectName",
+            "StartDate",
+            "EndDate",
+            "ProjectManager"
+          ]
+        }
       ],
+
       "ItemButtons": {
         "itemDisplay": true,
         "itemAdd": true,
@@ -569,12 +576,20 @@
         "GoalStatus",
         "TargetDate2"
       ],
-      "cards": ["Table", "Analytical"],
-      "analyticsCard": {
-        "chartType": "line",
-        "template": "analyticalCard_line_template.json"
-      },
-      "tableCardFields": ["GoalsArea", "Goal2", "TargetDate2"],
+      "cards": [
+        {
+          "type": "Table",
+          "tableCardFields": ["GoalsArea", "Goal2", "TargetDate2"]
+        },
+        {
+          "type": "Analytical",
+          "analyticsCard": {
+            "chartType": "line",
+            "template": "analyticalCard_line_template.json"
+          }
+        }
+      ],
+
       "ItemButtons": {
         "itemDisplay": true,
         "itemAdd": true,
@@ -717,12 +732,24 @@
         "ManagerComm3",
         "TargetDate3"
       ],
-      "cards": ["Table", "Analytical"],
-      "analyticsCard": {
-        "chartType": "line",
-        "template": "analyticalCard_line_template.json"
-      },
-      "tableCardFields": ["AppraisalArea", "PerformanceRating", "TargetDate3"],
+      "cards": [
+        {
+          "type": "Table",
+          "tableCardFields": [
+            "AppraisalArea",
+            "PerformanceRating",
+            "TargetDate3"
+          ]
+        },
+        {
+          "type": "Analytical",
+          "analyticsCard": {
+            "chartType": "line",
+            "template": "analyticalCard_line_template.json"
+          }
+        }
+      ],
+
       "ItemButtons": {
         "itemDisplay": true,
         "itemAdd": true,
@@ -842,8 +869,13 @@
         }
       ],
       "DisplayFields": ["SubGroup1", "Title1", "ReferenceID1", "TargetDate1"],
-      "cards": ["Table"],
-      "tableCardFields": ["SubGroup1", "Title1", "TargetDate1"],
+      "cards": [
+        {
+          "type": "Table",
+          "tableCardFields": ["SubGroup1", "Title1", "TargetDate1"]
+        }
+      ],
+
       "ItemButtons": {
         "itemDisplay": true,
         "itemAdd": false,

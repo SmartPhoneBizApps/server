@@ -468,17 +468,25 @@
         "OvertimeHours",
         "TotalHours"
       ],
-      "cards": ["Table", "Analytical"],
-      "analyticsCard": {
-        "chartType": "line",
-        "template": "analyticalCard_line_template.json"
-      },
-      "tableCardFields": [
-        "ProjectCode",
-        "Date",
-        "TotalRegWorkHours",
-        "OvertimeHours"
+      "cards": [
+        {
+          "type": "Table",
+          "tableCardFields": [
+            "ProjectCode",
+            "Date",
+            "TotalRegWorkHours",
+            "OvertimeHours"
+          ]
+        },
+        {
+          "type": "Analytical",
+          "analyticsCard": {
+            "chartType": "line",
+            "template": "analyticalCard_line_template.json"
+          }
+        }
       ],
+
       "ItemButtons": {
         "itemDisplay": true,
         "itemAdd": true,

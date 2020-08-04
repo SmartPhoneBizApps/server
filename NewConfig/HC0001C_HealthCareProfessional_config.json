@@ -347,12 +347,20 @@
         }
       ],
       "DisplayFields": ["StudyID", "StudyType", "StudyName", "Phase"],
-      "cards": ["Table", "Analytical"],
-      "analyticsCard": {
-        "chartType": "line",
-        "template": "analyticalCard_line_template.json"
-      },
-      "tableCardFields": ["StudyType", "StudyName", "Phase"],
+      "cards": [
+        {
+          "type": "Table",
+          "tableCardFields": ["StudyType", "StudyName", "Phase"]
+        },
+        {
+          "type": "Analytical",
+          "analyticsCard": {
+            "chartType": "line",
+            "template": "analyticalCard_line_template.json"
+          }
+        }
+      ],
+
       "ItemButtons": {
         "itemDisplay": true,
         "itemAdd": false,
@@ -471,12 +479,20 @@
         "EventStartDate",
         "Time"
       ],
-      "cards": ["Table", "Analytical"],
-      "analyticsCard": {
-        "chartType": "line",
-        "template": "analyticalCard_line_template.json"
-      },
-      "tableCardFields": ["EventType", "EventName", "EventStartDate"],
+      "cards": [
+        {
+          "type": "Table",
+          "tableCardFields": ["EventType", "EventName", "EventStartDate"]
+        },
+        {
+          "type": "Analytical",
+          "analyticsCard": {
+            "chartType": "line",
+            "template": "analyticalCard_line_template.json"
+          }
+        }
+      ],
+
       "ItemButtons": {
         "itemDisplay": true,
         "itemAdd": false,
@@ -616,17 +632,25 @@
         "ContractEndDate",
         "BalanceValue"
       ],
-      "cards": ["Table", "Analytical"],
-      "analyticsCard": {
-        "chartType": "line",
-        "template": "analyticalCard_line_template.json"
-      },
-      "tableCardFields": [
-        "ContractType",
-        "ContractName",
-        "ContractStartDate",
-        "BalanceValue"
+      "cards": [
+        {
+          "type": "Table",
+          "tableCardFields": [
+            "ContractType",
+            "ContractName",
+            "ContractStartDate",
+            "BalanceValue"
+          ]
+        },
+        {
+          "type": "Analytical",
+          "analyticsCard": {
+            "chartType": "line",
+            "template": "analyticalCard_line_template.json"
+          }
+        }
       ],
+
       "ItemButtons": {
         "itemDisplay": true,
         "itemAdd": false,
