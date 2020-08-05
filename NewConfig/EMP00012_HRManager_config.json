@@ -516,10 +516,27 @@
             "TargetDate3"
           ]
         },
+
         {
           "type": "Analytical",
           "analyticsCard": {
             "chartType": "donut",
+            "cardsDonut": [
+              {
+                "cardID": "D01",
+                "measureName": "AppraisalArea",
+                "value": "Score3",
+                "function": "SUM",
+                "subtitle": "Analysis based on Area"
+              },
+              {
+                "cardID": "D02",
+                "measureName": "PerformanceRating",
+                "value": "Score3",
+                "function": "SUM",
+                "subtitle": "Analysis based on Rating"
+              }
+            ],
             "template": "analyticalCard_donut_template.json"
           }
         }

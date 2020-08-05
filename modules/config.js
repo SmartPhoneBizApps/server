@@ -8,6 +8,7 @@ const Role = require("../models/appSetup/Role");
 const User = require("../models/access/User");
 const sendEmail = require("../utils/sendEmail");
 const sendEmail1 = require("../utils/sendEmailProd");
+const fs = require("fs");
 
 module.exports = {
   getCard: function (
@@ -1043,5 +1044,25 @@ module.exports = {
       body["ID"] = Math.floor(100000 + Math.random() * 900000);
     }
     return body;
+  },
+  // Business Application Modules....
+  updateFile: function (fn01, config, out) {
+    fs.writeFile(fn01, JSON.stringify(config), function writeJSON(err) {
+      if (err) {
+        out["resCode"] = 400;
+        out["success"] = false;
+        out["message"] = "Error while updating the file.";
+        out["error"] = err;
+        console.log(err);
+      } else {
+        console.log(JSON.stringify(config));
+        console.log("writing to " + fn01);
+        out["resCode"] = 201;
+        out["success"] = true;
+        out["message"] = "The file exists & updated..";
+        out["error"] = {};
+      }
+    });
+    return out;
   },
 };
