@@ -1046,23 +1046,26 @@ module.exports = {
     return body;
   },
   // Business Application Modules....
-  updateFile: function (fn01, config, out) {
+  updateFile: function (fn01, config) {
+    let out1 = {};
     fs.writeFile(fn01, JSON.stringify(config), function writeJSON(err) {
       if (err) {
-        out["resCode"] = 400;
-        out["success"] = false;
-        out["message"] = "Error while updating the file.";
-        out["error"] = err;
+        out1["resCode"] = 400;
+        out1["success"] = false;
+        out1["message"] = "Error while updating the file.";
+        out1["error"] = err;
         console.log(err);
+        return false;
       } else {
-        console.log(JSON.stringify(config));
+        //   console.log(JSON.stringify(config));
         console.log("writing to " + fn01);
-        out["resCode"] = 201;
-        out["success"] = true;
-        out["message"] = "The file exists & updated..";
-        out["error"] = {};
+        out1["resCode"] = 201;
+        out1["success"] = true;
+        out1["message"] = "The file exists & updated..";
+        console.log("AG01", out1);
+        return true;
+        //     out1["error"] = {};
       }
     });
-    return out;
   },
 };

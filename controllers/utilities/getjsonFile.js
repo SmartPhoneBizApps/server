@@ -58,23 +58,13 @@ exports.updatejsonFile = async (req, res, next) => {
       fn02 = "../../questioner/LEARNING_" + req.params.id + ".json";
       config = req.body;
       // Update file....
-      out = await updateFile(fn01, config, out);
-      // fs.writeFile(fn01, JSON.stringify(config), function writeJSON(err) {
-      //   if (err) {
-      //     out["resCode"] = 400;
-      //     out["success"] = false;
-      //     out["message"] = "Error while updating the file.";
-      //     out["error"] = err;
-      //     console.log(err);
-      //   } else {
-      //     console.log(JSON.stringify(config));
-      //     console.log("writing to " + fn01);
-      //     out["resCode"] = 201;
-      //     out["success"] = true;
-      //     out["message"] = "The file exists & updated..";
-      //     out["error"] = {};
-      //   }
-      // });
+      var s1 = updateFile(fn01, config);
+      console.log(s1);
+      out["resCode"] = 201;
+      out["success"] = true;
+      out["message"] = "The file exists & updated..";
+
+      console.log("AG02", out);
     } else {
       console.log("The file does not exist.");
       out["resCode"] = 400;
