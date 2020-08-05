@@ -103,6 +103,9 @@ exports.appointmentsGet = asyncHandler(async (req, res, next) => {
         scStart = startTime;
         scEnd = startTime.setMinutes(startTime.getMinutes() + SlotLen);
         slot["Status"] = 0;
+        slot["ChairName"] = outData["ChairName"];
+        slot["ChairID"] = appSchedule["Chairs"][a]["ID"];
+        console.log(appSchedule["Chairs"][a]["ID"]);
 
         // Add Doctor Details..
         for (let p = 0; p < drSch.length; p++) {
@@ -134,7 +137,7 @@ exports.appointmentsGet = asyncHandler(async (req, res, next) => {
             : "0" + startTime.getMinutes();
         endSlot = stHrs + ":" + stMin;
         slot["ID"] = cnt;
-        slot["ChairID"] = req.query.ChairID;
+        //  slot["ChairID"] = req.query.ChairID;
         slot["Date"] = outDate;
         slot["Time"] = slotStart + "-" + endSlot;
         slot["SlotLength"] = "";

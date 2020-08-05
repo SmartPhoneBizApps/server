@@ -297,6 +297,7 @@ module.exports = {
     let out = [];
     let out1 = {};
     let res = [];
+    console.log("uderdefault", rl);
     for (const key in c) {
       kys.push(key);
       if (key == rl) {
@@ -311,6 +312,7 @@ module.exports = {
         break;
       }
     }
+
     // User default
     for (const key in el1) {
       const element = el1[key];
@@ -319,12 +321,14 @@ module.exports = {
       out1["Value"] = el1[key];
       out1["EditLock"] = "No";
       for (let index = 0; index < res.length; index++) {
+        console.log(res[index]);
         if (res[index]["Field"] == key) {
           if (res[index]["EditLock"] == "Yes") {
             // Use initial values if EditLock is set ...
             out1["Field"] = key;
             out1["Value"] = res[index]["Value"];
             out1["EditLock"] = "Yes";
+            console.log(out1);
           }
         }
       }
@@ -355,7 +359,7 @@ module.exports = {
         });
       }
     });
-
+    console.log("InitialVal", resArr);
     return resArr;
   },
 

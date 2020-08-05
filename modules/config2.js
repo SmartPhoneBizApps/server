@@ -114,8 +114,11 @@ module.exports = {
               reqQuery1[key] = req.user.email;
               break;
             case "@CostCentre":
+              console.log(config1.Controls.Filters[x][key]);
+              console.log(ivalue);
               for (let y = 0; y < ivalue.length; y++) {
                 for (const key in ivalue[y]) {
+                  console.log(ivalue[y]["Field"]);
                   if (ivalue[y]["Field"] == "CostCentre") {
                     reqQuery1["CostCentre"] = ivalue[y]["Value"];
                   }
