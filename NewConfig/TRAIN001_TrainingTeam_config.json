@@ -158,6 +158,7 @@
             "field": "questioner",
             "name": "Questions",
             "theme": "chrome",
+            "updatetheme": "default",
             "type": "json",
             "jsonURL": "util/getjsonFile/questioner/{ID}",
             "readMethod": "GET",
@@ -171,6 +172,7 @@
             "field": "examQuestions2",
             "name": "Code1",
             "theme": "chrome",
+            "updatetheme": "default",
             "type": "json",
             "jsonURL": "util/getjsonFile/examQuestions2/{ID}",
             "Token": "Yes",
@@ -276,7 +278,8 @@
       "updateMethod": "PUT",
       "updateJSON": "body",
       "Token": "Yes",
-      "theme": "chrome"
+      "theme": "chrome",
+      "updatetheme": "default"
     }
   ],
   "DetailFields": {
