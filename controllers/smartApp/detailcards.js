@@ -93,7 +93,11 @@ exports.getDetailCardsNew = async (req, res, next) => {
             });
             // Add to the card...
             json1["measures"] = measures1;
-            head1["title"] = kl1["subTitle"];
+            head1["title"] =
+              appconfig["tableConfig"][key]["title"] +
+              "(" +
+              kl1["subtitle"] +
+              ")";
             anacardConfig["Structure"]["sap.card"].content.data.json = {
               ...json1,
             };
