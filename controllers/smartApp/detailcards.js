@@ -44,6 +44,7 @@ exports.getDetailCardsNew = async (req, res, next) => {
 
         // Update Header data
         head1 = {};
+        json1 = {};
         list1 = [];
         let measures1 = [];
         list1x = {};
