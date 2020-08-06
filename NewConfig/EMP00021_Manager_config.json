@@ -511,6 +511,22 @@
             ],
             "template": "analyticalCard_line_template.json"
           }
+        },
+        {
+          "type": "Analytical",
+          "analyticsCard": {
+            "chartType": "donut",
+            "cardsDonut": [
+              {
+                "cardID": "D01",
+                "measureName": "ProjectCode",
+                "value": "TotalRegWorkHours",
+                "function": "SUM",
+                "subtitle": "Analysis based on ProjectCode"
+              }
+            ],
+            "template": "analyticalCard_donut_template.json"
+          }
         }
       ],
 

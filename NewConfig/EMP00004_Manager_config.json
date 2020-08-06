@@ -628,6 +628,15 @@
           "type": "Analytical",
           "analyticsCard": {
             "chartType": "donut",
+            "cardsDonut": [
+              {
+                "cardID": "D01",
+                "measureName": "ItemName",
+                "value": "ItemQuantity",
+                "function": "SUM",
+                "subtitle": "Analysis based on Qty"
+              }
+            ],
             "template": "analyticalCard_donut_template.json"
           }
         }

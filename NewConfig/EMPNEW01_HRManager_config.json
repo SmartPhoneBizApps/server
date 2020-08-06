@@ -295,7 +295,23 @@
         "ExperienceRole1"
       ],
       "cards": [
-        { "type": "Table", "tableCardFields": ["Area", "Skill", "Experience"] }
+        { "type": "Table", "tableCardFields": ["Area", "Skill", "Experience"] },
+        {
+          "type": "Analytical",
+          "analyticsCard": {
+            "chartType": "donut",
+            "cardsDonut": [
+              {
+                "cardID": "D01",
+                "measureName": "Area",
+                "value": "Area",
+                "function": "COUNT",
+                "subtitle": "Analysis based on ProjectCode"
+              }
+            ],
+            "template": "analyticalCard_donut_template.json"
+          }
+        }
       ],
 
       "ItemButtons": {

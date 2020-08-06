@@ -69,10 +69,19 @@ exports.getDetailCardsNew = async (req, res, next) => {
               mydc2["measureName"] = val;
               mydc2["value"] = 0;
               for (let q = 0; q < appData[key].length; q++) {
-                if (appData[key][q][kl1["measureName"]] == val) {
+                if (
+                  appData[key][q][kl1["measureName"]] == val &&
+                  appData[key][q][kl1["function"]] == "SUM"
+                ) {
                   mydc2["value"] =
                     Number(mydc2["value"]) +
                     Number(appData[key][q][kl1["value"]]);
+                }
+                if (
+                  appData[key][q][kl1["measureName"]] == val &&
+                  appData[key][q][kl1["function"]] == "COUNT"
+                ) {
+                  mydc2["value"] = Number(mydc2["value"]) + 1;
                 }
               }
               measures1.push({ ...mydc2 });
