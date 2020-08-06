@@ -229,6 +229,24 @@
     "Tab3": ["ItemData"]
   },
   "ControlDisplay": {},
+  "headerCards": [
+    {
+      "type": "Analytical",
+      "analyticsCard": {
+        "chartType": "donut",
+        "cardsDonut": [
+          {
+            "cardID": "DH01",
+            "measureNames": ["NetValue", "VATVal"],
+            "values": ["NetValue", "VATVal"],
+            "function": "VALUE",
+            "subtitle": "Total Value"
+          }
+        ],
+        "template": "analyticalCard_donut_template.json"
+      }
+    }
+  ],
   "FieldDef": [
     {
       "name": "ID",
