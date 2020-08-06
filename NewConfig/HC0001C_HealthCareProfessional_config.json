@@ -355,8 +355,33 @@
         {
           "type": "Analytical",
           "analyticsCard": {
-            "chartType": "line",
-            "template": "analyticalCard_line_template.json"
+            "chartType": "donut",
+            "cardsDonut": [
+              {
+                "cardID": "D01",
+                "measureName": "StudyType",
+                "value": "StudyType",
+                "function": "COUNT",
+                "subtitle": "Analysis based on Study Type"
+              }
+            ],
+            "template": "analyticalCard_donut_template.json"
+          }
+        },
+        {
+          "type": "Analytical",
+          "analyticsCard": {
+            "chartType": "donut",
+            "cardsDonut": [
+              {
+                "cardID": "D01",
+                "measureName": "Phase",
+                "value": "Phase",
+                "function": "COUNT",
+                "subtitle": "Analysis based on Phase"
+              }
+            ],
+            "template": "analyticalCard_donut_template.json"
           }
         }
       ],
@@ -487,8 +512,33 @@
         {
           "type": "Analytical",
           "analyticsCard": {
-            "chartType": "line",
-            "template": "analyticalCard_line_template.json"
+            "chartType": "donut",
+            "cardsDonut": [
+              {
+                "cardID": "D01",
+                "measureName": "EventType",
+                "value": "EventType",
+                "function": "COUNT",
+                "subtitle": "Analysis based on Event Type"
+              }
+            ],
+            "template": "analyticalCard_donut_template.json"
+          }
+        },
+        {
+          "type": "Analytical",
+          "analyticsCard": {
+            "chartType": "donut",
+            "cardsDonut": [
+              {
+                "cardID": "D01",
+                "measureName": "EventName",
+                "value": "EventName",
+                "function": "COUNT",
+                "subtitle": "Analysis based on Event Name"
+              }
+            ],
+            "template": "analyticalCard_donut_template.json"
           }
         }
       ],
@@ -645,15 +695,35 @@
         {
           "type": "Analytical",
           "analyticsCard": {
+            "chartType": "donut",
+            "cardsDonut": [
+              {
+                "cardID": "D01",
+                "measureName": "ContractType",
+                "value": "ContractType",
+                "function": "COUNT",
+                "subtitle": "Analysis based on Contract Type"
+              }
+            ],
+            "template": "analyticalCard_donut_template.json"
+          }
+        },
+        {
+          "type": "Analytical",
+          "analyticsCard": {
             "chartType": "line",
             "itemvalueMap": {
-              "Score": "BalanceValue"
+              "Score": "BalanceValue",
+              "Target": "ContractValue"
             },
             "itemkeyMap": {
               "Area": "ContractName"
             },
-            "itemfixedVal": [{ "Total": 5 }],
-            "sumField": [{ "sumScore": "BalanceValue" }],
+            "itemfixedVal": [],
+            "sumField": [
+              { "sumScore": "BalanceValue" },
+              { "sumtargetScore": "ContractValue" }
+            ],
             "headerfieldMap": [
               { "j_number": "sumScore" },
               { "j_target": "sumtargetScore" }

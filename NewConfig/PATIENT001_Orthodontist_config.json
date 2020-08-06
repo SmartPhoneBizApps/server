@@ -1715,7 +1715,23 @@
       ],
       "DisplayFields": ["PatientStatus", "StatusDate"],
       "cards": [
-        { "type": "Table", "tableCardFields": ["PatientStatus", "StatusDate"] }
+        { "type": "Table", "tableCardFields": ["PatientStatus", "StatusDate"] },
+        {
+          "type": "Analytical",
+          "analyticsCard": {
+            "chartType": "donut",
+            "cardsDonut": [
+              {
+                "cardID": "D01",
+                "measureName": "PatientStatus",
+                "value": "PatientStatus",
+                "function": "COUNT",
+                "subtitle": "Analysis based on Patient Status"
+              }
+            ],
+            "template": "analyticalCard_donut_template.json"
+          }
+        }
       ],
 
       "ItemButtons": {
@@ -1790,6 +1806,22 @@
         {
           "type": "Table",
           "tableCardFields": ["Task", "ExpectedDate", "TPStatus"]
+        },
+        {
+          "type": "Analytical",
+          "analyticsCard": {
+            "chartType": "donut",
+            "cardsDonut": [
+              {
+                "cardID": "D01",
+                "measureName": "TPStatus",
+                "value": "TPStatus",
+                "function": "COUNT",
+                "subtitle": "Analysis based on TP Status"
+              }
+            ],
+            "template": "analyticalCard_donut_template.json"
+          }
         }
       ],
 
@@ -2090,6 +2122,22 @@
         {
           "type": "Table",
           "tableCardFields": ["Date", "Slot", "Doctor", "AppStatus"]
+        },
+        {
+          "type": "Analytical",
+          "analyticsCard": {
+            "chartType": "donut",
+            "cardsDonut": [
+              {
+                "cardID": "D01",
+                "measureName": "AppStatus",
+                "value": "AppStatus",
+                "function": "COUNT",
+                "subtitle": "Analysis based on Appointment Status"
+              }
+            ],
+            "template": "analyticalCard_donut_template.json"
+          }
         }
       ],
 

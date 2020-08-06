@@ -474,8 +474,8 @@
         },
         {
           "name": "ExpYears",
-          "type": "string",
-          "width": "200",
+          "type": "Num,1",
+          "width": "20",
           "SLabel": "Experience Years",
           "Option": "Optional"
         },
@@ -503,7 +503,23 @@
       ],
       "DisplayFields": ["From", "To", "ExpYears", "Employer", "Role"],
       "cards": [
-        { "type": "Table", "tableCardFields": ["From", "To", "Employer"] }
+        { "type": "Table", "tableCardFields": ["From", "To", "Employer"] },
+        {
+          "type": "Analytical",
+          "analyticsCard": {
+            "chartType": "donut",
+            "cardsDonut": [
+              {
+                "cardID": "D01",
+                "measureName": "Employer",
+                "value": "ExpYears",
+                "function": "SUM",
+                "subtitle": "Analysis based on Previous Employer"
+              }
+            ],
+            "template": "analyticalCard_donut_template.json"
+          }
+        }
       ],
 
       "ItemButtons": {
