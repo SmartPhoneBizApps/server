@@ -224,15 +224,13 @@
       "type": "Analytical",
       "analyticsCard": {
         "chartType": "donut",
-        "cardsDonut": [
-          {
-            "cardID": "DH01",
-            "measureNames": ["FoodCost", "TravelCost", "StayCost", "OtherCost"],
-            "values": ["FoodCost", "TravelCost", "StayCost", "OtherCost"],
-            "function": "VALUE",
-            "subtitle": "Cost Split"
-          }
-        ],
+        "cardsDonut": {
+          "cardID": "DH01",
+          "measureNames": ["FoodCost", "TravelCost", "StayCost", "OtherCost"],
+          "values": ["FoodCost", "TravelCost", "StayCost", "OtherCost"],
+          "function": "VALUE",
+          "subtitle": "Cost Split"
+        },
         "template": "analyticalCard_donut_template.json"
       }
     }

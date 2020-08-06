@@ -17,6 +17,170 @@ const readFile = utils.promisify(fs.readFile);
 const sendEmail = require("../utils/sendEmail");
 const sendEmail1 = require("../utils/sendEmailProd");
 module.exports = {
+  donutCard: async function (mycard, appData1, outStru, appconfig1, ID, key) {
+    // Read cart Analytical Template...
+    let cardConfigFile1 = "../cards/cardConfig/" + mycard["template"];
+    var anacardConfig = require(cardConfigFile1);
+    measures1 = [];
+    let mydc2 = {};
+    let json1 = {};
+    let head1 = {};
+    let stru1 = {};
+    var set1 = new Set();
+
+    for (let q = 0; q < appData1.length; q++) {
+      set1.add(appData1[q][mycard["cardsDonut"]["measureName"]]);
+    }
+    set1.forEach((val) => {
+      mydc2["measureName"] = val;
+      mydc2["value"] = 0;
+      for (let q = 0; q < appData1.length; q++) {
+        if (
+          appData1[q][mycard["cardsDonut"]["measureName"]] == val &&
+          mycard["cardsDonut"]["function"] == "SUM"
+        ) {
+          mydc2["value"] =
+            Number(mydc2["value"]) +
+            Number(appData1[q][mycard["cardsDonut"]["value"]]);
+        }
+        if (
+          appData1[q][mycard["cardsDonut"]["measureName"]] == val &&
+          mycard["cardsDonut"]["function"] == "COUNT"
+        ) {
+          mydc2["value"] = Number(mydc2["value"]) + 1;
+        }
+      }
+      measures1.push({ ...mydc2 });
+      mydc2 = {};
+    });
+
+    // Header....
+    head1 = { ...anacardConfig["Structure"]["sap.card"].header };
+    head1["title"] =
+      appconfig1["title"] + " (" + mycard["cardsDonut"]["subtitle"] + ")";
+    anacardConfig["Structure"]["sap.card"].header = { ...head1 };
+    head1 = {};
+
+    // Measurements...
+    json1 = { ...anacardConfig["Structure"]["sap.card"].content.data.json };
+    json1["measures"] = measures1;
+    anacardConfig["Structure"]["sap.card"].content.data.json = {
+      ...json1,
+    };
+    measures1 = [];
+    json1 = {};
+
+    // Card ID...
+    t_type = "Analytical";
+    let st1 = t_type + "_" + ID + "_" + key + mycard["cardsDonut"]["cardID"];
+
+    // Add to the card...
+    console.log("Rashmi", anacardConfig["Structure"]);
+    stru1 = { ...anacardConfig["Structure"] };
+    outStru[st1] = { ...stru1 };
+    stru1 = {};
+    return outStru;
+  },
+  lineCard: async function (mycard, appData1, outStru, appconfig1, ID, key) {
+    // Read cart Analytical Template...
+    let cardConfigFile1 = "../cards/cardConfig/" + mycard["template"];
+    var anacardConfig = require(cardConfigFile1);
+    let j_number = 10;
+    let trend1 = "Down";
+    let state1 = "Error";
+    let details1 = "2019-2020";
+    head1 = {};
+    head1 = { ...anacardConfig["Structure"]["sap.card"].header };
+    json1 = {
+      ...anacardConfig["Structure"]["sap.card"].content.data.json,
+    };
+    for (let q = 0; q < appData1.length; q++) {
+      for (const k1 in mycard["itemvalueMap"]) {
+        const ek1 = mycard["itemvalueMap"][k1];
+        if (appData1[q][ek1] != undefined) {
+          list1x[k1] = appData1[q][ek1];
+        } else {
+          list1x[k1] = 0;
+        }
+      }
+      for (const k1 in mycard["itemkeyMap"]) {
+        const ek1 = mycard["itemkeyMap"][k1];
+        if (appData1[q][ek1] != undefined) {
+          list1x[k1] = appData1[q][ek1];
+        } else {
+          list1x[k1] = "NA";
+        }
+      }
+      list1.push({ ...list1x });
+    }
+    json1["list"] = list1;
+    anacardConfig["Structure"]["sap.card"].content.data.json.list = list1;
+    //  list1 = [];
+    head1["title"] = appconfig1["title"];
+    head1["subTitle"] = appconfig1["subTitle"];
+    head1["unitOfMeasurement"] = appconfig1["unitOfMeasurement"];
+    js1 = {};
+    js1 = { ...anacardConfig["Structure"]["sap.card"].header.data.json };
+    js1["number"] = j_number;
+    js1["trend"] = trend1;
+    js1["state"] = state1;
+    js1["details"] = details1;
+    head1["data"]["json"] = { ...js1 };
+    js1 = {};
+    anacardConfig["Structure"]["sap.card"].header = { ...head1 };
+    list1 = [];
+    json1 = {};
+    head1 = {};
+    stru1 = anacardConfig["Structure"];
+    t_type = "Analytical";
+
+    let st1 = t_type + "_" + ID + "_" + key + mycard["cardID"];
+    outStru[st1] = { ...stru1 };
+    stru1 = {};
+    return outStru;
+  },
+  stackedcolumnCard: async function (
+    mycard,
+    appData1,
+    outStru,
+    appconfig1,
+    ID,
+    key
+  ) {
+    let j_number = 10;
+    let trend1 = "Down";
+    let state1 = "Error";
+    let details1 = "2019-2020";
+    let cardConfigFile1 = "../cards/cardConfig/" + mycard["template"];
+    var anacardConfig = require(cardConfigFile1);
+    head1 = {};
+    head1 = { ...anacardConfig["Structure"]["sap.card"].header };
+    json1 = {
+      ...anacardConfig["Structure"]["sap.card"].content.data.json,
+    };
+    head1["title"] = appconfig1["title"];
+    js1 = {};
+    js1 = { ...anacardConfig["Structure"]["sap.card"].header.data.json };
+    js1["number"] = j_number;
+    js1["trend"] = trend1;
+    js1["state"] = state1;
+    js1["unit"] = appconfig1["unitOfMeasurement"];
+    anacardConfig["Structure"]["sap.card"].content.data.json.list = list1;
+    head1["data"]["json"] = { ...js1 };
+    js1 = {};
+    anacardConfig["Structure"]["sap.card"].header = { ...head1 };
+    list1 = [];
+    json1 = {};
+    head1 = {};
+    stru1 = anacardConfig["Structure"];
+    t_type = "Analytical";
+
+    let st1 = t_type + "_" + ID + "_" + key + mycard["cardID"];
+    outStru[st1] = { ...stru1 };
+    stru1 = {};
+
+    return outStru;
+  },
   generatePdfCertificate: async function (getData) {
     console.log("CertData2:", getData);
     var message =

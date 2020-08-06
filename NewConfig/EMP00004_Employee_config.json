@@ -172,15 +172,13 @@
       "type": "Analytical",
       "analyticsCard": {
         "chartType": "donut",
-        "cardsDonut": [
-          {
-            "cardID": "DH01",
-            "measureNames": ["NetValue", "VATVal"],
-            "values": ["NetValue", "VATVal"],
-            "function": "VALUE",
-            "subtitle": "Total Value"
-          }
-        ],
+        "cardsDonut": {
+          "cardID": "DH01",
+          "measureNames": ["NetValue", "VATVal"],
+          "values": ["NetValue", "VATVal"],
+          "function": "VALUE",
+          "subtitle": "Total Value"
+        },
         "template": "analyticalCard_donut_template.json"
       }
     }
@@ -587,15 +585,13 @@
           "type": "Analytical",
           "analyticsCard": {
             "chartType": "donut",
-            "cardsDonut": [
-              {
-                "cardID": "D01",
-                "measureName": "ItemName",
-                "value": "ItemQuantity",
-                "function": "SUM",
-                "subtitle": "Qty"
-              }
-            ],
+            "cardsDonut": {
+              "cardID": "D01",
+              "measureName": "ItemName",
+              "value": "ItemQuantity",
+              "function": "SUM",
+              "subtitle": "Qty"
+            },
             "template": "analyticalCard_donut_template.json"
           }
         }

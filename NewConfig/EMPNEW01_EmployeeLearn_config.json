@@ -272,15 +272,13 @@
           "type": "Analytical",
           "analyticsCard": {
             "chartType": "donut",
-            "cardsDonut": [
-              {
-                "cardID": "D01",
-                "measureName": "Area",
-                "value": "Area",
-                "function": "COUNT",
-                "subtitle": "ProjectCode"
-              }
-            ],
+            "cardsDonut": {
+              "cardID": "D01",
+              "measureName": "Area",
+              "value": "Area",
+              "function": "COUNT",
+              "subtitle": "ProjectCode"
+            },
             "template": "analyticalCard_donut_template.json"
           }
         }
@@ -480,15 +478,13 @@
           "type": "Analytical",
           "analyticsCard": {
             "chartType": "donut",
-            "cardsDonut": [
-              {
-                "cardID": "D01",
-                "measureName": "Employer",
-                "value": "ExpYears",
-                "function": "SUM",
-                "subtitle": "Previous Employer"
-              }
-            ],
+            "cardsDonut": {
+              "cardID": "D01",
+              "measureName": "Employer",
+              "value": "ExpYears",
+              "function": "SUM",
+              "subtitle": "Previous Employer"
+            },
             "template": "analyticalCard_donut_template.json"
           }
         }
@@ -772,6 +768,7 @@
           "type": "Analytical",
           "analyticsCard": {
             "chartType": "line",
+            "cardID": "L01",
             "itemvalueMap": {
               "Score": "Answer",
               "Target": "Deductions"

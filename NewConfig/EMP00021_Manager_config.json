@@ -493,6 +493,7 @@
           "type": "Analytical",
           "analyticsCard": {
             "chartType": "line",
+            "cardID": "L01",
             "itemvalueMap": {
               "Score": "TotalRegWorkHours",
               "Target": "OvertimeHours"
@@ -516,15 +517,13 @@
           "type": "Analytical",
           "analyticsCard": {
             "chartType": "donut",
-            "cardsDonut": [
-              {
-                "cardID": "D01",
-                "measureName": "ProjectCode",
-                "value": "TotalRegWorkHours",
-                "function": "SUM",
-                "subtitle": "ProjectCode"
-              }
-            ],
+            "cardsDonut": {
+              "cardID": "D01",
+              "measureName": "ProjectCode",
+              "value": "TotalRegWorkHours",
+              "function": "SUM",
+              "subtitle": "ProjectCode"
+            },
             "template": "analyticalCard_donut_template.json"
           }
         }

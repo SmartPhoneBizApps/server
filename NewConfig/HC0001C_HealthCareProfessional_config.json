@@ -356,15 +356,13 @@
           "type": "Analytical",
           "analyticsCard": {
             "chartType": "donut",
-            "cardsDonut": [
-              {
-                "cardID": "D01",
-                "measureName": "StudyType",
-                "value": "StudyType",
-                "function": "COUNT",
-                "subtitle": "Study Type"
-              }
-            ],
+            "cardsDonut": {
+              "cardID": "D01",
+              "measureName": "StudyType",
+              "value": "StudyType",
+              "function": "COUNT",
+              "subtitle": "Study Type"
+            },
             "template": "analyticalCard_donut_template.json"
           }
         },
@@ -372,15 +370,13 @@
           "type": "Analytical",
           "analyticsCard": {
             "chartType": "donut",
-            "cardsDonut": [
-              {
-                "cardID": "D01",
-                "measureName": "Phase",
-                "value": "Phase",
-                "function": "COUNT",
-                "subtitle": "Phase"
-              }
-            ],
+            "cardsDonut": {
+              "cardID": "D01",
+              "measureName": "Phase",
+              "value": "Phase",
+              "function": "COUNT",
+              "subtitle": "Phase"
+            },
             "template": "analyticalCard_donut_template.json"
           }
         }
@@ -513,15 +509,13 @@
           "type": "Analytical",
           "analyticsCard": {
             "chartType": "donut",
-            "cardsDonut": [
-              {
-                "cardID": "D01",
-                "measureName": "EventType",
-                "value": "EventType",
-                "function": "COUNT",
-                "subtitle": "Event Type"
-              }
-            ],
+            "cardsDonut": {
+              "cardID": "D01",
+              "measureName": "EventType",
+              "value": "EventType",
+              "function": "COUNT",
+              "subtitle": "Event Type"
+            },
             "template": "analyticalCard_donut_template.json"
           }
         },
@@ -529,15 +523,13 @@
           "type": "Analytical",
           "analyticsCard": {
             "chartType": "donut",
-            "cardsDonut": [
-              {
-                "cardID": "D01",
-                "measureName": "EventName",
-                "value": "EventName",
-                "function": "COUNT",
-                "subtitle": "Event Name"
-              }
-            ],
+            "cardsDonut": {
+              "cardID": "D01",
+              "measureName": "EventName",
+              "value": "EventName",
+              "function": "COUNT",
+              "subtitle": "Event Name"
+            },
             "template": "analyticalCard_donut_template.json"
           }
         }
@@ -696,15 +688,13 @@
           "type": "Analytical",
           "analyticsCard": {
             "chartType": "donut",
-            "cardsDonut": [
-              {
-                "cardID": "D01",
-                "measureName": "ContractType",
-                "value": "ContractType",
-                "function": "COUNT",
-                "subtitle": "Contract Type"
-              }
-            ],
+            "cardsDonut": {
+              "cardID": "D01",
+              "measureName": "ContractType",
+              "value": "ContractType",
+              "function": "COUNT",
+              "subtitle": "Contract Type"
+            },
             "template": "analyticalCard_donut_template.json"
           }
         },
@@ -712,6 +702,7 @@
           "type": "Analytical",
           "analyticsCard": {
             "chartType": "line",
+            "cardID": "L01",
             "itemvalueMap": {
               "Score": "BalanceValue",
               "Target": "ContractValue"
