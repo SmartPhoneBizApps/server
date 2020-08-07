@@ -295,6 +295,7 @@
         }
       ],
       "DisplayFields": [
+        "ItemStatus",
         "Area",
         "Skill",
         "SkillLevel",
@@ -327,6 +328,7 @@
         "itemDelete": true
       },
       "CreateFields": [
+        "ItemStatus",
         "Area",
         "Skill",
         "SkillLevel",
@@ -416,7 +418,13 @@
           "Option": "Optional"
         }
       ],
-      "DisplayFields": ["Qualification", "Subject", "YearCompleted", "College"],
+      "DisplayFields": [
+        "ItemStatus",
+        "Qualification",
+        "Subject",
+        "YearCompleted",
+        "College"
+      ],
       "cards": [
         {
           "type": "Table",
@@ -432,6 +440,7 @@
         "itemDelete": true
       },
       "CreateFields": [
+        "ItemStatus",
         "Qualification",
         "Subject",
         "YearCompleted",
@@ -522,7 +531,14 @@
           "Option": "Optional"
         }
       ],
-      "DisplayFields": ["From", "To", "ExpYears", "Employer", "Role"],
+      "DisplayFields": [
+        "ItemStatus",
+        "From",
+        "To",
+        "ExpYears",
+        "Employer",
+        "Role"
+      ],
       "cards": [
         { "type": "Table", "tableCardFields": ["From", "To", "Employer"] },
         {
@@ -549,6 +565,7 @@
         "itemDelete": true
       },
       "CreateFields": [
+        "ItemStatus",
         "From",
         "To",
         "ExpYears",
@@ -638,6 +655,7 @@
         }
       ],
       "DisplayFields": [
+        "ItemStatus",
         "ContactName1",
         "ContactPhone1",
         "Relation1",
@@ -658,6 +676,7 @@
         "itemDelete": true
       },
       "CreateFields": [
+        "ItemStatus",
         "ContactName1",
         "ContactPhone1",
         "Relation1",
@@ -734,7 +753,7 @@
           "Option": "Optional"
         }
       ],
-      "DisplayFields": ["CourseName", "DateCertified", "LinkC"],
+      "DisplayFields": ["ItemStatus", "CourseName", "DateCertified", "LinkC"],
       "cards": [
         {
           "type": "Table",
@@ -749,7 +768,13 @@
         "itemEdit": true,
         "itemDelete": true
       },
-      "CreateFields": ["CourseName", "DateCertified", "LinkC", "CommentsC"],
+      "CreateFields": [
+        "ItemStatus",
+        "CourseName",
+        "DateCertified",
+        "LinkC",
+        "CommentsC"
+      ],
       "ItemDetails": [
         {
           "name": "CourseName",
@@ -831,7 +856,13 @@
           "Option": "Optional"
         }
       ],
-      "DisplayFields": ["Question", "Answer", "Deductions", "AddComments"],
+      "DisplayFields": [
+        "ItemStatus",
+        "Question",
+        "Answer",
+        "Deductions",
+        "AddComments"
+      ],
       "cards": [
         {
           "type": "Table",
@@ -870,7 +901,13 @@
         "itemEdit": true,
         "itemDelete": true
       },
-      "CreateFields": ["Question", "Answer", "Deductions", "AddComments"],
+      "CreateFields": [
+        "ItemStatus",
+        "Question",
+        "Answer",
+        "Deductions",
+        "AddComments"
+      ],
       "ItemDetails": [
         {
           "name": "Question",
@@ -987,6 +1024,7 @@
         }
       ],
       "DisplayFields": [
+        "ItemStatus",
         "InsurancePlan",
         "MedicalCoverage",
         "DentalCoverage",
@@ -1014,6 +1052,7 @@
         "itemDelete": true
       },
       "CreateFields": [
+        "ItemStatus",
         "InsurancePlan",
         "MedicalCoverage",
         "DentalCoverage",

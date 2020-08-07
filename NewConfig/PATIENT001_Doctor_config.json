@@ -1720,7 +1720,7 @@
           "Option": "Optional"
         }
       ],
-      "DisplayFields": ["PatientStatus", "StatusDate"],
+      "DisplayFields": ["ItemStatus", "PatientStatus", "StatusDate"],
       "cards": [
         { "type": "Table", "tableCardFields": ["PatientStatus", "StatusDate"] },
         {
@@ -1746,7 +1746,7 @@
         "itemEdit": false,
         "itemDelete": false
       },
-      "CreateFields": ["PatientStatus", "StatusDate"],
+      "CreateFields": ["ItemStatus", "PatientStatus", "StatusDate"],
       "ItemDetails": [
         {
           "name": "ItemNumber",
@@ -1814,7 +1814,13 @@
           "Option": "Optional"
         }
       ],
-      "DisplayFields": ["EventID", "Task", "ExpectedDate", "TPStatus"],
+      "DisplayFields": [
+        "ItemStatus",
+        "EventID",
+        "Task",
+        "ExpectedDate",
+        "TPStatus"
+      ],
       "cards": [
         {
           "type": "Table",
@@ -1843,7 +1849,13 @@
         "itemEdit": true,
         "itemDelete": true
       },
-      "CreateFields": ["EventID", "Task", "ExpectedDate", "TPStatus"],
+      "CreateFields": [
+        "ItemStatus",
+        "EventID",
+        "Task",
+        "ExpectedDate",
+        "TPStatus"
+      ],
       "ItemDetails": [
         {
           "name": "ItemNumber",
@@ -1923,6 +1935,7 @@
         }
       ],
       "DisplayFields": [
+        "ItemStatus",
         "VisitDate",
         "VisitReason",
         "ExaminationNotes",
@@ -1943,6 +1956,7 @@
         "itemDelete": true
       },
       "CreateFields": [
+        "ItemStatus",
         "VisitDate",
         "VisitReason",
         "ExaminationNotes",
@@ -2042,7 +2056,7 @@
           "Option": "Optional"
         }
       ],
-      "DisplayFields": ["Date", "Notes", "Action", "ACreatedBy"],
+      "DisplayFields": ["ItemStatus", "Date", "Notes", "Action", "ACreatedBy"],
       "cards": [
         { "type": "Table", "tableCardFields": ["Date", "Notes", "Action"] }
       ],
@@ -2054,7 +2068,7 @@
         "itemEdit": true,
         "itemDelete": true
       },
-      "CreateFields": ["Date", "Notes", "Action", "ACreatedBy"],
+      "CreateFields": ["ItemStatus", "Date", "Notes", "Action", "ACreatedBy"],
       "ItemDetails": [
         {
           "name": "ItemNumber",
@@ -2152,7 +2166,14 @@
           "Option": "Optional"
         }
       ],
-      "DisplayFields": ["Date", "Slot", "Doctor", "AppStatus", "Notes"],
+      "DisplayFields": [
+        "ItemStatus",
+        "Date",
+        "Slot",
+        "Doctor",
+        "AppStatus",
+        "Notes"
+      ],
       "cards": [
         {
           "type": "Table",
@@ -2181,7 +2202,7 @@
         "itemEdit": true,
         "itemDelete": true
       },
-      "CreateFields": ["Date", "Notes", "Slot", "Doctor"],
+      "CreateFields": ["ItemStatus", "Date", "Notes", "Slot", "Doctor"],
       "ItemDetails": [
         {
           "name": "ItemNumber",

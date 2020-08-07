@@ -316,7 +316,13 @@
           "Option": "Optional"
         }
       ],
-      "DisplayFields": ["Question", "Answer", "CorrectAnswer", "Score"],
+      "DisplayFields": [
+        "ItemStatus",
+        "Question",
+        "Answer",
+        "CorrectAnswer",
+        "Score"
+      ],
       "cards": [
         { "type": "Table", "tableCardFields": ["Question", "Answer"] },
         {
@@ -336,7 +342,13 @@
         "itemEdit": false,
         "itemDelete": false
       },
-      "CreateFields": ["Question", "Answer", "CorrectAnswer", "Score"],
+      "CreateFields": [
+        "ItemStatus",
+        "Question",
+        "Answer",
+        "CorrectAnswer",
+        "Score"
+      ],
       "ItemDetails": [
         {
           "name": "ItemNumber",

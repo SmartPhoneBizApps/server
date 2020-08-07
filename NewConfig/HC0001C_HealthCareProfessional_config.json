@@ -353,7 +353,13 @@
           "Option": "Optional"
         }
       ],
-      "DisplayFields": ["StudyID", "StudyType", "StudyName", "Phase"],
+      "DisplayFields": [
+        "ItemStatus",
+        "StudyID",
+        "StudyType",
+        "StudyName",
+        "Phase"
+      ],
       "cards": [
         {
           "type": "Table",
@@ -397,6 +403,7 @@
         "itemDelete": false
       },
       "CreateFields": [
+        "ItemStatus",
         "StudyID",
         "StudyType",
         "StudyName",
@@ -509,6 +516,7 @@
         }
       ],
       "DisplayFields": [
+        "ItemStatus",
         "EventID",
         "EventType",
         "EventName",
@@ -558,6 +566,7 @@
         "itemDelete": false
       },
       "CreateFields": [
+        "ItemStatus",
         "EventID",
         "EventType",
         "EventName",
@@ -690,6 +699,7 @@
         }
       ],
       "DisplayFields": [
+        "ItemStatus",
         "ContractID",
         "ContractType",
         "ContractName",
@@ -755,6 +765,7 @@
         "itemDelete": false
       },
       "CreateFields": [
+        "ItemStatus",
         "ContractID",
         "ContractType",
         "ContractName",

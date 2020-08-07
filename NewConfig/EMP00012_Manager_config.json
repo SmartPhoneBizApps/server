@@ -295,7 +295,7 @@
           "Update": "No"
         }
       ],
-      "DisplayFields": ["MQuestion", "MAnswer"],
+      "DisplayFields": ["ItemStatus", "MQuestion", "MAnswer"],
       "cards": [
         { "type": "Table", "tableCardFields": ["MQuestion", "MAnswer"] }
       ],
@@ -307,7 +307,13 @@
         "itemEdit": false,
         "itemDelete": false
       },
-      "CreateFields": ["MQuestion", "MAnswer", "MCorrectAnswer", "MScore"],
+      "CreateFields": [
+        "ItemStatus",
+        "MQuestion",
+        "MAnswer",
+        "MCorrectAnswer",
+        "MScore"
+      ],
       "ItemDetails": [
         {
           "name": "MQuestion"
@@ -408,6 +414,7 @@
         }
       ],
       "DisplayFields": [
+        "ItemStatus",
         "ProjectName",
         "ProjectRole",
         "StartDate",
@@ -435,6 +442,7 @@
         "itemDelete": true
       },
       "CreateFields": [
+        "ItemStatus",
         "ProjectName",
         "ProjectRole",
         "StartDate",
@@ -592,6 +600,7 @@
         }
       ],
       "DisplayFields": [
+        "ItemStatus",
         "GoalsArea",
         "Goal2",
         "Score2",
@@ -638,6 +647,7 @@
         "itemDelete": true
       },
       "CreateFields": [
+        "ItemStatus",
         "GoalsArea",
         "Goal2",
         "Score2",
@@ -774,6 +784,7 @@
         }
       ],
       "DisplayFields": [
+        "ItemStatus",
         "AppraisalArea",
         "PerformanceRating",
         "Score3",
@@ -807,6 +818,7 @@
         "itemDelete": true
       },
       "CreateFields": [
+        "ItemStatus",
         "AppraisalArea",
         "PerformanceRating",
         "Score3",
@@ -925,7 +937,13 @@
           "Option": "Optional"
         }
       ],
-      "DisplayFields": ["SubGroup1", "Title1", "ReferenceID1", "TargetDate1"],
+      "DisplayFields": [
+        "ItemStatus",
+        "SubGroup1",
+        "Title1",
+        "ReferenceID1",
+        "TargetDate1"
+      ],
       "cards": [
         {
           "type": "Table",
@@ -940,7 +958,13 @@
         "itemEdit": true,
         "itemDelete": false
       },
-      "CreateFields": ["SubGroup1", "Title1", "ReferenceID1", "TargetDate1"],
+      "CreateFields": [
+        "ItemStatus",
+        "SubGroup1",
+        "Title1",
+        "ReferenceID1",
+        "TargetDate1"
+      ],
       "ItemDetails": [
         {
           "name": "Group1",

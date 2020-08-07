@@ -322,6 +322,7 @@
         }
       ],
       "DisplayFields": [
+        "ItemStatus",
         "GoalsArea",
         "Goal2",
         "Score2",
@@ -371,6 +372,7 @@
         "itemDelete": false
       },
       "CreateFields": [
+        "ItemStatus",
         "GoalsArea",
         "Goal2",
         "Score2",
@@ -517,6 +519,7 @@
         }
       ],
       "DisplayFields": [
+        "ItemStatus",
         "AppraisalArea",
         "PerformanceRating",
         "Score3",
@@ -572,6 +575,7 @@
         "itemDelete": false
       },
       "CreateFields": [
+        "ItemStatus",
         "AppraisalArea",
         "PerformanceRating",
         "Score3",
@@ -688,7 +692,13 @@
           "Option": "Optional"
         }
       ],
-      "DisplayFields": ["SubGroup1", "Title1", "ReferenceID1", "TargetDate1"],
+      "DisplayFields": [
+        "ItemStatus",
+        "SubGroup1",
+        "Title1",
+        "ReferenceID1",
+        "TargetDate1"
+      ],
       "cards": [
         {
           "type": "Table",
@@ -710,7 +720,13 @@
         "itemEdit": true,
         "itemDelete": false
       },
-      "CreateFields": ["SubGroup1", "Title1", "ReferenceID1", "TargetDate1"],
+      "CreateFields": [
+        "ItemStatus",
+        "SubGroup1",
+        "Title1",
+        "ReferenceID1",
+        "TargetDate1"
+      ],
       "ItemDetails": [
         {
           "name": "Group1",
@@ -798,7 +814,7 @@
           "Option": "Optional"
         }
       ],
-      "DisplayFields": ["Question", "Answer"],
+      "DisplayFields": ["ItemStatus", "Question", "Answer"],
       "cards": [{ "type": "Table", "tableCardFields": ["Question", "Answer"] }],
 
       "ItemButtons": {
@@ -808,7 +824,13 @@
         "itemEdit": false,
         "itemDelete": false
       },
-      "CreateFields": ["Question", "Answer", "CorrectAnswer", "Score"],
+      "CreateFields": [
+        "ItemStatus",
+        "Question",
+        "Answer",
+        "CorrectAnswer",
+        "Score"
+      ],
       "ItemDetails": [
         {
           "name": "ItemNumber"
@@ -869,7 +891,7 @@
           "Option": "Optional"
         }
       ],
-      "DisplayFields": ["MQuestion", "MAnswer"],
+      "DisplayFields": ["ItemStatus", "MQuestion", "MAnswer"],
       "cards": [
         { "type": "Table", "tableCardFields": ["MQuestion", "MAnswer"] }
       ],
@@ -881,7 +903,13 @@
         "itemEdit": false,
         "itemDelete": false
       },
-      "CreateFields": ["MQuestion", "MAnswer", "MCorrectAnswer", "MScore"],
+      "CreateFields": [
+        "ItemStatus",
+        "MQuestion",
+        "MAnswer",
+        "MCorrectAnswer",
+        "MScore"
+      ],
       "ItemDetails": [
         { "name": "ItemNumber" },
         { "name": "MQuestion" },
@@ -980,6 +1008,7 @@
         }
       ],
       "DisplayFields": [
+        "ItemStatus",
         "ProjectName",
         "ProjectRole",
         "StartDate",
@@ -1007,6 +1036,7 @@
         "itemDelete": false
       },
       "CreateFields": [
+        "ItemStatus",
         "ProjectName",
         "ProjectRole",
         "StartDate",

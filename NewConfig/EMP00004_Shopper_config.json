@@ -568,6 +568,7 @@
         }
       ],
       "DisplayFields": [
+        "ItemStatus",
         "ItemNumber",
         "ItemName",
         "ItemValue",
@@ -608,7 +609,13 @@
         "itemEdit": true,
         "itemDelete": true
       },
-      "CreateFields": ["ItemName", "ItemPrice", "ItemQuantity", "ItemTaxRate"],
+      "CreateFields": [
+        "ItemStatus",
+        "ItemName",
+        "ItemPrice",
+        "ItemQuantity",
+        "ItemTaxRate"
+      ],
       "ItemDetails": [
         {
           "name": "ItemNumber",
