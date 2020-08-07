@@ -142,18 +142,7 @@
     "headerRole": ["USP_Role"],
     "headerImage": ["USP_Image"],
     "headerColorFields": ["Status"],
-    "None": [
-      "ID",
-      "Name",
-      "EmployeeID",
-      "TotalOvertimeHours",
-      "OvertimeNetAmount",
-      "TotalRegHours",
-      "RegularNetAmount",
-      "NetAmount",
-      "VATAmount",
-      "GrossAmount"
-    ],
+    "None": ["ID", "Name", "EmployeeID"],
     "Tab1": [
       {
         "GrpTitle": "Dates",
@@ -378,6 +367,24 @@
       "calculation": "Yes",
       "title": "Daily time booking",
       "subtitle": "Timesheets",
+      "tableFormFields": [
+        {
+          "GrpTitle": "Regular Hours",
+          "Fields": ["TotalRegHours", "RegularNetAmount"]
+        },
+        {
+          "GrpTitle": "OverTime Hours",
+          "Fields": ["TotalOvertimeHours", "OvertimeNetAmount"]
+        },
+        {
+          "GrpTitle": "Totals",
+          "Fields": ["NetAmount", "VATAmount", "GrossAmount"]
+        },
+        {
+          "GrpTitle": "Rates",
+          "Fields": ["HourlyRate", "OvertimeRate", "VATRate"]
+        }
+      ],
       "ItemFieldDefinition": [
         {
           "name": "ItemNumber",

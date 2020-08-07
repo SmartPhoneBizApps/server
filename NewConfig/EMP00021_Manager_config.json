@@ -176,18 +176,6 @@
     "None": ["ID", "Name", "EmployeeID", "StartDate", "EndDate"],
     "Tab1": [
       {
-        "GrpTitle": "Regular Hours",
-        "Fields": ["TotalRegHours", "RegularNetAmount"]
-      },
-      {
-        "GrpTitle": "OverTime Hours",
-        "Fields": ["TotalOvertimeHours", "OvertimeNetAmount"]
-      },
-      {
-        "GrpTitle": "Totals",
-        "Fields": ["NetAmount", "VATAmount", "GrossAmount"]
-      },
-      {
         "GrpTitle": "Rates",
         "Fields": ["HourlyRate", "OvertimeRate", "VATRate"]
       }
@@ -406,6 +394,24 @@
       "calculation": "Yes",
       "title": "Daily time booking",
       "subtitle": "Timesheets",
+      "tableFormFields": [
+        {
+          "GrpTitle": "Regular Hours",
+          "Fields": ["TotalRegHours", "RegularNetAmount"]
+        },
+        {
+          "GrpTitle": "OverTime Hours",
+          "Fields": ["TotalOvertimeHours", "OvertimeNetAmount"]
+        },
+        {
+          "GrpTitle": "Totals",
+          "Fields": ["NetAmount", "VATAmount", "GrossAmount"]
+        },
+        {
+          "GrpTitle": "Rates",
+          "Fields": ["HourlyRate", "OvertimeRate", "VATRate"]
+        }
+      ],
       "ItemFieldDefinition": [
         {
           "name": "ItemNumber",
