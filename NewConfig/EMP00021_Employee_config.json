@@ -30,7 +30,7 @@
     "SubTitle": ["StartDate", "EndDate"],
     "Description": ["TotalRegHours", "TotalOvertimeHours"]
   },
-  "PossibleValues": ["Status", "ProjectCode"],
+  "PossibleValues": ["Status", "ProjectCode", "ItemStatus1"],
   "MButtons": [
     {
       "type": "DOWNLOAD",
@@ -465,10 +465,17 @@
           "SLabel": "Comment",
           "Option": "Optional",
           "Currency": "No"
+        },
+        {
+          "name": "ItemStatus1",
+          "type": "string",
+          "width": "50",
+          "SLabel": "Item Status",
+          "Update": "No"
         }
       ],
       "DisplayFields": [
-        "ItemStatus",
+        "ItemStatus1",
         "ItemNumber",
         "ProjectCode",
         "Date",
@@ -534,7 +541,7 @@
         "itemDelete": true
       },
       "CreateFields": [
-        "ItemStatus",
+        "ItemStatus1",
         "ProjectCode",
         "Date",
         "TotalRegWorkHours",
@@ -543,25 +550,13 @@
         "TotalHours"
       ],
       "ItemDetails": [
-        {
-          "name": "ItemNumber",
-          "Tab": "Tab4",
-          "Mode": "Display"
-        },
-        { "name": "ProjectCode", "Tab": "Tab4", "Mode": "Edit" },
-        { "name": "Date", "Tab": "Tab4", "Mode": "Edit" },
-        {
-          "name": "TotalRegWorkHours",
-          "Tab": "Tab4",
-          "Mode": "Edit"
-        },
-        {
-          "name": "OvertimeHours",
-          "Tab": "Tab4",
-          "Mode": "Edit"
-        },
-        { "name": "Comment", "Tab": "Tab4", "Mode": "Edit" },
-        { "name": "TotalHours", "Tab": "Tab4", "Mode": "Display" }
+        { "name": "ProjectCode" },
+        { "name": "Date" },
+        { "name": "TotalRegWorkHours" },
+        { "name": "OvertimeHours" },
+        { "name": "Comment" },
+        { "name": "TotalHours" },
+        { "name": "ItemStatus1" }
       ]
     }
   },

@@ -69,7 +69,13 @@
     "GoalsArea",
     "PerformanceRating",
     "GoalStatus",
-    "ProjFeedback"
+    "ProjFeedback",
+    "ItemStatus1",
+    "ItemStatus2",
+    "ItemStatus3",
+    "ItemStatus4",
+    "ItemStatus5",
+    "ItemStatus6"
   ],
   "MButtons": [
     {
@@ -243,270 +249,6 @@
     "Tab8": ["ProjectFeedback"]
   },
   "tableConfig": {
-    "ManagerFB": {
-      "title": "Manager Feedback",
-      "subtitle": "Feedback result",
-      "unitOfMeasurement": "SCORE",
-      "ItemFieldDefinition": [
-        {
-          "name": "ItemNumber",
-          "type": "string",
-          "width": "10",
-          "SLabel": "Item Number",
-          "Update": "No"
-        },
-        {
-          "name": "ItemStatus",
-          "type": "string",
-          "width": "50",
-          "SLabel": "Item Status",
-          "Update": "No"
-        },
-        {
-          "name": "MQuestion",
-          "type": "string",
-          "width": "10",
-          "SLabel": "Question",
-          "Option": "Optional",
-          "Update": "No"
-        },
-        {
-          "name": "MAnswer",
-          "type": "string",
-          "width": "20",
-          "SLabel": "Answer",
-          "Option": "Optional",
-          "Update": "Yes"
-        },
-        {
-          "name": "MCorrectAnswer",
-          "type": "string",
-          "width": "20",
-          "SLabel": "Correct Ans",
-          "Option": "Optional",
-          "Update": "No"
-        },
-        {
-          "name": "MScore",
-          "type": "Num,0",
-          "width": "20",
-          "SLabel": "Score",
-          "Option": "Optional",
-          "Update": "No"
-        }
-      ],
-      "DisplayFields": ["ItemStatus", "MQuestion", "MAnswer"],
-      "cards": [
-        { "type": "Table", "tableCardFields": ["MQuestion", "MAnswer"] }
-      ],
-
-      "ItemButtons": {
-        "itemDisplay": true,
-        "itemCheck": false,
-        "itemAdd": false,
-        "itemEdit": false,
-        "itemDelete": false
-      },
-      "CreateFields": [
-        "ItemStatus",
-        "MQuestion",
-        "MAnswer",
-        "MCorrectAnswer",
-        "MScore"
-      ],
-      "ItemDetails": [
-        {
-          "name": "MQuestion"
-        },
-        {
-          "name": "MAnswer"
-        }
-      ]
-    },
-    "ProjectFeedback": {
-      "title": "Project Feedback",
-      "subtitle": "Feedback result",
-      "unitOfMeasurement": "SCORE",
-      "ItemFieldDefinition": [
-        {
-          "name": "ItemNumber",
-          "type": "string",
-          "width": "10",
-          "SLabel": "Item Number",
-          "Update": "No"
-        },
-        {
-          "name": "ItemStatus",
-          "type": "string",
-          "width": "50",
-          "SLabel": "Item Status",
-          "Update": "No"
-        },
-        {
-          "name": "ProjectName",
-          "type": "string",
-          "width": "200",
-          "SLabel": "Project Name",
-          "Option": "Optional"
-        },
-        {
-          "name": "ProjectRole",
-          "type": "string",
-          "width": "200",
-          "SLabel": "Project Role",
-          "Option": "Optional"
-        },
-        {
-          "name": "StartDate",
-          "type": "Date",
-          "width": "10",
-          "SLabel": "Start Date",
-          "Option": "Optional"
-        },
-        {
-          "name": "EndDate",
-          "type": "Date",
-          "width": "10",
-          "SLabel": "End Date",
-          "Option": "Optional"
-        },
-        {
-          "name": "Duration",
-          "type": "string",
-          "width": "50",
-          "SLabel": "Duration",
-          "Option": "Optional"
-        },
-        {
-          "name": "ProjectManager",
-          "type": "string",
-          "width": "200",
-          "SLabel": "EmailID of Project Manager",
-          "Option": "Optional"
-        },
-        {
-          "name": "KeyAchivements",
-          "type": "string",
-          "width": "1000",
-          "SLabel": "Key Achivements",
-          "Option": "Optional"
-        },
-        {
-          "name": "Strengths",
-          "type": "string",
-          "width": "1000",
-          "SLabel": "Strengths",
-          "Option": "Optional"
-        },
-        {
-          "name": "AreaofImprovement",
-          "type": "string",
-          "width": "1000",
-          "SLabel": "Area of Improvement",
-          "Option": "Optional"
-        },
-        {
-          "name": "ProjFeedback",
-          "type": "string",
-          "width": "10",
-          "SLabel": "Project Feedback Required?",
-          "Option": "Optional"
-        }
-      ],
-      "DisplayFields": [
-        "ItemStatus",
-        "ProjectName",
-        "ProjectRole",
-        "StartDate",
-        "EndDate",
-        "Duration",
-        "ProjectManager"
-      ],
-      "cards": [
-        {
-          "type": "Table",
-          "tableCardFields": [
-            "ProjectName",
-            "StartDate",
-            "EndDate",
-            "ProjectManager"
-          ]
-        }
-      ],
-
-      "ItemButtons": {
-        "itemDisplay": true,
-        "itemCheck": false,
-        "itemAdd": true,
-        "itemEdit": true,
-        "itemDelete": true
-      },
-      "CreateFields": [
-        "ItemStatus",
-        "ProjectName",
-        "ProjectRole",
-        "StartDate",
-        "EndDate",
-        "Duration",
-        "ProjectManager",
-        "KeyAchivements",
-        "Strengths",
-        "AreaofImprovement",
-        "ProjFeedback"
-      ],
-      "ItemDetails": [
-        {
-          "name": "ProjectName",
-          "Tab": "Tab4",
-          "Mode": "Edit"
-        },
-        {
-          "name": "ProjectRole",
-          "Tab": "Tab4",
-          "Mode": "Edit"
-        },
-        {
-          "name": "StartDate",
-          "Tab": "Tab4",
-          "Mode": "Edit"
-        },
-        {
-          "name": "EndDate",
-          "Tab": "Tab4",
-          "Mode": "Edit"
-        },
-        {
-          "name": "Duration",
-          "Tab": "Tab4",
-          "Mode": "Edit"
-        },
-        {
-          "name": "ProjectManager",
-          "Tab": "Tab4",
-          "Mode": "Edit"
-        },
-        {
-          "name": "KeyAchivements",
-          "Tab": "Tab4",
-          "Mode": "Edit"
-        },
-        {
-          "name": "Strengths",
-          "Tab": "Tab4",
-          "Mode": "Edit"
-        },
-        {
-          "name": "AreaofImprovement",
-          "Tab": "Tab4",
-          "Mode": "Edit"
-        },
-        {
-          "name": "ProjFeedback",
-          "Tab": "Tab4",
-          "Mode": "Edit"
-        }
-      ]
-    },
     "Goals": {
       "title": "My Goals",
       "subtitle": "Score",
@@ -520,7 +262,7 @@
           "Update": "No"
         },
         {
-          "name": "ItemStatus",
+          "name": "ItemStatus1",
           "type": "string",
           "width": "50",
           "SLabel": "Item Status",
@@ -600,7 +342,7 @@
         }
       ],
       "DisplayFields": [
-        "ItemStatus",
+        "ItemStatus1",
         "GoalsArea",
         "Goal2",
         "Score2",
@@ -647,7 +389,7 @@
         "itemDelete": true
       },
       "CreateFields": [
-        "ItemStatus",
+        "ItemStatus1",
         "GoalsArea",
         "Goal2",
         "Score2",
@@ -656,46 +398,16 @@
         "TargetDate2"
       ],
       "ItemDetails": [
-        {
-          "name": "GoalsArea",
-          "Tab": "Tab4",
-          "Mode": "Edit"
-        },
-        {
-          "name": "Goal2",
-          "Tab": "Tab4",
-          "Mode": "Edit"
-        },
-        {
-          "name": "GoalStatus",
-          "Tab": "Tab4",
-          "Mode": "Edit"
-        },
-        {
-          "name": "Score2",
-          "Tab": "rating,5",
-          "Mode": "Edit"
-        },
-        {
-          "name": "SetDate2",
-          "Tab": "Tab4",
-          "Mode": "Edit"
-        },
-        {
-          "name": "ManagerComm2",
-          "Tab": "Tab4",
-          "Mode": "Edit"
-        },
-        {
-          "name": "TargetDate2",
-          "Tab": "Tab4",
-          "Mode": "Edit"
-        },
-        {
-          "name": "NextRevDate2",
-          "Tab": "Tab4",
-          "Mode": "Edit"
-        }
+        { "name": "GoalsArea" },
+        { "name": "ItemStatus1" },
+        { "name": "Goal2" },
+        { "name": "Score2" },
+        { "name": "AppraiseComm2" },
+        { "name": "ManagerComm2" },
+        { "name": "GoalStatus" },
+        { "name": "SetDate2" },
+        { "name": "TargetDate2" },
+        { "name": "NextRevDate2" }
       ]
     },
     "Appraisal": {
@@ -711,7 +423,7 @@
           "Update": "No"
         },
         {
-          "name": "ItemStatus",
+          "name": "ItemStatus2",
           "type": "string",
           "width": "50",
           "SLabel": "Item Status",
@@ -784,7 +496,7 @@
         }
       ],
       "DisplayFields": [
-        "ItemStatus",
+        "ItemStatus2",
         "AppraisalArea",
         "PerformanceRating",
         "Score3",
@@ -818,7 +530,7 @@
         "itemDelete": true
       },
       "CreateFields": [
-        "ItemStatus",
+        "ItemStatus2",
         "AppraisalArea",
         "PerformanceRating",
         "Score3",
@@ -828,51 +540,15 @@
         "TargetDate3"
       ],
       "ItemDetails": [
-        {
-          "name": "Score3",
-          "Tab": "Tab2",
-          "Mode": "Edit"
-        },
-        {
-          "name": "AppraisalArea",
-          "Tab": "Tab2",
-          "Mode": "Edit"
-        },
-        {
-          "name": "PerformanceRating",
-          "Tab": "Tab2",
-          "Mode": "Edit"
-        },
-        {
-          "name": "ManagerComm3",
-          "Tab": "Tab2",
-          "Mode": "Edit"
-        },
-        {
-          "name": "AppraiseComm3",
-          "Tab": "Tab2",
-          "Mode": "Edit"
-        },
-        {
-          "name": "PositiveComments",
-          "Tab": "Tab2",
-          "Mode": "Edit"
-        },
-        {
-          "name": "NeedsImprovement",
-          "Tab": "Tab2",
-          "Mode": "Edit"
-        },
-        {
-          "name": "AssignDate3",
-          "Tab": "Tab2",
-          "Mode": "Edit"
-        },
-        {
-          "name": "TargetDate3",
-          "Tab": "Tab2",
-          "Mode": "Edit"
-        }
+        { "name": "PerformanceRating" },
+        { "name": "ItemStatus2" },
+        { "name": "AppraisalArea" },
+        { "name": "AppraiseComm3" },
+        { "name": "ManagerComm3" },
+        { "name": "PositiveComments" },
+        { "name": "NeedsImprovement" },
+        { "name": "AssignDate3" },
+        { "name": "TargetDate3" }
       ]
     },
     "MyTraining": {
@@ -888,7 +564,7 @@
           "Update": "No"
         },
         {
-          "name": "ItemStatus",
+          "name": "ItemStatus3",
           "type": "string",
           "width": "50",
           "SLabel": "Item Status",
@@ -938,7 +614,7 @@
         }
       ],
       "DisplayFields": [
-        "ItemStatus",
+        "ItemStatus3",
         "SubGroup1",
         "Title1",
         "ReferenceID1",
@@ -959,49 +635,242 @@
         "itemDelete": false
       },
       "CreateFields": [
-        "ItemStatus",
+        "ItemStatus3",
         "SubGroup1",
         "Title1",
         "ReferenceID1",
         "TargetDate1"
       ],
       "ItemDetails": [
+        { "name": "Group1" },
+        { "name": "ItemStatus3" },
+        { "name": "SubGroup1" },
+        { "name": "Title1" },
+        { "name": "ReferenceID1" },
+        { "name": "AssignDate1" },
+        { "name": "TargetDate1" }
+      ]
+    },
+    "ManagerFB": {
+      "title": "Manager Feedback",
+      "subtitle": "Feedback result",
+      "unitOfMeasurement": "SCORE",
+      "ItemFieldDefinition": [
         {
-          "name": "Group1",
-          "Tab": "Tab5",
-
-          "Mode": "Edit"
+          "name": "ItemNumber",
+          "type": "string",
+          "width": "10",
+          "SLabel": "Item Number",
+          "Update": "No"
         },
         {
-          "name": "SubGroup1",
-          "Tab": "Tab5",
-
-          "Mode": "Edit"
+          "name": "ItemStatus5",
+          "type": "string",
+          "width": "50",
+          "SLabel": "Item Status",
+          "Update": "No"
         },
         {
-          "name": "Title1",
-          "Tab": "Tab5",
-
-          "Mode": "Edit"
+          "name": "MQuestion",
+          "type": "string",
+          "width": "10",
+          "SLabel": "Question",
+          "Option": "Optional",
+          "Update": "No"
         },
         {
-          "name": "ReferenceID1",
-          "Tab": "Tab5",
-
-          "Mode": "Edit"
+          "name": "MAnswer",
+          "type": "string",
+          "width": "20",
+          "SLabel": "Answer",
+          "Option": "Optional",
+          "Update": "Yes"
         },
         {
-          "name": "AssignDate1",
-          "Tab": "Tab5",
-
-          "Mode": "Edit"
+          "name": "MCorrectAnswer",
+          "type": "string",
+          "width": "20",
+          "SLabel": "Correct Ans",
+          "Option": "Optional",
+          "Update": "No"
         },
         {
-          "name": "TargetDate1",
-          "Tab": "Tab5",
-
-          "Mode": "Edit"
+          "name": "MScore",
+          "type": "Num,0",
+          "width": "20",
+          "SLabel": "Score",
+          "Option": "Optional",
+          "Update": "No"
         }
+      ],
+      "DisplayFields": ["ItemStatus5", "MQuestion", "MAnswer"],
+      "cards": [
+        { "type": "Table", "tableCardFields": ["MQuestion", "MAnswer"] }
+      ],
+
+      "ItemButtons": {
+        "itemDisplay": true,
+        "itemCheck": false,
+        "itemAdd": false,
+        "itemEdit": false,
+        "itemDelete": false
+      },
+      "CreateFields": [
+        "ItemStatus5",
+        "MQuestion",
+        "MAnswer",
+        "MCorrectAnswer",
+        "MScore"
+      ],
+      "ItemDetails": [
+        { "name": "MQuestion" },
+        { "name": "ItemStatus5" },
+        { "name": "MAnswer" }
+      ]
+    },
+    "ProjectFeedback": {
+      "title": "Project Feedback",
+      "subtitle": "Feedback result",
+      "unitOfMeasurement": "SCORE",
+      "ItemFieldDefinition": [
+        {
+          "name": "ItemNumber",
+          "type": "string",
+          "width": "10",
+          "SLabel": "Item Number",
+          "Update": "No"
+        },
+        {
+          "name": "ItemStatus6",
+          "type": "string",
+          "width": "50",
+          "SLabel": "Item Status",
+          "Update": "No"
+        },
+        {
+          "name": "ProjectName",
+          "type": "string",
+          "width": "200",
+          "SLabel": "Project Name",
+          "Option": "Optional"
+        },
+        {
+          "name": "ProjectRole",
+          "type": "string",
+          "width": "200",
+          "SLabel": "Project Role",
+          "Option": "Optional"
+        },
+        {
+          "name": "StartDate",
+          "type": "Date",
+          "width": "10",
+          "SLabel": "Start Date",
+          "Option": "Optional"
+        },
+        {
+          "name": "EndDate",
+          "type": "Date",
+          "width": "10",
+          "SLabel": "End Date",
+          "Option": "Optional"
+        },
+        {
+          "name": "Duration",
+          "type": "string",
+          "width": "50",
+          "SLabel": "Duration",
+          "Option": "Optional"
+        },
+        {
+          "name": "ProjectManager",
+          "type": "string",
+          "width": "200",
+          "SLabel": "EmailID of Project Manager",
+          "Option": "Optional"
+        },
+        {
+          "name": "KeyAchivements",
+          "type": "string",
+          "width": "1000",
+          "SLabel": "Key Achivements",
+          "Option": "Optional"
+        },
+        {
+          "name": "Strengths",
+          "type": "string",
+          "width": "1000",
+          "SLabel": "Strengths",
+          "Option": "Optional"
+        },
+        {
+          "name": "AreaofImprovement",
+          "type": "string",
+          "width": "1000",
+          "SLabel": "Area of Improvement",
+          "Option": "Optional"
+        },
+        {
+          "name": "ProjFeedback",
+          "type": "string",
+          "width": "10",
+          "SLabel": "Project Feedback Required?",
+          "Option": "Optional"
+        }
+      ],
+      "DisplayFields": [
+        "ItemStatus6",
+        "ProjectName",
+        "ProjectRole",
+        "StartDate",
+        "EndDate",
+        "Duration",
+        "ProjectManager"
+      ],
+      "cards": [
+        {
+          "type": "Table",
+          "tableCardFields": [
+            "ProjectName",
+            "StartDate",
+            "EndDate",
+            "ProjectManager"
+          ]
+        }
+      ],
+
+      "ItemButtons": {
+        "itemDisplay": true,
+        "itemCheck": false,
+        "itemAdd": true,
+        "itemEdit": true,
+        "itemDelete": true
+      },
+      "CreateFields": [
+        "ItemStatus6",
+        "ProjectName",
+        "ProjectRole",
+        "StartDate",
+        "EndDate",
+        "Duration",
+        "ProjectManager",
+        "KeyAchivements",
+        "Strengths",
+        "AreaofImprovement",
+        "ProjFeedback"
+      ],
+      "ItemDetails": [
+        { "name": "ProjectName" },
+        { "name": "ItemStatus6" },
+        { "name": "ProjectRole" },
+        { "name": "StartDate" },
+        { "name": "EndDate" },
+        { "name": "Duration" },
+        { "name": "ProjectManager" },
+        { "name": "KeyAchivements" },
+        { "name": "Strengths" },
+        { "name": "AreaofImprovement" },
+        { "name": "ProjFeedback" }
       ]
     }
   },
@@ -1024,7 +893,7 @@
     {
       "name": "Status",
       "type": "string",
-      "width": "200",
+      "width": "50",
       "Option": "Mandatory",
       "SLabel": "Status",
       "LLabel": "Status"

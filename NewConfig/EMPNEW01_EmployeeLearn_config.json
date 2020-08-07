@@ -55,7 +55,14 @@
     "DentalCoverage",
     "VisionCoverage",
     "AccidentalDeath",
-    "ContactType"
+    "ContactType",
+    "ItemStatus1",
+    "ItemStatus2",
+    "ItemStatus3",
+    "ItemStatus4",
+    "ItemStatus5",
+    "ItemStatus6",
+    "ItemStatus7"
   ],
   "MButtons": [
     {
@@ -217,7 +224,7 @@
           "Update": "No"
         },
         {
-          "name": "ItemStatus",
+          "name": "ItemStatus1",
           "type": "string",
           "width": "50",
           "SLabel": "Item Status",
@@ -267,7 +274,7 @@
         }
       ],
       "DisplayFields": [
-        "ItemStatus",
+        "ItemStatus1",
         "Area",
         "Skill",
         "SkillLevel",
@@ -300,7 +307,7 @@
         "itemDelete": true
       },
       "CreateFields": [
-        "ItemStatus",
+        "ItemStatus1",
         "Area",
         "Skill",
         "SkillLevel",
@@ -309,30 +316,13 @@
         "Comments1"
       ],
       "ItemDetails": [
-        {
-          "name": "Area",
-          "Mode": "Edit"
-        },
-        {
-          "name": "Skill",
-          "Mode": "Edit"
-        },
-        {
-          "name": "SkillLevel",
-          "Mode": "Edit"
-        },
-        {
-          "name": "Experience",
-          "Mode": "Edit"
-        },
-        {
-          "name": "ExperienceRole1",
-          "Mode": "Edit"
-        },
-        {
-          "name": "Comments1",
-          "Mode": "Edit"
-        }
+        { "name": "Area" },
+        { "name": "Skill" },
+        { "name": "SkillLevel" },
+        { "name": "Experience" },
+        { "name": "ExperienceRole1" },
+        { "name": "Comments1" },
+        { "name": "ItemStatus1" }
       ]
     },
     "Education": {
@@ -347,7 +337,7 @@
           "Update": "No"
         },
         {
-          "name": "ItemStatus",
+          "name": "ItemStatus2",
           "type": "string",
           "width": "50",
           "SLabel": "Item Status",
@@ -391,7 +381,7 @@
         }
       ],
       "DisplayFields": [
-        "ItemStatus",
+        "ItemStatus2",
         "Qualification",
         "Subject",
         "YearCompleted",
@@ -412,7 +402,7 @@
         "itemDelete": true
       },
       "CreateFields": [
-        "ItemStatus",
+        "ItemStatus2",
         "Qualification",
         "Subject",
         "YearCompleted",
@@ -420,26 +410,12 @@
         "Comments2"
       ],
       "ItemDetails": [
-        {
-          "name": "Qualification",
-          "Mode": "Edit"
-        },
-        {
-          "name": "Subject",
-          "Mode": "Edit"
-        },
-        {
-          "name": "YearCompleted",
-          "Mode": "Edit"
-        },
-        {
-          "name": "College",
-          "Mode": "Edit"
-        },
-        {
-          "name": "Comments2",
-          "Mode": "Edit"
-        }
+        { "name": "Qualification" },
+        { "name": "Subject" },
+        { "name": "YearCompleted" },
+        { "name": "College" },
+        { "name": "Comments2" },
+        { "name": "ItemStatus2" }
       ]
     },
     "PreviousEmployer": {
@@ -454,7 +430,7 @@
           "Update": "No"
         },
         {
-          "name": "ItemStatus",
+          "name": "ItemStatus3",
           "type": "string",
           "width": "50",
           "SLabel": "Item Status",
@@ -504,7 +480,7 @@
         }
       ],
       "DisplayFields": [
-        "ItemStatus",
+        "ItemStatus3",
         "From",
         "To",
         "ExpYears",
@@ -537,7 +513,7 @@
         "itemDelete": true
       },
       "CreateFields": [
-        "ItemStatus",
+        "ItemStatus3",
         "From",
         "To",
         "ExpYears",
@@ -546,30 +522,13 @@
         "Comments3"
       ],
       "ItemDetails": [
-        {
-          "name": "From",
-          "Mode": "Edit"
-        },
-        {
-          "name": "To",
-          "Mode": "Edit"
-        },
-        {
-          "name": "ExpYears",
-          "Mode": "Edit"
-        },
-        {
-          "name": "Employer",
-          "Mode": "Edit"
-        },
-        {
-          "name": "Role",
-          "Mode": "Edit"
-        },
-        {
-          "name": "Comments3",
-          "Mode": "Edit"
-        }
+        { "name": "From" },
+        { "name": "To" },
+        { "name": "ExpYears" },
+        { "name": "Employer" },
+        { "name": "Role" },
+        { "name": "Comments3" },
+        { "name": "ItemStatus3" }
       ]
     },
     "EmergencyContacts": {
@@ -584,7 +543,7 @@
           "Update": "No"
         },
         {
-          "name": "ItemStatus",
+          "name": "ItemStatus4",
           "type": "string",
           "width": "50",
           "SLabel": "Item Status",
@@ -627,7 +586,7 @@
         }
       ],
       "DisplayFields": [
-        "ItemStatus",
+        "ItemStatus4",
         "ContactName1",
         "ContactPhone1",
         "Relation1",
@@ -648,7 +607,7 @@
         "itemDelete": true
       },
       "CreateFields": [
-        "ItemStatus",
+        "ItemStatus4",
         "ContactName1",
         "ContactPhone1",
         "Relation1",
@@ -656,26 +615,12 @@
         "ContactType"
       ],
       "ItemDetails": [
-        {
-          "name": "ContactName1",
-          "Mode": "Edit"
-        },
-        {
-          "name": "ContactPhone1",
-          "Mode": "Edit"
-        },
-        {
-          "name": "Relation1",
-          "Mode": "Edit"
-        },
-        {
-          "name": "Comments4",
-          "Mode": "Edit"
-        },
-        {
-          "name": "ContactType",
-          "Mode": "Edit"
-        }
+        { "name": "ContactName1" },
+        { "name": "ContactPhone1" },
+        { "name": "Relation1" },
+        { "name": "Comments4" },
+        { "name": "ContactType" },
+        { "name": "ItemStatus4" }
       ]
     },
 
@@ -691,7 +636,7 @@
           "Update": "No"
         },
         {
-          "name": "ItemStatus",
+          "name": "ItemStatus5",
           "type": "string",
           "width": "50",
           "SLabel": "Item Status",
@@ -726,7 +671,7 @@
           "Option": "Optional"
         }
       ],
-      "DisplayFields": ["ItemStatus", "CourseName", "DateCertified", "LinkC"],
+      "DisplayFields": ["ItemStatus5", "CourseName", "DateCertified", "LinkC"],
       "cards": [
         {
           "type": "Table",
@@ -742,29 +687,18 @@
         "itemDelete": true
       },
       "CreateFields": [
-        "ItemStatus",
+        "ItemStatus5",
         "CourseName",
         "DateCertified",
         "LinkC",
         "CommentsC"
       ],
       "ItemDetails": [
-        {
-          "name": "CourseName",
-          "Mode": "Edit"
-        },
-        {
-          "name": "DateCertified",
-          "Mode": "Edit"
-        },
-        {
-          "name": "LinkC",
-          "Mode": "Edit"
-        },
-        {
-          "name": "CommentsC",
-          "Mode": "Edit"
-        }
+        { "name": "CourseName" },
+        { "name": "DateCertified" },
+        { "name": "LinkC" },
+        { "name": "CommentsC" },
+        { "name": "ItemStatus5" }
       ]
     },
 
@@ -781,7 +715,7 @@
           "Update": "No"
         },
         {
-          "name": "ItemStatus",
+          "name": "ItemStatus6",
           "type": "string",
           "width": "50",
           "SLabel": "Item Status",
@@ -831,7 +765,7 @@
         }
       ],
       "DisplayFields": [
-        "ItemStatus",
+        "ItemStatus6",
         "Question",
         "Answer",
         "Deductions",
@@ -847,13 +781,8 @@
           "analyticsCard": {
             "chartType": "line",
             "cardID": "L01",
-            "itemvalueMap": {
-              "Score": "Answer",
-              "Target": "Deductions"
-            },
-            "itemkeyMap": {
-              "Area": "Question"
-            },
+            "itemvalueMap": { "Score": "Answer", "Target": "Deductions" },
+            "itemkeyMap": { "Area": "Question" },
             "itemfixedVal": [{ "Total": 5 }],
             "sumField": [
               { "sumScore": "Answer" },
@@ -876,29 +805,18 @@
         "itemDelete": false
       },
       "CreateFields": [
-        "ItemStatus",
+        "ItemStatus6",
         "Question",
         "Answer",
         "Deductions",
         "AddComments"
       ],
       "ItemDetails": [
-        {
-          "name": "Question",
-          "Mode": "Edit"
-        },
-        {
-          "name": "Answer",
-          "Mode": "Edit"
-        },
-        {
-          "name": "Deductions",
-          "Mode": "Edit"
-        },
-        {
-          "name": "AddComments",
-          "Mode": "Edit"
-        }
+        { "name": "Question" },
+        { "name": "Answer" },
+        { "name": "Deductions" },
+        { "name": "AddComments" },
+        { "name": "ItemStatus6" }
       ]
     },
     "Benefits": {
@@ -913,7 +831,7 @@
           "Update": "No"
         },
         {
-          "name": "ItemStatus",
+          "name": "ItemStatus7",
           "type": "string",
           "width": "50",
           "SLabel": "Item Status",
@@ -998,7 +916,7 @@
         }
       ],
       "DisplayFields": [
-        "ItemStatus",
+        "ItemStatus7",
         "InsurancePlan",
         "MedicalCoverage",
         "DentalCoverage",
@@ -1026,7 +944,7 @@
         "itemDelete": true
       },
       "CreateFields": [
-        "ItemStatus",
+        "ItemStatus7",
         "InsurancePlan",
         "MedicalCoverage",
         "DentalCoverage",
@@ -1034,30 +952,13 @@
         "AccidentalDeath"
       ],
       "ItemDetails": [
-        {
-          "name": "InsurancePlan",
-          "Mode": "Edit"
-        },
-        {
-          "name": "MedicalCoverage",
-          "Mode": "Edit"
-        },
-        {
-          "name": "DentalCoverage",
-          "Mode": "Edit"
-        },
-        {
-          "name": "VisionCoverage",
-          "Mode": "Edit"
-        },
-        {
-          "name": "AccidentalDeath",
-          "Mode": "Edit"
-        },
-        {
-          "name": "CommentsPS",
-          "Mode": "Edit"
-        }
+        { "name": "InsurancePlan" },
+        { "name": "MedicalCoverage" },
+        { "name": "DentalCoverage" },
+        { "name": "VisionCoverage" },
+        { "name": "AccidentalDeath" },
+        { "name": "CommentsPS" },
+        { "name": "ItemStatus7" }
       ]
     }
   },
@@ -1196,7 +1097,7 @@
     {
       "name": "Status",
       "type": "string",
-      "width": "200",
+      "width": "50",
       "Option": "Mandatory",
       "SLabel": "Status",
       "LLabel": "Status"

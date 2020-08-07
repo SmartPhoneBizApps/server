@@ -92,7 +92,8 @@
     "Exam",
     "Agree",
     "SelfAssign",
-    "ProjectNeed"
+    "ProjectNeed",
+    "ItemStatus1"
   ],
   "MButtons": [
     {
@@ -253,7 +254,7 @@
           "Update": "No"
         },
         {
-          "name": "ItemStatus",
+          "name": "ItemStatus1",
           "type": "string",
           "width": "50",
           "SLabel": "Item Status",
@@ -289,7 +290,7 @@
         }
       ],
       "DisplayFields": [
-        "ItemStatus",
+        "ItemStatus1",
         "Question",
         "Answer",
         "CorrectAnswer",
@@ -315,43 +316,18 @@
         "itemDelete": false
       },
       "CreateFields": [
-        "ItemStatus",
+        "ItemStatus1",
         "Question",
         "Answer",
         "CorrectAnswer",
         "Score"
       ],
       "ItemDetails": [
-        {
-          "name": "ItemNumber",
-          "Tab": "Tab5",
-
-          "Mode": "Edit"
-        },
-        {
-          "name": "Question",
-          "Tab": "Tab5",
-
-          "Mode": "Edit"
-        },
-        {
-          "name": "Answer",
-          "Tab": "Tab5",
-
-          "Mode": "Edit"
-        },
-        {
-          "name": "CorrectAnswer",
-          "Tab": "Tab5",
-
-          "Mode": "Edit"
-        },
-        {
-          "name": "Score",
-          "Tab": "Tab5",
-
-          "Mode": "Edit"
-        }
+        { "name": "ItemStatus1" },
+        { "name": "Question" },
+        { "name": "Answer" },
+        { "name": "CorrectAnswer" },
+        { "name": "Score" }
       ]
     }
   },

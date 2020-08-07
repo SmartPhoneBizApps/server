@@ -72,7 +72,8 @@
     "Status",
     "PaymentOption",
     "Currency",
-    "iVAT"
+    "iVAT",
+    "ItemStatus1"
   ],
   "MButtons": [
     {
@@ -328,7 +329,7 @@
     {
       "name": "Status",
       "type": "string",
-      "width": "200",
+      "width": "50",
       "Option": "Mandatory",
       "SLabel": "Status",
       "LLabel": "Status"
@@ -559,7 +560,7 @@
           "Update": "No"
         },
         {
-          "name": "ItemStatus",
+          "name": "ItemStatus1",
           "type": "string",
           "width": "50",
           "SLabel": "Item Status",
@@ -630,7 +631,7 @@
         }
       ],
       "DisplayFields": [
-        "ItemStatus",
+        "ItemStatus1",
         "ItemNumber",
         "ItemName",
         "ItemValue",
@@ -672,46 +673,22 @@
         "itemDelete": true
       },
       "CreateFields": [
-        "ItemStatus",
+        "ItemStatus1",
         "ItemName",
         "ItemPrice",
         "ItemQuantity",
         "ItemTaxRate"
       ],
       "ItemDetails": [
-        {
-          "name": "ItemNumber",
-          "Tab": "Tab3",
-          "Mode": "Display"
-        },
-        { "name": "ItemName", "Tab": "Tab3", "Mode": "Edit" },
-        { "name": "ItemPrice", "Tab": "Tab3", "Mode": "Edit" },
-        {
-          "name": "ItemQuantity",
-          "Tab": "Tab3",
-          "Mode": "Edit"
-        },
-        {
-          "name": "ItemValue",
-          "Tab": "Tab3",
-          "Mode": "Display"
-        },
-        { "name": "iVAT", "Tab": "Tab3", "Mode": "Edit" },
-        {
-          "name": "ItemGrossValue",
-          "Tab": "Tab3",
-          "Mode": "Display"
-        },
-        {
-          "name": "ItemVATValue",
-          "Tab": "Tab3",
-          "Mode": "Edit"
-        },
-        {
-          "name": "ItemTaxRate",
-          "Tab": "Tab3",
-          "Mode": "Display"
-        }
+        { "name": "ItemStatus1" },
+        { "name": "ItemName" },
+        { "name": "ItemPrice" },
+        { "name": "ItemQuantity" },
+        { "name": "ItemValue" },
+        { "name": "iVAT" },
+        { "name": "ItemGrossValue" },
+        { "name": "ItemVATValue" },
+        { "name": "ItemTaxRate" }
       ]
     }
   },

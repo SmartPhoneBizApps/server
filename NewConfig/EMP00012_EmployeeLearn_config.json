@@ -76,7 +76,13 @@
     "SubGroup",
     "PerformanceRating",
     "GoalStatus",
-    "ProjFeedback"
+    "ProjFeedback",
+    "ItemStatus1",
+    "ItemStatus2",
+    "ItemStatus3",
+    "ItemStatus4",
+    "ItemStatus5",
+    "ItemStatus6"
   ],
   "MButtons": [
     {
@@ -260,6 +266,426 @@
     "Tab8": ["ProjectFeedback"]
   },
   "tableConfig": {
+    "Goals": {
+      "title": "My Goals",
+      "subtitle": "Score",
+      "unitOfMeasurement": "SCORE",
+      "ItemFieldDefinition": [
+        {
+          "name": "ItemNumber",
+          "type": "string",
+          "width": "10",
+          "SLabel": "Item Number",
+          "Update": "No"
+        },
+        {
+          "name": "ItemStatus1",
+          "type": "string",
+          "width": "50",
+          "SLabel": "Item Status",
+          "Update": "No"
+        },
+        {
+          "name": "GoalsArea",
+          "type": "string",
+          "width": "100",
+          "SLabel": "Goals Area",
+          "Option": "Optional",
+          "Update": "No"
+        },
+        {
+          "name": "Goal2",
+          "type": "string",
+          "width": "500",
+          "SLabel": "Goal",
+          "Option": "Optional",
+          "Update": "No"
+        },
+
+        {
+          "name": "Score2",
+          "type": "string",
+          "width": "200",
+          "SLabel": "Score",
+          "Option": "Optional",
+          "Update": "No"
+        },
+        {
+          "name": "MaxScore2",
+          "type": "string",
+          "width": "200",
+          "SLabel": "Max Score",
+          "Option": "Optional",
+          "Default": "5",
+          "Update": "No"
+        },
+        {
+          "name": "AppraiseComm2",
+          "type": "string",
+          "width": "1000",
+          "SLabel": "Employee Comments",
+          "Option": "Optional",
+          "Update": "Yes"
+        },
+        {
+          "name": "ManagerComm2",
+          "type": "string",
+          "width": "1000",
+          "SLabel": "Manager Comment",
+          "Option": "Optional",
+          "Update": "No"
+        },
+        {
+          "name": "GoalStatus",
+          "type": "string",
+          "width": "200",
+          "SLabel": "Goal Status",
+          "Option": "Optional",
+          "Update": "No"
+        },
+
+        {
+          "name": "SetDate2",
+          "type": "Date",
+          "width": "10",
+          "SLabel": "Set Date",
+          "Option": "Optional",
+          "Default": "@currentDate",
+          "Update": "No"
+        },
+        {
+          "name": "TargetDate2",
+          "type": "Date",
+          "width": "10",
+          "SLabel": "Target Date",
+          "Option": "Optional",
+          "Update": "No"
+        },
+        {
+          "name": "NextRevDate2",
+          "type": "Date",
+          "width": "10",
+          "SLabel": "Next Review Date",
+          "Option": "Optional",
+          "Update": "No"
+        }
+      ],
+      "DisplayFields": [
+        "ItemStatus1",
+        "GoalsArea",
+        "Goal2",
+        "Score2",
+        "AppraiseComm2",
+        "TargetDate2",
+        "GoalStatus"
+      ],
+      "cards": [
+        {
+          "type": "Table",
+          "tableCardFields": ["GoalsArea", "Goal2", "TargetDate2"]
+        },
+        {
+          "type": "Analytical",
+          "analyticsCard": {
+            "chartType": "line",
+            "cardID": "L01",
+            "itemvalueMap": {
+              "Score": "Score2",
+              "Target": "TargetScore2"
+            },
+            "itemkeyMap": {
+              "Area": "GoalsArea"
+            },
+            "itemfixedVal": [{ "Total": 5 }],
+            "sumField": [
+              { "sumScore": "Score2" },
+              { "sumtargetScore": "TargetScore2" }
+            ],
+            "headerfieldMap": [
+              { "j_number": "sumScore" },
+              { "j_target": "sumtargetScore" }
+            ],
+            "template": "analyticalCard_line_template.json"
+          }
+        }
+      ],
+
+      "ItemButtons": {
+        "itemDisplay": true,
+        "itemCheck": false,
+        "itemAdd": false,
+        "itemEdit": true,
+        "itemDelete": false
+      },
+      "CreateFields": [
+        "ItemStatus1",
+        "GoalsArea",
+        "Goal2",
+        "Score2",
+        "AppraiseComm2",
+        "TargetDate2",
+        "ManagerComm2",
+        "GoalStatus"
+      ],
+      "ItemDetails": [
+        { "name": "GoalsArea" },
+        { "name": "ItemStatus1" },
+        { "name": "Goal2" },
+        { "name": "Score2" },
+        { "name": "AppraiseComm2" },
+        { "name": "ManagerComm2" },
+        { "name": "GoalStatus" },
+        { "name": "SetDate2" },
+        { "name": "TargetDate2" },
+        { "name": "NextRevDate2" }
+      ]
+    },
+    "Appraisal": {
+      "title": "My Appraisal",
+      "subtitle": "Score",
+      "unitOfMeasurement": "SCORE",
+      "ItemFieldDefinition": [
+        {
+          "name": "ItemNumber",
+          "type": "string",
+          "width": "10",
+          "SLabel": "Item Number",
+          "Update": "No"
+        },
+        {
+          "name": "ItemStatus2",
+          "type": "string",
+          "width": "50",
+          "SLabel": "Item Status",
+          "Update": "No"
+        },
+        {
+          "name": "AppraisalArea",
+          "type": "string",
+          "width": "100",
+          "SLabel": "Appraisal Area",
+          "Option": "Optional",
+          "Update": "No"
+        },
+        {
+          "name": "PerformanceRating",
+          "type": "string",
+          "width": "100",
+          "SLabel": "Competency Description",
+          "Option": "Optional",
+          "Update": "No"
+        },
+        {
+          "name": "Score3",
+          "type": "string",
+          "width": "200",
+          "SLabel": "Score",
+          "Option": "Optional",
+          "Update": "No"
+        },
+        {
+          "name": "AppraiseComm3",
+          "type": "string",
+          "width": "1000",
+          "SLabel": "AppraiseComm",
+          "Option": "Optional"
+        },
+        {
+          "name": "ManagerComm3",
+          "type": "string",
+          "width": "1000",
+          "SLabel": "Appraise Comment",
+          "Option": "Optional",
+          "Update": "No"
+        },
+        {
+          "name": "PositiveComments",
+          "type": "string",
+          "width": "1000",
+          "SLabel": "Positive Comments",
+          "Option": "Optional",
+          "Update": "No"
+        },
+        {
+          "name": "NeedsImprovement",
+          "type": "string",
+          "width": "1000",
+          "SLabel": "Needs Improvement Comments",
+          "Option": "Optional",
+          "Update": "No"
+        },
+        {
+          "name": "AssignDate3",
+          "type": "Date",
+          "width": "10",
+          "SLabel": "Assignment Date",
+          "Option": "Optional",
+          "Default": "@currentDate",
+          "Update": "No"
+        },
+        {
+          "name": "TargetDate3",
+          "type": "Date",
+          "width": "10",
+          "SLabel": "Target Date",
+          "Option": "Optional",
+          "Update": "No"
+        }
+      ],
+      "DisplayFields": [
+        "ItemStatus2",
+        "AppraisalArea",
+        "PerformanceRating",
+        "Score3",
+        "AppraiseComm3",
+        "TargetDate3"
+      ],
+      "cards": [
+        {
+          "type": "Table",
+          "tableCardFields": [
+            "AppraisalArea",
+            "PerformanceRating",
+            "TargetDate3"
+          ]
+        },
+        {
+          "type": "Analytical",
+          "analyticsCard": {
+            "chartType": "line",
+            "cardID": "L01",
+            "template": "analyticalCard_line_template.json"
+          }
+        }
+      ],
+
+      "ItemButtons": {
+        "itemDisplay": true,
+        "itemCheck": false,
+        "itemAdd": false,
+        "itemEdit": true,
+        "itemDelete": false
+      },
+      "CreateFields": [
+        "ItemStatus2",
+        "AppraisalArea",
+        "PerformanceRating",
+        "Score3",
+        "AppraiseComm3",
+        "TargetDate3"
+      ],
+      "ItemDetails": [
+        { "name": "PerformanceRating" },
+        { "name": "ItemStatus2" },
+        { "name": "AppraisalArea" },
+        { "name": "AppraiseComm3" },
+        { "name": "ManagerComm3" },
+        { "name": "PositiveComments" },
+        { "name": "NeedsImprovement" },
+        { "name": "AssignDate3" },
+        { "name": "TargetDate3" }
+      ]
+    },
+    "MyTraining": {
+      "title": "My Learning",
+      "subtitle": "List",
+      "unitOfMeasurement": "COUNT",
+      "ItemFieldDefinition": [
+        {
+          "name": "ItemNumber",
+          "type": "string",
+          "width": "10",
+          "SLabel": "Item Number",
+          "Update": "No"
+        },
+        {
+          "name": "ItemStatus3",
+          "type": "string",
+          "width": "50",
+          "SLabel": "Item Status",
+          "Update": "No"
+        },
+        {
+          "name": "Group1",
+          "type": "string",
+          "width": "10",
+          "SLabel": "Group",
+          "Option": "Optional"
+        },
+        {
+          "name": "SubGroup1",
+          "type": "string",
+          "width": "200",
+          "SLabel": "SubGroup",
+          "Option": "Optional"
+        },
+        {
+          "name": "Title1",
+          "type": "string",
+          "width": "200",
+          "SLabel": "Title",
+          "Option": "Optional"
+        },
+        {
+          "name": "ReferenceID1",
+          "type": "string",
+          "width": "200",
+          "SLabel": "Course ID",
+          "Option": "Optional"
+        },
+        {
+          "name": "AssignDate1",
+          "type": "Date",
+          "width": "10",
+          "SLabel": "Assignment Date",
+          "Option": "Optional"
+        },
+        {
+          "name": "TargetDate1",
+          "type": "Date",
+          "width": "10",
+          "SLabel": "Target Date",
+          "Option": "Optional"
+        }
+      ],
+      "DisplayFields": [
+        "ItemStatus3",
+        "SubGroup1",
+        "Title1",
+        "ReferenceID1",
+        "TargetDate1"
+      ],
+      "cards": [
+        {
+          "type": "Table",
+          "tableCardFields": ["SubGroup1", "Title1", "TargetDate1"]
+        }
+      ],
+
+      "ItemButtons": {
+        "itemDisplay": true,
+        "itemCheck": false,
+        "itemAdd": false,
+        "itemEdit": true,
+        "itemDelete": false
+      },
+      "CreateFields": [
+        "ItemStatus3",
+        "SubGroup1",
+        "Title1",
+        "ReferenceID1",
+        "TargetDate1"
+      ],
+      "ItemDetails": [
+        { "name": "Group1" },
+        { "name": "ItemStatus3" },
+        { "name": "SubGroup1" },
+        { "name": "Title1" },
+        { "name": "ReferenceID1" },
+        { "name": "AssignDate1" },
+        { "name": "TargetDate1" }
+      ]
+    },
     "EmployeeFB": {
       "title": "Employee Feedback",
       "subtitle": "Feedback result",
@@ -273,7 +699,7 @@
           "Update": "No"
         },
         {
-          "name": "ItemStatus",
+          "name": "ItemStatus4",
           "type": "string",
           "width": "50",
           "SLabel": "Item Status",
@@ -284,58 +710,51 @@
           "type": "string",
           "width": "10",
           "SLabel": "Question",
-          "Option": "Optional",
-          "Update": "No"
+          "Option": "Optional"
         },
         {
           "name": "Answer",
           "type": "string",
           "width": "20",
           "SLabel": "Answer",
-          "Option": "Optional",
-          "Update": "Yes"
+          "Option": "Optional"
         },
         {
           "name": "CorrectAnswer",
           "type": "string",
           "width": "20",
           "SLabel": "Correct Ans",
-          "Option": "Optional",
-          "Update": "No"
+          "Option": "Optional"
         },
         {
           "name": "Score",
           "type": "Num,0",
           "width": "20",
           "SLabel": "Score",
-          "Option": "Optional",
-          "Update": "No"
+          "Option": "Optional"
         }
       ],
-      "DisplayFields": ["ItemStatus", "Question", "Answer"],
+      "DisplayFields": ["ItemStatus4", "Question", "Answer"],
       "cards": [{ "type": "Table", "tableCardFields": ["Question", "Answer"] }],
 
       "ItemButtons": {
         "itemDisplay": true,
         "itemCheck": false,
         "itemAdd": false,
-        "itemEdit": true,
+        "itemEdit": false,
         "itemDelete": false
       },
       "CreateFields": [
-        "ItemStatus",
+        "ItemStatus4",
         "Question",
         "Answer",
         "CorrectAnswer",
         "Score"
       ],
       "ItemDetails": [
-        {
-          "name": "Question"
-        },
-        {
-          "name": "Answer"
-        }
+        { "name": "ItemStatus4" },
+        { "name": "Question" },
+        { "name": "Answer" }
       ]
     },
     "ProjectFeedback": {
@@ -351,7 +770,7 @@
           "Update": "No"
         },
         {
-          "name": "ItemStatus",
+          "name": "ItemStatus6",
           "type": "string",
           "width": "50",
           "SLabel": "Item Status",
@@ -429,7 +848,7 @@
         }
       ],
       "DisplayFields": [
-        "ItemStatus",
+        "ItemStatus6",
         "ProjectName",
         "ProjectRole",
         "StartDate",
@@ -457,7 +876,7 @@
         "itemDelete": true
       },
       "CreateFields": [
-        "ItemStatus",
+        "ItemStatus6",
         "ProjectName",
         "ProjectRole",
         "StartDate",
@@ -470,585 +889,17 @@
         "ProjFeedback"
       ],
       "ItemDetails": [
-        {
-          "name": "ProjectName",
-          "Tab": "Tab4",
-          "Mode": "Edit"
-        },
-        {
-          "name": "ProjectRole",
-          "Tab": "Tab4",
-          "Mode": "Edit"
-        },
-        {
-          "name": "StartDate",
-          "Tab": "Tab4",
-          "Mode": "Edit"
-        },
-        {
-          "name": "EndDate",
-          "Tab": "Tab4",
-          "Mode": "Edit"
-        },
-        {
-          "name": "Duration",
-          "Tab": "Tab4",
-          "Mode": "Edit"
-        },
-        {
-          "name": "ProjectManager",
-          "Tab": "Tab4",
-          "Mode": "Edit"
-        },
-        {
-          "name": "KeyAchivements",
-          "Tab": "Tab4",
-          "Mode": "Edit"
-        },
-        {
-          "name": "Strengths",
-          "Tab": "Tab4",
-          "Mode": "Edit"
-        },
-        {
-          "name": "AreaofImprovement",
-          "Tab": "Tab4",
-          "Mode": "Edit"
-        },
-        {
-          "name": "ProjFeedback",
-          "Tab": "Tab4",
-          "Mode": "Edit"
-        }
-      ]
-    },
-    "Goals": {
-      "title": "My Goals",
-      "subtitle": "Score",
-      "unitOfMeasurement": "SCORE",
-      "ItemFieldDefinition": [
-        {
-          "name": "ItemNumber",
-          "type": "string",
-          "width": "10",
-          "SLabel": "Item Number",
-          "Update": "No"
-        },
-        {
-          "name": "ItemStatus",
-          "type": "string",
-          "width": "50",
-          "SLabel": "Item Status",
-          "Update": "No"
-        },
-        {
-          "name": "GoalsArea",
-          "type": "string",
-          "width": "100",
-          "SLabel": "Goals Area",
-          "Option": "Optional",
-          "Update": "No"
-        },
-        {
-          "name": "Goal2",
-          "type": "string",
-          "width": "500",
-          "SLabel": "Goal",
-          "Option": "Optional",
-          "Update": "No"
-        },
-
-        {
-          "name": "Score2",
-          "type": "Num,0",
-          "width": "200",
-          "SLabel": "Score",
-          "Option": "Optional",
-          "Update": "No"
-        },
-        {
-          "name": "MaxScore2",
-          "type": "Num,0",
-          "width": "200",
-          "SLabel": "Max Score",
-          "Option": "Optional",
-          "Default": "5",
-          "Update": "No"
-        },
-        {
-          "name": "AppraiseComm2",
-          "type": "string",
-          "width": "1000",
-          "SLabel": "Employee Comments",
-          "Option": "Optional",
-          "Update": "Yes"
-        },
-        {
-          "name": "ManagerComm2",
-          "type": "string",
-          "width": "1000",
-          "SLabel": "Manager Comment",
-          "Option": "Optional",
-          "Update": "No"
-        },
-        {
-          "name": "GoalStatus",
-          "type": "string",
-          "width": "200",
-          "SLabel": "Goal Status",
-          "Option": "Optional",
-          "Update": "No"
-        },
-
-        {
-          "name": "SetDate2",
-          "type": "Date",
-          "width": "10",
-          "SLabel": "Set Date",
-          "Option": "Optional",
-          "Default": "@currentDate",
-          "Update": "No"
-        },
-        {
-          "name": "TargetDate2",
-          "type": "Date",
-          "width": "10",
-          "SLabel": "Target Date",
-          "Option": "Optional",
-          "Update": "No"
-        },
-        {
-          "name": "TargetScore2",
-          "type": "Num,0",
-          "width": "200",
-          "SLabel": "Target Goal Score",
-          "Option": "Optional"
-        },
-        {
-          "name": "NextRevDate2",
-          "type": "Date",
-          "width": "10",
-          "SLabel": "Next Review Date",
-          "Option": "Optional",
-          "Update": "No"
-        }
-      ],
-      "DisplayFields": [
-        "ItemStatus",
-        "GoalsArea",
-        "Goal2",
-        "Score2",
-        "AppraiseComm2",
-        "TargetScore2",
-        "TargetDate2",
-        "GoalStatus"
-      ],
-      "cards": [
-        {
-          "type": "Table",
-          "tableCardFields": ["GoalsArea", "Goal2", "TargetDate2"]
-        },
-        {
-          "type": "Analytical",
-          "analyticsCard": {
-            "chartType": "line",
-            "cardID": "L01",
-            "itemvalueMap": {
-              "Score": "Score2",
-              "Target": "TargetScore2"
-            },
-            "itemkeyMap": {
-              "Area": "GoalsArea"
-            },
-            "itemfixedVal": [{ "Total": 5 }],
-            "sumField": [
-              { "sumScore": "Score2" },
-              { "sumtargetScore": "TargetScore2" }
-            ],
-            "headerfieldMap": [
-              { "j_number": "sumScore" },
-              { "j_target": "sumtargetScore" }
-            ],
-            "template": "analyticalCard_line_template.json"
-          }
-        }
-      ],
-
-      "ItemButtons": {
-        "itemDisplay": true,
-        "itemCheck": false,
-        "itemAdd": false,
-        "itemEdit": true,
-        "itemDelete": false
-      },
-      "CreateFields": [
-        "ItemStatus",
-        "GoalsArea",
-        "Goal2",
-        "Score2",
-        "AppraiseComm2",
-        "TargetDate2",
-        "ManagerComm2",
-        "TargetScore2",
-        "GoalStatus"
-      ],
-      "ItemDetails": [
-        {
-          "name": "GoalsArea",
-          "Tab": "Tab4",
-          "Mode": "Edit"
-        },
-        {
-          "name": "Goal2",
-          "Tab": "Tab4",
-          "Mode": "Edit"
-        },
-        {
-          "name": "Score2",
-          "Tab": "Tab4",
-          "Mode": "Edit"
-        },
-        {
-          "name": "TargetScore2",
-          "Tab": "Tab4",
-          "Mode": "Display"
-        },
-        {
-          "name": "AppraiseComm2",
-          "Tab": "Tab4",
-          "Mode": "Edit"
-        },
-        {
-          "name": "ManagerComm2",
-          "Tab": "Tab4",
-          "Mode": "Edit"
-        },
-        {
-          "name": "GoalStatus",
-          "Tab": "Tab4",
-          "Mode": "Edit"
-        },
-        {
-          "name": "SetDate2",
-          "Tab": "Tab4",
-          "Mode": "Edit"
-        },
-        {
-          "name": "TargetDate2",
-          "Tab": "Tab4",
-          "Mode": "Edit"
-        },
-        {
-          "name": "NextRevDate2",
-          "Tab": "Tab4",
-          "Mode": "Edit"
-        }
-      ]
-    },
-    "Appraisal": {
-      "title": "My Appraisal",
-      "subtitle": "Score",
-      "unitOfMeasurement": "SCORE",
-      "ItemFieldDefinition": [
-        {
-          "name": "ItemNumber",
-          "type": "string",
-          "width": "10",
-          "SLabel": "Item Number",
-          "Update": "No"
-        },
-        {
-          "name": "ItemStatus",
-          "type": "string",
-          "width": "50",
-          "SLabel": "Item Status",
-          "Update": "No"
-        },
-        {
-          "name": "AppraisalArea",
-          "type": "string",
-          "width": "100",
-          "SLabel": "Appraisal Area",
-          "Option": "Optional",
-          "Update": "No"
-        },
-        {
-          "name": "PerformanceRating",
-          "type": "string",
-          "width": "100",
-          "SLabel": "Competency Description",
-          "Option": "Optional",
-          "Update": "No"
-        },
-        {
-          "name": "Score3",
-          "type": "Num,0",
-          "width": "200",
-          "SLabel": "Score",
-          "Option": "Optional",
-          "Update": "No"
-        },
-        {
-          "name": "AppraiseComm3",
-          "type": "string",
-          "width": "1000",
-          "SLabel": "AppraiseComm",
-          "Option": "Optional"
-        },
-        {
-          "name": "ManagerComm3",
-          "type": "string",
-          "width": "1000",
-          "SLabel": "Appraise Comment",
-          "Option": "Optional",
-          "Update": "No"
-        },
-        {
-          "name": "PositiveComments",
-          "type": "string",
-          "width": "1000",
-          "SLabel": "Positive Comments",
-          "Option": "Optional",
-          "Update": "No"
-        },
-        {
-          "name": "NeedsImprovement",
-          "type": "string",
-          "width": "1000",
-          "SLabel": "Needs Improvement Comments",
-          "Option": "Optional",
-          "Update": "No"
-        },
-        {
-          "name": "AssignDate3",
-          "type": "Date",
-          "width": "10",
-          "SLabel": "Assignment Date",
-          "Option": "Optional",
-          "Default": "@currentDate",
-          "Update": "No"
-        },
-        {
-          "name": "TargetDate3",
-          "type": "Date",
-          "width": "10",
-          "SLabel": "Target Date",
-          "Option": "Optional",
-          "Update": "No"
-        }
-      ],
-      "DisplayFields": [
-        "ItemStatus",
-        "AppraisalArea",
-        "PerformanceRating",
-        "Score3",
-        "AppraiseComm3",
-        "TargetDate3"
-      ],
-      "cards": [
-        {
-          "type": "Table",
-          "tableCardFields": [
-            "AppraisalArea",
-            "PerformanceRating",
-            "TargetDate3"
-          ]
-        },
-        {
-          "type": "Analytical",
-          "analyticsCard": {
-            "chartType": "line",
-            "cardID": "L01",
-            "template": "analyticalCard_line_template.json"
-          }
-        }
-      ],
-
-      "ItemButtons": {
-        "itemDisplay": true,
-        "itemCheck": false,
-        "itemAdd": false,
-        "itemEdit": true,
-        "itemDelete": false
-      },
-      "CreateFields": [
-        "ItemStatus",
-        "AppraisalArea",
-        "PerformanceRating",
-        "Score3",
-        "AppraiseComm3",
-        "TargetDate3"
-      ],
-      "ItemDetails": [
-        {
-          "name": "PerformanceRating",
-          "Tab": "Tab2",
-          "Mode": "Edit"
-        },
-        {
-          "name": "AppraisalArea",
-          "Tab": "Tab2",
-          "Mode": "Edit"
-        },
-        {
-          "name": "AppraiseComm3",
-          "Tab": "Tab2",
-          "Mode": "Edit"
-        },
-        {
-          "name": "ManagerComm3",
-          "Tab": "Tab2",
-          "Mode": "Edit"
-        },
-        {
-          "name": "PositiveComments",
-          "Tab": "Tab2",
-          "Mode": "Edit"
-        },
-        {
-          "name": "NeedsImprovement",
-          "Tab": "Tab2",
-          "Mode": "Edit"
-        },
-        {
-          "name": "AssignDate3",
-          "Tab": "Tab2",
-          "Mode": "Edit"
-        },
-        {
-          "name": "TargetDate3",
-          "Tab": "Tab2",
-          "Mode": "Edit"
-        }
-      ]
-    },
-    "MyTraining": {
-      "title": "My Learning",
-      "subtitle": "List",
-      "unitOfMeasurement": "COUNT",
-      "ItemFieldDefinition": [
-        {
-          "name": "ItemNumber",
-          "type": "string",
-          "width": "10",
-          "SLabel": "Item Number",
-          "Update": "No"
-        },
-        {
-          "name": "ItemStatus",
-          "type": "string",
-          "width": "50",
-          "SLabel": "Item Status",
-          "Update": "No"
-        },
-        {
-          "name": "Group1",
-          "type": "string",
-          "width": "10",
-          "SLabel": "Group",
-          "Option": "Optional"
-        },
-        {
-          "name": "SubGroup1",
-          "type": "string",
-          "width": "200",
-          "SLabel": "SubGroup",
-          "Option": "Optional"
-        },
-        {
-          "name": "Title1",
-          "type": "string",
-          "width": "200",
-          "SLabel": "Title",
-          "Option": "Optional"
-        },
-        {
-          "name": "ReferenceID1",
-          "type": "string",
-          "width": "200",
-          "SLabel": "Course ID",
-          "Option": "Optional"
-        },
-        {
-          "name": "AssignDate1",
-          "type": "Date",
-          "width": "10",
-          "SLabel": "Assignment Date",
-          "Option": "Optional"
-        },
-        {
-          "name": "TargetDate1",
-          "type": "Date",
-          "width": "10",
-          "SLabel": "Target Date",
-          "Option": "Optional"
-        }
-      ],
-      "DisplayFields": [
-        "ItemStatus",
-        "SubGroup1",
-        "Title1",
-        "ReferenceID1",
-        "TargetDate1"
-      ],
-      "cards": [
-        {
-          "type": "Table",
-          "tableCardFields": ["SubGroup1", "Title1", "TargetDate1"]
-        }
-      ],
-
-      "ItemButtons": {
-        "itemDisplay": true,
-        "itemCheck": false,
-        "itemAdd": false,
-        "itemEdit": true,
-        "itemDelete": false
-      },
-      "CreateFields": [
-        "ItemStatus",
-        "SubGroup1",
-        "Title1",
-        "ReferenceID1",
-        "TargetDate1"
-      ],
-      "ItemDetails": [
-        {
-          "name": "Group1",
-          "Tab": "Tab5",
-
-          "Mode": "Edit"
-        },
-        {
-          "name": "SubGroup1",
-          "Tab": "Tab5",
-
-          "Mode": "Edit"
-        },
-        {
-          "name": "Title1",
-          "Tab": "Tab5",
-
-          "Mode": "Edit"
-        },
-        {
-          "name": "ReferenceID1",
-          "Tab": "Tab5",
-
-          "Mode": "Edit"
-        },
-        {
-          "name": "AssignDate1",
-          "Tab": "Tab5",
-
-          "Mode": "Edit"
-        },
-        {
-          "name": "TargetDate1",
-          "Tab": "Tab5",
-
-          "Mode": "Edit"
-        }
+        { "name": "ProjectName" },
+        { "name": "ItemStatus6" },
+        { "name": "ProjectRole" },
+        { "name": "StartDate" },
+        { "name": "EndDate" },
+        { "name": "Duration" },
+        { "name": "ProjectManager" },
+        { "name": "KeyAchivements" },
+        { "name": "Strengths" },
+        { "name": "AreaofImprovement" },
+        { "name": "ProjFeedback" }
       ]
     }
   },
@@ -1071,7 +922,7 @@
     {
       "name": "Status",
       "type": "string",
-      "width": "200",
+      "width": "50",
       "Option": "Mandatory",
       "SLabel": "Status",
       "LLabel": "Status"

@@ -35,7 +35,7 @@
     "Description": ["Email"]
   },
 
-  "PossibleValues": ["Status"],
+  "PossibleValues": ["Status", "ItemStatus1", "ItemStatus2", "ItemStatus3"],
   "MButtons": [
     {
       "type": "DOWNLOAD",
@@ -311,7 +311,7 @@
           "Update": "No"
         },
         {
-          "name": "ItemStatus",
+          "name": "ItemStatus1",
           "type": "string",
           "width": "50",
           "SLabel": "Item Status",
@@ -354,7 +354,7 @@
         }
       ],
       "DisplayFields": [
-        "ItemStatus",
+        "ItemStatus1",
         "StudyID",
         "StudyType",
         "StudyName",
@@ -403,7 +403,7 @@
         "itemDelete": false
       },
       "CreateFields": [
-        "ItemStatus",
+        "ItemStatus1",
         "StudyID",
         "StudyType",
         "StudyName",
@@ -411,26 +411,12 @@
         "StudyDetails"
       ],
       "ItemDetails": [
-        {
-          "name": "StudyType",
-          "Mode": "Edit"
-        },
-        {
-          "name": "StudyName",
-          "Mode": "Edit"
-        },
-        {
-          "name": "Phase",
-          "Mode": "Edit"
-        },
-        {
-          "name": "StudyID",
-          "Mode": "Edit"
-        },
-        {
-          "name": "StudyDetails",
-          "Mode": "Edit"
-        }
+        { "name": "StudyType" },
+        { "name": "ItemStatus1" },
+        { "name": "StudyName" },
+        { "name": "Phase" },
+        { "name": "StudyID" },
+        { "name": "StudyDetails" }
       ]
     },
     "myEvent": {
@@ -445,7 +431,7 @@
           "Update": "No"
         },
         {
-          "name": "ItemStatus",
+          "name": "ItemStatus2",
           "type": "string",
           "width": "50",
           "SLabel": "Item Status",
@@ -516,7 +502,7 @@
         }
       ],
       "DisplayFields": [
-        "ItemStatus",
+        "ItemStatus2",
         "EventID",
         "EventType",
         "EventName",
@@ -566,7 +552,7 @@
         "itemDelete": false
       },
       "CreateFields": [
-        "ItemStatus",
+        "ItemStatus2",
         "EventID",
         "EventType",
         "EventName",
@@ -578,42 +564,16 @@
         "PostCode"
       ],
       "ItemDetails": [
-        {
-          "name": "EventType",
-          "Mode": "Edit"
-        },
-        {
-          "name": "EventName",
-          "Mode": "Edit"
-        },
-        {
-          "name": "EventStartDate",
-          "Mode": "Edit"
-        },
-        {
-          "name": "EventID",
-          "Mode": "Edit"
-        },
-        {
-          "name": "Time",
-          "Mode": "Edit"
-        },
-        {
-          "name": "Duration",
-          "Mode": "Edit"
-        },
-        {
-          "name": "Agenda",
-          "Mode": "Edit"
-        },
-        {
-          "name": "Address",
-          "Mode": "Edit"
-        },
-        {
-          "name": "PostCode",
-          "Mode": "Edit"
-        }
+        { "name": "EventType" },
+        { "name": "ItemStatus2" },
+        { "name": "EventName" },
+        { "name": "EventStartDate" },
+        { "name": "EventID" },
+        { "name": "Time" },
+        { "name": "Duration" },
+        { "name": "Agenda" },
+        { "name": "Address" },
+        { "name": "PostCode" }
       ]
     },
     "myContract": {
@@ -628,7 +588,7 @@
           "Update": "No"
         },
         {
-          "name": "ItemStatus",
+          "name": "ItemStatus3",
           "type": "string",
           "width": "50",
           "SLabel": "Item Status",
@@ -699,7 +659,7 @@
         }
       ],
       "DisplayFields": [
-        "ItemStatus",
+        "ItemStatus3",
         "ContractID",
         "ContractType",
         "ContractName",
@@ -765,7 +725,7 @@
         "itemDelete": false
       },
       "CreateFields": [
-        "ItemStatus",
+        "ItemStatus3",
         "ContractID",
         "ContractType",
         "ContractName",
@@ -775,42 +735,16 @@
         "Services"
       ],
       "ItemDetails": [
-        {
-          "name": "ContractType",
-          "Mode": "Edit"
-        },
-        {
-          "name": "ContractName",
-          "Mode": "Edit"
-        },
-        {
-          "name": "ContractStartDate",
-          "Mode": "Edit"
-        },
-        {
-          "name": "ContractEndDate",
-          "Mode": "Edit"
-        },
-        {
-          "name": "ContractID",
-          "Mode": "Edit"
-        },
-        {
-          "name": "ContractValue",
-          "Mode": "Edit"
-        },
-        {
-          "name": "UsedValue",
-          "Mode": "Edit"
-        },
-        {
-          "name": "BalanceValue",
-          "Mode": "Edit"
-        },
-        {
-          "name": "Services",
-          "Mode": "Edit"
-        }
+        { "name": "ContractType" },
+        { "name": "ItemStatus3" },
+        { "name": "ContractName" },
+        { "name": "ContractStartDate" },
+        { "name": "ContractEndDate" },
+        { "name": "ContractID" },
+        { "name": "ContractValue" },
+        { "name": "UsedValue" },
+        { "name": "BalanceValue" },
+        { "name": "Services" }
       ]
     }
   },
@@ -893,7 +827,7 @@
     {
       "name": "Status",
       "type": "string",
-      "width": "200",
+      "width": "50",
       "Option": "Mandatory",
       "SLabel": "Status",
       "LLabel": "Status"

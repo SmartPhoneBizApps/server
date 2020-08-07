@@ -70,7 +70,13 @@
     "GoalsArea",
     "PerformanceRating",
     "GoalStatus",
-    "ProjFeedback"
+    "ProjFeedback",
+    "ItemStatus1",
+    "ItemStatus2",
+    "ItemStatus3",
+    "ItemStatus4",
+    "ItemStatus5",
+    "ItemStatus6"
   ],
   "MButtons": [
     {
@@ -234,7 +240,7 @@
           "Update": "No"
         },
         {
-          "name": "ItemStatus",
+          "name": "ItemStatus1",
           "type": "string",
           "width": "50",
           "SLabel": "Item Status",
@@ -322,7 +328,7 @@
         }
       ],
       "DisplayFields": [
-        "ItemStatus",
+        "ItemStatus1",
         "GoalsArea",
         "Goal2",
         "Score2",
@@ -372,7 +378,7 @@
         "itemDelete": false
       },
       "CreateFields": [
-        "ItemStatus",
+        "ItemStatus1",
         "GoalsArea",
         "Goal2",
         "Score2",
@@ -382,56 +388,16 @@
         "GoalStatus"
       ],
       "ItemDetails": [
-        {
-          "name": "GoalsArea",
-          "Tab": "Tab4",
-          "Mode": "Display"
-        },
-        {
-          "name": "Goal2",
-          "Tab": "Tab4",
-          "Mode": "Display"
-        },
-        {
-          "name": "Score2",
-          "Tab": "Tab4",
-          "Mode": "Display"
-        },
-        {
-          "name": "TargetScore2",
-          "Tab": "Tab4",
-          "Mode": "Display"
-        },
-        {
-          "name": "AppraiseComm2",
-          "Tab": "Tab4",
-          "Mode": "Display"
-        },
-        {
-          "name": "ManagerComm2",
-          "Tab": "Tab4",
-          "Mode": "Display"
-        },
-        {
-          "name": "GoalStatus",
-          "Tab": "Tab4",
-          "Mode": "Display"
-        },
-        {
-          "name": "SetDate2",
-          "Tab": "Tab4",
-          "Mode": "Display"
-        },
-        {
-          "name": "TargetDate2",
-          "Tab": "Tab4",
-          "Mode": "Display"
-        },
-        {
-          "name": "NextRevDate2",
-          "Tab": "Tab4",
-          "Mode": "Display"
-        }
+        { "name": "GoalsArea" },
+        { "name": "ItemStatus1" },
+        { "name": "Goal2" },
+        { "name": "Score2" },
+        { "name": "AppraiseComm2" },
+        { "name": "ManagerComm2" },
+        { "name": "GoalStatus" },
+        { "name": "SetDate2" },
+        { "name": "TargetDate2" },
+        { "name": "NextRevDate2" }
       ]
     },
     "Appraisal": {
@@ -447,7 +413,7 @@
           "Update": "No"
         },
         {
-          "name": "ItemStatus",
+          "name": "ItemStatus2",
           "type": "string",
           "width": "50",
           "SLabel": "Item Status",
@@ -519,7 +485,7 @@
         }
       ],
       "DisplayFields": [
-        "ItemStatus",
+        "ItemStatus2",
         "AppraisalArea",
         "PerformanceRating",
         "Score3",
@@ -575,59 +541,24 @@
         "itemDelete": false
       },
       "CreateFields": [
-        "ItemStatus",
+        "ItemStatus2",
         "AppraisalArea",
         "PerformanceRating",
         "Score3",
         "AppraiseComm3",
         "TargetDate3"
       ],
+
       "ItemDetails": [
-        {
-          "name": "Score3",
-          "Tab": "Tab2",
-          "Mode": "Display"
-        },
-        {
-          "name": "AppraisalArea",
-          "Tab": "Tab2",
-          "Mode": "Display"
-        },
-        {
-          "name": "PerformanceRating",
-          "Tab": "Tab2",
-          "Mode": "Display"
-        },
-        {
-          "name": "AppraiseComm3",
-          "Tab": "Tab2",
-          "Mode": "Display"
-        },
-        {
-          "name": "ManagerComm3",
-          "Tab": "Tab2",
-          "Mode": "Display"
-        },
-        {
-          "name": "PositiveComments",
-          "Tab": "Tab2",
-          "Mode": "Display"
-        },
-        {
-          "name": "NeedsImprovement",
-          "Tab": "Tab2",
-          "Mode": "Display"
-        },
-        {
-          "name": "AssignDate3",
-          "Tab": "Tab2",
-          "Mode": "Display"
-        },
-        {
-          "name": "TargetDate3",
-          "Tab": "Tab2",
-          "Mode": "Display"
-        }
+        { "name": "PerformanceRating" },
+        { "name": "ItemStatus2" },
+        { "name": "AppraisalArea" },
+        { "name": "AppraiseComm3" },
+        { "name": "ManagerComm3" },
+        { "name": "PositiveComments" },
+        { "name": "NeedsImprovement" },
+        { "name": "AssignDate3" },
+        { "name": "TargetDate3" }
       ]
     },
     "MyTraining": {
@@ -643,7 +574,7 @@
           "Update": "No"
         },
         {
-          "name": "ItemStatus",
+          "name": "ItemStatus3",
           "type": "string",
           "width": "50",
           "SLabel": "Item Status",
@@ -693,7 +624,7 @@
         }
       ],
       "DisplayFields": [
-        "ItemStatus",
+        "ItemStatus3",
         "SubGroup1",
         "Title1",
         "ReferenceID1",
@@ -728,42 +659,13 @@
         "TargetDate1"
       ],
       "ItemDetails": [
-        {
-          "name": "Group1",
-          "Tab": "Tab5",
-
-          "Mode": "Edit"
-        },
-        {
-          "name": "SubGroup1",
-          "Tab": "Tab5",
-
-          "Mode": "Edit"
-        },
-        {
-          "name": "Title1",
-          "Tab": "Tab5",
-
-          "Mode": "Edit"
-        },
-        {
-          "name": "ReferenceID1",
-          "Tab": "Tab5",
-
-          "Mode": "Edit"
-        },
-        {
-          "name": "AssignDate1",
-          "Tab": "Tab5",
-
-          "Mode": "Edit"
-        },
-        {
-          "name": "TargetDate1",
-          "Tab": "Tab5",
-
-          "Mode": "Edit"
-        }
+        { "name": "Group1" },
+        { "name": "ItemStatus" },
+        { "name": "SubGroup1" },
+        { "name": "Title1" },
+        { "name": "ReferenceID1" },
+        { "name": "AssignDate1" },
+        { "name": "TargetDate1" }
       ]
     },
     "EmployeeFB": {
@@ -779,7 +681,7 @@
           "Update": "No"
         },
         {
-          "name": "ItemStatus",
+          "name": "ItemStatus4",
           "type": "string",
           "width": "50",
           "SLabel": "Item Status",
@@ -814,7 +716,7 @@
           "Option": "Optional"
         }
       ],
-      "DisplayFields": ["ItemStatus", "Question", "Answer"],
+      "DisplayFields": ["ItemStatus4", "Question", "Answer"],
       "cards": [{ "type": "Table", "tableCardFields": ["Question", "Answer"] }],
 
       "ItemButtons": {
@@ -825,22 +727,16 @@
         "itemDelete": false
       },
       "CreateFields": [
-        "ItemStatus",
+        "ItemStatus4",
         "Question",
         "Answer",
         "CorrectAnswer",
         "Score"
       ],
       "ItemDetails": [
-        {
-          "name": "ItemNumber"
-        },
-        {
-          "name": "Question"
-        },
-        {
-          "name": "Answer"
-        }
+        { "name": "ItemStatus4" },
+        { "name": "Question" },
+        { "name": "Answer" }
       ]
     },
     "ManagerFB": {
@@ -856,7 +752,7 @@
           "Update": "No"
         },
         {
-          "name": "ItemStatus",
+          "name": "ItemStatus5",
           "type": "string",
           "width": "50",
           "SLabel": "Item Status",
@@ -891,7 +787,7 @@
           "Option": "Optional"
         }
       ],
-      "DisplayFields": ["ItemStatus", "MQuestion", "MAnswer"],
+      "DisplayFields": ["ItemStatus5", "MQuestion", "MAnswer"],
       "cards": [
         { "type": "Table", "tableCardFields": ["MQuestion", "MAnswer"] }
       ],
@@ -904,19 +800,18 @@
         "itemDelete": false
       },
       "CreateFields": [
-        "ItemStatus",
+        "ItemStatus5",
         "MQuestion",
         "MAnswer",
         "MCorrectAnswer",
         "MScore"
       ],
       "ItemDetails": [
-        { "name": "ItemNumber" },
         { "name": "MQuestion" },
+        { "name": "ItemStatus5" },
         { "name": "MAnswer" }
       ]
     },
-
     "ProjectFeedback": {
       "title": "Project Feedback",
       "subtitle": "Feedback result",
@@ -930,7 +825,7 @@
           "Update": "No"
         },
         {
-          "name": "ItemStatus",
+          "name": "ItemStatus6",
           "type": "string",
           "width": "50",
           "SLabel": "Item Status",
@@ -1008,7 +903,7 @@
         }
       ],
       "DisplayFields": [
-        "ItemStatus",
+        "ItemStatus6",
         "ProjectName",
         "ProjectRole",
         "StartDate",
@@ -1036,7 +931,7 @@
         "itemDelete": false
       },
       "CreateFields": [
-        "ItemStatus",
+        "ItemStatus6",
         "ProjectName",
         "ProjectRole",
         "StartDate",
@@ -1049,56 +944,17 @@
         "ProjFeedback"
       ],
       "ItemDetails": [
-        {
-          "name": "ProjectName",
-          "Tab": "Tab4",
-          "Mode": "Display"
-        },
-        {
-          "name": "ProjectRole",
-          "Tab": "Tab4",
-          "Mode": "Display"
-        },
-        {
-          "name": "StartDate",
-          "Tab": "Tab4",
-          "Mode": "Display"
-        },
-        {
-          "name": "EndDate",
-          "Tab": "Tab4",
-          "Mode": "Display"
-        },
-        {
-          "name": "Duration",
-          "Tab": "Tab4",
-          "Mode": "Display"
-        },
-        {
-          "name": "ProjectManager",
-          "Tab": "Tab4",
-          "Mode": "Display"
-        },
-        {
-          "name": "KeyAchivements",
-          "Tab": "Tab4",
-          "Mode": "Display"
-        },
-        {
-          "name": "Strengths",
-          "Tab": "Tab4",
-          "Mode": "Display"
-        },
-        {
-          "name": "AreaofImprovement",
-          "Tab": "Tab4",
-          "Mode": "Display"
-        },
-        {
-          "name": "ProjFeedback",
-          "Tab": "Tab4",
-          "Mode": "Display"
-        }
+        { "name": "ProjectName" },
+        { "name": "ItemStatus6" },
+        { "name": "ProjectRole" },
+        { "name": "StartDate" },
+        { "name": "EndDate" },
+        { "name": "Duration" },
+        { "name": "ProjectManager" },
+        { "name": "KeyAchivements" },
+        { "name": "Strengths" },
+        { "name": "AreaofImprovement" },
+        { "name": "ProjFeedback" }
       ]
     }
   },
@@ -1121,7 +977,7 @@
     {
       "name": "Status",
       "type": "string",
-      "width": "200",
+      "width": "50",
       "Option": "Mandatory",
       "SLabel": "Status",
       "LLabel": "Status"

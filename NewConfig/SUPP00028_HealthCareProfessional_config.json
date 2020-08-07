@@ -50,7 +50,8 @@
     "InvoiceStatus",
     "BuyerPaymentStatus",
     "BuyerInvoiceStatus",
-    "CurrentStatus"
+    "CurrentStatus",
+    "ItemStatus1"
   ],
   "MButtons": [
     {
@@ -239,6 +240,7 @@
   "tableConfig": {
     "myStudy": {
       "title": "My Studies",
+      "subtitle": "Studies",
       "ItemFieldDefinition": [
         {
           "name": "ItemNumber",
@@ -248,7 +250,7 @@
           "Update": "No"
         },
         {
-          "name": "ItemStatus",
+          "name": "ItemStatus1",
           "type": "string",
           "width": "50",
           "SLabel": "Item Status",
@@ -291,7 +293,7 @@
         }
       ],
       "DisplayFields": [
-        "ItemStatus",
+        "ItemStatus1",
         "StudyID",
         "StudyType",
         "StudyName",
@@ -305,9 +307,29 @@
         {
           "type": "Analytical",
           "analyticsCard": {
-            "chartType": "line",
-            "cardID": "L01",
-            "template": "analyticalCard_line_template.json"
+            "chartType": "donut",
+            "cardsDonut": {
+              "cardID": "D01",
+              "measureName": "StudyType",
+              "value": "StudyType",
+              "function": "COUNT",
+              "subtitle": "Study Type"
+            },
+            "template": "analyticalCard_donut_template.json"
+          }
+        },
+        {
+          "type": "Analytical",
+          "analyticsCard": {
+            "chartType": "donut",
+            "cardsDonut": {
+              "cardID": "D01",
+              "measureName": "Phase",
+              "value": "Phase",
+              "function": "COUNT",
+              "subtitle": "Phase"
+            },
+            "template": "analyticalCard_donut_template.json"
           }
         }
       ],
@@ -320,7 +342,7 @@
         "itemDelete": false
       },
       "CreateFields": [
-        "ItemStatus",
+        "ItemStatus1",
         "StudyID",
         "StudyType",
         "StudyName",
@@ -328,30 +350,17 @@
         "StudyDetails"
       ],
       "ItemDetails": [
-        {
-          "name": "StudyType",
-          "Mode": "Edit"
-        },
-        {
-          "name": "StudyName",
-          "Mode": "Edit"
-        },
-        {
-          "name": "Phase",
-          "Mode": "Edit"
-        },
-        {
-          "name": "StudyID",
-          "Mode": "Edit"
-        },
-        {
-          "name": "StudyDetails",
-          "Mode": "Edit"
-        }
+        { "name": "StudyType" },
+        { "name": "ItemStatus1" },
+        { "name": "StudyName" },
+        { "name": "Phase" },
+        { "name": "StudyID" },
+        { "name": "StudyDetails" }
       ]
     },
     "myEvent": {
       "title": "My Events",
+      "subtitle": "Events",
       "ItemFieldDefinition": [
         {
           "name": "ItemNumber",
@@ -361,7 +370,7 @@
           "Update": "No"
         },
         {
-          "name": "ItemStatus",
+          "name": "ItemStatus2",
           "type": "string",
           "width": "50",
           "SLabel": "Item Status",
@@ -432,7 +441,7 @@
         }
       ],
       "DisplayFields": [
-        "ItemStatus",
+        "ItemStatus2",
         "EventID",
         "EventType",
         "EventName",
@@ -447,9 +456,29 @@
         {
           "type": "Analytical",
           "analyticsCard": {
-            "chartType": "line",
-            "cardID": "L01",
-            "template": "analyticalCard_line_template.json"
+            "chartType": "donut",
+            "cardsDonut": {
+              "cardID": "D01",
+              "measureName": "EventType",
+              "value": "EventType",
+              "function": "COUNT",
+              "subtitle": "Event Type"
+            },
+            "template": "analyticalCard_donut_template.json"
+          }
+        },
+        {
+          "type": "Analytical",
+          "analyticsCard": {
+            "chartType": "donut",
+            "cardsDonut": {
+              "cardID": "D01",
+              "measureName": "EventName",
+              "value": "EventName",
+              "function": "COUNT",
+              "subtitle": "Event Name"
+            },
+            "template": "analyticalCard_donut_template.json"
           }
         }
       ],
@@ -462,7 +491,7 @@
         "itemDelete": false
       },
       "CreateFields": [
-        "ItemStatus",
+        "ItemStatus2",
         "EventID",
         "EventType",
         "EventName",
@@ -474,46 +503,21 @@
         "PostCode"
       ],
       "ItemDetails": [
-        {
-          "name": "EventType",
-          "Mode": "Edit"
-        },
-        {
-          "name": "EventName",
-          "Mode": "Edit"
-        },
-        {
-          "name": "EventStartDate",
-          "Mode": "Edit"
-        },
-        {
-          "name": "EventID",
-          "Mode": "Edit"
-        },
-        {
-          "name": "Time",
-          "Mode": "Edit"
-        },
-        {
-          "name": "Duration",
-          "Mode": "Edit"
-        },
-        {
-          "name": "Agenda",
-          "Mode": "Edit"
-        },
-        {
-          "name": "Address",
-          "Mode": "Edit"
-        },
-        {
-          "name": "PostCode",
-          "Mode": "Edit"
-        }
+        { "name": "EventType" },
+        { "name": "ItemStatus2" },
+        { "name": "EventName" },
+        { "name": "EventStartDate" },
+        { "name": "EventID" },
+        { "name": "Time" },
+        { "name": "Duration" },
+        { "name": "Agenda" },
+        { "name": "Address" },
+        { "name": "PostCode" }
       ]
     },
     "myContract": {
       "title": "My Contracts",
+      "subtitle": "Contracts",
       "ItemFieldDefinition": [
         {
           "name": "ItemNumber",
@@ -523,7 +527,7 @@
           "Update": "No"
         },
         {
-          "name": "ItemStatus",
+          "name": "ItemStatus3",
           "type": "string",
           "width": "50",
           "SLabel": "Item Status",
@@ -594,7 +598,7 @@
         }
       ],
       "DisplayFields": [
-        "ItemStatus",
+        "ItemStatus3",
         "ContractID",
         "ContractType",
         "ContractName",
@@ -615,16 +619,34 @@
         {
           "type": "Analytical",
           "analyticsCard": {
+            "chartType": "donut",
+            "cardsDonut": {
+              "cardID": "D01",
+              "measureName": "ContractType",
+              "value": "ContractType",
+              "function": "COUNT",
+              "subtitle": "Contract Type"
+            },
+            "template": "analyticalCard_donut_template.json"
+          }
+        },
+        {
+          "type": "Analytical",
+          "analyticsCard": {
             "chartType": "line",
             "cardID": "L01",
             "itemvalueMap": {
-              "Score": "BalanceValue"
+              "Score": "BalanceValue",
+              "Target": "ContractValue"
             },
             "itemkeyMap": {
               "Area": "ContractName"
             },
-            "itemfixedVal": [{ "Total": 5 }],
-            "sumField": [{ "sumScore": "BalanceValue" }],
+            "itemfixedVal": [],
+            "sumField": [
+              { "sumScore": "BalanceValue" },
+              { "sumtargetScore": "ContractValue" }
+            ],
             "headerfieldMap": [
               { "j_number": "sumScore" },
               { "j_target": "sumtargetScore" }
@@ -642,7 +664,7 @@
         "itemDelete": false
       },
       "CreateFields": [
-        "ItemStatus",
+        "ItemStatus3",
         "ContractID",
         "ContractType",
         "ContractName",
@@ -652,42 +674,16 @@
         "Services"
       ],
       "ItemDetails": [
-        {
-          "name": "ContractType",
-          "Mode": "Edit"
-        },
-        {
-          "name": "ContractName",
-          "Mode": "Edit"
-        },
-        {
-          "name": "ContractStartDate",
-          "Mode": "Edit"
-        },
-        {
-          "name": "ContractEndDate",
-          "Mode": "Edit"
-        },
-        {
-          "name": "ContractID",
-          "Mode": "Edit"
-        },
-        {
-          "name": "ContractValue",
-          "Mode": "Edit"
-        },
-        {
-          "name": "UsedValue",
-          "Mode": "Edit"
-        },
-        {
-          "name": "BalanceValue",
-          "Mode": "Edit"
-        },
-        {
-          "name": "Services",
-          "Mode": "Edit"
-        }
+        { "name": "ContractType" },
+        { "name": "ItemStatus3" },
+        { "name": "ContractName" },
+        { "name": "ContractStartDate" },
+        { "name": "ContractEndDate" },
+        { "name": "ContractID" },
+        { "name": "ContractValue" },
+        { "name": "UsedValue" },
+        { "name": "BalanceValue" },
+        { "name": "Services" }
       ]
     }
   },
@@ -833,7 +829,7 @@
     {
       "name": "Status",
       "type": "string",
-      "width": "200",
+      "width": "50",
       "Option": "Mandatory",
       "SLabel": "Status",
       "LLabel": "Status"

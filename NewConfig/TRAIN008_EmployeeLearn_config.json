@@ -92,7 +92,8 @@
     "Exam",
     "Agree",
     "SelfAssign",
-    "ProjectNeed"
+    "ProjectNeed",
+    "ItemStatus1"
   ],
   "MButtons": [
     {
@@ -255,7 +256,7 @@
           "Update": "No"
         },
         {
-          "name": "ItemStatus",
+          "name": "ItemStatus1",
           "type": "string",
           "width": "50",
           "SLabel": "Item Status",
@@ -291,7 +292,7 @@
           "Option": "Optional"
         }
       ],
-      "DisplayFields": ["ItemStatus", "title", "text", "startDate", "endDate"],
+      "DisplayFields": ["ItemStatus1", "title", "text", "startDate", "endDate"],
       "cards": [
         { "type": "Table", "tableCardFields": ["title", "text", "startDate"] }
       ],
@@ -303,23 +304,14 @@
         "itemEdit": false,
         "itemDelete": false
       },
-      "CreateFields": ["ItemStatus", "title", "text", "startDate", "endDate"],
+      "CreateFields": ["ItemStatus1", "title", "text", "startDate", "endDate"],
       "ItemDetails": [
-        {
-          "name": "ItemNumber"
-        },
-        {
-          "name": "startDate"
-        },
-        {
-          "name": "endDate"
-        },
-        {
-          "name": "title"
-        },
-        {
-          "name": "text"
-        }
+        { "name": "ItemNumber" },
+        { "name": "ItemStatus1" },
+        { "name": "startDate" },
+        { "name": "endDate" },
+        { "name": "title" },
+        { "name": "text" }
       ]
     }
   },

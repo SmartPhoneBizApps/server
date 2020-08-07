@@ -68,7 +68,13 @@
     "EmailUpdates",
     "WhatsApp",
     "Notification",
-    "Messenger"
+    "Messenger",
+    "ItemStatus1",
+    "ItemStatus2",
+    "ItemStatus3",
+    "ItemStatus4",
+    "ItemStatus5",
+    "ItemStatus6"
   ],
   "MButtons": [
     { "type": "ADD", "name": "Add Record", "icon": "sap-icon://add" },
@@ -729,7 +735,7 @@
     {
       "name": "Status",
       "type": "string",
-      "width": "200",
+      "width": "50",
       "Option": "Mandatory",
       "SLabel": "Status",
       "LLabel": "Status"
@@ -1575,7 +1581,7 @@
         "Currency": "No"
       },
       {
-        "name": "ItemStatus",
+        "name": "ItemStatus1",
         "type": "string",
         "width": "20",
         "SLabel": "Item Status",
@@ -1655,21 +1661,21 @@
         "Currency": "No"
       }
     ],
-    "DisplayFields": ["Amount", "ItemStatus", "Description", "PaidAmount"],
+    "DisplayFields": ["Amount", "ItemStatus1", "Description", "PaidAmount"],
     "ItemButtons": {
       "itemDisplay": true,
       "itemAdd": true,
       "itemEdit": true,
       "itemDelete": true
     },
-    "CreateFields": ["ID", "Description", "Amount", "Currency", "ItemStatus"],
+    "CreateFields": ["ID", "Description", "Amount", "Currency", "ItemStatus1"],
     "ItemDetails": [
       { "name": "ItemNumber", "Tab": "Tab3", "Mode": "Edit" },
       { "name": "Description", "Tab": "Tab3", "Mode": "Edit" },
       { "name": "Amount", "Tab": "Tab3", "Mode": "Edit" },
       { "name": "Currency", "Tab": "Tab3", "Mode": "Edit" },
       { "name": "ID", "Tab": "Tab3", "Mode": "Edit" },
-      { "name": "ItemStatus", "Tab": "Tab3", "Mode": "Edit" },
+      { "name": "ItemStatus1", "Tab": "Tab3", "Mode": "Edit" },
       { "name": "DueDate", "Tab": "Tab3", "Mode": "Edit" },
       { "name": "PaidAmount", "Tab": "Tab3", "Mode": "Edit" },
       {
@@ -1699,7 +1705,7 @@
           "Update": "No"
         },
         {
-          "name": "ItemStatus",
+          "name": "ItemStatus2",
           "type": "string",
           "width": "50",
           "SLabel": "Item Status",
@@ -1720,7 +1726,7 @@
           "Option": "Optional"
         }
       ],
-      "DisplayFields": ["ItemStatus", "PatientStatus", "StatusDate"],
+      "DisplayFields": ["ItemStatus2", "PatientStatus", "StatusDate"],
       "cards": [
         { "type": "Table", "tableCardFields": ["PatientStatus", "StatusDate"] },
         {
@@ -1746,26 +1752,11 @@
         "itemEdit": false,
         "itemDelete": false
       },
-      "CreateFields": ["ItemStatus", "PatientStatus", "StatusDate"],
+      "CreateFields": ["ItemStatus2", "PatientStatus", "StatusDate"],
       "ItemDetails": [
-        {
-          "name": "ItemNumber",
-          "Tab": "Tab14",
-
-          "Mode": "Edit"
-        },
-        {
-          "name": "PatientStatus",
-          "Tab": "Tab14",
-
-          "Mode": "Edit"
-        },
-        {
-          "name": "StatusDate",
-          "Tab": "Tab14",
-
-          "Mode": "Edit"
-        }
+        { "name": "ItemStatus2" },
+        { "name": "PatientStatus" },
+        { "name": "StatusDate" }
       ]
     },
     "TreatmentPlan": {
@@ -1779,7 +1770,7 @@
           "Update": "No"
         },
         {
-          "name": "ItemStatus",
+          "name": "ItemStatus3",
           "type": "string",
           "width": "50",
           "SLabel": "Item Status",
@@ -1815,7 +1806,7 @@
         }
       ],
       "DisplayFields": [
-        "ItemStatus",
+        "ItemStatus3",
         "EventID",
         "Task",
         "ExpectedDate",
@@ -1850,28 +1841,18 @@
         "itemDelete": true
       },
       "CreateFields": [
-        "ItemStatus",
+        "ItemStatus3",
         "EventID",
         "Task",
         "ExpectedDate",
         "TPStatus"
       ],
       "ItemDetails": [
-        {
-          "name": "ItemNumber",
-          "Tab": "Tab6",
-
-          "Mode": "Edit"
-        },
-        { "name": "EventID", "Tab": "Tab6", "Mode": "Edit" },
-        { "name": "Task", "Tab": "Tab6", "Mode": "Edit" },
-        {
-          "name": "ExpectedDate",
-          "Tab": "Tab6",
-
-          "Mode": "Edit"
-        },
-        { "name": "TPStatus", "Tab": "Tab6", "Mode": "Edit" }
+        { "name": "ItemStatus3" },
+        { "name": "EventID" },
+        { "name": "Task" },
+        { "name": "ExpectedDate" },
+        { "name": "TPStatus" }
       ]
     },
     "ClinicalNotes": {
@@ -1885,7 +1866,7 @@
           "Update": "No"
         },
         {
-          "name": "ItemStatus",
+          "name": "ItemStatus4",
           "type": "string",
           "width": "50",
           "SLabel": "Item Status",
@@ -1935,7 +1916,7 @@
         }
       ],
       "DisplayFields": [
-        "ItemStatus",
+        "ItemStatus4",
         "VisitDate",
         "VisitReason",
         "ExaminationNotes",
@@ -1956,7 +1937,7 @@
         "itemDelete": true
       },
       "CreateFields": [
-        "ItemStatus",
+        "ItemStatus4",
         "VisitDate",
         "VisitReason",
         "ExaminationNotes",
@@ -1965,48 +1946,13 @@
         "Doctor"
       ],
       "ItemDetails": [
-        {
-          "name": "ItemNumber",
-          "Tab": "Tab11",
-
-          "Mode": "Edit"
-        },
-        {
-          "name": "VisitDate",
-          "Tab": "Tab11",
-
-          "Mode": "Edit"
-        },
-        {
-          "name": "VisitReason",
-          "Tab": "Tab11",
-
-          "Mode": "Edit"
-        },
-        {
-          "name": "ExaminationNotes",
-          "Tab": "Tab11",
-
-          "Mode": "Edit"
-        },
-        {
-          "name": "Examination",
-          "Tab": "Tab11",
-
-          "Mode": "Edit"
-        },
-        {
-          "name": "MedicalNotes",
-          "Tab": "Tab11",
-
-          "Mode": "Edit"
-        },
-        {
-          "name": "Doctor",
-          "Tab": "Tab11",
-
-          "Mode": "Edit"
-        }
+        { "name": "ItemStatus4" },
+        { "name": "VisitDate" },
+        { "name": "VisitReason" },
+        { "name": "ExaminationNotes" },
+        { "name": "Examination" },
+        { "name": "MedicalNotes" },
+        { "name": "Doctor" }
       ]
     },
     "AdminNotes": {
@@ -2020,7 +1966,7 @@
           "Update": "No"
         },
         {
-          "name": "ItemStatus",
+          "name": "ItemStatus5",
           "type": "string",
           "width": "50",
           "SLabel": "Item Status",
@@ -2056,7 +2002,7 @@
           "Option": "Optional"
         }
       ],
-      "DisplayFields": ["ItemStatus", "Date", "Notes", "Action", "ACreatedBy"],
+      "DisplayFields": ["ItemStatus5", "Date", "Notes", "Action", "ACreatedBy"],
       "cards": [
         { "type": "Table", "tableCardFields": ["Date", "Notes", "Action"] }
       ],
@@ -2068,28 +2014,13 @@
         "itemEdit": true,
         "itemDelete": true
       },
-      "CreateFields": ["ItemStatus", "Date", "Notes", "Action", "ACreatedBy"],
+      "CreateFields": ["ItemStatus5", "Date", "Notes", "Action", "ACreatedBy"],
       "ItemDetails": [
-        {
-          "name": "ItemNumber",
-          "Tab": "Tab15",
-
-          "Mode": "Edit"
-        },
-        { "name": "Date", "Tab": "Tab15", "Mode": "Edit" },
-        { "name": "Notes", "Tab": "Tab15", "Mode": "Edit" },
-        {
-          "name": "Action",
-          "Tab": "Tab15",
-
-          "Mode": "Edit"
-        },
-        {
-          "name": "ACreatedBy",
-          "Tab": "Tab15",
-
-          "Mode": "Edit"
-        }
+        { "name": "ItemStatus5" },
+        { "name": "Date" },
+        { "name": "Notes" },
+        { "name": "Action" },
+        { "name": "ACreatedBy" }
       ]
     },
     "Appointments": {
@@ -2103,7 +2034,7 @@
           "Update": "No"
         },
         {
-          "name": "ItemStatus",
+          "name": "ItemStatus6",
           "type": "string",
           "width": "50",
           "SLabel": "Item Status",
@@ -2167,7 +2098,7 @@
         }
       ],
       "DisplayFields": [
-        "ItemStatus",
+        "ItemStatus6",
         "Date",
         "Slot",
         "Doctor",
@@ -2202,28 +2133,13 @@
         "itemEdit": true,
         "itemDelete": true
       },
-      "CreateFields": ["ItemStatus", "Date", "Notes", "Slot", "Doctor"],
+      "CreateFields": ["ItemStatus6", "Date", "Notes", "Slot", "Doctor"],
       "ItemDetails": [
-        {
-          "name": "ItemNumber",
-          "Tab": "Tab8",
-
-          "Mode": "Edit"
-        },
-        { "name": "Date", "Tab": "Tab8", "Mode": "Edit" },
-        { "name": "Notes", "Tab": "Tab8", "Mode": "Edit" },
-        {
-          "name": "Slot",
-          "Tab": "Tab8",
-
-          "Mode": "Edit"
-        },
-        {
-          "name": "Doctor",
-          "Tab": "Tab8",
-
-          "Mode": "Edit"
-        }
+        { "name": "ItemStatus6" },
+        { "name": "Date" },
+        { "name": "Notes" },
+        { "name": "Slot" },
+        { "name": "Doctor" }
       ]
     }
   },
