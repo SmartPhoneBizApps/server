@@ -36,7 +36,14 @@
     "SubTitle": ["TotalAmount", "Status"],
     "Description": ["ID", "EmployeeID"]
   },
-  "PossibleValues": ["Currency", "CostCentre", "Status", "ReferenceID"],
+  "PossibleValues": [
+    "Currency",
+    "CostCentre",
+    "Status",
+    "ReferenceID",
+    "ItemStatus1",
+    "ExpType"
+  ],
   "MButtons": [
     {
       "type": "DOWNLOAD",
@@ -160,7 +167,7 @@
           "SLabel": "Identification",
           "Option": "Optional",
           "Currency": "No",
-          "Update": "Yes"
+          "Update": "No"
         },
         {
           "name": "ExpenseDate",
@@ -169,7 +176,7 @@
           "SLabel": "Expense Date",
           "Option": "Required",
           "Currency": "No",
-          "Update": "No"
+          "Update": "Yes"
         },
         {
           "name": "ExpenseAmount",
@@ -177,7 +184,6 @@
           "width": "20",
           "SLabel": "Expense Amount",
           "Option": "Mandatory",
-          "Currency": "No",
           "Update": "Yes"
         },
         {
@@ -186,7 +192,7 @@
           "width": "200",
           "Option": "Optional",
           "SLabel": "Expense Detail",
-          "LLabel": ""
+          "Update": "Yes"
         },
         {
           "name": "ExpType",
@@ -194,7 +200,6 @@
           "width": "50",
           "SLabel": "Expense Type",
           "Option": "Optional",
-          "Currency": "No",
           "Update": "Yes"
         },
         {
@@ -203,8 +208,7 @@
           "width": "200",
           "Option": "Mandatory",
           "SLabel": "Search String",
-          "LLabel": "Search String",
-          "Update": "No"
+          "Update": "Yes"
         },
         {
           "name": "Comment",
@@ -212,21 +216,22 @@
           "width": "1000",
           "SLabel": "Comment",
           "Option": "Optional",
-          "Currency": "No"
+          "Update": "Yes"
         },
         {
           "name": "Currency",
           "type": "string",
-          "width": "1000",
+          "width": "10",
           "SLabel": "Currency",
           "Option": "Optional",
-          "Currency": "No"
+          "Update": "Yes"
         },
         {
           "name": "ItemStatus1",
           "type": "string",
           "width": "50",
           "SLabel": "Item Status",
+          "Option": "Optional",
           "Update": "Yes"
         }
       ],
@@ -278,7 +283,8 @@
         "ExpType",
         "ExpenseDetails",
         "Currency",
-        "ItemStatus1"
+        "ItemStatus1",
+        "Comment"
       ],
       "ItemDetails": [
         { "name": "ExpenseDate" },
@@ -426,7 +432,23 @@
     "CreateFields": [],
     "ItemDetails": []
   },
-  "CalculatedFields": { "Item": [], "HeaderItem": [], "Header": [] },
+  "CalculatedFields": {
+    "Item": [],
+    "HeaderItem": [
+      {
+        "CalculatedFormula": {
+          "name": "ITEMSUM",
+          "function": "ITEMSUM",
+          "Target": "TotalAmount",
+          "type": "HeaderItem"
+        },
+        "Fields": [
+          { "Source": "ExpenseAmount", "Type": { "type": "HeaderItem" } }
+        ]
+      }
+    ],
+    "Header": []
+  },
   "Create": "Yes",
   "Wizard": [
     {
