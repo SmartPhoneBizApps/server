@@ -681,8 +681,8 @@
       "type": "string",
       "width": "20",
       "Option": "Mandatory",
-      "SLabel": "Identification",
-      "LLabel": "Identification"
+      "SLabel": "Patient ID",
+      "LLabel": "Patient ID"
     },
     {
       "name": "FirstName",
@@ -1726,7 +1726,7 @@
           "Option": "Optional"
         }
       ],
-      "DisplayFields": ["ItemStatus2", "PatientStatus", "StatusDate"],
+      "DisplayFields": ["PatientStatus", "StatusDate", "ItemStatus2"],
       "cards": [
         { "type": "Table", "tableCardFields": ["PatientStatus", "StatusDate"] },
         {
@@ -1806,11 +1806,11 @@
         }
       ],
       "DisplayFields": [
-        "ItemStatus3",
         "EventID",
         "Task",
         "ExpectedDate",
-        "TPStatus"
+        "TPStatus",
+        "ItemStatus3"
       ],
       "cards": [
         {
@@ -1841,11 +1841,11 @@
         "itemDelete": true
       },
       "CreateFields": [
-        "ItemStatus3",
         "EventID",
         "Task",
         "ExpectedDate",
-        "TPStatus"
+        "TPStatus",
+        "ItemStatus3"
       ],
       "ItemDetails": [
         { "name": "ItemStatus3" },
@@ -1916,12 +1916,12 @@
         }
       ],
       "DisplayFields": [
-        "ItemStatus4",
         "VisitDate",
         "VisitReason",
         "ExaminationNotes",
         "Examination",
-        "Doctor"
+        "Doctor",
+        "ItemStatus4"
       ],
       "cards": [
         {
@@ -1937,13 +1937,13 @@
         "itemDelete": true
       },
       "CreateFields": [
-        "ItemStatus4",
         "VisitDate",
         "VisitReason",
         "ExaminationNotes",
         "Examination",
         "MedicalNotes",
-        "Doctor"
+        "Doctor",
+        "ItemStatus4"
       ],
       "ItemDetails": [
         { "name": "ItemStatus4" },
@@ -2098,12 +2098,12 @@
         }
       ],
       "DisplayFields": [
-        "ItemStatus6",
         "Date",
         "Slot",
         "Doctor",
         "AppStatus",
-        "Notes"
+        "Notes",
+        "ItemStatus6"
       ],
       "cards": [
         {
