@@ -75,13 +75,9 @@
       "Please provide date in YYYY-MM-DD format for field :EntryDate"
     ]
   },
-  "ExpenseDate": {
-    "type": "Date",
-    "maxlength": [10, "ExpenseDate can not be more than 10 characters"],
-    "match": [
-      "DATE_V1",
-      "Please provide date in YYYY-MM-DD format for field :ExpenseDate"
-    ]
+  "myExpenses": {
+    "type": "String",
+    "maxlength": [50, "ReferenceID can not be more than 50"]
   },
   "ReferenceID": {
     "type": "String",
