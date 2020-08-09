@@ -8,7 +8,7 @@
     "StatusColor": "Yes",
     "SearchString": { "Search": false },
     "Filters": [],
-    "Partner": "@vendorNumber",
+    "Partner": "@VendorEmail",
     "UserSpecific": "Yes",
     "Update": "Yes",
     "URL": "https://fierce-oasis-51455.herokuapp.com",
@@ -70,8 +70,6 @@
       "icon": "sap-icon://travel-request",
       "URL": "https://www.messenger.com/t/295020207695029"
     },
-
-    { "type": "ADD", "name": "Add Record", "icon": "sap-icon://add" },
     { "type": "UPLOAD", "name": "Upload Record", "icon": "sap-icon://upload" }
   ],
   "DButtons": [
@@ -176,10 +174,9 @@
     "headerRole": ["USP_Role"],
     "headerImage": ["USP_Image"],
     "headerColorFields": ["Status"],
-    "None": ["ID", "VendorName", "PONumber", "VendorNumber"],
+    "None": ["ID", "VendorName", "PONumber", "VendorNumber", "VendorEmail"],
     "Tab1": [
       "DelTo",
-      "DelCountry",
       "Address",
       "PostCode",
       "ContactNo",
@@ -222,6 +219,7 @@
       "Option": "Mandatory",
       "SLabel": "Identification"
     },
+
     {
       "name": "ReferenceID",
       "type": "string",
@@ -285,14 +283,7 @@
       "SLabel": "Deliver To",
       "LLabel": ""
     },
-    {
-      "name": "DelCountry",
-      "type": "string",
-      "width": "100",
-      "Option": "Optional",
-      "SLabel": "Delivery Country",
-      "LLabel": ""
-    },
+
     {
       "name": "Address",
       "type": "string",
@@ -328,6 +319,13 @@
       "Option": "Mandatory",
       "SLabel": "Delivery Email",
       "LLabel": ""
+    },
+    {
+      "name": "VendorEmail",
+      "type": "string",
+      "width": "200",
+      "Option": "Optional",
+      "SLabel": "Vendor Email"
     },
     {
       "name": "DeliveryInstr",
@@ -1081,11 +1079,12 @@
       "id": "Step1",
       "fields": [
         { "name": "VendorName", "Mode": "Edit" },
+        { "name": "VendorNumber", "Mode": "Edit" },
+        { "name": "VendorEmail", "Mode": "Edit" },
         { "name": "PODate", "Mode": "Edit" },
         { "name": "PaymentTerm", "Mode": "Edit" },
         { "name": "Currency", "Mode": "Edit" },
-        { "name": "PONumber", "Mode": "Edit" },
-        { "name": "VendorNumber", "Mode": "Display" }
+        { "name": "PONumber", "Mode": "Edit" }
       ],
       "name": "Vendor Details",
       "stepType": "FieldList",
@@ -1094,7 +1093,6 @@
     {
       "id": "Step2",
       "fields": [
-        { "name": "DelCountry", "Mode": "Edit" },
         { "name": "Address", "Mode": "Edit" },
         { "name": "PostCode", "Mode": "Edit" },
         { "name": "ContactNo", "Mode": "Edit" },

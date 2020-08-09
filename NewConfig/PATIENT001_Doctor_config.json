@@ -407,9 +407,9 @@
     {
       "value": "Tab3",
       "update": "Yes",
-      "name": "ItemDetails",
+      "name": "Payment Details",
       "fioriicon": "activity-items",
-      "type": "Items",
+      "type": "Table",
       "download": "Yes"
     },
     {
@@ -580,6 +580,7 @@
       }
     ],
     "Tab2": ["Address", "PostCode"],
+    "Tab3": ["paymentDetails"],
     "Tab8": ["Appointments"],
     "Tab9": ["Radiology"],
     "Tab10": ["DentalImages"],
@@ -681,8 +682,8 @@
       "type": "string",
       "width": "20",
       "Option": "Mandatory",
-      "SLabel": "Identification",
-      "LLabel": "Identification"
+      "SLabel": "Patient ID",
+      "LLabel": "Patient ID"
     },
     {
       "name": "FirstName",
@@ -803,6 +804,14 @@
       "LLabel": "Patient Group"
     },
     {
+      "name": "paymentDetails",
+      "type": "Array",
+      "width": "200",
+      "Option": "Optional",
+      "SLabel": "Payment Details",
+      "LLabel": "Payment Details"
+    },
+    {
       "name": "LetterTo",
       "type": "string",
       "width": "20",
@@ -892,15 +901,6 @@
       "LLabel": "Personal Details"
     },
     {
-      "name": "PaymentDetails",
-      "type": "string",
-      "width": "200",
-      "Option": "Optional",
-      "SLabel": "Payment Details",
-      "LLabel": "Payment Details"
-    },
-
-    {
       "name": "GPDetails",
       "type": "string",
       "width": "200",
@@ -917,14 +917,6 @@
       "LLabel": "Dentist Details"
     },
 
-    {
-      "name": "PaymentDetails",
-      "type": "string",
-      "width": "200",
-      "Option": "Optional",
-      "SLabel": "Payment Details",
-      "LLabel": "Payment Details"
-    },
     {
       "name": "ReferalDetails",
       "type": "string",
@@ -1552,148 +1544,221 @@
       "Option": "Optional"
     }
   ],
-  "itemData": "Yes",
+  "itemData": "No",
   "itemConfig": {
-    "title": "Item Details",
-    "ItemFieldDefinition": [
-      {
-        "name": "ItemNumber",
-        "type": "string",
-        "width": "10",
-        "SLabel": "Item Number",
-        "Option": "Optional",
-        "Currency": "No"
-      },
-      {
-        "name": "ID",
-        "type": "string",
-        "width": "20",
-        "SLabel": "Identification",
-        "Option": "Optional",
-        "Currency": "No"
-      },
-      {
-        "name": "Amount",
-        "type": "Num,2",
-        "width": "20",
-        "SLabel": "Amount",
-        "Option": "Optional",
-        "Currency": "No"
-      },
-      {
-        "name": "ItemStatus1",
-        "type": "string",
-        "width": "20",
-        "SLabel": "Item Status",
-        "Option": "Optional",
-        "Currency": "No"
-      },
-      {
-        "name": "Description",
-        "type": "string",
-        "width": "200",
-        "SLabel": "Description",
-        "Option": "Optional",
-        "Currency": "No"
-      },
-      {
-        "name": "DueDate",
-        "type": "Date",
-        "width": "10",
-        "SLabel": "Due Date",
-        "Option": "Optional",
-        "Currency": "No"
-      },
-      {
-        "name": "PaymentMethod",
-        "type": "string",
-        "width": "50",
-        "SLabel": "Payment Method",
-        "Option": "Optional",
-        "Currency": "No"
-      },
-      {
-        "name": "PaidAmount",
-        "type": "Num,2",
-        "width": "50",
-        "SLabel": "Paid Amount",
-        "Option": "Optional",
-        "Currency": "No"
-      },
-      {
-        "name": "Currency",
-        "type": "string",
-        "width": "10",
-        "SLabel": "Currency",
-        "Option": "Optional",
-        "Currency": "No"
-      },
-      {
-        "name": "AuthorizationCode",
-        "type": "string",
-        "width": "50",
-        "SLabel": "Authorization Code",
-        "Option": "Optional",
-        "Currency": "No"
-      },
-      {
-        "name": "PaidBy",
-        "type": "string",
-        "width": "50",
-        "SLabel": "Paid By",
-        "Option": "Optional",
-        "Currency": "No"
-      },
-      {
-        "name": "ItemBalance",
-        "type": "Num,2",
-        "width": "20",
-        "SLabel": "Item Balance",
-        "Option": "Optional",
-        "Currency": "No"
-      },
-      {
-        "name": "PaymentDate",
-        "type": "Date",
-        "width": "10",
-        "SLabel": "Payment Date",
-        "Option": "Optional",
-        "Currency": "No"
-      }
-    ],
-    "DisplayFields": ["Amount", "ItemStatus1", "Description", "PaidAmount"],
+    "ItemFieldDefinition": [],
+    "DisplayFields": [],
     "ItemButtons": {
       "itemDisplay": true,
       "itemAdd": true,
       "itemEdit": true,
       "itemDelete": true
     },
-    "CreateFields": ["ID", "Description", "Amount", "Currency", "ItemStatus1"],
-    "ItemDetails": [
-      { "name": "ItemNumber", "Tab": "Tab3", "Mode": "Edit" },
-      { "name": "Description", "Tab": "Tab3", "Mode": "Edit" },
-      { "name": "Amount", "Tab": "Tab3", "Mode": "Edit" },
-      { "name": "Currency", "Tab": "Tab3", "Mode": "Edit" },
-      { "name": "ID", "Tab": "Tab3", "Mode": "Edit" },
-      { "name": "ItemStatus1", "Tab": "Tab3", "Mode": "Edit" },
-      { "name": "DueDate", "Tab": "Tab3", "Mode": "Edit" },
-      { "name": "PaidAmount", "Tab": "Tab3", "Mode": "Edit" },
-      {
-        "name": "PaymentMethod",
-        "Tab": "Tab3",
-
-        "Mode": "Edit"
-      },
-      {
-        "name": "AuthorizationCode",
-        "Tab": "Tab3",
-
-        "Mode": "Edit"
-      },
-      { "name": "PaidBy", "Tab": "Tab3", "Mode": "Edit" }
-    ]
+    "CreateFields": [],
+    "ItemDetails": []
   },
   "tableConfig": {
+    "paymentDetails": {
+      "calculation": "Yes",
+      "title": "Item Details",
+      "ItemFieldDefinition": [
+        {
+          "name": "ItemNumber",
+          "type": "string",
+          "width": "10",
+          "SLabel": "Item Number",
+          "Option": "Optional",
+          "Update": "No"
+        },
+        {
+          "name": "ID",
+          "type": "string",
+          "width": "20",
+          "SLabel": "Identification",
+          "Option": "Optional",
+          "Update": "No"
+        },
+        {
+          "name": "Amount",
+          "type": "Num,2",
+          "width": "20",
+          "SLabel": "Due",
+          "Option": "Optional",
+          "Update": "Yes"
+        },
+        {
+          "name": "ItemStatus1",
+          "type": "string",
+          "width": "20",
+          "SLabel": "Status",
+          "Option": "Optional",
+          "Update": "Yes"
+        },
+        {
+          "name": "Description",
+          "type": "string",
+          "width": "200",
+          "SLabel": "Details",
+          "Option": "Optional",
+          "Update": "Yes"
+        },
+        {
+          "name": "DueDate",
+          "type": "Date",
+          "width": "10",
+          "SLabel": "Due Date",
+          "Option": "Optional",
+          "Update": "Yes"
+        },
+        {
+          "name": "PaymentMethod",
+          "type": "string",
+          "width": "50",
+          "SLabel": "Method",
+          "Option": "Optional",
+          "Update": "Yes"
+        },
+        {
+          "name": "PaidAmount",
+          "type": "Num,2",
+          "width": "50",
+          "SLabel": "Paid",
+          "Option": "Optional",
+          "Update": "Yes"
+        },
+        {
+          "name": "Currency",
+          "type": "string",
+          "width": "10",
+          "SLabel": "Currency",
+          "Option": "Optional",
+          "Update": "Yes"
+        },
+        {
+          "name": "AuthorizationCode",
+          "type": "string",
+          "width": "50",
+          "SLabel": "Authorization Code",
+          "Option": "Optional",
+          "Update": "Yes"
+        },
+        {
+          "name": "PaidBy",
+          "type": "string",
+          "width": "50",
+          "SLabel": "Paid By",
+          "Option": "Optional",
+          "Update": "Yes"
+        },
+        {
+          "name": "ItemBalance",
+          "type": "Num,2",
+          "width": "20",
+          "SLabel": "Item Balance",
+          "Option": "Optional",
+          "Update": "No"
+        },
+        {
+          "name": "PaymentDate",
+          "type": "Date",
+          "width": "10",
+          "SLabel": "Payment Date",
+          "Option": "Optional",
+          "Update": "Yes"
+        }
+      ],
+      "cards": [
+        {
+          "type": "Table",
+          "tableCardFields": [
+            "Description",
+            "Amount",
+            "PaidAmount",
+            "DueDate",
+            "ItemStatus1"
+          ]
+        },
+        {
+          "type": "Analytical",
+          "analyticsCard": {
+            "chartType": "line",
+            "cardID": "L01",
+            "itemvalueMap": {
+              "Score": "Amount",
+              "Target": "PaidAmount"
+            },
+            "itemkeyMap": {
+              "Area": "DueDate"
+            },
+            "itemfixedVal": [{ "Total": 5 }],
+            "sumField": [
+              { "sumScore": "Amount" },
+              { "sumtargetScore": "PaidAmount" }
+            ],
+            "headerfieldMap": [
+              { "j_number": "sumScore" },
+              { "j_target": "sumtargetScore" }
+            ],
+            "template": "analyticalCard_line_template.json"
+          }
+        },
+        {
+          "type": "Analytical",
+          "analyticsCard": {
+            "chartType": "donut",
+            "cardsDonut": {
+              "cardID": "D01",
+              "measureName": "Description",
+              "value": "Amount",
+              "function": "SUM",
+              "subtitle": "Payment Plan"
+            },
+            "template": "analyticalCard_donut_template.json"
+          }
+        }
+      ],
+      "DisplayFields": [
+        "Description",
+        "ItemStatus1",
+        "DueDate",
+        "Currency",
+        "Amount",
+        "PaidAmount",
+        "AuthorizationCode",
+        "PaymentMethod",
+        "PaidBy"
+      ],
+      "ItemButtons": {
+        "itemDisplay": true,
+        "itemAdd": true,
+        "itemEdit": true,
+        "itemDelete": true
+      },
+      "CreateFields": [
+        "Description",
+        "ItemStatus1",
+        "DueDate",
+        "Currency",
+        "Amount",
+        "PaidAmount",
+        "AuthorizationCode",
+        "PaymentMethod",
+        "PaidBy"
+      ],
+      "ItemDetails": [
+        { "name": "ItemNumber" },
+        { "name": "Description" },
+        { "name": "Amount" },
+        { "name": "Currency" },
+        { "name": "ID" },
+        { "name": "ItemStatus1" },
+        { "name": "DueDate" },
+        { "name": "PaidAmount" },
+        { "name": "PaymentMethod" },
+        { "name": "AuthorizationCode" },
+        { "name": "PaidBy" }
+      ]
+    },
     "PatientStatusLog": {
       "title": "Patient Status Log",
       "ItemFieldDefinition": [
@@ -1726,7 +1791,7 @@
           "Option": "Optional"
         }
       ],
-      "DisplayFields": ["ItemStatus2", "PatientStatus", "StatusDate"],
+      "DisplayFields": ["PatientStatus", "StatusDate", "ItemStatus2"],
       "cards": [
         { "type": "Table", "tableCardFields": ["PatientStatus", "StatusDate"] },
         {
@@ -2133,7 +2198,7 @@
         "itemEdit": true,
         "itemDelete": true
       },
-      "CreateFields": ["Date", "Notes", "Slot", "Doctor", "ItemStatus6"],
+      "CreateFields": ["ItemStatus6", "Date", "Notes", "Slot", "Doctor"],
       "ItemDetails": [
         { "name": "ItemStatus6" },
         { "name": "Date" },

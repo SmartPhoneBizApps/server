@@ -1582,7 +1582,7 @@
           "name": "Amount",
           "type": "Num,2",
           "width": "20",
-          "SLabel": "Amount",
+          "SLabel": "Due",
           "Option": "Optional",
           "Update": "Yes"
         },
@@ -1590,7 +1590,7 @@
           "name": "ItemStatus1",
           "type": "string",
           "width": "20",
-          "SLabel": "Item Status",
+          "SLabel": "Status",
           "Option": "Optional",
           "Update": "Yes"
         },
@@ -1598,7 +1598,7 @@
           "name": "Description",
           "type": "string",
           "width": "200",
-          "SLabel": "Description",
+          "SLabel": "Details",
           "Option": "Optional",
           "Update": "Yes"
         },
@@ -1614,7 +1614,7 @@
           "name": "PaymentMethod",
           "type": "string",
           "width": "50",
-          "SLabel": "Payment Method",
+          "SLabel": "Method",
           "Option": "Optional",
           "Update": "Yes"
         },
@@ -1622,7 +1622,7 @@
           "name": "PaidAmount",
           "type": "Num,2",
           "width": "50",
-          "SLabel": "Paid Amount",
+          "SLabel": "Paid",
           "Option": "Optional",
           "Update": "Yes"
         },
@@ -1632,7 +1632,7 @@
           "width": "10",
           "SLabel": "Currency",
           "Option": "Optional",
-          "Update": "No"
+          "Update": "Yes"
         },
         {
           "name": "AuthorizationCode",
@@ -1721,14 +1721,14 @@
       ],
       "DisplayFields": [
         "Description",
+        "ItemStatus1",
+        "DueDate",
+        "Currency",
         "Amount",
         "PaidAmount",
-        "Currency",
-        "DueDate",
         "AuthorizationCode",
         "PaymentMethod",
-        "PaidBy",
-        "ItemStatus1"
+        "PaidBy"
       ],
       "ItemButtons": {
         "itemDisplay": true,
@@ -1738,14 +1738,14 @@
       },
       "CreateFields": [
         "Description",
+        "ItemStatus1",
+        "DueDate",
+        "Currency",
         "Amount",
         "PaidAmount",
-        "Currency",
-        "DueDate",
         "AuthorizationCode",
         "PaymentMethod",
-        "PaidBy",
-        "ItemStatus1"
+        "PaidBy"
       ],
       "ItemDetails": [
         { "name": "ItemNumber" },
