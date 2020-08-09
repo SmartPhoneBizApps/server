@@ -34,7 +34,7 @@
   "ListFields": {
     "IntroField": "ProjectCode",
     "TitleField": "Name",
-    "sStatus": "ExpType",
+    "sStatus": "ReferenceID",
     "fStatus": "Status",
     "numberField": "TotalAmount",
     "LFields": ["ID", "EmployeeID"],
@@ -42,11 +42,18 @@
   },
   "ListBOTFields": {
     "None": ["cardImage", "StatusState"],
-    "Title": ["ExpType", "Name", "ProjectCode"],
+    "Title": ["ReferenceID", "Name", "ProjectCode"],
     "SubTitle": ["TotalAmount", "Status"],
     "Description": ["ID", "EmployeeID"]
   },
-  "PossibleValues": ["Currency", "CostCentre", "Status", "ExpType"],
+  "PossibleValues": [
+    "Currency",
+    "CostCentre",
+    "Status",
+    "ReferenceID",
+    "ItemStatus1",
+    "ExpType"
+  ],
   "MButtons": [
     {
       "type": "DOWNLOAD",
@@ -152,15 +159,15 @@
       "value": "Tab2",
       "update": "No",
       "name": "Expenses",
-      "type": "Field",
+      "type": "Table",
       "fioriicon": "expense-report"
     },
     {
       "value": "Tab5",
-      "update": "No",
-      "name": "Attachments",
+      "update": "Yes",
+      "name": "MultiAttachment",
       "fioriicon": "attachment",
-      "type": "carouselImage",
+      "type": "MultiAttachments",
       "download": "Yes"
     },
     {
@@ -178,18 +185,170 @@
     "headerImage": ["USP_Image"],
     "headerColorFields": ["Status"],
     "None": ["ID", "EmployeeID", "Name", "TotalAmount", "Currency"],
-    "Tab1": [
-      "EntryDate",
-      "ExpenseDate",
-      "ProjectCode",
-      "CostCentre",
-      "ExpenseDetails"
-    ],
-    "Tab2": ["ExpType"],
-    "Tab5": ["Receipt"],
+    "Tab1": ["EntryDate", "ProjectCode", "CostCentre"],
+    "Tab2": ["myExpenses"],
+    "Tab5": ["MultiAttachments"],
     "Tab4": ["ProcessingLog"]
   },
   "ControlDisplay": {},
+  "tableConfig": {
+    "myExpenses": {
+      "calculation": "Yes",
+      "title": "Expenses booking",
+      "subtitle": "Expenses",
+      "tableFormFields": [
+        {
+          "GrpTitle": "Totals",
+          "Fields": ["TotalAmount"]
+        }
+      ],
+      "ItemFieldDefinition": [
+        {
+          "name": "ItemNumber",
+          "type": "string",
+          "width": "10",
+          "SLabel": "ItemNumber",
+          "Option": "Optional",
+          "Currency": "No",
+          "Update": "No"
+        },
+        {
+          "name": "ID",
+          "type": "string",
+          "width": "20",
+          "SLabel": "Identification",
+          "Option": "Optional",
+          "Currency": "No",
+          "Update": "No"
+        },
+        {
+          "name": "ExpenseDate",
+          "type": "Date",
+          "width": "10",
+          "SLabel": "Expense Date",
+          "Option": "Required",
+          "Currency": "No",
+          "Update": "Yes"
+        },
+        {
+          "name": "ExpenseAmount",
+          "type": "Num,1",
+          "width": "20",
+          "SLabel": "Expense Amount",
+          "Option": "Mandatory",
+          "Update": "Yes"
+        },
+        {
+          "name": "ExpenseDetails",
+          "type": "string",
+          "width": "200",
+          "Option": "Optional",
+          "SLabel": "Expense Detail",
+          "Update": "Yes"
+        },
+        {
+          "name": "ExpType",
+          "type": "string",
+          "width": "50",
+          "SLabel": "Expense Type",
+          "Option": "Optional",
+          "Update": "Yes"
+        },
+        {
+          "name": "SearchString",
+          "type": "string",
+          "width": "200",
+          "Option": "Mandatory",
+          "SLabel": "Search String",
+          "Update": "Yes"
+        },
+        {
+          "name": "Comment",
+          "type": "string",
+          "width": "1000",
+          "SLabel": "Comment",
+          "Option": "Optional",
+          "Update": "Yes"
+        },
+        {
+          "name": "Currency",
+          "type": "string",
+          "width": "10",
+          "SLabel": "Currency",
+          "Option": "Optional",
+          "Update": "Yes"
+        },
+        {
+          "name": "ItemStatus1",
+          "type": "string",
+          "width": "50",
+          "SLabel": "Item Status",
+          "Option": "Optional",
+          "Update": "Yes"
+        }
+      ],
+      "DisplayFields": [
+        "ExpenseDate",
+        "ExpenseAmount",
+        "ExpType",
+        "ExpenseDetails",
+        "Currency",
+        "ItemStatus1"
+      ],
+      "cards": [
+        {
+          "type": "Table",
+          "tableCardFields": [
+            "ExpenseDate",
+            "ExpenseAmount",
+            "ExpType",
+            "ExpenseDetails",
+            "ItemStatus1"
+          ]
+        },
+        {
+          "type": "Analytical",
+          "analyticsCard": {
+            "chartType": "donut",
+            "cardsDonut": {
+              "cardID": "D01",
+              "measureName": "ExpType",
+              "value": "ExpenseAmount",
+              "function": "SUM",
+              "subtitle": "Expense Type"
+            },
+            "template": "analyticalCard_donut_template.json"
+          }
+        }
+      ],
+
+      "ItemButtons": {
+        "itemDisplay": true,
+        "itemCheck": false,
+        "itemAdd": false,
+        "itemEdit": false,
+        "itemDelete": false
+      },
+      "CreateFields": [
+        "ExpenseDate",
+        "ExpenseAmount",
+        "ExpType",
+        "ExpenseDetails",
+        "Currency",
+        "ItemStatus1",
+        "Comment"
+      ],
+      "ItemDetails": [
+        { "name": "ExpenseDate" },
+        { "name": "ExpenseAmount" },
+        { "name": "ExpType" },
+        { "name": "ExpenseDetails" },
+        { "name": "Currency" },
+        { "name": "Comment" },
+        { "name": "ItemStatus1" }
+      ]
+    }
+  },
   "FieldDef": [
     {
       "name": "ID",
@@ -246,14 +405,6 @@
       "LLabel": ""
     },
     {
-      "name": "ExpenseDate",
-      "type": "Date",
-      "width": "10",
-      "Option": "Optional",
-      "SLabel": "Expense Date",
-      "LLabel": ""
-    },
-    {
       "name": "ProjectCode",
       "type": "string",
       "width": "50",
@@ -270,30 +421,15 @@
       "LLabel": ""
     },
     {
-      "name": "Receipt",
+      "name": "MultiAttachments",
       "type": "attachment",
       "metadata": "MultipleFields",
       "width": "200",
       "Option": "Optional",
-      "SLabel": "Receipt",
-      "LLabel": "Receipt"
+      "SLabel": "MultiAttachments",
+      "LLabel": "MultiAttachments"
     },
-    {
-      "name": "ExpType",
-      "type": "combobox",
-      "width": "100",
-      "Option": "Optional",
-      "SLabel": "Expense Type",
-      "LLabel": ""
-    },
-    {
-      "name": "ExpenseDetails",
-      "type": "string",
-      "width": "200",
-      "Option": "Optional",
-      "SLabel": "Expense Detail",
-      "LLabel": ""
-    },
+
     {
       "name": "Status",
       "type": "string",
@@ -327,20 +463,12 @@
       "LLabel": "Processing Log"
     },
     {
-      "name": "ProgressComment",
-      "type": "string",
-      "width": "500",
-      "Option": "Mandatory",
-      "SLabel": "Approver Comment",
-      "LLabel": ""
-    },
-    {
-      "name": "Approver",
-      "type": "string",
-      "width": "100",
+      "name": "myExpenses",
+      "type": "Array",
+      "width": "200",
       "Option": "Optional",
-      "SLabel": "Approver",
-      "LLabel": "Approver"
+      "SLabel": "myExpenses",
+      "LLabel": "myExpenses"
     }
   ],
   "itemData": "No",
@@ -356,51 +484,23 @@
     "CreateFields": [],
     "ItemDetails": []
   },
-  "CalculatedFields": { "Item": [], "HeaderItem": [], "Header": [] },
+  "CalculatedFields": {
+    "Item": [],
+    "HeaderItem": [
+      {
+        "CalculatedFormula": {
+          "name": "ITEMSUM",
+          "function": "ITEMSUM",
+          "Target": "TotalAmount",
+          "type": "HeaderItem"
+        },
+        "Fields": [
+          { "Source": "ExpenseAmount", "Type": { "type": "HeaderItem" } }
+        ]
+      }
+    ],
+    "Header": []
+  },
   "Create": "Yes",
-  "Wizard": [
-    {
-      "id": "Step1",
-      "fields": [
-        { "name": "ProjectCode", "Mode": "Edit" },
-        { "name": "Currency", "Mode": "Edit" },
-        { "name": "CostCentre", "Mode": "Edit" },
-        { "name": "EntryDate", "Mode": "Edit" },
-        { "name": "ExpenseDetails", "Mode": "Edit" },
-        { "name": "ExpType", "Mode": "Edit" },
-        { "name": "ExpenseDate", "Mode": "Edit" },
-        { "name": "TotalAmount", "Mode": "Edit" }
-      ],
-      "name": "Expenses Details",
-      "stepType": "FieldList",
-      "intro": "Expense : Expenses Details"
-    },
-    {
-      "id": "Step2",
-      "fields": [
-        { "name": "EmployeeID", "Mode": "Edit" },
-        { "name": "Name", "Mode": "Edit" }
-      ],
-      "name": "Employee Details",
-      "stepType": "FieldList",
-      "intro": "Expense : Employee Details"
-    },
-    {
-      "id": "Step3",
-      "fields": [{ "name": "Receipt", "Mode": "Edit" }],
-      "name": "Attachments",
-      "stepType": "Attachments",
-      "intro": "Expense : Attachments"
-    },
-    {
-      "id": "Step4",
-      "fields": [
-        { "name": "Status", "Mode": "Edit" },
-        { "name": "Approver", "Mode": "Edit" }
-      ],
-      "name": "Admin",
-      "stepType": "FieldList",
-      "intro": "Expense : Expense"
-    }
-  ]
+  "Wizard": []
 }
