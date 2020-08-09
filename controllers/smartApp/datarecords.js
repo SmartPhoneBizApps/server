@@ -538,7 +538,7 @@ exports.updateDataRecords = asyncHandler(async (req, res, next) => {
       }
     }
   }
-
+  console.log("Tab", tblFields);
   for (let l = 0; l < tblFields.length; l++) {
     console.log("TabName", tblFields[l]);
     if (req.headers.calculation == "Yes") {
