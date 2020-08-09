@@ -285,11 +285,14 @@ exports.addDataRecords = asyncHandler(async (req, res, next) => {
     var Handler = new calfunction();
     // mydata = Handler["datacalculation"](mydata, cardConfig["CalculatedFields"]);
     console.log("Atul - Calculation Starts");
-    mydata = Handler["tablecalculation"](
-      mydata,
-      cardConfig["CalculatedFields"],
-      "ItemData"
-    );
+    console.log(mydata);
+    if (cardConfig["itemData"] == "Yes") {
+      mydata = Handler["tablecalculation"](
+        mydata,
+        cardConfig["CalculatedFields"],
+        "ItemData"
+      );
+    }
   }
 
   // Create data in mongo DB ...
@@ -595,11 +598,14 @@ exports.updateDataRecords = asyncHandler(async (req, res, next) => {
     //  cardConfig["CalculatedFields"]
     //);
     console.log("Calculation Started..");
-    outdata = Handler["tablecalculation"](
-      req.body,
-      cardConfig["CalculatedFields"],
-      "ItemData"
-    );
+    if (cardConfig["itemData"] == "Yes") {
+      outdata = Handler["tablecalculation"](
+        req.body,
+        cardConfig["CalculatedFields"],
+        "ItemData"
+      );
+    }
+
     console.log("Calculation Done..");
     req.body = outdata;
   }

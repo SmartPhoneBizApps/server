@@ -2,17 +2,14 @@
   "ID": {
     "type": "String",
     "unique": true,
-    "required": [true, "Please add Mandatory field :ID"],
     "maxlength": [20, "ID can not be more than 20 characters"]
   },
   "EmployeeID": {
     "type": "String",
-    "required": [true, "Please add Mandatory field :EmployeeID"],
     "maxlength": [20, "EmployeeID can not be more than 20 characters"]
   },
   "Name": {
     "type": "String",
-    "required": [true, "Please add Mandatory field :EmpName"],
     "maxlength": [50, "EmpName can not be more than 50 characters"]
   },
   "Currency": {
@@ -33,7 +30,6 @@
   },
   "ExpType": {
     "type": "String",
-    "required": [true, "Please add Mandatory field :ExpType"],
     "maxlength": [100, "ExpType can not be more than 100 characters"]
   },
   "ExpenseDetails": {
@@ -42,12 +38,10 @@
   },
   "Status": {
     "type": "String",
-    "required": [true, "Please add Mandatory field :Status"],
     "maxlength": [50, "Status can not be more than 50 characters"]
   },
   "Partner": {
     "type": "String",
-    "required": [true, "Please add Mandatory field :Partner"],
     "maxlength": [200, "Partner can not be more than 200 characters"]
   },
   "ProcessingLog": {
@@ -68,17 +62,13 @@
   },
   "EntryDate": {
     "type": "Date",
-    "required": [true, "Please add Mandatory field :EntryDate"],
     "maxlength": [10, "EntryDate can not be more than 10 characters"],
     "match": [
       "DATE_V1",
       "Please provide date in YYYY-MM-DD format for field :EntryDate"
     ]
   },
-  "myExpenses": {
-    "type": "String",
-    "maxlength": [50, "ReferenceID can not be more than 50"]
-  },
+  "myExpenses": {},
   "ReferenceID": {
     "type": "String",
     "maxlength": [50, "ReferenceID can not be more than 50"]
