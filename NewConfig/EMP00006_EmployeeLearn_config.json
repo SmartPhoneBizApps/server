@@ -161,7 +161,8 @@
       "type": "string",
       "width": "20",
       "Option": "Mandatory",
-      "SLabel": "Identification"
+      "SLabel": "Identification",
+      "Update": "No"
     },
     {
       "name": "ReferenceID",
@@ -353,7 +354,10 @@
     },
     {
       "id": "Step4",
-      "fields": [{ "name": "Status", "Mode": "Display" }],
+      "fields": [
+        { "name": "Status", "Mode": "Display" },
+        { "name": "DateRequested", "Mode": "Display" }
+      ],
       "name": "Admin",
       "stepType": "FieldList",
       "intro": "Training Request : Submit"

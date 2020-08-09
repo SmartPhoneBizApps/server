@@ -11,6 +11,7 @@
     "Partner": "@VendorEmail",
     "UserSpecific": "Yes",
     "Update": "Yes",
+    "Calculation": "Yes",
     "URL": "https://fierce-oasis-51455.herokuapp.com",
     "Source": { "SourceName": "mongoDB", "SourceFile": "NA" },
     "dataFilter": [{ "field": "Status" }],
@@ -217,9 +218,9 @@
       "type": "string",
       "width": "20",
       "Option": "Mandatory",
-      "SLabel": "Identification"
+      "SLabel": "Identification",
+      "Update": "No"
     },
-
     {
       "name": "ReferenceID",
       "type": "string",
@@ -264,8 +265,7 @@
       "type": "string",
       "width": "10",
       "Option": "Optional",
-      "SLabel": "Currency",
-      "LLabel": ""
+      "SLabel": "Currency"
     },
     {
       "name": "PODeliveryDt",
@@ -283,7 +283,6 @@
       "SLabel": "Deliver To",
       "LLabel": ""
     },
-
     {
       "name": "Address",
       "type": "string",

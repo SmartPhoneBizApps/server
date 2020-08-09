@@ -8,7 +8,7 @@
     "StatusColor": "Yes",
     "SearchString": { "Search": false },
     "Filters": [],
-    "Partner": "@vendorNumber",
+    "Partner": "@VendorEmail",
     "UserSpecific": "Yes",
     "Update": "Yes",
     "Calculation": "Yes",
@@ -35,7 +35,6 @@
     ],
     "numberUnitField": "Currency"
   },
-
   "ListBOTFields": {
     "None": ["cardImage", "StatusState"],
     "Title": ["PONumber", "Company", "ID"],
@@ -71,10 +70,7 @@
       "name": "Launch BOT",
       "icon": "sap-icon://travel-request",
       "URL": "https://www.messenger.com/t/295020207695029"
-    },
-
-    { "type": "ADD", "name": "Add Record", "icon": "sap-icon://add" },
-    { "type": "UPLOAD", "name": "Upload Record", "icon": "sap-icon://upload" }
+    }
   ],
   "DButtons": [
     {
@@ -181,7 +177,6 @@
     "None": ["ID", "VendorName", "PONumber", "VendorNumber", "VendorEmail"],
     "Tab1": [
       "DelTo",
-      "DelCountry",
       "Address",
       "PostCode",
       "ContactNo",
@@ -222,7 +217,8 @@
       "type": "string",
       "width": "20",
       "Option": "Mandatory",
-      "SLabel": "Identification"
+      "SLabel": "Identification",
+      "Update": "No"
     },
     {
       "name": "ReferenceID",
@@ -268,9 +264,7 @@
       "type": "string",
       "width": "10",
       "Option": "Optional",
-      "SLabel": "Currency",
-      "LLabel": "",
-      "Currency": "Yes"
+      "SLabel": "Currency"
     },
     {
       "name": "PODeliveryDt",
@@ -286,14 +280,6 @@
       "width": "100",
       "Option": "Optional",
       "SLabel": "Deliver To",
-      "LLabel": ""
-    },
-    {
-      "name": "DelCountry",
-      "type": "string",
-      "width": "100",
-      "Option": "Optional",
-      "SLabel": "Delivery Country",
       "LLabel": ""
     },
     {
@@ -331,6 +317,13 @@
       "Option": "Mandatory",
       "SLabel": "Delivery Email",
       "LLabel": ""
+    },
+    {
+      "name": "VendorEmail",
+      "type": "string",
+      "width": "200",
+      "Option": "Optional",
+      "SLabel": "Vendor Email"
     },
     {
       "name": "DeliveryInstr",
@@ -1158,11 +1151,12 @@
       "id": "Step1",
       "fields": [
         { "name": "VendorName", "Mode": "Edit" },
+        { "name": "VendorNumber", "Mode": "Edit" },
+        { "name": "VendorEmail", "Mode": "Edit" },
         { "name": "PODate", "Mode": "Edit" },
         { "name": "PaymentTerm", "Mode": "Edit" },
         { "name": "Currency", "Mode": "Edit" },
-        { "name": "PONumber", "Mode": "Edit" },
-        { "name": "VendorNumber", "Mode": "Display" }
+        { "name": "PONumber", "Mode": "Edit" }
       ],
       "name": "Vendor Details",
       "stepType": "FieldList",
