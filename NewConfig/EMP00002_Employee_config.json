@@ -174,17 +174,16 @@
   "headerCards": [
     {
       "type": "Analytical",
+      "cardID": "EMP02E01",
+      "template": "template_analyticalCard_donut.json",
+      "title": "Travel Cost Analysis",
       "analyticsCard": {
         "chartType": "donut",
         "cardsDonut": {
-          "cardID": "DH01",
           "measureNames": ["FoodCost", "TravelCost", "StayCost", "OtherCost"],
           "values": ["FoodCost", "TravelCost", "StayCost", "OtherCost"],
-          "function": "VALUE",
-          "subtitle": "Cost Split"
-        },
-
-        "template": "analyticalCard_donut_template.json"
+          "function": "VALUE"
+        }
       }
     }
   ],

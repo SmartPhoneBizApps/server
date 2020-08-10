@@ -11,7 +11,15 @@
         "title": "@Title",
         "subTitle": "@SubTitle",
         "status": {},
-        "actions": [],
+        "actions": [
+          {
+            "type": "Custom",
+            "parameters": {
+              "type": "tabnavigation",
+              "url": "@HeaderActionURL"
+            }
+          }
+        ],
         "icon": {}
       },
       "type": "@Type",

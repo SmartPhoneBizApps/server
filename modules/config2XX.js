@@ -17,11 +17,17 @@ const readFile = utils.promisify(fs.readFile);
 const sendEmail = require("../utils/sendEmail");
 const sendEmail1 = require("../utils/sendEmailProd");
 module.exports = {
-  donutCard: async function (mycard, appData1, anacardConfig) {
+  donutCard: async function (mycard, appData1, outStru, appconfig1, ID, key) {
+    // Read cart Analytical Template...
+    let cardConfigFile1 = "../cards/cardConfig/" + mycard["template"];
+    var anacardConfig = require(cardConfigFile1);
     measures1 = [];
     let mydc2 = {};
     let json1 = {};
+    let head1 = {};
+    let stru1 = {};
     var set1 = new Set();
+
     for (let q = 0; q < appData1.length; q++) {
       set1.add(appData1[q][mycard["cardsDonut"]["measureName"]]);
     }
@@ -47,6 +53,14 @@ module.exports = {
       measures1.push({ ...mydc2 });
       mydc2 = {};
     });
+
+    // Header....
+    head1 = { ...anacardConfig["Structure"]["sap.card"].header };
+    head1["title"] =
+      appconfig1["title"] + " (" + mycard["cardsDonut"]["subtitle"] + ")";
+    anacardConfig["Structure"]["sap.card"].header = { ...head1 };
+    head1 = {};
+
     // Measurements...
     json1 = { ...anacardConfig["Structure"]["sap.card"].content.data.json };
     json1["measures"] = measures1;
@@ -56,10 +70,26 @@ module.exports = {
     measures1 = [];
     json1 = {};
     return anacardConfig["Structure"];
+
+    // Card ID...
+    t_type = "Analytical";
+    let st1 = t_type + "_" + ID + "_" + key + mycard["cardsDonut"]["cardID"];
+
+    // Add to the card...
+    stru1 = {};
+    stru1 = { ...anacardConfig["Structure"] };
+
+    outStru[st1] = { ...stru1 };
+    console.log(st1, outStru[st1]);
+    st1 = "";
+    stru1 = {};
+
+    return outStru;
   },
-  lineCard: async function (mycard, appData1, anacardConfig) {
-    list1x = {};
-    list1 = [];
+  lineCard: async function (mycard, appData1, outStru, appconfig1, ID, key) {
+    // Read cart Analytical Template...
+    let cardConfigFile1 = "../cards/cardConfig/" + mycard["template"];
+    var anacardConfig = require(cardConfigFile1);
     let j_number = 10;
     let trend1 = "Down";
     let state1 = "Error";
@@ -90,6 +120,10 @@ module.exports = {
     }
     json1["list"] = list1;
     anacardConfig["Structure"]["sap.card"].content.data.json.list = list1;
+    //  list1 = [];
+    head1["title"] = appconfig1["title"];
+    head1["subTitle"] = appconfig1["subTitle"];
+    head1["unitOfMeasurement"] = appconfig1["unitOfMeasurement"];
     js1 = {};
     js1 = { ...anacardConfig["Structure"]["sap.card"].header.data.json };
     js1["number"] = j_number;
@@ -102,73 +136,75 @@ module.exports = {
     list1 = [];
     json1 = {};
     head1 = {};
+    return anacardConfig["Structure"];
     stru1 = anacardConfig["Structure"];
     t_type = "Analytical";
-    return stru1;
+
+    let st1 = t_type + "_" + ID + "_" + key + mycard["cardID"];
+    outStru[st1] = { ...stru1 };
+    stru1 = {};
+    return outStru;
   },
-  stackedcolumnCard: async function (mycard, appData1, anacardConfig) {
-    stru1 = anacardConfig["Structure"];
+  stackedcolumnCard: async function (
+    mycard,
+    appData1,
+    outStru,
+    appconfig1,
+    ID,
+    key
+  ) {
     let j_number = 10;
     let trend1 = "Down";
     let state1 = "Error";
-    let unitOfMeasurement = "GBP";
     let details1 = "2019-2020";
+    let cardConfigFile1 = "../cards/cardConfig/" + mycard["template"];
+    var anacardConfig = require(cardConfigFile1);
     head1 = {};
     head1 = { ...anacardConfig["Structure"]["sap.card"].header };
-
     json1 = {
       ...anacardConfig["Structure"]["sap.card"].content.data.json,
     };
+    head1["title"] = appconfig1["title"];
     js1 = {};
     js1 = { ...anacardConfig["Structure"]["sap.card"].header.data.json };
     js1["number"] = j_number;
     js1["trend"] = trend1;
     js1["state"] = state1;
-    js1["unit"] = unitOfMeasurement;
-    head1["data"]["json"] = { ...js1 };
-    anacardConfig["Structure"]["sap.card"].header = { ...head1 };
-    js1 = {};
-    list1 = [];
-    list1x = {};
-
-    for (let q = 0; q < appData1.length; q++) {
-      list1x["Category"] = appData1[q][mycard["colKey"]["Category"]];
-      for (let t = 0; t < mycard["colValues"].length; t++) {
-        list1x[mycard["colValues"][t]] = appData1[q][mycard["colValues"][t]];
-      }
-      for (const k1 in mycard["colValues"]) {
-        const ek1 = mycard["colValues"][k1];
-        if (appData1[q][ek1] != undefined) {
-          list1x[k1] = appData1[q][ek1];
-        } else {
-          list1x[k1] = 0;
-        }
-      }
-      // for (const k1 in mycard["itemkeyMap"]) {
-      //   const ek1 = mycard["itemkeyMap"][k1];
-      //   if (appData1[q][ek1] != undefined) {
-      //     list1x[k1] = appData1[q][ek1];
-      //   } else {
-      //     list1x[k1] = "NA";
-      //   }
-      // }
-      list1.push({ ...list1x });
-    }
-
+    js1["unit"] = appconfig1["unitOfMeasurement"];
     anacardConfig["Structure"]["sap.card"].content.data.json.list = list1;
-
+    head1["data"]["json"] = { ...js1 };
+    js1 = {};
+    anacardConfig["Structure"]["sap.card"].header = { ...head1 };
     list1 = [];
     json1 = {};
     head1 = {};
+    stru1 = anacardConfig["Structure"];
+    t_type = "Analytical";
 
-    return stru1;
+    let st1 = t_type + "_" + ID + "_" + key + mycard["cardID"];
+    outStru[st1] = { ...stru1 };
+    stru1 = {};
+
+    return outStru;
   },
-  tableCard: async function (mycard, appData1, anacardConfig) {
-    t_type = "table1";
-    stru = anacardConfig;
-    tabFields = mycard["tableCardFields"];
-    xc_table1 = {};
+
+  tableCard: async function (
+    tabFields,
+    appData1,
+    cardConfig,
+    appconfig,
+    ID,
+    key
+  ) {
+    hdr = {};
+    xrow1 = {};
+    xrow = {};
+    json_table1 = [];
     col_table1 = [];
+    tdata = [];
+    xc_table1 = {};
+    xj_table1 = {};
+    console.log(tabFields);
     for (let b = 0; b < tabFields.length; b++) {
       xc_table1["title"] = tabFields[b];
       xc_table1["value"] = "{" + tabFields[b] + "}";
@@ -176,11 +212,7 @@ module.exports = {
       col_table1.push({ ...xc_table1 });
       xc_table1 = {};
     }
-    xj_table1 = {};
-    json_table1 = [];
-    tdata = [];
-    xrow1 = {};
-    xrow = {};
+    console.log(xc_table1);
     for (let u = 0; u < appData1.length; u++) {
       for (let b = 0; b < tabFields.length; b++) {
         xj_table1[tabFields[b]] = appData1[u][tabFields[b]];
@@ -188,48 +220,37 @@ module.exports = {
       json_table1.push({ ...xj_table1 });
       xj_table1 = {};
     }
-    tdata["json"] = json_table1;
-    json_table1 = [];
+    console.log(json_table1);
+    nav = {};
+    par = {};
+    par1 = [];
+    nav["type"] = "tabNavigation";
+    nav["tab"] = key;
+    par["parameters"] = nav;
+    par["type"] = "Custom";
+    par1.push(par);
+
+    hdr = cardConfig["header"]["table1"];
+    hdr["title"] = appconfig["tableConfig"][key]["title"];
+    hdr["subTitle"] = "Recent Transactions";
+    hdr["actions"] = par1;
+
     xrow1["columns"] = col_table1;
     xrow["row"] = { ...xrow1 };
     xrow1 = {};
-    col_table1 = [];
+    tdata["json"] = json_table1;
     stru["sap.card"]["content"] = { ...xrow };
     xrow = {};
     stru["sap.card"]["type"] = "Table";
+    stru["sap.card"]["header"] = { ...hdr };
+    hdr = {};
     stru["sap.card"]["data"] = { ...tdata };
+    return stru;
     tdata = {};
-    return stru;
   },
-  globalCard: async function (appData1, GlobalCardConfig) {
-    stru = GlobalCardConfig;
-    console.log(stru);
-    let fg3 = "../cards/cardConfig/template_icon.json";
-    var gicon = require(fg3);
-    let timeline1_json = [];
-    let xj1 = {};
-    for (let n = 0; n < appData1.length; n++) {
-      xj1["Icon"] = "sap-icon://accept";
-      xj1["Title"] = appData1[n]["Comment"];
-      console.log(appData1[n]["buttonName"]);
-      if (appData1[n].hasOwnProperty("buttonName")) {
-        xj1["Title"] = xj1["Title"] + " >> " + appData1[n]["buttonName"];
-        xj1["Icon"] = gicon[appData1[n]["buttonName"]];
-      }
-      xj1["Time"] = new Date(appData1[n]["TimeStamp"]);
-      xj1["Description"] = appData1[n]["UserName"];
-      if (appData1[n].hasOwnProperty("UserComment")) {
-        xj1["Description"] =
-          xj1["Description"] + " >> " + appData1[n]["UserComment"];
-      }
-      timeline1_json.push({ ...xj1 });
-      xj1 = {};
-    }
-    stru["sap.card"]["content"]["data"]["json"] = timeline1_json;
-    timeline1_json = [];
-    return stru;
-  },
+
   generatePdfCertificate: async function (getData) {
+    console.log("CertData2:", getData);
     var message =
       '<!DOCTYPE html><html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="x-apple-disable-message-reformatting"><title></title><link href="https://fonts.googleapis.com/css?family=Lato:300,400,700" rel="stylesheet"><style>table {font-family: arial, sans-serif;border-collapse: collapse;width: 100%;}td, th {border: 1px solid #dddddd;text-align: left;padding: 8px;}tr:nth-child(even) {background-color: #dddddd;}</style></head><body width="100%" style="margin: 0; padding: 0 !important; mso-line-height-rule: exactly; background-color: #f1f1f1;"><div style="width:800px; height:600px; padding:20px; text-align:center; border: 10px solid #787878"><div style="width:750px; height:550px; padding:20px; text-align:center; border: 5px solid #787878"><span style="font-size:50px; font-weight:bold">Certificate of Completion</span><br><br><span style="font-size:25px"><i>This is to certify that</i></span><br><br><span style="font-size:30px"><b>[FULLNAME]</b></span><br/><br/><span style="font-size:25px"><i>has completed the course</i></span> <br/><br/><span style="font-size:30px">[COURSENAME]</span> <br/><br/><span style="font-size:20px">with score of <b>[SCORE]</b></span> <br/><br/><span style="font-size:25px"><i>dated</i></span><br>[DATE]</span></div></div></body></html>';
 
@@ -325,8 +346,11 @@ module.exports = {
               reqQuery1[key] = req.user.email;
               break;
             case "@CostCentre":
+              console.log(config1.Controls.Filters[x][key]);
+              console.log(ivalue);
               for (let y = 0; y < ivalue.length; y++) {
                 for (const key in ivalue[y]) {
+                  console.log(ivalue[y]["Field"]);
                   if (ivalue[y]["Field"] == "CostCentre") {
                     reqQuery1["CostCentre"] = ivalue[y]["Value"];
                   }
@@ -434,6 +458,8 @@ module.exports = {
         }
       }
     }
+
+    console.log("Filters:", reqQuery1);
     const removeFields = ["select", "sort", "page", "limit"];
     removeFields.forEach((param) => delete reqQuery1[param]);
     reqQuery2 = {};

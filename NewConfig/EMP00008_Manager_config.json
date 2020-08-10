@@ -298,6 +298,7 @@
       "cards": [
         {
           "type": "Table",
+          "template": "template_table.json",
           "tableCardFields": [
             "ExpenseDate",
             "ExpenseAmount",
@@ -308,16 +309,16 @@
         },
         {
           "type": "Analytical",
+          "cardID": "EMP08M01",
+          "template": "template_analyticalCard_donut.json",
+          "title": "Expense Type Analysis",
           "analyticsCard": {
             "chartType": "donut",
             "cardsDonut": {
-              "cardID": "D01",
               "measureName": "ExpType",
               "value": "ExpenseAmount",
-              "function": "SUM",
-              "subtitle": "Expense Type"
-            },
-            "template": "analyticalCard_donut_template.json"
+              "function": "SUM"
+            }
           }
         }
       ],

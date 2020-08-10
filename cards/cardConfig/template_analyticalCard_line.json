@@ -14,8 +14,11 @@
       "header": {
         "actions": [
           {
-            "type": "Navigation",
-            "url": "http://www.sap.com"
+            "type": "Custom",
+            "parameters": {
+              "type": "tabnavigation",
+              "url": "@HeaderActionURL"
+            }
           }
         ],
         "type": "Numeric",
@@ -31,8 +34,8 @@
             "details": "2019-2020"
           }
         },
-        "title": "@headerTitle",
-        "subTitle": "@headerSubTitle",
+        "title": "@Title",
+        "subTitle": "@subTitle",
         "unitOfMeasurement": "@UOM",
         "mainIndicator": {
           "number": "{number}",

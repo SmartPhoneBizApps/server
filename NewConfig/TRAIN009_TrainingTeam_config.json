@@ -296,7 +296,11 @@
       ],
       "DisplayFields": ["ItemStatus1", "title", "text", "startDate", "endDate"],
       "cards": [
-        { "type": "Table", "tableCardFields": ["title", "text", "startDate"] }
+        {
+          "type": "Table",
+          "template": "template_table.json",
+          "tableCardFields": ["title", "text", "startDate"]
+        }
       ],
 
       "ItemButtons": {

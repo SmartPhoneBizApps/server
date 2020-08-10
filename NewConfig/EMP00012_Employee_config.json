@@ -382,13 +382,18 @@
       "cards": [
         {
           "type": "Table",
+          "template": "template_table.json",
           "tableCardFields": ["GoalsArea", "Goal2", "TargetDate2"]
         },
         {
           "type": "Analytical",
+          "cardID": "EMP12E01",
+          "title": "Goal Area Avalysis",
+          "subtitle": "Actual Vs Target Score",
+          "unitOfMeasurement": "SCORE",
+          "template": "template_analyticalCard_line.json",
           "analyticsCard": {
             "chartType": "line",
-            "cardID": "L01",
             "itemvalueMap": {
               "Score": "Score2",
               "Target": "TargetScore2"
@@ -404,8 +409,7 @@
             "headerfieldMap": [
               { "j_number": "sumScore" },
               { "j_target": "sumtargetScore" }
-            ],
-            "template": "analyticalCard_line_template.json"
+            ]
           }
         }
       ],
@@ -543,6 +547,7 @@
       "cards": [
         {
           "type": "Table",
+          "template": "template_table.json",
           "tableCardFields": [
             "AppraisalArea",
             "PerformanceRating",
@@ -551,10 +556,10 @@
         },
         {
           "type": "Analytical",
+          "cardID": "EMP12E02",
+          "template": "template_analyticalCard_line.json",
           "analyticsCard": {
-            "chartType": "line",
-            "cardID": "L01",
-            "template": "analyticalCard_line_template.json"
+            "chartType": "line"
           }
         }
       ],
@@ -658,6 +663,7 @@
       "cards": [
         {
           "type": "Table",
+          "template": "template_table.json",
           "tableCardFields": ["SubGroup1", "Title1", "TargetDate1"]
         }
       ],
@@ -735,7 +741,13 @@
         }
       ],
       "DisplayFields": ["ItemStatus4", "Question", "Answer"],
-      "cards": [{ "type": "Table", "tableCardFields": ["Question", "Answer"] }],
+      "cards": [
+        {
+          "type": "Table",
+          "template": "template_table.json",
+          "tableCardFields": ["Question", "Answer"]
+        }
+      ],
 
       "ItemButtons": {
         "itemDisplay": true,
@@ -859,6 +871,7 @@
       "cards": [
         {
           "type": "Table",
+          "template": "template_table.json",
           "tableCardFields": [
             "ProjectName",
             "StartDate",

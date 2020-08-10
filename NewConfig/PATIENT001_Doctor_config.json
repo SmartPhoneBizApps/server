@@ -1670,19 +1670,26 @@
       "cards": [
         {
           "type": "Table",
+          "template": "template_table.json",
           "tableCardFields": [
             "Description",
             "Amount",
             "PaidAmount",
+            "Currency",
             "DueDate",
+            "PaidBy",
             "ItemStatus1"
           ]
         },
         {
           "type": "Analytical",
+          "cardID": "PAT001",
+          "title": "Patient Payments",
+          "subtitle": "Amount Due Vs Paid",
+          "unitOfMeasurement": "GBP",
+          "template": "template_analyticalCard_line.json",
           "analyticsCard": {
             "chartType": "line",
-            "cardID": "L01",
             "itemvalueMap": {
               "Score": "Amount",
               "Target": "PaidAmount"
@@ -1698,22 +1705,21 @@
             "headerfieldMap": [
               { "j_number": "sumScore" },
               { "j_target": "sumtargetScore" }
-            ],
-            "template": "analyticalCard_line_template.json"
+            ]
           }
         },
         {
           "type": "Analytical",
+          "cardID": "PAT001",
+          "template": "template_analyticalCard_donut.json",
+          "title": "Payment Plan Analysis",
           "analyticsCard": {
             "chartType": "donut",
             "cardsDonut": {
-              "cardID": "D01",
               "measureName": "Description",
               "value": "Amount",
-              "function": "SUM",
-              "subtitle": "Payment Plan"
-            },
-            "template": "analyticalCard_donut_template.json"
+              "function": "SUM"
+            }
           }
         }
       ],
@@ -1793,19 +1799,23 @@
       ],
       "DisplayFields": ["PatientStatus", "StatusDate", "ItemStatus2"],
       "cards": [
-        { "type": "Table", "tableCardFields": ["PatientStatus", "StatusDate"] },
+        {
+          "type": "Table",
+          "template": "template_table.json",
+          "tableCardFields": ["PatientStatus", "StatusDate"]
+        },
         {
           "type": "Analytical",
+          "cardID": "PAT001",
+          "template": "template_analyticalCard_donut.json",
+          "title": "Patient Status Analysis",
           "analyticsCard": {
             "chartType": "donut",
             "cardsDonut": {
-              "cardID": "D01",
               "measureName": "PatientStatus",
               "value": "PatientStatus",
-              "function": "COUNT",
-              "subtitle": "Patient Status"
-            },
-            "template": "analyticalCard_donut_template.json"
+              "function": "COUNT"
+            }
           }
         }
       ],
@@ -1880,20 +1890,21 @@
       "cards": [
         {
           "type": "Table",
+          "template": "template_table.json",
           "tableCardFields": ["Task", "ExpectedDate", "TPStatus"]
         },
         {
           "type": "Analytical",
+          "cardID": "PAT001",
+          "template": "template_analyticalCard_donut.json",
+          "title": "TP Status Analysis",
           "analyticsCard": {
             "chartType": "donut",
             "cardsDonut": {
-              "cardID": "D01",
               "measureName": "TPStatus",
               "value": "TPStatus",
-              "function": "COUNT",
-              "subtitle": "TP Status"
-            },
-            "template": "analyticalCard_donut_template.json"
+              "function": "COUNT"
+            }
           }
         }
       ],
@@ -1991,6 +2002,7 @@
       "cards": [
         {
           "type": "Table",
+          "template": "template_table.json",
           "tableCardFields": ["VisitDate", "Examination", "Doctor"]
         }
       ],
@@ -2069,7 +2081,11 @@
       ],
       "DisplayFields": ["ItemStatus5", "Date", "Notes", "Action", "ACreatedBy"],
       "cards": [
-        { "type": "Table", "tableCardFields": ["Date", "Notes", "Action"] }
+        {
+          "type": "Table",
+          "template": "template_table.json",
+          "tableCardFields": ["Date", "Notes", "Action"]
+        }
       ],
 
       "ItemButtons": {
@@ -2173,20 +2189,21 @@
       "cards": [
         {
           "type": "Table",
+          "template": "template_table.json",
           "tableCardFields": ["Date", "Slot", "Doctor", "AppStatus"]
         },
         {
           "type": "Analytical",
+          "cardID": "PAT001",
+          "template": "template_analyticalCard_donut.json",
+          "title": "Appointment Analysis",
           "analyticsCard": {
             "chartType": "donut",
             "cardsDonut": {
-              "cardID": "D01",
               "measureName": "AppStatus",
               "value": "AppStatus",
-              "function": "COUNT",
-              "subtitle": "Appointment Status"
-            },
-            "template": "analyticalCard_donut_template.json"
+              "function": "COUNT"
+            }
           }
         }
       ],

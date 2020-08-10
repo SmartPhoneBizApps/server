@@ -363,34 +363,35 @@
       "cards": [
         {
           "type": "Table",
+          "template": "template_table.json",
           "tableCardFields": ["StudyType", "StudyName", "Phase"]
         },
         {
           "type": "Analytical",
+          "cardID": "HC0001",
+          "template": "template_analyticalCard_donut.json",
+          "title": "Study Type Analysis",
           "analyticsCard": {
             "chartType": "donut",
             "cardsDonut": {
-              "cardID": "D01",
               "measureName": "StudyType",
               "value": "StudyType",
-              "function": "COUNT",
-              "subtitle": "Study Type"
-            },
-            "template": "analyticalCard_donut_template.json"
+              "function": "COUNT"
+            }
           }
         },
         {
           "type": "Analytical",
+          "cardID": "HC0001",
+          "template": "template_analyticalCard_donut.json",
+          "title": "Study Phases Analysis",
           "analyticsCard": {
             "chartType": "donut",
             "cardsDonut": {
-              "cardID": "D01",
               "measureName": "Phase",
               "value": "Phase",
-              "function": "COUNT",
-              "subtitle": "Phase"
-            },
-            "template": "analyticalCard_donut_template.json"
+              "function": "COUNT"
+            }
           }
         }
       ],
@@ -512,34 +513,35 @@
       "cards": [
         {
           "type": "Table",
+          "template": "template_table.json",
           "tableCardFields": ["EventType", "EventName", "EventStartDate"]
         },
         {
           "type": "Analytical",
+          "cardID": "HC0001",
+          "template": "template_analyticalCard_donut.json",
+          "title": "Event Type Analysis",
           "analyticsCard": {
             "chartType": "donut",
             "cardsDonut": {
-              "cardID": "D01",
               "measureName": "EventType",
               "value": "EventType",
-              "function": "COUNT",
-              "subtitle": "Event Type"
-            },
-            "template": "analyticalCard_donut_template.json"
+              "function": "COUNT"
+            }
           }
         },
         {
           "type": "Analytical",
+          "cardID": "HC0001",
+          "template": "template_analyticalCard_donut.json",
+          "title": "Events Analysis",
           "analyticsCard": {
             "chartType": "donut",
             "cardsDonut": {
-              "cardID": "D01",
               "measureName": "EventName",
               "value": "EventName",
-              "function": "COUNT",
-              "subtitle": "Event Name"
-            },
-            "template": "analyticalCard_donut_template.json"
+              "function": "COUNT"
+            }
           }
         }
       ],
@@ -670,6 +672,7 @@
       "cards": [
         {
           "type": "Table",
+          "template": "template_table.json",
           "tableCardFields": [
             "ContractType",
             "ContractName",
@@ -677,25 +680,45 @@
             "BalanceValue"
           ]
         },
+
         {
           "type": "Analytical",
+          "cardID": "HC0001",
+          "template": "template_analyticalCard_stackedcolumn.json",
+
           "analyticsCard": {
-            "chartType": "donut",
-            "cardsDonut": {
-              "cardID": "D01",
-              "measureName": "ContractType",
-              "value": "ContractType",
-              "function": "COUNT",
-              "subtitle": "Contract Type"
-            },
-            "template": "analyticalCard_donut_template.json"
+            "chartType": "stackedcolumn",
+            "colKey": { "Category": "ContractName" },
+            "colValues": {
+              "Val1": "ContractValue",
+              "Val2": "BalanceValue",
+              "Val3": "UsedValue"
+            }
           }
         },
         {
           "type": "Analytical",
+          "cardID": "HC0001",
+          "template": "template_analyticalCard_donut.json",
+          "title": "Contract Type Analysis",
+          "analyticsCard": {
+            "chartType": "donut",
+            "cardsDonut": {
+              "measureName": "ContractType",
+              "value": "ContractType",
+              "function": "COUNT"
+            }
+          }
+        },
+        {
+          "type": "Analytical",
+          "cardID": "HC0001",
+          "title": "Contract Analysis",
+          "subtitle": "Contract Vs Balance value",
+          "unitOfMeasurement": "GBP",
+          "template": "template_analyticalCard_line.json",
           "analyticsCard": {
             "chartType": "line",
-            "cardID": "L01",
             "itemvalueMap": {
               "Score": "BalanceValue",
               "Target": "ContractValue"
@@ -711,8 +734,7 @@
             "headerfieldMap": [
               { "j_number": "sumScore" },
               { "j_target": "sumtargetScore" }
-            ],
-            "template": "analyticalCard_line_template.json"
+            ]
           }
         }
       ],

@@ -339,15 +339,14 @@
       ],
       "cards": [
         {
-          "type": "Table",
-          "tableCardFields": ["GoalsArea", "Goal2", "TargetDate2"],
-          "cardID": "tab001"
-        },
-        {
           "type": "Analytical",
+          "cardID": "EMP12H01",
+          "title": "Goal Area Avalysis",
+          "subtitle": "Actual Vs Target Score",
+          "unitOfMeasurement": "SCORE",
+          "template": "template_analyticalCard_line.json",
           "analyticsCard": {
             "chartType": "line",
-            "cardID": "L01",
 
             "itemvalueMap": {
               "Score": "Score2",
@@ -364,9 +363,42 @@
             "headerfieldMap": [
               { "j_number": "sumScore" },
               { "j_target": "sumtargetScore" }
-            ],
-            "template": "analyticalCard_line_template.json"
+            ]
           }
+        },
+        {
+          "type": "Analytical",
+          "cardID": "EMP12H02",
+          "title": "Goal Area Avalysis",
+          "subtitle": "Actual Vs Target Score",
+          "unitOfMeasurement": "SCORE",
+          "template": "template_analyticalCard_line.json",
+          "analyticsCard": {
+            "chartType": "line",
+
+            "itemvalueMap": {
+              "Score": "Score2",
+              "Target": "TargetScore2"
+            },
+            "itemkeyMap": {
+              "Area": "TargetDate2"
+            },
+            "itemfixedVal": [{ "Total": 5 }],
+            "sumField": [
+              { "sumScore": "Score2" },
+              { "sumtargetScore": "TargetScore2" }
+            ],
+            "headerfieldMap": [
+              { "j_number": "sumScore" },
+              { "j_target": "sumtargetScore" }
+            ]
+          }
+        },
+        {
+          "type": "Table",
+          "template": "template_table.json",
+          "tableCardFields": ["GoalsArea", "Goal2", "TargetDate2"],
+          "cardID": "tab001"
         }
       ],
 
@@ -495,7 +527,22 @@
       ],
       "cards": [
         {
+          "type": "Analytical",
+          "cardID": "EMP12H03",
+          "template": "template_analyticalCard_donut.json",
+          "title": "Apprisal based on Area",
+          "analyticsCard": {
+            "chartType": "donut",
+            "cardsDonut": {
+              "measureName": "AppraisalArea",
+              "value": "Score3",
+              "function": "SUM"
+            }
+          }
+        },
+        {
           "type": "Table",
+          "template": "template_table.json",
           "tableCardFields": [
             "AppraisalArea",
             "PerformanceRating",
@@ -504,31 +551,16 @@
         },
         {
           "type": "Analytical",
+          "cardID": "EMP12H04",
+          "template": "template_analyticalCard_donut.json",
+          "title": "Apprisal based on Ratings",
           "analyticsCard": {
             "chartType": "donut",
             "cardsDonut": {
-              "cardID": "D01",
-              "measureName": "AppraisalArea",
-              "value": "Score3",
-              "function": "SUM",
-              "subtitle": "Area"
-            },
-
-            "template": "analyticalCard_donut_template.json"
-          }
-        },
-        {
-          "type": "Analytical",
-          "analyticsCard": {
-            "chartType": "donut",
-            "cardsDonut": {
-              "cardID": "D02",
               "measureName": "PerformanceRating",
               "value": "Score3",
-              "function": "SUM",
-              "subtitle": "Rating"
-            },
-            "template": "analyticalCard_donut_template.json"
+              "function": "SUM"
+            }
           }
         }
       ],
@@ -633,14 +665,8 @@
       "cards": [
         {
           "type": "Table",
+          "template": "template_table.json",
           "tableCardFields": ["SubGroup1", "Title1", "TargetDate1"]
-        },
-        {
-          "type": "Analytical",
-          "analyticsCard": {
-            "chartType": "stackedcolumn",
-            "template": "analyticalCard_stackedcolumn_template.json"
-          }
         }
       ],
 
@@ -717,7 +743,13 @@
         }
       ],
       "DisplayFields": ["ItemStatus4", "Question", "Answer"],
-      "cards": [{ "type": "Table", "tableCardFields": ["Question", "Answer"] }],
+      "cards": [
+        {
+          "type": "Table",
+          "template": "template_table.json",
+          "tableCardFields": ["Question", "Answer"]
+        }
+      ],
 
       "ItemButtons": {
         "itemDisplay": true,
@@ -789,7 +821,11 @@
       ],
       "DisplayFields": ["ItemStatus5", "MQuestion", "MAnswer"],
       "cards": [
-        { "type": "Table", "tableCardFields": ["MQuestion", "MAnswer"] }
+        {
+          "type": "Table",
+          "template": "template_table.json",
+          "tableCardFields": ["MQuestion", "MAnswer"]
+        }
       ],
 
       "ItemButtons": {
@@ -914,6 +950,7 @@
       "cards": [
         {
           "type": "Table",
+          "template": "template_table.json",
           "tableCardFields": [
             "ProjectName",
             "StartDate",

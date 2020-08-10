@@ -11,8 +11,11 @@
       "header": {
         "actions": [
           {
-            "type": "Navigation",
-            "url": "http://www.sap.com"
+            "type": "Custom",
+            "parameters": {
+              "type": "tabnavigation",
+              "url": "@HeaderActionURL"
+            }
           }
         ],
         "type": "Numeric",
@@ -24,7 +27,7 @@
             "state": "Good"
           }
         },
-        "title": "Failure Breakdown - Q1, 2019",
+        "title": "@Title",
         "mainIndicator": {
           "number": "{number}",
           "unit": "{unit}",
@@ -61,24 +64,24 @@
             "list": [
               {
                 "Category": "Weather",
-                "Revenue": 431000.22,
-                "Cost": 230000.0,
-                "Target": 500000.0,
-                "Budget": 210000.0
+                "Val1": 431000.22,
+                "Val2": 230000.0,
+                "Val3": 500000.0,
+                "Val4": 210000.0
               },
               {
                 "Category": "Mechanics",
-                "Revenue": 494000.3,
-                "Cost": 238000.0,
-                "Target": 500000.0,
-                "Budget": 224000.0
+                "Val1": 494000.3,
+                "Val2": 238000.0,
+                "Val3": 500000.0,
+                "Val4": 224000.0
               },
               {
                 "Category": "Software",
-                "Revenue": 491000.17,
-                "Cost": 221000.0,
-                "Target": 500000.0,
-                "Budget": 238000.0
+                "Val1": 491000.17,
+                "Val2": 221000.0,
+                "Val3": 500000.0,
+                "Val4": 238000.0
               }
             ]
           },
@@ -93,15 +96,15 @@
         "measures": [
           {
             "label": "Revenue",
-            "value": "{Revenue}"
+            "value": "{Val1}"
           },
           {
             "label": "Cost",
-            "value": "{Cost}"
+            "value": "{Val2}"
           },
           {
             "label": "Target",
-            "value": "{Target}"
+            "value": "{Val3}"
           }
         ]
       }

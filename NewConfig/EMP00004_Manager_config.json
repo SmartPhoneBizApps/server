@@ -233,16 +233,15 @@
   "headerCards": [
     {
       "type": "Analytical",
+      "cardID": "EMP04E01",
       "analyticsCard": {
         "chartType": "donut",
         "cardsDonut": {
-          "cardID": "DH01",
           "measureNames": ["NetValue", "VATVal"],
           "values": ["NetValue", "VATVal"],
           "function": "VALUE",
           "subtitle": "Total Value"
-        },
-        "template": "analyticalCard_donut_template.json"
+        }
       }
     }
   ],
@@ -642,6 +641,7 @@
       "cards": [
         {
           "type": "Table",
+          "template": "template_table.json",
           "tableCardFields": [
             "ItemNumber",
             "ItemName",
@@ -651,16 +651,16 @@
         },
         {
           "type": "Analytical",
+          "cardID": "EMP04E02",
+          "template": "template_analyticalCard_donut.json",
+          "title": "Shoppingcart Qty Analysis",
           "analyticsCard": {
             "chartType": "donut",
             "cardsDonut": {
-              "cardID": "D01",
               "measureName": "ItemName",
               "value": "ItemQuantity",
-              "function": "SUM",
-              "subtitle": "Qty"
-            },
-            "template": "analyticalCard_donut_template.json"
+              "function": "SUM"
+            }
           }
         }
       ],

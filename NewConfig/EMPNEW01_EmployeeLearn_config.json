@@ -282,19 +282,23 @@
         "ItemStatus1"
       ],
       "cards": [
-        { "type": "Table", "tableCardFields": ["Area", "Skill", "Experience"] },
+        {
+          "type": "Table",
+          "template": "template_table.json",
+          "tableCardFields": ["Area", "Skill", "Experience"]
+        },
         {
           "type": "Analytical",
+          "cardID": "EMPNEE01",
+          "template": "template_analyticalCard_donut.json",
+          "title": "Skill Vs Area",
           "analyticsCard": {
             "chartType": "donut",
             "cardsDonut": {
-              "cardID": "D01",
               "measureName": "Area",
               "value": "Area",
-              "function": "COUNT",
-              "subtitle": "ProjectCode"
-            },
-            "template": "analyticalCard_donut_template.json"
+              "function": "COUNT"
+            }
           }
         }
       ],
@@ -390,6 +394,7 @@
       "cards": [
         {
           "type": "Table",
+          "template": "template_table.json",
           "tableCardFields": ["Qualification", "Subject", "YearCompleted"]
         }
       ],
@@ -488,19 +493,23 @@
         "ItemStatus3"
       ],
       "cards": [
-        { "type": "Table", "tableCardFields": ["From", "To", "Employer"] },
+        {
+          "type": "Table",
+          "template": "template_table.json",
+          "tableCardFields": ["From", "To", "Employer"]
+        },
         {
           "type": "Analytical",
+          "cardID": "EMPNEE02",
+          "template": "template_analyticalCard_donut.json",
+          "title": "Previous Employers",
           "analyticsCard": {
             "chartType": "donut",
             "cardsDonut": {
-              "cardID": "D01",
               "measureName": "Employer",
               "value": "ExpYears",
-              "function": "SUM",
-              "subtitle": "Previous Employer"
-            },
-            "template": "analyticalCard_donut_template.json"
+              "function": "SUM"
+            }
           }
         }
       ],
@@ -595,6 +604,7 @@
       "cards": [
         {
           "type": "Table",
+          "template": "template_table.json",
           "tableCardFields": ["ContactName1", "ContactPhone1", "Relation1"]
         }
       ],
@@ -675,6 +685,7 @@
       "cards": [
         {
           "type": "Table",
+          "template": "template_table.json",
           "tableCardFields": ["CourseName", "DateCertified", "LinkC"]
         }
       ],
@@ -774,13 +785,19 @@
       "cards": [
         {
           "type": "Table",
+          "template": "template_table.json",
           "tableCardFields": ["Question", "Answer", "Deductions"]
         },
         {
           "type": "Analytical",
+          "cardID": "EMPNEE03",
+          "title": "Package Analysis",
+          "subtitle": "Earnings and Deductions",
+          "unitOfMeasurement": "SCORE",
+          "template": "template_analyticalCard_line.json",
           "analyticsCard": {
             "chartType": "line",
-            "cardID": "L01",
+
             "itemvalueMap": { "Score": "Answer", "Target": "Deductions" },
             "itemkeyMap": { "Area": "Question" },
             "itemfixedVal": [{ "Total": 5 }],
@@ -791,8 +808,7 @@
             "headerfieldMap": [
               { "j_number": "sumScore" },
               { "j_target": "sumtargetScore" }
-            ],
-            "template": "analyticalCard_line_template.json"
+            ]
           }
         }
       ],
@@ -926,6 +942,7 @@
       "cards": [
         {
           "type": "Table",
+          "template": "template_table.json",
           "tableCardFields": [
             "InsurancePlan",
             "MedicalCoverage",

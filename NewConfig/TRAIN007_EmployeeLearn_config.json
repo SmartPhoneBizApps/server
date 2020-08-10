@@ -325,13 +325,17 @@
         "ItemStatus1"
       ],
       "cards": [
-        { "type": "Table", "tableCardFields": ["Question", "Answer"] },
+        {
+          "type": "Table",
+          "template": "template_table.json",
+          "tableCardFields": ["Question", "Answer"]
+        },
         {
           "type": "Analytical",
+          "cardID": "TRA07E01",
+          "template": "template_analyticalCard_line.json",
           "analyticsCard": {
-            "chartType": "line",
-            "cardID": "L01",
-            "template": "analyticalCard_line_template.json"
+            "chartType": "line"
           }
         }
       ],
