@@ -49,8 +49,23 @@ exports.getDetailCardsNew = async (req, res, next) => {
       // Set Title
       console.log("myCard", mycard);
       var cardData = JSON.stringify(require(cardConfigFile1));
-      cardData = cardData.replace("@Title", mycard.title);
-      cardData = cardData.replace("@subTitle", mycard.subtitle);
+      if (mycard.title != undefined) {
+        cardData = cardData.replace("@Title", mycard.title);
+      } else {
+        cardData = cardData.replace(
+          "@Title",
+          appconfig["tableConfig"][key]["title"]
+        );
+      }
+      if (mycard.title != undefined) {
+        cardData = cardData.replace("@subTitle", mycard.subtitle);
+      } else {
+        cardData = cardData.replace(
+          "@Title",
+          appconfig["tableConfig"][key]["subtitle"]
+        );
+      }
+
       cardData = cardData.replace(
         "@unitOfMeasurement",
         mycard.unitOfMeasurement
