@@ -17,6 +17,48 @@ const readFile = utils.promisify(fs.readFile);
 const sendEmail = require("../utils/sendEmail");
 const sendEmail1 = require("../utils/sendEmailProd");
 module.exports = {
+  donutCardHead: async function (mycard, appData1, anacardConfig) {
+    measures1 = [];
+    let mydc2 = {};
+    let json1 = {};
+    var set1 = new Set();
+    set1.add(appData1[mycard["cardsDonut"]["measureName"]]);
+    // for (let q = 0; q < appData1.length; q++) {
+    //   set1.add(appData1[q][mycard["cardsDonut"]["measureName"]]);
+    // }
+    console.log("set1", set1);
+    set1.forEach((val) => {
+      mydc2["measureName"] = val;
+      mydc2["value"] = 0;
+      //    for (let q = 0; q < appData1.length; q++) {
+      if (
+        appData1[mycard["cardsDonut"]["measureName"]] == val &&
+        mycard["cardsDonut"]["function"] == "SUM"
+      ) {
+        mydc2["value"] =
+          Number(mydc2["value"]) +
+          Number(appData1[mycard["cardsDonut"]["value"]]);
+      }
+      // if (
+      //   appData1[[mycard["cardsDonut"]["measureName"]] == val &&
+      //   mycard["cardsDonut"]["function"] == "COUNT"
+      // ) {
+      //   mydc2["value"] = Number(mydc2["value"]) + 1;
+      // }
+      //   }
+      measures1.push({ ...mydc2 });
+      mydc2 = {};
+    });
+    // Measurements...
+    json1 = { ...anacardConfig["Structure"]["sap.card"].content.data.json };
+    json1["measures"] = measures1;
+    anacardConfig["Structure"]["sap.card"].content.data.json = {
+      ...json1,
+    };
+    measures1 = [];
+    json1 = {};
+    return anacardConfig["Structure"];
+  },
   donutCard: async function (mycard, appData1, anacardConfig) {
     measures1 = [];
     let mydc2 = {};
@@ -25,6 +67,7 @@ module.exports = {
     for (let q = 0; q < appData1.length; q++) {
       set1.add(appData1[q][mycard["cardsDonut"]["measureName"]]);
     }
+    console.log("set1", set1);
     set1.forEach((val) => {
       mydc2["measureName"] = val;
       mydc2["value"] = 0;

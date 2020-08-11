@@ -1,5 +1,6 @@
 const {
   donutCard,
+  donutCardHead,
   lineCard,
   stackedcolumnCard,
   tableCard,
@@ -64,7 +65,7 @@ exports.getDetailCardsNew = async (req, res, next) => {
 
       switch (mycard[k]["type"]) {
         case "Analytical":
-          console.log("Header Card", anacardConfig);
+          //     console.log("Header Card", anacardConfig);
           if (mycard[k]["analyticsCard"]["chartType"] == "donut") {
             console.log(
               "Header Donut Card",
@@ -72,7 +73,8 @@ exports.getDetailCardsNew = async (req, res, next) => {
             );
             console.log("Analytical - Type", counter, "Donut");
             jCard1 = {};
-            jCard1 = await donutCard(
+            console.log(appData);
+            jCard1 = await donutCardHead(
               mycard[k]["analyticsCard"],
               appData,
               anacardConfig
