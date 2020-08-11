@@ -31,40 +31,43 @@ exports.getDetailCardsNew = async (req, res, next) => {
     req.params.role.substring(0, 3) +
     counter;
   counter = counter + 1;
-  var mycard = appconfig["cards"];
-  for (let k = 0; k < mycard.length; k++) {
-    let cardConfigFile1 = "../../cards/cardConfig/" + mycard[k]["template"];
-    var cardData = JSON.stringify(require(cardConfigFile1));
-    if (mycard[k].title != undefined) {
-      cardData = cardData.replace("@Title", mycard[k].title);
-    } else {
-      cardData = cardData.replace(
-        "@Title",
-        appconfig["Title"]["ApplicationTitle"]
-      );
-    }
-    if (mycard[k].subTitle != undefined) {
-      cardData = cardData.replace("@subTitle", mycard[k].subtitle);
-    } else {
-      cardData = cardData.replace(
-        "@subTitle",
-        appconfig["Title"]["DetailTitle"]
-      );
-    }
-    cardData = cardData.replace(
-      "@unitOfMeasurement",
-      mycard[k].unitOfMeasurement
-    );
-    cardData = cardData.replace("@HeaderActionURL", "applicationTile");
-    var anacardConfig = JSON.parse(cardData);
 
-    switch (mycard[k]["type"]) {
-      case "Analytical":
-        console.log("Header Card", anacardConfig);
-        break;
+  if (appconfig.hasOwnProperty(cards)) {
+    var mycard = appconfig["cards"];
+    for (let k = 0; k < mycard.length; k++) {
+      let cardConfigFile1 = "../../cards/cardConfig/" + mycard[k]["template"];
+      var cardData = JSON.stringify(require(cardConfigFile1));
+      if (mycard[k].title != undefined) {
+        cardData = cardData.replace("@Title", mycard[k].title);
+      } else {
+        cardData = cardData.replace(
+          "@Title",
+          appconfig["Title"]["ApplicationTitle"]
+        );
+      }
+      if (mycard[k].subTitle != undefined) {
+        cardData = cardData.replace("@subTitle", mycard[k].subtitle);
+      } else {
+        cardData = cardData.replace(
+          "@subTitle",
+          appconfig["Title"]["DetailTitle"]
+        );
+      }
+      cardData = cardData.replace(
+        "@unitOfMeasurement",
+        mycard[k].unitOfMeasurement
+      );
+      cardData = cardData.replace("@HeaderActionURL", "applicationTile");
+      var anacardConfig = JSON.parse(cardData);
 
-      default:
-        break;
+      switch (mycard[k]["type"]) {
+        case "Analytical":
+          console.log("Header Card", anacardConfig);
+          break;
+
+        default:
+          break;
+      }
     }
   }
 
