@@ -85,6 +85,16 @@ exports.getDetailCardsNew = async (req, res, next) => {
   // Table Cards...
   console.log("--------** TABLE CARDS **---------");
   for (const key in appconfig["tableConfig"]) {
+    let tabx = "";
+    for (const k1 in appconfig["DetailFields"]) {
+      appconfig["DetailFields"][k1].forEach((e4) => {
+        if (key == e4) {
+          console.log("Keys", k1, e4);
+          tabx = k1;
+        }
+      });
+    }
+
     for (let g = 0; g < appconfig["tableConfig"][key]["cards"].length; g++) {
       let cardKey =
         "T" +
@@ -120,7 +130,7 @@ exports.getDetailCardsNew = async (req, res, next) => {
         "@unitOfMeasurement",
         mycard.unitOfMeasurement
       );
-      cardData = cardData.replace("@HeaderActionURL", key);
+      cardData = cardData.replace("@HeaderActionURL", tabx);
 
       var anacardConfig = JSON.parse(cardData);
       switch (mycard["type"]) {
