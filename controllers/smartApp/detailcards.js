@@ -35,6 +35,7 @@ exports.getDetailCardsNew = async (req, res, next) => {
 
   if (appconfig.hasOwnProperty("cards")) {
     var mycard = appconfig["cards"];
+    console.log(mycard);
     for (let k = 0; k < mycard.length; k++) {
       let cardConfigFile1 = "../../cards/cardConfig/" + mycard[k]["template"];
       var cardData = JSON.stringify(require(cardConfigFile1));
@@ -64,6 +65,20 @@ exports.getDetailCardsNew = async (req, res, next) => {
       switch (mycard[k]["type"]) {
         case "Analytical":
           console.log("Header Card", anacardConfig);
+          if (mycard[k]["analyticsCard"]["chartType"] == "donut") {
+            console.log(
+              "Header Donut Card",
+              mycard[k]["analyticsCard"]["chartType"]
+            );
+            console.log("Analytical - Type", counter, "Donut");
+            jCard1 = {};
+            jCard1 = await donutCard(
+              mycard[k]["analyticsCard"],
+              appData,
+              anacardConfig
+            );
+            outStru[cardKey] = { ...jCard1 };
+          }
           break;
         case "Adaptive":
           console.log("Header Card", anacardConfig);
