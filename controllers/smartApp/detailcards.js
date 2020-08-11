@@ -25,13 +25,50 @@ exports.getDetailCardsNew = async (req, res, next) => {
   console.log("--------** HEADER CARDS **---------");
   counter = 0;
   let cardKey =
-    "A" +
+    "H" +
     req.params.app.substring(0, 3) +
     req.params.app.slice(-2) +
     req.params.role.substring(0, 3) +
     counter;
   counter = counter + 1;
+  var mycard = appconfig["cards"];
+  for (let k = 0; k < mycard.length; k++) {
+    let cardConfigFile1 = "../../cards/cardConfig/" + mycard[k]["template"];
+    var cardData = JSON.stringify(require(cardConfigFile1));
+    if (mycard[k].title != undefined) {
+      cardData = cardData.replace("@Title", mycard[k].title);
+    } else {
+      cardData = cardData.replace(
+        "@Title",
+        appconfig["Title"]["ApplicationTitle"]
+      );
+    }
+    if (mycard[k].subTitle != undefined) {
+      cardData = cardData.replace("@subTitle", mycard[k].subtitle);
+    } else {
+      cardData = cardData.replace(
+        "@subTitle",
+        appconfig["Title"]["DetailTitle"]
+      );
+    }
+    cardData = cardData.replace(
+      "@unitOfMeasurement",
+      mycard[k].unitOfMeasurement
+    );
+    cardData = cardData.replace("@HeaderActionURL", "applicationTile");
+    var anacardConfig = JSON.parse(cardData);
 
+    switch (mycard[k]["type"]) {
+      case "Analytical":
+        console.log("Header Card", anacardConfig);
+        break;
+
+      default:
+        break;
+    }
+  }
+
+  //----------------------------------------------
   // Table Cards...
   console.log("--------** TABLE CARDS **---------");
   for (const key in appconfig["tableConfig"]) {
@@ -47,7 +84,7 @@ exports.getDetailCardsNew = async (req, res, next) => {
       var mycard = appconfig["tableConfig"][key]["cards"][g];
       let cardConfigFile1 = "../../cards/cardConfig/" + mycard["template"];
       // Set Title
-      console.log("myCard", mycard);
+
       var cardData = JSON.stringify(require(cardConfigFile1));
       if (mycard.title != undefined) {
         cardData = cardData.replace("@Title", mycard.title);
@@ -57,11 +94,11 @@ exports.getDetailCardsNew = async (req, res, next) => {
           appconfig["tableConfig"][key]["title"]
         );
       }
-      if (mycard.title != undefined) {
+      if (mycard.subTitle != undefined) {
         cardData = cardData.replace("@subTitle", mycard.subtitle);
       } else {
         cardData = cardData.replace(
-          "@Title",
+          "@subTitle",
           appconfig["tableConfig"][key]["subtitle"]
         );
       }

@@ -144,14 +144,6 @@ module.exports = {
           list1x[k1] = 0;
         }
       }
-      // for (const k1 in mycard["itemkeyMap"]) {
-      //   const ek1 = mycard["itemkeyMap"][k1];
-      //   if (appData1[q][ek1] != undefined) {
-      //     list1x[k1] = appData1[q][ek1];
-      //   } else {
-      //     list1x[k1] = "NA";
-      //   }
-      // }
       list1.push({ ...list1x });
     }
 
@@ -203,7 +195,9 @@ module.exports = {
   },
   globalCard: async function (appData1, GlobalCardConfig) {
     stru = GlobalCardConfig;
-    console.log(stru);
+    stru["sap.card"]["header"]["title"] = "Processing Log";
+    stru["sap.card"]["header"]["subTitle"] = "Historic Changes";
+
     let fg3 = "../cards/cardConfig/template_icon.json";
     var gicon = require(fg3);
     let timeline1_json = [];
