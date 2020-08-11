@@ -156,11 +156,13 @@ module.exports = {
     return stru1;
   },
   tableCard: async function (mycard, appData1, anacardConfig) {
+    console.log("TableStage5-tableCard", appData1);
     t_type = "table1";
     stru = anacardConfig;
     tabFields = mycard["tableCardFields"];
     xc_table1 = {};
     col_table1 = [];
+    console.log("TableStage6-tableCard", tabFields);
     for (let b = 0; b < tabFields.length; b++) {
       xc_table1["title"] = tabFields[b];
       xc_table1["value"] = "{" + tabFields[b] + "}";
@@ -205,7 +207,7 @@ module.exports = {
     for (let n = 0; n < appData1.length; n++) {
       xj1["Icon"] = "sap-icon://accept";
       xj1["Title"] = appData1[n]["Comment"];
-      console.log(appData1[n]["buttonName"]);
+      console.log("GlobalCard-ButtonName", appData1[n]["buttonName"]);
       if (appData1[n].hasOwnProperty("buttonName")) {
         xj1["Title"] = xj1["Title"] + " >> " + appData1[n]["buttonName"];
         xj1["Icon"] = gicon[appData1[n]["buttonName"]];

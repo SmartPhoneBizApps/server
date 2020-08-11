@@ -85,92 +85,104 @@ exports.getDetailCardsNew = async (req, res, next) => {
   // Table Cards...
   console.log("--------** TABLE CARDS **---------");
   for (const key in appconfig["tableConfig"]) {
+    if (appData[key] == undefined) {
+      appData[key] = [];
+    }
     let tabx = "";
     for (const k1 in appconfig["DetailFields"]) {
       appconfig["DetailFields"][k1].forEach((e4) => {
         if (key == e4) {
-          console.log("Keys", k1, e4);
+          console.log("TableStage0-TabName", k1, e4);
           tabx = k1;
         }
       });
     }
 
-    for (let g = 0; g < appconfig["tableConfig"][key]["cards"].length; g++) {
-      let cardKey =
-        "T" +
-        req.params.app.substring(0, 3) +
-        req.params.app.slice(-2) +
-        req.params.role.substring(0, 3) +
-        counter;
-      counter = counter + 1;
+    if (appconfig["tableConfig"][key].hasOwnProperty("cards")) {
+      console.log("TableStage1", key);
+      for (let g = 0; g < appconfig["tableConfig"][key]["cards"].length; g++) {
+        let cardKey =
+          "T" +
+          req.params.app.substring(0, 3) +
+          req.params.app.slice(-2) +
+          req.params.role.substring(0, 3) +
+          counter;
+        counter = counter + 1;
+        console.log("TableStage2", cardKey);
+        var mycard = appconfig["tableConfig"][key]["cards"][g];
+        let cardConfigFile1 = "../../cards/cardConfig/" + mycard["template"];
+        // Set Title
+        var cardData = JSON.stringify(require(cardConfigFile1));
+        if (mycard.title != undefined) {
+          cardData = cardData.replace("@Title", mycard.title);
+        } else {
+          cardData = cardData.replace(
+            "@Title",
+            appconfig["tableConfig"][key]["title"]
+          );
+        }
+        if (mycard.subTitle != undefined) {
+          cardData = cardData.replace("@subTitle", mycard.subtitle);
+        } else {
+          cardData = cardData.replace(
+            "@subTitle",
+            appconfig["tableConfig"][key]["subtitle"]
+          );
+        }
 
-      var mycard = appconfig["tableConfig"][key]["cards"][g];
-      let cardConfigFile1 = "../../cards/cardConfig/" + mycard["template"];
-      // Set Title
-
-      var cardData = JSON.stringify(require(cardConfigFile1));
-      if (mycard.title != undefined) {
-        cardData = cardData.replace("@Title", mycard.title);
-      } else {
         cardData = cardData.replace(
-          "@Title",
-          appconfig["tableConfig"][key]["title"]
+          "@unitOfMeasurement",
+          mycard.unitOfMeasurement
         );
-      }
-      if (mycard.subTitle != undefined) {
-        cardData = cardData.replace("@subTitle", mycard.subtitle);
-      } else {
-        cardData = cardData.replace(
-          "@subTitle",
-          appconfig["tableConfig"][key]["subtitle"]
-        );
-      }
+        cardData = cardData.replace("@HeaderActionURL", tabx);
 
-      cardData = cardData.replace(
-        "@unitOfMeasurement",
-        mycard.unitOfMeasurement
-      );
-      cardData = cardData.replace("@HeaderActionURL", tabx);
+        var anacardConfig = JSON.parse(cardData);
+        console.log("TableStage3", mycard["type"]);
+        switch (mycard["type"]) {
+          case "Analytical":
+            if (mycard["analyticsCard"]["chartType"] == "donut") {
+              console.log("Analytical - Type", counter, "Donut");
+              jCard1 = {};
+              jCard1 = await donutCard(
+                mycard["analyticsCard"],
+                appData[key],
+                anacardConfig
+              );
+              outStru[cardKey] = { ...jCard1 };
+            }
+            if (mycard["analyticsCard"]["chartType"] == "line") {
+              console.log("Analytical - Type", counter, "Line");
+              jCard1 = {};
+              jCard1 = await lineCard(
+                mycard["analyticsCard"],
+                appData[key],
+                anacardConfig
+              );
+              outStru[cardKey] = { ...jCard1 };
+            }
+            if (mycard["analyticsCard"]["chartType"] == "stackedcolumn") {
+              console.log("Analytical - Type", counter, "Stacked");
+              jCard1 = {};
+              jCard1 = await stackedcolumnCard(
+                mycard["analyticsCard"],
+                appData[key],
+                anacardConfig
+              );
+              outStru[cardKey] = { ...jCard1 };
+            }
+            break;
+          case "Table":
+            jCard1 = {};
+            console.log("TableStage4", anacardConfig);
+            console.log("Card - Type", counter, "Table");
 
-      var anacardConfig = JSON.parse(cardData);
-      switch (mycard["type"]) {
-        case "Analytical":
-          if (mycard["analyticsCard"]["chartType"] == "donut") {
-            jCard1 = {};
-            jCard1 = await donutCard(
-              mycard["analyticsCard"],
-              appData[key],
-              anacardConfig
-            );
+            jCard1 = await tableCard(mycard, appData[key], anacardConfig);
             outStru[cardKey] = { ...jCard1 };
-          }
-          if (mycard["analyticsCard"]["chartType"] == "line") {
-            jCard1 = {};
-            jCard1 = await lineCard(
-              mycard["analyticsCard"],
-              appData[key],
-              anacardConfig
-            );
-            outStru[cardKey] = { ...jCard1 };
-          }
-          if (mycard["analyticsCard"]["chartType"] == "stackedcolumn") {
-            jCard1 = {};
-            jCard1 = await stackedcolumnCard(
-              mycard["analyticsCard"],
-              appData[key],
-              anacardConfig
-            );
-            outStru[cardKey] = { ...jCard1 };
-          }
-          break;
-        case "Table":
-          jCard1 = {};
-          jCard1 = await tableCard(mycard, appData[key], anacardConfig);
-          outStru[cardKey] = { ...jCard1 };
-          break;
+            break;
 
-        default:
-          break;
+          default:
+            break;
+        }
       }
     }
   }
