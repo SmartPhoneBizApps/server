@@ -32,7 +32,7 @@ exports.getDetailCardsNew = async (req, res, next) => {
     counter;
   counter = counter + 1;
 
-  if (appconfig.hasOwnProperty(cards)) {
+  if (appconfig.hasOwnProperty("cards")) {
     var mycard = appconfig["cards"];
     for (let k = 0; k < mycard.length; k++) {
       let cardConfigFile1 = "../../cards/cardConfig/" + mycard[k]["template"];
