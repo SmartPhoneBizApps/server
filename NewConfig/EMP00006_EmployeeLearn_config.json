@@ -154,6 +154,15 @@
     "Tab2": ["ProjectNeed", "Cost", "CostCentre"],
     "Tab3": ["ProcessingLog"]
   },
+  "cards": [
+    {
+      "type": "Adaptive",
+      "title": "Create Tranning Request",
+      "subtitle": "New Request",
+      "template": "template_adaptivecard.json",
+      "level": "Header"
+    }
+  ],
   "ControlDisplay": {},
   "FieldDef": [
     {
@@ -275,7 +284,7 @@
       "SLabel": "Progress Comment",
       "LLabel": ""
     },
-    
+
     { "name": "Status", "type": "string", "SLabel": "Status", "width": "50" },
     {
       "name": "SearchString",

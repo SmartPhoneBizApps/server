@@ -223,6 +223,19 @@ module.exports = {
     timeline1_json = [];
     return stru;
   },
+  adaptivecardCard: async function (appID, role, adCard) {
+    let path1 = "../cards/adaptivecardforms/" + appID + "_" + role + ".json";
+    let path2 =
+      "../cards/adaptivecardforms/" + appID + "_" + role + "_actions.json";
+    //    let path3 = "../cards/cardConfig/template_adaptivecard.json";
+    const cardbody = require(path1);
+    const cardaction = require(path2);
+    //  const adCard = require(path3);
+
+    adCard["sap.card"]["content"]["body"] = cardbody["body"];
+    adCard["sap.card"]["content"]["actions"] = cardaction["actions"];
+    return adCard;
+  },
   generatePdfCertificate: async function (getData) {
     var message =
       '<!DOCTYPE html><html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="x-apple-disable-message-reformatting"><title></title><link href="https://fonts.googleapis.com/css?family=Lato:300,400,700" rel="stylesheet"><style>table {font-family: arial, sans-serif;border-collapse: collapse;width: 100%;}td, th {border: 1px solid #dddddd;text-align: left;padding: 8px;}tr:nth-child(even) {background-color: #dddddd;}</style></head><body width="100%" style="margin: 0; padding: 0 !important; mso-line-height-rule: exactly; background-color: #f1f1f1;"><div style="width:800px; height:600px; padding:20px; text-align:center; border: 10px solid #787878"><div style="width:750px; height:550px; padding:20px; text-align:center; border: 5px solid #787878"><span style="font-size:50px; font-weight:bold">Certificate of Completion</span><br><br><span style="font-size:25px"><i>This is to certify that</i></span><br><br><span style="font-size:30px"><b>[FULLNAME]</b></span><br/><br/><span style="font-size:25px"><i>has completed the course</i></span> <br/><br/><span style="font-size:30px">[COURSENAME]</span> <br/><br/><span style="font-size:20px">with score of <b>[SCORE]</b></span> <br/><br/><span style="font-size:25px"><i>dated</i></span><br>[DATE]</span></div></div></body></html>';

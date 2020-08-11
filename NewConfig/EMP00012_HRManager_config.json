@@ -227,68 +227,14 @@
   },
   "cards": [
     {
-      "type": "Analytical",
-      "cardID": "EMP12H01",
-      "title": "Goal Area Analysis",
-      "subtitle": "Actual Vs Target Score",
-      "unitOfMeasurement": "SCORE",
-      "template": "template_analyticalCard_line.json",
-      "analyticsCard": {
-        "chartType": "line",
-
-        "itemvalueMap": {
-          "Score": "Score2",
-          "Target": "TargetScore2"
-        },
-        "itemkeyMap": {
-          "Area": "GoalsArea"
-        },
-        "itemfixedVal": [{ "Total": 5 }],
-        "sumField": [
-          { "sumScore": "Score2" },
-          { "sumtargetScore": "TargetScore2" }
-        ],
-        "headerfieldMap": [
-          { "j_number": "sumScore" },
-          { "j_target": "sumtargetScore" }
-        ]
-      }
-    },
-    {
-      "type": "Analytical",
-      "cardID": "EMP12H02",
-      "title": "Goal Area Analysis",
-      "subtitle": "Actual Vs Target Score",
-      "unitOfMeasurement": "SCORE",
-      "template": "template_analyticalCard_line.json",
-      "analyticsCard": {
-        "chartType": "line",
-
-        "itemvalueMap": {
-          "Score": "Score2",
-          "Target": "TargetScore2"
-        },
-        "itemkeyMap": {
-          "Area": "TargetDate2"
-        },
-        "itemfixedVal": [{ "Total": 5 }],
-        "sumField": [
-          { "sumScore": "Score2" },
-          { "sumtargetScore": "TargetScore2" }
-        ],
-        "headerfieldMap": [
-          { "j_number": "sumScore" },
-          { "j_target": "sumtargetScore" }
-        ]
-      }
-    },
-    {
-      "type": "Table",
-      "template": "template_table.json",
-      "tableCardFields": ["GoalsArea", "Goal2", "TargetDate2"],
-      "cardID": "tab001"
+      "type": "Adaptive",
+      "title": "New Annual Review",
+      "subtitle": "New Review",
+      "template": "template_adaptivecard.json",
+      "level": "Header"
     }
   ],
+
   "tableConfig": {
     "Goals": {
       "title": "My Goals",
@@ -1058,6 +1004,7 @@
       ]
     }
   },
+
   "ControlDisplay": {},
   "FieldDef": [
     {

@@ -4,6 +4,7 @@ const {
   stackedcolumnCard,
   tableCard,
   globalCard,
+  adaptivecardCard,
 } = require("../../modules/config2");
 const {
   getCard,
@@ -64,7 +65,16 @@ exports.getDetailCardsNew = async (req, res, next) => {
         case "Analytical":
           console.log("Header Card", anacardConfig);
           break;
-
+        case "Adaptive":
+          console.log("Header Card", anacardConfig);
+          jCard1 = {};
+          jCard1 = await adaptivecardCard(
+            req.params.app,
+            req.params.role,
+            anacardConfig
+          );
+          outStru[cardKey] = { ...jCard1 };
+          break;
         default:
           break;
       }
