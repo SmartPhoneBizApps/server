@@ -6,19 +6,19 @@
   "Controls": {
     "USP": "UserProfile",
     "StatusColor": "Yes",
-    "SearchString":{"Search":false},
+    "SearchString": { "Search": false },
     "Filters": [],
     "Partner": "@user",
     "UserSpecific": "Yes",
     "Update": "Yes",
     "URL": "https://fierce-oasis-51455.herokuapp.com",
-        "Source": { "SourceName": "mongoDB", "SourceFile": "NA" },
-       "dataFilter": [{ "field": "Status" }],
+    "Source": { "SourceName": "mongoDB", "SourceFile": "NA" },
+    "dataFilter": [{ "field": "Status" }],
     "filterFieldSource": {
       "header": ["Status"]
     }
   },
-  
+
   "ListFields": {
     "IntroField": "Vehicle",
     "TitleField": "RegNo",
@@ -117,8 +117,7 @@
       "type": "string",
       "width": "20",
       "Option": "Mandatory",
-      "SLabel": "ID",
-      "LLabel": ""
+      "SLabel": "ID"
     },
     {
       "name": "ReferenceID",
@@ -136,8 +135,7 @@
       "Option": "Optional",
       "type": "barcode",
       "width": "50",
-      "SLabel": "",
-      "LLabel": ""
+      "SLabel": ""
     },
     { "name": "PurchaseDate", "type": "Date", "width": "10" },
     { "name": "IssueDate", "type": "Date", "width": "10" },
@@ -151,7 +149,7 @@
     { "name": "NextService", "type": "Date", "width": "10" },
     { "name": "Millage", "type": "string", "width": "50" },
     { "name": "MillageDate", "type": "Date", "width": "10" },
-    { "name": "Status", "type": "string","SLabel": "Status", "width": "50" },
+    { "name": "Status", "type": "string", "SLabel": "Status", "width": "50" },
     {
       "name": "SearchString",
       "type": "string",

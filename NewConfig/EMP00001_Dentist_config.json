@@ -6,16 +6,20 @@
   "Controls": {
     "USP": "UserProfile",
     "StatusColor": "Yes",
-    "SearchString":{"Search":false},
-    "Filters": [],
+    "SearchString": { "Search": false },
+    "Filters": [{ "Partner": "@user" }],
     "Partner": "@user",
     "UserSpecific": "Yes",
     "Update": "Yes",
     "URL": "https://fierce-oasis-51455.herokuapp.com",
     "Source": { "SourceName": "mongoDB", "SourceFile": "NA" },
-    "dataFilter": [{ "field": "Status" }],
+    "dataFilter": [
+      { "field": "LeaveType" },
+      { "field": "Status" },
+      { "field": "CostCentre" }
+    ],
     "filterFieldSource": {
-      "header": ["Status"]
+      "header": ["Status", "LeaveType", "CostCentre"]
     }
   },
 
@@ -58,32 +62,11 @@
   "DButtons": [
     {
       "type": "WORKFLOW",
-      "name": "Approve",
-      "icon": "sap-icon://accept",
-      "Dialog": [
-        {
-          "label": "Approver Comment",
-          "name": "ProgressComment",
-          "type": "string",
-          "option": "Optional"
-        }
-      ],
-      "transferFields": [
-        { "field": "ID", "value": "@recorddata" },
-        { "field": "Status", "value": "Approved" },
-        { "field": "ProgressComment", "value": "@UserInput" }
-      ],
-      "URL": "datarecords/",
-      "Token": "Yes",
-      "URLMethod": "PUT"
-    },
-    {
-      "type": "WORKFLOW",
-      "name": "Reject",
+      "name": "Cancel",
       "icon": "sap-icon://decline",
       "Dialog": [
         {
-          "label": "Approver Comment",
+          "label": "Cancellation Comment",
           "name": "ProgressComment",
           "type": "string",
           "option": "Optional"
@@ -91,28 +74,7 @@
       ],
       "transferFields": [
         { "field": "ID", "value": "@recorddata" },
-        { "field": "Status", "value": "Rejected" },
-        { "field": "ProgressComment", "value": "@UserInput" }
-      ],
-      "URL": "datarecords/",
-      "Token": "Yes",
-      "URLMethod": "PUT"
-    },
-    {
-      "type": "WORKFLOW",
-      "name": "ReferBack",
-      "icon": "sap-icon://hint",
-      "Dialog": [
-        {
-          "label": "Approver Comment",
-          "name": "ProgressComment",
-          "type": "string",
-          "option": "Optional"
-        }
-      ],
-      "transferFields": [
-        { "field": "ID", "value": "@recorddata" },
-        { "field": "Status", "value": "ReferredBack" },
+        { "field": "Status", "value": "Cancelled" },
         { "field": "ProgressComment", "value": "@UserInput" }
       ],
       "URL": "datarecords/",
@@ -196,6 +158,29 @@
     "Tab6": ["ProcessingLog"],
     "Tab8": ["MultiAttachments"]
   },
+  "cards": [
+    {
+      "type": "Adaptive",
+      "title": "Create Leave Request",
+      "subtitle": "Apply Leave",
+      "template": "template_adaptivecard.json",
+      "level": "Header"
+    },
+    {
+      "type": "Analytical",
+      "cardID": "EMP04S02",
+      "template": "template_analyticalCard_donut.json",
+      "title": "Leave Request Analysis",
+      "analyticsCard": {
+        "chartType": "donut",
+        "cardsDonut": {
+          "measureName": "LeaveType",
+          "value": "LeaveDays",
+          "function": "SUM"
+        }
+      }
+    }
+  ],
   "ControlDisplay": {},
   "FieldDef": [
     {
@@ -218,24 +203,21 @@
       "type": "string",
       "width": "20",
       "Option": "Optional",
-      "SLabel": "Employee ID",
-      "LLabel": ""
+      "SLabel": "Employee ID"
     },
     {
       "name": "Name",
       "type": "string",
       "width": "50",
       "Option": "Optional",
-      "SLabel": "Employee Full Name",
-      "LLabel": ""
+      "SLabel": "Employee Full Name"
     },
     {
       "name": "Address",
       "type": "string",
       "width": "200",
       "Option": "Optional",
-      "SLabel": "Address",
-      "LLabel": ""
+      "SLabel": "Address"
     },
     {
       "name": "PostCode",
@@ -254,82 +236,8 @@
       "type": "string",
       "width": "20",
       "Option": "Optional",
-      "SLabel": "ContactNo No.",
-      "LLabel": ""
+      "SLabel": "ContactNo No."
     },
-    {
-      "name": "CostCentre",
-      "type": "string",
-      "width": "50",
-      "Option": "Optional",
-      "SLabel": "Cost Centre",
-      "LLabel": ""
-    },
-    {
-      "name": "Email",
-      "type": "string",
-      "width": "50",
-      "Option": "Optional",
-      "SLabel": "Email ID",
-      "LLabel": ""
-    },
-    {
-      "name": "Location",
-      "type": "string",
-      "width": "100",
-      "Option": "Optional",
-      "SLabel": "Location",
-      "LLabel": ""
-    },
-    {
-      "name": "LeaveType",
-      "type": "radiobutton",
-      "width": "100",
-      "Option": "Optional",
-      "SLabel": "LeaveType",
-      "LLabel": ""
-    },
-    {
-      "name": "LeaveFrom",
-      "type": "Date",
-      "width": "10",
-      "Option": "Optional",
-      "SLabel": "LeaveFrom",
-      "LLabel": ""
-    },
-    {
-      "name": "LeaveTo",
-      "type": "Date",
-      "width": "10",
-      "Option": "Optional",
-      "SLabel": "LeaveTo",
-      "LLabel": ""
-    },
-    {
-      "name": "LeaveDays",
-      "type": "string",
-      "width": "10",
-      "Option": "Optional",
-      "SLabel": "Total no. of leave days ",
-      "LLabel": ""
-    },
-    {
-      "name": "LeaveReason",
-      "type": "string",
-      "width": "500",
-      "Option": "Optional",
-      "SLabel": "Reason For Leave",
-      "LLabel": ""
-    },
-    {
-      "name": "Approver",
-      "type": "string",
-      "width": "50",
-      "Option": "Optional",
-      "SLabel": "Approver",
-      "LLabel": ""
-    },
-    { "name": "Status", "type": "string", "SLabel": "Status", "width": "50" },
     {
       "name": "ProgressComment",
       "type": "string",
@@ -338,6 +246,77 @@
       "SLabel": "ProgressComment",
       "LLabel": "ProgressComment"
     },
+    {
+      "name": "CostCentre",
+      "type": "string",
+      "width": "50",
+      "Option": "Optional",
+      "SLabel": "Cost Centre"
+    },
+    {
+      "name": "Email",
+      "type": "string",
+      "width": "50",
+      "Option": "Optional",
+      "SLabel": "Email ID"
+    },
+    {
+      "name": "Location",
+      "type": "string",
+      "width": "100",
+      "Option": "Optional",
+      "SLabel": "Location"
+    },
+    {
+      "name": "LeaveType",
+      "type": "radiobutton",
+      "width": "100",
+      "Option": "Optional",
+      "SLabel": "LeaveType"
+    },
+    {
+      "name": "LeaveFrom",
+      "type": "Date",
+      "width": "10",
+      "Option": "Optional",
+      "SLabel": "LeaveFrom"
+    },
+    {
+      "name": "LeaveTo",
+      "type": "Date",
+      "width": "10",
+      "Option": "Optional",
+      "SLabel": "LeaveTo"
+    },
+    {
+      "name": "LeaveDays",
+      "type": "Num,0",
+      "width": "10",
+      "Option": "Optional",
+      "SLabel": "No of days "
+    },
+    {
+      "name": "LeaveReason",
+      "type": "string",
+      "width": "500",
+      "Option": "Optional",
+      "SLabel": "Reason For Leave"
+    },
+    {
+      "name": "Team",
+      "type": "string",
+      "width": "50",
+      "Option": "Optional",
+      "SLabel": "Team"
+    },
+    {
+      "name": "Approver",
+      "type": "string",
+      "width": "50",
+      "Option": "Optional",
+      "SLabel": "Approver"
+    },
+    { "name": "Status", "type": "string", "SLabel": "Status", "width": "50" },
     {
       "name": "SearchString",
       "type": "string",
@@ -404,10 +383,10 @@
     {
       "id": "Step2",
       "fields": [
-        { "name": "Name", "Mode": "Edit" },
-        { "name": "ContactNo", "Mode": "Edit" },
-        { "name": "EmployeeID", "Mode": "Edit" },
-        { "name": "Email", "Mode": "Edit" }
+        { "name": "Name", "Mode": "Display" },
+        { "name": "ContactNo", "Mode": "Display" },
+        { "name": "EmployeeID", "Mode": "Display" },
+        { "name": "Email", "Mode": "Display" }
       ],
       "name": "Employee Details",
       "stepType": "FieldList",
@@ -416,8 +395,8 @@
     {
       "id": "Step3",
       "fields": [
-        { "name": "PostCode", "Mode": "Edit" },
-        { "name": "Address", "Mode": "Edit" }
+        { "name": "PostCode", "Mode": "Display" },
+        { "name": "Address", "Mode": "Display" }
       ],
       "name": "Address",
       "stepType": "FieldList",
@@ -425,17 +404,14 @@
     },
     {
       "id": "Step4",
-      "fields": [
-        { "name": "CostCentre", "Mode": "Edit" },
-        { "name": "Approver", "Mode": "Edit" }
-      ],
+      "fields": [{ "name": "CostCentre", "Mode": "Display" }],
       "name": "Cost Center",
       "stepType": "FieldList",
       "intro": "Leave Request  : Cost Center"
     },
     {
       "id": "Step7",
-      "fields": [{ "name": "Status", "Mode": "Edit" }],
+      "fields": [{ "name": "Status", "Mode": "Display" }],
       "name": "Admin",
       "stepType": "FieldList",
       "intro": "Leave Request  : Admin"

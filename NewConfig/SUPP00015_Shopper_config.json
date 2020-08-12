@@ -6,19 +6,19 @@
   "Controls": {
     "USP": "UserProfile",
     "StatusColor": "Yes",
-    "SearchString":{"Search":false},
+    "SearchString": { "Search": false },
     "Filters": [],
     "Partner": "@user",
     "UserSpecific": "Yes",
     "Update": "Yes",
     "URL": "https://fierce-oasis-51455.herokuapp.com",
-        "Source": { "SourceName": "mongoDB", "SourceFile": "NA" },
-       "dataFilter": [{ "field": "Status" }],
+    "Source": { "SourceName": "mongoDB", "SourceFile": "NA" },
+    "dataFilter": [{ "field": "Status" }],
     "filterFieldSource": {
       "header": ["Status"]
     }
   },
-  
+
   "ListFields": {
     "IntroField": "SurveyDate",
     "TitleField": "SupplierName",
@@ -120,8 +120,7 @@
       "type": "string",
       "width": "20",
       "Option": "Mandatory",
-      "SLabel": "",
-      "LLabel": ""
+      "SLabel": ""
     },
     {
       "name": "ReferenceID",
@@ -159,7 +158,7 @@
     { "name": "SeeSalesRepresentative", "type": "string", "width": "50" },
     { "name": "FurtherComments", "type": "string", "width": "50" },
     { "name": "OverallRating", "type": "string", "width": "50" },
-    { "name": "Status", "type": "string","SLabel": "Status", "width": "50" },
+    { "name": "Status", "type": "string", "SLabel": "Status", "width": "50" },
     {
       "name": "SearchString",
       "type": "string",
@@ -173,16 +172,14 @@
       "type": "string",
       "width": "100",
       "Option": "Optional",
-      "SLabel": "",
-      "LLabel": ""
+      "SLabel": ""
     },
     {
       "name": "OverallServicePerformanceCompareToLastYear",
       "type": "string",
       "width": "100",
       "Option": "Optional",
-      "SLabel": "",
-      "LLabel": ""
+      "SLabel": ""
     }
   ],
   "itemData": "No",

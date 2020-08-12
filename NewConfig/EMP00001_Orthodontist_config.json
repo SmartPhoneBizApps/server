@@ -165,6 +165,20 @@
       "subtitle": "Apply Leave",
       "template": "template_adaptivecard.json",
       "level": "Header"
+    },
+    {
+      "type": "Analytical",
+      "cardID": "EMP04S02",
+      "template": "template_analyticalCard_donut.json",
+      "title": "Leave Request Analysis",
+      "analyticsCard": {
+        "chartType": "donut",
+        "cardsDonut": {
+          "measureName": "LeaveType",
+          "value": "LeaveDays",
+          "function": "SUM"
+        }
+      }
     }
   ],
   "ControlDisplay": {},
@@ -189,24 +203,21 @@
       "type": "string",
       "width": "20",
       "Option": "Optional",
-      "SLabel": "Employee ID",
-      "LLabel": ""
+      "SLabel": "Employee ID"
     },
     {
       "name": "Name",
       "type": "string",
       "width": "50",
       "Option": "Optional",
-      "SLabel": "Employee Full Name",
-      "LLabel": ""
+      "SLabel": "Employee Full Name"
     },
     {
       "name": "Address",
       "type": "string",
       "width": "200",
       "Option": "Optional",
-      "SLabel": "Address",
-      "LLabel": ""
+      "SLabel": "Address"
     },
     {
       "name": "PostCode",
@@ -225,8 +236,7 @@
       "type": "string",
       "width": "20",
       "Option": "Optional",
-      "SLabel": "ContactNo No.",
-      "LLabel": ""
+      "SLabel": "ContactNo No."
     },
     {
       "name": "ProgressComment",
@@ -241,80 +251,70 @@
       "type": "string",
       "width": "50",
       "Option": "Optional",
-      "SLabel": "Cost Centre",
-      "LLabel": ""
+      "SLabel": "Cost Centre"
     },
     {
       "name": "Email",
       "type": "string",
       "width": "50",
       "Option": "Optional",
-      "SLabel": "Email ID",
-      "LLabel": ""
+      "SLabel": "Email ID"
     },
     {
       "name": "Location",
       "type": "string",
       "width": "100",
       "Option": "Optional",
-      "SLabel": "Location",
-      "LLabel": ""
+      "SLabel": "Location"
     },
     {
       "name": "LeaveType",
       "type": "radiobutton",
       "width": "100",
       "Option": "Optional",
-      "SLabel": "LeaveType",
-      "LLabel": ""
+      "SLabel": "LeaveType"
     },
     {
       "name": "LeaveFrom",
       "type": "Date",
       "width": "10",
       "Option": "Optional",
-      "SLabel": "LeaveFrom",
-      "LLabel": ""
+      "SLabel": "LeaveFrom"
     },
     {
       "name": "LeaveTo",
       "type": "Date",
       "width": "10",
       "Option": "Optional",
-      "SLabel": "LeaveTo",
-      "LLabel": ""
+      "SLabel": "LeaveTo"
     },
     {
       "name": "LeaveDays",
       "type": "Num,0",
       "width": "10",
       "Option": "Optional",
-      "SLabel": "No of days ",
-      "LLabel": ""
+      "SLabel": "No of days "
     },
     {
       "name": "LeaveReason",
       "type": "string",
       "width": "500",
       "Option": "Optional",
-      "SLabel": "Reason For Leave",
-      "LLabel": ""
+      "SLabel": "Reason For Leave"
     },
     {
       "name": "Team",
       "type": "string",
       "width": "50",
       "Option": "Optional",
-      "SLabel": "Team",
-      "LLabel": ""
+      "SLabel": "Team"
     },
     {
       "name": "Approver",
       "type": "string",
       "width": "50",
       "Option": "Optional",
-      "SLabel": "Approver",
-      "LLabel": ""
+      "SLabel": "Approver"
     },
     { "name": "Status", "type": "string", "SLabel": "Status", "width": "50" },
     {
@@ -383,10 +383,10 @@
     {
       "id": "Step2",
       "fields": [
-        { "name": "Name", "Mode": "Edit" },
-        { "name": "ContactNo", "Mode": "Edit" },
-        { "name": "EmployeeID", "Mode": "Edit" },
-        { "name": "Email", "Mode": "Edit" }
+        { "name": "Name", "Mode": "Display" },
+        { "name": "ContactNo", "Mode": "Display" },
+        { "name": "EmployeeID", "Mode": "Display" },
+        { "name": "Email", "Mode": "Display" }
       ],
       "name": "Employee Details",
       "stepType": "FieldList",
@@ -395,8 +395,8 @@
     {
       "id": "Step3",
       "fields": [
-        { "name": "PostCode", "Mode": "Edit" },
-        { "name": "Address", "Mode": "Edit" }
+        { "name": "PostCode", "Mode": "Display" },
+        { "name": "Address", "Mode": "Display" }
       ],
       "name": "Address",
       "stepType": "FieldList",
@@ -404,168 +404,17 @@
     },
     {
       "id": "Step4",
-      "fields": [{ "name": "CostCentre", "Mode": "Edit" }],
+      "fields": [{ "name": "CostCentre", "Mode": "Display" }],
       "name": "Cost Center",
       "stepType": "FieldList",
       "intro": "Leave Request  : Cost Center"
     },
     {
       "id": "Step7",
-      "fields": [{ "name": "Status", "Mode": "Edit" }],
+      "fields": [{ "name": "Status", "Mode": "Display" }],
       "name": "Admin",
       "stepType": "FieldList",
       "intro": "Leave Request  : Admin"
-    }
-  ],
-  "cardSetup": [
-    {
-      "cardID": "EMP01_EMP_TA001",
-      "cardName": "Recent Leaves (Table View)",
-      "cardType": "table1",
-      "recordCount": 5,
-      "dataSource": "Header",
-      "filters": [],
-      "TableFields": [
-        "LeaveFrom",
-        "LeaveTo",
-        "LeaveDays",
-        "LeaveType",
-        "Status"
-      ]
-    },
-    {
-      "cardID": "EMP01_EMP_L1001",
-      "cardName": "Recent Leaves (List view 1)",
-      "cardType": "list1",
-      "recordCount": 5,
-      "dataSource": "Header",
-      "filters": [],
-      "json": [
-        { "name": "LeaveType" },
-        { "icon": "create-leave-request+appear-offline" },
-        { "info": "Status" },
-        { "description": "LeaveDays" },
-        { "infoState": "infoState" }
-      ],
-      "item": {
-        "icon": {
-          "src": "{icon}"
-        },
-        "title": {
-          "value": "{name}"
-        },
-        "description": {
-          "value": "{description}"
-        },
-        "info": {
-          "value": "{info}",
-          "state": "{infoState}"
-        }
-      }
-    },
-    {
-      "cardID": "EMP01_EMP_L2001",
-      "cardName": "Recent Leaves (List view 2)",
-      "cardType": "list2",
-      "recordCount": 5,
-      "dataSource": "Header",
-      "filters": [],
-      "json": [
-        { "name": "LeaveType" },
-        { "icon": "create-leave-request+appear-offline" },
-        { "description": "LeaveDays" }
-      ],
-      "item": {
-        "icon": {
-          "src": "{icon}"
-        },
-        "title": {
-          "value": "{name}"
-        },
-        "description": {
-          "value": "{description}"
-        },
-        "actions": [
-          {
-            "type": "Navigation",
-            "parameters": {
-              "url": "/appID/{name}"
-            }
-          }
-        ]
-      }
-    },
-    {
-      "cardID": "EMP01_EMP_TL001",
-      "cardName": "Recent Leaves (Time Line)",
-      "cardType": "timeline1",
-      "recordCount": 10,
-      "dataSource": "Table-TransLog",
-      "filters": [],
-
-      "json": [
-        { "Title": "Comment" },
-        { "icon": "create-leave-request+appear-offline" },
-        { "description": "LeaveDays" },
-        { "Value": "TimeStamp" }
-      ],
-      "item": {
-        "dateTime": {
-          "value": "{Value}"
-        },
-        "description": {
-          "value": "{description}"
-        },
-        "title": {
-          "value": "{Title}"
-        },
-        "icon": {
-          "src": "{icon}"
-        }
-      }
-    },
-    {
-      "cardID": "EMP01_EMP_AD001",
-      "cardName": "Leaves Analysis (Donut Graph)",
-      "cardType": "donut",
-      "recordCount": 500,
-      "dataSource": "Header",
-      "filters": [],
-      "graphSetup": {
-        "legend": {
-          "visible": true,
-          "position": "Bottom",
-          "alignment": "Left"
-        },
-        "plotArea": {
-          "dataLabel": {
-            "visible": true,
-            "showTotal": true
-          }
-        },
-        "title": {
-          "visible": false
-        },
-        "measureAxis": "size",
-        "dimensionAxis": "color",
-        "dimensions": [
-          {
-            "label": "Leave Type",
-            "value": "{LeaveType}"
-          }
-        ],
-        "measures": [
-          {
-            "label": "Days",
-            "value": "{LeaveDays}"
-          }
-        ],
-        "data": {
-          "json": {},
-          "path": "/measures"
-        }
-      },
-      "json": ["LeaveType", "LeaveDays"]
     }
   ]
 }
