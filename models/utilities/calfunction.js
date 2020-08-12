@@ -288,74 +288,79 @@ class calFun {
   }
 
   tablecalculation(outdata, config, tabname) {
-    console.log(outdata[tabname]);
-    console.log(tabname);
-    if (outdata[tabname].length > 0) {
-      if (config["Item"].length > 0) {
-        for (var i = 0; i < outdata[tabname].length; i++) {
-          config["Item"].forEach((configItem) => {
-            if (this.hasNull(configItem["CalculatedFormula"], 4)) {
-              var fieldObj = [];
-              configItem["Fields"].forEach((field) => {
-                if (this.hasNull(field, 2)) {
-                  /*                   console.log(
+    console.log("Calculation Table", tabname);
+    console.log("Calculation Table Data", outdata[tabname]);
+    if (outdata[tabname] != undefined) {
+      if (outdata[tabname].length > 0) {
+        if (config["Item"].length > 0) {
+          for (var i = 0; i < outdata[tabname].length; i++) {
+            config["Item"].forEach((configItem) => {
+              if (this.hasNull(configItem["CalculatedFormula"], 4)) {
+                var fieldObj = [];
+                configItem["Fields"].forEach((field) => {
+                  if (this.hasNull(field, 2)) {
+                    /*                   console.log(
                     field["Source"] +
                       "--" +
                       outdata[tabname][i][field["Source"]]
                   ); */
-                  fieldObj.push(
-                    parseFloat(outdata[tabname][i][field["Source"]])
-                  ); // get calculated field value in item array
+                    fieldObj.push(
+                      parseFloat(outdata[tabname][i][field["Source"]])
+                    ); // get calculated field value in item array
+                  } else {
+                    fieldObj.push(); // get calculated field value in item array
+                  }
+                });
+                var fun = configItem["CalculatedFormula"]["function"]; // get function name
+                //   console.log("Function name -->" + fun);
+                if (typeof this[fun] !== "undefined") {
+                  //     console.log("Calue --" + this[fun](fieldObj));
+                  //    console.log("---------------");
+                  outdata[tabname][i][
+                    configItem["CalculatedFormula"]["Target"]
+                  ] = this[fun](fieldObj); // call function and assign value in item array
                 } else {
-                  fieldObj.push(); // get calculated field value in item array
+                  outdata[tabname][i][
+                    configItem["CalculatedFormula"]["Target"]
+                  ] = "";
                 }
-              });
-              var fun = configItem["CalculatedFormula"]["function"]; // get function name
-              //   console.log("Function name -->" + fun);
-              if (typeof this[fun] !== "undefined") {
-                //     console.log("Calue --" + this[fun](fieldObj));
-                //    console.log("---------------");
-                outdata[tabname][i][
-                  configItem["CalculatedFormula"]["Target"]
-                ] = this[fun](fieldObj); // call function and assign value in item array
-              } else {
-                outdata[tabname][i][configItem["CalculatedFormula"]["Target"]] =
-                  "";
               }
-            }
-          });
+            });
+          }
         }
       }
     }
     if (config["HeaderItem"].length > 0) {
-      if (outdata[tabname].length > 0) {
-        config["HeaderItem"].forEach((configItem) => {
-          if (this.hasNull(configItem["CalculatedFormula"], 4)) {
-            var fieldObj = [];
-            for (var i = 0; i < outdata[tabname].length; i++) {
-              if (this.hasNull(configItem["Fields"][0], 2)) {
-                fieldObj.push(
-                  parseFloat(
-                    outdata[tabname][i][configItem["Fields"][0]["Source"]]
-                  )
-                ); // get calculated field value from all items
-              } else {
-                fieldObj.push(""); // get calculated field value from all items
+      if (outdata[tabname] != undefined) {
+        if (outdata[tabname].length > 0) {
+          config["HeaderItem"].forEach((configItem) => {
+            if (this.hasNull(configItem["CalculatedFormula"], 4)) {
+              var fieldObj = [];
+              for (var i = 0; i < outdata[tabname].length; i++) {
+                if (this.hasNull(configItem["Fields"][0], 2)) {
+                  fieldObj.push(
+                    parseFloat(
+                      outdata[tabname][i][configItem["Fields"][0]["Source"]]
+                    )
+                  ); // get calculated field value from all items
+                } else {
+                  fieldObj.push(""); // get calculated field value from all items
+                }
               }
+              var fun = configItem["CalculatedFormula"]["function"]; // get function name
+              console.log(this[fun](fieldObj));
+              console.log(configItem["CalculatedFormula"]["Target"]);
+              if (typeof this[fun] !== "undefined") {
+                outdata[configItem["CalculatedFormula"]["Target"]] = this[fun](
+                  fieldObj
+                ); // call function and assign value in header array
+              } else {
+                outdata[configItem["CalculatedFormula"]["Target"]] = "";
+              }
+              console.log(outdata);
             }
-            var fun = configItem["CalculatedFormula"]["function"]; // get function name
-            console.log(this[fun](fieldObj));
-            console.log(configItem["CalculatedFormula"]["Target"]);
-            if (typeof this[fun] !== "undefined") {
-              outdata[configItem["CalculatedFormula"]["Target"]] = this[fun](
-                fieldObj
-              ); // call function and assign value in header array
-            } else {
-              outdata[configItem["CalculatedFormula"]["Target"]] = "";
-            }
-            console.log(outdata);
-          }
-        });
+          });
+        }
       }
     }
     if (config["Header"].length > 0) {
