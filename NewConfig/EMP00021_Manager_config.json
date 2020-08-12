@@ -136,14 +136,6 @@
       "fioriicon": "responsive"
     },
     {
-      "value": "Tab1",
-      "update": "No",
-      "name": "Hours Amounts",
-      "type": "FieldGroup",
-      "fioriicon": "per-diem",
-      "download": "Yes"
-    },
-    {
       "value": "Tab4",
       "update": "Yes",
       "name": "Daily Time",
@@ -174,16 +166,11 @@
     "headerImage": ["USP_Image"],
     "headerColorFields": ["Status"],
     "None": ["ID", "Name", "EmployeeID", "StartDate", "EndDate"],
-    "Tab1": [
-      {
-        "GrpTitle": "Rates",
-        "Fields": ["HourlyRate", "OvertimeRate", "VATRate"]
-      }
-    ],
     "Tab5": ["ProcessingLog"],
     "Tab6": ["MultiAttachments"],
     "Tab4": ["myTime"]
   },
+  "cards": [],
   "ControlDisplay": {},
   "FieldDef": [
     {
@@ -420,7 +407,8 @@
           "width": "10",
           "SLabel": "ItemNumber",
           "Option": "Optional",
-          "Currency": "No"
+
+          "Update": "Yes"
         },
         {
           "name": "ID",
@@ -428,7 +416,8 @@
           "width": "20",
           "SLabel": "Identification",
           "Option": "Optional",
-          "Currency": "No"
+
+          "Update": "Yes"
         },
         {
           "name": "ProjectCode",
@@ -436,7 +425,8 @@
           "width": "50",
           "SLabel": "Project Code",
           "Option": "Mandatory",
-          "Currency": "No"
+
+          "Update": "Yes"
         },
         {
           "name": "Date",
@@ -444,7 +434,8 @@
           "width": "10",
           "SLabel": "Timesheet Date",
           "Option": "Mandatory",
-          "Currency": "No"
+
+          "Update": "Yes"
         },
         {
           "name": "TotalRegWorkHours",
@@ -452,7 +443,8 @@
           "width": "50",
           "SLabel": "Regular work hours",
           "Option": "Optional",
-          "Currency": "No"
+
+          "Update": "Yes"
         },
         {
           "name": "OvertimeHours",
@@ -460,7 +452,17 @@
           "width": "50",
           "SLabel": "Overtime Hours",
           "Option": "Optional",
-          "Currency": "No"
+
+          "Update": "Yes"
+        },
+        {
+          "name": "TotalHours",
+          "type": "Num,1",
+          "width": "50",
+          "SLabel": "Total Hours",
+          "Option": "Optional",
+
+          "Update": "No"
         },
         {
           "name": "SearchString",
@@ -468,14 +470,8 @@
           "width": "200",
           "Option": "Mandatory",
           "SLabel": "Search String",
-          "LLabel": "Search String"
-        },
-        {
-          "name": "ItemStatus1",
-          "type": "string",
-          "width": "50",
-          "SLabel": "Item Status",
-          "Update": "Yes"
+          "LLabel": "Search String",
+          "Update": "No"
         },
         {
           "name": "Comment",
@@ -484,6 +480,13 @@
           "SLabel": "Comment",
           "Option": "Optional",
           "Currency": "No"
+        },
+        {
+          "name": "ItemStatus1",
+          "type": "string",
+          "width": "50",
+          "SLabel": "Item Status",
+          "Update": "Yes"
         }
       ],
       "DisplayFields": [
@@ -491,6 +494,7 @@
         "Date",
         "TotalRegWorkHours",
         "OvertimeHours",
+        "TotalHours",
         "ItemStatus1"
       ],
       "cards": [
@@ -506,7 +510,7 @@
         },
         {
           "type": "Analytical",
-          "cardID": "EMP21M01",
+          "cardID": "EMP21E01",
           "title": "Time Analysis",
           "subtitle": "Regular Vs Over Time",
           "unitOfMeasurement": "HOURS",
@@ -534,7 +538,7 @@
         },
         {
           "type": "Analytical",
-          "cardID": "EMP21M02",
+          "cardID": "EMP21E02",
           "template": "template_analyticalCard_donut.json",
           "title": "Timesheet ProjectCode Analysis",
           "analyticsCard": {
@@ -547,13 +551,12 @@
           }
         }
       ],
-
       "ItemButtons": {
         "itemDisplay": true,
-        "itemCheck": true,
-        "itemAdd": true,
-        "itemEdit": true,
-        "itemDelete": true
+        "itemCheck": false,
+        "itemAdd": false,
+        "itemEdit": false,
+        "itemDelete": false
       },
       "CreateFields": [
         "ProjectCode",
@@ -561,6 +564,7 @@
         "TotalRegWorkHours",
         "OvertimeHours",
         "Comment",
+        "TotalHours",
         "ItemStatus1"
       ],
       "ItemDetails": [

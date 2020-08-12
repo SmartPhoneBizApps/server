@@ -165,20 +165,6 @@
       "subtitle": "Apply Leave",
       "template": "template_adaptivecard.json",
       "level": "Header"
-    },
-    {
-      "type": "Analytical",
-      "cardID": "EMP04S02",
-      "template": "template_analyticalCard_donut.json",
-      "title": "Leave Request Analysis",
-      "analyticsCard": {
-        "chartType": "donut",
-        "cardsDonut": {
-          "measureName": "LeaveType",
-          "value": "LeaveDays",
-          "function": "SUM"
-        }
-      }
     }
   ],
   "ControlDisplay": {},

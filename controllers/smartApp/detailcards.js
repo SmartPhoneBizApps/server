@@ -26,18 +26,17 @@ exports.getDetailCardsNew = async (req, res, next) => {
   // Header Cards...
   console.log("--------** HEADER CARDS **---------");
   counter = 0;
-  let cardKey =
-    "H" +
-    req.params.app.substring(0, 3) +
-    req.params.app.slice(-2) +
-    req.params.role.substring(0, 3) +
-    counter;
-  counter = counter + 1;
-
   if (appconfig.hasOwnProperty("cards")) {
     var mycard = appconfig["cards"];
     console.log(mycard);
     for (let k = 0; k < mycard.length; k++) {
+      let cardKey =
+        "H" +
+        req.params.app.substring(0, 3) +
+        req.params.app.slice(-2) +
+        req.params.role.substring(0, 3) +
+        counter;
+      counter = counter + 1;
       let cardConfigFile1 = "../../cards/cardConfig/" + mycard[k]["template"];
       var cardData = JSON.stringify(require(cardConfigFile1));
       if (mycard[k].title != undefined) {

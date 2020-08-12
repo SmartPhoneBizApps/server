@@ -219,40 +219,40 @@ exports.addDataRecords = asyncHandler(async (req, res, next) => {
       }
       /// Item Validations....
       console.log(key);
-      if (key === "ItemData") {
-        myItemArray = [];
-        for (
-          let index = 0;
-          index < cardConfig.itemConfig.ItemFieldDefinition.length;
-          index++
-        ) {
-          const element2 =
-            cardConfig.itemConfig.ItemFieldDefinition[index].name;
-          myItemArray.push(element2);
-        }
-        for (const key2 in req.body.ItemData) {
-          for (const key3 in req.body.ItemData[key2]) {
-            if (req.body.ItemData[key2].hasOwnProperty(key3)) {
-              const element3 = req.body.ItemData[key2][key3];
-              var resItemField = myItemArray.includes(key3);
-              /// Item Validations....
-              if (
-                resItemField === false &&
-                key3 !== "Edit" &&
-                key3 !== "Display" &&
-                key3 !== "Delete"
-              ) {
-                return next(
-                  new ErrorResponse(
-                    `Item Field ${key3} can't be used with this transaction`,
-                    400
-                  )
-                );
-              }
-            }
-          }
-        }
-      }
+      // if (key === "ItemData") {
+      //   myItemArray = [];
+      //   for (
+      //     let index = 0;
+      //     index < cardConfig.itemConfig.ItemFieldDefinition.length;
+      //     index++
+      //   ) {
+      //     const element2 =
+      //       cardConfig.itemConfig.ItemFieldDefinition[index].name;
+      //     myItemArray.push(element2);
+      //   }
+      //   for (const key2 in req.body.ItemData) {
+      //     for (const key3 in req.body.ItemData[key2]) {
+      //       if (req.body.ItemData[key2].hasOwnProperty(key3)) {
+      //         const element3 = req.body.ItemData[key2][key3];
+      //         var resItemField = myItemArray.includes(key3);
+      //         /// Item Validations....
+      //         if (
+      //           resItemField === false &&
+      //           key3 !== "Edit" &&
+      //           key3 !== "Display" &&
+      //           key3 !== "Delete"
+      //         ) {
+      //           return next(
+      //             new ErrorResponse(
+      //               `Item Field ${key3} can't be used with this transaction`,
+      //               400
+      //             )
+      //           );
+      //         }
+      //       }
+      //     }
+      //   }
+      // }
     }
   }
 
