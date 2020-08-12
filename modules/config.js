@@ -544,9 +544,6 @@ module.exports = {
     if (buttonName != undefined) {
       pLog["buttonName"] = buttonName;
     }
-    //  result.push(pLog);
-    //  return result;
-
     return pLog;
   },
 
