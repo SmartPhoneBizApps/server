@@ -595,13 +595,13 @@ exports.updateDataRecords = asyncHandler(async (req, res, next) => {
   if (req.headers.calculation == "Yes") {
     var Handler = new calfunction();
     console.log("Calculation Started..");
-    //   if (cardConfig["itemData"] == "Yes") {
-    outdata = Handler["tablecalculation"](
-      req.body,
-      cardConfig["CalculatedFields"],
-      "ItemData"
-    );
-    //    }
+    if (cardConfig["itemData"] == "Yes") {
+      outdata = Handler["tablecalculation"](
+        req.body,
+        cardConfig["CalculatedFields"],
+        "ItemData"
+      );
+    }
 
     console.log("Calculation Done..");
     req.body = outdata;
