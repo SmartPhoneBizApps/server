@@ -4,6 +4,7 @@
     "DetailTitle": "Shopping Cart"
   },
   "Controls": {
+    "calculation": "Yes",
     "USP": "UserProfile",
     "StatusColor": "Yes",
     "SearchString": { "Search": false },
@@ -543,7 +544,7 @@
           "type": "Num,2",
           "width": "100",
           "SLabel": "Item Tax Rate",
-          "Update": "No"
+          "Update": "Yes"
         },
         {
           "name": "ItemVATValue",
@@ -708,7 +709,13 @@
       "stepType": "FieldList",
       "intro": "Shopping Cart : Vendor Details"
     },
-
+    {
+      "id": "Step6",
+      "fields": [{ "name": "iData", "Mode": "Edit" }],
+      "name": "iData",
+      "stepType": "table",
+      "intro": "Shopping Cart : Admin"
+    },
     {
       "id": "Step3",
       "fields": [
@@ -735,13 +742,7 @@
       "name": "Admin",
       "stepType": "FieldList",
       "intro": "Shopping Cart : Admin"
-    },
-    {
-      "id": "Step6",
-      "fields": [{ "name": "iData", "Mode": "Edit" }],
-      "name": "iData",
-      "stepType": "table",
-      "intro": "Shopping Cart : Admin"
     }
+
   ]
 }
