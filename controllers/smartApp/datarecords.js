@@ -30,11 +30,8 @@ const calfunction = require("../../models/utilities/calfunction.js");
 // @route     POST /api/v1/datarecords/
 // @access    Private
 exports.addDataRecords = asyncHandler(async (req, res, next) => {
-  let multiAtt = {
-    items: [],
-  };
   if (!req.body.MultiAttachments) {
-    req.body.MultiAttachments = multiAtt;
+    req.body.MultiAttachments = { items: [] };
   }
   //Get Company
   const BodyApp = await getApplication(req.headers.applicationid);
@@ -258,7 +255,7 @@ exports.addDataRecords = asyncHandler(async (req, res, next) => {
 
   /////--------------------------------------------------
   /// Calculate ID
-  console.log(req.headers.buttonname);
+  console.log("Generate - ID", req.headers.buttonname);
   req.body = generateID(req.headers.buttonname, req.body, cardConfig.MButtons);
   if (req.body.ReferenceID == undefined || req.body.ReferenceID == "") {
     req.body.ReferenceID = req.body.ID;
@@ -281,17 +278,49 @@ exports.addDataRecords = asyncHandler(async (req, res, next) => {
   //---------------------------
   // Perform Calculations ....
   //---------------------------
-  if (req.headers.calculation == "Yes") {
-    var Handler = new calfunction();
-    // mydata = Handler["datacalculation"](mydata, cardConfig["CalculatedFields"]);
-    console.log("Atul - Calculation Starts");
-    console.log(mydata);
-    if (cardConfig["itemData"] == "Yes") {
-      mydata = Handler["tablecalculation"](
-        mydata,
-        cardConfig["CalculatedFields"],
-        "ItemData"
-      );
+
+  // Update Table fields
+  let tblFields = tableFields(cardConfig.FieldDef);
+  // for (const kk in req.body) {
+  //   if (req.body.hasOwnProperty(kk)) {
+  //     let tableField = false;
+  //     tableField = tblFields.includes(kk);
+  //     if (tableField == true) {
+  //       myData[kk] = tableValidate(req.body[kk], myData[kk]);
+  //       req.body[kk] = myData[kk];
+  //     }
+  //   }
+  // }
+  console.log("Tab", tblFields);
+  if (tblFields.length > 0) {
+    for (let l = 0; l < tblFields.length; l++) {
+      console.log("TabName", tblFields[l]);
+      if (req.headers.calculation == "Yes") {
+        var Handler = new calfunction();
+        console.log("Calculation for Tables Started..");
+        outdata = Handler["tablecalculation"](
+          req.body,
+          cardConfig["CalculatedFields"],
+          tblFields[l]
+        );
+        console.log("Calculation for Tables Done..");
+        req.body = outdata;
+        req.body = outdata;
+      }
+    }
+  } else {
+    if (req.headers.calculation == "Yes") {
+      var Handler = new calfunction();
+      // mydata = Handler["datacalculation"](mydata, cardConfig["CalculatedFields"]);
+      console.log("01 Atul - Calculation Starts");
+      console.log(mydata);
+      if (cardConfig["itemData"] == "Yes") {
+        mydata = Handler["tablecalculation"](
+          mydata,
+          cardConfig["CalculatedFields"],
+          "ItemData"
+        );
+      }
     }
   }
 
