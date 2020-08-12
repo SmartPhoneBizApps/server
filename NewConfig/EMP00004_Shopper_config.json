@@ -165,7 +165,7 @@
       "OtherInfo"
     ],
     "Tab4": ["ProcessingLog"],
-    "Tab3": ["ItemData"]
+    "Tab3": ["iData"]
   },
   "cards": [
     {
@@ -448,15 +448,15 @@
       "LLabel": "MutiItems"
     },
     {
-      "name": "ItemData",
+      "name": "iData",
       "type": "Array",
       "width": "200",
       "Option": "Optional",
-      "SLabel": "ItemData",
-      "LLabel": "ItemData"
+      "SLabel": "iData",
+      "LLabel": "iData"
     }
   ],
-  "itemData": "No",
+  "ItemData": "No",
   "itemConfig": {
     "ItemFieldDefinition": [],
     "DisplayFields": [],
@@ -470,7 +470,7 @@
     "ItemDetails": []
   },
   "tableConfig": {
-    "ItemData": {
+    "iData": {
       "calculation": "Yes",
       "title": "Item Details",
       "subtitle": "Shopping items",
@@ -738,7 +738,7 @@
     },
     {
       "id": "Step6",
-      "fields": [{ "name": "ItemData", "Mode": "Edit" }],
+      "fields": [{ "name": "iData", "Mode": "Edit" }],
       "tablefields": [
         { "name": "ItemName", "Mode": "Edit" },
         { "name": "ItemPrice", "Mode": "Edit" },
@@ -746,7 +746,7 @@
         { "name": "ItemTaxRate", "Mode": "Edit" },
         { "name": "ItemStatus1", "Mode": "Edit" }
       ],
-      "name": "ItemData",
+      "name": "iData",
       "stepType": "table",
       "intro": "Shopping Cart : Admin"
     }

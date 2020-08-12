@@ -36,11 +36,11 @@
   },
 
   "ListFields": {
-    "IntroField": "VendorName",
-    "TitleField": "SCDate",
+    "IntroField": "ID",
+    "TitleField": "VendorName",
     "fStatus": "Status",
     "numberField": "GrossValue",
-    "LFields": ["ID"],
+    "LFields": ["SCDate"],
     "numberUnitField": "Currency"
   },
   "ListBOTFields": {
@@ -165,13 +165,22 @@
       "OtherInfo"
     ],
     "Tab4": ["ProcessingLog"],
-    "Tab3": ["ItemData"]
+    "Tab3": ["iData"]
   },
+  "cards": [
+    {
+      "type": "Adaptive",
+      "title": "Create Shopping Cart",
+      "subtitle": "New Shopping",
+      "template": "template_adaptivecard.json",
+      "level": "Header"
+    }
+  ],
   "ControlDisplay": {},
   "headerCards": [
     {
       "type": "Analytical",
-      "cardID": "EMP04E01",
+      "cardID": "EMP04S01",
       "analyticsCard": {
         "chartType": "donut",
         "cardsDonut": {
@@ -338,7 +347,6 @@
       "Option": "Optional",
       "SLabel": "Delivery Address"
     },
-
     {
       "name": "PostCode",
       "type": "searchField",
@@ -358,7 +366,6 @@
       "Option": "Mandatory",
       "SLabel": "Approver Comment"
     },
-
     {
       "name": "ContactNo",
       "type": "string",
@@ -394,7 +401,6 @@
       "Option": "Optional",
       "SLabel": "Payment Amount"
     },
-
     {
       "name": "PaymentOption",
       "type": "radiobutton",
@@ -442,29 +448,29 @@
       "LLabel": "MutiItems"
     },
     {
-      "name": "ItemData",
+      "name": "iData",
       "type": "Array",
       "width": "200",
       "Option": "Optional",
-      "SLabel": "ItemData",
-      "LLabel": "ItemData"
+      "SLabel": "iData",
+      "LLabel": "iData"
     }
   ],
-  "itemData": "No",
+  "ItemData": "No",
   "itemConfig": {
     "ItemFieldDefinition": [],
     "DisplayFields": [],
     "ItemButtons": {
-      "itemDisplay": true,
-      "itemAdd": true,
-      "itemEdit": true,
-      "itemDelete": true
+      "itemDisplay": false,
+      "itemAdd": false,
+      "itemEdit": false,
+      "itemDelete": false
     },
     "CreateFields": [],
     "ItemDetails": []
   },
   "tableConfig": {
-    "ItemData": {
+    "iData": {
       "calculation": "Yes",
       "title": "Item Details",
       "subtitle": "Shopping items",
@@ -568,7 +574,7 @@
         },
         {
           "type": "Analytical",
-          "cardID": "EMP04E02",
+          "cardID": "EMP04S02",
           "template": "template_analyticalCard_donut.json",
           "title": "Shoppingcart Qty Analysis",
           "analyticsCard": {
@@ -728,6 +734,20 @@
       "fields": [{ "name": "Status", "Mode": "Edit" }],
       "name": "Admin",
       "stepType": "FieldList",
+      "intro": "Shopping Cart : Admin"
+    },
+    {
+      "id": "Step6",
+      "fields": [{ "name": "iData", "Mode": "Edit" }],
+      "tablefields": [
+        { "name": "ItemName", "Mode": "Edit" },
+        { "name": "ItemPrice", "Mode": "Edit" },
+        { "name": "ItemQuantity", "Mode": "Edit" },
+        { "name": "ItemTaxRate", "Mode": "Edit" },
+        { "name": "ItemStatus1", "Mode": "Edit" }
+      ],
+      "name": "iData",
+      "stepType": "table",
       "intro": "Shopping Cart : Admin"
     }
   ]

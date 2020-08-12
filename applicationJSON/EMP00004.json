@@ -76,7 +76,6 @@
   },
   "Email": {
     "type": "String",
-    "required": [true, "Please add Mandatory field :Email"],
     "maxlength": [100, "Email can not be more than 100 characters"],
     "match": ["EMAIL_V1", "Invalid Email for field :Email"]
   },
@@ -194,5 +193,5 @@
     "type": "String",
     "maxlength": [500, "ContactName can not be more than 500 characters"]
   },
-  "ItemData": []
+  "iData": []
 }
