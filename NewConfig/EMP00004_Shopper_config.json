@@ -735,6 +735,20 @@
       "name": "Admin",
       "stepType": "FieldList",
       "intro": "Shopping Cart : Admin"
+    },
+    {
+      "id": "Step6",
+      "fields": [{ "name": "ItemData", "Mode": "Edit" }],
+      "tablefields": [
+        { "name": "ItemName", "Mode": "Edit" },
+        { "name": "ItemPrice", "Mode": "Edit" },
+        { "name": "ItemQuantity", "Mode": "Edit" },
+        { "name": "ItemTaxRate", "Mode": "Edit" },
+        { "name": "ItemStatus1", "Mode": "Edit" }
+      ],
+      "name": "ItemData",
+      "stepType": "table",
+      "intro": "Shopping Cart : Admin"
     }
   ]
 }
