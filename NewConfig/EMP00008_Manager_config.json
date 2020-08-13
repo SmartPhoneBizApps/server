@@ -210,7 +210,6 @@
           "width": "10",
           "SLabel": "ItemNumber",
           "Option": "Optional",
-
           "Update": "No"
         },
         {
@@ -219,7 +218,6 @@
           "width": "20",
           "SLabel": "Identification",
           "Option": "Optional",
-
           "Update": "No"
         },
         {
@@ -228,7 +226,6 @@
           "width": "10",
           "SLabel": "Expense Date",
           "Option": "Mandatory",
-
           "Update": "Yes"
         },
         {
@@ -272,10 +269,10 @@
           "Update": "Yes"
         },
         {
-          "name": "Currency",
+          "name": "iCurrency",
           "type": "string",
           "width": "10",
-          "SLabel": "Currency",
+          "SLabel": "iCurrency",
           "Option": "Optional",
           "Update": "Yes"
         },
@@ -293,7 +290,7 @@
         "ExpenseAmount",
         "ExpType",
         "ExpenseDetails",
-        "Currency",
+        "iCurrency",
         "ItemStatus1"
       ],
       "cards": [
@@ -310,7 +307,7 @@
         },
         {
           "type": "Analytical",
-          "cardID": "EMP08M01",
+          "cardID": "EMP08E01",
           "template": "template_analyticalCard_donut.json",
           "title": "Expense Type Analysis",
           "analyticsCard": {
@@ -336,7 +333,7 @@
         "ExpenseAmount",
         "ExpType",
         "ExpenseDetails",
-        "Currency",
+        "iCurrency",
         "ItemStatus1",
         "Comment"
       ],
@@ -345,7 +342,7 @@
         { "name": "ExpenseAmount" },
         { "name": "ExpType" },
         { "name": "ExpenseDetails" },
-        { "name": "Currency" },
+        { "name": "iCurrency" },
         { "name": "Comment" },
         { "name": "ItemStatus1" }
       ]

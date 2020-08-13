@@ -166,7 +166,6 @@
           "width": "10",
           "SLabel": "ItemNumber",
           "Option": "Optional",
-
           "Update": "No"
         },
         {
@@ -175,7 +174,6 @@
           "width": "20",
           "SLabel": "Identification",
           "Option": "Optional",
-
           "Update": "No"
         },
         {
@@ -184,7 +182,6 @@
           "width": "10",
           "SLabel": "Expense Date",
           "Option": "Mandatory",
-
           "Update": "Yes"
         },
         {
@@ -228,10 +225,10 @@
           "Update": "Yes"
         },
         {
-          "name": "Currency",
+          "name": "iCurrency",
           "type": "string",
           "width": "10",
-          "SLabel": "Currency",
+          "SLabel": "iCurrency",
           "Option": "Optional",
           "Update": "Yes"
         },
@@ -249,7 +246,7 @@
         "ExpenseAmount",
         "ExpType",
         "ExpenseDetails",
-        "Currency",
+        "iCurrency",
         "ItemStatus1"
       ],
       "cards": [
@@ -292,7 +289,7 @@
         "ExpenseAmount",
         "ExpType",
         "ExpenseDetails",
-        "Currency",
+        "iCurrency",
         "ItemStatus1",
         "Comment"
       ],
@@ -301,7 +298,7 @@
         { "name": "ExpenseAmount" },
         { "name": "ExpType" },
         { "name": "ExpenseDetails" },
-        { "name": "Currency" },
+        { "name": "iCurrency" },
         { "name": "Comment" },
         { "name": "ItemStatus1" }
       ]
@@ -345,7 +342,7 @@
       "SLabel": "Expense Amount"
     },
     {
-      "name": "Currency",
+      "name": "iCurrency",
       "type": "string",
       "width": "10",
       "Option": "Optional",
