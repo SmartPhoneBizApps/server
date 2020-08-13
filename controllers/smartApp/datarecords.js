@@ -263,7 +263,7 @@ exports.addDataRecords = asyncHandler(async (req, res, next) => {
   console.log("NewID", req.body.ID);
   console.log(req.headers.buttonName);
   // Processing Log
-  console.log("ProcessingLog-Before", req.body.TransLog);
+
   req.body.TransLog = processingLog(
     req.body.ID,
     "NEW_RECORD",
@@ -276,7 +276,7 @@ exports.addDataRecords = asyncHandler(async (req, res, next) => {
     req.headers.buttonname,
     req.body.ProgressComment
   );
-  console.log("ProcessingLog-After", req.body.TransLog);
+
   //---------------------------
   // Perform Calculations ....
   //---------------------------
@@ -528,7 +528,7 @@ exports.updateDataRecords = asyncHandler(async (req, res, next) => {
   } else {
     Status = "NoChange";
   }
-  console.log("ProcessingLog-Before", req.body.TransLog);
+
   req.body.TransLog = processingLog(
     req.body.ID,
     "DATA_UPDATE",
@@ -541,7 +541,6 @@ exports.updateDataRecords = asyncHandler(async (req, res, next) => {
     req.headers.buttonname,
     req.body.ProgressComment
   );
-  console.log("ProcessingLog-After", req.body.TransLog);
 
   let nTrans = [];
   // -----------------------------------------------------
@@ -552,18 +551,11 @@ exports.updateDataRecords = asyncHandler(async (req, res, next) => {
   if (!myData) {
     return next(new ErrorResponse(`Record with ${req.body.ID} Not found`, 400));
   }
-
   //---------------------------
   // Update Transaction Log
   //---------------------------
-  myData.TransLog.forEach((ex1) => {
-    console.log("Logs", ex1);
-    nTrans.push(ex1);
-  });
-  console.log("New Log2", nTrans);
-  nTrans.push(req.body.TransLog);
-  console.log("New Log3", nTrans);
-  req.body.TransLog = nTrans;
+  myData.TransLog.unshift(req.body.TransLog);
+  req.body.TransLog = myData.TransLog;
 
   //---------------------------
   // Item update logic....

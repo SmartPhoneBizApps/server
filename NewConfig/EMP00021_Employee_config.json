@@ -456,8 +456,7 @@
           "type": "string",
           "width": "1000",
           "SLabel": "Comment",
-          "Option": "Optional",
-          "Currency": "No"
+          "Option": "Optional"
         },
         {
           "name": "ItemStatus1",
@@ -690,6 +689,13 @@
       "name": "Timesheet Duration",
       "stepType": "FieldList",
       "intro": "Time Sheet : Duration"
+    },
+    {
+      "id": "Step6",
+      "fields": [{ "name": "myTime", "Mode": "Edit" }],
+      "name": "myTime",
+      "stepType": "table",
+      "intro": "Time Sheet : Daily Entries"
     },
     {
       "id": "Step4",
