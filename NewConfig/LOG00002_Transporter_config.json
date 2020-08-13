@@ -102,15 +102,25 @@
       "width": "20",
       "Option": "Mandatory"
     },
-    { "name": "Surname", "type": "string", "width": "20", "Option": "" },
-    { "name": "Email", "type": "string", "width": "20", "Option": "" },
+    {
+      "name": "Surname",
+      "type": "string",
+      "width": "20",
+      "Option": "Optional"
+    },
+    { "name": "Email", "type": "string", "width": "20", "Option": "Optional" },
     {
       "name": "ContactNo",
       "type": "string",
       "width": "20",
       "Option": "Mandatory"
     },
-    { "name": "ProductType", "type": "string", "width": "50", "Option": "" },
+    {
+      "name": "ProductType",
+      "type": "string",
+      "width": "50",
+      "Option": "Optional"
+    },
     {
       "name": "ItemDetail",
       "type": "string",
@@ -153,9 +163,19 @@
       "width": "10",
       "Option": "Mandatory"
     },
-    { "name": "UserComm", "type": "string", "width": "1000", "Option": "" },
-    { "name": "TransComm", "type": "string", "width": "1000", "Option": "" },
-    { "name": "Quote", "type": "string", "width": "100", "Option": "" },
+    {
+      "name": "UserComm",
+      "type": "string",
+      "width": "1000",
+      "Option": "Optional"
+    },
+    {
+      "name": "TransComm",
+      "type": "string",
+      "width": "1000",
+      "Option": "Optional"
+    },
+    { "name": "Quote", "type": "string", "width": "100", "Option": "Optional" },
     { "name": "Status", "type": "string", "SLabel": "Status", "width": "50" },
     {
       "name": "SearchString",

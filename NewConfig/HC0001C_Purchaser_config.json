@@ -1,0 +1,1126 @@
+{
+  "Title": {
+    "ApplicationTitle": "HCP/HCO Company View",
+    "DetailTitle": "HCP/HCO Company View"
+  },
+  "Controls": {
+    "calculation": "No",
+    "USP": "UserProfile",
+    "StatusColor": "Yes",
+    "SearchString": { "Search": false },
+    "Filters": [{ "Partner": "@user" }],
+    "Partner": "@user",
+    "UserSpecific": "Yes",
+    "Update": "Yes",
+    "URL": "https://fierce-oasis-51455.herokuapp.com",
+    "Source": { "SourceName": "mongoDB", "SourceFile": "NA" },
+    "dataFilter": [{ "field": "Status" }],
+    "filterFieldSource": {
+      "header": ["Status"]
+    }
+  },
+
+  "ListFields": {
+    "IntroField": "FirstName",
+    "TitleField": "LastName",
+    "sStatus": "Status",
+    "fStatus": "Title",
+    "numberField": "",
+    "LFields": ["ID", "Email", "SearchString"],
+    "numberUnitField": ""
+  },
+  "ListBOTFields": {
+    "None": ["cardImage", "StatusState"],
+    "Title": ["FirstName", "LastName"],
+    "SubTitle": ["Title", "Status"],
+    "Description": ["Email"]
+  },
+
+  "PossibleValues": ["Status", "ItemStatus1", "ItemStatus2", "ItemStatus3"],
+  "MButtons": [
+    {
+      "type": "DOWNLOAD",
+      "name": "Download File",
+      "icon": "sap-icon://download",
+      "downloadFields": [
+        "ID",
+        "Title",
+        "LastName",
+        "FirstName",
+        "FullName",
+        "Role",
+        "Speciality",
+        "ContactNo",
+        "Email",
+        "PostCode",
+        "Address",
+        "InstitutionName"
+      ]
+    },
+    {
+      "type": "APPHELP",
+      "name": "Get App Help",
+      "icon": "sap-icon://sys-help-2"
+    },
+    {
+      "type": "OPENURL",
+      "name": "Launch BOT",
+      "icon": "sap-icon://travel-request",
+      "URL": "https://www.messenger.com/t/295020207695029"
+    },
+
+    { "type": "ADD", "name": "Add Record", "icon": "sap-icon://add" },
+    {
+      "type": "UPLOAD",
+      "name": "Upload Record",
+      "icon": "sap-icon://upload",
+      "Option": ["Header"],
+      "ItemOptions": [],
+      "URL": "datarecords/",
+      "URLMethodHDR": "POST",
+      "URLMethodTable": "PUT",
+      "dataFields": "FieldName",
+      "key": {
+        "ID": "External",
+        "generateID": [],
+        "seperator": "-"
+      }
+    }
+  ],
+  "DButtons": [
+    {
+      "type": "ADDTRAINING",
+      "name": "Add Study",
+      "icon": "sap-icon://copy",
+      "Dialog": [
+        { "label": "StudyID", "name": "StudyID", "type": "string" },
+        { "label": "StudyType", "name": "StudyType", "type": "string" },
+        { "label": "StudyName", "name": "StudyName", "type": "string" },
+        { "label": "StudyDetails", "name": "StudyDetails", "type": "string" },
+        { "label": "Phase", "name": "Phase", "type": "string" }
+      ],
+      "listFields": ["StudyType", "StudyName", "Phase"],
+      "tableField": "myStudy",
+      "transferFields": ["StudyID", "StudyType", "StudyName", "Phase"],
+      "SearchURL": "listrecordsnew/Web/HC0002/HealthCareProfessional{filter}",
+      "URL": "util/addTraining/myStudy/HC0002/HC0001C/{ID}/{ReferenceID}/{role}",
+      "FieldMapping": {
+        "StudyType": "StudyType",
+        "StudyName": "StudyName",
+        "Phase": "Phase",
+        "StudyID": "StudyID",
+        "StudyDetails": "StudyDetails"
+      },
+      "FixedValues": [{ "Status": "Assigned" }],
+      "Token": "Yes",
+      "URLMethod": "POST"
+    },
+
+    {
+      "type": "SURVEY",
+      "Calculation": "Yes",
+      "name": "Study Invoice",
+      "icon": "sap-icon://upload-to-cloud",
+      "Token": "Yes",
+      "URL": "util/getQuestioner/INVOICE/studyInvoice",
+      "URLMethod": "GET",
+      "postURL": "datarecords/",
+      "checkAnswers": "No",
+      "postHeaders": {
+        "businessrole": "HealthCareProfessional",
+        "applicationid": "SUPP00028",
+        "calculation": "No"
+      },
+      "postToken": "Yes",
+      "postMethod": "POST"
+    },
+    {
+      "type": "ADDTRAINING",
+      "name": "Add Event",
+      "icon": "sap-icon://copy",
+      "Dialog": [
+        { "label": "EventID", "name": "EventID", "type": "string" },
+        { "label": "EventType", "name": "EventType", "type": "string" },
+        { "label": "EventName", "name": "EventName", "type": "string" },
+        { "label": "Address", "name": "Address", "type": "string" },
+        { "label": "PostCode", "name": "PostCode", "type": "string" },
+        { "label": "EventStartDate", "name": "EventStartDate", "type": "Date" }
+      ],
+      "listFields": ["EventType", "EventName", "Phase"],
+      "tableField": "myEvent",
+      "transferFields": [
+        "EventID",
+        "EventType",
+        "EventName",
+        "Address",
+        "PostCode",
+        "EventStartDate"
+      ],
+      "SearchURL": "listrecordsnew/Web/HC0003/HealthCareProfessional{filter}",
+      "URL": "util/addTraining/myEvent/HC0003/HC0001C/{ID}/{ReferenceID}/{role}",
+      "FieldMapping": {
+        "EventID": "EventID",
+        "EventType": "EventType",
+        "EventName": "EventName",
+        "Address": "Address",
+        "PostCode": "PostCode",
+        "EventStartDate": "EventStartDate"
+      },
+      "FixedValues": [{ "Status": "Assigned" }],
+      "Token": "Yes",
+      "URLMethod": "POST"
+    },
+    {
+      "type": "ADDTRAINING",
+      "name": "Add Contract",
+      "icon": "sap-icon://copy",
+      "Dialog": [
+        { "label": "ContractID", "name": "ContractID", "type": "string" },
+        { "label": "ContractType", "name": "ContractType", "type": "string" },
+        { "label": "ContractName", "name": "ContractName", "type": "string" },
+        {
+          "label": "ContractEndDate",
+          "name": "ContractEndDate",
+          "type": "string"
+        },
+        {
+          "label": "ContractStartDate",
+          "name": "ContractStartDate",
+          "type": "Date"
+        }
+      ],
+      "listFields": [
+        "ContractType",
+        "ContractName",
+        "BalanceValue",
+        "ContractEndDate"
+      ],
+      "tableField": "myContract",
+      "transferFields": [
+        "ContractID",
+        "ContractType",
+        "ContractName",
+        "BalanceValue",
+        "ContractEndDate",
+        "ContractStartDate"
+      ],
+      "SearchURL": "listrecordsnew/Web/HC0004/HealthCareProfessional{filter}",
+      "URL": "util/addTraining/myContract/HC0004/HC0001C/{ID}/{ReferenceID}/{role}",
+      "FieldMapping": {
+        "ContractID": "ContractID",
+        "ContractType": "ContractType",
+        "ContractName": "ContractName",
+        "ContractEndDate": "ContractEndDate",
+        "ContractStartDate": "ContractStartDate"
+      },
+      "FixedValues": [{ "Status": "Assigned" }],
+      "Token": "Yes",
+      "URLMethod": "POST"
+    }
+  ],
+  "Tabs": [
+    {
+      "value": "Tab0",
+      "update": "No",
+      "name": "Cards",
+      "type": "Cards",
+      "fioriicon": "responsive"
+    },
+    {
+      "value": "Tab1",
+      "update": "Yes",
+      "name": "Personnel Details",
+      "fioriicon": "developer-settings",
+      "type": "Field"
+    },
+    {
+      "value": "Tab2",
+      "update": "Yes",
+      "name": "Attachments",
+      "type": "MultiAttachments",
+      "fioriicon": "contacts"
+    },
+    {
+      "value": "Tab4",
+      "update": "Yes",
+      "name": "Certifications",
+      "type": "carouselImage",
+      "fioriicon": "contacts"
+    },
+    {
+      "value": "Tab5",
+      "update": "Yes",
+      "name": "Address",
+      "type": "Field",
+      "fioriicon": "contacts"
+    },
+    {
+      "value": "Tab6",
+      "update": "Yes",
+      "name": "Study",
+      "type": "Table",
+      "fioriicon": "contacts"
+    },
+    {
+      "value": "Tab7",
+      "update": "Yes",
+      "name": "Event",
+      "type": "Table",
+      "fioriicon": "contacts"
+    },
+    {
+      "value": "Tab8",
+      "update": "Yes",
+      "name": "Contract",
+      "type": "Table",
+      "fioriicon": "contacts"
+    }
+  ],
+  "DetailFields": {
+    "headerTitle": ["USP_Name"],
+    "headerRole": ["USP_Role"],
+    "headerImage": ["USP_Image"],
+    "headerColorFields": ["Status"],
+    "None": ["Status"],
+    "Tab1": [
+      "ID",
+      "Title",
+      "FirstName",
+      "LastName",
+      "FullName",
+      "Role",
+      "Speciality",
+      "InstitutionName"
+    ],
+    "Tab5": ["PostCode", "Address"],
+    "Tab2": ["MultiAttachments"],
+    "Tab4": ["carouselImage"],
+    "Tab6": ["myStudy"],
+    "Tab7": ["myEvent"],
+    "Tab8": ["myContract"]
+  },
+  "tableConfig": {
+    "myStudy": {
+      "title": "My Studies",
+      "subtitle": "Studies",
+      "ItemFieldDefinition": [
+        {
+          "name": "ItemNumber",
+          "type": "string",
+          "width": "10",
+          "SLabel": "Item Number",
+          "Update": "No"
+        },
+        {
+          "name": "ItemStatus1",
+          "type": "string",
+          "width": "50",
+          "SLabel": "Item Status",
+          "Update": "Yes"
+        },
+        {
+          "name": "StudyID",
+          "type": "string",
+          "width": "50",
+          "SLabel": "StudyID",
+          "Option": "Optional"
+        },
+        {
+          "name": "StudyType",
+          "type": "string",
+          "width": "10",
+          "SLabel": "StudyType",
+          "Option": "Optional"
+        },
+        {
+          "name": "StudyName",
+          "type": "string",
+          "width": "200",
+          "SLabel": "StudyName",
+          "Option": "Optional"
+        },
+        {
+          "name": "StudyDetails",
+          "type": "string",
+          "width": "200",
+          "SLabel": "StudyDetails",
+          "Option": "Optional"
+        },
+        {
+          "name": "Phase",
+          "type": "string",
+          "width": "200",
+          "SLabel": "Phase",
+          "Option": "Optional"
+        }
+      ],
+      "DisplayFields": [
+        "StudyID",
+        "StudyType",
+        "StudyName",
+        "Phase",
+        "ItemStatus1"
+      ],
+      "cards": [
+        {
+          "type": "Table",
+          "template": "template_table.json",
+          "tableCardFields": ["StudyType", "StudyName", "Phase"]
+        },
+        {
+          "type": "Analytical",
+          "cardID": "HC0001",
+          "template": "template_analyticalCard_donut.json",
+          "title": "Study Type Analysis",
+          "analyticsCard": {
+            "chartType": "donut",
+            "cardsDonut": {
+              "measureName": "StudyType",
+              "value": "StudyType",
+              "function": "COUNT"
+            }
+          }
+        },
+        {
+          "type": "Analytical",
+          "cardID": "HC0001",
+          "template": "template_analyticalCard_donut.json",
+          "title": "Study Phases Analysis",
+          "analyticsCard": {
+            "chartType": "donut",
+            "cardsDonut": {
+              "measureName": "Phase",
+              "value": "Phase",
+              "function": "COUNT"
+            }
+          }
+        }
+      ],
+
+      "ItemButtons": {
+        "itemDisplay": true,
+        "itemCheck": false,
+        "itemAdd": false,
+        "itemEdit": true,
+        "itemDelete": false
+      },
+      "CreateFields": [
+        "StudyID",
+        "StudyType",
+        "StudyName",
+        "Phase",
+        "StudyDetails",
+        "ItemStatus1"
+      ],
+      "ItemDetails": [
+        { "name": "StudyType" },
+        { "name": "ItemStatus1" },
+        { "name": "StudyName" },
+        { "name": "Phase" },
+        { "name": "StudyID" },
+        { "name": "StudyDetails" }
+      ]
+    },
+    "myEvent": {
+      "title": "My Events",
+      "subtitle": "Events",
+      "ItemFieldDefinition": [
+        {
+          "name": "ItemNumber",
+          "type": "string",
+          "width": "10",
+          "SLabel": "Item Number",
+          "Update": "No"
+        },
+        {
+          "name": "ItemStatus2",
+          "type": "string",
+          "width": "50",
+          "SLabel": "Item Status",
+          "Update": "Yes"
+        },
+        {
+          "name": "EventID",
+          "type": "string",
+          "width": "50",
+          "SLabel": "StudyID",
+          "Option": "Optional"
+        },
+        {
+          "name": "EventType",
+          "type": "string",
+          "width": "10",
+          "SLabel": "EventType",
+          "Option": "Optional"
+        },
+        {
+          "name": "EventName",
+          "type": "string",
+          "width": "200",
+          "SLabel": "EventName",
+          "Option": "Optional"
+        },
+        {
+          "name": "EventStartDate",
+          "type": "Date",
+          "width": "200",
+          "SLabel": "EventStartDate",
+          "Option": "Optional"
+        },
+        {
+          "name": "Time",
+          "type": "string",
+          "width": "200",
+          "SLabel": "Time",
+          "Option": "Optional"
+        },
+        {
+          "name": "Duration",
+          "type": "string",
+          "width": "200",
+          "SLabel": "Duration",
+          "Option": "Optional"
+        },
+        {
+          "name": "Agenda",
+          "type": "string",
+          "width": "200",
+          "SLabel": "Agenda",
+          "Option": "Optional"
+        },
+        {
+          "name": "Address",
+          "type": "string",
+          "width": "200",
+          "SLabel": "Address",
+          "Option": "Optional"
+        },
+        {
+          "name": "PostCode",
+          "type": "string",
+          "width": "50",
+          "SLabel": "PostCode",
+          "Option": "Optional"
+        }
+      ],
+      "DisplayFields": [
+        "EventID",
+        "EventType",
+        "EventName",
+        "EventStartDate",
+        "Time",
+        "ItemStatus2"
+      ],
+      "cards": [
+        {
+          "type": "Table",
+          "template": "template_table.json",
+          "tableCardFields": ["EventType", "EventName", "EventStartDate"]
+        },
+        {
+          "type": "Analytical",
+          "cardID": "HC0001",
+          "template": "template_analyticalCard_donut.json",
+          "title": "Event Type Analysis",
+          "analyticsCard": {
+            "chartType": "donut",
+            "cardsDonut": {
+              "measureName": "EventType",
+              "value": "EventType",
+              "function": "COUNT"
+            }
+          }
+        },
+        {
+          "type": "Analytical",
+          "cardID": "HC0001",
+          "template": "template_analyticalCard_donut.json",
+          "title": "Events Analysis",
+          "analyticsCard": {
+            "chartType": "donut",
+            "cardsDonut": {
+              "measureName": "EventName",
+              "value": "EventName",
+              "function": "COUNT"
+            }
+          }
+        }
+      ],
+
+      "ItemButtons": {
+        "itemDisplay": true,
+        "itemCheck": false,
+        "itemAdd": false,
+        "itemEdit": true,
+        "itemDelete": false
+      },
+      "CreateFields": [
+        "EventID",
+        "EventType",
+        "EventName",
+        "EventStartDate",
+        "Time",
+        "Duration",
+        "Agenda",
+        "Address",
+        "PostCode",
+        "ItemStatus2"
+      ],
+      "ItemDetails": [
+        { "name": "EventType" },
+        { "name": "ItemStatus2" },
+        { "name": "EventName" },
+        { "name": "EventStartDate" },
+        { "name": "EventID" },
+        { "name": "Time" },
+        { "name": "Duration" },
+        { "name": "Agenda" },
+        { "name": "Address" },
+        { "name": "PostCode" }
+      ]
+    },
+    "myContract": {
+      "title": "My Contracts",
+      "subtitle": "Contracts",
+      "ItemFieldDefinition": [
+        {
+          "name": "ItemNumber",
+          "type": "string",
+          "width": "10",
+          "SLabel": "Item Number",
+          "Update": "No"
+        },
+        {
+          "name": "ItemStatus3",
+          "type": "string",
+          "width": "50",
+          "SLabel": "Item Status",
+          "Update": "Yes"
+        },
+        {
+          "name": "ContractID",
+          "type": "string",
+          "width": "50",
+          "SLabel": "ContractID",
+          "Option": "Optional"
+        },
+        {
+          "name": "ContractType",
+          "type": "string",
+          "width": "10",
+          "SLabel": "ContractType",
+          "Option": "Optional"
+        },
+        {
+          "name": "ContractName",
+          "type": "string",
+          "width": "200",
+          "SLabel": "ContractName",
+          "Option": "Optional"
+        },
+        {
+          "name": "ContractStartDate",
+          "type": "Date",
+          "width": "50",
+          "SLabel": "ContractStartDate",
+          "Option": "Optional"
+        },
+        {
+          "name": "ContractEndDate",
+          "type": "Date",
+          "width": "50",
+          "SLabel": "ContractEndDate",
+          "Option": "Optional"
+        },
+        {
+          "name": "ContractValue",
+          "type": "Num,1",
+          "width": "50",
+          "SLabel": "ContractValue",
+          "Option": "Optional"
+        },
+        {
+          "name": "BalanceValue",
+          "type": "Num,1",
+          "width": "50",
+          "SLabel": "BalanceValue",
+          "Option": "Optional"
+        },
+        {
+          "name": "UsedValue",
+          "type": "Num,1",
+          "width": "50",
+          "SLabel": "UsedValue",
+          "Option": "Optional"
+        },
+        {
+          "name": "Services",
+          "type": "string",
+          "width": "500",
+          "SLabel": "Services",
+          "Option": "Optional"
+        }
+      ],
+      "DisplayFields": [
+        "ContractID",
+        "ContractType",
+        "ContractName",
+        "ContractStartDate",
+        "ContractEndDate",
+        "BalanceValue",
+        "ItemStatus3"
+      ],
+      "cards": [
+        {
+          "type": "Table",
+          "template": "template_table.json",
+          "tableCardFields": [
+            "ContractType",
+            "ContractName",
+            "ContractStartDate",
+            "BalanceValue"
+          ]
+        },
+
+        {
+          "type": "Analytical",
+          "cardID": "HC0001",
+          "template": "template_analyticalCard_stackedcolumn.json",
+
+          "analyticsCard": {
+            "chartType": "stackedcolumn",
+            "colKey": { "Category": "ContractName" },
+            "colValues": {
+              "Val1": "ContractValue",
+              "Val2": "BalanceValue",
+              "Val3": "UsedValue"
+            }
+          }
+        },
+        {
+          "type": "Analytical",
+          "cardID": "HC0001",
+          "template": "template_analyticalCard_donut.json",
+          "title": "Contract Type Analysis",
+          "analyticsCard": {
+            "chartType": "donut",
+            "cardsDonut": {
+              "measureName": "ContractType",
+              "value": "ContractType",
+              "function": "COUNT"
+            }
+          }
+        },
+        {
+          "type": "Analytical",
+          "cardID": "HC0001",
+          "title": "Contract Analysis",
+          "subtitle": "Contract Vs Balance value",
+          "unitOfMeasurement": "GBP",
+          "template": "template_analyticalCard_line.json",
+          "analyticsCard": {
+            "chartType": "line",
+            "itemvalueMap": {
+              "Score": "BalanceValue",
+              "Target": "ContractValue"
+            },
+            "itemkeyMap": {
+              "Area": "ContractName"
+            },
+            "itemfixedVal": [],
+            "sumField": [
+              { "sumScore": "BalanceValue" },
+              { "sumtargetScore": "ContractValue" }
+            ],
+            "headerfieldMap": [
+              { "j_number": "sumScore" },
+              { "j_target": "sumtargetScore" }
+            ]
+          }
+        }
+      ],
+
+      "ItemButtons": {
+        "itemDisplay": true,
+        "itemCheck": false,
+        "itemAdd": false,
+        "itemEdit": true,
+        "itemDelete": false
+      },
+      "CreateFields": [
+        "ContractID",
+        "ContractType",
+        "ContractName",
+        "ContractStartDate",
+        "ContractEndDate",
+        "ContractValue",
+        "Services",
+        "ItemStatus3"
+      ],
+      "ItemDetails": [
+        { "name": "ContractType" },
+        { "name": "ItemStatus3" },
+        { "name": "ContractName" },
+        { "name": "ContractStartDate" },
+        { "name": "ContractEndDate" },
+        { "name": "ContractID" },
+        { "name": "ContractValue" },
+        { "name": "UsedValue" },
+        { "name": "BalanceValue" },
+        { "name": "Services" }
+      ]
+    }
+  },
+  "ControlDisplay": {},
+  "FieldDef": [
+    {
+      "name": "ID",
+      "type": "string",
+      "width": "20",
+      "Option": "Mandatory",
+      "SLabel": "Identification",
+      "Update": "No"
+    },
+    {
+      "name": "ReferenceID",
+      "type": "string",
+      "width": "20",
+      "Option": "Optional",
+      "SLabel": "ReferenceID"
+    },
+    {
+      "name": "Title",
+      "type": "string",
+      "width": "50",
+      "Option": "Mandatory",
+      "SLabel": "Title",
+      "LLabel": "Title"
+    },
+    {
+      "name": "FirstName",
+      "type": "string",
+      "width": "50",
+      "Option": "Mandatory",
+      "SLabel": "First Name",
+      "LLabel": "First Name"
+    },
+    {
+      "name": "LastName",
+      "type": "string",
+      "width": "50",
+      "Option": "Mandatory",
+      "SLabel": "Last Name",
+      "LLabel": "Last Name"
+    },
+    {
+      "name": "FullName",
+      "type": "string",
+      "width": "50",
+      "Option": "Optional",
+      "SLabel": "Full Name",
+      "LLabel": "Full Name"
+    },
+    {
+      "name": "Role",
+      "type": "string",
+      "width": "50",
+      "Option": "Optional",
+      "SLabel": "Role",
+      "LLabel": "Role"
+    },
+    {
+      "name": "PostCode",
+      "type": "searchField",
+      "width": "20",
+      "linkFields": "Address",
+      "URL": "{URL}/api/v1/util/address/{PostCode}",
+      "URLMethod": "GET",
+      "Token": true,
+      "Option": "Optional",
+      "SLabel": "Post Code",
+      "LLabel": "Post Code"
+    },
+    {
+      "name": "Address",
+      "type": "string",
+      "width": "200",
+      "Option": "Optional",
+      "SLabel": "Address",
+      "LLabel": "Address"
+    },
+    {
+      "name": "Status",
+      "type": "string",
+      "width": "50",
+      "Option": "Mandatory",
+      "SLabel": "Status",
+      "LLabel": "Status"
+    },
+    {
+      "name": "SearchString",
+      "type": "string",
+      "width": "200",
+      "Option": "Mandatory",
+      "SLabel": "Search String",
+      "LLabel": "Search String"
+    },
+    {
+      "name": "ProgressComment",
+      "type": "string",
+      "width": "1000",
+      "Option": "Optional",
+      "SLabel": "ProgressComment",
+      "LLabel": "ProgressComment"
+    },
+    {
+      "name": "MultiAttachments",
+      "type": "attachment",
+      "metadata": "MultipleFields",
+      "width": "200",
+      "Option": "Optional",
+      "SLabel": "CV",
+      "LLabel": "CV"
+    },
+    {
+      "name": "carouselImage",
+      "type": "attachment",
+      "metadata": "OnlyFileName",
+      "width": "200",
+      "Option": "Optional",
+      "SLabel": "Certificates",
+      "LLabel": "Certificates"
+    },
+    {
+      "name": "USP_Role",
+      "type": "string",
+      "width": "50",
+      "Option": "Optional",
+      "SLabel": "User Role",
+      "LLabel": "User Role"
+    },
+    {
+      "name": "USP_Name",
+      "type": "string",
+      "width": "100",
+      "Option": "Optional",
+      "SLabel": "User Name",
+      "LLabel": "User Name"
+    },
+    {
+      "name": "USP_Image",
+      "type": "string",
+      "width": "200",
+      "Option": "Optional",
+      "SLabel": "Profile Image",
+      "LLabel": "Profile Image"
+    },
+    {
+      "name": "ContactNo",
+      "type": "string",
+      "width": "20",
+      "Option": "Optional",
+      "SLabel": "Contact No",
+      "LLabel": "Contact No"
+    },
+    {
+      "name": "Email",
+      "type": "string",
+      "width": "50",
+      "Option": "Optional",
+      "SLabel": "Email Id",
+      "LLabel": "Email Id"
+    },
+    {
+      "name": "Speciality",
+      "type": "string",
+      "width": "50",
+      "Option": "Optional",
+      "SLabel": "Speciality",
+      "LLabel": "Speciality"
+    },
+    {
+      "name": "InstitutionName",
+      "type": "string",
+      "width": "200",
+      "Option": "Optional",
+      "SLabel": "Institution Name",
+      "LLabel": "Institution Name"
+    },
+    {
+      "name": "Phase",
+      "type": "string",
+      "width": "50",
+      "Option": "Optional",
+      "SLabel": "Phase"
+    },
+    {
+      "name": "StudyType",
+      "type": "string",
+      "width": "50",
+      "Option": "Optional",
+      "SLabel": "Study Type"
+    },
+    {
+      "name": "StudyID",
+      "type": "string",
+      "width": "100",
+      "Option": "Optional",
+      "SLabel": "Study ID"
+    },
+    {
+      "name": "StudyDetails",
+      "type": "string",
+      "width": "100",
+      "Option": "Optional",
+      "SLabel": "Study Details"
+    },
+    {
+      "name": "StudyName",
+      "type": "string",
+      "width": "100",
+      "Option": "Optional",
+      "SLabel": "Study Name"
+    },
+    {
+      "name": "EventType",
+      "type": "string",
+      "width": "50",
+      "Option": "Optional",
+      "SLabel": "Event Type"
+    },
+    {
+      "name": "EventID",
+      "type": "string",
+      "width": "100",
+      "Option": "Optional",
+      "SLabel": "Event ID"
+    },
+    {
+      "name": "EventName",
+      "type": "string",
+      "width": "100",
+      "Option": "Optional",
+      "SLabel": "Event Name"
+    },
+    {
+      "name": "PostCode",
+      "type": "string",
+      "width": "20",
+      "Option": "Optional",
+      "SLabel": "PostCode"
+    },
+    {
+      "name": "Address",
+      "type": "string",
+      "width": "200",
+      "Option": "Optional",
+      "SLabel": "Address"
+    },
+    {
+      "name": "EventStartDate",
+      "type": "Date",
+      "width": "20",
+      "Option": "Optional",
+      "SLabel": "EventStartDate"
+    },
+    {
+      "name": "ContractType",
+      "type": "string",
+      "width": "50",
+      "Option": "Optional",
+      "SLabel": "Contract Type"
+    },
+    {
+      "name": "ContractID",
+      "type": "string",
+      "width": "100",
+      "Option": "Optional",
+      "SLabel": "Contract ID"
+    },
+    {
+      "name": "ContractName",
+      "type": "string",
+      "width": "100",
+      "Option": "Optional",
+      "SLabel": "Contract Name"
+    },
+    {
+      "name": "ContractStartDate",
+      "type": "Date",
+      "width": "20",
+      "Option": "Optional",
+      "SLabel": "ContractStartDate"
+    },
+    {
+      "name": "ContractEndDate",
+      "type": "Date",
+      "width": "20",
+      "Option": "Optional",
+      "SLabel": "ContractEndDate"
+    },
+    {
+      "name": "myStudy",
+      "type": "Array",
+      "width": "200",
+      "SLabel": "My Study",
+      "Option": "Optional"
+    }
+  ],
+
+  "itemData": "No",
+  "itemConfig": {
+    "ItemFieldDefinition": [],
+    "DisplayFields": [],
+    "ItemButtons": {
+      "itemDisplay": false,
+      "itemAdd": false,
+      "itemEdit": false,
+      "itemDelete": false
+    },
+    "CreateFields": [],
+    "ItemDetails": []
+  },
+  "CalculatedFields": {},
+  "Create": "Yes",
+  "Wizard": [
+    {
+      "id": "Step1",
+      "fields": [
+        { "name": "Title", "Mode": "Edit" },
+        { "name": "FirstName", "Mode": "Edit" },
+        { "name": "LastName", "Mode": "Edit" }
+      ],
+      "name": "Leave Details",
+      "stepType": "FieldList",
+      "intro": "HCP - HCO  : Personal Details"
+    },
+    {
+      "id": "Step2",
+      "fields": [
+        { "name": "Speciality", "Mode": "Edit" },
+        { "name": "Email", "Mode": "Edit" },
+        { "name": "ContactNo", "Mode": "Edit" }
+      ],
+      "name": "Employee Details",
+      "stepType": "FieldList",
+      "intro": "HCP - HCO  : Experties and Contact"
+    },
+    {
+      "id": "Step3",
+      "fields": [
+        { "name": "PostCode", "Mode": "Edit" },
+        { "name": "Address", "Mode": "Edit" }
+      ],
+      "name": "Address",
+      "stepType": "FieldList",
+      "intro": "HCP - HCO  : Address"
+    },
+    {
+      "id": "Step4",
+      "fields": [{ "name": "Status", "Mode": "Edit" }],
+      "name": "Pharma Company / Institution Name",
+      "stepType": "FieldList",
+      "intro": "HCP - HCO  : Pharma Company / Institution Name"
+    }
+  ]
+}

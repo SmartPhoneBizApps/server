@@ -7,7 +7,7 @@
     "calculation": "No",
     "USP": "UserProfile",
     "StatusColor": "Yes",
-    "SearchString":{"Search":false},
+    "SearchString": { "Search": false },
     "Filters": [],
     "Partner": "@user",
     "UserSpecific": "Yes",
@@ -143,7 +143,13 @@
   },
   "ControlDisplay": {},
   "FieldDef": [
-    { "name": "ID", "type": "string", "width": "20" ,"Option": "Mandatory",  "SLabel": "ID"},
+    {
+      "name": "ID",
+      "type": "string",
+      "width": "20",
+      "Option": "Mandatory",
+      "SLabel": "ID"
+    },
     {
       "name": "ReferenceID",
       "type": "string",
@@ -151,7 +157,12 @@
       "Option": "Optional",
       "SLabel": "ReferenceID"
     },
-    { "name": "FirstName", "type": "string", "width": "20", "Option": "" },
+    {
+      "name": "FirstName",
+      "type": "string",
+      "width": "20",
+      "Option": "Optional"
+    },
     { "name": "LastName", "type": "string", "width": "20" },
     { "name": "Gender", "type": "switch", "width": "20" },
     { "name": "Email", "type": "string", "width": "20" },

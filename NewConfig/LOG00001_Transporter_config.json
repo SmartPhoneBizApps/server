@@ -113,14 +113,19 @@
       "width": "20",
       "Option": "Mandatory"
     },
-    { "name": "Surname", "type": "string", "width": "20", "Option": "" },
+    {
+      "name": "Surname",
+      "type": "string",
+      "width": "20",
+      "Option": "Optional"
+    },
     {
       "name": "ContactNo",
       "type": "string",
       "width": "20",
       "Option": "Mandatory"
     },
-    { "name": "Email", "type": "string", "width": "20", "Option": "" },
+    { "name": "Email", "type": "string", "width": "20", "Option": "Optional" },
     {
       "name": "ProductType",
       "type": "string",
@@ -151,7 +156,12 @@
       "width": "100",
       "Option": "Mandatory"
     },
-    { "name": "Photos", "type": "attachment", "width": "200", "Option": "" },
+    {
+      "name": "Photos",
+      "type": "attachment",
+      "width": "200",
+      "Option": "Optional"
+    },
     {
       "name": "PickUpAdd",
       "type": "string",
@@ -176,14 +186,19 @@
       "width": "500",
       "Option": "Mandatory"
     },
-    { "name": "UserComm", "type": "string", "width": "1000", "Option": "" },
+    {
+      "name": "UserComm",
+      "type": "string",
+      "width": "1000",
+      "Option": "Optional"
+    },
     {
       "name": "TransporterComm",
       "type": "string",
       "width": "1000",
-      "Option": ""
+      "Option": "Optional"
     },
-    { "name": "Price", "type": "string", "width": "20", "Option": "" },
+    { "name": "Price", "type": "string", "width": "20", "Option": "Optional" },
     { "name": "Status", "type": "string", "SLabel": "Status", "width": "50" },
     {
       "name": "SearchString",

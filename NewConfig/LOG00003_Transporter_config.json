@@ -101,8 +101,13 @@
       "width": "20",
       "Option": "Mandatory"
     },
-    { "name": "Surname", "type": "string", "width": "20", "Option": "" },
-    { "name": "Email", "type": "string", "width": "20", "Option": "" },
+    {
+      "name": "Surname",
+      "type": "string",
+      "width": "20",
+      "Option": "Optional"
+    },
+    { "name": "Email", "type": "string", "width": "20", "Option": "Optional" },
     {
       "name": "ContactNo",
       "type": "string",
@@ -146,9 +151,19 @@
       "Option": "Mandatory"
     },
     { "name": "DateReq", "type": "Date", "width": "10", "Option": "Mandatory" },
-    { "name": "UserComm", "type": "string", "width": "1000", "Option": "" },
-    { "name": "PackComm", "type": "string", "width": "1000", "Option": "" },
-    { "name": "Quote", "type": "string", "width": "200", "Option": "" },
+    {
+      "name": "UserComm",
+      "type": "string",
+      "width": "1000",
+      "Option": "Optional"
+    },
+    {
+      "name": "PackComm",
+      "type": "string",
+      "width": "1000",
+      "Option": "Optional"
+    },
+    { "name": "Quote", "type": "string", "width": "200", "Option": "Optional" },
     { "name": "Status", "type": "string", "SLabel": "Status", "width": "50" },
     {
       "name": "SearchString",

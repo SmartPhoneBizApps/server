@@ -4,7 +4,7 @@
     "calculation": "No",
     "USP": "UserProfile",
     "StatusColor": "Yes",
-    "SearchString":{"Search":false},
+    "SearchString": { "Search": false },
     "Filters": [],
     "Partner": "@user",
     "UserSpecific": "Yes",
@@ -131,8 +131,13 @@
       "width": "20",
       "Option": "Mandatory"
     },
-    { "name": "Surname", "type": "string", "width": "20", "Option": "" },
-    { "name": "Email", "type": "string", "width": "20", "Option": "" },
+    {
+      "name": "Surname",
+      "type": "string",
+      "width": "20",
+      "Option": "Optional"
+    },
+    { "name": "Email", "type": "string", "width": "20", "Option": "Optional" },
     {
       "name": "ContactNo",
       "type": "string",
@@ -187,9 +192,19 @@
       "width": "10",
       "Option": "Mandatory"
     },
-    { "name": "Price", "type": "string", "width": "50", "Option": "" },
-    { "name": "UserComm", "type": "string", "width": "1000", "Option": "" },
-    { "name": "TransComm", "type": "string", "width": "1000", "Option": "" },
+    { "name": "Price", "type": "string", "width": "50", "Option": "Optional" },
+    {
+      "name": "UserComm",
+      "type": "string",
+      "width": "1000",
+      "Option": "Optional"
+    },
+    {
+      "name": "TransComm",
+      "type": "string",
+      "width": "1000",
+      "Option": "Optional"
+    },
     { "name": "Status", "type": "string", "SLabel": "Status", "width": "50" },
     {
       "name": "SearchString",
@@ -199,8 +214,18 @@
       "SLabel": "Search String",
       "LLabel": "Search String"
     },
-    { "name": "InsurPolicyNo", "type": "string", "width": "20", "Option": "" },
-    { "name": "InsComp", "type": "string", "width": "100", "Option": "" }
+    {
+      "name": "InsurPolicyNo",
+      "type": "string",
+      "width": "20",
+      "Option": "Optional"
+    },
+    {
+      "name": "InsComp",
+      "type": "string",
+      "width": "100",
+      "Option": "Optional"
+    }
   ],
   "itemData": "No",
   "itemConfig": {
