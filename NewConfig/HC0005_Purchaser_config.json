@@ -57,7 +57,40 @@
     {
       "type": "DOWNLOAD",
       "name": "Download File",
-      "icon": "sap-icon://download"
+      "icon": "sap-icon://download",
+      "downloadFields": [
+        "ID",
+        "VendorName",
+        "VendorNumber",
+        "CurrentStatus",
+        "SuppInvoiceNumber",
+        "InvoiceType",
+        "InvoiceDate",
+        "TaxInvoice",
+        "TotInvNetValue",
+        "TotInvTax",
+        "TotInvGrossVal",
+        "Currency",
+        "InvoiceStatus",
+        "BuyerInvoiceNumber",
+        "BuyerInvoiceYear",
+        "BuyerInvoiceStatus",
+        "Comment",
+        "PONumber",
+        "PODate",
+        "Details",
+        "NetValue",
+        "GrossValue",
+        "Company",
+        "PaymentTerm",
+        "PaymentStatus",
+        "BuyerInvoiceDueDt",
+        "BuyerPaymentDate",
+        "BuyerPaymentStatus",
+        "ConfidenceScore",
+        "OverallMatching",
+        "Status"
+      ]
     },
     {
       "type": "APPHELP",
@@ -72,7 +105,22 @@
     },
 
     { "type": "ADD", "name": "Add Record", "icon": "sap-icon://add" },
-    { "type": "UPLOAD", "name": "Upload Record", "icon": "sap-icon://upload" }
+    {
+      "type": "UPLOAD",
+      "name": "Upload Record",
+      "icon": "sap-icon://upload",
+      "Option": ["Header"],
+      "ItemOptions": [],
+      "URL": "datarecords/",
+      "URLMethodHDR": "POST",
+      "URLMethodTable": "PUT",
+      "dataFields": "FieldName",
+      "key": {
+        "ID": "External",
+        "generateID": [],
+        "seperator": "-"
+      }
+    }
   ],
   "DButtons": [
     {
