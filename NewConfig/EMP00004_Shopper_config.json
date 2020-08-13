@@ -148,6 +148,14 @@
       "fioriicon": "step",
       "type": "Chat",
       "download": "No"
+    },
+    {
+      "value": "Tab5",
+      "update": "Yes",
+      "name": "MultiAttachment",
+      "fioriicon": "attachment",
+      "type": "MultiAttachments",
+      "download": "Yes"
     }
   ],
   "DetailFields": {
@@ -166,7 +174,8 @@
       "OtherInfo"
     ],
     "Tab4": ["ProcessingLog"],
-    "Tab3": ["iData"]
+    "Tab3": ["iData"],
+    "Tab5": ["MultiAttachments"]
   },
   "cards": [
     {
@@ -455,6 +464,15 @@
       "Option": "Optional",
       "SLabel": "iData",
       "LLabel": "iData"
+    },
+    {
+      "name": "MultiAttachments",
+      "type": "attachment",
+      "metadata": "MultipleFields",
+      "width": "200",
+      "Option": "Optional",
+      "SLabel": "MultiAttachments",
+      "LLabel": "MultiAttachments"
     }
   ],
   "ItemData": "No",
@@ -716,25 +734,32 @@
       "stepType": "table",
       "intro": "Shopping Cart : Admin"
     },
+
     {
-      "id": "Step3",
+      "id": "Step4",
       "fields": [
         { "name": "Address", "Mode": "Edit" },
-        { "name": "PostCode", "Mode": "Edit" }
+        { "name": "PostCode", "Mode": "Edit" },
+        { "name": "ContactNo", "Mode": "Edit" },
+        { "name": "Email", "Mode": "Edit" }
       ],
       "name": "Delivery",
       "stepType": "FieldList",
       "intro": "Shopping Cart : Delivery"
     },
     {
-      "id": "Step4",
-      "fields": [
-        { "name": "ContactNo", "Mode": "Edit" },
-        { "name": "Email", "Mode": "Edit" }
-      ],
-      "name": "Delivery Contact",
-      "stepType": "FieldList",
-      "intro": "Shopping Cart : Delivery Contact"
+      "id": "Step3",
+      "fields": [{ "name": "MultiAttachments", "Mode": "Edit" }],
+      "name": "MultiAttachments",
+      "stepType": "Attachments",
+      "intro": "Shopping Cart : Attachments",
+      "attachmentAttribute": {
+        "applicationid": "{applicationid}",
+        "businessrole": "{businessrole}",
+        "mode": "File",
+        "type": "NewUpload",
+        "text": "docType,SupplierAttachment,Information"
+      }
     },
     {
       "id": "Step5",
@@ -743,6 +768,5 @@
       "stepType": "FieldList",
       "intro": "Shopping Cart : Admin"
     }
-
   ]
 }

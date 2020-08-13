@@ -691,7 +691,7 @@
       "intro": "Time Sheet : Duration"
     },
     {
-      "id": "Step6",
+      "id": "Step3",
       "fields": [{ "name": "myTime", "Mode": "Edit" }],
       "name": "myTime",
       "stepType": "table",
@@ -710,6 +710,20 @@
     },
     {
       "id": "Step5",
+      "fields": [{ "name": "MultiAttachments", "Mode": "Edit" }],
+      "name": "MultiAttachments",
+      "stepType": "Attachments",
+      "intro": "Time Sheet : Attachments",
+      "attachmentAttribute": {
+        "applicationid": "{applicationid}",
+        "businessrole": "{businessrole}",
+        "mode": "File",
+        "type": "NewUpload",
+        "text": "docType,timeSheet,Information"
+      }
+    },
+    {
+      "id": "Step6",
       "fields": [{ "name": "Status", "Mode": "Edit" }],
       "name": "Amount",
       "stepType": "FieldList",
