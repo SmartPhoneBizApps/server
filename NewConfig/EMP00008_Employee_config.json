@@ -6,6 +6,8 @@
     "StatusColor": "Yes",
     "SearchString": { "Search": false },
     "Filters": [{ "Partner": "@user" }],
+    "itemattachment": {},
+    "headerattachment": {},
     "Partner": "@user",
     "UserSpecific": "Yes",
     "Update": "Yes",
@@ -239,6 +241,14 @@
           "SLabel": "Item Status",
           "Option": "Optional",
           "Update": "Yes"
+        },
+        {
+          "name": "Attachment",
+          "type": "singleAttachment",
+          "width": "100",
+          "SLabel": "Item Attachment",
+          "Option": "Optional",
+          "Update": "Yes"
         }
       ],
       "DisplayFields": [
@@ -291,7 +301,8 @@
         "ExpenseDetails",
         "iCurrency",
         "ItemStatus1",
-        "Comment"
+        "Comment",
+        "Attachment"
       ],
       "ItemDetails": [
         { "name": "ExpenseDate" },
@@ -300,7 +311,8 @@
         { "name": "ExpenseDetails" },
         { "name": "iCurrency" },
         { "name": "Comment" },
-        { "name": "ItemStatus1" }
+        { "name": "ItemStatus1" },
+        { "name": "Attachment" }
       ]
     }
   },
