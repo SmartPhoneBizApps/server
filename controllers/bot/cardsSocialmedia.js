@@ -141,6 +141,85 @@ exports.cardsSocialmedia = asyncHandler(async (req, res, next) => {
             );
             console.log(appData);
             console.log("--------** DETAIL CARD **---------");
+
+            // Header Cards...
+            console.log("--------** HEADER CARDS **---------");
+            counter = 0;
+            if (appconfig.hasOwnProperty("cards")) {
+              var mycard = appconfig["cards"];
+              console.log(mycard);
+              for (let k = 0; k < mycard.length; k++) {
+                let cardKey =
+                  "H" +
+                  req.headers.applicationid.substring(0, 3) +
+                  req.headers.applicationid.slice(-2) +
+                  smedia.businessRoleName.substring(0, 3) +
+                  counter;
+                counter = counter + 1;
+                let cardConfigFile1 =
+                  "../../cards/cardConfig/" + mycard[k]["template"];
+                var cardData = JSON.stringify(require(cardConfigFile1));
+                if (mycard[k].title != undefined) {
+                  cardData = cardData.replace("@Title", mycard[k].title);
+                } else {
+                  cardData = cardData.replace(
+                    "@Title",
+                    appconfig["Title"]["ApplicationTitle"]
+                  );
+                }
+                if (mycard[k].subTitle != undefined) {
+                  cardData = cardData.replace("@subTitle", mycard[k].subtitle);
+                } else {
+                  cardData = cardData.replace(
+                    "@subTitle",
+                    appconfig["Title"]["DetailTitle"]
+                  );
+                }
+                cardData = cardData.replace(
+                  "@unitOfMeasurement",
+                  mycard[k].unitOfMeasurement
+                );
+                cardData = cardData.replace(
+                  "@HeaderActionURL",
+                  "applicationTile"
+                );
+                var anacardConfig = JSON.parse(cardData);
+
+                switch (mycard[k]["type"]) {
+                  case "Analytical":
+                    //     console.log("Header Card", anacardConfig);
+                    if (mycard[k]["analyticsCard"]["chartType"] == "donut") {
+                      console.log(
+                        "Header Donut Card",
+                        mycard[k]["analyticsCard"]["chartType"]
+                      );
+                      console.log("Analytical - Type", counter, "Donut");
+                      jCard1 = {};
+                      console.log(appData);
+                      jCard1 = await donutCardHead(
+                        mycard[k]["analyticsCard"],
+                        appData,
+                        anacardConfig
+                      );
+                      cardOut.push(jCard1);
+                    }
+                    break;
+                  case "Adaptive":
+                    console.log("Header Card", anacardConfig);
+                    jCard1 = {};
+                    jCard1 = await adaptivecardCard(
+                      req.headers.applicationid,
+                      smedia.businessRoleName,
+                      anacardConfig
+                    );
+                    cardOut.push(jCard1);
+                    break;
+                  default:
+                    break;
+                }
+              }
+            }
+
             //----------------------------------------------
             // Table Cards...
             console.log("--------** TABLE CARDS **---------");
@@ -257,6 +336,12 @@ exports.cardsSocialmedia = asyncHandler(async (req, res, next) => {
                 }
               }
             }
+            // Global Cards
+            let fg1 = "../../cards/cardConfig/template_timeline.json";
+            var GlobalCardConfig = require(fg1);
+            jCard1 = {};
+            jCard1 = await globalCard(appData["TransLog"], GlobalCardConfig);
+            cardOut.push(jCard1);
 
             break;
           case "CARD_LIST_REC":
