@@ -557,13 +557,6 @@
         "Option": "Optional"
       },
       {
-        "name": "ID",
-        "type": "string",
-        "width": "20",
-        "SLabel": "Identification",
-        "Option": "Optional"
-      },
-      {
         "name": "Amount",
         "type": "Num,2",
         "width": "20",
@@ -606,7 +599,7 @@
         "Option": "Optional"
       },
       {
-        "name": "Currency",
+        "name": "iCurrency",
         "type": "string",
         "width": "10",
         "SLabel": "Currency",
@@ -641,42 +634,25 @@
         "Option": "Optional"
       }
     ],
-    "DisplayFields": [
-      "ID",
-      "Amount",
-      "ItemStatus",
-      "Description",
-      "PaidAmount"
-    ],
+    "DisplayFields": ["Amount", "ItemStatus", "Description", "PaidAmount"],
     "ItemButtons": {
       "itemDisplay": true,
       "itemAdd": true,
       "itemEdit": true,
       "itemDelete": true
     },
-    "CreateFields": ["Description", "Amount", "ID", "Currency", "ItemStatus"],
+    "CreateFields": ["Description", "Amount", "iCurrency", "ItemStatus"],
     "ItemDetails": [
-      { "name": "ItemNumber", "Tab": "Tab3", "Mode": "Edit" },
-      { "name": "Description", "Tab": "Tab3", "Mode": "Edit" },
-      { "name": "Amount", "Tab": "Tab3", "Mode": "Edit" },
-      { "name": "Currency", "Tab": "Tab3", "Mode": "Edit" },
-      { "name": "ID", "Tab": "Tab3", "Mode": "Edit" },
-      { "name": "ItemStatus", "Tab": "Tab3", "Mode": "Edit" },
-      { "name": "DueDate", "Tab": "Tab3", "Mode": "Edit" },
-      { "name": "PaidAmount", "Tab": "Tab3", "Mode": "Edit" },
-      {
-        "name": "PaymentMethod",
-        "Tab": "Tab3",
-
-        "Mode": "Edit"
-      },
-      {
-        "name": "AuthorizationCode",
-        "Tab": "Tab3",
-
-        "Mode": "Edit"
-      },
-      { "name": "PaidBy", "Tab": "Tab3", "Mode": "Edit" }
+      { "name": "ItemNumber" },
+      { "name": "Description" },
+      { "name": "Amount" },
+      { "name": "iCurrency" },
+      { "name": "ItemStatus" },
+      { "name": "DueDate" },
+      { "name": "PaidAmount" },
+      { "name": "PaymentMethod" },
+      { "name": "AuthorizationCode" },
+      { "name": "PaidBy" }
     ]
   },
   "CalculatedFields": {
