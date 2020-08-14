@@ -72,6 +72,7 @@ app.use(
   "/api/v1/socialmediacheck",
   require("./routes/access/socialmediacheck")
 );
+app.use("/api/v1/socialmediacards", require("./routes/bot/cardsSocialmedia"));
 app.use("/api/v1/auth/checkbotpin", require("./routes/access/checkBotPin"));
 //  ----------------------------------------------------------
 //  ----------  ***** ORGNIZATION SETUP DATA *****  ----------
