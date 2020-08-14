@@ -5,6 +5,31 @@
   },
   "cardColumn": 4,
   "sap.card": {
+    "configuration": {
+      "filters": {
+        "Status": {
+          "value": "Status",
+          "type": "string",
+          "label": "Status",
+          "description": "Filter the records by Status.",
+          "items": [
+            {
+              "title": "Saved",
+              "key": "Saved"
+            },
+            {
+              "title": "Approved",
+              "key": "Approved"
+            },
+            {
+              "title": "Submitted",
+              "key": "Submitted"
+            }
+          ]
+        }
+      }
+    },
+
     "type": "Table",
     "data": {
       "json": [
