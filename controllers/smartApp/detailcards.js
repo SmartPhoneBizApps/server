@@ -152,11 +152,8 @@ exports.getDetailCardsNew = async (req, res, next) => {
           "@unitOfMeasurement",
           mycard.unitOfMeasurement
         );
-        cardData = cardData.replace("@filterKey", mycard[k].filterKey);
-        cardData = cardData.replace(
-          "@filterKeyLabel",
-          mycard[k].filterKeyLabel
-        );
+        cardData = cardData.replace("@filterKey", mycard.filterKey);
+        cardData = cardData.replace("@filterKeyLabel", mycard.filterKeyLabel);
         cardData = cardData.replace("@HeaderActionURL", tabx);
 
         var anacardConfig = JSON.parse(cardData);
