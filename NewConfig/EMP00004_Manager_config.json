@@ -233,6 +233,7 @@
   "headerCards": [
     {
       "type": "Analytical",
+      "filterKey": "Status",
       "cardID": "EMP04E01",
       "analyticsCard": {
         "chartType": "donut",
@@ -610,6 +611,7 @@
       "cards": [
         {
           "type": "Table",
+          "filterKey": "ItemStatus1",
           "template": "template_table.json",
           "tableCardFields": [
             "ItemNumber",
@@ -620,6 +622,7 @@
         },
         {
           "type": "Analytical",
+          "filterKey": "ItemStatus1",
           "cardID": "EMP04E02",
           "template": "template_analyticalCard_donut.json",
           "title": "Shoppingcart Qty Analysis",
@@ -636,9 +639,9 @@
 
       "ItemButtons": {
         "itemDisplay": true,
-        "itemCheck": true,
-        "itemAdd": true,
-        "itemEdit": true,
+        "itemCheck": false,
+        "itemAdd": false,
+        "itemEdit": false,
         "itemDelete": true
       },
       "CreateFields": [

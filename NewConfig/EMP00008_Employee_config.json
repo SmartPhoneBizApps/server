@@ -222,7 +222,7 @@
           "name": "iCurrency",
           "type": "string",
           "width": "10",
-          "SLabel": "iCurrency",
+          "SLabel": "Item Currency",
           "Option": "Optional",
           "Update": "No"
         },
@@ -254,6 +254,7 @@
       "cards": [
         {
           "type": "Table",
+          "filterKey": "ItemStatus1",
           "template": "template_table.json",
           "tableCardFields": [
             "ExpenseDate",
@@ -265,6 +266,7 @@
         },
         {
           "type": "Analytical",
+          "filterKey": "ItemStatus1",
           "cardID": "EMP08E01",
           "template": "template_analyticalCard_donut.json",
           "title": "Expense Type Analysis",
@@ -278,7 +280,6 @@
           }
         }
       ],
-
       "ItemButtons": {
         "itemDisplay": true,
         "itemCheck": true,

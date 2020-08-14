@@ -364,11 +364,13 @@
       "cards": [
         {
           "type": "Table",
+          "filterKey": "ItemStatus1",
           "template": "template_table.json",
           "tableCardFields": ["StudyType", "StudyName", "Phase"]
         },
         {
           "type": "Analytical",
+          "filterKey": "ItemStatus1",
           "cardID": "HC0001",
           "template": "template_analyticalCard_donut.json",
           "title": "Study Type Analysis",
@@ -383,6 +385,7 @@
         },
         {
           "type": "Analytical",
+          "filterKey": "ItemStatus1",
           "cardID": "HC0001",
           "template": "template_analyticalCard_donut.json",
           "title": "Study Phases Analysis",
@@ -514,11 +517,13 @@
       "cards": [
         {
           "type": "Table",
+          "filterKey": "ItemStatus2",
           "template": "template_table.json",
           "tableCardFields": ["EventType", "EventName", "EventStartDate"]
         },
         {
           "type": "Analytical",
+          "filterKey": "ItemStatus2",
           "cardID": "HC0001",
           "template": "template_analyticalCard_donut.json",
           "title": "Event Type Analysis",
@@ -533,6 +538,7 @@
         },
         {
           "type": "Analytical",
+          "filterKey": "ItemStatus2",
           "cardID": "HC0001",
           "template": "template_analyticalCard_donut.json",
           "title": "Events Analysis",
@@ -673,6 +679,7 @@
       "cards": [
         {
           "type": "Table",
+          "filterKey": "ItemStatus3",
           "template": "template_table.json",
           "tableCardFields": [
             "ContractType",
@@ -684,6 +691,7 @@
 
         {
           "type": "Analytical",
+          "filterKey": "ItemStatus3",
           "cardID": "HC0001",
           "template": "template_analyticalCard_stackedcolumn.json",
 
@@ -699,6 +707,7 @@
         },
         {
           "type": "Analytical",
+          "filterKey": "ItemStatus3",
           "cardID": "HC0001",
           "template": "template_analyticalCard_donut.json",
           "title": "Contract Type Analysis",
@@ -713,6 +722,7 @@
         },
         {
           "type": "Analytical",
+          "filterKey": "ItemStatus3",
           "cardID": "HC0001",
           "title": "Contract Analysis",
           "subtitle": "Contract Vs Balance value",

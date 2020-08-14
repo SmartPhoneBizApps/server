@@ -189,6 +189,7 @@
   "headerCards": [
     {
       "type": "Analytical",
+      "filterKey": "Status",
       "cardID": "EMP04S01",
       "analyticsCard": {
         "chartType": "donut",
@@ -575,6 +576,7 @@
       "cards": [
         {
           "type": "Table",
+          "filterKey": "ItemStatus1",
           "template": "template_table.json",
           "tableCardFields": [
             "ItemNumber",
@@ -585,6 +587,7 @@
         },
         {
           "type": "Analytical",
+          "filterKey": "ItemStatus1",
           "cardID": "EMP04S02",
           "template": "template_analyticalCard_donut.json",
           "title": "Shoppingcart Qty Analysis",

@@ -382,13 +382,9 @@
       ],
       "cards": [
         {
-          "type": "Table",
-          "template": "template_table.json",
-          "tableCardFields": ["GoalsArea", "Goal2", "TargetDate2"]
-        },
-        {
           "type": "Analytical",
-          "cardID": "EMP12E01",
+          "filterKey": "ItemStatus1",
+          "cardID": "EMP12H01",
           "title": "Goal Area Analysis",
           "subtitle": "Actual Vs Target Score",
           "unitOfMeasurement": "SCORE",
@@ -413,6 +409,42 @@
               { "j_target": "sumtargetScore" }
             ]
           }
+        },
+        {
+          "type": "Analytical",
+          "filterKey": "ItemStatus1",
+          "cardID": "EMP12H02",
+          "title": "Goal Area Analysis",
+          "subtitle": "Actual Vs Target Score",
+          "unitOfMeasurement": "SCORE",
+          "template": "template_analyticalCard_line.json",
+          "analyticsCard": {
+            "chartType": "line",
+
+            "itemvalueMap": {
+              "Score": "Score2",
+              "Target": "TargetScore2"
+            },
+            "itemkeyMap": {
+              "Area": "TargetDate2"
+            },
+            "itemfixedVal": [{ "Total": 5 }],
+            "sumField": [
+              { "sumScore": "Score2" },
+              { "sumtargetScore": "TargetScore2" }
+            ],
+            "headerfieldMap": [
+              { "j_number": "sumScore" },
+              { "j_target": "sumtargetScore" }
+            ]
+          }
+        },
+        {
+          "type": "Table",
+          "filterKey": "ItemStatus1",
+          "template": "template_table.json",
+          "tableCardFields": ["GoalsArea", "Goal2", "TargetDate2"],
+          "cardID": "tab001"
         }
       ],
 
@@ -548,7 +580,23 @@
       ],
       "cards": [
         {
+          "type": "Analytical",
+          "filterKey": "ItemStatus2",
+          "cardID": "EMP12H03",
+          "template": "template_analyticalCard_donut.json",
+          "title": "Apprisal based on Area",
+          "analyticsCard": {
+            "chartType": "donut",
+            "cardsDonut": {
+              "measureName": "AppraisalArea",
+              "value": "Score3",
+              "function": "SUM"
+            }
+          }
+        },
+        {
           "type": "Table",
+          "filterKey": "ItemStatus2",
           "template": "template_table.json",
           "tableCardFields": [
             "AppraisalArea",
@@ -558,10 +606,17 @@
         },
         {
           "type": "Analytical",
-          "cardID": "EMP12E02",
-          "template": "template_analyticalCard_line.json",
+          "filterKey": "ItemStatus2",
+          "cardID": "EMP12H04",
+          "template": "template_analyticalCard_donut.json",
+          "title": "Apprisal based on Ratings",
           "analyticsCard": {
-            "chartType": "line"
+            "chartType": "donut",
+            "cardsDonut": {
+              "measureName": "PerformanceRating",
+              "value": "Score3",
+              "function": "SUM"
+            }
           }
         }
       ],
@@ -665,6 +720,7 @@
       "cards": [
         {
           "type": "Table",
+          "filterKey": "ItemStatus3",
           "template": "template_table.json",
           "tableCardFields": ["SubGroup1", "Title1", "TargetDate1"]
         }
@@ -686,12 +742,12 @@
       ],
       "ItemDetails": [
         { "name": "Group1" },
-        { "name": "ItemStatus3" },
         { "name": "SubGroup1" },
         { "name": "Title1" },
         { "name": "ReferenceID1" },
         { "name": "AssignDate1" },
-        { "name": "TargetDate1" }
+        { "name": "TargetDate1" },
+        { "name": "ItemStatus3" }
       ]
     },
     "EmployeeFB": {
@@ -746,6 +802,7 @@
       "cards": [
         {
           "type": "Table",
+          "filterKey": "ItemStatus4",
           "template": "template_table.json",
           "tableCardFields": ["Question", "Answer"]
         }
@@ -873,6 +930,7 @@
       "cards": [
         {
           "type": "Table",
+          "filterKey": "ItemStatus6",
           "template": "template_table.json",
           "tableCardFields": [
             "ProjectName",
