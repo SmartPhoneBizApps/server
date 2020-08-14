@@ -59,6 +59,8 @@ exports.getDetailCardsNew = async (req, res, next) => {
         "@unitOfMeasurement",
         mycard[k].unitOfMeasurement
       );
+      cardData = cardData.replace("@filterKey", mycard[k].filterKey);
+      cardData = cardData.replace("@filterKeyLabel", mycard[k].filterKeyLabel);
       cardData = cardData.replace("@HeaderActionURL", "applicationTile");
       var anacardConfig = JSON.parse(cardData);
 
@@ -150,6 +152,11 @@ exports.getDetailCardsNew = async (req, res, next) => {
           "@unitOfMeasurement",
           mycard.unitOfMeasurement
         );
+        cardData = cardData.replace("@filterKey", mycard[k].filterKey);
+        cardData = cardData.replace(
+          "@filterKeyLabel",
+          mycard[k].filterKeyLabel
+        );
         cardData = cardData.replace("@HeaderActionURL", tabx);
 
         var anacardConfig = JSON.parse(cardData);
@@ -207,10 +214,12 @@ exports.getDetailCardsNew = async (req, res, next) => {
   //
   let fg1 = "../../cards/cardConfig/template_timeline.json";
   var GlobalCardConfig = require(fg1);
-
-  jCard1 = {};
-  jCard1 = await globalCard(appData["TransLog"], GlobalCardConfig);
-  outStru["TransLog"] = { ...jCard1 };
+  console.log(appData);
+  if (appData["TransLog"].length > 0) {
+    jCard1 = {};
+    jCard1 = await globalCard(appData["TransLog"], GlobalCardConfig);
+    outStru["TransLog"] = { ...jCard1 };
+  }
 
   res.status(200).json({ success: true, data: outStru });
 };

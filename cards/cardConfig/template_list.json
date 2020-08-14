@@ -5,6 +5,30 @@
   },
   "cardColumn": 4,
   "sap.card": {
+    "configuration": {
+      "filters": {
+        "@filterKey": {
+          "value": "@filterKey",
+          "type": "string",
+          "label": "@filterKeyLabel",
+          "description": "Filter the records by @filterKeyLabel.",
+          "items": [
+            {
+              "title": "Saved",
+              "key": "Saved"
+            },
+            {
+              "title": "Approved",
+              "key": "Approved"
+            },
+            {
+              "title": "Submitted",
+              "key": "Submitted"
+            }
+          ]
+        }
+      }
+    },
     "type": "List",
     "header": {
       "title": "@Title",

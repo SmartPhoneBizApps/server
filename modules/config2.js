@@ -64,10 +64,13 @@ module.exports = {
     let mydc2 = {};
     let json1 = {};
     var set1 = new Set();
+    var filterSet = new Set();
     for (let q = 0; q < appData1.length; q++) {
       set1.add(appData1[q][mycard["cardsDonut"]["measureName"]]);
+      filterSet.add(appData1[q][mycard["filterKey"]]);
     }
-    console.log("set1", set1);
+    console.log("FilterSet", filterSet);
+    console.log("MeasureName", set1);
     set1.forEach((val) => {
       mydc2["measureName"] = val;
       mydc2["value"] = 0;

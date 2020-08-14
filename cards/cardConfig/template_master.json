@@ -7,6 +7,30 @@
     "cardColumn": 4,
     "cardMinRows": 2,
     "sap.card": {
+      "configuration": {
+        "filters": {
+          "@filterKey": {
+            "value": "@filterKey",
+            "type": "string",
+            "label": "@filterKeyLabel",
+            "description": "Filter the records by @filterKeyLabel.",
+            "items": [
+              {
+                "title": "Saved",
+                "key": "Saved"
+              },
+              {
+                "title": "Approved",
+                "key": "Approved"
+              },
+              {
+                "title": "Submitted",
+                "key": "Submitted"
+              }
+            ]
+          }
+        }
+      },
       "header": {
         "title": "@Title",
         "subTitle": "@SubTitle",
