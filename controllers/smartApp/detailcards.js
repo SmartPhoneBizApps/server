@@ -6,6 +6,8 @@ const {
   tableCard,
   globalCard,
   adaptivecardCard,
+  getCardKey,
+  cardReplace,
 } = require("../../modules/config2");
 const {
   getCard,
@@ -24,67 +26,28 @@ exports.getDetailCardsNew = async (req, res, next) => {
   let appData = await findOneAppDatabyid(req.params.record, req.params.app);
 
   // Header Cards...
-  console.log("--------** HEADER CARDS **---------");
+
   counter = 0;
   if (appconfig.hasOwnProperty("cards")) {
     var mycard = appconfig["cards"];
-    console.log(mycard);
     for (let k = 0; k < mycard.length; k++) {
-      let cardKey =
-        "H" +
-        req.params.app.substring(0, 3) +
-        req.params.app.slice(-2) +
-        req.params.role.substring(0, 3) +
-        counter;
       counter = counter + 1;
+      let cardKey = getCardKey(req.params.app, req.params.role, counter, "H");
       let cardConfigFile1 = "../../cards/cardConfig/" + mycard[k]["template"];
       var cardData = JSON.stringify(require(cardConfigFile1));
-      if (mycard[k].title != undefined) {
-        cardData = cardData.replace("@Title", mycard[k].title);
-      } else {
-        cardData = cardData.replace(
-          "@Title",
-          appconfig["Title"]["ApplicationTitle"]
-        );
-      }
-      if (mycard[k].subTitle != undefined) {
-        cardData = cardData.replace("@subTitle", mycard[k].subtitle);
-      } else {
-        cardData = cardData.replace(
-          "@subTitle",
-          appconfig["Title"]["DetailTitle"]
-        );
-      }
-      cardData = cardData.replace(
-        "@unitOfMeasurement",
-        mycard[k].unitOfMeasurement
-      );
-      cardData = cardData.replace("@filterKey", mycard[k].filterKey);
-      cardData = cardData.replace("@filterKeyLabel", mycard[k].filterKeyLabel);
-      cardData = cardData.replace("@HeaderActionURL", "applicationTile");
+      // replace values
+      cardData = cardReplace(mycard[k], cardData, appconfig);
       var anacardConfig = JSON.parse(cardData);
 
       switch (mycard[k]["type"]) {
         case "Analytical":
-          //     console.log("Header Card", anacardConfig);
           if (mycard[k]["analyticsCard"]["chartType"] == "donut") {
-            console.log(
-              "Header Donut Card",
-              mycard[k]["analyticsCard"]["chartType"]
-            );
-            console.log("Analytical - Type", counter, "Donut");
             jCard1 = {};
-            console.log(appData);
-            jCard1 = await donutCardHead(
-              mycard[k]["analyticsCard"],
-              appData,
-              anacardConfig
-            );
+            jCard1 = await donutCardHead(mycard[k], appData, anacardConfig);
             outStru[cardKey] = { ...jCard1 };
           }
           break;
         case "Adaptive":
-          console.log("Header Card", anacardConfig);
           jCard1 = {};
           jCard1 = await adaptivecardCard(
             req.params.app,
@@ -101,7 +64,6 @@ exports.getDetailCardsNew = async (req, res, next) => {
 
   //----------------------------------------------
   // Table Cards...
-  console.log("--------** TABLE CARDS **---------");
   for (const key in appconfig["tableConfig"]) {
     if (appData[key] == undefined) {
       appData[key] = [];
@@ -110,81 +72,37 @@ exports.getDetailCardsNew = async (req, res, next) => {
     for (const k1 in appconfig["DetailFields"]) {
       appconfig["DetailFields"][k1].forEach((e4) => {
         if (key == e4) {
-          console.log("TableStage0-TabName", k1, e4);
           tabx = k1;
         }
       });
     }
 
     if (appconfig["tableConfig"][key].hasOwnProperty("cards")) {
-      console.log("TableStage1", key);
       for (let g = 0; g < appconfig["tableConfig"][key]["cards"].length; g++) {
-        let cardKey =
-          "T" +
-          req.params.app.substring(0, 3) +
-          req.params.app.slice(-2) +
-          req.params.role.substring(0, 3) +
-          counter;
         counter = counter + 1;
-        console.log("TableStage2", cardKey);
+        let cardKey = getCardKey(req.params.app, req.params.role, counter, "T");
         var mycard = appconfig["tableConfig"][key]["cards"][g];
         let cardConfigFile1 = "../../cards/cardConfig/" + mycard["template"];
-        // Set Title
         var cardData = JSON.stringify(require(cardConfigFile1));
-        if (mycard.title != undefined) {
-          cardData = cardData.replace("@Title", mycard.title);
-        } else {
-          cardData = cardData.replace(
-            "@Title",
-            appconfig["tableConfig"][key]["title"]
-          );
-        }
-        if (mycard.subTitle != undefined) {
-          cardData = cardData.replace("@subTitle", mycard.subtitle);
-        } else {
-          cardData = cardData.replace(
-            "@subTitle",
-            appconfig["tableConfig"][key]["subtitle"]
-          );
-        }
-
-        cardData = cardData.replace(
-          "@unitOfMeasurement",
-          mycard.unitOfMeasurement
-        );
-        cardData = cardData.replace("@filterKey", mycard.filterKey);
-        cardData = cardData.replace("@filterKeyLabel", mycard.filterKeyLabel);
-        cardData = cardData.replace("@HeaderActionURL", tabx);
-
+        // replace values
+        cardData = cardReplace(mycard, cardData, appconfig);
         var anacardConfig = JSON.parse(cardData);
-        console.log("TableStage3", mycard["type"]);
         switch (mycard["type"]) {
           case "Analytical":
             if (mycard["analyticsCard"]["chartType"] == "donut") {
-              console.log("Analytical - Type", counter, "Donut");
               jCard1 = {};
-              jCard1 = await donutCard(
-                mycard["analyticsCard"],
-                appData[key],
-                anacardConfig
-              );
+              jCard1 = await donutCard(mycard, appData[key], anacardConfig);
               outStru[cardKey] = { ...jCard1 };
             }
             if (mycard["analyticsCard"]["chartType"] == "line") {
-              console.log("Analytical - Type", counter, "Line");
               jCard1 = {};
-              jCard1 = await lineCard(
-                mycard["analyticsCard"],
-                appData[key],
-                anacardConfig
-              );
+              jCard1 = await lineCard(mycard, appData[key], anacardConfig);
               outStru[cardKey] = { ...jCard1 };
             }
             if (mycard["analyticsCard"]["chartType"] == "stackedcolumn") {
-              console.log("Analytical - Type", counter, "Stacked");
               jCard1 = {};
               jCard1 = await stackedcolumnCard(
-                mycard["analyticsCard"],
+                mycard,
                 appData[key],
                 anacardConfig
               );
@@ -193,9 +111,6 @@ exports.getDetailCardsNew = async (req, res, next) => {
             break;
           case "Table":
             jCard1 = {};
-            console.log("TableStage4", anacardConfig);
-            console.log("Card - Type", counter, "Table");
-
             jCard1 = await tableCard(mycard, appData[key], anacardConfig);
             outStru[cardKey] = { ...jCard1 };
             break;
@@ -211,7 +126,6 @@ exports.getDetailCardsNew = async (req, res, next) => {
   //
   let fg1 = "../../cards/cardConfig/template_timeline.json";
   var GlobalCardConfig = require(fg1);
-  console.log(appData);
   if (appData["TransLog"].length > 0) {
     jCard1 = {};
     jCard1 = await globalCard(appData["TransLog"], GlobalCardConfig);

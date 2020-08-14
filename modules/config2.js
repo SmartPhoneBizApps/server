@@ -23,14 +23,9 @@ module.exports = {
     let json1 = {};
     var set1 = new Set();
     set1.add(appData1[mycard["cardsDonut"]["measureName"]]);
-    // for (let q = 0; q < appData1.length; q++) {
-    //   set1.add(appData1[q][mycard["cardsDonut"]["measureName"]]);
-    // }
-    console.log("set1", set1);
     set1.forEach((val) => {
       mydc2["measureName"] = val;
       mydc2["value"] = 0;
-      //    for (let q = 0; q < appData1.length; q++) {
       if (
         appData1[mycard["cardsDonut"]["measureName"]] == val &&
         mycard["cardsDonut"]["function"] == "SUM"
@@ -39,13 +34,6 @@ module.exports = {
           Number(mydc2["value"]) +
           Number(appData1[mycard["cardsDonut"]["value"]]);
       }
-      // if (
-      //   appData1[[mycard["cardsDonut"]["measureName"]] == val &&
-      //   mycard["cardsDonut"]["function"] == "COUNT"
-      // ) {
-      //   mydc2["value"] = Number(mydc2["value"]) + 1;
-      // }
-      //   }
       measures1.push({ ...mydc2 });
       mydc2 = {};
     });
@@ -66,9 +54,13 @@ module.exports = {
     var set1 = new Set();
     var filterSet = new Set();
     for (let q = 0; q < appData1.length; q++) {
-      set1.add(appData1[q][mycard["cardsDonut"]["measureName"]]);
+      set1.add(
+        appData1[q][mycard["analyticsCard"]["cardsDonut"]["measureName"]]
+      );
       filterSet.add(appData1[q][mycard["filterKey"]]);
+      console.log("FilterData", mycard["filterKey"]);
     }
+
     console.log("FilterSet", filterSet);
     console.log("MeasureName", set1);
     set1.forEach((val) => {
@@ -76,16 +68,18 @@ module.exports = {
       mydc2["value"] = 0;
       for (let q = 0; q < appData1.length; q++) {
         if (
-          appData1[q][mycard["cardsDonut"]["measureName"]] == val &&
-          mycard["cardsDonut"]["function"] == "SUM"
+          appData1[q][mycard["analyticsCard"]["cardsDonut"]["measureName"]] ==
+            val &&
+          mycard["analyticsCard"]["cardsDonut"]["function"] == "SUM"
         ) {
           mydc2["value"] =
             Number(mydc2["value"]) +
-            Number(appData1[q][mycard["cardsDonut"]["value"]]);
+            Number(appData1[q][mycard["analyticsCard"]["cardsDonut"]["value"]]);
         }
         if (
-          appData1[q][mycard["cardsDonut"]["measureName"]] == val &&
-          mycard["cardsDonut"]["function"] == "COUNT"
+          appData1[q][mycard["analyticsCard"]["cardsDonut"]["measureName"]] ==
+            val &&
+          mycard["analyticsCard"]["cardsDonut"]["function"] == "COUNT"
         ) {
           mydc2["value"] = Number(mydc2["value"]) + 1;
         }
@@ -116,16 +110,16 @@ module.exports = {
       ...anacardConfig["Structure"]["sap.card"].content.data.json,
     };
     for (let q = 0; q < appData1.length; q++) {
-      for (const k1 in mycard["itemvalueMap"]) {
-        const ek1 = mycard["itemvalueMap"][k1];
+      for (const k1 in mycard["analyticsCard"]["itemvalueMap"]) {
+        const ek1 = mycard["analyticsCard"]["itemvalueMap"][k1];
         if (appData1[q][ek1] != undefined) {
           list1x[k1] = appData1[q][ek1];
         } else {
           list1x[k1] = 0;
         }
       }
-      for (const k1 in mycard["itemkeyMap"]) {
-        const ek1 = mycard["itemkeyMap"][k1];
+      for (const k1 in mycard["analyticsCard"]["itemkeyMap"]) {
+        const ek1 = mycard["analyticsCard"]["itemkeyMap"][k1];
         if (appData1[q][ek1] != undefined) {
           list1x[k1] = appData1[q][ek1];
         } else {
@@ -178,12 +172,14 @@ module.exports = {
     list1x = {};
 
     for (let q = 0; q < appData1.length; q++) {
-      list1x["Category"] = appData1[q][mycard["colKey"]["Category"]];
-      for (let t = 0; t < mycard["colValues"].length; t++) {
-        list1x[mycard["colValues"][t]] = appData1[q][mycard["colValues"][t]];
+      list1x["Category"] =
+        appData1[q][mycard["analyticsCard"]["colKey"]["Category"]];
+      for (let t = 0; t < mycard["analyticsCard"]["colValues"].length; t++) {
+        list1x[mycard["analyticsCard"]["colValues"][t]] =
+          appData1[q][mycard["analyticsCard"]["colValues"][t]];
       }
-      for (const k1 in mycard["colValues"]) {
-        const ek1 = mycard["colValues"][k1];
+      for (const k1 in mycard["analyticsCard"]["colValues"]) {
+        const ek1 = mycard["analyticsCard"]["colValues"][k1];
         if (appData1[q][ek1] != undefined) {
           list1x[k1] = appData1[q][ek1];
         } else {
@@ -202,13 +198,11 @@ module.exports = {
     return stru1;
   },
   tableCard: async function (mycard, appData1, anacardConfig) {
-    console.log("TableStage5-tableCard", appData1);
     t_type = "table1";
     stru = anacardConfig;
     tabFields = mycard["tableCardFields"];
     xc_table1 = {};
     col_table1 = [];
-    console.log("TableStage6-tableCard", tabFields);
     for (let b = 0; b < tabFields.length; b++) {
       xc_table1["title"] = tabFields[b];
       xc_table1["value"] = "{" + tabFields[b] + "}";
@@ -253,13 +247,12 @@ module.exports = {
     for (let n = 0; n < appData1.length; n++) {
       xj1["Icon"] = "sap-icon://accept";
       xj1["Title"] = appData1[n]["Comment"];
-      console.log("GlobalCard-ButtonName", appData1[n]["buttonName"]);
+      xj1["Time"] = new Date(appData1[n]["TimeStamp"]);
+      xj1["Description"] = appData1[n]["UserName"];
       if (appData1[n].hasOwnProperty("buttonName")) {
         xj1["Title"] = xj1["Title"] + " >> " + appData1[n]["buttonName"];
         xj1["Icon"] = gicon[appData1[n]["buttonName"]];
       }
-      xj1["Time"] = new Date(appData1[n]["TimeStamp"]);
-      xj1["Description"] = appData1[n]["UserName"];
       if (appData1[n].hasOwnProperty("UserComment")) {
         xj1["Description"] =
           xj1["Description"] + " >> " + appData1[n]["UserComment"];
@@ -314,7 +307,6 @@ module.exports = {
 
     console.log("Certificate Sent..");
   },
-
   sendErrorMessage: function (what, chkVal, user) {
     const ErrorResponse = require("../utils/errorResponse");
     switch (what) {
@@ -339,6 +331,36 @@ module.exports = {
     }
 
     return mgsObj;
+  },
+  cardReplace: function (mycard, cardData, appconfig) {
+    console.log("mycard", mycard, appconfig);
+    if (mycard.title != undefined) {
+      cardData = cardData.replace("@Title", mycard.title);
+    } else {
+      cardData = cardData.replace(
+        "@Title",
+        appconfig["Title"]["ApplicationTitle"]
+      );
+    }
+    if (mycard.subTitle != undefined) {
+      cardData = cardData.replace("@subTitle", mycard.subtitle);
+    } else {
+      cardData = cardData.replace(
+        "@subTitle",
+        appconfig["Title"]["DetailTitle"]
+      );
+    }
+    cardData = cardData.replace("@unitOfMeasurement", mycard.unitOfMeasurement);
+    cardData = cardData.replace("@filterKey", mycard["filterKey"]);
+    cardData = cardData.replace("@filterKey", mycard["filterKey"]);
+    cardData = cardData.replace("@filterKeyLabel", mycard["filterKeyLabel"]);
+    cardData = cardData.replace("@filterKeyLabel", mycard["filterKeyLabel"]);
+    cardData = cardData.replace("@HeaderActionURL", "applicationTile");
+    return cardData;
+  },
+  getCardKey: function (a, b, c, d) {
+    cKey = d + a.substring(0, 3) + a.slice(-2) + b.substring(0, 3) + c;
+    return cKey;
   },
 
   getTotalCount: function (app, req, config1) {
