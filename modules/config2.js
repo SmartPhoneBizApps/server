@@ -51,18 +51,17 @@ module.exports = {
     measures1 = [];
     let mydc2 = {};
     let json1 = {};
+
     var set1 = new Set();
     var filterSet = new Set();
     for (let q = 0; q < appData1.length; q++) {
+      console.log(appData1[q][mycard["filterKey"]]);
       set1.add(
         appData1[q][mycard["analyticsCard"]["cardsDonut"]["measureName"]]
       );
       filterSet.add(appData1[q][mycard["filterKey"]]);
-      console.log("FilterData", mycard["filterKey"]);
     }
-
-    console.log("FilterSet", filterSet);
-    console.log("MeasureName", set1);
+    // Measurements...
     set1.forEach((val) => {
       mydc2["measureName"] = val;
       mydc2["value"] = 0;
@@ -87,7 +86,20 @@ module.exports = {
       measures1.push({ ...mydc2 });
       mydc2 = {};
     });
-    // Measurements...
+
+    rk = {};
+    fltr = [];
+    filterSet.forEach((val1) => {
+      rk["title"] = val1;
+      rk["key"] = val1;
+      fltr.push({ ...rk });
+      rk = {};
+    });
+    anacardConfig["Structure"]["sap.card"]["configuration"]["filters"][
+      "items"
+    ] = fltr;
+    fltr = [];
+
     json1 = { ...anacardConfig["Structure"]["sap.card"].content.data.json };
     json1["measures"] = measures1;
     anacardConfig["Structure"]["sap.card"].content.data.json = {
@@ -109,8 +121,10 @@ module.exports = {
     json1 = {
       ...anacardConfig["Structure"]["sap.card"].content.data.json,
     };
+    var filterSet = new Set();
     for (let q = 0; q < appData1.length; q++) {
       for (const k1 in mycard["analyticsCard"]["itemvalueMap"]) {
+        filterSet.add(appData1[q][mycard["filterKey"]]);
         const ek1 = mycard["analyticsCard"]["itemvalueMap"][k1];
         if (appData1[q][ek1] != undefined) {
           list1x[k1] = appData1[q][ek1];
@@ -139,6 +153,20 @@ module.exports = {
     head1["data"]["json"] = { ...js1 };
     js1 = {};
     anacardConfig["Structure"]["sap.card"].header = { ...head1 };
+    // Filters
+    rk = {};
+    fltr = [];
+    filterSet.forEach((val1) => {
+      rk["title"] = val1;
+      rk["key"] = val1;
+      fltr.push({ ...rk });
+      rk = {};
+    });
+    anacardConfig["Structure"]["sap.card"]["configuration"]["filters"][
+      "items"
+    ] = fltr;
+    fltr = [];
+
     list1 = [];
     json1 = {};
     head1 = {};
@@ -167,14 +195,16 @@ module.exports = {
     js1["unit"] = unitOfMeasurement;
     head1["data"]["json"] = { ...js1 };
     anacardConfig["Structure"]["sap.card"].header = { ...head1 };
+
     js1 = {};
     list1 = [];
     list1x = {};
-
+    var filterSet = new Set();
     for (let q = 0; q < appData1.length; q++) {
       list1x["Category"] =
         appData1[q][mycard["analyticsCard"]["colKey"]["Category"]];
       for (let t = 0; t < mycard["analyticsCard"]["colValues"].length; t++) {
+        filterSet.add(appData1[q][mycard["filterKey"]]);
         list1x[mycard["analyticsCard"]["colValues"][t]] =
           appData1[q][mycard["analyticsCard"]["colValues"][t]];
       }
@@ -188,6 +218,20 @@ module.exports = {
       }
       list1.push({ ...list1x });
     }
+    // Filters...
+    rk = {};
+
+    fltr = [];
+    filterSet.forEach((val1) => {
+      rk["title"] = val1;
+      rk["key"] = val1;
+      fltr.push({ ...rk });
+      rk = {};
+    });
+    anacardConfig["Structure"]["sap.card"]["configuration"]["filters"][
+      "items"
+    ] = fltr;
+    fltr = [];
 
     anacardConfig["Structure"]["sap.card"].content.data.json.list = list1;
 
@@ -215,7 +259,9 @@ module.exports = {
     tdata = [];
     xrow1 = {};
     xrow = {};
+    var filterSet = new Set();
     for (let u = 0; u < appData1.length; u++) {
+      filterSet.add(appData1[u][mycard["filterKey"]]);
       for (let b = 0; b < tabFields.length; b++) {
         xj_table1[tabFields[b]] = appData1[u][tabFields[b]];
       }
@@ -232,6 +278,18 @@ module.exports = {
     xrow = {};
     stru["sap.card"]["type"] = "Table";
     stru["sap.card"]["data"] = { ...tdata };
+    // Filters....
+    rk = {};
+    fltr = [];
+    filterSet.forEach((val1) => {
+      rk["title"] = val1;
+      rk["key"] = val1;
+      fltr.push({ ...rk });
+      rk = {};
+    });
+    stru["sap.card"]["configuration"]["filters"]["items"] = fltr;
+    fltr = [];
+
     tdata = {};
     return stru;
   },
@@ -333,7 +391,6 @@ module.exports = {
     return mgsObj;
   },
   cardReplace: function (mycard, cardData, appconfig) {
-    console.log("mycard", mycard, appconfig);
     if (mycard.title != undefined) {
       cardData = cardData.replace("@Title", mycard.title);
     } else {

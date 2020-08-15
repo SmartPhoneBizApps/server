@@ -24,9 +24,7 @@ exports.getDetailCardsNew = async (req, res, next) => {
   var appconfig = getNewConfig(req.params.app, req.params.role);
   // Get the Record
   let appData = await findOneAppDatabyid(req.params.record, req.params.app);
-
   // Header Cards...
-
   counter = 0;
   if (appconfig.hasOwnProperty("cards")) {
     var mycard = appconfig["cards"];
@@ -38,7 +36,6 @@ exports.getDetailCardsNew = async (req, res, next) => {
       // replace values
       cardData = cardReplace(mycard[k], cardData, appconfig);
       var anacardConfig = JSON.parse(cardData);
-
       switch (mycard[k]["type"]) {
         case "Analytical":
           if (mycard[k]["analyticsCard"]["chartType"] == "donut") {
