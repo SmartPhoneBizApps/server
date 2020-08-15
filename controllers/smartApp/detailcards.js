@@ -5,6 +5,7 @@ const {
   stackedcolumnCard,
   tableCard,
   globalCard,
+  exampleCard,
   adaptivecardCard,
   getCardKey,
   cardReplace,
@@ -85,6 +86,12 @@ exports.getDetailCardsNew = async (req, res, next) => {
         cardData = cardReplace(mycard, cardData, appconfig);
         var anacardConfig = JSON.parse(cardData);
         switch (mycard["type"]) {
+          case "Example":
+            console.log(cardKey, anacardConfig);
+            jCard1 = {};
+            jCard1 = await exampleCard(mycard, appData[key], anacardConfig);
+            outStru[cardKey] = { ...jCard1 };
+            break;
           case "Analytical":
             if (mycard["analyticsCard"]["chartType"] == "donut") {
               jCard1 = {};

@@ -13,6 +13,7 @@ const {
   adaptivecardCard,
   getCardKey,
   cardReplace,
+  exampleCard,
 } = require("../../modules/config2");
 const {
   getCard,
@@ -221,6 +222,15 @@ exports.cardsSocialmedia = asyncHandler(async (req, res, next) => {
                   cardData = cardReplace(mycard, cardData, appconfig);
                   var anacardConfig = JSON.parse(cardData);
                   switch (mycard["type"]) {
+                    case "Example":
+                      jCard1 = {};
+                      jCard1 = await exampleCard(
+                        mycard,
+                        appData[key],
+                        anacardConfig
+                      );
+                      outStru[cardKey] = { ...jCard1 };
+                      break;
                     case "Analytical":
                       if (mycard["analyticsCard"]["chartType"] == "donut") {
                         jCard1 = {};

@@ -47,6 +47,9 @@ module.exports = {
     json1 = {};
     return anacardConfig["Structure"];
   },
+  exampleCard: async function (mycard, appData1, anacardConfig) {
+    return anacardConfig;
+  },
   donutCard: async function (mycard, appData1, anacardConfig) {
     measures1 = [];
     let mydc2 = {};
