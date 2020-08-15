@@ -96,8 +96,8 @@ module.exports = {
       rk = {};
     });
     anacardConfig["Structure"]["sap.card"]["configuration"]["filters"][
-      "items"
-    ] = fltr;
+      mycard["filterKey"]
+    ]["items"] = fltr;
     fltr = [];
 
     json1 = { ...anacardConfig["Structure"]["sap.card"].content.data.json };
@@ -163,8 +163,8 @@ module.exports = {
       rk = {};
     });
     anacardConfig["Structure"]["sap.card"]["configuration"]["filters"][
-      "items"
-    ] = fltr;
+      mycard["filterKey"]
+    ]["items"] = fltr;
     fltr = [];
 
     list1 = [];
@@ -229,8 +229,8 @@ module.exports = {
       rk = {};
     });
     anacardConfig["Structure"]["sap.card"]["configuration"]["filters"][
-      "items"
-    ] = fltr;
+      mycard["filterKey"]
+    ]["items"] = fltr;
     fltr = [];
 
     anacardConfig["Structure"]["sap.card"].content.data.json.list = list1;
@@ -287,7 +287,10 @@ module.exports = {
       fltr.push({ ...rk });
       rk = {};
     });
-    stru["sap.card"]["configuration"]["filters"]["items"] = fltr;
+    console.log("TableFilter", stru["sap.card"]["configuration"]["filters"]);
+    stru["sap.card"]["configuration"]["filters"][mycard["filterKey"]][
+      "items"
+    ] = fltr;
     fltr = [];
 
     tdata = {};
