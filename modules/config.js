@@ -38,13 +38,13 @@ module.exports = {
     //   stru = {};
     let cardConfigFile = "../cards/cardConfig/card_template.json";
     var cardConfig = require(cardConfigFile);
-    stru = cardConfig["Structure"];
+    stru = cardConfig;
     switch (cardType) {
       case "timeline1":
         hdr = {};
         grp_cont = {};
         stru = {};
-        stru = cardConfig["Structure"];
+        stru = cardConfig;
         typ = "Timeline";
         hdr = cardConfig["header"]["timeline1"];
         hdr["title"] = data["title"];
@@ -216,7 +216,7 @@ module.exports = {
         xrow1 = {};
         col_table1 = [];
         xrow = {};
-        stru = cardConfig["Structure"];
+        stru = cardConfig;
         typ = "Table";
         hdr = cardConfig["header"]["table1"];
         hdr["title"] = data["title"];
