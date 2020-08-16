@@ -1,62 +1,81 @@
 {
+  "cardMinRows": 4,
+  "cardColumn": 3,
+  "_version": "1.14.0",
   "sap.app": {
+    "id": "smartphoneapps",
     "type": "card",
-    "id": "smartphoneapps"
+    "title": "Sample of a Line Chart",
+    "subTitle": "Sample of a Line Chart",
+    "applicationVersion": {
+      "version": "1.0.0"
+    },
+    "shortTitle": "A short title for this Card",
+    "info": "Additional information about this Card",
+    "description": "A long description for this Card",
+    "tags": {
+      "keywords": ["Analytical", "Card", "Line", "Sample"]
+    }
   },
   "sap.ui": {
     "technology": "UI5",
     "icons": {
-      "icon": "sap-icon://full-stacked-column-chart"
+      "icon": "sap-icon://line-chart"
     }
   },
-  "cardMinRows": 4,
-  "cardColumn": 3,
   "sap.card": {
     "type": "Analytical",
     "header": {
       "type": "Numeric",
       "data": {
         "json": {
-          "n": "56",
-          "u": "%",
-          "trend": "Up",
-          "valueColor": "Good"
+          "number": "65.34",
+          "unit": "K",
+          "trend": "Down",
+          "state": "Error",
+          "target": {
+            "number": 100,
+            "unit": "K"
+          },
+          "deviation": {
+            "number": 34.7
+          },
+          "details": "Q1, 2018"
         }
       },
       "title": "Project Cloud Transformation",
-      "subTitle": "Forecasted goal achievement depending on business logic and other important information",
+      "subTitle": "Revenue",
       "unitOfMeasurement": "EUR",
       "mainIndicator": {
-        "number": "{n}",
-        "unit": "{u}",
+        "number": "{number}",
+        "unit": "{unit}",
         "trend": "{trend}",
-        "state": "{valueColor}"
+        "state": "{state}"
       },
-      "details": "Details, additional information",
+      "details": "{details}",
       "sideIndicators": [
         {
           "title": "Target",
-          "number": "3252.234",
-          "unit": "K"
+          "number": "{target/number}",
+          "unit": "{target/unit}"
         },
         {
           "title": "Deviation",
-          "number": "22.43",
+          "number": "{deviation/number}",
           "unit": "%"
         }
       ]
     },
     "content": {
-      "chartType": "StackedColumn",
+      "chartType": "Line",
       "legend": {
-        "visible": true,
-        "position": "Bottom",
-        "alignment": "TopLeft"
+        "visible": "{legend/visible}",
+        "position": "{legend/position}",
+        "alignment": "{legend/alignment}"
       },
       "plotArea": {
         "dataLabel": {
-          "visible": false,
-          "showTotal": true
+          "visible": true
         },
         "categoryAxisText": {
           "visible": false
@@ -66,7 +85,7 @@
         }
       },
       "title": {
-        "text": "Stacked column chart",
+        "text": "Line chart",
         "visible": true,
         "alignment": "Left"
       },
@@ -74,6 +93,18 @@
       "dimensionAxis": "categoryAxis",
       "data": {
         "json": {
+          "dimensions": {
+            "weekLabel": "Weeks"
+          },
+          "measures": {
+            "revenueLabel": "Revenue",
+            "costLabel": "Costs"
+          },
+          "legend": {
+            "visible": true,
+            "position": "Bottom",
+            "alignment": "TopLeft"
+          },
           "list": [
             {
               "Week": "CW14",
@@ -151,17 +182,17 @@
       },
       "dimensions": [
         {
-          "label": "Weeks",
+          "label": "{dimensions/weekLabel}",
           "value": "{Week}"
         }
       ],
       "measures": [
         {
-          "label": "Revenue",
+          "label": "{measures/revenueLabel}",
           "value": "{Revenue}"
         },
         {
-          "label": "Cost",
+          "label": "{measures/costLabel}",
           "value": "{Cost}"
         }
       ]
