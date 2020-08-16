@@ -1,187 +1,185 @@
 {
-  "Structure": {
-    "sap.app": {
-      "type": "card",
-      "id": "smartphoneapps",
-      "applicationVersion": {
-        "version": "1.0.0"
+  "cardColumn": 3,
+  "cardMinRows": 5,
+  "sap.app": {
+    "type": "card",
+    "id": "smartphoneapps",
+    "applicationVersion": {
+      "version": "1.0.0"
+    }
+  },
+  "sap.card": {
+    "configuration": {
+      "filters": {
+        "@filterKey": {
+          "value": "@filterKey",
+          "type": "string",
+          "label": "@filterKeyLabel",
+          "description": "Filter the records by @filterKeyLabel.",
+          "items": [
+            {
+              "title": "Saved",
+              "key": "Saved"
+            },
+            {
+              "title": "Approved",
+              "key": "Approved"
+            },
+            {
+              "title": "Submitted",
+              "key": "Submitted"
+            }
+          ]
+        }
       }
     },
-    "cardColumn": 4,
-    "cardMinRows": 5,
-    "sap.card": {
-      "configuration": {
-        "filters": {
-          "@filterKey": {
-            "value": "@filterKey",
-            "type": "string",
-            "label": "@filterKeyLabel",
-            "description": "Filter the records by @filterKeyLabel.",
-            "items": [
-              {
-                "title": "Saved",
-                "key": "Saved"
-              },
-              {
-                "title": "Approved",
-                "key": "Approved"
-              },
-              {
-                "title": "Submitted",
-                "key": "Submitted"
-              }
-            ]
+    "type": "Analytical",
+    "header": {
+      "actions": [
+        {
+          "type": "Custom",
+          "parameters": {
+            "type": "tabnavigation",
+            "tab": "@HeaderActionURL"
           }
         }
+      ],
+      "type": "Numeric",
+      "data": {
+        "json": {
+          "number": "18.5",
+          "unit": "",
+          "trend": "Down",
+          "state": "Error",
+          "total": 25,
+          "per": 74,
+          "dev": 3,
+          "details": "2019-2020"
+        }
       },
-      "type": "Analytical",
-      "header": {
-        "actions": [
-          {
-            "type": "Custom",
-            "parameters": {
-              "type": "tabnavigation",
-              "tab": "@HeaderActionURL"
+      "title": "@Title",
+      "subTitle": "@subTitle",
+      "unitOfMeasurement": "@UOM",
+      "mainIndicator": {
+        "number": "{number}",
+        "unit": "{unit}",
+        "trend": "{trend}",
+        "state": "{state}"
+      },
+      "details": "{details}",
+      "sideIndicators": [
+        {
+          "title": "max",
+          "number": "{total}",
+          "unit": "{unit}"
+        },
+        {
+          "title": "percentage",
+          "number": "{per}",
+          "unit": "%"
+        },
+        {
+          "title": "deviation",
+          "number": "{dev}",
+          "unit": "%"
+        }
+      ]
+    },
+    "content": {
+      "chartType": "Line",
+      "legend": {
+        "visible": "{legend/visible}",
+        "position": "{legend/position}",
+        "alignment": "{legend/alignment}"
+      },
+      "plotArea": {
+        "dataLabel": {
+          "visible": true
+        },
+        "categoryAxisText": {
+          "visible": false
+        },
+        "valueAxisText": {
+          "visible": false
+        }
+      },
+      "title": {
+        "text": "Line chart",
+        "visible": true,
+        "alignment": "Left"
+      },
+      "measureAxis": "valueAxis",
+      "dimensionAxis": "categoryAxis",
+      "data": {
+        "json": {
+          "dimensions": {
+            "areaLabel": "Area"
+          },
+          "measures": {
+            "scoreLabel": "Score",
+            "targetLabel": "Target",
+            "totalLabel": "Total"
+          },
+          "legend": {
+            "visible": true,
+            "position": "Bottom",
+            "alignment": "TopLeft"
+          },
+          "list": [
+            {
+              "Area": "Leadership",
+              "Score": 4.5,
+              "Target": 4.5,
+              "Total": 5
+            },
+            {
+              "Area": "Communication",
+              "Score": 4,
+              "Target": 4.5,
+              "Total": 5
+            },
+            {
+              "Area": "Teamwork",
+              "Score": 3,
+              "Target": 4,
+              "Total": 5
+            },
+            {
+              "Area": "ProblemSolving",
+              "Score": 4,
+              "Target": 4.5,
+              "Total": 5
+            },
+            {
+              "Area": "Admin",
+              "Score": 3,
+              "Target": 4,
+              "Total": 5
             }
-          }
-        ],
-        "type": "Numeric",
-        "data": {
-          "json": {
-            "number": "18.5",
-            "unit": "",
-            "trend": "Down",
-            "state": "Error",
-            "total": 25,
-            "per": 74,
-            "dev": 3,
-            "details": "2019-2020"
-          }
+          ]
         },
-        "title": "@Title",
-        "subTitle": "@subTitle",
-        "unitOfMeasurement": "@UOM",
-        "mainIndicator": {
-          "number": "{number}",
-          "unit": "{unit}",
-          "trend": "{trend}",
-          "state": "{state}"
-        },
-        "details": "{details}",
-        "sideIndicators": [
-          {
-            "title": "max",
-            "number": "{total}",
-            "unit": "{unit}"
-          },
-          {
-            "title": "percentage",
-            "number": "{per}",
-            "unit": "%"
-          },
-          {
-            "title": "deviation",
-            "number": "{dev}",
-            "unit": "%"
-          }
-        ]
+        "path": "/list"
       },
-      "content": {
-        "chartType": "Line",
-        "legend": {
-          "visible": "{legend/visible}",
-          "position": "{legend/position}",
-          "alignment": "{legend/alignment}"
+      "dimensions": [
+        {
+          "label": "{dimensions/areaLabel}",
+          "value": "{Area}"
+        }
+      ],
+      "measures": [
+        {
+          "label": "{measures/scoreLabel}",
+          "value": "{Score}"
         },
-        "plotArea": {
-          "dataLabel": {
-            "visible": true
-          },
-          "categoryAxisText": {
-            "visible": false
-          },
-          "valueAxisText": {
-            "visible": false
-          }
+        {
+          "label": "{measures/targetLabel}",
+          "value": "{Target}"
         },
-        "title": {
-          "text": "Line chart",
-          "visible": true,
-          "alignment": "Left"
-        },
-        "measureAxis": "valueAxis",
-        "dimensionAxis": "categoryAxis",
-        "data": {
-          "json": {
-            "dimensions": {
-              "areaLabel": "Area"
-            },
-            "measures": {
-              "scoreLabel": "Score",
-              "targetLabel": "Target",
-              "totalLabel": "Total"
-            },
-            "legend": {
-              "visible": true,
-              "position": "Bottom",
-              "alignment": "TopLeft"
-            },
-            "list": [
-              {
-                "Area": "Leadership",
-                "Score": 4.5,
-                "Target": 4.5,
-                "Total": 5
-              },
-              {
-                "Area": "Communication",
-                "Score": 4,
-                "Target": 4.5,
-                "Total": 5
-              },
-              {
-                "Area": "Teamwork",
-                "Score": 3,
-                "Target": 4,
-                "Total": 5
-              },
-              {
-                "Area": "ProblemSolving",
-                "Score": 4,
-                "Target": 4.5,
-                "Total": 5
-              },
-              {
-                "Area": "Admin",
-                "Score": 3,
-                "Target": 4,
-                "Total": 5
-              }
-            ]
-          },
-          "path": "/list"
-        },
-        "dimensions": [
-          {
-            "label": "{dimensions/areaLabel}",
-            "value": "{Area}"
-          }
-        ],
-        "measures": [
-          {
-            "label": "{measures/scoreLabel}",
-            "value": "{Score}"
-          },
-          {
-            "label": "{measures/targetLabel}",
-            "value": "{Target}"
-          },
-          {
-            "label": "{measures/totalLabel}",
-            "value": "{Total}"
-          }
-        ]
-      }
+        {
+          "label": "{measures/totalLabel}",
+          "value": "{Total}"
+        }
+      ]
     }
   }
 }

@@ -1,137 +1,135 @@
 {
-  "Structure": {
-    "sap.app": {
-      "id": "smartphoneapp",
-      "type": "card"
-    },
-    "cardMinRows": 5,
-    "cardColumn": 4,
-    "sap.card": {
-      "configuration": {
-        "filters": {
-          "@filterKey": {
-            "value": "@filterKey",
-            "type": "string",
-            "label": "@filterKeyLabel",
-            "description": "Filter the records by @filterKeyLabel.",
-            "items": [
-              {
-                "title": "Saved",
-                "key": "Saved"
-              },
-              {
-                "title": "Approved",
-                "key": "Approved"
-              },
-              {
-                "title": "Submitted",
-                "key": "Submitted"
-              }
-            ]
-          }
-        }
-      },
-      "type": "Analytical",
-      "header": {
-        "actions": [
-          {
-            "type": "Custom",
-            "parameters": {
-              "type": "tabnavigation",
-              "tab": "@HeaderActionURL"
+  "cardMinRows": 5,
+  "cardColumn": 3,
+  "sap.app": {
+    "id": "smartphoneapp",
+    "type": "card"
+  },
+  "sap.card": {
+    "configuration": {
+      "filters": {
+        "@filterKey": {
+          "value": "@filterKey",
+          "type": "string",
+          "label": "@filterKeyLabel",
+          "description": "Filter the records by @filterKeyLabel.",
+          "items": [
+            {
+              "title": "Saved",
+              "key": "Saved"
+            },
+            {
+              "title": "Approved",
+              "key": "Approved"
+            },
+            {
+              "title": "Submitted",
+              "key": "Submitted"
             }
+          ]
+        }
+      }
+    },
+    "type": "Analytical",
+    "header": {
+      "actions": [
+        {
+          "type": "Custom",
+          "parameters": {
+            "type": "tabnavigation",
+            "tab": "@HeaderActionURL"
           }
-        ],
-        "type": "Numeric",
-        "data": {
-          "json": {
-            "number": "43.2",
-            "unit": "%",
-            "trend": "Down",
-            "state": "Good"
-          }
-        },
-        "title": "@Title",
-        "mainIndicator": {
-          "number": "{number}",
-          "unit": "{unit}",
-          "trend": "{trend}",
-          "state": "{state}"
+        }
+      ],
+      "type": "Numeric",
+      "data": {
+        "json": {
+          "number": "43.2",
+          "unit": "%",
+          "trend": "Down",
+          "state": "Good"
         }
       },
-      "content": {
-        "chartType": "StackedColumn",
-        "legend": {
-          "visible": true,
-          "position": "Bottom",
-          "alignment": "Left"
+      "title": "@Title",
+      "mainIndicator": {
+        "number": "{number}",
+        "unit": "{unit}",
+        "trend": "{trend}",
+        "state": "{state}"
+      }
+    },
+    "content": {
+      "chartType": "StackedColumn",
+      "legend": {
+        "visible": true,
+        "position": "Bottom",
+        "alignment": "Left"
+      },
+      "plotArea": {
+        "dataLabel": {
+          "visible": false,
+          "showTotal": false
         },
-        "plotArea": {
-          "dataLabel": {
-            "visible": false,
-            "showTotal": false
-          },
-          "categoryAxisText": {
-            "visible": false
-          },
-          "valueAxisText": {
-            "visible": false
-          }
-        },
-        "title": {
+        "categoryAxisText": {
           "visible": false
         },
-        "measureAxis": "valueAxis",
-        "dimensionAxis": "categoryAxis",
-        "data": {
-          "json": {
-            "list": [
-              {
-                "Category": "Weather",
-                "Val1": 431000.22,
-                "Val2": 230000.0,
-                "Val3": 500000.0,
-                "Val4": 210000.0
-              },
-              {
-                "Category": "Mechanics",
-                "Val1": 494000.3,
-                "Val2": 238000.0,
-                "Val3": 500000.0,
-                "Val4": 224000.0
-              },
-              {
-                "Category": "Software",
-                "Val1": 491000.17,
-                "Val2": 221000.0,
-                "Val3": 500000.0,
-                "Val4": 238000.0
-              }
-            ]
-          },
-          "path": "/list"
+        "valueAxisText": {
+          "visible": false
+        }
+      },
+      "title": {
+        "visible": false
+      },
+      "measureAxis": "valueAxis",
+      "dimensionAxis": "categoryAxis",
+      "data": {
+        "json": {
+          "list": [
+            {
+              "Category": "Weather",
+              "Val1": 431000.22,
+              "Val2": 230000.0,
+              "Val3": 500000.0,
+              "Val4": 210000.0
+            },
+            {
+              "Category": "Mechanics",
+              "Val1": 494000.3,
+              "Val2": 238000.0,
+              "Val3": 500000.0,
+              "Val4": 224000.0
+            },
+            {
+              "Category": "Software",
+              "Val1": 491000.17,
+              "Val2": 221000.0,
+              "Val3": 500000.0,
+              "Val4": 238000.0
+            }
+          ]
         },
-        "dimensions": [
-          {
-            "label": "Categories",
-            "value": "{Category}"
-          }
-        ],
-        "measures": [
-          {
-            "label": "Revenue",
-            "value": "{Val1}"
-          },
-          {
-            "label": "Cost",
-            "value": "{Val2}"
-          },
-          {
-            "label": "Target",
-            "value": "{Val3}"
-          }
-        ]
-      }
+        "path": "/list"
+      },
+      "dimensions": [
+        {
+          "label": "Categories",
+          "value": "{Category}"
+        }
+      ],
+      "measures": [
+        {
+          "label": "Revenue",
+          "value": "{Val1}"
+        },
+        {
+          "label": "Cost",
+          "value": "{Val2}"
+        },
+        {
+          "label": "Target",
+          "value": "{Val3}"
+        }
+      ]
     }
   }
 }

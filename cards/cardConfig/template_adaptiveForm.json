@@ -1,14 +1,26 @@
 {
-  "sap.app": {
-    "type": "card",
-    "id": "smartphoneapps"
-  },
   "cardMinRows": 4,
-  "cardColumn": 4,
+  "cardColumn": 3,
+  "_version": "1.17.0",
+  "sap.app": {
+    "id": "smartphoneapps",
+    "type": "card",
+    "title": "Sample of an Adaptive Card with Form",
+    "subTitle": "Sample of an Adaptive Card with Form",
+    "applicationVersion": {
+      "version": "1.0.0"
+    },
+    "shortTitle": "A short title for this Card",
+    "info": "Additional information about this Card",
+    "description": "A long description for this Card",
+    "tags": {
+      "keywords": ["Adaptive", "Card", "Form", "Sample"]
+    }
+  },
   "sap.card": {
     "header": {
-      "title": "Form Card",
-      "subTitle": "Adaptive Card with sap.f.cards.Header",
+      "title": "@Title",
+      "subTitle": "@subTitle",
       "icon": {
         "src": "sap-icon://form"
       },

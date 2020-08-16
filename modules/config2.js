@@ -38,14 +38,14 @@ module.exports = {
       mydc2 = {};
     });
     // Measurements...
-    json1 = { ...anacardConfig["Structure"]["sap.card"].content.data.json };
+    json1 = { ...anacardConfig["sap.card"].content.data.json };
     json1["measures"] = measures1;
-    anacardConfig["Structure"]["sap.card"].content.data.json = {
+    anacardConfig["sap.card"].content.data.json = {
       ...json1,
     };
     measures1 = [];
     json1 = {};
-    return anacardConfig["Structure"];
+    return anacardConfig;
   },
   exampleCard: async function (mycard, appData1, anacardConfig) {
     return anacardConfig;
@@ -98,19 +98,19 @@ module.exports = {
       fltr.push({ ...rk });
       rk = {};
     });
-    anacardConfig["Structure"]["sap.card"]["configuration"]["filters"][
-      mycard["filterKey"]
-    ]["items"] = fltr;
+    anacardConfig["sap.card"]["configuration"]["filters"][mycard["filterKey"]][
+      "items"
+    ] = fltr;
     fltr = [];
 
-    json1 = { ...anacardConfig["Structure"]["sap.card"].content.data.json };
+    json1 = { ...anacardConfig["sap.card"].content.data.json };
     json1["measures"] = measures1;
-    anacardConfig["Structure"]["sap.card"].content.data.json = {
+    anacardConfig["sap.card"].content.data.json = {
       ...json1,
     };
     measures1 = [];
     json1 = {};
-    return anacardConfig["Structure"];
+    return anacardConfig;
   },
   lineCard: async function (mycard, appData1, anacardConfig) {
     list1x = {};
@@ -120,9 +120,9 @@ module.exports = {
     let state1 = "Error";
     let details1 = "2019-2020";
     head1 = {};
-    head1 = { ...anacardConfig["Structure"]["sap.card"].header };
+    head1 = { ...anacardConfig["sap.card"].header };
     json1 = {
-      ...anacardConfig["Structure"]["sap.card"].content.data.json,
+      ...anacardConfig["sap.card"].content.data.json,
     };
     var filterSet = new Set();
     for (let q = 0; q < appData1.length; q++) {
@@ -146,16 +146,16 @@ module.exports = {
       list1.push({ ...list1x });
     }
     json1["list"] = list1;
-    anacardConfig["Structure"]["sap.card"].content.data.json.list = list1;
+    anacardConfig["sap.card"].content.data.json.list = list1;
     js1 = {};
-    js1 = { ...anacardConfig["Structure"]["sap.card"].header.data.json };
+    js1 = { ...anacardConfig["sap.card"].header.data.json };
     js1["number"] = j_number;
     js1["trend"] = trend1;
     js1["state"] = state1;
     js1["details"] = details1;
     head1["data"]["json"] = { ...js1 };
     js1 = {};
-    anacardConfig["Structure"]["sap.card"].header = { ...head1 };
+    anacardConfig["sap.card"].header = { ...head1 };
     // Filters
     rk = {};
     fltr = [];
@@ -165,39 +165,39 @@ module.exports = {
       fltr.push({ ...rk });
       rk = {};
     });
-    anacardConfig["Structure"]["sap.card"]["configuration"]["filters"][
-      mycard["filterKey"]
-    ]["items"] = fltr;
+    anacardConfig["sap.card"]["configuration"]["filters"][mycard["filterKey"]][
+      "items"
+    ] = fltr;
     fltr = [];
 
     list1 = [];
     json1 = {};
     head1 = {};
-    stru1 = anacardConfig["Structure"];
+    stru1 = anacardConfig;
     t_type = "Analytical";
     return stru1;
   },
   stackedcolumnCard: async function (mycard, appData1, anacardConfig) {
-    stru1 = anacardConfig["Structure"];
+    stru1 = anacardConfig;
     let j_number = 10;
     let trend1 = "Down";
     let state1 = "Error";
     let unitOfMeasurement = "GBP";
     let details1 = "2019-2020";
     head1 = {};
-    head1 = { ...anacardConfig["Structure"]["sap.card"].header };
+    head1 = { ...anacardConfig["sap.card"].header };
 
     json1 = {
-      ...anacardConfig["Structure"]["sap.card"].content.data.json,
+      ...anacardConfig["sap.card"].content.data.json,
     };
     js1 = {};
-    js1 = { ...anacardConfig["Structure"]["sap.card"].header.data.json };
+    js1 = { ...anacardConfig["sap.card"].header.data.json };
     js1["number"] = j_number;
     js1["trend"] = trend1;
     js1["state"] = state1;
     js1["unit"] = unitOfMeasurement;
     head1["data"]["json"] = { ...js1 };
-    anacardConfig["Structure"]["sap.card"].header = { ...head1 };
+    anacardConfig["sap.card"].header = { ...head1 };
 
     js1 = {};
     list1 = [];
@@ -231,12 +231,12 @@ module.exports = {
       fltr.push({ ...rk });
       rk = {};
     });
-    anacardConfig["Structure"]["sap.card"]["configuration"]["filters"][
-      mycard["filterKey"]
-    ]["items"] = fltr;
+    anacardConfig["sap.card"]["configuration"]["filters"][mycard["filterKey"]][
+      "items"
+    ] = fltr;
     fltr = [];
 
-    anacardConfig["Structure"]["sap.card"].content.data.json.list = list1;
+    anacardConfig["sap.card"].content.data.json.list = list1;
 
     list1 = [];
     json1 = {};
@@ -332,7 +332,7 @@ module.exports = {
     let path1 = "../cards/adaptivecardforms/" + appID + "_" + role + ".json";
     let path2 =
       "../cards/adaptivecardforms/" + appID + "_" + role + "_actions.json";
-    //    let path3 = "../cards/cardConfig/template_adaptivecard.json";
+    //    let path3 = "../cards/cardConfig/template_adaptiveForm.json";
     const cardbody = require(path1);
     const cardaction = require(path2);
     //  const adCard = require(path3);

@@ -55,21 +55,21 @@ module.exports = {
     });
 
     // Header....
-    head1 = { ...anacardConfig["Structure"]["sap.card"].header };
+    head1 = { ...anacardConfig["sap.card"].header };
     head1["title"] =
       appconfig1["title"] + " (" + mycard["cardsDonut"]["subtitle"] + ")";
-    anacardConfig["Structure"]["sap.card"].header = { ...head1 };
+    anacardConfig["sap.card"].header = { ...head1 };
     head1 = {};
 
     // Measurements...
-    json1 = { ...anacardConfig["Structure"]["sap.card"].content.data.json };
+    json1 = { ...anacardConfig["sap.card"].content.data.json };
     json1["measures"] = measures1;
-    anacardConfig["Structure"]["sap.card"].content.data.json = {
+    anacardConfig["sap.card"].content.data.json = {
       ...json1,
     };
     measures1 = [];
     json1 = {};
-    return anacardConfig["Structure"];
+    return anacardConfig;
 
     // Card ID...
     t_type = "Analytical";
@@ -77,7 +77,7 @@ module.exports = {
 
     // Add to the card...
     stru1 = {};
-    stru1 = { ...anacardConfig["Structure"] };
+    stru1 = { ...anacardConfig };
 
     outStru[st1] = { ...stru1 };
     console.log(st1, outStru[st1]);
@@ -95,9 +95,9 @@ module.exports = {
     let state1 = "Error";
     let details1 = "2019-2020";
     head1 = {};
-    head1 = { ...anacardConfig["Structure"]["sap.card"].header };
+    head1 = { ...anacardConfig["sap.card"].header };
     json1 = {
-      ...anacardConfig["Structure"]["sap.card"].content.data.json,
+      ...anacardConfig["sap.card"].content.data.json,
     };
     for (let q = 0; q < appData1.length; q++) {
       for (const k1 in mycard["itemvalueMap"]) {
@@ -119,25 +119,25 @@ module.exports = {
       list1.push({ ...list1x });
     }
     json1["list"] = list1;
-    anacardConfig["Structure"]["sap.card"].content.data.json.list = list1;
+    anacardConfig["sap.card"].content.data.json.list = list1;
     //  list1 = [];
     head1["title"] = appconfig1["title"];
     head1["subTitle"] = appconfig1["subTitle"];
     head1["unitOfMeasurement"] = appconfig1["unitOfMeasurement"];
     js1 = {};
-    js1 = { ...anacardConfig["Structure"]["sap.card"].header.data.json };
+    js1 = { ...anacardConfig["sap.card"].header.data.json };
     js1["number"] = j_number;
     js1["trend"] = trend1;
     js1["state"] = state1;
     js1["details"] = details1;
     head1["data"]["json"] = { ...js1 };
     js1 = {};
-    anacardConfig["Structure"]["sap.card"].header = { ...head1 };
+    anacardConfig["sap.card"].header = { ...head1 };
     list1 = [];
     json1 = {};
     head1 = {};
-    return anacardConfig["Structure"];
-    stru1 = anacardConfig["Structure"];
+    return anacardConfig;
+    stru1 = anacardConfig;
     t_type = "Analytical";
 
     let st1 = t_type + "_" + ID + "_" + key + mycard["cardID"];
@@ -160,25 +160,25 @@ module.exports = {
     let cardConfigFile1 = "../cards/cardConfig/" + mycard["template"];
     var anacardConfig = require(cardConfigFile1);
     head1 = {};
-    head1 = { ...anacardConfig["Structure"]["sap.card"].header };
+    head1 = { ...anacardConfig["sap.card"].header };
     json1 = {
-      ...anacardConfig["Structure"]["sap.card"].content.data.json,
+      ...anacardConfig["sap.card"].content.data.json,
     };
     head1["title"] = appconfig1["title"];
     js1 = {};
-    js1 = { ...anacardConfig["Structure"]["sap.card"].header.data.json };
+    js1 = { ...anacardConfig["sap.card"].header.data.json };
     js1["number"] = j_number;
     js1["trend"] = trend1;
     js1["state"] = state1;
     js1["unit"] = appconfig1["unitOfMeasurement"];
-    anacardConfig["Structure"]["sap.card"].content.data.json.list = list1;
+    anacardConfig["sap.card"].content.data.json.list = list1;
     head1["data"]["json"] = { ...js1 };
     js1 = {};
-    anacardConfig["Structure"]["sap.card"].header = { ...head1 };
+    anacardConfig["sap.card"].header = { ...head1 };
     list1 = [];
     json1 = {};
     head1 = {};
-    stru1 = anacardConfig["Structure"];
+    stru1 = anacardConfig;
     t_type = "Analytical";
 
     let st1 = t_type + "_" + ID + "_" + key + mycard["cardID"];

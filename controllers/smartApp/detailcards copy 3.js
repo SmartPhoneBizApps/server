@@ -101,7 +101,7 @@ exports.getDetailCardsNew = async (req, res, next) => {
 
         // Update Header data
         head1 = {};
-        head1 = { ...anacardConfig["Structure"]["sap.card"].header };
+        head1 = { ...anacardConfig["sap.card"].header };
         head1["title"] = appconfig["tableConfig"][key]["title"];
         head1["subTitle"] = appconfig["tableConfig"][key]["subTitle"];
         head1["unitOfMeasurement"] =
@@ -111,7 +111,7 @@ exports.getDetailCardsNew = async (req, res, next) => {
           appconfig["tableConfig"][key]["analyticsCard"]["chartType"] == "line"
         ) {
           js1 = {};
-          js1 = { ...anacardConfig["Structure"]["sap.card"].header.data.json };
+          js1 = { ...anacardConfig["sap.card"].header.data.json };
           js1["number"] = sum1;
           js1["trend"] = trend1;
           js1["state"] = state1;
@@ -120,13 +120,13 @@ exports.getDetailCardsNew = async (req, res, next) => {
           js1 = {};
         }
 
-        anacardConfig["Structure"]["sap.card"].header = { ...head1 };
+        anacardConfig["sap.card"].header = { ...head1 };
         head1 = {};
 
-        // anacardConfig["Structure"]["sap.card"].header.title =
+        // anacardConfig["sap.card"].header.title =
         //   appconfig["tableConfig"][key]["title"];
 
-        stru1 = anacardConfig["Structure"];
+        stru1 = anacardConfig;
         t_type = "Analytical";
         let st1 = t_type + "_" + appData["ID"] + "_" + key;
 

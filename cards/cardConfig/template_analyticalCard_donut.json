@@ -1,111 +1,109 @@
 {
-  "Structure": {
-    "sap.app": {
-      "id": "smartphoneapp",
-      "type": "card"
+  "cardMinRows": 4,
+  "cardColumn": 3,
+  "sap.app": {
+    "id": "smartphoneapp",
+    "type": "card"
+  },
+  "sap.card": {
+    "configuration": {
+      "filters": {
+        "@filterKey": {
+          "value": "@filterKey",
+          "type": "string",
+          "label": "@filterKeyLabel",
+          "description": "Filter the records by @filterKeyLabel.",
+          "items": [
+            {
+              "title": "Saved",
+              "key": "Saved"
+            },
+            {
+              "title": "Approved",
+              "key": "Approved"
+            },
+            {
+              "title": "Submitted",
+              "key": "Submitted"
+            }
+          ]
+        }
+      }
     },
-    "cardMinRows": 4,
-    "cardColumn": 4,
-    "sap.card": {
-      "configuration": {
-        "filters": {
-          "@filterKey": {
-            "value": "@filterKey",
-            "type": "string",
-            "label": "@filterKeyLabel",
-            "description": "Filter the records by @filterKeyLabel.",
-            "items": [
-              {
-                "title": "Saved",
-                "key": "Saved"
-              },
-              {
-                "title": "Approved",
-                "key": "Approved"
-              },
-              {
-                "title": "Submitted",
-                "key": "Submitted"
-              }
-            ]
+    "type": "Analytical",
+    "header": {
+      "title": "@Title",
+      "actions": [
+        {
+          "type": "Custom",
+          "parameters": {
+            "type": "tabnavigation",
+            "tab": "@HeaderActionURL"
           }
         }
+      ]
+    },
+    "content": {
+      "chartType": "Donut",
+      "legend": {
+        "visible": true,
+        "position": "Bottom",
+        "alignment": "Left"
       },
-      "type": "Analytical",
-      "header": {
-        "title": "@Title",
-        "actions": [
-          {
-            "type": "Custom",
-            "parameters": {
-              "type": "tabnavigation",
-              "tab": "@HeaderActionURL"
-            }
-          }
-        ]
-      },
-      "content": {
-        "chartType": "Donut",
-        "legend": {
+      "plotArea": {
+        "dataLabel": {
           "visible": true,
-          "position": "Bottom",
-          "alignment": "Left"
+          "showTotal": true
+        }
+      },
+      "title": {
+        "visible": false
+      },
+      "measureAxis": "size",
+      "dimensionAxis": "color",
+      "data": {
+        "json": {
+          "measures": [
+            {
+              "measureName": "Storm Wind",
+              "value": 1564235.29
+            },
+            {
+              "measureName": "Storm Wind",
+              "value": 157913.07
+            },
+            {
+              "measureName": "Rain",
+              "value": 1085567.22
+            },
+            {
+              "measureName": "Rain",
+              "value": 245609.486884
+            },
+            {
+              "measureName": "Temperature",
+              "value": 345292.06
+            },
+            {
+              "measureName": "Temperature",
+              "value": 82922.07
+            }
+          ]
         },
-        "plotArea": {
-          "dataLabel": {
-            "visible": true,
-            "showTotal": true
-          }
-        },
-        "title": {
-          "visible": false
-        },
-        "measureAxis": "size",
-        "dimensionAxis": "color",
-        "data": {
-          "json": {
-            "measures": [
-              {
-                "measureName": "Storm Wind",
-                "value": 1564235.29
-              },
-              {
-                "measureName": "Storm Wind",
-                "value": 157913.07
-              },
-              {
-                "measureName": "Rain",
-                "value": 1085567.22
-              },
-              {
-                "measureName": "Rain",
-                "value": 245609.486884
-              },
-              {
-                "measureName": "Temperature",
-                "value": 345292.06
-              },
-              {
-                "measureName": "Temperature",
-                "value": 82922.07
-              }
-            ]
-          },
-          "path": "/measures"
-        },
-        "dimensions": [
-          {
-            "label": "Measure Name",
-            "value": "{measureName}"
-          }
-        ],
-        "measures": [
-          {
-            "label": "Value",
-            "value": "{value}"
-          }
-        ]
-      }
+        "path": "/measures"
+      },
+      "dimensions": [
+        {
+          "label": "Measure Name",
+          "value": "{measureName}"
+        }
+      ],
+      "measures": [
+        {
+          "label": "Value",
+          "value": "{value}"
+        }
+      ]
     }
   }
 }
