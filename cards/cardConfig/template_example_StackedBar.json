@@ -23,9 +23,9 @@
           "valueColor": "Good"
         }
       },
-      "title": "Project Cloud Transformation",
-      "subTitle": "Forecasted goal achievement depending on business logic and other important information",
-      "unitOfMeasurement": "EUR",
+      "title": "@Title",
+      "subTitle": "@subTitle",
+      "unitOfMeasurement": "@UOM",
       "mainIndicator": {
         "number": "{n}",
         "unit": "{u}",
@@ -43,6 +43,15 @@
           "title": "Deviation",
           "number": "22.43",
           "unit": "%"
+        }
+      ],
+      "actions": [
+        {
+          "type": "Custom",
+          "parameters": {
+            "type": "tabNavigation",
+            "tab": "@HeaderActionURL"
+          }
         }
       ]
     },

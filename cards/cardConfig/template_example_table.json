@@ -93,11 +93,20 @@
       ]
     },
     "header": {
-      "title": "Sales Orders for Key Accounts",
-      "subTitle": "Today",
+      "title": "@Title",
+      "subTitle": "@subTitle",
       "status": {
         "text": "{headerData/statusText}"
-      }
+      },
+      "actions": [
+        {
+          "type": "Custom",
+          "parameters": {
+            "type": "tabNavigation",
+            "tab": "@HeaderActionURL"
+          }
+        }
+      ]
     },
     "content": {
       "row": {

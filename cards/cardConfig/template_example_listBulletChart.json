@@ -25,13 +25,22 @@
   "sap.card": {
     "type": "List",
     "header": {
-      "title": "Actual income from products",
+      "title": "@Title",
       "icon": {
-        "src": "sap-icon://product"
+        "src": "@HeaderIcon"
       },
       "status": {
-        "text": "5 of 20"
-      }
+        "text": "@statusText"
+      },
+      "actions": [
+        {
+          "type": "Custom",
+          "parameters": {
+            "type": "tabNavigation",
+            "tab": "@HeaderActionURL"
+          }
+        }
+      ]
     },
     "content": {
       "data": {

@@ -50,6 +50,103 @@ module.exports = {
   exampleCard: async function (mycard, appData1, anacardConfig) {
     return anacardConfig;
   },
+  analyticalCard: async function (mycard, appData1, anacardConfig) {
+    let mydc2 = {};
+    let json1 = {};
+    list1 = [];
+    list1x = {};
+    var set1 = new Set();
+    if (mycard["cardsubType"] == "Donut") {
+      for (let q = 0; q < appData1.length; q++) {
+        console.log(appData1[q][mycard["filterKey"]]);
+        set1.add(
+          appData1[q][mycard["analyticsCard"]["cardsDonut"]["measureName"]]
+        );
+      }
+      set1.forEach((val) => {
+        mydc2["measureName"] = val;
+        mydc2["value"] = 0;
+        for (let q = 0; q < appData1.length; q++) {
+          if (
+            appData1[q][mycard["analyticsCard"]["cardsDonut"]["measureName"]] ==
+              val &&
+            mycard["analyticsCard"]["cardsDonut"]["function"] == "SUM"
+          ) {
+            mydc2["value"] =
+              Number(mydc2["value"]) +
+              Number(
+                appData1[q][mycard["analyticsCard"]["cardsDonut"]["value"]]
+              );
+          }
+          if (
+            appData1[q][mycard["analyticsCard"]["cardsDonut"]["measureName"]] ==
+              val &&
+            mycard["analyticsCard"]["cardsDonut"]["function"] == "COUNT"
+          ) {
+            mydc2["value"] = Number(mydc2["value"]) + 1;
+          }
+        }
+        list1.push({ ...mydc2 });
+        mydc2 = {};
+      });
+      json1 = { ...anacardConfig["sap.card"].content.data.json };
+      json1["list"] = list1;
+      anacardConfig["sap.card"].content.data.json = {
+        ...json1,
+      };
+    }
+    if (
+      mycard["cardsubType"] == "Line" ||
+      mycard["cardsubType"] == "StackedBar" ||
+      mycard["cardsubType"] == "StackedColumn"
+    ) {
+      let j_number = 10;
+      let trend1 = "Down";
+      let state1 = "Error";
+      let details1 = "2019-2020";
+      head1 = {};
+      head1 = { ...anacardConfig["sap.card"].header };
+      json1 = {
+        ...anacardConfig["sap.card"].content.data.json,
+      };
+      for (let q = 0; q < appData1.length; q++) {
+        for (const k1 in mycard["itemvalueMap"]) {
+          const ek1 = mycard["itemvalueMap"][k1];
+          if (appData1[q][ek1] != undefined) {
+            list1x[k1] = appData1[q][ek1];
+          } else {
+            list1x[k1] = 0;
+          }
+        }
+        for (const k1 in mycard["itemkeyMap"]) {
+          const ek1 = mycard["itemkeyMap"][k1];
+          if (appData1[q][ek1] != undefined) {
+            list1x[k1] = appData1[q][ek1];
+          } else {
+            list1x[k1] = "NA";
+          }
+        }
+        list1.push({ ...list1x });
+      }
+      json1["list"] = list1;
+      anacardConfig["sap.card"].content.data.json.list = list1;
+      js1 = {};
+      js1 = { ...anacardConfig["sap.card"].header.data.json };
+      js1["number"] = j_number;
+      js1["trend"] = trend1;
+      js1["state"] = state1;
+      js1["details"] = details1;
+      head1["data"]["json"] = { ...js1 };
+      js1 = {};
+      anacardConfig["sap.card"].header = { ...head1 };
+      head1 = {};
+    }
+
+    list1 = [];
+    json1 = {};
+    list1x = {};
+    return anacardConfig;
+  },
   donutCard: async function (mycard, appData1, anacardConfig) {
     measures1 = [];
     let mydc2 = {};

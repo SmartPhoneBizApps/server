@@ -26,14 +26,23 @@
   "sap.card": {
     "type": "List",
     "header": {
-      "title": "List Card with Top 5 Products",
-      "subTitle": "These are the top sellers this month",
+      "title": "@Title",
+      "subTitle": "@subTitle",
       "icon": {
-        "src": "sap-icon://desktop-mobile"
+        "src": "@HeaderIcon"
       },
       "status": {
-        "text": "5 of 20"
-      }
+        "text": "@statusText"
+      },
+      "actions": [
+        {
+          "type": "Custom",
+          "parameters": {
+            "type": "tabNavigation",
+            "tab": "@HeaderActionURL"
+          }
+        }
+      ]
     },
     "content": {
       "data": {

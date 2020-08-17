@@ -43,9 +43,9 @@
           "details": "Q1, 2018"
         }
       },
-      "title": "Project Cloud Transformation",
-      "subTitle": "Revenue",
-      "unitOfMeasurement": "EUR",
+      "title": "@Title",
+      "subTitle": "@subTitle",
+      "unitOfMeasurement": "@UOM",
       "mainIndicator": {
         "number": "{number}",
         "unit": "{unit}",
@@ -63,6 +63,15 @@
           "title": "Deviation",
           "number": "{deviation/number}",
           "unit": "%"
+        }
+      ],
+      "actions": [
+        {
+          "type": "Custom",
+          "parameters": {
+            "type": "tabNavigation",
+            "tab": "@HeaderActionURL"
+          }
         }
       ]
     },

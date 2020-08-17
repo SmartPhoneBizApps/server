@@ -25,11 +25,20 @@
   "sap.card": {
     "type": "List",
     "header": {
-      "title": "Notebooks Distribution",
-      "subTitle": "by years",
+      "title": "@Title",
+      "subTitle": "@subTitle",
       "status": {
-        "text": "3 of 11"
-      }
+        "text": "@statusText"
+      },
+      "actions": [
+        {
+          "type": "Custom",
+          "parameters": {
+            "type": "tabNavigation",
+            "tab": "@HeaderActionURL"
+          }
+        }
+      ]
     },
     "content": {
       "legend": {

@@ -22,8 +22,17 @@
       "title": "Form Card",
       "subTitle": "Adaptive Card with sap.f.cards.Header",
       "icon": {
-        "src": "sap-icon://form"
-      }
+        "src": "@HeaderIcon"
+      },
+      "actions": [
+        {
+          "type": "Custom",
+          "parameters": {
+            "type": "tabNavigation",
+            "tab": "@HeaderActionURL"
+          }
+        }
+      ]
     },
     "type": "AdaptiveCard",
     "content": {

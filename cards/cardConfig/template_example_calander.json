@@ -121,8 +121,8 @@
       }
     },
     "header": {
-      "title": "My calendar",
-      "subTitle": "Team Balkan",
+      "title": "@Title",
+      "subTitle": "@subTitle",
       "status": {
         "text": {
           "format": {
@@ -130,7 +130,16 @@
             "parts": ["parameters>/visibleItems", "parameters>/allItems"]
           }
         }
-      }
+      },
+      "actions": [
+        {
+          "type": "Custom",
+          "parameters": {
+            "type": "tabNavigation",
+            "tab": "@HeaderActionURL"
+          }
+        }
+      ]
     },
     "content": {
       "date": "2019-09-02",

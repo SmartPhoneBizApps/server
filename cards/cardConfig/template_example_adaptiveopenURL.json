@@ -23,8 +23,17 @@
       "title": "@Title",
       "subTitle": "@subTitle",
       "icon": {
-        "src": "sap-icon://business-card"
-      }
+        "src": "@HeaderIcon"
+      },
+      "actions": [
+        {
+          "type": "Custom",
+          "parameters": {
+            "type": "tabNavigation",
+            "tab": "@HeaderActionURL"
+          }
+        }
+      ]
     },
     "content": {
       "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",

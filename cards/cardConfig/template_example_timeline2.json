@@ -28,8 +28,17 @@
     "header": {
       "title": "New Team Members",
       "icon": {
-        "src": "sap-icon://group"
-      }
+        "src": "@HeaderIcon"
+      },
+      "actions": [
+        {
+          "type": "Custom",
+          "parameters": {
+            "type": "tabNavigation",
+            "tab": "@HeaderActionURL"
+          }
+        }
+      ]
     },
     "content": {
       "data": {

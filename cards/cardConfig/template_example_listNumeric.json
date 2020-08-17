@@ -48,9 +48,9 @@
         },
         "path": "/kpiInfos/kpi"
       },
-      "title": "Top 5 products sales",
-      "subTitle": "By average price",
-      "unitOfMeasurement": "EUR",
+      "title": "@Title",
+      "subTitle": "@subTitle",
+      "unitOfMeasurement": "@UOM",
       "mainIndicator": {
         "number": "{number}",
         "unit": "{unit}",
@@ -69,7 +69,16 @@
           "unit": "%"
         }
       ],
-      "details": "{details}"
+      "details": "{details}",
+      "actions": [
+        {
+          "type": "Custom",
+          "parameters": {
+            "type": "tabNavigation",
+            "tab": "@HeaderActionURL"
+          }
+        }
+      ]
     },
     "content": {
       "data": {

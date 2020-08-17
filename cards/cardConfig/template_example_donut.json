@@ -26,7 +26,16 @@
   "sap.card": {
     "type": "Analytical",
     "header": {
-      "title": "January"
+      "title": "@Title",
+      "actions": [
+        {
+          "type": "Custom",
+          "parameters": {
+            "type": "tabNavigation",
+            "tab": "@HeaderActionURL"
+          }
+        }
+      ]
     },
     "content": {
       "chartType": "Donut",
@@ -52,33 +61,33 @@
         "json": {
           "list": [
             {
-              "Store Name": "24-Seven",
-              "Revenue": 345292.06,
+              "measureName": "24-Seven",
+              "value": 345292.06,
               "Fat Percentage": "2 Percent"
             },
             {
-              "Store Name": "A&A",
-              "Revenue": 1564235.29,
+              "measureName": "A&A",
+              "value": 1564235.29,
               "Fat Percentage": "2 Percent"
             },
             {
-              "Store Name": "Alexei's Specialities",
-              "Revenue": 1085567.22,
+              "measureName": "Alexei's Specialities",
+              "value": 1085567.22,
               "Fat Percentage": "2 Percent"
             },
             {
-              "Store Name": "24-Seven",
-              "Revenue": 82922.07,
+              "measureName": "24-Seven",
+              "value": 82922.07,
               "Fat Percentage": "1 Percent"
             },
             {
-              "Store Name": "A&A",
-              "Revenue": 157913.07,
+              "measureName": "A&A",
+              "value": 157913.07,
               "Fat Percentage": "1 Percent"
             },
             {
-              "Store Name": "Alexei's Specialities",
-              "Revenue": 245609.486884,
+              "measureName": "Alexei's Specialities",
+              "value": 245609.486884,
               "Fat Percentage": "1 Percent"
             }
           ]
@@ -87,14 +96,14 @@
       },
       "dimensions": [
         {
-          "label": "Store Name",
-          "value": "{Store Name}"
+          "label": "Measure Name",
+          "value": "{measureName}"
         }
       ],
       "measures": [
         {
-          "label": "Revenue",
-          "value": "{Revenue}"
+          "label": "Value",
+          "value": "{value}"
         }
       ]
     }

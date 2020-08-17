@@ -254,6 +254,108 @@
       "cards": [
         {
           "type": "Example",
+          "cardType": "Analytical",
+          "cardsubType": "Line",
+          "cardID": "ALN01",
+          "cardLevel": "tableData",
+          "template": "template_example_line.json",
+          "title": "Expense Analysis",
+          "subtitle": "Expenses details",
+          "unitOfMeasurement": "GBP",
+          "itemvalueMap": {
+            "Score": "ExpenseAmount",
+            "Target": "Deductions"
+          },
+          "itemkeyMap": {
+            "Area": "ExpType"
+          },
+          "itemfixedVal": [{ "Total": 5 }],
+          "sumField": [
+            { "sumScore": "ExpenseAmount" },
+            { "sumtargetScore": "Deductions" }
+          ],
+          "headerfieldMap": [
+            { "j_number": "sumScore" },
+            { "j_target": "sumtargetScore" }
+          ]
+        },
+        {
+          "type": "Example",
+          "cardType": "Analytical",
+          "cardsubType": "StackedColumn",
+          "cardID": "ASC01",
+          "cardLevel": "tableData",
+          "template": "template_example_stackedcolumn",
+          "title": "Expense Analysis",
+          "subtitle": "Expenses details",
+          "unitOfMeasurement": "GBP",
+          "itemvalueMap": {
+            "Revenue": "ExpenseAmount",
+            "Cost": "Deductions"
+          },
+          "itemkeyMap": {
+            "Area": "ExpType"
+          },
+          "itemfixedVal": [{ "Total": 5 }],
+          "sumField": [
+            { "sumScore": "ExpenseAmount" },
+            { "sumtargetScore": "Deductions" }
+          ],
+          "headerfieldMap": [
+            { "j_number": "sumScore" },
+            { "j_target": "sumtargetScore" }
+          ]
+        },
+        {
+          "type": "Example",
+          "cardType": "Analytical",
+          "cardsubType": "StackedBar",
+          "cardID": "ASB01",
+          "cardLevel": "tableData",
+          "template": "template_example_StackedBar",
+          "title": "Expense Analysis",
+          "subtitle": "Expenses details",
+          "unitOfMeasurement": "GBP",
+          "itemvalueMap": {
+            "Revenue": "ExpenseAmount",
+            "Cost": "Deductions"
+          },
+          "itemkeyMap": {
+            "Area": "ExpType"
+          },
+          "itemfixedVal": [{ "Total": 5 }],
+          "sumField": [
+            { "sumScore": "ExpenseAmount" },
+            { "sumtargetScore": "Deductions" }
+          ],
+          "headerfieldMap": [
+            { "j_number": "sumScore" },
+            { "j_target": "sumtargetScore" }
+          ]
+        },
+        {
+          "type": "Example",
+          "cardType": "Analytical",
+          "cardsubType": "Donut",
+          "cardID": "ADT01",
+          "cardLevel": "tableData",
+          "template": "template_example_donut.json",
+          "title": "Expense Type Analysis",
+          "analyticsCard": {
+            "chartType": "donut",
+            "cardsDonut": {
+              "measureName": "ExpType",
+              "value": "ExpenseAmount",
+              "function": "SUM"
+            }
+          }
+        },
+        {
+          "type": "Example",
+          "template": "template_example_StackedBar.json"
+        },
+        {
+          "type": "Example",
           "template": "template_example_stackedcolumn.json"
         },
         {
@@ -263,10 +365,6 @@
         {
           "type": "Example",
           "template": "template_example_donut.json"
-        },
-        {
-          "type": "Example",
-          "template": "template_example_StackedBar.json"
         },
         {
           "type": "Example",
@@ -336,6 +434,7 @@
         },
         {
           "type": "Example",
+
           "template": "template_example_table.json"
         },
         {

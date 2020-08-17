@@ -26,12 +26,13 @@
   "sap.card": {
     "type": "List",
     "header": {
-      "title": "Quick Links",
+      "title": "@Title",
       "actions": [
         {
-          "type": "Navigation",
+          "type": "Custom",
           "parameters": {
-            "url": "/quickLinks"
+            "type": "tabNavigation",
+            "tab": "@HeaderActionURL"
           }
         }
       ]

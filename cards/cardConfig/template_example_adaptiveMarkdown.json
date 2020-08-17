@@ -26,8 +26,17 @@
       "title": "@Title",
       "subTitle": "@subTitle",
       "icon": {
-        "src": "sap-icon://text-formatting"
-      }
+        "src": "@HeaderIcon"
+      },
+      "actions": [
+        {
+          "type": "Custom",
+          "parameters": {
+            "type": "tabNavigation",
+            "tab": "@HeaderActionURL"
+          }
+        }
+      ]
     },
     "type": "AdaptiveCard",
     "content": {
