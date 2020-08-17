@@ -62,7 +62,10 @@ exports.checkSocialmedia = asyncHandler(async (req, res, next) => {
         status["userRegistered"] = "USER_NOT_REGISTERED";
         data["regQuestion"] = {};
       }
-      if (!smedia.accessToken) {
+      if (
+        !smedia.accessToken &&
+        status["userRegistered"] !== "USER_NOT_REGISTERED"
+      ) {
         // Situation User Already created and No access Token
         status["loginRequired"] = "USER_LOGIN_REQUIRED";
         tokens["accessToken"] = "";
@@ -98,10 +101,21 @@ exports.checkSocialmedia = asyncHandler(async (req, res, next) => {
           await user.save({ validateBeforeSave: false });
           return next(new ErrorResponse("Email could not be sent", 500));
         }
-      } else {
+      } else if (
+        smedia.accessToken &&
+        status["userRegistered"] !== "USER_NOT_REGISTERED"
+      ) {
         // Situation User Already created and access Token already there..
         status["loginRequired"] = "USER_LOGIN_NOT_REQUIRED";
         tokens["accessToken"] = smedia.accessToken;
+        res.status(200).json({
+          success: true,
+          data: data,
+          tokens: tokens,
+          status: status,
+        });
+      } else {
+        // Situation User Already created and access Token already there..
         res.status(200).json({
           success: true,
           data: data,

@@ -26,36 +26,36 @@
       "data": {
         "json": [
           {
-            "Year": 2017,
+            "Name": 2017,
             "Category": "Computer system accessories",
-            "Notebook13": 200,
-            "Notebook17": 500
+            "Expected": 200,
+            "Actual": 500
           },
           {
-            "Year": 2018,
+            "Name": 2018,
             "Category": "Computer system accessories",
-            "Notebook13": 300,
-            "Notebook17": 320
+            "Expected": 300,
+            "Actual": 320
           }
         ]
       },
       "item": {
         "title": "Notebooks Distribution",
-        "subTitle": "by years",
+        "subTitle": "by Names",
         "chart": {
           "type": "StackedBar",
-          "displayValue": "{= ${Notebook13} + ${Notebook17}}K",
-          "maxValue": "{/maxOverYears}",
+          "displayValue": "{= ${Expected} + ${Actual}}K",
+          "maxValue": "{/maxOverNames}",
           "bars": [
             {
-              "value": "{Notebook13}",
-              "displayValue": "Notebook 13: {Notebook13}K",
-              "legendTitle": "Notebook13"
+              "value": "{Expected}",
+              "displayValue": "Notebook 13: {Expected}K",
+              "legendTitle": "Expected"
             },
             {
-              "value": "{Notebook17}",
-              "displayValue": "Notebook 17: {Notebook17}K",
-              "legendTitle": "Notebook17"
+              "value": "{Actual}",
+              "displayValue": "Notebook 17: {Actual}K",
+              "legendTitle": "Actual"
             }
           ]
         }

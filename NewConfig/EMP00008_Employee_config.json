@@ -263,20 +263,20 @@
           "subtitle": "Expenses details",
           "unitOfMeasurement": "GBP",
           "itemvalueMap": {
-            "Score": "ExpenseAmount",
-            "Target": "Deductions"
+            "Value1": "ExpenseAmount",
+            "Value2": "Deductions"
           },
           "itemkeyMap": {
             "Area": "ExpType"
           },
           "itemfixedVal": [{ "Total": 5 }],
           "sumField": [
-            { "sumScore": "ExpenseAmount" },
-            { "sumtargetScore": "Deductions" }
+            { "sumValue1": "ExpenseAmount" },
+            { "sumValue2": "Deductions" }
           ],
           "headerfieldMap": [
-            { "j_number": "sumScore" },
-            { "j_target": "sumtargetScore" }
+            { "j_number": "sumValue1" },
+            { "j_target": "sumValue2" }
           ]
         },
         {
@@ -290,20 +290,20 @@
           "subtitle": "Expenses details",
           "unitOfMeasurement": "GBP",
           "itemvalueMap": {
-            "Revenue": "ExpenseAmount",
-            "Cost": "Deductions"
+            "Value1": "ExpenseAmount",
+            "Value2": "Deductions"
           },
           "itemkeyMap": {
             "Area": "ExpType"
           },
           "itemfixedVal": [{ "Total": 5 }],
           "sumField": [
-            { "sumScore": "ExpenseAmount" },
-            { "sumtargetScore": "Deductions" }
+            { "sumValue1": "ExpenseAmount" },
+            { "sumValue2": "Deductions" }
           ],
           "headerfieldMap": [
-            { "j_number": "sumScore" },
-            { "j_target": "sumtargetScore" }
+            { "j_number": "sumValue1" },
+            { "j_target": "sumValue2" }
           ]
         },
         {
@@ -317,20 +317,20 @@
           "subtitle": "Expenses details",
           "unitOfMeasurement": "GBP",
           "itemvalueMap": {
-            "Revenue": "ExpenseAmount",
-            "Cost": "Deductions"
+            "Value1": "ExpenseAmount",
+            "Value2": "Deductions"
           },
           "itemkeyMap": {
             "Area": "ExpType"
           },
           "itemfixedVal": [{ "Total": 5 }],
           "sumField": [
-            { "sumScore": "ExpenseAmount" },
-            { "sumtargetScore": "Deductions" }
+            { "sumValue1": "ExpenseAmount" },
+            { "sumValue2": "Deductions" }
           ],
           "headerfieldMap": [
-            { "j_number": "sumScore" },
-            { "j_target": "sumtargetScore" }
+            { "j_number": "sumValue1" },
+            { "j_target": "sumValue2" }
           ]
         },
         {
@@ -345,7 +345,7 @@
             "chartType": "donut",
             "cardsDonut": {
               "measureName": "ExpType",
-              "value": "ExpenseAmount",
+              "Value2": "ExpenseAmount",
               "function": "SUM"
             }
           }

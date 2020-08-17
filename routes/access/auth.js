@@ -26,7 +26,7 @@ router.post("/login", login);
 router.get("/logout", logout);
 router.get("/me", protect, getMe);
 router.put("/me", protect, getMeUpdate);
-router.put("/updatedetails", protect, updateDetails);
+router.put("/updatedetails", updateDetails);
 router.put("/updatebranch", protect, updateBranch);
 router.put("/updatearea", protect, updateArea);
 router.put("/updatepassword", protect, updatePassword);
