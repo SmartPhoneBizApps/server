@@ -53,10 +53,9 @@ exports.checkSocialmedia = asyncHandler(async (req, res, next) => {
     if (user) {
       status["userAccount"] = "USER_CREATED";
       data["userName"] = user.name;
-      if (user[smedia.businessRoleName]) {
+      const k1 = "Role_" + smedia.businessRoleName;
+      if (user[k1]) {
         status["userRegistered"] = "USER_REGISTERED";
-        const k1 = "Role_" + smedia.businessRoleName;
-
         data["regQuestion"] = user[k1];
       } else {
         status["userRegistered"] = "USER_NOT_REGISTERED";

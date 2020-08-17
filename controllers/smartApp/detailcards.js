@@ -10,6 +10,7 @@ const {
   getCardKey,
   cardReplace,
   analyticalCard,
+  listCard,
 } = require("../../modules/config2");
 const {
   getCard,
@@ -145,7 +146,12 @@ exports.getDetailCardsNew = async (req, res, next) => {
             break;
 
           case "List":
+            console.log(cardKey, anacardConfig);
+            jCard1 = {};
+            jCard1 = await listCard(mycard, appData[key], anacardConfig);
+            outStru[cardKey] = { ...jCard1 };
             break;
+
           case "timeLine":
             break;
           case "Table":

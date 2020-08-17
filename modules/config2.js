@@ -50,6 +50,7 @@ module.exports = {
   exampleCard: async function (mycard, appData1, anacardConfig) {
     return anacardConfig;
   },
+  listCard: async function (mycard, appData1, anacardConfig) {},
   analyticalCard: async function (mycard, appData1, anacardConfig) {
     let mydc2 = {};
     let json1 = {};

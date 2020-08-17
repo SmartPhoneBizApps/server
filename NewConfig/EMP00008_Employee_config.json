@@ -368,7 +368,15 @@
         },
         {
           "type": "Example",
-          "template": "template_example_microchartBullet.json"
+          "template": "template_example_microchartBullet.json",
+          "itemvalueMap": {
+            "Name": "ExpenseAmount",
+            "Description": "Deductions",
+            "Expected": "ExpenseAmount",
+            "Actual": "Deductions",
+            "Target": "ExpenseAmount",
+            "ChartColor": "Deductions"
+          }
         },
         {
           "type": "Example",
