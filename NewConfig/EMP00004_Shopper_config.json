@@ -586,12 +586,7 @@
           "filterKey": "ItemStatus1",
           "filterKeyLabel": "Item Status",
           "template": "template_table.json",
-          "tableCardFields": [
-            "ItemNumber",
-            "ItemName",
-            "ItemValue",
-            "ItemGrossValue"
-          ]
+          "tableCardFields": ["ItemName", "ItemGrossValue", "ItemStatus1"]
         },
         {
           "type": "Analytical",
@@ -623,8 +618,7 @@
           "fieldMap": {
             "Expected": "ItemVATValue",
             "Actual": "ItemValue",
-            "Target": "ItemValue",
-            "ChartColor": "Neutral"
+            "Target": "ItemValue"
           },
           "colorStatus": "ItemStatus1"
         },
@@ -642,8 +636,7 @@
           "fieldMap": {
             "Expected": "ItemVATValue",
             "Actual": "ItemValue",
-            "Target": "ItemValue",
-            "ChartColor": "Neutral"
+            "Target": "ItemValue"
           },
           "colorStatus": "ItemStatus1"
         },
@@ -697,7 +690,7 @@
         "ItemName",
         "ItemPrice",
         "ItemQuantity",
-        "ItemTaxRate",
+        "iVAT",
         "Category",
         "ItemStatus1"
       ],

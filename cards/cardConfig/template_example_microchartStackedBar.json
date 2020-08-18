@@ -44,18 +44,18 @@
         "subTitle": "by Names",
         "chart": {
           "type": "StackedBar",
-          "displayValue": "{= ${Expected} + ${Actual}}K",
+          "displayValue": "{= ${Expected} + ${Actual}}",
           "maxValue": "{/maxOverNames}",
           "bars": [
             {
               "value": "{Expected}",
-              "displayValue": "Notebook 13: {Expected}K",
-              "legendTitle": "Expected"
+              "displayValue": "{legend/items/Expected}: {Expected}",
+              "legendTitle": "{legend/items/Expected}"
             },
             {
               "value": "{Actual}",
-              "displayValue": "Notebook 17: {Actual}K",
-              "legendTitle": "Actual"
+              "displayValue": "{legend/items/Actual}: {Actual}",
+              "legendTitle": "{legend/items/Actual}"
             }
           ]
         }

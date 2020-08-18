@@ -349,6 +349,7 @@ module.exports = {
     colorStatus = mycard["colorStatus"];
     out1 = [];
     outx = {};
+    console.log(appData1.length);
     for (let u = 0; u < appData1.length; u++) {
       for (const kl in mergedFields) {
         outx[kl] = "";
@@ -420,10 +421,11 @@ module.exports = {
         default:
           break;
       }
-      console.log("Data:", outx);
+
       out1.push({ ...outx });
       outx = {};
     }
+    console.log("Data - 01:", out1);
     anacardConfig["sap.card"]["content"]["data"]["json"] = out1;
     return anacardConfig;
   },
