@@ -621,15 +621,65 @@
             "Description": ["Category", "ItemStatus1"]
           },
           "fieldMap": {
-            "Expected": "ItemValue",
-            "Actual": "ItemVATValue",
-            "Target": "ItemGrossValue",
+            "Expected": "ItemVATValue",
+            "Actual": "ItemValue",
+            "Target": "ItemValue",
             "ChartColor": "Neutral"
           }
         },
         {
           "type": "Example",
-          "template": "template_example_microchartBullet.json"
+          "cardType": "List",
+          "cardsubType": "ListBulletChart",
+          "cardID": "LMCB01",
+          "cardLevel": "tableData",
+          "template": "template_example_listBulletChart.json",
+          "mergedFields": {
+            "Name": ["ItemNumber", "ItemName"],
+            "Description": ["Category", "ItemStatus1"]
+          },
+          "fieldMap": {
+            "Expected": "ItemVATValue",
+            "Actual": "ItemValue",
+            "Target": "ItemValue",
+            "ChartColor": "Neutral"
+          }
+        },
+        {
+          "type": "Example",
+          "cardType": "List",
+          "cardsubType": "ListstackedBar",
+          "cardID": "LMB01",
+          "cardLevel": "tableData",
+          "template": "template_example_liststackedBar.json",
+          "mergedFields": {
+            "Name": ["ItemNumber", "ItemName", "Category"]
+          },
+          "fieldMap": {
+            "Category": "ItemName",
+            "Expected": "ItemValue",
+            "Actual": "ItemVATValue"
+          }
+        },
+        {
+          "type": "Example",
+          "cardType": "List",
+          "cardsubType": "MicrochartStackedBar",
+          "cardID": "LMSB01",
+          "cardLevel": "tableData",
+          "template": "template_example_microchartStackedBar.json",
+          "mergedFields": {
+            "Name": ["ItemNumber", "ItemName", "Category"]
+          },
+          "fieldMap": {
+            "Category": "ItemName",
+            "Expected": "ItemValue",
+            "Actual": "ItemVATValue"
+          }
+        },
+        {
+          "type": "Example",
+          "template": "template_example_liststackedBar.json"
         }
       ],
       "ItemButtons": {
