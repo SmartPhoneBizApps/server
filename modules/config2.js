@@ -346,6 +346,7 @@ module.exports = {
 
     mergedFields = mycard["mergedFields"];
     fieldMap = mycard["fieldMap"];
+    colorStatus = mycard["colorStatus"];
     out1 = [];
     outx = {};
     for (let u = 0; u < appData1.length; u++) {
@@ -362,6 +363,17 @@ module.exports = {
             case "@ ":
               outx[kl] = outx[kl] + " ";
               break;
+            case "@>>":
+              outx[kl] = outx[kl] + ">>";
+              break;
+            default:
+            case "@>>":
+              outx[kl] = outx[kl] + ">>";
+              break;
+            default:
+            case "@Score:":
+              outx[kl] = outx[kl] + "Score:";
+              break;
             default:
               outx[kl] = outx[kl] + appData1[u][mergedFields[kl][i]];
               break;
@@ -370,13 +382,19 @@ module.exports = {
       }
       for (const kl in fieldMap) {
         if (appData1[u].hasOwnProperty(fieldMap[kl])) {
+          // switch (fieldMap[kl]) {
+          //   case value:
+          //     break;
+
+          //   default:
+          //     break;
+          // }
+
           outx[kl] = appData1[u][fieldMap[kl]];
         }
       }
-      console.log("Status", appData1[u]["ItemStatus1"]);
-      outx["State"] = colorConfig["Status"][appData1[u]["ItemStatus1"]];
-      console.log("State", outx["State"]);
-      outx["Highlight"] = colorConfig["Status"][appData1[u]["ItemStatus1"]];
+      outx["State"] = colorConfig["Status"][appData1[u][colorStatus]];
+      outx["Highlight"] = colorConfig["Status"][appData1[u][colorStatus]];
       if (outx["State"] == undefined) {
         outx["State"] = "Warning";
       }
@@ -402,10 +420,9 @@ module.exports = {
         default:
           break;
       }
-      console.log("ChartColor", outx["ChartColor"]);
+      console.log("Data:", outx);
       out1.push({ ...outx });
       outx = {};
-      //   console.log(out1);
     }
     anacardConfig["sap.card"]["content"]["data"]["json"] = out1;
     return anacardConfig;
