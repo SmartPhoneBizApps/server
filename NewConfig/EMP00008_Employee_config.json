@@ -392,8 +392,14 @@
           "cardLevel": "tableData",
           "template": "template_example_listHighLight.json",
           "mergedFields": {
-            "Name": ["@£", "ExpenseAmount", "ExpType"],
-            "Description": ["ExpenseDetails", "ItemStatus1", "ExpenseDate"]
+            "Name": ["@£", "ExpenseAmount", "@ ", "ExpType"],
+            "Description": [
+              "ExpenseDetails",
+              "@ ",
+              "ItemStatus1",
+              "@ ",
+              "ExpenseDate"
+            ]
           },
           "fieldMap": {}
         },

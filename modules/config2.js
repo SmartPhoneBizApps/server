@@ -359,8 +359,11 @@ module.exports = {
             case "@$":
               outx[kl] = outx[kl] + "$";
               break;
+            case "@ ":
+              outx[kl] = outx[kl] + " ";
+              break;
             default:
-              outx[kl] = outx[kl] + ", " + appData1[u][mergedFields[kl][i]];
+              outx[kl] = outx[kl] + appData1[u][mergedFields[kl][i]];
               break;
           }
         }
@@ -371,7 +374,6 @@ module.exports = {
         }
       }
       console.log("Status", appData1[u]["ItemStatus1"]);
-      //  console.log(colorConfig["Status"][appData1[u]["ItemStatus1"]]);
       outx["State"] = colorConfig["Status"][appData1[u]["ItemStatus1"]];
       console.log("State", outx["State"]);
       outx["Highlight"] = colorConfig["Status"][appData1[u]["ItemStatus1"]];
