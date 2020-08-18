@@ -445,7 +445,7 @@
           "type": "Example",
           "cardType": "List",
           "cardsubType": "ListHighLight",
-          "cardID": "LHL01",
+          "cardID": "L001",
           "cardLevel": "tableData",
           "template": "template_example_listHighLight.json",
           "mergedFields": {
@@ -459,8 +459,8 @@
               "GoalStatus"
             ]
           },
-          "colorStatus": "ItemStatus1",
-          "fieldMap": {}
+          "fieldMap": {},
+          "colorStatus": "ItemStatus1"
         },
         {
           "type": "Table",
@@ -631,6 +631,20 @@
           ]
         },
         {
+          "type": "Example",
+          "cardType": "List",
+          "cardsubType": "ListHighLight",
+          "cardID": "L002",
+          "cardLevel": "tableData",
+          "template": "template_example_listHighLight.json",
+          "mergedFields": {
+            "Name": ["AppraisalArea", "@>>", "PerformanceRating"],
+            "Description": ["@Score:", "Score3", "@ ", "TargetDate3"]
+          },
+          "fieldMap": {},
+          "colorStatus": "ItemStatus2"
+        },
+        {
           "type": "Analytical",
           "filterKey": "ItemStatus2",
           "filterKeyLabel": "Item Status",
@@ -751,6 +765,20 @@
           "filterKeyLabel": "Item Status",
           "template": "template_table.json",
           "tableCardFields": ["SubGroup1", "Title1", "TargetDate1"]
+        },
+        {
+          "type": "Example",
+          "cardType": "List",
+          "cardsubType": "ListHighLight",
+          "cardID": "L002",
+          "cardLevel": "tableData",
+          "template": "template_example_listHighLight.json",
+          "mergedFields": {
+            "Name": ["ReferenceID1", "@ ", "Group1", "@ ", "SubGroup1"],
+            "Description": ["Title1", "@ ", "TargetDate1"]
+          },
+          "fieldMap": {},
+          "colorStatus": "ItemStatus3"
         }
       ],
 
