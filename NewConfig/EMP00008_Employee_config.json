@@ -368,14 +368,38 @@
         },
         {
           "type": "Example",
-          "template": "template_example_microchartBullet.json",
-          "itemvalueMap": {
-            "Name": "ExpenseAmount",
-            "Description": "Deductions",
+          "cardType": "List",
+          "cardsubType": "ListNumeric",
+          "cardID": "LMN01",
+          "cardLevel": "tableData",
+          "template": "template_example_listNumeric.json",
+          "mergedFields": {
+            "Name": ["ExpType", "ExpenseDate"],
+            "Description": ["ExpenseDetails", "ItemStatus1"]
+          },
+          "fieldMap": {
             "Expected": "ExpenseAmount",
             "Actual": "Deductions",
-            "Target": "ExpenseAmount",
-            "ChartColor": "Deductions"
+            "Target": "Deductions",
+            "ChartColor": "Neutral"
+          }
+        },
+        {
+          "type": "Example",
+          "cardType": "List",
+          "cardsubType": "MicrochartBullet",
+          "cardID": "LMB01",
+          "cardLevel": "tableData",
+          "template": "template_example_microchartBullet.json",
+          "mergedFields": {
+            "Name": ["ExpType", "ExpenseDate"],
+            "Description": ["ExpenseDetails", "ItemStatus1"]
+          },
+          "fieldMap": {
+            "Expected": "ExpenseAmount",
+            "Actual": "Deductions",
+            "Target": "Deductions",
+            "ChartColor": "Neutral"
           }
         },
         {

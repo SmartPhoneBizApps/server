@@ -111,7 +111,6 @@ exports.getDetailCardsNew = async (req, res, next) => {
         }
       });
     }
-    console.log("Step T2 tab name is", tabx);
 
     // Step T3 - check if card setup is there for the table and loop the cards in the config file
     if (appconfig["tableConfig"][key].hasOwnProperty("cards")) {
@@ -139,14 +138,14 @@ exports.getDetailCardsNew = async (req, res, next) => {
         // Step T6 - Handle different card Types..
         switch (mycard["cardType"]) {
           case "Analytical":
-            console.log(cardKey, anacardConfig);
+            //        console.log(cardKey, anacardConfig);
             jCard1 = {};
             jCard1 = await analyticalCard(mycard, appData[key], anacardConfig);
             outStru[cardKey] = { ...jCard1 };
             break;
 
           case "List":
-            console.log(cardKey, anacardConfig);
+            //         console.log(cardKey, anacardConfig);
             jCard1 = {};
             jCard1 = await listCard(mycard, appData[key], anacardConfig);
             outStru[cardKey] = { ...jCard1 };
@@ -168,7 +167,7 @@ exports.getDetailCardsNew = async (req, res, next) => {
 
         switch (mycard["type"]) {
           case "Example":
-            console.log(cardKey, anacardConfig);
+            //        console.log(cardKey, anacardConfig);
             jCard1 = {};
             jCard1 = await exampleCard(mycard, appData[key], anacardConfig);
             outStru[cardKey] = { ...jCard1 };

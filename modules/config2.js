@@ -50,7 +50,7 @@ module.exports = {
   exampleCard: async function (mycard, appData1, anacardConfig) {
     return anacardConfig;
   },
-  listCard: async function (mycard, appData1, anacardConfig) {},
+
   analyticalCard: async function (mycard, appData1, anacardConfig) {
     let mydc2 = {};
     let json1 = {};
@@ -59,24 +59,23 @@ module.exports = {
     var set1 = new Set();
     if (mycard["cardsubType"] == "Donut") {
       for (let q = 0; q < appData1.length; q++) {
-        console.log(appData1[q][mycard["filterKey"]]);
         set1.add(
           appData1[q][mycard["analyticsCard"]["cardsDonut"]["measureName"]]
         );
       }
       set1.forEach((val) => {
         mydc2["measureName"] = val;
-        mydc2["value"] = 0;
+        mydc2["Value2"] = 0;
         for (let q = 0; q < appData1.length; q++) {
           if (
             appData1[q][mycard["analyticsCard"]["cardsDonut"]["measureName"]] ==
               val &&
             mycard["analyticsCard"]["cardsDonut"]["function"] == "SUM"
           ) {
-            mydc2["value"] =
-              Number(mydc2["value"]) +
+            mydc2["Value2"] =
+              Number(mydc2["Value2"]) +
               Number(
-                appData1[q][mycard["analyticsCard"]["cardsDonut"]["value"]]
+                appData1[q][mycard["analyticsCard"]["cardsDonut"]["Value2"]]
               );
           }
           if (
@@ -84,7 +83,7 @@ module.exports = {
               val &&
             mycard["analyticsCard"]["cardsDonut"]["function"] == "COUNT"
           ) {
-            mydc2["value"] = Number(mydc2["value"]) + 1;
+            mydc2["Value2"] = Number(mydc2["Value2"]) + 1;
           }
         }
         list1.push({ ...mydc2 });
@@ -156,7 +155,6 @@ module.exports = {
     var set1 = new Set();
     var filterSet = new Set();
     for (let q = 0; q < appData1.length; q++) {
-      console.log(appData1[q][mycard["filterKey"]]);
       set1.add(
         appData1[q][mycard["analyticsCard"]["cardsDonut"]["measureName"]]
       );
@@ -342,6 +340,31 @@ module.exports = {
 
     return stru1;
   },
+  listCard: async function (mycard, appData1, anacardConfig) {
+    mergedFields = mycard["mergedFields"];
+    fieldMap = mycard["fieldMap"];
+    out1 = [];
+    outx = {};
+    for (let u = 0; u < appData1.length; u++) {
+      for (const kl in mergedFields) {
+        outx[kl] = "";
+        for (let i = 0; i < mergedFields[kl].length; i++) {
+          outx[kl] = outx[kl] + " " + appData1[u][mergedFields[kl][i]];
+        }
+      }
+      for (const kl in fieldMap) {
+        if (appData1[u].hasOwnProperty(fieldMap[kl])) {
+          outx[kl] = appData1[u][fieldMap[kl]];
+        }
+      }
+      outx["State"] = "Warning";
+      out1.push({ ...outx });
+      outx = {};
+      console.log(out1);
+    }
+    anacardConfig["sap.card"]["content"]["data"]["json"] = out1;
+    return anacardConfig;
+  },
   tableCard: async function (mycard, appData1, anacardConfig) {
     t_type = "table1";
     stru = anacardConfig;
@@ -388,7 +411,6 @@ module.exports = {
       fltr.push({ ...rk });
       rk = {};
     });
-    console.log("TableFilter", stru["sap.card"]["configuration"]["filters"]);
     stru["sap.card"]["configuration"]["filters"][mycard["filterKey"]][
       "items"
     ] = fltr;
