@@ -358,6 +358,9 @@ module.exports = {
         }
       }
       outx["State"] = "Warning";
+      outx["ChartColor"] = "Good";
+      outx["Highlight"] = "Success";
+
       out1.push({ ...outx });
       outx = {};
       console.log(out1);
