@@ -387,6 +387,19 @@
         {
           "type": "Example",
           "cardType": "List",
+          "cardsubType": "ListHighLight",
+          "cardID": "LHL01",
+          "cardLevel": "tableData",
+          "template": "template_example_listHighLight.json",
+          "mergedFields": {
+            "Name": ["ExpenseDate", "ExpType"],
+            "Description": ["ExpenseDetails", "ItemStatus1", "ExpenseAmount"]
+          },
+          "fieldMap": {}
+        },
+        {
+          "type": "Example",
+          "cardType": "List",
           "cardsubType": "MicrochartBullet",
           "cardID": "LMB01",
           "cardLevel": "tableData",
