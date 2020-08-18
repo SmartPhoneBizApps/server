@@ -341,6 +341,9 @@ module.exports = {
     return stru1;
   },
   listCard: async function (mycard, appData1, anacardConfig) {
+    let fileNameColor = "../config/colorConfig.json";
+    var colorConfig = require(fileNameColor);
+
     mergedFields = mycard["mergedFields"];
     fieldMap = mycard["fieldMap"];
     out1 = [];
@@ -357,9 +360,34 @@ module.exports = {
           outx[kl] = appData1[u][fieldMap[kl]];
         }
       }
-      outx["State"] = "Warning";
-      outx["ChartColor"] = "Good";
-      outx["Highlight"] = "Success";
+
+      outx["State"] = colorConfig[appData1[u]["ItemStatus1"]];
+      outx["Highlight"] = colorConfig[appData1[u]["ItemStatus1"]];
+      if (outx["State"] == undefined) {
+        outx["State"] = "Warning";
+      }
+      if (outx["Highlight"] == undefined) {
+        outx["Highlight"] = "Warning";
+      }
+      switch (outx["State"]) {
+        case "Error":
+          outx["ChartColor"] = "Error";
+          break;
+        case "Warning":
+          outx["ChartColor"] = "Neutral";
+          break;
+        case "Information":
+          outx["ChartColor"] = "Neutral";
+          break;
+        case "Success":
+          outx["ChartColor"] = "Good";
+          break;
+        case "None":
+          outx["ChartColor"] = "Neutral";
+          break;
+        default:
+          break;
+      }
 
       out1.push({ ...outx });
       outx = {};
