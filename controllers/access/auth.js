@@ -427,10 +427,59 @@ exports.updateDetails = asyncHandler(async (req, res, next) => {
   user2 = user;
   user2.UserPIN = "XXXXX";
   user2.password = "XXXXX";
-  res.status(200).json({
-    success: true,
-    user: user2,
-  });
+  if (req.headers.newlogin == "Yes") {
+    status = {
+      userAccount: "USER_CREATED",
+      userRegistered: "USER_REGISTERED",
+      loginRequired: "XX",
+      emailStatus: "XX",
+    };
+    tokens = {
+      accessToken: "",
+      resetToken: "",
+      resetURL: "",
+    };
+    // Situation User Already created and No access Token
+    status["loginRequired"] = "USER_LOGIN_REQUIRED";
+    tokens["accessToken"] = "";
+    // Get reset token
+    UserPIN = Math.floor(100000 + Math.random() * 900000);
+    user.UserPIN = UserPIN;
+    const resetToken = user.getResetPasswordToken();
+    await user.save({ validateBeforeSave: false });
+    let resetUrl = "";
+    resetUrl = `${req.protocol}://${req.get(
+      "host"
+    )}/api/v1/auth/checkbotpin/${resetToken}`;
+    tokens["resetURL"] = resetUrl;
+    tokens["resetToken"] = resetToken;
+    status["emailStatus"] = "EMAIL_SENT_USER";
+    const message = `Your PIN number is: ${UserPIN} , you are receiving this email because you (or someone else) is performing login to SmartApp`;
+    try {
+      await sendEmail({
+        email: user.email,
+        subject: "Social Media reset token",
+        message,
+      });
+      res.status(200).json({
+        success: true,
+        tokens: tokens,
+        status: status,
+        user: user2,
+      });
+    } catch (err) {
+      console.log(err);
+      user.resetPasswordToken = undefined;
+      user.resetPasswordExpire = undefined;
+      await user.save({ validateBeforeSave: false });
+      return next(new ErrorResponse("Email could not be sent", 500));
+    }
+  } else {
+    res.status(200).json({
+      success: true,
+      user: user2,
+    });
+  }
 });
 
 // @desc      Update password
