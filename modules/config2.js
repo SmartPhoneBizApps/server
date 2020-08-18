@@ -366,11 +366,11 @@ module.exports = {
             case "@>>":
               outx[kl] = outx[kl] + ">>";
               break;
-            default:
+
             case "@>>":
               outx[kl] = outx[kl] + ">>";
               break;
-            default:
+
             case "@Score:":
               outx[kl] = outx[kl] + "Score:";
               break;
