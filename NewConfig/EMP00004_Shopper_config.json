@@ -510,6 +510,13 @@
           "Update": "Yes"
         },
         {
+          "name": "Category",
+          "type": "string",
+          "width": "50",
+          "SLabel": "Category",
+          "Update": "Yes"
+        },
+        {
           "name": "ItemName",
           "type": "string",
           "width": "100",
@@ -569,10 +576,9 @@
       "DisplayFields": [
         "ItemName",
         "ItemValue",
-        "iVAT",
-        "ItemVATValue",
         "ItemGrossValue",
-        "ItemStatus1"
+        "ItemStatus1",
+        "Category"
       ],
       "cards": [
         {
@@ -602,9 +608,26 @@
               "function": "SUM"
             }
           }
+        },
+        {
+          "type": "Example",
+          "cardType": "List",
+          "cardsubType": "MicrochartBullet",
+          "cardID": "LMN01",
+          "cardLevel": "tableData",
+          "template": "template_example_microchartBullet.json",
+          "mergedFields": {
+            "Name": ["ItemNumber", "ItemName"],
+            "Description": ["Category", "ItemStatus1"]
+          },
+          "fieldMap": {
+            "Expected": "ItemValue",
+            "Actual": "ItemVATValue",
+            "Target": "ItemGrossValue",
+            "ChartColor": "Neutral"
+          }
         }
       ],
-
       "ItemButtons": {
         "itemDisplay": true,
         "itemCheck": true,
@@ -617,6 +640,7 @@
         "ItemPrice",
         "ItemQuantity",
         "ItemTaxRate",
+        "Category",
         "ItemStatus1"
       ],
       "ItemDetails": [
@@ -628,7 +652,8 @@
         { "name": "iVAT" },
         { "name": "ItemGrossValue" },
         { "name": "ItemVATValue" },
-        { "name": "ItemTaxRate" }
+        { "name": "ItemTaxRate" },
+        { "name": "Category" }
       ]
     }
   },
