@@ -77,14 +77,16 @@ module.exports = {
     for (let z = 0; z < cardbody["body"].length; z++) {
       if (cardbody["body"][z].hasOwnProperty("value")) {
         if (cardbody["body"][z]["value"] == "@currentDate") {
-          cardbody["body"][z]["value"] = new Date();
+          let ag1 = new Date();
+          cardbody["body"][z]["value"] = "2020-08-19";
         }
       }
     }
     for (let z = 0; z < cardadditional["body"].length; z++) {
       if (cardadditional["body"][z].hasOwnProperty("value")) {
         if (cardadditional["body"][z]["value"] == "@currentDate") {
-          cardadditional["body"][z]["value"] = new Date();
+          let ag1 = new Date();
+          cardadditional["body"][z]["value"] = "2020-08-19";
         }
       }
     }
