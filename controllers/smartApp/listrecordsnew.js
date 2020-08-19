@@ -98,6 +98,11 @@ exports.listrecordsnew = asyncHandler(async (req, res, next) => {
       limit,
     };
   }
+  oResult = [];
+  for (let q = startIndex; q < endIndex; q++) {
+    oResult.push(results[q]);
+    console.log(q);
+  }
   let config = nConfig(applicationId, req, config1);
   var ivalue = getInitialValues(applicationId, businessrole, req.user);
   ival_out = [];
@@ -109,7 +114,7 @@ exports.listrecordsnew = asyncHandler(async (req, res, next) => {
   outData["success"] = true;
   outData["count"] = results.length;
   outData["pagination"] = pagination;
-  outData["data"] = results;
+  outData["data"] = oResult;
   outData["config"] = config1;
 
   for (let i = 0; i < ivalue.length; i++) {

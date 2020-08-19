@@ -123,6 +123,7 @@ exports.getListrecords1 = asyncHandler(async (req, res, next) => {
     oResult = [];
     for (let q = startIndex; q < endIndex; q++) {
       oResult.push(results[q]);
+      console.log(q);
     }
 
     outData["success"] = true;
@@ -181,8 +182,6 @@ exports.getListrecords1 = asyncHandler(async (req, res, next) => {
       }
     }
 
-    console.log(tabArr);
-
     // If Items are present...
     if (model2 !== model) {
       // Create query string (Item)
@@ -202,7 +201,7 @@ exports.getListrecords1 = asyncHandler(async (req, res, next) => {
         if (req.headers.mode !== "BOTList") {
           results[i1]["ItemData"] = results2;
         }
-        console.log(config1["Controls"]["StatusColor"]);
+
         results[i1].cardImage = application["photo"];
         if (req.headers.mode == "Web" || req.headers.mode == "web") {
           if (config1["Controls"]["USP"] == "UserProfile") {
@@ -211,7 +210,7 @@ exports.getListrecords1 = asyncHandler(async (req, res, next) => {
             results[i1].USP_Image =
               "https://www.espncricinfo.com/inline/content/image/1183835.html?alt=1";
           }
-          console.log(config1["Controls"]["StatusColor"]);
+
           if (config1["Controls"]["StatusColor"] == "Yes") {
             results[i1].StatusState =
               colorConfig["Status"][results[i1]["Status"]];
@@ -241,8 +240,6 @@ exports.getListrecords1 = asyncHandler(async (req, res, next) => {
               results[i1]["StatusState"] =
                 colorConfig["Status"][results[i1]["Status"]];
             }
-
-            console.log(results[i1]["StatusState"]);
           }
           results[i1].SearchString = "";
           for (let l = 0; l < tabArr.length; l++) {
@@ -253,17 +250,18 @@ exports.getListrecords1 = asyncHandler(async (req, res, next) => {
                 " ";
             }
           }
-          console.log(results[i1].SearchString);
         }
       }
     }
     /////////////////////////////////////////////////////////////////
+    console.log("Limit:", req.query.limit);
     const limit = parseInt(req.query.limit, 10) || 50;
+
     // Pagination
     const page = parseInt(req.query.page, 10) || 1;
     const startIndex = (page - 1) * limit;
     const endIndex = page * limit;
-
+    console.log("Limit:", limit, page, startIndex, endIndex);
     // Pagination result
     const pagination = {};
     if (endIndex < count) {
@@ -278,6 +276,11 @@ exports.getListrecords1 = asyncHandler(async (req, res, next) => {
         limit,
       };
     }
+    oResult = [];
+    for (let q = startIndex; q < endIndex; q++) {
+      oResult.push(results[q]);
+      console.log(q);
+    }
     let config = nConfig(req.params.id, req, config1);
 
     out = {};
@@ -286,7 +289,7 @@ exports.getListrecords1 = asyncHandler(async (req, res, next) => {
     outData["success"] = true;
     outData["count"] = results.length;
     outData["pagination"] = pagination;
-    outData["data"] = results;
+    outData["data"] = oResult;
     outData["config"] = config1;
 
     if (req.headers.mode == "BOTList") {
