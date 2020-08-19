@@ -100,8 +100,9 @@ exports.listrecordsnew = asyncHandler(async (req, res, next) => {
   }
   oResult = [];
   for (let q = startIndex; q < endIndex; q++) {
-    oResult.push(results[q]);
-    console.log(q);
+    if (results[q] !== undefined) {
+      oResult.push(results[q]);
+    }
   }
   let config = nConfig(applicationId, req, config1);
   var ivalue = getInitialValues(applicationId, businessrole, req.user);

@@ -1,7 +1,7 @@
 const asyncHandler = require("../middleware/async");
 const Possval = require("../models/appSetup/Possval");
 const ErrorResponse = require("../utils/errorResponse");
-var button = require("../bot/Supplier_button.json");
+
 const Agent = require("../models/access/Agent");
 const App = require("../models/appSetup/App");
 const Role = require("../models/appSetup/Role");
@@ -589,6 +589,8 @@ module.exports = {
 
   getButtonData: function (results, app, role1) {
     buttonData = {};
+    var button = {};
+    button = require("../bot/BOT_button.json");
     if (app == "SUPP00028" || app == "SUPP00018") {
       results.forEach((element) => {
         if (element.PossibleValues == "CurrentStatus") {
@@ -618,10 +620,8 @@ module.exports = {
             }
           }
         }
-        //      l1 = {};
       });
     }
-
     return buttonData;
   },
   getBotListFields: function (config1) {

@@ -122,8 +122,9 @@ exports.getListrecords1 = asyncHandler(async (req, res, next) => {
 
     oResult = [];
     for (let q = startIndex; q < endIndex; q++) {
-      oResult.push(results[q]);
-      console.log(q);
+      if (results[q] !== undefined) {
+        oResult.push(results[q]);
+      }
     }
 
     outData["success"] = true;
@@ -278,8 +279,9 @@ exports.getListrecords1 = asyncHandler(async (req, res, next) => {
     }
     oResult = [];
     for (let q = startIndex; q < endIndex; q++) {
-      oResult.push(results[q]);
-      console.log(q);
+      if (results[q] !== undefined) {
+        oResult.push(results[q]);
+      }
     }
     let config = nConfig(req.params.id, req, config1);
 
@@ -289,16 +291,48 @@ exports.getListrecords1 = asyncHandler(async (req, res, next) => {
     outData["success"] = true;
     outData["count"] = results.length;
     outData["pagination"] = pagination;
-    outData["data"] = oResult;
+
     outData["config"] = config1;
 
     if (req.headers.mode == "BOTList") {
-      buttonData = getButtonData(
-        resPV,
-        req.headers.applicationid,
-        req.headers.businessrole
-      );
+      if (
+        req.headers.applicationid == "SUPP00018" ||
+        req.headers.applicationid == "SUPP00028"
+      ) {
+        buttonData = getButtonData(
+          resPV,
+          req.headers.applicationid,
+          req.headers.businessrole
+        );
+        for (let w = 0; w < oResult.length; w++) {
+          let myButton = [];
+          if (oResult[w].hasOwnProperty("CurrentStatus")) {
+            myButton = buttonData[oResult[w]["CurrentStatus"]];
+          }
+          if (myButton == undefined) {
+            myButton = [];
+          }
+          oResult[w]["buttons"] = myButton;
+        }
+      } else {
+        buttonData = getButtonData(
+          statusPV,
+          req.headers.applicationid,
+          req.headers.businessrole
+        );
+        for (let w = 0; w < oResult.length; w++) {
+          let myButton = [];
+          if (oResult[w]["Status"] !== undefined) {
+            myButton = buttonData[oResult[w]["Status"]];
+          }
+          if (myButton == undefined) {
+            myButton = [];
+          }
+          oResult[w]["buttons"] = myButton;
+        }
+      }
     }
+    outData["data"] = oResult;
     if (req.headers.mode == "BOTList") {
       res.status(200).json({
         outData,
