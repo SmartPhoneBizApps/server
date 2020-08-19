@@ -35,8 +35,8 @@
   "ListBOTFields": {
     "None": ["cardImage", "StatusState"],
     "Title": ["ID"],
-    "SubTitle": ["LeaveType"],
-    "Description": ["LeaveFrom"]
+    "SubTitle": ["LeaveType", "Status"],
+    "Description": ["LeaveFrom", "LeaveReason"]
   },
   "PossibleValues": ["LeaveType", "Status", "CostCentre"],
   "MButtons": [
@@ -166,22 +166,6 @@
       "subtitle": "Apply Leave",
       "template": "template_adaptiveForm.json",
       "level": "Header"
-    },
-    {
-      "type": "Analytical",
-      "filterKey": "Status",
-      "filterKeyLabel": "Status",
-      "cardID": "EMP04S02",
-      "template": "template_analyticalCard_donut.json",
-      "title": "Leave Request Analysis",
-      "analyticsCard": {
-        "chartType": "donut",
-        "cardsDonut": {
-          "measureName": "LeaveType",
-          "value": "LeaveDays",
-          "function": "SUM"
-        }
-      }
     }
   ],
   "ControlDisplay": {},

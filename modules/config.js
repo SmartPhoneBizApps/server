@@ -612,6 +612,7 @@ module.exports = {
           for (const key in button[app][element.Value]) {
             if (button[app][element.Value].hasOwnProperty(key)) {
               const element1 = button[app][element.Value][key];
+              console.log(element1);
               if (key == role1) {
                 buttonData[element.Value] = element1;
               } else if (key == "ALL") {
@@ -622,6 +623,7 @@ module.exports = {
         }
       });
     }
+
     return buttonData;
   },
   getBotListFields: function (config1) {
