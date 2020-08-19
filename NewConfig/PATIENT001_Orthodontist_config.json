@@ -219,6 +219,7 @@
           "StatusCode": "Book",
           "Class": "Reject",
           "NextStatus": [
+            { "Button": "Patient" },
             { "Status": 3, "Button": "Completed" },
             { "Status": 4, "Button": "CheckedIn" },
             { "Status": 6, "Button": "Cancelled" },
@@ -254,7 +255,7 @@
           "Status": 3,
           "StatusCode": "Completed",
           "Class": "Default",
-          "NextStatus": [],
+          "NextStatus": [{ "Button": "Patient" }],
           "transferFields": ["ID", "Comments", "Status"],
           "headers": [
             { "applicationid": "PATIENT002" },
@@ -270,6 +271,7 @@
           "StatusCode": "CheckedIn",
           "Class": "Critical",
           "NextStatus": [
+            { "Button": "Patient" },
             { "Status": 3, "Button": "Completed" },
             { "Status": 5, "Button": "InProgress" }
           ],
@@ -287,7 +289,7 @@
           "Status": 5,
           "StatusCode": "InProgress",
           "Class": "Ghost",
-          "NextStatus": [{ "Status": 3, "Button": "Completed" }],
+          "NextStatus": [{ "Button": "Patient" },{ "Status": 3, "Button": "Completed" }],
           "headers": [
             { "applicationid": "PATIENT002" },
             { "businessrole": "Orthodontist" }
@@ -302,7 +304,7 @@
           "Status": 6,
           "StatusCode": "Cancelled",
           "Class": "Negative",
-          "NextStatus": [{ "Status": 1, "Button": "Book" }],
+          "NextStatus": [{ "Button": "Patient" },{ "Status": 1, "Button": "Book" }],
           "headers": [
             { "applicationid": "PATIENT002" },
             { "businessrole": "Orthodontist" }
@@ -317,7 +319,7 @@
           "Status": 7,
           "StatusCode": "NoShow",
           "Class": "Neutral",
-          "NextStatus": [],
+          "NextStatus": [{ "Button": "Patient" }],
           "transferFields": ["ID", "Comments", "Status"],
           "headers": [
             { "applicationid": "PATIENT002" },
@@ -332,7 +334,7 @@
           "Status": 8,
           "StatusCode": "Requested",
           "Class": "Success",
-          "NextStatus": [{ "Status": 1, "Button": "Book" }],
+          "NextStatus": [{ "Button": "Patient" },{ "Status": 1, "Button": "Book" }],
           "headers": [
             { "applicationid": "PATIENT002" },
             { "businessrole": "Orthodontist" }
