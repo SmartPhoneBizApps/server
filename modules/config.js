@@ -587,7 +587,7 @@ module.exports = {
     return query;
   },
 
-  getButtonData: function (results, app, role1) {
+  getButtonData: function (results, app, role1, oData, user) {
     buttonData = {};
     var button = {};
     button = require("../bot/BOT_button.json");
@@ -612,7 +612,40 @@ module.exports = {
           for (const key in button[app][element.Value]) {
             if (button[app][element.Value].hasOwnProperty(key)) {
               const element1 = button[app][element.Value][key];
-              console.log(element1);
+
+              for (let q = 0; q < element1.length; q++) {
+                if (
+                  element1[q]["type"] == "postBack" &&
+                  element1[q]["type"] != "web_url"
+                ) {
+                  var n = app.length - 3;
+                  kng =
+                    app.slice(0, 3) +
+                    "_" +
+                    role1.slice(0, 3) +
+                    "_" +
+                    app.substr(n, 3);
+
+                  klg = element1[q]["title"].replace(/\s/g, "");
+                  element1[q]["payload"] =
+                    kng.toUpperCase() + "-" + klg.toLowerCase();
+                }
+
+                if (element1[q]["type"] == "web_url") {
+                  element1[q]["messenger_extensions"] = "true";
+                  element1[q]["url"] =
+                    "https://smartphonebizapps.com/smartphoneappswebview/?view=webView&app=" +
+                    app +
+                    "&role=" +
+                    role1 +
+                    "&transID=" +
+                    oData["ID"] +
+                    "&user=" +
+                    user["email"];
+                  var n = app.length - 3;
+                  console.log("Data", element1, user);
+                }
+              }
               if (key == role1) {
                 buttonData[element.Value] = element1;
               } else if (key == "ALL") {
@@ -623,7 +656,6 @@ module.exports = {
         }
       });
     }
-
     return buttonData;
   },
   getBotListFields: function (config1) {

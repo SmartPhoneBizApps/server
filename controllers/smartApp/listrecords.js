@@ -14,6 +14,7 @@ const advancedDataList = require("../../middleware/advancedDataList");
 // @route     GET /api/v1/listrecords
 // @access    Private
 exports.getListrecords1 = asyncHandler(async (req, res, next) => {
+  console.log("myUser", req.user);
   // Read Color Configuration
   let fileNameColor = "../../config/colorConfig.json";
   var colorConfig = require(fileNameColor);
@@ -299,12 +300,14 @@ exports.getListrecords1 = asyncHandler(async (req, res, next) => {
         req.headers.applicationid == "SUPP00018" ||
         req.headers.applicationid == "SUPP00028"
       ) {
-        buttonData = getButtonData(
-          resPV,
-          req.headers.applicationid,
-          req.headers.businessrole
-        );
         for (let w = 0; w < oResult.length; w++) {
+          buttonData = getButtonData(
+            resPV,
+            req.headers.applicationid,
+            req.headers.businessrole,
+            oResult[w],
+            req.user
+          );
           let myButton = [];
           if (oResult[w].hasOwnProperty("CurrentStatus")) {
             myButton = buttonData[oResult[w]["CurrentStatus"]];
@@ -315,12 +318,14 @@ exports.getListrecords1 = asyncHandler(async (req, res, next) => {
           oResult[w]["buttons"] = myButton;
         }
       } else {
-        buttonData = getButtonData(
-          statusPV,
-          req.headers.applicationid,
-          req.headers.businessrole
-        );
         for (let w = 0; w < oResult.length; w++) {
+          buttonData = getButtonData(
+            statusPV,
+            req.headers.applicationid,
+            req.headers.businessrole,
+            oResult[w],
+            req.user
+          );
           let myButton = [];
           if (oResult[w]["Status"] !== undefined) {
             myButton = buttonData[oResult[w]["Status"]];
@@ -336,7 +341,7 @@ exports.getListrecords1 = asyncHandler(async (req, res, next) => {
     if (req.headers.mode == "BOTList") {
       res.status(200).json({
         outData,
-        buttons: buttonData,
+        //      buttons: buttonData,
         defaultValues: ival_out,
       });
     }
