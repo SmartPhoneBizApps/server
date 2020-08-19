@@ -634,7 +634,7 @@ module.exports = {
                 if (element1[q]["type"] == "web_url") {
                   element1[q]["messenger_extensions"] = "true";
                   element1[q]["url"] =
-                    "https://smartphonebizapps.com/smartphoneappswebview/?view=webView&app=" +
+                    "https://smartphonebizapps.com/smartphoneappswebview/?view=webDisplay&app=" +
                     app +
                     "&role=" +
                     role1 +
