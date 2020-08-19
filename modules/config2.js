@@ -73,11 +73,27 @@ module.exports = {
     const cardbody = require(path1);
     const cardaction = require(path2);
     const cardadditional = require(path3);
+    console.log(cardbody);
+    for (let z = 0; z < cardbody["body"].length; z++) {
+      if (cardbody["body"][z].hasOwnProperty("value")) {
+        if (cardbody["body"][z]["value"] == "@currentDate") {
+          cardbody["body"][z]["value"] = new Date();
+        }
+      }
+    }
+    for (let z = 0; z < cardadditional["body"].length; z++) {
+      if (cardadditional["body"][z].hasOwnProperty("value")) {
+        if (cardadditional["body"][z]["value"] == "@currentDate") {
+          cardadditional["body"][z]["value"] = new Date();
+        }
+      }
+    }
     for (let y = 0; y < cardaction["actions"].length; y++) {
       if (cardaction["actions"][y]["type"] == "Action.ShowCard") {
         cardaction["actions"][y]["card"]["body"] = cardadditional["body"];
       }
     }
+
     adCard["sap.card"]["content"]["body"] = cardbody["body"];
     adCard["sap.card"]["content"]["actions"] = cardaction["actions"];
     return adCard;
@@ -380,7 +396,7 @@ module.exports = {
     colorStatus = mycard["colorStatus"];
     out1 = [];
     outx = {};
-    console.log(appData1.length);
+
     for (let u = 0; u < appData1.length; u++) {
       for (const kl in mergedFields) {
         outx[kl] = "";
@@ -456,7 +472,7 @@ module.exports = {
       out1.push({ ...outx });
       outx = {};
     }
-    console.log("Data - 01:", out1);
+
     anacardConfig["sap.card"]["content"]["data"]["json"] = out1;
     return anacardConfig;
   },

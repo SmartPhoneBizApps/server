@@ -2,40 +2,39 @@
   "body": [
     {
       "type": "TextBlock",
-      "text": "Expense Date",
       "isSubtle": true,
-      "size": "medium"
+      "size": "medium",
+      "text": "Employee Code"
     },
     {
-      "type": "Input.Date",
-      "placeholder": "Date",
-      "id": "ExpenseDate",
-      "value": "2020-09-20"
-    },
-    {
-      "type": "TextBlock",
-      "text": "Expense Amount",
-      "isSubtle": true,
-      "size": "medium"
-    },
-    {
-      "type": "Input.Number",
-      "id": "ExpenseAmount",
-      "min": 0,
-      "max": 110,
-      "placeholder": "Amount"
-    },
-    {
-      "type": "TextBlock",
-      "text": "Description",
-      "isSubtle": true,
-      "size": "medium"
-    },
-    {
+      "placeholder": "Employee Code",
       "type": "Input.Text",
       "style": "text",
-      "isMultiline": true,
-      "id": "ExpenseDetails"
+      "id": "EmployeeID"
+    },
+    {
+      "type": "TextBlock",
+      "isSubtle": true,
+      "size": "medium",
+      "text": "Employee Name"
+    },
+    {
+      "placeholder": "Employee Name",
+      "type": "Input.Text",
+      "style": "text",
+      "id": "Name"
+    },
+    {
+      "type": "TextBlock",
+      "isSubtle": true,
+      "size": "medium",
+      "text": "Expense Amount"
+    },
+    {
+      "placeholder": "Expense Amount",
+      "type": "Input.Text",
+      "style": "text",
+      "id": "TotalAmount"
     },
     {
       "type": "TextBlock",
@@ -47,58 +46,91 @@
       "placeholder": "Currency",
       "type": "Input.Text",
       "style": "text",
-      "id": "Currency",
-      "value": "GBP"
-    },
-
-    {
-      "type": "TextBlock",
-      "text": "Entry Date",
-      "isSubtle": true,
-      "size": "medium"
-    },
-    {
-      "type": "Input.Date",
-      "placeholder": "Date",
-      "id": "EntryDate",
-      "value": "2020-09-20"
+      "id": "Currency"
     },
     {
       "type": "TextBlock",
       "isSubtle": true,
       "size": "medium",
-      "text": "Exp Type"
+      "text": "Entry Date"
     },
     {
-      "type": "Input.ChoiceSet",
-      "style": "expanded",
-      "id": "ExpType",
-      "choices": [
-        {
-          "title": "Hotel",
-          "value": "Hotel"
-        },
-        {
-          "title": "Meals",
-          "value": "Meals"
-        },
-        {
-          "title": "Mileage",
-          "value": "Mileage"
-        },
-        {
-          "title": "Mobile/Telephone",
-          "value": "Mobile/Telephone"
-        },
-        {
-          "title": "Parking/Toll/Congestion",
-          "value": "Parking/Toll/Congestion"
-        },
-        {
-          "title": "Air/Train/BusFare",
-          "value": "Air/Train/BusFare"
-        }
-      ]
+      "placeholder": "Entry Date",
+      "type": "Input.Text",
+      "style": "text",
+      "id": "EntryDate"
+    },
+    {
+      "type": "TextBlock",
+      "isSubtle": true,
+      "size": "medium",
+      "text": "Expense Date"
+    },
+    {
+      "placeholder": "Expense Date",
+      "type": "Input.Text",
+      "style": "text",
+      "id": "ExpenseDate"
+    },
+    {
+      "type": "TextBlock",
+      "isSubtle": true,
+      "size": "medium",
+      "text": "Project Code"
+    },
+    {
+      "placeholder": "Project Code",
+      "type": "Input.Text",
+      "style": "text",
+      "id": "ProjectCode"
+    },
+    {
+      "type": "TextBlock",
+      "isSubtle": true,
+      "size": "medium",
+      "text": "Cost Centre"
+    },
+    {
+      "placeholder": "Cost Centre",
+      "type": "Input.Text",
+      "style": "text",
+      "id": "CostCentre"
+    },
+    {
+      "type": "TextBlock",
+      "isSubtle": true,
+      "size": "medium",
+      "text": "Receipt"
+    },
+    {
+      "placeholder": "Receipt",
+      "type": "Input.Text",
+      "style": "text",
+      "id": "Receipt"
+    },
+    {
+      "type": "TextBlock",
+      "isSubtle": true,
+      "size": "medium",
+      "text": "Expense Type"
+    },
+    {
+      "placeholder": "Expense Type",
+      "type": "Input.Text",
+      "style": "text",
+      "id": "ExpType"
+    },
+    {
+      "type": "TextBlock",
+      "isSubtle": true,
+      "size": "medium",
+      "text": "Expense Detail"
+    },
+    {
+      "placeholder": "Expense Detail",
+      "type": "Input.Text",
+      "style": "text",
+      "id": "ExpenseDetails"
     },
     {
       "type": "TextBlock",
@@ -110,8 +142,19 @@
       "placeholder": "Status",
       "type": "Input.Text",
       "style": "text",
-      "id": "ItemStatus1",
-      "value": "New"
+      "id": "Status"
+    },
+    {
+      "type": "TextBlock",
+      "isSubtle": true,
+      "size": "medium",
+      "text": "Approver"
+    },
+    {
+      "placeholder": "Approver",
+      "type": "Input.Text",
+      "style": "text",
+      "id": "Approver"
     }
   ]
 }
