@@ -50,7 +50,38 @@ module.exports = {
   exampleCard: async function (mycard, appData1, anacardConfig) {
     return anacardConfig;
   },
-
+  adaptivetableCard: async function (appID, role, key, adCard) {
+    let path1 =
+      "../cards/adaptivecardforms/" + appID + "_" + role + "_" + key + ".json";
+    let path2 =
+      "../cards/adaptivecardforms/" +
+      appID +
+      "_" +
+      role +
+      "_" +
+      key +
+      "_actions.json";
+    let path3 =
+      "../cards/adaptivecardforms/" +
+      appID +
+      "_" +
+      role +
+      "_" +
+      key +
+      "_additional.json";
+    //    let path3 = "../cards/cardConfig/template_adaptiveForm.json";
+    const cardbody = require(path1);
+    const cardaction = require(path2);
+    const cardadditional = require(path3);
+    for (let y = 0; y < cardaction["actions"].length; y++) {
+      if (cardaction["actions"][y]["type"] == "Action.ShowCard") {
+        cardaction["actions"][y]["card"]["body"] = cardadditional["body"];
+      }
+    }
+    adCard["sap.card"]["content"]["body"] = cardbody["body"];
+    adCard["sap.card"]["content"]["actions"] = cardaction["actions"];
+    return adCard;
+  },
   analyticalCard: async function (mycard, appData1, anacardConfig) {
     let mydc2 = {};
     let json1 = {};

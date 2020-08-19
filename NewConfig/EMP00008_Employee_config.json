@@ -140,15 +140,7 @@
     "Tab5": ["MultiAttachments"],
     "Tab4": ["ProcessingLog"]
   },
-  "cards": [
-    {
-      "type": "Adaptive",
-      "title": "Record Expenses",
-      "subtitle": "New Expenses",
-      "template": "template_adaptiveForm.json",
-      "level": "Header"
-    }
-  ],
+  "cards": [],
   "ControlDisplay": {},
   "tableConfig": {
     "myExpenses": {
@@ -252,6 +244,12 @@
         "ItemStatus1"
       ],
       "cards": [
+        {
+          "type": "Example",
+          "cardType": "AdaptiveForm",
+          "cardID": "ADD01",
+          "template": "template_adaptiveForm.json"
+        },
         {
           "type": "Example",
           "cardType": "Analytical",

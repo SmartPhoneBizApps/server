@@ -11,6 +11,7 @@ const {
   cardReplace,
   analyticalCard,
   listCard,
+  adaptivetableCard,
 } = require("../../modules/config2");
 const {
   getCard,
@@ -130,13 +131,25 @@ exports.getDetailCardsNew = async (req, res, next) => {
           cardKey = getCardKey(req.params.app, req.params.role, counter, "T");
         }
         // Step T5 - Read card Template, Stringify, replace @values then parse back to javaObject
+        // if (mycard["cardType"] != "AdaptiveForm") {
         let cardConfigFile1 = "../../cards/cardConfig/" + mycard["template"];
         var cardData = JSON.stringify(require(cardConfigFile1));
         cardData = cardReplace(mycard, cardData, appconfig);
         var anacardConfig = JSON.parse(cardData);
+        // }
 
         // Step T6 - Handle different card Types..
         switch (mycard["cardType"]) {
+          case "AdaptiveForm":
+            jCard1 = {};
+            jCard1 = await adaptivetableCard(
+              req.params.app,
+              req.params.role,
+              key,
+              anacardConfig
+            );
+            outStru[cardKey] = { ...jCard1 };
+            break;
           case "Analytical":
             //        console.log(cardKey, anacardConfig);
             jCard1 = {};
