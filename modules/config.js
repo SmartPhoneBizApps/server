@@ -297,7 +297,6 @@ module.exports = {
     let out = [];
     let out1 = {};
     let res = [];
-    console.log("uderdefault", rl);
     for (const key in c) {
       kys.push(key);
       if (key == rl) {
@@ -321,14 +320,12 @@ module.exports = {
       out1["Value"] = el1[key];
       out1["EditLock"] = "No";
       for (let index = 0; index < res.length; index++) {
-        console.log(res[index]);
         if (res[index]["Field"] == key) {
           if (res[index]["EditLock"] == "Yes") {
             // Use initial values if EditLock is set ...
             out1["Field"] = key;
             out1["Value"] = res[index]["Value"];
             out1["EditLock"] = "Yes";
-            console.log(out1);
           }
         }
       }
@@ -359,7 +356,6 @@ module.exports = {
         });
       }
     });
-    console.log("InitialVal", resArr);
     return resArr;
   },
 
@@ -609,11 +605,9 @@ module.exports = {
     } else {
       results.forEach((element) => {
         if (element.PossibleValues == "Status") {
-          console.log(button[app][element.Value]);
           for (const key in button[app][element.Value]) {
             if (button[app][element.Value].hasOwnProperty(key)) {
               const element1 = button[app][element.Value][key];
-
               for (let q = 0; q < element1.length; q++) {
                 if (
                   element1[q]["type"] == "postBack" &&
@@ -631,8 +625,7 @@ module.exports = {
                   element1[q]["payload"] =
                     kng.toUpperCase() + "-" + klg.toLowerCase();
                 }
-                console.log(oData);
-                if (element1[q]["type"] == "web_url") {
+                if (element1[q]["type"] == "web_url" && oData !== undefined) {
                   element1[q]["messenger_extensions"] = "true";
                   element1[q]["url"] =
                     "https://smartphonebizapps.com/smartphoneappswebview/?view=webDisplay&app=" +
@@ -644,7 +637,6 @@ module.exports = {
                     "&user=" +
                     user["email"];
                   var n = app.length - 3;
-                  console.log("Data", element1, user);
                 }
               }
               if (key == role1) {
@@ -740,19 +732,15 @@ module.exports = {
     for (let x = 0; x < itmData.length; x++) {
       out1 = {};
       if (!kys.includes(itmData[x]["ItemNumber"])) {
-        console.log("Add Item");
         out1 = { ...itmData[x] };
         newitemData.push(out1);
         set1.add(out1);
       }
     }
-
-    let itms = [];
     ItemFields = {};
     for (let db2 = 0; db2 < newitemData.length; db2++) {
       for (let b2 = 0; b2 < itmData.length; b2++) {
         if (itmData[b2]["ItemNumber"] == newitemData[db2]["ItemNumber"]) {
-          console.log("Update Item");
           for (const b3 in itmData[b2]) {
             newitemData[db2][b3] = itmData[b2][b3];
           }
@@ -764,7 +752,6 @@ module.exports = {
 
   handleArray: function (newData, oldData) {
     let current = [];
-    console.log(newData);
     let docID = newData["documentId"];
     current.push(newData);
     for (let index = 0; index < oldData.length; index++) {
@@ -1093,12 +1080,10 @@ module.exports = {
         console.log(err);
         return false;
       } else {
-        //   console.log(JSON.stringify(config));
         console.log("writing to " + fn01);
         out1["resCode"] = 201;
         out1["success"] = true;
         out1["message"] = "The file exists & updated..";
-        console.log("AG01", out1);
         return true;
         //     out1["error"] = {};
       }

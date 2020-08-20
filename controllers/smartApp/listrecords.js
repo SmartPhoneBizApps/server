@@ -1,10 +1,17 @@
 const {
+  donutCardHead,
+  adaptivecardCard,
+  getCardKey,
+  cardReplace,
+} = require("../../modules/config2");
+const {
   getPVConfig,
   getPVQuery,
   getButtonData,
   getInitialValues,
   getDateValues,
   findOneApp,
+  getNewConfig,
   getPVField,
 } = require("../../modules/config");
 const { readData, getTotalCount, nConfig } = require("../../modules/config2");
@@ -13,6 +20,7 @@ const asyncHandler = require("../../middleware/async");
 // @route     GET /api/v1/listrecords
 // @access    Private
 exports.getListrecords1 = asyncHandler(async (req, res, next) => {
+  outStru = {};
   const applicationId = req.headers.applicationid;
   const businessrole = req.headers.businessrole;
   const mode = req.headers.mode;
@@ -20,24 +28,22 @@ exports.getListrecords1 = asyncHandler(async (req, res, next) => {
   let fileNameColor = "../../config/colorConfig.json";
   var colorConfig = require(fileNameColor);
 
-  const application = await findOneApp(req.params.id);
-  let fn1 =
-    "../../NewConfig/" + req.params.id + "_" + businessrole + "_config.json";
-  var config1 = require(fn1);
+  const application = await findOneApp(applicationId);
+  var appconfig = getNewConfig(applicationId, businessrole);
 
   /// Possible values..
-  pvconfig1 = getPVConfig(applicationId, businessrole);
-  qPV = getPVQuery(applicationId, businessrole, pvconfig1);
+  pvappconfig = getPVConfig(applicationId, businessrole);
+  qPV = getPVQuery(applicationId, businessrole, pvappconfig);
   let resPV = await qPV;
 
   /// Possible values for Status..
   sPV = getPVField(applicationId, "Status");
   let statusPV = await sPV;
-
-  /// Initial values..
-  var ivalue = getInitialValues(req.params.id, businessrole, req.user);
+  // Initial values
+  var ivalue = getInitialValues(applicationId, businessrole, req.user);
   let ival_out = [];
   let ival = {};
+  let out = {};
   for (let i = 0; i < ivalue.length; i++) {
     ival = {};
     const element = ivalue[i];
@@ -77,7 +83,7 @@ exports.getListrecords1 = asyncHandler(async (req, res, next) => {
       results2["image"] = t_image;
       t_image = [];
       if (mode == "Web" || mode == "web") {
-        if (config1["Controls"]["USP"] == "UserProfile") {
+        if (appconfig["Controls"]["USP"] == "UserProfile") {
           results2["USP_Name"] = "OpenSAP course catalog";
           results2["USP_Role"] = "copyright - SAP®";
           //   results[i1].USP_Image =
@@ -121,7 +127,7 @@ exports.getListrecords1 = asyncHandler(async (req, res, next) => {
     outData["count"] = tCount;
     outData["pagination"] = pagination;
     outData["data"] = oResult;
-    outData["config"] = config1;
+    outData["config"] = appconfig;
 
     if (mode == "Web" || mode == "web") {
       res.status(200).json({
@@ -137,31 +143,28 @@ exports.getListrecords1 = asyncHandler(async (req, res, next) => {
     }
   } else {
     //// Data Source is mongoDB....
-
     // Get Table Schema
-    let path = "../../models/smartApp/" + req.params.id;
+    let path = "../../models/smartApp/" + applicationId;
     const model = require(path);
-    if (config1["itemData"] == "Yes") {
-      app2 = req.params.id + "_Itm";
+    if (appconfig["itemData"] == "Yes") {
+      app2 = applicationId + "_Itm";
       let path2 = "../../models/smartApp/" + app2;
       model2 = require(path2);
     } else {
       model2 = model;
     }
-
     // Get total Count
-    let query_c = getTotalCount(req.params.id, req, config1);
+    let query_c = getTotalCount(applicationId, req, appconfig);
     let rec = await query_c;
     const count = rec.length;
-
-    let query = readData(req.params.id, req, config1);
+    let query = readData(applicationId, req, appconfig);
     let results = await query;
 
     tabObj = {};
     tabArr = [];
 
-    if (config1["Controls"]["SearchString"]["Search"] == true) {
-      tableString = config1["Controls"]["SearchString"]["table"];
+    if (appconfig["Controls"]["SearchString"]["Search"] == true) {
+      tableString = appconfig["Controls"]["SearchString"]["table"];
       for (const key in tableString) {
         console.log("table:", key);
         tabObj["table"] = key;
@@ -195,14 +198,14 @@ exports.getListrecords1 = asyncHandler(async (req, res, next) => {
 
         results[i1].cardImage = application["photo"];
         if (mode == "Web" || mode == "web") {
-          if (config1["Controls"]["USP"] == "UserProfile") {
+          if (appconfig["Controls"]["USP"] == "UserProfile") {
             results[i1].USP_Name = "Atul Gupta";
             results[i1].USP_Role = businessrole;
             results[i1].USP_Image =
               "https://www.espncricinfo.com/inline/content/image/1183835.html?alt=1";
           }
 
-          if (config1["Controls"]["StatusColor"] == "Yes") {
+          if (appconfig["Controls"]["StatusColor"] == "Yes") {
             results[i1].StatusState =
               colorConfig["Status"][results[i1]["Status"]];
           }
@@ -217,14 +220,14 @@ exports.getListrecords1 = asyncHandler(async (req, res, next) => {
           mode = "Web";
         }
         if (mode == "Web" || mode == "web") {
-          if (config1["Controls"]["USP"] == "UserProfile") {
+          if (appconfig["Controls"]["USP"] == "UserProfile") {
             results[i1].USP_Name = "Atul Gupta";
             results[i1].USP_Role = businessrole;
             results[i1].USP_Image =
               "https://www.espncricinfo.com/inline/content/image/1183835.html?alt=1";
           }
 
-          if (config1["Controls"]["StatusColor"] == "Yes") {
+          if (appconfig["Controls"]["StatusColor"] == "Yes") {
             if (colorConfig["Status"][results[i1]["Status"]] == undefined) {
               results[i1]["StatusState"] = "None";
             } else {
@@ -245,14 +248,11 @@ exports.getListrecords1 = asyncHandler(async (req, res, next) => {
       }
     }
     /////////////////////////////////////////////////////////////////
-    console.log("Limit:", req.query.limit);
-    const limit = parseInt(req.query.limit, 10) || 50;
-
+    const limit = parseInt(req.query.limit, 10) || 25;
     // Pagination
     const page = parseInt(req.query.page, 10) || 1;
     const startIndex = (page - 1) * limit;
     const endIndex = page * limit;
-    console.log("Limit:", limit, page, startIndex, endIndex);
     // Pagination result
     const pagination = {};
     if (endIndex < count) {
@@ -273,16 +273,7 @@ exports.getListrecords1 = asyncHandler(async (req, res, next) => {
         oResult.push(results[q]);
       }
     }
-    let config = nConfig(req.params.id, req, config1);
-
-    out = {};
-    outData = {};
-
-    outData["success"] = true;
-    outData["count"] = results.length;
-    outData["pagination"] = pagination;
-
-    outData["config"] = config1;
+    //let config = nConfig(applicationId, req, appconfig);
 
     if (mode == "BOTList") {
       if (applicationId == "SUPP00018" || applicationId == "SUPP00028") {
@@ -323,11 +314,19 @@ exports.getListrecords1 = asyncHandler(async (req, res, next) => {
         }
       }
     }
+    outData = {};
+    outData["success"] = true;
+    outData["count"] = results.length;
+    outData["pagination"] = pagination;
+    outData["config"] = appconfig;
     outData["data"] = oResult;
+    if (mode == "BOTList") {
+      buttonData = getButtonData(resPV, applicationId, businessrole);
+    }
     if (mode == "BOTList") {
       res.status(200).json({
         outData,
-        //      buttons: buttonData,
+        buttons: buttonData,
         defaultValues: ival_out,
       });
     }
@@ -343,6 +342,47 @@ exports.getListrecords1 = asyncHandler(async (req, res, next) => {
         possibleValues: resPV,
         statusValues: statusPV,
         defaultValues: ival_out,
+      });
+    }
+    if (mode == "listcards") {
+      if (appconfig.hasOwnProperty("listCards")) {
+        var mycard = appconfig["listCards"];
+        for (let k = 0; k < mycard.length; k++) {
+          counter = counter + 1;
+          let cardKey = getCardKey(applicationId, businessrole, counter, "L");
+          let cardConfigFile1 =
+            "../../cards/cardConfig/" + mycard[k]["template"];
+          var cardData = JSON.stringify(require(cardConfigFile1));
+          cardData = cardReplace(mycard[k], cardData, appconfig);
+          var anacardConfig = JSON.parse(cardData);
+          switch (mycard[k]["type"]) {
+            case "Analytical":
+              if (mycard[k]["analyticsCard"]["chartType"] == "donut") {
+                jCard1 = {};
+                jCard1 = await donutCardHead(mycard[k], appData, anacardConfig);
+                outStru[cardKey] = { ...jCard1 };
+              }
+              break;
+            case "Adaptive":
+              jCard1 = {};
+              jCard1 = await adaptivecardCard(
+                applicationId,
+                businessrole,
+                anacardConfig
+              );
+              outStru[cardKey] = { ...jCard1 };
+              break;
+            default:
+              break;
+          }
+        }
+      }
+      res.status(200).json({
+        outData,
+        possibleValues: resPV,
+        defaultValues: ival_out,
+        statusValues: statusPV,
+        listCards: outStru,
       });
     }
   }
