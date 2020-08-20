@@ -609,6 +609,7 @@ module.exports = {
     } else {
       results.forEach((element) => {
         if (element.PossibleValues == "Status") {
+          console.log(button[app][element.Value]);
           for (const key in button[app][element.Value]) {
             if (button[app][element.Value].hasOwnProperty(key)) {
               const element1 = button[app][element.Value][key];
@@ -630,7 +631,7 @@ module.exports = {
                   element1[q]["payload"] =
                     kng.toUpperCase() + "-" + klg.toLowerCase();
                 }
-
+                console.log(oData);
                 if (element1[q]["type"] == "web_url") {
                   element1[q]["messenger_extensions"] = "true";
                   element1[q]["url"] =
@@ -639,7 +640,7 @@ module.exports = {
                     "&role=" +
                     role1 +
                     "&transID=" +
-                    oData["ID"] +
+                    oData["_id"] +
                     "&user=" +
                     user["email"];
                   var n = app.length - 3;
