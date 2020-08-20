@@ -1,0 +1,1314 @@
+{
+  "Title": {
+    "ApplicationTitle": "Employee Profile",
+    "DetailTitle": "Employee Profile"
+  },
+  "Controls": {
+    "calculation": "No",
+    "USP": "UserProfile",
+    "StatusColor": "Yes",
+    "SearchString": {
+      "Search": true,
+      "header": [],
+      "table": { "Skills": ["Skill"] }
+    },
+    "Filters": [{ "Partner": "@user" }],
+    "Partner": "@user",
+    "UserSpecific": "Yes",
+    "Update": "Yes",
+    "URL": "https://fierce-oasis-51455.herokuapp.com",
+    "Source": { "SourceName": "mongoDB", "SourceFile": "NA" },
+    "dataFilter": [
+      { "field": "Status" },
+      { "field": "MaritalStatus" },
+      { "field": "Sex" }
+    ],
+    "filterFieldSource": {
+      "header": ["Status", "Sex", "MaritalStatus"]
+    }
+  },
+
+  "ListFields": {
+    "IntroField": "FirstName",
+    "TitleField": "LastName",
+    "sStatus": "Status",
+    "fStatus": "EmployeeID",
+    "numberField": "",
+    "LFields": ["ID", "Email", "DateOfJoining", "SearchString"],
+    "numberUnitField": ""
+  },
+  "ListBOTFields": {
+    "None": ["cardImage", "StatusState"],
+    "Title": ["FirstName", "LastName"],
+    "SubTitle": ["EmployeeID", "Status"],
+    "Description": ["Email", "DateOfJoining"]
+  },
+  "PossibleValues": [
+    "Status",
+    "Sex",
+    "MaritalStatus",
+    "SkillLevel",
+    "Area",
+    "Experience",
+    "Qualification",
+    "InsurancePlan",
+    "MedicalCoverage",
+    "DentalCoverage",
+    "VisionCoverage",
+    "AccidentalDeath",
+    "ContactType",
+    "ItemStatus1",
+    "ItemStatus2",
+    "ItemStatus3",
+    "ItemStatus4",
+    "ItemStatus5",
+    "ItemStatus6",
+    "ItemStatus7"
+  ],
+  "MButtons": [
+    {
+      "type": "DOWNLOAD",
+      "name": "Download File",
+      "icon": "sap-icon://download",
+      "downloadFields": [
+        "ID",
+        "LastName",
+        "FirstName",
+        "EmployeeID",
+        "ID",
+        "DOB",
+        "DateOfJoining",
+        "MaritalStatus",
+        "Sex",
+        "ContactNo",
+        "Email",
+        "PostCode",
+        "Address",
+        "SSNumber",
+        "NINumber",
+        "SearchString"
+      ]
+    },
+    {
+      "type": "APPHELP",
+      "name": "Get App Help",
+      "icon": "sap-icon://sys-help-2"
+    },
+    {
+      "type": "OPENURL",
+      "name": "Launch BOT",
+      "icon": "sap-icon://travel-request",
+      "URL": "https://www.messenger.com/t/295020207695029"
+    }
+  ],
+  "DButtons": [],
+  "Tabs": [
+    {
+      "value": "Tab0",
+      "update": "No",
+      "name": "Cards",
+      "type": "Cards",
+      "fioriicon": "responsive"
+    },
+    {
+      "value": "Tab1",
+      "update": "Yes",
+      "name": "Personnel Details",
+      "fioriicon": "developer-settings",
+      "type": "Field"
+    },
+    {
+      "value": "Tab3",
+      "update": "Yes",
+      "name": "Skills",
+      "fioriicon": "technical-object",
+      "type": "Table"
+    },
+    {
+      "value": "Tab6",
+      "update": "Yes",
+      "name": "Education",
+      "fioriicon": "study-leave",
+      "type": "Table"
+    },
+    {
+      "value": "Tab7",
+      "update": "Yes",
+      "name": "Previous Employer",
+      "fioriicon": "addresses",
+      "type": "Table"
+    },
+    {
+      "value": "Tab10",
+      "update": "Yes",
+      "name": "Compensation",
+      "fioriicon": "receipt",
+      "type": "Table"
+    },
+    {
+      "value": "Tab4",
+      "update": "Yes",
+      "name": "Contacts/Dependents",
+      "fioriicon": "accidental-leave",
+      "type": "Table"
+    },
+    {
+      "value": "Tab9",
+      "update": "Yes",
+      "name": "Certifications",
+      "fioriicon": "receipt",
+      "type": "Table"
+    },
+    {
+      "value": "Tab8",
+      "update": "Yes",
+      "name": "MultiAttachments",
+      "fioriicon": "attachment",
+      "type": "MultiAttachments",
+      "docType": [
+        { "text": "Certificate", "state": "Success" },
+        { "text": "ExperienceLetter", "state": "Success" },
+        { "text": "OfferLetter", "state": "Success" },
+        { "text": "Qualifications", "state": "Information" },
+        { "text": "Payslip", "state": "Error" },
+        { "text": "P60", "state": "Error" },
+        { "text": "BankStatment", "state": "Error" },
+        { "text": "NI", "state": "Information" },
+        { "text": "References", "state": "Information" }
+      ]
+    },
+    {
+      "value": "Tab15",
+      "update": "Yes",
+      "name": "Benefits",
+      "fioriicon": "customer-view",
+      "type": "Table"
+    }
+  ],
+  "DetailFields": {
+    "headerTitle": ["USP_Name"],
+    "headerRole": ["USP_Role"],
+    "headerImage": ["USP_Image"],
+    "headerColorFields": ["Status"],
+    "None": ["LastName", "FirstName", "EmployeeID", "ID", "DOB"],
+    "Tab1": [
+      "DateOfJoining",
+      "MaritalStatus",
+      "Sex",
+      "ContactNo",
+      "Email",
+      "PostCode",
+      "Address",
+      "SSNumber",
+      "NINumber"
+    ],
+    "Tab3": ["Skills"],
+    "Tab6": ["Education"],
+    "Tab7": ["PreviousEmployer"],
+    "Tab4": ["EmergencyContacts"],
+    "Tab9": ["Certifications"],
+    "Tab10": ["Package"],
+    "Tab15": ["Benefits"],
+    "Tab8": ["MultiAttachments"]
+  },
+  "ControlDisplay": {},
+  "tableConfig": {
+    "Skills": {
+      "title": "Employee Skill Matrix",
+      "subtitle": "Skill Matrix",
+      "ItemFieldDefinition": [
+        {
+          "name": "ItemNumber",
+          "type": "string",
+          "width": "10",
+          "SLabel": "Item Number",
+          "Update": "No"
+        },
+        {
+          "name": "ItemStatus1",
+          "type": "string",
+          "width": "50",
+          "SLabel": "Item Status",
+          "Update": "Yes"
+        },
+        {
+          "name": "Area",
+          "type": "string",
+          "width": "200",
+          "SLabel": "Area",
+          "Option": "Optional"
+        },
+        {
+          "name": "Skill",
+          "type": "string",
+          "width": "200",
+          "SLabel": "Skill",
+          "Option": "Optional"
+        },
+        {
+          "name": "Experience",
+          "type": "string",
+          "width": "100",
+          "SLabel": "Experience",
+          "Option": "Optional"
+        },
+        {
+          "name": "ExperienceRole1",
+          "type": "string",
+          "width": "100",
+          "SLabel": "Role",
+          "Option": "Optional"
+        },
+        {
+          "name": "SkillLevel",
+          "type": "string",
+          "width": "100",
+          "SLabel": "Skill Level",
+          "Option": "Optional"
+        },
+        {
+          "name": "Comments1",
+          "type": "string",
+          "width": "500",
+          "SLabel": "Comments",
+          "Option": "Optional"
+        }
+      ],
+      "DisplayFields": [
+        "Area",
+        "Skill",
+        "SkillLevel",
+        "Experience",
+        "ExperienceRole1",
+        "ItemStatus1"
+      ],
+      "cards": [
+        {
+          "type": "Table",
+          "filterKey": "ItemStatus1",
+          "filterKeyLabel": "Item Status",
+          "template": "template_table.json",
+          "tableCardFields": ["Area", "Skill", "Experience"]
+        },
+        {
+          "type": "Analytical",
+          "filterKey": "ItemStatus1",
+          "filterKeyLabel": "Item Status",
+          "cardID": "EMPNEE01",
+          "template": "template_analyticalCard_donut.json",
+          "title": "Skill Vs Area",
+          "analyticsCard": {
+            "chartType": "donut",
+            "cardsDonut": {
+              "measureName": "Area",
+              "value": "Area",
+              "function": "COUNT"
+            }
+          }
+        }
+      ],
+
+      "ItemButtons": {
+        "itemDisplay": true,
+        "itemCheck": false,
+        "itemAdd": true,
+        "itemEdit": true,
+        "itemDelete": true
+      },
+      "CreateFields": [
+        "Area",
+        "Skill",
+        "SkillLevel",
+        "Experience",
+        "ExperienceRole1",
+        "Comments1",
+        "ItemStatus1"
+      ],
+      "ItemDetails": [
+        { "name": "Area" },
+        { "name": "Skill" },
+        { "name": "SkillLevel" },
+        { "name": "Experience" },
+        { "name": "ExperienceRole1" },
+        { "name": "Comments1" },
+        { "name": "ItemStatus1" }
+      ]
+    },
+    "Education": {
+      "title": "Employee Education",
+      "subtitle": "Education",
+      "ItemFieldDefinition": [
+        {
+          "name": "ItemNumber",
+          "type": "string",
+          "width": "10",
+          "SLabel": "Item Number",
+          "Update": "No"
+        },
+        {
+          "name": "ItemStatus2",
+          "type": "string",
+          "width": "50",
+          "SLabel": "Item Status",
+          "Update": "Yes"
+        },
+        {
+          "name": "Qualification",
+          "type": "string",
+          "width": "200",
+          "SLabel": "Qualification",
+          "Option": "Optional"
+        },
+        {
+          "name": "Subject",
+          "type": "string",
+          "width": "200",
+          "SLabel": "Subject",
+          "Option": "Optional"
+        },
+
+        {
+          "name": "YearCompleted",
+          "type": "string",
+          "width": "100",
+          "SLabel": "Year Completed",
+          "Option": "Optional"
+        },
+        {
+          "name": "College",
+          "type": "string",
+          "width": "100",
+          "SLabel": "Uni/College",
+          "Option": "Optional"
+        },
+        {
+          "name": "Comments2",
+          "type": "string",
+          "width": "500",
+          "SLabel": "Comments",
+          "Option": "Optional"
+        }
+      ],
+      "DisplayFields": [
+        "Qualification",
+        "Subject",
+        "YearCompleted",
+        "College",
+        "ItemStatus2"
+      ],
+      "cards": [
+        {
+          "type": "Table",
+          "filterKey": "ItemStatus2",
+          "filterKeyLabel": "Item Status",
+          "template": "template_table.json",
+          "tableCardFields": ["Qualification", "Subject", "YearCompleted"]
+        }
+      ],
+
+      "ItemButtons": {
+        "itemDisplay": true,
+        "itemCheck": false,
+        "itemAdd": true,
+        "itemEdit": true,
+        "itemDelete": true
+      },
+      "CreateFields": [
+        "Qualification",
+        "Subject",
+        "YearCompleted",
+        "College",
+        "Comments2",
+        "ItemStatus2"
+      ],
+      "ItemDetails": [
+        { "name": "Qualification" },
+        { "name": "Subject" },
+        { "name": "YearCompleted" },
+        { "name": "College" },
+        { "name": "Comments2" },
+        { "name": "ItemStatus2" }
+      ]
+    },
+    "PreviousEmployer": {
+      "title": "Previous Employers",
+      "subtitle": "Employers",
+      "ItemFieldDefinition": [
+        {
+          "name": "ItemNumber",
+          "type": "string",
+          "width": "10",
+          "SLabel": "Item Number",
+          "Update": "No"
+        },
+        {
+          "name": "ItemStatus3",
+          "type": "string",
+          "width": "50",
+          "SLabel": "Item Status",
+          "Update": "Yes"
+        },
+        {
+          "name": "From",
+          "type": "string",
+          "width": "200",
+          "SLabel": "From Date",
+          "Option": "Optional"
+        },
+        {
+          "name": "To",
+          "type": "string",
+          "width": "200",
+          "SLabel": "To Date",
+          "Option": "Optional"
+        },
+        {
+          "name": "ExpYears",
+          "type": "Num,1",
+          "width": "20",
+          "SLabel": "Experience Years",
+          "Option": "Optional"
+        },
+        {
+          "name": "Employer",
+          "type": "string",
+          "width": "200",
+          "SLabel": "Employer",
+          "Option": "Optional"
+        },
+        {
+          "name": "Role",
+          "type": "string",
+          "width": "100",
+          "SLabel": "Role",
+          "Option": "Optional"
+        },
+        {
+          "name": "Comments3",
+          "type": "string",
+          "width": "500",
+          "SLabel": "Comments",
+          "Option": "Optional"
+        }
+      ],
+      "DisplayFields": [
+        "From",
+        "To",
+        "ExpYears",
+        "Employer",
+        "Role",
+        "ItemStatus3"
+      ],
+      "cards": [
+        {
+          "type": "Table",
+          "filterKey": "ItemStatus3",
+          "filterKeyLabel": "Item Status",
+          "template": "template_table.json",
+          "tableCardFields": ["From", "To", "Employer"]
+        },
+        {
+          "type": "Analytical",
+          "filterKey": "ItemStatus3",
+          "filterKeyLabel": "Item Status",
+          "cardID": "EMPNEE02",
+          "template": "template_analyticalCard_donut.json",
+          "title": "Previous Employers",
+          "analyticsCard": {
+            "chartType": "donut",
+            "cardsDonut": {
+              "measureName": "Employer",
+              "value": "ExpYears",
+              "function": "SUM"
+            }
+          }
+        }
+      ],
+
+      "ItemButtons": {
+        "itemDisplay": true,
+        "itemCheck": false,
+        "itemAdd": true,
+        "itemEdit": true,
+        "itemDelete": true
+      },
+      "CreateFields": [
+        "From",
+        "To",
+        "ExpYears",
+        "Employer",
+        "Role",
+        "Comments3",
+        "ItemStatus3"
+      ],
+      "ItemDetails": [
+        { "name": "From" },
+        { "name": "To" },
+        { "name": "ExpYears" },
+        { "name": "Employer" },
+        { "name": "Role" },
+        { "name": "Comments3" },
+        { "name": "ItemStatus3" }
+      ]
+    },
+    "EmergencyContacts": {
+      "title": "Employee Emergency Contacts / Dependents",
+      "subtitle": "Contacts / Dependents",
+      "ItemFieldDefinition": [
+        {
+          "name": "ItemNumber",
+          "type": "string",
+          "width": "10",
+          "SLabel": "Item Number",
+          "Update": "No"
+        },
+        {
+          "name": "ItemStatus4",
+          "type": "string",
+          "width": "50",
+          "SLabel": "Item Status",
+          "Update": "Yes"
+        },
+        {
+          "name": "ContactName1",
+          "type": "string",
+          "width": "200",
+          "SLabel": "Contact Name",
+          "Option": "Optional"
+        },
+        {
+          "name": "ContactPhone1",
+          "type": "string",
+          "width": "200",
+          "SLabel": "ContactPhone",
+          "Option": "Optional"
+        },
+        {
+          "name": "Relation1",
+          "type": "string",
+          "width": "100",
+          "SLabel": "Relation1",
+          "Option": "Optional"
+        },
+        {
+          "name": "ContactType",
+          "type": "string",
+          "width": "100",
+          "SLabel": "Contact Type",
+          "Option": "Optional"
+        },
+        {
+          "name": "Comments4",
+          "type": "string",
+          "width": "500",
+          "SLabel": "Comments",
+          "Option": "Optional"
+        }
+      ],
+      "DisplayFields": [
+        "ContactName1",
+        "ContactPhone1",
+        "Relation1",
+        "ContactType",
+        "ItemStatus4"
+      ],
+      "cards": [
+        {
+          "type": "Table",
+          "filterKey": "ItemStatus4",
+          "filterKeyLabel": "Item Status",
+          "template": "template_table.json",
+          "tableCardFields": ["ContactName1", "ContactPhone1", "Relation1"]
+        }
+      ],
+
+      "ItemButtons": {
+        "itemDisplay": true,
+        "itemCheck": false,
+        "itemAdd": true,
+        "itemEdit": true,
+        "itemDelete": true
+      },
+      "CreateFields": [
+        "ContactName1",
+        "ContactPhone1",
+        "Relation1",
+        "Comments4",
+        "ContactType",
+        "ItemStatus4"
+      ],
+      "ItemDetails": [
+        { "name": "ContactName1" },
+        { "name": "ContactPhone1" },
+        { "name": "Relation1" },
+        { "name": "Comments4" },
+        { "name": "ContactType" },
+        { "name": "ItemStatus4" }
+      ]
+    },
+
+    "Certifications": {
+      "title": "Employee Certifications",
+      "subtitle": "Certifications",
+      "ItemFieldDefinition": [
+        {
+          "name": "ItemNumber",
+          "type": "string",
+          "width": "10",
+          "SLabel": "Item Number",
+          "Update": "No"
+        },
+        {
+          "name": "ItemStatus5",
+          "type": "string",
+          "width": "50",
+          "SLabel": "Item Status",
+          "Update": "Yes"
+        },
+        {
+          "name": "CourseName",
+          "type": "string",
+          "width": "200",
+          "SLabel": "CourseName",
+          "Option": "Optional"
+        },
+        {
+          "name": "DateCertified",
+          "type": "Date",
+          "width": "200",
+          "SLabel": "DateCertified",
+          "Option": "Optional"
+        },
+        {
+          "name": "LinkC",
+          "type": "hyperlink",
+          "width": "100",
+          "SLabel": "Certificate Link",
+          "Option": "Optional"
+        },
+        {
+          "name": "CommentsC",
+          "type": "string",
+          "width": "500",
+          "SLabel": "Comments",
+          "Option": "Optional"
+        }
+      ],
+      "DisplayFields": ["CourseName", "DateCertified", "LinkC", "ItemStatus5"],
+      "cards": [
+        {
+          "type": "Table",
+          "filterKey": "ItemStatus5",
+          "filterKeyLabel": "Item Status",
+          "template": "template_table.json",
+          "tableCardFields": ["CourseName", "DateCertified", "LinkC"]
+        }
+      ],
+
+      "ItemButtons": {
+        "itemDisplay": true,
+        "itemCheck": false,
+        "itemAdd": true,
+        "itemEdit": true,
+        "itemDelete": true
+      },
+      "CreateFields": [
+        "CourseName",
+        "DateCertified",
+        "LinkC",
+        "CommentsC",
+        "ItemStatus5"
+      ],
+      "ItemDetails": [
+        { "name": "CourseName" },
+        { "name": "DateCertified" },
+        { "name": "LinkC" },
+        { "name": "CommentsC" },
+        { "name": "ItemStatus5" }
+      ]
+    },
+
+    "Package": {
+      "title": "Employee Compensation Package",
+      "subtitle": "Employee Compensation Package",
+      "detailCard": "Yes",
+      "ItemFieldDefinition": [
+        {
+          "name": "ItemNumber",
+          "type": "string",
+          "width": "10",
+          "SLabel": "Item Number",
+          "Update": "No"
+        },
+        {
+          "name": "ItemStatus6",
+          "type": "string",
+          "width": "50",
+          "SLabel": "Item Status",
+          "Update": "Yes"
+        },
+        {
+          "name": "Question",
+          "type": "string",
+          "width": "10",
+          "SLabel": "Salary Details",
+          "Option": "Optional"
+        },
+        {
+          "name": "Answer",
+          "type": "string",
+          "width": "20",
+          "SLabel": "Earnings",
+          "Option": "Optional"
+        },
+        {
+          "name": "Deductions",
+          "type": "string",
+          "width": "20",
+          "SLabel": "Deductions",
+          "Option": "Optional"
+        },
+        {
+          "name": "AddComments",
+          "type": "string",
+          "width": "200",
+          "SLabel": "Comments",
+          "Option": "Optional"
+        },
+        {
+          "name": "CorrectAnswer",
+          "type": "string",
+          "width": "20",
+          "SLabel": "Correct Ans",
+          "Option": "Optional"
+        },
+        {
+          "name": "Score",
+          "type": "string",
+          "width": "20",
+          "SLabel": "Score",
+          "Option": "Optional"
+        }
+      ],
+      "DisplayFields": [
+        "Question",
+        "Answer",
+        "Deductions",
+        "AddComments",
+        "ItemStatus6"
+      ],
+      "cards": [
+        {
+          "type": "Table",
+          "filterKey": "ItemStatus6",
+          "filterKeyLabel": "Item Status",
+          "template": "template_table.json",
+          "tableCardFields": ["Question", "Answer", "Deductions"]
+        },
+        {
+          "type": "Analytical",
+          "filterKey": "ItemStatus6",
+          "filterKeyLabel": "Item Status",
+          "cardID": "EMPNEE03",
+          "title": "Package Analysis",
+          "subtitle": "Earnings and Deductions",
+          "unitOfMeasurement": "SCORE",
+          "template": "template_analyticalCard_line.json",
+          "analyticsCard": {
+            "chartType": "line",
+
+            "itemvalueMap": { "Score": "Answer", "Target": "Deductions" },
+            "itemkeyMap": { "Area": "Question" },
+            "itemfixedVal": [{ "Total": 5 }],
+            "sumField": [
+              { "sumScore": "Answer" },
+              { "sumtargetScore": "Deductions" }
+            ],
+            "headerfieldMap": [
+              { "j_number": "sumScore" },
+              { "j_target": "sumtargetScore" }
+            ]
+          }
+        }
+      ],
+
+      "ItemButtons": {
+        "itemDisplay": true,
+        "itemCheck": false,
+        "itemAdd": false,
+        "itemEdit": false,
+        "itemDelete": false
+      },
+      "CreateFields": [
+        "Question",
+        "Answer",
+        "Deductions",
+        "AddComments",
+        "ItemStatus6"
+      ],
+      "ItemDetails": [
+        { "name": "Question" },
+        { "name": "Answer" },
+        { "name": "Deductions" },
+        { "name": "AddComments" },
+        { "name": "ItemStatus6" }
+      ]
+    },
+    "Benefits": {
+      "title": "Employee Benefits",
+      "subtitle": "Employee Benefits",
+      "ItemFieldDefinition": [
+        {
+          "name": "ItemNumber",
+          "type": "string",
+          "width": "10",
+          "SLabel": "Item Number",
+          "Update": "No"
+        },
+        {
+          "name": "ItemStatus7",
+          "type": "string",
+          "width": "50",
+          "SLabel": "Item Status",
+          "Update": "Yes"
+        },
+        {
+          "name": "InsurancePlan",
+          "type": "string",
+          "width": "200",
+          "SLabel": "Insurance Plan",
+          "Option": "Optional"
+        },
+        {
+          "name": "InsurancePlanLink",
+          "type": "hyperlink",
+          "width": "200",
+          "SLabel": "Insurance Plan Link",
+          "Option": "Optional"
+        },
+        {
+          "name": "MedicalCoverage",
+          "type": "string",
+          "width": "200",
+          "SLabel": "Medical Coverage",
+          "Option": "Optional"
+        },
+        {
+          "name": "MedicalCoverageLink",
+          "type": "hyperlink",
+          "width": "200",
+          "SLabel": "Medical Coverage Link",
+          "Option": "Optional"
+        },
+        {
+          "name": "DentalCoverage",
+          "type": "string",
+          "width": "200",
+          "SLabel": "Dental Coverage",
+          "Option": "Optional"
+        },
+        {
+          "name": "DentalCoverageLink",
+          "type": "hyperlink",
+          "width": "200",
+          "SLabel": "Dental Coverage Link",
+          "Option": "Optional"
+        },
+        {
+          "name": "VisionCoverage",
+          "type": "string",
+          "width": "200",
+          "SLabel": "Vision Coverage",
+          "Option": "Optional"
+        },
+        {
+          "name": "VisionCoverageLink",
+          "type": "hyperlink",
+          "width": "200",
+          "SLabel": "Vision Coverage Link",
+          "Option": "Optional"
+        },
+        {
+          "name": "AccidentalDeath",
+          "type": "string",
+          "width": "200",
+          "SLabel": "Accidental Death",
+          "Option": "Optional"
+        },
+        {
+          "name": "AccidentalDeathLink",
+          "type": "hyperlink",
+          "width": "200",
+          "SLabel": "Accidental Death Link",
+          "Option": "Optional"
+        },
+        {
+          "name": "CommentsPS",
+          "type": "string",
+          "width": "500",
+          "SLabel": "Comments",
+          "Option": "Optional"
+        }
+      ],
+      "DisplayFields": [
+        "InsurancePlan",
+        "MedicalCoverage",
+        "DentalCoverage",
+        "VisionCoverage",
+        "AccidentalDeath",
+        "ItemStatus7"
+      ],
+      "cards": [
+        {
+          "type": "Table",
+          "filterKey": "ItemStatus7",
+          "filterKeyLabel": "Item Status",
+          "template": "template_table.json",
+          "tableCardFields": [
+            "InsurancePlan",
+            "MedicalCoverage",
+            "DentalCoverage",
+            "VisionCoverage",
+            "AccidentalDeath"
+          ]
+        }
+      ],
+
+      "ItemButtons": {
+        "itemDisplay": true,
+        "itemCheck": false,
+        "itemAdd": true,
+        "itemEdit": true,
+        "itemDelete": true
+      },
+      "CreateFields": [
+        "InsurancePlan",
+        "MedicalCoverage",
+        "DentalCoverage",
+        "VisionCoverage",
+        "AccidentalDeath",
+        "ItemStatus7"
+      ],
+      "ItemDetails": [
+        { "name": "InsurancePlan" },
+        { "name": "MedicalCoverage" },
+        { "name": "DentalCoverage" },
+        { "name": "VisionCoverage" },
+        { "name": "AccidentalDeath" },
+        { "name": "CommentsPS" },
+        { "name": "ItemStatus7" }
+      ]
+    }
+  },
+  "FieldDef": [
+    {
+      "name": "ID",
+      "type": "string",
+      "width": "20",
+      "Option": "Mandatory",
+      "SLabel": "Identification",
+      "Update": "No"
+    },
+    {
+      "name": "ReferenceID",
+      "type": "string",
+      "width": "20",
+      "Option": "Optional",
+      "SLabel": "ReferenceID"
+    },
+    {
+      "name": "EmployeeID",
+      "type": "string",
+      "width": "50",
+      "Option": "Mandatory",
+      "SLabel": "Employee ID",
+      "LLabel": "Employee ID"
+    },
+    {
+      "name": "FirstName",
+      "type": "string",
+      "width": "50",
+      "Option": "Mandatory",
+      "SLabel": "First Name",
+      "LLabel": "First Name"
+    },
+    {
+      "name": "LastName",
+      "type": "string",
+      "width": "50",
+      "Option": "Mandatory",
+      "SLabel": "Last Name",
+      "LLabel": "Last Name"
+    },
+    {
+      "name": "DOB",
+      "type": "Date",
+      "width": "10",
+      "Option": "Mandatory",
+      "SLabel": "Date of Birth",
+      "LLabel": "Date of Birth"
+    },
+
+    {
+      "name": "PostCode",
+      "type": "searchField",
+      "width": "20",
+      "linkFields": "Address",
+      "URL": "{URL}/api/v1/util/address/{PostCode}",
+      "URLMethod": "GET",
+      "Token": true,
+      "Option": "Optional",
+      "SLabel": "Post Code",
+      "LLabel": "Post Code"
+    },
+    {
+      "name": "Address",
+      "type": "string",
+      "width": "200",
+      "Option": "Optional",
+      "SLabel": "Address",
+      "LLabel": "Address"
+    },
+    {
+      "name": "Sex",
+      "type": "radiobutton",
+      "width": "20",
+      "Option": "Optional",
+      "SLabel": "Sex",
+      "LLabel": "Sex"
+    },
+    {
+      "name": "MaritalStatus",
+      "type": "radiobutton",
+      "width": "20",
+      "Option": "Optional",
+      "SLabel": "MaritalStatus",
+      "LLabel": "MaritalStatus"
+    },
+    {
+      "name": "ContactNo",
+      "type": "string",
+      "width": "20",
+      "Option": "Optional",
+      "SLabel": "Contact No",
+      "LLabel": "Contact No"
+    },
+    {
+      "name": "Email",
+      "type": "string",
+      "width": "50",
+      "Option": "Optional",
+      "SLabel": "Email Id",
+      "LLabel": "Email Id"
+    },
+    {
+      "name": "DateOfJoining",
+      "type": "Date",
+      "width": "10",
+      "Option": "Optional",
+      "SLabel": "Date Of Joining",
+      "LLabel": "Date Of Joining"
+    },
+    {
+      "name": "Package",
+      "type": "Array",
+      "width": "500",
+      "Option": "Optional",
+      "SLabel": "Compensation",
+      "LLabel": "Compensation"
+    },
+    {
+      "name": "SSNumber",
+      "type": "string",
+      "width": "100",
+      "Option": "Optional",
+      "SLabel": "Social Security Number",
+      "LLabel": "Social Security Number"
+    },
+    {
+      "name": "NINumber",
+      "type": "string",
+      "width": "100",
+      "Option": "Optional",
+      "SLabel": "NI Number",
+      "LLabel": "NI Number"
+    },
+    {
+      "name": "Status",
+      "type": "string",
+      "width": "50",
+      "Option": "Mandatory",
+      "SLabel": "Status",
+      "LLabel": "Status"
+    },
+    {
+      "name": "SearchString",
+      "type": "string",
+      "width": "200",
+      "Option": "Mandatory",
+      "SLabel": "Search String",
+      "LLabel": "Search String"
+    },
+    {
+      "name": "ProgressComment",
+      "type": "string",
+      "width": "1000",
+      "Option": "Optional",
+      "SLabel": "ProgressComment",
+      "LLabel": "ProgressComment"
+    },
+    {
+      "name": "Dependents",
+      "type": "Array",
+      "width": "200",
+      "Option": "Optional",
+      "SLabel": "Dependents",
+      "LLabel": "Dependents"
+    },
+    {
+      "name": "Benefits",
+      "type": "Array",
+      "width": "200",
+      "Option": "Optional",
+      "SLabel": "Benefits",
+      "LLabel": "Benefits"
+    },
+    {
+      "name": "EmergencyContacts",
+      "type": "Array",
+      "width": "200",
+      "Option": "Optional",
+      "SLabel": "Contacts/Dependents",
+      "LLabel": "Contacts/Dependents"
+    },
+    {
+      "name": "Education",
+      "type": "Array",
+      "width": "200",
+      "Option": "Optional",
+      "SLabel": "Education",
+      "LLabel": "Education"
+    },
+    {
+      "name": "PreviousEmployer",
+      "type": "Array",
+      "width": "200",
+      "Option": "Optional",
+      "SLabel": "Previous Employer",
+      "LLabel": "Previous Employer"
+    },
+    {
+      "name": "Skills",
+      "type": "Array",
+      "width": "200",
+      "Option": "Optional",
+      "SLabel": "Skills",
+      "LLabel": "Skills"
+    },
+    {
+      "name": "Certifications",
+      "type": "Array",
+      "width": "200",
+      "Option": "Optional",
+      "SLabel": "Certifications and Trainings",
+      "LLabel": "Certifications and Trainings"
+    },
+    {
+      "name": "Payslips",
+      "type": "Array",
+      "width": "200",
+      "Option": "Optional",
+      "SLabel": "Payslips",
+      "LLabel": "Payslips"
+    },
+    {
+      "name": "P60",
+      "type": "Array",
+      "width": "200",
+      "Option": "Optional",
+      "SLabel": "P60",
+      "LLabel": "P60"
+    },
+
+    {
+      "name": "MultiAttachments",
+      "type": "attachment",
+      "metadata": "MultipleFields",
+      "width": "200",
+      "Option": "Optional",
+      "SLabel": "Learning Documents",
+      "LLabel": "Learning Documents"
+    },
+    {
+      "name": "ReferenceID",
+      "type": "string",
+      "width": "50",
+      "Option": "Optional",
+      "SLabel": "ReferenceID",
+      "LLabel": "ReferenceID"
+    },
+    {
+      "name": "TotalEarning",
+      "type": "string",
+      "width": "50",
+      "Option": "Optional",
+      "SLabel": "Total Earning",
+      "LLabel": "Total Earning"
+    },
+    {
+      "name": "TotalDeductions",
+      "type": "string",
+      "width": "50",
+      "Option": "Optional",
+      "SLabel": "Total Deductions",
+      "LLabel": "Total Deductions"
+    },
+    {
+      "name": "NetPay",
+      "type": "string",
+      "width": "50",
+      "Option": "Optional",
+      "SLabel": "Net Pay",
+      "LLabel": "Net Pay"
+    }
+  ],
+  "itemData": "No",
+  "itemConfig": {
+    "ItemFieldDefinition": [],
+    "DisplayFields": [],
+    "ItemButtons": {
+      "itemDisplay": false,
+      "itemAdd": false,
+      "itemEdit": false,
+      "itemDelete": false
+    },
+    "CreateFields": [],
+    "ItemDetails": []
+  },
+  "CalculatedFields": {
+    "Item": [],
+    "HeaderItem": [
+      {
+        "CalculatedFormula": {
+          "name": "ITEMSUM",
+          "function": "ITEMSUM",
+          "Target": "TotalEarning",
+          "type": "HeaderItem"
+        },
+        "Fields": [{ "Source": "Answer", "Type": { "type": "HeaderItem" } }]
+      },
+      {
+        "CalculatedFormula": {
+          "name": "ITEMSUM",
+          "function": "ITEMSUM",
+          "Target": "TotalDeductions",
+          "type": "HeaderItem"
+        },
+        "Fields": [{ "Source": "Deductions", "Type": { "type": "HeaderItem" } }]
+      }
+    ],
+    "Header": []
+  },
+  "Create": "No",
+  "Wizard": []
+}

@@ -263,7 +263,7 @@
     "Tab4": ["Goals"],
     "Tab5": ["MyTraining"],
     "Tab6": ["MultiAttachments"],
-    "Tab7": ["Questioner"],
+    "Tab7": ["EmployeeFB"],
     "Tab8": ["ProjectFeedback"]
   },
   "tableConfig": {
@@ -442,6 +442,14 @@
           }
         },
         {
+          "type": "Table",
+          "filterKey": "ItemStatus1",
+          "filterKeyLabel": "Item Status",
+          "template": "template_table.json",
+          "tableCardFields": ["GoalsArea", "Goal2", "TargetDate2"],
+          "cardID": "tab001"
+        },
+        {
           "type": "Example",
           "cardType": "List",
           "cardsubType": "ListHighLight",
@@ -461,14 +469,6 @@
           },
           "fieldMap": {},
           "colorStatus": "ItemStatus1"
-        },
-        {
-          "type": "Table",
-          "filterKey": "ItemStatus1",
-          "filterKeyLabel": "Item Status",
-          "template": "template_table.json",
-          "tableCardFields": ["GoalsArea", "Goal2", "TargetDate2"],
-          "cardID": "tab001"
         }
       ],
 
@@ -1034,6 +1034,7 @@
       ]
     }
   },
+  "cards": [],
   "ControlDisplay": {},
   "FieldDef": [
     {
@@ -1082,15 +1083,7 @@
       "width": "200",
       "Option": "Optional",
       "SLabel": "Supporting Documents",
-      "LLabel": "Supporting Documents",
-      "docType": [
-        { "text": "ProjectFeedback", "state": "Error" },
-        { "text": "PeerFeedback", "state": "Success" },
-        { "text": "CustomerFeedback", "state": "Information" },
-        { "text": "Awards", "state": "Error" },
-        { "text": "Appreciation", "state": "Success" },
-        { "text": "Certifications", "state": "Information" }
-      ]
+      "LLabel": "Supporting Documents"
     },
     {
       "name": "EmployeeID",
@@ -1142,12 +1135,12 @@
       "SLabel": "Role"
     },
     {
-      "name": "Questioner",
+      "name": "EmployeeFB",
       "type": "Array",
       "width": "200",
       "Option": "Optional",
-      "SLabel": "Questioner",
-      "LLabel": "Questioner"
+      "SLabel": "EmployeeFB",
+      "LLabel": "EmployeeFB"
     },
     {
       "name": "Band",
@@ -1208,14 +1201,14 @@
     },
     {
       "name": "Score",
-      "type": "string",
+      "type": "Num,0",
       "width": "50",
       "Option": "Optional",
       "SLabel": "Score (out of 5)"
     },
     {
       "name": "MaxScore",
-      "type": "string",
+      "type": "Num,0",
       "width": "50",
       "Option": "Optional",
       "SLabel": "Maximum Score"
@@ -1271,7 +1264,7 @@
     },
     {
       "name": "TestScore",
-      "type": "string",
+      "type": "Num,0",
       "width": "200",
       "Option": "Optional",
       "SLabel": "Test Score",

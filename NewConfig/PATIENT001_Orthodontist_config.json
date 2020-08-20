@@ -75,7 +75,8 @@
     "ItemStatus3",
     "ItemStatus4",
     "ItemStatus5",
-    "ItemStatus6"
+    "ItemStatus6",
+    "tType"
   ],
   "MButtons": [
     { "type": "ADD", "name": "Add Record", "icon": "sap-icon://add" },
@@ -289,7 +290,10 @@
           "Status": 5,
           "StatusCode": "InProgress",
           "Class": "Ghost",
-          "NextStatus": [{ "Button": "Patient" },{ "Status": 3, "Button": "Completed" }],
+          "NextStatus": [
+            { "Button": "Patient" },
+            { "Status": 3, "Button": "Completed" }
+          ],
           "headers": [
             { "applicationid": "PATIENT002" },
             { "businessrole": "Orthodontist" }
@@ -304,7 +308,10 @@
           "Status": 6,
           "StatusCode": "Cancelled",
           "Class": "Negative",
-          "NextStatus": [{ "Button": "Patient" },{ "Status": 1, "Button": "Book" }],
+          "NextStatus": [
+            { "Button": "Patient" },
+            { "Status": 1, "Button": "Book" }
+          ],
           "headers": [
             { "applicationid": "PATIENT002" },
             { "businessrole": "Orthodontist" }
@@ -334,7 +341,10 @@
           "Status": 8,
           "StatusCode": "Requested",
           "Class": "Success",
-          "NextStatus": [{ "Button": "Patient" },{ "Status": 1, "Button": "Book" }],
+          "NextStatus": [
+            { "Button": "Patient" },
+            { "Status": 1, "Button": "Book" }
+          ],
           "headers": [
             { "applicationid": "PATIENT002" },
             { "businessrole": "Orthodontist" }
@@ -1660,6 +1670,14 @@
           "SLabel": "Payment Date",
           "Option": "Optional",
           "Update": "Yes"
+        },
+        {
+          "name": "tType",
+          "type": "string",
+          "width": "10",
+          "SLabel": "Transaction Type",
+          "Option": "Optional",
+          "Update": "Yes"
         }
       ],
       "cards": [
@@ -1723,7 +1741,8 @@
         "PaidAmount",
         "AuthorizationCode",
         "PaymentMethod",
-        "PaidBy"
+        "PaidBy",
+        "tType"
       ],
       "ItemButtons": {
         "itemDisplay": true,
@@ -1740,7 +1759,8 @@
         "PaidAmount",
         "AuthorizationCode",
         "PaymentMethod",
-        "PaidBy"
+        "PaidBy",
+        "tType"
       ],
       "ItemDetails": [
         { "name": "ItemNumber" },
@@ -1753,8 +1773,30 @@
         { "name": "PaidAmount" },
         { "name": "PaymentMethod" },
         { "name": "AuthorizationCode" },
-        { "name": "PaidBy" }
-      ]
+        { "name": "PaidBy" },
+        { "name": "tType" }
+      ],
+      "ControlDisplay": {
+        "ControlField": "tType",
+        "Fields": [
+          [
+            {
+              "ALL": ["ItemNumber", "Description", "Currency", "ItemStatus1"]
+            },
+            {
+              "DueAmount": ["Amount", "DueDate"]
+            },
+            {
+              "Payment": [
+                "PaidBy",
+                "PaidAmount",
+                "AuthorizationCode",
+                "PaymentMethod"
+              ]
+            }
+          ]
+        ]
+      }
     },
     "PatientStatusLog": {
       "title": "Patient Status Log",

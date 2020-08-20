@@ -511,6 +511,13 @@
           "Update": "Yes"
         },
         {
+          "name": "Category",
+          "type": "string",
+          "width": "50",
+          "SLabel": "Category",
+          "Update": "Yes"
+        },
+        {
           "name": "ItemName",
           "type": "string",
           "width": "100",
@@ -570,10 +577,9 @@
       "DisplayFields": [
         "ItemName",
         "ItemValue",
-        "iVAT",
-        "ItemVATValue",
         "ItemGrossValue",
-        "ItemStatus1"
+        "ItemStatus1",
+        "Category"
       ],
       "cards": [
         {
@@ -581,12 +587,7 @@
           "filterKey": "ItemStatus1",
           "filterKeyLabel": "Item Status",
           "template": "template_table.json",
-          "tableCardFields": [
-            "ItemNumber",
-            "ItemName",
-            "ItemValue",
-            "ItemGrossValue"
-          ]
+          "tableCardFields": ["ItemName", "ItemGrossValue", "ItemStatus1"]
         },
         {
           "type": "Analytical",
@@ -603,9 +604,82 @@
               "function": "SUM"
             }
           }
+        },
+        {
+          "type": "Example",
+          "cardType": "List",
+          "cardsubType": "MicrochartBullet",
+          "cardID": "L001",
+          "cardLevel": "tableData",
+          "template": "template_example_microchartBullet.json",
+          "mergedFields": {
+            "Name": ["ItemNumber", "ItemName"],
+            "Description": ["Category", "ItemStatus1"]
+          },
+          "fieldMap": {
+            "Expected": "ItemVATValue",
+            "Actual": "ItemValue",
+            "Target": "ItemValue"
+          },
+          "colorStatus": "ItemStatus1"
+        },
+        {
+          "type": "Example",
+          "cardType": "List",
+          "cardsubType": "ListBulletChart",
+          "cardID": "L002",
+          "cardLevel": "tableData",
+          "template": "template_example_listBulletChart.json",
+          "mergedFields": {
+            "Name": ["ItemNumber", "ItemName"],
+            "Description": ["Category", "ItemStatus1"]
+          },
+          "fieldMap": {
+            "Expected": "ItemVATValue",
+            "Actual": "ItemValue",
+            "Target": "ItemValue"
+          },
+          "colorStatus": "ItemStatus1"
+        },
+        {
+          "type": "Example",
+          "cardType": "List",
+          "cardsubType": "ListstackedBar",
+          "cardID": "L003",
+          "cardLevel": "tableData",
+          "template": "template_example_liststackedBar.json",
+          "mergedFields": {
+            "Name": ["ItemNumber", "ItemName", "Category"]
+          },
+          "fieldMap": {
+            "Category": "ItemName",
+            "Expected": "ItemValue",
+            "Actual": "ItemVATValue"
+          },
+          "colorStatus": "ItemStatus1"
+        },
+        {
+          "type": "Example",
+          "cardType": "List",
+          "cardsubType": "MicrochartStackedBar",
+          "cardID": "L004",
+          "cardLevel": "tableData",
+          "template": "template_example_microchartStackedBar.json",
+          "mergedFields": {
+            "Name": ["ItemNumber", "ItemName", "Category"]
+          },
+          "fieldMap": {
+            "Category": "ItemName",
+            "Expected": "ItemValue",
+            "Actual": "ItemVATValue"
+          },
+          "colorStatus": "ItemStatus1"
+        },
+        {
+          "type": "Example",
+          "template": "template_example_liststackedBar.json"
         }
       ],
-
       "ItemButtons": {
         "itemDisplay": true,
         "itemCheck": true,
@@ -617,7 +691,8 @@
         "ItemName",
         "ItemPrice",
         "ItemQuantity",
-        "ItemTaxRate",
+        "iVAT",
+        "Category",
         "ItemStatus1"
       ],
       "ItemDetails": [
@@ -629,7 +704,8 @@
         { "name": "iVAT" },
         { "name": "ItemGrossValue" },
         { "name": "ItemVATValue" },
-        { "name": "ItemTaxRate" }
+        { "name": "ItemTaxRate" },
+        { "name": "Category" }
       ]
     }
   },
