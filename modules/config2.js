@@ -565,10 +565,33 @@ module.exports = {
     let path1 = "../cards/adaptivecardforms/" + appID + "_" + role + ".json";
     let path2 =
       "../cards/adaptivecardforms/" + appID + "_" + role + "_actions.json";
+    let path3 =
+      "../cards/adaptivecardforms/" + appID + "_" + role + "_additional.json";
     //    let path3 = "../cards/cardConfig/template_adaptiveForm.json";
     const cardbody = require(path1);
     const cardaction = require(path2);
-    //  const adCard = require(path3);
+    const cardadditional = require(path3);
+    for (let z = 0; z < cardbody["body"].length; z++) {
+      if (cardbody["body"][z].hasOwnProperty("value")) {
+        if (cardbody["body"][z]["value"] == "@currentDate") {
+          let ag1 = new Date();
+          cardbody["body"][z]["value"] = "2020-08-19";
+        }
+      }
+    }
+    for (let z = 0; z < cardadditional["body"].length; z++) {
+      if (cardadditional["body"][z].hasOwnProperty("value")) {
+        if (cardadditional["body"][z]["value"] == "@currentDate") {
+          let ag1 = new Date();
+          cardadditional["body"][z]["value"] = "2020-08-19";
+        }
+      }
+    }
+    for (let y = 0; y < cardaction["actions"].length; y++) {
+      if (cardaction["actions"][y]["type"] == "Action.ShowCard") {
+        cardaction["actions"][y]["card"]["body"] = cardadditional["body"];
+      }
+    }
 
     adCard["sap.card"]["content"]["body"] = cardbody["body"];
     adCard["sap.card"]["content"]["actions"] = cardaction["actions"];

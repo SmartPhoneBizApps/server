@@ -28,7 +28,6 @@ exports.getDetailCardsNew = async (req, res, next) => {
 
   outStru = {};
   let appData = {};
-  // Read New Config File
   if (
     req.params.app !== undefined &&
     req.params.app !== "" &&
@@ -51,7 +50,6 @@ exports.getDetailCardsNew = async (req, res, next) => {
     req.params.role !== "" &&
     req.params.role !== null
   ) {
-    // Get the Record
     appData = await findOneAppDatabyid(req.params.record, req.params.app);
     if (appData != undefined) {
       iMessage = "Data found";

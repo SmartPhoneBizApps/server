@@ -3,6 +3,7 @@ const {
   adaptivecardCard,
   getCardKey,
   cardReplace,
+  analyticalCard,
 } = require("../../modules/config2");
 const {
   getPVConfig,
@@ -364,10 +365,15 @@ exports.listrecordsnew = asyncHandler(async (req, res, next) => {
             case "Analytical":
               if (mycard[k]["analyticsCard"]["chartType"] == "donut") {
                 jCard1 = {};
-                jCard1 = await donutCardHead(mycard[k], appData, anacardConfig);
+                jCard1 = await analyticalCard(
+                  mycard[k],
+                  appData,
+                  anacardConfig
+                );
                 outStru[cardKey] = { ...jCard1 };
               }
               break;
+
             case "Adaptive":
               jCard1 = {};
               jCard1 = await adaptivecardCard(

@@ -147,6 +147,23 @@
       "subtitle": "New Expense",
       "template": "template_adaptiveForm.json",
       "level": "Header"
+    },
+    {
+      "type": "Example",
+      "cardType": "Analytical",
+      "cardsubType": "Donut",
+      "cardID": "ADT01H",
+      "cardLevel": "header",
+      "template": "template_example_donut.json",
+      "title": "Expense Type Analysis",
+      "analyticsCard": {
+        "chartType": "donut",
+        "cardsDonut": {
+          "measureName": "Status",
+          "Value2": "TotalAmount",
+          "function": "SUM"
+        }
+      }
     }
   ],
   "cards": [],
