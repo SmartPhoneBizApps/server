@@ -25,11 +25,18 @@ const {
 } = require("../../modules/config");
 const { readData, getTotalCount, nConfig } = require("../../modules/config2");
 const asyncHandler = require("../../middleware/async");
+// @desc      Get all records
+// @route     GET /api/v1/listrecords
+// @access    Private
 exports.listrecordsnew = asyncHandler(async (req, res, next) => {
   outStru = {};
   const applicationId = req.params.app;
   const businessrole = req.params.businessrole;
   const mode = req.params.mode;
+  // Read Color Configuration
+  let fileNameColor = "../../config/colorConfig.json";
+  var colorConfig = require(fileNameColor);
+
   const application = await findOneApp(applicationId);
   var appconfig = getNewConfig(applicationId, businessrole);
   let path = "../../models/smartApp/" + applicationId;
@@ -69,12 +76,34 @@ exports.listrecordsnew = asyncHandler(async (req, res, next) => {
   } else {
     for (let i1 = 0; i1 < results.length; i1++) {
       results[i1].cardImage = application["photo"];
+
+      if (mode == "") {
+        mode = "Web";
+      }
       if (mode == "Web" || mode == "web") {
-        if (appconfig["Controls"]["USP"] == "UserProfile") {
+        if (config1["Controls"]["USP"] == "UserProfile") {
           results[i1].USP_Name = "Atul Gupta";
           results[i1].USP_Role = businessrole;
           results[i1].USP_Image =
             "https://www.espncricinfo.com/inline/content/image/1183835.html?alt=1";
+        }
+
+        if (config1["Controls"]["StatusColor"] == "Yes") {
+          if (colorConfig["Status"][results[i1]["Status"]] == undefined) {
+            results[i1]["StatusState"] = "None";
+          } else {
+            results[i1]["StatusState"] =
+              colorConfig["Status"][results[i1]["Status"]];
+          }
+        }
+        results[i1].SearchString = "";
+        for (let l = 0; l < tabArr.length; l++) {
+          for (let x = 0; x < results[i1][tabArr[l]["table"]].length; x++) {
+            results[i1].SearchString =
+              results[i1].SearchString +
+              results[i1][tabArr[l]["table"]][x][tabArr[l]["field"]] +
+              " ";
+          }
         }
       }
     }

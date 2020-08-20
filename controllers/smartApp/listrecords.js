@@ -9,44 +9,33 @@ const {
 } = require("../../modules/config");
 const { readData, getTotalCount, nConfig } = require("../../modules/config2");
 const asyncHandler = require("../../middleware/async");
-const advancedDataList = require("../../middleware/advancedDataList");
 // @desc      Get all records
 // @route     GET /api/v1/listrecords
 // @access    Private
 exports.getListrecords1 = asyncHandler(async (req, res, next) => {
-  console.log("myUser", req.user);
+  const applicationId = req.headers.applicationid;
+  const businessrole = req.headers.businessrole;
+  const mode = req.headers.mode;
   // Read Color Configuration
   let fileNameColor = "../../config/colorConfig.json";
   var colorConfig = require(fileNameColor);
-  /// Application Details..
+
   const application = await findOneApp(req.params.id);
   let fn1 =
-    "../../NewConfig/" +
-    req.params.id +
-    "_" +
-    req.headers.businessrole +
-    "_config.json";
+    "../../NewConfig/" + req.params.id + "_" + businessrole + "_config.json";
   var config1 = require(fn1);
 
   /// Possible values..
-  pvconfig1 = getPVConfig(req.headers.applicationid, req.headers.businessrole);
-  qPV = getPVQuery(
-    req.headers.applicationid,
-    req.headers.businessrole,
-    pvconfig1
-  );
+  pvconfig1 = getPVConfig(applicationId, businessrole);
+  qPV = getPVQuery(applicationId, businessrole, pvconfig1);
   let resPV = await qPV;
 
   /// Possible values for Status..
-  sPV = getPVField(req.headers.applicationid, "Status");
+  sPV = getPVField(applicationId, "Status");
   let statusPV = await sPV;
 
   /// Initial values..
-  var ivalue = getInitialValues(
-    req.params.id,
-    req.headers.businessrole,
-    req.user
-  );
+  var ivalue = getInitialValues(req.params.id, businessrole, req.user);
   let ival_out = [];
   let ival = {};
   for (let i = 0; i < ivalue.length; i++) {
@@ -87,7 +76,7 @@ exports.getListrecords1 = asyncHandler(async (req, res, next) => {
       t_image.push(results1[i1]["image"]);
       results2["image"] = t_image;
       t_image = [];
-      if (req.headers.mode == "Web" || req.headers.mode == "web") {
+      if (mode == "Web" || mode == "web") {
         if (config1["Controls"]["USP"] == "UserProfile") {
           results2["USP_Name"] = "OpenSAP course catalog";
           results2["USP_Role"] = "copyright - SAP®";
@@ -134,7 +123,7 @@ exports.getListrecords1 = asyncHandler(async (req, res, next) => {
     outData["data"] = oResult;
     outData["config"] = config1;
 
-    if (req.headers.mode == "Web" || req.headers.mode == "web") {
+    if (mode == "Web" || mode == "web") {
       res.status(200).json({
         outData,
         possibleValues: resPV,
@@ -200,15 +189,15 @@ exports.getListrecords1 = asyncHandler(async (req, res, next) => {
         query2 = model2.find(JSON.parse(queryStr2));
         results2 = await query2;
         results[i1].cardImage = application["photo"];
-        if (req.headers.mode !== "BOTList") {
+        if (mode !== "BOTList") {
           results[i1]["ItemData"] = results2;
         }
 
         results[i1].cardImage = application["photo"];
-        if (req.headers.mode == "Web" || req.headers.mode == "web") {
+        if (mode == "Web" || mode == "web") {
           if (config1["Controls"]["USP"] == "UserProfile") {
             results[i1].USP_Name = "Atul Gupta";
-            results[i1].USP_Role = req.headers.businessrole;
+            results[i1].USP_Role = businessrole;
             results[i1].USP_Image =
               "https://www.espncricinfo.com/inline/content/image/1183835.html?alt=1";
           }
@@ -224,13 +213,13 @@ exports.getListrecords1 = asyncHandler(async (req, res, next) => {
       for (let i1 = 0; i1 < results.length; i1++) {
         results[i1].cardImage = application["photo"];
 
-        if (req.headers.mode == "") {
-          req.headers.mode = "Web";
+        if (mode == "") {
+          mode = "Web";
         }
-        if (req.headers.mode == "Web" || req.headers.mode == "web") {
+        if (mode == "Web" || mode == "web") {
           if (config1["Controls"]["USP"] == "UserProfile") {
             results[i1].USP_Name = "Atul Gupta";
-            results[i1].USP_Role = req.headers.businessrole;
+            results[i1].USP_Role = businessrole;
             results[i1].USP_Image =
               "https://www.espncricinfo.com/inline/content/image/1183835.html?alt=1";
           }
@@ -295,16 +284,13 @@ exports.getListrecords1 = asyncHandler(async (req, res, next) => {
 
     outData["config"] = config1;
 
-    if (req.headers.mode == "BOTList") {
-      if (
-        req.headers.applicationid == "SUPP00018" ||
-        req.headers.applicationid == "SUPP00028"
-      ) {
+    if (mode == "BOTList") {
+      if (applicationId == "SUPP00018" || applicationId == "SUPP00028") {
         for (let w = 0; w < oResult.length; w++) {
           buttonData = getButtonData(
             resPV,
-            req.headers.applicationid,
-            req.headers.businessrole,
+            applicationId,
+            businessrole,
             oResult[w],
             req.user
           );
@@ -321,8 +307,8 @@ exports.getListrecords1 = asyncHandler(async (req, res, next) => {
         for (let w = 0; w < oResult.length; w++) {
           buttonData = getButtonData(
             statusPV,
-            req.headers.applicationid,
-            req.headers.businessrole,
+            applicationId,
+            businessrole,
             oResult[w],
             req.user
           );
@@ -338,20 +324,20 @@ exports.getListrecords1 = asyncHandler(async (req, res, next) => {
       }
     }
     outData["data"] = oResult;
-    if (req.headers.mode == "BOTList") {
+    if (mode == "BOTList") {
       res.status(200).json({
         outData,
         //      buttons: buttonData,
         defaultValues: ival_out,
       });
     }
-    if (req.headers.mode == "BOTDetail") {
+    if (mode == "BOTDetail") {
       res.status(200).json({
         outData,
         defaultValues: ival_out,
       });
     }
-    if (req.headers.mode == "Web" || req.headers.mode == "web") {
+    if (mode == "Web" || mode == "web") {
       res.status(200).json({
         outData,
         possibleValues: resPV,
