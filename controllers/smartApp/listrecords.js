@@ -119,6 +119,10 @@ exports.getListrecords1 = asyncHandler(async (req, res, next) => {
     oResult = [];
     for (let q = startIndex; q < endIndex; q++) {
       if (results[q] !== undefined) {
+        //      if (results[q]["cardImage"] == "no-photo.jpg") {
+        results[q]["cardImage"] =
+          "https://images.unsplash.com/photo-1585776462170-f6f0e680e1c8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80";
+        //       }
         oResult.push(results[q]);
       }
     }
@@ -195,8 +199,7 @@ exports.getListrecords1 = asyncHandler(async (req, res, next) => {
         if (mode !== "BOTList") {
           results[i1]["ItemData"] = results2;
         }
-
-        results[i1].cardImage = application["photo"];
+        //        results[i1].cardImage = application["photo"];
         if (mode == "Web" || mode == "web") {
           if (appconfig["Controls"]["USP"] == "UserProfile") {
             results[i1].USP_Name = "Atul Gupta";
@@ -214,7 +217,9 @@ exports.getListrecords1 = asyncHandler(async (req, res, next) => {
       // If Items are NOT present...
     } else {
       for (let i1 = 0; i1 < results.length; i1++) {
-        results[i1].cardImage = application["photo"];
+        //   results[i1].cardImage = application["photo"];
+        results[i1].cardImage =
+          "https://images.unsplash.com/photo-1585776462170-f6f0e680e1c8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80";
 
         if (mode == "") {
           mode = "Web";

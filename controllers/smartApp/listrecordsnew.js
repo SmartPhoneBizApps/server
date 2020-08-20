@@ -58,7 +58,6 @@ exports.listrecordsnew = asyncHandler(async (req, res, next) => {
     outData = {};
     // Read JSON source file
     let results = [];
-
     let results1 = [];
     let res1 = {};
 
@@ -119,6 +118,10 @@ exports.listrecordsnew = asyncHandler(async (req, res, next) => {
     oResult = [];
     for (let q = startIndex; q < endIndex; q++) {
       if (results[q] !== undefined) {
+        //    if (results[q]["cardImage"] == "no-photo.jpg") {
+        results[q]["cardImage"] =
+          "https://images.unsplash.com/photo-1585776462170-f6f0e680e1c8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80";
+        //   }
         oResult.push(results[q]);
       }
     }
@@ -214,7 +217,9 @@ exports.listrecordsnew = asyncHandler(async (req, res, next) => {
       // If Items are NOT present...
     } else {
       for (let i1 = 0; i1 < results.length; i1++) {
-        results[i1].cardImage = application["photo"];
+        //   results[i1].cardImage = application["photo"];
+        results[i1].cardImage =
+          "https://images.unsplash.com/photo-1585776462170-f6f0e680e1c8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80";
 
         if (mode == "") {
           mode = "Web";
@@ -273,8 +278,6 @@ exports.listrecordsnew = asyncHandler(async (req, res, next) => {
         oResult.push(results[q]);
       }
     }
-    console.log(oResult);
-
     //let config = nConfig(applicationId, req, appconfig);
 
     if (mode == "BOTList") {
