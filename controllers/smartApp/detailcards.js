@@ -227,5 +227,10 @@ exports.getDetailCardsNew = async (req, res, next) => {
     outStru["TransLog"] = { ...jCard1 };
   }
 
-  res.status(200).json({ success: true, data: outStru });
+  res.status(200).json({
+    success: true,
+    ID: appData["ID"],
+    data: outStru,
+    config: appconfig,
+  });
 };
