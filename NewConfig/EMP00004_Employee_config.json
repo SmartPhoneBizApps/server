@@ -154,7 +154,12 @@
       "name": "MultiAttachment",
       "fioriicon": "attachment",
       "type": "MultiAttachments",
-      "download": "Yes"
+      "download": "Yes",
+      "docType": [
+        { "text": "Receipt", "state": "Information" },
+        { "text": "SupplierAttachment", "state": "Error" },
+        { "text": "Quote", "state": "Success" }
+      ]
     }
   ],
   "DetailFields": {

@@ -190,7 +190,11 @@
       "name": "Attachment",
       "fioriicon": "attachment",
       "type": "MultiAttachments",
-      "download": "No"
+      "download": "No",
+      "docType": [
+        { "text": "HeaderAttachment", "state": "Information" },
+        { "text": "ItemAttachment", "state": "Success" }
+      ]
     }
   ],
   "DetailFields": {
@@ -220,24 +224,7 @@
     "Tab5": ["MultiAttachments"]
   },
   "ControlDisplay": {},
-  "headerCards": [
-    {
-      "type": "Analytical",
-      "filterKey": "Status",
-      "filterKeyLabel": "Status",
-      "cardID": "EMP02M01",
-      "template": "template_analyticalCard_donut.json",
-      "title": "Travel Cost Analysis",
-      "analyticsCard": {
-        "chartType": "donut",
-        "cardsDonut": {
-          "measureNames": ["FoodCost", "TravelCost", "StayCost", "OtherCost"],
-          "values": ["FoodCost", "TravelCost", "StayCost", "OtherCost"],
-          "function": "VALUE"
-        }
-      }
-    }
-  ],
+
   "FieldDef": [
     {
       "name": "ID",

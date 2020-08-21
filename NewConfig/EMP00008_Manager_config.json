@@ -169,7 +169,8 @@
       "name": "MultiAttachment",
       "fioriicon": "attachment",
       "type": "MultiAttachments",
-      "download": "Yes"
+      "download": "Yes",
+      "docType": [{ "text": "Receipt", "state": "Information" }]
     },
     {
       "value": "Tab4",
@@ -191,6 +192,107 @@
     "Tab5": ["MultiAttachments"],
     "Tab4": ["ProcessingLog"]
   },
+  "listCards": [
+    {
+      "cardType": "Adaptive",
+      "title": "Create Expense",
+      "subtitle": "New Expense",
+      "template": "template_adaptiveForm.json",
+      "level": "Header"
+    },
+    {
+      "type": "Example",
+      "cardType": "Analytical",
+      "cardsubType": "StackedBar",
+      "cardID": "ASB01",
+      "cardLevel": "tableData",
+      "template": "template_example_StackedBar",
+      "title": "Expense Analysis",
+      "subtitle": "Expenses Status",
+      "unitOfMeasurement": "GBP",
+      "itemvalueMap": {
+        "Value1": "TotalAmount",
+        "Value2": "NA"
+      },
+      "itemkeyMap": {
+        "Area": "Status"
+      },
+      "itemfixedVal": [{ "Total": 5 }],
+      "sumField": [{ "sumValue1": "TotalAmount" }, { "sumValue2": "NA" }],
+      "headerfieldMap": [
+        { "j_number": "sumValue1" },
+        { "j_target": "sumValue2" }
+      ]
+    },
+    {
+      "type": "Example",
+      "cardType": "Analytical",
+      "cardsubType": "StackedColumn",
+      "cardID": "ASC01",
+      "cardLevel": "tableData",
+      "template": "template_example_stackedcolumn",
+      "title": "Expense Analysis",
+      "subtitle": "Expenses Type",
+      "unitOfMeasurement": "GBP",
+      "itemvalueMap": {
+        "Value1": "TotalAmount",
+        "Value2": "Deductions"
+      },
+      "itemkeyMap": {
+        "Area": "ProjectCode"
+      },
+      "itemfixedVal": [{ "Total": 5 }],
+      "sumField": [
+        { "sumValue1": "TotalAmount" },
+        { "sumValue2": "Deductions" }
+      ],
+      "headerfieldMap": [
+        { "j_number": "sumValue1" },
+        { "j_target": "sumValue2" }
+      ]
+    },
+    {
+      "type": "Example",
+      "cardType": "Analytical",
+      "cardsubType": "Donut",
+      "cardID": "ADT01H",
+      "cardLevel": "header",
+      "template": "template_example_donut.json",
+      "title": "Expense Type Analysis",
+      "analyticsCard": {
+        "chartType": "ExpType",
+        "cardsDonut": {
+          "measureName": "CostCentre",
+          "Value2": "TotalAmount",
+          "function": "SUM"
+        }
+      }
+    },
+    {
+      "type": "Example",
+      "cardType": "Analytical",
+      "cardsubType": "Line",
+      "cardID": "ALN01",
+      "cardLevel": "tableData",
+      "template": "template_example_line.json",
+      "title": "Expense Analysis",
+      "subtitle": "Entry Date",
+      "unitOfMeasurement": "GBP",
+      "itemvalueMap": {
+        "Value1": "TotalAmount",
+        "Value2": "NA"
+      },
+      "itemkeyMap": {
+        "Area": "EntryDate"
+      },
+      "itemfixedVal": [{ "Total": 5 }],
+      "sumField": [{ "sumValue1": "TotalAmount" }, { "sumValue2": "NA" }],
+      "headerfieldMap": [
+        { "j_number": "sumValue1" },
+        { "j_target": "sumValue2" }
+      ]
+    }
+  ],
   "ControlDisplay": {},
   "tableConfig": {
     "myExpenses": {

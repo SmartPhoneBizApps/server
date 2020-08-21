@@ -7,7 +7,7 @@
     "calculation": "No",
     "USP": "UserProfile",
     "StatusColor": "Yes",
-    "SearchString":{"Search":false},
+    "SearchString": { "Search": false },
     "Filters": [],
     "Partner": "@user",
     "UserSpecific": "Yes",
@@ -101,7 +101,11 @@
       "name": "Attachment",
       "fioriicon": "attachment",
       "type": "MultiAttachments",
-      "download": "Yes"
+      "download": "Yes",
+      "docType": [
+        { "text": "HeaderAttachment", "state": "Information" },
+        { "text": "ItemAttachment", "state": "Success" }
+      ]
     }
   ],
   "DetailFields": {
