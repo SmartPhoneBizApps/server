@@ -361,13 +361,13 @@ exports.listrecordsnew = asyncHandler(async (req, res, next) => {
           var cardData = JSON.stringify(require(cardConfigFile1));
           cardData = cardReplace(mycard[k], cardData, appconfig);
           var anacardConfig = JSON.parse(cardData);
-          switch (mycard[k]["type"]) {
+          switch (mycard[k]["cardType"]) {
             case "Analytical":
               if (mycard[k]["analyticsCard"]["chartType"] == "donut") {
                 jCard1 = {};
                 jCard1 = await analyticalCard(
                   mycard[k],
-                  appData,
+                  outData["data"],
                   anacardConfig
                 );
                 outStru[cardKey] = { ...jCard1 };
