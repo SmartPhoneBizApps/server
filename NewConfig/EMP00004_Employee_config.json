@@ -20,7 +20,6 @@
       { "field": "CostCentre" },
       { "field": "Currency" },
       { "field": "VATRate" },
-      { "field": "PaymentOption" },
       { "field": "GLAccount" }
     ],
     "filterFieldSource": {
@@ -30,7 +29,6 @@
         "CostCentre",
         "Currency",
         "VATRate",
-        "PaymentOption",
         "GLAccount"
       ]
     }
@@ -60,7 +58,6 @@
     "GLAccount",
     "VATRate",
     "Status",
-    "PaymentOption",
     "iVAT",
     "ItemStatus1"
   ],
@@ -188,27 +185,99 @@
       "subtitle": "New Shopping",
       "template": "template_adaptiveForm.json",
       "level": "Header"
+    },
+    {
+      "type": "Example",
+      "cardType": "Analytical",
+      "cardsubType": "StackedBar",
+      "cardID": "ASB01",
+      "cardLevel": "tableData",
+      "template": "template_example_StackedBar",
+      "title": "Shoppingcart Analysis",
+      "subtitle": "Status",
+      "unitOfMeasurement": "GBP",
+      "itemvalueMap": {
+        "Value1": "GrossValue",
+        "Value2": "NA"
+      },
+      "itemkeyMap": {
+        "Area": "Status"
+      },
+      "itemfixedVal": [{ "Total": 5 }],
+      "sumField": [{ "sumValue1": "GrossValue" }, { "sumValue2": "NA" }],
+      "headerfieldMap": [
+        { "j_number": "sumValue1" },
+        { "j_target": "sumValue2" }
+      ]
+    },
+    {
+      "type": "Example",
+      "cardType": "Analytical",
+      "cardsubType": "StackedColumn",
+      "cardID": "ASC01",
+      "cardLevel": "tableData",
+      "template": "template_example_stackedcolumn",
+      "title": "Shoppingcart Analysis",
+      "subtitle": "Shoppingcart Vendor",
+      "unitOfMeasurement": "GBP",
+      "itemvalueMap": {
+        "Value1": "GrossValue",
+        "Value2": "NA"
+      },
+      "itemkeyMap": {
+        "Area": "VendorName"
+      },
+      "itemfixedVal": [{ "Total": 5 }],
+      "sumField": [{ "sumValue1": "GrossValue" }, { "sumValue2": "NA" }],
+      "headerfieldMap": [
+        { "j_number": "sumValue1" },
+        { "j_target": "sumValue2" }
+      ]
+    },
+    {
+      "type": "Example",
+      "cardType": "Analytical",
+      "cardsubType": "Donut",
+      "cardID": "ADT01H",
+      "cardLevel": "header",
+      "template": "template_example_donut.json",
+      "title": "Expense Type Analysis",
+      "analyticsCard": {
+        "chartType": "donut",
+        "cardsDonut": {
+          "measureName": "CostCentre",
+          "Value2": "GrossValue",
+          "function": "SUM"
+        }
+      }
+    },
+    {
+      "type": "Example",
+      "cardType": "Analytical",
+      "cardsubType": "Line",
+      "cardID": "ALN01",
+      "cardLevel": "tableData",
+      "template": "template_example_line.json",
+      "title": "Expense Analysis",
+      "subtitle": "Entry Date",
+      "unitOfMeasurement": "GBP",
+      "itemvalueMap": {
+        "Value1": "GrossValue",
+        "Value2": "NA"
+      },
+      "itemkeyMap": {
+        "Area": "SCDate"
+      },
+      "itemfixedVal": [{ "Total": 5 }],
+      "sumField": [{ "sumValue1": "GrossValue" }, { "sumValue2": "NA" }],
+      "headerfieldMap": [
+        { "j_number": "sumValue1" },
+        { "j_target": "sumValue2" }
+      ]
     }
   ],
   "cards": [],
   "ControlDisplay": {},
-  "headerCards": [
-    {
-      "type": "Analytical",
-      "filterKey": "Status",
-      "filterKeyLabel": "Status",
-      "cardID": "EMP04S01",
-      "analyticsCard": {
-        "chartType": "donut",
-        "cardsDonut": {
-          "measureNames": ["NetValue", "VATVal"],
-          "values": ["NetValue", "VATVal"],
-          "function": "VALUE",
-          "subtitle": "Total Value"
-        }
-      }
-    }
-  ],
   "FieldDef": [
     {
       "name": "ID",
@@ -250,7 +319,7 @@
       "name": "SCDate",
       "type": "Date",
       "width": "10",
-      "Option": "Optional",
+      "Option": "Mandatory",
       "SLabel": "SC Date"
     },
 
@@ -354,7 +423,7 @@
       "name": "DelTo",
       "type": "string",
       "width": "100",
-      "Option": "Optional",
+      "Option": "Mandatory",
       "SLabel": "Delivery To"
     },
     {
@@ -396,73 +465,6 @@
       "width": "100",
       "Option": "Mandatory",
       "SLabel": "Delivey Email"
-    },
-    {
-      "name": "DeliveryInstr",
-      "type": "string",
-      "width": "500",
-      "Option": "Optional",
-      "SLabel": "Delivery Instructor"
-    },
-    {
-      "name": "BudgetUsed",
-      "type": "string",
-      "width": "10",
-      "Option": "Optional",
-      "SLabel": "Budget Used"
-    },
-    {
-      "name": "PaymentAmount",
-      "type": "string",
-      "width": "50",
-      "Option": "Optional",
-      "SLabel": "Payment Amount"
-    },
-    {
-      "name": "PaymentOption",
-      "type": "radiobutton",
-      "width": "50",
-      "Option": "Optional",
-      "SLabel": "Payment Option"
-    },
-    {
-      "name": "TransactionID",
-      "type": "string",
-      "width": "50",
-      "Option": "Optional",
-      "SLabel": "Transaction ID"
-    },
-    {
-      "name": "TransactionStatus",
-      "type": "string",
-      "width": "50",
-      "Option": "Optional",
-      "SLabel": "Transaction Status"
-    },
-    {
-      "name": "VATPer",
-      "type": "Num,1",
-      "width": "100",
-      "Option": "Optional",
-      "SLabel": "VAT Percentage",
-      "LLabel": "VAT Percentage"
-    },
-    {
-      "name": "Approver",
-      "type": "string",
-      "width": "50",
-      "Option": "Optional",
-      "SLabel": "Approver",
-      "LLabel": "Approver"
-    },
-
-    {
-      "name": "MutiItems",
-      "type": "string",
-      "width": "3",
-      "Option": "Optional",
-      "SLabel": "MutiItems",
-      "LLabel": "MutiItems"
     },
     {
       "name": "iData",

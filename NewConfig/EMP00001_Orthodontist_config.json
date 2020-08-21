@@ -62,6 +62,14 @@
   ],
   "DButtons": [
     {
+      "type": "COPY",
+      "name": "Copy Leave",
+      "icon": "sap-icon://copy",
+      "URL": "util/copyCourse/EMP00001/EMP00001/{ID}/{role}",
+      "Token": "Yes",
+      "URLMethod": "POST"
+    },
+    {
       "type": "WORKFLOW",
       "name": "Cancel",
       "icon": "sap-icon://decline",
@@ -163,31 +171,106 @@
     "Tab6": ["ProcessingLog"],
     "Tab8": ["MultiAttachments"]
   },
-  "cards": [
+  "listCards": [
     {
-      "type": "Adaptive",
+      "cardType": "Adaptive",
       "title": "Create Leave Request",
       "subtitle": "Apply Leave",
       "template": "template_adaptiveForm.json",
       "level": "Header"
     },
     {
-      "type": "Analytical",
-      "filterKey": "Status",
-      "filterKeyLabel": "Status",
-      "cardID": "EMP04S02",
-      "template": "template_analyticalCard_donut.json",
-      "title": "Leave Request Analysis",
+      "type": "Example",
+      "cardType": "Analytical",
+      "cardsubType": "StackedBar",
+      "cardID": "ASB01",
+      "cardLevel": "tableData",
+      "template": "template_example_StackedBar",
+      "title": "Leave Analysis",
+      "subtitle": "Leave Status",
+      "unitOfMeasurement": "Days",
+      "itemvalueMap": {
+        "Value1": "LeaveDays",
+        "Value2": "NA"
+      },
+      "itemkeyMap": {
+        "Area": "Status"
+      },
+      "itemfixedVal": [{ "Total": 5 }],
+      "sumField": [{ "sumValue1": "LeaveDays" }, { "sumValue2": "NA" }],
+      "headerfieldMap": [
+        { "j_number": "sumValue1" },
+        { "j_target": "sumValue2" }
+      ]
+    },
+    {
+      "type": "Example",
+      "cardType": "Analytical",
+      "cardsubType": "StackedColumn",
+      "cardID": "ASC01",
+      "cardLevel": "tableData",
+      "template": "template_example_stackedcolumn",
+      "title": "Leave Analysis",
+      "subtitle": "Leaves Type",
+      "unitOfMeasurement": "GBP",
+      "itemvalueMap": {
+        "Value1": "LeaveDays",
+        "Value2": "NA"
+      },
+      "itemkeyMap": {
+        "Area": "LeaveType"
+      },
+      "itemfixedVal": [{ "Total": 5 }],
+      "sumField": [{ "sumValue1": "LeaveDays" }, { "sumValue2": "NA" }],
+      "headerfieldMap": [
+        { "j_number": "sumValue1" },
+        { "j_target": "sumValue2" }
+      ]
+    },
+    {
+      "type": "Example",
+      "cardType": "Analytical",
+      "cardsubType": "Donut",
+      "cardID": "ADT01H",
+      "cardLevel": "header",
+      "template": "template_example_donut.json",
+      "title": "Leave Type Analysis",
       "analyticsCard": {
         "chartType": "donut",
         "cardsDonut": {
           "measureName": "LeaveType",
-          "value": "LeaveDays",
+          "Value2": "LeaveDays",
           "function": "SUM"
         }
       }
+    },
+    {
+      "type": "Example",
+      "cardType": "Analytical",
+      "cardsubType": "Line",
+      "cardID": "ALN01",
+      "cardLevel": "tableData",
+      "template": "template_example_line.json",
+      "title": "Leave Analysis",
+      "subtitle": "Entry Date",
+      "unitOfMeasurement": "GBP",
+      "itemvalueMap": {
+        "Value1": "LeaveDays",
+        "Value2": "NA"
+      },
+      "itemkeyMap": {
+        "Area": "LeaveFrom"
+      },
+      "itemfixedVal": [{ "Total": 5 }],
+      "sumField": [{ "sumValue1": "LeaveDays" }, { "sumValue2": "NA" }],
+      "headerfieldMap": [
+        { "j_number": "sumValue1" },
+        { "j_target": "sumValue2" }
+      ]
     }
   ],
+
+  "cards": [],
   "ControlDisplay": {},
   "FieldDef": [
     {

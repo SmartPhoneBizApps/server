@@ -236,16 +236,13 @@
       "unitOfMeasurement": "GBP",
       "itemvalueMap": {
         "Value1": "TotalAmount",
-        "Value2": "Deductions"
+        "Value2": "NA"
       },
       "itemkeyMap": {
         "Area": "ProjectCode"
       },
       "itemfixedVal": [{ "Total": 5 }],
-      "sumField": [
-        { "sumValue1": "TotalAmount" },
-        { "sumValue2": "Deductions" }
-      ],
+      "sumField": [{ "sumValue1": "TotalAmount" }, { "sumValue2": "NA" }],
       "headerfieldMap": [
         { "j_number": "sumValue1" },
         { "j_target": "sumValue2" }
@@ -260,7 +257,7 @@
       "template": "template_example_donut.json",
       "title": "Expense Type Analysis",
       "analyticsCard": {
-        "chartType": "ExpType",
+        "chartType": "donut",
         "cardsDonut": {
           "measureName": "CostCentre",
           "Value2": "TotalAmount",
