@@ -1,3 +1,106 @@
 {
-  "body": []
+  "body": [
+    {
+      "type": "TextBlock",
+      "isSubtle": true,
+      "size": "medium",
+      "text": "Delivery Date"
+    },
+    {
+      "placeholder": "Date",
+      "type": "Input.Date",
+      "id": "DeliveryDt",
+      "value": "@currentDate"
+    },
+    {
+      "type": "TextBlock",
+      "isSubtle": true,
+      "size": "medium",
+      "text": "Delivey Email"
+    },
+    {
+      "placeholder": "Delivey Email",
+      "type": "Input.Text",
+      "style": "text",
+      "id": "Email",
+      "value": "@email"
+    },
+    {
+      "type": "TextBlock",
+      "isSubtle": true,
+      "size": "medium",
+      "text": "Delivery Phone"
+    },
+    {
+      "placeholder": "Delivery Phone",
+      "type": "Input.Text",
+      "style": "text",
+      "id": "ContactNo",
+      "value": "@ContactNo"
+    },
+    {
+      "type": "TextBlock",
+      "isSubtle": true,
+      "size": "medium",
+      "text": "Currency"
+    },
+    {
+      "placeholder": "Currency",
+      "type": "Input.Text",
+      "style": "text",
+      "id": "Currency",
+      "value": "GBP"
+    },
+    {
+      "type": "TextBlock",
+      "isSubtle": true,
+      "size": "medium",
+      "text": "Cost Type"
+    },
+    {
+      "placeholder": "Cost Type",
+      "type": "Input.Text",
+      "style": "text",
+      "id": "CostType",
+      "value": "@CostType"
+    },
+    {
+      "type": "TextBlock",
+      "isSubtle": true,
+      "size": "medium",
+      "text": "Cost Object"
+    },
+    {
+      "placeholder": "Cost Object",
+      "type": "Input.Text",
+      "style": "text",
+      "id": "CostCentre",
+      "value": "@CostCentre"
+    },
+    {
+      "type": "TextBlock",
+      "isSubtle": true,
+      "size": "medium",
+      "text": "Status"
+    },
+    {
+      "placeholder": "Status",
+      "type": "Input.Text",
+      "style": "text",
+      "id": "Status",
+      "value": "Submitted"
+    },
+    {
+      "type": "TextBlock",
+      "isSubtle": true,
+      "size": "medium",
+      "text": "Other Information"
+    },
+    {
+      "placeholder": "Other Information",
+      "type": "Input.Text",
+      "style": "text",
+      "id": "OtherInfo"
+    }
+  ]
 }

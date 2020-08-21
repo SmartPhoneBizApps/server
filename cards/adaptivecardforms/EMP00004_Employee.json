@@ -7,46 +7,47 @@
       "text": "Vendor Name"
     },
     {
-      "placeholder": "Vendor Name",
       "type": "Input.Text",
       "style": "text",
-      "id": "VendorName"
+      "id": "VendorName",
+      "choices": [
+        {
+          "title": "Amazon",
+          "value": "Amazon"
+        },
+        {
+          "title": "Argos",
+          "value": "Argos"
+        },
+        {
+          "title": "BMW services Ltd",
+          "value": "BMWservicesLtd"
+        },
+        {
+          "title": "Holiday Inn London",
+          "value": "HolidayInnLondon"
+        },
+        {
+          "title": "SmartPhoneBizAppsLtd",
+          "value": "SmartPhone Biz Apps Ltd"
+        },
+        {
+          "title": "Staples",
+          "value": "Staples"
+        }
+      ]
     },
     {
       "type": "TextBlock",
       "isSubtle": true,
       "size": "medium",
-      "text": "Plant"
+      "text": "SC Date"
     },
     {
-      "placeholder": "Plant",
-      "type": "Input.Text",
-      "style": "text",
-      "id": "Plant"
-    },
-    {
-      "type": "TextBlock",
-      "isSubtle": true,
-      "size": "medium",
-      "text": "Payment Term"
-    },
-    {
-      "placeholder": "Payment Term",
-      "type": "Input.Text",
-      "style": "text",
-      "id": "PaymentTerm"
-    },
-    {
-      "type": "TextBlock",
-      "isSubtle": true,
-      "size": "medium",
-      "text": "Shopping Cart Date"
-    },
-    {
-      "placeholder": "Shopping Cart Date",
-      "type": "Input.Text",
-      "style": "text",
-      "id": "SCDate"
+      "type": "Input.Date",
+      "placeholder": "Date",
+      "id": "SCDate",
+      "value": "@currentDate"
     },
     {
       "type": "TextBlock",
@@ -55,19 +56,44 @@
       "text": "Category"
     },
     {
-      "placeholder": "Category",
       "type": "Input.Text",
       "style": "text",
-      "id": "Category"
+      "id": "Category",
+      "choices": [
+        {
+          "title": "Energy & Fuels",
+          "value": "Energy&Fuels"
+        },
+        {
+          "title": "Food",
+          "value": "Food"
+        },
+        {
+          "title": "Hospitality",
+          "value": "Hospitality"
+        },
+        {
+          "title": "Electronics",
+          "value": "Electronics"
+        },
+        {
+          "title": "Stationary",
+          "value": "Stationary"
+        },
+        {
+          "title": "Computer Equipment",
+          "value": "ComputerEquipment"
+        }
+      ]
     },
     {
       "type": "TextBlock",
       "isSubtle": true,
       "size": "medium",
-      "text": "Item Details"
+      "text": "Details"
     },
     {
-      "placeholder": "Item Details",
+      "placeholder": "Details",
       "type": "Input.Text",
       "style": "text",
       "id": "Details"
@@ -76,12 +102,13 @@
       "type": "TextBlock",
       "isSubtle": true,
       "size": "medium",
-      "text": "Shopping Cart Quantity"
+      "text": "SC Quantity"
     },
     {
-      "placeholder": "Shopping Cart Quantity",
-      "type": "Input.Text",
-      "style": "text",
+      "placeholder": "SC Quantity",
+      "type": "Input.Number",
+      "min": 0,
+      "max": 10000,
       "id": "SCQty"
     },
     {
@@ -94,7 +121,8 @@
       "placeholder": "Unit of Measurement",
       "type": "Input.Text",
       "style": "text",
-      "id": "UoM"
+      "id": "UoM",
+      "value": "EA"
     },
     {
       "type": "TextBlock",
@@ -104,10 +132,11 @@
     },
     {
       "placeholder": "Price",
-      "type": "Input.Text",
+      "type": "Input.Number",
       "style": "text",
       "id": "Price"
     },
+
     {
       "type": "TextBlock",
       "isSubtle": true,
@@ -116,250 +145,31 @@
     },
     {
       "placeholder": "VAT Rate",
-      "type": "Input.Text",
+      "type": "Input.Number",
       "style": "text",
-      "id": "VATRate"
-    },
-    {
-      "type": "TextBlock",
-      "isSubtle": true,
-      "size": "medium",
-      "text": "Delivery To"
-    },
-    {
-      "placeholder": "Delivery To",
-      "type": "Input.Text",
-      "style": "text",
-      "id": "DelTo"
-    },
-    {
-      "type": "TextBlock",
-      "isSubtle": true,
-      "size": "medium",
-      "text": "Delivery Street"
-    },
-    {
-      "placeholder": "Delivery Address",
-      "type": "Input.Text",
-      "style": "text",
-      "id": "Address"
-    },
-
-    {
-      "type": "TextBlock",
-      "isSubtle": true,
-      "size": "medium",
-      "text": "Delivery PostCode"
-    },
-    {
-      "placeholder": "Delivery PostCode",
-      "type": "Input.Text",
-      "style": "text",
-      "id": "PostCode"
-    },
-    {
-      "type": "TextBlock",
-      "isSubtle": true,
-      "size": "medium",
-      "text": "Country"
-    },
-    {
-      "placeholder": "Country",
-      "type": "Input.Text",
-      "style": "text",
-      "id": "Country"
-    },
-    {
-      "type": "TextBlock",
-      "isSubtle": true,
-      "size": "medium",
-      "text": "Delivery Phone"
-    },
-    {
-      "placeholder": "Delivery Phone",
-      "type": "Input.Text",
-      "style": "text",
-      "id": "ContactNo"
-    },
-    {
-      "type": "TextBlock",
-      "isSubtle": true,
-      "size": "medium",
-      "text": "Delivery Email"
-    },
-    {
-      "placeholder": "Delivery Email",
-      "type": "Input.Text",
-      "style": "text",
-      "id": "Email"
-    },
-    {
-      "type": "TextBlock",
-      "isSubtle": true,
-      "size": "medium",
-      "text": "Cost Type"
-    },
-    {
-      "placeholder": "Cost Type",
-      "type": "Input.Text",
-      "style": "text",
-      "id": "CostType"
-    },
-    {
-      "type": "TextBlock",
-      "isSubtle": true,
-      "size": "medium",
-      "text": "Cost Object"
-    },
-    {
-      "placeholder": "Cost Object",
-      "type": "Input.Text",
-      "style": "text",
-      "id": "CostCentre"
-    },
-    {
-      "type": "TextBlock",
-      "isSubtle": true,
-      "size": "medium",
-      "text": "GL Account"
-    },
-    {
-      "placeholder": "GL Account",
-      "type": "Input.Text",
-      "style": "text",
-      "id": "GLAccount"
-    },
-    {
-      "type": "TextBlock",
-      "isSubtle": true,
-      "size": "medium",
-      "text": "Status"
-    },
-    {
-      "placeholder": "Status",
-      "type": "Input.Text",
-      "style": "text",
-      "id": "Status"
-    },
-    {
-      "type": "TextBlock",
-      "isSubtle": true,
-      "size": "medium",
-      "text": "Currency"
-    },
-    {
-      "placeholder": "Currency",
-      "type": "Input.Text",
-      "style": "text",
-      "id": "Currency"
-    },
-    {
-      "type": "TextBlock",
-      "isSubtle": true,
-      "size": "medium",
-      "text": "Budget"
-    },
-    {
-      "placeholder": "Budget",
-      "type": "Input.Text",
-      "style": "text",
-      "id": "Budget"
-    },
-    {
-      "type": "TextBlock",
-      "isSubtle": true,
-      "size": "medium",
-      "text": "Office"
-    },
-    {
-      "placeholder": "Office",
-      "type": "Input.Text",
-      "style": "text",
-      "id": "Office"
-    },
-    {
-      "type": "TextBlock",
-      "isSubtle": true,
-      "size": "medium",
-      "text": "Other Information"
-    },
-    {
-      "placeholder": "Other Information",
-      "type": "Input.Text",
-      "style": "text",
-      "id": "OtherInfo"
-    },
-    {
-      "type": "TextBlock",
-      "isSubtle": true,
-      "size": "medium",
-      "text": "Delivery Instructor"
-    },
-    {
-      "placeholder": "Delivery Instructor",
-      "type": "Input.Text",
-      "style": "text",
-      "id": "DeliveryInstr"
-    },
-    {
-      "type": "TextBlock",
-      "isSubtle": true,
-      "size": "medium",
-      "text": "Budget Used"
-    },
-    {
-      "placeholder": "Budget Used",
-      "type": "Input.Text",
-      "style": "text",
-      "id": "BudgetUsed"
-    },
-    {
-      "type": "TextBlock",
-      "isSubtle": true,
-      "size": "medium",
-      "text": "Payment Amount"
-    },
-    {
-      "placeholder": "Payment Amount",
-      "type": "Input.Text",
-      "style": "text",
-      "id": "PaymentAmount"
-    },
-    {
-      "type": "TextBlock",
-      "isSubtle": true,
-      "size": "medium",
-      "text": "Payment Option"
-    },
-    {
-      "placeholder": "Payment Option",
-      "type": "Input.Text",
-      "style": "text",
-      "id": "PaymentOption"
-    },
-    {
-      "type": "TextBlock",
-      "isSubtle": true,
-      "size": "medium",
-      "text": "Approver"
-    },
-    {
-      "placeholder": "Approver",
-      "type": "Input.Text",
-      "style": "text",
-      "id": "Approver"
-    },
-    {
-      "type": "TextBlock",
-      "isSubtle": true,
-      "size": "medium",
-      "text": "Req Delivery Date "
-    },
-    {
-      "placeholder": "Req Delivery Date ",
-      "type": "Input.Text",
-      "style": "text",
-      "id": "DeliveryDt"
+      "id": "VATRate",
+      "choices": [
+        {
+          "title": 0,
+          "value": 0
+        },
+        {
+          "title": 5,
+          "value": 5
+        },
+        {
+          "title": 10,
+          "value": 10
+        },
+        {
+          "title": 15,
+          "value": 15
+        },
+        {
+          "title": 20,
+          "value": 20
+        }
+      ]
     }
   ]
 }
