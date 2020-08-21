@@ -152,6 +152,30 @@
     {
       "type": "Example",
       "cardType": "Analytical",
+      "cardsubType": "StackedBar",
+      "cardID": "ASB01",
+      "cardLevel": "tableData",
+      "template": "template_example_StackedBar",
+      "title": "Expense Analysis",
+      "subtitle": "Expenses details",
+      "unitOfMeasurement": "GBP",
+      "itemvalueMap": {
+        "Value1": "TotalAmount",
+        "Value2": "NA"
+      },
+      "itemkeyMap": {
+        "Area": "Status"
+      },
+      "itemfixedVal": [{ "Total": 5 }],
+      "sumField": [{ "sumValue1": "TotalAmount" }, { "sumValue2": "NA" }],
+      "headerfieldMap": [
+        { "j_number": "sumValue1" },
+        { "j_target": "sumValue2" }
+      ]
+    },
+    {
+      "type": "Example",
+      "cardType": "Analytical",
       "cardsubType": "Donut",
       "cardID": "ADT01H",
       "cardLevel": "header",
@@ -751,7 +775,7 @@
         "businessrole": "{businessrole}",
         "mode": "File",
         "type": "NewUpload",
-        "text": "docType,Receipt,Information"
+        "text": "docType,Receipt,Success"
       }
     },
     {
