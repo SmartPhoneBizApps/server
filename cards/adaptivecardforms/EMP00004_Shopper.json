@@ -8,7 +8,7 @@
     },
     {
       "type": "Input.Text",
-      "style": "text",
+      "style": "expanded",
       "id": "VendorName",
       "choices": [
         {
@@ -57,7 +57,7 @@
     },
     {
       "type": "Input.Text",
-      "style": "text",
+      "style": "expanded",
       "id": "Category",
       "choices": [
         {
@@ -95,6 +95,7 @@
     {
       "placeholder": "Details",
       "type": "Input.Text",
+      "isMultiline": true,
       "style": "text",
       "id": "Details"
     },
@@ -146,7 +147,7 @@
     {
       "placeholder": "VAT Rate",
       "type": "Input.Number",
-      "style": "text",
+      "style": "expanded",
       "id": "VATRate",
       "choices": [
         {
