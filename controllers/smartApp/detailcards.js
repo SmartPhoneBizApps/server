@@ -229,7 +229,7 @@ exports.getDetailCardsNew = async (req, res, next) => {
 
   res.status(200).json({
     success: true,
-    ID: appData["ID"],
+    record: appData,
     data: outStru,
     config: appconfig,
   });

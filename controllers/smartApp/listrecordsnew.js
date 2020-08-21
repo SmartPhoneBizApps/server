@@ -363,7 +363,6 @@ exports.listrecordsnew = asyncHandler(async (req, res, next) => {
           var anacardConfig = JSON.parse(cardData);
           switch (mycard[k]["cardType"]) {
             case "Analytical":
-              //      if (mycard[k]["analyticsCard"]["cardsubType"] == "donut") {
               jCard1 = {};
               jCard1 = await analyticalCard(
                 mycard[k],
@@ -371,9 +370,7 @@ exports.listrecordsnew = asyncHandler(async (req, res, next) => {
                 anacardConfig
               );
               outStru[cardKey] = { ...jCard1 };
-              //      }
               break;
-
             case "Adaptive":
               jCard1 = {};
               jCard1 = await adaptivecardCard(
