@@ -351,6 +351,61 @@ exports.listrecordsnew = asyncHandler(async (req, res, next) => {
       });
     }
     if (mode == "listcards") {
+      let cardConfigFile1 = "../../cards/cardConfig/template_adaptiveForm.json";
+      let aCard = require(cardConfigFile1);
+      body = [];
+      body2 = [];
+      body2 = [];
+      body1x = {};
+      body2x = {};
+      for (let l = 0; l < appconfig["Wizard"].length; l++) {
+        const rkg = appconfig["Wizard"][l];
+        rkg["fields"].forEach((e1) => {
+          if (e1["Mode"] == "Edit") {
+            body2x["type"] = "TextBlock";
+            body2x["text"] = e1["name"];
+            body2x["isSubtle"] = true;
+            body2x["size"] = "medium";
+            body.push(body2x);
+            console.log(body2x);
+            body2x = {};
+            body1x["type"] = "Input.Text";
+            body1x["placeholder"] = e1["name"];
+            body1x["style"] = "text";
+            body1x["text"] = e1["name"];
+            body1x["id"] = e1["name"];
+            body.push(body1x);
+            console.log(body1x);
+            body1x = {};
+          } else {
+            body2x["type"] = "TextBlock";
+            body2x["text"] = e1["name"];
+            body2x["isSubtle"] = true;
+            body2x["size"] = "medium";
+            body2.push(body2x);
+            console.log(body2x);
+            body2x = {};
+
+            body1x["type"] = "TextBlock";
+            body1x["text"] = e1["name"];
+            body1x["id"] = e1["name"];
+            body2.push(body1x);
+            console.log(body1x);
+            body1x = {};
+          }
+        });
+      }
+      aCard["sap.card"]["content"]["body"] = body;
+      for (let m = 0; m < aCard["sap.card"]["content"]["actions"].length; m++) {
+        if (
+          aCard["sap.card"]["content"]["actions"][m]["type"] ==
+          "Action.ShowCard"
+        ) {
+          aCard["sap.card"]["content"]["actions"][m]["card"]["body"] = body2;
+        }
+      }
+      outStru["ATUL01"] = { ...aCard };
+
       if (appconfig.hasOwnProperty("listCards")) {
         var mycard = appconfig["listCards"];
         for (let k = 0; k < mycard.length; k++) {

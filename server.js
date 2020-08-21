@@ -173,6 +173,10 @@ app.use("/api/v1/util/getjsonFile/", require("./routes/utilities/getjsonFile"));
 app.use("/api/v1/util/possval", require("./routes/utilities/possVals"));
 app.use("/api/v1/util/fileupload/", require("./routes/utilities/fileupload"));
 app.use(
+  "/api/v1/createAdaptive/",
+  require("./routes/smartApp/createAdaptiveCard")
+);
+app.use(
   "/api/v1/util/oneDriveUpload/",
   require("./routes/utilities/oneDriveUpload")
 );

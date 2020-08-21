@@ -10,7 +10,8 @@
       "placeholder": "Employee Code",
       "type": "Input.Text",
       "style": "text",
-      "id": "EmployeeID"
+      "id": "EmployeeID",
+      "value": "@employeeID"
     },
     {
       "type": "TextBlock",
@@ -22,20 +23,10 @@
       "placeholder": "Employee Name",
       "type": "Input.Text",
       "style": "text",
-      "id": "Name"
+      "id": "Name",
+      "value": "@employeeName"
     },
-    {
-      "type": "TextBlock",
-      "isSubtle": true,
-      "size": "medium",
-      "text": "Expense Amount"
-    },
-    {
-      "placeholder": "Expense Amount",
-      "type": "Input.Text",
-      "style": "text",
-      "id": "TotalAmount"
-    },
+
     {
       "type": "TextBlock",
       "isSubtle": true,
@@ -56,7 +47,7 @@
     },
     {
       "placeholder": "Entry Date",
-      "type": "Input.Text",
+      "type": "Input.Date",
       "style": "text",
       "id": "EntryDate"
     },
@@ -68,7 +59,7 @@
     },
     {
       "placeholder": "Expense Date",
-      "type": "Input.Text",
+      "type": "Input.Date",
       "style": "text",
       "id": "ExpenseDate"
     },
