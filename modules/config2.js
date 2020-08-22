@@ -73,7 +73,7 @@ module.exports = {
     const cardbody = require(path1);
     const cardaction = require(path2);
     const cardadditional = require(path3);
-    console.log(cardbody);
+
     for (let z = 0; z < cardbody["body"].length; z++) {
       if (cardbody["body"][z].hasOwnProperty("value")) {
         if (cardbody["body"][z]["value"] == "@currentDate") {
@@ -560,6 +560,188 @@ module.exports = {
     stru["sap.card"]["content"]["data"]["json"] = timeline1_json;
     timeline1_json = [];
     return stru;
+  },
+  adaptiveNew: async function (appconfig, resPV) {
+    // Toggle >> Input.Toggle
+    body = [];
+    body2 = [];
+    body2 = [];
+    body1x = {};
+    body2x = {};
+    let cardConfigFile1 = "../cards/cardConfig/template_adaptiveForm.json";
+    let aCard = require(cardConfigFile1);
+    for (let l = 0; l < appconfig["Wizard"].length; l++) {
+      const rkg = appconfig["Wizard"][l];
+      rkg["fields"].forEach((e1) => {
+        for (let a = 0; a < appconfig["FieldDef"].length; a++) {
+          if (appconfig["FieldDef"][a]["name"] == e1["name"]) {
+            console.log("AG");
+            switch (appconfig["FieldDef"][a]["type"]) {
+              case "string":
+                // Text >> Input.Text
+                //"style": "text",
+                body2x["size"] = "medium";
+                body2x["isSubtle"] = true;
+                body2x["type"] = "TextBlock";
+                body2x["text"] = e1["name"];
+
+                body1x["style"] = "text";
+                body1x["type"] = "Input.Text";
+                body1x["id"] = e1["name"];
+                body1x["placeholder"] = e1["name"];
+                //"isMultiline"
+                if (appconfig["FieldDef"][a]["width"] > 100) {
+                  body1x["isMultiline"] = true;
+                } else {
+                  body1x["isMultiline"] = false;
+                }
+                break;
+              case "Date":
+                // Date >> Input.Date
+                body2x["size"] = "medium";
+                body2x["isSubtle"] = true;
+                body2x["type"] = "TextBlock";
+                body2x["text"] = e1["name"];
+
+                body1x["type"] = "Input.Date";
+                body1x["id"] = e1["name"];
+                body1x["placeholder"] = e1["name"];
+                body1x["value"] = "@currentDate";
+
+                break;
+
+              case "hyperlink":
+                //"style": "url",
+                // Text >> Input.Text
+                body2x["size"] = "medium";
+                body2x["isSubtle"] = true;
+                body2x["type"] = "TextBlock";
+                body2x["text"] = e1["name"];
+
+                body1x["style"] = "url";
+                body1x["type"] = "Input.Text";
+                body1x["id"] = e1["name"];
+                body1x["placeholder"] = "Website Url";
+
+                break;
+
+              case "Email":
+                //"style": "email",
+                // Text >> Input.Text
+                body2x["size"] = "medium";
+                body2x["isSubtle"] = true;
+                body2x["type"] = "TextBlock";
+                body2x["text"] = e1["name"];
+
+                body1x["style"] = "email";
+                body1x["type"] = "Input.Text";
+                body1x["id"] = e1["name"];
+                body1x["placeholder"] = "youremail@example.com";
+
+                break;
+              case "Time":
+                // Time >> Input.Time
+                body2x["size"] = "medium";
+                body2x["isSubtle"] = true;
+                body2x["type"] = "TextBlock";
+                body2x["text"] = e1["name"];
+
+                body1x["style"] = "email";
+                body1x["type"] = "Input.Time";
+                body1x["id"] = e1["name"];
+                body1x["placeholder"] = e1["name"];
+                break;
+              case "Num,0":
+                // Number >> Input.Number
+                body2x["size"] = "medium";
+                body2x["isSubtle"] = true;
+                body2x["type"] = "TextBlock";
+                body2x["text"] = e1["name"];
+
+                body1x["type"] = "Input.Number";
+                body1x["id"] = e1["name"];
+                body1x["placeholder"] = e1["name"];
+                break;
+              default:
+                body2x["size"] = "medium";
+                body2x["isSubtle"] = true;
+                body2x["type"] = "TextBlock";
+                body2x["text"] = e1["name"];
+
+                body1x["style"] = "text";
+                body1x["type"] = "Input.Text";
+                body1x["id"] = e1["name"];
+                body1x["placeholder"] = e1["name"];
+                //"isMultiline"
+                if (appconfig["FieldDef"]["width"] > 100) {
+                  body1x["isMultiline"] = true;
+                } else {
+                  body1x["isMultiline"] = false;
+                }
+                break;
+            }
+          }
+        }
+
+        for (let a = 0; a < appconfig["PossibleValues"].length; a++) {
+          if (appconfig["PossibleValues"][a] == e1["name"]) {
+            // Possible Values >> Input.ChoiceSet
+            //"style": "expanded",
+            body1x = {};
+            body2x = {};
+
+            body2x["isSubtle"] = true;
+            body2x["type"] = "TextBlock";
+            body2x["text"] = e1["name"];
+
+            body1x["style"] = "expanded";
+            body1x["type"] = "Input.ChoiceSet";
+            body1x["id"] = e1["name"];
+
+            x_ch = [];
+            for (let j = 0; j < resPV.length; j++) {
+              if (resPV[j]["PossibleValues"] == e1["name"]) {
+                x_choices = {};
+                x_choices["title"] = resPV[j]["Description"];
+                x_choices["value"] = resPV[j]["Value"];
+                x_ch.push(x_choices);
+              }
+            }
+            body1x["choices"] = x_ch;
+          }
+        }
+
+        //"style": "tel",
+
+        // "type": "Input.Toggle",
+        //"title": "I accept the terms and conditions",
+        //"id": "Checked",
+        //"wrap": true,
+        //"value": "false",
+        //"valueOn": "true",
+        //"valueOff": "false"
+        if (e1["Mode"] == "Edit") {
+          body.push(body2x);
+          body2x = {};
+          body.push(body1x);
+          body1x = {};
+        } else {
+          body2.push(body2x);
+          body2x = {};
+          body2.push(body1x);
+          body1x = {};
+        }
+      });
+    }
+    aCard["sap.card"]["content"]["body"] = body;
+    for (let m = 0; m < aCard["sap.card"]["content"]["actions"].length; m++) {
+      if (
+        aCard["sap.card"]["content"]["actions"][m]["type"] == "Action.ShowCard"
+      ) {
+        aCard["sap.card"]["content"]["actions"][m]["card"]["body"] = body2;
+      }
+    }
+    return aCard;
   },
   adaptivecardCard: async function (appID, role, adCard) {
     let path1 = "../cards/adaptivecardforms/" + appID + "_" + role + ".json";
