@@ -570,10 +570,6 @@ module.exports = {
     body2x = {};
     let cardConfigFile1 = "../cards/cardConfig/template_adaptiveForm.json";
     let aCard = require(cardConfigFile1);
-    var cardData = JSON.stringify(require(cardConfigFile1));
-
-    cardData = cardReplace({}, cardData, appconfig);
-    aCard = JSON.parse(cardData);
     for (let l = 0; l < appconfig["Wizard"].length; l++) {
       const rkg = appconfig["Wizard"][l];
       rkg["fields"].forEach((e1) => {
@@ -842,6 +838,9 @@ module.exports = {
         aCard["sap.card"]["content"]["actions"][m]["card"]["body"] = body2;
       }
     }
+    var cardData = JSON.stringify(aCard);
+    cardData = cardReplace({}, cardData, appconfig);
+    aCard = JSON.parse(cardData);
     return aCard;
   },
   adaptivecardCard: async function (appID, role, adCard) {

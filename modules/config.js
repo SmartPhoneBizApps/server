@@ -1112,6 +1112,98 @@ module.exports = {
     cardData = cardData.replace("@filterKeyLabel", mycard["filterKeyLabel"]);
     cardData = cardData.replace("@filterKeyLabel", mycard["filterKeyLabel"]);
     cardData = cardData.replace("@HeaderActionURL", "applicationTile");
+
+    var today = new Date();
+    date001 = [
+      "@currentDate",
+      "@tomorrow",
+      "@yesterday",
+      "@weekBack",
+      "@weekLater",
+      "@30DaysLater",
+      "@30DaysEarlier",
+      "@15DaysLater",
+      "@15DaysEarlier",
+    ];
+    date001.forEach((ex1) => {
+      switch (ex1) {
+        case "@currentDate":
+          var dd = String(today.getDate()).padStart(2, "0");
+          var mm = String(today.getMonth() + 1).padStart(2, "0"); //January is 0!
+          var yyyy = today.getFullYear();
+          date = yyyy + "-" + mm + "-" + dd;
+          console.log("Inside Loop", cardData);
+          cardData = cardData.replace("@currentDate", date);
+          break;
+        case "@tomorrow":
+          today.setDate(today.getDate() + 1);
+          var dd = String(today.getDate()).padStart(2, "0");
+          var mm = String(today.getMonth() + 1).padStart(2, "0"); //January is 0!
+          var yyyy = today.getFullYear();
+          date = yyyy + "-" + mm + "-" + dd;
+          cardData = cardData.replace("@tomorrow", date);
+          break;
+        case "@yesterday":
+          today.setDate(today.getDate() - 1);
+          var dd = String(today.getDate()).padStart(2, "0");
+          var mm = String(today.getMonth() + 1).padStart(2, "0"); //January is 0!
+          var yyyy = today.getFullYear();
+          date = yyyy + "-" + mm + "-" + dd;
+          cardData = cardData.replace("@yesterday", date);
+          break;
+        case "@weekBack":
+          today.setDate(today.getDate() - 7);
+          var dd = String(today.getDate()).padStart(2, "0");
+          var mm = String(today.getMonth() + 1).padStart(2, "0"); //January is 0!
+          var yyyy = today.getFullYear();
+          date = yyyy + "-" + mm + "-" + dd;
+          cardData = cardData.replace("@weekBack", date);
+          break;
+        case "@weekLater":
+          today.setDate(today.getDate() + 7);
+          var dd = String(today.getDate()).padStart(2, "0");
+          var mm = String(today.getMonth() + 1).padStart(2, "0"); //January is 0!
+          var yyyy = today.getFullYear();
+          date = yyyy + "-" + mm + "-" + dd;
+          cardData = cardData.replace("@weekLater", date);
+          break;
+        case "@30DaysLater":
+          today.setDate(today.getDate() + 30);
+          var dd = String(today.getDate()).padStart(2, "0");
+          var mm = String(today.getMonth() + 1).padStart(2, "0"); //January is 0!
+          var yyyy = today.getFullYear();
+          date = yyyy + "-" + mm + "-" + dd;
+          cardData = cardData.replace("@30DaysLater", date);
+          break;
+        case "@30DaysEarlier":
+          today.setDate(today.getDate() - 30);
+          var dd = String(today.getDate()).padStart(2, "0");
+          var mm = String(today.getMonth() + 1).padStart(2, "0"); //January is 0!
+          var yyyy = today.getFullYear();
+          date = yyyy + "-" + mm + "-" + dd;
+          cardData = cardData.replace("@30DaysEarlier", date);
+          break;
+        case "@15DaysLater":
+          today.setDate(today.getDate() + 15);
+          var dd = String(today.getDate()).padStart(2, "0");
+          var mm = String(today.getMonth() + 1).padStart(2, "0"); //January is 0!
+          var yyyy = today.getFullYear();
+          date = yyyy + "-" + mm + "-" + dd;
+          cardData = cardData.replace("@15DaysLater", date);
+          break;
+        case "@15DaysEarlier":
+          today.setDate(today.getDate() - 15);
+          var dd = String(today.getDate()).padStart(2, "0");
+          var mm = String(today.getMonth() + 1).padStart(2, "0"); //January is 0!
+          var yyyy = today.getFullYear();
+          date = yyyy + "-" + mm + "-" + dd;
+          cardData = cardData.replace("@15DaysEarlier", date);
+          break;
+        default:
+          break;
+      }
+    });
+
     return cardData;
   },
 };
