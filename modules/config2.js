@@ -575,11 +575,6 @@ module.exports = {
       rkg["fields"].forEach((e1) => {
         for (let a = 0; a < appconfig["FieldDef"].length; a++) {
           if (appconfig["FieldDef"][a]["name"] == e1["name"]) {
-            for (let d = 0; d < ival_out.length; d++) {
-              if (ival_out[d]["Field"] == e1["name"]) {
-                body1x["value"] = ival_out[d]["Value"];
-              }
-            }
             console.log("AG");
             switch (appconfig["FieldDef"][a]["type"]) {
               case "string":
@@ -651,12 +646,44 @@ module.exports = {
                 body2x["type"] = "TextBlock";
                 body2x["text"] = e1["name"];
 
-                body1x["style"] = "email";
                 body1x["type"] = "Input.Time";
                 body1x["id"] = e1["name"];
                 body1x["placeholder"] = e1["name"];
                 break;
               case "Num,0":
+                // Number >> Input.Number
+                body2x["size"] = "medium";
+                body2x["isSubtle"] = true;
+                body2x["type"] = "TextBlock";
+                body2x["text"] = e1["name"];
+
+                body1x["type"] = "Input.Number";
+                body1x["id"] = e1["name"];
+                body1x["placeholder"] = e1["name"];
+                break;
+              case "Num,1":
+                // Number >> Input.Number
+                body2x["size"] = "medium";
+                body2x["isSubtle"] = true;
+                body2x["type"] = "TextBlock";
+                body2x["text"] = e1["name"];
+
+                body1x["type"] = "Input.Number";
+                body1x["id"] = e1["name"];
+                body1x["placeholder"] = e1["name"];
+                break;
+              case "Num,2":
+                // Number >> Input.Number
+                body2x["size"] = "medium";
+                body2x["isSubtle"] = true;
+                body2x["type"] = "TextBlock";
+                body2x["text"] = e1["name"];
+
+                body1x["type"] = "Input.Number";
+                body1x["id"] = e1["name"];
+                body1x["placeholder"] = e1["name"];
+                break;
+              case "Num,3":
                 // Number >> Input.Number
                 body2x["size"] = "medium";
                 body2x["isSubtle"] = true;
@@ -687,7 +714,6 @@ module.exports = {
             }
           }
         }
-
         for (let a = 0; a < appconfig["PossibleValues"].length; a++) {
           if (appconfig["PossibleValues"][a] == e1["name"]) {
             // Possible Values >> Input.ChoiceSet
@@ -715,7 +741,69 @@ module.exports = {
             body1x["choices"] = x_ch;
           }
         }
+        for (let d = 0; d < ival_out.length; d++) {
+          if (ival_out[d]["Field"] == e1["name"]) {
+            body2x["size"] = "medium";
+            body2x["isSubtle"] = true;
+            body2x["type"] = "TextBlock";
+            body2x["text"] = e1["name"];
 
+            body1x["id"] = e1["name"];
+            body1x["value"] = ival_out[d]["Value"];
+            switch (appconfig["FieldDef"][a]["type"]) {
+              case "string":
+                body1x["type"] = "Input.Text";
+                body1x["style"] = "text";
+                break;
+              case "Date":
+                //  Input.Date
+                body1x["type"] = "Input.Date";
+                body1x["style"] = "";
+                break;
+              case "hyperlink":
+                // Input.Text
+                body1x["type"] = "Input.Text";
+                body1x["style"] = "url";
+                break;
+              case "Email":
+                //"style": "email",
+                // Text >> Input.Text
+                body1x["type"] = "Input.Text";
+                body1x["style"] = "email";
+                break;
+
+              case "Time":
+                // Time >> Input.Time
+                body1x["type"] = "Input.Time";
+                body1x["style"] = "";
+                break;
+              case "Num,0":
+                // Number >> Input.Number
+                body1x["type"] = "Input.Number";
+                body1x["style"] = "";
+                break;
+              case "Num,1":
+                // Number >> Input.Number
+                body1x["type"] = "Input.Number";
+                body1x["style"] = "";
+                break;
+              case "Num,2":
+                // Number >> Input.Number
+                body1x["type"] = "Input.Number";
+                body1x["style"] = "";
+                break;
+              case "Num,3":
+                // Number >> Input.Number
+                body1x["type"] = "Input.Number";
+                body1x["style"] = "";
+                break;
+              default:
+                body1x["type"] = "Input.Text";
+                body1x["style"] = "text";
+                break;
+            }
+          }
+        }
         //"style": "tel",
 
         // "type": "Input.Toggle",
