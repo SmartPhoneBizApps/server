@@ -816,17 +816,20 @@ module.exports = {
         //"value": "false",
         //"valueOn": "true",
         //"valueOff": "false"
-
-        if (appconfig["FieldDef"][a]["Option"] == "Mandatory") {
-          body.push(body2x);
-          body2x = {};
-          body.push(body1x);
-          body1x = {};
-        } else {
-          body2.push(body2x);
-          body2x = {};
-          body2.push(body1x);
-          body1x = {};
+        for (let a = 0; a < appconfig["FieldDef"].length; a++) {
+          if (appconfig["FieldDef"][a]["name"] == e1["name"]) {
+            if (appconfig["FieldDef"][a]["Option"] == "Mandatory") {
+              body.push(body2x);
+              body2x = {};
+              body.push(body1x);
+              body1x = {};
+            } else {
+              body2.push(body2x);
+              body2x = {};
+              body2.push(body1x);
+              body1x = {};
+            }
+          }
         }
       });
     }

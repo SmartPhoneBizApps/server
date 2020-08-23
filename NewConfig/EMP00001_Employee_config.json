@@ -285,14 +285,14 @@
       "name": "EmployeeID",
       "type": "string",
       "width": "20",
-      "Option": "Optional",
+      "Option": "Mandatory",
       "SLabel": "Employee ID"
     },
     {
       "name": "Name",
       "type": "string",
       "width": "50",
-      "Option": "Optional",
+      "Option": "Mandatory",
       "SLabel": "Employee Full Name"
     },
     {
@@ -340,7 +340,7 @@
       "name": "Email",
       "type": "string",
       "width": "50",
-      "Option": "Optional",
+      "Option": "Mandatory",
       "SLabel": "Email ID"
     },
     {
@@ -354,35 +354,35 @@
       "name": "LeaveType",
       "type": "radiobutton",
       "width": "100",
-      "Option": "Optional",
+      "Option": "Mandatory",
       "SLabel": "LeaveType"
     },
     {
       "name": "LeaveFrom",
       "type": "Date",
       "width": "10",
-      "Option": "Optional",
+      "Option": "Mandatory",
       "SLabel": "LeaveFrom"
     },
     {
       "name": "LeaveTo",
       "type": "Date",
       "width": "10",
-      "Option": "Optional",
+      "Option": "Mandatory",
       "SLabel": "LeaveTo"
     },
     {
       "name": "LeaveDays",
       "type": "Num,0",
       "width": "10",
-      "Option": "Optional",
+      "Option": "Mandatory",
       "SLabel": "No of days "
     },
     {
       "name": "LeaveReason",
       "type": "string",
       "width": "500",
-      "Option": "Optional",
+      "Option": "Mandatory",
       "SLabel": "Reason For Leave"
     },
     {
@@ -399,7 +399,7 @@
       "Option": "Optional",
       "SLabel": "Approver"
     },
-    { "name": "Status", "type": "string", "SLabel": "Status", "width": "50" },
+    { "name": "Status", "type": "string", "SLabel": "Status","Option": "Mandatory", "width": "50" },
     {
       "name": "SearchString",
       "type": "string",
