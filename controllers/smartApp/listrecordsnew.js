@@ -1,5 +1,4 @@
 const {
-  donutCardHead,
   adaptivecardCard,
   getCardKey,
   cardReplace,
@@ -353,9 +352,9 @@ exports.listrecordsnew = asyncHandler(async (req, res, next) => {
     }
     if (mode == "listcards") {
       aCard = {};
-      aCard = await adaptiveNew(appconfig, resPV);
+      aCard = await adaptiveNew(appconfig, resPV, ival_out);
 
-      outStru["ATUL01"] = { ...aCard };
+      outStru["ADD01"] = { ...aCard };
 
       if (appconfig.hasOwnProperty("listCards")) {
         var mycard = appconfig["listCards"];

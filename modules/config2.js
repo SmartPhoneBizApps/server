@@ -561,7 +561,7 @@ module.exports = {
     timeline1_json = [];
     return stru;
   },
-  adaptiveNew: async function (appconfig, resPV) {
+  adaptiveNew: async function (appconfig, resPV, ival_out) {
     // Toggle >> Input.Toggle
     body = [];
     body2 = [];
@@ -575,6 +575,11 @@ module.exports = {
       rkg["fields"].forEach((e1) => {
         for (let a = 0; a < appconfig["FieldDef"].length; a++) {
           if (appconfig["FieldDef"][a]["name"] == e1["name"]) {
+            for (let d = 0; d < ival_out.length; d++) {
+              if (ival_out[d]["Field"] == e1["name"]) {
+                body1x["value"] = ival_out[d]["Value"];
+              }
+            }
             console.log("AG");
             switch (appconfig["FieldDef"][a]["type"]) {
               case "string":
