@@ -92,7 +92,6 @@
   },
   "PostCode": {
     "type": "String",
-    "required": [true, "Please add Mandatory field :PostCode"],
     "maxlength": [100, "PostCode can not be more than 100 characters"],
     "match": [
       "UK_POSTCODE_V1",

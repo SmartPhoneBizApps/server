@@ -44,7 +44,6 @@
   },
   "Address": {
     "type": "String",
-    "required": [true, "Please add Mandatory field :Address"],
     "maxlength": [500, "Address can not be more than 500 characters"]
   },
   "ContactNo": {
@@ -84,7 +83,6 @@
   },
   "PostCode": {
     "type": "String",
-    "required": [true, "Please add Mandatory field :PostCode"],
     "maxlength": [50, "PostCode can not be more than 50 characters"],
     "match": [
       "UK_POSTCODE_V1",
