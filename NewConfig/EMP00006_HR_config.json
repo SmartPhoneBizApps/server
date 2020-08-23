@@ -389,52 +389,5 @@
   },
   "CalculatedFields": {},
   "Create": "No",
-  "Wizard": [
-    {
-      "id": "Step1",
-      "fields": [
-        { "name": "Detail", "Mode": "Edit" },
-        { "name": "Duration", "Mode": "Edit" },
-        { "name": "Area", "Mode": "Edit" },
-        { "name": "External", "Mode": "Edit" },
-        { "name": "ProjectNeed", "Mode": "Edit" }
-      ],
-      "name": "Training Details",
-      "stepType": "FieldList",
-      "intro": "Training Request : Training Details"
-    },
-    {
-      "id": "Step2",
-      "fields": [
-        { "name": "EmployeeID", "Mode": "Display" },
-        { "name": "Name", "Mode": "Display" }
-      ],
-
-      "name": "Employee Details",
-      "stepType": "FieldList",
-      "intro": "Training Request : Employee Details"
-    },
-    {
-      "id": "Step3",
-      "fields": [
-        { "name": "CostCentre", "Mode": "Edit" },
-        { "name": "Cost", "Mode": "Edit" },
-        { "name": "Justification", "Mode": "Edit" }
-      ],
-      "name": "Training Cost",
-      "stepType": "FieldList",
-      "intro": "Training Request : Training Cost"
-    },
-    {
-      "id": "Step4",
-      "fields": [
-        { "name": "Status", "Mode": "Display" },
-        { "name": "Approver", "Mode": "Edit" },
-        { "name": "DateRequested", "Mode": "Display" }
-      ],
-      "name": "Admin",
-      "stepType": "FieldList",
-      "intro": "Training Request : Admin"
-    }
-  ]
+  "Wizard": []
 }

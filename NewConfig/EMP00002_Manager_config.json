@@ -217,7 +217,6 @@
       "OtherCost",
       "AdditionalInfo",
       "CostCentre",
-      "Approver",
       "Currency",
       "ProgressComment"
     ],
@@ -504,14 +503,6 @@
       "LLabel": "Processing Log"
     },
     {
-      "name": "Approver",
-      "type": "string",
-      "width": "100",
-      "Option": "Optional",
-      "SLabel": "Approver",
-      "LLabel": "Approver"
-    },
-    {
       "name": "FoodCost",
       "type": "Num,2",
       "width": "20",
@@ -608,44 +599,6 @@
       }
     ]
   },
-  "Create": "Yes",
-  "Wizard": [
-    {
-      "id": "Step1",
-      "fields": [
-        { "name": "EmployeeID", "Mode": "Edit" },
-        { "name": "Name", "Mode": "Edit" },
-        { "name": "Justification", "Mode": "Edit" }
-      ],
-      "name": "Request Details",
-      "stepType": "FieldList",
-      "intro": "Travel Request : Request Details"
-    },
-    {
-      "id": "Step4",
-      "fields": [
-        { "name": "TravelDtFrom", "Mode": "Edit" },
-        { "name": "TravelDateTo", "Mode": "Edit" },
-        { "name": "TravelMode", "Mode": "Edit" },
-        { "name": "TravelDetail", "Mode": "Edit" },
-        { "name": "Status", "Mode": "Edit" },
-        { "name": "Approver", "Mode": "Edit" }
-      ],
-      "name": "Travel Details",
-      "stepType": "FieldList",
-      "intro": "Travel Request : Travel Details"
-    },
-    {
-      "id": "Step2",
-      "fields": [
-        { "name": "FoodCost", "Mode": "Edit" },
-        { "name": "TravelCost", "Mode": "Edit" },
-        { "name": "StayCost", "Mode": "Edit" },
-        { "name": "OtherCost", "Mode": "Edit" }
-      ],
-      "name": "Travel Cost",
-      "stepType": "FieldList",
-      "intro": "Travel Cost Details"
-    }
-  ]
+  "Create": "No",
+  "Wizard": []
 }

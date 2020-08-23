@@ -575,7 +575,6 @@ module.exports = {
       rkg["fields"].forEach((e1) => {
         for (let a = 0; a < appconfig["FieldDef"].length; a++) {
           if (appconfig["FieldDef"][a]["name"] == e1["name"]) {
-            console.log("AG");
             switch (appconfig["FieldDef"][a]["type"]) {
               case "string":
                 // Text >> Input.Text
@@ -606,7 +605,7 @@ module.exports = {
                 body1x["type"] = "Input.Date";
                 body1x["id"] = e1["name"];
                 body1x["placeholder"] = e1["name"];
-                body1x["value"] = "@currentDate";
+                //           body1x["value"] = "@currentDate";
 
                 break;
 
@@ -840,6 +839,8 @@ module.exports = {
     }
     var cardData = JSON.stringify(aCard);
     cardData = cardReplace({}, cardData, appconfig);
+    cardData = cardReplace({}, cardData, appconfig);
+    cardData = cardReplace({}, cardData, appconfig);
     aCard = JSON.parse(cardData);
     return aCard;
   },
@@ -906,8 +907,6 @@ module.exports = {
         message: "Course assigned to the user but Email could not be sent",
       });
     }
-
-    console.log("Certificate Sent..");
   },
   sendErrorMessage: function (what, chkVal, user) {
     const ErrorResponse = require("../utils/errorResponse");

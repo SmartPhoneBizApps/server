@@ -1457,6 +1457,16 @@
           "Field": "Status",
           "Value": "Submitted",
           "EditLock": "No"
+        },
+        {
+          "Field": "LeaveFrom",
+          "Value": "@currentDate",
+          "EditLock": "No"
+        },
+        {
+          "Field": "LeaveTo",
+          "Value": "@tomorrow",
+          "EditLock": "No"
         }
       ]
     },
@@ -1476,6 +1486,16 @@
         {
           "Field": "Currency",
           "Value": "GBP",
+          "EditLock": "No"
+        },
+        {
+          "Field": "TravelDtFrom",
+          "Value": "@currentDate",
+          "EditLock": "No"
+        },
+        {
+          "Field": "TravelDateTo",
+          "Value": "@tomorrow",
           "EditLock": "No"
         }
       ]
@@ -1512,6 +1532,16 @@
         {
           "Field": "Currency",
           "Value": "GBP",
+          "EditLock": "No"
+        },
+        {
+          "Field": "StartDate",
+          "Value": "@currentDate",
+          "EditLock": "No"
+        },
+        {
+          "Field": "EndDate",
+          "Value": "@weekLater",
           "EditLock": "No"
         }
       ]
@@ -2379,6 +2409,21 @@
       ]
     },
     {
+      "ApplicationID": "ERP00002",
+      "initialValues": [
+        {
+          "Field": "StartDate",
+          "Value": "@currentDate",
+          "EditLock": "No"
+        },
+        {
+          "Field": "StartTime",
+          "Value": "@currentTime",
+          "EditLock": "No"
+        }
+      ]
+    },
+    {
       "ApplicationID": "ERP00003",
       "initialValues": [
         {
@@ -2596,6 +2641,16 @@
         {
           "Field": "ExpenseDate",
           "Value": "@currentDate",
+          "EditLock": "No"
+        },
+        {
+          "Field": "ExpenseStDate",
+          "Value": "@currentDate",
+          "EditLock": "No"
+        },
+        {
+          "Field": "ExpenseEndDate",
+          "Value": "@weekLater",
           "EditLock": "No"
         }
       ]

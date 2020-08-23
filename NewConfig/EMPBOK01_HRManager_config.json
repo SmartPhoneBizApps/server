@@ -181,6 +181,8 @@
     ],
     "Tab2": ["Name", "ContactNo", "Email"]
   },
+  "listCards": [],
+  "cards": [],
   "ControlDisplay": {
     "ControlField": "BookingFor",
     "Fields": [
@@ -459,65 +461,6 @@
     "ItemDetails": []
   },
   "CalculatedFields": {},
-  "Create": "Yes",
-  "Wizard": [
-    {
-      "id": "Step1",
-      "fields": [
-        { "name": "BookingFor", "Mode": "Display" },
-        { "name": "CarPark", "Mode": "Edit" },
-        { "name": "StartDate", "Mode": "Edit" },
-
-        { "name": "EndDate", "Mode": "Edit" },
-
-        { "name": "MeetingDate", "Mode": "Edit" },
-        { "name": "Slot", "Mode": "Edit" },
-        { "name": "NoOfPeople", "Mode": "Edit" },
-        { "name": "RoomLayout", "Mode": "Edit" },
-        { "name": "LunchRequired", "Mode": "Edit" },
-        { "name": "DietaryRequirement", "Mode": "Edit" },
-        { "name": "HotDeskNo", "Mode": "Edit" },
-        { "name": "Building", "Mode": "Edit" },
-        { "name": "ParkingRequired", "Mode": "Edit" },
-
-        { "name": "VisitorName", "Mode": "Edit" },
-        { "name": "VisitorEmail", "Mode": "Edit" },
-        { "name": "VisitorPhone", "Mode": "Edit" },
-        { "name": "VisitorCompany", "Mode": "Edit" },
-        { "name": "CarRegistration", "Mode": "Edit" }
-      ],
-      "name": "Booking Details",
-      "stepType": "FieldList",
-      "intro": " Booking : Booking Details"
-    },
-    {
-      "id": "Step2",
-      "fields": [
-        { "name": "Name", "Mode": "Edit" },
-        { "name": "ContactNo", "Mode": "Edit" },
-        { "name": "Email", "Mode": "Edit" }
-      ],
-      "name": "Your Details",
-      "stepType": "FieldList",
-      "intro": "Booking : Your Details"
-    },
-    {
-      "id": "Step3",
-      "fields": [
-        { "name": "StartTime", "Mode": "Edit" },
-        { "name": "EndTime", "Mode": "Edit" },
-        { "name": "Comments", "Mode": "Edit" }
-      ],
-      "name": "Additional Details",
-      "stepType": "FieldList",
-      "intro": "Booking : Additional Details"
-    },
-    {
-      "id": "Step4",
-      "fields": [{ "name": "Status", "Mode": "Edit" }],
-      "name": "Admin and other details",
-      "stepType": "FieldList",
-      "intro": "Booking : Admin and other details"
-    }
-  ]
+  "Create": "No",
+  "Wizard": []
 }

@@ -166,23 +166,10 @@
     ],
     "Tab2": ["FoodCost", "StayCost", "StayDetails"],
     "Tab3": ["ProcessingLog"],
-    "Tab4": [
-      "OtherCost",
-      "AdditionalInfo",
-      "CostCentre",
-      "Approver",
-      "Currency"
-    ],
+    "Tab4": ["OtherCost", "AdditionalInfo", "CostCentre", "Currency"],
     "Tab5": ["MultiAttachments"]
   },
   "listCards": [
-    {
-      "cardType": "Adaptive",
-      "title": "Create Travel Request",
-      "subtitle": "New Travel",
-      "template": "template_adaptiveForm.json",
-      "level": "Header"
-    },
     {
       "type": "Example",
       "cardType": "Analytical",
@@ -464,14 +451,6 @@
       "LLabel": "Processing Log"
     },
     {
-      "name": "Approver",
-      "type": "string",
-      "width": "100",
-      "Option": "Optional",
-      "SLabel": "Approver",
-      "LLabel": "Approver"
-    },
-    {
       "name": "FoodCost",
       "type": "Num,2",
       "width": "20",
@@ -575,21 +554,19 @@
       "intro": "Travel Request : Request Details"
     },
     {
-      "id": "Step4",
+      "id": "Step2",
       "fields": [
         { "name": "TravelDtFrom", "Mode": "Edit" },
         { "name": "TravelDateTo", "Mode": "Edit" },
         { "name": "TravelMode", "Mode": "Edit" },
-        { "name": "TravelDetail", "Mode": "Edit" },
-        { "name": "Status", "Mode": "Edit" },
-        { "name": "Approver", "Mode": "Edit" }
+        { "name": "TravelDetail", "Mode": "Edit" }
       ],
       "name": "Travel Details",
       "stepType": "FieldList",
       "intro": "Travel Request : Travel Details"
     },
     {
-      "id": "Step2",
+      "id": "Step3",
       "fields": [
         { "name": "FoodCost", "Mode": "Edit" },
         { "name": "TravelCost", "Mode": "Edit" },
@@ -599,6 +576,13 @@
       "name": "Travel Cost",
       "stepType": "FieldList",
       "intro": "Travel Cost Details"
+    },
+    {
+      "id": "Step4",
+      "fields": [{ "name": "Status", "Mode": "Display" }],
+      "name": "Travel Details",
+      "stepType": "FieldList",
+      "intro": "Travel Request : Status"
     }
   ]
 }

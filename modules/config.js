@@ -1113,6 +1113,10 @@ module.exports = {
     cardData = cardData.replace("@filterKeyLabel", mycard["filterKeyLabel"]);
     cardData = cardData.replace("@HeaderActionURL", "applicationTile");
 
+    var d = new Date();
+    var n = d.getTime();
+    cardData = cardData.replace("@currentTime", n);
+
     var today = new Date();
     date001 = [
       "@currentDate",
@@ -1132,7 +1136,6 @@ module.exports = {
           var mm = String(today.getMonth() + 1).padStart(2, "0"); //January is 0!
           var yyyy = today.getFullYear();
           date = yyyy + "-" + mm + "-" + dd;
-          console.log("Inside Loop", cardData);
           cardData = cardData.replace("@currentDate", date);
           break;
         case "@tomorrow":

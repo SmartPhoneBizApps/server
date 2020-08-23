@@ -241,7 +241,7 @@
     "Tab3": [
       {
         "GrpTitle": "Approval Details",
-        "Fields": ["Approver", "ApprovalDate", "ProgressComment"]
+        "Fields": ["ApprovalDate", "ProgressComment"]
       },
       {
         "GrpTitle": "Admin Details",
@@ -249,6 +249,8 @@
       }
     ]
   },
+  "listCards": [],
+  "cards": [],
   "ControlDisplay": {
     "ControlField": "RequestType",
     "Fields": [
@@ -266,7 +268,6 @@
             "ProgressComment",
             "ApprovalDate",
             "Officer",
-            "Approver",
             "Email"
           ]
         },
@@ -366,13 +367,6 @@
       "width": "50",
       "Option": "Optional",
       "SLabel": "Building Name"
-    },
-    {
-      "name": "Approver",
-      "type": "string",
-      "width": "50",
-      "Option": "Optional",
-      "SLabel": "Approver"
     },
     {
       "name": "StartDate",
@@ -631,82 +625,6 @@
     "ItemDetails": []
   },
   "CalculatedFields": {},
-  "Create": "Yes",
-  "Wizard": [
-    {
-      "id": "Step1",
-      "fields": [
-        { "name": "Name", "Mode": "Edit" },
-        { "name": "EmployeeID", "Mode": "Edit" },
-        { "name": "RequestType", "Mode": "Display" },
-        { "name": "DateOfRequest", "Mode": "Edit" }
-      ],
-      "name": "Request Details",
-      "stepType": "FieldList",
-      "intro": "Access : Request Details"
-    },
-    {
-      "id": "Step2",
-      "fields": [
-        { "name": "ContactNo", "Mode": "Edit" },
-        { "name": "Email", "Mode": "Edit" },
-        { "name": "StartDate", "Mode": "Edit" },
-        { "name": "EndDate", "Mode": "Edit" },
-        { "name": "Reason", "Mode": "Edit" }
-      ],
-      "name": "Contact Details and Dates",
-      "stepType": "FieldList",
-      "intro": "Access : Requester Contact Details and Dates"
-    },
-    {
-      "id": "Step3",
-      "fields": [
-        { "name": "AccessCardNo", "Mode": "Edit" },
-        { "name": "BuildingName", "Mode": "Edit" },
-        { "name": "Processor", "Mode": "Edit" },
-        { "name": "RAM", "Mode": "Edit" },
-        { "name": "OS", "Mode": "Edit" },
-        { "name": "Application", "Mode": "Edit" },
-        { "name": "CostCentre", "Mode": "Edit" },
-        { "name": "HardDrive", "Mode": "Edit" },
-
-        { "name": "Environment", "Mode": "Edit" },
-        { "name": "Software", "Mode": "Edit" },
-        { "name": "AssetID", "Mode": "Edit" },
-        { "name": "Hardware", "Mode": "Edit" }
-      ],
-      "name": "Key Details1",
-      "stepType": "FieldList",
-      "intro": "Access : Key Details1"
-    },
-    {
-      "id": "Step4",
-      "fields": [
-        { "name": "CDDrive", "Mode": "Edit" },
-        { "name": "HDMIPort", "Mode": "Edit" },
-        { "name": "USBPort", "Mode": "Edit" },
-        { "name": "DockingStation", "Mode": "Edit" },
-        { "name": "Bag", "Mode": "Edit" },
-        { "name": "Mouse", "Mode": "Edit" },
-        { "name": "System", "Mode": "Edit" },
-        { "name": "CloneUser", "Mode": "Edit" },
-        { "name": "RolesRequired", "Mode": "Edit" },
-        { "name": "TransactionsRequired", "Mode": "Edit" },
-        { "name": "KeyBoard", "Mode": "Edit" }
-      ],
-      "name": "Key Details2",
-      "stepType": "FieldList",
-      "intro": "Access : Key Details2"
-    },
-    {
-      "id": "Step7",
-      "fields": [
-        { "name": "Status", "Mode": "Edit" },
-        { "name": "Approver", "Mode": "Display" }
-      ],
-      "name": "Admin",
-      "stepType": "FieldList",
-      "intro": "Access : Status"
-    }
-  ]
+  "Create": "No",
+  "Wizard": []
 }

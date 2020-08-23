@@ -189,7 +189,7 @@
     "Tab3": [
       {
         "GrpTitle": "Approval Details",
-        "Fields": ["Approver", "ApprovalDate", "ProgressComment"]
+        "Fields": ["ApprovalDate", "ProgressComment"]
       },
       {
         "GrpTitle": "Admin Details",
@@ -216,7 +216,6 @@
             "ProgressComment",
             "ApprovalDate",
             "Officer",
-            "Approver",
             "Email"
           ]
         },
@@ -316,13 +315,6 @@
       "width": "50",
       "Option": "Optional",
       "SLabel": "Building Name"
-    },
-    {
-      "name": "Approver",
-      "type": "string",
-      "width": "50",
-      "Option": "Optional",
-      "SLabel": "Approver"
     },
     {
       "name": "StartDate",
@@ -586,8 +578,8 @@
     {
       "id": "Step1",
       "fields": [
-        { "name": "Name", "Mode": "Edit" },
-        { "name": "EmployeeID", "Mode": "Edit" },
+        { "name": "Name", "Mode": "Display" },
+        { "name": "EmployeeID", "Mode": "Display" },
         { "name": "RequestType", "Mode": "Display" },
         { "name": "DateOfRequest", "Mode": "Edit" }
       ],
@@ -598,8 +590,8 @@
     {
       "id": "Step2",
       "fields": [
-        { "name": "ContactNo", "Mode": "Edit" },
-        { "name": "Email", "Mode": "Edit" },
+        { "name": "ContactNo", "Mode": "Display" },
+        { "name": "Email", "Mode": "Display" },
         { "name": "StartDate", "Mode": "Edit" },
         { "name": "EndDate", "Mode": "Edit" },
         { "name": "Reason", "Mode": "Edit" }
@@ -617,7 +609,7 @@
         { "name": "RAM", "Mode": "Edit" },
         { "name": "OS", "Mode": "Edit" },
         { "name": "Application", "Mode": "Edit" },
-        { "name": "CostCentre", "Mode": "Edit" },
+        { "name": "CostCentre", "Mode": "Display" },
         { "name": "HardDrive", "Mode": "Edit" },
 
         { "name": "Environment", "Mode": "Edit" },
@@ -649,11 +641,8 @@
       "intro": "Access : Key Details2"
     },
     {
-      "id": "Step7",
-      "fields": [
-        { "name": "Status", "Mode": "Edit" },
-        { "name": "Approver", "Mode": "Display" }
-      ],
+      "id": "Step5",
+      "fields": [{ "name": "Status", "Mode": "Display" }],
       "name": "Admin",
       "stepType": "FieldList",
       "intro": "Access : Status"

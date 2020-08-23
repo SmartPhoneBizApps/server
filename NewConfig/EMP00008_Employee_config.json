@@ -137,19 +137,18 @@
     "headerImage": ["USP_Image"],
     "headerColorFields": ["Status"],
     "None": ["ID", "EmployeeID", "Name", "TotalAmount", "Currency"],
-    "Tab1": ["EntryDate", "ProjectCode", "CostCentre"],
+    "Tab1": [
+      "EntryDate",
+      "ProjectCode",
+      "CostCentre",
+      "ExpenseStDate",
+      "ExpenseEndDate"
+    ],
     "Tab2": ["myExpenses"],
     "Tab5": ["MultiAttachments"],
     "Tab4": ["ProcessingLog"]
   },
   "listCards": [
-    {
-      "cardType": "Adaptive",
-      "title": "Create Expense",
-      "subtitle": "New Expense",
-      "template": "template_adaptiveForm.json",
-      "level": "Header"
-    },
     {
       "type": "Example",
       "cardType": "Analytical",
@@ -695,6 +694,20 @@
       "SLabel": "Entry Date"
     },
     {
+      "name": "ExpenseStDate",
+      "type": "Date",
+      "width": "10",
+      "Option": "Mandatory",
+      "SLabel": "Expense Start Date"
+    },
+    {
+      "name": "ExpenseEndDate",
+      "type": "Date",
+      "width": "10",
+      "Option": "Mandatory",
+      "SLabel": "Expense End Date"
+    },
+    {
       "name": "ProjectCode",
       "type": "string",
       "width": "50",
@@ -797,7 +810,8 @@
         { "name": "ProjectCode", "Mode": "Edit" },
         { "name": "Currency", "Mode": "Edit" },
         { "name": "CostCentre", "Mode": "Edit" },
-        { "name": "EntryDate", "Mode": "Edit" }
+        { "name": "ExpenseStDate", "Mode": "Edit" },
+        { "name": "ExpenseEndDate", "Mode": "Edit" }
       ],
       "name": "Expenses Details",
       "stepType": "FieldList",
@@ -837,7 +851,10 @@
     },
     {
       "id": "Step5",
-      "fields": [{ "name": "Status", "Mode": "Edit" }],
+      "fields": [
+        { "name": "Status", "Mode": "Edit" },
+        { "name": "EntryDate", "Mode": "Edit" }
+      ],
       "name": "Admin",
       "stepType": "FieldList",
       "intro": "Expense : Expense"

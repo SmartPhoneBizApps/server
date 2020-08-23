@@ -427,9 +427,7 @@
         { "name": "BookingFor", "Mode": "Display" },
         { "name": "CarPark", "Mode": "Edit" },
         { "name": "StartDate", "Mode": "Edit" },
-
         { "name": "EndDate", "Mode": "Edit" },
-
         { "name": "MeetingDate", "Mode": "Edit" },
         { "name": "Slot", "Mode": "Edit" },
         { "name": "NoOfPeople", "Mode": "Edit" },
@@ -439,7 +437,6 @@
         { "name": "HotDeskNo", "Mode": "Edit" },
         { "name": "Building", "Mode": "Edit" },
         { "name": "ParkingRequired", "Mode": "Edit" },
-
         { "name": "VisitorName", "Mode": "Edit" },
         { "name": "VisitorEmail", "Mode": "Edit" },
         { "name": "VisitorPhone", "Mode": "Edit" },
@@ -453,9 +450,9 @@
     {
       "id": "Step2",
       "fields": [
-        { "name": "Name", "Mode": "Edit" },
-        { "name": "ContactNo", "Mode": "Edit" },
-        { "name": "Email", "Mode": "Edit" }
+        { "name": "Name", "Mode": "Display" },
+        { "name": "ContactNo", "Mode": "Display" },
+        { "name": "Email", "Mode": "Display" }
       ],
       "name": "Your Details",
       "stepType": "FieldList",
@@ -474,7 +471,7 @@
     },
     {
       "id": "Step4",
-      "fields": [{ "name": "Status", "Mode": "Edit" }],
+      "fields": [{ "name": "Status", "Mode": "Display" }],
       "name": "Admin and other details",
       "stepType": "FieldList",
       "intro": "Booking : Admin and other details"

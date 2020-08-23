@@ -351,10 +351,14 @@ exports.listrecordsnew = asyncHandler(async (req, res, next) => {
       });
     }
     if (mode == "listcards") {
-      aCard = {};
-      aCard = await adaptiveNew(appconfig, resPV, ival_out);
-
-      outStru["ADD01"] = { ...aCard };
+      for (let w = 0; w < appconfig["MButtons"].length; w++) {
+        if (appconfig["MButtons"][w]["type"] == "ADD") {
+          // Adaptive Card to add new header record..
+          aCard = {};
+          aCard = await adaptiveNew(appconfig, resPV, ival_out);
+          outStru["ADD01"] = { ...aCard };
+        }
+      }
 
       if (appconfig.hasOwnProperty("listCards")) {
         var mycard = appconfig["listCards"];
@@ -376,15 +380,15 @@ exports.listrecordsnew = asyncHandler(async (req, res, next) => {
               );
               outStru[cardKey] = { ...jCard1 };
               break;
-            case "Adaptive":
-              jCard1 = {};
-              jCard1 = await adaptivecardCard(
-                applicationId,
-                businessrole,
-                anacardConfig
-              );
-              outStru[cardKey] = { ...jCard1 };
-              break;
+            // case "Adaptive":
+            //   jCard1 = {};
+            //   jCard1 = await adaptivecardCard(
+            //     applicationId,
+            //     businessrole,
+            //     anacardConfig
+            //   );
+            //   outStru[cardKey] = { ...jCard1 };
+            //   break;
             default:
               break;
           }

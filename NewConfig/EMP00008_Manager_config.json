@@ -31,7 +31,6 @@
       "header": ["Status", "ExpType", "CostCentre", "Currency"]
     }
   },
-
   "ListFields": {
     "IntroField": "ProjectCode",
     "TitleField": "Name",
@@ -53,7 +52,8 @@
     "Status",
     "ReferenceID",
     "ItemStatus1",
-    "ExpType"
+    "ExpType",
+    "ProjectCode"
   ],
   "MButtons": [
     {
@@ -187,7 +187,13 @@
     "headerImage": ["USP_Image"],
     "headerColorFields": ["Status"],
     "None": ["ID", "EmployeeID", "Name", "TotalAmount", "Currency"],
-    "Tab1": ["EntryDate", "ProjectCode", "CostCentre"],
+    "Tab1": [
+      "EntryDate",
+      "ProjectCode",
+      "CostCentre",
+      "ExpenseStDate",
+      "ExpenseEndDate"
+    ],
     "Tab2": ["myExpenses"],
     "Tab5": ["MultiAttachments"],
     "Tab4": ["ProcessingLog"]
@@ -283,6 +289,7 @@
       ]
     }
   ],
+  "cards": [],
   "ControlDisplay": {},
   "tableConfig": {
     "myExpenses": {
@@ -304,7 +311,6 @@
           "Option": "Optional",
           "Update": "No"
         },
-
         {
           "name": "ExpenseDate",
           "type": "Date",
@@ -354,18 +360,26 @@
           "Update": "Yes"
         },
         {
-          "name": "Currency",
+          "name": "iCurrency",
           "type": "string",
           "width": "10",
-          "SLabel": "iCurrency",
+          "SLabel": "Item Currency",
           "Option": "Optional",
-          "Update": "Yes"
+          "Update": "No"
         },
         {
           "name": "ItemStatus1",
           "type": "string",
           "width": "50",
           "SLabel": "Item Status",
+          "Option": "Optional",
+          "Update": "Yes"
+        },
+        {
+          "name": "Attachment",
+          "type": "singleAttachment",
+          "width": "100",
+          "SLabel": "Item Attachment",
           "Option": "Optional",
           "Update": "Yes"
         }
@@ -379,6 +393,246 @@
         "ItemStatus1"
       ],
       "cards": [
+        {
+          "type": "Example",
+          "cardType": "AdaptiveForm",
+          "cardID": "ADD01",
+          "template": "template_adaptiveForm.json"
+        },
+        {
+          "type": "Example",
+          "cardType": "Analytical",
+          "cardsubType": "Line",
+          "cardID": "ALN01",
+          "cardLevel": "tableData",
+          "template": "template_example_line.json",
+          "title": "Expense Analysis",
+          "subtitle": "Expenses details",
+          "unitOfMeasurement": "GBP",
+          "itemvalueMap": {
+            "Value1": "ExpenseAmount",
+            "Value2": "Deductions"
+          },
+          "itemkeyMap": {
+            "Area": "ExpType"
+          },
+          "itemfixedVal": [{ "Total": 5 }],
+          "sumField": [
+            { "sumValue1": "ExpenseAmount" },
+            { "sumValue2": "Deductions" }
+          ],
+          "headerfieldMap": [
+            { "j_number": "sumValue1" },
+            { "j_target": "sumValue2" }
+          ]
+        },
+        {
+          "type": "Example",
+          "cardType": "Analytical",
+          "cardsubType": "StackedColumn",
+          "cardID": "ASC01",
+          "cardLevel": "tableData",
+          "template": "template_example_stackedcolumn",
+          "title": "Expense Analysis",
+          "subtitle": "Expenses details",
+          "unitOfMeasurement": "GBP",
+          "itemvalueMap": {
+            "Value1": "ExpenseAmount",
+            "Value2": "Deductions"
+          },
+          "itemkeyMap": {
+            "Area": "ExpType"
+          },
+          "itemfixedVal": [{ "Total": 5 }],
+          "sumField": [
+            { "sumValue1": "ExpenseAmount" },
+            { "sumValue2": "Deductions" }
+          ],
+          "headerfieldMap": [
+            { "j_number": "sumValue1" },
+            { "j_target": "sumValue2" }
+          ]
+        },
+        {
+          "type": "Example",
+          "cardType": "Analytical",
+          "cardsubType": "StackedBar",
+          "cardID": "ASB01",
+          "cardLevel": "tableData",
+          "template": "template_example_StackedBar",
+          "title": "Expense Analysis",
+          "subtitle": "Expenses details",
+          "unitOfMeasurement": "GBP",
+          "itemvalueMap": {
+            "Value1": "ExpenseAmount",
+            "Value2": "Deductions"
+          },
+          "itemkeyMap": {
+            "Area": "ExpType"
+          },
+          "itemfixedVal": [{ "Total": 5 }],
+          "sumField": [
+            { "sumValue1": "ExpenseAmount" },
+            { "sumValue2": "Deductions" }
+          ],
+          "headerfieldMap": [
+            { "j_number": "sumValue1" },
+            { "j_target": "sumValue2" }
+          ]
+        },
+        {
+          "type": "Example",
+          "cardType": "Analytical",
+          "cardsubType": "Donut",
+          "cardID": "ADT01",
+          "cardLevel": "tableData",
+          "template": "template_example_donut.json",
+          "title": "Expense Type Analysis",
+          "analyticsCard": {
+            "chartType": "donut",
+            "cardsDonut": {
+              "measureName": "ExpType",
+              "Value2": "ExpenseAmount",
+              "function": "SUM"
+            }
+          }
+        },
+        {
+          "type": "Example",
+          "template": "template_example_StackedBar.json"
+        },
+        {
+          "type": "Example",
+          "template": "template_example_stackedcolumn.json"
+        },
+        {
+          "type": "Example",
+          "template": "template_example_line.json"
+        },
+        {
+          "type": "Example",
+          "template": "template_example_donut.json"
+        },
+        {
+          "type": "Example",
+          "cardType": "List",
+          "cardsubType": "ListNumeric",
+          "cardID": "L001",
+          "cardLevel": "tableData",
+          "template": "template_example_listNumeric.json",
+          "mergedFields": {
+            "Name": ["ExpenseDate", "ExpType"],
+            "Description": ["ExpenseDetails", "ItemStatus1"]
+          },
+          "fieldMap": {
+            "Expected": "ExpenseAmount",
+            "Actual": "Deductions",
+            "Target": "Deductions"
+          },
+          "colorStatus": "ItemStatus1"
+        },
+        {
+          "type": "Example",
+          "cardType": "List",
+          "cardsubType": "ListHighLight",
+          "cardID": "L002",
+          "cardLevel": "tableData",
+          "template": "template_example_listHighLight.json",
+          "mergedFields": {
+            "Name": ["@£", "ExpenseAmount", "@ ", "ExpType"],
+            "Description": [
+              "ExpenseDetails",
+              "@ ",
+              "ItemStatus1",
+              "@ ",
+              "ExpenseDate"
+            ]
+          },
+          "fieldMap": {},
+          "colorStatus": "ItemStatus1"
+        },
+        {
+          "type": "Example",
+          "cardType": "List",
+          "cardsubType": "MicrochartBullet",
+          "cardID": "L003",
+          "cardLevel": "tableData",
+          "template": "template_example_microchartBullet.json",
+          "mergedFields": {
+            "Name": ["ExpType", "ExpenseDate"],
+            "Description": ["ExpenseDetails", "ItemStatus1"]
+          },
+          "fieldMap": {
+            "Expected": "ExpenseAmount",
+            "Actual": "Deductions",
+            "Target": "Deductions"
+          },
+          "colorStatus": "ItemStatus1"
+        },
+        {
+          "type": "Example",
+          "template": "template_example_listBulletChart.json"
+        },
+        {
+          "type": "Example",
+          "template": "template_example_microchartStackedBar.json"
+        },
+        {
+          "type": "Example",
+          "template": "template_example_liststackedBar.json"
+        },
+        { "type": "Example", "template": "template_example_cardAction.json" },
+        { "type": "Example", "template": "template_example_object.json" },
+        {
+          "type": "Example",
+          "template": "template_example_listHighLight.json"
+        },
+
+        {
+          "type": "Example",
+          "template": "template_example_listNumeric.json"
+        },
+        {
+          "type": "Example",
+          "template": "template_example_calander.json"
+        },
+        {
+          "type": "Example",
+          "template": "template_example_adaptiveCard.json"
+        },
+        {
+          "type": "Example",
+          "template": "template_example_adaptiveForm.json"
+        },
+        {
+          "type": "Example",
+          "template": "template_example_adaptivesubmitAction.json"
+        },
+        {
+          "type": "Example",
+          "template": "template_example_adaptiveMarkdown.json"
+        },
+        {
+          "type": "Example",
+          "template": "template_example_adaptiveopenURL.json"
+        },
+        {
+          "type": "Example",
+          "template": "template_example_listicon.json"
+        },
+        {
+          "type": "Example",
+          "template": "template_example_timeline.json"
+        },
+        {
+          "type": "Example",
+          "template": "template_example_timeline2.json"
+        },
+        {
+          "type": "Example",
+
+          "template": "template_example_table.json"
+        },
         {
           "type": "Table",
           "filterKey": "ItemStatus1",
@@ -424,7 +678,8 @@
         "ExpenseDetails",
         "iCurrency",
         "ItemStatus1",
-        "Comment"
+        "Comment",
+        "Attachment"
       ],
       "ItemDetails": [
         { "name": "ExpenseDate" },
@@ -433,7 +688,8 @@
         { "name": "ExpenseDetails" },
         { "name": "iCurrency" },
         { "name": "Comment" },
-        { "name": "ItemStatus1" }
+        { "name": "ItemStatus1" },
+        { "name": "Attachment" }
       ]
     }
   },
@@ -450,14 +706,14 @@
       "name": "ReferenceID",
       "type": "string",
       "width": "20",
-      "Option": "Optional",
+      "Option": "Mandatory",
       "SLabel": "ReferenceID"
     },
     {
       "name": "EmployeeID",
       "type": "string",
       "width": "20",
-      "Option": "Optional",
+      "Option": "Mandatory",
       "SLabel": "Employee Code"
     },
     {
@@ -478,28 +734,42 @@
       "name": "Currency",
       "type": "string",
       "width": "10",
-      "Option": "Optional",
+      "Option": "Mandatory",
       "SLabel": "Currency"
     },
     {
       "name": "EntryDate",
       "type": "Date",
       "width": "10",
-      "Option": "Optional",
+      "Option": "Mandatory",
       "SLabel": "Entry Date"
+    },
+    {
+      "name": "ExpenseStDate",
+      "type": "Date",
+      "width": "10",
+      "Option": "Mandatory",
+      "SLabel": "Expense Start Date"
+    },
+    {
+      "name": "ExpenseEndDate",
+      "type": "Date",
+      "width": "10",
+      "Option": "Mandatory",
+      "SLabel": "Expense End Date"
     },
     {
       "name": "ProjectCode",
       "type": "string",
       "width": "50",
-      "Option": "Optional",
+      "Option": "Mandatory",
       "SLabel": "Project Code"
     },
     {
       "name": "CostCentre",
       "type": "string",
       "width": "50",
-      "Option": "Optional",
+      "Option": "Mandatory",
       "SLabel": "Cost Centre"
     },
     {
@@ -524,7 +794,7 @@
       "name": "SearchString",
       "type": "string",
       "width": "200",
-      "Option": "Mandatory",
+      "Option": "Optional",
       "SLabel": "Search String",
       "LLabel": "Search String"
     },
@@ -583,6 +853,6 @@
     ],
     "Header": []
   },
-  "Create": "Yes",
+  "Create": "No",
   "Wizard": []
 }

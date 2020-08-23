@@ -60,6 +60,22 @@
       "Please provide value with 2 decimal places in the field :TotalAmount"
     ]
   },
+  "ExpenseStDate": {
+    "type": "Date",
+    "maxlength": [10, "ExpenseStDate can not be more than 10 characters"],
+    "match": [
+      "DATE_V1",
+      "Please provide date in YYYY-MM-DD format for field :ExpenseStDate"
+    ]
+  },
+  "ExpenseEndDate": {
+    "type": "Date",
+    "maxlength": [10, "ExpenseEndDate can not be more than 10 characters"],
+    "match": [
+      "DATE_V1",
+      "Please provide date in YYYY-MM-DD format for field :ExpenseEndDate"
+    ]
+  },
   "EntryDate": {
     "type": "Date",
     "maxlength": [10, "EntryDate can not be more than 10 characters"],
