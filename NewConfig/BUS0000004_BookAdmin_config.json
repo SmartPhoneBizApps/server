@@ -26,14 +26,14 @@
     "sStatus": "CostCentre",
     "fStatus": "Status",
     "numberField": "TrainFare",
-    "LFields": ["ID", "Name", "UserAccount", "Email"],
+    "LFields": ["ID", "Name", "EmployeeID", "Email"],
     "numberUnitField": "Currency"
   },
   "ListBOTFields": {
     "None": ["cardImage", "StatusState"],
     "Title": ["From", "To"],
     "SubTitle": ["TrainFare", "CostCentre", "Status"],
-    "Description": ["ID", "Name", "UserAccount", "Email"]
+    "Description": ["ID", "Name", "EmployeeID", "Email"]
   },
   "PossibleValues": ["ReturnJourney", "Status"],
   "MButtons": [
@@ -150,7 +150,14 @@
     "headerImage": ["USP_Image"],
     "headerColorFields": ["Status"],
     "None": ["ID"],
-    "Tab1": ["Name", "UserAccount", "Email", "Phone", "CostCentre", "Status"],
+    "Tab1": [
+      "Name",
+      "EmployeeID",
+      "Email",
+      "ContactNo",
+      "CostCentre",
+      "Status"
+    ],
     "Tab2": [
       "From",
       "To",
@@ -198,14 +205,14 @@
       "LLabel": "Email"
     },
     {
-      "name": "Phone",
+      "name": "ContactNo",
       "type": "string",
       "width": "20",
       "Option": "Optional",
-      "SLabel": "Phone"
+      "SLabel": "ContactNo"
     },
     {
-      "name": "UserAccount",
+      "name": "EmployeeID",
       "type": "string",
       "width": "20",
       "Option": "Optional",
@@ -356,8 +363,8 @@
     {
       "id": "Step2",
       "fields": [
-        { "name": "Phone", "Mode": "Edit" },
-        { "name": "UserAccount", "Mode": "Edit" }
+        { "name": "ContactNo", "Mode": "Edit" },
+        { "name": "EmployeeID", "Mode": "Edit" }
       ],
       "name": "Personnel Details",
       "stepType": "FieldList",

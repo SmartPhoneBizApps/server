@@ -25,13 +25,13 @@
     "TitleField": "DescribeProblem",
     "sStatus": "Department",
     "fStatus": "Status",
-    "LFields": ["UserAccount", "Email", "Name"]
+    "LFields": ["EmployeeID", "Email", "Name"]
   },
   "ListBOTFields": {
     "None": ["cardImage", "StatusState"],
     "Title": ["DescribeProblem"],
     "SubTitle": ["Name", "Department"],
-    "Description": ["UserAccount", "Email", "Status"]
+    "Description": ["EmployeeID", "Email", "Status"]
   },
   "PossibleValues": ["Department", "Status"],
   "MButtons": [
@@ -138,7 +138,7 @@
     "headerImage": ["USP_Image"],
     "headerColorFields": ["Status"],
     "None": ["ID"],
-    "Tab1": ["Name", "Email", "Department", "UserAccount"],
+    "Tab1": ["Name", "Email", "Department", "EmployeeID"],
     "Tab2": ["DescribeProblem", "ComputerID", "DateCreated"],
     "Tab3": ["DateResolved", "ResolutionDetails", "UserFeedback", "Score"],
     "Tab4": ["Attachment"],
@@ -191,7 +191,7 @@
       "SLabel": "Computer ID"
     },
     {
-      "name": "UserAccount",
+      "name": "EmployeeID",
       "type": "string",
       "width": "20",
       "Option": "Optional",
@@ -305,7 +305,7 @@
     },
     {
       "id": "Step2",
-      "fields": [{ "name": "UserAccount", "Mode": "Edit" }],
+      "fields": [{ "name": "EmployeeID", "Mode": "Display" }],
       "name": "User Details",
       "stepType": "FieldList",
       "intro": "IT Service Ticket : Details of the Problem"
@@ -320,9 +320,9 @@
     {
       "id": "Step5",
       "fields": [
-        { "name": "Name", "Mode": "Edit" },
-        { "name": "Email", "Mode": "Edit" },
-        { "name": "Department", "Mode": "Edit" }
+        { "name": "Name", "Mode": "Display" },
+        { "name": "Email", "Mode": "Display" },
+        { "name": "Department", "Mode": "Display" }
       ],
       "name": "Contact Details",
       "stepType": "FieldList",
@@ -331,9 +331,10 @@
     {
       "id": "Step7",
       "fields": [
-        { "name": "Status", "Mode": "Edit" },
-        { "name": "DateCreated", "Mode": "Edit" }
+        { "name": "Status", "Mode": "Display" },
+        { "name": "DateCreated", "Mode": "Display" }
       ],
+
       "name": "Admin",
       "stepType": "FieldList",
       "intro": "IT Service Ticket : Administrative information"

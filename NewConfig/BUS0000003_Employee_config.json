@@ -26,14 +26,14 @@
     "sStatus": "CostCentre",
     "fStatus": "Status",
     "numberField": "TaxiFare",
-    "LFields": ["ID", "Name", "UserAccount", "Email"],
+    "LFields": ["ID", "Name", "EmployeeID", "Email"],
     "numberUnitField": "Currency"
   },
   "ListBOTFields": {
     "None": ["cardImage", "StatusState"],
     "Title": ["Name", "TaxiFare"],
     "SubTitle": ["CostCentre", "Currency"],
-    "Description": ["ID", "UserAccount", "Email", "Status"]
+    "Description": ["ID", "EmployeeID", "Email", "Status"]
   },
   "PossibleValues": [],
   "MButtons": [
@@ -129,7 +129,14 @@
     "headerImage": ["USP_Image"],
     "headerColorFields": ["Status"],
     "None": ["ID"],
-    "Tab1": ["Name", "UserAccount", "Email", "Phone", "CostCentre", "Status"],
+    "Tab1": [
+      "Name",
+      "EmployeeID",
+      "Email",
+      "ContactNo",
+      "CostCentre",
+      "Status"
+    ],
     "Tab2": [
       "From",
       "To",
@@ -177,14 +184,14 @@
       "LLabel": "Email"
     },
     {
-      "name": "Phone",
+      "name": "ContactNo",
       "type": "string",
       "width": "20",
       "Option": "Optional",
-      "SLabel": "Phone"
+      "SLabel": "ContactNo"
     },
     {
-      "name": "UserAccount",
+      "name": "EmployeeID",
       "type": "string",
       "width": "20",
       "Option": "Optional",
@@ -335,8 +342,8 @@
     {
       "id": "Step2",
       "fields": [
-        { "name": "Phone", "Mode": "Edit" },
-        { "name": "UserAccount", "Mode": "Edit" }
+        { "name": "ContactNo", "Mode": "Display" },
+        { "name": "EmployeeID", "Mode": "Display" }
       ],
       "name": "Personnel Details",
       "stepType": "FieldList",
@@ -346,8 +353,8 @@
       "id": "Step3",
       "fields": [
         { "name": "TaxiFare", "Mode": "Edit" },
-        { "name": "Currency", "Mode": "Edit" },
-        { "name": "CostCentre", "Mode": "Edit" }
+        { "name": "Currency", "Mode": "Display" },
+        { "name": "CostCentre", "Mode": "Display" }
       ],
       "name": "Finance Data",
       "stepType": "FieldList",
@@ -356,8 +363,8 @@
     {
       "id": "Step4",
       "fields": [
-        { "name": "Name", "Mode": "Edit" },
-        { "name": "Email", "Mode": "Edit" }
+        { "name": "Name", "Mode": "Display" },
+        { "name": "Email", "Mode": "Display" }
       ],
       "name": "Contact Details",
       "stepType": "FieldList",
@@ -365,7 +372,7 @@
     },
     {
       "id": "Step5",
-      "fields": [{ "name": "Status", "Mode": "Edit" }],
+      "fields": [{ "name": "Status", "Mode": "Display" }],
       "name": "Admin",
       "stepType": "FieldList",
       "intro": "Online Taxi Booking : Admin"
