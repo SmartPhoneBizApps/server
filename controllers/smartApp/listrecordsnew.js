@@ -1,7 +1,6 @@
 const {
   adaptivecardCard,
   getCardKey,
-  cardReplace,
   analyticalCard,
   adaptiveNew,
 } = require("../../modules/config2");
@@ -13,6 +12,7 @@ const {
   getDateValues,
   findOneApp,
   getNewConfig,
+  cardReplace,
   getPVField,
 } = require("../../modules/config");
 const { readData, getTotalCount, nConfig } = require("../../modules/config2");

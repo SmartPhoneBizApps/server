@@ -8,7 +8,6 @@ const {
   exampleCard,
   adaptivecardCard,
   getCardKey,
-  cardReplace,
   analyticalCard,
   listCard,
   adaptivetableCard,
@@ -16,6 +15,7 @@ const {
 const {
   getCard,
   findOneAppDatabyid,
+  cardReplace,
   getNewConfig,
 } = require("../../modules/config");
 

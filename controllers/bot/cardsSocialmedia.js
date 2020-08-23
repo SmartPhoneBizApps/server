@@ -12,13 +12,13 @@ const {
   globalCard,
   adaptivecardCard,
   getCardKey,
-  cardReplace,
   exampleCard,
 } = require("../../modules/config2");
 const {
   getCard,
   findOneAppDatabyid,
   findOneAppData,
+  cardReplace,
   getNewConfig,
 } = require("../../modules/config");
 // @desc      Create socialmedia

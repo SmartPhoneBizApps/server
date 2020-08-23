@@ -1089,4 +1089,29 @@ module.exports = {
       }
     });
   },
+  cardReplace: function (mycard, cardData, appconfig) {
+    if (mycard.title != undefined) {
+      cardData = cardData.replace("@Title", mycard.title);
+    } else {
+      cardData = cardData.replace(
+        "@Title",
+        appconfig["Title"]["ApplicationTitle"]
+      );
+    }
+    if (mycard.subTitle != undefined) {
+      cardData = cardData.replace("@subTitle", mycard.subtitle);
+    } else {
+      cardData = cardData.replace(
+        "@subTitle",
+        appconfig["Title"]["DetailTitle"]
+      );
+    }
+    cardData = cardData.replace("@unitOfMeasurement", mycard.unitOfMeasurement);
+    cardData = cardData.replace("@filterKey", mycard["filterKey"]);
+    cardData = cardData.replace("@filterKey", mycard["filterKey"]);
+    cardData = cardData.replace("@filterKeyLabel", mycard["filterKeyLabel"]);
+    cardData = cardData.replace("@filterKeyLabel", mycard["filterKeyLabel"]);
+    cardData = cardData.replace("@HeaderActionURL", "applicationTile");
+    return cardData;
+  },
 };

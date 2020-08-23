@@ -2,7 +2,6 @@ const {
   donutCardHead,
   adaptivecardCard,
   getCardKey,
-  cardReplace,
 } = require("../../modules/config2");
 const {
   getPVConfig,
@@ -11,6 +10,7 @@ const {
   getInitialValues,
   getDateValues,
   findOneApp,
+  cardReplace,
   getNewConfig,
   getPVField,
 } = require("../../modules/config");

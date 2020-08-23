@@ -6,7 +6,7 @@ const Agent = require("../models/access/Agent");
 const App = require("../models/appSetup/App");
 const Role = require("../models/appSetup/Role");
 const User = require("../models/access/User");
-const { getBotListFields, getInitialValues } = require("./config");
+const { getBotListFields, getInitialValues, cardReplace } = require("./config");
 
 const fs = require("fs");
 const path = require("path");
@@ -570,6 +570,10 @@ module.exports = {
     body2x = {};
     let cardConfigFile1 = "../cards/cardConfig/template_adaptiveForm.json";
     let aCard = require(cardConfigFile1);
+    var cardData = JSON.stringify(require(cardConfigFile1));
+
+    cardData = cardReplace({}, cardData, appconfig);
+    aCard = JSON.parse(cardData);
     for (let l = 0; l < appconfig["Wizard"].length; l++) {
       const rkg = appconfig["Wizard"][l];
       rkg["fields"].forEach((e1) => {
@@ -750,57 +754,61 @@ module.exports = {
 
             body1x["id"] = e1["name"];
             body1x["value"] = ival_out[d]["Value"];
-            switch (appconfig["FieldDef"][a]["type"]) {
-              case "string":
-                body1x["type"] = "Input.Text";
-                body1x["style"] = "text";
-                break;
-              case "Date":
-                //  Input.Date
-                body1x["type"] = "Input.Date";
-                body1x["style"] = "";
-                break;
-              case "hyperlink":
-                // Input.Text
-                body1x["type"] = "Input.Text";
-                body1x["style"] = "url";
-                break;
-              case "Email":
-                //"style": "email",
-                // Text >> Input.Text
-                body1x["type"] = "Input.Text";
-                body1x["style"] = "email";
-                break;
+            for (let a = 0; a < appconfig["FieldDef"].length; a++) {
+              if (appconfig["FieldDef"][a]["name"] == e1["name"]) {
+                switch (appconfig["FieldDef"][a]["type"]) {
+                  case "string":
+                    body1x["type"] = "Input.Text";
+                    body1x["style"] = "text";
+                    break;
+                  case "Date":
+                    //  Input.Date
+                    body1x["type"] = "Input.Date";
+                    body1x["style"] = "";
+                    break;
+                  case "hyperlink":
+                    // Input.Text
+                    body1x["type"] = "Input.Text";
+                    body1x["style"] = "url";
+                    break;
+                  case "Email":
+                    //"style": "email",
+                    // Text >> Input.Text
+                    body1x["type"] = "Input.Text";
+                    body1x["style"] = "email";
+                    break;
 
-              case "Time":
-                // Time >> Input.Time
-                body1x["type"] = "Input.Time";
-                body1x["style"] = "";
-                break;
-              case "Num,0":
-                // Number >> Input.Number
-                body1x["type"] = "Input.Number";
-                body1x["style"] = "";
-                break;
-              case "Num,1":
-                // Number >> Input.Number
-                body1x["type"] = "Input.Number";
-                body1x["style"] = "";
-                break;
-              case "Num,2":
-                // Number >> Input.Number
-                body1x["type"] = "Input.Number";
-                body1x["style"] = "";
-                break;
-              case "Num,3":
-                // Number >> Input.Number
-                body1x["type"] = "Input.Number";
-                body1x["style"] = "";
-                break;
-              default:
-                body1x["type"] = "Input.Text";
-                body1x["style"] = "text";
-                break;
+                  case "Time":
+                    // Time >> Input.Time
+                    body1x["type"] = "Input.Time";
+                    body1x["style"] = "";
+                    break;
+                  case "Num,0":
+                    // Number >> Input.Number
+                    body1x["type"] = "Input.Number";
+                    body1x["style"] = "";
+                    break;
+                  case "Num,1":
+                    // Number >> Input.Number
+                    body1x["type"] = "Input.Number";
+                    body1x["style"] = "";
+                    break;
+                  case "Num,2":
+                    // Number >> Input.Number
+                    body1x["type"] = "Input.Number";
+                    body1x["style"] = "";
+                    break;
+                  case "Num,3":
+                    // Number >> Input.Number
+                    body1x["type"] = "Input.Number";
+                    body1x["style"] = "";
+                    break;
+                  default:
+                    body1x["type"] = "Input.Text";
+                    body1x["style"] = "text";
+                    break;
+                }
+              }
             }
           }
         }
@@ -927,31 +935,7 @@ module.exports = {
 
     return mgsObj;
   },
-  cardReplace: function (mycard, cardData, appconfig) {
-    if (mycard.title != undefined) {
-      cardData = cardData.replace("@Title", mycard.title);
-    } else {
-      cardData = cardData.replace(
-        "@Title",
-        appconfig["Title"]["ApplicationTitle"]
-      );
-    }
-    if (mycard.subTitle != undefined) {
-      cardData = cardData.replace("@subTitle", mycard.subtitle);
-    } else {
-      cardData = cardData.replace(
-        "@subTitle",
-        appconfig["Title"]["DetailTitle"]
-      );
-    }
-    cardData = cardData.replace("@unitOfMeasurement", mycard.unitOfMeasurement);
-    cardData = cardData.replace("@filterKey", mycard["filterKey"]);
-    cardData = cardData.replace("@filterKey", mycard["filterKey"]);
-    cardData = cardData.replace("@filterKeyLabel", mycard["filterKeyLabel"]);
-    cardData = cardData.replace("@filterKeyLabel", mycard["filterKeyLabel"]);
-    cardData = cardData.replace("@HeaderActionURL", "applicationTile");
-    return cardData;
-  },
+
   getCardKey: function (a, b, c, d) {
     cKey = d + a.substring(0, 3) + a.slice(-2) + b.substring(0, 3) + c;
     return cKey;
