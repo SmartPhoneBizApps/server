@@ -669,7 +669,7 @@
       "name": "Name",
       "type": "string",
       "width": "50",
-      "Option": "Optional",
+      "Option": "Mandatory",
       "SLabel": "Employee Name"
     },
     {
@@ -718,7 +718,7 @@
       "name": "CostCentre",
       "type": "string",
       "width": "50",
-      "Option": "Mandatory",
+      "Option": "Optional",
       "SLabel": "Cost Centre"
     },
     {
@@ -808,8 +808,8 @@
       "id": "Step1",
       "fields": [
         { "name": "ProjectCode", "Mode": "Edit" },
-        { "name": "Currency", "Mode": "Edit" },
-        { "name": "CostCentre", "Mode": "Edit" },
+        { "name": "Currency", "Mode": "Display" },
+        { "name": "CostCentre", "Mode": "Display" },
         { "name": "ExpenseStDate", "Mode": "Edit" },
         { "name": "ExpenseEndDate", "Mode": "Edit" }
       ],
@@ -820,8 +820,8 @@
     {
       "id": "Step2",
       "fields": [
-        { "name": "EmployeeID", "Mode": "Edit" },
-        { "name": "Name", "Mode": "Edit" }
+        { "name": "EmployeeID", "Mode": "Display" },
+        { "name": "Name", "Mode": "Display" }
       ],
       "name": "Employee Details",
       "stepType": "FieldList",
@@ -852,8 +852,8 @@
     {
       "id": "Step5",
       "fields": [
-        { "name": "Status", "Mode": "Edit" },
-        { "name": "EntryDate", "Mode": "Edit" }
+        { "name": "Status", "Mode": "Display" },
+        { "name": "EntryDate", "Mode": "Display" }
       ],
       "name": "Admin",
       "stepType": "FieldList",

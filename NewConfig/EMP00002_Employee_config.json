@@ -324,21 +324,21 @@
       "name": "ReferenceID",
       "type": "string",
       "width": "20",
-      "Option": "Optional",
+      "Option": "Mandatory",
       "SLabel": "ReferenceID"
     },
     {
       "name": "EmployeeID",
       "type": "string",
       "width": "20",
-      "Option": "Optional",
+      "Option": "Mandatory",
       "SLabel": "Employee Code"
     },
     {
       "name": "Name",
       "type": "string",
       "width": "50",
-      "Option": "Optional",
+      "Option": "Mandatory",
       "SLabel": "Employee Name"
     },
     {
@@ -352,28 +352,28 @@
       "name": "Currency",
       "type": "string",
       "width": "5",
-      "Option": "Optional",
+      "Option": "Mandatory",
       "SLabel": "Currency"
     },
     {
       "name": "EntryDate",
       "type": "Date",
       "width": "10",
-      "Option": "Optional",
+      "Option": "Mandatory",
       "SLabel": "Entry Date"
     },
     {
       "name": "TravelDtFrom",
       "type": "Date",
       "width": "10",
-      "Option": "Optional",
+      "Option": "Mandatory",
       "SLabel": "Travel Date From"
     },
     {
       "name": "TravelDateTo",
       "type": "Date",
       "width": "10",
-      "Option": "Optional",
+      "Option": "Mandatory",
       "SLabel": "Travel Date To"
     },
     {
@@ -401,14 +401,14 @@
       "name": "TravelDetail",
       "type": "string",
       "width": "500",
-      "Option": "Optional",
+      "Option": "Mandatory",
       "SLabel": "Travel Detail"
     },
     {
       "name": "Justification",
       "type": "string",
       "width": "1000",
-      "Option": "Optional",
+      "Option": "Mandatory",
       "SLabel": "Justification"
     },
     {
@@ -423,7 +423,7 @@
       "name": "SearchString",
       "type": "string",
       "width": "200",
-      "Option": "Mandatory",
+      "Option": "Optional",
       "SLabel": "Search String",
       "LLabel": "Search String"
     },
@@ -439,7 +439,7 @@
       "name": "TravelMode",
       "type": "radiobutton",
       "width": "50",
-      "Option": "Optional",
+      "Option": "Mandatory",
       "SLabel": "Travelling mode"
     },
     {
@@ -545,9 +545,8 @@
     {
       "id": "Step1",
       "fields": [
-        { "name": "EmployeeID", "Mode": "Edit" },
-        { "name": "Name", "Mode": "Edit" },
-        { "name": "Justification", "Mode": "Edit" }
+        { "name": "EmployeeID", "Mode": "Display" },
+        { "name": "Name", "Mode": "Display" }
       ],
       "name": "Request Details",
       "stepType": "FieldList",
@@ -579,7 +578,10 @@
     },
     {
       "id": "Step4",
-      "fields": [{ "name": "Status", "Mode": "Display" }],
+      "fields": [
+        { "name": "Justification", "Mode": "Edit" },
+        { "name": "Status", "Mode": "Display" }
+      ],
       "name": "Travel Details",
       "stepType": "FieldList",
       "intro": "Travel Request : Status"

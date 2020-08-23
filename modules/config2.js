@@ -816,7 +816,8 @@ module.exports = {
         //"value": "false",
         //"valueOn": "true",
         //"valueOff": "false"
-        if (e1["Mode"] == "Edit") {
+
+        if (appconfig["FieldDef"][a]["Option"] == "Mandatory") {
           body.push(body2x);
           body2x = {};
           body.push(body1x);
