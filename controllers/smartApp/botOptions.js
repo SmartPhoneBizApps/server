@@ -33,11 +33,19 @@ exports.botOptions = (req, res, next) => {
   buttons.push({ ...buttonx });
   buttonx = {};
 
+  
   for (let k = 0; k < appconfig["MButtons"].length; k++) {
     const el = appconfig["MButtons"][k];
     if (appconfig["MButtons"][k]["type"] == "ADD") {
       buttonx["title"] = "Create";
-      buttonx["type"] = "postBack";
+      buttonx["type"] = "web_url";
+      buttonx["messenger_extensions"] = "true";
+      buttonx["url"] =
+        "https://smartphonebizapps.com/smartphoneappswebview/?view=webDisplay&app=" +
+        req.headers.applicationid +
+        "&role=" +
+        req.headers.businessrole ;
+
       buttonx["payload"] = kng.toUpperCase() + "-" + "create";
       buttons.push({ ...buttonx });
       buttonx = {};
