@@ -41,7 +41,7 @@ exports.botOptions = (req, res, next) => {
       buttonx["type"] = "web_url";
       buttonx["messenger_extensions"] = "true";
       buttonx["url"] =
-        "https://smartphonebizapps.com/smartphoneappswebview/?view=webDisplay&app=" +
+        "https://smartphonebizapps.com/smartphoneappswebview/?view=wizard&app=" +
         req.headers.applicationid +
         "&role=" +
         req.headers.businessrole ;
