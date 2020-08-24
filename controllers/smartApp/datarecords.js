@@ -631,8 +631,8 @@ exports.updateDataRecords = asyncHandler(async (req, res, next) => {
         cardConfig["FieldDef"]
       );
     } else {
-      mydata = Handler["headercalculation"](
-        mydata,
+      outdata = Handler["headercalculation"](
+        req.body,
         cardConfig["CalculatedFields"],
         cardConfig["FieldDef"]
       );
