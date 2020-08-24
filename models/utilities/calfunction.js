@@ -414,6 +414,37 @@ class calFun {
     }
     return outdata;
   }
+  headercalculation(outdata, config) {
+    if (config["Header"].length > 0) {
+      // Check Header calculation is exist or not
+      config["Header"].forEach((configItem) => {
+        if (this.hasNull(configItem["CalculatedFormula"], 4)) {
+          // loop config header
+          var fieldObj = [];
+          if (configItem["Fields"].length > 0) {
+            configItem["Fields"].forEach((field) => {
+              if (this.hasNull(field, 2)) {
+                fieldObj.push(parseFloat(outdata[field["Source"]])); // get calculated field value
+              } else {
+                fieldObj.push(""); // get calculated field value
+              }
+            });
+          } else {
+            fieldObj.push("");
+          }
+          var fun = configItem["CalculatedFormula"]["function"]; // get function name
+          if (typeof this[fun] !== "undefined") {
+            outdata[configItem["CalculatedFormula"]["Target"]] = this[fun](
+              fieldObj
+            ); // call function and assign value in header array
+          } else {
+            outdata[configItem["CalculatedFormula"]["Target"]] = "";
+          }
+        }
+      });
+    }
+    return outdata;
+  }
 }
 
 module.exports = calFun;

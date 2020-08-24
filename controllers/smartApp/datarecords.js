@@ -283,16 +283,6 @@ exports.addDataRecords = asyncHandler(async (req, res, next) => {
 
   // Update Table fields
   let tblFields = tableFields(cardConfig.FieldDef);
-  // for (const kk in req.body) {
-  //   if (req.body.hasOwnProperty(kk)) {
-  //     let tableField = false;
-  //     tableField = tblFields.includes(kk);
-  //     if (tableField == true) {
-  //       myData[kk] = tableValidate(req.body[kk], myData[kk]);
-  //       req.body[kk] = myData[kk];
-  //     }
-  //   }
-  // }
   console.log("Tab", tblFields);
   if (tblFields.length > 0) {
     for (let l = 0; l < tblFields.length; l++) {
@@ -321,6 +311,11 @@ exports.addDataRecords = asyncHandler(async (req, res, next) => {
           mydata,
           cardConfig["CalculatedFields"],
           "ItemData"
+        );
+      } else {
+        mydata = Handler["headercalculation"](
+          mydata,
+          cardConfig["CalculatedFields"]
         );
       }
     }
@@ -630,8 +625,12 @@ exports.updateDataRecords = asyncHandler(async (req, res, next) => {
         cardConfig["CalculatedFields"],
         "ItemData"
       );
+    } else {
+      mydata = Handler["headercalculation"](
+        mydata,
+        cardConfig["CalculatedFields"]
+      );
     }
-
     console.log("Calculation Done..");
     req.body = outdata;
   }
