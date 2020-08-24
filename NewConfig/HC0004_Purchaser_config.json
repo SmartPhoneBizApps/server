@@ -1,7 +1,7 @@
 {
   "Title": { "ApplicationTitle": "Contract", "DetailTitle": "Contract" },
   "Controls": {
-    "calculation": "No",
+    "calculation": "Yes",
     "USP": "UserProfile",
     "StatusColor": "Yes",
     "SearchString": { "Search": false },
@@ -122,6 +122,13 @@
         { "text": "Contract", "state": "Success" },
         { "text": "WorkSchedule", "state": "Information" }
       ]
+    },
+    {
+      "value": "Tab4",
+      "update": "Yes",
+      "name": "Services",
+      "type": "Table",
+      "fioriicon": "expense-report"
     }
   ],
   "DetailFields": {
@@ -135,16 +142,135 @@
       "ContractName",
       "ContractType",
       "ContractStartDate",
-      "Services",
       "ContractLink",
       "ContractEndDate",
       "ContractValue",
       "BalanceValue"
     ],
     "Tab2": ["PharmaContact", "PharmaContactEmail"],
-    "Tab3": ["MultiAttachments"]
+    "Tab3": ["MultiAttachments"],
+    "Tab4": ["Services"]
   },
   "ControlDisplay": {},
+  "tableConfig": {
+    "Services": {
+      "calculation": "Yes",
+      "title": "Services",
+      "subtitle": "Services",
+      "tableFormFields": [
+        {
+          "GrpTitle": "Totals",
+          "Fields": ["ContractValue"]
+        }
+      ],
+      "ItemFieldDefinition": [
+        {
+          "name": "ItemNumber",
+          "type": "string",
+          "width": "10",
+          "SLabel": "ItemNumber",
+          "Option": "Optional",
+          "Update": "No"
+        },
+        {
+          "name": "ServiceDetails",
+          "type": "string",
+          "width": "200",
+          "Option": "Optional",
+          "SLabel": "Service Details",
+          "Update": "Yes"
+        },
+        {
+          "name": "ServiceType",
+          "type": "string",
+          "width": "50",
+          "SLabel": "Service Type",
+          "Option": "Optional",
+          "Update": "Yes"
+        },
+        {
+          "name": "ServiceAmount",
+          "type": "Num,1",
+          "width": "20",
+          "SLabel": "Service Amount",
+          "Option": "Optional",
+          "Update": "Yes"
+        },
+        {
+          "name": "Notes",
+          "type": "string",
+          "width": "1000",
+          "SLabel": "Notes",
+          "Option": "Optional",
+          "Update": "Yes"
+        },
+        {
+          "name": "iCurrency",
+          "type": "string",
+          "width": "10",
+          "SLabel": "Item Currency",
+          "Option": "Optional",
+          "Update": "No"
+        },
+        {
+          "name": "ItemStatus1",
+          "type": "string",
+          "width": "50",
+          "SLabel": "Item Status",
+          "Option": "Optional",
+          "Update": "Yes"
+        },
+        {
+          "name": "Attachment",
+          "type": "singleAttachment",
+          "width": "100",
+          "SLabel": "Item Attachment",
+          "Option": "Optional",
+          "Update": "Yes"
+        }
+      ],
+      "DisplayFields": [
+        "ServiceDetails",
+        "ServiceAmount",
+        "ServiceType",
+        "iCurrency",
+        "ItemStatus1"
+      ],
+      "cards": [
+        {
+          "type": "Example",
+          "cardType": "AdaptiveForm",
+          "cardID": "ADD01",
+          "template": "template_adaptiveForm.json"
+        }
+      ],
+      "ItemButtons": {
+        "itemDisplay": true,
+        "itemCheck": true,
+        "itemAdd": true,
+        "itemEdit": true,
+        "itemDelete": true
+      },
+      "CreateFields": [
+        "ServiceType",
+        "ServiceDetails",
+        "ServiceAmount",
+        "iCurrency",
+        "ItemStatus1",
+        "Notes",
+        "Attachment"
+      ],
+      "ItemDetails": [
+        { "name": "ServiceType" },
+        { "name": "ServiceDetails" },
+        { "name": "ServiceAmount" },
+        { "name": "iCurrency" },
+        { "name": "Notes" },
+        { "name": "ItemStatus1" },
+        { "name": "Attachment" }
+      ]
+    }
+  },
   "FieldDef": [
     {
       "name": "ID",
@@ -204,8 +330,8 @@
     },
     {
       "name": "Services",
-      "type": "string",
-      "width": "500",
+      "type": "Array",
+      "width": "200",
       "Option": "Optional",
       "SLabel": "Services"
     },
@@ -298,7 +424,23 @@
     "CreateFields": [],
     "ItemDetails": []
   },
-  "CalculatedFields": { "Item": [], "HeaderItem": [], "Header": [] },
+  "CalculatedFields": {
+    "Item": [],
+    "HeaderItem": [
+      {
+        "CalculatedFormula": {
+          "name": "ITEMSUM",
+          "function": "ITEMSUM",
+          "Target": "ContractValue",
+          "type": "HeaderItem"
+        },
+        "Fields": [
+          { "Source": "ExpenseAmount", "Type": { "type": "ServiceAmount" } }
+        ]
+      }
+    ],
+    "Header": []
+  },
   "Create": "Yes",
   "Wizard": [
     {
@@ -307,7 +449,8 @@
         { "name": "ContractType", "Mode": "Edit" },
         { "name": "ContractID", "Mode": "Edit" },
         { "name": "ContractName", "Mode": "Edit" },
-        { "name": "ContractValue", "Mode": "Edit" }
+        { "name": "ContractValue", "Mode": "Edit" },
+        { "name": "ContractLink", "Mode": "Edit" }
       ],
       "name": "Contract Details",
       "stepType": "FieldList",
@@ -359,13 +502,11 @@
     },
     {
       "id": "Step6",
-      "fields": [
-        { "name": "Services", "Mode": "Edit" },
-        { "name": "ContractLink", "Mode": "Edit" }
-      ],
-      "name": "Cost Center",
-      "stepType": "FieldList",
-      "intro": "Contract   : Services"
+      "fields": [{ "name": "Services", "Mode": "Edit" }],
+      "name": "Services",
+      "stepType": "table",
+      "intro": "Contract : Services Entries",
+      "text": "docType,ItemAttachment,Information"
     },
     {
       "id": "Step7",

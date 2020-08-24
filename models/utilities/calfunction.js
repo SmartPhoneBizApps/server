@@ -19,7 +19,6 @@ class calFun {
   WORKINGDAYS(arr) {
     var startDate = arr[0];
     var endDate = arr[1];
-    var startDate = arr;
 
     console.log("startDate", startDate, endDate);
     var elapsed, daysAfterLastSunday;
@@ -212,7 +211,7 @@ class calFun {
     }
   }
 
-  datacalculation(outdata, config) {
+  datacalculation(outdata, config, fieldDef) {
     if (outdata["ItemData"].length > 0) {
       if (config["Item"].length > 0) {
         for (var i = 0; i < outdata["ItemData"].length; i++) {
@@ -309,8 +308,7 @@ class calFun {
     }
     return outdata;
   }
-
-  tablecalculation(outdata, config, tabname) {
+  tablecalculation(outdata, config, tabname, fieldDef) {
     console.log("Calculation Table", tabname);
     console.log("Calculation Table Data", outdata[tabname]);
     if (outdata[tabname] != undefined) {
@@ -416,7 +414,7 @@ class calFun {
     }
     return outdata;
   }
-  headercalculation(outdata, config) {
+  headercalculation(outdata, config, fieldDef) {
     if (config["Header"].length > 0) {
       // Check Header calculation is exist or not
       config["Header"].forEach((configItem) => {
@@ -424,8 +422,8 @@ class calFun {
           // loop config header
           var fieldObj = [];
           if (configItem["Fields"].length > 0) {
-            console.log(configItem["Fields"], outdata[field["Source"]]);
             configItem["Fields"].forEach((field) => {
+              console.log(configItem["Fields"], outdata[field["Source"]]);
               if (this.hasNull(field, 2)) {
                 fieldObj.push(parseFloat(outdata[field["Source"]])); // get calculated field value
               } else {

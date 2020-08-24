@@ -293,7 +293,8 @@ exports.addDataRecords = asyncHandler(async (req, res, next) => {
         outdata = Handler["tablecalculation"](
           req.body,
           cardConfig["CalculatedFields"],
-          tblFields[l]
+          tblFields[l],
+          cardConfig["FieldDef"]
         );
         console.log("Calculation for Tables Done..");
         req.body = outdata;
@@ -310,12 +311,14 @@ exports.addDataRecords = asyncHandler(async (req, res, next) => {
         mydata = Handler["tablecalculation"](
           mydata,
           cardConfig["CalculatedFields"],
-          "ItemData"
+          "ItemData",
+          cardConfig["FieldDef"]
         );
       } else {
         mydata = Handler["headercalculation"](
           mydata,
-          cardConfig["CalculatedFields"]
+          cardConfig["CalculatedFields"],
+          cardConfig["FieldDef"]
         );
       }
     }
@@ -580,7 +583,8 @@ exports.updateDataRecords = asyncHandler(async (req, res, next) => {
       outdata = Handler["tablecalculation"](
         myData,
         cardConfig["CalculatedFields"],
-        tblFields[l]
+        tblFields[l],
+        cardConfig["FieldDef"]
       );
       console.log("Calculation for Tables Done..");
       req.body = outdata;
@@ -623,12 +627,14 @@ exports.updateDataRecords = asyncHandler(async (req, res, next) => {
       outdata = Handler["tablecalculation"](
         req.body,
         cardConfig["CalculatedFields"],
-        "ItemData"
+        "ItemData",
+        cardConfig["FieldDef"]
       );
     } else {
       mydata = Handler["headercalculation"](
         mydata,
-        cardConfig["CalculatedFields"]
+        cardConfig["CalculatedFields"],
+        cardConfig["FieldDef"]
       );
     }
     console.log("Calculation Done..");
