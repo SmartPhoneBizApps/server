@@ -26,7 +26,8 @@
     { "field": "Time" },
     { "field": "SlotLength" },
     { "field": "PatientID" },
-    { "field": "PatientName" },
+    { "field": "FirstName" },
+    { "field": "LastName" },
     { "field": "DoctorID" },
     { "field": "DoctorName" },
     { "field": "Comments" }
@@ -39,7 +40,8 @@
       "Time",
       "SlotLength",
       "PatientID",
-      "PatientName",
+      "FirstName",
+      "LastName",
       "DoctorID",
       "DoctorName",
       "Comments"
@@ -48,11 +50,12 @@
   "ListFields": {
     "IntroField": "Date",
     "TitleField": "Time",
-    "sStatus": "PatientName",
+    "sStatus": "LastName",
     "fStatus": "Status",
     "LFields": [
       "DoctorID",
       "DoctorName",
+      "FirstName",
       "PatientID",
       "SlotLength",
       "ChairID",
@@ -62,7 +65,7 @@
   "ListBOTFields": {
     "None": ["cardImage", "StatusState"],
     "Title": ["Date", "Time"],
-    "SubTitle": ["PatientName", "DoctorName"],
+    "SubTitle": ["FirstName", "LastName", "DoctorName"],
     "Description": [
       "DoctorID",
       "Status",
@@ -107,7 +110,8 @@
         "Time",
         "SlotLength",
         "PatientID",
-        "PatientName",
+        "FirstName",
+        "LastName",
         "DoctorID",
         "DoctorName",
         "Comments",
@@ -127,9 +131,15 @@
             { "label": "Patient ID", "name": "ID", "type": "string" },
             {
               "label": "Patient Name",
-              "name": "PatientName",
+              "name": "FirstName",
               "type": "string"
             },
+            {
+              "label": "Patient Surname",
+              "name": "LastName",
+              "type": "string"
+            },
+
             { "label": "DOB", "name": "DOB", "type": "Date" },
             {
               "label": "NHS Number",
@@ -139,13 +149,21 @@
           ],
           "SearchURL": "listrecordsnew/Web/PATIENT001/Orthodontist{filter}",
           "tableField": "",
-          "listFields": ["ID", "PatientName", "DOB", "NHSNumber", "PostCode"],
+          "listFields": [
+            "ID",
+            "FirstName",
+            "LastName",
+            "DOB",
+            "NHSNumber",
+            "PostCode"
+          ],
           "listConfirmation": ["SlotLength"],
           "transferFields": [
             "ID",
             "ChairID",
             "PatientID",
-            "PatientName",
+            "FirstName",
+            "LastName",
             "DoctorID",
             "DoctorName",
             "Time",
@@ -164,7 +182,8 @@
           "targetApp": "PATIENT002",
           "FieldMapping": {
             "PatientID": "ID",
-            "PatientName": "PatientName"
+            "FirstName": "FirstName",
+            "LastName": "LastName"
           }
         }
       ],
@@ -189,7 +208,8 @@
             "Status",
             "ChairID",
             "PatientID",
-            "PatientName",
+            "FirstName",
+            "LastName",
             "DoctorID",
             "DoctorName",
             "Time",
@@ -374,7 +394,8 @@
       "Time",
       "SlotLength",
       "PatientID",
-      "PatientName",
+      "FirstName",
+      "LastName",
       "DoctorID",
       "DoctorName",
       "Comments"
@@ -472,13 +493,22 @@
     },
 
     {
-      "name": "PatientName",
+      "name": "FirstName",
       "type": "string",
       "width": "200",
       "Option": "Mandatory",
-      "SLabel": "Patient Name",
-      "LLabel": "Patient Name"
+      "SLabel": "First Name",
+      "LLabel": "First Name"
     },
+    {
+      "name": "LastName",
+      "type": "string",
+      "width": "200",
+      "Option": "Mandatory",
+      "SLabel": "Last Name",
+      "LLabel": "Last Name"
+    },
+
     {
       "name": "DoctorID",
       "type": "string",

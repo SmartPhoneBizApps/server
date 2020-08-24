@@ -64,7 +64,7 @@
     {
       "type": "OPENURL",
       "name": "Launch BOT",
-      "icon": "sap-icon://travel-request",
+      "icon": "sap-icon://travel-",
       "URL": "https://www.messenger.com/t/295020207695029"
     },
 
@@ -110,6 +110,18 @@
       "fioriicon": "discussion",
       "type": "Field",
       "download": "Yes"
+    },
+    {
+      "value": "Tab3",
+      "update": "Yes",
+      "name": "MultiAttachment",
+      "fioriicon": "attachment",
+      "type": "MultiAttachments",
+      "download": "Yes",
+      "docType": [
+        { "text": "Contract", "state": "Success" },
+        { "text": "WorkSchedule", "state": "Information" }
+      ]
     }
   ],
   "DetailFields": {
@@ -119,6 +131,7 @@
     "headerColorFields": ["Status"],
     "None": ["ID", "HCPEmail", "VendorName"],
     "Tab1": [
+      "ContractID",
       "ContractName",
       "ContractType",
       "ContractStartDate",
@@ -128,7 +141,8 @@
       "ContractValue",
       "BalanceValue"
     ],
-    "Tab2": ["PharmaContact", "PharmaContactEmail"]
+    "Tab2": ["PharmaContact", "PharmaContactEmail"],
+    "Tab3": ["MultiAttachments"]
   },
   "ControlDisplay": {},
   "FieldDef": [
@@ -145,6 +159,13 @@
       "width": "20",
       "Option": "Optional",
       "SLabel": "ReferenceID"
+    },
+    {
+      "name": "ContractID",
+      "type": "string",
+      "width": "100",
+      "Option": "Optional",
+      "SLabel": "Contract ID"
     },
     {
       "name": "ContractName",
@@ -241,6 +262,15 @@
       "SLabel": "Contract End Date"
     },
     {
+      "name": "MultiAttachments",
+      "type": "attachment",
+      "metadata": "MultipleFields",
+      "width": "200",
+      "Option": "Optional",
+      "SLabel": "MultiAttachments",
+      "LLabel": "MultiAttachments"
+    },
+    {
       "name": "ContractValue",
       "type": "string",
       "width": "50",
@@ -269,6 +299,80 @@
     "ItemDetails": []
   },
   "CalculatedFields": { "Item": [], "HeaderItem": [], "Header": [] },
-  "Create": "No",
-  "Wizard": []
+  "Create": "Yes",
+  "Wizard": [
+    {
+      "id": "Step1",
+      "fields": [
+        { "name": "ContractType", "Mode": "Edit" },
+        { "name": "ContractID", "Mode": "Edit" },
+        { "name": "ContractName", "Mode": "Edit" },
+        { "name": "ContractValue", "Mode": "Edit" }
+      ],
+      "name": "Contract Details",
+      "stepType": "FieldList",
+      "intro": "Contract   : Contract Details"
+    },
+    {
+      "id": "Step2",
+      "fields": [
+        { "name": "HCPEmail", "Mode": "Edit" },
+        { "name": "VendorName", "Mode": "Edit" }
+      ],
+      "name": "HCP / HCO - Details",
+      "stepType": "FieldList",
+      "intro": "Contract   : HCP / HCO Details"
+    },
+    {
+      "id": "Step3",
+      "fields": [
+        { "name": "ContractStartDate", "Mode": "Edit" },
+        { "name": "ContractEndDate", "Mode": "Edit" }
+      ],
+      "name": "Dates",
+      "stepType": "FieldList",
+      "intro": "Contract   : Dates"
+    },
+    {
+      "id": "Step4",
+      "fields": [{ "name": "MultiAttachments", "Mode": "Edit" }],
+      "name": "MultiAttachments",
+      "stepType": "Attachments",
+      "intro": "Contract : Attachments",
+      "attachmentAttribute": {
+        "applicationid": "{applicationid}",
+        "businessrole": "{businessrole}",
+        "mode": "File",
+        "type": "NewUpload",
+        "text": "docType,Receipt,Success"
+      }
+    },
+    {
+      "id": "Step5",
+      "fields": [
+        { "name": "PharmaContact", "Mode": "Edit" },
+        { "name": "PharmaContactEmail", "Mode": "Edit" }
+      ],
+      "name": "Cost Center",
+      "stepType": "FieldList",
+      "intro": "Contract   : Pharma Contact"
+    },
+    {
+      "id": "Step6",
+      "fields": [
+        { "name": "Services", "Mode": "Edit" },
+        { "name": "ContractLink", "Mode": "Edit" }
+      ],
+      "name": "Cost Center",
+      "stepType": "FieldList",
+      "intro": "Contract   : Services"
+    },
+    {
+      "id": "Step7",
+      "fields": [{ "name": "Status", "Mode": "Edit" }],
+      "name": "Cost Center",
+      "stepType": "FieldList",
+      "intro": "Contract   : Status"
+    }
+  ]
 }

@@ -26,15 +26,17 @@
     "sStatus": "PatientStatus",
     "fStatus": "Status",
     "numberField": "",
-    "LFields": ["PatientName"],
+    "LFields": ["FirstName", "LastName"],
     "numberUnitField": ""
   },
+
   "ListBOTFields": {
     "None": ["cardImage", "StatusState"],
-    "Title": ["PatientName"],
+    "Title": ["FirstName", "LastName"],
     "SubTitle": ["Email", "NHSNumber", "PatientStatus"],
     "Description": ["ID", "Status", "PostCode", "PatientGroup"]
   },
+
   "PossibleValues": [
     "Gender",
     "Status",
@@ -116,7 +118,8 @@
         "Time",
         "SlotLength",
         "PatientID",
-        "PatientName",
+        "FirstName",
+        "LastName",
         "DoctorID",
         "DoctorName",
         "Comments"
@@ -134,7 +137,12 @@
             { "label": "Patient ID", "name": "ID", "type": "string" },
             {
               "label": "Patient Name",
-              "name": "PatientName",
+              "name": "FirstName",
+              "type": "string"
+            },
+            {
+              "label": "Patient Name",
+              "name": "LastName",
               "type": "string"
             },
             { "label": "DOB", "name": "DOB", "type": "Date" },
@@ -146,13 +154,21 @@
           ],
           "SearchURL": "listrecordsnew/Web/PATIENT001/Orthodontist{filter}",
           "tableField": "",
-          "listFields": ["ID", "PatientName", "DOB", "NHSNumber", "PostCode"],
+          "listFields": [
+            "ID",
+            "FirstName",
+            "LastName",
+            "DOB",
+            "NHSNumber",
+            "PostCode"
+          ],
           "listConfirmation": ["SlotLength"],
           "transferFields": [
             "ID",
             "ChairID",
             "PatientID",
-            "PatientName",
+            "FirstName",
+            "LastName",
             "DoctorID",
             "DoctorName",
             "Time",
@@ -163,7 +179,6 @@
             "NHSNumber",
             "PostCode"
           ],
-
           "URL": "datarecords/",
           "Token": "Yes",
           "URLMethod": "POST",
@@ -171,7 +186,8 @@
           "targetApp": "PATIENT002",
           "FieldMapping": {
             "PatientID": "ID",
-            "PatientName": "PatientName"
+            "FirstName": "FirstName",
+            "LastName": "LastName"
           }
         }
       ],
@@ -197,7 +213,8 @@
             "Status",
             "ChairID",
             "PatientID",
-            "PatientName",
+            "FirstName",
+            "LastName",
             "DoctorID",
             "DoctorName",
             "Time",
@@ -539,7 +556,6 @@
       "PatientID",
       "NHSNumber",
       "FirstName",
-      "PatientName",
       "LastName",
       "PatientGroup",
       "PatientType",
@@ -705,14 +721,6 @@
       "Option": "Mandatory",
       "SLabel": "First Name",
       "LLabel": "First Name"
-    },
-    {
-      "name": "PatientName",
-      "type": "string",
-      "width": "100",
-      "Option": "Mandatory",
-      "SLabel": "Patient Name",
-      "LLabel": "Patient Name"
     },
     {
       "name": "LastName",
@@ -2319,7 +2327,6 @@
       "id": "Step1",
       "fields": [
         { "name": "FirstName", "Mode": "Edit" },
-        { "name": "PatientName", "Mode": "Edit" },
         { "name": "LastName", "Mode": "Edit" },
         { "name": "Gender", "Mode": "Edit" },
         { "name": "NHSNumber", "Mode": "Edit" },

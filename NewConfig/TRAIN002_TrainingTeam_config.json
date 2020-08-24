@@ -148,7 +148,40 @@
       "Token": "Yes",
       "URLMethod": "POST"
     },
-
+    {
+      "type": "CODE",
+      "name": "Exam Questions",
+      "icon": "sap-icon://internet-browser",
+      "tabconfig": {
+        "tabs": [
+          {
+            "value": "codeTab0",
+            "field": "questioner",
+            "name": "Questions",
+            "theme": "chrome",
+            "updatetheme": "default",
+            "type": "json",
+            "jsonURL": "util/getjsonFile/questioner/{ID}",
+            "readMethod": "GET",
+            "updateMethod": "PUT",
+            "updateJSON": "body",
+            "Token": "Yes",
+            "editable": true
+          },
+          {
+            "value": "codeTab1",
+            "field": "examQuestions2",
+            "name": "Code1",
+            "theme": "chrome",
+            "updatetheme": "default",
+            "type": "json",
+            "jsonURL": "util/getjsonFile/examQuestions2/{ID}",
+            "Token": "Yes",
+            "editable": true
+          }
+        ]
+      }
+    },
     {
       "type": "CATALOG",
       "name": "Add to Catalogue",
@@ -183,14 +216,15 @@
       "URLMethod": "PUT"
     },
     {
-      "type": "UPLOAD",
+      "type": "FILEUPLOAD",
       "name": "Upload Questions",
       "icon": "sap-icon://upload",
       "Option": ["Header"],
       "ItemOptions": [],
       "URL": "uploadFile/questioner/{ID}",
       "URLMethodHDR": "POST",
-      "dataFields": "FieldName"
+      "dataFields": "FieldName",
+      "Token": "Yes"
     }
   ],
   "Tabs": [
@@ -227,6 +261,27 @@
       "name": "Video",
       "fioriicon": "step",
       "type": "video"
+    },
+    {
+      "value": "Tab5",
+      "update": "Yes",
+      "name": "Course Link",
+      "fioriicon": "internet-browser",
+      "type": "webpage"
+    },
+    {
+      "value": "Tab6",
+      "update": "Yes",
+      "name": "Questions",
+      "fioriicon": "internet-browser",
+      "type": "jsoncode",
+      "jsonURL": "util/getjsonFile/questioner/{ID}",
+      "readMethod": "GET",
+      "updateMethod": "PUT",
+      "updateJSON": "body",
+      "Token": "Yes",
+      "theme": "chrome",
+      "updatetheme": "default"
     }
   ],
   "DetailFields": {
@@ -256,7 +311,9 @@
       }
     ],
     "Tab3": ["MultiAttachments"],
-    "Tab4": ["Video"]
+    "Tab4": ["Video"],
+    "Tab5": ["CourseLink"],
+    "Tab6": ["questioner"]
   },
   "tableConfig": {},
   "ControlDisplay": {},
@@ -280,7 +337,7 @@
       "name": "Group",
       "type": "string",
       "width": "100",
-      "Option": "Optional",
+      "Option": "Mandatory",
       "SLabel": "Group",
       "LLabel": "Group"
     },
@@ -288,7 +345,7 @@
       "name": "SubGroup",
       "type": "radiobutton",
       "width": "100",
-      "Option": "Optional",
+      "Option": "Mandatory",
       "SLabel": "Sub Group",
       "LLabel": "Sub Group"
     },
@@ -296,7 +353,7 @@
       "name": "Overview",
       "type": "string",
       "width": "2000",
-      "Option": "Optional",
+      "Option": "Mandatory",
       "SLabel": "Overview",
       "LLabel": "Overview"
     },
@@ -309,10 +366,26 @@
       "LLabel": "Course Link"
     },
     {
+      "name": "Questions",
+      "type": "json",
+      "width": "1000",
+      "Option": "Optional",
+      "SLabel": "Questions",
+      "LLabel": "Questions"
+    },
+    {
+      "name": "examQuestions2",
+      "type": "json",
+      "width": "1000",
+      "Option": "Optional",
+      "SLabel": "Exam Questions",
+      "LLabel": "Exam Questions"
+    },
+    {
       "name": "Title",
       "type": "string",
       "width": "500",
-      "Option": "Optional",
+      "Option": "Mandatory",
       "SLabel": "Course Title",
       "LLabel": "Course Title"
     },
@@ -360,7 +433,7 @@
       "name": "Regulatory",
       "type": "string",
       "width": "100",
-      "Option": "Optional",
+      "Option": "Mandatory",
       "SLabel": "Regulatory",
       "LLabel": "Regulatory"
     },
@@ -368,7 +441,7 @@
       "name": "SelfAssign",
       "type": "string",
       "width": "100",
-      "Option": "Optional",
+      "Option": "Mandatory",
       "SLabel": "Self Assign",
       "LLabel": "Self Assign"
     },
@@ -376,7 +449,7 @@
       "name": "Compliance",
       "type": "string",
       "width": "100",
-      "Option": "Optional",
+      "Option": "Mandatory",
       "SLabel": "Compliance",
       "LLabel": "Compliance"
     },
@@ -384,7 +457,7 @@
       "name": "Exam",
       "type": "string",
       "width": "100",
-      "Option": "Optional",
+      "Option": "Mandatory",
       "SLabel": "Exam",
       "LLabel": "Exam"
     },
@@ -424,7 +497,7 @@
       "name": "External",
       "type": "string",
       "width": "100",
-      "Option": "Optional",
+      "Option": "Mandatory",
       "SLabel": "External",
       "LLabel": "External"
     },
@@ -464,7 +537,7 @@
       "name": "ProjectNeed",
       "type": "string",
       "width": "50",
-      "Option": "Optional",
+      "Option": "Mandatory",
       "SLabel": "Project Need",
       "LLabel": "Project Need"
     },
@@ -480,7 +553,7 @@
       "name": "Duration",
       "type": "string",
       "width": "50",
-      "Option": "Optional",
+      "Option": "Mandatory",
       "SLabel": "Duration",
       "LLabel": "Duration"
     },
@@ -488,7 +561,7 @@
       "name": "EmpDev",
       "type": "string",
       "width": "50",
-      "Option": "Optional",
+      "Option": "Mandatory",
       "SLabel": "For Employee Development",
       "LLabel": "For Employee Development"
     },
@@ -496,7 +569,7 @@
       "name": "Area",
       "type": "string",
       "width": "50",
-      "Option": "Optional",
+      "Option": "Mandatory",
       "SLabel": "Training Area",
       "LLabel": "Training Area"
     },

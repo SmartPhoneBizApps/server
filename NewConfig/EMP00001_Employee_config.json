@@ -4,7 +4,7 @@
     "DetailTitle": "Leave Application"
   },
   "Controls": {
-    "calculation": "No",
+    "calculation": "Yes",
     "USP": "UserProfile",
     "StatusColor": "Yes",
     "SearchString": { "Search": false },
@@ -399,7 +399,13 @@
       "Option": "Optional",
       "SLabel": "Approver"
     },
-    { "name": "Status", "type": "string", "SLabel": "Status","Option": "Mandatory", "width": "50" },
+    {
+      "name": "Status",
+      "type": "string",
+      "SLabel": "Status",
+      "Option": "Mandatory",
+      "width": "50"
+    },
     {
       "name": "SearchString",
       "type": "string",
@@ -446,7 +452,24 @@
     "CreateFields": [],
     "ItemDetails": []
   },
-  "CalculatedFields": {},
+  "CalculatedFields": {
+    "Item": [],
+    "HeaderItem": [],
+    "Header": [
+      {
+        "CalculatedFormula": {
+          "name": "WORKINGDAYS",
+          "function": "WORKINGDAYS",
+          "Target": "LeaveDays",
+          "type": "Header"
+        },
+        "Fields": [
+          { "Source": "LeaveFrom", "Type": { "type": "Header" } },
+          { "Source": "LeaveTo", "Type": { "type": "Header" } }
+        ]
+      }
+    ]
+  },
   "Create": "Yes",
   "Wizard": [
     {
@@ -492,7 +515,7 @@
       "intro": "Leave Request  : Cost Center"
     },
     {
-      "id": "Step7",
+      "id": "Step5",
       "fields": [{ "name": "Status", "Mode": "Display" }],
       "name": "Admin",
       "stepType": "FieldList",
