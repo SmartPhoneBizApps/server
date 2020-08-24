@@ -19,6 +19,8 @@ class calFun {
   WORKINGDAYS(arr) {
     var startDate = arr[0];
     var endDate = arr[1];
+    var startDate = arr;
+
     console.log("startDate", startDate, endDate);
     var elapsed, daysAfterLastSunday;
     var ifThen = function (a, b, c) {
@@ -422,6 +424,7 @@ class calFun {
           // loop config header
           var fieldObj = [];
           if (configItem["Fields"].length > 0) {
+            console.log(configItem["Fields"], outdata[field["Source"]]);
             configItem["Fields"].forEach((field) => {
               if (this.hasNull(field, 2)) {
                 fieldObj.push(parseFloat(outdata[field["Source"]])); // get calculated field value
