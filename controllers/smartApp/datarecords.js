@@ -5,7 +5,7 @@ const Branch = require("../../models/orgSetup/Branch");
 const Area = require("../../models/orgSetup/Area");
 const App = require("../../models/appSetup/App");
 const Role = require("../../models/appSetup/Role");
-const { sendErrorMessage } = require("../../modules/config2");
+const { sendErrorMessage, notifiyMessanger } = require("../../modules/config2");
 const {
   getNewConfig,
   createDocument,
@@ -215,7 +215,6 @@ exports.addDataRecords = asyncHandler(async (req, res, next) => {
         );
       }
       /// Item Validations....
-      console.log(key);
       if (key === "ItemData") {
         myItemArray = [];
         for (
@@ -255,15 +254,11 @@ exports.addDataRecords = asyncHandler(async (req, res, next) => {
 
   /////--------------------------------------------------
   /// Calculate ID
-  console.log("Generate - ID", req.headers.buttonname);
   req.body = generateID(req.headers.buttonname, req.body, cardConfig.MButtons);
   if (req.body.ReferenceID == undefined || req.body.ReferenceID == "") {
     req.body.ReferenceID = req.body.ID;
   }
-  console.log("NewID", req.body.ID);
-  console.log(req.headers.buttonName);
   // Processing Log
-
   req.body.TransLog = processingLog(
     req.body.ID,
     "NEW_RECORD",
@@ -283,10 +278,8 @@ exports.addDataRecords = asyncHandler(async (req, res, next) => {
 
   // Update Table fields
   let tblFields = tableFields(cardConfig.FieldDef);
-  console.log("Tab", tblFields);
   if (tblFields.length > 0) {
     for (let l = 0; l < tblFields.length; l++) {
-      console.log("TabName", tblFields[l]);
       if (req.headers.calculation == "Yes") {
         var Handler = new calfunction();
         console.log("Calculation for Tables Started..");
@@ -306,7 +299,6 @@ exports.addDataRecords = asyncHandler(async (req, res, next) => {
       var Handler = new calfunction();
       // mydata = Handler["datacalculation"](mydata, cardConfig["CalculatedFields"]);
       console.log("01 Atul - Calculation Starts");
-      console.log(mydata);
       if (cardConfig["itemData"] == "Yes") {
         mydata = Handler["tablecalculation"](
           mydata,
@@ -333,6 +325,24 @@ exports.addDataRecords = asyncHandler(async (req, res, next) => {
   }
   mydata = {};
   // Send Response .....
+  var Notification;
+  var msg =
+    "SUCCESS: " +
+    cardConfig["Title"]["ApplicationTitle"] +
+    " is created with ID: " +
+    result["ID"] +
+    ", by User: " +
+    req.user.email;
+  Notification = req.headers.notification;
+  if (Notification == "Messenger") {
+    sendNotification = notifiyMessanger(
+      req.user.email,
+      req.headers.businessrole,
+      msg,
+      "Text",
+      "facebook"
+    );
+  }
   res.status(200).json({
     message: "New record created",
     success: true,
@@ -574,9 +584,7 @@ exports.updateDataRecords = asyncHandler(async (req, res, next) => {
       }
     }
   }
-  console.log("Tab", tblFields);
   for (let l = 0; l < tblFields.length; l++) {
-    console.log("TabName", tblFields[l]);
     if (req.headers.calculation == "Yes") {
       var Handler = new calfunction();
       console.log("Calculation for Tables Started..");
@@ -652,6 +660,26 @@ exports.updateDataRecords = asyncHandler(async (req, res, next) => {
       req.headers.applicationid
     );
   }
+
+  var Notification;
+  var msg =
+    "SUCCESS: " +
+    cardConfig["Title"]["ApplicationTitle"] +
+    " is updated for ID: " +
+    result["ID"] +
+    ", by User: " +
+    req.user.email;
+  Notification = req.headers.notification;
+  if (Notification == "Messenger") {
+    sendNotification = notifiyMessanger(
+      req.user.email,
+      req.headers.businessrole,
+      msg,
+      "Text",
+      "facebook"
+    );
+  }
+
   res.status(200).json({
     message: "Record updated",
     success: true,

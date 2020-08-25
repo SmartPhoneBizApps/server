@@ -177,6 +177,10 @@ app.use(
   require("./routes/smartApp/createAdaptiveCard")
 );
 app.use(
+  "/api/v1/util/messengerNotify/",
+  require("./routes/utilities/messengerNotify")
+);
+app.use(
   "/api/v1/util/oneDriveUpload/",
   require("./routes/utilities/oneDriveUpload")
 );

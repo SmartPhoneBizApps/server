@@ -16,6 +16,7 @@ const hb = require("handlebars");
 const readFile = utils.promisify(fs.readFile);
 const sendEmail = require("../utils/sendEmail");
 const sendEmail1 = require("../utils/sendEmailProd");
+var request = require("request");
 module.exports = {
   donutCardHead: async function (mycard, appData1, anacardConfig) {
     measures1 = [];
@@ -937,7 +938,30 @@ module.exports = {
 
     return mgsObj;
   },
+  notifiyMessanger: async function (a, b, c, d, e) {
+    let path = "../models/access/" + "Socialmedia";
+    const Model = require(path);
+    SM1 = Model.findOne({ email: a, SocialMediaType: e });
+    SM = await SM1;
+    console.log(SM);
+    URL =
+      "https://fbnotificationbot.herokuapp.com/?userFBID=" +
+      SM["SocialMediaAccountID"] +
+      "&role=" +
+      b +
+      "&message=" +
+      c +
+      "&messageType=" +
+      d;
+    console.log(URL);
+    request.post(URL, function (error, response, body) {
+      console.log("Notification sent", error);
+    });
+    //  "https://fbnotificationbot.herokuapp.com/?userFBID=1805665356118639&role=Employee&message=Your%20record%20created%20successfully...&messageType=Text",
 
+    cKey = d + a.substring(0, 3) + a.slice(-2) + b.substring(0, 3) + c;
+    return true;
+  },
   getCardKey: function (a, b, c, d) {
     cKey = d + a.substring(0, 3) + a.slice(-2) + b.substring(0, 3) + c;
     return cKey;
