@@ -79,37 +79,13 @@
     "maxlength": [100, "Email can not be more than 100 characters"],
     "match": ["EMAIL_V1", "Invalid Email for field :Email"]
   },
-  "DeliveryInstr": {
-    "type": "String",
-    "maxlength": [500, "DeliveryInstr can not be more than 500 characters"]
-  },
   "Currency": {
     "type": "String",
     "maxlength": [50, "Currency can not be more than 50 characters"]
   },
-  "PaymentOption": {
-    "type": "String",
-    "maxlength": [50, "PaymentOption can not be more than 50 characters"]
-  },
-  "TransactionID": {
-    "type": "String",
-    "maxlength": [50, "TransactionID can not be more than 50 characters"]
-  },
-  "TransactionStatus": {
-    "type": "String",
-    "maxlength": [50, "TransactionStatus can not be more than 50 characters"]
-  },
-  "Approver": {
-    "type": "String",
-    "maxlength": [100, "Approver can not be more than 100 characters"]
-  },
   "ProcessingLog": {
     "type": "String",
     "maxlength": [1000, "ProcessingLog can not be more than 1000 characters"]
-  },
-  "MutiItems": {
-    "type": "String",
-    "maxlength": [3, "MutiItems can not be more than 3 characters"]
   },
   "SCDate": {
     "type": "Date",
@@ -119,7 +95,6 @@
       "Please provide date in YYYY-MM-DD format for field :SCDate"
     ]
   },
-
   "NetValue": {
     "type": "Number",
     "maxlength": [50, "NetValue can not be more than 50 characters"],
@@ -128,7 +103,6 @@
       "Please provide value with 2 decimal places in the field :NetValue"
     ]
   },
-
   "VATVal": {
     "type": "Number",
     "maxlength": [50, "VATVal can not be more than 50 characters"],
@@ -151,30 +125,6 @@
     "match": [
       "DATE_V1",
       "Please provide date in YYYY-MM-DD format for field :DeliveryDt"
-    ]
-  },
-  "BudgetUsed": {
-    "type": "Number",
-    "maxlength": [10, "BudgetUsed can not be more than 10 characters"],
-    "match": [
-      "NUM_2_DEC_PLACE_V1",
-      "Please provide value with 2 decimal places in the field :BudgetUsed"
-    ]
-  },
-  "PaymentAmount": {
-    "type": "Number",
-    "maxlength": [50, "PaymentAmount can not be more than 50 characters"],
-    "match": [
-      "NUM_2_DEC_PLACE_V1",
-      "Please provide value with 2 decimal places in the field :PaymentAmount"
-    ]
-  },
-  "VATPer": {
-    "type": "Number",
-    "maxlength": [100, "VATPer can not be more than 100 characters"],
-    "match": [
-      "NUM_2_DEC_PLACE_V1",
-      "Please provide value with 2 decimal places in the field :VATPer"
     ]
   },
   "ReferenceID": {

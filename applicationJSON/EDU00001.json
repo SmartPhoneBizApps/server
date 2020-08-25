@@ -44,14 +44,6 @@
     "type": "String",
     "maxlength": [500, "Street can not be more than 500 characters"]
   },
-  "PostCode": {
-    "type": "String",
-    "maxlength": [20, "Postcode can not be more than 20 characters"],
-    "match": [
-      "UK_POSTCODE_V1",
-      "Please provide valid UK Post Code in field :Postcode"
-    ]
-  },
   "City": {
     "type": "String",
     "maxlength": [50, "City can not be more than 50 characters"]
@@ -151,6 +143,5 @@
     "type": "String",
     "maxlength": [500, "ContactName can not be more than 500 characters"]
   },
-  "ItemData": [],
   "buttons": {}
 }

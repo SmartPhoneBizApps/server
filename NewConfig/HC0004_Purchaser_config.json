@@ -32,7 +32,7 @@
     "SubTitle": ["ContractName", "ContractStartDate"],
     "Description": ["ContractType"]
   },
-  "PossibleValues": ["ContractType", "Status", "ItemStatus1"],
+  "PossibleValues": ["ContractType", "Status", "ItemStatus1", "ServiceType"],
   "MButtons": [
     {
       "type": "DOWNLOAD",
@@ -297,41 +297,41 @@
       "name": "ContractName",
       "type": "string",
       "width": "100",
-      "Option": "Optional",
+      "Option": "Mandatory",
       "SLabel": "Contract Name"
     },
     {
       "name": "ContractType",
       "type": "string",
       "width": "50",
-      "Option": "Optional",
+      "Option": "Mandatory",
       "SLabel": "Contract Type"
     },
     {
       "name": "ContractStartDate",
       "type": "Date",
       "width": "10",
-      "Option": "Optional",
+      "Option": "Mandatory",
       "SLabel": "Contract Start Date"
     },
     {
       "name": "PharmaContact",
       "type": "string",
       "width": "50",
-      "Option": "Optional",
+      "Option": "Mandatory",
       "SLabel": "Pharma Contact"
     },
     {
       "name": "PharmaContactEmail",
       "type": "string",
       "width": "50",
-      "Option": "Optional",
+      "Option": "Mandatory",
       "SLabel": "Pharma Contact Email"
     },
     {
       "name": "Services",
-      "type": "Array",
-      "width": "200",
+      "type": "string",
+      "width": "500",
       "Option": "Optional",
       "SLabel": "Services"
     },
@@ -370,31 +370,22 @@
       "name": "HCPEmail",
       "type": "string",
       "width": "50",
-      "Option": "Optional",
+      "Option": "Mandatory",
       "SLabel": "HCP Email"
     },
     {
       "name": "VendorName",
       "type": "string",
       "width": "100",
-      "Option": "Optional",
+      "Option": "Mandatory",
       "SLabel": "HCP Name"
     },
     {
       "name": "ContractEndDate",
       "type": "Date",
       "width": "10",
-      "Option": "Optional",
+      "Option": "Mandatory",
       "SLabel": "Contract End Date"
-    },
-    {
-      "name": "MultiAttachments",
-      "type": "attachment",
-      "metadata": "MultipleFields",
-      "width": "200",
-      "Option": "Optional",
-      "SLabel": "MultiAttachments",
-      "LLabel": "MultiAttachments"
     },
     {
       "name": "ContractValue",
@@ -487,7 +478,7 @@
         "businessrole": "{businessrole}",
         "mode": "File",
         "type": "NewUpload",
-        "text": "docType,Receipt,Success"
+        "text": "docType,Contract,Success"
       }
     },
     {
@@ -496,7 +487,7 @@
         { "name": "PharmaContact", "Mode": "Edit" },
         { "name": "PharmaContactEmail", "Mode": "Edit" }
       ],
-      "name": "Cost Center",
+      "name": "Pharma Company",
       "stepType": "FieldList",
       "intro": "Contract   : Pharma Contact"
     },

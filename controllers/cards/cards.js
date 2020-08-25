@@ -51,7 +51,6 @@ const EMP00001 = require("../../models/smartApp/EMP00001");
 const EMP00002 = require("../../models/smartApp/EMP00002");
 const EMP00004 = require("../../models/smartApp/EMP00004");
 const EMP00006 = require("../../models/smartApp/EMP00006");
-const EMP00006OLD = require("../../models/smartApp/EMP00006OLD");
 const EMP00008 = require("../../models/smartApp/EMP00008");
 const EMP00013 = require("../../models/smartApp/EMP00013");
 const EMP00021 = require("../../models/smartApp/EMP00021");
@@ -431,10 +430,6 @@ exports.adaptiveCard_card = async (req, res, next) => {
                     case "EMP00004":
                       qg1 = JSON.parse(q1);
                       query = EMP00004.find(qg1, { _id: 0 });
-                      break;
-                    case "EMP00006OLD":
-                      qg1 = JSON.parse(q1);
-                      query = EMP00006OLD.find(qg1, { _id: 0 });
                       break;
                     case "EMP00006":
                       qg1 = JSON.parse(q1);

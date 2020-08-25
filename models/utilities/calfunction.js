@@ -38,6 +38,21 @@ class calFun {
     return Math.ceil(elapsed);
   }
 
+  fieldType(field, fieldDefArray) {
+    //for item, need to pass item field definition array
+    var fieldType = "";
+
+    for (var i = 0; i < fieldDefArray.length; i++) {
+      var fName = fieldDefArray[i].name;
+      var fType = fieldDefArray[i].type;
+      if (fName === field) {
+        fieldType = fType;
+        break;
+      }
+    }
+    return fieldType;
+  }
+
   ADD(arr) {
     var a = 0;
     var b = 0;
@@ -287,7 +302,14 @@ class calFun {
           if (configItem["Fields"].length > 0) {
             configItem["Fields"].forEach((field) => {
               if (this.hasNull(field, 2)) {
-                fieldObj.push(parseFloat(outdata[field["Source"]])); // get calculated field value
+                //    fieldObj.push(parseFloat(outdata[field["Source"]])); // get calculated field value
+                var getFieldType = this.fieldType(field["Source"], fieldDef); // get field type
+                if (getFieldType.toLowerCase() == "date") {
+                  // get working day in between 2 dates
+                  fieldObj.push(new Date(outdata[field["Source"]])); // get calculated field value
+                } else {
+                  fieldObj.push(parseFloat(outdata[field["Source"]])); // get calculated field value
+                }
               } else {
                 fieldObj.push(""); // get calculated field value
               }
@@ -393,7 +415,14 @@ class calFun {
           if (configItem["Fields"].length > 0) {
             configItem["Fields"].forEach((field) => {
               if (this.hasNull(field, 2)) {
-                fieldObj.push(parseFloat(outdata[field["Source"]])); // get calculated field value
+                //   fieldObj.push(parseFloat(outdata[field["Source"]])); // get calculated field value
+                var getFieldType = this.fieldType(field["Source"], fieldDef); // get field type
+                if (getFieldType.toLowerCase() == "date") {
+                  // get working day in between 2 dates
+                  fieldObj.push(new Date(outdata[field["Source"]])); // get calculated field value
+                } else {
+                  fieldObj.push(parseFloat(outdata[field["Source"]])); // get calculated field value
+                }
               } else {
                 fieldObj.push(""); // get calculated field value
               }
@@ -425,7 +454,14 @@ class calFun {
             configItem["Fields"].forEach((field) => {
               console.log(configItem["Fields"], outdata[field["Source"]]);
               if (this.hasNull(field, 2)) {
-                fieldObj.push(parseFloat(outdata[field["Source"]])); // get calculated field value
+                //   fieldObj.push(parseFloat(outdata[field["Source"]])); // get calculated field value
+                var getFieldType = this.fieldType(field["Source"], fieldDef); // get field type
+                if (getFieldType.toLowerCase() == "date") {
+                  // get working day in between 2 dates
+                  fieldObj.push(new Date(outdata[field["Source"]])); // get calculated field value
+                } else {
+                  fieldObj.push(parseFloat(outdata[field["Source"]])); // get calculated field value
+                }
               } else {
                 fieldObj.push(""); // get calculated field value
               }

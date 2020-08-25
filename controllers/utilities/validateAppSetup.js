@@ -21,6 +21,8 @@ exports.validateAppSetup = asyncHandler(async (req, res, next) => {
     "USP_Role",
     "USP_Name",
     "Partner",
+    "buttons",
+    "cardImage",
   ];
   DetailFieldsExclude = ["USP_Image", "USP_Role", "USP_Name"];
   let messages = [];

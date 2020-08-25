@@ -51,7 +51,6 @@ const EMP00001 = require("../../models/smartApp/EMP00001");
 const EMP00002 = require("../../models/smartApp/EMP00002");
 const EMP00004 = require("../../models/smartApp/EMP00004");
 const EMP00006 = require("../../models/smartApp/EMP00006");
-const EMP00006OLD = require("../../models/smartApp/EMP00006OLD");
 const EMP00008 = require("../../models/smartApp/EMP00008");
 const EMP00013 = require("../../models/smartApp/EMP00013");
 const EMP00021 = require("../../models/smartApp/EMP00021");
@@ -414,13 +413,6 @@ router
   .post(
     protect,
     advancedDataList(EMP00006, EMP00006, "EMP00006"),
-    createwithref
-  );
-router
-  .route("/EMP00006OLD")
-  .post(
-    protect,
-    advancedDataList(EMP00006OLD, EMP00006OLD, "EMP00006OLD"),
     createwithref
   );
 router

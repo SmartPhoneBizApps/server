@@ -19,10 +19,6 @@
     "type": "String",
     "maxlength": [5, "Currency can not be more than 5 characters"]
   },
-  "ProjectCode": {
-    "type": "String",
-    "maxlength": [50, "ProjectCode can not be more than 50 characters"]
-  },
   "CostCentre": {
     "type": "String",
     "maxlength": [50, "CostCentre can not be more than 50 characters"]
@@ -58,10 +54,6 @@
     "type": "String",
     "maxlength": [1000, "ProcessingLog can not be more than 1000 characters"]
   },
-  "Approver": {
-    "type": "String",
-    "maxlength": [100, "Approver can not be more than 100 characters"]
-  },
   "AdditionalInfo": {
     "type": "String",
     "maxlength": [500, "AdditionalInfo can not be more than 500 characters"]
@@ -70,66 +62,7 @@
     "type": "String",
     "maxlength": [500, "StayDetails can not be more than 500 characters"]
   },
-  "Cost1Type": {
-    "type": "String",
-    "maxlength": [50, "Cost1Type can not be more than 50 characters"]
-  },
-  "Cost1Detail": {
-    "type": "String",
-    "maxlength": [50, "Cost1Detail can not be more than 50 characters"]
-  },
-  "Cost2Type": {
-    "type": "String",
-    "maxlength": [50, "Cost2Type can not be more than 50 characters"]
-  },
-  "Cost2Detail": {
-    "type": "String",
-    "maxlength": [50, "Cost2Detail can not be more than 50 characters"]
-  },
-  "Cost3Type": {
-    "type": "String",
-    "maxlength": [100, "Cost3Type can not be more than 100 characters"]
-  },
-  "Cost3Detail": {
-    "type": "String",
-    "maxlength": [100, "Cost3Detail can not be more than 100 characters"]
-  },
-  "Cost4Type": {
-    "type": "String",
-    "maxlength": [50, "Cost4Type can not be more than 50 characters"]
-  },
-  "Cost4Detail": {
-    "type": "String",
-    "maxlength": [50, "Cost4Detail can not be more than 50 characters"]
-  },
-  "Cost5Type": {
-    "type": "String",
-    "maxlength": [100, "Cost5Type can not be more than 100 characters"]
-  },
-  "Cost5Detail": {
-    "type": "String",
-    "maxlength": [100, "Cost5Detail can not be more than 100 characters"]
-  },
-  "ApproverComm": {
-    "type": "String",
-    "maxlength": [500, "ApproverComm can not be more than 500 characters"]
-  },
-  "EmployeeComments": {
-    "type": "String",
-    "maxlength": [500, "EmployeeComments can not be more than 500 characters"]
-  },
-  "LMComments": {
-    "type": "String",
-    "maxlength": [500, "LMComments can not be more than 500 characters"]
-  },
-  "TravelDeskComments": {
-    "type": "String",
-    "maxlength": [500, "TravelDeskComments can not be more than 500 characters"]
-  },
-  "DMComments": {
-    "type": "String",
-    "maxlength": [500, "DMComments can not be more than 500 characters"]
-  },
+
   "TotalAmount": {
     "type": "Number",
     "maxlength": [20, "TotalAmount can not be more than 20 characters"],
@@ -194,54 +127,6 @@
       "Please provide value with 2 decimal places in the field :OtherCost"
     ]
   },
-  "Cost1": {
-    "type": "Number",
-    "maxlength": [20, "Cost1 can not be more than 20 characters"],
-    "match": [
-      "NUM_2_DEC_PLACE_V1",
-      "Please provide value with 2 decimal places in the field :Cost1"
-    ]
-  },
-  "Cost2": {
-    "type": "Number",
-    "maxlength": [50, "Cost2 can not be more than 50 characters"],
-    "match": [
-      "NUM_2_DEC_PLACE_V1",
-      "Please provide value with 2 decimal places in the field :Cost2"
-    ]
-  },
-  "Cost3": {
-    "type": "Number",
-    "maxlength": [50, "Cost3 can not be more than 50 characters"],
-    "match": [
-      "NUM_2_DEC_PLACE_V1",
-      "Please provide value with 2 decimal places in the field :Cost3"
-    ]
-  },
-  "Cost4": {
-    "type": "Number",
-    "maxlength": [500, "Cost4 can not be more than 500 characters"],
-    "match": [
-      "NUM_2_DEC_PLACE_V1",
-      "Please provide value with 2 decimal places in the field :Cost4"
-    ]
-  },
-  "Cost5": {
-    "type": "Number",
-    "maxlength": [100, "Cost5 can not be more than 100 characters"],
-    "match": [
-      "NUM_2_DEC_PLACE_V1",
-      "Please provide value with 2 decimal places in the field :Cost5"
-    ]
-  },
-  "MiscAmount": {
-    "type": "Number",
-    "maxlength": [100, "MiscAmount can not be more than 100 characters"],
-    "match": [
-      "NUM_2_DEC_PLACE_V1",
-      "Please provide value with 2 decimal places in the field :MiscAmount"
-    ]
-  },
   "ReferenceID": {
     "type": "String",
     "maxlength": [50, "ReferenceID can not be more than 50"]
@@ -258,6 +143,5 @@
     "type": "String",
     "maxlength": [500, "ContactName can not be more than 500 characters"]
   },
-  "ItemData": [],
   "buttons": {}
 }
