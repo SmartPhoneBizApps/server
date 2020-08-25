@@ -5,7 +5,7 @@
     "USP": "UserProfile",
     "StatusColor": "Yes",
     "SearchString": { "Search": false },
-    "Filters": [{ "Partner": "@user" }],
+    "Filters": [],
     "Partner": "@user",
     "UserSpecific": "Yes",
     "Update": "Yes",
@@ -109,6 +109,25 @@
       "fioriicon": "discussion",
       "type": "Field",
       "download": "Yes"
+    },
+    {
+      "value": "Tab3",
+      "update": "Yes",
+      "name": "Agenda",
+      "type": "Table",
+      "fioriicon": "expense-report"
+    },
+    {
+      "value": "Tab4",
+      "update": "Yes",
+      "name": "MultiAttachment",
+      "fioriicon": "attachment",
+      "type": "MultiAttachments",
+      "download": "Yes",
+      "docType": [
+        { "text": "InformationSheet", "state": "Success" },
+        { "text": "EntryPass", "state": "Information" }
+      ]
     }
   ],
   "DetailFields": {
@@ -118,18 +137,154 @@
     "headerColorFields": ["Status"],
     "None": ["ID", "HCPEmail", "VendorName"],
     "Tab1": [
+      "EventID",
       "EventName",
       "EventType",
       "EventStartDate",
       "Time",
       "Duration",
       "Address",
-      "Agenda",
+      "Overview",
       "EventLink"
     ],
-    "Tab2": ["PharmaContact", "PharmaContactEmail"]
+    "Tab2": ["PharmaContact", "PharmaContactEmail"],
+    "Tab3": ["Agenda"],
+    "Tab4": ["MultiAttachments"]
   },
   "ControlDisplay": {},
+  "tableConfig": {
+    "Agenda": {
+      "calculation": "Yes",
+      "title": "Agenda",
+      "subtitle": "Agenda",
+      "tableFormFields": [
+        {
+          "GrpTitle": "Totals",
+          "Fields": ["ContractValue"]
+        }
+      ],
+      "ItemFieldDefinition": [
+        {
+          "name": "ItemNumber",
+          "type": "string",
+          "width": "10",
+          "SLabel": "ItemNumber",
+          "Option": "Optional",
+          "Update": "No"
+        },
+        {
+          "name": "Topic",
+          "type": "string",
+          "width": "200",
+          "Option": "Optional",
+          "SLabel": "Topic",
+          "Update": "Yes"
+        },
+        {
+          "name": "Details",
+          "type": "string",
+          "width": "50",
+          "SLabel": "Details",
+          "Option": "Optional",
+          "Update": "Yes"
+        },
+        {
+          "name": "Speaker",
+          "type": "Num,1",
+          "width": "20",
+          "SLabel": "Speaker",
+          "Option": "Optional",
+          "Update": "Yes"
+        },
+        {
+          "name": "Sponsoredby",
+          "type": "string",
+          "width": "1000",
+          "SLabel": "Sponsoredby",
+          "Option": "Optional",
+          "Update": "Yes"
+        },
+        {
+          "name": "Date",
+          "type": "Date",
+          "width": "10",
+          "SLabel": "Date",
+          "Option": "Optional",
+          "Update": "No"
+        },
+        {
+          "name": "StartTime",
+          "type": "Time",
+          "width": "50",
+          "SLabel": "Start Time",
+          "Option": "Optional",
+          "Update": "Yes"
+        },
+        {
+          "name": "EndTime",
+          "type": "Time",
+          "width": "50",
+          "SLabel": "Start Time",
+          "Option": "Optional",
+          "Update": "Yes"
+        },
+        {
+          "name": "ItemStatus1",
+          "type": "string",
+          "width": "50",
+          "SLabel": "ItemStatus1",
+          "Option": "Optional",
+          "Update": "Yes"
+        },
+        {
+          "name": "Attachment",
+          "type": "singleAttachment",
+          "width": "100",
+          "SLabel": "Item Attachment",
+          "Option": "Optional",
+          "Update": "Yes"
+        }
+      ],
+      "DisplayFields": ["Topic", "Date", "StartTime", "ItemStatus1"],
+      "cards": [
+        {
+          "type": "Example",
+          "cardType": "AdaptiveForm",
+          "cardID": "ADD01",
+          "template": "template_adaptiveForm.json"
+        }
+      ],
+      "ItemButtons": {
+        "itemDisplay": true,
+        "itemCheck": true,
+        "itemAdd": true,
+        "itemEdit": true,
+        "itemDelete": true
+      },
+      "CreateFields": [
+        "Topic",
+        "Details",
+        "Speaker",
+        "Sponsoredby",
+        "Date",
+        "StartTime",
+        "EndTime",
+        "ItemStatus1",
+        "Attachment"
+      ],
+      "ItemDetails": [
+        { "name": "Topic" },
+        { "name": "Details" },
+        { "name": "Speaker" },
+        { "name": "Sponsoredby" },
+        { "name": "Date" },
+        { "name": "StartTime" },
+        { "name": "EndTime" },
+        { "name": "ItemStatus1" },
+        { "name": "Attachment" }
+      ]
+    }
+  },
   "FieldDef": [
     {
       "name": "ID",
@@ -146,52 +301,59 @@
       "SLabel": "ReferenceID"
     },
     {
+      "name": "EventID",
+      "type": "string",
+      "width": "100",
+      "Option": "Mandatory",
+      "SLabel": "Event Id"
+    },
+    {
       "name": "EventName",
       "type": "string",
       "width": "100",
-      "Option": "Optional",
+      "Option": "Mandatory",
       "SLabel": "Event Name"
     },
     {
       "name": "EventType",
       "type": "string",
       "width": "50",
-      "Option": "Optional",
+      "Option": "Mandatory",
       "SLabel": "Event Type"
     },
     {
       "name": "EventStartDate",
       "type": "Date",
       "width": "10",
-      "Option": "Optional",
+      "Option": "Mandatory",
       "SLabel": "Event Start Date"
     },
     {
       "name": "Time",
       "type": "string",
       "width": "50",
-      "Option": "Optional",
+      "Option": "Mandatory",
       "SLabel": "Time"
     },
     {
       "name": "Duration",
       "type": "string",
       "width": "20",
-      "Option": "Optional",
+      "Option": "Mandatory",
       "SLabel": "Duration"
     },
     {
       "name": "PharmaContact",
       "type": "string",
       "width": "50",
-      "Option": "Optional",
+      "Option": "Mandatory",
       "SLabel": "Pharma Contact"
     },
     {
       "name": "PharmaContactEmail",
       "type": "string",
       "width": "50",
-      "Option": "Optional",
+      "Option": "Mandatory",
       "SLabel": "Pharma Contact Email"
     },
     {
@@ -207,6 +369,22 @@
       "width": "500",
       "Option": "Optional",
       "SLabel": "Agenda"
+    },
+    {
+      "name": "MultiAttachments",
+      "type": "attachment",
+      "metadata": "MultipleFields",
+      "width": "200",
+      "Option": "Optional",
+      "SLabel": "MultiAttachments",
+      "LLabel": "MultiAttachments"
+    },
+    {
+      "name": "Overview",
+      "type": "string",
+      "width": "500",
+      "Option": "Optional",
+      "SLabel": "Overview"
     },
     {
       "name": "Status",
@@ -246,6 +424,14 @@
       "Option": "Optional",
       "SLabel": "HCP Email",
       "LLabel": "HCPEmail"
+    },
+    {
+      "name": "Budget",
+      "type": "string",
+      "width": "50",
+      "Option": "Optional",
+      "SLabel": "Budget",
+      "LLabel": "Budget"
     },
     {
       "name": "VendorName",
