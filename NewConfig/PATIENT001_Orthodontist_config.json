@@ -2330,6 +2330,14 @@
   "Create": "Yes",
   "Wizard": [
     {
+      "id": "Step0",
+      "fields": [{ "name": "paymentDetails", "Mode": "Edit" }],
+      "name": "paymentDetails",
+      "stepType": "table",
+      "intro": "Patient : Payments Entries",
+      "text": "docType,ItemAttachment,Information"
+    },
+    {
       "id": "Step1",
       "fields": [
         { "name": "FirstName", "Mode": "Edit" },
@@ -2408,14 +2416,7 @@
       "stepType": "FieldList",
       "intro": "Please provide information about your Occupation or School"
     },
-    {
-      "id": "Step7",
-      "fields": [{ "name": "paymentDetails", "Mode": "Edit" }],
-      "name": "paymentDetails",
-      "stepType": "table",
-      "intro": "Patient : Payments Entries",
-      "text": "docType,ItemAttachment,Information"
-    },
+
     {
       "id": "Step8",
       "fields": [
