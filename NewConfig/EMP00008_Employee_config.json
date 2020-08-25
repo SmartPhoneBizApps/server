@@ -734,45 +734,45 @@
         { "name": "iTravel" },
         { "name": "iMeals" },
         { "name": "iHotel" }
-      ]
-    },
-    "ControlDisplay": {
-      "ControlField": "ExpType",
-      "Fields": [
-        [
-          {
-            "ALL": [
-              "ItemNumber",
-              "ExpenseDate",
-              "iCurrency",
-              "ExpenseDetails",
-              "ExpenseAmount",
-              "Comment",
-              "ItemStatus1",
-              "Attachment",
-              "ExpType"
-            ]
-          },
-          {
-            "Mileage": ["From", "To", "iMiles", "MilesRate"]
-          },
-          {
-            "Mobile/Telephone/Internet": ["iMobile"]
-          },
-          {
-            "Parking/Toll/Congestion": ["iParking"]
-          },
-          {
-            "Air/Train/BusFare": ["iTravel"]
-          },
-          {
-            "Meals": ["iMeals"]
-          },
-          {
-            "Hotel": ["iHotel"]
-          }
+      ],
+      "ControlDisplay": {
+        "ControlField": "ExpType",
+        "Fields": [
+          [
+            {
+              "ALL": [
+                "ItemNumber",
+                "ExpenseDate",
+                "iCurrency",
+                "ExpenseDetails",
+                "ExpenseAmount",
+                "Comment",
+                "ItemStatus1",
+                "Attachment",
+                "ExpType"
+              ]
+            },
+            {
+              "Mileage": ["From", "To", "iMiles", "MilesRate"]
+            },
+            {
+              "Mobile/Telephone/Internet": ["iMobile"]
+            },
+            {
+              "Parking/Toll/Congestion": ["iParking"]
+            },
+            {
+              "Air/Train/BusFare": ["iTravel"]
+            },
+            {
+              "Meals": ["iMeals"]
+            },
+            {
+              "Hotel": ["iHotel"]
+            }
+          ]
         ]
-      ]
+      }
     }
   },
   "FieldDef": [
