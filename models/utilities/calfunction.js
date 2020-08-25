@@ -21,7 +21,7 @@ class calFun {
     var endDate = arr[1];
 
     console.log("startDate", startDate, endDate);
-    var elapsed, daysAfterLastSunday;
+    var elapsed, daysAfterLastSunday, daysBeforeFirstSunday;
     var ifThen = function (a, b, c) {
       return a == b ? c : a;
     };
