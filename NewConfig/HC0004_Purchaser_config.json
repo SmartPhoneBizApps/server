@@ -336,6 +336,15 @@
       "SLabel": "Services"
     },
     {
+      "name": "MultiAttachments",
+      "type": "attachment",
+      "metadata": "MultipleFields",
+      "width": "200",
+      "Option": "Optional",
+      "SLabel": "MultiAttachments",
+      "LLabel": "MultiAttachments"
+    },
+    {
       "name": "Status",
       "type": "string",
       "width": "50",
@@ -426,7 +435,7 @@
           "type": "HeaderItem"
         },
         "Fields": [
-          { "Source": "ExpenseAmount", "Type": { "type": "ServiceAmount" } }
+          { "Source": "ServiceAmount", "Type": { "type": "ServiceAmount" } }
         ]
       }
     ],

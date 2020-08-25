@@ -109,6 +109,25 @@
       "fioriicon": "discussion",
       "type": "Field",
       "download": "Yes"
+    },
+    {
+      "value": "Tab3",
+      "update": "Yes",
+      "name": "Agenda",
+      "type": "Table",
+      "fioriicon": "expense-report"
+    },
+    {
+      "value": "Tab4",
+      "update": "Yes",
+      "name": "MultiAttachment",
+      "fioriicon": "attachment",
+      "type": "MultiAttachments",
+      "download": "Yes",
+      "docType": [
+        { "text": "InformationSheet", "state": "Success" },
+        { "text": "EntryPass", "state": "Information" }
+      ]
     }
   ],
   "DetailFields": {
@@ -125,10 +144,12 @@
       "Time",
       "Duration",
       "Address",
-      "Agenda",
+      "Overview",
       "EventLink"
     ],
-    "Tab2": ["PharmaContact", "PharmaContactEmail"]
+    "Tab2": ["PharmaContact", "PharmaContactEmail"],
+    "Tab3": ["Agenda"],
+    "Tab4": ["MultiAttachments"]
   },
   "ControlDisplay": {},
   "tableConfig": {
@@ -283,56 +304,56 @@
       "name": "EventID",
       "type": "string",
       "width": "100",
-      "Option": "Optional",
+      "Option": "Mandatory",
       "SLabel": "Event Id"
     },
     {
       "name": "EventName",
       "type": "string",
       "width": "100",
-      "Option": "Optional",
+      "Option": "Mandatory",
       "SLabel": "Event Name"
     },
     {
       "name": "EventType",
       "type": "string",
       "width": "50",
-      "Option": "Optional",
+      "Option": "Mandatory",
       "SLabel": "Event Type"
     },
     {
       "name": "EventStartDate",
       "type": "Date",
       "width": "10",
-      "Option": "Optional",
+      "Option": "Mandatory",
       "SLabel": "Event Start Date"
     },
     {
       "name": "Time",
       "type": "string",
       "width": "50",
-      "Option": "Optional",
+      "Option": "Mandatory",
       "SLabel": "Time"
     },
     {
       "name": "Duration",
       "type": "string",
       "width": "20",
-      "Option": "Optional",
+      "Option": "Mandatory",
       "SLabel": "Duration"
     },
     {
       "name": "PharmaContact",
       "type": "string",
       "width": "50",
-      "Option": "Optional",
+      "Option": "Mandatory",
       "SLabel": "Pharma Contact"
     },
     {
       "name": "PharmaContactEmail",
       "type": "string",
       "width": "50",
-      "Option": "Optional",
+      "Option": "Mandatory",
       "SLabel": "Pharma Contact Email"
     },
     {
@@ -348,6 +369,22 @@
       "width": "500",
       "Option": "Optional",
       "SLabel": "Agenda"
+    },
+    {
+      "name": "MultiAttachments",
+      "type": "attachment",
+      "metadata": "MultipleFields",
+      "width": "200",
+      "Option": "Optional",
+      "SLabel": "MultiAttachments",
+      "LLabel": "MultiAttachments"
+    },
+    {
+      "name": "Overview",
+      "type": "string",
+      "width": "500",
+      "Option": "Optional",
+      "SLabel": "Overview"
     },
     {
       "name": "Status",

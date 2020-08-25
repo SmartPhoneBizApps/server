@@ -109,6 +109,25 @@
       "fioriicon": "discussion",
       "type": "Field",
       "download": "Yes"
+    },
+    {
+      "value": "Tab3",
+      "update": "Yes",
+      "name": "Agenda",
+      "type": "Table",
+      "fioriicon": "expense-report"
+    },
+    {
+      "value": "Tab4",
+      "update": "Yes",
+      "name": "MultiAttachment",
+      "fioriicon": "attachment",
+      "type": "MultiAttachments",
+      "download": "Yes",
+      "docType": [
+        { "text": "InformationSheet", "state": "Success" },
+        { "text": "EntryPass", "state": "Information" }
+      ]
     }
   ],
   "DetailFields": {
@@ -125,10 +144,12 @@
       "Time",
       "Duration",
       "Address",
-      "Agenda",
+      "Overview",
       "EventLink"
     ],
-    "Tab2": ["PharmaContact", "PharmaContactEmail"]
+    "Tab2": ["PharmaContact", "PharmaContactEmail"],
+    "Tab3": ["Agenda"],
+    "Tab4": ["MultiAttachments"]
   },
   "ControlDisplay": {},
   "tableConfig": {
@@ -348,6 +369,22 @@
       "width": "500",
       "Option": "Optional",
       "SLabel": "Agenda"
+    },
+    {
+      "name": "MultiAttachments",
+      "type": "attachment",
+      "metadata": "MultipleFields",
+      "width": "200",
+      "Option": "Optional",
+      "SLabel": "MultiAttachments",
+      "LLabel": "MultiAttachments"
+    },
+    {
+      "name": "Overview",
+      "type": "string",
+      "width": "500",
+      "Option": "Optional",
+      "SLabel": "Overview"
     },
     {
       "name": "Status",
