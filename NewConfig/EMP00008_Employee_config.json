@@ -332,6 +332,78 @@
           "SLabel": "Item Attachment",
           "Option": "Optional",
           "Update": "Yes"
+        },
+        {
+          "name": "From",
+          "type": "string",
+          "width": "100",
+          "SLabel": "From",
+          "Option": "Optional",
+          "Update": "Yes"
+        },
+        {
+          "name": "To",
+          "type": "string",
+          "width": "100",
+          "SLabel": "To",
+          "Option": "Optional",
+          "Update": "Yes"
+        },
+        {
+          "name": "iMiles",
+          "type": "Num,0",
+          "width": "50",
+          "SLabel": "Total Miles",
+          "Option": "Optional",
+          "Update": "Yes"
+        },
+        {
+          "name": "MilesRate",
+          "type": "Num,2",
+          "width": "20",
+          "SLabel": "Miles Rate",
+          "Option": "Optional",
+          "Update": "Yes"
+        },
+        {
+          "name": "iMobile",
+          "type": "string",
+          "width": "100",
+          "SLabel": "Bill Type",
+          "Option": "Optional",
+          "Update": "Yes"
+        },
+        {
+          "name": "iParking",
+          "type": "string",
+          "width": "100",
+          "SLabel": "Charge Type",
+          "Option": "Optional",
+          "Update": "Yes"
+        },
+        {
+          "name": "iTravel",
+          "type": "string",
+          "width": "100",
+          "SLabel": "Travel Mode",
+          "Option": "Optional",
+          "Update": "Yes"
+        },
+        {
+          "name": "iMeals",
+          "type": "string",
+          "width": "100",
+          "SLabel": "Meals Type",
+          "Option": "Optional",
+          "Update": "Yes"
+        },
+        {
+          "name": "iHotel",
+          "type": "string",
+          "width": "100",
+          "SLabel": "Accomodation Type",
+          "Option": "Optional",
+          "Update": "Yes"
         }
       ],
       "DisplayFields": [
@@ -628,7 +700,16 @@
         "iCurrency",
         "ItemStatus1",
         "Comment",
-        "Attachment"
+        "Attachment",
+        "From",
+        "To",
+        "iMiles",
+        "MilesRate",
+        "iMobile",
+        "iParking",
+        "iTravel",
+        "iMeals",
+        "iHotel"
       ],
       "ItemDetails": [
         { "name": "ExpenseDate" },
@@ -638,7 +719,54 @@
         { "name": "iCurrency" },
         { "name": "Comment" },
         { "name": "ItemStatus1" },
-        { "name": "Attachment" }
+        { "name": "Attachment" },
+        { "name": "From" },
+        { "name": "To" },
+        { "name": "iMiles" },
+        { "name": "MilesRate" },
+        { "name": "iMobile" },
+        { "name": "iParking" },
+        { "name": "iTravel" },
+        { "name": "iMeals" },
+        { "name": "iHotel" }
+      ]
+    },
+    "ControlDisplay": {
+      "ControlField": "ExpType",
+      "Fields": [
+        [
+          {
+            "ALL": [
+              "ItemNumber",
+              "ExpenseDate",
+              "iCurrency",
+              "ExpenseDetails",
+              "ExpenseAmount",
+              "Comment",
+              "ItemStatus1",
+              "Attachment",
+              "ExpType"
+            ]
+          },
+          {
+            "Mileage": ["From", "To", "iMiles", "MilesRate"]
+          },
+          {
+            "Mobile/Telephone/Internet": ["iMobile"]
+          },
+          {
+            "Parking/Toll/Congestion": ["iParking"]
+          },
+          {
+            "Air/Train/BusFare": ["iTravel"]
+          },
+          {
+            "Meals": ["iMeals"]
+          },
+          {
+            "Hotel": ["iHotel"]
+          }
+        ]
       ]
     }
   },
