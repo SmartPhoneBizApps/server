@@ -1580,6 +1580,70 @@
   },
   "tableConfig": {
     "paymentDetails": {
+      "Formatter": {
+        "FieldLevel": [
+          {
+            "action": "setColor",
+            "field": "PaidAmount",
+            "color": "green"
+          },
+          {
+            "action": "setColor",
+            "field": "Amount",
+            "color": "red"
+          }
+        ],
+        "FieldValue": [
+          {
+            "ItemStatus1": [
+              {
+                "action": "setColor",
+                "value": "New",
+                "color": "green"
+              },
+              {
+                "action": "setColor",
+                "value": "InProgress",
+                "color": "green"
+              },
+              {
+                "action": "setColor",
+                "value": "Completed",
+                "color": "green"
+              }
+            ]
+          }
+        ],
+        "Table": [
+          {
+            "Date": {
+              "name": "SEQUENCE",
+              "function": "LT",
+              "Target": "sValidation",
+              "type": "Header",
+              "msg": "Timesheet Date can't be less than Start date"
+            },
+            "Fields": [
+              { "Source": "Date", "Type": { "type": "Item" } },
+              { "Source": "StartDate", "Type": { "type": "Header" } }
+            ]
+          },
+          {
+            "Date": {
+              "name": "SEQUENCE",
+              "function": "GT",
+              "Target": "sValidation",
+              "type": "Header",
+              "msg": "Timesheet Date can't be less than Start date"
+            },
+            "Fields": [
+              { "Source": "Date", "Type": { "type": "Item" } },
+              { "Source": "EndDate", "Type": { "type": "Header" } }
+            ]
+          }
+        ],
+        "Document": []
+      },
       "calculation": "Yes",
       "title": "Item Details",
       "ItemFieldDefinition": [
@@ -1685,7 +1749,7 @@
           "width": "10",
           "SLabel": "Transaction Type",
           "Option": "Mandatory",
-          "Update": "Yes"
+          "Update": "No"
         }
       ],
       "cards": [
@@ -1775,7 +1839,6 @@
         { "name": "Description" },
         { "name": "Amount" },
         { "name": "Currency" },
-        { "name": "ID" },
         { "name": "ItemStatus1" },
         { "name": "DueDate" },
         { "name": "PaidAmount" },
@@ -1789,7 +1852,13 @@
         "Fields": [
           [
             {
-              "ALL": ["ItemNumber", "Description", "Currency", "ItemStatus1"]
+              "ALL": [
+                "ItemNumber",
+                "Description",
+                "Currency",
+                "ItemStatus1",
+                "tType"
+              ]
             },
             {
               "DueAmount": ["Amount", "DueDate"]
@@ -2324,6 +2393,14 @@
   "Create": "Yes",
   "Wizard": [
     {
+      "id": "Step0",
+      "fields": [{ "name": "paymentDetails", "Mode": "Edit" }],
+      "name": "paymentDetails",
+      "stepType": "table",
+      "intro": "Patient : Payments Entries",
+      "text": "docType,ItemAttachment,Information"
+    },
+    {
       "id": "Step1",
       "fields": [
         { "name": "FirstName", "Mode": "Edit" },
@@ -2402,8 +2479,9 @@
       "stepType": "FieldList",
       "intro": "Please provide information about your Occupation or School"
     },
+
     {
-      "id": "Step7",
+      "id": "Step8",
       "fields": [
         { "name": "PrivacyPolicy", "Mode": "Display" },
         { "name": "Agree", "Mode": "Edit" }
