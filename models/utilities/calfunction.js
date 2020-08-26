@@ -1,10 +1,6 @@
 class calFun {
   constructor() {}
 
-  ADD1() {
-    return "Divyesh";
-  }
-
   isInt(n) {
     // console.log("isInt" + n);
     if (n % 1 === 0) {
@@ -62,11 +58,13 @@ class calFun {
         a += aa;
       }
     });
+    console.log("A1", b);
     if (b) {
       a = this.isInt(a);
       return a;
+    } else {
+      return 0;
     }
-    return "";
   }
 
   ITEMSUM(arr) {
@@ -78,6 +76,7 @@ class calFun {
         a += aa;
       }
     });
+    console.log("A2", b);
     if (b) {
       a = this.isInt(a);
       return a;
@@ -114,6 +113,7 @@ class calFun {
         cnt = 0;
       } else {
         if (aa != undefined && !isNaN(aa) && aa != "") {
+          console.log("A3", aa);
           a *= aa;
         } else {
           aa = 0;
@@ -177,6 +177,7 @@ class calFun {
         a = aa / 100;
       }
     });
+    console.log("A4", b);
     if (b) {
       a = this.isInt(a);
       return a;
@@ -335,6 +336,7 @@ class calFun {
     console.log("Calculation Table Data", outdata[tabname]);
     if (outdata[tabname] != undefined) {
       if (outdata[tabname].length > 0) {
+        console.log("A5", outdata[tabname].length);
         if (config["Item"].length > 0) {
           for (var i = 0; i < outdata[tabname].length; i++) {
             config["Item"].forEach((configItem) => {
@@ -421,7 +423,12 @@ class calFun {
                   // get working day in between 2 dates
                   fieldObj.push(new Date(outdata[field["Source"]])); // get calculated field value
                 } else {
-                  fieldObj.push(parseFloat(outdata[field["Source"]])); // get calculated field value
+                  //     fieldObj.push(parseFloat(outdata[field["Source"]])); // get calculated field value
+                  fieldObj.push(
+                    outdata.hasOwnProperty(field["Source"])
+                      ? parseFloat(outdata[field["Source"]])
+                      : 0
+                  ); // get calculated field value
                 }
               } else {
                 fieldObj.push(""); // get calculated field value
@@ -460,7 +467,12 @@ class calFun {
                   // get working day in between 2 dates
                   fieldObj.push(new Date(outdata[field["Source"]])); // get calculated field value
                 } else {
-                  fieldObj.push(parseFloat(outdata[field["Source"]])); // get calculated field value
+                  //         fieldObj.push(parseFloat(outdata[field["Source"]])); // get calculated field value
+                  fieldObj.push(
+                    outdata.hasOwnProperty(field["Source"])
+                      ? parseFloat(outdata[field["Source"]])
+                      : 0
+                  ); // get calculated field value
                 }
               } else {
                 fieldObj.push(""); // get calculated field value

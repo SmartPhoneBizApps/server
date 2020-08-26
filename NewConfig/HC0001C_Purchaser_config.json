@@ -102,7 +102,7 @@
       "listFields": ["StudyType", "StudyName", "Phase"],
       "tableField": "myStudy",
       "transferFields": ["StudyID", "StudyType", "StudyName", "Phase"],
-      "SearchURL": "listrecordsnew/Web/HC0002/HealthCareProfessional{filter}",
+      "SearchURL": "listrecordsnew/Web/HC0002/Purchaser{filter}",
       "URL": "util/addTraining/myStudy/HC0002/HC0001C/{ID}/{ReferenceID}/{role}",
       "FieldMapping": {
         "StudyType": "StudyType",
@@ -127,7 +127,7 @@
       "postURL": "datarecords/",
       "checkAnswers": "No",
       "postHeaders": {
-        "businessrole": "HealthCareProfessional",
+        "businessrole": "Purchaser",
         "applicationid": "SUPP00028",
         "calculation": "No"
       },
@@ -156,7 +156,7 @@
         "PostCode",
         "EventStartDate"
       ],
-      "SearchURL": "listrecordsnew/Web/HC0003/HealthCareProfessional{filter}",
+      "SearchURL": "listrecordsnew/Web/HC0003/Purchaser{filter}",
       "URL": "util/addTraining/myEvent/HC0003/HC0001C/{ID}/{ReferenceID}/{role}",
       "FieldMapping": {
         "EventID": "EventID",
@@ -204,7 +204,7 @@
         "ContractEndDate",
         "ContractStartDate"
       ],
-      "SearchURL": "listrecordsnew/Web/HC0004/HealthCareProfessional{filter}",
+      "SearchURL": "listrecordsnew/Web/HC0004/Purchaser{filter}",
       "URL": "util/addTraining/myContract/HC0004/HC0001C/{ID}/{ReferenceID}/{role}",
       "FieldMapping": {
         "ContractID": "ContractID",

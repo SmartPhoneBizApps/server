@@ -289,9 +289,10 @@ exports.addDataRecords = asyncHandler(async (req, res, next) => {
           tblFields[l],
           cardConfig["FieldDef"]
         );
+        console.log(outdata);
         console.log("Calculation for Tables Done..");
         req.body = outdata;
-        req.body = outdata;
+        //  req.body = outdata;
       }
     }
   } else {

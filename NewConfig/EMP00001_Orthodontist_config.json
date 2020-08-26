@@ -4,7 +4,7 @@
     "DetailTitle": "Leave Application"
   },
   "Controls": {
-    "calculation": "No",
+    "calculation": "Yes",
     "USP": "UserProfile",
     "StatusColor": "Yes",
     "SearchString": { "Search": false },
@@ -61,14 +61,6 @@
     { "type": "UPLOAD", "name": "Upload Record", "icon": "sap-icon://upload" }
   ],
   "DButtons": [
-    {
-      "type": "COPY",
-      "name": "Copy Leave",
-      "icon": "sap-icon://copy",
-      "URL": "util/copyCourse/EMP00001/EMP00001/{ID}/{role}",
-      "Token": "Yes",
-      "URLMethod": "POST"
-    },
     {
       "type": "WORKFLOW",
       "name": "Cancel",
@@ -262,7 +254,6 @@
       ]
     }
   ],
-
   "cards": [],
   "ControlDisplay": {},
   "FieldDef": [
@@ -285,14 +276,14 @@
       "name": "EmployeeID",
       "type": "string",
       "width": "20",
-      "Option": "Optional",
+      "Option": "Mandatory",
       "SLabel": "Employee ID"
     },
     {
       "name": "Name",
       "type": "string",
       "width": "50",
-      "Option": "Optional",
+      "Option": "Mandatory",
       "SLabel": "Employee Full Name"
     },
     {
@@ -322,14 +313,6 @@
       "SLabel": "ContactNo No."
     },
     {
-      "name": "ProgressComment",
-      "type": "string",
-      "width": "1000",
-      "Option": "Optional",
-      "SLabel": "ProgressComment",
-      "LLabel": "ProgressComment"
-    },
-    {
       "name": "CostCentre",
       "type": "string",
       "width": "50",
@@ -340,7 +323,7 @@
       "name": "Email",
       "type": "string",
       "width": "50",
-      "Option": "Optional",
+      "Option": "Mandatory",
       "SLabel": "Email ID"
     },
     {
@@ -354,21 +337,21 @@
       "name": "LeaveType",
       "type": "radiobutton",
       "width": "100",
-      "Option": "Optional",
+      "Option": "Mandatory",
       "SLabel": "LeaveType"
     },
     {
       "name": "LeaveFrom",
       "type": "Date",
       "width": "10",
-      "Option": "Optional",
+      "Option": "Mandatory",
       "SLabel": "LeaveFrom"
     },
     {
       "name": "LeaveTo",
       "type": "Date",
       "width": "10",
-      "Option": "Optional",
+      "Option": "Mandatory",
       "SLabel": "LeaveTo"
     },
     {
@@ -382,7 +365,7 @@
       "name": "LeaveReason",
       "type": "string",
       "width": "500",
-      "Option": "Optional",
+      "Option": "Mandatory",
       "SLabel": "Reason For Leave"
     },
     {
@@ -399,7 +382,13 @@
       "Option": "Optional",
       "SLabel": "Approver"
     },
-    { "name": "Status", "type": "string", "SLabel": "Status", "width": "50" },
+    {
+      "name": "Status",
+      "type": "string",
+      "SLabel": "Status",
+      "Option": "Mandatory",
+      "width": "50"
+    },
     {
       "name": "SearchString",
       "type": "string",
@@ -425,6 +414,14 @@
       "LLabel": "Processing Log"
     },
     {
+      "name": "ProgressComment",
+      "type": "string",
+      "width": "1000",
+      "Option": "Optional",
+      "SLabel": "ProgressComment",
+      "LLabel": "ProgressComment"
+    },
+    {
       "name": "MultiAttachments",
       "type": "attachment",
       "width": "100",
@@ -446,7 +443,44 @@
     "CreateFields": [],
     "ItemDetails": []
   },
-  "CalculatedFields": {},
+  "Validations": {
+    "Field": [],
+    "Sequence": [
+      {
+        "LeaveTo": {
+          "name": "SEQUENCE",
+          "function": "LT",
+          "Target": "sValidation",
+          "type": "Header",
+          "msg": "To Date can't be less than From date"
+        },
+        "Fields": [
+          { "Source": "LeaveTo", "Type": { "type": "Header" } },
+          { "Source": "LeaveFrom", "Type": { "type": "Header" } }
+        ]
+      }
+    ],
+    "Table": [],
+    "Document": []
+  },
+  "CalculatedFields": {
+    "Item": [],
+    "HeaderItem": [],
+    "Header": [
+      {
+        "CalculatedFormula": {
+          "name": "WORKINGDAYS",
+          "function": "WORKINGDAYS",
+          "Target": "LeaveDays",
+          "type": "Header"
+        },
+        "Fields": [
+          { "Source": "LeaveFrom", "Type": { "type": "Header" } },
+          { "Source": "LeaveTo", "Type": { "type": "Header" } }
+        ]
+      }
+    ]
+  },
   "Create": "Yes",
   "Wizard": [
     {
@@ -454,7 +488,6 @@
       "fields": [
         { "name": "LeaveFrom", "Mode": "Edit" },
         { "name": "LeaveTo", "Mode": "Edit" },
-        { "name": "LeaveDays", "Mode": "Edit" },
         { "name": "LeaveType", "Mode": "Edit" },
         { "name": "LeaveReason", "Mode": "Edit" }
       ],
@@ -475,16 +508,6 @@
       "intro": "Leave Request  : Employee Details"
     },
     {
-      "id": "Step3",
-      "fields": [
-        { "name": "PostCode", "Mode": "Display" },
-        { "name": "Address", "Mode": "Display" }
-      ],
-      "name": "Address",
-      "stepType": "FieldList",
-      "intro": "Leave Request  : Address"
-    },
-    {
       "id": "Step4",
       "fields": [{ "name": "CostCentre", "Mode": "Display" }],
       "name": "Cost Center",
@@ -492,7 +515,7 @@
       "intro": "Leave Request  : Cost Center"
     },
     {
-      "id": "Step7",
+      "id": "Step5",
       "fields": [{ "name": "Status", "Mode": "Display" }],
       "name": "Admin",
       "stepType": "FieldList",

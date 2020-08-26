@@ -675,7 +675,53 @@
       ]
     }
   },
-
+  "Validations": {
+    "Field": [],
+    "Sequence": [
+      {
+        "EndDate": {
+          "name": "SEQUENCE",
+          "function": "LT",
+          "Target": "sValidation",
+          "type": "Header",
+          "msg": "End Date can't be less than Start date"
+        },
+        "Fields": [
+          { "Source": "EndDate", "Type": { "type": "Header" } },
+          { "Source": "StartDate", "Type": { "type": "Header" } }
+        ]
+      }
+    ],
+    "Table": [
+      {
+        "Date": {
+          "name": "SEQUENCE",
+          "function": "LT",
+          "Target": "sValidation",
+          "type": "Header",
+          "msg": "Timesheet Date can't be less than Start date"
+        },
+        "Fields": [
+          { "Source": "Date", "Type": { "type": "Item" } },
+          { "Source": "StartDate", "Type": { "type": "Header" } }
+        ]
+      },
+      {
+        "Date": {
+          "name": "SEQUENCE",
+          "function": "GT",
+          "Target": "sValidation",
+          "type": "Header",
+          "msg": "Timesheet Date can't be less than Start date"
+        },
+        "Fields": [
+          { "Source": "Date", "Type": { "type": "Item" } },
+          { "Source": "EndDate", "Type": { "type": "Header" } }
+        ]
+      }
+    ],
+    "Document": []
+  },
   "CalculatedFields": {
     "Item": [
       {
