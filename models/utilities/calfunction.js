@@ -80,8 +80,9 @@ class calFun {
     if (b) {
       a = this.isInt(a);
       return a;
+    } else {
+      return 0;
     }
-    return "";
   }
 
   ITEMMUL(arr) {
@@ -144,8 +145,9 @@ class calFun {
     if (b) {
       a = this.isInt(a);
       return a;
+    } else {
+      return 0;
     }
-    return "";
   }
   SUB(arr) {
     var a = 0;
@@ -165,8 +167,9 @@ class calFun {
     if (b) {
       a = this.isInt(a);
       return a;
+    } else {
+      return 0;
     }
-    return "";
   }
   PAR(arr) {
     var a = 1;
@@ -309,7 +312,12 @@ class calFun {
                   // get working day in between 2 dates
                   fieldObj.push(new Date(outdata[field["Source"]])); // get calculated field value
                 } else {
-                  fieldObj.push(parseFloat(outdata[field["Source"]])); // get calculated field value
+                  //     fieldObj.push(parseFloat(outdata[field["Source"]])); // get calculated field value
+                  fieldObj.push(
+                    outdata.hasOwnProperty(field["Source"])
+                      ? parseFloat(outdata[field["Source"]])
+                      : 0
+                  ); // get calculated field value
                 }
               } else {
                 fieldObj.push(""); // get calculated field value
