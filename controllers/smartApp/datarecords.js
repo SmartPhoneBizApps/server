@@ -390,9 +390,9 @@ exports.updateDataRecords = asyncHandler(async (req, res, next) => {
     applicationID: req.headers.applicationid,
   });
   // Get Role from the Header
-  const BusinessRole = await Role.findOne({
-    applicationID: req.headers.businessrole,
-  });
+  // const BusinessRole = await Role.findOne({
+  //   applicationID: req.headers.businessrole,
+  // });
   req.body.appId = BodyApp.id;
   req.body.applicationId = req.headers.applicationid;
 
@@ -576,6 +576,7 @@ exports.updateDataRecords = asyncHandler(async (req, res, next) => {
   // Update Table fields
   let tblFields = tableFields(cardConfig.FieldDef);
   for (const kk in req.body) {
+    console.log("table", kk);
     if (req.body.hasOwnProperty(kk)) {
       let tableField = false;
       tableField = tblFields.includes(kk);

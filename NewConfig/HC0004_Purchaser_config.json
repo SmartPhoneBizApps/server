@@ -249,7 +249,8 @@
         "itemCheck": true,
         "itemAdd": true,
         "itemEdit": true,
-        "itemDelete": true
+        "itemDelete": true,
+        "itemInvoice": true
       },
       "CreateFields": [
         "ServiceType",
@@ -330,7 +331,7 @@
     },
     {
       "name": "Services",
-      "type": "string",
+      "type": "Array",
       "width": "500",
       "Option": "Optional",
       "SLabel": "Services"

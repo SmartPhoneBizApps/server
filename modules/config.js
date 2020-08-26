@@ -719,6 +719,8 @@ module.exports = {
     return newitemData;
   },
   tableValidate: function (itmData, newitemData) {
+    console.log("old", itmData);
+    console.log("new", newitemData);
     let kys = [];
     let out1 = {};
     var set1 = new Set([]);
