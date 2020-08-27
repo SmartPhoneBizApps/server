@@ -128,6 +128,13 @@
       "name": "Services",
       "type": "Table",
       "fioriicon": "expense-report"
+    },
+    {
+      "value": "Tab5",
+      "update": "Yes",
+      "name": "ItemInvoice",
+      "type": "Table",
+      "fioriicon": "expense-report"
     }
   ],
   "DetailFields": {
@@ -148,7 +155,8 @@
     ],
     "Tab2": ["PharmaContact", "PharmaContactEmail"],
     "Tab3": ["MultiAttachments"],
-    "Tab4": ["Services"]
+    "Tab4": ["Services"],
+    "Tab5": ["ItemInvoice"]
   },
   "ControlDisplay": {},
   "tableConfig": {
@@ -248,7 +256,17 @@
         "itemCheck": true,
         "itemAdd": true,
         "itemEdit": true,
-        "itemDelete": true
+        "itemDelete": true,
+        "additionalButtons": [
+          {
+            "name": "Invoice Item",
+            "type": "INVOICE",
+            "URL": "datarecords/",
+            "tableName": "ItemInvoice",
+            "Token": "Yes",
+            "URLMethod": "PUT"
+          }
+        ]
       },
       "CreateFields": [
         "ServiceType",
