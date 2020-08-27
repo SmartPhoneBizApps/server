@@ -452,24 +452,23 @@
     "ItemDetails": []
   },
   "Validations": {
-    "Field": [],
-    "Sequence": [
-      {
-        "LeaveTo": {
+    "Field": {},
+    "Sequence": {
+      "LeaveTo": [
+        {
           "name": "SEQUENCE",
           "function": "GT",
           "Target": "sValidation",
           "type": "Header",
-          "msg": "To Date can't be less than From date"
-        },
-        "Fields": [
-          { "Source": "LeaveTo", "Type": { "type": "Header" } },
-          { "Source": "LeaveFrom", "Type": { "type": "Header" } }
-        ]
-      }
-    ],
-    "Table": [],
-    "Document": []
+          "msg": "To Date can't be less than From date",
+          "Fields": [
+            { "Source": "LeaveTo", "Type": { "type": "Header" } },
+            { "Source": "LeaveFrom", "Type": { "type": "Header" } }
+          ]
+        }
+      ]
+    },
+    "Document": {}
   },
   "CalculatedFields": {
     "Item": [],

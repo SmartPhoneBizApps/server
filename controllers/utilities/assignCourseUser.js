@@ -22,7 +22,6 @@ exports.assignCourseUser = asyncHandler(async (req, res, next) => {
   configData = getNewConfig(req.params.toApp, req.params.targetRole);
   configFrom = getNewConfig(req.params.fromApp, req.params.sourceRole);
 
-  /// Validations....
   userX = await User.findOne({ email: req.params.user });
   if (!userX) {
     res.status(400).json({

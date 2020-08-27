@@ -31,7 +31,9 @@ const calfunction = require("../../models/utilities/calfunction.js");
 // @access    Private
 exports.addDataRecords = asyncHandler(async (req, res, next) => {
   if (!req.body.MultiAttachments) {
-    req.body.MultiAttachments = { items: [] };
+    req.body.MultiAttachments = {
+      items: [],
+    };
   }
   //Get Company
   const BodyApp = await getApplication(req.headers.applicationid);
@@ -316,7 +318,7 @@ exports.addDataRecords = asyncHandler(async (req, res, next) => {
       }
     }
   }
-  console.log("Validation Starts..");
+
   var mydata1 = mydata;
   for (const obj in mydata1) {
     var type = Handler["fieldType"](obj, cardConfig["FieldDef"]);
@@ -363,7 +365,7 @@ exports.addDataRecords = asyncHandler(async (req, res, next) => {
       }
     }
   }
-  console.log("Validation Done..");
+
   // Create data in mongo DB ...
   let result = {};
   result = await createDocument(req.headers.applicationid, mydata);
@@ -421,15 +423,15 @@ exports.updateDataRecords = asyncHandler(async (req, res, next) => {
 
   // Disabled validation for Tables...
   /*   for (const key in req.body) {
-    if (req.body.hasOwnProperty(key)) {
-      var resField = myFieldArray.includes(key);
-      if (resField === false && key !== "ItemData") {
+        if (req.body.hasOwnProperty(key)) {
+        var resField = myFieldArray.includes(key);
+        if (resField === false && key !== "ItemData") {
         return next(
-          new ErrorResponse(`Field ${key} can't be used with this App`, 400)
+        new ErrorResponse(`Field ${key} can't be used with this App`, 400)
         );
-      }
-    }
-  } */
+        }
+        }
+        } */
   // -----------------------------------------------------
   // Get App from Header
   // -----------------------------------------------------

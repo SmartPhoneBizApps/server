@@ -354,12 +354,12 @@ exports.listrecordsnew = asyncHandler(async (req, res, next) => {
     if (mode == "listcards") {
       for (let w = 0; w < appconfig["MButtons"].length; w++) {
         if (appconfig["MButtons"][w]["type"] == "ADD") {
-          // Adaptive Card to add new header record..
           aCard = {};
-          aCard = await adaptiveNew(appconfig, resPV, ival_out);
+          aCard = await adaptiveNew(appconfig, resPV, ival_out, "header");
           outStru["ADD01"] = { ...aCard };
         }
       }
+
       aCard = {};
       aCard = await analyticalNew(appconfig, outData["data"]);
       outStru["ANA01"] = { ...aCard };

@@ -729,37 +729,35 @@
           ]
         ]
       },
-      "Validation": {
-        "Field": [],
-        "Sequence": [
-          {
-            "ExpenseDate": {
+      "Validations": {
+        "Field": {},
+        "Sequence": {
+          "myExpenses": [
+            {
               "name": "SEQUENCE",
-              "function": "GE",
+              "function": "GTE",
               "Target": "sValidation",
               "type": "Header",
-              "msg": "Expense Date can't be less than Start date"
+              "msg": "Expense Date can't be less than Start date 124",
+              "Fields": [
+                { "Source": "ExpenseDate", "Type": { "type": "Item" } },
+                { "Source": "ExpenseStDate", "Type": { "type": "Header" } }
+              ]
             },
-            "Fields": [
-              { "Source": "ExpenseDate", "Type": { "type": "Item" } },
-              { "Source": "ExpenseStDate", "Type": { "type": "Header" } }
-            ]
-          },
-          {
-            "ExpenseDate": {
+            {
               "name": "SEQUENCE",
-              "function": "LE",
+              "function": "LTE",
               "Target": "sValidation",
               "type": "Header",
-              "msg": "Expense Date can't be less than Start date"
-            },
-            "Fields": [
-              { "Source": "ExpenseDate", "Type": { "type": "Item" } },
-              { "Source": "ExpenseEndDate", "Type": { "type": "Header" } }
-            ]
-          }
-        ],
-        "Document": []
+              "msg": "Expense Date can't be greater than End date 125",
+              "Fields": [
+                { "Source": "ExpenseDate", "Type": { "type": "Item" } },
+                { "Source": "ExpenseEndDate", "Type": { "type": "Header" } }
+              ]
+            }
+          ]
+        },
+        "Document": {}
       }
     }
   },
@@ -915,51 +913,36 @@
     "ItemDetails": []
   },
   "Validations": {
-    "Field": [],
-    "Sequence": [
-      {
-        "ExpenseEndDate": {
-          "name": "SEQUENCE",
-          "function": "LT",
-          "Target": "sValidation",
-          "type": "Header",
-          "msg": "End Date can't be less than Start date"
-        },
-        "Fields": [
-          { "Source": "ExpenseEndDate", "Type": { "type": "Header" } },
-          { "Source": "ExpenseStDate", "Type": { "type": "Header" } }
-        ]
-      }
-    ],
-    "Table": [
-      {
-        "ExpenseDate": {
-          "name": "SEQUENCE",
-          "function": "LT",
-          "Target": "sValidation",
-          "type": "Header",
-          "msg": "Expense Date can't be less than Start date"
-        },
-        "Fields": [
-          { "Source": "ExpenseDate", "Type": { "type": "Item" } },
-          { "Source": "ExpenseStDate", "Type": { "type": "Header" } }
-        ]
-      },
-      {
-        "ExpenseDate": {
+    "Field": {},
+    "Sequence": {
+      "ExpenseEndDate": [
+        {
           "name": "SEQUENCE",
           "function": "GT",
           "Target": "sValidation",
           "type": "Header",
-          "msg": "Expense Date can't be less than Start date"
-        },
-        "Fields": [
-          { "Source": "ExpenseDate", "Type": { "type": "Item" } },
-          { "Source": "ExpenseEndDate", "Type": { "type": "Header" } }
-        ]
-      }
-    ],
-    "Document": []
+          "msg": "End Date can't be less than Start date 123",
+          "Fields": [
+            { "Source": "ExpenseEndDate", "Type": { "type": "Header" } },
+            { "Source": "ExpenseStDate", "Type": { "type": "Header" } }
+          ]
+        }
+      ],
+      "ExpenseEndDate1": [
+        {
+          "name": "SEQUENCE",
+          "function": "GT",
+          "Target": "sValidation",
+          "type": "Header",
+          "msg": "End Date can't be less than Start date",
+          "Fields": [
+            { "Source": "ExpenseEndDate", "Type": { "type": "Header" } },
+            { "Source": "ExpenseStDate", "Type": { "type": "Header" } }
+          ]
+        }
+      ]
+    },
+    "Document": {}
   },
   "CalculatedFields": {
     "Item": [],

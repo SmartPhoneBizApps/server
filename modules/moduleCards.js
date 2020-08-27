@@ -602,8 +602,7 @@ module.exports = {
     adCard["sap.card"]["content"]["actions"] = cardaction["actions"];
     return adCard;
   },
-  adaptiveNew: async function (appconfig, resPV, ival_out) {
-    // Toggle >> Input.Toggle
+  adaptiveNew: async function (appconfig, resPV, ival_out, mode) {
     body = [];
     body2 = [];
     body2 = [];
@@ -849,7 +848,7 @@ module.exports = {
           }
         }
         //"style": "tel",
-
+        // Toggle >> Input.Toggle
         // "type": "Input.Toggle",
         //"title": "I accept the terms and conditions",
         //"id": "Checked",
@@ -889,7 +888,7 @@ module.exports = {
     aCard = JSON.parse(cardData);
     return aCard;
   },
-
+  //---------------------------------------------------------------------
   analyticalNew: async function (appconfig, outData) {
     var deCard;
     let cardConfigFile1;

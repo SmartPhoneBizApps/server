@@ -230,6 +230,133 @@ class calFun {
     }
   }
 
+  LT(arr) {
+    if (arr[0] < arr[1]) {
+      return true;
+    }
+    return false;
+  }
+  LTE(arr) {
+    console.log(arr);
+    if (arr[0] <= arr[1]) {
+      return true;
+    }
+    return false;
+  }
+
+  GT(arr) {
+    if (arr[0] > arr[1]) {
+      return true;
+    }
+    return false;
+  }
+  GTE(arr) {
+    console.log("GTE");
+    console.log(arr);
+    if (arr[0] >= arr[1]) {
+      return true;
+    }
+    return false;
+  }
+  EQ(arr) {
+    if (arr[0] == arr[1]) {
+      return true;
+    }
+    return false;
+  }
+
+  validation(arrayData) {
+    var data = arrayData["data"];
+    var config = arrayData["config"];
+    var fieldDef = arrayData["FieldDef"];
+    var itemCnt = arrayData["itemCnt"];
+    var fieldName = arrayData["fieldName"];
+    var returnData = {};
+    returnData["status"] = true;
+    returnData["message"] = "";
+    returnData["itemCnt"] = "";
+    returnData["data"] = data;
+    // console.log(config);
+
+    if (config["Sequence"].hasOwnProperty(arrayData["fieldName"])) {
+      var selectedFieldArray = config["Sequence"][arrayData["fieldName"]];
+      for (var i = 0; i < selectedFieldArray.length; i++) {
+        var fieldArray = selectedFieldArray[i]["Fields"];
+        var fieldObj = [];
+        for (var j = 0; j < fieldArray.length; j++) {
+          var Source = fieldArray[j]["Source"];
+          var typeField = fieldArray[j]["Type"]["type"];
+
+          var getFieldType = this.fieldType(Source, fieldDef);
+          if (getFieldType.toLowerCase() == "date") {
+            if (typeField == "Header") {
+              fieldObj.push(new Date(data[Source]));
+            } else {
+              fieldObj.push(new Date(data[fieldName][itemCnt][Source]));
+            }
+          } else {
+            if (typeField == "Header") {
+              fieldObj.push(
+                data.hasOwnProperty(Source) ? parseFloat(data[Source]) : 0
+              );
+            } else {
+              fieldObj.push(
+                data[fieldName][itemCnt].hasOwnProperty(Source)
+                  ? parseFloat(data[fieldName][itemCnt][Source])
+                  : 0
+              );
+            }
+          }
+        }
+        var fun = selectedFieldArray[i]["function"]; // get function name
+        console.log("fun --" + fun);
+        console.log("fieldObj --" + fieldObj);
+        if (typeof this[fun] !== "undefined") {
+          console.log("Return --" + this[fun](fieldObj));
+          if (!this[fun](fieldObj)) {
+            console.log("IF");
+            returnData["message"] = selectedFieldArray[i]["msg"];
+            returnData["status"] = false;
+            returnData["itemCnt"] = itemCnt;
+            returnData["fieldValue"] = fieldObj[0];
+            returnData["fieldName"];
+            if (selectedFieldArray[i]["type"] == "Header") {
+              data[selectedFieldArray[i]["Target"]] = this[fun](fieldObj);
+            } else {
+              data[fieldName][itemCnt][selectedFieldArray[i]["Target"]] = this[
+                fun
+              ](fieldObj);
+            }
+
+            return returnData;
+            return false;
+          } else {
+            returnData["message"] = selectedFieldArray[i]["msg"];
+            returnData["status"] = true;
+            returnData["itemCnt"] = itemCnt;
+            if (selectedFieldArray[i]["type"] == "Header") {
+              data[selectedFieldArray[i]["Target"]] = this[fun](fieldObj);
+            } else {
+              data[fieldName][itemCnt][selectedFieldArray[i]["Target"]] = this[
+                fun
+              ](fieldObj);
+            }
+          }
+        } else {
+          if (selectedFieldArray[i]["type"] == "Header") {
+            data[selectedFieldArray[i]["Target"]] = "";
+            returnData["itemCnt"] = itemCnt;
+          } else {
+            data[fieldName][itemCnt][selectedFieldArray[i]["Target"]] = "";
+            returnData["itemCnt"] = itemCnt;
+          }
+        }
+      }
+    }
+
+    return returnData;
+  }
+
   datacalculation(outdata, config, fieldDef) {
     if (outdata["ItemData"].length > 0) {
       if (config["Item"].length > 0) {

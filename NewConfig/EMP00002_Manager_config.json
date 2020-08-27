@@ -587,25 +587,25 @@
     "CreateFields": [],
     "ItemDetails": []
   },
+
   "Validations": {
-    "Field": [],
-    "Sequence": [
-      {
-        "TravelDateTo": {
+    "Field": {},
+    "Sequence": {
+      "TravelDateTo": [
+        {
           "name": "SEQUENCE",
           "function": "GT",
           "Target": "sValidation",
           "type": "Header",
-          "msg": "To Date can't be less than From date"
-        },
-        "Fields": [
-          { "Source": "TravelDateTo", "Type": { "type": "Header" } },
-          { "Source": "TravelDtFrom", "Type": { "type": "Header" } }
-        ]
-      }
-    ],
-    "Table": [],
-    "Document": []
+          "msg": "To Date can't be less than From date",
+          "Fields": [
+            { "Source": "TravelDateTo", "Type": { "type": "Header" } },
+            { "Source": "TravelDtFrom", "Type": { "type": "Header" } }
+          ]
+        }
+      ]
+    },
+    "Document": {}
   },
   "CalculatedFields": {
     "Item": [],

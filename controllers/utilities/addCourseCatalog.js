@@ -16,7 +16,6 @@ const sendEmail = require("../../utils/sendEmail");
 exports.copyCourse = asyncHandler(async (req, res, next) => {
   console.log("Function - utilities/copyCourse(File : addCourseCatalog)");
 
-  /// Validations....
   appX = await App.findOne({ applicationID: req.params.fromApp });
   if (!appX) {
     res.status(400).json({

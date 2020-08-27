@@ -18,7 +18,6 @@ const ErrorResponse = require("../../utils/errorResponse");
 exports.createwithref = asyncHandler(async (req, res, next) => {
   // Get the App result from Advance List..
   let outData = res.advancedDataList;
-  // Basic validations
   if (!req.headers.applicationid) {
     return next(new ErrorResponse(`Please provide Source App ID(Header)`, 400));
   }

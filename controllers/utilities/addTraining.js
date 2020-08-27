@@ -18,7 +18,7 @@ exports.addTraining = asyncHandler(async (req, res, next) => {
   console.log("Function - utilities/addTraining");
   out1 = {};
   newOut = {};
-  /// Validations....
+
   appX = await App.findOne({ applicationID: req.params.fromApp });
   if (!appX) {
     res.status(400).json({
