@@ -18,6 +18,10 @@ const sendEmail = require("../utils/sendEmail");
 const sendEmail1 = require("../utils/sendEmailProd");
 var request = require("request");
 module.exports = {
+  getCardKey: function (a, b, c, d) {
+    cKey = d + a.substring(0, 3) + a.slice(-2) + b.substring(0, 3) + c;
+    return cKey;
+  },
   donutCardHead: async function (mycard, appData1, anacardConfig) {
     measures1 = [];
     let mydc2 = {};
@@ -893,8 +897,26 @@ module.exports = {
     body2 = [];
     body1x = {};
     body2x = {};
-    for (let l = 0; l < appconfig["Wizard"].length; l++) {
-      const rkg = appconfig["Wizard"][l];
+    let s_dimension = new Set();
+    let s_facts = new Set();
+    for (let l = 0; l < appconfig["FieldDef"].length; l++) {
+      if (appconfig["FieldDef"][l].hasOwnProperty("group")) {
+        switch (appconfig["FieldDef"][l]["group"]) {
+          case "dimension":
+            animals.add();
+            break;
+          case "facts":
+            break;
+
+          default:
+            break;
+        }
+        const element = object[key];
+      }
+    }
+
+    for (let l = 0; l < appconfig["FieldDef"].length; l++) {
+      const rkg = appconfig["FieldDef"][l];
       rkg["fields"].forEach((e1) => {
         for (let a = 0; a < appconfig["FieldDef"].length; a++) {
           if (appconfig["FieldDef"][a]["name"] == e1["name"]) {
@@ -1130,15 +1152,6 @@ module.exports = {
             }
           }
         }
-        //"style": "tel",
-
-        // "type": "Input.Toggle",
-        //"title": "I accept the terms and conditions",
-        //"id": "Checked",
-        //"wrap": true,
-        //"value": "false",
-        //"valueOn": "true",
-        //"valueOff": "false"
         for (let a = 0; a < appconfig["FieldDef"].length; a++) {
           if (appconfig["FieldDef"][a]["name"] == e1["name"]) {
             if (appconfig["FieldDef"][a]["Option"] == "Mandatory") {

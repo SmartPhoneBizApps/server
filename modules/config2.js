@@ -95,10 +95,6 @@ module.exports = {
     cKey = d + a.substring(0, 3) + a.slice(-2) + b.substring(0, 3) + c;
     return true;
   },
-  getCardKey: function (a, b, c, d) {
-    cKey = d + a.substring(0, 3) + a.slice(-2) + b.substring(0, 3) + c;
-    return cKey;
-  },
 
   getTotalCount: function (app, req, config1) {
     let config = {};
