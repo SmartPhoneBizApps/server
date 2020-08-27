@@ -317,6 +317,19 @@ exports.addDataRecords = asyncHandler(async (req, res, next) => {
     }
   }
 
+  console.log("Validation is done");
+  // loop at mydata
+  // call validations...(Divyesh)
+  // sValidation = Handler["validation"]("ExpenseEndDate"
+  // );
+  // if (sValidation["status"] == false){
+  //   res.status(400).json({
+  //  message: sValidation["message"],
+  //  success: false,
+  // });
+  //  }
+  // Endloop
+
   // Create data in mongo DB ...
   let result = {};
   result = await createDocument(req.headers.applicationid, mydata);

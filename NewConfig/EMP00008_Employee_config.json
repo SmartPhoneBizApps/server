@@ -777,29 +777,29 @@
         "Field": [],
         "Sequence": [
           {
-            "Validate": {
-              "name": "SEQUENCE",
-              "function": "GE",
-              "Target": "sValidation",
-              "type": "Header",
-              "msg": "Expense Date can't be less than Start date"
-            },
-            "Fields": [
-              { "Source": "ExpenseDate", "Type": { "type": "Item" } },
-              { "Source": "ExpenseStDate", "Type": { "type": "Header" } }
-            ]
-          },
-          {
-            "Validate": {
-              "name": "SEQUENCE",
-              "function": "LE",
-              "Target": "sValidation",
-              "type": "Header",
-              "msg": "Expense Date can't be less than Start date"
-            },
-            "Fields": [
-              { "Source": "ExpenseDate", "Type": { "type": "Item" } },
-              { "Source": "ExpenseEndDate", "Type": { "type": "Header" } }
+            "ExpenseDate": [
+              {
+                "name": "SEQUENCE",
+                "function": "GE",
+                "Target": "sValidation",
+                "type": "Header",
+                "msg": "Expense Date can't be less than Start date",
+                "Fields": [
+                  { "Source": "ExpenseDate", "Type": { "type": "Item" } },
+                  { "Source": "ExpenseStDate", "Type": { "type": "Header" } }
+                ]
+              },
+              {
+                "name": "SEQUENCE",
+                "function": "LE",
+                "Target": "sValidation",
+                "type": "Header",
+                "msg": "Expense Date can't be greater than End date",
+                "Fields": [
+                  { "Source": "ExpenseDate", "Type": { "type": "Item" } },
+                  { "Source": "ExpenseEndDate", "Type": { "type": "Header" } }
+                ]
+              }
             ]
           }
         ],
@@ -962,19 +962,22 @@
     "Field": [],
     "Sequence": [
       {
-        "Validate": {
-          "name": "SEQUENCE",
-          "function": "GT",
-          "Target": "sValidation",
-          "type": "Header",
-          "msg": "End Date can't be less than Start date"
-        },
-        "Fields": [
-          { "Source": "ExpenseEndDate", "Type": { "type": "Header" } },
-          { "Source": "ExpenseStDate", "Type": { "type": "Header" } }
+        "ExpenseEndDate": [
+          {
+            "name": "SEQUENCE",
+            "function": "GT",
+            "Target": "sValidation",
+            "type": "Header",
+            "msg": "End Date can't be less than Start date",
+            "Fields": [
+              { "Source": "ExpenseEndDate", "Type": { "type": "Header" } },
+              { "Source": "ExpenseStDate", "Type": { "type": "Header" } }
+            ]
+          }
         ]
       }
     ],
+
     "Document": []
   },
   "CalculatedFields": {

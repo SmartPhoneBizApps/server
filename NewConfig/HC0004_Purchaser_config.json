@@ -46,7 +46,6 @@
         "ContractName",
         "ContractType",
         "ContractStartDate",
-        "Services",
         "ContractLink",
         "ContractEndDate",
         "ContractValue",
@@ -129,6 +128,13 @@
       "name": "Services",
       "type": "Table",
       "fioriicon": "expense-report"
+    },
+    {
+      "value": "Tab5",
+      "update": "Yes",
+      "name": "ItemInvoice",
+      "type": "Table",
+      "fioriicon": "expense-report"
     }
   ],
   "DetailFields": {
@@ -149,7 +155,8 @@
     ],
     "Tab2": ["PharmaContact", "PharmaContactEmail"],
     "Tab3": ["MultiAttachments"],
-    "Tab4": ["Services"]
+    "Tab4": ["Services"],
+    "Tab5": ["ItemInvoice"]
   },
   "ControlDisplay": {},
   "tableConfig": {
@@ -250,7 +257,133 @@
         "itemAdd": true,
         "itemEdit": true,
         "itemDelete": true,
-        "itemInvoice": true
+        "additionalButtons": [
+          {
+            "name": "Invoice Item",
+            "type": "INVOICE",
+            "URL": "datarecords/",
+            "tableName": "ItemInvoice",
+            "Token": "Yes",
+            "URLMethod": "PUT"
+          }
+        ]
+      },
+      "CreateFields": [
+        "ServiceType",
+        "ServiceDetails",
+        "ServiceAmount",
+        "iCurrency",
+        "ItemStatus1",
+        "Notes",
+        "Attachment"
+      ],
+      "ItemDetails": [
+        { "name": "ServiceType" },
+        { "name": "ServiceDetails" },
+        { "name": "ServiceAmount" },
+        { "name": "iCurrency" },
+        { "name": "Notes" },
+        { "name": "ItemStatus1" },
+        { "name": "Attachment" }
+      ]
+    },
+    "ItemInvoice": {
+      "calculation": "Yes",
+      "title": "Services",
+      "subtitle": "Services",
+      "tableFormFields": [
+        {
+          "GrpTitle": "Totals",
+          "Fields": ["ContractValue"]
+        }
+      ],
+      "ItemFieldDefinition": [
+        {
+          "name": "ItemNumber",
+          "type": "string",
+          "width": "10",
+          "SLabel": "ItemNumber",
+          "Option": "Optional",
+          "Update": "No"
+        },
+        {
+          "name": "ServiceDetails",
+          "type": "string",
+          "width": "200",
+          "Option": "Optional",
+          "SLabel": "Service Details",
+          "Update": "Yes"
+        },
+        {
+          "name": "ServiceType",
+          "type": "string",
+          "width": "50",
+          "SLabel": "Service Type",
+          "Option": "Optional",
+          "Update": "Yes"
+        },
+        {
+          "name": "ServiceAmount",
+          "type": "Num,1",
+          "width": "20",
+          "SLabel": "Service Amount",
+          "Option": "Optional",
+          "Update": "Yes"
+        },
+        {
+          "name": "Notes",
+          "type": "string",
+          "width": "1000",
+          "SLabel": "Notes",
+          "Option": "Optional",
+          "Update": "Yes"
+        },
+        {
+          "name": "iCurrency",
+          "type": "string",
+          "width": "10",
+          "SLabel": "Item Currency",
+          "Option": "Optional",
+          "Update": "No"
+        },
+        {
+          "name": "ItemStatus1",
+          "type": "string",
+          "width": "50",
+          "SLabel": "Item Status",
+          "Option": "Optional",
+          "Update": "Yes"
+        },
+        {
+          "name": "Attachment",
+          "type": "singleAttachment",
+          "width": "100",
+          "SLabel": "Item Attachment",
+          "Option": "Optional",
+          "Update": "Yes"
+        }
+      ],
+      "DisplayFields": [
+        "ServiceDetails",
+        "ServiceAmount",
+        "ServiceType",
+        "iCurrency",
+        "ItemStatus1"
+      ],
+      "cards": [
+        {
+          "type": "Example",
+          "cardType": "AdaptiveForm",
+          "cardID": "ADD01",
+          "template": "template_adaptiveForm.json"
+        }
+      ],
+      "ItemButtons": {
+        "itemDisplay": true,
+        "itemCheck": true,
+        "itemAdd": true,
+        "itemEdit": true,
+        "itemDelete": true
       },
       "CreateFields": [
         "ServiceType",
@@ -335,6 +468,13 @@
       "width": "500",
       "Option": "Optional",
       "SLabel": "Services"
+    },
+    {
+      "name": "ItemInvoice",
+      "type": "Array",
+      "width": "500",
+      "Option": "Optional",
+      "SLabel": "ItemInvoice"
     },
     {
       "name": "MultiAttachments",
