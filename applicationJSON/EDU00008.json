@@ -198,14 +198,6 @@
       "Please provide valid UK Post Code in field :PostCode"
     ]
   },
-  "PostCode": {
-    "type": "String",
-    "maxlength": [100, "Postcode can not be more than 100 characters"],
-    "match": [
-      "UK_POSTCODE_V1",
-      "Please provide valid UK Post Code in field :Postcode"
-    ]
-  },
   "BirthDate": {
     "type": "Date",
     "maxlength": [10, "BirthDate can not be more than 10 characters"],
@@ -232,5 +224,6 @@
   },
   "ItemData": [],
   "buttons": {},
+  "sValidation": "",
   "cardImage": ""
 }

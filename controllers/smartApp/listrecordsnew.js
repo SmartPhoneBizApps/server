@@ -3,7 +3,7 @@ const {
   getCardKey,
   analyticalCard,
   adaptiveNew,
-} = require("../../modules/config2");
+} = require("../../modules/moduleCards");
 const {
   getPVConfig,
   getPVQuery,

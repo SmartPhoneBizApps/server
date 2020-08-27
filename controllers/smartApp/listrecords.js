@@ -2,7 +2,7 @@ const {
   donutCardHead,
   adaptivecardCard,
   getCardKey,
-} = require("../../modules/config2");
+} = require("../../modules/moduleCards");
 const {
   getPVConfig,
   getPVQuery,

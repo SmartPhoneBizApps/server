@@ -474,6 +474,14 @@
       "Option": "Optional",
       "SLabel": "Attachment",
       "LLabel": "Attachment"
+    },
+    {
+      "name": "sValidation",
+      "type": "string",
+      "width": "20",
+      "Option": "Optional",
+      "SLabel": "Validation",
+      "LLabel": "Validation"
     }
   ],
   "itemData": "No",
@@ -495,7 +503,7 @@
       {
         "LeaveTo": {
           "name": "SEQUENCE",
-          "function": "LT",
+          "function": "GT",
           "Target": "sValidation",
           "type": "Header",
           "msg": "To Date can't be less than From date"

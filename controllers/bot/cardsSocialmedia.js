@@ -13,7 +13,7 @@ const {
   adaptivecardCard,
   getCardKey,
   exampleCard,
-} = require("../../modules/config2");
+} = require("../../modules/moduleCards");
 const {
   getCard,
   findOneAppDatabyid,

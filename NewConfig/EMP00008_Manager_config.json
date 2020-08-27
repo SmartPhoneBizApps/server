@@ -690,7 +690,77 @@
         { "name": "Comment" },
         { "name": "ItemStatus1" },
         { "name": "Attachment" }
-      ]
+      ],
+      "ControlDisplay": {
+        "ControlField": "ExpType",
+        "Fields": [
+          [
+            {
+              "ALL": [
+                "ItemNumber",
+                "ExpenseDate",
+                "iCurrency",
+                "ExpenseDetails",
+                "ExpenseAmount",
+                "Comment",
+                "ItemStatus1",
+                "Attachment",
+                "ExpType"
+              ]
+            },
+            {
+              "Mileage": ["From", "To", "iMiles", "MilesRate"]
+            },
+            {
+              "Mobile/Telephone/Internet": ["iMobile"]
+            },
+            {
+              "Parking/Toll/Congestion": ["iParking"]
+            },
+            {
+              "Air/Train/BusFare": ["iTravel"]
+            },
+            {
+              "Meals": ["iMeals"]
+            },
+            {
+              "Hotel": ["iHotel"]
+            }
+          ]
+        ]
+      },
+      "Validation": {
+        "Field": [],
+        "Sequence": [
+          {
+            "ExpenseDate": {
+              "name": "SEQUENCE",
+              "function": "GE",
+              "Target": "sValidation",
+              "type": "Header",
+              "msg": "Expense Date can't be less than Start date"
+            },
+            "Fields": [
+              { "Source": "ExpenseDate", "Type": { "type": "Item" } },
+              { "Source": "ExpenseStDate", "Type": { "type": "Header" } }
+            ]
+          },
+          {
+            "ExpenseDate": {
+              "name": "SEQUENCE",
+              "function": "LE",
+              "Target": "sValidation",
+              "type": "Header",
+              "msg": "Expense Date can't be less than Start date"
+            },
+            "Fields": [
+              { "Source": "ExpenseDate", "Type": { "type": "Item" } },
+              { "Source": "ExpenseEndDate", "Type": { "type": "Header" } }
+            ]
+          }
+        ],
+        "Document": []
+      }
     }
   },
   "FieldDef": [
@@ -821,6 +891,14 @@
       "Option": "Optional",
       "SLabel": "myExpenses",
       "LLabel": "myExpenses"
+    },
+    {
+      "name": "sValidation",
+      "type": "string",
+      "width": "20",
+      "Option": "Optional",
+      "SLabel": "Validation",
+      "LLabel": "Validation"
     }
   ],
   "itemData": "No",

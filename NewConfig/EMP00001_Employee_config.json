@@ -263,35 +263,40 @@
       "width": "20",
       "Option": "Mandatory",
       "SLabel": "Identification",
-      "Update": "No"
+      "Update": "No",
+      "group": "none"
     },
     {
       "name": "ReferenceID",
       "type": "string",
       "width": "20",
       "Option": "Optional",
-      "SLabel": "ReferenceID"
+      "SLabel": "ReferenceID",
+      "group": "none"
     },
     {
       "name": "EmployeeID",
       "type": "string",
       "width": "20",
       "Option": "Mandatory",
-      "SLabel": "Employee ID"
+      "SLabel": "Employee ID",
+      "group": "dimension"
     },
     {
       "name": "Name",
       "type": "string",
       "width": "50",
       "Option": "Mandatory",
-      "SLabel": "Employee Full Name"
+      "SLabel": "Employee Full Name",
+      "group": "none"
     },
     {
       "name": "Address",
       "type": "string",
       "width": "200",
       "Option": "Optional",
-      "SLabel": "Address"
+      "SLabel": "Address",
+      "group": "none"
     },
     {
       "name": "PostCode",
@@ -303,91 +308,104 @@
       "Token": true,
       "Option": "Optional",
       "SLabel": "Post Code",
-      "LLabel": "Post Code"
+      "LLabel": "Post Code",
+      "group": "none"
     },
     {
       "name": "ContactNo",
       "type": "string",
       "width": "20",
       "Option": "Optional",
-      "SLabel": "ContactNo No."
+      "SLabel": "ContactNo No.",
+      "group": "none"
     },
     {
       "name": "CostCentre",
       "type": "string",
       "width": "50",
       "Option": "Optional",
-      "SLabel": "Cost Centre"
+      "SLabel": "Cost Centre",
+      "group": "none"
     },
     {
       "name": "Email",
       "type": "string",
       "width": "50",
       "Option": "Mandatory",
-      "SLabel": "Email ID"
+      "SLabel": "Email ID",
+      "group": "none"
     },
     {
       "name": "Location",
       "type": "string",
       "width": "100",
       "Option": "Optional",
-      "SLabel": "Location"
+      "SLabel": "Location",
+      "group": "none"
     },
     {
       "name": "LeaveType",
       "type": "radiobutton",
       "width": "100",
       "Option": "Mandatory",
-      "SLabel": "LeaveType"
+      "SLabel": "LeaveType",
+      "group": "dimension"
     },
     {
       "name": "LeaveFrom",
       "type": "Date",
       "width": "10",
       "Option": "Mandatory",
-      "SLabel": "LeaveFrom"
+      "SLabel": "LeaveFrom",
+      "group": "none"
     },
     {
       "name": "LeaveTo",
       "type": "Date",
       "width": "10",
       "Option": "Mandatory",
-      "SLabel": "LeaveTo"
+      "SLabel": "LeaveTo",
+      "group": "none"
     },
     {
       "name": "LeaveDays",
       "type": "Num,0",
       "width": "10",
       "Option": "Optional",
-      "SLabel": "No of days "
+      "SLabel": "No of days",
+      "group": "facts"
     },
     {
       "name": "LeaveReason",
       "type": "string",
       "width": "500",
       "Option": "Mandatory",
-      "SLabel": "Reason For Leave"
+      "SLabel": "Reason For Leave",
+      "group": "none"
     },
     {
       "name": "Team",
       "type": "string",
       "width": "50",
       "Option": "Optional",
-      "SLabel": "Team"
+      "SLabel": "Team",
+      "group": "none"
     },
     {
       "name": "Approver",
       "type": "string",
       "width": "50",
       "Option": "Optional",
-      "SLabel": "Approver"
+      "SLabel": "Approver",
+      "group": "none"
     },
     {
       "name": "Status",
       "type": "string",
       "SLabel": "Status",
       "Option": "Mandatory",
-      "width": "50"
+      "width": "50",
+      "group": "dimension"
     },
     {
       "name": "SearchString",
@@ -395,7 +413,8 @@
       "width": "200",
       "Option": "Optional",
       "SLabel": "Search String",
-      "LLabel": "Search String"
+      "LLabel": "Search String",
+      "group": "none"
     },
     {
       "name": "Comment",
@@ -403,7 +422,8 @@
       "width": "1000",
       "Option": "Optional",
       "SLabel": "Comment",
-      "LLabel": "Comment"
+      "LLabel": "Comment",
+      "group": "none"
     },
     {
       "name": "ProcessingLog",
@@ -411,7 +431,8 @@
       "width": "1000",
       "Option": "Optional",
       "SLabel": "Processing Log",
-      "LLabel": "Processing Log"
+      "LLabel": "Processing Log",
+      "group": "none"
     },
     {
       "name": "ProgressComment",
@@ -419,7 +440,8 @@
       "width": "1000",
       "Option": "Optional",
       "SLabel": "ProgressComment",
-      "LLabel": "ProgressComment"
+      "LLabel": "ProgressComment",
+      "group": "none"
     },
     {
       "name": "MultiAttachments",
@@ -427,7 +449,17 @@
       "width": "100",
       "Option": "Optional",
       "SLabel": "Attachment",
-      "LLabel": "Attachment"
+      "LLabel": "Attachment",
+      "group": "none"
+    },
+    {
+      "name": "sValidation",
+      "type": "string",
+      "width": "20",
+      "Option": "Optional",
+      "SLabel": "Validation",
+      "LLabel": "Validation",
+      "group": "none"
     }
   ],
   "itemData": "No",
@@ -449,7 +481,7 @@
       {
         "LeaveTo": {
           "name": "SEQUENCE",
-          "function": "LT",
+          "function": "GT",
           "Target": "sValidation",
           "type": "Header",
           "msg": "To Date can't be less than From date"
