@@ -363,9 +363,9 @@ exports.listrecordsnew = asyncHandler(async (req, res, next) => {
             appconfig["PossibleValues"]
           );
           var cardData = JSON.stringify(aCard);
-          cardData = cardReplace({}, cardData, appconfig);
-          cardData = cardReplace({}, cardData, appconfig);
-          cardData = cardReplace({}, cardData, appconfig);
+          cardData = cardReplace({}, cardData, appconfig, key);
+          cardData = cardReplace({}, cardData, appconfig, key);
+          cardData = cardReplace({}, cardData, appconfig, key);
           aCard = JSON.parse(cardData);
           outStru["ADD01"] = { ...aCard };
         }
@@ -383,7 +383,7 @@ exports.listrecordsnew = asyncHandler(async (req, res, next) => {
           let cardConfigFile1 =
             "../../cards/cardConfig/" + mycard[k]["template"];
           var cardData = JSON.stringify(require(cardConfigFile1));
-          cardData = cardReplace(mycard[k], cardData, appconfig);
+          cardData = cardReplace(mycard[k], cardData, appconfig, "header");
           var anacardConfig = JSON.parse(cardData);
           switch (mycard[k]["cardType"]) {
             case "Analytical":

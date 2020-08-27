@@ -1348,23 +1348,45 @@ module.exports = {
       }
     });
   },
-  cardReplace: function (mycard, cardData, appconfig) {
-    if (mycard.title != undefined) {
-      cardData = cardData.replace("@Title", mycard.title);
-    } else {
+  cardReplace: function (mycard, cardData, appconfig, mode) {
+    if (mode == "header") {
       cardData = cardData.replace(
         "@Title",
         appconfig["Title"]["ApplicationTitle"]
       );
-    }
-    if (mycard.subTitle != undefined) {
-      cardData = cardData.replace("@subTitle", mycard.subtitle);
     } else {
+      cardData = cardData.replace(
+        "@Title",
+        appconfig["tableConfig"][mode]["title"]
+      );
+    }
+    if (mode == "header") {
       cardData = cardData.replace(
         "@subTitle",
         appconfig["Title"]["DetailTitle"]
       );
+    } else {
+      cardData = cardData.replace(
+        "@Title",
+        appconfig["tableConfig"][mode]["subtitle"]
+      );
     }
+    // if (mycard.title != undefined) {
+    //   cardData = cardData.replace("@Title", mycard.title);
+    // } else {
+    //   cardData = cardData.replace(
+    //     "@Title",
+    //     appconfig["Title"]["ApplicationTitle"]
+    //   );
+    // }
+    // if (mycard.subTitle != undefined) {
+    //   cardData = cardData.replace("@subTitle", mycard.subtitle);
+    // } else {
+    //   cardData = cardData.replace(
+    //     "@subTitle",
+    //     appconfig["Title"]["DetailTitle"]
+    //   );
+    // }
     cardData = cardData.replace("@unitOfMeasurement", mycard.unitOfMeasurement);
     cardData = cardData.replace("@filterKey", mycard["filterKey"]);
     cardData = cardData.replace("@filterKey", mycard["filterKey"]);

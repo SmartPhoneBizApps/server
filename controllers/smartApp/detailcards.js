@@ -93,7 +93,7 @@ exports.getDetailCardsNew = async (req, res, next) => {
       let cardConfigFile1 = "../../cards/cardConfig/" + mycard[k]["template"];
       var cardData = JSON.stringify(require(cardConfigFile1));
       // replace values
-      cardData = cardReplace(mycard[k], cardData, appconfig);
+      cardData = cardReplace(mycard[k], cardData, appconfig, "header");
       var anacardConfig = JSON.parse(cardData);
       switch (mycard[k]["type"]) {
         case "Analytical":
@@ -132,9 +132,9 @@ exports.getDetailCardsNew = async (req, res, next) => {
         appconfig["PossibleValues"]
       );
       var cardData = JSON.stringify(aCard);
-      cardData = cardReplace({}, cardData, appconfig);
-      cardData = cardReplace({}, cardData, appconfig);
-      cardData = cardReplace({}, cardData, appconfig);
+      cardData = cardReplace({}, cardData, appconfig, key);
+      cardData = cardReplace({}, cardData, appconfig, key);
+      cardData = cardReplace({}, cardData, appconfig, key);
       aCard = JSON.parse(cardData);
       cardkey = "ADD_" + key;
 
@@ -176,7 +176,7 @@ exports.getDetailCardsNew = async (req, res, next) => {
         // if (mycard["cardType"] != "AdaptiveForm") {
         let cardConfigFile1 = "../../cards/cardConfig/" + mycard["template"];
         var cardData = JSON.stringify(require(cardConfigFile1));
-        cardData = cardReplace(mycard, cardData, appconfig);
+        cardData = cardReplace(mycard, cardData, appconfig, "table");
         var anacardConfig = JSON.parse(cardData);
         // }
 

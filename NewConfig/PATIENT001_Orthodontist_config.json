@@ -1604,7 +1604,7 @@
           "type": "string",
           "width": "20",
           "SLabel": "Status",
-          "Option": "Optional",
+          "Option": "Mandatory",
           "Update": "Yes"
         },
         {
@@ -1612,7 +1612,7 @@
           "type": "string",
           "width": "200",
           "SLabel": "Details",
-          "Option": "Optional",
+          "Option": "Mandatory",
           "Update": "Yes"
         },
         {
@@ -1897,6 +1897,7 @@
           "type": "string",
           "width": "50",
           "SLabel": "Item Status",
+          "Option": "Mandatory",
           "Update": "Yes"
         },
         {
@@ -1911,21 +1912,21 @@
           "type": "string",
           "width": "20",
           "SLabel": "Task",
-          "Option": "Optional"
+          "Option": "Mandatory"
         },
         {
           "name": "ExpectedDate",
           "type": "Date",
           "width": "10",
           "SLabel": "Expected Date",
-          "Option": "Optional"
+          "Option": "Mandatory"
         },
         {
           "name": "TPStatus",
           "type": "string",
           "width": "20",
           "SLabel": "TP Status",
-          "Option": "Optional"
+          "Option": "Mandatory"
         }
       ],
       "DisplayFields": [
@@ -1996,42 +1997,43 @@
           "type": "string",
           "width": "50",
           "SLabel": "Item Status",
+          "Option": "Mandatory",
           "Update": "Yes"
         },
         {
           "name": "VisitReason",
           "type": "string",
-          "width": "10",
+          "width": "500",
           "SLabel": "VisitReason",
-          "Option": "Optional"
+          "Option": "Mandatory"
         },
         {
           "name": "VisitDate",
           "type": "Date",
           "width": "10",
           "SLabel": "Visit Date",
-          "Option": "Optional"
+          "Option": "Mandatory"
         },
         {
           "name": "ExaminationNotes",
           "type": "string",
           "width": "500",
           "SLabel": "Examination Notes",
-          "Option": "Optional"
+          "Option": "Mandatory"
         },
         {
           "name": "Examination",
           "type": "string",
           "width": "500",
           "SLabel": "Examination",
-          "Option": "Optional"
+          "Option": "Mandatory"
         },
         {
           "name": "Doctor",
           "type": "string",
           "width": "100",
           "SLabel": "Doctor",
-          "Option": "Optional"
+          "Option": "Mandatory"
         },
         {
           "name": "MedicalNotes",
@@ -2097,6 +2099,7 @@
           "type": "string",
           "width": "50",
           "SLabel": "Item Status",
+          "Option": "Mandatory",
           "Update": "Yes"
         },
         {
@@ -2104,14 +2107,14 @@
           "type": "Date",
           "width": "10",
           "SLabel": "Date",
-          "Option": "Optional"
+          "Option": "Mandatory"
         },
         {
           "name": "Notes",
           "type": "string",
           "width": "500",
           "SLabel": "Notes",
-          "Option": "Optional"
+          "Option": "Mandatory"
         },
         {
           "name": "Action",

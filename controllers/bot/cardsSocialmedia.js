@@ -155,7 +155,12 @@ exports.cardsSocialmedia = asyncHandler(async (req, res, next) => {
                   "../../cards/cardConfig/" + mycard[k]["template"];
                 var cardData = JSON.stringify(require(cardConfigFile1));
                 // replace values
-                cardData = cardReplace(mycard[k], cardData, appconfig);
+                cardData = cardReplace(
+                  mycard[k],
+                  cardData,
+                  appconfig,
+                  "header"
+                );
                 var anacardConfig = JSON.parse(cardData);
 
                 switch (mycard[k]["type"]) {
@@ -219,7 +224,7 @@ exports.cardsSocialmedia = asyncHandler(async (req, res, next) => {
                   // Set Title
                   var cardData = JSON.stringify(require(cardConfigFile1));
                   // replace values
-                  cardData = cardReplace(mycard, cardData, appconfig);
+                  cardData = cardReplace(mycard, cardData, appconfig, "table");
                   var anacardConfig = JSON.parse(cardData);
                   switch (mycard["type"]) {
                     case "Example":
