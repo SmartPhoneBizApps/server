@@ -108,8 +108,6 @@ exports.uploadFile = asyncHandler(async (req, res, next) => {
     );
   }
 
-  console.log("All validations passed");
-
   let mydata = {};
   let outdata = [];
   let myitem = {};

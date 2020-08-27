@@ -11,12 +11,17 @@ const {
   analyticalCard,
   listCard,
   adaptivetableCard,
+  adaptiveNew,
 } = require("../../modules/moduleCards");
 const {
   getCard,
   findOneAppDatabyid,
   cardReplace,
   getNewConfig,
+  getInitialValues,
+  getPVConfig,
+  getPVQuery,
+  getDateValues,
 } = require("../../modules/config");
 
 // @desc      Get adaptiveCard_card
@@ -25,6 +30,26 @@ const {
 exports.getDetailCardsNew = async (req, res, next) => {
   iStatus = 0;
   iMessage = "";
+
+  /// Possible values..
+  pvappconfig = getPVConfig(req.params.app, req.params.role);
+  qPV = getPVQuery(req.params.app, req.params.role, pvappconfig);
+  let resPV = await qPV;
+
+  // Initial values
+  var ivalue = getInitialValues(req.params.app, req.params.role, req.user);
+  let ival_out = [];
+  let ival = {};
+  let out = {};
+  console.log("A2");
+  for (let i = 0; i < ivalue.length; i++) {
+    ival = {};
+    const element = ivalue[i];
+    ival = { ...element };
+    o_val = getDateValues(ival.Value);
+    ival.Value = o_val;
+    ival_out.push(ival);
+  }
 
   outStru = {};
   let appData = {};
@@ -63,7 +88,10 @@ exports.getDetailCardsNew = async (req, res, next) => {
   counter = 0;
   if (appconfig.hasOwnProperty("cards")) {
     var mycard = appconfig["cards"];
+
+    console.log(mycard);
     for (let k = 0; k < mycard.length; k++) {
+      console.log("A3");
       counter = counter + 1;
       let cardKey = getCardKey(req.params.app, req.params.role, counter, "H");
       let cardConfigFile1 = "../../cards/cardConfig/" + mycard[k]["template"];
@@ -92,11 +120,24 @@ exports.getDetailCardsNew = async (req, res, next) => {
           break;
       }
     }
+    console.log("A3");
   }
 
   //----------------------------------------------
   // Table Cards...
   for (const key in appconfig["tableConfig"]) {
+    if (appconfig["tableConfig"][key]["ItemButtons"]["itemAdd"] == true) {
+      aCard = {};
+      aCard = await adaptiveNew(
+        appconfig["tableConfig"][key],
+        resPV,
+        ival_out,
+        "table",
+        appconfig["PossibleValues"],
+        appconfig
+      );
+      outStru["ADD01"] = { ...aCard };
+    }
     // Step T1 - Check if data for the table is in the record
     if (appData[key] == undefined) {
       appData[key] = [];
@@ -113,6 +154,7 @@ exports.getDetailCardsNew = async (req, res, next) => {
 
     // Step T3 - check if card setup is there for the table and loop the cards in the config file
     if (appconfig["tableConfig"][key].hasOwnProperty("cards")) {
+      console.log("A4");
       for (let g = 0; g < appconfig["tableConfig"][key]["cards"].length; g++) {
         let cardKey = "";
         var mycard = appconfig["tableConfig"][key]["cards"][g];
@@ -221,6 +263,7 @@ exports.getDetailCardsNew = async (req, res, next) => {
   //
   let fg1 = "../../cards/cardConfig/template_timeline.json";
   var GlobalCardConfig = require(fg1);
+  console.log("A1");
   if (appData["TransLog"].length > 0) {
     jCard1 = {};
     jCard1 = await globalCard(appData["TransLog"], GlobalCardConfig);

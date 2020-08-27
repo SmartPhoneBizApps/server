@@ -355,7 +355,14 @@ exports.listrecordsnew = asyncHandler(async (req, res, next) => {
       for (let w = 0; w < appconfig["MButtons"].length; w++) {
         if (appconfig["MButtons"][w]["type"] == "ADD") {
           aCard = {};
-          aCard = await adaptiveNew(appconfig, resPV, ival_out, "header");
+          aCard = await adaptiveNew(
+            appconfig,
+            resPV,
+            ival_out,
+            "header",
+            appconfig["PossibleValues"],
+            appconfig
+          );
           outStru["ADD01"] = { ...aCard };
         }
       }
