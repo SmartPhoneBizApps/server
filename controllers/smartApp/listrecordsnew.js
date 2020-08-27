@@ -360,7 +360,10 @@ exports.listrecordsnew = asyncHandler(async (req, res, next) => {
           outStru["ADD01"] = { ...aCard };
         }
       }
-      an1 = await analyticalNew(appconfig, outData);
+      aCard = {};
+      aCard = await analyticalNew(appconfig, outData["data"]);
+      outStru["ANA01"] = { ...aCard };
+
       if (appconfig.hasOwnProperty("listCards")) {
         var mycard = appconfig["listCards"];
         for (let k = 0; k < mycard.length; k++) {

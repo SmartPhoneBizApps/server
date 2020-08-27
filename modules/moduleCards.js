@@ -891,30 +891,77 @@ module.exports = {
   },
 
   analyticalNew: async function (appconfig, outData) {
+    var deCard;
+    let cardConfigFile1;
+    if (appconfig["Controls"].hasOwnProperty("defaultGraph")) {
+      deCard = appconfig["Controls"]["defaultGraph"];
+    } else {
+      deCard = "StackedBar";
+    }
+    switch (deCard) {
+      case "StackedBar":
+        cardConfigFile1 =
+          "../cards/cardConfig/template_example_StackedBar.json";
+        break;
+      case "StackedColumn":
+        cardConfigFile1 =
+          "../cards/cardConfig/template_example_stackedcolumn.json";
+        break;
+      case "Line":
+        cardConfigFile1 = "../cards/cardConfig/template_example_line.json";
+        break;
+      default:
+        break;
+    }
+    let anacardConfig = require(cardConfigFile1);
+
+    let j_number = 10;
+    let trend1 = "Down";
+    let state1 = "Error";
+    let details1 = "2019-2020";
+    head1 = {};
+    head1 = { ...anacardConfig["sap.card"].header };
+    json1 = {
+      ...anacardConfig["sap.card"].content.data.json,
+    };
+
+    list1x = {};
+    list1 = [];
     let s_dimension = new Set();
-    let s_facts = new Set();
-    for (let l = 0; l < appconfig["FieldDef"].length; l++) {
-      if (appconfig["FieldDef"][l].hasOwnProperty("group")) {
-        switch (appconfig["FieldDef"][l]["group"]) {
-          case "dimension":
-            s_dimension.add(appconfig["FieldDef"][l]["name"]);
-            break;
-          case "facts":
-            s_facts.add(appconfig["FieldDef"][l]["name"]);
-            break;
-          default:
-            break;
+    for (let k = 0; k < outData.length; k++) {
+      s_dimension.add(outData[k]["Status"]);
+    }
+    s_dimension.forEach((dim) => {
+      dim_c = 0;
+      list1x["Area"] = dim;
+      for (let k = 0; k < outData.length; k++) {
+        if (outData[k]["Status"] != undefined) {
+          if (outData[k]["Status"] == dim) {
+            dim_c = dim_c + 1;
+            list1x["Value1"] = dim_c;
+          }
         }
       }
-    }
-
-    s_facts.forEach((fact) => {
-      console.log(fact);
-    });
-    s_dimension.forEach((dim) => {
-      console.log(dim);
+      console.log(list1x);
+      list1.push({ ...list1x });
+      list1x = {};
     });
 
-    return s_dimension;
+    //  json1["list"] = list1;
+    anacardConfig["sap.card"].content.data.json.list = list1;
+    js1 = {};
+    js1 = { ...anacardConfig["sap.card"].header.data.json };
+    js1["number"] = j_number;
+    js1["trend"] = trend1;
+    js1["state"] = state1;
+    js1["details"] = details1;
+    head1["data"]["json"] = { ...js1 };
+    js1 = {};
+    anacardConfig["sap.card"].header = { ...head1 };
+    head1 = {};
+    list1 = [];
+    //    json1 = {};
+    list1x = {};
+    return anacardConfig;
   },
 };
