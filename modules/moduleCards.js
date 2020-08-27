@@ -602,14 +602,7 @@ module.exports = {
     adCard["sap.card"]["content"]["actions"] = cardaction["actions"];
     return adCard;
   },
-  adaptiveNew: async function (
-    appconfig,
-    resPV,
-    ival_out,
-    mode,
-    poss_val,
-    ax01
-  ) {
+  adaptiveNew: async function (appconfig, resPV, ival_out, mode, poss_val) {
     body = [];
     body2 = [];
     body2 = [];
@@ -618,11 +611,9 @@ module.exports = {
     let cardConfigFile1 = "../cards/cardConfig/template_adaptiveForm.json";
     let aCard = require(cardConfigFile1);
     if (mode == "header") {
-      console.log("X1");
       for (let l = 0; l < appconfig["Wizard"].length; l++) {
         const rkg = appconfig["Wizard"][l];
         rkg["fields"].forEach((e1) => {
-          console.log("X2");
           for (let a = 0; a < appconfig["FieldDef"].length; a++) {
             if (appconfig["FieldDef"][a]["name"] == e1["name"]) {
               switch (appconfig["FieldDef"][a]["type"]) {
@@ -763,7 +754,6 @@ module.exports = {
               }
             }
           }
-          console.log("X3");
           for (let a = 0; a < poss_val.length; a++) {
             if (poss_val[a] == e1["name"]) {
               // Possible Values >> Input.ChoiceSet
@@ -780,7 +770,6 @@ module.exports = {
               body1x["id"] = e1["name"];
 
               x_ch = [];
-              console.log("X4");
               for (let j = 0; j < resPV.length; j++) {
                 if (resPV[j]["PossibleValues"] == e1["name"]) {
                   x_choices = {};
@@ -792,7 +781,6 @@ module.exports = {
               body1x["choices"] = x_ch;
             }
           }
-          console.log("X5");
           for (let d = 0; d < ival_out.length; d++) {
             if (ival_out[d]["Field"] == e1["name"]) {
               body2x["size"] = "medium";
@@ -802,7 +790,6 @@ module.exports = {
 
               body1x["id"] = e1["name"];
               body1x["value"] = ival_out[d]["Value"];
-              console.log("X6");
               for (let a = 0; a < appconfig["FieldDef"].length; a++) {
                 if (appconfig["FieldDef"][a]["name"] == e1["name"]) {
                   switch (appconfig["FieldDef"][a]["type"]) {
@@ -870,7 +857,6 @@ module.exports = {
           //"value": "false",
           //"valueOn": "true",
           //"valueOff": "false"
-          console.log("X7");
           for (let a = 0; a < appconfig["FieldDef"].length; a++) {
             if (appconfig["FieldDef"][a]["name"] == e1["name"]) {
               if (appconfig["FieldDef"][a]["Option"] == "Mandatory") {
@@ -890,7 +876,6 @@ module.exports = {
       }
     } else {
       appconfig["CreateFields"].forEach((e1) => {
-        console.log("X8");
         for (let a = 0; a < appconfig["ItemFieldDefinition"].length; a++) {
           if (appconfig["ItemFieldDefinition"][a]["name"] == e1) {
             switch (appconfig["ItemFieldDefinition"][a]["type"]) {
@@ -1029,7 +1014,6 @@ module.exports = {
             }
           }
         }
-        console.log("X9", poss_val);
         for (let a = 0; a < poss_val.length; a++) {
           if (poss_val[a] == e1) {
             // Possible Values >> Input.ChoiceSet
@@ -1054,7 +1038,6 @@ module.exports = {
             body1x["choices"] = x_ch;
           }
         }
-        console.log("X10");
         for (let d = 0; d < ival_out.length; d++) {
           if (ival_out[d]["Field"] == e1) {
             body2x["size"] = "medium";
@@ -1063,7 +1046,6 @@ module.exports = {
             body2x["text"] = e1;
             body1x["id"] = e1;
             body1x["value"] = ival_out[d]["Value"];
-            console.log("X11");
             for (let a = 0; a < appconfig["ItemFieldDefinition"].length; a++) {
               if (appconfig["ItemFieldDefinition"][a]["name"] == e1) {
                 switch (appconfig["ItemFieldDefinition"][a]["type"]) {
@@ -1130,7 +1112,6 @@ module.exports = {
         //"value": "false",
         //"valueOn": "true",
         //"valueOff": "false"
-        console.log("A3X");
         for (let a = 0; a < appconfig["ItemFieldDefinition"].length; a++) {
           if (appconfig["ItemFieldDefinition"][a]["name"] == e1) {
             if (appconfig["ItemFieldDefinition"][a]["Option"] == "Mandatory") {
@@ -1150,7 +1131,6 @@ module.exports = {
     }
 
     aCard["sap.card"]["content"]["body"] = body;
-    console.log("A3Y", aCard);
     for (let m = 0; m < aCard["sap.card"]["content"]["actions"].length; m++) {
       if (
         aCard["sap.card"]["content"]["actions"][m]["type"] == "Action.ShowCard"
@@ -1158,11 +1138,6 @@ module.exports = {
         aCard["sap.card"]["content"]["actions"][m]["card"]["body"] = body2;
       }
     }
-    var cardData = JSON.stringify(aCard);
-    cardData = cardReplace({}, cardData, ax01);
-    cardData = cardReplace({}, cardData, ax01);
-    cardData = cardReplace({}, cardData, ax01);
-    aCard = JSON.parse(cardData);
     return aCard;
   },
   //---------------------------------------------------------------------
@@ -1218,7 +1193,6 @@ module.exports = {
           }
         }
       }
-      console.log(list1x);
       list1.push({ ...list1x });
       list1x = {};
     });

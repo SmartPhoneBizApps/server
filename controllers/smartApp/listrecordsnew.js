@@ -360,9 +360,13 @@ exports.listrecordsnew = asyncHandler(async (req, res, next) => {
             resPV,
             ival_out,
             "header",
-            appconfig["PossibleValues"],
-            appconfig
+            appconfig["PossibleValues"]
           );
+          var cardData = JSON.stringify(aCard);
+          cardData = cardReplace({}, cardData, appconfig);
+          cardData = cardReplace({}, cardData, appconfig);
+          cardData = cardReplace({}, cardData, appconfig);
+          aCard = JSON.parse(cardData);
           outStru["ADD01"] = { ...aCard };
         }
       }

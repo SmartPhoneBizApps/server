@@ -41,7 +41,6 @@ exports.getDetailCardsNew = async (req, res, next) => {
   let ival_out = [];
   let ival = {};
   let out = {};
-  console.log("A2");
   for (let i = 0; i < ivalue.length; i++) {
     ival = {};
     const element = ivalue[i];
@@ -88,10 +87,7 @@ exports.getDetailCardsNew = async (req, res, next) => {
   counter = 0;
   if (appconfig.hasOwnProperty("cards")) {
     var mycard = appconfig["cards"];
-
-    console.log(mycard);
     for (let k = 0; k < mycard.length; k++) {
-      console.log("A3");
       counter = counter + 1;
       let cardKey = getCardKey(req.params.app, req.params.role, counter, "H");
       let cardConfigFile1 = "../../cards/cardConfig/" + mycard[k]["template"];
@@ -120,11 +116,11 @@ exports.getDetailCardsNew = async (req, res, next) => {
           break;
       }
     }
-    console.log("A3");
   }
 
   //----------------------------------------------
   // Table Cards...
+  let cardkey = "";
   for (const key in appconfig["tableConfig"]) {
     if (appconfig["tableConfig"][key]["ItemButtons"]["itemAdd"] == true) {
       aCard = {};
@@ -133,10 +129,17 @@ exports.getDetailCardsNew = async (req, res, next) => {
         resPV,
         ival_out,
         "table",
-        appconfig["PossibleValues"],
-        appconfig
+        appconfig["PossibleValues"]
       );
-      outStru["ADD01"] = { ...aCard };
+      var cardData = JSON.stringify(aCard);
+      cardData = cardReplace({}, cardData, appconfig);
+      cardData = cardReplace({}, cardData, appconfig);
+      cardData = cardReplace({}, cardData, appconfig);
+      aCard = JSON.parse(cardData);
+      cardkey = "ADD_" + key;
+
+      outStru[cardkey] = { ...aCard };
+      console.log(cardkey, outStru[cardkey]);
     }
     // Step T1 - Check if data for the table is in the record
     if (appData[key] == undefined) {
@@ -154,7 +157,6 @@ exports.getDetailCardsNew = async (req, res, next) => {
 
     // Step T3 - check if card setup is there for the table and loop the cards in the config file
     if (appconfig["tableConfig"][key].hasOwnProperty("cards")) {
-      console.log("A4");
       for (let g = 0; g < appconfig["tableConfig"][key]["cards"].length; g++) {
         let cardKey = "";
         var mycard = appconfig["tableConfig"][key]["cards"][g];
@@ -191,14 +193,12 @@ exports.getDetailCardsNew = async (req, res, next) => {
             outStru[cardKey] = { ...jCard1 };
             break;
           case "Analytical":
-            //        console.log(cardKey, anacardConfig);
             jCard1 = {};
             jCard1 = await analyticalCard(mycard, appData[key], anacardConfig);
             outStru[cardKey] = { ...jCard1 };
             break;
 
           case "List":
-            //         console.log(cardKey, anacardConfig);
             jCard1 = {};
             jCard1 = await listCard(mycard, appData[key], anacardConfig);
             outStru[cardKey] = { ...jCard1 };
@@ -220,7 +220,6 @@ exports.getDetailCardsNew = async (req, res, next) => {
 
         switch (mycard["type"]) {
           case "Example":
-            //        console.log(cardKey, anacardConfig);
             jCard1 = {};
             jCard1 = await exampleCard(mycard, appData[key], anacardConfig);
             outStru[cardKey] = { ...jCard1 };
@@ -263,7 +262,6 @@ exports.getDetailCardsNew = async (req, res, next) => {
   //
   let fg1 = "../../cards/cardConfig/template_timeline.json";
   var GlobalCardConfig = require(fg1);
-  console.log("A1");
   if (appData["TransLog"].length > 0) {
     jCard1 = {};
     jCard1 = await globalCard(appData["TransLog"], GlobalCardConfig);
