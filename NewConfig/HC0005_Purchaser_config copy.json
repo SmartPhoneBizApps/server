@@ -57,7 +57,40 @@
     {
       "type": "DOWNLOAD",
       "name": "Download File",
-      "icon": "sap-icon://download"
+      "icon": "sap-icon://download",
+      "downloadFields": [
+        "ID",
+        "VendorName",
+        "VendorNumber",
+        "CurrentStatus",
+        "SuppInvoiceNumber",
+        "InvoiceType",
+        "InvoiceDate",
+        "TaxInvoice",
+        "TotInvNetValue",
+        "TotInvTax",
+        "TotInvGrossVal",
+        "Currency",
+        "InvoiceStatus",
+        "BuyerInvoiceNumber",
+        "BuyerInvoiceYear",
+        "BuyerInvoiceStatus",
+        "Comment",
+        "PONumber",
+        "PODate",
+        "Details",
+        "NetValue",
+        "GrossValue",
+        "Company",
+        "PaymentTerm",
+        "PaymentStatus",
+        "BuyerInvoiceDueDt",
+        "BuyerPaymentDate",
+        "BuyerPaymentStatus",
+        "ConfidenceScore",
+        "OverallMatching",
+        "Status"
+      ]
     },
     {
       "type": "APPHELP",
@@ -69,10 +102,48 @@
       "name": "Launch BOT",
       "icon": "sap-icon://travel-request",
       "URL": "https://www.messenger.com/t/295020207695029"
+    },
+
+    { "type": "ADD", "name": "Add Record", "icon": "sap-icon://add" },
+    {
+      "type": "UPLOAD",
+      "name": "Upload Record",
+      "icon": "sap-icon://upload",
+      "Option": ["Header"],
+      "ItemOptions": [],
+      "URL": "datarecords/",
+      "URLMethodHDR": "POST",
+      "URLMethodTable": "PUT",
+      "dataFields": "FieldName",
+      "key": {
+        "ID": "External",
+        "generateID": [],
+        "seperator": "-"
+      }
     }
   ],
   "DButtons": [
-    { "type": "ADD", "name": "Add Record", "icon": "sap-icon://add" }
+    {
+      "type": "WORKFLOW",
+      "name": "Cancel",
+      "icon": "sap-icon://decline",
+      "Dialog": [
+        {
+          "label": "Cancellation Comment",
+          "name": "ProgressComment",
+          "type": "string",
+          "option": "Optional"
+        }
+      ],
+      "transferFields": [
+        { "field": "ID", "value": "@recorddata" },
+        { "field": "Status", "value": "Cancelled" },
+        { "field": "ProgressComment", "value": "@UserInput" }
+      ],
+      "URL": "datarecords/",
+      "Token": "Yes",
+      "URLMethod": "PUT"
+    }
   ],
   "Tabs": [
     {
@@ -504,12 +575,7 @@
         "width": "20",
         "SLabel": "ItemNumber"
       },
-      {
-        "name": "ID",
-        "type": "string",
-        "width": "20",
-        "SLabel": "Identification"
-      },
+
       {
         "name": "POItemNumber",
         "type": "string",

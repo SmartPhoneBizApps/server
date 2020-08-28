@@ -7,19 +7,19 @@
     "calculation": "No",
     "USP": "UserProfile",
     "StatusColor": "Yes",
-    "SearchString":{"Search":false},
+    "SearchString": { "Search": false },
     "Filters": [],
     "Partner": "@user",
     "UserSpecific": "Yes",
     "Update": "Yes",
     "URL": "https://fierce-oasis-51455.herokuapp.com",
-        "Source": { "SourceName": "mongoDB", "SourceFile": "NA" },
-       "dataFilter": [{ "field": "Status" }],
+    "Source": { "SourceName": "mongoDB", "SourceFile": "NA" },
+    "dataFilter": [{ "field": "Status" }],
     "filterFieldSource": {
       "header": ["Status"]
     }
   },
-  
+
   "ListFields": {
     "IntroField": "Category",
     "TitleField": "Supplier",
@@ -64,12 +64,6 @@
     { "type": "UPLOAD", "name": "Upload Record", "icon": "sap-icon://upload" }
   ],
   "DButtons": [
-    {
-      "type": "ATTACHMENT",
-      "name": "View Attachments",
-      "icon": "sap-icon://attachment"
-    },
-    { "type": "UPDATE", "name": "Update Record", "icon": "sap-icon://update" },
     { "type": "ADD", "name": "Add Record", "icon": "sap-icon://add" }
   ],
   "Tabs": [
@@ -100,7 +94,7 @@
     "headerRole": ["USP_Role"],
     "headerImage": ["USP_Image"],
     "headerColorFields": ["Status"],
-    "None": ["ID", "CreationDate",  "StartDate", "Details"],
+    "None": ["ID", "CreationDate", "StartDate", "Details"],
     "Tab1": [
       "ContractType",
       "ValueSpend",
@@ -143,7 +137,7 @@
     { "name": "Currency", "type": "string", "width": "50" },
     { "name": "PaymentTerm", "type": "string", "width": "50" },
     { "name": "CreationDate", "type": "Date", "width": "10" },
-       { "name": "Status", "type": "string","SLabel": "Status", "width": "50" },
+    { "name": "Status", "type": "string", "SLabel": "Status", "width": "50" },
     {
       "name": "SearchString",
       "type": "string",

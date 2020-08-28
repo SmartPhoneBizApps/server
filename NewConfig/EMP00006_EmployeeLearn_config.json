@@ -392,13 +392,25 @@
     "CreateFields": [],
     "ItemDetails": []
   },
-
   "Validations": {
     "Field": {},
-    "Sequence": {},
+    "Sequence": {
+      "DateRequested": [
+        {
+          "name": "SEQUENCE",
+          "function": "GTE",
+          "Target": "sValidation",
+          "type": "Header",
+          "msg": "To Request Date can not be a past date",
+          "Fields": [
+            { "Source": "DateRequested", "Type": { "type": "Header" } },
+            { "Source": "@currentDate", "Type": { "type": "Constant" } }
+          ]
+        }
+      ]
+    },
     "Document": {}
   },
-
   "CalculatedFields": {},
   "Create": "Yes",
   "Wizard": [

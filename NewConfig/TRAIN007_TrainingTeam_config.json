@@ -94,6 +94,7 @@
     "Agree",
     "SelfAssign",
     "ProjectNeed",
+    "ConfirmCompleted",
     "ItemStatus1"
   ],
   "MButtons": [
@@ -144,11 +145,13 @@
   "DButtons": [
     {
       "type": "SURVEY",
+      "Calculation": "Yes",
       "name": "Exam",
       "icon": "sap-icon://upload-to-cloud",
       "URL": "util/getQuestioner/LEARNING/{ID}",
       "Token": "Yes",
-      "URLMethod": "GET"
+      "URLMethod": "GET",
+      "Condition": { "Field": "Exam", "value": "Yes" }
     }
   ],
   "Tabs": [
@@ -235,15 +238,16 @@
           "Regulatory",
           "Compliance",
           "Exam",
-          "SelfAssign"
+          "SelfAssign",
+          "TestScore",
+          "ProgressComment"
         ]
       }
     ],
-
+    "Tab6": ["Terms", "Status"],
+    "Tab2": ["Image"],
     "Tab3": ["MultiAttachments"],
     "Tab4": ["Video"],
-    "Tab2": ["Image"],
-    "Tab6": ["Terms", "Status"],
     "Tab5": ["Questioner"]
   },
   "tableConfig": {
@@ -624,6 +628,14 @@
       "Option": "Optional",
       "SLabel": "Test Score",
       "LLabel": "Test Score"
+    },
+    {
+      "name": "ProgressComment",
+      "type": "string",
+      "width": "1000",
+      "Option": "Optional",
+      "SLabel": "Course Feedback",
+      "LLabel": "Course Feedback"
     },
     {
       "name": "Q1",

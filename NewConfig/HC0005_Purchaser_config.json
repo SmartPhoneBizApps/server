@@ -1,15 +1,15 @@
 {
   "Title": {
-    "ApplicationTitle": "Suplier Invoice (Supplier view)",
-    "DetailTitle": "Suplier Invoice (Supplier view)"
+    "ApplicationTitle": "HCP/HCO Invoice",
+    "DetailTitle": "Purchaser View"
   },
   "Controls": {
-    "calculation": "No",
+    "calculation": "Yes",
     "USP": "UserProfile",
     "StatusColor": "Yes",
     "SearchString": { "Search": false },
     "Filters": [],
-    "Partner": "@vendorNumber",
+    "Partner": "@user",
     "UserSpecific": "Yes",
     "Update": "Yes",
     "URL": "https://fierce-oasis-51455.herokuapp.com",
@@ -22,37 +22,20 @@
 
   "ListFields": {
     "IntroField": "VendorName",
-    "TitleField": "SuppInvoiceNumber",
-    "sStatus": "PaymentStatus",
-    "fStatus": "InvoiceStatus",
-    "numberField": "TotInvGrossVal",
-    "LFields": ["ID", "InvoiceType", "InvoiceDate", "PaymentTerm"],
-    "numberUnitField": "Currency"
+    "TitleField": "ContractName",
+    "sStatus": "ContractType",
+    "fStatus": "Status",
+    "numberField": "ContractValue",
+    "LFields": ["InvoiceValue", "HCPEmail", "ID"],
+    "numberUnitField": ""
   },
   "ListBOTFields": {
     "None": ["cardImage", "StatusState"],
-    "Title": ["VendorName", "InvoiceType"],
-    "SubTitle": ["SuppInvoiceNumber", "InvoiceStatus"],
-    "Description": [
-      "InvoiceDate",
-      "PaymentTerm",
-      "TotInvGrossVal",
-      "CurrentStatus",
-      "ID"
-    ]
+    "Title": ["ID"],
+    "SubTitle": ["ContractName", "ContractStartDate"],
+    "Description": ["ContractType", "ContractValue", "InvoiceValue"]
   },
-  "PossibleValues": [
-    "Currency",
-    "PaymentTerm",
-    "Status",
-    "InvVATRate",
-    "POVATRate",
-    "InvoiceType",
-    "InvoiceStatus",
-    "BuyerPaymentStatus",
-    "BuyerInvoiceStatus",
-    "CurrentStatus"
-  ],
+  "PossibleValues": ["ContractType", "Status", "ItemStatus1", "ServiceType"],
   "MButtons": [
     {
       "type": "DOWNLOAD",
@@ -60,35 +43,19 @@
       "icon": "sap-icon://download",
       "downloadFields": [
         "ID",
+        "HCPEmail",
         "VendorName",
-        "VendorNumber",
-        "CurrentStatus",
-        "SuppInvoiceNumber",
-        "InvoiceType",
-        "InvoiceDate",
-        "TaxInvoice",
-        "TotInvNetValue",
-        "TotInvTax",
-        "TotInvGrossVal",
-        "Currency",
-        "InvoiceStatus",
-        "BuyerInvoiceNumber",
-        "BuyerInvoiceYear",
-        "BuyerInvoiceStatus",
-        "Comment",
-        "PONumber",
-        "PODate",
-        "Details",
-        "NetValue",
-        "GrossValue",
-        "Company",
-        "PaymentTerm",
-        "PaymentStatus",
-        "BuyerInvoiceDueDt",
-        "BuyerPaymentDate",
-        "BuyerPaymentStatus",
-        "ConfidenceScore",
-        "OverallMatching",
+        "ContractID",
+        "ContractName",
+        "ContractType",
+        "ContractStartDate",
+        "ContractLink",
+        "ContractEndDate",
+        "ContractValue",
+        "InvoiceValue",
+        "BalanceValue",
+        "PharmaContact",
+        "PharmaContactEmail",
         "Status"
       ]
     },
@@ -124,25 +91,14 @@
   ],
   "DButtons": [
     {
-      "type": "WORKFLOW",
-      "name": "Cancel",
-      "icon": "sap-icon://decline",
-      "Dialog": [
-        {
-          "label": "Cancellation Comment",
-          "name": "ProgressComment",
-          "type": "string",
-          "option": "Optional"
-        }
-      ],
-      "transferFields": [
-        { "field": "ID", "value": "@recorddata" },
-        { "field": "Status", "value": "Cancelled" },
-        { "field": "ProgressComment", "value": "@UserInput" }
-      ],
-      "URL": "datarecords/",
+      "type": "SELFASSIGN",
+      "name": "Submit Invoice",
+      "icon": "sap-icon://share-2",
+      "Dialog": "{label:'User',name:'user',type:'Email'}",
+      "DialogSearch": "{URL}/api/v1/samrtApp/findUser/{user}",
+      "URL": "util/assignCourseUser/HealthCareProfessional/HealthCareProfessional/HC0004/HC0005/{ReferenceID}/{user}",
       "Token": "Yes",
-      "URLMethod": "PUT"
+      "URLMethod": "POST"
     }
   ],
   "Tabs": [
@@ -156,47 +112,44 @@
     {
       "value": "Tab1",
       "update": "Yes",
-      "name": "Invoice",
+      "name": "Contract Details",
+      "fioriicon": "notes",
       "type": "Field",
-      "fioriicon": "sales-document"
+      "download": "Yes"
     },
     {
       "value": "Tab2",
       "update": "Yes",
-      "name": "PO",
+      "name": "Contact Details",
+      "fioriicon": "discussion",
       "type": "Field",
-      "fioriicon": "supplier"
+      "download": "Yes"
     },
     {
       "value": "Tab3",
       "update": "Yes",
-      "name": "ItemDetails",
-      "type": "Items",
-      "fioriicon": "notes",
-      "download": "Yes"
+      "name": "MultiAttachment",
+      "fioriicon": "attachment",
+      "type": "MultiAttachments",
+      "download": "Yes",
+      "docType": [
+        { "text": "Contract", "state": "Success" },
+        { "text": "WorkSchedule", "state": "Information" }
+      ]
     },
     {
       "value": "Tab4",
       "update": "Yes",
-      "name": "Attachment",
-      "type": "Attachment",
-      "fioriicon": "attachment"
+      "name": "Services",
+      "type": "Table",
+      "fioriicon": "expense-report"
     },
     {
       "value": "Tab5",
       "update": "Yes",
-      "name": "Payment",
-      "fioriicon": "simple-payment",
-      "type": "Field",
-      "download": "Yes"
-    },
-    {
-      "value": "Tab6",
-      "update": "Yes",
-      "name": "Checks",
-      "fioriicon": "survey",
-      "type": "Field",
-      "download": "Yes"
+      "name": "ItemInvoice",
+      "type": "Table",
+      "fioriicon": "expense-report"
     }
   ],
   "DetailFields": {
@@ -204,86 +157,257 @@
     "headerRole": ["USP_Role"],
     "headerImage": ["USP_Image"],
     "headerColorFields": ["Status"],
-    "None": ["ID", "VendorName", "VendorNumber", "CurrentStatus"],
+    "None": ["ID", "HCPEmail", "VendorName"],
     "Tab1": [
-      "SuppInvoiceNumber",
-      "Status",
-      "InvoiceType",
-      "InvoiceDate",
-      "TaxInvoice",
-      "TotInvNetValue",
-      "TotInvTax",
-      "TotInvGrossVal",
-      "Currency",
-      "InvoiceStatus",
-      "BuyerInvoiceNumber",
-      "BuyerInvoiceYear",
-      "BuyerInvoiceStatus",
-      "Comment"
+      "ContractID",
+      "ContractName",
+      "ContractType",
+      "ContractStartDate",
+      "ContractLink",
+      "ContractEndDate",
+      "ContractValue",
+      "InvoiceValue",
+      "BalanceValue"
     ],
-    "Tab2": [
-      "PONumber",
-      "PODate",
-      "Details",
-      "NetValue",
-      "GrossValue",
-      "Company"
-    ],
-    "Tab4": ["Attachment"],
-    "Tab5": [
-      "PaymentTerm",
-      "PaymentStatus",
-      "BuyerInvoiceDueDt",
-      "BuyerPaymentDate",
-      "BuyerPaymentStatus"
-    ],
-    "Tab6": ["ConfidenceScore", "OverallMatching"]
+    "Tab2": ["PharmaContact", "PharmaContactEmail"],
+    "Tab3": ["MultiAttachments"],
+    "Tab4": ["Services"],
+    "Tab5": ["ItemInvoice"]
   },
-  "ControlDisplay": {
-    "ControlField": "InvoiceType",
-    "Fields": [
-      [
+  "ControlDisplay": {},
+  "tableConfig": {
+    "Services": {
+      "calculation": "Yes",
+      "title": "Services",
+      "subtitle": "Services",
+      "tableFormFields": [
         {
-          "ALL": [
-            "InvoiceType",
-            "ID",
-            "VendorName",
-            "SuppInvoiceNumber",
-            "PaymentTerm",
-            "Status",
-            "VendorNumber",
-            "InvoiceDate",
-            "Company",
-            "Details",
-            "Currency",
-            "NetValue",
-            "GrossValue",
-            "TotInvNetValue",
-            "TotInvGrossVal",
-            "Attachment",
-            "TaxInvoice",
-            "PaymentStatus",
-            "InvoiceStatus",
-            "BuyerInvoiceNumber",
-            "BuyerInvoiceYear",
-            "BuyerInvoiceStatus",
-            "BuyerPaymentStatus",
-            "BuyerPaymentDate",
-            "Comment",
-            "CurrentStatus",
-            "BuyerInvoiceDueDt",
-            "TotInvTax",
-            "ConfidenceScore",
-            "OverallMatching"
-          ]
+          "GrpTitle": "Totals",
+          "Fields": ["ContractValue"]
+        }
+      ],
+      "ItemFieldDefinition": [
+        {
+          "name": "ItemNumber",
+          "type": "string",
+          "width": "10",
+          "SLabel": "ItemNumber",
+          "Option": "Optional",
+          "Update": "No"
         },
-        { "ContractInvoice": [] },
-        { "EventInvoice": [] },
-        { "NonPOInvoice": [] },
-        { "POInvoice": ["PONumber", "PODate"] },
-        { "StudyInvoice": [] }
+        {
+          "name": "ServiceDetails",
+          "type": "string",
+          "width": "200",
+          "Option": "Mandatory",
+          "SLabel": "Service Details",
+          "Update": "Yes"
+        },
+        {
+          "name": "ServiceType",
+          "type": "string",
+          "width": "50",
+          "SLabel": "Service Type",
+          "Option": "Mandatory",
+          "Update": "Yes"
+        },
+        {
+          "name": "ServiceAmount",
+          "type": "Num,1",
+          "width": "20",
+          "SLabel": "Service Amount",
+          "Option": "Mandatory",
+          "Update": "Yes"
+        },
+        {
+          "name": "Notes",
+          "type": "string",
+          "width": "1000",
+          "SLabel": "Notes",
+          "Option": "Optional",
+          "Update": "Yes"
+        },
+        {
+          "name": "iCurrency",
+          "type": "string",
+          "width": "10",
+          "SLabel": "Item Currency",
+          "Option": "Mandatory",
+          "Update": "No"
+        },
+        {
+          "name": "ItemStatus1",
+          "type": "string",
+          "width": "50",
+          "SLabel": "Item Status",
+          "Option": "Mandatory",
+          "Update": "Yes"
+        },
+        {
+          "name": "Attachment",
+          "type": "singleAttachment",
+          "width": "100",
+          "SLabel": "Item Attachment",
+          "Option": "Optional",
+          "Update": "Yes"
+        }
+      ],
+      "DisplayFields": [
+        "ServiceDetails",
+        "ServiceAmount",
+        "ServiceType",
+        "iCurrency",
+        "ItemStatus1"
+      ],
+      "cards": [],
+      "ItemButtons": {
+        "itemDisplay": true,
+        "itemCheck": true,
+        "itemAdd": true,
+        "itemEdit": true,
+        "itemDelete": true,
+        "additionalButtons": [
+          {
+            "name": "Invoice Item",
+            "type": "INVOICE",
+            "URL": "datarecords/",
+            "tableName": "ItemInvoice",
+            "Token": "Yes",
+            "URLMethod": "PUT",
+            "updateButton": "Add to Invoice",
+            "diffMapping": [{ "ServiceAmount": "InvoiceAmount" }]
+          }
+        ]
+      },
+      "CreateFields": [
+        "ServiceType",
+        "ServiceDetails",
+        "ServiceAmount",
+        "iCurrency",
+        "ItemStatus1",
+        "Notes",
+        "Attachment"
+      ],
+      "ItemDetails": [
+        { "name": "ServiceType" },
+        { "name": "ServiceDetails" },
+        { "name": "ServiceAmount" },
+        { "name": "iCurrency" },
+        { "name": "Notes" },
+        { "name": "ItemStatus1" },
+        { "name": "Attachment" }
       ]
-    ]
+    },
+    "ItemInvoice": {
+      "calculation": "Yes",
+      "title": "Services",
+      "subtitle": "Services",
+      "tableFormFields": [
+        {
+          "GrpTitle": "Totals",
+          "Fields": ["InvoiceValue"]
+        }
+      ],
+      "ItemFieldDefinition": [
+        {
+          "name": "ItemNumber",
+          "type": "string",
+          "width": "10",
+          "SLabel": "ItemNumber",
+          "Option": "Optional",
+          "Update": "No"
+        },
+        {
+          "name": "ServiceDetails",
+          "type": "string",
+          "width": "200",
+          "Option": "Mandatory",
+          "SLabel": "Service Details",
+          "Update": "Yes"
+        },
+        {
+          "name": "ServiceType",
+          "type": "string",
+          "width": "50",
+          "SLabel": "Service Type",
+          "Option": "Mandatory",
+          "Update": "Yes"
+        },
+        {
+          "name": "InvoiceAmount",
+          "type": "Num,1",
+          "width": "20",
+          "SLabel": "Invoice Amount",
+          "Option": "Mandatory",
+          "Update": "Yes"
+        },
+        {
+          "name": "Notes",
+          "type": "string",
+          "width": "1000",
+          "SLabel": "Notes",
+          "Option": "Optional",
+          "Update": "Yes"
+        },
+        {
+          "name": "iCurrency",
+          "type": "string",
+          "width": "10",
+          "SLabel": "Item Currency",
+          "Option": "Mandatory",
+          "Update": "No"
+        },
+        {
+          "name": "ItemStatus1",
+          "type": "string",
+          "width": "50",
+          "SLabel": "Item Status",
+          "Option": "Mandatory",
+          "Update": "Yes"
+        },
+        {
+          "name": "Attachment",
+          "type": "singleAttachment",
+          "width": "100",
+          "SLabel": "Item Attachment",
+          "Option": "Optional",
+          "Update": "Yes"
+        }
+      ],
+      "DisplayFields": [
+        "ServiceDetails",
+        "InvoiceAmount",
+        "ServiceType",
+        "iCurrency",
+        "ItemStatus1"
+      ],
+      "cards": [],
+      "ItemButtons": {
+        "itemDisplay": true,
+        "itemCheck": true,
+        "itemAdd": false,
+        "itemEdit": true,
+        "itemDelete": true
+      },
+      "CreateFields": [
+        "ServiceType",
+        "ServiceDetails",
+        "InvoiceAmount",
+        "iCurrency",
+        "ItemStatus1",
+        "Notes",
+        "Attachment"
+      ],
+      "ItemDetails": [
+        { "name": "ServiceType" },
+        { "name": "ServiceDetails" },
+        { "name": "InvoiceAmount" },
+        { "name": "iCurrency" },
+        { "name": "Notes" },
+        { "name": "ItemStatus1" },
+        { "name": "Attachment" }
+      ]
+    }
   },
   "FieldDef": [
     {
@@ -291,8 +415,7 @@
       "type": "string",
       "width": "20",
       "Option": "Mandatory",
-      "SLabel": "Identification",
-      "Update": "No"
+      "SLabel": "Contract ID"
     },
     {
       "name": "ReferenceID",
@@ -302,117 +425,69 @@
       "SLabel": "ReferenceID"
     },
     {
-      "name": "InvoiceType",
-      "type": "string",
-      "width": "20",
-      "Option": "Mandatory",
-      "SLabel": "Invoice Type",
-      "LLabel": "Invoice Type"
-    },
-    {
-      "name": "PONumber",
-      "type": "string",
-      "width": "20",
-      "Option": "Optional",
-      "SLabel": "PO Number",
-      "LLabel": "PO Number"
-    },
-    {
-      "name": "PODate",
-      "type": "Date",
-      "width": "10",
-      "Option": "Optional",
-      "SLabel": "Purchase Order Date"
-    },
-    {
-      "name": "VendorName",
-      "type": "string",
-      "width": "50",
-      "Option": "Optional",
-      "SLabel": "Vendor Name"
-    },
-    {
-      "name": "VendorNumber",
-      "type": "string",
-      "width": "20",
-      "Option": "Optional",
-      "SLabel": "Vendor Number",
-      "LLabel": "Vendor Number"
-    },
-    {
-      "name": "SuppInvoiceNumber",
-      "type": "string",
-      "width": "50",
-      "Option": "Optional",
-      "SLabel": "Supplier Invoice Number"
-    },
-    {
-      "name": "InvoiceDate",
-      "type": "Date",
-      "width": "10",
-      "Option": "Optional",
-      "SLabel": "Invoice Date",
-      "LLabel": "Invoice Date"
-    },
-    {
-      "name": "Company",
+      "name": "ContractID",
       "type": "string",
       "width": "100",
       "Option": "Optional",
-      "SLabel": "Company"
+      "SLabel": "Contract ID"
     },
     {
-      "name": "PaymentTerm",
+      "name": "ContractName",
       "type": "string",
+      "width": "100",
+      "Option": "Mandatory",
+      "SLabel": "Contract Name"
+    },
+    {
+      "name": "ContractType",
+      "type": "string",
+      "width": "50",
+      "Option": "Mandatory",
+      "SLabel": "Contract Type"
+    },
+    {
+      "name": "ContractStartDate",
+      "type": "Date",
       "width": "10",
-      "Option": "Optional",
-      "SLabel": "Payment Term"
+      "Option": "Mandatory",
+      "SLabel": "Contract Start Date"
     },
     {
-      "name": "Details",
+      "name": "PharmaContact",
       "type": "string",
       "width": "50",
-      "Option": "Optional",
-      "SLabel": "Details"
+      "Option": "Mandatory",
+      "SLabel": "Pharma Contact"
     },
     {
-      "name": "Currency",
+      "name": "PharmaContactEmail",
       "type": "string",
       "width": "50",
-      "Option": "Optional",
-      "SLabel": "Currency"
+      "Option": "Mandatory",
+      "SLabel": "Pharma Contact Email"
     },
     {
-      "name": "NetValue",
-      "type": "Num,2",
-      "width": "20",
+      "name": "Services",
+      "type": "Array",
+      "width": "500",
       "Option": "Optional",
-      "SLabel": "Net Value",
-      "LLabel": "Net Value"
+      "SLabel": "Services"
     },
     {
-      "name": "GrossValue",
-      "type": "Num,2",
-      "width": "20",
+      "name": "ItemInvoice",
+      "type": "Array",
+      "width": "500",
       "Option": "Optional",
-      "SLabel": "Gross Value",
-      "LLabel": "Gross Value"
+      "SLabel": "ItemInvoice"
     },
     {
-      "name": "TotInvNetValue",
-      "type": "Num,2",
-      "width": "20",
+      "name": "MultiAttachments",
+      "type": "attachment",
+      "metadata": "MultipleFields",
+      "width": "200",
       "Option": "Optional",
-      "SLabel": "Total Inv Net Value",
-      "LLabel": "Total Inv Net Value"
-    },
-    {
-      "name": "TotInvGrossVal",
-      "type": "Num,2",
-      "width": "20",
-      "Option": "Optional",
-      "SLabel": "Total Inv Gross Value",
-      "LLabel": "Total Inv Gross Value"
+      "SLabel": "MultiAttachments",
+      "LLabel": "MultiAttachments"
     },
     {
       "name": "Status",
@@ -439,523 +514,109 @@
       "LLabel": "ProgressComment"
     },
     {
-      "name": "Attachment",
-      "type": "attachment",
-      "width": "500",
-      "Option": "Optional",
-      "SLabel": "Invoice Image"
-    },
-    {
-      "name": "TaxInvoice",
-      "type": "string",
-      "width": "3",
-      "Option": "Optional",
-      "SLabel": "Tax Invoice (Y/N)",
-      "LLabel": "Tax Invoice (Y/N)"
-    },
-    {
-      "name": "PaymentStatus",
-      "type": "string",
-      "width": "50",
-      "Option": "Optional",
-      "SLabel": "Payment Status",
-      "LLabel": "Payment Status"
-    },
-    {
-      "name": "InvoiceStatus",
-      "type": "string",
-      "width": "50",
-      "Option": "Optional",
-      "SLabel": "Invoice Status",
-      "LLabel": "Invoice Status"
-    },
-    {
-      "name": "BuyerInvoiceNumber",
-      "type": "string",
-      "width": "20",
-      "Option": "Optional",
-      "SLabel": "Buyer Invoice Number",
-      "LLabel": "Buyer Invoice Number"
-    },
-    {
-      "name": "BuyerInvoiceYear",
-      "type": "string",
-      "width": "4",
-      "Option": "Optional",
-      "SLabel": "Buyer Invoice Year",
-      "LLabel": "Buyer Invoice Year"
-    },
-    {
-      "name": "BuyerInvoiceStatus",
-      "type": "string",
-      "width": "20",
-      "Option": "Optional",
-      "SLabel": "Buyer Invoice Status",
-      "LLabel": "Buyer Invoice Status"
-    },
-    {
-      "name": "BuyerPaymentStatus",
-      "type": "string",
-      "width": "50",
-      "Option": "Optional",
-      "SLabel": "Buyer Payment Status",
-      "LLabel": "Buyer Payment Status"
-    },
-    {
-      "name": "BuyerPaymentDate",
-      "type": "Date",
-      "width": "10",
-      "Option": "Optional",
-      "SLabel": "Buyer Payment Date",
-      "LLabel": "Buyer Payment Date"
-    },
-    {
-      "name": "Comment",
-      "type": "string",
+      "name": "ContractLink",
+      "type": "hyperlink",
       "width": "200",
       "Option": "Optional",
-      "SLabel": "Comment"
+      "SLabel": "Contract Link"
     },
     {
-      "name": "CurrentStatus",
+      "name": "HCPEmail",
       "type": "string",
       "width": "50",
       "Option": "Mandatory",
-      "SLabel": "Current Status",
-      "LLabel": "Current Status"
+      "SLabel": "HCP Email"
     },
     {
-      "name": "BuyerInvoiceDueDt",
-      "type": "string",
-      "width": "10",
-      "Option": "Optional",
-      "SLabel": "Buyer Invoice Due Date",
-      "LLabel": "Buyer Invoice Due Date"
-    },
-    {
-      "name": "TotInvTax",
-      "type": "string",
-      "width": "20",
-      "Option": "Optional",
-      "SLabel": "Total Inv Tax",
-      "LLabel": "Total Inv Tax"
-    },
-    {
-      "name": "ConfidenceScore",
-      "type": "string",
-      "width": "10",
-      "Option": "Optional",
-      "SLabel": "Confidence Score",
-      "LLabel": "Confidence Score"
-    },
-    {
-      "name": "OverallMatching",
+      "name": "VendorName",
       "type": "string",
       "width": "100",
-      "Option": "Optional",
-      "SLabel": "Overall Matching",
-      "LLabel": "Overall Matching"
+      "Option": "Mandatory",
+      "SLabel": "HCP Name"
     },
     {
-      "name": "ProcessingLog",
+      "name": "ContractEndDate",
+      "type": "Date",
+      "width": "10",
+      "Option": "Mandatory",
+      "SLabel": "Contract End Date"
+    },
+    {
+      "name": "ContractValue",
       "type": "string",
-      "width": "500",
+      "width": "50",
       "Option": "Optional",
-      "SLabel": "Processing Log",
-      "LLabel": "Processing Log"
+      "SLabel": "Contract Value"
+    },
+    {
+      "name": "InvoiceValue",
+      "type": "string",
+      "width": "50",
+      "Option": "Optional",
+      "SLabel": "Invoice Value"
+    },
+    {
+      "name": "BalanceValue",
+      "type": "string",
+      "width": "50",
+      "Option": "Optional",
+      "SLabel": "Balance Value"
     }
   ],
-  "itemData": "Yes",
+  "itemData": "No",
   "itemConfig": {
-    "title": "Item Details",
-    "ItemFieldDefinition": [
-      {
-        "name": "ItemNumber",
-        "type": "string",
-        "width": "20",
-        "SLabel": "ItemNumber"
-      },
-
-      {
-        "name": "POItemNumber",
-        "type": "string",
-        "width": "10",
-        "SLabel": "PO Item Number"
-      },
-      {
-        "name": "ItemDetails",
-        "type": "string",
-        "width": "50",
-        "SLabel": "Item Details"
-      },
-      {
-        "name": "InvQty",
-        "type": "Num,0",
-        "width": "10",
-        "SLabel": "Inv Quantity"
-      },
-      {
-        "name": "InvUOM",
-        "type": "string",
-        "width": "10",
-        "SLabel": "Inv UOM"
-      },
-      {
-        "name": "InvPrice",
-        "type": "Num,2",
-        "width": "10",
-        "SLabel": "Inv Price"
-      },
-      {
-        "name": "InvNetValue",
-        "type": "Num,2",
-        "width": "20",
-        "SLabel": "Inv Net Value"
-      },
-      {
-        "name": "InvVATRate",
-        "type": "Num,2",
-        "width": "10",
-        "SLabel": "Inv VAT Rate"
-      },
-      {
-        "name": "InvVATVal",
-        "type": "Num,2",
-        "width": "10",
-        "SLabel": "Inv VAT Value"
-      },
-      {
-        "name": "InvGrossVal",
-        "type": "Num,2",
-        "width": "20",
-        "SLabel": "Inv Gross Value"
-      },
-      {
-        "name": "InvVATPer",
-        "type": "Num,2",
-        "width": "20",
-        "SLabel": "Inv VAT Percentage"
-      },
-      { "name": "POQty", "type": "Num,0", "width": "10", "SLabel": "PO Qty" },
-      { "name": "POUOM", "type": "string", "width": "10", "SLabel": "PO UOM" },
-      {
-        "name": "POPrice",
-        "type": "Num,1",
-        "width": "10",
-        "SLabel": "PO Price"
-      },
-      {
-        "name": "PONetValue",
-        "type": "Num,2",
-        "width": "20",
-        "SLabel": "PO Net Value"
-      },
-      {
-        "name": "POVATRate",
-        "type": "Num,2",
-        "width": "10",
-        "SLabel": "PO VAT Rate"
-      },
-      {
-        "name": "POVATVal",
-        "type": "Num,2",
-        "width": "10",
-        "SLabel": "PO VAT Value"
-      },
-      {
-        "name": "POGrossVal",
-        "type": "Num,2",
-        "width": "20",
-        "SLabel": "PO Gross Val"
-      },
-      {
-        "name": "POVATPer",
-        "type": "Num,2",
-        "width": "10",
-        "SLabel": "PO VAT Percentage"
-      },
-      {
-        "name": "ItemInvoiceStatus",
-        "type": "string",
-        "width": "50",
-        "SLabel": "Invoice Item Status"
-      },
-      {
-        "name": "StatusState",
-        "type": "string",
-        "width": "20",
-        "SLabel": "StatusState"
-      },
-      {
-        "name": "cardImage",
-        "type": "string",
-        "width": "500",
-        "SLabel": "cardImage"
-      }
-    ],
-    "DisplayFields": [
-      "ItemNumber",
-      "InvQty",
-      "InvPrice",
-      "InvVATVal",
-      "InvGrossVal"
-    ],
+    "ItemFieldDefinition": [],
+    "DisplayFields": [],
     "ItemButtons": {
-      "itemDisplay": true,
-      "itemAdd": true,
-      "itemEdit": true,
-      "itemDelete": true
+      "itemDisplay": false,
+      "itemAdd": false,
+      "itemEdit": false,
+      "itemDelete": false
     },
-    "ListBOTItemFields": {
-      "None": ["ID"],
-      "Title": ["ItemNumber", "ItemDetails"],
-      "SubTitle": ["InvGrossVal", "InvNetValue"],
-      "Description": ["InvQty", "InvUOM", "InvPrice", "InvVATVal"]
-    },
-    "CreateFields": [
-      "ItemDetails",
-      "InvQty",
-      "InvPrice",
-      "InvUOM",
-      "InvNetValue",
-      "InvVATRate",
-      "InvVATVal",
-      "InvGrossVal",
-      "InvVATPer"
-    ],
-    "ItemDetails": [
-      {
-        "name": "ItemNumber",
-        "Tab": "Tab3",
-
-        "Mode": "Display"
-      },
-      { "name": "ItemDetails", "Tab": "Tab3", "Mode": "Edit" },
-      { "name": "InvQty", "Tab": "Tab3", "Mode": "Edit" },
-      { "name": "InvPrice", "Tab": "Tab3", "Mode": "Edit" },
-      { "name": "InvUOM", "Tab": "Tab3", "Mode": "Edit" },
-      {
-        "name": "InvNetValue",
-        "Tab": "Tab3",
-
-        "Mode": "Display"
-      },
-      { "name": "InvVATRate", "Tab": "Tab3", "Mode": "Edit" },
-      {
-        "name": "InvVATVal",
-        "Tab": "Tab3",
-
-        "Mode": "Display"
-      },
-      {
-        "name": "InvGrossVal",
-        "Tab": "Tab3",
-
-        "Mode": "Display"
-      },
-      { "name": "InvVATPer", "Tab": "Tab3", "Mode": "Display" }
-    ]
+    "CreateFields": [],
+    "ItemDetails": []
   },
   "CalculatedFields": {
-    "Item": [
-      {
-        "CalculatedFormula": {
-          "name": "Multiplication",
-          "function": "MUL",
-          "Target": "InvNetValue",
-          "type": "Item"
-        },
-        "Fields": [
-          { "Source": "InvQty", "Type": { "type": "Item" } },
-          { "Source": "InvPrice", "Type": { "type": "Item" } }
-        ]
-      },
-      {
-        "CalculatedFormula": {
-          "name": "Percentage",
-          "function": "PAR",
-          "Target": "InvVATPer",
-          "type": "Item"
-        },
-        "Fields": [{ "Source": "InvVATRate", "Type": { "type": "Item" } }]
-      },
-      {
-        "CalculatedFormula": {
-          "name": "Multiplication",
-          "function": "MUL",
-          "Target": "InvVATVal",
-          "type": "Item"
-        },
-        "Fields": [
-          { "Source": "InvNetValue", "Type": { "type": "Item" } },
-          { "Source": "InvVATPer", "Type": { "type": "Item" } }
-        ]
-      },
-      {
-        "CalculatedFormula": {
-          "name": "Addition",
-          "function": "ADD",
-          "Target": "InvGrossVal",
-          "type": "Item"
-        },
-        "Fields": [
-          { "Source": "InvNetValue", "Type": { "type": "Item" } },
-          { "Source": "InvVATVal", "Type": { "type": "Item" } }
-        ]
-      },
-      {
-        "CalculatedFormula": {
-          "name": "Multiplication",
-          "function": "MUL",
-          "Target": "PONetValue",
-          "type": "Item"
-        },
-        "Fields": [
-          { "Source": "POPrice", "Type": { "type": "Item" } },
-          { "Source": "POQty", "Type": { "type": "Item" } }
-        ]
-      },
-      {
-        "CalculatedFormula": {
-          "name": "Percentage",
-          "function": "PAR",
-          "Target": "POVATPer",
-          "type": "Item"
-        },
-        "Fields": [{ "Source": "POVATRate", "Type": { "type": "Item" } }]
-      },
-      {
-        "CalculatedFormula": {
-          "name": "Multiplication",
-          "function": "MUL",
-          "Target": "POVATVal",
-          "type": "Item"
-        },
-        "Fields": [
-          { "Source": "PONetValue", "Type": { "type": "Item" } },
-          { "Source": "POVATPer", "Type": { "type": "Item" } }
-        ]
-      },
-      {
-        "CalculatedFormula": {
-          "name": "Addition",
-          "function": "ADD",
-          "Target": "POGrossVal",
-          "type": "Item"
-        },
-        "Fields": [
-          { "Source": "PONetValue", "Type": { "type": "Item" } },
-          { "Source": "POVATVal", "Type": { "type": "Item" } }
-        ]
-      }
-    ],
+    "Item": [],
     "HeaderItem": [
       {
         "CalculatedFormula": {
           "name": "ITEMSUM",
           "function": "ITEMSUM",
-          "Target": "TotInvNetValue",
+          "Target": "ContractValue",
           "type": "HeaderItem"
         },
         "Fields": [
-          { "Source": "InvNetValue", "Type": { "type": "HeaderItem" } }
+          { "Source": "ServiceAmount", "Type": { "type": "HeaderItem" } }
         ]
       },
       {
         "CalculatedFormula": {
           "name": "ITEMSUM",
           "function": "ITEMSUM",
-          "Target": "TotInvGrossVal",
+          "Target": "InvoiceValue",
           "type": "HeaderItem"
         },
         "Fields": [
-          { "Source": "InvGrossVal", "Type": { "type": "HeaderItem" } }
+          { "Source": "InvoiceAmount", "Type": { "type": "HeaderItem" } }
         ]
-      },
-      {
-        "CalculatedFormula": {
-          "name": "ITEMSUM",
-          "function": "ITEMSUM",
-          "Target": "NetValue",
-          "type": "HeaderItem"
-        },
-        "Fields": [{ "Source": "PONetValue", "Type": { "type": "HeaderItem" } }]
-      },
-      {
-        "CalculatedFormula": {
-          "name": "ITEMSUM",
-          "function": "ITEMSUM",
-          "Target": "GrossValue",
-          "type": "HeaderItem"
-        },
-        "Fields": [{ "Source": "POGrossVal", "Type": { "type": "HeaderItem" } }]
-      },
-      {
-        "CalculatedFormula": {
-          "name": "ITEMSUM",
-          "function": "ITEMSUM",
-          "Target": "TotInvTax",
-          "type": "HeaderItem"
-        },
-        "Fields": [{ "Source": "InvVATVal", "Type": { "type": "HeaderItem" } }]
       }
     ],
-    "Header": []
+    "Header": [
+      {
+        "CalculatedFormula": {
+          "name": "SUB",
+          "function": "SUB",
+          "Target": "BalanceValue",
+          "type": "Header"
+        },
+        "Fields": [
+          { "Source": "ServiceValue", "Type": { "type": "Header" } },
+          { "Source": "InvoiceValue", "Type": { "type": "Header" } }
+        ]
+      }
+    ]
   },
-  "Create": "Yes",
-  "Wizard": [
-    {
-      "id": "Step1",
-      "fields": [
-        { "name": "InvoiceType", "Mode": "Display" },
-        { "name": "VendorName", "Mode": "Edit" },
-        { "name": "VendorNumber", "Mode": "Edit" }
-      ],
-      "name": "Vendor Details",
-      "stepType": "FieldList",
-      "intro": "Supplier Invoice (PO)  : Vendor Details"
-    },
-    {
-      "id": "Step2",
-      "fields": [
-        { "name": "PONumber", "Mode": "Edit" },
-        { "name": "PODate", "Mode": "Edit" },
-        { "name": "TaxInvoice", "Mode": "Edit" },
-        { "name": "PaymentTerm", "Mode": "Edit" },
-        { "name": "Details", "Mode": "Edit" },
-        { "name": "Company", "Mode": "Edit" }
-      ],
-      "name": "Purchaser Order Details",
-      "stepType": "FieldList",
-      "intro": "Supplier Incvoice (PO) : Purchaser Order Details"
-    },
-    {
-      "id": "Step3",
-      "fields": [
-        { "name": "SuppInvoiceNumber", "Mode": "Edit" },
-        { "name": "TotInvNetValue", "Mode": "Edit" },
-        { "name": "TotInvGrossVal", "Mode": "Edit" },
-        { "name": "InvoiceDate", "Mode": "Edit" },
-        { "name": "NetValue", "Mode": "Display" },
-        { "name": "GrossValue", "Mode": "Display" },
-        { "name": "Currency", "Mode": "Display" }
-      ],
-      "name": "Invoice Details",
-      "stepType": "FieldList",
-      "intro": "Supplier Invoice(PO) : Invoice Details"
-    },
-    {
-      "id": "Step4",
-      "fields": [
-        { "name": "Attachment", "Mode": "Edit" },
-        { "name": "Status", "Mode": "Edit" },
-        { "name": "InvoiceStatus", "Mode": "Edit" },
-        { "name": "PaymentStatus", "Mode": "Edit" },
-        { "name": "CurrentStatus", "Mode": "Edit" }
-      ],
-      "name": "Admin",
-      "stepType": "FieldList",
-      "intro": "Supplier Invoice (PO) : Admin"
-    }
-  ]
+  "Create": "No",
+  "Wizard": []
 }
