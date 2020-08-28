@@ -378,6 +378,33 @@
     "CreateFields": [],
     "ItemDetails": []
   },
+
+  "Validations": {
+    "Field": {},
+    "Sequence": {},
+    "Conditional": {
+      "Cost": [
+        {
+          "name": "SEQUENCE",
+          "function": "GT",
+          "Target": "sValidation",
+          "type": "Header",
+          "msg": "Cost should be provided for External Training ",
+          "Fields": [
+            { "Source": "Cost", "Type": { "type": "Header" } },
+            { "Source": "0", "Type": { "type": "Constant" } }
+          ],
+          "Condition": [
+            { "Source": "External", "Type": { "type": "Header" } },
+            { "Source": "Yes", "Type": { "type": "Constant" } }
+          ]
+        }
+      ]
+    },
+
+    "Document": {}
+  },
+
   "CalculatedFields": {},
   "Create": "Yes",
   "Wizard": [

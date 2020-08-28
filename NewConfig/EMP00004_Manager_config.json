@@ -751,7 +751,7 @@
           "function": "GTE",
           "Target": "sValidation",
           "type": "Header",
-          "msg": "To Date can't be less than From date",
+          "msg": "Delivery date should be in future",
           "Fields": [
             { "Source": "DeliveryDt", "Type": { "type": "Header" } },
             { "Source": "@currentDate", "Type": { "type": "Constant" } }
