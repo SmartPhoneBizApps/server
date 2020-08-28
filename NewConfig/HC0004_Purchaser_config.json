@@ -10,13 +10,17 @@
     "UserSpecific": "Yes",
     "Update": "Yes",
     "URL": "https://fierce-oasis-51455.herokuapp.com",
-    "Source": { "SourceName": "mongoDB", "SourceFile": "NA" },
+    "Source": {
+      "SourceName": "mongoDB",
+      "SourceFile": "NA",
+      "FieldMapping": [{ "ReferenceID": "ID" }],
+      "FixedValues": [{ "Status": "Invoiced" }]
+    },
     "dataFilter": [{ "field": "Status" }],
     "filterFieldSource": {
       "header": ["Status"]
     }
   },
-
   "ListFields": {
     "IntroField": "VendorName",
     "TitleField": "ContractName",
@@ -67,7 +71,6 @@
       "icon": "sap-icon://travel-",
       "URL": "https://www.messenger.com/t/295020207695029"
     },
-
     { "type": "ADD", "name": "Add Record", "icon": "sap-icon://add" },
     {
       "type": "UPLOAD",
@@ -87,6 +90,16 @@
     }
   ],
   "DButtons": [
+    {
+      "type": "SELFASSIGN",
+      "name": "Submit Invoice",
+      "icon": "sap-icon://share-2",
+      "Dialog": "{label:'User',name:'user',type:'Email'}",
+      "DialogSearch": "{URL}/api/v1/samrtApp/findUser/{user}",
+      "URL": "util/assignCourseUser/HealthCareProfessional/HealthCareProfessional/HC0004/HC0005/{ReferenceID}/{user}",
+      "Token": "Yes",
+      "URLMethod": "POST"
+    },
     {
       "type": "WORKFLOW",
       "name": "Cancel",
