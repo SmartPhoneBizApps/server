@@ -23,14 +23,14 @@
     "sStatus": "ContractType",
     "fStatus": "Status",
     "numberField": "ContractValue",
-    "LFields": ["HCPEmail", "ID"],
+    "LFields": ["InvoiceValue", "HCPEmail", "ID"],
     "numberUnitField": ""
   },
   "ListBOTFields": {
     "None": ["cardImage", "StatusState"],
     "Title": ["ID"],
     "SubTitle": ["ContractName", "ContractStartDate"],
-    "Description": ["ContractType"]
+    "Description": ["ContractType", "ContractValue", "InvoiceValue"]
   },
   "PossibleValues": ["ContractType", "Status", "ItemStatus1", "ServiceType"],
   "MButtons": [
@@ -49,6 +49,7 @@
         "ContractLink",
         "ContractEndDate",
         "ContractValue",
+        "InvoiceValue",
         "BalanceValue",
         "PharmaContact",
         "PharmaContactEmail",
@@ -85,7 +86,29 @@
       }
     }
   ],
-  "DButtons": [],
+  "DButtons": [
+    {
+      "type": "WORKFLOW",
+      "name": "Cancel",
+      "icon": "sap-icon://decline",
+      "Dialog": [
+        {
+          "label": "Cancellation Comment",
+          "name": "ProgressComment",
+          "type": "string",
+          "option": "Optional"
+        }
+      ],
+      "transferFields": [
+        { "field": "ID", "value": "@recorddata" },
+        { "field": "Status", "value": "Cancelled" },
+        { "field": "ProgressComment", "value": "@UserInput" }
+      ],
+      "URL": "datarecords/",
+      "Token": "Yes",
+      "URLMethod": "PUT"
+    }
+  ],
   "Tabs": [
     {
       "value": "Tab0",
@@ -151,6 +174,7 @@
       "ContractLink",
       "ContractEndDate",
       "ContractValue",
+      "InvoiceValue",
       "BalanceValue"
     ],
     "Tab2": ["PharmaContact", "PharmaContactEmail"],
@@ -257,7 +281,9 @@
             "URL": "datarecords/",
             "tableName": "ItemInvoice",
             "Token": "Yes",
-            "URLMethod": "PUT"
+            "URLMethod": "PUT",
+            "updateButton": "Add to Invoice",
+            "diffMapping": [{ "ServiceAmount": "InvoiceAmount" }]
           }
         ]
       },
@@ -287,7 +313,7 @@
       "tableFormFields": [
         {
           "GrpTitle": "Totals",
-          "Fields": ["ContractValue"]
+          "Fields": ["InvoiceValue"]
         }
       ],
       "ItemFieldDefinition": [
@@ -316,10 +342,10 @@
           "Update": "Yes"
         },
         {
-          "name": "ServiceAmount",
+          "name": "InvoiceAmount",
           "type": "Num,1",
           "width": "20",
-          "SLabel": "Service Amount",
+          "SLabel": "Invoice Amount",
           "Option": "Mandatory",
           "Update": "Yes"
         },
@@ -358,7 +384,7 @@
       ],
       "DisplayFields": [
         "ServiceDetails",
-        "ServiceAmount",
+        "InvoiceAmount",
         "ServiceType",
         "iCurrency",
         "ItemStatus1"
@@ -374,7 +400,7 @@
       "CreateFields": [
         "ServiceType",
         "ServiceDetails",
-        "ServiceAmount",
+        "InvoiceAmount",
         "iCurrency",
         "ItemStatus1",
         "Notes",
@@ -383,7 +409,7 @@
       "ItemDetails": [
         { "name": "ServiceType" },
         { "name": "ServiceDetails" },
-        { "name": "ServiceAmount" },
+        { "name": "InvoiceAmount" },
         { "name": "iCurrency" },
         { "name": "Notes" },
         { "name": "ItemStatus1" },
@@ -531,11 +557,25 @@
       "SLabel": "Contract Value"
     },
     {
+      "name": "InvoiceValue",
+      "type": "string",
+      "width": "50",
+      "Option": "Optional",
+      "SLabel": "Invoice Value"
+    },
+    {
       "name": "BalanceValue",
       "type": "string",
       "width": "50",
       "Option": "Optional",
       "SLabel": "Balance Value"
+    },
+    {
+      "name": "sValidation",
+      "type": "string",
+      "width": "50",
+      "Option": "Optional",
+      "SLabel": "Validation"
     }
   ],
   "itemData": "No",
@@ -551,6 +591,25 @@
     "CreateFields": [],
     "ItemDetails": []
   },
+  "Validations": {
+    "Field": {},
+    "Sequence": {
+      "ContractEndDate": [
+        {
+          "name": "SEQUENCE",
+          "function": "GT",
+          "Target": "sValidation",
+          "type": "Header",
+          "msg": "Contract End Date can't be less than Contract Start Date",
+          "Fields": [
+            { "Source": "ContractStartDate", "Type": { "type": "Header" } },
+            { "Source": "ContractEndDate", "Type": { "type": "Header" } }
+          ]
+        }
+      ]
+    },
+    "Document": {}
+  },
   "CalculatedFields": {
     "Item": [],
     "HeaderItem": [
@@ -564,9 +623,33 @@
         "Fields": [
           { "Source": "ServiceAmount", "Type": { "type": "HeaderItem" } }
         ]
+      },
+      {
+        "CalculatedFormula": {
+          "name": "ITEMSUM",
+          "function": "ITEMSUM",
+          "Target": "InvoiceValue",
+          "type": "HeaderItem"
+        },
+        "Fields": [
+          { "Source": "InvoiceAmount", "Type": { "type": "HeaderItem" } }
+        ]
       }
     ],
-    "Header": []
+    "Header": [
+      {
+        "CalculatedFormula": {
+          "name": "SUB",
+          "function": "SUB",
+          "Target": "BalanceValue",
+          "type": "Header"
+        },
+        "Fields": [
+          { "Source": "ServiceValue", "Type": { "type": "Header" } },
+          { "Source": "InvoiceValue", "Type": { "type": "Header" } }
+        ]
+      }
+    ]
   },
   "Create": "Yes",
   "Wizard": [

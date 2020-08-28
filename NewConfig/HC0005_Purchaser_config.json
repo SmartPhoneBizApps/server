@@ -561,6 +561,13 @@
       "width": "50",
       "Option": "Optional",
       "SLabel": "Balance Value"
+    },
+    {
+      "name": "sValidation",
+      "type": "string",
+      "width": "50",
+      "Option": "Optional",
+      "SLabel": "Validation"
     }
   ],
   "itemData": "No",
@@ -575,6 +582,25 @@
     },
     "CreateFields": [],
     "ItemDetails": []
+  },
+  "Validations": {
+    "Field": {},
+    "Sequence": {
+      "ContractEndDate": [
+        {
+          "name": "SEQUENCE",
+          "function": "GT",
+          "Target": "sValidation",
+          "type": "Header",
+          "msg": "Contract End Date can't be less than Contract Start Date",
+          "Fields": [
+            { "Source": "ContractStartDate", "Type": { "type": "Header" } },
+            { "Source": "ContractEndDate", "Type": { "type": "Header" } }
+          ]
+        }
+      ]
+    },
+    "Document": {}
   },
   "CalculatedFields": {
     "Item": [],
