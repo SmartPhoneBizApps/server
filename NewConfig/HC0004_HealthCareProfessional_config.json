@@ -10,7 +10,12 @@
     "UserSpecific": "Yes",
     "Update": "Yes",
     "URL": "https://fierce-oasis-51455.herokuapp.com",
-    "Source": { "SourceName": "mongoDB", "SourceFile": "NA" },
+    "Source": {
+      "SourceName": "mongoDB",
+      "SourceFile": "NA",
+      "FieldMapping": [{ "ReferenceID": "ID" }],
+      "FixedValues": [{ "Status": "Invoiced" }]
+    },
     "dataFilter": [{ "field": "Status" }],
     "filterFieldSource": {
       "header": ["Status"]

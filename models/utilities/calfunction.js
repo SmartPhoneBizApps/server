@@ -264,6 +264,37 @@ class calFun {
     }
     return false;
   }
+  dateFunction(dateField) {
+    var constantFieldArray = [
+      {
+        field: "@currentDate",
+        addDay: 0,
+        option: "ADD",
+      },
+    ];
+    for (var i = 0; i < constantFieldArray.length; i++) {
+      if (
+        constantFieldArray[i]["field"].toLowerCase() == dateField.toLowerCase()
+      ) {
+        var addDay = constantFieldArray[i]["addDay"];
+        var option = constantFieldArray[i]["option"];
+        const today = new Date();
+        var month = today.getMonth() + 1;
+        var day = today.getDate();
+        var year = today.getFullYear();
+        var newDate = year + "-" + month + "-" + day;
+
+        const tomorrow = new Date(newDate);
+        if (option == "ADD") {
+          tomorrow.setDate(tomorrow.getDate() + addDay);
+          return tomorrow;
+        } else {
+          tomorrow.setDate(tomorrow.getDate() - addDay);
+          return tomorrow;
+        }
+      }
+    }
+  }
 
   validation(arrayData) {
     var data = arrayData["data"];
@@ -288,24 +319,36 @@ class calFun {
           var typeField = fieldArray[j]["Type"]["type"];
 
           var getFieldType = this.fieldType(Source, fieldDef);
-          if (getFieldType.toLowerCase() == "date") {
-            if (typeField == "Header") {
-              fieldObj.push(new Date(data[Source]));
+          if (getFieldType) {
+            // Field Type is not null
+            if (getFieldType.toLowerCase() == "date") {
+              if (typeField == "Header") {
+                fieldObj.push(new Date(data[Source]));
+              } else {
+                fieldObj.push(new Date(data[fieldName][itemCnt][Source]));
+              }
             } else {
-              fieldObj.push(new Date(data[fieldName][itemCnt][Source]));
+              if (typeField == "Header") {
+                fieldObj.push(
+                  data.hasOwnProperty(Source) ? parseFloat(data[Source]) : 0
+                );
+              } else {
+                fieldObj.push(
+                  data[fieldName][itemCnt].hasOwnProperty(Source)
+                    ? parseFloat(data[fieldName][itemCnt][Source])
+                    : 0
+                );
+              }
             }
           } else {
-            if (typeField == "Header") {
-              fieldObj.push(
-                data.hasOwnProperty(Source) ? parseFloat(data[Source]) : 0
-              );
-            } else {
-              fieldObj.push(
-                data[fieldName][itemCnt].hasOwnProperty(Source)
-                  ? parseFloat(data[fieldName][itemCnt][Source])
-                  : 0
-              );
-            }
+            // Field Type is  null
+            console.log(
+              "Function return value " +
+                Source +
+                "---" +
+                this.dateFunction(Source)
+            );
+            fieldObj.push(this.dateFunction(Source));
           }
         }
         var fun = selectedFieldArray[i]["function"]; // get function name
@@ -353,7 +396,6 @@ class calFun {
         }
       }
     }
-
     return returnData;
   }
 
