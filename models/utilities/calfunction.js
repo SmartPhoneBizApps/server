@@ -308,7 +308,7 @@ class calFun {
     returnData["itemCnt"] = "";
     returnData["data"] = data;
     // console.log(config);
-
+    //  console.log("Ag001", config); //Added by Atul
     if (config["Sequence"].hasOwnProperty(arrayData["fieldName"])) {
       var selectedFieldArray = config["Sequence"][arrayData["fieldName"]];
       for (var i = 0; i < selectedFieldArray.length; i++) {

@@ -463,8 +463,8 @@
     },
     {
       "name": "PharmaContactEmail",
-      "type": "string",
-      "width": "50",
+      "type": "Email",
+      "width": "100",
       "Option": "Mandatory",
       "SLabel": "Pharma Contact Email"
     },
@@ -592,13 +592,13 @@
       "ContractEndDate": [
         {
           "name": "SEQUENCE",
-          "function": "GT",
+          "function": "GTE",
           "Target": "sValidation",
           "type": "Header",
           "msg": "Contract End Date can't be less than Contract Start Date",
           "Fields": [
-            { "Source": "ContractStartDate", "Type": { "type": "Header" } },
-            { "Source": "ContractEndDate", "Type": { "type": "Header" } }
+            { "Source": "ContractEndDate", "Type": { "type": "Header" } },
+            { "Source": "ContractStartDate", "Type": { "type": "Header" } }
           ]
         }
       ]

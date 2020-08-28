@@ -912,7 +912,7 @@
       "ExpenseEndDate": [
         {
           "name": "SEQUENCE",
-          "function": "GT",
+          "function": "GTE",
           "Target": "sValidation",
           "type": "Header",
           "msg": "End Date can't be less than Start date 123",
@@ -925,7 +925,7 @@
       "ExpenseEndDate1": [
         {
           "name": "SEQUENCE",
-          "function": "GT",
+          "function": "GTE",
           "Target": "sValidation",
           "type": "Header",
           "msg": "End Date can't be less than Start date",
