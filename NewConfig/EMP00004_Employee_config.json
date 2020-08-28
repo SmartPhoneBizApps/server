@@ -178,6 +178,7 @@
     "Tab3": ["iData"],
     "Tab5": ["MultiAttachments"]
   },
+
   "listCards": [
     {
       "type": "Example",
@@ -574,7 +575,6 @@
           "Update": "No"
         }
       ],
-
       "DisplayFields": [
         "ItemName",
         "ItemValue",
@@ -823,7 +823,7 @@
       "intro": "Shopping Cart : Vendor Details"
     },
     {
-      "id": "Step6",
+      "id": "Step2",
       "fields": [{ "name": "iData", "Mode": "Edit" }],
       "name": "iData",
       "stepType": "table",
@@ -831,7 +831,7 @@
     },
 
     {
-      "id": "Step4",
+      "id": "Step3",
       "fields": [
         { "name": "Address", "Mode": "Edit" },
         { "name": "PostCode", "Mode": "Edit" },
@@ -843,7 +843,7 @@
       "intro": "Shopping Cart : Delivery"
     },
     {
-      "id": "Step3",
+      "id": "Step4",
       "fields": [{ "name": "MultiAttachments", "Mode": "Edit" }],
       "name": "MultiAttachments",
       "stepType": "Attachments",
@@ -858,7 +858,10 @@
     },
     {
       "id": "Step5",
-      "fields": [{ "name": "Status", "Mode": "Edit" }],
+      "fields": [
+        { "name": "DeliveryDt", "Mode": "Edit" },
+        { "name": "Status", "Mode": "Edit" }
+      ],
       "name": "Admin",
       "stepType": "FieldList",
       "intro": "Shopping Cart : Admin"
