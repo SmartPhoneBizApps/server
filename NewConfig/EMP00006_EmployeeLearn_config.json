@@ -308,7 +308,21 @@
       "type": "string",
       "width": "50",
       "Option": "Optional",
-      "SLabel": "Training Cost"
+      "SLabel": "Training Cost",
+      "Condition": [
+        {
+          "cField": "External",
+          "fieldType": "header",
+          "cValue": "External",
+          "cOperator": "EQ"
+        },
+        {
+          "rField": "Cost",
+          "fieldType": "header",
+          "rValue": "0",
+          "rOperator": "GT"
+        }
+      ]
     },
     {
       "name": "ProjectCode",
@@ -378,6 +392,13 @@
     "CreateFields": [],
     "ItemDetails": []
   },
+
+  "Validations": {
+    "Field": {},
+    "Sequence": {},
+    "Document": {}
+  },
+
   "CalculatedFields": {},
   "Create": "Yes",
   "Wizard": [

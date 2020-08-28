@@ -46,7 +46,6 @@
         "ContractName",
         "ContractType",
         "ContractStartDate",
-        "Services",
         "ContractLink",
         "ContractEndDate",
         "ContractValue",
@@ -129,6 +128,13 @@
       "name": "Services",
       "type": "Table",
       "fioriicon": "expense-report"
+    },
+    {
+      "value": "Tab5",
+      "update": "Yes",
+      "name": "ItemInvoice",
+      "type": "Table",
+      "fioriicon": "expense-report"
     }
   ],
   "DetailFields": {
@@ -149,7 +155,8 @@
     ],
     "Tab2": ["PharmaContact", "PharmaContactEmail"],
     "Tab3": ["MultiAttachments"],
-    "Tab4": ["Services"]
+    "Tab4": ["Services"],
+    "Tab5": ["ItemInvoice"]
   },
   "ControlDisplay": {},
   "tableConfig": {
@@ -176,7 +183,7 @@
           "name": "ServiceDetails",
           "type": "string",
           "width": "200",
-          "Option": "Optional",
+          "Option": "Mandatory",
           "SLabel": "Service Details",
           "Update": "Yes"
         },
@@ -185,7 +192,7 @@
           "type": "string",
           "width": "50",
           "SLabel": "Service Type",
-          "Option": "Optional",
+          "Option": "Mandatory",
           "Update": "Yes"
         },
         {
@@ -193,7 +200,7 @@
           "type": "Num,1",
           "width": "20",
           "SLabel": "Service Amount",
-          "Option": "Optional",
+          "Option": "Mandatory",
           "Update": "Yes"
         },
         {
@@ -209,7 +216,7 @@
           "type": "string",
           "width": "10",
           "SLabel": "Item Currency",
-          "Option": "Optional",
+          "Option": "Mandatory",
           "Update": "No"
         },
         {
@@ -217,7 +224,7 @@
           "type": "string",
           "width": "50",
           "SLabel": "Item Status",
-          "Option": "Optional",
+          "Option": "Mandatory",
           "Update": "Yes"
         },
         {
@@ -241,6 +248,126 @@
         "itemDisplay": true,
         "itemCheck": true,
         "itemAdd": true,
+        "itemEdit": true,
+        "itemDelete": true,
+        "additionalButtons": [
+          {
+            "name": "Invoice Item",
+            "type": "INVOICE",
+            "URL": "datarecords/",
+            "tableName": "ItemInvoice",
+            "Token": "Yes",
+            "URLMethod": "PUT"
+          }
+        ]
+      },
+      "CreateFields": [
+        "ServiceType",
+        "ServiceDetails",
+        "ServiceAmount",
+        "iCurrency",
+        "ItemStatus1",
+        "Notes",
+        "Attachment"
+      ],
+      "ItemDetails": [
+        { "name": "ServiceType" },
+        { "name": "ServiceDetails" },
+        { "name": "ServiceAmount" },
+        { "name": "iCurrency" },
+        { "name": "Notes" },
+        { "name": "ItemStatus1" },
+        { "name": "Attachment" }
+      ]
+    },
+    "ItemInvoice": {
+      "calculation": "Yes",
+      "title": "Services",
+      "subtitle": "Services",
+      "tableFormFields": [
+        {
+          "GrpTitle": "Totals",
+          "Fields": ["ContractValue"]
+        }
+      ],
+      "ItemFieldDefinition": [
+        {
+          "name": "ItemNumber",
+          "type": "string",
+          "width": "10",
+          "SLabel": "ItemNumber",
+          "Option": "Optional",
+          "Update": "No"
+        },
+        {
+          "name": "ServiceDetails",
+          "type": "string",
+          "width": "200",
+          "Option": "Mandatory",
+          "SLabel": "Service Details",
+          "Update": "Yes"
+        },
+        {
+          "name": "ServiceType",
+          "type": "string",
+          "width": "50",
+          "SLabel": "Service Type",
+          "Option": "Mandatory",
+          "Update": "Yes"
+        },
+        {
+          "name": "ServiceAmount",
+          "type": "Num,1",
+          "width": "20",
+          "SLabel": "Service Amount",
+          "Option": "Mandatory",
+          "Update": "Yes"
+        },
+        {
+          "name": "Notes",
+          "type": "string",
+          "width": "1000",
+          "SLabel": "Notes",
+          "Option": "Optional",
+          "Update": "Yes"
+        },
+        {
+          "name": "iCurrency",
+          "type": "string",
+          "width": "10",
+          "SLabel": "Item Currency",
+          "Option": "Mandatory",
+          "Update": "No"
+        },
+        {
+          "name": "ItemStatus1",
+          "type": "string",
+          "width": "50",
+          "SLabel": "Item Status",
+          "Option": "Mandatory",
+          "Update": "Yes"
+        },
+        {
+          "name": "Attachment",
+          "type": "singleAttachment",
+          "width": "100",
+          "SLabel": "Item Attachment",
+          "Option": "Optional",
+          "Update": "Yes"
+        }
+      ],
+      "DisplayFields": [
+        "ServiceDetails",
+        "ServiceAmount",
+        "ServiceType",
+        "iCurrency",
+        "ItemStatus1"
+      ],
+      "cards": [],
+      "ItemButtons": {
+        "itemDisplay": true,
+        "itemCheck": true,
+        "itemAdd": false,
         "itemEdit": true,
         "itemDelete": true
       },
@@ -327,6 +454,13 @@
       "width": "500",
       "Option": "Optional",
       "SLabel": "Services"
+    },
+    {
+      "name": "ItemInvoice",
+      "type": "Array",
+      "width": "500",
+      "Option": "Optional",
+      "SLabel": "ItemInvoice"
     },
     {
       "name": "MultiAttachments",
@@ -428,7 +562,7 @@
           "type": "HeaderItem"
         },
         "Fields": [
-          { "Source": "ServiceAmount", "Type": { "type": "ServiceAmount" } }
+          { "Source": "ServiceAmount", "Type": { "type": "HeaderItem" } }
         ]
       }
     ],
@@ -442,7 +576,6 @@
         { "name": "ContractType", "Mode": "Edit" },
         { "name": "ContractID", "Mode": "Edit" },
         { "name": "ContractName", "Mode": "Edit" },
-        { "name": "ContractValue", "Mode": "Edit" },
         { "name": "ContractLink", "Mode": "Edit" }
       ],
       "name": "Contract Details",
