@@ -122,6 +122,7 @@ exports.getDetailCardsNew = async (req, res, next) => {
   // Table Cards...
   let cardkey = "";
   for (const key in appconfig["tableConfig"]) {
+    console.log(key);
     if (appconfig["tableConfig"][key]["ItemButtons"]["itemAdd"] == true) {
       aCard = {};
       aCard = await adaptiveNew(
@@ -176,7 +177,7 @@ exports.getDetailCardsNew = async (req, res, next) => {
         // if (mycard["cardType"] != "AdaptiveForm") {
         let cardConfigFile1 = "../../cards/cardConfig/" + mycard["template"];
         var cardData = JSON.stringify(require(cardConfigFile1));
-        cardData = cardReplace(mycard, cardData, appconfig, "table");
+        cardData = cardReplace(mycard, cardData, appconfig, key);
         var anacardConfig = JSON.parse(cardData);
         // }
 

@@ -1350,15 +1350,21 @@ module.exports = {
   },
   cardReplace: function (mycard, cardData, appconfig, mode) {
     if (mode == "header") {
+      console.log(mode);
       cardData = cardData.replace(
         "@Title",
         appconfig["Title"]["ApplicationTitle"]
       );
     } else {
-      cardData = cardData.replace(
-        "@Title",
-        appconfig["tableConfig"][mode]["title"]
-      );
+      console.log(mode);
+      if (appconfig["tableConfig"][mode]["title"] != undefined) {
+        cardData = cardData.replace(
+          "@Title",
+          appconfig["tableConfig"][mode]["title"]
+        );
+      } else {
+        cardData = cardData.replace("@Title", mode);
+      }
     }
     if (mode == "header") {
       cardData = cardData.replace(
@@ -1366,10 +1372,14 @@ module.exports = {
         appconfig["Title"]["DetailTitle"]
       );
     } else {
-      cardData = cardData.replace(
-        "@Title",
-        appconfig["tableConfig"][mode]["subtitle"]
-      );
+      if (appconfig["tableConfig"][mode]["subtitle"] != undefined) {
+        cardData = cardData.replace(
+          "@subTitle",
+          appconfig["tableConfig"][mode]["subtitle"]
+        );
+      } else {
+        cardData = cardData.replace("@subTitle", mode);
+      }
     }
     // if (mycard.title != undefined) {
     //   cardData = cardData.replace("@Title", mycard.title);
