@@ -284,7 +284,7 @@ exports.addDataRecords = asyncHandler(async (req, res, next) => {
     for (let l = 0; l < tblFields.length; l++) {
       if (req.headers.calculation == "Yes") {
         var Handler = new calfunction();
-        console.log("Calculation for Tables Started..");
+        console.log("Calculation for Tables Started..".red);
         outdata = Handler["tablecalculation"](
           req.body,
           cardConfig["CalculatedFields"],
@@ -292,7 +292,7 @@ exports.addDataRecords = asyncHandler(async (req, res, next) => {
           cardConfig["FieldDef"]
         );
         console.log(outdata);
-        console.log("Calculation for Tables Done..");
+        console.log("Calculation for Tables Done..".red);
         req.body = outdata;
         //  req.body = outdata;
       }
@@ -301,7 +301,7 @@ exports.addDataRecords = asyncHandler(async (req, res, next) => {
     if (req.headers.calculation == "Yes") {
       var Handler = new calfunction();
       // mydata = Handler["datacalculation"](mydata, cardConfig["CalculatedFields"]);
-      console.log("01 Atul - Calculation Starts");
+      console.log("01 Atul - Calculation Starts".red);
       if (cardConfig["itemData"] == "Yes") {
         mydata = Handler["tablecalculation"](
           mydata,

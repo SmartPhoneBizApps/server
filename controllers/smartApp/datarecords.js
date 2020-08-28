@@ -282,14 +282,13 @@ exports.addDataRecords = asyncHandler(async (req, res, next) => {
     for (let l = 0; l < tblFields.length; l++) {
       if (req.headers.calculation == "Yes") {
         var Handler = new calfunction();
-        console.log("Calculation for Tables Started..");
+        console.log("CREATE - Calculation for Tables Started..");
         outdata = Handler["tablecalculation"](
           req.body,
           cardConfig["CalculatedFields"],
           tblFields[l],
           cardConfig["FieldDef"]
         );
-        console.log(outdata);
         console.log("Calculation for Tables Done..");
         req.body = outdata;
         //  req.body = outdata;
@@ -299,7 +298,7 @@ exports.addDataRecords = asyncHandler(async (req, res, next) => {
     if (req.headers.calculation == "Yes") {
       var Handler = new calfunction();
       // mydata = Handler["datacalculation"](mydata, cardConfig["CalculatedFields"]);
-      console.log("01 Atul - Calculation Starts");
+      console.log("Calculation Starts...(Header)");
       if (cardConfig["itemData"] == "Yes") {
         mydata = Handler["tablecalculation"](
           mydata,
@@ -335,7 +334,6 @@ exports.addDataRecords = asyncHandler(async (req, res, next) => {
           var sValidation = Handler["validation"](passArray);
           mydata = sValidation["data"];
           if (sValidation["status"] == false) {
-            console.log("IF Item");
             res.status(400).json({
               message: sValidation["message"],
               success: false,
@@ -638,7 +636,12 @@ exports.updateDataRecords = asyncHandler(async (req, res, next) => {
   for (let l = 0; l < tblFields.length; l++) {
     if (req.headers.calculation == "Yes") {
       var Handler = new calfunction();
-      console.log("Calculation for Tables Started..");
+      console.log(
+        "UPDATE - Calculation Starts.. : ",
+        l,
+        "Table : ",
+        tblFields[l]
+      );
       outdata = Handler["tablecalculation"](
         myData,
         cardConfig["CalculatedFields"],
