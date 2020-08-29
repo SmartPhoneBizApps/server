@@ -1,0 +1,159 @@
+{
+  "ID": {
+    "type": "String",
+    "unique": true,
+    "required": [true, "Please add Mandatory field :ID"],
+    "maxlength": [20, "ID can not be more than 20 characters"]
+  },
+  "Name": {
+    "type": "String",
+    "maxlength": [50, "Name can not be more than 50 characters"]
+  },
+  "Email": {
+    "type": "String",
+    "required": [true, "Please add Mandatory field :Email"],
+    "maxlength": [200, "Email can not be more than 200 characters"],
+    "match": ["EMAIL_V1", "Invalid Email for field :Email"]
+  },
+  "ContactNo": {
+    "type": "String",
+    "required": [true, "Please add Mandatory field :ContactNo"],
+    "maxlength": [20, "ContactNo can not be more than 20 characters"],
+    "match": [
+      "UK_PHONE_V1",
+      "Please provide valid UK Phone number in field :ContactNo"
+    ]
+  },
+  "EmployeeID": {
+    "type": "String",
+    "maxlength": [20, "EmployeeID can not be more than 20 characters"]
+  },
+  "From": {
+    "type": "String",
+    "maxlength": [50, "From can not be more than 50 characters"]
+  },
+  "To": {
+    "type": "String",
+    "maxlength": [50, "To can not be more than 50 characters"]
+  },
+  "ReturnJourney": {
+    "type": "String",
+    "maxlength": [3, "ReturnJourney can not be more than 3 characters"]
+  },
+  "Currency": {
+    "type": "String",
+    "maxlength": [3, "Currency can not be more than 3 characters"]
+  },
+  "CostCentre": {
+    "type": "String",
+    "maxlength": [20, "CostCentre can not be more than 20 characters"]
+  },
+  "Status": {
+    "type": "String",
+    "required": [true, "Please add Mandatory field :Status"],
+    "maxlength": [50, "Status can not be more than 50 characters"]
+  },
+  "Partner": {
+    "type": "String",
+    "required": [true, "Please add Mandatory field :Partner"],
+    "maxlength": [200, "Partner can not be more than 200 characters"]
+  },
+  "Class": {
+    "type": "String",
+    "maxlength": [50, "Class can not be more than 50 characters"]
+  },
+  "Airline": {
+    "type": "String",
+    "maxlength": [50, "Airline can not be more than 50 characters"]
+  },
+  "FlightNo": {
+    "type": "String",
+    "maxlength": [10, "FlightNo can not be more than 10 characters"]
+  },
+  "DietaryRequirement": {
+    "type": "String",
+    "maxlength": [20, "DietaryRequirement can not be more than 20 characters"]
+  },
+  "AirFare": {
+    "type": "Number",
+    "maxlength": [10, "AirFare can not be more than 10 characters"],
+    "match": [
+      "NUM_2_DEC_PLACE_V1",
+      "Please provide value with 2 decimal places in the field :AirFare"
+    ]
+  },
+  "TrainFare": {
+    "type": "Number",
+    "maxlength": [10, "TrainFare can not be more than 10 characters"],
+    "match": [
+      "NUM_2_DEC_PLACE_V1",
+      "Please provide value with 2 decimal places in the field :TrainFare"
+    ]
+  },
+  "TaxiFare": {
+    "type": "Number",
+    "maxlength": [10, "TaxiFare can not be more than 10 characters"],
+    "match": [
+      "NUM_2_DEC_PLACE_V1",
+      "Please provide value with 2 decimal places in the field :TaxiFare"
+    ]
+  },
+  "StartDate": {
+    "type": "Date",
+    "required": [true, "Please add Mandatory field :StartDate"],
+    "maxlength": [10, "StartDate can not be more than 10 characters"],
+    "match": [
+      "DATE_V1",
+      "Please provide date in YYYY-MM-DD format for field :StartDate"
+    ]
+  },
+  "StartTime": {
+    "type": "Date",
+    "maxlength": [10, "StartTime can not be more than 10 characters"]
+  },
+  "ReturnDate": {
+    "type": "Date",
+    "maxlength": [10, "ReturnDate can not be more than 10 characters"],
+    "match": [
+      "DATE_V1",
+      "Please provide date in YYYY-MM-DD format for field :ReturnDate"
+    ]
+  },
+  "ReturnTime": {
+    "type": "Date",
+    "maxlength": [10, "ReturnTime can not be more than 10 characters"],
+    "match": [
+      "DATE_V1",
+      "Please provide date in YYYY-MM-DD format for field :ReturnTime"
+    ]
+  },
+  "FlightDuration": {
+    "type": "Number",
+    "maxlength": [10, "FlightDuration can not be more than 10 characters"],
+    "match": [
+      "NUM_INT_MAX_10D_V1",
+      "Please provide an Integer value for field :FlightDuration"
+    ]
+  },
+  "ReferenceID": {
+    "type": "String",
+    "maxlength": [50, "ReferenceID can not be more than 50"]
+  },
+  "USP_Name": { "type": "String" },
+  "USP_Role": { "type": "String" },
+  "USP_Image": { "type": "String" },
+  "StatusState": { "type": "String" },
+  "carouselImage": [],
+  "MultiAttachments": {},
+  "TransLog": [],
+  "ProgressComment": [],
+  "SearchString": {
+    "type": "String",
+    "maxlength": [500, "ContactName can not be more than 500 characters"]
+  },
+
+  "ItemData": [],
+  "buttons": {},
+  "sValidation": "",
+  "cardImage": ""
+}

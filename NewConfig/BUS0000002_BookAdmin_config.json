@@ -1,14 +1,14 @@
 {
   "Title": {
-    "ApplicationTitle": "Flight Booking",
-    "DetailTitle": "Flight Booking"
+    "ApplicationTitle": "Travel Booking",
+    "DetailTitle": "Travel Booking"
   },
   "Controls": {
     "calculation": "No",
     "USP": "UserProfile",
     "StatusColor": "Yes",
     "SearchString": { "Search": false },
-    "Filters": [],
+    "Filters": [{ "Partner": "@user" }],
     "Partner": "@user",
     "UserSpecific": "Yes",
     "Update": "Yes",
@@ -35,7 +35,7 @@
     "SubTitle": ["From", "To"],
     "Description": ["ID", "EmployeeID", "Email", "Status"]
   },
-  "PossibleValues": ["Status", "ReturnJourney"],
+  "PossibleValues": ["Status", "ReturnJourney", "CostCentre", "Currency"],
   "MButtons": [
     {
       "type": "DOWNLOAD",

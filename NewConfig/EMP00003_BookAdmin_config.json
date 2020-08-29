@@ -167,7 +167,44 @@
     "Tab4": ["Attachment"],
     "Tab5": ["ScreenShot"]
   },
-  "ControlDisplay": {},
+  "ControlDisplay": {
+    "ControlField": "TravelMode",
+    "Fields": [
+      [
+        {
+          "ALL": [
+            "ID",
+            "Name",
+            "EmployeeID",
+            "Email",
+            "ContactNo",
+            "CostCentre",
+            "Status",
+            "From",
+            "To",
+            "StartDate",
+            "StartTime",
+            "ReturnJourney",
+            "ReturnDate",
+            "ReturnTime",
+            "Currency"
+          ]
+        },
+        {
+          "Air": [
+            "AirFare",
+            "DietaryRequirement",
+            "FlightNo",
+            "FlightDuration",
+            "Airline",
+            "Class"
+          ]
+        },
+        { "Train/Bus": ["TrainFare"] },
+        { "Taxi": ["TaxiFare"] }
+      ]
+    ]
+  },
   "FieldDef": [
     {
       "name": "ID",
