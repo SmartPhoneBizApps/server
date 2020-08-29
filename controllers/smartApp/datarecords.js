@@ -319,6 +319,7 @@ exports.addDataRecords = asyncHandler(async (req, res, next) => {
   console.log("CREATE - Validation starts..");
   var mydata1 = mydata;
   for (const obj in mydata1) {
+    var Handler = new calfunction();
     var type = Handler["fieldType"](obj, cardConfig["FieldDef"]);
     if (type == "Array") {
       for (var ii = 0; ii < mydata[obj].length; ii++) {
@@ -701,6 +702,57 @@ exports.updateDataRecords = asyncHandler(async (req, res, next) => {
 
     req.body = outdata;
   }
+  console.log("CREATE - Validation starts..");
+  var mydata1 = mydata;
+  for (const obj in mydata1) {
+    var Handler = new calfunction();
+    var type = Handler["fieldType"](obj, cardConfig["FieldDef"]);
+    if (type == "Array") {
+      for (var ii = 0; ii < mydata[obj].length; ii++) {
+        var passArray = {};
+        //added by atul - Start
+        if (cardConfig["tableConfig"][obj].hasOwnProperty("Validations")) {
+          passArray["fieldName"] = obj;
+          passArray["data"] = mydata;
+          passArray["config"] = cardConfig["tableConfig"][obj]["Validations"];
+          passArray["FieldDef"] = cardConfig["FieldDef"].concat(
+            cardConfig["tableConfig"][obj]["ItemFieldDefinition"]
+          );
+          passArray["itemCnt"] = ii;
+          var sValidation = Handler["validation"](passArray);
+          mydata = sValidation["data"];
+          if (sValidation["status"] == false) {
+            res.status(400).json({
+              message: sValidation["message"],
+              success: false,
+              fieldValue: sValidation["fieldValue"],
+            });
+            return false;
+          }
+        }
+        //added by atul - End
+      }
+    } else {
+      var passArray = {};
+      passArray["fieldName"] = obj;
+      passArray["data"] = mydata;
+      passArray["config"] = cardConfig["Validations"];
+      passArray["FieldDef"] = cardConfig["FieldDef"];
+      passArray["itemCnt"] = "";
+      var sValidation = Handler["validation"](passArray);
+
+      mydata = sValidation["data"];
+      if (sValidation["status"] == false) {
+        res.status(400).json({
+          message: sValidation["message"],
+          success: false,
+          fieldValue: mydata[obj],
+        });
+      }
+    }
+  }
+  console.log("CREATE - Validation ends..");
+
   itm = checkItemData(req.headers.applicationid, req.headers.businessrole);
   if (req.body.ReferenceID == undefined || req.body.ReferenceID == "") {
     req.body.ReferenceID = req.body.ID;
