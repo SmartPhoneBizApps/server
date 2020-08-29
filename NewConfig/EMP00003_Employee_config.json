@@ -14,16 +14,16 @@
     "Update": "Yes",
     "URL": "https://fierce-oasis-51455.herokuapp.com",
     "Source": { "SourceName": "mongoDB", "SourceFile": "NA" },
-    "dataFilter": [{ "field": "Status" }],
+    "dataFilter": [{ "field": "Status" }, { "field": "BookingMode" }],
     "filterFieldSource": {
-      "header": ["Status"]
+      "header": ["Status", "BookingMode"]
     }
   },
 
   "ListFields": {
     "IntroField": "From",
     "TitleField": "To",
-    "sStatus": "CostCentre",
+    "sStatus": "BookingMode",
     "fStatus": "Status",
     "numberField": "AirFare",
     "LFields": ["ID", "Name", "EmployeeID", "Email"],
@@ -31,11 +31,17 @@
   },
   "ListBOTFields": {
     "None": ["cardImage", "StatusState"],
-    "Title": ["Name"],
+    "Title": ["Name", "BookingMode"],
     "SubTitle": ["From", "To"],
     "Description": ["ID", "EmployeeID", "Email", "Status"]
   },
-  "PossibleValues": ["Status", "ReturnJourney", "CostCentre", "Currency"],
+  "PossibleValues": [
+    "Status",
+    "ReturnJourney",
+    "CostCentre",
+    "Currency",
+    "BookingMode"
+  ],
   "MButtons": [
     {
       "type": "DOWNLOAD",
@@ -135,7 +141,7 @@
     "headerRole": ["USP_Role"],
     "headerImage": ["USP_Image"],
     "headerColorFields": ["Status"],
-    "None": ["ID"],
+    "None": ["ID", "BookingMode"],
     "Tab1": [
       "Name",
       "EmployeeID",
@@ -168,7 +174,7 @@
     "Tab5": ["ScreenShot"]
   },
   "ControlDisplay": {
-    "ControlField": "TravelMode",
+    "ControlField": "BookingMode",
     "Fields": [
       [
         {
@@ -187,7 +193,9 @@
             "ReturnJourney",
             "ReturnDate",
             "ReturnTime",
-            "Currency"
+            "Currency",
+            "BookingMode",
+            "EntryDate"
           ]
         },
         {
@@ -277,6 +285,13 @@
       "width": "10",
       "Option": "Optional",
       "SLabel": "Start Date"
+    },
+    {
+      "name": "EntryDate",
+      "type": "Date",
+      "width": "10",
+      "Option": "Optional",
+      "SLabel": "Entry Date"
     },
     {
       "name": "StartTime",
@@ -416,6 +431,14 @@
       "width": "100",
       "Option": "Optional",
       "SLabel": "Attachment"
+    },
+    {
+      "name": "BookingMode",
+      "type": "string",
+      "width": "100",
+      "Option": "Mandatory",
+      "SLabel": "Travel Mode",
+      "LLabel": "Travel Mode"
     }
   ],
   "itemData": "No",
@@ -437,6 +460,7 @@
     {
       "id": "Step1",
       "fields": [
+        { "name": "BookingMode", "Mode": "Display" },
         { "name": "From", "Mode": "Edit" },
         { "name": "To", "Mode": "Edit" },
         { "name": "StartDate", "Mode": "Edit" },

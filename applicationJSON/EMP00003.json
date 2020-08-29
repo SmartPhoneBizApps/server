@@ -98,6 +98,15 @@
       "Please provide value with 2 decimal places in the field :TaxiFare"
     ]
   },
+  "EntryDate": {
+    "type": "Date",
+    "required": [true, "Please add Mandatory field :EntryDate"],
+    "maxlength": [10, "EntryDate can not be more than 10 characters"],
+    "match": [
+      "DATE_V1",
+      "Please provide date in YYYY-MM-DD format for field :EntryDate"
+    ]
+  },
   "StartDate": {
     "type": "Date",
     "required": [true, "Please add Mandatory field :StartDate"],
@@ -108,7 +117,7 @@
     ]
   },
   "StartTime": {
-    "type": "Date",
+    "type": "String",
     "maxlength": [10, "StartTime can not be more than 10 characters"]
   },
   "ReturnDate": {
@@ -120,12 +129,8 @@
     ]
   },
   "ReturnTime": {
-    "type": "Date",
-    "maxlength": [10, "ReturnTime can not be more than 10 characters"],
-    "match": [
-      "DATE_V1",
-      "Please provide date in YYYY-MM-DD format for field :ReturnTime"
-    ]
+    "type": "String",
+    "maxlength": [10, "ReturnTime can not be more than 10 characters"]
   },
   "FlightDuration": {
     "type": "Number",
