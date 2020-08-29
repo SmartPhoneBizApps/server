@@ -308,109 +308,115 @@ class calFun {
     returnData["message"] = "";
     returnData["itemCnt"] = "";
     returnData["data"] = data;
-    // console.log(config);
-
-    if (config["Sequence"].hasOwnProperty(arrayData["fieldName"])) {
-      var selectedFieldArray = config["Sequence"][arrayData["fieldName"]];
-
-      // Condition code start
-      if (selectedFieldArray[i].hasOwnProperty("condition")) {
-        var condition = selectedFieldArray[i]["condition"];
-        var fieldObj = [];
-        if (condition["type"] == "Header") {
-          fieldObj.push(data[condition["Source"]]);
-        } else {
-          fieldObj.push(data[fieldName][itemCnt][Source]);
-        }
-        fieldObj.push(condition["value"]);
-        var fun = condition["function"]; // get function name
-        if (!this[fun](fieldObj)) {
-          return returnData;
-        }
-      }
-      // Condition code end
-
-      for (var i = 0; i < selectedFieldArray.length; i++) {
-        var fieldArray = selectedFieldArray[i]["Fields"];
-        var fieldObj = [];
-        for (var j = 0; j < fieldArray.length; j++) {
-          var Source = fieldArray[j]["Source"];
-          var typeField = fieldArray[j]["Type"]["type"];
-
-          var getFieldType = this.fieldType(Source, fieldDef);
-          if (getFieldType) {
-            // Field Type is not null
-            if (getFieldType.toLowerCase() == "date") {
-              if (typeField == "Header") {
-                fieldObj.push(new Date(data[Source]));
+    if (config != undefined) {
+      if (config.hasOwnProperty("Sequence")) {
+        if (config["Sequence"].hasOwnProperty(arrayData["fieldName"])) {
+          var selectedFieldArray = config["Sequence"][arrayData["fieldName"]];
+          // Condition code start - Added by Atul
+          console.log(selectedFieldArray[i]);
+          if (selectedFieldArray[i] != undefined) {
+            if (selectedFieldArray[i].hasOwnProperty("condition")) {
+              var condition = selectedFieldArray[i]["condition"];
+              var fieldObj = [];
+              if (condition["type"] == "Header") {
+                fieldObj.push(data[condition["Source"]]);
               } else {
-                fieldObj.push(new Date(data[fieldName][itemCnt][Source]));
+                fieldObj.push(data[fieldName][itemCnt][Source]);
               }
-            } else {
-              if (typeField == "Header") {
-                fieldObj.push(
-                  data.hasOwnProperty(Source) ? parseFloat(data[Source]) : 0
-                );
-              } else {
-                fieldObj.push(
-                  data[fieldName][itemCnt].hasOwnProperty(Source)
-                    ? parseFloat(data[fieldName][itemCnt][Source])
-                    : 0
-                );
+              fieldObj.push(condition["value"]);
+              var fun = condition["function"]; // get function name
+              if (!this[fun](fieldObj)) {
+                return returnData;
               }
             }
-          } else {
-            // Field Type is  null
-            console.log(
-              "Function return value " +
-                Source +
-                "---" +
-                this.dateFunction(Source)
-            );
-            fieldObj.push(this.dateFunction(Source));
-          }
-        }
-        var fun = selectedFieldArray[i]["function"]; // get function name
-        console.log("fun --" + fun);
-        console.log("fieldObj --" + fieldObj);
-        if (typeof this[fun] !== "undefined") {
-          console.log("Return --" + this[fun](fieldObj));
-          if (!this[fun](fieldObj)) {
-            console.log("IF");
-            returnData["message"] = selectedFieldArray[i]["msg"];
-            returnData["status"] = false;
-            returnData["itemCnt"] = itemCnt;
-            returnData["fieldValue"] = fieldObj[0];
-            returnData["fieldName"];
-            if (selectedFieldArray[i]["type"] == "Header") {
-              data[selectedFieldArray[i]["Target"]] = this[fun](fieldObj);
-            } else {
-              data[fieldName][itemCnt][selectedFieldArray[i]["Target"]] = this[
-                fun
-              ](fieldObj);
-            }
+            // Condition code end
+            for (var i = 0; i < selectedFieldArray.length; i++) {
+              var fieldArray = selectedFieldArray[i]["Fields"];
+              var fieldObj = [];
+              for (var j = 0; j < fieldArray.length; j++) {
+                var Source = fieldArray[j]["Source"];
+                var typeField = fieldArray[j]["Type"]["type"];
 
-            return returnData;
-            return false;
-          } else {
-            returnData["message"] = selectedFieldArray[i]["msg"];
-            returnData["status"] = true;
-            returnData["itemCnt"] = itemCnt;
-            if (selectedFieldArray[i]["type"] == "Header") {
-              data[selectedFieldArray[i]["Target"]] = this[fun](fieldObj);
-            } else {
-              data[fieldName][itemCnt][selectedFieldArray[i]["Target"]] = this[
-                fun
-              ](fieldObj);
+                var getFieldType = this.fieldType(Source, fieldDef);
+                if (getFieldType) {
+                  // Field Type is not null
+                  if (getFieldType.toLowerCase() == "date") {
+                    if (typeField == "Header") {
+                      fieldObj.push(new Date(data[Source]));
+                    } else {
+                      fieldObj.push(new Date(data[fieldName][itemCnt][Source]));
+                    }
+                  } else {
+                    if (typeField == "Header") {
+                      fieldObj.push(
+                        data.hasOwnProperty(Source)
+                          ? parseFloat(data[Source])
+                          : 0
+                      );
+                    } else {
+                      fieldObj.push(
+                        data[fieldName][itemCnt].hasOwnProperty(Source)
+                          ? parseFloat(data[fieldName][itemCnt][Source])
+                          : 0
+                      );
+                    }
+                  }
+                } else {
+                  // Field Type is  null
+                  console.log(
+                    "Function return value " +
+                      Source +
+                      "---" +
+                      this.dateFunction(Source)
+                  );
+                  fieldObj.push(this.dateFunction(Source));
+                }
+              }
+              var fun = selectedFieldArray[i]["function"]; // get function name
+              console.log("fun --" + fun);
+              console.log("fieldObj --" + fieldObj);
+              if (typeof this[fun] !== "undefined") {
+                console.log("Return --" + this[fun](fieldObj));
+                if (!this[fun](fieldObj)) {
+                  console.log("IF");
+                  returnData["message"] = selectedFieldArray[i]["msg"];
+                  returnData["status"] = false;
+                  returnData["itemCnt"] = itemCnt;
+                  returnData["fieldValue"] = fieldObj[0];
+                  returnData["fieldName"];
+                  if (selectedFieldArray[i]["type"] == "Header") {
+                    data[selectedFieldArray[i]["Target"]] = this[fun](fieldObj);
+                  } else {
+                    data[fieldName][itemCnt][
+                      selectedFieldArray[i]["Target"]
+                    ] = this[fun](fieldObj);
+                  }
+
+                  return returnData;
+                  return false;
+                } else {
+                  returnData["message"] = selectedFieldArray[i]["msg"];
+                  returnData["status"] = true;
+                  returnData["itemCnt"] = itemCnt;
+                  if (selectedFieldArray[i]["type"] == "Header") {
+                    data[selectedFieldArray[i]["Target"]] = this[fun](fieldObj);
+                  } else {
+                    data[fieldName][itemCnt][
+                      selectedFieldArray[i]["Target"]
+                    ] = this[fun](fieldObj);
+                  }
+                }
+              } else {
+                if (selectedFieldArray[i]["type"] == "Header") {
+                  data[selectedFieldArray[i]["Target"]] = "";
+                  returnData["itemCnt"] = itemCnt;
+                } else {
+                  data[fieldName][itemCnt][selectedFieldArray[i]["Target"]] =
+                    "";
+                  returnData["itemCnt"] = itemCnt;
+                }
+              }
             }
-          }
-        } else {
-          if (selectedFieldArray[i]["type"] == "Header") {
-            data[selectedFieldArray[i]["Target"]] = "";
-            returnData["itemCnt"] = itemCnt;
-          } else {
-            data[fieldName][itemCnt][selectedFieldArray[i]["Target"]] = "";
-            returnData["itemCnt"] = itemCnt;
           }
         }
       }
@@ -656,47 +662,51 @@ class calFun {
     return outdata;
   }
   headercalculation(outdata, config, fieldDef) {
-    if (config["Header"].length > 0) {
-      // Check Header calculation is exist or not
-      config["Header"].forEach((configItem) => {
-        if (this.hasNull(configItem["CalculatedFormula"], 4)) {
-          // loop config header
-          var fieldObj = [];
-          if (configItem["Fields"].length > 0) {
-            configItem["Fields"].forEach((field) => {
-              console.log(configItem["Fields"], outdata[field["Source"]]);
-              if (this.hasNull(field, 2)) {
-                //   fieldObj.push(parseFloat(outdata[field["Source"]])); // get calculated field value
-                var getFieldType = this.fieldType(field["Source"], fieldDef); // get field type
-                if (getFieldType.toLowerCase() == "date") {
-                  // get working day in between 2 dates
-                  fieldObj.push(new Date(outdata[field["Source"]])); // get calculated field value
+    console.log(config);
+    if (config.hasOwnProperty("Header")) {
+      if (config["Header"].length > 0) {
+        // Check Header calculation is exist or not
+        config["Header"].forEach((configItem) => {
+          if (this.hasNull(configItem["CalculatedFormula"], 4)) {
+            // loop config header
+            var fieldObj = [];
+            if (configItem["Fields"].length > 0) {
+              configItem["Fields"].forEach((field) => {
+                console.log(configItem["Fields"], outdata[field["Source"]]);
+                if (this.hasNull(field, 2)) {
+                  //   fieldObj.push(parseFloat(outdata[field["Source"]])); // get calculated field value
+                  var getFieldType = this.fieldType(field["Source"], fieldDef); // get field type
+                  if (getFieldType.toLowerCase() == "date") {
+                    // get working day in between 2 dates
+                    fieldObj.push(new Date(outdata[field["Source"]])); // get calculated field value
+                  } else {
+                    //         fieldObj.push(parseFloat(outdata[field["Source"]])); // get calculated field value
+                    fieldObj.push(
+                      outdata.hasOwnProperty(field["Source"])
+                        ? parseFloat(outdata[field["Source"]])
+                        : 0
+                    ); // get calculated field value
+                  }
                 } else {
-                  //         fieldObj.push(parseFloat(outdata[field["Source"]])); // get calculated field value
-                  fieldObj.push(
-                    outdata.hasOwnProperty(field["Source"])
-                      ? parseFloat(outdata[field["Source"]])
-                      : 0
-                  ); // get calculated field value
+                  fieldObj.push(""); // get calculated field value
                 }
-              } else {
-                fieldObj.push(""); // get calculated field value
-              }
-            });
-          } else {
-            fieldObj.push("");
+              });
+            } else {
+              fieldObj.push("");
+            }
+            var fun = configItem["CalculatedFormula"]["function"]; // get function name
+            if (typeof this[fun] !== "undefined") {
+              outdata[configItem["CalculatedFormula"]["Target"]] = this[fun](
+                fieldObj
+              ); // call function and assign value in header array
+            } else {
+              outdata[configItem["CalculatedFormula"]["Target"]] = "";
+            }
           }
-          var fun = configItem["CalculatedFormula"]["function"]; // get function name
-          if (typeof this[fun] !== "undefined") {
-            outdata[configItem["CalculatedFormula"]["Target"]] = this[fun](
-              fieldObj
-            ); // call function and assign value in header array
-          } else {
-            outdata[configItem["CalculatedFormula"]["Target"]] = "";
-          }
-        }
-      });
+        });
+      }
     }
+
     return outdata;
   }
 }

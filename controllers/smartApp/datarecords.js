@@ -4,13 +4,11 @@ const Company = require("../../models/orgSetup/Company");
 const Branch = require("../../models/orgSetup/Branch");
 const Area = require("../../models/orgSetup/Area");
 const App = require("../../models/appSetup/App");
-const Role = require("../../models/appSetup/Role");
 const { sendErrorMessage, notifiyMessanger } = require("../../modules/config2");
 const {
   getNewConfig,
   createDocument,
   getApplication,
-  getRole,
   itemValidate,
   findAndUpdateItem,
   findOneUpdateData,
@@ -18,28 +16,22 @@ const {
   collectExceptionFields,
   handleArray,
   checkItemData,
-  getInitialValues,
   tableFields,
   tableValidate,
   processingLog,
   generateID,
 } = require("../../modules/config");
+const { checkMultiAttachments } = require("../../modules/moduleValidate");
 const calfunction = require("../../models/utilities/calfunction.js");
 
 // @desc      Add record
 // @route     POST /api/v1/datarecords/
 // @access    Private
 exports.addDataRecords = asyncHandler(async (req, res, next) => {
-  if (!req.body.MultiAttachments) {
-    req.body.MultiAttachments = { items: [] };
-  }
+  // Check MultiAttachments Tag
+  req.body.MultiAttachments = checkMultiAttachments(req.body.MultiAttachments);
   //Get Company
   const BodyApp = await getApplication(req.headers.applicationid);
-  // Read New Config File
-  var cardConfig = getNewConfig(
-    req.headers.applicationid,
-    req.headers.businessrole
-  );
   // ---------------------
   // App ID and Validate
   // ---------------------
@@ -51,8 +43,18 @@ exports.addDataRecords = asyncHandler(async (req, res, next) => {
   req.body.user = req.user.id;
   req.body.userName = req.user.name;
   req.body.userEmail = req.user.email;
-  if (cardConfig.Controls.Partner == "@user") {
-    req.body.Partner = req.user.email;
+
+  // Read New Config File
+  var cardConfig = getNewConfig(
+    req.headers.applicationid,
+    req.headers.businessrole
+  );
+
+  // Set Partner field
+  if (cardConfig.Controls.hasOwnProperty("Partner")) {
+    if (cardConfig.Controls.Partner == "@user") {
+      req.body.Partner = req.user.email;
+    }
   }
   // ---------------------------------
   // Get Company Details and Validate
@@ -251,7 +253,6 @@ exports.addDataRecords = asyncHandler(async (req, res, next) => {
       }
     }
   }
-
   /////--------------------------------------------------
   /// Calculate ID
   req.body = generateID(req.headers.buttonname, req.body, cardConfig.MButtons);
@@ -271,25 +272,23 @@ exports.addDataRecords = asyncHandler(async (req, res, next) => {
     req.headers.buttonname,
     req.body.ProgressComment
   );
-
   //---------------------------
   // Perform Calculations ....
   //---------------------------
-
   // Update Table fields
   let tblFields = tableFields(cardConfig.FieldDef);
   if (tblFields.length > 0) {
     for (let l = 0; l < tblFields.length; l++) {
       if (req.headers.calculation == "Yes") {
         var Handler = new calfunction();
-        console.log("CREATE - Calculation for Tables Started..");
+        console.log("CREATE - Table calculation starts..");
         outdata = Handler["tablecalculation"](
           req.body,
           cardConfig["CalculatedFields"],
           tblFields[l],
           cardConfig["FieldDef"]
         );
-        console.log("Calculation for Tables Done..");
+        console.log("CREATE - Table calculation completed..");
         req.body = outdata;
         //  req.body = outdata;
       }
@@ -298,7 +297,7 @@ exports.addDataRecords = asyncHandler(async (req, res, next) => {
     if (req.headers.calculation == "Yes") {
       var Handler = new calfunction();
       // mydata = Handler["datacalculation"](mydata, cardConfig["CalculatedFields"]);
-      console.log("Calculation Starts...(Header)");
+
       if (cardConfig["itemData"] == "Yes") {
         mydata = Handler["tablecalculation"](
           mydata,
@@ -307,15 +306,17 @@ exports.addDataRecords = asyncHandler(async (req, res, next) => {
           cardConfig["FieldDef"]
         );
       } else {
+        console.log("CREATE - Header calculation starts..");
         mydata = Handler["headercalculation"](
           mydata,
           cardConfig["CalculatedFields"],
           cardConfig["FieldDef"]
         );
+        console.log("CREATE - Header calculation completed..");
       }
     }
   }
-  console.log("Validation Starts..");
+  console.log("CREATE - Validation starts..");
   var mydata1 = mydata;
   for (const obj in mydata1) {
     var type = Handler["fieldType"](obj, cardConfig["FieldDef"]);
@@ -363,7 +364,7 @@ exports.addDataRecords = asyncHandler(async (req, res, next) => {
       }
     }
   }
-  console.log("Validation Done..");
+  console.log("CREATE - Validation ends..");
   // Create data in mongo DB ...
   let result = {};
   result = await createDocument(req.headers.applicationid, mydata);
@@ -383,6 +384,7 @@ exports.addDataRecords = asyncHandler(async (req, res, next) => {
     req.user.email;
   Notification = req.headers.notification;
   if (Notification == "Messenger") {
+    console.log("CREATE - Messenger Notification..");
     sendNotification = notifiyMessanger(
       req.user.email,
       req.headers.businessrole,
@@ -635,20 +637,15 @@ exports.updateDataRecords = asyncHandler(async (req, res, next) => {
   }
   for (let l = 0; l < tblFields.length; l++) {
     if (req.headers.calculation == "Yes") {
+      console.log("UPDATE - Table Calculation Starts..", tblFields[l]);
       var Handler = new calfunction();
-      console.log(
-        "UPDATE - Calculation Starts.. : ",
-        l,
-        "Table : ",
-        tblFields[l]
-      );
       outdata = Handler["tablecalculation"](
         myData,
         cardConfig["CalculatedFields"],
         tblFields[l],
         cardConfig["FieldDef"]
       );
-      console.log("Calculation for Tables Done..");
+      console.log("UPDATE - Table Calculation Ends..", tblFields[l]);
       req.body = outdata;
       myData = outdata;
     }
@@ -684,7 +681,7 @@ exports.updateDataRecords = asyncHandler(async (req, res, next) => {
   //---------------------------
   if (req.headers.calculation == "Yes") {
     var Handler = new calfunction();
-    console.log("Calculation Started..");
+
     if (cardConfig["itemData"] == "Yes") {
       outdata = Handler["tablecalculation"](
         req.body,
@@ -693,13 +690,15 @@ exports.updateDataRecords = asyncHandler(async (req, res, next) => {
         cardConfig["FieldDef"]
       );
     } else {
+      console.log("UPDATE - Header Calculation Starts..");
       outdata = Handler["headercalculation"](
         req.body,
         cardConfig["CalculatedFields"],
         cardConfig["FieldDef"]
       );
+      console.log("UPDATE - Header Calculation Ends..");
     }
-    console.log("Calculation Done..");
+
     req.body = outdata;
   }
   itm = checkItemData(req.headers.applicationid, req.headers.businessrole);
@@ -725,6 +724,7 @@ exports.updateDataRecords = asyncHandler(async (req, res, next) => {
     req.user.email;
   Notification = req.headers.notification;
   if (Notification == "Messenger") {
+    console.log("UPDATE - Messenger Notification..");
     sendNotification = notifiyMessanger(
       req.user.email,
       req.headers.businessrole,
@@ -733,7 +733,6 @@ exports.updateDataRecords = asyncHandler(async (req, res, next) => {
       "facebook"
     );
   }
-
   res.status(200).json({
     message: "Record updated",
     success: true,
