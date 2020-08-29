@@ -4,6 +4,7 @@ const {
   getNewConfig,
   findOneAppData,
   createDocument,
+  createDocumentAPI,
   getNewCopyRecord,
   getDateValues,
   getInitialValues,
@@ -18,6 +19,12 @@ const sendEmail = require("../../utils/sendEmail");
 // @access    Private (Application Users)
 exports.assignCourseUser = asyncHandler(async (req, res, next) => {
   console.log("Function - utilities/assignCourseUser");
+  console.log("From App", req.params.fromApp);
+  console.log("To App", req.params.toApp);
+  console.log("From Role", req.params.sourceRole);
+  console.log("To Role", req.params.targetRole);
+  console.log("User Email", req.params.user);
+
   // Read Config File
   configData = getNewConfig(req.params.toApp, req.params.targetRole);
   configFrom = getNewConfig(req.params.fromApp, req.params.sourceRole);
@@ -26,7 +33,7 @@ exports.assignCourseUser = asyncHandler(async (req, res, next) => {
   if (!userX) {
     res.status(400).json({
       success: true,
-      message: "EmailID is not setup as user, course can't be assigned",
+      message: "EmailID is not setup as user, document can't be assigned",
     });
   }
   appX = await App.findOne({ applicationID: req.params.fromApp });
@@ -36,11 +43,30 @@ exports.assignCourseUser = asyncHandler(async (req, res, next) => {
       message: "1st applicationID is incorrect",
     });
   }
-
   out1 = {};
   Appdata = {};
   let results1 = [];
 
+  if (configFrom["Controls"]["Source"]["SourceName"] == "mongoDB") {
+    if (configFrom["Controls"]["Source"]["documentKey"] == "ReferenceID") {
+      Appdata = await findOneAppDataRefID(req.params.ID, req.params.fromApp);
+    } else {
+      Appdata = await findOneAppData(req.params.ID, req.params.fromApp);
+    }
+    // Assign mapping values...
+    for (let x = 0; x < Appdata.length; x++) {
+      if (Appdata[x]["id"] == req.params.ID) {
+        x1 = configFrom["Controls"]["Source"]["FieldMapping"];
+        for (let y = 0; y < x1.length; y++) {
+          const e2 = x1[y];
+          for (const k3 in e2) {
+            Appdata[k3] = Appdata[x][e2[k3]];
+            console.log("Appdata[k3]", Appdata[k3]);
+          }
+        }
+      }
+    }
+  }
   if (configFrom["Controls"]["Source"]["SourceName"] == "jsonData") {
     let fn = "../.." + configFrom["Controls"]["Source"]["SourceFile"];
     results1 = require(fn);
@@ -65,28 +91,6 @@ exports.assignCourseUser = asyncHandler(async (req, res, next) => {
     }
   }
 
-  if (configFrom["Controls"]["Source"]["SourceName"] == "mongoDB") {
-    if (req.params.fromApp == "TRAIN008") {
-      Appdata = await findOneAppDataRefID(req.params.ID, req.params.fromApp);
-    } else {
-      Appdata = await findOneAppData(req.params.ID, req.params.fromApp);
-    }
-
-    // Assign mapping values...
-    for (let x = 0; x < Appdata.length; x++) {
-      if (Appdata[x]["id"] == req.params.ID) {
-        x1 = configFrom["Controls"]["Source"]["FieldMapping"];
-        for (let y = 0; y < x1.length; y++) {
-          const e2 = x1[y];
-          for (const k3 in e2) {
-            Appdata[k3] = Appdata[x][e2[k3]];
-            console.log("Appdata[k3]", Appdata[k3]);
-          }
-        }
-      }
-    }
-  }
-
   // Assign Fixed values...
   x2 = configFrom["Controls"]["Source"]["FixedValues"];
   for (let y = 0; y < x2.length; y++) {
@@ -105,7 +109,15 @@ exports.assignCourseUser = asyncHandler(async (req, res, next) => {
   }
 
   out1 = getNewCopyRecord(configData, Appdata, req.params.ID, userX, appX.id);
-  result = await createDocument(req.params.toApp, out1);
+  //result = await createDocument(req.params.toApp, out1);
+  result = await createDocumentAPI(
+    req.params.toApp,
+    req.params.targetRole,
+    "Yes",
+    "Messenger",
+    out1
+  );
+
   let message = "";
   message =
     "Hi " +

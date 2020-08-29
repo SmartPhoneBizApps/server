@@ -1097,7 +1097,35 @@ module.exports = {
     result = Model.create(mydata);
     return result;
   },
-
+  createDocumentAPI: function (app, role, calculation, notify, mydata) {
+    //   let path = "../models/smartApp/" + app;
+    //  const Model = require(path);
+    //  result = Model.create(mydata);
+    var request = require("request");
+    console.log("Posting Data", app, role, calculation);
+    var options = {
+      method: "POST",
+      //   url: "https://fierce-oasis-51455.herokuapp.com/api/v1/datarecords/",
+      url: "http://localhost:5000/api/v1/datarecords/",
+      headers: {
+        applicationid: app,
+        businessRole: role,
+        buttonName: "Create with Reference",
+        buttonType: "ADD",
+        calculation: calculation,
+        "Content-Type": "application/json",
+        notification: notify,
+        Authorization:
+          "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVlYmJmMmYzMThiOTczMzY3ZWZkMjNkNiIsImlhdCI6MTU5ODYyMTczOSwiZXhwIjoxNjAxMjEzNzM5fQ.OF2KMRN3pnAeTb51f4yrjaSRw6Iz0Q0ZGaZE8u3g9To",
+      },
+      body: JSON.stringify(mydata),
+    };
+    request(options, function (error, response) {
+      if (error) throw new Error(error);
+      console.log(response.body);
+    });
+    return mydata;
+  },
   gerCardData: function (app, q1) {
     let path = "../models/smartApp/" + app;
     const Model = require(path);

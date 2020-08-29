@@ -53,12 +53,13 @@ class calFun {
     var a = 0;
     var b = 0;
     arr.forEach((aa) => {
+      console.log("AA", aa);
       if (aa != undefined && !isNaN(aa) && aa != "") {
         b = 1;
         a += aa;
       }
     });
-    console.log("A1", b);
+    console.log("A1", b, a);
     if (b) {
       a = this.isInt(a);
       return a;
@@ -546,11 +547,6 @@ class calFun {
                   var fieldObj = [];
                   configItem["Fields"].forEach((field) => {
                     if (this.hasNull(field, 2)) {
-                      /*                   console.log(
-                                      field["Source"] +
-                                      "--" +
-                                      outdata[tabname][i][field["Source"]]
-                                      ); */
                       fieldObj.push(
                         parseFloat(outdata[tabname][i][field["Source"]])
                       ); // get calculated field value in item array
@@ -559,10 +555,7 @@ class calFun {
                     }
                   });
                   var fun = configItem["CalculatedFormula"]["function"]; // get function name
-                  //   console.log("Function name -->" + fun);
                   if (typeof this[fun] !== "undefined") {
-                    //     console.log("Calue --" + this[fun](fieldObj));
-                    //    console.log("---------------");
                     outdata[tabname][i][
                       configItem["CalculatedFormula"]["Target"]
                     ] = this[fun](fieldObj); // call function and assign value in item array
@@ -588,10 +581,6 @@ class calFun {
                 var fieldObj = [];
                 for (var i = 0; i < outdata[tabname].length; i++) {
                   if (this.hasNull(configItem["Fields"][0], 2)) {
-                    console.log(
-                      outdata[tabname][i][configItem["Fields"][0]["Source"]],
-                      configItem["Fields"][0]["Source"]
-                    );
                     fieldObj.push(
                       parseFloat(
                         outdata[tabname][i][configItem["Fields"][0]["Source"]]
@@ -602,8 +591,6 @@ class calFun {
                   }
                 }
                 var fun = configItem["CalculatedFormula"]["function"]; // get function name
-                console.log(this[fun](fieldObj));
-                console.log(configItem["CalculatedFormula"]["Target"]);
                 if (typeof this[fun] !== "undefined") {
                   outdata[configItem["CalculatedFormula"]["Target"]] = this[
                     fun
@@ -611,7 +598,6 @@ class calFun {
                 } else {
                   outdata[configItem["CalculatedFormula"]["Target"]] = "";
                 }
-                console.log(outdata);
               }
             }
             // Atul

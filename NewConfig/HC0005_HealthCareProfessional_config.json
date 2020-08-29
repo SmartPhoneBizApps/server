@@ -35,7 +35,13 @@
     "SubTitle": ["ContractName", "ContractStartDate"],
     "Description": ["ContractType", "InvoiceValue"]
   },
-  "PossibleValues": ["ContractType", "Status", "ItemStatus1", "ServiceType"],
+  "PossibleValues": [
+    "ContractType",
+    "Status",
+    "ItemStatus1",
+    "ServiceType",
+    "InvoiceType"
+  ],
   "MButtons": [
     {
       "type": "DOWNLOAD",
@@ -56,7 +62,8 @@
         "BalanceValue",
         "PharmaContact",
         "PharmaContactEmail",
-        "Status"
+        "Status",
+        "InvoiceType"
       ]
     },
     {
@@ -89,18 +96,7 @@
       }
     }
   ],
-  "DButtons": [
-    {
-      "type": "SELFASSIGN",
-      "name": "Submit Invoice",
-      "icon": "sap-icon://share-2",
-      "Dialog": "{label:'User',name:'user',type:'Email'}",
-      "DialogSearch": "{URL}/api/v1/samrtApp/findUser/{user}",
-      "URL": "util/assignCourseUser/HealthCareProfessional/HealthCareProfessional/HC0004/HC0005/{ReferenceID}/{user}",
-      "Token": "Yes",
-      "URLMethod": "POST"
-    }
-  ],
+  "DButtons": [],
   "Tabs": [
     {
       "value": "Tab0",
@@ -150,7 +146,7 @@
     "headerRole": ["USP_Role"],
     "headerImage": ["USP_Image"],
     "headerColorFields": ["Status"],
-    "None": ["ID", "HCPEmail", "VendorName"],
+    "None": ["ID", "HCPEmail", "VendorName", "InvoiceType"],
     "Tab1": [
       "ContractID",
       "ContractName",
@@ -314,6 +310,13 @@
       "width": "50",
       "Option": "Mandatory",
       "SLabel": "Contract Type"
+    },
+    {
+      "name": "InvoiceType",
+      "type": "string",
+      "width": "50",
+      "Option": "Mandatory",
+      "SLabel": "Invoice Type"
     },
     {
       "name": "ContractStartDate",

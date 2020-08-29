@@ -703,24 +703,24 @@ exports.updateDataRecords = asyncHandler(async (req, res, next) => {
     req.body = outdata;
   }
   console.log("CREATE - Validation starts..");
-  var mydata1 = mydata;
+  var mydata1 = req.body;
   for (const obj in mydata1) {
     var Handler = new calfunction();
     var type = Handler["fieldType"](obj, cardConfig["FieldDef"]);
     if (type == "Array") {
-      for (var ii = 0; ii < mydata[obj].length; ii++) {
+      for (var ii = 0; ii < req.body[obj].length; ii++) {
         var passArray = {};
         //added by atul - Start
         if (cardConfig["tableConfig"][obj].hasOwnProperty("Validations")) {
           passArray["fieldName"] = obj;
-          passArray["data"] = mydata;
+          passArray["data"] = req.body;
           passArray["config"] = cardConfig["tableConfig"][obj]["Validations"];
           passArray["FieldDef"] = cardConfig["FieldDef"].concat(
             cardConfig["tableConfig"][obj]["ItemFieldDefinition"]
           );
           passArray["itemCnt"] = ii;
           var sValidation = Handler["validation"](passArray);
-          mydata = sValidation["data"];
+          req.body = sValidation["data"];
           if (sValidation["status"] == false) {
             res.status(400).json({
               message: sValidation["message"],
@@ -735,18 +735,18 @@ exports.updateDataRecords = asyncHandler(async (req, res, next) => {
     } else {
       var passArray = {};
       passArray["fieldName"] = obj;
-      passArray["data"] = mydata;
+      passArray["data"] = req.body;
       passArray["config"] = cardConfig["Validations"];
       passArray["FieldDef"] = cardConfig["FieldDef"];
       passArray["itemCnt"] = "";
       var sValidation = Handler["validation"](passArray);
 
-      mydata = sValidation["data"];
+      req.body = sValidation["data"];
       if (sValidation["status"] == false) {
         res.status(400).json({
           message: sValidation["message"],
           success: false,
-          fieldValue: mydata[obj],
+          fieldValue: req.body[obj],
         });
       }
     }
