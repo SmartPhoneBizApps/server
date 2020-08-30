@@ -1,14 +1,5 @@
-const { findOneAppDatabyid } = require("../../modules/config");
-const ErrorResponse = require("../../utils/errorResponse");
-const {
-  getPVConfig,
-  getPVQuery,
-  getButtonData,
-  getInitialValues,
-  getDateValues,
-  findOneApp,
-} = require("../../modules/config");
-const { readData, getTotalCount, nConfig } = require("../../modules/config2");
+const { getPVConfig, getPVQuery } = require("../../modules/config");
+const { readData } = require("../../modules/config2");
 const asyncHandler = require("../../middleware/async");
 // @desc      Add record
 // @route     POST /api/v1/datarecords/
@@ -23,16 +14,6 @@ exports.dataFilters = asyncHandler(async (req, res, next) => {
     req.headers.businessrole +
     "_config.json";
   var config1 = require(fn1);
-  console.log("Atul-");
-  /// Possible values..
-  pvconfig1 = getPVConfig(req.headers.applicationid, req.headers.businessrole);
-  qPV = getPVQuery(
-    req.headers.applicationid,
-    req.headers.businessrole,
-    pvconfig1
-  );
-  let resPV = await qPV;
-
   if (
     req.headers.applicationid == "OPENSAP" ||
     req.headers.applicationid == "EXTLEARN"
@@ -44,36 +25,21 @@ exports.dataFilters = asyncHandler(async (req, res, next) => {
     let results = await query;
     let stat = {};
     let tableOut = [];
-
-    let filter = config1["Controls"]["dataFilter"];
-    let tableFields = config1["Controls"]["filterFieldSource"];
-
-    // for (let x = 0; x < filter.length; x++) {
-    //   stat["field"] = filter[x]["field"];
-    //   // Possible Values
-    //   for (let a = 0; a < resPV.length; a++) {
-    //     if (filter[x]["field"] == resPV[a]["PossibleValues"]) {
-    //       stat["key"] = resPV[a]["Value"];
-    //       stat["value"] = resPV[a]["Description"];
-    //       stat["count"] = 0;
-    //       tableOut.push({ ...stat });
-    //     }
-    //   }
-    // }
+    // let filter = config1["Controls"]["dataFilter"];
+    let filter = config1["Controls"]["filterFieldSource"];
     var set = new Set();
     // Collect the keys
-    console.log(filter);
+    console.log("A1", filter);
     for (let x = 0; x < filter.length; x++) {
-      console.log(filter[x]["field"]);
-      console.log("X1");
+      console.log("A2", filter[x]);
       for (let y = 0; y < results.length; y++) {
-        if (results[y][filter[x]["field"]] !== undefined) {
-          set.add(results[y][filter[x]["field"]]);
+        if (results[y][filter[x]] !== undefined) {
+          set.add(results[y][filter[x]]);
         }
       }
       console.log(set);
       set.forEach((en1) => {
-        stat["field"] = filter[x]["field"];
+        stat["field"] = filter[x];
         stat["key"] = en1;
         stat["value"] = en1;
         stat["count"] = 0;
@@ -86,15 +52,11 @@ exports.dataFilters = asyncHandler(async (req, res, next) => {
     // Get Header Counts
     for (let y = 0; y < results.length; y++) {
       for (let k = 0; k < tableOut.length; k++) {
-        //       console.log(results[y][tableOut[k]["field"]]);
-        //      console.log(tableOut[k]["value"]);
-
         if (results[y][tableOut[k]["field"]] == tableOut[k]["value"]) {
           tableOut[k]["count"] = tableOut[k]["count"] + 1;
         }
       }
     }
-
     let data = {};
     let nTable = [];
     var set1 = new Set();
@@ -106,8 +68,6 @@ exports.dataFilters = asyncHandler(async (req, res, next) => {
         set1.add(tableOut[m]["field"]);
       }
     }
-    //set1.add("GoalsArea");
-
     set1.forEach((element) => {
       for (let b = 0; b < nTable.length; b++) {
         vl1 = {};
@@ -123,44 +83,8 @@ exports.dataFilters = asyncHandler(async (req, res, next) => {
       xObject[element] = nTab;
       nTab = [];
     });
-
-    // vl1["key"] = "Leadership";
-    // vl1["value"] = "Leadership";
-    // vl1["count"] = 1;
-    // nTab.push(vl1);
-    // xObject["GoalsArea"] = nTab;
-
-    console.log("DataOut", xObject);
   }
-
-  data = {
-    Status: [
-      {
-        val: "Submitted",
-        key: "Submitted",
-        count: 2,
-      },
-      {
-        val: "new",
-        key: "new",
-        count: 1,
-      },
-    ],
-
-    // FirstName: [
-    //   {
-    //     val: "Amit",
-    //     key: "Amit",
-    //     count: 2,
-    //   },
-    //   {
-    //     val: "Atul",
-    //     key: "Atul",
-    //     count: 10,
-    //   },
-    // ],
-  };
-
+  data = {};
   res.status(200).json({
     success: true,
     data: xObject,
