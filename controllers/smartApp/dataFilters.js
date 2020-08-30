@@ -23,7 +23,7 @@ exports.dataFilters = asyncHandler(async (req, res, next) => {
     req.headers.businessrole +
     "_config.json";
   var config1 = require(fn1);
-
+  console.log("Atul-");
   /// Possible values..
   pvconfig1 = getPVConfig(req.headers.applicationid, req.headers.businessrole);
   qPV = getPVQuery(
@@ -48,21 +48,47 @@ exports.dataFilters = asyncHandler(async (req, res, next) => {
     let filter = config1["Controls"]["dataFilter"];
     let tableFields = config1["Controls"]["filterFieldSource"];
 
+    // for (let x = 0; x < filter.length; x++) {
+    //   stat["field"] = filter[x]["field"];
+    //   // Possible Values
+    //   for (let a = 0; a < resPV.length; a++) {
+    //     if (filter[x]["field"] == resPV[a]["PossibleValues"]) {
+    //       stat["key"] = resPV[a]["Value"];
+    //       stat["value"] = resPV[a]["Description"];
+    //       stat["count"] = 0;
+    //       tableOut.push({ ...stat });
+    //     }
+    //   }
+    // }
+    var set = new Set();
+    // Collect the keys
+    console.log(filter);
     for (let x = 0; x < filter.length; x++) {
-      stat["field"] = filter[x]["field"];
-      // Possible Values
-      for (let a = 0; a < resPV.length; a++) {
-        if (filter[x]["field"] == resPV[a]["PossibleValues"]) {
-          stat["key"] = resPV[a]["Value"];
-          stat["value"] = resPV[a]["Description"];
-          stat["count"] = 0;
-          tableOut.push({ ...stat });
+      console.log(filter[x]["field"]);
+      console.log("X1");
+      for (let y = 0; y < results.length; y++) {
+        if (results[y][filter[x]["field"]] !== undefined) {
+          set.add(results[y][filter[x]["field"]]);
         }
       }
+      console.log(set);
+      set.forEach((en1) => {
+        stat["field"] = filter[x]["field"];
+        stat["key"] = en1;
+        stat["value"] = en1;
+        stat["count"] = 0;
+        tableOut.push({ ...stat });
+        stat = {};
+      });
+      set = new Set();
     }
+    console.log(tableOut);
     // Get Header Counts
     for (let y = 0; y < results.length; y++) {
       for (let k = 0; k < tableOut.length; k++) {
+        //       console.log(results[y][tableOut[k]["field"]]);
+        //      console.log(tableOut[k]["value"]);
+
         if (results[y][tableOut[k]["field"]] == tableOut[k]["value"]) {
           tableOut[k]["count"] = tableOut[k]["count"] + 1;
         }

@@ -14,9 +14,13 @@
     "Update": "Yes",
     "URL": "https://fierce-oasis-51455.herokuapp.com",
     "Source": { "SourceName": "mongoDB", "SourceFile": "NA" },
-    "dataFilter": [{ "field": "Status" }],
+    "dataFilter": [
+      { "field": "Speciality" },
+      { "field": "Status" },
+      { "field": "Role" }
+    ],
     "filterFieldSource": {
-      "header": ["Status"]
+      "header": ["Status", "Speciality", "Role"]
     }
   },
 

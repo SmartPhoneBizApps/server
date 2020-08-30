@@ -107,7 +107,8 @@ exports.assignCourseUser = asyncHandler(async (req, res, next) => {
       message: "Record not found",
     });
   }
-
+  console.log(req.headers.Authorization);
+  console.log(req.headers.authorization);
   out1 = getNewCopyRecord(configData, Appdata, req.params.ID, userX, appX.id);
   //result = await createDocument(req.params.toApp, out1);
   result = await createDocumentAPI(
