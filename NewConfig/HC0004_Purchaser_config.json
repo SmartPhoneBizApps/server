@@ -17,9 +17,15 @@
       "FieldMapping": [{ "ReferenceID": "ID" }],
       "FixedValues": [{ "Status": "Invoiced" }]
     },
-    
-    "filterFieldSource": {
-      "header": ["Status"]
+
+    "filterFields": {
+      "header": [
+        "Status",
+        "ContractType",
+        "ContractStartDate",
+        "BalanceValue",
+        "InvoiceValue"
+      ]
     }
   },
   "ListFields": {

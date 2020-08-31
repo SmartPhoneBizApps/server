@@ -20,9 +20,15 @@
         { "InvoiceType": "ContractInvoice" }
       ]
     },
-    
-    "filterFieldSource": {
-      "header": ["Status"]
+
+    "filterFields": {
+      "header": [
+        "Status",
+        "ContractType",
+        "ContractStartDate",
+        "BalanceValue",
+        "InvoiceValue"
+      ]
     }
   },
   "ListFields": {

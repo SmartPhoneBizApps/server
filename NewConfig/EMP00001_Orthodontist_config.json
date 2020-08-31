@@ -14,13 +14,8 @@
     "Update": "Yes",
     "URL": "https://fierce-oasis-51455.herokuapp.com",
     "Source": { "SourceName": "mongoDB", "SourceFile": "NA" },
-    "dataFilter": [
-      { "field": "LeaveType" },
-      { "field": "Status" },
-      { "field": "CostCentre" }
-    ],
-    "filterFieldSource": {
-      "header": ["Status", "LeaveType", "CostCentre"]
+    "filterFields": {
+      "header": ["Status", "LeaveType", "CostCentre", "EmployeeID"]
     }
   },
 

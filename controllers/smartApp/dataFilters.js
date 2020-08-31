@@ -25,8 +25,7 @@ exports.dataFilters = asyncHandler(async (req, res, next) => {
     let results = await query;
     let stat = {};
     let tableOut = [];
-    // let filter = config1["Controls"]["dataFilter"];
-    let filter = config1["Controls"]["filterFieldSource"]["header"];
+    let filter = config1["Controls"]["filterFields"]["header"];
     var set = new Set();
     // Collect the keys
     console.log("A1", filter);

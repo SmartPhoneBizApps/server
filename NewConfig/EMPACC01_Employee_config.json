@@ -14,9 +14,26 @@
     "Update": "Yes",
     "URL": "https://fierce-oasis-51455.herokuapp.com",
     "Source": { "SourceName": "mongoDB", "SourceFile": "NA" },
-    "dataFilter": [{ "field": "Status" }, { "field": "RequestType" }],
-    "filterFieldSource": {
-      "header": ["Status", "RequestType"]
+    "filterFields": {
+      "header": [
+        "EmployeeID",
+        "Status",
+        "RequestType",
+        "Environment",
+        "Software",
+        "Processor",
+        "HardDrive",
+        "KeyBoard",
+        "OS",
+        "RAM",
+        "HDMIPort",
+        "USBPort",
+        "CDDrive",
+        "DockingStation",
+        "Bag",
+        "Mouse",
+        "System"
+      ]
     }
   },
 

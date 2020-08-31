@@ -14,9 +14,21 @@
     "Update": "Yes",
     "URL": "https://fierce-oasis-51455.herokuapp.com",
     "Source": { "SourceName": "mongoDB", "SourceFile": "NA" },
-    "dataFilter": [{ "field": "Status" }, { "field": "BookingMode" }],
-    "filterFieldSource": {
-      "header": ["Status", "BookingMode"]
+    "filterFields": {
+      "header": [
+        "Status",
+        "BookingMode",
+        "CostCentre",
+        "ProjectCode",
+        "Currency",
+        "EmployeeID",
+        "TotalAmount",
+        "DietaryRequirement",
+        "FlightNo",
+        "FlightDuration",
+        "Airline",
+        "Class"
+      ]
     }
   },
 

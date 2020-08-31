@@ -24,9 +24,31 @@
     "update": "No",
     "URL": "https://fierce-oasis-51455.herokuapp.com",
     "Source": { "SourceName": "mongoDB", "SourceFile": "NA" },
-    "dataFilter": [{ "field": "Status" }, { "field": "BookingFor" }],
-    "filterFieldSource": {
-      "header": ["Status", "BookingFor"]
+    "filterFields": {
+      "header": [
+        "Status",
+        "BookingFor",
+        "MeetingDate",
+        "NoOfPeople",
+        "Slot",
+        "RoomLayout",
+        "LunchRequired",
+        "DietaryRequirement",
+        "VisitorName",
+        "VisitorCompany",
+        "VisitorPhone",
+        "VisitorEmail",
+        "ParkingRequired",
+        "HotDeskNo",
+        "Building",
+        "StartDate",
+        "StartTime",
+        "EndDate",
+        "EndTime",
+        "CarRegistration",
+        "CarPark",
+        "Comments"
+      ]
     }
   },
 

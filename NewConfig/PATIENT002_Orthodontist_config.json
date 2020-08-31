@@ -14,39 +14,23 @@
     "Update": "Yes",
     "URL": "https://fierce-oasis-51455.herokuapp.com",
     "Source": { "SourceName": "mongoDB", "SourceFile": "NA" },
-    
-    "filterFieldSource": {
-      "header": ["Status"]
+
+    "filterFields": {
+      "header": [
+        "Status",
+        "ChairID",
+        "Date",
+        "Time",
+        "SlotLength",
+        "PatientID",
+        "PatientName",
+        "DoctorID",
+        "DoctorName",
+        "NHSNumber"
+      ]
     }
   },
-  "dataFilter": [
-    { "field": "Status" },
-    { "field": "ChairID" },
-    { "field": "Date" },
-    { "field": "Time" },
-    { "field": "SlotLength" },
-    { "field": "PatientID" },
-    { "field": "FirstName" },
-    { "field": "LastName" },
-    { "field": "DoctorID" },
-    { "field": "DoctorName" },
-    { "field": "Comments" }
-  ],
-  "filterFieldSource": {
-    "header": [
-      "Status",
-      "ChairID",
-      "Date",
-      "Time",
-      "SlotLength",
-      "PatientID",
-      "FirstName",
-      "LastName",
-      "DoctorID",
-      "DoctorName",
-      "Comments"
-    ]
-  },
+
   "ListFields": {
     "IntroField": "Date",
     "TitleField": "Time",
