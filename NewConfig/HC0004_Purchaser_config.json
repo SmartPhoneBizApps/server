@@ -98,6 +98,57 @@
   ],
   "DButtons": [
     {
+      "type": "ADDTRAINING",
+      "name": "Add HCP/HCO",
+      "icon": "sap-icon://copy",
+      "Dialog": [
+        { "label": "FirstName", "name": "FirstName", "type": "string" },
+        { "label": "LastName", "name": "LastName", "type": "string" },
+        { "label": "Title", "name": "Title", "type": "string" },
+        { "label": "Speciality", "name": "Speciality", "type": "string" },
+        { "label": "Email", "name": "Email", "type": "string" },
+        { "label": "PostCode", "name": "PostCode", "type": "string" },
+        {
+          "label": "InstitutionName",
+          "name": "InstitutionName",
+          "type": "string"
+        }
+      ],
+      "listFields": [
+        "Title",
+        "FirstName",
+        "LastName",
+        "Speciality",
+        "Email",
+        "PostCode"
+      ],
+      "tableField": "myHCPHCO",
+      "transferFields": [
+        "ID",
+        "Title",
+        "FirstName",
+        "LastName",
+        "Speciality",
+        "Email",
+        "PostCode",
+        "InstitutionName"
+      ],
+      "SearchURL": "listrecordsnew/Web/HC0001/Purchaser{filter}",
+      "URL": "util/addTraining/myStudy/HC0001/HC0004/{ID}/{ReferenceID}/{role}",
+      "FieldMapping": {
+        "Title": "Title",
+        "FirstName": "FirstName",
+        "LastName": "LastName",
+        "Speciality": "Speciality",
+        "Email": "Email",
+        "PostCode": "PostCode",
+        "InstitutionName": "InstitutionName"
+      },
+      "FixedValues": [{ "Status": "Active" }],
+      "Token": "Yes",
+      "URLMethod": "POST"
+    },
+    {
       "type": "SELFASSIGN",
       "name": "Submit Invoice",
       "icon": "sap-icon://share-2",
@@ -178,6 +229,13 @@
       "name": "ItemInvoice",
       "type": "Table",
       "fioriicon": "expense-report"
+    },
+    {
+      "value": "Tab6",
+      "update": "Yes",
+      "name": "myHCP/HCO",
+      "type": "Table",
+      "fioriicon": "expense-report"
     }
   ],
   "DetailFields": {
@@ -200,7 +258,8 @@
     "Tab2": ["PharmaContact", "PharmaContactEmail"],
     "Tab3": ["MultiAttachments"],
     "Tab4": ["Services"],
-    "Tab5": ["ItemInvoice"]
+    "Tab5": ["ItemInvoice"],
+    "Tab6": ["myHCPHCO"]
   },
   "ControlDisplay": {},
   "tableConfig": {
@@ -326,10 +385,129 @@
         { "name": "Attachment" }
       ]
     },
+    "myHCPHCO": {
+      "title": "My HCP/HCO",
+      "subtitle": "HCP/HCO",
+      "ItemFieldDefinition": [
+        {
+          "name": "ItemNumber",
+          "type": "string",
+          "width": "10",
+          "SLabel": "Item Number",
+          "Update": "No"
+        },
+        {
+          "name": "ItemStatus1",
+          "type": "string",
+          "width": "50",
+          "SLabel": "Item Status",
+          "Update": "Yes"
+        },
+        {
+          "name": "Title",
+          "type": "string",
+          "width": "50",
+          "SLabel": "Title",
+          "Option": "Optional"
+        },
+        {
+          "name": "FirstName",
+          "type": "string",
+          "width": "100",
+          "SLabel": "FirstName",
+          "Option": "Optional"
+        },
+        {
+          "name": "StudyName",
+          "type": "string",
+          "width": "200",
+          "SLabel": "StudyName",
+          "Option": "Optional"
+        },
+        {
+          "name": "LastName",
+          "type": "string",
+          "width": "100",
+          "SLabel": "LastName",
+          "Option": "Optional"
+        },
+        {
+          "name": "Speciality",
+          "type": "string",
+          "width": "200",
+          "SLabel": "Speciality",
+          "Option": "Optional"
+        },
+        {
+          "name": "Email",
+          "type": "Email",
+          "width": "100",
+          "SLabel": "Email",
+          "Option": "Optional"
+        },
+        {
+          "name": "PostCode",
+          "type": "string",
+          "width": "200",
+          "SLabel": "PostCode",
+          "Option": "Optional"
+        },
+        {
+          "name": "PostCode",
+          "type": "string",
+          "width": "200",
+          "SLabel": "PostCode",
+          "Option": "Optional"
+        },
+        {
+          "name": "InstitutionName",
+          "type": "string",
+          "width": "500",
+          "SLabel": "InstitutionName",
+          "Option": "Optional"
+        }
+      ],
+      "DisplayFields": [
+        "Title",
+        "FirstName",
+        "LastName",
+        "Email",
+        "PostCode",
+        "ItemStatus1"
+      ],
+      "cards": [],
+      "ItemButtons": {
+        "itemDisplay": true,
+        "itemCheck": false,
+        "itemAdd": false,
+        "itemEdit": true,
+        "itemDelete": false
+      },
+      "CreateFields": [
+        "Title",
+        "FirstName",
+        "LastName",
+        "Speciality",
+        "Email",
+        "PostCode",
+        "InstitutionName",
+        "ItemStatus1"
+      ],
+      "ItemDetails": [
+        { "name": "Title" },
+        { "name": "FirstName" },
+        { "name": "LastName" },
+        { "name": "Speciality" },
+        { "name": "Email" },
+        { "name": "PostCode" },
+        { "name": "InstitutionName" },
+        { "name": "ItemStatus1" }
+      ]
+    },
     "ItemInvoice": {
       "calculation": "Yes",
-      "title": "Services",
-      "subtitle": "Services",
+      "title": "Contract Invoice",
+      "subtitle": "Invoice Items",
       "tableFormFields": [
         {
           "GrpTitle": "Totals",
@@ -500,6 +678,13 @@
       "width": "500",
       "Option": "Optional",
       "SLabel": "Services"
+    },
+    {
+      "name": "myHCPHCO",
+      "type": "Array",
+      "width": "500",
+      "Option": "Optional",
+      "SLabel": "myHCPHCO"
     },
     {
       "name": "ItemInvoice",
