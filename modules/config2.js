@@ -71,7 +71,7 @@ module.exports = {
 
     return mgsObj;
   },
-  notifiyMessanger: async function (a, b, c, d, e) {
+  notifiyMessanger: async function (a, b, c, d, e, f) {
     let path = "../models/access/" + "Socialmedia";
     const Model = require(path);
     SM1 = Model.findOne({ email: a, SocialMediaType: e });
@@ -85,9 +85,17 @@ module.exports = {
       "&message=" +
       c +
       "&messageType=" +
-      d;
+      d +
+      "&token=" +
+      f;
     console.log(URL);
-    request.post(URL, function (error, response, body) {
+    var options = {
+      method: "POST",
+      url: URL,
+    };
+
+    request.post(options, function (error, response, body) {
+      if (error) throw new Error(error);
       console.log("Notification sent", error);
     });
     //  "https://fbnotificationbot.herokuapp.com/?userFBID=1805665356118639&role=Employee&message=Your%20record%20created%20successfully...&messageType=Text",

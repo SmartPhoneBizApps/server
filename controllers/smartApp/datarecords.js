@@ -383,17 +383,24 @@ exports.addDataRecords = asyncHandler(async (req, res, next) => {
     result["ID"] +
     ", by User: " +
     req.user.email;
-  Notification = req.headers.notification;
-  if (Notification == "Messenger") {
-    console.log("CREATE - Messenger Notification..");
-    sendNotification = notifiyMessanger(
-      req.user.email,
-      req.headers.businessrole,
-      msg,
-      "Text",
-      "facebook"
-    );
+  if (req.headers.notification == "Messenger") {
+    console.log("send FB messenger..");
+    // Read Tokens
+    let fx = "../../bot/messengerToken.json";
+    var messengerToken = require(fx);
+    if (messengerToken[req.headers.businessrole] != undefined) {
+      console.log("CREATE - Messenger Notification..");
+      sendNotification = notifiyMessanger(
+        req.user.email,
+        req.headers.businessrole,
+        msg,
+        "Text",
+        "facebook",
+        messengerToken[req.headers.businessrole]
+      );
+    }
   }
+
   res.status(200).json({
     message: "New record created",
     success: true,
@@ -776,14 +783,20 @@ exports.updateDataRecords = asyncHandler(async (req, res, next) => {
     req.user.email;
   Notification = req.headers.notification;
   if (Notification == "Messenger") {
-    console.log("UPDATE - Messenger Notification..");
-    sendNotification = notifiyMessanger(
-      req.user.email,
-      req.headers.businessrole,
-      msg,
-      "Text",
-      "facebook"
-    );
+    // Read Color Configuration
+    let fx = "../../bot/messengerToken.json";
+    var messengerToken = require(fx);
+    if (messengerToken[req.headers.businessrole] != undefined) {
+      console.log("UPDATE - Messenger Notification..");
+      sendNotification = notifiyMessanger(
+        req.user.email,
+        req.headers.businessrole,
+        msg,
+        "Text",
+        "facebook",
+        messengerToken[req.headers.businessrole]
+      );
+    }
   }
   res.status(200).json({
     message: "Record updated",
