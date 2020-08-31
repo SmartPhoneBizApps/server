@@ -2,7 +2,6 @@ const ErrorResponse = require("../../utils/errorResponse");
 const asyncHandler = require("../../middleware/async");
 const calfunction = require("../../models/utilities/calfunction.js");
 const { getNewConfig } = require("../../modules/config");
-
 // @desc      Perform Calculations
 // @route     GET /api/v1/util/calculation
 // @access    Private (Application Users)

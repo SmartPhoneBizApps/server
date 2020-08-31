@@ -74,8 +74,8 @@ app.use(
 );
 app.use("/api/v1/socialmediacards", require("./routes/bot/cardsSocialmedia"));
 app.use("/api/v1/auth/checkbotpin", require("./routes/access/checkBotPin"));
-
 app.use("/api/v1/botoptions", require("./routes/smartApp/botOptions"));
+app.use("/api/v1/util/botgroups", require("./routes/utilities/botGroup"));
 
 //  ----------------------------------------------------------
 //  ----------  ***** ORGNIZATION SETUP DATA *****  ----------

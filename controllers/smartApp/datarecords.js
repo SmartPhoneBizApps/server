@@ -782,7 +782,7 @@ exports.updateDataRecords = asyncHandler(async (req, res, next) => {
     ", by User: " +
     req.user.email;
   Notification = req.headers.notification;
-  if (Notification == "Messenger") {
+  if (req.headers.notification == "Messenger") {
     // Read Color Configuration
     let fx = "../../bot/messengerToken.json";
     var messengerToken = require(fx);
