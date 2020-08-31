@@ -5,6 +5,8 @@ const ErrorResponse = require("../../utils/errorResponse");
 // @access    Private
 exports.botGroup = asyncHandler(async (req, res, next) => {
   console.log(req.params.bot);
+  req.params.bot = req.params.bot.toLowerCase();
+  console.log(req.params.bot);
   let fx = "../../bot/botGroups.json";
   var botGroup = require(fx);
   var retData = {};
