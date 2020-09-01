@@ -26,17 +26,14 @@ exports.addTraining = asyncHandler(async (req, res, next) => {
       message: "1st applicationID is incorrect",
     });
   }
-
-  Appdata = await findOneAppDataRefID(
-    req.params.ReferenceID,
-    req.params.fromApp
-  );
-
+  console.log(req.params.fromApp, req.params.ReferenceID);
+  Appdata = await findOneAppDataRefID(req.params.ID, req.params.fromApp);
   if (!Appdata) {
     res.status(400).json({
       success: true,
       message: "Record not found",
     });
+    return false;
   }
   // Read Config File
   configData = getNewConfig(req.params.toApp, req.params.role);
@@ -61,7 +58,7 @@ exports.addTraining = asyncHandler(async (req, res, next) => {
   }
   mytr.push(mytrain);
   myData[req.params.table] = tableValidate(mytr, myData[req.params.table]);
-  console.log("Table Data", myData);
+  // console.log("Table Data", myData);
   // Processing Log
   myData["TransLog"] = processingLog(
     req.params.ID,
@@ -74,8 +71,9 @@ exports.addTraining = asyncHandler(async (req, res, next) => {
     req.headers.buttontype,
     req.headers.buttonname
   );
-
+  // console.log(req.params.toApp, myData);
   result = await findOneUpdateData(myData, req.params.toApp);
+  console.log(result);
   if (result) {
     res.status(201).json({
       success: true,

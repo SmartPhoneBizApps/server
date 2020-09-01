@@ -1085,6 +1085,7 @@ module.exports = {
   findOneUpdateData: function (mdata, app) {
     let path = "../models/smartApp/" + app;
     const Model = require(path);
+    console.log(mdata.ID);
     result = Model.findOneAndUpdate({ ID: mdata.ID }, mdata, {
       new: true,
       runValidators: true,
