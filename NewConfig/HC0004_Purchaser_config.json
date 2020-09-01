@@ -565,6 +565,55 @@
           "SLabel": "Item Attachment",
           "Option": "Optional",
           "Update": "Yes"
+        },
+        {
+          "name": "Title",
+          "type": "string",
+          "width": "50",
+          "SLabel": "Title",
+          "Option": "Optional"
+        },
+        {
+          "name": "FirstName",
+          "type": "string",
+          "width": "100",
+          "SLabel": "FirstName",
+          "Option": "Optional"
+        },
+        {
+          "name": "LastName",
+          "type": "string",
+          "width": "100",
+          "SLabel": "LastName",
+          "Option": "Optional"
+        },
+        {
+          "name": "Speciality",
+          "type": "string",
+          "width": "200",
+          "SLabel": "Speciality",
+          "Option": "Optional"
+        },
+        {
+          "name": "Email",
+          "type": "Email",
+          "width": "100",
+          "SLabel": "Email",
+          "Option": "Optional"
+        },
+        {
+          "name": "PostCode",
+          "type": "string",
+          "width": "200",
+          "SLabel": "PostCode",
+          "Option": "Optional"
+        },
+        {
+          "name": "InstitutionName",
+          "type": "string",
+          "width": "500",
+          "SLabel": "InstitutionName",
+          "Option": "Optional"
         }
       ],
       "DisplayFields": [
@@ -572,7 +621,12 @@
         "InvoiceAmount",
         "ServiceType",
         "iCurrency",
-        "ItemStatus1"
+        "ItemStatus1",
+        "Title",
+        "FirstName",
+        "LastName",
+        "Email",
+        "PostCode"
       ],
       "cards": [],
       "ItemButtons": {
@@ -589,7 +643,12 @@
         "iCurrency",
         "ItemStatus1",
         "Notes",
-        "Attachment"
+        "Attachment",
+        "Title",
+        "FirstName",
+        "LastName",
+        "Email",
+        "PostCode"
       ],
       "ItemDetails": [
         { "name": "ServiceType" },
@@ -598,7 +657,14 @@
         { "name": "iCurrency" },
         { "name": "Notes" },
         { "name": "ItemStatus1" },
-        { "name": "Attachment" }
+        { "name": "Attachment" },
+        { "name": "Title" },
+        { "name": "FirstName" },
+        { "name": "LastName" },
+        { "name": "Speciality" },
+        { "name": "Email" },
+        { "name": "PostCode" },
+        { "name": "InstitutionName" }
       ]
     }
   },
