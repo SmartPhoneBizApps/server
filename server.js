@@ -125,6 +125,7 @@ app.use("/api/v1/listrecords", require("./routes/smartApp/listrecords"));
 app.use("/api/v1/listrecordsnew", require("./routes/smartApp/listrecordsnew"));
 // Create a new Record
 app.use("/api/v1/datarecords", require("./routes/smartApp/datarecords"));
+app.use("/api/v1/filterdata", require("./routes/smartApp/filterData"));
 
 app.use("/api/v1/createwithref", require("./routes/smartApp/createwithref"));
 //app.use("/api/v1/addwithref", require("./routes/smartApp/addwithref"));
