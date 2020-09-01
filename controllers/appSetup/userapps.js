@@ -132,7 +132,14 @@ exports.getUserapps = asyncHandler(async (req, res, next) => {
         let count = rec.length;
         appTemp["count"] = count;
         /////////////////////////
-        appTemp["tileType"] = "MasterDetail";
+        if (approleX.Apps[j].type == "filterData") {
+          appTemp["tileType"] = "FilterData";
+        } else {
+          appTemp["tileType"] = "MasterDetail";
+        }
+
+        console.log(appTemp["tileType"]);
+
         tile[j + 1] = { ...appTemp };
       }
     }

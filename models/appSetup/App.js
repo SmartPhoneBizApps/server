@@ -29,6 +29,7 @@ const AppSchema = new mongoose.Schema({
   dataStore: {
     type: String,
   },
+  type: { type: String },
   icon: {
     type: String,
   },

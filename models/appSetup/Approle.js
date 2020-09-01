@@ -64,6 +64,7 @@ const ApproleSchema = new mongoose.Schema({
       backgroundImage: {
         type: String,
       },
+      type: { type: String },
       descriptions: [
         {
           Language: {

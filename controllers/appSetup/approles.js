@@ -10,15 +10,6 @@ const { getApplication, getRole } = require("../../modules/config");
 // @route     GET /api/v1/approles
 // @access    Public
 exports.getApproles = asyncHandler(async (req, res, next) => {
-  console.log("Button");
-  myResult = res.advancedResults;
-  for (let l = 0; l < res.advancedResults["data"].length; l++) {
-    for (let m = 0; m < res.advancedResults["data"][l].length; m++) {
-      console.log(res.advancedResults["data"][l]["Apps"][m]["applicationID"]);
-      res.advancedResults["data"][l]["Apps"][m]["applicationID"];
-    }
-  }
-
   res.status(200).json(res.advancedResults);
 });
 
