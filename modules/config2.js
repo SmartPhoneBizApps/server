@@ -211,6 +211,7 @@ module.exports = {
     // Get BOT List Fields
     if (req.headers.mode == "BOTList") {
       let lf = getBotListFields(config1);
+      console.log(lf);
     }
     /////////////////////////////////////////////////////////////////////////////////////////////////
     // Executing query

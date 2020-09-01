@@ -14,6 +14,17 @@
     "Update": "Yes",
     "URL": "https://fierce-oasis-51455.herokuapp.com",
     "Source": { "SourceName": "mongoDB", "SourceFile": "NA" },
+    "filterScreen": true,
+    "filterScFields": [
+      "Status",
+      "FirstName",
+      "LastName",
+      "Role",
+      "Speciality",
+      "InstitutionName",
+      "ID",
+      "Email"
+    ],
     "filterFields": {
       "header": ["Status", "Role", "Speciality", "InstitutionName"]
     }
@@ -29,7 +40,7 @@
     "numberUnitField": ""
   },
   "ListBOTFields": {
-    "None": ["cardImage", "StatusState"],
+    "None": ["ID", "cardImage", "StatusState"],
     "Title": ["FirstName", "LastName"],
     "SubTitle": ["Title", "Status"],
     "Description": ["Email"]

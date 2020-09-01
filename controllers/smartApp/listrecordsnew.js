@@ -77,6 +77,7 @@ exports.listrecordsnew = asyncHandler(async (req, res, next) => {
       results2 = { ...results1[i1] };
 
       results2["cardImage"] = application["photo"];
+      console.log("ReferenceID", results1[i1].id);
       results2["ReferenceID"] = results1[i1].id;
       results2["Group"] = "ExternalCatalog";
       results2["SubGroup"] = "OpenSAP";
@@ -219,6 +220,9 @@ exports.listrecordsnew = asyncHandler(async (req, res, next) => {
       // If Items are NOT present...
     } else {
       for (let i1 = 0; i1 < results.length; i1++) {
+        if (results[i1]["ReferenceID"] == undefined) {
+                results[i1]["ReferenceID"] = results[i1].ID;
+        }
         //   results[i1].cardImage = application["photo"];
         results[i1].cardImage =
           "https://images.unsplash.com/photo-1585776462170-f6f0e680e1c8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80";
