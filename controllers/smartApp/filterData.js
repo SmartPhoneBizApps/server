@@ -40,8 +40,10 @@ exports.filterData = asyncHandler(async (req, res, next) => {
 
   res.status(200).json({
     filterFields: appconfig["Controls"]["filterScFields"],
+    config: appconfig,
     possibleValues: resPV,
     defaultValues: ival_out,
     statusValues: statusPV,
+    config: appconfig,
   });
 });
