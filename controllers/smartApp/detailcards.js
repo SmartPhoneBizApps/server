@@ -2,7 +2,7 @@ const {
   donutCard,
   donutCardHead,
   lineCard,
-  stackedcolumnCard,
+  StackedColumnCard,
   tableCard,
   globalCard,
   exampleCard,
@@ -236,9 +236,9 @@ exports.getDetailCardsNew = async (req, res, next) => {
               jCard1 = await lineCard(mycard, appData[key], anacardConfig);
               outStru[cardKey] = { ...jCard1 };
             }
-            if (mycard["analyticsCard"]["chartType"] == "stackedcolumn") {
+            if (mycard["analyticsCard"]["chartType"] == "StackedColumn") {
               jCard1 = {};
-              jCard1 = await stackedcolumnCard(
+              jCard1 = await StackedColumnCard(
                 mycard,
                 appData[key],
                 anacardConfig

@@ -327,7 +327,7 @@ module.exports = {
     t_type = "Analytical";
     return stru1;
   },
-  stackedcolumnCard: async function (mycard, appData1, anacardConfig) {
+  StackedColumnCard: async function (mycard, appData1, anacardConfig) {
     stru1 = anacardConfig;
     let j_number = 10;
     let trend1 = "Down";
@@ -1156,7 +1156,7 @@ module.exports = {
         break;
       case "StackedColumn":
         cardConfigFile1 =
-          "../cards/cardConfig/template_example_stackedcolumn.json";
+          "../cards/cardConfig/template_example_StackedColumn.json";
         break;
       case "Line":
         cardConfigFile1 = "../cards/cardConfig/template_example_line.json";

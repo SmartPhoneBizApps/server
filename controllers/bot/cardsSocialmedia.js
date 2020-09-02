@@ -7,7 +7,7 @@ const {
   donutCard,
   donutCardHead,
   lineCard,
-  stackedcolumnCard,
+  StackedColumnCard,
   tableCard,
   globalCard,
   adaptivecardCard,
@@ -256,10 +256,10 @@ exports.cardsSocialmedia = asyncHandler(async (req, res, next) => {
                         cardOut.push(jCard1);
                       }
                       if (
-                        mycard["analyticsCard"]["chartType"] == "stackedcolumn"
+                        mycard["analyticsCard"]["chartType"] == "StackedColumn"
                       ) {
                         jCard1 = {};
-                        jCard1 = await stackedcolumnCard(
+                        jCard1 = await StackedColumnCard(
                           mycard,
                           appData[key],
                           anacardConfig
