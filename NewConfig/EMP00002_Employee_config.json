@@ -170,8 +170,39 @@
       "title": "Travel Analysis",
       "subtitle": "Travel Status",
       "unitOfMeasurement": "GBP",
-      "Data": { "dimension": "Status", "fact": "records", "operation": "COUNT" }
+      "Data": {
+        "dimension": "Status",
+        "fact": "records",
+        "operation": "COUNT"
+      },
+      "numericHeader": {
+        "headerNumber": { "Operation": "COUNT", "Field": "ID" },
+        "trend": { "trend": "DOWN", "Condition": "LTE", "value": 8 },
+        "status": { "state": "Success", "Condition": "LTE", "value": 24 },
+        "details": "Status",
+        "unit": "Count"
+      }
     },
+    {
+      "cardType": "Analytical",
+      "cardsubType": "StackedColumn",
+      "title": "Travel Analysis",
+      "subtitle": "Travel Mode",
+      "unitOfMeasurement": "Days",
+      "Data": {
+        "dimension": "TravelMode",
+        "fact": "records",
+        "operation": "COUNT"
+      },
+      "numericHeader": {
+        "headerNumber": { "Operation": "COUNT", "Field": "ID" },
+        "trend": { "trend": "DOWN", "Condition": "LTE", "value": 5 },
+        "status": { "state": "Success", "Condition": "LTE", "value": 20 },
+        "details": "Mode",
+        "unit": "Count"
+      }
+    },
+
     {
       "type": "Example",
       "cardType": "Analytical",
