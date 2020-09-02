@@ -6,7 +6,14 @@ const Agent = require("../models/access/Agent");
 const App = require("../models/appSetup/App");
 const Role = require("../models/appSetup/Role");
 const User = require("../models/access/User");
-const { getBotListFields, getInitialValues, cardReplace } = require("./config");
+const {
+  getBotListFields,
+  getInitialValues,
+  cardReplace,
+  date1,
+  string,
+  integer,
+} = require("./config");
 
 const fs = require("fs");
 const path = require("path");
@@ -17,6 +24,7 @@ const readFile = utils.promisify(fs.readFile);
 const sendEmail = require("../utils/sendEmail");
 const sendEmail1 = require("../utils/sendEmailProd");
 var request = require("request");
+
 module.exports = {
   getCardKey: function (a, b, c, d) {
     cKey = d + a.substring(0, 3) + a.slice(-2) + b.substring(0, 3) + c;
@@ -1215,15 +1223,84 @@ module.exports = {
     return anacardConfig;
   },
   sumAnalyticalCard: async function (myCard, outData) {},
-  countAnalyticalCard: async function (myCard, outData, mode) {
+
+  countAnalyticalCard: async function (myCard, outData, mode, FieldDef) {
+    //const sortedActivities = string(activities,"string");
+    //const sortedActivities = integer(activities,"integer");
+    f_typ = "string";
+    for (let g = 0; g < FieldDef.length; g++) {
+      if (FieldDef[g]["name"] == myCard["Data"]["dimension"]) {
+        f_typ = FieldDef[g]["type"];
+      }
+    }
+
+    // Perform Sorting..
+    switch (f_typ) {
+      case "string":
+        //    outData = string(outData, "Comment", "D");
+        break;
+      case "Date":
+        outData = date1(outData, "LeaveFrom", "A");
+        break;
+      case "Num,0":
+        outData = integer(outData, "LeaveDays", "A");
+        break;
+      default:
+        break;
+    }
+    // // Change Date Format
+    // if (f_typ == "Date") {
+    //   for (let k = 0; k < outData.length; k++) {
+    //     outData[k]["dimension"] = String(
+    //       outData[k][myCard["Data"]["dimension"]]
+    //     ).substring(0, 10);
+    //   }
+    // }
+
+    // switch (f_typ) {
+    //   case "string":
+    //     break;
+    //   case "Date":
+    //     let d_dimension = new Set();
+    //     for (let k = 0; k < outData.length; k++) {
+    //       d_dimension.add(
+    //         String(outData[k][myCard["Data"]["dimension"]]).substring(0, 10)
+    //       );
+    //     }
+    //     break;
+
+    //   default:
+    //     //string
+    //     break;
+    // }
     // Count
     list1x = {};
     list1y = {};
     list1 = [];
     let s_dimension = new Set();
     for (let k = 0; k < outData.length; k++) {
-      s_dimension.add(outData[k][myCard["Data"]["dimension"]]);
+      if (f_typ == "Date") {
+        s_dimension.add(new Date(outData[k][myCard["Data"]["dimension"]]));
+      } else {
+        s_dimension.add(outData[k][myCard["Data"]["dimension"]]);
+      }
     }
+    // fl = [];
+    // s_dimension.forEach((dim) => {
+    //   if (fl.length == 0) {
+    //     fl.push(dim);
+    //   }
+    //   match = false;
+    //   fl.forEach((l1) => {
+    //     if (l1 === dim) {
+    //       match = true;
+    //     }
+    //   });
+    //   if (match == false) {
+    //     fl.push(dim);
+    //   }
+    // });
+    // fl = fl.sort();
 
     s_dimension.forEach((dim) => {
       dim_c = 0;
@@ -1255,7 +1332,6 @@ module.exports = {
           break;
       }
     });
-    console.log(list1);
     return list1;
   },
   numericHeader: async function (myCard, list, mode) {

@@ -388,7 +388,8 @@ exports.listrecordsnew = asyncHandler(async (req, res, next) => {
               list = await countAnalyticalCard(
                 myCard,
                 outData["data"],
-                "COUNT"
+                "COUNT",
+                appconfig["FieldDef"]
               );
               numheader = await numericHeader(myCard, list, "COUNT");
               aCard = await buildAnalyticalCard(myCard, list, numheader);
@@ -401,7 +402,8 @@ exports.listrecordsnew = asyncHandler(async (req, res, next) => {
               list = await countAnalyticalCard(
                 appconfig["listCards"][x],
                 outData["data"],
-                "COLLECTIVE"
+                "COLLECTIVE",
+                appconfig["FieldDef"]
               );
               numheader = await numericHeader(myCard, list, "COLLECTIVE");
               aCard = await buildAnalyticalCard(myCard, list, numheader);
@@ -419,9 +421,17 @@ exports.listrecordsnew = asyncHandler(async (req, res, next) => {
 
             default:
               list = await countAnalyticalCard(
-                appconfig["listCards"][x],
-                outData["data"]
+                myCard,
+                outData["data"],
+                "COUNT",
+                appconfig["FieldDef"]
               );
+              numheader = await numericHeader(myCard, list, "COUNT");
+              aCard = await buildAnalyticalCard(myCard, list, numheader);
+              var cardData = JSON.stringify(aCard);
+              cardData = cardReplace(myCard, cardData, appconfig, "header");
+              aCard = JSON.parse(cardData);
+              outStru["ANAX" + x] = { ...aCard };
               break;
           }
         }
