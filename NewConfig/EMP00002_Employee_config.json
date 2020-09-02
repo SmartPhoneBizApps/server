@@ -177,17 +177,17 @@
       },
       "numericHeader": {
         "headerNumber": { "Operation": "COUNT", "Field": "ID" },
-        "trend": { "trend": "DOWN", "Condition": "LTE", "value": 8 },
-        "status": { "state": "Success", "Condition": "LTE", "value": 24 },
-        "details": "Status",
-        "unit": "Count"
+        "trend": { "trend": "DOWN", "Condition": "LTE", "value": 4 },
+        "status": { "state": "Success", "Condition": "LTE", "value": 10 },
+        "details": "Total 24 days",
+        "unit": "Days"
       }
     },
     {
       "cardType": "Analytical",
       "cardsubType": "StackedColumn",
       "title": "Travel Analysis",
-      "subtitle": "Travel Mode",
+      "subtitle": "Travel Type",
       "unitOfMeasurement": "Days",
       "Data": {
         "dimension": "TravelMode",
@@ -196,10 +196,29 @@
       },
       "numericHeader": {
         "headerNumber": { "Operation": "COUNT", "Field": "ID" },
-        "trend": { "trend": "DOWN", "Condition": "LTE", "value": 5 },
-        "status": { "state": "Success", "Condition": "LTE", "value": 20 },
-        "details": "Mode",
-        "unit": "Count"
+        "trend": { "trend": "DOWN", "Condition": "LTE", "value": 4 },
+        "status": { "state": "Success", "Condition": "LTE", "value": 10 },
+        "details": "Total 24 days",
+        "unit": "Days"
+      }
+    },
+    {
+      "cardType": "Analytical",
+      "cardsubType": "Line",
+      "title": "Travel Analysis",
+      "subtitle": "Travels",
+      "unitOfMeasurement": "GBP",
+      "Data": {
+        "dimension": "TravelDtFrom",
+        "fact": "records",
+        "operation": "COLLECTIVE"
+      },
+      "numericHeader": {
+        "headerNumber": { "Operation": "COLLECTIVE", "Field": "ID" },
+        "trend": { "trend": "DOWN", "Condition": "LTE", "value": 4 },
+        "status": { "state": "Success", "Condition": "LTE", "value": 10 },
+        "details": "Max 24 days",
+        "unit": "Days"
       }
     },
 
