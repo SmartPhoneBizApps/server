@@ -383,19 +383,32 @@ exports.listrecordsnew = asyncHandler(async (req, res, next) => {
         for (let x = 0; x < appconfig["listCards"].length; x++) {
           myCard = appconfig["listCards"][x];
           aCard = {};
-          console.log(myCard["Data"]["operation"]);
           switch (myCard["Data"]["operation"]) {
             case "COUNT":
-              list = await countAnalyticalCard(myCard, outData["data"]);
-              numheader = await numericHeader(myCard, list);
-              console.log(list);
-              console.log(numheader);
-              console.log(myCard);
+              list = await countAnalyticalCard(
+                myCard,
+                outData["data"],
+                "COUNT"
+              );
+              numheader = await numericHeader(myCard, list, "COUNT");
               aCard = await buildAnalyticalCard(myCard, list, numheader);
               var cardData = JSON.stringify(aCard);
               cardData = cardReplace(myCard, cardData, appconfig, "header");
               aCard = JSON.parse(cardData);
               outStru["ANAX" + x] = { ...aCard };
+              break;
+            case "COLLECTIVE":
+              list = await countAnalyticalCard(
+                appconfig["listCards"][x],
+                outData["data"],
+                "COLLECTIVE"
+              );
+              numheader = await numericHeader(myCard, list, "COLLECTIVE");
+              aCard = await buildAnalyticalCard(myCard, list, numheader);
+              var cardData = JSON.stringify(aCard);
+              cardData = cardReplace(myCard, cardData, appconfig, "header");
+              aCard = JSON.parse(cardData);
+              outStru["ANAL" + x] = { ...aCard };
               break;
             case "SUM":
               list = await sumAnalyticalCard(
@@ -403,6 +416,7 @@ exports.listrecordsnew = asyncHandler(async (req, res, next) => {
                 outData["data"]
               );
               break;
+
             default:
               list = await countAnalyticalCard(
                 appconfig["listCards"][x],

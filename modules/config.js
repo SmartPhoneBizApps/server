@@ -1376,15 +1376,12 @@ module.exports = {
     });
   },
   cardReplace: function (mycard, cardData, appconfig, mode) {
-    console.log(mycard, cardData);
     if (mode == "header") {
-      console.log(mode);
       cardData = cardData.replace(
         "@Title",
         appconfig["Title"]["ApplicationTitle"]
       );
     } else {
-      console.log(mode);
       if (appconfig["tableConfig"][mode]["title"] != undefined) {
         cardData = cardData.replace(
           "@Title",

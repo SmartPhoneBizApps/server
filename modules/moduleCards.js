@@ -1215,42 +1215,70 @@ module.exports = {
     return anacardConfig;
   },
   sumAnalyticalCard: async function (myCard, outData) {},
-  countAnalyticalCard: async function (myCard, outData) {
+  countAnalyticalCard: async function (myCard, outData, mode) {
     // Count
     list1x = {};
+    list1y = {};
     list1 = [];
     let s_dimension = new Set();
     for (let k = 0; k < outData.length; k++) {
       s_dimension.add(outData[k][myCard["Data"]["dimension"]]);
     }
-    console.log(s_dimension);
+
     s_dimension.forEach((dim) => {
       dim_c = 0;
       list1x["Area"] = dim;
+      list1y["Area"] = dim;
+      list1x["Value1"] = 0;
+      list1y["Value1"] = 0;
       for (let k = 0; k < outData.length; k++) {
         if (outData[k][myCard["Data"]["dimension"]] != undefined) {
           if (outData[k][myCard["Data"]["dimension"]] == dim) {
             dim_c = dim_c + 1;
             list1x["Value1"] = dim_c;
           }
+          list1y["Value1"] = list1y["Value1"] + list1x["Value1"];
         }
       }
-      list1.push({ ...list1x });
-      console.log(list1x);
-      list1x = {};
+      switch (mode) {
+        case "COUNT":
+          list1.push({ ...list1x });
+          list1x = {};
+          break;
+        case "COLLECTIVE":
+          list1.push({ ...list1y });
+          list1y = {};
+          break;
+        default:
+          list1.push({ ...list1x });
+          list1x = {};
+          break;
+      }
     });
+    console.log(list1);
     return list1;
   },
-  numericHeader: async function (myCard, list) {
+  numericHeader: async function (myCard, list, mode) {
     hdr = {};
     hdr["number"] = 0;
-    console.log(myCard["numericHeader"]["headerNumber"]);
-    if (myCard["numericHeader"]["headerNumber"]["Operation"] == "COUNT") {
-      for (let m = 0; m < list.length; m++) {
-        hdr["number"] = hdr["number"] + list[m]["Value1"];
-      }
-    } else {
+    switch (myCard["numericHeader"]["headerNumber"]["Operation"]) {
+      case "COUNT":
+        for (let m = 0; m < list.length; m++) {
+          hdr["number"] = hdr["number"] + list[m]["Value1"];
+        }
+        break;
+      case "COLLECTIVE":
+        for (let m = 0; m < list.length; m++) {
+          hdr["number"] = list[m]["Value1"];
+        }
+        break;
+      default:
+        for (let m = 0; m < list.length; m++) {
+          hdr["number"] = hdr["number"] + list[m]["Value1"];
+        }
+        break;
     }
+
     if (hdr["number"] <= myCard["numericHeader"]["trend"]["value"]) {
       hdr["trend"] = "DOWN";
     } else {
