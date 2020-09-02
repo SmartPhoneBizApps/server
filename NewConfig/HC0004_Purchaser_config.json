@@ -226,7 +226,7 @@
     {
       "value": "Tab5",
       "update": "Yes",
-      "name": "ItemInvoice",
+      "name": "ContractInvoice",
       "type": "Table",
       "fioriicon": "expense-report"
     },
@@ -258,7 +258,7 @@
     "Tab2": ["PharmaContact", "PharmaContactEmail"],
     "Tab3": ["MultiAttachments"],
     "Tab4": ["Services"],
-    "Tab5": ["ItemInvoice"],
+    "Tab5": ["ContractInvoice"],
     "Tab6": ["myHCPHCO"]
   },
   "ControlDisplay": {},
@@ -358,7 +358,7 @@
             "name": "Invoice Item",
             "type": "INVOICE",
             "URL": "datarecords/",
-            "tableName": "ItemInvoice",
+            "tableName": "ContractInvoice",
             "Token": "Yes",
             "URLMethod": "PUT",
             "updateButton": "Add to Invoice",
@@ -491,7 +491,7 @@
         { "name": "ItemStatus1" }
       ]
     },
-    "ItemInvoice": {
+    "ContractInvoice": {
       "calculation": "Yes",
       "title": "Contract Invoice",
       "subtitle": "Invoice Items",
@@ -740,11 +740,11 @@
       "SLabel": "myHCPHCO"
     },
     {
-      "name": "ItemInvoice",
+      "name": "ContractInvoice",
       "type": "Array",
       "width": "500",
       "Option": "Optional",
-      "SLabel": "ItemInvoice"
+      "SLabel": "ContractInvoice"
     },
     {
       "name": "MultiAttachments",
@@ -787,25 +787,25 @@
       "SLabel": "Contract Link"
     },
     {
+      "name": "ContractEndDate",
+      "type": "Date",
+      "width": "10",
+      "Option": "Mandatory",
+      "SLabel": "Contract End Date"
+    },
+    {
       "name": "HCPEmail",
       "type": "string",
       "width": "50",
-      "Option": "Mandatory",
+      "Option": "Optional",
       "SLabel": "HCP Email"
     },
     {
       "name": "VendorName",
       "type": "string",
       "width": "100",
-      "Option": "Mandatory",
+      "Option": "Optional",
       "SLabel": "HCP Name"
-    },
-    {
-      "name": "ContractEndDate",
-      "type": "Date",
-      "width": "10",
-      "Option": "Mandatory",
-      "SLabel": "Contract End Date"
     },
     {
       "name": "ContractValue",
@@ -935,7 +935,7 @@
       {
         "CalculatedFormula": {
           "name": "ITEMSUM",
-          "table": "ItemInvoice",
+          "table": "ContractInvoice",
           "function": "ITEMSUM",
           "Target": "InvoiceValue",
           "type": "HeaderItem"
@@ -954,7 +954,7 @@
           "type": "Header"
         },
         "Fields": [
-          { "Source": "ServiceValue", "Type": { "type": "Header" } },
+          { "Source": "ContractValue", "Type": { "type": "Header" } },
           { "Source": "InvoiceValue", "Type": { "type": "Header" } }
         ]
       }

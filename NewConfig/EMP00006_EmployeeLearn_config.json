@@ -145,73 +145,7 @@
     "Tab2": ["ProjectNeed", "Cost", "CostCentre"],
     "Tab3": ["ProcessingLog"]
   },
-  "listCards": [
-    {
-      "type": "Example",
-      "cardType": "Analytical",
-      "cardsubType": "StackedBar",
-      "cardID": "ASB01",
-      "cardLevel": "tableData",
-      "template": "template_example_StackedBar",
-      "title": "Training Analysis",
-      "subtitle": "Training Status",
-      "unitOfMeasurement": "Days",
-      "itemvalueMap": {
-        "Value1": "Cost",
-        "Value2": "NA"
-      },
-      "itemkeyMap": {
-        "Area": "Status"
-      },
-      "itemfixedVal": [{ "Total": 5 }],
-      "sumField": [{ "sumValue1": "Cost" }, { "sumValue2": "NA" }],
-      "headerfieldMap": [
-        { "j_number": "sumValue1" },
-        { "j_target": "sumValue2" }
-      ]
-    },
-    {
-      "type": "Example",
-      "cardType": "Analytical",
-      "cardsubType": "StackedColumn",
-      "cardID": "ASC01",
-      "cardLevel": "tableData",
-      "template": "template_example_StackedColumn",
-      "title": "Training Analysis",
-      "subtitle": "Trainings Type",
-      "unitOfMeasurement": "GBP",
-      "itemvalueMap": {
-        "Value1": "Cost",
-        "Value2": "NA"
-      },
-      "itemkeyMap": {
-        "Area": "ProjectCode"
-      },
-      "itemfixedVal": [{ "Total": 5 }],
-      "sumField": [{ "sumValue1": "Cost" }, { "sumValue2": "NA" }],
-      "headerfieldMap": [
-        { "j_number": "sumValue1" },
-        { "j_target": "sumValue2" }
-      ]
-    },
-    {
-      "type": "Example",
-      "cardType": "Analytical",
-      "cardsubType": "Donut",
-      "cardID": "ADT01H",
-      "cardLevel": "header",
-      "template": "template_example_donut.json",
-      "title": "Training Type Analysis",
-      "analyticsCard": {
-        "chartType": "donut",
-        "cardsDonut": {
-          "measureName": "CostCentre",
-          "Value2": "Cost",
-          "function": "SUM"
-        }
-      }
-    }
-  ],
+  "listCards": [],
   "cards": [],
   "ControlDisplay": {},
   "FieldDef": [

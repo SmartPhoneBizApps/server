@@ -27,6 +27,10 @@
     "type": "String",
     "maxlength": [100, "StudyName can not be more than 100"]
   },
+  "StudyStartDate": {
+    "type": "Date",
+    "maxlength": [10, "StudyStartDate can not be more than 10"]
+  },
   "PharmaContact": {
     "type": "String",
     "maxlength": [50, "PharmaContact can not be more than 50"]
@@ -34,6 +38,10 @@
   "PharmaContactEmail": {
     "type": "String",
     "maxlength": [50, "PharmaContactEmail can not be more than 50"]
+  },
+  "StudyLink": {
+    "type": "String",
+    "maxlength": [200, "StudyLink can not be more than 200"]
   },
   "StudyDetails": {
     "type": "String",
@@ -43,7 +51,6 @@
     "type": "String",
     "maxlength": [50, "Phase can not be more than 50"]
   },
-  "Date": { "type": "Date", "maxlength": [10, "Date can not be more than 10"] },
   "HCPEmail": {
     "type": "String",
     "maxlength": [50, "HCPEmail can not be more than 50"]
@@ -52,7 +59,18 @@
     "type": "String",
     "maxlength": [100, "VendorName can not be more than 100"]
   },
-
+  "StudyValue": {
+    "type": "String",
+    "maxlength": [50, "StudyValue can not be more than 50"]
+  },
+  "InvoiceValue": {
+    "type": "String",
+    "maxlength": [50, "InvoiceValue can not be more than 50"]
+  },
+  "BalanceValue": {
+    "type": "String",
+    "maxlength": [50, "BalanceValue can not be more than 50"]
+  },
   "ReferenceID": {
     "type": "String",
     "maxlength": [50, "ReferenceID can not be more than 50"]
@@ -67,9 +85,11 @@
   "ProgressComment": [],
   "SearchString": {
     "type": "String",
-    "maxlength": [500, "ContactName can not be more than 500 characters"]
+    "maxlength": [500, "SearchString can not be more than 500 characters"]
   },
-  "ItemData": [],
+  "Services": {},
+  "myHCPHCO": {},
+  "StudyInvoice": {},
   "buttons": {},
   "sValidation": "",
   "cardImage": ""

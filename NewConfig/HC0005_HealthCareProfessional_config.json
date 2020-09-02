@@ -141,7 +141,7 @@
     {
       "value": "Tab5",
       "update": "Yes",
-      "name": "ItemInvoice",
+      "name": "ContractInvoice",
       "type": "Table",
       "fioriicon": "expense-report"
     },
@@ -172,15 +172,15 @@
     ],
     "Tab2": ["PharmaContact", "PharmaContactEmail"],
     "Tab3": ["MultiAttachments"],
-    "Tab5": ["ItemInvoice"],
+    "Tab5": ["ContractInvoice"],
     "Tab6": ["myHCPHCO"]
   },
   "ControlDisplay": {},
   "tableConfig": {
-    "ItemInvoice": {
+    "ContractInvoice": {
       "calculation": "Yes",
-      "title": "Invoice",
-      "subtitle": "Contract Invoice",
+      "title": "Contract Invoice",
+      "subtitle": "Invoice Items",
       "tableFormFields": [
         {
           "GrpTitle": "Totals",
@@ -251,6 +251,55 @@
           "SLabel": "Item Attachment",
           "Option": "Optional",
           "Update": "Yes"
+        },
+        {
+          "name": "Title",
+          "type": "string",
+          "width": "50",
+          "SLabel": "Title",
+          "Option": "Optional"
+        },
+        {
+          "name": "FirstName",
+          "type": "string",
+          "width": "100",
+          "SLabel": "FirstName",
+          "Option": "Optional"
+        },
+        {
+          "name": "LastName",
+          "type": "string",
+          "width": "100",
+          "SLabel": "LastName",
+          "Option": "Optional"
+        },
+        {
+          "name": "Speciality",
+          "type": "string",
+          "width": "200",
+          "SLabel": "Speciality",
+          "Option": "Optional"
+        },
+        {
+          "name": "Email",
+          "type": "Email",
+          "width": "100",
+          "SLabel": "Email",
+          "Option": "Optional"
+        },
+        {
+          "name": "PostCode",
+          "type": "string",
+          "width": "200",
+          "SLabel": "PostCode",
+          "Option": "Optional"
+        },
+        {
+          "name": "InstitutionName",
+          "type": "string",
+          "width": "500",
+          "SLabel": "InstitutionName",
+          "Option": "Optional"
         }
       ],
       "DisplayFields": [
@@ -258,7 +307,12 @@
         "InvoiceAmount",
         "ServiceType",
         "iCurrency",
-        "ItemStatus1"
+        "ItemStatus1",
+        "Title",
+        "FirstName",
+        "LastName",
+        "Email",
+        "PostCode"
       ],
       "cards": [],
       "ItemButtons": {
@@ -275,7 +329,12 @@
         "iCurrency",
         "ItemStatus1",
         "Notes",
-        "Attachment"
+        "Attachment",
+        "Title",
+        "FirstName",
+        "LastName",
+        "Email",
+        "PostCode"
       ],
       "ItemDetails": [
         { "name": "ServiceType" },
@@ -284,7 +343,14 @@
         { "name": "iCurrency" },
         { "name": "Notes" },
         { "name": "ItemStatus1" },
-        { "name": "Attachment" }
+        { "name": "Attachment" },
+        { "name": "Title" },
+        { "name": "FirstName" },
+        { "name": "LastName" },
+        { "name": "Speciality" },
+        { "name": "Email" },
+        { "name": "PostCode" },
+        { "name": "InstitutionName" }
       ]
     },
     "myHCPHCO": {
@@ -458,11 +524,11 @@
       "SLabel": "Pharma Contact Email"
     },
     {
-      "name": "ItemInvoice",
+      "name": "ContractInvoice",
       "type": "Array",
       "width": "500",
       "Option": "Optional",
-      "SLabel": "ItemInvoice"
+      "SLabel": "ContractInvoice"
     },
     {
       "name": "MultiAttachments",
@@ -599,7 +665,7 @@
       {
         "CalculatedFormula": {
           "name": "ITEMSUM",
-          "table": "ItemInvoice",
+          "table": "ContractInvoice",
           "function": "ITEMSUM",
           "Target": "InvoiceValue",
           "type": "HeaderItem"

@@ -161,7 +161,7 @@
     {
       "value": "Tab5",
       "update": "Yes",
-      "name": "ItemInvoice",
+      "name": "ContractInvoice",
       "type": "Table",
       "fioriicon": "expense-report"
     }
@@ -186,7 +186,7 @@
     "Tab2": ["PharmaContact", "PharmaContactEmail"],
     "Tab3": ["MultiAttachments"],
     "Tab4": ["Services"],
-    "Tab5": ["ItemInvoice"]
+    "Tab5": ["ContractInvoice"]
   },
   "ControlDisplay": {},
   "tableConfig": {
@@ -285,7 +285,7 @@
             "name": "Invoice Item",
             "type": "INVOICE",
             "URL": "datarecords/",
-            "tableName": "ItemInvoice",
+            "tableName": "ContractInvoice",
             "Token": "Yes",
             "URLMethod": "PUT",
             "updateButton": "Add to Invoice",
@@ -312,7 +312,7 @@
         { "name": "Attachment" }
       ]
     },
-    "ItemInvoice": {
+    "ContractInvoice": {
       "calculation": "Yes",
       "title": "Services",
       "subtitle": "Services",
@@ -488,11 +488,11 @@
       "SLabel": "Services"
     },
     {
-      "name": "ItemInvoice",
+      "name": "ContractInvoice",
       "type": "Array",
       "width": "500",
       "Option": "Optional",
-      "SLabel": "ItemInvoice"
+      "SLabel": "ContractInvoice"
     },
     {
       "name": "MultiAttachments",
@@ -634,7 +634,7 @@
       {
         "CalculatedFormula": {
           "name": "ITEMSUM",
-          "table": "ItemInvoice",
+          "table": "ContractInvoice",
           "function": "ITEMSUM",
           "Target": "InvoiceValue",
           "type": "HeaderItem"

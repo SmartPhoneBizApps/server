@@ -157,7 +157,7 @@
     {
       "value": "Tab5",
       "update": "Yes",
-      "name": "ItemInvoice",
+      "name": "ContractInvoice",
       "type": "Table",
       "fioriicon": "expense-report"
     }
@@ -182,8 +182,29 @@
     "Tab2": ["PharmaContact", "PharmaContactEmail"],
     "Tab3": ["MultiAttachments"],
     "Tab4": ["Services"],
-    "Tab5": ["ItemInvoice"]
+    "Tab5": ["ContractInvoice"]
   },
+  "listCards": [
+    {
+      "cardType": "Analytical",
+      "cardsubType": "StackedBar",
+      "title": "Contract Analysis",
+      "subtitle": "Contract Speciality",
+      "unitOfMeasurement": "Count",
+      "Data": {
+        "dimension": "ContractType",
+        "fact": "records",
+        "operation": "COUNT"
+      },
+      "numericHeader": {
+        "headerNumber": { "Operation": "COUNT", "Field": "ID" },
+        "trend": { "trend": "DOWN", "Condition": "LTE", "value": 500 },
+        "status": { "state": "Success", "Condition": "LTE", "value": 800 },
+        "details": "Speciality",
+        "unit": "Count"
+      }
+    }
+  ],
   "ControlDisplay": {},
   "tableConfig": {
     "Services": {
@@ -281,7 +302,7 @@
             "name": "Invoice Item",
             "type": "INVOICE",
             "URL": "datarecords/",
-            "tableName": "ItemInvoice",
+            "tableName": "ContractInvoice",
             "Token": "Yes",
             "URLMethod": "PUT",
             "updateButton": "Add to Invoice",
@@ -308,10 +329,10 @@
         { "name": "Attachment" }
       ]
     },
-    "ItemInvoice": {
+    "ContractInvoice": {
       "calculation": "Yes",
-      "title": "Services",
-      "subtitle": "Services",
+      "title": "Contract Invoice",
+      "subtitle": "Contract Invoice",
       "tableFormFields": [
         {
           "GrpTitle": "Totals",
@@ -484,11 +505,11 @@
       "SLabel": "Services"
     },
     {
-      "name": "ItemInvoice",
+      "name": "ContractInvoice",
       "type": "Array",
       "width": "500",
       "Option": "Optional",
-      "SLabel": "ItemInvoice"
+      "SLabel": "ContractInvoice"
     },
     {
       "name": "MultiAttachments",
@@ -630,7 +651,7 @@
       {
         "CalculatedFormula": {
           "name": "ITEMSUM",
-          "table": "ItemInvoice",
+          "table": "ContractInvoice",
           "function": "ITEMSUM",
           "Target": "InvoiceValue",
           "type": "HeaderItem"
