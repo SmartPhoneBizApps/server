@@ -322,29 +322,31 @@ exports.addDataRecords = asyncHandler(async (req, res, next) => {
     var Handler = new calfunction();
     var type = Handler["fieldType"](obj, cardConfig["FieldDef"]);
     if (type == "Array") {
-      for (var ii = 0; ii < mydata[obj].length; ii++) {
-        var passArray = {};
-        //added by atul - Start
-        if (cardConfig["tableConfig"][obj].hasOwnProperty("Validations")) {
-          passArray["fieldName"] = obj;
-          passArray["data"] = mydata;
-          passArray["config"] = cardConfig["tableConfig"][obj]["Validations"];
-          passArray["FieldDef"] = cardConfig["FieldDef"].concat(
-            cardConfig["tableConfig"][obj]["ItemFieldDefinition"]
-          );
-          passArray["itemCnt"] = ii;
-          var sValidation = Handler["validation"](passArray);
-          mydata = sValidation["data"];
-          if (sValidation["status"] == false) {
-            res.status(400).json({
-              message: sValidation["message"],
-              success: false,
-              fieldValue: sValidation["fieldValue"],
-            });
-            return false;
+      if (mydata[obj] != undefined) {
+        for (var ii = 0; ii < mydata[obj].length; ii++) {
+          var passArray = {};
+          //added by atul - Start
+          if (cardConfig["tableConfig"][obj].hasOwnProperty("Validations")) {
+            passArray["fieldName"] = obj;
+            passArray["data"] = mydata;
+            passArray["config"] = cardConfig["tableConfig"][obj]["Validations"];
+            passArray["FieldDef"] = cardConfig["FieldDef"].concat(
+              cardConfig["tableConfig"][obj]["ItemFieldDefinition"]
+            );
+            passArray["itemCnt"] = ii;
+            var sValidation = Handler["validation"](passArray);
+            mydata = sValidation["data"];
+            if (sValidation["status"] == false) {
+              res.status(400).json({
+                message: sValidation["message"],
+                success: false,
+                fieldValue: sValidation["fieldValue"],
+              });
+              return false;
+            }
           }
+          //added by atul - End
         }
-        //added by atul - End
       }
     } else {
       var passArray = {};
@@ -715,29 +717,31 @@ exports.updateDataRecords = asyncHandler(async (req, res, next) => {
     var Handler = new calfunction();
     var type = Handler["fieldType"](obj, cardConfig["FieldDef"]);
     if (type == "Array") {
-      for (var ii = 0; ii < req.body[obj].length; ii++) {
-        var passArray = {};
-        //added by atul - Start
-        if (cardConfig["tableConfig"][obj].hasOwnProperty("Validations")) {
-          passArray["fieldName"] = obj;
-          passArray["data"] = req.body;
-          passArray["config"] = cardConfig["tableConfig"][obj]["Validations"];
-          passArray["FieldDef"] = cardConfig["FieldDef"].concat(
-            cardConfig["tableConfig"][obj]["ItemFieldDefinition"]
-          );
-          passArray["itemCnt"] = ii;
-          var sValidation = Handler["validation"](passArray);
-          req.body = sValidation["data"];
-          if (sValidation["status"] == false) {
-            res.status(400).json({
-              message: sValidation["message"],
-              success: false,
-              fieldValue: sValidation["fieldValue"],
-            });
-            return false;
+      if (req.body[obj] != undefined) {
+        for (var ii = 0; ii < req.body[obj].length; ii++) {
+          var passArray = {};
+          //added by atul - Start
+          if (cardConfig["tableConfig"][obj].hasOwnProperty("Validations")) {
+            passArray["fieldName"] = obj;
+            passArray["data"] = req.body;
+            passArray["config"] = cardConfig["tableConfig"][obj]["Validations"];
+            passArray["FieldDef"] = cardConfig["FieldDef"].concat(
+              cardConfig["tableConfig"][obj]["ItemFieldDefinition"]
+            );
+            passArray["itemCnt"] = ii;
+            var sValidation = Handler["validation"](passArray);
+            req.body = sValidation["data"];
+            if (sValidation["status"] == false) {
+              res.status(400).json({
+                message: sValidation["message"],
+                success: false,
+                fieldValue: sValidation["fieldValue"],
+              });
+              return false;
+            }
           }
+          //added by atul - End
         }
-        //added by atul - End
       }
     } else {
       var passArray = {};
