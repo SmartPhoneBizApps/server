@@ -1376,6 +1376,7 @@ module.exports = {
     });
   },
   cardReplace: function (mycard, cardData, appconfig, mode) {
+    console.log(mycard, cardData);
     if (mode == "header") {
       console.log(mode);
       cardData = cardData.replace(

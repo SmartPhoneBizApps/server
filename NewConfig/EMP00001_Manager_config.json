@@ -215,30 +215,6 @@
     {
       "type": "Example",
       "cardType": "Analytical",
-      "cardsubType": "StackedBar",
-      "cardID": "ASB01",
-      "cardLevel": "tableData",
-      "template": "template_example_StackedBar",
-      "title": "Leave Analysis",
-      "subtitle": "Leave Status",
-      "unitOfMeasurement": "Days",
-      "itemvalueMap": {
-        "Value1": "LeaveDays",
-        "Value2": "NA"
-      },
-      "itemkeyMap": {
-        "Area": "Status"
-      },
-      "itemfixedVal": [{ "Total": 5 }],
-      "sumField": [{ "sumValue1": "LeaveDays" }, { "sumValue2": "NA" }],
-      "headerfieldMap": [
-        { "j_number": "sumValue1" },
-        { "j_target": "sumValue2" }
-      ]
-    },
-    {
-      "type": "Example",
-      "cardType": "Analytical",
       "cardsubType": "StackedColumn",
       "cardID": "ASC01",
       "cardLevel": "tableData",

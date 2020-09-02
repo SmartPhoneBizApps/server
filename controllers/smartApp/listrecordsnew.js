@@ -4,6 +4,10 @@ const {
   analyticalCard,
   adaptiveNew,
   analyticalNew,
+  countAnalyticalCard,
+  sumAnalyticalCard,
+  buildAnalyticalCard,
+  numericHeader,
 } = require("../../modules/moduleCards");
 const {
   getPVConfig,
@@ -54,7 +58,6 @@ exports.listrecordsnew = asyncHandler(async (req, res, next) => {
     ival.Value = o_val;
     ival_out.push(ival);
   }
-
   //// Data Source is JSON Data
   if (req.params.id == "OPENSAP" || req.params.id == "EXTLEARN") {
     outData = {};
@@ -165,10 +168,8 @@ exports.listrecordsnew = asyncHandler(async (req, res, next) => {
     const count = rec.length;
     let query = readData(applicationId, req, appconfig);
     let results = await query;
-
     tabObj = {};
     tabArr = [];
-
     if (appconfig["Controls"]["SearchString"]["Search"] == true) {
       tableString = appconfig["Controls"]["SearchString"]["table"];
       for (const key in tableString) {
@@ -181,7 +182,6 @@ exports.listrecordsnew = asyncHandler(async (req, res, next) => {
         }
       }
     }
-
     // If Items are present...
     if (model2 !== model) {
       // Create query string (Item)
@@ -221,7 +221,7 @@ exports.listrecordsnew = asyncHandler(async (req, res, next) => {
     } else {
       for (let i1 = 0; i1 < results.length; i1++) {
         if (results[i1]["ReferenceID"] == undefined) {
-                results[i1]["ReferenceID"] = results[i1].ID;
+          results[i1]["ReferenceID"] = results[i1].ID;
         }
         //   results[i1].cardImage = application["photo"];
         results[i1].cardImage =
@@ -380,34 +380,63 @@ exports.listrecordsnew = asyncHandler(async (req, res, next) => {
       outStru["ANA01"] = { ...aCard };
 
       if (appconfig.hasOwnProperty("listCards")) {
-        var mycard = appconfig["listCards"];
-        for (let k = 0; k < mycard.length; k++) {
+        for (let x = 0; x < appconfig["listCards"].length; x++) {
+          myCard = appconfig["listCards"][x];
+          aCard = {};
+          console.log(myCard["Data"]["operation"]);
+          switch (myCard["Data"]["operation"]) {
+            case "COUNT":
+              list = await countAnalyticalCard(myCard, outData["data"]);
+              numheader = await numericHeader(myCard, list);
+              console.log(list);
+              console.log(numheader);
+              console.log(myCard);
+              aCard = await buildAnalyticalCard(myCard, list, numheader);
+              var cardData = JSON.stringify(aCard);
+              cardData = cardReplace(myCard, cardData, appconfig, "header");
+              aCard = JSON.parse(cardData);
+              outStru["ANAX" + x] = { ...aCard };
+              break;
+            case "SUM":
+              list = await sumAnalyticalCard(
+                appconfig["listCards"][x],
+                outData["data"]
+              );
+              break;
+            default:
+              list = await countAnalyticalCard(
+                appconfig["listCards"][x],
+                outData["data"]
+              );
+              break;
+          }
+        }
+      }
+
+      if (appconfig.hasOwnProperty("listCards")) {
+        var myCard = appconfig["listCards"];
+        for (let k = 0; k < myCard.length; k++) {
           counter = counter + 1;
           let cardKey = getCardKey(applicationId, businessrole, counter, "L");
-          let cardConfigFile1 =
-            "../../cards/cardConfig/" + mycard[k]["template"];
-          var cardData = JSON.stringify(require(cardConfigFile1));
-          cardData = cardReplace(mycard[k], cardData, appconfig, "header");
+          // let cardConfigFile1 =
+          //   "../../cards/cardConfig/" + myCard[k]["template"];
+          let cardTemplate =
+            "../../cards/cardConfig/template_example_" +
+            myCard[k]["cardsubType"] +
+            ".json";
+          var cardData = JSON.stringify(require(cardTemplate));
+          cardData = cardReplace(myCard[k], cardData, appconfig, "header");
           var anacardConfig = JSON.parse(cardData);
-          switch (mycard[k]["cardType"]) {
+          switch (myCard[k]["cardType"]) {
             case "Analytical":
               jCard1 = {};
               jCard1 = await analyticalCard(
-                mycard[k],
+                myCard[k],
                 outData["data"],
                 anacardConfig
               );
               outStru[cardKey] = { ...jCard1 };
               break;
-            // case "Adaptive":
-            //   jCard1 = {};
-            //   jCard1 = await adaptivecardCard(
-            //     applicationId,
-            //     businessrole,
-            //     anacardConfig
-            //   );
-            //   outStru[cardKey] = { ...jCard1 };
-            //   break;
             default:
               break;
           }

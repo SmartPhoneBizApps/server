@@ -132,7 +132,10 @@ exports.getUserapps = asyncHandler(async (req, res, next) => {
         let count = rec.length;
         appTemp["count"] = count;
         /////////////////////////
-        if (approleX.Apps[j].type == "filterData") {
+        if (
+          approleX.Apps[j].type == "filterData" ||
+          approleX.Apps[j].type == "FilterData"
+        ) {
           appTemp["Type"] = "FilterData";
         } else {
           appTemp["Type"] = "MasterDetail";

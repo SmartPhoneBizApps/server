@@ -27,14 +27,17 @@ exports.addTraining = asyncHandler(async (req, res, next) => {
     });
   }
   console.log(req.params.fromApp, req.params.ReferenceID);
-  Appdata = await findOneAppDataRefID(req.params.ID, req.params.fromApp);
-  if (!Appdata) {
-    res.status(400).json({
-      success: true,
-      message: "Record not found",
-    });
-    return false;
-  }
+  // Appdata = await findOneAppDataRefID(
+  //   req.params.ReferenceID,
+  //   req.params.fromApp
+  // );
+  // if (!Appdata) {
+  //   res.status(400).json({
+  //     success: true,
+  //     message: "Record not found",
+  //   });
+  //   return false;
+  // }
   // Read Config File
   configData = getNewConfig(req.params.toApp, req.params.role);
   let myData = await findOneAppData(req.params.ID, req.params.toApp);

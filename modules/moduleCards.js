@@ -1214,4 +1214,68 @@ module.exports = {
     list1x = {};
     return anacardConfig;
   },
+  sumAnalyticalCard: async function (myCard, outData) {},
+  countAnalyticalCard: async function (myCard, outData) {
+    // Count
+    list1x = {};
+    list1 = [];
+    let s_dimension = new Set();
+    for (let k = 0; k < outData.length; k++) {
+      s_dimension.add(outData[k][myCard["Data"]["dimension"]]);
+    }
+    console.log(s_dimension);
+    s_dimension.forEach((dim) => {
+      dim_c = 0;
+      list1x["Area"] = dim;
+      for (let k = 0; k < outData.length; k++) {
+        if (outData[k][myCard["Data"]["dimension"]] != undefined) {
+          if (outData[k][myCard["Data"]["dimension"]] == dim) {
+            dim_c = dim_c + 1;
+            list1x["Value1"] = dim_c;
+          }
+        }
+      }
+      list1.push({ ...list1x });
+      console.log(list1x);
+      list1x = {};
+    });
+    return list1;
+  },
+  numericHeader: async function (myCard, list) {
+    hdr = {};
+    hdr["number"] = 0;
+    console.log(myCard["numericHeader"]["headerNumber"]);
+    if (myCard["numericHeader"]["headerNumber"]["Operation"] == "COUNT") {
+      for (let m = 0; m < list.length; m++) {
+        hdr["number"] = hdr["number"] + list[m]["Value1"];
+      }
+    } else {
+    }
+    if (hdr["number"] <= myCard["numericHeader"]["trend"]["value"]) {
+      hdr["trend"] = "DOWN";
+    } else {
+      hdr["trend"] = "UP";
+    }
+    if (hdr["number"] <= myCard["numericHeader"]["status"]["value"]) {
+      hdr["state"] = "Success";
+    } else {
+      hdr["state"] = "Error";
+    }
+    hdr["details"] = myCard["numericHeader"]["details"];
+    return hdr;
+  },
+  buildAnalyticalCard: async function (myCard, list, numheader) {
+    let cardTemplate =
+      "../cards/cardConfig/template_example_" + myCard["cardsubType"] + ".json";
+    let anacardConfig = require(cardTemplate);
+    anacardConfig["sap.card"].content.data.json.list = list;
+    js1 = { ...anacardConfig["sap.card"].header.data.json };
+    js1["number"] = numheader["number"];
+    js1["trend"] = numheader["trend"];
+    js1["state"] = numheader["state"];
+    js1["details"] = numheader["details"];
+    anacardConfig["sap.card"]["header"]["data"]["json"] = { ...js1 };
+    js1 = {};
+    return anacardConfig;
+  },
 };
