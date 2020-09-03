@@ -93,13 +93,16 @@ exports.assignCourseUser = asyncHandler(async (req, res, next) => {
 
   // Assign Fixed values...
   x2 = configFrom["Controls"]["Source"]["FixedValues"];
-  for (let y = 0; y < x2.length; y++) {
-    const e2 = x2[y];
-    for (const k3 in e2) {
-      e2[k3] = getDateValues(e2[k3]);
-      Appdata[k3] = e2[k3];
+  if(x2 != undefined){
+    for (let y = 0; y < x2.length; y++) {
+      const e2 = x2[y];
+      for (const k3 in e2) {
+        e2[k3] = getDateValues(e2[k3]);
+        Appdata[k3] = e2[k3];
+      }
     }
   }
+
 
   if (!Appdata) {
     res.status(400).json({

@@ -15,9 +15,11 @@
       "documentKey": "ID",
       "SourceFile": "NA",
       "FieldMapping": [{ "ReferenceID": "ID" }],
-      "FixedValues": [{ "Status": "Invoiced" }]
+      "FixedValues": [
+        { "Status": "Invoiced" },
+        { "InvoiceType": "ContractInvoice" }
+      ]
     },
-
     "filterFields": {
       "header": [
         "Status",
