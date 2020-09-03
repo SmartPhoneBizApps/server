@@ -244,7 +244,6 @@ module.exports = {
                 }
               }
               break;
-
             //     Status=ne|Complete
             default:
               reqQuery1[key] = config1.Controls.Filters[x][key];
@@ -253,6 +252,30 @@ module.exports = {
         }
       }
     }
+    //{"FirstName": /.*Atul.*/}
+    for (const k1 in req.query) {
+      if (req.query.hasOwnProperty(k1)) {
+        var res = req.query[k1].split("|");
+        if (res.length > 1) {
+          tx = {};
+          tx["in"] = res;
+          reqQuery1[k1] = tx;
+        } else {
+          reqQuery1[k1] = res[0];
+          // ///^bar$/i
+          // // reqQuery1[k1] = "/^" + res[0] + "$/i";
+          // res[0] = res[0].replace("%", "/.*");
+          // res[0] = res[0].replace("%", ".*/");
+          // ty = {};
+          // ty["$regex"] = res[0];
+          // console.log("Query", reqQuery1);
+          // var re = /\\"\$regex\\"/g;
+          // ty["$regex"] = ty["$regex"].replace(re, "$regex");
+          // reqQuery1[k1] = ty;
+        }
+      }
+    }
+    console.log("Query", reqQuery1);
     const removeFields = ["select", "sort", "page", "limit"];
     removeFields.forEach((param) => delete reqQuery1[param]);
     reqQuery2 = {};
@@ -265,7 +288,6 @@ module.exports = {
       if ((n == true) & (model !== model2)) {
         const fList = key.split("_");
         reqQuery2[fList[1]] = reqQuery1[key];
-
         var r1 = reqQuery1[key].includes("ne"); // Add the logic for gt, lt etc...
         if (r1 == true) {
           rg01 = reqQuery1[key].split("|");
@@ -284,7 +306,6 @@ module.exports = {
       /\b(gt|gte|lt|lte|in)\b/g,
       (match) => `$${match}`
     );
-
     /////////////////////////////////////////////////////////////////
     // Finding resource
     query = model.find(JSON.parse(queryStr));

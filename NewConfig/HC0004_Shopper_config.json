@@ -30,7 +30,6 @@
       ]
     }
   },
-
   "ListFields": {
     "IntroField": "VendorName",
     "TitleField": "ContractName",
@@ -82,7 +81,6 @@
       "icon": "sap-icon://travel-request",
       "URL": "https://www.messenger.com/t/295020207695029"
     },
-
     { "type": "ADD", "name": "Add Record", "icon": "sap-icon://add" },
     {
       "type": "UPLOAD",
@@ -103,12 +101,63 @@
   ],
   "DButtons": [
     {
+      "type": "ADDTRAINING",
+      "name": "Add HCP/HCO",
+      "icon": "sap-icon://copy",
+      "Dialog": [
+        { "label": "FirstName", "name": "FirstName", "type": "string" },
+        { "label": "LastName", "name": "LastName", "type": "string" },
+        { "label": "Title", "name": "Title", "type": "string" },
+        { "label": "Speciality", "name": "Speciality", "type": "string" },
+        { "label": "Email", "name": "Email", "type": "string" },
+        { "label": "PostCode", "name": "PostCode", "type": "string" },
+        {
+          "label": "InstitutionName",
+          "name": "InstitutionName",
+          "type": "string"
+        }
+      ],
+      "listFields": [
+        "Title",
+        "FirstName",
+        "LastName",
+        "Speciality",
+        "Email",
+        "PostCode"
+      ],
+      "tableField": "myHCPHCO",
+      "transferFields": [
+        "ID",
+        "Title",
+        "FirstName",
+        "LastName",
+        "Speciality",
+        "Email",
+        "PostCode",
+        "InstitutionName"
+      ],
+      "SearchURL": "listrecordsnew/Web/HC0001/Purchaser{filter}",
+      "URL": "util/addTraining/myHCPHCO/HC0001/HC0004/{ID}/{ReferenceID}/{role}",
+      "FieldMapping": {
+        "Title": "Title",
+        "FirstName": "FirstName",
+        "LastName": "LastName",
+        "Speciality": "Speciality",
+        "Email": "Email",
+        "PostCode": "PostCode",
+        "InstitutionName": "InstitutionName"
+      },
+      "FixedValues": [{ "Status": "Active" }],
+      "Token": "Yes",
+      "URLMethod": "POST"
+    },
+    {
       "type": "SELFASSIGN",
       "name": "Submit Invoice",
       "icon": "sap-icon://share-2",
       "Dialog": "{label:'User',name:'user',type:'Email'}",
       "DialogSearch": "{URL}/api/v1/samrtApp/findUser/{user}",
-      "URL": "util/assignCourseUser/Shopper/Shopper/HC0004/HC0005/{ReferenceID}/{user}",
+      "URL": "util/assignCourseUser/Purchaser/Purchaser/HC0004/HC0005/{ReferenceID}/{user}",
       "Token": "Yes",
       "URLMethod": "POST"
     },
@@ -183,6 +232,13 @@
       "name": "ContractInvoice",
       "type": "Table",
       "fioriicon": "expense-report"
+    },
+    {
+      "value": "Tab6",
+      "update": "Yes",
+      "name": "myHCP/HCO",
+      "type": "Table",
+      "fioriicon": "expense-report"
     }
   ],
   "DetailFields": {
@@ -205,7 +261,8 @@
     "Tab2": ["PharmaContact", "PharmaContactEmail"],
     "Tab3": ["MultiAttachments"],
     "Tab4": ["Services"],
-    "Tab5": ["ContractInvoice"]
+    "Tab5": ["ContractInvoice"],
+    "Tab6": ["myHCPHCO"]
   },
   "listCards": [
     {
@@ -367,7 +424,8 @@
             "Token": "Yes",
             "URLMethod": "PUT",
             "updateButton": "Add to Invoice",
-            "diffMapping": [{ "ServiceAmount": "InvoiceAmount" }]
+            "diffMapping": [{ "ServiceAmount": "InvoiceAmount" }],
+            "popupData": "myHCPHCO"
           }
         ]
       },
@@ -390,10 +448,115 @@
         { "name": "Attachment" }
       ]
     },
+    "myHCPHCO": {
+      "title": "My HCP/HCO",
+      "subtitle": "HCP/HCO",
+      "ItemFieldDefinition": [
+        {
+          "name": "ItemNumber",
+          "type": "string",
+          "width": "10",
+          "SLabel": "Item Number",
+          "Update": "No"
+        },
+        {
+          "name": "ItemStatus1",
+          "type": "string",
+          "width": "50",
+          "SLabel": "Item Status",
+          "Update": "Yes"
+        },
+        {
+          "name": "Title",
+          "type": "string",
+          "width": "50",
+          "SLabel": "Title",
+          "Option": "Optional"
+        },
+        {
+          "name": "FirstName",
+          "type": "string",
+          "width": "100",
+          "SLabel": "FirstName",
+          "Option": "Optional"
+        },
+        {
+          "name": "LastName",
+          "type": "string",
+          "width": "100",
+          "SLabel": "LastName",
+          "Option": "Optional"
+        },
+        {
+          "name": "Speciality",
+          "type": "string",
+          "width": "200",
+          "SLabel": "Speciality",
+          "Option": "Optional"
+        },
+        {
+          "name": "Email",
+          "type": "Email",
+          "width": "100",
+          "SLabel": "Email",
+          "Option": "Optional"
+        },
+        {
+          "name": "PostCode",
+          "type": "string",
+          "width": "200",
+          "SLabel": "PostCode",
+          "Option": "Optional"
+        },
+        {
+          "name": "InstitutionName",
+          "type": "string",
+          "width": "500",
+          "SLabel": "InstitutionName",
+          "Option": "Optional"
+        }
+      ],
+      "DisplayFields": [
+        "Title",
+        "FirstName",
+        "LastName",
+        "Email",
+        "PostCode",
+        "ItemStatus1"
+      ],
+      "cards": [],
+      "ItemButtons": {
+        "itemDisplay": true,
+        "itemCheck": false,
+        "itemAdd": false,
+        "itemEdit": true,
+        "itemDelete": false
+      },
+      "CreateFields": [
+        "Title",
+        "FirstName",
+        "LastName",
+        "Speciality",
+        "Email",
+        "PostCode",
+        "InstitutionName",
+        "ItemStatus1"
+      ],
+      "ItemDetails": [
+        { "name": "Title" },
+        { "name": "FirstName" },
+        { "name": "LastName" },
+        { "name": "Speciality" },
+        { "name": "Email" },
+        { "name": "PostCode" },
+        { "name": "InstitutionName" },
+        { "name": "ItemStatus1" }
+      ]
+    },
     "ContractInvoice": {
       "calculation": "Yes",
-      "title": "Services",
-      "subtitle": "Services",
+      "title": "Contract Invoice",
+      "subtitle": "Invoice Items",
       "tableFormFields": [
         {
           "GrpTitle": "Totals",
@@ -464,6 +627,55 @@
           "SLabel": "Item Attachment",
           "Option": "Optional",
           "Update": "Yes"
+        },
+        {
+          "name": "Title",
+          "type": "string",
+          "width": "50",
+          "SLabel": "Title",
+          "Option": "Optional"
+        },
+        {
+          "name": "FirstName",
+          "type": "string",
+          "width": "100",
+          "SLabel": "FirstName",
+          "Option": "Optional"
+        },
+        {
+          "name": "LastName",
+          "type": "string",
+          "width": "100",
+          "SLabel": "LastName",
+          "Option": "Optional"
+        },
+        {
+          "name": "Speciality",
+          "type": "string",
+          "width": "200",
+          "SLabel": "Speciality",
+          "Option": "Optional"
+        },
+        {
+          "name": "Email",
+          "type": "Email",
+          "width": "100",
+          "SLabel": "Email",
+          "Option": "Optional"
+        },
+        {
+          "name": "PostCode",
+          "type": "string",
+          "width": "200",
+          "SLabel": "PostCode",
+          "Option": "Optional"
+        },
+        {
+          "name": "InstitutionName",
+          "type": "string",
+          "width": "500",
+          "SLabel": "InstitutionName",
+          "Option": "Optional"
         }
       ],
       "DisplayFields": [
@@ -471,7 +683,12 @@
         "InvoiceAmount",
         "ServiceType",
         "iCurrency",
-        "ItemStatus1"
+        "ItemStatus1",
+        "Title",
+        "FirstName",
+        "LastName",
+        "Email",
+        "PostCode"
       ],
       "cards": [],
       "ItemButtons": {
@@ -488,7 +705,12 @@
         "iCurrency",
         "ItemStatus1",
         "Notes",
-        "Attachment"
+        "Attachment",
+        "Title",
+        "FirstName",
+        "LastName",
+        "Email",
+        "PostCode"
       ],
       "ItemDetails": [
         { "name": "ServiceType" },
@@ -497,7 +719,14 @@
         { "name": "iCurrency" },
         { "name": "Notes" },
         { "name": "ItemStatus1" },
-        { "name": "Attachment" }
+        { "name": "Attachment" },
+        { "name": "Title" },
+        { "name": "FirstName" },
+        { "name": "LastName" },
+        { "name": "Speciality" },
+        { "name": "Email" },
+        { "name": "PostCode" },
+        { "name": "InstitutionName" }
       ]
     }
   },
@@ -566,6 +795,13 @@
       "SLabel": "Services"
     },
     {
+      "name": "myHCPHCO",
+      "type": "Array",
+      "width": "500",
+      "Option": "Optional",
+      "SLabel": "myHCPHCO"
+    },
+    {
       "name": "ContractInvoice",
       "type": "Array",
       "width": "500",
@@ -613,25 +849,25 @@
       "SLabel": "Contract Link"
     },
     {
+      "name": "ContractEndDate",
+      "type": "Date",
+      "width": "10",
+      "Option": "Mandatory",
+      "SLabel": "Contract End Date"
+    },
+    {
       "name": "HCPEmail",
       "type": "string",
       "width": "50",
-      "Option": "Mandatory",
+      "Option": "Optional",
       "SLabel": "HCP Email"
     },
     {
       "name": "VendorName",
       "type": "string",
       "width": "100",
-      "Option": "Mandatory",
+      "Option": "Optional",
       "SLabel": "HCP Name"
-    },
-    {
-      "name": "ContractEndDate",
-      "type": "Date",
-      "width": "10",
-      "Option": "Mandatory",
-      "SLabel": "Contract End Date"
     },
     {
       "name": "ContractValue",
@@ -660,6 +896,55 @@
       "width": "50",
       "Option": "Optional",
       "SLabel": "Validation"
+    },
+    {
+      "name": "Title",
+      "type": "string",
+      "width": "50",
+      "SLabel": "Title",
+      "Option": "Optional"
+    },
+    {
+      "name": "FirstName",
+      "type": "string",
+      "width": "100",
+      "SLabel": "FirstName",
+      "Option": "Optional"
+    },
+    {
+      "name": "LastName",
+      "type": "string",
+      "width": "100",
+      "SLabel": "LastName",
+      "Option": "Optional"
+    },
+    {
+      "name": "Speciality",
+      "type": "string",
+      "width": "200",
+      "SLabel": "Speciality",
+      "Option": "Optional"
+    },
+    {
+      "name": "Email",
+      "type": "Email",
+      "width": "100",
+      "SLabel": "Email",
+      "Option": "Optional"
+    },
+    {
+      "name": "PostCode",
+      "type": "string",
+      "width": "200",
+      "SLabel": "PostCode",
+      "Option": "Optional"
+    },
+    {
+      "name": "InstitutionName",
+      "type": "string",
+      "width": "500",
+      "SLabel": "InstitutionName",
+      "Option": "Optional"
     }
   ],
   "itemData": "No",
@@ -731,7 +1016,7 @@
           "type": "Header"
         },
         "Fields": [
-          { "Source": "ServiceValue", "Type": { "type": "Header" } },
+          { "Source": "ContractValue", "Type": { "type": "Header" } },
           { "Source": "InvoiceValue", "Type": { "type": "Header" } }
         ]
       }

@@ -149,7 +149,21 @@
     {
       "value": "Tab6",
       "update": "Yes",
-      "name": "myHCP/HCO",
+      "name": "EventInvoice",
+      "type": "Table",
+      "fioriicon": "expense-report"
+    },
+    {
+      "value": "Tab7",
+      "update": "Yes",
+      "name": "StudyInvoice",
+      "type": "Table",
+      "fioriicon": "expense-report"
+    },
+    {
+      "value": "Tab8",
+      "update": "Yes",
+      "name": "DonationGrant",
       "type": "Table",
       "fioriicon": "expense-report"
     }
@@ -174,8 +188,70 @@
     "Tab2": ["PharmaContact", "PharmaContactEmail"],
     "Tab3": ["MultiAttachments"],
     "Tab5": ["ContractInvoice"],
-    "Tab6": ["myHCPHCO"]
+    "Tab6": ["EventInvoice"],
+    "Tab7": ["StudyInvoice"],
+    "Tab8": ["DonationGrant"]
   },
+
+  "listCards": [
+    {
+      "cardType": "Analytical",
+      "cardsubType": "StackedBar",
+      "title": "Invoice Analysis",
+      "subtitle": "Invoice Status",
+      "unitOfMeasurement": "Days",
+      "Data": {
+        "dimension": "Status",
+        "fact": "records",
+        "operation": "COUNT"
+      },
+      "numericHeader": {
+        "headerNumber": { "Operation": "COUNT", "Field": "ID" },
+        "trend": { "trend": "DOWN", "Condition": "LTE", "value": 8 },
+        "status": { "state": "Success", "Condition": "LTE", "value": 24 },
+        "details": "Total 24 days",
+        "unit": "Days"
+      }
+    },
+    {
+      "cardType": "Analytical",
+      "cardsubType": "StackedColumn",
+      "title": "Invoice Analysis",
+      "subtitle": "Invoice Type",
+      "unitOfMeasurement": "Days",
+      "Data": {
+        "dimension": "InvoiceType",
+        "fact": "records",
+        "operation": "COUNT"
+      },
+      "numericHeader": {
+        "headerNumber": { "Operation": "COUNT", "Field": "ID" },
+        "trend": { "trend": "DOWN", "Condition": "LTE", "value": 8 },
+        "status": { "state": "Success", "Condition": "LTE", "value": 24 },
+        "details": "Total 24 days",
+        "unit": "Days"
+      }
+    },
+    {
+      "cardType": "Analytical",
+      "cardsubType": "Line",
+      "title": "Invoice Analysis",
+      "subtitle": "Invoice Date",
+      "unitOfMeasurement": "Days",
+      "Data": {
+        "dimension": "InvoiceDate",
+        "fact": "records",
+        "operation": "COLLECTIVE"
+      },
+      "numericHeader": {
+        "headerNumber": { "Operation": "COLLECTIVE", "Field": "ID" },
+        "trend": { "trend": "DOWN", "Condition": "LTE", "value": 8 },
+        "status": { "state": "Success", "Condition": "LTE", "value": 24 },
+        "details": "Max 24 days",
+        "unit": "Days"
+      }
+    }
+  ],
   "ControlDisplay": {},
   "tableConfig": {
     "ContractInvoice": {
@@ -354,15 +430,63 @@
         { "name": "InstitutionName" }
       ]
     },
-    "myHCPHCO": {
-      "title": "My HCP/HCO",
-      "subtitle": "HCP/HCO",
+    "EventInvoice": {
+      "calculation": "Yes",
+      "title": "Event Invoice",
+      "subtitle": "Invoice Items",
+      "tableFormFields": [
+        {
+          "GrpTitle": "Totals",
+          "Fields": ["InvoiceValue"]
+        }
+      ],
       "ItemFieldDefinition": [
         {
           "name": "ItemNumber",
           "type": "string",
           "width": "10",
-          "SLabel": "Item Number",
+          "SLabel": "ItemNumber",
+          "Option": "Optional",
+          "Update": "No"
+        },
+        {
+          "name": "ServiceDetails",
+          "type": "string",
+          "width": "200",
+          "Option": "Mandatory",
+          "SLabel": "Service Details",
+          "Update": "Yes"
+        },
+        {
+          "name": "ServiceType",
+          "type": "string",
+          "width": "50",
+          "SLabel": "Service Type",
+          "Option": "Mandatory",
+          "Update": "Yes"
+        },
+        {
+          "name": "InvoiceAmount",
+          "type": "Num,1",
+          "width": "20",
+          "SLabel": "Invoice Amount",
+          "Option": "Mandatory",
+          "Update": "Yes"
+        },
+        {
+          "name": "Notes",
+          "type": "string",
+          "width": "1000",
+          "SLabel": "Notes",
+          "Option": "Optional",
+          "Update": "Yes"
+        },
+        {
+          "name": "iCurrency",
+          "type": "string",
+          "width": "10",
+          "SLabel": "Item Currency",
+          "Option": "Mandatory",
           "Update": "No"
         },
         {
@@ -370,6 +494,15 @@
           "type": "string",
           "width": "50",
           "SLabel": "Item Status",
+          "Option": "Mandatory",
+          "Update": "Yes"
+        },
+        {
+          "name": "Attachment",
+          "type": "singleAttachment",
+          "width": "100",
+          "SLabel": "Item Attachment",
+          "Option": "Optional",
           "Update": "Yes"
         },
         {
@@ -423,40 +556,406 @@
         }
       ],
       "DisplayFields": [
+        "ServiceDetails",
+        "InvoiceAmount",
+        "ServiceType",
+        "iCurrency",
+        "ItemStatus1",
         "Title",
         "FirstName",
         "LastName",
         "Email",
-        "PostCode",
-        "ItemStatus1"
+        "PostCode"
       ],
       "cards": [],
       "ItemButtons": {
         "itemDisplay": true,
-        "itemCheck": false,
+        "itemCheck": true,
         "itemAdd": false,
         "itemEdit": true,
-        "itemDelete": false
+        "itemDelete": true
       },
       "CreateFields": [
+        "ServiceType",
+        "ServiceDetails",
+        "InvoiceAmount",
+        "iCurrency",
+        "ItemStatus1",
+        "Notes",
+        "Attachment",
         "Title",
         "FirstName",
         "LastName",
-        "Speciality",
         "Email",
-        "PostCode",
-        "InstitutionName",
-        "ItemStatus1"
+        "PostCode"
       ],
       "ItemDetails": [
+        { "name": "ServiceType" },
+        { "name": "ServiceDetails" },
+        { "name": "InvoiceAmount" },
+        { "name": "iCurrency" },
+        { "name": "Notes" },
+        { "name": "ItemStatus1" },
+        { "name": "Attachment" },
         { "name": "Title" },
         { "name": "FirstName" },
         { "name": "LastName" },
         { "name": "Speciality" },
         { "name": "Email" },
         { "name": "PostCode" },
-        { "name": "InstitutionName" },
-        { "name": "ItemStatus1" }
+        { "name": "InstitutionName" }
+      ]
+    },
+    "StudyInvoice": {
+      "calculation": "Yes",
+      "title": "Study Invoice",
+      "subtitle": "Invoice Items",
+      "tableFormFields": [
+        {
+          "GrpTitle": "Totals",
+          "Fields": ["InvoiceValue"]
+        }
+      ],
+      "ItemFieldDefinition": [
+        {
+          "name": "ItemNumber",
+          "type": "string",
+          "width": "10",
+          "SLabel": "ItemNumber",
+          "Option": "Optional",
+          "Update": "No"
+        },
+        {
+          "name": "ServiceDetails",
+          "type": "string",
+          "width": "200",
+          "Option": "Mandatory",
+          "SLabel": "Service Details",
+          "Update": "Yes"
+        },
+        {
+          "name": "ServiceType2",
+          "type": "string",
+          "width": "50",
+          "SLabel": "Service Type",
+          "Option": "Mandatory",
+          "Update": "Yes"
+        },
+        {
+          "name": "InvoiceAmount",
+          "type": "Num,1",
+          "width": "20",
+          "SLabel": "Invoice Amount",
+          "Option": "Mandatory",
+          "Update": "Yes"
+        },
+        {
+          "name": "Notes",
+          "type": "string",
+          "width": "1000",
+          "SLabel": "Notes",
+          "Option": "Optional",
+          "Update": "Yes"
+        },
+        {
+          "name": "iCurrency",
+          "type": "string",
+          "width": "10",
+          "SLabel": "Item Currency",
+          "Option": "Mandatory",
+          "Update": "No"
+        },
+        {
+          "name": "ItemStatus2",
+          "type": "string",
+          "width": "50",
+          "SLabel": "Item Status",
+          "Option": "Mandatory",
+          "Update": "Yes"
+        },
+        {
+          "name": "Attachment",
+          "type": "singleAttachment",
+          "width": "100",
+          "SLabel": "Item Attachment",
+          "Option": "Optional",
+          "Update": "Yes"
+        },
+        {
+          "name": "Title",
+          "type": "string",
+          "width": "50",
+          "SLabel": "Title",
+          "Option": "Optional"
+        },
+        {
+          "name": "FirstName",
+          "type": "string",
+          "width": "100",
+          "SLabel": "FirstName",
+          "Option": "Optional"
+        },
+        {
+          "name": "LastName",
+          "type": "string",
+          "width": "100",
+          "SLabel": "LastName",
+          "Option": "Optional"
+        },
+        {
+          "name": "Speciality",
+          "type": "string",
+          "width": "200",
+          "SLabel": "Speciality",
+          "Option": "Optional"
+        },
+        {
+          "name": "Email",
+          "type": "Email",
+          "width": "100",
+          "SLabel": "Email",
+          "Option": "Optional"
+        },
+        {
+          "name": "PostCode",
+          "type": "string",
+          "width": "200",
+          "SLabel": "PostCode",
+          "Option": "Optional"
+        },
+        {
+          "name": "InstitutionName",
+          "type": "string",
+          "width": "500",
+          "SLabel": "InstitutionName",
+          "Option": "Optional"
+        }
+      ],
+      "DisplayFields": [
+        "ServiceDetails",
+        "InvoiceAmount",
+        "ServiceType2",
+        "iCurrency",
+        "ItemStatus2",
+        "Title",
+        "FirstName",
+        "LastName",
+        "Email",
+        "PostCode"
+      ],
+      "cards": [],
+      "ItemButtons": {
+        "itemDisplay": true,
+        "itemCheck": true,
+        "itemAdd": false,
+        "itemEdit": true,
+        "itemDelete": true
+      },
+      "CreateFields": [
+        "ServiceType2",
+        "ServiceDetails",
+        "InvoiceAmount",
+        "iCurrency",
+        "ItemStatus2",
+        "Notes",
+        "Attachment",
+        "Title",
+        "FirstName",
+        "LastName",
+        "Email",
+        "PostCode"
+      ],
+      "ItemDetails": [
+        { "name": "ServiceType2" },
+        { "name": "ServiceDetails" },
+        { "name": "InvoiceAmount" },
+        { "name": "iCurrency" },
+        { "name": "Notes" },
+        { "name": "ItemStatus2" },
+        { "name": "Attachment" },
+        { "name": "Title" },
+        { "name": "FirstName" },
+        { "name": "LastName" },
+        { "name": "Speciality" },
+        { "name": "Email" },
+        { "name": "PostCode" },
+        { "name": "InstitutionName" }
+      ]
+    },
+    "DonationGrant": {
+      "calculation": "Yes",
+      "title": "Study Invoice",
+      "subtitle": "Invoice Items",
+      "tableFormFields": [
+        {
+          "GrpTitle": "Totals",
+          "Fields": ["InvoiceValue"]
+        }
+      ],
+      "ItemFieldDefinition": [
+        {
+          "name": "ItemNumber",
+          "type": "string",
+          "width": "10",
+          "SLabel": "ItemNumber",
+          "Option": "Optional",
+          "Update": "No"
+        },
+        {
+          "name": "ServiceDetails",
+          "type": "string",
+          "width": "200",
+          "Option": "Mandatory",
+          "SLabel": "Service Details",
+          "Update": "Yes"
+        },
+        {
+          "name": "ServiceType2",
+          "type": "string",
+          "width": "50",
+          "SLabel": "Service Type",
+          "Option": "Mandatory",
+          "Update": "Yes"
+        },
+        {
+          "name": "InvoiceAmount",
+          "type": "Num,1",
+          "width": "20",
+          "SLabel": "Invoice Amount",
+          "Option": "Mandatory",
+          "Update": "Yes"
+        },
+        {
+          "name": "Notes",
+          "type": "string",
+          "width": "1000",
+          "SLabel": "Notes",
+          "Option": "Optional",
+          "Update": "Yes"
+        },
+        {
+          "name": "iCurrency",
+          "type": "string",
+          "width": "10",
+          "SLabel": "Item Currency",
+          "Option": "Mandatory",
+          "Update": "No"
+        },
+        {
+          "name": "ItemStatus2",
+          "type": "string",
+          "width": "50",
+          "SLabel": "Item Status",
+          "Option": "Mandatory",
+          "Update": "Yes"
+        },
+        {
+          "name": "Attachment",
+          "type": "singleAttachment",
+          "width": "100",
+          "SLabel": "Item Attachment",
+          "Option": "Optional",
+          "Update": "Yes"
+        },
+        {
+          "name": "Title",
+          "type": "string",
+          "width": "50",
+          "SLabel": "Title",
+          "Option": "Optional"
+        },
+        {
+          "name": "FirstName",
+          "type": "string",
+          "width": "100",
+          "SLabel": "FirstName",
+          "Option": "Optional"
+        },
+        {
+          "name": "LastName",
+          "type": "string",
+          "width": "100",
+          "SLabel": "LastName",
+          "Option": "Optional"
+        },
+        {
+          "name": "Speciality",
+          "type": "string",
+          "width": "200",
+          "SLabel": "Speciality",
+          "Option": "Optional"
+        },
+        {
+          "name": "Email",
+          "type": "Email",
+          "width": "100",
+          "SLabel": "Email",
+          "Option": "Optional"
+        },
+        {
+          "name": "PostCode",
+          "type": "string",
+          "width": "200",
+          "SLabel": "PostCode",
+          "Option": "Optional"
+        },
+        {
+          "name": "InstitutionName",
+          "type": "string",
+          "width": "500",
+          "SLabel": "InstitutionName",
+          "Option": "Optional"
+        }
+      ],
+      "DisplayFields": [
+        "ServiceDetails",
+        "InvoiceAmount",
+        "ServiceType2",
+        "iCurrency",
+        "ItemStatus2",
+        "Title",
+        "FirstName",
+        "LastName",
+        "Email",
+        "PostCode"
+      ],
+      "cards": [],
+      "ItemButtons": {
+        "itemDisplay": true,
+        "itemCheck": true,
+        "itemAdd": false,
+        "itemEdit": true,
+        "itemDelete": true
+      },
+      "CreateFields": [
+        "ServiceType2",
+        "ServiceDetails",
+        "InvoiceAmount",
+        "iCurrency",
+        "ItemStatus2",
+        "Notes",
+        "Attachment",
+        "Title",
+        "FirstName",
+        "LastName",
+        "Email",
+        "PostCode"
+      ],
+      "ItemDetails": [
+        { "name": "ServiceType2" },
+        { "name": "ServiceDetails" },
+        { "name": "InvoiceAmount" },
+        { "name": "iCurrency" },
+        { "name": "Notes" },
+        { "name": "ItemStatus2" },
+        { "name": "Attachment" },
+        { "name": "Title" },
+        { "name": "FirstName" },
+        { "name": "LastName" },
+        { "name": "Speciality" },
+        { "name": "Email" },
+        { "name": "PostCode" },
+        { "name": "InstitutionName" }
       ]
     }
   },
@@ -504,6 +1003,13 @@
       "SLabel": "Invoice Type"
     },
     {
+      "name": "InvoiceDate",
+      "type": "Date",
+      "width": "10",
+      "Option": "Mandatory",
+      "SLabel": "Invoice"
+    },
+    {
       "name": "ContractStartDate",
       "type": "Date",
       "width": "10",
@@ -530,6 +1036,27 @@
       "width": "500",
       "Option": "Optional",
       "SLabel": "ContractInvoice"
+    },
+    {
+      "name": "EventInvoice",
+      "type": "Array",
+      "width": "500",
+      "Option": "Optional",
+      "SLabel": "Event Invoice"
+    },
+    {
+      "name": "StudyInvoice",
+      "type": "Array",
+      "width": "500",
+      "Option": "Optional",
+      "SLabel": "Study Invoice"
+    },
+    {
+      "name": "DonationGrant",
+      "type": "Array",
+      "width": "500",
+      "Option": "Optional",
+      "SLabel": "Donation or Grant"
     },
     {
       "name": "MultiAttachments",
