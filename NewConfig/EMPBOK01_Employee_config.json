@@ -66,7 +66,35 @@
     {
       "type": "DOWNLOAD",
       "name": "Download File",
-      "icon": "sap-icon://download"
+      "icon": "sap-icon://download",
+      "downloadFields": [
+        "ID",
+        "BookingFor",
+        "MeetingDate",
+        "Name",
+        "ContactNo",
+        "Email",
+        "NoOfPeople",
+        "Slot",
+        "RoomLayout",
+        "LunchRequired",
+        "DietaryRequirement",
+        "VisitorName",
+        "VisitorCompany",
+        "VisitorPhone",
+        "VisitorEmail",
+        "ParkingRequired",
+        "HotDeskNo",
+        "Building",
+        "StartDate",
+        "StartTime",
+        "EndDate",
+        "EndTime",
+        "CarRegistration",
+        "CarPark",
+        "Comments",
+        "Status"
+      ]
     },
     {
       "type": "APPHELP",
@@ -161,7 +189,46 @@
     ],
     "Tab2": ["Name", "ContactNo", "Email"]
   },
-  "listCards": [],
+  "listCards": [
+    {
+      "cardType": "Analytical",
+      "cardsubType": "StackedBar",
+      "title": "Booking Analysis",
+      "subtitle": "Booking Status",
+      "unitOfMeasurement": "Days",
+      "Data": {
+        "dimension": "Status",
+        "fact": "records",
+        "operation": "COUNT"
+      },
+      "numericHeader": {
+        "headerNumber": { "Operation": "COUNT", "Field": "ID" },
+        "trend": { "trend": "DOWN", "Condition": "LTE", "value": 8 },
+        "status": { "state": "Success", "Condition": "LTE", "value": 24 },
+        "details": "Total 24 days",
+        "unit": "Days"
+      }
+    },
+    {
+      "cardType": "Analytical",
+      "cardsubType": "StackedColumn",
+      "title": "Booking Analysis",
+      "subtitle": "Booking Type",
+      "unitOfMeasurement": "Days",
+      "Data": {
+        "dimension": "BookingFor",
+        "fact": "records",
+        "operation": "COUNT"
+      },
+      "numericHeader": {
+        "headerNumber": { "Operation": "COUNT", "Field": "ID" },
+        "trend": { "trend": "DOWN", "Condition": "LTE", "value": 8 },
+        "status": { "state": "Success", "Condition": "LTE", "value": 24 },
+        "details": "Total 24 days",
+        "unit": "Days"
+      }
+    }
+  ],
   "cards": [],
   "ControlDisplay": {
     "ControlField": "BookingFor",

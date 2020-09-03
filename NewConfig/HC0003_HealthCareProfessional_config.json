@@ -50,6 +50,7 @@
         "ID",
         "HCPEmail",
         "VendorName",
+        "EventID",
         "EventName",
         "EventType",
         "EventStartDate",
@@ -58,10 +59,15 @@
         "Address",
         "Agenda",
         "EventLink",
+        "EventEndDate",
+        "EventValue",
+        "InvoiceValue",
+        "BalanceValue",
         "PharmaContact",
         "PharmaContactEmail",
         "Status"
-      ]
+      ],
+      "downloadTables": ["EventInvoice", "Agenda", "myHCPHCO", "Services"]
     },
     {
       "type": "APPHELP",
@@ -191,6 +197,65 @@
     "Tab3": ["Agenda"],
     "Tab4": ["MultiAttachments"]
   },
+  "listCards": [
+    {
+      "cardType": "Analytical",
+      "cardsubType": "StackedBar",
+      "title": "Event Analysis",
+      "subtitle": "Event Status",
+      "unitOfMeasurement": "Days",
+      "Data": {
+        "dimension": "Status",
+        "fact": "records",
+        "operation": "COUNT"
+      },
+      "numericHeader": {
+        "headerNumber": { "Operation": "COUNT", "Field": "ID" },
+        "trend": { "trend": "DOWN", "Condition": "LTE", "value": 8 },
+        "status": { "state": "Success", "Condition": "LTE", "value": 24 },
+        "details": "Total 24 days",
+        "unit": "Days"
+      }
+    },
+    {
+      "cardType": "Analytical",
+      "cardsubType": "StackedColumn",
+      "title": "Event Analysis",
+      "subtitle": "Event Type",
+      "unitOfMeasurement": "Days",
+      "Data": {
+        "dimension": "EventType",
+        "fact": "records",
+        "operation": "COUNT"
+      },
+      "numericHeader": {
+        "headerNumber": { "Operation": "COUNT", "Field": "ID" },
+        "trend": { "trend": "DOWN", "Condition": "LTE", "value": 8 },
+        "status": { "state": "Success", "Condition": "LTE", "value": 24 },
+        "details": "Total 24 days",
+        "unit": "Days"
+      }
+    },
+    {
+      "cardType": "Analytical",
+      "cardsubType": "Line",
+      "title": "Event Analysis",
+      "subtitle": "Event Date",
+      "unitOfMeasurement": "Days",
+      "Data": {
+        "dimension": "EventStartDate",
+        "fact": "records",
+        "operation": "COLLECTIVE"
+      },
+      "numericHeader": {
+        "headerNumber": { "Operation": "COLLECTIVE", "Field": "ID" },
+        "trend": { "trend": "DOWN", "Condition": "LTE", "value": 8 },
+        "status": { "state": "Success", "Condition": "LTE", "value": 24 },
+        "details": "Max 24 days",
+        "unit": "Days"
+      }
+    }
+  ],
   "ControlDisplay": {},
   "tableConfig": {
     "Agenda": {

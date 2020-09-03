@@ -55,7 +55,21 @@
     {
       "type": "DOWNLOAD",
       "name": "Download File",
-      "icon": "sap-icon://download"
+      "icon": "sap-icon://download",
+      "downloadFields": [
+        "ID",
+        "DateRequested",
+        "Detail",
+        "Area",
+        "Duration",
+        "External",
+        "EmployeeID",
+        "Name",
+        "ProjectNeed",
+        "Cost",
+        "CostCentre",
+        "Status"
+      ]
     },
     {
       "type": "APPHELP",
@@ -150,68 +164,60 @@
   },
   "listCards": [
     {
-      "type": "Example",
       "cardType": "Analytical",
       "cardsubType": "StackedBar",
-      "cardID": "ASB01",
-      "cardLevel": "tableData",
-      "template": "template_example_StackedBar",
       "title": "Training Analysis",
       "subtitle": "Training Status",
       "unitOfMeasurement": "Days",
-      "itemvalueMap": {
-        "Value1": "Cost",
-        "Value2": "NA"
+      "Data": {
+        "dimension": "Status",
+        "fact": "records",
+        "operation": "COUNT"
       },
-      "itemkeyMap": {
-        "Area": "Status"
-      },
-      "itemfixedVal": [{ "Total": 5 }],
-      "sumField": [{ "sumValue1": "Cost" }, { "sumValue2": "NA" }],
-      "headerfieldMap": [
-        { "j_number": "sumValue1" },
-        { "j_target": "sumValue2" }
-      ]
+      "numericHeader": {
+        "headerNumber": { "Operation": "COUNT", "Field": "ID" },
+        "trend": { "trend": "DOWN", "Condition": "LTE", "value": 8 },
+        "status": { "state": "Success", "Condition": "LTE", "value": 24 },
+        "details": "Total 24 days",
+        "unit": "Days"
+      }
     },
     {
-      "type": "Example",
       "cardType": "Analytical",
       "cardsubType": "StackedColumn",
-      "cardID": "ASC01",
-      "cardLevel": "tableData",
-      "template": "template_example_StackedColumn",
       "title": "Training Analysis",
-      "subtitle": "Trainings Type",
-      "unitOfMeasurement": "GBP",
-      "itemvalueMap": {
-        "Value1": "Cost",
-        "Value2": "NA"
+      "subtitle": "Project Code",
+      "unitOfMeasurement": "Days",
+      "Data": {
+        "dimension": "ProjectCode",
+        "fact": "records",
+        "operation": "COUNT"
       },
-      "itemkeyMap": {
-        "Area": "ProjectCode"
-      },
-      "itemfixedVal": [{ "Total": 5 }],
-      "sumField": [{ "sumValue1": "Cost" }, { "sumValue2": "NA" }],
-      "headerfieldMap": [
-        { "j_number": "sumValue1" },
-        { "j_target": "sumValue2" }
-      ]
+      "numericHeader": {
+        "headerNumber": { "Operation": "COUNT", "Field": "ID" },
+        "trend": { "trend": "DOWN", "Condition": "LTE", "value": 8 },
+        "status": { "state": "Success", "Condition": "LTE", "value": 24 },
+        "details": "Total 24 days",
+        "unit": "Days"
+      }
     },
     {
-      "type": "Example",
       "cardType": "Analytical",
-      "cardsubType": "Donut",
-      "cardID": "ADT01H",
-      "cardLevel": "header",
-      "template": "template_example_donut.json",
-      "title": "Training Type Analysis",
-      "analyticsCard": {
-        "chartType": "donut",
-        "cardsDonut": {
-          "measureName": "CostCentre",
-          "Value2": "Cost",
-          "function": "SUM"
-        }
+      "cardsubType": "Line",
+      "title": "Training Analysis",
+      "subtitle": "Trainings",
+      "unitOfMeasurement": "Days",
+      "Data": {
+        "dimension": "DateRequested",
+        "fact": "records",
+        "operation": "COLLECTIVE"
+      },
+      "numericHeader": {
+        "headerNumber": { "Operation": "COLLECTIVE", "Field": "ID" },
+        "trend": { "trend": "DOWN", "Condition": "LTE", "value": 8 },
+        "status": { "state": "Success", "Condition": "LTE", "value": 24 },
+        "details": "Max 24 days",
+        "unit": "Days"
       }
     }
   ],

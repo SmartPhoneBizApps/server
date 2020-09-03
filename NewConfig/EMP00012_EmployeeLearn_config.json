@@ -257,6 +257,27 @@
     "Tab7": ["EmployeeFB"],
     "Tab8": ["ProjectFeedback"]
   },
+  "listCards": [
+    {
+      "cardType": "Analytical",
+      "cardsubType": "StackedBar",
+      "title": "Annual Review Analysis",
+      "subtitle": "Annual Review Status",
+      "unitOfMeasurement": "Days",
+      "Data": {
+        "dimension": "Status",
+        "fact": "records",
+        "operation": "COUNT"
+      },
+      "numericHeader": {
+        "headerNumber": { "Operation": "COUNT", "Field": "ID" },
+        "trend": { "trend": "DOWN", "Condition": "LTE", "value": 8 },
+        "status": { "state": "Success", "Condition": "LTE", "value": 24 },
+        "details": "Total 24 days",
+        "unit": "Days"
+      }
+    }
+  ],
   "tableConfig": {
     "Goals": {
       "title": "My Goals",

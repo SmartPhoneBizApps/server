@@ -264,6 +264,65 @@
     "Tab5": ["ContractInvoice"],
     "Tab6": ["myHCPHCO"]
   },
+  "listCards": [
+    {
+      "cardType": "Analytical",
+      "cardsubType": "StackedBar",
+      "title": "Contract Analysis",
+      "subtitle": "Contract Status",
+      "unitOfMeasurement": "Days",
+      "Data": {
+        "dimension": "Status",
+        "fact": "records",
+        "operation": "COUNT"
+      },
+      "numericHeader": {
+        "headerNumber": { "Operation": "COUNT", "Field": "ID" },
+        "trend": { "trend": "DOWN", "Condition": "LTE", "value": 8 },
+        "status": { "state": "Success", "Condition": "LTE", "value": 24 },
+        "details": "Total 24 days",
+        "unit": "Days"
+      }
+    },
+    {
+      "cardType": "Analytical",
+      "cardsubType": "StackedColumn",
+      "title": "Contract Analysis",
+      "subtitle": "Contract Type",
+      "unitOfMeasurement": "Days",
+      "Data": {
+        "dimension": "ContractType",
+        "fact": "records",
+        "operation": "COUNT"
+      },
+      "numericHeader": {
+        "headerNumber": { "Operation": "COUNT", "Field": "ID" },
+        "trend": { "trend": "DOWN", "Condition": "LTE", "value": 8 },
+        "status": { "state": "Success", "Condition": "LTE", "value": 24 },
+        "details": "Total 24 days",
+        "unit": "Days"
+      }
+    },
+    {
+      "cardType": "Analytical",
+      "cardsubType": "Line",
+      "title": "Contract Analysis",
+      "subtitle": "Contract Date",
+      "unitOfMeasurement": "Days",
+      "Data": {
+        "dimension": "ContractStartDate",
+        "fact": "records",
+        "operation": "COLLECTIVE"
+      },
+      "numericHeader": {
+        "headerNumber": { "Operation": "COLLECTIVE", "Field": "ID" },
+        "trend": { "trend": "DOWN", "Condition": "LTE", "value": 8 },
+        "status": { "state": "Success", "Condition": "LTE", "value": 24 },
+        "details": "Max 24 days",
+        "unit": "Days"
+      }
+    }
+  ],
   "ControlDisplay": {},
   "tableConfig": {
     "Services": {

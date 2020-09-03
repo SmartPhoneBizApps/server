@@ -55,7 +55,21 @@
     {
       "type": "DOWNLOAD",
       "name": "Download File",
-      "icon": "sap-icon://download"
+      "icon": "sap-icon://download",
+      "downloadFields": [
+        "ID",
+        "DateRequested",
+        "Detail",
+        "Area",
+        "Duration",
+        "External",
+        "EmployeeID",
+        "Name",
+        "ProjectNeed",
+        "Cost",
+        "CostCentre",
+        "Status"
+      ]
     },
     {
       "type": "APPHELP",
@@ -145,7 +159,65 @@
     "Tab2": ["ProjectNeed", "Cost", "CostCentre"],
     "Tab3": ["ProcessingLog"]
   },
-  "listCards": [],
+  "listCards": [
+    {
+      "cardType": "Analytical",
+      "cardsubType": "StackedBar",
+      "title": "Training Analysis",
+      "subtitle": "Training Status",
+      "unitOfMeasurement": "Days",
+      "Data": {
+        "dimension": "Status",
+        "fact": "records",
+        "operation": "COUNT"
+      },
+      "numericHeader": {
+        "headerNumber": { "Operation": "COUNT", "Field": "ID" },
+        "trend": { "trend": "DOWN", "Condition": "LTE", "value": 8 },
+        "status": { "state": "Success", "Condition": "LTE", "value": 24 },
+        "details": "Total 24 days",
+        "unit": "Days"
+      }
+    },
+    {
+      "cardType": "Analytical",
+      "cardsubType": "StackedColumn",
+      "title": "Training Analysis",
+      "subtitle": "Project Code",
+      "unitOfMeasurement": "Days",
+      "Data": {
+        "dimension": "ProjectCode",
+        "fact": "records",
+        "operation": "COUNT"
+      },
+      "numericHeader": {
+        "headerNumber": { "Operation": "COUNT", "Field": "ID" },
+        "trend": { "trend": "DOWN", "Condition": "LTE", "value": 8 },
+        "status": { "state": "Success", "Condition": "LTE", "value": 24 },
+        "details": "Total 24 days",
+        "unit": "Days"
+      }
+    },
+    {
+      "cardType": "Analytical",
+      "cardsubType": "Line",
+      "title": "Training Analysis",
+      "subtitle": "Trainings",
+      "unitOfMeasurement": "Days",
+      "Data": {
+        "dimension": "DateRequested",
+        "fact": "records",
+        "operation": "COLLECTIVE"
+      },
+      "numericHeader": {
+        "headerNumber": { "Operation": "COLLECTIVE", "Field": "ID" },
+        "trend": { "trend": "DOWN", "Condition": "LTE", "value": 8 },
+        "status": { "state": "Success", "Condition": "LTE", "value": 24 },
+        "details": "Max 24 days",
+        "unit": "Days"
+      }
+    }
+  ],
   "cards": [],
   "ControlDisplay": {},
   "FieldDef": [

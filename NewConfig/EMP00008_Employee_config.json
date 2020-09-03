@@ -50,7 +50,21 @@
     {
       "type": "DOWNLOAD",
       "name": "Download File",
-      "icon": "sap-icon://download"
+      "icon": "sap-icon://download",
+      "downloadFields": [
+        "ID",
+        "EmployeeID",
+        "Name",
+        "TotalAmount",
+        "Currency",
+        "EntryDate",
+        "ProjectCode",
+        "CostCentre",
+        "ExpenseStDate",
+        "ExpenseEndDate",
+        "Status"
+      ],
+      "downloadTables": ["myExpenses"]
     },
     {
       "type": "APPHELP",
@@ -63,7 +77,6 @@
       "icon": "sap-icon://travel-request",
       "URL": "https://www.messenger.com/t/295020207695029"
     },
-
     { "type": "ADD", "name": "Add Record", "icon": "sap-icon://add" },
     { "type": "UPLOAD", "name": "Upload Record", "icon": "sap-icon://upload" }
   ],
@@ -147,7 +160,46 @@
     "Tab5": ["MultiAttachments"],
     "Tab4": ["ProcessingLog"]
   },
-  "listCards": [],
+  "listCards": [
+    {
+      "cardType": "Analytical",
+      "cardsubType": "StackedBar",
+      "title": "Expense Analysis",
+      "subtitle": "Expense Status",
+      "unitOfMeasurement": "Days",
+      "Data": {
+        "dimension": "Status",
+        "fact": "records",
+        "operation": "COUNT"
+      },
+      "numericHeader": {
+        "headerNumber": { "Operation": "COUNT", "Field": "ID" },
+        "trend": { "trend": "DOWN", "Condition": "LTE", "value": 8 },
+        "status": { "state": "Success", "Condition": "LTE", "value": 24 },
+        "details": "Total 24 days",
+        "unit": "Days"
+      }
+    },
+    {
+      "cardType": "Analytical",
+      "cardsubType": "Line",
+      "title": "Expense Analysis",
+      "subtitle": "Expenses",
+      "unitOfMeasurement": "Days",
+      "Data": {
+        "dimension": "ExpenseStDate",
+        "fact": "records",
+        "operation": "COLLECTIVE"
+      },
+      "numericHeader": {
+        "headerNumber": { "Operation": "COLLECTIVE", "Field": "ID" },
+        "trend": { "trend": "DOWN", "Condition": "LTE", "value": 8 },
+        "status": { "state": "Success", "Condition": "LTE", "value": 24 },
+        "details": "Max 24 days",
+        "unit": "Days"
+      }
+    }
+  ],
   "cards": [],
   "ControlDisplay": {},
   "tableConfig": {

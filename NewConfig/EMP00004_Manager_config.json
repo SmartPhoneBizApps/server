@@ -33,7 +33,8 @@
         "VATRate",
         "PaymentOption",
         "GLAccount"
-      ]
+      ],
+      "downloadTables": ["iData"]
     }
   },
 
@@ -69,7 +70,22 @@
     {
       "type": "DOWNLOAD",
       "name": "Download File",
-      "icon": "sap-icon://download"
+      "icon": "sap-icon://download",
+      "downloadFields": [
+        "ID",
+        "VendorName",
+        "SCDate",
+        "NetValue",
+        "VATVal",
+        "GrossValue",
+        "DeliveryDt",
+        "DelTo",
+        "Address",
+        "PostCode",
+        "ContactNo",
+        "OtherInfo",
+        "Status"
+      ]
     },
     {
       "type": "APPHELP",
@@ -221,93 +237,80 @@
   },
   "listCards": [
     {
-      "type": "Example",
       "cardType": "Analytical",
       "cardsubType": "StackedBar",
-      "cardID": "ASB01",
-      "cardLevel": "tableData",
-      "template": "template_example_StackedBar",
-      "title": "Shoppingcart Analysis",
-      "subtitle": "Status",
-      "unitOfMeasurement": "GBP",
-      "itemvalueMap": {
-        "Value1": "GrossValue",
-        "Value2": "NA"
+      "title": "ShoppingCart Analysis",
+      "subtitle": "ShoppingCart Status",
+      "unitOfMeasurement": "Days",
+      "Data": {
+        "dimension": "Status",
+        "fact": "records",
+        "operation": "COUNT"
       },
-      "itemkeyMap": {
-        "Area": "Status"
-      },
-      "itemfixedVal": [{ "Total": 5 }],
-      "sumField": [{ "sumValue1": "GrossValue" }, { "sumValue2": "NA" }],
-      "headerfieldMap": [
-        { "j_number": "sumValue1" },
-        { "j_target": "sumValue2" }
-      ]
-    },
-    {
-      "type": "Example",
-      "cardType": "Analytical",
-      "cardsubType": "StackedColumn",
-      "cardID": "ASC01",
-      "cardLevel": "tableData",
-      "template": "template_example_StackedColumn",
-      "title": "Shoppingcart Analysis",
-      "subtitle": "Shoppingcart Vendor",
-      "unitOfMeasurement": "GBP",
-      "itemvalueMap": {
-        "Value1": "GrossValue",
-        "Value2": "NA"
-      },
-      "itemkeyMap": {
-        "Area": "VendorName"
-      },
-      "itemfixedVal": [{ "Total": 5 }],
-      "sumField": [{ "sumValue1": "GrossValue" }, { "sumValue2": "NA" }],
-      "headerfieldMap": [
-        { "j_number": "sumValue1" },
-        { "j_target": "sumValue2" }
-      ]
-    },
-    {
-      "type": "Example",
-      "cardType": "Analytical",
-      "cardsubType": "Donut",
-      "cardID": "ADT01H",
-      "cardLevel": "header",
-      "template": "template_example_donut.json",
-      "title": "Expense Type Analysis",
-      "analyticsCard": {
-        "chartType": "donut",
-        "cardsDonut": {
-          "measureName": "CostCentre",
-          "Value2": "GrossValue",
-          "function": "SUM"
-        }
+      "numericHeader": {
+        "headerNumber": { "Operation": "COUNT", "Field": "ID" },
+        "trend": { "trend": "DOWN", "Condition": "LTE", "value": 8 },
+        "status": { "state": "Success", "Condition": "LTE", "value": 24 },
+        "details": "Total 24 days",
+        "unit": "Days"
       }
     },
     {
-      "type": "Example",
+      "cardType": "Analytical",
+      "cardsubType": "StackedColumn",
+      "title": "ShoppingCart Analysis",
+      "subtitle": "Vendor Name",
+      "unitOfMeasurement": "Days",
+      "Data": {
+        "dimension": "VendorName",
+        "fact": "records",
+        "operation": "COUNT"
+      },
+      "numericHeader": {
+        "headerNumber": { "Operation": "COUNT", "Field": "ID" },
+        "trend": { "trend": "DOWN", "Condition": "LTE", "value": 8 },
+        "status": { "state": "Success", "Condition": "LTE", "value": 24 },
+        "details": "Total 24 days",
+        "unit": "Days"
+      }
+    },
+    {
+      "cardType": "Analytical",
+      "cardsubType": "StackedColumn",
+      "title": "ShoppingCart Analysis",
+      "subtitle": "Vendor Name",
+      "unitOfMeasurement": "Days",
+      "Data": {
+        "dimension": "CostCentre",
+        "fact": "records",
+        "operation": "COUNT"
+      },
+      "numericHeader": {
+        "headerNumber": { "Operation": "COUNT", "Field": "ID" },
+        "trend": { "trend": "DOWN", "Condition": "LTE", "value": 8 },
+        "status": { "state": "Success", "Condition": "LTE", "value": 24 },
+        "details": "Total 24 days",
+        "unit": "Days"
+      }
+    },
+    {
       "cardType": "Analytical",
       "cardsubType": "Line",
-      "cardID": "ALN01",
-      "cardLevel": "tableData",
-      "template": "template_example_line.json",
-      "title": "Expense Analysis",
-      "subtitle": "Entry Date",
-      "unitOfMeasurement": "GBP",
-      "itemvalueMap": {
-        "Value1": "GrossValue",
-        "Value2": "NA"
+      "title": "ShoppingCart Analysis",
+      "subtitle": "ShoppingCarts",
+      "unitOfMeasurement": "Days",
+      "Data": {
+        "dimension": "SCDate",
+        "fact": "records",
+        "operation": "COLLECTIVE"
       },
-      "itemkeyMap": {
-        "Area": "SCDate"
-      },
-      "itemfixedVal": [{ "Total": 5 }],
-      "sumField": [{ "sumValue1": "GrossValue" }, { "sumValue2": "NA" }],
-      "headerfieldMap": [
-        { "j_number": "sumValue1" },
-        { "j_target": "sumValue2" }
-      ]
+      "numericHeader": {
+        "headerNumber": { "Operation": "COLLECTIVE", "Field": "ID" },
+        "trend": { "trend": "DOWN", "Condition": "LTE", "value": 8 },
+        "status": { "state": "Success", "Condition": "LTE", "value": 24 },
+        "details": "Max 24 days",
+        "unit": "Days"
+      }
     }
   ],
   "ControlDisplay": {},

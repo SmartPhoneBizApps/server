@@ -49,16 +49,22 @@
       "downloadFields": [
         "ID",
         "Phase",
-        "Date",
+        "StudyStartDate",
         "HCPEmail",
         "VendorName",
         "StudyType",
         "StudyName",
         "StudyDetails",
+        "StudyStartDate",
+        "StudyLink",
+        "StudyValue",
+        "InvoiceValue",
+        "BalanceValue",
         "PharmaContact",
         "PharmaContactEmail",
         "Status"
-      ]
+      ],
+      "downloadTables": ["StudyInvoice", "myHCPHCO", "Services"]
     },
     {
       "type": "APPHELP",

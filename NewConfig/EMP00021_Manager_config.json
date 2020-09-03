@@ -46,7 +46,17 @@
     {
       "type": "DOWNLOAD",
       "name": "Download File",
-      "icon": "sap-icon://download"
+      "icon": "sap-icon://download",
+      "downloadFields": [
+        "ID",
+        "Status",
+        "ID",
+        "Name",
+        "EmployeeID",
+        "StartDate",
+        "EndDate"
+      ],
+      "downloadTables": ["MyTime"]
     },
     {
       "type": "APPHELP",
@@ -177,96 +187,42 @@
   },
   "listCards": [
     {
-      "type": "Example",
       "cardType": "Analytical",
       "cardsubType": "StackedBar",
-      "cardID": "ASB01",
-      "cardLevel": "tableData",
-      "template": "template_example_StackedBar",
       "title": "TimeSheet Analysis",
-      "subtitle": "TimeSheets Status",
-      "unitOfMeasurement": "GBP",
-      "itemvalueMap": {
-        "Value1": "TotalRegHours",
-        "Value2": "NA"
+      "subtitle": "TimeSheet Status",
+      "unitOfMeasurement": "Days",
+      "Data": {
+        "dimension": "Status",
+        "fact": "records",
+        "operation": "COUNT"
       },
-      "itemkeyMap": {
-        "Area": "ID"
-      },
-      "itemfixedVal": [{ "Total": 5 }],
-      "sumField": [{ "sumValue1": "TotalRegHours" }, { "sumValue2": "NA" }],
-      "headerfieldMap": [
-        { "j_number": "sumValue1" },
-        { "j_target": "sumValue2" }
-      ]
-    },
-    {
-      "type": "Example",
-      "cardType": "Analytical",
-      "cardsubType": "StackedColumn",
-      "cardID": "ASC01",
-      "cardLevel": "tableData",
-      "template": "template_example_StackedColumn",
-      "title": "TimeSheet Analysis",
-      "subtitle": "TimeSheets Type",
-      "unitOfMeasurement": "GBP",
-      "itemvalueMap": {
-        "Value1": "TotalRegHours",
-        "Value2": "NA"
-      },
-      "itemkeyMap": {
-        "Area": "Status"
-      },
-      "itemfixedVal": [{ "Total": 5 }],
-      "sumField": [{ "sumValue1": "TotalRegHours" }, { "sumValue2": "NA" }],
-      "headerfieldMap": [
-        { "j_number": "sumValue1" },
-        { "j_target": "sumValue2" }
-      ]
-    },
-    {
-      "type": "Example",
-      "cardType": "Analytical",
-      "cardsubType": "Donut",
-      "cardID": "ADT01H",
-      "cardLevel": "header",
-      "template": "template_example_donut.json",
-      "title": "TimeSheet Type Analysis",
-      "analyticsCard": {
-        "chartType": "donut",
-        "cardsDonut": {
-          "measureName": "Status",
-          "Value2": "TotalRegHours",
-          "function": "SUM"
-        }
+      "numericHeader": {
+        "headerNumber": { "Operation": "COUNT", "Field": "ID" },
+        "trend": { "trend": "DOWN", "Condition": "LTE", "value": 8 },
+        "status": { "state": "Success", "Condition": "LTE", "value": 24 },
+        "details": "Total 24 days",
+        "unit": "Days"
       }
     },
     {
-      "type": "Example",
       "cardType": "Analytical",
       "cardsubType": "Line",
-      "cardID": "ALN01",
-      "cardLevel": "tableData",
-      "template": "template_example_line.json",
       "title": "TimeSheet Analysis",
-      "subtitle": "Entry Date",
-      "unitOfMeasurement": "GBP",
-      "itemvalueMap": {
-        "Value1": "TotalRegHours",
-        "Value2": "TotalOvertimeHours"
+      "subtitle": "TimeSheets",
+      "unitOfMeasurement": "Days",
+      "Data": {
+        "dimension": "StartDate",
+        "fact": "records",
+        "operation": "COLLECTIVE"
       },
-      "itemkeyMap": {
-        "Area": "StartDate"
-      },
-      "itemfixedVal": [{ "Total": 5 }],
-      "sumField": [
-        { "sumValue1": "TotalRegHours" },
-        { "sumValue2": "TotalOvertimeHours" }
-      ],
-      "headerfieldMap": [
-        { "j_number": "sumValue1" },
-        { "j_target": "sumValue2" }
-      ]
+      "numericHeader": {
+        "headerNumber": { "Operation": "COLLECTIVE", "Field": "ID" },
+        "trend": { "trend": "DOWN", "Condition": "LTE", "value": 8 },
+        "status": { "state": "Success", "Condition": "LTE", "value": 24 },
+        "details": "Max 24 days",
+        "unit": "Days"
+      }
     }
   ],
   "cards": [],

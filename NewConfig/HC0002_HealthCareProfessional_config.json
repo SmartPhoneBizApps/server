@@ -1,7 +1,7 @@
 {
   "Title": { "ApplicationTitle": "Study/Trial", "DetailTitle": "Study/Trial" },
   "Controls": {
-    "calculation": "No",
+    "calculation": "Yes",
     "USP": "UserProfile",
     "StatusColor": "Yes",
     "SearchString": { "Search": false },
@@ -49,16 +49,22 @@
       "downloadFields": [
         "ID",
         "Phase",
-        "Date",
+        "StudyStartDate",
         "HCPEmail",
         "VendorName",
         "StudyType",
         "StudyName",
         "StudyDetails",
+        "StudyStartDate",
+        "StudyLink",
+        "StudyValue",
+        "InvoiceValue",
+        "BalanceValue",
         "PharmaContact",
         "PharmaContactEmail",
         "Status"
-      ]
+      ],
+      "downloadTables": ["StudyInvoice", "myHCPHCO", "Services"]
     },
     {
       "type": "APPHELP",
@@ -153,10 +159,69 @@
     "headerRole": ["USP_Role"],
     "headerImage": ["USP_Image"],
     "headerColorFields": ["Status"],
-    "None": ["ID", "Phase", "Date", "HCPEmail", "VendorName"],
+    "None": ["ID", "Phase", "StudyStartDate", "HCPEmail", "VendorName"],
     "Tab1": ["StudyType", "StudyName", "StudyDetails"],
     "Tab2": ["PharmaContact", "PharmaContactEmail"]
   },
+  "listCards": [
+    {
+      "cardType": "Analytical",
+      "cardsubType": "StackedBar",
+      "title": "Study Analysis",
+      "subtitle": "Study Status",
+      "unitOfMeasurement": "Days",
+      "Data": {
+        "dimension": "Status",
+        "fact": "records",
+        "operation": "COUNT"
+      },
+      "numericHeader": {
+        "headerNumber": { "Operation": "COUNT", "Field": "ID" },
+        "trend": { "trend": "DOWN", "Condition": "LTE", "value": 8 },
+        "status": { "state": "Success", "Condition": "LTE", "value": 24 },
+        "details": "Total 24 days",
+        "unit": "Days"
+      }
+    },
+    {
+      "cardType": "Analytical",
+      "cardsubType": "StackedColumn",
+      "title": "Study Analysis",
+      "subtitle": "Study Type",
+      "unitOfMeasurement": "Days",
+      "Data": {
+        "dimension": "StudyType",
+        "fact": "records",
+        "operation": "COUNT"
+      },
+      "numericHeader": {
+        "headerNumber": { "Operation": "COUNT", "Field": "ID" },
+        "trend": { "trend": "DOWN", "Condition": "LTE", "value": 8 },
+        "status": { "state": "Success", "Condition": "LTE", "value": 24 },
+        "details": "Total 24 days",
+        "unit": "Days"
+      }
+    },
+    {
+      "cardType": "Analytical",
+      "cardsubType": "Line",
+      "title": "Study Analysis",
+      "subtitle": "Study Date",
+      "unitOfMeasurement": "Days",
+      "Data": {
+        "dimension": "StudyStartDate",
+        "fact": "records",
+        "operation": "COLLECTIVE"
+      },
+      "numericHeader": {
+        "headerNumber": { "Operation": "COLLECTIVE", "Field": "ID" },
+        "trend": { "trend": "DOWN", "Condition": "LTE", "value": 8 },
+        "status": { "state": "Success", "Condition": "LTE", "value": 24 },
+        "details": "Max 24 days",
+        "unit": "Days"
+      }
+    }
+  ],
   "ControlDisplay": {},
   "FieldDef": [
     {

@@ -82,7 +82,41 @@
     {
       "type": "DOWNLOAD",
       "name": "Download File",
-      "icon": "sap-icon://download"
+      "icon": "sap-icon://download",
+      "downloadFields": [
+        "ID",
+        "RequestType",
+        "Name",
+        "EmployeeID",
+        "Email",
+        "ContactNo",
+        "AccessCardNo",
+        "Application",
+        "Hardware",
+        "Processor",
+        "HardDrive",
+        "KeyBoard",
+        "OS",
+        "RAM",
+        "HDMIPort",
+        "USBPort",
+        "CDDrive",
+        "DockingStation",
+        "Bag",
+        "Mouse",
+        "System",
+        "Environment",
+        "CloneUser",
+        "RolesRequired",
+        "TransactionsRequired",
+        "Software",
+        "System",
+        "Environment",
+        "CloneUser",
+        "RolesRequired",
+        "TransactionsRequired",
+        "Status"
+      ]
     },
     {
       "type": "APPHELP",
@@ -266,7 +300,65 @@
       }
     ]
   },
-  "listCards": [],
+  "listCards": [
+    {
+      "cardType": "Analytical",
+      "cardsubType": "StackedBar",
+      "title": "Request Analysis",
+      "subtitle": "Request Status",
+      "unitOfMeasurement": "Days",
+      "Data": {
+        "dimension": "Status",
+        "fact": "records",
+        "operation": "COUNT"
+      },
+      "numericHeader": {
+        "headerNumber": { "Operation": "COUNT", "Field": "ID" },
+        "trend": { "trend": "DOWN", "Condition": "LTE", "value": 8 },
+        "status": { "state": "Success", "Condition": "LTE", "value": 24 },
+        "details": "Total 24 days",
+        "unit": "Days"
+      }
+    },
+    {
+      "cardType": "Analytical",
+      "cardsubType": "StackedColumn",
+      "title": "Request Analysis",
+      "subtitle": "Request Type",
+      "unitOfMeasurement": "Days",
+      "Data": {
+        "dimension": "RequestType",
+        "fact": "records",
+        "operation": "COUNT"
+      },
+      "numericHeader": {
+        "headerNumber": { "Operation": "COUNT", "Field": "ID" },
+        "trend": { "trend": "DOWN", "Condition": "LTE", "value": 8 },
+        "status": { "state": "Success", "Condition": "LTE", "value": 24 },
+        "details": "Total 24 days",
+        "unit": "Days"
+      }
+    },
+    {
+      "cardType": "Analytical",
+      "cardsubType": "Line",
+      "title": "Request Analysis",
+      "subtitle": "Requests",
+      "unitOfMeasurement": "Days",
+      "Data": {
+        "dimension": "DateOfRequest",
+        "fact": "records",
+        "operation": "COLLECTIVE"
+      },
+      "numericHeader": {
+        "headerNumber": { "Operation": "COLLECTIVE", "Field": "ID" },
+        "trend": { "trend": "DOWN", "Condition": "LTE", "value": 8 },
+        "status": { "state": "Success", "Condition": "LTE", "value": 24 },
+        "details": "Max 24 days",
+        "unit": "Days"
+      }
+    }
+  ],
   "cards": [],
   "ControlDisplay": {
     "ControlField": "RequestType",
