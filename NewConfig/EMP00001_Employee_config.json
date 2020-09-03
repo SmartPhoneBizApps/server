@@ -39,7 +39,21 @@
     {
       "type": "DOWNLOAD",
       "name": "Download File",
-      "icon": "sap-icon://download"
+      "icon": "sap-icon://download",
+      "downloadFields": [
+        "ID",
+        "LeaveType",
+        "LeaveFrom",
+        "LeaveTo",
+        "LeaveDays",
+        "LeaveReason",
+        "Name",
+        "EmployeeID",
+        "Email",
+        "CostCentre",
+        "Comment",
+        "Status"
+      ]
     },
     {
       "type": "APPHELP",
@@ -155,7 +169,7 @@
     "Tab2": ["Name", "EmployeeID"],
     "Tab3": ["Address", "PostCode"],
     "Tab4": ["ContactNo", "Email"],
-    "Tab5": ["CostCentre", "Approver", "Comment"],
+    "Tab5": ["CostCentre", "Comment"],
     "Tab6": ["ProcessingLog"],
     "Tab8": ["MultiAttachments"]
   },
