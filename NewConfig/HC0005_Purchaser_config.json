@@ -369,9 +369,534 @@
         { "name": "InstitutionName" }
       ]
     },
-    "EventInvoice": {},
-    "DonationGrant": {},
-    "StudyInvoice": {}
+    "EventInvoice": {
+      "calculation": "Yes",
+      "title": "Event Invoice",
+      "subtitle": "Invoice Items",
+      "tableFormFields": [
+        {
+          "GrpTitle": "Totals",
+          "Fields": ["InvoiceValue"]
+        }
+      ],
+      "ItemFieldDefinition": [
+        {
+          "name": "ItemNumber",
+          "type": "string",
+          "width": "10",
+          "SLabel": "ItemNumber",
+          "Option": "Optional",
+          "Update": "No"
+        },
+        {
+          "name": "ServiceDetails",
+          "type": "string",
+          "width": "200",
+          "Option": "Mandatory",
+          "SLabel": "Service Details",
+          "Update": "Yes"
+        },
+        {
+          "name": "ServiceType",
+          "type": "string",
+          "width": "50",
+          "SLabel": "Service Type",
+          "Option": "Mandatory",
+          "Update": "Yes"
+        },
+        {
+          "name": "InvoiceAmount",
+          "type": "Num,1",
+          "width": "20",
+          "SLabel": "Invoice Amount",
+          "Option": "Mandatory",
+          "Update": "Yes"
+        },
+        {
+          "name": "Notes",
+          "type": "string",
+          "width": "1000",
+          "SLabel": "Notes",
+          "Option": "Optional",
+          "Update": "Yes"
+        },
+        {
+          "name": "iCurrency",
+          "type": "string",
+          "width": "10",
+          "SLabel": "Item Currency",
+          "Option": "Mandatory",
+          "Update": "No"
+        },
+        {
+          "name": "ItemStatus1",
+          "type": "string",
+          "width": "50",
+          "SLabel": "Item Status",
+          "Option": "Mandatory",
+          "Update": "Yes"
+        },
+        {
+          "name": "Attachment",
+          "type": "singleAttachment",
+          "width": "100",
+          "SLabel": "Item Attachment",
+          "Option": "Optional",
+          "Update": "Yes"
+        },
+        {
+          "name": "Title",
+          "type": "string",
+          "width": "50",
+          "SLabel": "Title",
+          "Option": "Optional"
+        },
+        {
+          "name": "FirstName",
+          "type": "string",
+          "width": "100",
+          "SLabel": "FirstName",
+          "Option": "Optional"
+        },
+        {
+          "name": "LastName",
+          "type": "string",
+          "width": "100",
+          "SLabel": "LastName",
+          "Option": "Optional"
+        },
+        {
+          "name": "Speciality",
+          "type": "string",
+          "width": "200",
+          "SLabel": "Speciality",
+          "Option": "Optional"
+        },
+        {
+          "name": "Email",
+          "type": "Email",
+          "width": "100",
+          "SLabel": "Email",
+          "Option": "Optional"
+        },
+        {
+          "name": "PostCode",
+          "type": "string",
+          "width": "200",
+          "SLabel": "PostCode",
+          "Option": "Optional"
+        },
+        {
+          "name": "InstitutionName",
+          "type": "string",
+          "width": "500",
+          "SLabel": "InstitutionName",
+          "Option": "Optional"
+        }
+      ],
+      "DisplayFields": [
+        "ServiceDetails",
+        "InvoiceAmount",
+        "ServiceType",
+        "iCurrency",
+        "ItemStatus1",
+        "Title",
+        "FirstName",
+        "LastName",
+        "Email",
+        "PostCode"
+      ],
+      "cards": [],
+      "ItemButtons": {
+        "itemDisplay": true,
+        "itemCheck": true,
+        "itemAdd": false,
+        "itemEdit": true,
+        "itemDelete": true
+      },
+      "CreateFields": [
+        "ServiceType",
+        "ServiceDetails",
+        "InvoiceAmount",
+        "iCurrency",
+        "ItemStatus1",
+        "Notes",
+        "Attachment",
+        "Title",
+        "FirstName",
+        "LastName",
+        "Email",
+        "PostCode"
+      ],
+      "ItemDetails": [
+        { "name": "ServiceType" },
+        { "name": "ServiceDetails" },
+        { "name": "InvoiceAmount" },
+        { "name": "iCurrency" },
+        { "name": "Notes" },
+        { "name": "ItemStatus1" },
+        { "name": "Attachment" },
+        { "name": "Title" },
+        { "name": "FirstName" },
+        { "name": "LastName" },
+        { "name": "Speciality" },
+        { "name": "Email" },
+        { "name": "PostCode" },
+        { "name": "InstitutionName" }
+      ]
+    },
+    "StudyInvoice": {
+      "calculation": "Yes",
+      "title": "Study Invoice",
+      "subtitle": "Invoice Items",
+      "tableFormFields": [
+        {
+          "GrpTitle": "Totals",
+          "Fields": ["InvoiceValue"]
+        }
+      ],
+      "ItemFieldDefinition": [
+        {
+          "name": "ItemNumber",
+          "type": "string",
+          "width": "10",
+          "SLabel": "ItemNumber",
+          "Option": "Optional",
+          "Update": "No"
+        },
+        {
+          "name": "ServiceDetails",
+          "type": "string",
+          "width": "200",
+          "Option": "Mandatory",
+          "SLabel": "Service Details",
+          "Update": "Yes"
+        },
+        {
+          "name": "ServiceType2",
+          "type": "string",
+          "width": "50",
+          "SLabel": "Service Type",
+          "Option": "Mandatory",
+          "Update": "Yes"
+        },
+        {
+          "name": "InvoiceAmount",
+          "type": "Num,1",
+          "width": "20",
+          "SLabel": "Invoice Amount",
+          "Option": "Mandatory",
+          "Update": "Yes"
+        },
+        {
+          "name": "Notes",
+          "type": "string",
+          "width": "1000",
+          "SLabel": "Notes",
+          "Option": "Optional",
+          "Update": "Yes"
+        },
+        {
+          "name": "iCurrency",
+          "type": "string",
+          "width": "10",
+          "SLabel": "Item Currency",
+          "Option": "Mandatory",
+          "Update": "No"
+        },
+        {
+          "name": "ItemStatus2",
+          "type": "string",
+          "width": "50",
+          "SLabel": "Item Status",
+          "Option": "Mandatory",
+          "Update": "Yes"
+        },
+        {
+          "name": "Attachment",
+          "type": "singleAttachment",
+          "width": "100",
+          "SLabel": "Item Attachment",
+          "Option": "Optional",
+          "Update": "Yes"
+        },
+        {
+          "name": "Title",
+          "type": "string",
+          "width": "50",
+          "SLabel": "Title",
+          "Option": "Optional"
+        },
+        {
+          "name": "FirstName",
+          "type": "string",
+          "width": "100",
+          "SLabel": "FirstName",
+          "Option": "Optional"
+        },
+        {
+          "name": "LastName",
+          "type": "string",
+          "width": "100",
+          "SLabel": "LastName",
+          "Option": "Optional"
+        },
+        {
+          "name": "Speciality",
+          "type": "string",
+          "width": "200",
+          "SLabel": "Speciality",
+          "Option": "Optional"
+        },
+        {
+          "name": "Email",
+          "type": "Email",
+          "width": "100",
+          "SLabel": "Email",
+          "Option": "Optional"
+        },
+        {
+          "name": "PostCode",
+          "type": "string",
+          "width": "200",
+          "SLabel": "PostCode",
+          "Option": "Optional"
+        },
+        {
+          "name": "InstitutionName",
+          "type": "string",
+          "width": "500",
+          "SLabel": "InstitutionName",
+          "Option": "Optional"
+        }
+      ],
+      "DisplayFields": [
+        "ServiceDetails",
+        "InvoiceAmount",
+        "ServiceType2",
+        "iCurrency",
+        "ItemStatus2",
+        "Title",
+        "FirstName",
+        "LastName",
+        "Email",
+        "PostCode"
+      ],
+      "cards": [],
+      "ItemButtons": {
+        "itemDisplay": true,
+        "itemCheck": true,
+        "itemAdd": false,
+        "itemEdit": true,
+        "itemDelete": true
+      },
+      "CreateFields": [
+        "ServiceType2",
+        "ServiceDetails",
+        "InvoiceAmount",
+        "iCurrency",
+        "ItemStatus2",
+        "Notes",
+        "Attachment",
+        "Title",
+        "FirstName",
+        "LastName",
+        "Email",
+        "PostCode"
+      ],
+      "ItemDetails": [
+        { "name": "ServiceType2" },
+        { "name": "ServiceDetails" },
+        { "name": "InvoiceAmount" },
+        { "name": "iCurrency" },
+        { "name": "Notes" },
+        { "name": "ItemStatus2" },
+        { "name": "Attachment" },
+        { "name": "Title" },
+        { "name": "FirstName" },
+        { "name": "LastName" },
+        { "name": "Speciality" },
+        { "name": "Email" },
+        { "name": "PostCode" },
+        { "name": "InstitutionName" }
+      ]
+    },
+    "DonationGrant": {
+      "calculation": "Yes",
+      "title": "Study Invoice",
+      "subtitle": "Invoice Items",
+      "tableFormFields": [
+        {
+          "GrpTitle": "Totals",
+          "Fields": ["InvoiceValue"]
+        }
+      ],
+      "ItemFieldDefinition": [
+        {
+          "name": "ItemNumber",
+          "type": "string",
+          "width": "10",
+          "SLabel": "ItemNumber",
+          "Option": "Optional",
+          "Update": "No"
+        },
+        {
+          "name": "ServiceDetails",
+          "type": "string",
+          "width": "200",
+          "Option": "Mandatory",
+          "SLabel": "Service Details",
+          "Update": "Yes"
+        },
+        {
+          "name": "ServiceType2",
+          "type": "string",
+          "width": "50",
+          "SLabel": "Service Type",
+          "Option": "Mandatory",
+          "Update": "Yes"
+        },
+        {
+          "name": "InvoiceAmount",
+          "type": "Num,1",
+          "width": "20",
+          "SLabel": "Invoice Amount",
+          "Option": "Mandatory",
+          "Update": "Yes"
+        },
+        {
+          "name": "Notes",
+          "type": "string",
+          "width": "1000",
+          "SLabel": "Notes",
+          "Option": "Optional",
+          "Update": "Yes"
+        },
+        {
+          "name": "iCurrency",
+          "type": "string",
+          "width": "10",
+          "SLabel": "Item Currency",
+          "Option": "Mandatory",
+          "Update": "No"
+        },
+        {
+          "name": "ItemStatus2",
+          "type": "string",
+          "width": "50",
+          "SLabel": "Item Status",
+          "Option": "Mandatory",
+          "Update": "Yes"
+        },
+        {
+          "name": "Attachment",
+          "type": "singleAttachment",
+          "width": "100",
+          "SLabel": "Item Attachment",
+          "Option": "Optional",
+          "Update": "Yes"
+        },
+        {
+          "name": "Title",
+          "type": "string",
+          "width": "50",
+          "SLabel": "Title",
+          "Option": "Optional"
+        },
+        {
+          "name": "FirstName",
+          "type": "string",
+          "width": "100",
+          "SLabel": "FirstName",
+          "Option": "Optional"
+        },
+        {
+          "name": "LastName",
+          "type": "string",
+          "width": "100",
+          "SLabel": "LastName",
+          "Option": "Optional"
+        },
+        {
+          "name": "Speciality",
+          "type": "string",
+          "width": "200",
+          "SLabel": "Speciality",
+          "Option": "Optional"
+        },
+        {
+          "name": "Email",
+          "type": "Email",
+          "width": "100",
+          "SLabel": "Email",
+          "Option": "Optional"
+        },
+        {
+          "name": "PostCode",
+          "type": "string",
+          "width": "200",
+          "SLabel": "PostCode",
+          "Option": "Optional"
+        },
+        {
+          "name": "InstitutionName",
+          "type": "string",
+          "width": "500",
+          "SLabel": "InstitutionName",
+          "Option": "Optional"
+        }
+      ],
+      "DisplayFields": [
+        "ServiceDetails",
+        "InvoiceAmount",
+        "ServiceType2",
+        "iCurrency",
+        "ItemStatus2",
+        "Title",
+        "FirstName",
+        "LastName",
+        "Email",
+        "PostCode"
+      ],
+      "cards": [],
+      "ItemButtons": {
+        "itemDisplay": true,
+        "itemCheck": true,
+        "itemAdd": false,
+        "itemEdit": true,
+        "itemDelete": true
+      },
+      "CreateFields": [
+        "ServiceType2",
+        "ServiceDetails",
+        "InvoiceAmount",
+        "iCurrency",
+        "ItemStatus2",
+        "Notes",
+        "Attachment",
+        "Title",
+        "FirstName",
+        "LastName",
+        "Email",
+        "PostCode"
+      ],
+      "ItemDetails": [
+        { "name": "ServiceType2" },
+        { "name": "ServiceDetails" },
+        { "name": "InvoiceAmount" },
+        { "name": "iCurrency" },
+        { "name": "Notes" },
+        { "name": "ItemStatus2" },
+        { "name": "Attachment" },
+        { "name": "Title" },
+        { "name": "FirstName" },
+        { "name": "LastName" },
+        { "name": "Speciality" },
+        { "name": "Email" },
+        { "name": "PostCode" },
+        { "name": "InstitutionName" }
+      ]
+    }
   },
   "FieldDef": [
     {

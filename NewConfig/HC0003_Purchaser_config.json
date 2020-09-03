@@ -1,7 +1,7 @@
 {
   "Title": { "ApplicationTitle": "Events", "DetailTitle": "Events" },
   "Controls": {
-    "calculation": "No",
+    "calculation": "Yes",
     "USP": "UserProfile",
     "StatusColor": "Yes",
     "SearchString": { "Search": false },
@@ -21,26 +21,31 @@
       ]
     },
     "filterFields": {
-      "header": ["Status", "EventType", "EventStartDate"]
+      "header": [
+        "Status",
+        "EventType",
+        "EventStartDate",
+        "BalanceValue",
+        "InvoiceValue"
+      ]
     }
   },
-
   "ListFields": {
     "IntroField": "VendorName",
     "TitleField": "EventName",
     "sStatus": "EventType",
     "fStatus": "Status",
-    "numberField": "",
-    "LFields": ["ID", "HCPEmail"],
+    "numberField": "EventValue",
+    "LFields": ["InvoiceValue", "HCPEmail", "ID"],
     "numberUnitField": ""
   },
   "ListBOTFields": {
     "None": ["cardImage", "StatusState"],
     "Title": ["ID"],
-    "SubTitle": ["EventName", "Time"],
-    "Description": ["EventType", "EventStartDate"]
+    "SubTitle": ["EventName", "EventStartDate"],
+    "Description": ["EventType", "EventValue", "InvoiceValue"]
   },
-  "PossibleValues": ["EventType", "Status"],
+  "PossibleValues": ["EventType", "Status", "ItemStatus1", "ServiceType"],
   "MButtons": [
     {
       "type": "DOWNLOAD",
@@ -50,6 +55,7 @@
         "ID",
         "HCPEmail",
         "VendorName",
+        "EventID",
         "EventName",
         "EventType",
         "EventStartDate",
@@ -58,6 +64,10 @@
         "Address",
         "Agenda",
         "EventLink",
+        "EventEndDate",
+        "EventValue",
+        "InvoiceValue",
+        "BalanceValue",
         "PharmaContact",
         "PharmaContactEmail",
         "Status"
@@ -74,7 +84,6 @@
       "icon": "sap-icon://travel-request",
       "URL": "https://www.messenger.com/t/295020207695029"
     },
-
     { "type": "ADD", "name": "Add Record", "icon": "sap-icon://add" },
     {
       "type": "UPLOAD",
@@ -93,7 +102,90 @@
       }
     }
   ],
-  "DButtons": [],
+  "DButtons": [
+    {
+      "type": "ADDTRAINING",
+      "name": "Add HCP/HCO",
+      "icon": "sap-icon://copy",
+      "Dialog": [
+        { "label": "FirstName", "name": "FirstName", "type": "string" },
+        { "label": "LastName", "name": "LastName", "type": "string" },
+        { "label": "Title", "name": "Title", "type": "string" },
+        { "label": "Speciality", "name": "Speciality", "type": "string" },
+        { "label": "Email", "name": "Email", "type": "string" },
+        { "label": "PostCode", "name": "PostCode", "type": "string" },
+        {
+          "label": "InstitutionName",
+          "name": "InstitutionName",
+          "type": "string"
+        }
+      ],
+      "listFields": [
+        "Title",
+        "FirstName",
+        "LastName",
+        "Speciality",
+        "Email",
+        "PostCode"
+      ],
+      "tableField": "myHCPHCO",
+      "transferFields": [
+        "ID",
+        "Title",
+        "FirstName",
+        "LastName",
+        "Speciality",
+        "Email",
+        "PostCode",
+        "InstitutionName"
+      ],
+      "SearchURL": "listrecordsnew/Web/HC0001/Purchaser{filter}",
+      "URL": "util/addTraining/myHCPHCO/HC0001/HC0003/{ID}/{ReferenceID}/{role}",
+      "FieldMapping": {
+        "Title": "Title",
+        "FirstName": "FirstName",
+        "LastName": "LastName",
+        "Speciality": "Speciality",
+        "Email": "Email",
+        "PostCode": "PostCode",
+        "InstitutionName": "InstitutionName"
+      },
+      "FixedValues": [{ "Status": "Active" }],
+      "Token": "Yes",
+      "URLMethod": "POST"
+    },
+    {
+      "type": "SELFASSIGN",
+      "name": "Submit Invoice",
+      "icon": "sap-icon://share-2",
+      "Dialog": "{label:'User',name:'user',type:'Email'}",
+      "DialogSearch": "{URL}/api/v1/samrtApp/findUser/{user}",
+      "URL": "util/assignCourseUser/HealthCareProfessional/HealthCareProfessional/HC0003/HC0005/{ReferenceID}/{user}",
+      "Token": "Yes",
+      "URLMethod": "POST"
+    },
+    {
+      "type": "WORKFLOW",
+      "name": "Cancel",
+      "icon": "sap-icon://decline",
+      "Dialog": [
+        {
+          "label": "Cancellation Comment",
+          "name": "ProgressComment",
+          "type": "string",
+          "option": "Optional"
+        }
+      ],
+      "transferFields": [
+        { "field": "ID", "value": "@recorddata" },
+        { "field": "Status", "value": "Cancelled" },
+        { "field": "ProgressComment", "value": "@UserInput" }
+      ],
+      "URL": "datarecords/",
+      "Token": "Yes",
+      "URLMethod": "PUT"
+    }
+  ],
   "Tabs": [
     {
       "value": "Tab0",
@@ -121,21 +213,42 @@
     {
       "value": "Tab3",
       "update": "Yes",
-      "name": "Agenda",
-      "type": "Table",
-      "fioriicon": "expense-report"
-    },
-    {
-      "value": "Tab4",
-      "update": "Yes",
       "name": "MultiAttachment",
       "fioriicon": "attachment",
       "type": "MultiAttachments",
       "download": "Yes",
       "docType": [
-        { "text": "InformationSheet", "state": "Success" },
-        { "text": "EntryPass", "state": "Information" }
+        { "text": "Event", "state": "Success" },
+        { "text": "WorkSchedule", "state": "Information" }
       ]
+    },
+    {
+      "value": "Tab4",
+      "update": "Yes",
+      "name": "Services",
+      "type": "Table",
+      "fioriicon": "expense-report"
+    },
+    {
+      "value": "Tab5",
+      "update": "Yes",
+      "name": "EventInvoice",
+      "type": "Table",
+      "fioriicon": "expense-report"
+    },
+    {
+      "value": "Tab6",
+      "update": "Yes",
+      "name": "myHCP/HCO",
+      "type": "Table",
+      "fioriicon": "expense-report"
+    },
+    {
+      "value": "Tab7",
+      "update": "Yes",
+      "name": "Agenda",
+      "type": "Table",
+      "fioriicon": "expense-report"
     }
   ],
   "DetailFields": {
@@ -149,18 +262,425 @@
       "EventName",
       "EventType",
       "EventStartDate",
-      "Time",
-      "Duration",
-      "Address",
-      "Overview",
-      "EventLink"
+      "EventLink",
+      "EventEndDate",
+      "EventValue",
+      "InvoiceValue",
+      "BalanceValue"
     ],
     "Tab2": ["PharmaContact", "PharmaContactEmail"],
-    "Tab3": ["Agenda"],
-    "Tab4": ["MultiAttachments"]
+    "Tab3": ["MultiAttachments"],
+    "Tab4": ["Services"],
+    "Tab5": ["EventInvoice"],
+    "Tab6": ["myHCPHCO"],
+    "Tab7": ["Agenda"]
   },
   "ControlDisplay": {},
   "tableConfig": {
+    "Services": {
+      "calculation": "Yes",
+      "title": "Services",
+      "subtitle": "Services",
+      "tableFormFields": [
+        {
+          "GrpTitle": "Totals",
+          "Fields": ["EventValue"]
+        }
+      ],
+      "ItemFieldDefinition": [
+        {
+          "name": "ItemNumber",
+          "type": "string",
+          "width": "10",
+          "SLabel": "ItemNumber",
+          "Option": "Optional",
+          "Update": "No"
+        },
+        {
+          "name": "ServiceDetails",
+          "type": "string",
+          "width": "200",
+          "Option": "Mandatory",
+          "SLabel": "Service Details",
+          "Update": "Yes"
+        },
+        {
+          "name": "ServiceType",
+          "type": "string",
+          "width": "50",
+          "SLabel": "Service Type",
+          "Option": "Mandatory",
+          "Update": "Yes"
+        },
+        {
+          "name": "ServiceAmount",
+          "type": "Num,1",
+          "width": "20",
+          "SLabel": "Service Amount",
+          "Option": "Mandatory",
+          "Update": "Yes"
+        },
+        {
+          "name": "Notes",
+          "type": "string",
+          "width": "1000",
+          "SLabel": "Notes",
+          "Option": "Optional",
+          "Update": "Yes"
+        },
+        {
+          "name": "iCurrency",
+          "type": "string",
+          "width": "10",
+          "SLabel": "Item Currency",
+          "Option": "Mandatory",
+          "Update": "No"
+        },
+        {
+          "name": "ItemStatus1",
+          "type": "string",
+          "width": "50",
+          "SLabel": "Item Status",
+          "Option": "Mandatory",
+          "Update": "Yes"
+        },
+        {
+          "name": "Attachment",
+          "type": "singleAttachment",
+          "width": "100",
+          "SLabel": "Item Attachment",
+          "Option": "Optional",
+          "Update": "Yes"
+        }
+      ],
+      "DisplayFields": [
+        "ServiceDetails",
+        "ServiceAmount",
+        "ServiceType",
+        "iCurrency",
+        "ItemStatus1"
+      ],
+      "cards": [],
+      "ItemButtons": {
+        "itemDisplay": true,
+        "itemCheck": true,
+        "itemAdd": true,
+        "itemEdit": true,
+        "itemDelete": true,
+        "additionalButtons": [
+          {
+            "name": "Invoice Item",
+            "type": "INVOICE",
+            "URL": "datarecords/",
+            "tableName": "EventInvoice",
+            "Token": "Yes",
+            "URLMethod": "PUT",
+            "updateButton": "Add to Invoice",
+            "diffMapping": [{ "ServiceAmount": "InvoiceAmount" }],
+            "popupData": "myHCPHCO"
+          }
+        ]
+      },
+      "CreateFields": [
+        "ServiceType",
+        "ServiceDetails",
+        "ServiceAmount",
+        "iCurrency",
+        "ItemStatus1",
+        "Notes",
+        "Attachment"
+      ],
+      "ItemDetails": [
+        { "name": "ServiceType" },
+        { "name": "ServiceDetails" },
+        { "name": "ServiceAmount" },
+        { "name": "iCurrency" },
+        { "name": "Notes" },
+        { "name": "ItemStatus1" },
+        { "name": "Attachment" }
+      ]
+    },
+    "myHCPHCO": {
+      "title": "My HCP/HCO",
+      "subtitle": "HCP/HCO",
+      "ItemFieldDefinition": [
+        {
+          "name": "ItemNumber",
+          "type": "string",
+          "width": "10",
+          "SLabel": "Item Number",
+          "Update": "No"
+        },
+        {
+          "name": "ItemStatus1",
+          "type": "string",
+          "width": "50",
+          "SLabel": "Item Status",
+          "Update": "Yes"
+        },
+        {
+          "name": "Title",
+          "type": "string",
+          "width": "50",
+          "SLabel": "Title",
+          "Option": "Optional"
+        },
+        {
+          "name": "FirstName",
+          "type": "string",
+          "width": "100",
+          "SLabel": "FirstName",
+          "Option": "Optional"
+        },
+        {
+          "name": "LastName",
+          "type": "string",
+          "width": "100",
+          "SLabel": "LastName",
+          "Option": "Optional"
+        },
+        {
+          "name": "Speciality",
+          "type": "string",
+          "width": "200",
+          "SLabel": "Speciality",
+          "Option": "Optional"
+        },
+        {
+          "name": "Email",
+          "type": "Email",
+          "width": "100",
+          "SLabel": "Email",
+          "Option": "Optional"
+        },
+        {
+          "name": "PostCode",
+          "type": "string",
+          "width": "200",
+          "SLabel": "PostCode",
+          "Option": "Optional"
+        },
+        {
+          "name": "InstitutionName",
+          "type": "string",
+          "width": "500",
+          "SLabel": "InstitutionName",
+          "Option": "Optional"
+        }
+      ],
+      "DisplayFields": [
+        "Title",
+        "FirstName",
+        "LastName",
+        "Email",
+        "PostCode",
+        "ItemStatus1"
+      ],
+      "cards": [],
+      "ItemButtons": {
+        "itemDisplay": true,
+        "itemCheck": false,
+        "itemAdd": false,
+        "itemEdit": true,
+        "itemDelete": false
+      },
+      "CreateFields": [
+        "Title",
+        "FirstName",
+        "LastName",
+        "Speciality",
+        "Email",
+        "PostCode",
+        "InstitutionName",
+        "ItemStatus1"
+      ],
+      "ItemDetails": [
+        { "name": "Title" },
+        { "name": "FirstName" },
+        { "name": "LastName" },
+        { "name": "Speciality" },
+        { "name": "Email" },
+        { "name": "PostCode" },
+        { "name": "InstitutionName" },
+        { "name": "ItemStatus1" }
+      ]
+    },
+    "EventInvoice": {
+      "calculation": "Yes",
+      "title": "Event Invoice",
+      "subtitle": "Invoice Items",
+      "tableFormFields": [
+        {
+          "GrpTitle": "Totals",
+          "Fields": ["InvoiceValue"]
+        }
+      ],
+      "ItemFieldDefinition": [
+        {
+          "name": "ItemNumber",
+          "type": "string",
+          "width": "10",
+          "SLabel": "ItemNumber",
+          "Option": "Optional",
+          "Update": "No"
+        },
+        {
+          "name": "ServiceDetails",
+          "type": "string",
+          "width": "200",
+          "Option": "Mandatory",
+          "SLabel": "Service Details",
+          "Update": "Yes"
+        },
+        {
+          "name": "ServiceType",
+          "type": "string",
+          "width": "50",
+          "SLabel": "Service Type",
+          "Option": "Mandatory",
+          "Update": "Yes"
+        },
+        {
+          "name": "InvoiceAmount",
+          "type": "Num,1",
+          "width": "20",
+          "SLabel": "Invoice Amount",
+          "Option": "Mandatory",
+          "Update": "Yes"
+        },
+        {
+          "name": "Notes",
+          "type": "string",
+          "width": "1000",
+          "SLabel": "Notes",
+          "Option": "Optional",
+          "Update": "Yes"
+        },
+        {
+          "name": "iCurrency",
+          "type": "string",
+          "width": "10",
+          "SLabel": "Item Currency",
+          "Option": "Mandatory",
+          "Update": "No"
+        },
+        {
+          "name": "ItemStatus1",
+          "type": "string",
+          "width": "50",
+          "SLabel": "Item Status",
+          "Option": "Mandatory",
+          "Update": "Yes"
+        },
+        {
+          "name": "Attachment",
+          "type": "singleAttachment",
+          "width": "100",
+          "SLabel": "Item Attachment",
+          "Option": "Optional",
+          "Update": "Yes"
+        },
+        {
+          "name": "Title",
+          "type": "string",
+          "width": "50",
+          "SLabel": "Title",
+          "Option": "Optional"
+        },
+        {
+          "name": "FirstName",
+          "type": "string",
+          "width": "100",
+          "SLabel": "FirstName",
+          "Option": "Optional"
+        },
+        {
+          "name": "LastName",
+          "type": "string",
+          "width": "100",
+          "SLabel": "LastName",
+          "Option": "Optional"
+        },
+        {
+          "name": "Speciality",
+          "type": "string",
+          "width": "200",
+          "SLabel": "Speciality",
+          "Option": "Optional"
+        },
+        {
+          "name": "Email",
+          "type": "Email",
+          "width": "100",
+          "SLabel": "Email",
+          "Option": "Optional"
+        },
+        {
+          "name": "PostCode",
+          "type": "string",
+          "width": "200",
+          "SLabel": "PostCode",
+          "Option": "Optional"
+        },
+        {
+          "name": "InstitutionName",
+          "type": "string",
+          "width": "500",
+          "SLabel": "InstitutionName",
+          "Option": "Optional"
+        }
+      ],
+      "DisplayFields": [
+        "ServiceDetails",
+        "InvoiceAmount",
+        "ServiceType",
+        "iCurrency",
+        "ItemStatus1",
+        "Title",
+        "FirstName",
+        "LastName",
+        "Email",
+        "PostCode"
+      ],
+      "cards": [],
+      "ItemButtons": {
+        "itemDisplay": true,
+        "itemCheck": true,
+        "itemAdd": false,
+        "itemEdit": true,
+        "itemDelete": true
+      },
+      "CreateFields": [
+        "ServiceType",
+        "ServiceDetails",
+        "InvoiceAmount",
+        "iCurrency",
+        "ItemStatus1",
+        "Notes",
+        "Attachment",
+        "Title",
+        "FirstName",
+        "LastName",
+        "Email",
+        "PostCode"
+      ],
+      "ItemDetails": [
+        { "name": "ServiceType" },
+        { "name": "ServiceDetails" },
+        { "name": "InvoiceAmount" },
+        { "name": "iCurrency" },
+        { "name": "Notes" },
+        { "name": "ItemStatus1" },
+        { "name": "Attachment" },
+        { "name": "Title" },
+        { "name": "FirstName" },
+        { "name": "LastName" },
+        { "name": "Speciality" },
+        { "name": "Email" },
+        { "name": "PostCode" },
+        { "name": "InstitutionName" }
+      ]
+    },
     "Agenda": {
       "calculation": "Yes",
       "title": "Agenda",
@@ -305,7 +825,7 @@
       "name": "EventID",
       "type": "string",
       "width": "100",
-      "Option": "Mandatory",
+      "Option": "Optional",
       "SLabel": "Event Id"
     },
     {
@@ -352,8 +872,8 @@
     },
     {
       "name": "PharmaContactEmail",
-      "type": "string",
-      "width": "50",
+      "type": "Email",
+      "width": "100",
       "Option": "Mandatory",
       "SLabel": "Pharma Contact Email"
     },
@@ -398,6 +918,27 @@
       "width": "500",
       "Option": "Optional",
       "SLabel": "Agenda"
+    },
+    {
+      "name": "Services",
+      "type": "Array",
+      "width": "500",
+      "Option": "Optional",
+      "SLabel": "Services"
+    },
+    {
+      "name": "myHCPHCO",
+      "type": "Array",
+      "width": "500",
+      "Option": "Optional",
+      "SLabel": "myHCPHCO"
+    },
+    {
+      "name": "EventInvoice",
+      "type": "Array",
+      "width": "500",
+      "Option": "Optional",
+      "SLabel": "EventInvoice"
     },
     {
       "name": "MultiAttachments",
@@ -447,12 +988,102 @@
       "SLabel": "Event Link"
     },
     {
+      "name": "EventEndDate",
+      "type": "Date",
+      "width": "10",
+      "Option": "Mandatory",
+      "SLabel": "Event End Date"
+    },
+    {
       "name": "HCPEmail",
       "type": "string",
       "width": "50",
       "Option": "Optional",
-      "SLabel": "HCP Email",
-      "LLabel": "HCPEmail"
+      "SLabel": "HCP Email"
+    },
+    {
+      "name": "VendorName",
+      "type": "string",
+      "width": "100",
+      "Option": "Optional",
+      "SLabel": "HCP Name"
+    },
+    {
+      "name": "EventValue",
+      "type": "string",
+      "width": "50",
+      "Option": "Optional",
+      "SLabel": "Event Value"
+    },
+    {
+      "name": "InvoiceValue",
+      "type": "string",
+      "width": "50",
+      "Option": "Optional",
+      "SLabel": "Invoice Value"
+    },
+    {
+      "name": "BalanceValue",
+      "type": "string",
+      "width": "50",
+      "Option": "Optional",
+      "SLabel": "Balance Value"
+    },
+    {
+      "name": "sValidation",
+      "type": "string",
+      "width": "50",
+      "Option": "Optional",
+      "SLabel": "Validation"
+    },
+    {
+      "name": "Title",
+      "type": "string",
+      "width": "50",
+      "SLabel": "Title",
+      "Option": "Optional"
+    },
+    {
+      "name": "FirstName",
+      "type": "string",
+      "width": "100",
+      "SLabel": "FirstName",
+      "Option": "Optional"
+    },
+    {
+      "name": "LastName",
+      "type": "string",
+      "width": "100",
+      "SLabel": "LastName",
+      "Option": "Optional"
+    },
+    {
+      "name": "Speciality",
+      "type": "string",
+      "width": "200",
+      "SLabel": "Speciality",
+      "Option": "Optional"
+    },
+    {
+      "name": "Email",
+      "type": "Email",
+      "width": "100",
+      "SLabel": "Email",
+      "Option": "Optional"
+    },
+    {
+      "name": "PostCode",
+      "type": "string",
+      "width": "200",
+      "SLabel": "PostCode",
+      "Option": "Optional"
+    },
+    {
+      "name": "InstitutionName",
+      "type": "string",
+      "width": "500",
+      "SLabel": "InstitutionName",
+      "Option": "Optional"
     },
     {
       "name": "Budget",
@@ -484,7 +1115,140 @@
     "CreateFields": [],
     "ItemDetails": []
   },
-  "CalculatedFields": { "Item": [], "HeaderItem": [], "Header": [] },
-  "Create": "No",
-  "Wizard": []
+  "Validations": {
+    "Field": {},
+    "Sequence": {
+      "EventEndDate": [
+        {
+          "name": "SEQUENCE",
+          "function": "GTE",
+          "Target": "sValidation",
+          "type": "Header",
+          "msg": "Event End Date can't be less than Event Start Date",
+          "Fields": [
+            { "Source": "EventEndDate", "Type": { "type": "Header" } },
+            { "Source": "EventStartDate", "Type": { "type": "Header" } }
+          ]
+        }
+      ]
+    },
+    "Document": {}
+  },
+  "CalculatedFields": {
+    "Item": [],
+    "HeaderItem": [
+      {
+        "CalculatedFormula": {
+          "name": "ITEMSUM",
+          "table": "Services",
+          "function": "ITEMSUM",
+          "Target": "EventValue",
+          "type": "HeaderItem"
+        },
+        "Fields": [
+          { "Source": "ServiceAmount", "Type": { "type": "HeaderItem" } }
+        ]
+      },
+      {
+        "CalculatedFormula": {
+          "name": "ITEMSUM",
+          "table": "EventInvoice",
+          "function": "ITEMSUM",
+          "Target": "InvoiceValue",
+          "type": "HeaderItem"
+        },
+        "Fields": [
+          { "Source": "InvoiceAmount", "Type": { "type": "HeaderItem" } }
+        ]
+      }
+    ],
+    "Header": [
+      {
+        "CalculatedFormula": {
+          "name": "SUB",
+          "function": "SUB",
+          "Target": "BalanceValue",
+          "type": "Header"
+        },
+        "Fields": [
+          { "Source": "EventValue", "Type": { "type": "Header" } },
+          { "Source": "InvoiceValue", "Type": { "type": "Header" } }
+        ]
+      }
+    ]
+  },
+  "Create": "Yes",
+  "Wizard": [
+    {
+      "id": "Step1",
+      "fields": [
+        { "name": "EventType", "Mode": "Edit" },
+        { "name": "EventID", "Mode": "Edit" },
+        { "name": "EventName", "Mode": "Edit" },
+        { "name": "EventLink", "Mode": "Edit" }
+      ],
+      "name": "Event Details",
+      "stepType": "FieldList",
+      "intro": "Event   : Event Details"
+    },
+    {
+      "id": "Step2",
+      "fields": [
+        { "name": "HCPEmail", "Mode": "Edit" },
+        { "name": "VendorName", "Mode": "Edit" }
+      ],
+      "name": "HCP / HCO - Details",
+      "stepType": "FieldList",
+      "intro": "Event   : HCP / HCO Details"
+    },
+    {
+      "id": "Step3",
+      "fields": [
+        { "name": "EventStartDate", "Mode": "Edit" },
+        { "name": "EventEndDate", "Mode": "Edit" }
+      ],
+      "name": "Dates",
+      "stepType": "FieldList",
+      "intro": "Event   : Dates"
+    },
+    {
+      "id": "Step4",
+      "fields": [{ "name": "MultiAttachments", "Mode": "Edit" }],
+      "name": "MultiAttachments",
+      "stepType": "Attachments",
+      "intro": "Event : Attachments",
+      "attachmentAttribute": {
+        "applicationid": "{applicationid}",
+        "businessrole": "{businessrole}",
+        "mode": "File",
+        "type": "NewUpload",
+        "text": "docType,Event,Success"
+      }
+    },
+    {
+      "id": "Step5",
+      "fields": [
+        { "name": "PharmaContact", "Mode": "Edit" },
+        { "name": "PharmaContactEmail", "Mode": "Edit" }
+      ],
+      "name": "Pharma Company",
+      "stepType": "FieldList",
+      "intro": "Event   : Pharma Contact"
+    },
+    {
+      "id": "Step6",
+      "fields": [{ "name": "Services", "Mode": "Edit" }],
+      "name": "Services",
+      "stepType": "table",
+      "intro": "Event : Services Entries",
+      "text": "docType,ItemAttachment,Information"
+    },
+    {
+      "id": "Step7",
+      "fields": [{ "name": "Status", "Mode": "Edit" }],
+      "name": "Status",
+      "stepType": "FieldList",
+      "intro": "Event   : Status"
+    }
+  ]
 }
