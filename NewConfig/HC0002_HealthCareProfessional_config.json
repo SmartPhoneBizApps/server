@@ -92,6 +92,16 @@
   ],
   "DButtons": [
     {
+      "type": "SELFASSIGN",
+      "name": "Submit Invoice",
+      "icon": "sap-icon://share-2",
+      "Dialog": "{label:'User',name:'user',type:'Email'}",
+      "DialogSearch": "{URL}/api/v1/samrtApp/findUser/{user}",
+      "URL": "util/assignCourseUser/HealthCareProfessional/HealthCareProfessional/HC0002/HC0005/{ReferenceID}/{user}",
+      "Token": "Yes",
+      "URLMethod": "POST"
+    },
+    {
       "type": "WORKFLOW",
       "name": "Cancel",
       "icon": "sap-icon://decline",
