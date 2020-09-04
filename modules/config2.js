@@ -6,7 +6,7 @@ const Agent = require("../models/access/Agent");
 const App = require("../models/appSetup/App");
 const Role = require("../models/appSetup/Role");
 const User = require("../models/access/User");
-const { getBotListFields, getInitialValues, cardReplace } = require("./config");
+const { getBotListFields, getInitialValues } = require("./config");
 
 const fs = require("fs");
 const path = require("path");

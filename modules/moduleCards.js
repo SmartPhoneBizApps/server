@@ -6,14 +6,7 @@ const Agent = require("../models/access/Agent");
 const App = require("../models/appSetup/App");
 const Role = require("../models/appSetup/Role");
 const User = require("../models/access/User");
-const {
-  getBotListFields,
-  getInitialValues,
-  cardReplace,
-  date1,
-  string,
-  integer,
-} = require("./config");
+const { date1, string, integer } = require("./config");
 
 const fs = require("fs");
 const path = require("path");
@@ -1156,7 +1149,7 @@ module.exports = {
         aCard["sap.card"]["content"]["actions"][m]["type"] == "Action.Submit"
       ) {
         console.log("table", mode);
-        aCard["sap.card"]["content"]["actions"][m]["table"] = tab;
+        aCard["sap.card"]["content"]["actions"][m]["table"] = mode;
       }
     }
     return aCard;

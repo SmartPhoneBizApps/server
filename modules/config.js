@@ -1375,7 +1375,7 @@ module.exports = {
       }
     });
   },
-  cardReplace: function (mycard, cardData, appconfig, mode) {
+  cardReplace: function (mycard, cardData, appconfig, mode, tab) {
     if (mode == "header") {
       cardData = cardData.replace(
         "@Title",
@@ -1427,7 +1427,7 @@ module.exports = {
     cardData = cardData.replace("@filterKey", mycard["filterKey"]);
     cardData = cardData.replace("@filterKeyLabel", mycard["filterKeyLabel"]);
     cardData = cardData.replace("@filterKeyLabel", mycard["filterKeyLabel"]);
-    cardData = cardData.replace("@HeaderActionURL", mode);
+    cardData = cardData.replace("@HeaderActionURL", tab);
 
     var d = new Date();
     var n = d.getTime();

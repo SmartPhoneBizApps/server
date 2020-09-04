@@ -7,7 +7,6 @@ const {
   getDateValues,
   findOneApp,
   getNewConfig,
-  cardReplace,
   getPVField,
 } = require("../../modules/config");
 // @desc      Get all records

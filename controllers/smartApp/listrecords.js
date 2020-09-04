@@ -358,7 +358,13 @@ exports.getListrecords1 = asyncHandler(async (req, res, next) => {
           let cardConfigFile1 =
             "../../cards/cardConfig/" + mycard[k]["template"];
           var cardData = JSON.stringify(require(cardConfigFile1));
-          cardData = cardReplace(mycard[k], cardData, appconfig, "header");
+          cardData = cardReplace(
+            mycard[k],
+            cardData,
+            appconfig,
+            "header",
+            "Tab1"
+          );
           var anacardConfig = JSON.parse(cardData);
           switch (mycard[k]["type"]) {
             case "Analytical":

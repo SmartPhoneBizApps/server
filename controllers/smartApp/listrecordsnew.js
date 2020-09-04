@@ -368,9 +368,9 @@ exports.listrecordsnew = asyncHandler(async (req, res, next) => {
             "Tab1"
           );
           var cardData = JSON.stringify(aCard);
-          cardData = cardReplace({}, cardData, appconfig, "header");
-          cardData = cardReplace({}, cardData, appconfig, "header");
-          cardData = cardReplace({}, cardData, appconfig, "header");
+          cardData = cardReplace({}, cardData, appconfig, "header", "Tab1");
+          cardData = cardReplace({}, cardData, appconfig, "header", "Tab1");
+          cardData = cardReplace({}, cardData, appconfig, "header", "Tab1");
           aCard = JSON.parse(cardData);
           outStru["ADD01"] = { ...aCard };
         }
@@ -395,7 +395,13 @@ exports.listrecordsnew = asyncHandler(async (req, res, next) => {
               numheader = await numericHeader(myCard, list, "COUNT");
               aCard = await buildAnalyticalCard(myCard, list, numheader);
               var cardData = JSON.stringify(aCard);
-              cardData = cardReplace(myCard, cardData, appconfig, "header");
+              cardData = cardReplace(
+                myCard,
+                cardData,
+                appconfig,
+                "header",
+                "Tab1"
+              );
               aCard = JSON.parse(cardData);
               outStru["ANAX" + x] = { ...aCard };
               break;
@@ -409,7 +415,13 @@ exports.listrecordsnew = asyncHandler(async (req, res, next) => {
               numheader = await numericHeader(myCard, list, "COLLECTIVE");
               aCard = await buildAnalyticalCard(myCard, list, numheader);
               var cardData = JSON.stringify(aCard);
-              cardData = cardReplace(myCard, cardData, appconfig, "header");
+              cardData = cardReplace(
+                myCard,
+                cardData,
+                appconfig,
+                "header",
+                "Tab1"
+              );
               aCard = JSON.parse(cardData);
               outStru["ANAL" + x] = { ...aCard };
               break;
@@ -430,7 +442,13 @@ exports.listrecordsnew = asyncHandler(async (req, res, next) => {
               numheader = await numericHeader(myCard, list, "COUNT");
               aCard = await buildAnalyticalCard(myCard, list, numheader);
               var cardData = JSON.stringify(aCard);
-              cardData = cardReplace(myCard, cardData, appconfig, "header");
+              cardData = cardReplace(
+                myCard,
+                cardData,
+                appconfig,
+                "header",
+                "Tab1"
+              );
               aCard = JSON.parse(cardData);
               outStru["ANAX" + x] = { ...aCard };
               break;
@@ -450,7 +468,13 @@ exports.listrecordsnew = asyncHandler(async (req, res, next) => {
             myCard[k]["cardsubType"] +
             ".json";
           var cardData = JSON.stringify(require(cardTemplate));
-          cardData = cardReplace(myCard[k], cardData, appconfig, "header");
+          cardData = cardReplace(
+            myCard[k],
+            cardData,
+            appconfig,
+            "header",
+            "Tab1"
+          );
           var anacardConfig = JSON.parse(cardData);
           switch (myCard[k]["cardType"]) {
             case "Analytical":
