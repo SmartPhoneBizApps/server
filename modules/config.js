@@ -1427,7 +1427,7 @@ module.exports = {
     cardData = cardData.replace("@filterKey", mycard["filterKey"]);
     cardData = cardData.replace("@filterKeyLabel", mycard["filterKeyLabel"]);
     cardData = cardData.replace("@filterKeyLabel", mycard["filterKeyLabel"]);
-    cardData = cardData.replace("@HeaderActionURL", "applicationTile");
+    cardData = cardData.replace("@HeaderActionURL", mode);
 
     var d = new Date();
     var n = d.getTime();
