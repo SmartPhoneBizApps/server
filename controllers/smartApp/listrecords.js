@@ -2,6 +2,13 @@ const {
   donutCardHead,
   adaptivecardCard,
   getCardKey,
+  analyticalCard,
+  adaptiveNew,
+  analyticalNew,
+  countAnalyticalCard,
+  sumAnalyticalCard,
+  buildAnalyticalCard,
+  numericHeader,
 } = require("../../modules/moduleCards");
 const {
   getPVConfig,
@@ -52,13 +59,11 @@ exports.getListrecords1 = asyncHandler(async (req, res, next) => {
     ival.Value = o_val;
     ival_out.push(ival);
   }
-
   //// Data Source is JSON Data
   if (req.params.id == "OPENSAP" || req.params.id == "EXTLEARN") {
     outData = {};
     // Read JSON source file
     let results = [];
-
     let results1 = [];
     let res1 = {};
 
@@ -86,12 +91,9 @@ exports.getListrecords1 = asyncHandler(async (req, res, next) => {
         if (appconfig["Controls"]["USP"] == "UserProfile") {
           results2["USP_Name"] = "OpenSAP course catalog";
           results2["USP_Role"] = "copyright - SAP®";
-          //   results[i1].USP_Image =
-          //     "https://fierce-oasis-51455.herokuapp.com/logos/logo_opensap.png";
           results2["USP_Image"] = process.env.APPURL + "logos/logo_opensap.png";
         }
       }
-
       results.push(results2);
     }
 
@@ -119,14 +121,11 @@ exports.getListrecords1 = asyncHandler(async (req, res, next) => {
     oResult = [];
     for (let q = startIndex; q < endIndex; q++) {
       if (results[q] !== undefined) {
-        //      if (results[q]["cardImage"] == "no-photo.jpg") {
         results[q]["cardImage"] =
           "https://images.unsplash.com/photo-1585776462170-f6f0e680e1c8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80";
-        //       }
         oResult.push(results[q]);
       }
     }
-
     outData["success"] = true;
     outData["count"] = tCount;
     outData["pagination"] = pagination;
@@ -163,10 +162,8 @@ exports.getListrecords1 = asyncHandler(async (req, res, next) => {
     const count = rec.length;
     let query = readData(applicationId, req, appconfig);
     let results = await query;
-
     tabObj = {};
     tabArr = [];
-
     if (appconfig["Controls"]["SearchString"]["Search"] == true) {
       tableString = appconfig["Controls"]["SearchString"]["table"];
       for (const key in tableString) {
@@ -179,7 +176,6 @@ exports.getListrecords1 = asyncHandler(async (req, res, next) => {
         }
       }
     }
-
     // If Items are present...
     if (model2 !== model) {
       // Create query string (Item)
@@ -199,7 +195,7 @@ exports.getListrecords1 = asyncHandler(async (req, res, next) => {
         if (mode !== "BOTList") {
           results[i1]["ItemData"] = results2;
         }
-        //        results[i1].cardImage = application["photo"];
+        results[i1].cardImage = application["photo"];
         if (mode == "Web" || mode == "web") {
           if (appconfig["Controls"]["USP"] == "UserProfile") {
             results[i1].USP_Name = "Atul Gupta";
@@ -207,7 +203,6 @@ exports.getListrecords1 = asyncHandler(async (req, res, next) => {
             results[i1].USP_Image =
               "https://www.espncricinfo.com/inline/content/image/1183835.html?alt=1";
           }
-
           if (appconfig["Controls"]["StatusColor"] == "Yes") {
             results[i1].StatusState =
               colorConfig["Status"][results[i1]["Status"]];
@@ -217,6 +212,9 @@ exports.getListrecords1 = asyncHandler(async (req, res, next) => {
       // If Items are NOT present...
     } else {
       for (let i1 = 0; i1 < results.length; i1++) {
+        if (results[i1]["ReferenceID"] == undefined) {
+          results[i1]["ReferenceID"] = results[i1].ID;
+        }
         //   results[i1].cardImage = application["photo"];
         results[i1].cardImage =
           "https://images.unsplash.com/photo-1585776462170-f6f0e680e1c8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80";
@@ -350,35 +348,132 @@ exports.getListrecords1 = asyncHandler(async (req, res, next) => {
       });
     }
     if (mode == "listcards") {
+      for (let w = 0; w < appconfig["MButtons"].length; w++) {
+        if (appconfig["MButtons"][w]["type"] == "ADD") {
+          aCard = {};
+          aCard = await adaptiveNew(
+            appconfig,
+            resPV,
+            ival_out,
+            "header",
+            appconfig["PossibleValues"],
+            "Tab1"
+          );
+          var cardData = JSON.stringify(aCard);
+          cardData = cardReplace({}, cardData, appconfig, "header", "Tab1");
+          cardData = cardReplace({}, cardData, appconfig, "header", "Tab1");
+          cardData = cardReplace({}, cardData, appconfig, "header", "Tab1");
+          aCard = JSON.parse(cardData);
+          outStru["ADD01"] = { ...aCard };
+        }
+      }
+
+      aCard = {};
+      aCard = await analyticalNew(appconfig, outData["data"]);
+      outStru["ANA01"] = { ...aCard };
+
       if (appconfig.hasOwnProperty("listCards")) {
-        var mycard = appconfig["listCards"];
-        for (let k = 0; k < mycard.length; k++) {
+        for (let x = 0; x < appconfig["listCards"].length; x++) {
+          myCard = appconfig["listCards"][x];
+          aCard = {};
+          switch (myCard["Data"]["operation"]) {
+            case "COUNT":
+              list = await countAnalyticalCard(
+                myCard,
+                outData["data"],
+                "COUNT",
+                appconfig["FieldDef"]
+              );
+              numheader = await numericHeader(myCard, list, "COUNT");
+              aCard = await buildAnalyticalCard(myCard, list, numheader);
+              var cardData = JSON.stringify(aCard);
+              cardData = cardReplace(
+                myCard,
+                cardData,
+                appconfig,
+                "header",
+                "Tab1"
+              );
+              aCard = JSON.parse(cardData);
+              outStru["ANAX" + x] = { ...aCard };
+              break;
+            case "COLLECTIVE":
+              list = await countAnalyticalCard(
+                appconfig["listCards"][x],
+                outData["data"],
+                "COLLECTIVE",
+                appconfig["FieldDef"]
+              );
+              numheader = await numericHeader(myCard, list, "COLLECTIVE");
+              aCard = await buildAnalyticalCard(myCard, list, numheader);
+              var cardData = JSON.stringify(aCard);
+              cardData = cardReplace(
+                myCard,
+                cardData,
+                appconfig,
+                "header",
+                "Tab1"
+              );
+              aCard = JSON.parse(cardData);
+              outStru["ANAL" + x] = { ...aCard };
+              break;
+            case "SUM":
+              list = await sumAnalyticalCard(
+                appconfig["listCards"][x],
+                outData["data"]
+              );
+              break;
+
+            default:
+              list = await countAnalyticalCard(
+                myCard,
+                outData["data"],
+                "COUNT",
+                appconfig["FieldDef"]
+              );
+              numheader = await numericHeader(myCard, list, "COUNT");
+              aCard = await buildAnalyticalCard(myCard, list, numheader);
+              var cardData = JSON.stringify(aCard);
+              cardData = cardReplace(
+                myCard,
+                cardData,
+                appconfig,
+                "header",
+                "Tab1"
+              );
+              aCard = JSON.parse(cardData);
+              outStru["ANAX" + x] = { ...aCard };
+              break;
+          }
+        }
+      }
+
+      if (appconfig.hasOwnProperty("listCards")) {
+        var myCard = appconfig["listCards"];
+        for (let k = 0; k < myCard.length; k++) {
           counter = counter + 1;
           let cardKey = getCardKey(applicationId, businessrole, counter, "L");
-          let cardConfigFile1 =
-            "../../cards/cardConfig/" + mycard[k]["template"];
-          var cardData = JSON.stringify(require(cardConfigFile1));
+          // let cardConfigFile1 =
+          //   "../../cards/cardConfig/" + myCard[k]["template"];
+          let cardTemplate =
+            "../../cards/cardConfig/template_example_" +
+            myCard[k]["cardsubType"] +
+            ".json";
+          var cardData = JSON.stringify(require(cardTemplate));
           cardData = cardReplace(
-            mycard[k],
+            myCard[k],
             cardData,
             appconfig,
             "header",
             "Tab1"
           );
           var anacardConfig = JSON.parse(cardData);
-          switch (mycard[k]["type"]) {
+          switch (myCard[k]["cardType"]) {
             case "Analytical":
-              if (mycard[k]["analyticsCard"]["chartType"] == "donut") {
-                jCard1 = {};
-                jCard1 = await donutCardHead(mycard[k], appData, anacardConfig);
-                outStru[cardKey] = { ...jCard1 };
-              }
-              break;
-            case "Adaptive":
               jCard1 = {};
-              jCard1 = await adaptivecardCard(
-                applicationId,
-                businessrole,
+              jCard1 = await analyticalCard(
+                myCard[k],
+                outData["data"],
                 anacardConfig
               );
               outStru[cardKey] = { ...jCard1 };

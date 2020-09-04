@@ -95,6 +95,89 @@
       ]
     }
   },
+  "HC0003": {
+    "Suspended": {
+      "HealthCareProfessional": [
+        {
+          "title": "Go to main menu",
+          "action": "Go to main menu"
+        }
+      ],
+      "Purchaser": [
+        {
+          "title": "Display",
+          "type": "web_url",
+          "webview_height_ratio": "compact"
+        }
+      ],
+      "Employee": [
+        {
+          "title": "Display",
+          "type": "web_url",
+          "webview_height_ratio": "compact"
+        }
+      ]
+    },
+    "Completed": {
+      "HealthCareProfessional": [
+        {
+          "title": "Go to main menu",
+          "action": "Go to main menu"
+        }
+      ],
+      "Purchaser": [
+        {
+          "title": "Display",
+          "type": "web_url",
+          "webview_height_ratio": "compact"
+        }
+      ],
+      "Employee": [
+        {
+          "title": "Display",
+          "type": "web_url",
+          "webview_height_ratio": "compact"
+        }
+      ]
+    },
+    "Cancelled": {
+      "HealthCareProfessional": [
+        {
+          "title": "Go to main menu",
+          "action": "Go to main menu"
+        }
+      ],
+      "Purchaser": [
+        {
+          "title": "Display",
+          "type": "web_url",
+          "webview_height_ratio": "compact"
+        }
+      ],
+      "Employee": [
+        {
+          "title": "Display",
+          "type": "web_url",
+          "webview_height_ratio": "compact"
+        }
+      ]
+    },
+    "Open": {
+      "Employee": [
+        {
+          "title": "More Details",
+          "type": "postBack"
+        }
+      ],
+      "Purchaser": [
+        {
+          "title": "Display",
+          "type": "web_url",
+          "webview_height_ratio": "compact"
+        }
+      ]
+    }
+  },
   "HC0004": {
     "Open": {
       "HealthCareProfessional": [
@@ -185,89 +268,7 @@
       ]
     }
   },
-  "HC0003": {
-    "Suspended": {
-      "HealthCareProfessional": [
-        {
-          "title": "Go to main menu",
-          "action": "Go to main menu"
-        }
-      ],
-      "Purchaser": [
-        {
-          "title": "Display",
-          "type": "web_url",
-          "webview_height_ratio": "compact"
-        }
-      ],
-      "Employee": [
-        {
-          "title": "Display",
-          "type": "web_url",
-          "webview_height_ratio": "compact"
-        }
-      ]
-    },
-    "Completed": {
-      "HealthCareProfessional": [
-        {
-          "title": "Go to main menu",
-          "action": "Go to main menu"
-        }
-      ],
-      "Purchaser": [
-        {
-          "title": "Display",
-          "type": "web_url",
-          "webview_height_ratio": "compact"
-        }
-      ],
-      "Employee": [
-        {
-          "title": "Display",
-          "type": "web_url",
-          "webview_height_ratio": "compact"
-        }
-      ]
-    },
-    "Cancelled": {
-      "HealthCareProfessional": [
-        {
-          "title": "Go to main menu",
-          "action": "Go to main menu"
-        }
-      ],
-      "Purchaser": [
-        {
-          "title": "Display",
-          "type": "web_url",
-          "webview_height_ratio": "compact"
-        }
-      ],
-      "Employee": [
-        {
-          "title": "Display",
-          "type": "web_url",
-          "webview_height_ratio": "compact"
-        }
-      ]
-    },
-    "Open": {
-      "Employee": [
-        {
-          "title": "More Details",
-          "type": "postBack"
-        }
-      ],
-      "Purchaser": [
-        {
-          "title": "Display",
-          "type": "web_url",
-          "webview_height_ratio": "compact"
-        }
-      ]
-    }
-  },
+
   "SUPP00007": {
     "FromSupplier": {
       "ALL": [
@@ -354,764 +355,6 @@
         {
           "title": "Review Request",
           "action": "ReviewRequestSelect transID"
-        }
-      ]
-    }
-  },
-  "SUPP00028": {
-    "GRPartial": {
-      "Supplier": [
-        {
-          "title": "Display Invoice",
-          "action": "InvoiceDisplay SuppInvoiceNumber"
-        },
-        {
-          "title": "Track Payment",
-          "action": "SupplierInvoice SuppInvoiceNumber"
-        }
-      ],
-      "APTeam": [
-        {
-          "title": "Display Invoice",
-          "action": "InvoiceDisplay SuppInvoiceNumber"
-        },
-        {
-          "title": "Track Payment",
-          "action": "SupplierInvoice SuppInvoiceNumber"
-        }
-      ],
-      "Employee": [
-        {
-          "title": "Display Invoice",
-          "action": "InvoiceDisplay SuppInvoiceNumber"
-        },
-        {
-          "title": "Track Payment",
-          "action": "SupplierInvoice SuppInvoiceNumber"
-        }
-      ],
-      "Purchaser": [
-        {
-          "title": "Display Invoice",
-          "action": "InvoiceDisplay SuppInvoiceNumber"
-        },
-        {
-          "title": "Track Payment",
-          "action": "SupplierInvoice SuppInvoiceNumber"
-        }
-      ]
-    },
-    "ReturnGoods": {
-      "Supplier": [
-        {
-          "title": "Display Invoice",
-          "action": "InvoiceDisplay SuppInvoiceNumber"
-        },
-        {
-          "title": "Track Payment",
-          "action": "SupplierInvoice SuppInvoiceNumber"
-        }
-      ],
-      "APTeam": [
-        {
-          "title": "Display Invoice",
-          "action": "InvoiceDisplay SuppInvoiceNumber"
-        },
-        {
-          "title": "Track Payment",
-          "action": "SupplierInvoice SuppInvoiceNumber"
-        }
-      ],
-      "Employee": [
-        {
-          "title": "Display Invoice",
-          "action": "InvoiceDisplay SuppInvoiceNumber"
-        },
-        {
-          "title": "Track Payment",
-          "action": "SupplierInvoice SuppInvoiceNumber"
-        }
-      ],
-      "Purchaser": [
-        {
-          "title": "Display Invoice",
-          "action": "InvoiceDisplay SuppInvoiceNumber"
-        },
-        {
-          "title": "Track Payment",
-          "action": "SupplierInvoice SuppInvoiceNumber"
-        }
-      ]
-    },
-    "CollectGoods": {
-      "Supplier": [
-        {
-          "title": "Display Invoice",
-          "action": "InvoiceDisplay SuppInvoiceNumber"
-        },
-        {
-          "title": "Track Payment",
-          "action": "SupplierInvoice SuppInvoiceNumber"
-        }
-      ],
-      "APTeam": [
-        {
-          "title": "Display Invoice",
-          "action": "InvoiceDisplay SuppInvoiceNumber"
-        },
-        {
-          "title": "Track Payment",
-          "action": "SupplierInvoice SuppInvoiceNumber"
-        }
-      ],
-      "Employee": [
-        {
-          "title": "Display Invoice",
-          "action": "InvoiceDisplay SuppInvoiceNumber"
-        },
-        {
-          "title": "Track Payment",
-          "action": "SupplierInvoice SuppInvoiceNumber"
-        }
-      ],
-      "Purchaser": [
-        {
-          "title": "Display Invoice",
-          "action": "InvoiceDisplay SuppInvoiceNumber"
-        },
-        {
-          "title": "Track Payment",
-          "action": "SupplierInvoice SuppInvoiceNumber"
-        }
-      ]
-    },
-    "CreditNoteRequested": {
-      "Supplier": [
-        {
-          "title": "Display Invoice",
-          "action": "InvoiceDisplay SuppInvoiceNumber"
-        },
-        {
-          "title": "Track Payment",
-          "action": "SupplierInvoice SuppInvoiceNumber"
-        }
-      ],
-      "APTeam": [
-        {
-          "title": "Display Invoice",
-          "action": "InvoiceDisplay SuppInvoiceNumber"
-        },
-        {
-          "title": "Track Payment",
-          "action": "SupplierInvoice SuppInvoiceNumber"
-        }
-      ],
-      "Employee": [
-        {
-          "title": "Display Invoice",
-          "action": "InvoiceDisplay SuppInvoiceNumber"
-        },
-        {
-          "title": "Track Payment",
-          "action": "SupplierInvoice SuppInvoiceNumber"
-        }
-      ],
-      "Purchaser": [
-        {
-          "title": "Display Invoice",
-          "action": "InvoiceDisplay SuppInvoiceNumber"
-        },
-        {
-          "title": "Track Payment",
-          "action": "SupplierInvoice SuppInvoiceNumber"
-        }
-      ]
-    },
-    "OrderCancelled": {
-      "Supplier": [
-        {
-          "title": "Display Invoice",
-          "action": "InvoiceDisplay SuppInvoiceNumber"
-        },
-        {
-          "title": "Track Payment",
-          "action": "SupplierInvoice SuppInvoiceNumber"
-        }
-      ],
-      "APTeam": [
-        {
-          "title": "Display Invoice",
-          "action": "InvoiceDisplay SuppInvoiceNumber"
-        },
-        {
-          "title": "Track Payment",
-          "action": "SupplierInvoice SuppInvoiceNumber"
-        }
-      ],
-      "Employee": [
-        {
-          "title": "Display Invoice",
-          "action": "InvoiceDisplay SuppInvoiceNumber"
-        },
-        {
-          "title": "Track Payment",
-          "action": "SupplierInvoice SuppInvoiceNumber"
-        }
-      ],
-      "Purchaser": [
-        {
-          "title": "Display Invoice",
-          "action": "InvoiceDisplay SuppInvoiceNumber"
-        },
-        {
-          "title": "Track Payment",
-          "action": "SupplierInvoice SuppInvoiceNumber"
-        }
-      ]
-    },
-    "PartialAccept": {
-      "Supplier": [
-        {
-          "title": "Display Invoice",
-          "action": "InvoiceDisplay SuppInvoiceNumber"
-        },
-        {
-          "title": "Track Payment",
-          "action": "SupplierInvoice SuppInvoiceNumber"
-        }
-      ],
-      "APTeam": [
-        {
-          "title": "Display Invoice",
-          "action": "InvoiceDisplay SuppInvoiceNumber"
-        },
-        {
-          "title": "Track Payment",
-          "action": "SupplierInvoice SuppInvoiceNumber"
-        }
-      ],
-      "Employee": [
-        {
-          "title": "Display Invoice",
-          "action": "InvoiceDisplay SuppInvoiceNumber"
-        },
-        {
-          "title": "Track Payment",
-          "action": "SupplierInvoice SuppInvoiceNumber"
-        }
-      ],
-      "Purchaser": [
-        {
-          "title": "Display Invoice",
-          "action": "InvoiceDisplay SuppInvoiceNumber"
-        },
-        {
-          "title": "Track Payment",
-          "action": "SupplierInvoice SuppInvoiceNumber"
-        }
-      ]
-    },
-    "PartialGR": {
-      "Supplier": [
-        {
-          "title": "Display Invoice",
-          "action": "InvoiceDisplay SuppInvoiceNumber"
-        },
-        {
-          "title": "Track Payment",
-          "action": "SupplierInvoice SuppInvoiceNumber"
-        }
-      ],
-      "APTeam": [
-        {
-          "title": "Display Invoice",
-          "action": "InvoiceDisplay SuppInvoiceNumber"
-        },
-        {
-          "title": "Track Payment",
-          "action": "SupplierInvoice SuppInvoiceNumber"
-        }
-      ],
-      "Employee": [
-        {
-          "title": "Display Invoice",
-          "action": "InvoiceDisplay SuppInvoiceNumber"
-        },
-        {
-          "title": "Track Payment",
-          "action": "SupplierInvoice SuppInvoiceNumber"
-        }
-      ],
-      "Purchaser": [
-        {
-          "title": "Display Invoice",
-          "action": "InvoiceDisplay SuppInvoiceNumber"
-        },
-        {
-          "title": "Track Payment",
-          "action": "SupplierInvoice SuppInvoiceNumber"
-        }
-      ]
-    },
-    "New": {
-      "Supplier": [
-        {
-          "title": "Display Invoice",
-          "action": "InvoiceDisplay SuppInvoiceNumber"
-        },
-        {
-          "title": "Track Payment",
-          "action": "SupplierInvoice SuppInvoiceNumber"
-        }
-      ],
-      "APTeam": [
-        {
-          "title": "Display Invoice",
-          "action": "InvoiceDisplay SuppInvoiceNumber"
-        },
-        {
-          "title": "Track Payment",
-          "action": "SupplierInvoice SuppInvoiceNumber"
-        }
-      ],
-      "Employee": [
-        {
-          "title": "Display Invoice",
-          "action": "InvoiceDisplay SuppInvoiceNumber"
-        },
-        {
-          "title": "Track Payment",
-          "action": "SupplierInvoice SuppInvoiceNumber"
-        }
-      ],
-      "Purchaser": [
-        {
-          "title": "Display Invoice",
-          "action": "InvoiceDisplay SuppInvoiceNumber"
-        },
-        {
-          "title": "Track Payment",
-          "action": "SupplierInvoice SuppInvoiceNumber"
-        }
-      ]
-    },
-    "SupplierAccepted": {
-      "Supplier": [
-        {
-          "title": "Display Invoice",
-          "action": "InvoiceDisplay SuppInvoiceNumber"
-        },
-        {
-          "title": "Track Payment",
-          "action": "SupplierInvoice SuppInvoiceNumber"
-        }
-      ],
-      "APTeam": [
-        {
-          "title": "Display Invoice",
-          "action": "InvoiceDisplay SuppInvoiceNumber"
-        },
-        {
-          "title": "Track Payment",
-          "action": "SupplierInvoice SuppInvoiceNumber"
-        }
-      ],
-      "Employee": [
-        {
-          "title": "Display Invoice",
-          "action": "InvoiceDisplay SuppInvoiceNumber"
-        },
-        {
-          "title": "Track Payment",
-          "action": "SupplierInvoice SuppInvoiceNumber"
-        }
-      ],
-      "Purchaser": [
-        {
-          "title": "Display Invoice",
-          "action": "InvoiceDisplay SuppInvoiceNumber"
-        },
-        {
-          "title": "Track Payment",
-          "action": "SupplierInvoice SuppInvoiceNumber"
-        }
-      ]
-    },
-    "SupplierShipped": {
-      "Supplier": [
-        {
-          "title": "Display Invoice",
-          "action": "InvoiceDisplay SuppInvoiceNumber"
-        },
-        {
-          "title": "Track Payment",
-          "action": "SupplierInvoice SuppInvoiceNumber"
-        }
-      ],
-      "APTeam": [
-        {
-          "title": "Display Invoice",
-          "action": "InvoiceDisplay SuppInvoiceNumber"
-        },
-        {
-          "title": "Track Payment",
-          "action": "SupplierInvoice SuppInvoiceNumber"
-        }
-      ],
-      "Employee": [
-        {
-          "title": "Display Invoice",
-          "action": "InvoiceDisplay SuppInvoiceNumber"
-        },
-        {
-          "title": "Track Payment",
-          "action": "SupplierInvoice SuppInvoiceNumber"
-        }
-      ],
-      "Purchaser": [
-        {
-          "title": "Display Invoice",
-          "action": "InvoiceDisplay SuppInvoiceNumber"
-        },
-        {
-          "title": "Track Payment",
-          "action": "SupplierInvoice SuppInvoiceNumber"
-        }
-      ]
-    },
-    "Paid": {
-      "Supplier": [
-        {
-          "title": "Display Invoice",
-          "action": "InvoiceDisplay SuppInvoiceNumber"
-        },
-        {
-          "title": "Track Payment",
-          "action": "SupplierInvoice SuppInvoiceNumber"
-        }
-      ],
-      "APTeam": [
-        {
-          "title": "Display Invoice",
-          "action": "InvoiceDisplay SuppInvoiceNumber"
-        },
-        {
-          "title": "Track Payment",
-          "action": "SupplierInvoice SuppInvoiceNumber"
-        }
-      ],
-      "Employee": [
-        {
-          "title": "Display Invoice",
-          "action": "InvoiceDisplay SuppInvoiceNumber"
-        },
-        {
-          "title": "Track Payment",
-          "action": "SupplierInvoice SuppInvoiceNumber"
-        }
-      ],
-      "Purchaser": [
-        {
-          "title": "Display Invoice",
-          "action": "InvoiceDisplay SuppInvoiceNumber"
-        },
-        {
-          "title": "Track Payment",
-          "action": "SupplierInvoice SuppInvoiceNumber"
-        }
-      ]
-    },
-    "Invoiced": {
-      "Supplier": [
-        {
-          "title": "Display Invoice",
-          "action": "InvoiceDisplay SuppInvoiceNumber"
-        },
-        {
-          "title": "Track Payment",
-          "action": "SupplierInvoice SuppInvoiceNumber"
-        }
-      ],
-      "APTeam": [
-        {
-          "title": "Display Invoice",
-          "action": "InvoiceDisplay SuppInvoiceNumber"
-        },
-        {
-          "title": "Track Payment",
-          "action": "SupplierInvoice SuppInvoiceNumber"
-        }
-      ],
-      "Employee": [
-        {
-          "title": "Display Invoice",
-          "action": "InvoiceDisplay SuppInvoiceNumber"
-        },
-        {
-          "title": "Track Payment",
-          "action": "SupplierInvoice SuppInvoiceNumber"
-        }
-      ],
-      "Purchaser": [
-        {
-          "title": "Display Invoice",
-          "action": "InvoiceDisplay SuppInvoiceNumber"
-        },
-        {
-          "title": "Track Payment",
-          "action": "SupplierInvoice SuppInvoiceNumber"
-        }
-      ]
-    },
-    "SupplierRejected": {
-      "Supplier": [
-        {
-          "title": "Display Invoice",
-          "action": "InvoiceDisplay SuppInvoiceNumber"
-        },
-        {
-          "title": "Track Payment",
-          "action": "SupplierInvoice SuppInvoiceNumber"
-        }
-      ],
-      "APTeam": [
-        {
-          "title": "Display Invoice",
-          "action": "InvoiceDisplay SuppInvoiceNumber"
-        },
-        {
-          "title": "Track Payment",
-          "action": "SupplierInvoice SuppInvoiceNumber"
-        }
-      ],
-      "Employee": [
-        {
-          "title": "Display Invoice",
-          "action": "InvoiceDisplay SuppInvoiceNumber"
-        },
-        {
-          "title": "Track Payment",
-          "action": "SupplierInvoice SuppInvoiceNumber"
-        }
-      ],
-      "Purchaser": [
-        {
-          "title": "Display Invoice",
-          "action": "InvoiceDisplay SuppInvoiceNumber"
-        },
-        {
-          "title": "Track Payment",
-          "action": "SupplierInvoice SuppInvoiceNumber"
-        }
-      ]
-    },
-    "GRDone": {
-      "Supplier": [
-        {
-          "title": "Display Invoice",
-          "action": "InvoiceDisplay SuppInvoiceNumber"
-        },
-        {
-          "title": "Track Payment",
-          "action": "SupplierInvoice SuppInvoiceNumber"
-        }
-      ],
-      "APTeam": [
-        {
-          "title": "Display Invoice",
-          "action": "InvoiceDisplay SuppInvoiceNumber"
-        },
-        {
-          "title": "Track Payment",
-          "action": "SupplierInvoice SuppInvoiceNumber"
-        }
-      ],
-      "Employee": [
-        {
-          "title": "Display Invoice",
-          "action": "InvoiceDisplay SuppInvoiceNumber"
-        },
-        {
-          "title": "Track Payment",
-          "action": "SupplierInvoice SuppInvoiceNumber"
-        }
-      ],
-      "Purchaser": [
-        {
-          "title": "Display Invoice",
-          "action": "InvoiceDisplay SuppInvoiceNumber"
-        },
-        {
-          "title": "Track Payment",
-          "action": "SupplierInvoice SuppInvoiceNumber"
-        }
-      ]
-    },
-    "GRRejected": {
-      "Supplier": [
-        {
-          "title": "Display Invoice",
-          "action": "InvoiceDisplay SuppInvoiceNumber"
-        },
-        {
-          "title": "Track Payment",
-          "action": "SupplierInvoice SuppInvoiceNumber"
-        }
-      ],
-      "APTeam": [
-        {
-          "title": "Display Invoice",
-          "action": "InvoiceDisplay SuppInvoiceNumber"
-        },
-        {
-          "title": "Track Payment",
-          "action": "SupplierInvoice SuppInvoiceNumber"
-        }
-      ],
-      "Employee": [
-        {
-          "title": "Display Invoice",
-          "action": "InvoiceDisplay SuppInvoiceNumber"
-        },
-        {
-          "title": "Track Payment",
-          "action": "SupplierInvoice SuppInvoiceNumber"
-        }
-      ],
-      "Purchaser": [
-        {
-          "title": "Display Invoice",
-          "action": "InvoiceDisplay SuppInvoiceNumber"
-        },
-        {
-          "title": "Track Payment",
-          "action": "SupplierInvoice SuppInvoiceNumber"
-        }
-      ]
-    },
-    "ReadyForPayment": {
-      "Supplier": [
-        {
-          "title": "Display Invoice",
-          "action": "InvoiceDisplay SuppInvoiceNumber"
-        },
-        {
-          "title": "Track Payment",
-          "action": "SupplierInvoice SuppInvoiceNumber"
-        }
-      ],
-      "APTeam": [
-        {
-          "title": "Display Invoice",
-          "action": "InvoiceDisplay SuppInvoiceNumber"
-        },
-        {
-          "title": "Track Payment",
-          "action": "SupplierInvoice SuppInvoiceNumber"
-        }
-      ],
-      "Employee": [
-        {
-          "title": "Display Invoice",
-          "action": "InvoiceDisplay SuppInvoiceNumber"
-        },
-        {
-          "title": "Track Payment",
-          "action": "SupplierInvoice SuppInvoiceNumber"
-        }
-      ],
-      "Purchaser": [
-        {
-          "title": "Display Invoice",
-          "action": "InvoiceDisplay SuppInvoiceNumber"
-        },
-        {
-          "title": "Track Payment",
-          "action": "SupplierInvoice SuppInvoiceNumber"
-        }
-      ]
-    },
-    "BuyerRejected": {
-      "Supplier": [
-        {
-          "title": "Display Invoice",
-          "action": "InvoiceDisplay SuppInvoiceNumber"
-        },
-        {
-          "title": "Track Payment",
-          "action": "SupplierInvoice SuppInvoiceNumber"
-        }
-      ],
-      "APTeam": [
-        {
-          "title": "Display Invoice",
-          "action": "InvoiceDisplay SuppInvoiceNumber"
-        },
-        {
-          "title": "Track Payment",
-          "action": "SupplierInvoice SuppInvoiceNumber"
-        }
-      ],
-      "Employee": [
-        {
-          "title": "Display Invoice",
-          "action": "InvoiceDisplay SuppInvoiceNumber"
-        },
-        {
-          "title": "Track Payment",
-          "action": "SupplierInvoice SuppInvoiceNumber"
-        }
-      ],
-      "Purchaser": [
-        {
-          "title": "Display Invoice",
-          "action": "InvoiceDisplay SuppInvoiceNumber"
-        },
-        {
-          "title": "Track Payment",
-          "action": "SupplierInvoice SuppInvoiceNumber"
-        }
-      ]
-    },
-    "WithBuyer": {
-      "Supplier": [
-        {
-          "title": "Display Invoice",
-          "action": "InvoiceDisplay SuppInvoiceNumber"
-        },
-        {
-          "title": "Track Payment",
-          "action": "SupplierInvoice SuppInvoiceNumber"
-        }
-      ],
-      "APTeam": [
-        {
-          "title": "Display Invoice",
-          "action": "InvoiceDisplay SuppInvoiceNumber"
-        },
-        {
-          "title": "Track Payment",
-          "action": "SupplierInvoice SuppInvoiceNumber"
-        }
-      ],
-      "Employee": [
-        {
-          "title": "Display Invoice",
-          "action": "InvoiceDisplay SuppInvoiceNumber"
-        },
-        {
-          "title": "Track Payment",
-          "action": "SupplierInvoice SuppInvoiceNumber"
-        }
-      ],
-      "Purchaser": [
-        {
-          "title": "Display Invoice",
-          "action": "InvoiceDisplay SuppInvoiceNumber"
-        },
-        {
-          "title": "Track Payment",
-          "action": "SupplierInvoice SuppInvoiceNumber"
         }
       ]
     }
@@ -1946,6 +1189,764 @@
         {
           "title": "Return Goods",
           "action": "action_var-returngoods transID ponumber"
+        }
+      ]
+    }
+  },
+  "SUPP00028": {
+    "GRPartial": {
+      "Supplier": [
+        {
+          "title": "Display Invoice",
+          "action": "InvoiceDisplay SuppInvoiceNumber"
+        },
+        {
+          "title": "Track Payment",
+          "action": "SupplierInvoice SuppInvoiceNumber"
+        }
+      ],
+      "APTeam": [
+        {
+          "title": "Display Invoice",
+          "action": "InvoiceDisplay SuppInvoiceNumber"
+        },
+        {
+          "title": "Track Payment",
+          "action": "SupplierInvoice SuppInvoiceNumber"
+        }
+      ],
+      "Employee": [
+        {
+          "title": "Display Invoice",
+          "action": "InvoiceDisplay SuppInvoiceNumber"
+        },
+        {
+          "title": "Track Payment",
+          "action": "SupplierInvoice SuppInvoiceNumber"
+        }
+      ],
+      "Purchaser": [
+        {
+          "title": "Display Invoice",
+          "action": "InvoiceDisplay SuppInvoiceNumber"
+        },
+        {
+          "title": "Track Payment",
+          "action": "SupplierInvoice SuppInvoiceNumber"
+        }
+      ]
+    },
+    "ReturnGoods": {
+      "Supplier": [
+        {
+          "title": "Display Invoice",
+          "action": "InvoiceDisplay SuppInvoiceNumber"
+        },
+        {
+          "title": "Track Payment",
+          "action": "SupplierInvoice SuppInvoiceNumber"
+        }
+      ],
+      "APTeam": [
+        {
+          "title": "Display Invoice",
+          "action": "InvoiceDisplay SuppInvoiceNumber"
+        },
+        {
+          "title": "Track Payment",
+          "action": "SupplierInvoice SuppInvoiceNumber"
+        }
+      ],
+      "Employee": [
+        {
+          "title": "Display Invoice",
+          "action": "InvoiceDisplay SuppInvoiceNumber"
+        },
+        {
+          "title": "Track Payment",
+          "action": "SupplierInvoice SuppInvoiceNumber"
+        }
+      ],
+      "Purchaser": [
+        {
+          "title": "Display Invoice",
+          "action": "InvoiceDisplay SuppInvoiceNumber"
+        },
+        {
+          "title": "Track Payment",
+          "action": "SupplierInvoice SuppInvoiceNumber"
+        }
+      ]
+    },
+    "CollectGoods": {
+      "Supplier": [
+        {
+          "title": "Display Invoice",
+          "action": "InvoiceDisplay SuppInvoiceNumber"
+        },
+        {
+          "title": "Track Payment",
+          "action": "SupplierInvoice SuppInvoiceNumber"
+        }
+      ],
+      "APTeam": [
+        {
+          "title": "Display Invoice",
+          "action": "InvoiceDisplay SuppInvoiceNumber"
+        },
+        {
+          "title": "Track Payment",
+          "action": "SupplierInvoice SuppInvoiceNumber"
+        }
+      ],
+      "Employee": [
+        {
+          "title": "Display Invoice",
+          "action": "InvoiceDisplay SuppInvoiceNumber"
+        },
+        {
+          "title": "Track Payment",
+          "action": "SupplierInvoice SuppInvoiceNumber"
+        }
+      ],
+      "Purchaser": [
+        {
+          "title": "Display Invoice",
+          "action": "InvoiceDisplay SuppInvoiceNumber"
+        },
+        {
+          "title": "Track Payment",
+          "action": "SupplierInvoice SuppInvoiceNumber"
+        }
+      ]
+    },
+    "CreditNoteRequested": {
+      "Supplier": [
+        {
+          "title": "Display Invoice",
+          "action": "InvoiceDisplay SuppInvoiceNumber"
+        },
+        {
+          "title": "Track Payment",
+          "action": "SupplierInvoice SuppInvoiceNumber"
+        }
+      ],
+      "APTeam": [
+        {
+          "title": "Display Invoice",
+          "action": "InvoiceDisplay SuppInvoiceNumber"
+        },
+        {
+          "title": "Track Payment",
+          "action": "SupplierInvoice SuppInvoiceNumber"
+        }
+      ],
+      "Employee": [
+        {
+          "title": "Display Invoice",
+          "action": "InvoiceDisplay SuppInvoiceNumber"
+        },
+        {
+          "title": "Track Payment",
+          "action": "SupplierInvoice SuppInvoiceNumber"
+        }
+      ],
+      "Purchaser": [
+        {
+          "title": "Display Invoice",
+          "action": "InvoiceDisplay SuppInvoiceNumber"
+        },
+        {
+          "title": "Track Payment",
+          "action": "SupplierInvoice SuppInvoiceNumber"
+        }
+      ]
+    },
+    "OrderCancelled": {
+      "Supplier": [
+        {
+          "title": "Display Invoice",
+          "action": "InvoiceDisplay SuppInvoiceNumber"
+        },
+        {
+          "title": "Track Payment",
+          "action": "SupplierInvoice SuppInvoiceNumber"
+        }
+      ],
+      "APTeam": [
+        {
+          "title": "Display Invoice",
+          "action": "InvoiceDisplay SuppInvoiceNumber"
+        },
+        {
+          "title": "Track Payment",
+          "action": "SupplierInvoice SuppInvoiceNumber"
+        }
+      ],
+      "Employee": [
+        {
+          "title": "Display Invoice",
+          "action": "InvoiceDisplay SuppInvoiceNumber"
+        },
+        {
+          "title": "Track Payment",
+          "action": "SupplierInvoice SuppInvoiceNumber"
+        }
+      ],
+      "Purchaser": [
+        {
+          "title": "Display Invoice",
+          "action": "InvoiceDisplay SuppInvoiceNumber"
+        },
+        {
+          "title": "Track Payment",
+          "action": "SupplierInvoice SuppInvoiceNumber"
+        }
+      ]
+    },
+    "PartialAccept": {
+      "Supplier": [
+        {
+          "title": "Display Invoice",
+          "action": "InvoiceDisplay SuppInvoiceNumber"
+        },
+        {
+          "title": "Track Payment",
+          "action": "SupplierInvoice SuppInvoiceNumber"
+        }
+      ],
+      "APTeam": [
+        {
+          "title": "Display Invoice",
+          "action": "InvoiceDisplay SuppInvoiceNumber"
+        },
+        {
+          "title": "Track Payment",
+          "action": "SupplierInvoice SuppInvoiceNumber"
+        }
+      ],
+      "Employee": [
+        {
+          "title": "Display Invoice",
+          "action": "InvoiceDisplay SuppInvoiceNumber"
+        },
+        {
+          "title": "Track Payment",
+          "action": "SupplierInvoice SuppInvoiceNumber"
+        }
+      ],
+      "Purchaser": [
+        {
+          "title": "Display Invoice",
+          "action": "InvoiceDisplay SuppInvoiceNumber"
+        },
+        {
+          "title": "Track Payment",
+          "action": "SupplierInvoice SuppInvoiceNumber"
+        }
+      ]
+    },
+    "PartialGR": {
+      "Supplier": [
+        {
+          "title": "Display Invoice",
+          "action": "InvoiceDisplay SuppInvoiceNumber"
+        },
+        {
+          "title": "Track Payment",
+          "action": "SupplierInvoice SuppInvoiceNumber"
+        }
+      ],
+      "APTeam": [
+        {
+          "title": "Display Invoice",
+          "action": "InvoiceDisplay SuppInvoiceNumber"
+        },
+        {
+          "title": "Track Payment",
+          "action": "SupplierInvoice SuppInvoiceNumber"
+        }
+      ],
+      "Employee": [
+        {
+          "title": "Display Invoice",
+          "action": "InvoiceDisplay SuppInvoiceNumber"
+        },
+        {
+          "title": "Track Payment",
+          "action": "SupplierInvoice SuppInvoiceNumber"
+        }
+      ],
+      "Purchaser": [
+        {
+          "title": "Display Invoice",
+          "action": "InvoiceDisplay SuppInvoiceNumber"
+        },
+        {
+          "title": "Track Payment",
+          "action": "SupplierInvoice SuppInvoiceNumber"
+        }
+      ]
+    },
+    "New": {
+      "Supplier": [
+        {
+          "title": "Display Invoice",
+          "action": "InvoiceDisplay SuppInvoiceNumber"
+        },
+        {
+          "title": "Track Payment",
+          "action": "SupplierInvoice SuppInvoiceNumber"
+        }
+      ],
+      "APTeam": [
+        {
+          "title": "Display Invoice",
+          "action": "InvoiceDisplay SuppInvoiceNumber"
+        },
+        {
+          "title": "Track Payment",
+          "action": "SupplierInvoice SuppInvoiceNumber"
+        }
+      ],
+      "Employee": [
+        {
+          "title": "Display Invoice",
+          "action": "InvoiceDisplay SuppInvoiceNumber"
+        },
+        {
+          "title": "Track Payment",
+          "action": "SupplierInvoice SuppInvoiceNumber"
+        }
+      ],
+      "Purchaser": [
+        {
+          "title": "Display Invoice",
+          "action": "InvoiceDisplay SuppInvoiceNumber"
+        },
+        {
+          "title": "Track Payment",
+          "action": "SupplierInvoice SuppInvoiceNumber"
+        }
+      ]
+    },
+    "SupplierAccepted": {
+      "Supplier": [
+        {
+          "title": "Display Invoice",
+          "action": "InvoiceDisplay SuppInvoiceNumber"
+        },
+        {
+          "title": "Track Payment",
+          "action": "SupplierInvoice SuppInvoiceNumber"
+        }
+      ],
+      "APTeam": [
+        {
+          "title": "Display Invoice",
+          "action": "InvoiceDisplay SuppInvoiceNumber"
+        },
+        {
+          "title": "Track Payment",
+          "action": "SupplierInvoice SuppInvoiceNumber"
+        }
+      ],
+      "Employee": [
+        {
+          "title": "Display Invoice",
+          "action": "InvoiceDisplay SuppInvoiceNumber"
+        },
+        {
+          "title": "Track Payment",
+          "action": "SupplierInvoice SuppInvoiceNumber"
+        }
+      ],
+      "Purchaser": [
+        {
+          "title": "Display Invoice",
+          "action": "InvoiceDisplay SuppInvoiceNumber"
+        },
+        {
+          "title": "Track Payment",
+          "action": "SupplierInvoice SuppInvoiceNumber"
+        }
+      ]
+    },
+    "SupplierShipped": {
+      "Supplier": [
+        {
+          "title": "Display Invoice",
+          "action": "InvoiceDisplay SuppInvoiceNumber"
+        },
+        {
+          "title": "Track Payment",
+          "action": "SupplierInvoice SuppInvoiceNumber"
+        }
+      ],
+      "APTeam": [
+        {
+          "title": "Display Invoice",
+          "action": "InvoiceDisplay SuppInvoiceNumber"
+        },
+        {
+          "title": "Track Payment",
+          "action": "SupplierInvoice SuppInvoiceNumber"
+        }
+      ],
+      "Employee": [
+        {
+          "title": "Display Invoice",
+          "action": "InvoiceDisplay SuppInvoiceNumber"
+        },
+        {
+          "title": "Track Payment",
+          "action": "SupplierInvoice SuppInvoiceNumber"
+        }
+      ],
+      "Purchaser": [
+        {
+          "title": "Display Invoice",
+          "action": "InvoiceDisplay SuppInvoiceNumber"
+        },
+        {
+          "title": "Track Payment",
+          "action": "SupplierInvoice SuppInvoiceNumber"
+        }
+      ]
+    },
+    "Paid": {
+      "Supplier": [
+        {
+          "title": "Display Invoice",
+          "action": "InvoiceDisplay SuppInvoiceNumber"
+        },
+        {
+          "title": "Track Payment",
+          "action": "SupplierInvoice SuppInvoiceNumber"
+        }
+      ],
+      "APTeam": [
+        {
+          "title": "Display Invoice",
+          "action": "InvoiceDisplay SuppInvoiceNumber"
+        },
+        {
+          "title": "Track Payment",
+          "action": "SupplierInvoice SuppInvoiceNumber"
+        }
+      ],
+      "Employee": [
+        {
+          "title": "Display Invoice",
+          "action": "InvoiceDisplay SuppInvoiceNumber"
+        },
+        {
+          "title": "Track Payment",
+          "action": "SupplierInvoice SuppInvoiceNumber"
+        }
+      ],
+      "Purchaser": [
+        {
+          "title": "Display Invoice",
+          "action": "InvoiceDisplay SuppInvoiceNumber"
+        },
+        {
+          "title": "Track Payment",
+          "action": "SupplierInvoice SuppInvoiceNumber"
+        }
+      ]
+    },
+    "Invoiced": {
+      "Supplier": [
+        {
+          "title": "Display Invoice",
+          "action": "InvoiceDisplay SuppInvoiceNumber"
+        },
+        {
+          "title": "Track Payment",
+          "action": "SupplierInvoice SuppInvoiceNumber"
+        }
+      ],
+      "APTeam": [
+        {
+          "title": "Display Invoice",
+          "action": "InvoiceDisplay SuppInvoiceNumber"
+        },
+        {
+          "title": "Track Payment",
+          "action": "SupplierInvoice SuppInvoiceNumber"
+        }
+      ],
+      "Employee": [
+        {
+          "title": "Display Invoice",
+          "action": "InvoiceDisplay SuppInvoiceNumber"
+        },
+        {
+          "title": "Track Payment",
+          "action": "SupplierInvoice SuppInvoiceNumber"
+        }
+      ],
+      "Purchaser": [
+        {
+          "title": "Display Invoice",
+          "action": "InvoiceDisplay SuppInvoiceNumber"
+        },
+        {
+          "title": "Track Payment",
+          "action": "SupplierInvoice SuppInvoiceNumber"
+        }
+      ]
+    },
+    "SupplierRejected": {
+      "Supplier": [
+        {
+          "title": "Display Invoice",
+          "action": "InvoiceDisplay SuppInvoiceNumber"
+        },
+        {
+          "title": "Track Payment",
+          "action": "SupplierInvoice SuppInvoiceNumber"
+        }
+      ],
+      "APTeam": [
+        {
+          "title": "Display Invoice",
+          "action": "InvoiceDisplay SuppInvoiceNumber"
+        },
+        {
+          "title": "Track Payment",
+          "action": "SupplierInvoice SuppInvoiceNumber"
+        }
+      ],
+      "Employee": [
+        {
+          "title": "Display Invoice",
+          "action": "InvoiceDisplay SuppInvoiceNumber"
+        },
+        {
+          "title": "Track Payment",
+          "action": "SupplierInvoice SuppInvoiceNumber"
+        }
+      ],
+      "Purchaser": [
+        {
+          "title": "Display Invoice",
+          "action": "InvoiceDisplay SuppInvoiceNumber"
+        },
+        {
+          "title": "Track Payment",
+          "action": "SupplierInvoice SuppInvoiceNumber"
+        }
+      ]
+    },
+    "GRDone": {
+      "Supplier": [
+        {
+          "title": "Display Invoice",
+          "action": "InvoiceDisplay SuppInvoiceNumber"
+        },
+        {
+          "title": "Track Payment",
+          "action": "SupplierInvoice SuppInvoiceNumber"
+        }
+      ],
+      "APTeam": [
+        {
+          "title": "Display Invoice",
+          "action": "InvoiceDisplay SuppInvoiceNumber"
+        },
+        {
+          "title": "Track Payment",
+          "action": "SupplierInvoice SuppInvoiceNumber"
+        }
+      ],
+      "Employee": [
+        {
+          "title": "Display Invoice",
+          "action": "InvoiceDisplay SuppInvoiceNumber"
+        },
+        {
+          "title": "Track Payment",
+          "action": "SupplierInvoice SuppInvoiceNumber"
+        }
+      ],
+      "Purchaser": [
+        {
+          "title": "Display Invoice",
+          "action": "InvoiceDisplay SuppInvoiceNumber"
+        },
+        {
+          "title": "Track Payment",
+          "action": "SupplierInvoice SuppInvoiceNumber"
+        }
+      ]
+    },
+    "GRRejected": {
+      "Supplier": [
+        {
+          "title": "Display Invoice",
+          "action": "InvoiceDisplay SuppInvoiceNumber"
+        },
+        {
+          "title": "Track Payment",
+          "action": "SupplierInvoice SuppInvoiceNumber"
+        }
+      ],
+      "APTeam": [
+        {
+          "title": "Display Invoice",
+          "action": "InvoiceDisplay SuppInvoiceNumber"
+        },
+        {
+          "title": "Track Payment",
+          "action": "SupplierInvoice SuppInvoiceNumber"
+        }
+      ],
+      "Employee": [
+        {
+          "title": "Display Invoice",
+          "action": "InvoiceDisplay SuppInvoiceNumber"
+        },
+        {
+          "title": "Track Payment",
+          "action": "SupplierInvoice SuppInvoiceNumber"
+        }
+      ],
+      "Purchaser": [
+        {
+          "title": "Display Invoice",
+          "action": "InvoiceDisplay SuppInvoiceNumber"
+        },
+        {
+          "title": "Track Payment",
+          "action": "SupplierInvoice SuppInvoiceNumber"
+        }
+      ]
+    },
+    "ReadyForPayment": {
+      "Supplier": [
+        {
+          "title": "Display Invoice",
+          "action": "InvoiceDisplay SuppInvoiceNumber"
+        },
+        {
+          "title": "Track Payment",
+          "action": "SupplierInvoice SuppInvoiceNumber"
+        }
+      ],
+      "APTeam": [
+        {
+          "title": "Display Invoice",
+          "action": "InvoiceDisplay SuppInvoiceNumber"
+        },
+        {
+          "title": "Track Payment",
+          "action": "SupplierInvoice SuppInvoiceNumber"
+        }
+      ],
+      "Employee": [
+        {
+          "title": "Display Invoice",
+          "action": "InvoiceDisplay SuppInvoiceNumber"
+        },
+        {
+          "title": "Track Payment",
+          "action": "SupplierInvoice SuppInvoiceNumber"
+        }
+      ],
+      "Purchaser": [
+        {
+          "title": "Display Invoice",
+          "action": "InvoiceDisplay SuppInvoiceNumber"
+        },
+        {
+          "title": "Track Payment",
+          "action": "SupplierInvoice SuppInvoiceNumber"
+        }
+      ]
+    },
+    "BuyerRejected": {
+      "Supplier": [
+        {
+          "title": "Display Invoice",
+          "action": "InvoiceDisplay SuppInvoiceNumber"
+        },
+        {
+          "title": "Track Payment",
+          "action": "SupplierInvoice SuppInvoiceNumber"
+        }
+      ],
+      "APTeam": [
+        {
+          "title": "Display Invoice",
+          "action": "InvoiceDisplay SuppInvoiceNumber"
+        },
+        {
+          "title": "Track Payment",
+          "action": "SupplierInvoice SuppInvoiceNumber"
+        }
+      ],
+      "Employee": [
+        {
+          "title": "Display Invoice",
+          "action": "InvoiceDisplay SuppInvoiceNumber"
+        },
+        {
+          "title": "Track Payment",
+          "action": "SupplierInvoice SuppInvoiceNumber"
+        }
+      ],
+      "Purchaser": [
+        {
+          "title": "Display Invoice",
+          "action": "InvoiceDisplay SuppInvoiceNumber"
+        },
+        {
+          "title": "Track Payment",
+          "action": "SupplierInvoice SuppInvoiceNumber"
+        }
+      ]
+    },
+    "WithBuyer": {
+      "Supplier": [
+        {
+          "title": "Display Invoice",
+          "action": "InvoiceDisplay SuppInvoiceNumber"
+        },
+        {
+          "title": "Track Payment",
+          "action": "SupplierInvoice SuppInvoiceNumber"
+        }
+      ],
+      "APTeam": [
+        {
+          "title": "Display Invoice",
+          "action": "InvoiceDisplay SuppInvoiceNumber"
+        },
+        {
+          "title": "Track Payment",
+          "action": "SupplierInvoice SuppInvoiceNumber"
+        }
+      ],
+      "Employee": [
+        {
+          "title": "Display Invoice",
+          "action": "InvoiceDisplay SuppInvoiceNumber"
+        },
+        {
+          "title": "Track Payment",
+          "action": "SupplierInvoice SuppInvoiceNumber"
+        }
+      ],
+      "Purchaser": [
+        {
+          "title": "Display Invoice",
+          "action": "InvoiceDisplay SuppInvoiceNumber"
+        },
+        {
+          "title": "Track Payment",
+          "action": "SupplierInvoice SuppInvoiceNumber"
         }
       ]
     }

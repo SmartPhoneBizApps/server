@@ -16,8 +16,8 @@ const {
   getInitialValues,
   getDateValues,
   findOneApp,
-  getNewConfig,
   cardReplace,
+  getNewConfig,
   getPVField,
 } = require("../../modules/config");
 const { readData, getTotalCount, nConfig } = require("../../modules/config2");
@@ -80,7 +80,6 @@ exports.listrecordsnew = asyncHandler(async (req, res, next) => {
       results2 = { ...results1[i1] };
 
       results2["cardImage"] = application["photo"];
-      console.log("ReferenceID", results1[i1].id);
       results2["ReferenceID"] = results1[i1].id;
       results2["Group"] = "ExternalCatalog";
       results2["SubGroup"] = "OpenSAP";
@@ -91,12 +90,9 @@ exports.listrecordsnew = asyncHandler(async (req, res, next) => {
         if (appconfig["Controls"]["USP"] == "UserProfile") {
           results2["USP_Name"] = "OpenSAP course catalog";
           results2["USP_Role"] = "copyright - SAP®";
-          //   results[i1].USP_Image =
-          //     "https://fierce-oasis-51455.herokuapp.com/logos/logo_opensap.png";
           results2["USP_Image"] = process.env.APPURL + "logos/logo_opensap.png";
         }
       }
-
       results.push(results2);
     }
 
@@ -124,14 +120,11 @@ exports.listrecordsnew = asyncHandler(async (req, res, next) => {
     oResult = [];
     for (let q = startIndex; q < endIndex; q++) {
       if (results[q] !== undefined) {
-        //    if (results[q]["cardImage"] == "no-photo.jpg") {
         results[q]["cardImage"] =
           "https://images.unsplash.com/photo-1585776462170-f6f0e680e1c8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80";
-        //   }
         oResult.push(results[q]);
       }
     }
-
     outData["success"] = true;
     outData["count"] = tCount;
     outData["pagination"] = pagination;
@@ -201,7 +194,6 @@ exports.listrecordsnew = asyncHandler(async (req, res, next) => {
         if (mode !== "BOTList") {
           results[i1]["ItemData"] = results2;
         }
-
         results[i1].cardImage = application["photo"];
         if (mode == "Web" || mode == "web") {
           if (appconfig["Controls"]["USP"] == "UserProfile") {
@@ -210,7 +202,6 @@ exports.listrecordsnew = asyncHandler(async (req, res, next) => {
             results[i1].USP_Image =
               "https://www.espncricinfo.com/inline/content/image/1183835.html?alt=1";
           }
-
           if (appconfig["Controls"]["StatusColor"] == "Yes") {
             results[i1].StatusState =
               colorConfig["Status"][results[i1]["Status"]];
