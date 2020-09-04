@@ -610,7 +610,14 @@ module.exports = {
     adCard["sap.card"]["content"]["actions"] = cardaction["actions"];
     return adCard;
   },
-  adaptiveNew: async function (appconfig, resPV, ival_out, mode, poss_val) {
+  adaptiveNew: async function (
+    appconfig,
+    resPV,
+    ival_out,
+    mode,
+    poss_val,
+    tab
+  ) {
     body = [];
     body2 = [];
     body2 = [];
@@ -1149,7 +1156,7 @@ module.exports = {
         aCard["sap.card"]["content"]["actions"][m]["type"] == "Action.Submit"
       ) {
         console.log("table", mode);
-        aCard["sap.card"]["content"]["actions"][m]["table"] = mode;
+        aCard["sap.card"]["content"]["actions"][m]["table"] = tab;
       }
     }
     return aCard;

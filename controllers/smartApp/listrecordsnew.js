@@ -364,7 +364,8 @@ exports.listrecordsnew = asyncHandler(async (req, res, next) => {
             resPV,
             ival_out,
             "header",
-            appconfig["PossibleValues"]
+            appconfig["PossibleValues"],
+            "Tab1"
           );
           var cardData = JSON.stringify(aCard);
           cardData = cardReplace({}, cardData, appconfig, "header");

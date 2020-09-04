@@ -121,8 +121,19 @@ exports.getDetailCardsNew = async (req, res, next) => {
   //----------------------------------------------
   // Table Cards...
   let cardkey = "";
+  tab = "Tab1";
   for (const key in appconfig["tableConfig"]) {
-    console.log(key);
+    for (let i = 0; i < appconfig["DetailFields"].length; i++) {
+      for (const kc1 in appconfig["DetailFields"][i]) {
+        appconfig["DetailFields"][i][kc1].forEach((element) => {
+          if (element == key) {
+            tab = kc1;
+          }
+        });
+      }
+    }
+
+    console.log(key, tab);
     if (appconfig["tableConfig"][key]["ItemButtons"]["itemAdd"] == true) {
       aCard = {};
       aCard = await adaptiveNew(
@@ -130,7 +141,8 @@ exports.getDetailCardsNew = async (req, res, next) => {
         resPV,
         ival_out,
         key,
-        appconfig["PossibleValues"]
+        appconfig["PossibleValues"],
+        tab
       );
       var cardData = JSON.stringify(aCard);
       cardData = cardReplace({}, cardData, appconfig, key);
