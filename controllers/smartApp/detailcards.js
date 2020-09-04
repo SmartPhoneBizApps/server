@@ -129,7 +129,7 @@ exports.getDetailCardsNew = async (req, res, next) => {
         appconfig["tableConfig"][key],
         resPV,
         ival_out,
-        "table",
+        key,
         appconfig["PossibleValues"]
       );
       var cardData = JSON.stringify(aCard);

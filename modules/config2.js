@@ -303,7 +303,7 @@ module.exports = {
     let queryStr = JSON.stringify(reqQuery);
     // Create operators ($gt, $gte, etc)
     queryStr = queryStr.replace(
-      /\b(gt|gte|lt|lte|in)\b/g,
+      /\b(gt|gte|lt|lte|in|regex|options)\b/g,
       (match) => `$${match}`
     );
     /////////////////////////////////////////////////////////////////

@@ -1145,6 +1145,12 @@ module.exports = {
       ) {
         aCard["sap.card"]["content"]["actions"][m]["card"]["body"] = body2;
       }
+      if (
+        aCard["sap.card"]["content"]["actions"][m]["type"] == "Action.Submit"
+      ) {
+        console.log("table", mode);
+        aCard["sap.card"]["content"]["actions"][m]["table"] = mode;
+      }
     }
     return aCard;
   },
