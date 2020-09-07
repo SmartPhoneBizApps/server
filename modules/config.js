@@ -860,19 +860,14 @@ module.exports = {
         }
       });
     } else {
-      console.log("AKG", button[app]);
       results.forEach((element) => {
         if (element.PossibleValues == "Status") {
-          console.log(element.PossibleValues, element.Value);
           if (button[app] != undefined) {
             for (const key in button[app][element.Value]) {
               if (button[app][element.Value].hasOwnProperty(key)) {
                 const element1 = button[app][element.Value][key];
                 for (let q = 0; q < element1.length; q++) {
-                  if (
-                    element1[q]["type"] == "postBack" &&
-                    element1[q]["type"] != "web_url"
-                  ) {
+                  if (element1[q]["type"] == "postBack") {
                     var n = app.length - 3;
                     kng =
                       app.slice(0, 3) +
@@ -899,6 +894,7 @@ module.exports = {
                     var n = app.length - 3;
                   }
                 }
+
                 if (key == role1) {
                   buttonData[element.Value] = element1;
                 } else if (key == "ALL") {

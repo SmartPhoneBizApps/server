@@ -305,9 +305,12 @@ exports.listrecordsnew = asyncHandler(async (req, res, next) => {
             oResult[w],
             req.user
           );
+
           let myButton = [];
           if (oResult[w]["Status"] !== undefined) {
+            console.log(oResult[w]["Status"]);
             myButton = buttonData[oResult[w]["Status"]];
+            console.log(myButton);
           }
           if (myButton == undefined) {
             myButton = [];

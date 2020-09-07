@@ -76,6 +76,7 @@ app.use("/api/v1/socialmediacards", require("./routes/bot/cardsSocialmedia"));
 app.use("/api/v1/auth/checkbotpin", require("./routes/access/checkBotPin"));
 app.use("/api/v1/botoptions", require("./routes/smartApp/botOptions"));
 app.use("/api/v1/util/botgroups", require("./routes/utilities/botGroup"));
+app.use("/api/v1/util/botbuttons", require("./routes/utilities/botButtons"));
 
 //  ----------------------------------------------------------
 //  ----------  ***** ORGNIZATION SETUP DATA *****  ----------
@@ -121,6 +122,8 @@ app.use("/api/v1/userapps", require("./routes/appSetup/userapps"));
 //  ----------  ***** BUSINESS DATA *****  ----------
 //  -------------------------------------------------
 // Listing of Data Records with Config Data
+app.use("/api/v1/deletedata", require("./routes/smartApp/deleteRecord"));
+app.use("/api/v1/deleteall", require("./routes/smartApp/deleteAll"));
 app.use("/api/v1/listrecords", require("./routes/smartApp/listrecords"));
 app.use("/api/v1/listrecordsnew", require("./routes/smartApp/listrecordsnew"));
 // Create a new Record
