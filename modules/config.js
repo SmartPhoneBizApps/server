@@ -1098,16 +1098,24 @@ module.exports = {
     result = Model.create(mydata);
     return result;
   },
-  createDocumentAPI: function (app, role, calculation, notify, mydata) {
+  createDocumentAPI: function (
+    app,
+    role,
+    calculation,
+    notify,
+    mydata,
+    authorization
+  ) {
     //   let path = "../models/smartApp/" + app;
     //  const Model = require(path);
     //  result = Model.create(mydata);
     var request = require("request");
-    console.log("Posting Data", app, role, calculation);
+    console.log("Posting Data", app, role, calculation, mydata);
+    console.log(authorization);
     var options = {
       method: "POST",
-      url: "https://fierce-oasis-51455.herokuapp.com/api/v1/datarecords/",
-      //url: "http://localhost:5000/api/v1/datarecords/",
+      //    url: "https://fierce-oasis-51455.herokuapp.com/api/v1/datarecords/",
+      url: "http://localhost:5000/api/v1/datarecords/",
       headers: {
         applicationid: app,
         businessRole: role,
@@ -1116,8 +1124,7 @@ module.exports = {
         calculation: calculation,
         "Content-Type": "application/json",
         notification: notify,
-        Authorization:
-          "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVlYmJmMmYzMThiOTczMzY3ZWZkMjNkNiIsImlhdCI6MTU5ODYyMTczOSwiZXhwIjoxNjAxMjEzNzM5fQ.OF2KMRN3pnAeTb51f4yrjaSRw6Iz0Q0ZGaZE8u3g9To",
+        Authorization: authorization,
       },
       body: JSON.stringify(mydata),
     };

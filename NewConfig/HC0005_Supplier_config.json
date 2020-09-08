@@ -957,6 +957,111 @@
         { "name": "PostCode" },
         { "name": "InstitutionName" }
       ]
+    },
+    "myHCPHCO": {
+      "title": "My HCP/HCO",
+      "subtitle": "HCP/HCO",
+      "ItemFieldDefinition": [
+        {
+          "name": "ItemNumber",
+          "type": "string",
+          "width": "10",
+          "SLabel": "Item Number",
+          "Update": "No"
+        },
+        {
+          "name": "ItemStatus1",
+          "type": "string",
+          "width": "50",
+          "SLabel": "Item Status",
+          "Update": "Yes"
+        },
+        {
+          "name": "Title",
+          "type": "string",
+          "width": "50",
+          "SLabel": "Title",
+          "Option": "Optional"
+        },
+        {
+          "name": "FirstName",
+          "type": "string",
+          "width": "100",
+          "SLabel": "FirstName",
+          "Option": "Optional"
+        },
+        {
+          "name": "LastName",
+          "type": "string",
+          "width": "100",
+          "SLabel": "LastName",
+          "Option": "Optional"
+        },
+        {
+          "name": "Speciality",
+          "type": "string",
+          "width": "200",
+          "SLabel": "Speciality",
+          "Option": "Optional"
+        },
+        {
+          "name": "Email",
+          "type": "Email",
+          "width": "100",
+          "SLabel": "Email",
+          "Option": "Optional"
+        },
+        {
+          "name": "PostCode",
+          "type": "string",
+          "width": "200",
+          "SLabel": "PostCode",
+          "Option": "Optional"
+        },
+        {
+          "name": "InstitutionName",
+          "type": "string",
+          "width": "500",
+          "SLabel": "InstitutionName",
+          "Option": "Optional"
+        }
+      ],
+      "DisplayFields": [
+        "Title",
+        "FirstName",
+        "LastName",
+        "Email",
+        "PostCode",
+        "ItemStatus1"
+      ],
+      "cards": [],
+      "ItemButtons": {
+        "itemDisplay": true,
+        "itemCheck": false,
+        "itemAdd": true,
+        "itemEdit": true,
+        "itemDelete": false
+      },
+      "CreateFields": [
+        "Title",
+        "FirstName",
+        "LastName",
+        "Speciality",
+        "Email",
+        "PostCode",
+        "InstitutionName",
+        "ItemStatus1"
+      ],
+      "ItemDetails": [
+        { "name": "Title" },
+        { "name": "FirstName" },
+        { "name": "LastName" },
+        { "name": "Speciality" },
+        { "name": "Email" },
+        { "name": "PostCode" },
+        { "name": "InstitutionName" },
+        { "name": "ItemStatus1" }
+      ]
     }
   },
   "FieldDef": [

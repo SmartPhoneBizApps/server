@@ -333,6 +333,7 @@ exports.addDataRecords = asyncHandler(async (req, res, next) => {
         for (var ii = 0; ii < mydata[obj].length; ii++) {
           var passArray = {};
           //added by atul - Start
+          console.log("Atul Debug", cardConfig["tableConfig"][obj], obj);
           if (cardConfig["tableConfig"][obj].hasOwnProperty("Validations")) {
             passArray["fieldName"] = obj;
             passArray["data"] = mydata;

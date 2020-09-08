@@ -93,7 +93,7 @@ exports.assignCourseUser = asyncHandler(async (req, res, next) => {
 
   // Assign Fixed values...
   x2 = configFrom["Controls"]["Source"]["FixedValues"];
-  if(x2 != undefined){
+  if (x2 != undefined) {
     for (let y = 0; y < x2.length; y++) {
       const e2 = x2[y];
       for (const k3 in e2) {
@@ -103,14 +103,13 @@ exports.assignCourseUser = asyncHandler(async (req, res, next) => {
     }
   }
 
-
   if (!Appdata) {
     res.status(400).json({
       success: true,
       message: "Record not found",
     });
   }
-  console.log(req.headers.Authorization);
+
   console.log(req.headers.authorization);
   out1 = getNewCopyRecord(configData, Appdata, req.params.ID, userX, appX.id);
   //result = await createDocument(req.params.toApp, out1);
@@ -119,7 +118,8 @@ exports.assignCourseUser = asyncHandler(async (req, res, next) => {
     req.params.targetRole,
     "Yes",
     "Messenger",
-    out1
+    out1,
+    req.headers.authorization
   );
 
   let message = "";
