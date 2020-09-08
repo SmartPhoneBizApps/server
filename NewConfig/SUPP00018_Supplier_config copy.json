@@ -14,7 +14,7 @@
     "Update": "Yes",
     "URL": "https://fierce-oasis-51455.herokuapp.com",
     "Source": { "SourceName": "mongoDB", "SourceFile": "NA" },
-
+    
     "filterFields": {
       "header": ["Status"]
     }
@@ -58,41 +58,7 @@
     {
       "type": "DOWNLOAD",
       "name": "Download File",
-      "icon": "sap-icon://download",
-      "downloadFields": [
-        "ID",
-        "VendorName",
-        "PONumber",
-        "VendorNumber",
-        "VendorEmail",
-        "DelTo",
-        "Address",
-        "PostCode",
-        "ContactNo",
-        "Email",
-        "DeliveryInstr",
-        "Status",
-        "Company",
-        "PaymentTerm",
-        "PODate",
-        "Currency",
-        "TotalNetVal",
-        "TotalTax",
-        "TotalGrossVal",
-        "AddDetails",
-        "AcceptanceStatus",
-        "AcceptanceComment",
-        "CurrentStatus",
-        "ShippingStatus",
-        "InvoiceStatus",
-        "PaymentStatus",
-        "TotalInvNetVal",
-        "TotalInvGrossVal",
-        "QuestionCategory",
-        "CommsDetails",
-        "Status"
-      ],
-      "downloadTables": ["iData"]
+      "icon": "sap-icon://download"
     },
     {
       "type": "APPHELP",
@@ -159,14 +125,13 @@
     {
       "value": "Tab4",
       "update": "Yes",
-      "name": "MultiAttachment",
+      "name": "Attachment",
       "fioriicon": "attachment",
       "type": "MultiAttachments",
-      "download": "Yes",
+      "download": "No",
       "docType": [
-        { "text": "Receipt", "state": "Information" },
-        { "text": "SupplierAttachment", "state": "Error" },
-        { "text": "Quote", "state": "Success" }
+        { "text": "HeaderAttachment", "state": "Information" },
+        { "text": "ItemAttachment", "state": "Success" }
       ]
     },
     {
@@ -226,8 +191,7 @@
       "TotalGrossVal",
       "AddDetails"
     ],
-    "Tab3": ["iData"],
-    "Tab4": ["MultiAttachments"],
+    "Tab4": ["Attachment"],
     "Tab5": [
       "Status",
       "AcceptanceStatus",
@@ -573,345 +537,408 @@
       "type": "string",
       "width": "500",
       "SLabel": "cardImage"
-    },
-    {
-      "name": "iData",
-      "type": "Array",
-      "width": "200",
-      "Option": "Optional",
-      "SLabel": "iData",
-      "LLabel": "iData"
-    },
-    {
-      "name": "MultiAttachments",
-      "type": "attachment",
-      "metadata": "MultipleFields",
-      "width": "200",
-      "Option": "Optional",
-      "SLabel": "MultiAttachments",
-      "LLabel": "MultiAttachments"
     }
   ],
-  "tableConfig": {
-    "iData": {
-      "title": "Item Details",
-      "ItemFieldDefinition": [
-        {
-          "name": "ItemNumber",
-          "type": "string",
-          "width": "20",
-          "SLabel": "Item Number"
-        },
-        {
-          "name": "ID",
-          "type": "string",
-          "width": "20",
-          "SLabel": "Identification"
-        },
-        {
-          "name": "ItemDetails",
-          "type": "string",
-          "width": "50",
-          "SLabel": "Item Details"
-        },
-        {
-          "name": "ItemQty",
-          "type": "Num,2",
-          "width": "50",
-          "SLabel": "Item Quantity"
-        },
-        {
-          "name": "ItemPrice",
-          "type": "Num,3",
-          "width": "50",
-          "SLabel": "Item Price"
-        },
-        {
-          "name": "ItemUOM",
-          "type": "string",
-          "width": "50",
-          "SLabel": "Item UOM"
-        },
-        {
-          "name": "ItemNetValue",
-          "type": "Num,3",
-          "width": "50",
-          "SLabel": "Item Net Value"
-        },
-        {
-          "name": "ItemVATRate",
-          "type": "Num,3",
-          "width": "50",
-          "SLabel": "Item VAT Rate(%)"
-        },
-        {
-          "name": "ItemVATVal",
-          "type": "Num,3",
-          "width": "50",
-          "SLabel": "Item VAT Value"
-        },
-        {
-          "name": "ItemGrossVal",
-          "type": "Num,3",
-          "width": "50",
-          "SLabel": "Item Gross Value"
-        },
-        {
-          "name": "ItemVATPer",
-          "type": "Num,2",
-          "width": "50",
-          "SLabel": "Item VAT Percentage"
-        },
-        {
-          "name": "TaxInvoice",
-          "type": "switch",
-          "width": "3",
-          "SLabel": "Tax Invoice (Y/N)"
-        },
-        {
-          "name": "SuppInvoiceNumber",
-          "type": "string",
-          "width": "20",
-          "SLabel": "Supplier Invoice Number"
-        },
-        {
-          "name": "InvImageURL",
-          "type": "string",
-          "width": "500",
-          "SLabel": "Invoice Image URL"
-        },
-        {
-          "name": "InvQty",
-          "type": "Num,0",
-          "width": "10",
-          "SLabel": "Invoice Qty"
-        },
-        {
-          "name": "InvPrice",
-          "type": "Num,2",
-          "width": "10",
-          "SLabel": "Invoice Price"
-        },
-        {
-          "name": "InvVATRate",
-          "type": "Num,2",
-          "width": "10",
-          "SLabel": "Invoice VAT Rate(%)"
-        },
-        {
-          "name": "ItemInvoiceStatus",
-          "type": "string",
-          "width": "20",
-          "SLabel": "Invoice Item Status"
-        },
-        {
-          "name": "InvVATPer",
-          "type": "Num,2",
-          "width": "10",
-          "SLabel": "Invoice Tax Percentage"
-        },
-        {
-          "name": "InvNetValue",
-          "type": "Num,2",
-          "width": "20",
-          "SLabel": "Invoice Net Value"
-        },
-        {
-          "name": "InvGrossVal",
-          "type": "Num,2",
-          "width": "20",
-          "SLabel": "Invoice Gross Value"
-        },
-        {
-          "name": "InvVATVal",
-          "type": "Num,2",
-          "width": "10",
-          "SLabel": "Invoice Tax Value"
-        },
-        {
-          "name": "InvCummQty",
-          "type": "Num,2",
-          "width": "10",
-          "SLabel": "Cumulative Invoice Qty"
-        },
-        {
-          "name": "BalanceInvQty",
-          "type": "Num,2",
-          "width": "10",
-          "SLabel": "Balance Invoice Qty"
-        },
-        {
-          "name": "ItemShippingStatus",
-          "type": "string",
-          "width": "20",
-          "SLabel": "Item Shipping Status"
-        },
-        {
-          "name": "ShippingDate",
-          "type": "Date",
-          "width": "10",
-          "SLabel": "Shipping Date"
-        },
-        {
-          "name": "PlannedShippingDate",
-          "type": "Date",
-          "width": "10",
-          "SLabel": "Planned Shipping Date"
-        },
-        {
-          "name": "DeliveryCompany",
-          "type": "string",
-          "width": "200",
-          "SLabel": "Delivery Company"
-        },
-        {
-          "name": "TrackingNumber",
-          "type": "string",
-          "width": "20",
-          "SLabel": "Tracking Number"
-        },
-        {
-          "name": "TrackingWebsite",
-          "type": "string",
-          "width": "100",
-          "SLabel": "Tracking Website"
-        },
-        {
-          "name": "InvoiceDate",
-          "type": "Date",
-          "width": "10",
-          "SLabel": "Invoice Date"
-        },
-        {
-          "name": "ItemDeliveryDate",
-          "type": "Date",
-          "width": "10",
-          "SLabel": "Item Delivery Date"
-        },
-        {
-          "name": "ProcessingLog",
-          "type": "string",
-          "width": "1000",
-          "SLabel": "Processing Log",
-          "Option": "Optional"
-        },
-        {
-          "name": "CurrentStatus",
-          "type": "string",
-          "width": "100",
-          "SLabel": "Current Status",
-          "Option": "Optional"
-        },
-        {
-          "name": "Notification",
-          "type": "string",
-          "width": "50",
-          "SLabel": "Notification",
-          "Option": "Optional"
-        },
-        {
-          "name": "NotifyRole",
-          "type": "string",
-          "width": "100",
-          "SLabel": "Notify Role",
-          "Option": "Optional"
-        },
-        {
-          "name": "BusObject",
-          "type": "string",
-          "width": "200",
-          "SLabel": "Bus Object",
-          "Option": "Optional"
-        },
-        {
-          "name": "InvImage",
-          "type": "attachment",
-          "width": "500",
-          "SLabel": "Invoice Image",
-          "Option": "Optional"
-        }
-      ],
-      "DisplayFields": [
-        "ItemNumber",
-        "ItemQty",
-        "ItemPrice",
-        "ItemVATVal",
-        "ItemGrossVal"
-      ],
-      "ItemButtons": {
-        "itemDisplay": true,
-        "itemAdd": true,
-        "itemEdit": true,
-        "itemDelete": true
-      },
-      "ListBOTItemFields": {
-        "None": ["ID"],
-        "Title": ["ItemNumber", "ItemDetails"],
-        "SubTitle": ["ItemGrossVal", "ItemNetValue"],
-        "Description": ["ItemQty", "ItemUOM", "ItemPrice", "ItemVATVal"]
-      },
-      "CreateFields": [
-        "ItemDetails",
-        "ItemQty",
-        "ItemPrice",
-        "ItemUOM",
-        "ItemNetValue",
-        "ItemVATRate",
-        "ItemVATVal",
-        "ItemGrossVal",
-        "ItemVATPer",
-        "InvImage"
-      ],
-      "ItemDetails": [
-        { "name": "ItemNumber" },
-        { "name": "ItemDetails" },
-        { "name": "ItemQty" },
-        { "name": "ItemPrice" },
-        { "name": "ItemUOM" },
-        { "name": "ItemNetValue" },
-        { "name": "ItemVATRate" },
-        { "name": "ItemVATVal" },
-        { "name": "ItemGrossVal" },
-        { "name": "ItemVATPer" },
-        { "name": "SuppInvoiceNumber" },
-        { "name": "InvQty" },
-        { "name": "InvPrice" },
-        { "name": "InvVATRate" },
-        { "name": "InvNetValue" },
-        { "name": "InvVATVal" },
-        { "name": "InvGrossVal" },
-        { "name": "ItemInvoiceStatus" },
-        { "name": "InvCummQty" },
-        { "name": "BalanceInvQty" },
-        { "name": "PlannedShippingDate" },
-        { "name": "ShippingDate" },
-        { "name": "DeliveryCompany" },
-        { "name": "TrackingNumber" },
-        { "name": "TrackingWebsite" },
-        { "name": "ItemShippingStatus" },
-        { "name": "InvVATPer" }
-      ]
-    }
-  },
-  "ItemData": "No",
+  "itemData": "Yes",
   "itemConfig": {
-    "ItemFieldDefinition": [],
-    "DisplayFields": [],
+    "title": "Item Details",
+    "ItemFieldDefinition": [
+      {
+        "name": "ItemNumber",
+        "type": "string",
+        "width": "20",
+        "SLabel": "Item Number"
+      },
+      {
+        "name": "ID",
+        "type": "string",
+        "width": "20",
+        "SLabel": "Identification"
+      },
+      {
+        "name": "ItemDetails",
+        "type": "string",
+        "width": "50",
+        "SLabel": "Item Details"
+      },
+      {
+        "name": "ItemQty",
+        "type": "Num,2",
+        "width": "50",
+        "SLabel": "Item Quantity"
+      },
+      {
+        "name": "ItemPrice",
+        "type": "Num,3",
+        "width": "50",
+        "SLabel": "Item Price"
+      },
+      {
+        "name": "ItemUOM",
+        "type": "string",
+        "width": "50",
+        "SLabel": "Item UOM"
+      },
+      {
+        "name": "ItemNetValue",
+        "type": "Num,3",
+        "width": "50",
+        "SLabel": "Item Net Value"
+      },
+      {
+        "name": "ItemVATRate",
+        "type": "Num,3",
+        "width": "50",
+        "SLabel": "Item VAT Rate(%)"
+      },
+      {
+        "name": "ItemVATVal",
+        "type": "Num,3",
+        "width": "50",
+        "SLabel": "Item VAT Value"
+      },
+      {
+        "name": "ItemGrossVal",
+        "type": "Num,3",
+        "width": "50",
+        "SLabel": "Item Gross Value"
+      },
+      {
+        "name": "ItemVATPer",
+        "type": "Num,2",
+        "width": "50",
+        "SLabel": "Item VAT Percentage"
+      },
+      {
+        "name": "TaxInvoice",
+        "type": "switch",
+        "width": "3",
+        "SLabel": "Tax Invoice (Y/N)"
+      },
+      {
+        "name": "SuppInvoiceNumber",
+        "type": "string",
+        "width": "20",
+        "SLabel": "Supplier Invoice Number"
+      },
+      {
+        "name": "InvImageURL",
+        "type": "string",
+        "width": "500",
+        "SLabel": "Invoice Image URL"
+      },
+      {
+        "name": "InvQty",
+        "type": "Num,0",
+        "width": "10",
+        "SLabel": "Invoice Qty"
+      },
+      {
+        "name": "InvPrice",
+        "type": "Num,2",
+        "width": "10",
+        "SLabel": "Invoice Price"
+      },
+      {
+        "name": "InvVATRate",
+        "type": "Num,2",
+        "width": "10",
+        "SLabel": "Invoice VAT Rate(%)"
+      },
+      {
+        "name": "ItemInvoiceStatus",
+        "type": "string",
+        "width": "20",
+        "SLabel": "Invoice Item Status"
+      },
+      {
+        "name": "InvVATPer",
+        "type": "Num,2",
+        "width": "10",
+        "SLabel": "Invoice Tax Percentage"
+      },
+      {
+        "name": "InvNetValue",
+        "type": "Num,2",
+        "width": "20",
+        "SLabel": "Invoice Net Value"
+      },
+      {
+        "name": "InvGrossVal",
+        "type": "Num,2",
+        "width": "20",
+        "SLabel": "Invoice Gross Value"
+      },
+      {
+        "name": "InvVATVal",
+        "type": "Num,2",
+        "width": "10",
+        "SLabel": "Invoice Tax Value"
+      },
+      {
+        "name": "InvCummQty",
+        "type": "Num,2",
+        "width": "10",
+        "SLabel": "Cumulative Invoice Qty"
+      },
+      {
+        "name": "BalanceInvQty",
+        "type": "Num,2",
+        "width": "10",
+        "SLabel": "Balance Invoice Qty"
+      },
+      {
+        "name": "ItemShippingStatus",
+        "type": "string",
+        "width": "20",
+        "SLabel": "Item Shipping Status"
+      },
+      {
+        "name": "ShippingDate",
+        "type": "Date",
+        "width": "10",
+        "SLabel": "Shipping Date"
+      },
+      {
+        "name": "PlannedShippingDate",
+        "type": "Date",
+        "width": "10",
+        "SLabel": "Planned Shipping Date"
+      },
+      {
+        "name": "DeliveryCompany",
+        "type": "string",
+        "width": "200",
+        "SLabel": "Delivery Company"
+      },
+      {
+        "name": "TrackingNumber",
+        "type": "string",
+        "width": "20",
+        "SLabel": "Tracking Number"
+      },
+      {
+        "name": "TrackingWebsite",
+        "type": "string",
+        "width": "100",
+        "SLabel": "Tracking Website"
+      },
+      {
+        "name": "InvoiceDate",
+        "type": "Date",
+        "width": "10",
+        "SLabel": "Invoice Date"
+      },
+      {
+        "name": "ItemDeliveryDate",
+        "type": "Date",
+        "width": "10",
+        "SLabel": "Item Delivery Date"
+      },
+      {
+        "name": "ProcessingLog",
+        "type": "string",
+        "width": "1000",
+        "SLabel": "Processing Log",
+        "Option": "Optional"
+      },
+      {
+        "name": "CurrentStatus",
+        "type": "string",
+        "width": "100",
+        "SLabel": "Current Status",
+        "Option": "Optional"
+      },
+      {
+        "name": "Notification",
+        "type": "string",
+        "width": "50",
+        "SLabel": "Notification",
+        "Option": "Optional"
+      },
+      {
+        "name": "NotifyRole",
+        "type": "string",
+        "width": "100",
+        "SLabel": "Notify Role",
+        "Option": "Optional"
+      },
+      {
+        "name": "BusObject",
+        "type": "string",
+        "width": "200",
+        "SLabel": "Bus Object",
+        "Option": "Optional"
+      },
+      {
+        "name": "InvImage",
+        "type": "attachment",
+        "width": "500",
+        "SLabel": "Invoice Image",
+        "Option": "Optional"
+      }
+    ],
+    "DisplayFields": [
+      "ItemNumber",
+      "ItemQty",
+      "ItemPrice",
+      "ItemVATVal",
+      "ItemGrossVal"
+    ],
     "ItemButtons": {
-      "itemDisplay": false,
-      "itemAdd": false,
-      "itemEdit": false,
-      "itemDelete": false
+      "itemDisplay": true,
+      "itemAdd": true,
+      "itemEdit": true,
+      "itemDelete": true
     },
-    "CreateFields": [],
-    "ItemDetails": []
+    "ListBOTItemFields": {
+      "None": ["ID"],
+      "Title": ["ItemNumber", "ItemDetails"],
+      "SubTitle": ["ItemGrossVal", "ItemNetValue"],
+      "Description": ["ItemQty", "ItemUOM", "ItemPrice", "ItemVATVal"]
+    },
+    "CreateFields": [
+      "ItemDetails",
+      "ItemQty",
+      "ItemPrice",
+      "ItemUOM",
+      "ItemNetValue",
+      "ItemVATRate",
+      "ItemVATVal",
+      "ItemGrossVal",
+      "ItemVATPer",
+      "InvImage"
+    ],
+    "ItemDetails": [
+      {
+        "name": "ItemNumber",
+        "Tab": "Tab3",
+
+        "Mode": "Display"
+      },
+      { "name": "ItemDetails", "Tab": "Tab3", "Mode": "Edit" },
+      { "name": "ItemQty", "Tab": "Tab3", "Mode": "Edit" },
+      { "name": "ItemPrice", "Tab": "Tab3", "Mode": "Edit" },
+      { "name": "ItemUOM", "Tab": "Tab3", "Mode": "Edit" },
+      {
+        "name": "ItemNetValue",
+        "Tab": "Tab3",
+
+        "Mode": "Display"
+      },
+      { "name": "ItemVATRate", "Tab": "Tab3", "Mode": "Edit" },
+      {
+        "name": "ItemVATVal",
+        "Tab": "Tab3",
+
+        "Mode": "Display"
+      },
+      {
+        "name": "ItemGrossVal",
+        "Tab": "Tab3",
+
+        "Mode": "Display"
+      },
+      {
+        "name": "ItemVATPer",
+        "Tab": "Tab3",
+
+        "Mode": "Display"
+      },
+      {
+        "name": "SuppInvoiceNumber",
+        "Tab": "Tab3",
+
+        "Mode": "Edit"
+      },
+      { "name": "InvQty", "Tab": "Tab3", "Mode": "Display" },
+      { "name": "InvPrice", "Tab": "Tab3", "Mode": "Display" },
+      {
+        "name": "InvVATRate",
+        "Tab": "Tab3",
+
+        "Mode": "Display"
+      },
+      {
+        "name": "InvNetValue",
+        "Tab": "Tab3",
+
+        "Mode": "Display"
+      },
+      {
+        "name": "InvVATVal",
+        "Tab": "Tab3",
+
+        "Mode": "Display"
+      },
+      {
+        "name": "InvGrossVal",
+        "Tab": "Tab3",
+
+        "Mode": "Display"
+      },
+      {
+        "name": "ItemInvoiceStatus",
+        "Tab": "Tab3",
+
+        "Mode": "Display"
+      },
+      {
+        "name": "InvCummQty",
+        "Tab": "Tab3",
+
+        "Mode": "Display"
+      },
+      {
+        "name": "BalanceInvQty",
+        "Tab": "Tab3",
+
+        "Mode": "Display"
+      },
+      {
+        "name": "PlannedShippingDate",
+        "Tab": "Tab3",
+
+        "Mode": "Display"
+      },
+      {
+        "name": "ShippingDate",
+        "Tab": "Tab3",
+
+        "Mode": "Display"
+      },
+      {
+        "name": "DeliveryCompany",
+        "Tab": "Tab3",
+
+        "Mode": "Display"
+      },
+      {
+        "name": "TrackingNumber",
+        "Tab": "Tab3",
+
+        "Mode": "Display"
+      },
+      {
+        "name": "TrackingWebsite",
+        "Tab": "Tab3",
+
+        "Mode": "Display"
+      },
+      {
+        "name": "ItemShippingStatus",
+        "Tab": "Tab3",
+
+        "Mode": "Display"
+      },
+      { "name": "InvVATPer", "Tab": "Tab3", "Mode": "Display" }
+    ]
   },
   "CalculatedFields": {
     "Item": [
       {
         "CalculatedFormula": {
           "name": "Multiplication",
-          "table": "iData",
           "function": "MUL",
           "Target": "ItemNetValue",
           "type": "Item"
@@ -924,7 +951,6 @@
       {
         "CalculatedFormula": {
           "name": "Percentage",
-          "table": "iData",
           "function": "PAR",
           "Target": "ItemVATPer",
           "type": "Item"
@@ -934,7 +960,6 @@
       {
         "CalculatedFormula": {
           "name": "Multiplication",
-          "table": "iData",
           "function": "MUL",
           "Target": "ItemVATVal",
           "type": "Item"
@@ -947,7 +972,6 @@
       {
         "CalculatedFormula": {
           "name": "Addition",
-          "table": "iData",
           "function": "ADD",
           "Target": "ItemGrossVal",
           "type": "Item"
@@ -960,7 +984,6 @@
       {
         "CalculatedFormula": {
           "name": "Multiplication",
-          "table": "iData",
           "function": "MUL",
           "Target": "InvNetValue",
           "type": "Item"
@@ -973,7 +996,6 @@
       {
         "CalculatedFormula": {
           "name": "Percentage",
-          "table": "iData",
           "function": "PAR",
           "Target": "InvVATPer",
           "type": "Item"
@@ -983,7 +1005,6 @@
       {
         "CalculatedFormula": {
           "name": "Multiplication",
-          "table": "iData",
           "function": "MUL",
           "Target": "InvVATVal",
           "type": "Item"
@@ -996,7 +1017,6 @@
       {
         "CalculatedFormula": {
           "name": "Addition",
-          "table": "iData",
           "function": "ADD",
           "Target": "InvGrossVal",
           "type": "Item"
@@ -1009,7 +1029,6 @@
       {
         "CalculatedFormula": {
           "name": "Addition",
-          "table": "iData",
           "function": "ADD",
           "Target": "InvCummQty",
           "type": "Item"
@@ -1022,7 +1041,6 @@
       {
         "CalculatedFormula": {
           "name": "Substraction",
-          "table": "iData",
           "function": "SUB",
           "Target": "BalanceInvQty",
           "type": "Item"
@@ -1037,7 +1055,6 @@
       {
         "CalculatedFormula": {
           "name": "ITEMSUM",
-          "table": "iData",
           "function": "ITEMSUM",
           "Target": "TotalNetVal",
           "type": "HeaderItem"
@@ -1049,7 +1066,6 @@
       {
         "CalculatedFormula": {
           "name": "ITEMSUM",
-          "table": "iData",
           "function": "ITEMSUM",
           "Target": "TotalGrossVal",
           "type": "HeaderItem"
@@ -1061,7 +1077,6 @@
       {
         "CalculatedFormula": {
           "name": "ITEMSUM",
-          "table": "iData",
           "function": "ITEMSUM",
           "Target": "TotalTax",
           "type": "HeaderItem"
@@ -1071,7 +1086,6 @@
       {
         "CalculatedFormula": {
           "name": "ITEMSUM",
-          "table": "iData",
           "function": "ITEMSUM",
           "Target": "TotalInvNetVal",
           "type": "HeaderItem"
@@ -1083,7 +1097,6 @@
       {
         "CalculatedFormula": {
           "name": "ITEMSUM",
-          "table": "iData",
           "function": "ITEMSUM",
           "Target": "TotalInvGrossVal",
           "type": "HeaderItem"
@@ -1152,27 +1165,6 @@
       "name": "Admin",
       "stepType": "FieldList",
       "intro": "Supplier Purchase order : Admin"
-    },
-    {
-      "id": "Step4",
-      "fields": [{ "name": "iData", "Mode": "Edit" }],
-      "name": "iData",
-      "stepType": "table",
-      "intro": "Shopping Cart : Admin"
-    },
-    {
-      "id": "Step4",
-      "fields": [{ "name": "MultiAttachments", "Mode": "Edit" }],
-      "name": "MultiAttachments",
-      "stepType": "Attachments",
-      "intro": "Shopping Cart : Attachments",
-      "attachmentAttribute": {
-        "applicationid": "{applicationid}",
-        "businessrole": "{businessrole}",
-        "mode": "File",
-        "type": "NewUpload",
-        "text": "docType,SupplierAttachment,Information"
-      }
     }
   ]
 }

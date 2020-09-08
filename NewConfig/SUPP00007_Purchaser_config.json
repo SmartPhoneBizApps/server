@@ -14,7 +14,7 @@
     "Update": "Yes",
     "URL": "https://fierce-oasis-51455.herokuapp.com",
     "Source": { "SourceName": "mongoDB", "SourceFile": "NA" },
-    
+
     "filterFields": {
       "header": ["Status"]
     }
@@ -48,7 +48,34 @@
     {
       "type": "DOWNLOAD",
       "name": "Download File",
-      "icon": "sap-icon://download"
+      "icon": "sap-icon://download",
+      "downloadFields": [
+        "ID",
+        "VendorName",
+        "TransType",
+        "VendorNumber",
+        "QuestionDate",
+        "CommsType",
+        "Question_Category",
+        "ContactName",
+        "ContactEmail",
+        "OldBusinessName",
+        "NewBusinessName",
+        "PostCode",
+        "NewAddress",
+        "ContactNumber",
+        "DateOfNameChange",
+        "CollectionDate",
+        "Packaging",
+        "InDays",
+        "DiscountAmount",
+        "Notification",
+        "NotifyRole",
+        "CountryImpacted",
+        "Company",
+        "Question_Response",
+        "Status"
+      ]
     },
     {
       "type": "APPHELP",
