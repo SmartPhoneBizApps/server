@@ -187,6 +187,28 @@ exports.validateAppSetup = asyncHandler(async (req, res, next) => {
   // 003B - Validation  - Table Validations.....
   //----------------------------------------------
 
+  //----------------------------------------------
+  // 003B - Validation  - Wizard Validations.....
+  //----------------------------------------------
+  def = config["FieldDef"];
+  for (let a = 0; a < config["Wizard"].length; a++) {
+    for (let b = 0; b < config["Wizard"][a]["fields"].length; b++) {
+      for (let c = 0; c < def.length; c++) {
+        matchField = false;
+        if (def[c]["name"] == config["Wizard"][a]["fields"][b]["name"]) {
+          matchField = true;
+          break;
+        }
+      }
+      if (matchField == false) {
+        console.log(
+          "Wizard Field not setup",
+          config["Wizard"][a]["fields"][b]["name"]
+        );
+      }
+    }
+  }
+
   res.status(200).json({
     success: true,
     data: messages,

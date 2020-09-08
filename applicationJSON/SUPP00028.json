@@ -56,10 +56,6 @@
     "type": "String",
     "maxlength": [200, "Partner can not be more than 200 characters"]
   },
-  "Attachment": {
-    "type": "String",
-    "maxlength": [500, "Attachment can not be more than 500 characters"]
-  },
   "TaxInvoice": {
     "type": "String",
     "required": [true, "Please add Mandatory field :TaxInvoice"],
@@ -253,6 +249,12 @@
   "ReferenceID": {
     "type": "String",
     "maxlength": [50, "ReferenceID can not be more than 50"]
+  },
+  "VendorEmail": {
+    "type": "String",
+    "required": [true, "Please add Mandatory field :VendorEmail"],
+    "maxlength": [50, "VendorEmail can not be more than 50 characters"],
+    "match": ["EMAIL_V1", "Invalid Email for field :VendorEmail"]
   },
   "USP_Name": { "type": "String" },
   "USP_Role": { "type": "String" },

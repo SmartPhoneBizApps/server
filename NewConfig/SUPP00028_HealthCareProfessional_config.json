@@ -51,7 +51,8 @@
     "InvoiceStatus",
     "BuyerPaymentStatus",
     "BuyerInvoiceStatus",
-    "CurrentStatus"
+    "CurrentStatus",
+    "TaxInvoice"
   ],
   "MButtons": [
     {
@@ -295,10 +296,25 @@
       "SLabel": "ReferenceID"
     },
     {
+      "name": "VendorNumber",
+      "type": "string",
+      "width": "20",
+      "Option": "Mandatory",
+      "SLabel": "Vendor Number",
+      "LLabel": "Vendor Number"
+    },
+    {
+      "name": "VendorName",
+      "type": "string",
+      "width": "50",
+      "Option": "Mandatory",
+      "SLabel": "Vendor Name"
+    },
+    {
       "name": "VendorEmail",
       "type": "string",
       "width": "200",
-      "Option": "Optional",
+      "Option": "Mandatory",
       "SLabel": "Vendor Email"
     },
     {
@@ -308,6 +324,58 @@
       "Option": "Mandatory",
       "SLabel": "Invoice Type",
       "LLabel": "Invoice Type"
+    },
+    {
+      "name": "InvoiceDate",
+      "type": "Date",
+      "width": "10",
+      "Option": "Mandatory",
+      "SLabel": "Invoice Date",
+      "LLabel": "Invoice Date"
+    },
+    {
+      "name": "SuppInvoiceNumber",
+      "type": "string",
+      "width": "50",
+      "Option": "Mandatory",
+      "SLabel": "Supplier Invoice Number"
+    },
+    {
+      "name": "PaymentTerm",
+      "type": "string",
+      "width": "10",
+      "Option": "Mandatory",
+      "SLabel": "Payment Term"
+    },
+    {
+      "name": "Details",
+      "type": "string",
+      "width": "50",
+      "Option": "Mandatory",
+      "SLabel": "Details"
+    },
+    {
+      "name": "Currency",
+      "type": "string",
+      "width": "50",
+      "Option": "Mandatory",
+      "SLabel": "Currency"
+    },
+    {
+      "name": "Status",
+      "type": "string",
+      "width": "50",
+      "Option": "Mandatory",
+      "SLabel": "Status",
+      "LLabel": "Status"
+    },
+    {
+      "name": "TaxInvoice",
+      "type": "string",
+      "width": "3",
+      "Option": "Mandatory",
+      "SLabel": "Tax Invoice (Y/N)",
+      "LLabel": "Tax Invoice (Y/N)"
     },
     {
       "name": "PONumber",
@@ -325,63 +393,13 @@
       "SLabel": "Purchase Order Date"
     },
     {
-      "name": "VendorName",
-      "type": "string",
-      "width": "50",
-      "Option": "Optional",
-      "SLabel": "Vendor Name"
-    },
-    {
-      "name": "VendorNumber",
-      "type": "string",
-      "width": "20",
-      "Option": "Optional",
-      "SLabel": "Vendor Number",
-      "LLabel": "Vendor Number"
-    },
-    {
-      "name": "SuppInvoiceNumber",
-      "type": "string",
-      "width": "50",
-      "Option": "Optional",
-      "SLabel": "Supplier Invoice Number"
-    },
-    {
-      "name": "InvoiceDate",
-      "type": "Date",
-      "width": "10",
-      "Option": "Optional",
-      "SLabel": "Invoice Date",
-      "LLabel": "Invoice Date"
-    },
-    {
       "name": "Company",
       "type": "string",
       "width": "100",
       "Option": "Optional",
       "SLabel": "Company"
     },
-    {
-      "name": "PaymentTerm",
-      "type": "string",
-      "width": "10",
-      "Option": "Optional",
-      "SLabel": "Payment Term"
-    },
-    {
-      "name": "Details",
-      "type": "string",
-      "width": "50",
-      "Option": "Optional",
-      "SLabel": "Details"
-    },
-    {
-      "name": "Currency",
-      "type": "string",
-      "width": "50",
-      "Option": "Optional",
-      "SLabel": "Currency"
-    },
+
     {
       "name": "NetValue",
       "type": "Num,2",
@@ -414,14 +432,7 @@
       "SLabel": "Total Inv Gross Value",
       "LLabel": "Total Inv Gross Value"
     },
-    {
-      "name": "Status",
-      "type": "string",
-      "width": "50",
-      "Option": "Mandatory",
-      "SLabel": "Status",
-      "LLabel": "Status"
-    },
+
     {
       "name": "SearchString",
       "type": "string",
@@ -438,14 +449,7 @@
       "SLabel": "ProgressComment",
       "LLabel": "ProgressComment"
     },
-    {
-      "name": "TaxInvoice",
-      "type": "string",
-      "width": "3",
-      "Option": "Optional",
-      "SLabel": "Tax Invoice (Y/N)",
-      "LLabel": "Tax Invoice (Y/N)"
-    },
+
     {
       "name": "PaymentStatus",
       "type": "string",
@@ -458,7 +462,7 @@
       "name": "InvoiceStatus",
       "type": "string",
       "width": "50",
-      "Option": "Optional",
+      "Option": "Mandatory",
       "SLabel": "Invoice Status",
       "LLabel": "Invoice Status"
     },
@@ -766,6 +770,7 @@
         "InvVATVal",
         "InvGrossVal"
       ],
+      "cards": [],
       "ItemButtons": {
         "itemDisplay": true,
         "itemCheck": true,
@@ -1021,7 +1026,6 @@
     {
       "id": "Step4",
       "fields": [
-        { "name": "Attachment", "Mode": "Edit" },
         { "name": "Status", "Mode": "Edit" },
         { "name": "InvoiceStatus", "Mode": "Edit" },
         { "name": "PaymentStatus", "Mode": "Edit" },

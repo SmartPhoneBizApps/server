@@ -100,6 +100,8 @@
       "name": "Get App Help",
       "icon": "sap-icon://sys-help-2"
     },
+    { "type": "ADD", "name": "Add Record", "icon": "sap-icon://add" },
+    { "type": "UPLOAD", "name": "Upload Record", "icon": "sap-icon://upload" },
     {
       "type": "OPENURL",
       "name": "Launch BOT",
@@ -107,9 +109,7 @@
       "URL": "https://www.messenger.com/t/295020207695029"
     }
   ],
-  "DButtons": [
-    { "type": "ADD", "name": "Add Record", "icon": "sap-icon://add" }
-  ],
+  "DButtons": [],
   "Tabs": [
     {
       "value": "Tab0",
@@ -255,19 +255,73 @@
       "SLabel": "Identification",
       "Update": "No"
     },
+
+    {
+      "name": "PONumber",
+      "type": "string",
+      "width": "20",
+      "Option": "Mandatory",
+      "SLabel": "PO Number",
+      "LLabel": "PO Number"
+    },
+    {
+      "name": "VendorNumber",
+      "type": "string",
+      "width": "20",
+      "Option": "Mandatory",
+      "SLabel": "Vendor Number",
+      "LLabel": "Vendor Number"
+    },
+    {
+      "name": "VendorName",
+      "type": "string",
+      "width": "50",
+      "Option": "Mandatory",
+      "SLabel": "Vendor Name"
+    },
+    {
+      "name": "VendorEmail",
+      "type": "string",
+      "width": "200",
+      "Option": "Mandatory",
+      "SLabel": "Vendor Email"
+    },
+    {
+      "name": "DelTo",
+      "type": "string",
+      "width": "100",
+      "Option": "Mandatory",
+      "SLabel": "Deliver To"
+    },
+    {
+      "name": "Email",
+      "type": "string",
+      "width": "100",
+      "Option": "Mandatory",
+      "SLabel": "Delivery Email"
+    },
+    {
+      "name": "CurrentStatus",
+      "type": "string",
+      "width": "50",
+      "Option": "Mandatory",
+      "SLabel": "Current Status",
+      "LLabel": "Current Status"
+    },
+    {
+      "name": "Status",
+      "type": "string",
+      "width": "50",
+      "Option": "Mandatory",
+      "SLabel": "Status",
+      "LLabel": "Status"
+    },
     {
       "name": "ReferenceID",
       "type": "string",
       "width": "20",
       "Option": "Optional",
       "SLabel": "ReferenceID"
-    },
-    {
-      "name": "VendorName",
-      "type": "string",
-      "width": "50",
-      "Option": "Optional",
-      "SLabel": "Vendor Name"
     },
     {
       "name": "Company",
@@ -288,14 +342,14 @@
       "name": "PODate",
       "type": "Date",
       "width": "10",
-      "Option": "Optional",
+      "Option": "Mandatory",
       "SLabel": "PO Date"
     },
     {
       "name": "Currency",
       "type": "string",
       "width": "10",
-      "Option": "Optional",
+      "Option": "Mandatory",
       "SLabel": "Currency"
     },
     {
@@ -305,13 +359,7 @@
       "Option": "Optional",
       "SLabel": "PO Delivery Date"
     },
-    {
-      "name": "DelTo",
-      "type": "string",
-      "width": "100",
-      "Option": "Optional",
-      "SLabel": "Deliver To"
-    },
+
     {
       "name": "Address",
       "type": "string",
@@ -338,20 +386,6 @@
       "SLabel": "Delivery Phone"
     },
     {
-      "name": "Email",
-      "type": "string",
-      "width": "100",
-      "Option": "Mandatory",
-      "SLabel": "Delivery Email"
-    },
-    {
-      "name": "VendorEmail",
-      "type": "string",
-      "width": "200",
-      "Option": "Optional",
-      "SLabel": "Vendor Email"
-    },
-    {
       "name": "DeliveryInstr",
       "type": "string",
       "width": "500",
@@ -372,14 +406,7 @@
       "Option": "Optional",
       "SLabel": "Attachment"
     },
-    {
-      "name": "Status",
-      "type": "string",
-      "width": "50",
-      "Option": "Mandatory",
-      "SLabel": "Status",
-      "LLabel": "Status"
-    },
+
     {
       "name": "SearchString",
       "type": "string",
@@ -445,28 +472,12 @@
       "LLabel": "Invoice Status"
     },
     {
-      "name": "CurrentStatus",
-      "type": "string",
-      "width": "50",
-      "Option": "Mandatory",
-      "SLabel": "Current Status",
-      "LLabel": "Current Status"
-    },
-    {
       "name": "PaymentStatus",
       "type": "string",
       "width": "50",
       "Option": "Optional",
       "SLabel": "Payment Status",
       "LLabel": "Payment Status"
-    },
-    {
-      "name": "PONumber",
-      "type": "string",
-      "width": "20",
-      "Option": "Optional",
-      "SLabel": "PO Number",
-      "LLabel": "PO Number"
     },
     {
       "name": "AcceptanceComment",
@@ -491,22 +502,6 @@
       "Option": "Optional",
       "SLabel": "Question Details",
       "LLabel": "Question Details"
-    },
-    {
-      "name": "VendorNumber",
-      "type": "string",
-      "width": "20",
-      "Option": "Optional",
-      "SLabel": "Vendor Number",
-      "LLabel": "Vendor Number"
-    },
-    {
-      "name": "EmployeeEmail",
-      "type": "Email",
-      "width": "200",
-      "Option": "Optional",
-      "SLabel": "Employee/Shopper Email",
-      "LLabel": "Employee/Shopper Email"
     },
     {
       "name": "TotalInvNetVal",
@@ -555,13 +550,6 @@
       "Option": "Optional",
       "SLabel": "Supplier Invoice Number",
       "LLabel": "SupplierInvoiceNumber"
-    },
-    {
-      "name": "VendorEmail",
-      "type": "string",
-      "width": "50",
-      "Option": "Optional",
-      "SLabel": "Vendor Email"
     },
     {
       "name": "StatusState",
@@ -898,6 +886,7 @@
       ],
       "DisplayFields": [
         "ItemNumber",
+        "ItemDetails",
         "ItemQty",
         "ItemPrice",
         "ItemVATVal",
@@ -906,6 +895,7 @@
       "cards": [],
       "ItemButtons": {
         "itemDisplay": true,
+        "itemCheck": true,
         "itemAdd": true,
         "itemEdit": true,
         "itemDelete": true
@@ -1207,18 +1197,6 @@
     },
     {
       "id": "Step3",
-      "fields": [
-        { "name": "AddDetails", "Mode": "Edit" },
-        { "name": "Attachment", "Mode": "Edit" },
-        { "name": "Status", "Mode": "Edit" },
-        { "name": "CurrentStatus", "Mode": "Edit" }
-      ],
-      "name": "Admin",
-      "stepType": "FieldList",
-      "intro": "Supplier Purchase order : Admin"
-    },
-    {
-      "id": "Step4",
       "fields": [{ "name": "iData", "Mode": "Edit" }],
       "name": "iData",
       "stepType": "table",
@@ -1237,6 +1215,17 @@
         "type": "NewUpload",
         "text": "docType,SupplierAttachment,Information"
       }
+    },
+    {
+      "id": "Step5",
+      "fields": [
+        { "name": "AddDetails", "Mode": "Edit" },
+        { "name": "Status", "Mode": "Edit" },
+        { "name": "CurrentStatus", "Mode": "Edit" }
+      ],
+      "name": "Admin",
+      "stepType": "FieldList",
+      "intro": "Supplier Purchase order : Admin"
     }
   ]
 }

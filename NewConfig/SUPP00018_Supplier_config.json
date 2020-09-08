@@ -1197,25 +1197,13 @@
     },
     {
       "id": "Step3",
-      "fields": [
-        { "name": "AddDetails", "Mode": "Edit" },
-        { "name": "Attachment", "Mode": "Edit" },
-        { "name": "Status", "Mode": "Edit" },
-        { "name": "CurrentStatus", "Mode": "Edit" }
-      ],
-      "name": "Admin",
-      "stepType": "FieldList",
-      "intro": "Supplier Purchase order : Admin"
-    },
-    {
-      "id": "Step4",
       "fields": [{ "name": "iData", "Mode": "Edit" }],
       "name": "iData",
       "stepType": "table",
       "intro": "Shopping Cart : Admin"
     },
     {
-      "id": "Step5",
+      "id": "Step4",
       "fields": [{ "name": "MultiAttachments", "Mode": "Edit" }],
       "name": "MultiAttachments",
       "stepType": "Attachments",
@@ -1227,6 +1215,17 @@
         "type": "NewUpload",
         "text": "docType,SupplierAttachment,Information"
       }
+    },
+    {
+      "id": "Step5",
+      "fields": [
+        { "name": "AddDetails", "Mode": "Edit" },
+        { "name": "Status", "Mode": "Edit" },
+        { "name": "CurrentStatus", "Mode": "Edit" }
+      ],
+      "name": "Admin",
+      "stepType": "FieldList",
+      "intro": "Supplier Purchase order : Admin"
     }
   ]
 }
