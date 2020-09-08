@@ -55,6 +55,13 @@ exports.addDataRecords = asyncHandler(async (req, res, next) => {
     if (cardConfig.Controls.Partner == "@user") {
       req.body.Partner = req.user.email;
     }
+    if (
+      cardConfig.Controls.Partner == "@VendorEmail" &&
+      req.body.VendorEmail != undefined
+    ) {
+      console.log(req.body.VendorEmail);
+      req.body.Partner = req.body.VendorEmail;
+    }
   }
   // ---------------------------------
   // Get Company Details and Validate
