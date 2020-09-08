@@ -52,7 +52,8 @@
     "ItemVATRate",
     "InvVATRate",
     "ItemShippingStatus",
-    "ItemInvoiceStatus"
+    "ItemInvoiceStatus",
+    "PaymentTerm"
   ],
   "MButtons": [
     {
@@ -254,19 +255,73 @@
       "SLabel": "Identification",
       "Update": "No"
     },
+
+    {
+      "name": "PONumber",
+      "type": "string",
+      "width": "20",
+      "Option": "Mandatory",
+      "SLabel": "PO Number",
+      "LLabel": "PO Number"
+    },
+    {
+      "name": "VendorNumber",
+      "type": "string",
+      "width": "20",
+      "Option": "Mandatory",
+      "SLabel": "Vendor Number",
+      "LLabel": "Vendor Number"
+    },
+    {
+      "name": "VendorName",
+      "type": "string",
+      "width": "50",
+      "Option": "Mandatory",
+      "SLabel": "Vendor Name"
+    },
+    {
+      "name": "VendorEmail",
+      "type": "string",
+      "width": "200",
+      "Option": "Mandatory",
+      "SLabel": "Vendor Email"
+    },
+    {
+      "name": "DelTo",
+      "type": "string",
+      "width": "100",
+      "Option": "Mandatory",
+      "SLabel": "Deliver To"
+    },
+    {
+      "name": "Email",
+      "type": "string",
+      "width": "100",
+      "Option": "Mandatory",
+      "SLabel": "Delivery Email"
+    },
+    {
+      "name": "CurrentStatus",
+      "type": "string",
+      "width": "50",
+      "Option": "Mandatory",
+      "SLabel": "Current Status",
+      "LLabel": "Current Status"
+    },
+    {
+      "name": "Status",
+      "type": "string",
+      "width": "50",
+      "Option": "Mandatory",
+      "SLabel": "Status",
+      "LLabel": "Status"
+    },
     {
       "name": "ReferenceID",
       "type": "string",
       "width": "20",
       "Option": "Optional",
       "SLabel": "ReferenceID"
-    },
-    {
-      "name": "VendorName",
-      "type": "string",
-      "width": "50",
-      "Option": "Optional",
-      "SLabel": "Vendor Name"
     },
     {
       "name": "Company",
@@ -287,14 +342,14 @@
       "name": "PODate",
       "type": "Date",
       "width": "10",
-      "Option": "Optional",
+      "Option": "Mandatory",
       "SLabel": "PO Date"
     },
     {
       "name": "Currency",
       "type": "string",
       "width": "10",
-      "Option": "Optional",
+      "Option": "Mandatory",
       "SLabel": "Currency"
     },
     {
@@ -304,13 +359,7 @@
       "Option": "Optional",
       "SLabel": "PO Delivery Date"
     },
-    {
-      "name": "DelTo",
-      "type": "string",
-      "width": "100",
-      "Option": "Optional",
-      "SLabel": "Deliver To"
-    },
+
     {
       "name": "Address",
       "type": "string",
@@ -337,20 +386,6 @@
       "SLabel": "Delivery Phone"
     },
     {
-      "name": "Email",
-      "type": "string",
-      "width": "100",
-      "Option": "Mandatory",
-      "SLabel": "Delivery Email"
-    },
-    {
-      "name": "VendorEmail",
-      "type": "string",
-      "width": "200",
-      "Option": "Optional",
-      "SLabel": "Vendor Email"
-    },
-    {
       "name": "DeliveryInstr",
       "type": "string",
       "width": "500",
@@ -371,14 +406,7 @@
       "Option": "Optional",
       "SLabel": "Attachment"
     },
-    {
-      "name": "Status",
-      "type": "string",
-      "width": "50",
-      "Option": "Mandatory",
-      "SLabel": "Status",
-      "LLabel": "Status"
-    },
+
     {
       "name": "SearchString",
       "type": "string",
@@ -444,28 +472,12 @@
       "LLabel": "Invoice Status"
     },
     {
-      "name": "CurrentStatus",
-      "type": "string",
-      "width": "50",
-      "Option": "Mandatory",
-      "SLabel": "Current Status",
-      "LLabel": "Current Status"
-    },
-    {
       "name": "PaymentStatus",
       "type": "string",
       "width": "50",
       "Option": "Optional",
       "SLabel": "Payment Status",
       "LLabel": "Payment Status"
-    },
-    {
-      "name": "PONumber",
-      "type": "string",
-      "width": "20",
-      "Option": "Optional",
-      "SLabel": "PO Number",
-      "LLabel": "PO Number"
     },
     {
       "name": "AcceptanceComment",
@@ -490,22 +502,6 @@
       "Option": "Optional",
       "SLabel": "Question Details",
       "LLabel": "Question Details"
-    },
-    {
-      "name": "VendorNumber",
-      "type": "string",
-      "width": "20",
-      "Option": "Optional",
-      "SLabel": "Vendor Number",
-      "LLabel": "Vendor Number"
-    },
-    {
-      "name": "EmployeeEmail",
-      "type": "Email",
-      "width": "200",
-      "Option": "Optional",
-      "SLabel": "Employee/Shopper Email",
-      "LLabel": "Employee/Shopper Email"
     },
     {
       "name": "TotalInvNetVal",
@@ -554,13 +550,6 @@
       "Option": "Optional",
       "SLabel": "Supplier Invoice Number",
       "LLabel": "SupplierInvoiceNumber"
-    },
-    {
-      "name": "VendorEmail",
-      "type": "string",
-      "width": "50",
-      "Option": "Optional",
-      "SLabel": "Vendor Email"
     },
     {
       "name": "StatusState",

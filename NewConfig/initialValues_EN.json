@@ -3590,6 +3590,16 @@
           "Field": "Currency",
           "Value": "GBP",
           "EditLock": "No"
+        },
+        {
+          "Field": "InvoiceStatus",
+          "Value": "Submitted",
+          "EditLock": "No"
+        },
+        {
+          "Field": "CurrentStatus",
+          "Value": "Invoiced",
+          "EditLock": "No"
         }
       ]
     },
@@ -3604,6 +3614,21 @@
         {
           "Field": "Currency",
           "Value": "GBP",
+          "EditLock": "No"
+        },
+        {
+          "Field": "PODate",
+          "Value": "@currentDate",
+          "EditLock": "No"
+        },
+        {
+          "Field": "PODeliveryDt",
+          "Value": "@tomorrow",
+          "EditLock": "No"
+        },
+        {
+          "Field": "CurrentStatus",
+          "Value": "New",
           "EditLock": "No"
         }
       ]
