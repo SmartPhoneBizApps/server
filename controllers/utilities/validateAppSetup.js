@@ -190,14 +190,44 @@ exports.validateAppSetup = asyncHandler(async (req, res, next) => {
   //----------------------------------------------
   // 003B - Validation  - Wizard Validations.....
   //----------------------------------------------
+  // Check all Mandatory fields are in Wizard
   def = config["FieldDef"];
+  for (let c = 0; c < def.length; c++) {
+    if (def[c]["Option"] == "Mandatory") {
+      if (config["Wizard"].length > 0) {
+        manField = false;
+      } else {
+        manField = true;
+      }
+      for (let a = 0; a < config["Wizard"].length; a++) {
+        for (let b = 0; b < config["Wizard"][a]["fields"].length; b++) {
+          if (def[c]["name"] == "ID") {
+            manField = true;
+          }
+          if (def[c]["name"] == config["Wizard"][a]["fields"][b]["name"]) {
+            manField = true;
+          }
+        }
+      }
+      if (manField == false) {
+        console.log("Mandatory Field not setup in Wizard", def[c]["name"]);
+        mStru["type"] = "error";
+        mStru["number"] = "wizard01";
+        mStru[
+          "message"
+        ] = `Mandatory Field ${def[c]["name"]} is missing in Wizard for App: ${req.headers.applicationid}`;
+        messages.push({ ...mStru });
+        mStru = {};
+      }
+    }
+  }
+  // Check all Wizard fields are in Field Def
   for (let a = 0; a < config["Wizard"].length; a++) {
     for (let b = 0; b < config["Wizard"][a]["fields"].length; b++) {
+      matchField = false;
       for (let c = 0; c < def.length; c++) {
-        matchField = false;
         if (def[c]["name"] == config["Wizard"][a]["fields"][b]["name"]) {
           matchField = true;
-          break;
         }
       }
       if (matchField == false) {
@@ -205,6 +235,13 @@ exports.validateAppSetup = asyncHandler(async (req, res, next) => {
           "Wizard Field not setup",
           config["Wizard"][a]["fields"][b]["name"]
         );
+        mStru["type"] = "error";
+        mStru["number"] = "wizard01";
+        mStru[
+          "message"
+        ] = `Wizard Field ${config["Wizard"][a]["fields"][b]["name"]} is missing in FieldDef for App: ${req.headers.applicationid}`;
+        messages.push({ ...mStru });
+        mStru = {};
       }
     }
   }

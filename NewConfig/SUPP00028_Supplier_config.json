@@ -196,7 +196,13 @@
     "headerRole": ["USP_Role"],
     "headerImage": ["USP_Image"],
     "headerColorFields": ["Status"],
-    "None": ["ID", "VendorName", "VendorNumber", "CurrentStatus"],
+    "None": [
+      "ID",
+      "VendorName",
+      "VendorNumber",
+      "VendorEmail",
+      "CurrentStatus"
+    ],
     "Tab1": [
       "SuppInvoiceNumber",
       "Status",
@@ -988,7 +994,8 @@
       "fields": [
         { "name": "InvoiceType", "Mode": "Display" },
         { "name": "VendorName", "Mode": "Edit" },
-        { "name": "VendorNumber", "Mode": "Edit" }
+        { "name": "VendorNumber", "Mode": "Edit" },
+        { "name": "VendorEmail", "Mode": "Edit" }
       ],
       "name": "Vendor Details",
       "stepType": "FieldList",
