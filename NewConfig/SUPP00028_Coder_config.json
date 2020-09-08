@@ -4,12 +4,12 @@
     "DetailTitle": "Suplier Invoice (Supplier view)"
   },
   "Controls": {
-    "calculation": "No",
+    "calculation": "Yes",
     "USP": "UserProfile",
     "StatusColor": "Yes",
     "SearchString": { "Search": false },
     "Filters": [],
-    "Partner": "@vendorNumber",
+    "Partner": "@VendorEmail",
     "UserSpecific": "Yes",
     "Update": "Yes",
     "URL": "https://fierce-oasis-51455.herokuapp.com",
@@ -57,7 +57,41 @@
     {
       "type": "DOWNLOAD",
       "name": "Download File",
-      "icon": "sap-icon://download"
+      "icon": "sap-icon://download",
+      "downloadFields": [
+        "ID",
+        "VendorName",
+        "VendorNumber",
+        "CurrentStatus",
+        "SuppInvoiceNumber",
+        "InvoiceType",
+        "InvoiceDate",
+        "TaxInvoice",
+        "TotInvNetValue",
+        "TotInvTax",
+        "TotInvGrossVal",
+        "Currency",
+        "InvoiceStatus",
+        "BuyerInvoiceNumber",
+        "BuyerInvoiceYear",
+        "BuyerInvoiceStatus",
+        "Comment",
+        "PONumber",
+        "PODate",
+        "Details",
+        "NetValue",
+        "GrossValue",
+        "PaymentTerm",
+        "PaymentStatus",
+        "BuyerInvoiceDueDt",
+        "BuyerPaymentDate",
+        "BuyerPaymentStatus",
+        "Company",
+        "ConfidenceScore",
+        "OverallMatching",
+        "Status"
+      ],
+      "downloadTables": ["iData"]
     },
     {
       "type": "APPHELP",
@@ -75,7 +109,27 @@
     { "type": "UPLOAD", "name": "Upload Record", "icon": "sap-icon://upload" }
   ],
   "DButtons": [
-    { "type": "ADD", "name": "Add Record", "icon": "sap-icon://add" }
+    {
+      "type": "WORKFLOW",
+      "name": "Cancel",
+      "icon": "sap-icon://decline",
+      "Dialog": [
+        {
+          "label": "Cancellation Comment",
+          "name": "ProgressComment",
+          "type": "string",
+          "option": "Optional"
+        }
+      ],
+      "transferFields": [
+        { "field": "ID", "value": "@recorddata" },
+        { "field": "Status", "value": "Cancelled" },
+        { "field": "ProgressComment", "value": "@UserInput" }
+      ],
+      "URL": "datarecords/",
+      "Token": "Yes",
+      "URLMethod": "PUT"
+    }
   ],
   "Tabs": [
     {
@@ -102,17 +156,22 @@
     {
       "value": "Tab3",
       "update": "Yes",
-      "name": "ItemDetails",
-      "type": "Items",
+      "name": "Booking",
       "fioriicon": "notes",
-      "download": "Yes"
+      "type": "Field"
     },
     {
       "value": "Tab4",
       "update": "Yes",
-      "name": "Attachment",
-      "type": "Attachment",
-      "fioriicon": "attachment"
+      "name": "MultiAttachment",
+      "fioriicon": "attachment",
+      "type": "MultiAttachments",
+      "download": "Yes",
+      "docType": [
+        { "text": "Receipt", "state": "Information" },
+        { "text": "SupplierAttachment", "state": "Error" },
+        { "text": "Quote", "state": "Success" }
+      ]
     },
     {
       "value": "Tab5",
@@ -161,7 +220,8 @@
       "GrossValue",
       "Company"
     ],
-    "Tab4": ["Attachment"],
+    "Tab3": ["iData"],
+    "Tab4": ["MultiAttachments"],
     "Tab5": [
       "PaymentTerm",
       "PaymentStatus",
@@ -192,7 +252,7 @@
             "GrossValue",
             "TotInvNetValue",
             "TotInvGrossVal",
-            "Attachment",
+            "MultiAttachments",
             "TaxInvoice",
             "PaymentStatus",
             "InvoiceStatus",
@@ -206,7 +266,8 @@
             "BuyerInvoiceDueDt",
             "TotInvTax",
             "ConfidenceScore",
-            "OverallMatching"
+            "OverallMatching",
+            "iData"
           ]
         },
         { "ContractInvoice": [] },
@@ -232,6 +293,13 @@
       "width": "20",
       "Option": "Optional",
       "SLabel": "ReferenceID"
+    },
+    {
+      "name": "VendorEmail",
+      "type": "string",
+      "width": "200",
+      "Option": "Optional",
+      "SLabel": "Vendor Email"
     },
     {
       "name": "InvoiceType",
@@ -371,13 +439,6 @@
       "LLabel": "ProgressComment"
     },
     {
-      "name": "Attachment",
-      "type": "attachment",
-      "width": "500",
-      "Option": "Optional",
-      "SLabel": "Invoice Image"
-    },
-    {
       "name": "TaxInvoice",
       "type": "string",
       "width": "3",
@@ -495,209 +556,271 @@
       "Option": "Optional",
       "SLabel": "Processing Log",
       "LLabel": "Processing Log"
+    },
+    {
+      "name": "iData",
+      "type": "Array",
+      "width": "200",
+      "Option": "Optional",
+      "SLabel": "iData",
+      "LLabel": "iData"
+    },
+    {
+      "name": "MultiAttachments",
+      "type": "attachment",
+      "metadata": "MultipleFields",
+      "width": "200",
+      "Option": "Optional",
+      "SLabel": "MultiAttachments",
+      "LLabel": "MultiAttachments"
     }
   ],
-  "itemData": "Yes",
+  "tableConfig": {
+    "itemConfig": {
+      "title": "Item Details",
+      "ItemFieldDefinition": [
+        {
+          "name": "ItemNumber",
+          "type": "string",
+          "width": "20",
+          "SLabel": "ItemNumber",
+          "Option": "Optional",
+          "Update": "No"
+        },
+
+        {
+          "name": "POItemNumber",
+          "type": "string",
+          "width": "10",
+          "SLabel": "PO Item Number",
+          "Option": "Mandatory",
+          "Update": "Yes"
+        },
+        {
+          "name": "ItemDetails",
+          "type": "string",
+          "width": "50",
+          "SLabel": "Item Details",
+          "Option": "Mandatory",
+          "Update": "Yes"
+        },
+        {
+          "name": "InvQty",
+          "type": "Num,0",
+          "width": "10",
+          "SLabel": "Inv Quantity",
+          "Option": "Mandatory",
+          "Update": "Yes"
+        },
+        {
+          "name": "InvUOM",
+          "type": "string",
+          "width": "10",
+          "SLabel": "Inv UOM",
+          "Option": "Mandatory",
+          "Update": "Yes"
+        },
+        {
+          "name": "InvPrice",
+          "type": "Num,2",
+          "width": "10",
+          "SLabel": "Inv Price",
+          "Option": "Mandatory",
+          "Update": "Yes"
+        },
+        {
+          "name": "InvNetValue",
+          "type": "Num,2",
+          "width": "20",
+          "SLabel": "Inv Net Value",
+          "Option": "Optional",
+          "Update": "No"
+        },
+        {
+          "name": "InvVATRate",
+          "type": "Num,2",
+          "width": "10",
+          "SLabel": "Inv VAT Rate",
+          "Option": "Mandatory",
+          "Update": "Yes"
+        },
+        {
+          "name": "InvVATVal",
+          "type": "Num,2",
+          "width": "10",
+          "SLabel": "Inv VAT Value",
+          "Option": "Optional",
+          "Update": "No"
+        },
+        {
+          "name": "InvGrossVal",
+          "type": "Num,2",
+          "width": "20",
+          "SLabel": "Inv Gross Value",
+          "Option": "Optional",
+          "Update": "No"
+        },
+        {
+          "name": "InvVATPer",
+          "type": "Num,2",
+          "width": "20",
+          "SLabel": "Inv VAT Percentage",
+          "Option": "Optional",
+          "Update": "No"
+        },
+        {
+          "name": "POQty",
+          "type": "Num,0",
+          "width": "10",
+          "SLabel": "PO Qty",
+          "Option": "Optional",
+          "Update": "No"
+        },
+        {
+          "name": "POUOM",
+          "type": "string",
+          "width": "10",
+          "SLabel": "PO UOM",
+          "Option": "Optional",
+          "Update": "No"
+        },
+        {
+          "name": "POPrice",
+          "type": "Num,1",
+          "width": "10",
+          "SLabel": "PO Price",
+          "Option": "Optional",
+          "Update": "No"
+        },
+        {
+          "name": "PONetValue",
+          "type": "Num,2",
+          "width": "20",
+          "SLabel": "PO Net Value",
+          "Option": "Optional",
+          "Update": "No"
+        },
+        {
+          "name": "POVATRate",
+          "type": "Num,2",
+          "width": "10",
+          "SLabel": "PO VAT Rate",
+          "Option": "Optional",
+          "Update": "No"
+        },
+        {
+          "name": "POVATVal",
+          "type": "Num,2",
+          "width": "10",
+          "SLabel": "PO VAT Value",
+          "Option": "Optional",
+          "Update": "No"
+        },
+        {
+          "name": "POGrossVal",
+          "type": "Num,2",
+          "width": "20",
+          "SLabel": "PO Gross Val",
+          "Option": "Optional",
+          "Update": "No"
+        },
+        {
+          "name": "POVATPer",
+          "type": "Num,2",
+          "width": "10",
+          "SLabel": "PO VAT Percentage",
+          "Option": "Optional",
+          "Update": "No"
+        },
+        {
+          "name": "ItemInvoiceStatus",
+          "type": "string",
+          "width": "50",
+          "SLabel": "Invoice Item Status",
+          "Option": "Optional",
+          "Update": "No"
+        },
+        {
+          "name": "StatusState",
+          "type": "string",
+          "width": "20",
+          "SLabel": "StatusState",
+          "Option": "Optional",
+          "Update": "No"
+        },
+        {
+          "name": "cardImage",
+          "type": "string",
+          "width": "500",
+          "SLabel": "cardImage",
+          "Option": "Optional",
+          "Update": "No"
+        }
+      ],
+      "DisplayFields": [
+        "ItemNumber",
+        "InvQty",
+        "InvPrice",
+        "InvVATVal",
+        "InvGrossVal"
+      ],
+      "ItemButtons": {
+        "itemDisplay": true,
+        "itemCheck": true,
+        "itemAdd": true,
+        "itemEdit": true,
+        "itemDelete": true
+      },
+      "ListBOTItemFields": {
+        "None": ["ID"],
+        "Title": ["ItemNumber", "ItemDetails"],
+        "SubTitle": ["InvGrossVal", "InvNetValue"],
+        "Description": ["InvQty", "InvUOM", "InvPrice", "InvVATVal"]
+      },
+      "CreateFields": [
+        "ItemDetails",
+        "InvQty",
+        "InvPrice",
+        "InvUOM",
+        "InvNetValue",
+        "InvVATRate",
+        "InvVATVal",
+        "InvGrossVal",
+        "InvVATPer"
+      ],
+      "ItemDetails": [
+        { "name": "ItemNumber" },
+        { "name": "ItemDetails" },
+        { "name": "InvQty" },
+        { "name": "InvPrice" },
+        { "name": "InvUOM" },
+        { "name": "InvNetValue" },
+        { "name": "InvVATRate" },
+        { "name": "InvVATVal" },
+        { "name": "InvGrossVal" },
+        { "name": "InvVATPer" }
+      ]
+    }
+  },
+  "ItemData": "No",
   "itemConfig": {
-    "title": "Item Details",
-    "ItemFieldDefinition": [
-      {
-        "name": "ItemNumber",
-        "type": "string",
-        "width": "20",
-        "SLabel": "ItemNumber"
-      },
-      {
-        "name": "ID",
-        "type": "string",
-        "width": "20",
-        "SLabel": "Identification"
-      },
-      {
-        "name": "POItemNumber",
-        "type": "string",
-        "width": "10",
-        "SLabel": "PO Item Number"
-      },
-      {
-        "name": "ItemDetails",
-        "type": "string",
-        "width": "50",
-        "SLabel": "Item Details"
-      },
-      {
-        "name": "InvQty",
-        "type": "Num,0",
-        "width": "10",
-        "SLabel": "Inv Quantity"
-      },
-      {
-        "name": "InvUOM",
-        "type": "string",
-        "width": "10",
-        "SLabel": "Inv UOM"
-      },
-      {
-        "name": "InvPrice",
-        "type": "Num,2",
-        "width": "10",
-        "SLabel": "Inv Price"
-      },
-      {
-        "name": "InvNetValue",
-        "type": "Num,2",
-        "width": "20",
-        "SLabel": "Inv Net Value"
-      },
-      {
-        "name": "InvVATRate",
-        "type": "Num,2",
-        "width": "10",
-        "SLabel": "Inv VAT Rate"
-      },
-      {
-        "name": "InvVATVal",
-        "type": "Num,2",
-        "width": "10",
-        "SLabel": "Inv VAT Value"
-      },
-      {
-        "name": "InvGrossVal",
-        "type": "Num,2",
-        "width": "20",
-        "SLabel": "Inv Gross Value"
-      },
-      {
-        "name": "InvVATPer",
-        "type": "Num,2",
-        "width": "20",
-        "SLabel": "Inv VAT Percentage"
-      },
-      { "name": "POQty", "type": "Num,0", "width": "10", "SLabel": "PO Qty" },
-      { "name": "POUOM", "type": "string", "width": "10", "SLabel": "PO UOM" },
-      {
-        "name": "POPrice",
-        "type": "Num,1",
-        "width": "10",
-        "SLabel": "PO Price"
-      },
-      {
-        "name": "PONetValue",
-        "type": "Num,2",
-        "width": "20",
-        "SLabel": "PO Net Value"
-      },
-      {
-        "name": "POVATRate",
-        "type": "Num,2",
-        "width": "10",
-        "SLabel": "PO VAT Rate"
-      },
-      {
-        "name": "POVATVal",
-        "type": "Num,2",
-        "width": "10",
-        "SLabel": "PO VAT Value"
-      },
-      {
-        "name": "POGrossVal",
-        "type": "Num,2",
-        "width": "20",
-        "SLabel": "PO Gross Val"
-      },
-      {
-        "name": "POVATPer",
-        "type": "Num,2",
-        "width": "10",
-        "SLabel": "PO VAT Percentage"
-      },
-      {
-        "name": "ItemInvoiceStatus",
-        "type": "string",
-        "width": "50",
-        "SLabel": "Invoice Item Status"
-      },
-      {
-        "name": "StatusState",
-        "type": "string",
-        "width": "20",
-        "SLabel": "StatusState"
-      },
-      {
-        "name": "cardImage",
-        "type": "string",
-        "width": "500",
-        "SLabel": "cardImage"
-      }
-    ],
-    "DisplayFields": [
-      "ItemNumber",
-      "InvQty",
-      "InvPrice",
-      "InvVATVal",
-      "InvGrossVal"
-    ],
+    "ItemFieldDefinition": [],
+    "DisplayFields": [],
     "ItemButtons": {
-      "itemDisplay": true,
-      "itemAdd": true,
-      "itemEdit": true,
-      "itemDelete": true
+      "itemDisplay": false,
+      "itemAdd": false,
+      "itemEdit": false,
+      "itemDelete": false
     },
-    "ListBOTItemFields": {
-      "None": ["ID"],
-      "Title": ["ItemNumber", "ItemDetails"],
-      "SubTitle": ["InvGrossVal", "InvNetValue"],
-      "Description": ["InvQty", "InvUOM", "InvPrice", "InvVATVal"]
-    },
-    "CreateFields": [
-      "ItemDetails",
-      "InvQty",
-      "InvPrice",
-      "InvUOM",
-      "InvNetValue",
-      "InvVATRate",
-      "InvVATVal",
-      "InvGrossVal",
-      "InvVATPer"
-    ],
-    "ItemDetails": [
-      {
-        "name": "ItemNumber",
-        "Tab": "Tab3",
-
-        "Mode": "Display"
-      },
-      { "name": "ItemDetails", "Tab": "Tab3", "Mode": "Edit" },
-      { "name": "InvQty", "Tab": "Tab3", "Mode": "Edit" },
-      { "name": "InvPrice", "Tab": "Tab3", "Mode": "Edit" },
-      { "name": "InvUOM", "Tab": "Tab3", "Mode": "Edit" },
-      {
-        "name": "InvNetValue",
-        "Tab": "Tab3",
-
-        "Mode": "Display"
-      },
-      { "name": "InvVATRate", "Tab": "Tab3", "Mode": "Edit" },
-      {
-        "name": "InvVATVal",
-        "Tab": "Tab3",
-
-        "Mode": "Display"
-      },
-      {
-        "name": "InvGrossVal",
-        "Tab": "Tab3",
-
-        "Mode": "Display"
-      },
-      { "name": "InvVATPer", "Tab": "Tab3", "Mode": "Display" }
-    ]
+    "CreateFields": [],
+    "ItemDetails": []
   },
   "CalculatedFields": {
     "Item": [
       {
         "CalculatedFormula": {
           "name": "Multiplication",
+          "table": "iData",
           "function": "MUL",
           "Target": "InvNetValue",
           "type": "Item"
@@ -710,6 +833,7 @@
       {
         "CalculatedFormula": {
           "name": "Percentage",
+          "table": "iData",
           "function": "PAR",
           "Target": "InvVATPer",
           "type": "Item"
@@ -719,6 +843,7 @@
       {
         "CalculatedFormula": {
           "name": "Multiplication",
+          "table": "iData",
           "function": "MUL",
           "Target": "InvVATVal",
           "type": "Item"
@@ -731,6 +856,7 @@
       {
         "CalculatedFormula": {
           "name": "Addition",
+          "table": "iData",
           "function": "ADD",
           "Target": "InvGrossVal",
           "type": "Item"
@@ -743,6 +869,7 @@
       {
         "CalculatedFormula": {
           "name": "Multiplication",
+          "table": "iData",
           "function": "MUL",
           "Target": "PONetValue",
           "type": "Item"
@@ -755,6 +882,7 @@
       {
         "CalculatedFormula": {
           "name": "Percentage",
+          "table": "iData",
           "function": "PAR",
           "Target": "POVATPer",
           "type": "Item"
@@ -764,6 +892,7 @@
       {
         "CalculatedFormula": {
           "name": "Multiplication",
+          "table": "iData",
           "function": "MUL",
           "Target": "POVATVal",
           "type": "Item"
@@ -776,6 +905,7 @@
       {
         "CalculatedFormula": {
           "name": "Addition",
+          "table": "iData",
           "function": "ADD",
           "Target": "POGrossVal",
           "type": "Item"
@@ -790,6 +920,7 @@
       {
         "CalculatedFormula": {
           "name": "ITEMSUM",
+          "table": "iData",
           "function": "ITEMSUM",
           "Target": "TotInvNetValue",
           "type": "HeaderItem"
@@ -801,6 +932,7 @@
       {
         "CalculatedFormula": {
           "name": "ITEMSUM",
+          "table": "iData",
           "function": "ITEMSUM",
           "Target": "TotInvGrossVal",
           "type": "HeaderItem"
@@ -812,6 +944,7 @@
       {
         "CalculatedFormula": {
           "name": "ITEMSUM",
+          "table": "iData",
           "function": "ITEMSUM",
           "Target": "NetValue",
           "type": "HeaderItem"
@@ -821,6 +954,7 @@
       {
         "CalculatedFormula": {
           "name": "ITEMSUM",
+          "table": "iData",
           "function": "ITEMSUM",
           "Target": "GrossValue",
           "type": "HeaderItem"
@@ -830,6 +964,7 @@
       {
         "CalculatedFormula": {
           "name": "ITEMSUM",
+          "table": "iData",
           "function": "ITEMSUM",
           "Target": "TotInvTax",
           "type": "HeaderItem"
@@ -893,6 +1028,27 @@
       "name": "Admin",
       "stepType": "FieldList",
       "intro": "Supplier Invoice (PO) : Admin"
+    },
+    {
+      "id": "Step5",
+      "fields": [{ "name": "iData", "Mode": "Edit" }],
+      "name": "iData",
+      "stepType": "table",
+      "intro": "Shopping Cart : Admin"
+    },
+    {
+      "id": "Step6",
+      "fields": [{ "name": "MultiAttachments", "Mode": "Edit" }],
+      "name": "MultiAttachments",
+      "stepType": "Attachments",
+      "intro": "Shopping Cart : Attachments",
+      "attachmentAttribute": {
+        "applicationid": "{applicationid}",
+        "businessrole": "{businessrole}",
+        "mode": "File",
+        "type": "NewUpload",
+        "text": "docType,SupplierAttachment,Information"
+      }
     }
   ]
 }

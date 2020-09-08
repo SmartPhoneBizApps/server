@@ -99,6 +99,8 @@
       "name": "Get App Help",
       "icon": "sap-icon://sys-help-2"
     },
+    { "type": "ADD", "name": "Add Record", "icon": "sap-icon://add" },
+    { "type": "UPLOAD", "name": "Upload Record", "icon": "sap-icon://upload" },
     {
       "type": "OPENURL",
       "name": "Launch BOT",
@@ -106,9 +108,7 @@
       "URL": "https://www.messenger.com/t/295020207695029"
     }
   ],
-  "DButtons": [
-    { "type": "ADD", "name": "Add Record", "icon": "sap-icon://add" }
-  ],
+  "DButtons": [],
   "Tabs": [
     {
       "value": "Tab0",
@@ -136,9 +136,9 @@
     {
       "value": "Tab3",
       "update": "Yes",
-      "name": "ItemDetails",
-      "type": "Items",
-      "fioriicon": "notes"
+      "name": "Booking",
+      "fioriicon": "travel-expense",
+      "type": "Field"
     },
     {
       "value": "Tab6",
@@ -895,6 +895,7 @@
       ],
       "DisplayFields": [
         "ItemNumber",
+        "ItemDetails",
         "ItemQty",
         "ItemPrice",
         "ItemVATVal",
@@ -902,6 +903,7 @@
       ],
       "ItemButtons": {
         "itemDisplay": true,
+        "itemCheck": true,
         "itemAdd": true,
         "itemEdit": true,
         "itemDelete": true
@@ -1222,7 +1224,7 @@
       "intro": "Shopping Cart : Admin"
     },
     {
-      "id": "Step4",
+      "id": "Step5",
       "fields": [{ "name": "MultiAttachments", "Mode": "Edit" }],
       "name": "MultiAttachments",
       "stepType": "Attachments",
