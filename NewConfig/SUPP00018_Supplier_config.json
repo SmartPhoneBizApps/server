@@ -600,235 +600,297 @@
           "name": "ItemNumber",
           "type": "string",
           "width": "20",
-          "SLabel": "Item Number"
-        },
-        {
-          "name": "ID",
-          "type": "string",
-          "width": "20",
-          "SLabel": "Identification"
+          "SLabel": "Item Number",
+          "Option": "Optional",
+          "Update": "No"
         },
         {
           "name": "ItemDetails",
           "type": "string",
           "width": "50",
-          "SLabel": "Item Details"
+          "SLabel": "Item Details",
+          "Option": "Mandatory",
+          "Update": "Yes"
         },
         {
           "name": "ItemQty",
           "type": "Num,2",
           "width": "50",
-          "SLabel": "Item Quantity"
+          "SLabel": "Item Quantity",
+          "Option": "Mandatory",
+          "Update": "Yes"
         },
         {
           "name": "ItemPrice",
           "type": "Num,3",
           "width": "50",
-          "SLabel": "Item Price"
+          "SLabel": "Item Price",
+          "Option": "Mandatory",
+          "Update": "Yes"
         },
         {
           "name": "ItemUOM",
           "type": "string",
           "width": "50",
-          "SLabel": "Item UOM"
+          "SLabel": "Item UOM",
+          "Option": "Mandatory",
+          "Update": "Yes"
         },
         {
           "name": "ItemNetValue",
           "type": "Num,3",
           "width": "50",
-          "SLabel": "Item Net Value"
+          "SLabel": "Item Net Value",
+          "Option": "Optional",
+          "Update": "No"
         },
         {
           "name": "ItemVATRate",
           "type": "Num,3",
           "width": "50",
-          "SLabel": "Item VAT Rate(%)"
+          "SLabel": "Item VAT Rate(%)",
+          "Option": "Mandatory",
+          "Update": "Yes"
         },
         {
           "name": "ItemVATVal",
           "type": "Num,3",
           "width": "50",
-          "SLabel": "Item VAT Value"
+          "SLabel": "Item VAT Value",
+          "Option": "Optional",
+          "Update": "No"
         },
         {
           "name": "ItemGrossVal",
           "type": "Num,3",
           "width": "50",
-          "SLabel": "Item Gross Value"
+          "SLabel": "Item Gross Value",
+          "Option": "Optional",
+          "Update": "No"
         },
         {
           "name": "ItemVATPer",
           "type": "Num,2",
           "width": "50",
-          "SLabel": "Item VAT Percentage"
+          "SLabel": "Item VAT Percentage",
+          "Option": "Optional",
+          "Update": "No"
         },
         {
           "name": "TaxInvoice",
           "type": "switch",
           "width": "3",
-          "SLabel": "Tax Invoice (Y/N)"
+          "SLabel": "Tax Invoice (Y/N)",
+          "Option": "Optional",
+          "Update": "No"
         },
         {
           "name": "SuppInvoiceNumber",
           "type": "string",
           "width": "20",
-          "SLabel": "Supplier Invoice Number"
+          "SLabel": "Supplier Invoice Number",
+          "Option": "Optional",
+          "Update": "No"
         },
         {
           "name": "InvImageURL",
           "type": "string",
           "width": "500",
-          "SLabel": "Invoice Image URL"
+          "SLabel": "Invoice Image URL",
+          "Option": "Optional",
+          "Update": "No"
         },
         {
           "name": "InvQty",
           "type": "Num,0",
           "width": "10",
-          "SLabel": "Invoice Qty"
+          "SLabel": "Invoice Qty",
+          "Option": "Optional",
+          "Update": "No"
         },
         {
           "name": "InvPrice",
           "type": "Num,2",
           "width": "10",
-          "SLabel": "Invoice Price"
+          "SLabel": "Invoice Price",
+          "Option": "Optional",
+          "Update": "No"
         },
         {
           "name": "InvVATRate",
           "type": "Num,2",
           "width": "10",
-          "SLabel": "Invoice VAT Rate(%)"
+          "SLabel": "Invoice VAT Rate(%)",
+          "Option": "Optional",
+          "Update": "No"
         },
         {
           "name": "ItemInvoiceStatus",
           "type": "string",
           "width": "20",
-          "SLabel": "Invoice Item Status"
+          "SLabel": "Invoice Item Status",
+          "Option": "Optional",
+          "Update": "No"
         },
         {
           "name": "InvVATPer",
           "type": "Num,2",
           "width": "10",
-          "SLabel": "Invoice Tax Percentage"
+          "SLabel": "Invoice Tax Percentage",
+          "Option": "Optional",
+          "Update": "No"
         },
         {
           "name": "InvNetValue",
           "type": "Num,2",
           "width": "20",
-          "SLabel": "Invoice Net Value"
+          "SLabel": "Invoice Net Value",
+          "Option": "Optional",
+          "Update": "No"
         },
         {
           "name": "InvGrossVal",
           "type": "Num,2",
           "width": "20",
-          "SLabel": "Invoice Gross Value"
+          "SLabel": "Invoice Gross Value",
+          "Option": "Optional",
+          "Update": "No"
         },
         {
           "name": "InvVATVal",
           "type": "Num,2",
           "width": "10",
-          "SLabel": "Invoice Tax Value"
+          "SLabel": "Invoice Tax Value",
+          "Option": "Optional",
+          "Update": "No"
         },
         {
           "name": "InvCummQty",
           "type": "Num,2",
           "width": "10",
-          "SLabel": "Cumulative Invoice Qty"
+          "SLabel": "Cumulative Invoice Qty",
+          "Option": "Optional",
+          "Update": "No"
         },
         {
           "name": "BalanceInvQty",
           "type": "Num,2",
           "width": "10",
-          "SLabel": "Balance Invoice Qty"
+          "SLabel": "Balance Invoice Qty",
+          "Option": "Optional",
+          "Update": "No"
         },
         {
           "name": "ItemShippingStatus",
           "type": "string",
           "width": "20",
-          "SLabel": "Item Shipping Status"
+          "SLabel": "Item Shipping Status",
+          "Option": "Optional",
+          "Update": "No"
         },
         {
           "name": "ShippingDate",
           "type": "Date",
           "width": "10",
-          "SLabel": "Shipping Date"
+          "SLabel": "Shipping Date",
+          "Option": "Optional",
+          "Update": "No"
         },
         {
           "name": "PlannedShippingDate",
           "type": "Date",
           "width": "10",
-          "SLabel": "Planned Shipping Date"
+          "SLabel": "Planned Shipping Date",
+          "Option": "Optional",
+          "Update": "No"
         },
         {
           "name": "DeliveryCompany",
           "type": "string",
           "width": "200",
-          "SLabel": "Delivery Company"
+          "SLabel": "Delivery Company",
+          "Option": "Optional",
+          "Update": "No"
         },
         {
           "name": "TrackingNumber",
           "type": "string",
           "width": "20",
-          "SLabel": "Tracking Number"
+          "SLabel": "Tracking Number",
+          "Option": "Optional",
+          "Update": "No"
         },
         {
           "name": "TrackingWebsite",
           "type": "string",
           "width": "100",
-          "SLabel": "Tracking Website"
+          "SLabel": "Tracking Website",
+          "Option": "Optional",
+          "Update": "No"
         },
         {
           "name": "InvoiceDate",
           "type": "Date",
           "width": "10",
-          "SLabel": "Invoice Date"
+          "SLabel": "Invoice Date",
+          "Option": "Optional",
+          "Update": "No"
         },
         {
           "name": "ItemDeliveryDate",
           "type": "Date",
           "width": "10",
-          "SLabel": "Item Delivery Date"
+          "SLabel": "Item Delivery Date",
+          "Option": "Optional",
+          "Update": "No"
         },
         {
           "name": "ProcessingLog",
           "type": "string",
           "width": "1000",
           "SLabel": "Processing Log",
-          "Option": "Optional"
+          "Option": "Optional",
+          "Update": "No"
         },
         {
           "name": "CurrentStatus",
           "type": "string",
           "width": "100",
           "SLabel": "Current Status",
-          "Option": "Optional"
+          "Option": "Optional",
+          "Update": "No"
         },
         {
           "name": "Notification",
           "type": "string",
           "width": "50",
           "SLabel": "Notification",
-          "Option": "Optional"
+          "Option": "Optional",
+          "Update": "No"
         },
         {
           "name": "NotifyRole",
           "type": "string",
           "width": "100",
           "SLabel": "Notify Role",
-          "Option": "Optional"
+          "Option": "Optional",
+          "Update": "No"
         },
         {
           "name": "BusObject",
           "type": "string",
           "width": "200",
           "SLabel": "Bus Object",
-          "Option": "Optional"
+          "Option": "Optional",
+          "Update": "No"
         },
         {
           "name": "InvImage",
           "type": "attachment",
           "width": "500",
           "SLabel": "Invoice Image",
-          "Option": "Optional"
+          "Option": "Optional",
+          "Update": "No"
         }
       ],
       "DisplayFields": [
@@ -859,8 +921,7 @@
         "ItemVATRate",
         "ItemVATVal",
         "ItemGrossVal",
-        "ItemVATPer",
-        "InvImage"
+        "ItemVATPer"
       ],
       "ItemDetails": [
         { "name": "ItemNumber" },
