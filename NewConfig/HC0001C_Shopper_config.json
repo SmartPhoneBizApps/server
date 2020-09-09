@@ -4,6 +4,7 @@
     "DetailTitle": "HCP/HCO Company View"
   },
   "Controls": {
+    "style": "SAP",
     "calculation": "No",
     "USP": "UserProfile",
     "StatusColor": "Yes",
@@ -221,13 +222,23 @@
   "Tabs": [
     {
       "value": "Tab0",
+      "style": "SAP",
       "update": "No",
       "name": "Cards",
       "type": "Cards",
       "fioriicon": "responsive"
     },
     {
+      "value": "Tab20",
+      "style": "SAP",
+      "update": "No",
+      "name": "Charts",
+      "type": "Charts",
+      "fioriicon": "business-objects-experience"
+    },
+    {
       "value": "Tab1",
+      "style": "SAP",
       "update": "Yes",
       "name": "Personnel Details",
       "fioriicon": "developer-settings",
@@ -235,6 +246,7 @@
     },
     {
       "value": "Tab2",
+      "style": "SAP",
       "update": "Yes",
       "name": "Attachments",
       "type": "MultiAttachments",
@@ -246,6 +258,7 @@
     },
     {
       "value": "Tab4",
+      "style": "SAP",
       "update": "Yes",
       "name": "Certifications",
       "type": "carouselImage",
@@ -253,6 +266,7 @@
     },
     {
       "value": "Tab5",
+      "style": "SAP",
       "update": "Yes",
       "name": "Address",
       "type": "Field",
@@ -260,6 +274,7 @@
     },
     {
       "value": "Tab6",
+      "style": "SAP",
       "update": "Yes",
       "name": "Study",
       "type": "Table",
@@ -267,6 +282,7 @@
     },
     {
       "value": "Tab7",
+      "style": "SAP",
       "update": "Yes",
       "name": "Event",
       "type": "Table",
@@ -274,6 +290,7 @@
     },
     {
       "value": "Tab8",
+      "style": "SAP",
       "update": "Yes",
       "name": "Contract",
       "type": "Table",
@@ -365,6 +382,7 @@
         "Phase",
         "ItemStatus1"
       ],
+      "detailCharts": [],
       "cards": [
         {
           "type": "Table",
@@ -521,6 +539,7 @@
         "Time",
         "ItemStatus2"
       ],
+      "detailCharts": [],
       "cards": [
         {
           "type": "Table",
@@ -686,6 +705,7 @@
         "BalanceValue",
         "ItemStatus3"
       ],
+      "detailCharts": [],
       "cards": [
         {
           "type": "Table",

@@ -4,6 +4,7 @@
     "DetailTitle": "Suplier Invoice (Supplier view)"
   },
   "Controls": {
+    "style": "SAP",
     "calculation": "No",
     "USP": "UserProfile",
     "StatusColor": "Yes",
@@ -14,7 +15,7 @@
     "Update": "Yes",
     "URL": "https://fierce-oasis-51455.herokuapp.com",
     "Source": { "SourceName": "mongoDB", "SourceFile": "NA" },
-    
+
     "filterFields": {
       "header": ["Status"]
     }
@@ -98,15 +99,25 @@
     }
   ],
   "Tabs": [
-    {
-      "value": "Tab0",
-      "update": "No",
-      "name": "Cards",
-      "type": "Cards",
-      "fioriicon": "responsive"
-    },
+{
+    "value": "Tab0",
+    "style": "SAP",
+    "update": "No",
+    "name": "Cards",
+    "type": "Cards",
+    "fioriicon": "responsive"
+  },
+  {
+    "value": "Tab20",
+    "style": "SAP",
+    "update": "No",
+    "name": "Charts",
+    "type": "Charts",
+    "fioriicon": "business-objects-experience"
+  },
     {
       "value": "Tab1",
+      "style": "SAP",
       "update": "Yes",
       "name": "Invoice",
       "type": "Field",
@@ -114,6 +125,7 @@
     },
     {
       "value": "Tab2",
+      "style": "SAP",
       "update": "Yes",
       "name": "PO",
       "type": "Field",
@@ -121,6 +133,7 @@
     },
     {
       "value": "Tab3",
+      "style": "SAP",
       "update": "Yes",
       "name": "ItemDetails",
       "type": "Items",
@@ -129,6 +142,7 @@
     },
     {
       "value": "Tab4",
+      "style": "SAP",
       "update": "Yes",
       "name": "Attachment",
       "type": "Attachment",
@@ -136,6 +150,7 @@
     },
     {
       "value": "Tab5",
+      "style": "SAP",
       "update": "Yes",
       "name": "Payment",
       "fioriicon": "simple-payment",
@@ -144,6 +159,7 @@
     },
     {
       "value": "Tab6",
+      "style": "SAP",
       "update": "Yes",
       "name": "Checks",
       "fioriicon": "survey",

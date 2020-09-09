@@ -4,17 +4,18 @@
     "DetailTitle": "Fault Reporting"
   },
   "Controls": {
+    "style": "SAP",
     "calculation": "No",
     "USP": "UserProfile",
     "StatusColor": "Yes",
-    "SearchString":{"Search":false},
+    "SearchString": { "Search": false },
     "Filters": [],
     "Partner": "@user",
     "UserSpecific": "Yes",
     "Update": "Yes",
     "URL": "https://fierce-oasis-51455.herokuapp.com",
     "Source": { "SourceName": "mongoDB", "SourceFile": "NA" },
-    
+
     "filterFields": {
       "header": ["Status"]
     }
@@ -35,15 +36,25 @@
   "MButtons": [],
   "DButtons": [],
   "Tabs": [
-    {
-      "value": "Tab0",
-      "update": "No",
-      "name": "Cards",
-      "type": "Cards",
-      "fioriicon": "responsive"
-    },
+{
+    "value": "Tab0",
+    "style": "SAP",
+    "update": "No",
+    "name": "Cards",
+    "type": "Cards",
+    "fioriicon": "responsive"
+  },
+  {
+    "value": "Tab20",
+    "style": "SAP",
+    "update": "No",
+    "name": "Charts",
+    "type": "Charts",
+    "fioriicon": "business-objects-experience"
+  },
     {
       "value": "Tab1",
+      "style": "SAP",
       "update": "Yes",
       "name": "Fault Details",
       "type": "Field",
@@ -52,6 +63,7 @@
     },
     {
       "value": "Tab2",
+      "style": "SAP",
       "update": "Yes",
       "name": "Fault Location",
       "type": "Field",
@@ -60,6 +72,7 @@
     },
     {
       "value": "Tab3",
+      "style": "SAP",
       "update": "Yes",
       "name": "Attachment",
       "type": "Attachment",
@@ -68,6 +81,7 @@
     },
     {
       "value": "Tab4",
+      "style": "SAP",
       "update": "Yes",
       "name": "Contact Details",
       "fioriicon": "notes",
@@ -76,6 +90,7 @@
     },
     {
       "value": "Tab5",
+      "style": "SAP",
       "update": "Yes",
       "name": "Chat",
       "fioriicon": "comment",
@@ -84,6 +99,7 @@
     },
     {
       "value": "Tab6",
+      "style": "SAP",
       "update": "Yes",
       "name": "Processing Log",
       "fioriicon": "comment",

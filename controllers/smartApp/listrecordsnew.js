@@ -455,10 +455,8 @@ exports.listrecordsnew = asyncHandler(async (req, res, next) => {
         for (let k = 0; k < myCard.length; k++) {
           counter = counter + 1;
           let cardKey = getCardKey(applicationId, businessrole, counter, "L");
-          // let cardConfigFile1 =
-          //   "../../cards/cardConfig/" + myCard[k]["template"];
           let cardTemplate =
-            "../../cards/cardConfig/template_example_" +
+            "../../cards/cardConfig/template_sap_" +
             myCard[k]["cardsubType"] +
             ".json";
           var cardData = JSON.stringify(require(cardTemplate));

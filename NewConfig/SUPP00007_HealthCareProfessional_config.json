@@ -4,6 +4,7 @@
     "DetailTitle": "General Comms"
   },
   "Controls": {
+    "style": "SAP",
     "calculation": "No",
     "USP": "UserProfile",
     "StatusColor": "Yes",
@@ -96,15 +97,25 @@
     { "type": "ADD", "name": "Add Record", "icon": "sap-icon://add" }
   ],
   "Tabs": [
-    {
-      "value": "Tab0",
-      "update": "No",
-      "name": "Cards",
-      "type": "Cards",
-      "fioriicon": "responsive"
-    },
+{
+    "value": "Tab0",
+    "style": "SAP",
+    "update": "No",
+    "name": "Cards",
+    "type": "Cards",
+    "fioriicon": "responsive"
+  },
+  {
+    "value": "Tab20",
+    "style": "SAP",
+    "update": "No",
+    "name": "Charts",
+    "type": "Charts",
+    "fioriicon": "business-objects-experience"
+  },
     {
       "value": "Tab1",
+      "style": "SAP",
       "update": "Yes",
       "name": "Supplier",
       "fioriicon": "shipping-status",
@@ -112,6 +123,7 @@
     },
     {
       "value": "Tab2",
+      "style": "SAP",
       "update": "Yes",
       "name": "PO",
       "fioriicon": "company-view",
@@ -120,6 +132,7 @@
     },
     {
       "value": "Tab3",
+      "style": "SAP",
       "update": "Yes",
       "name": "Invoice",
       "fioriicon": "accounting-document-verification",
@@ -128,6 +141,7 @@
     },
     {
       "value": "Tab4",
+      "style": "SAP",
       "update": "Yes",
       "name": "Purchaser",
       "fioriicon": "company-view",
@@ -136,6 +150,7 @@
     },
     {
       "value": "Tab5",
+      "style": "SAP",
       "update": "Yes",
       "name": "Finance",
       "fioriicon": "accounting-document-verification",
@@ -144,6 +159,7 @@
     },
     {
       "value": "Tab6",
+      "style": "SAP",
       "update": "Yes",
       "name": "Admin",
       "fioriicon": "company-view",
@@ -152,6 +168,7 @@
     },
     {
       "value": "Tab7",
+      "style": "SAP",
       "update": "Yes",
       "name": "Chat",
       "fioriicon": "comment",

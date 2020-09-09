@@ -1,6 +1,4 @@
 const {
-  donutCardHead,
-  adaptivecardCard,
   getCardKey,
   analyticalCard,
   adaptiveNew,
@@ -21,7 +19,7 @@ const {
   getNewConfig,
   getPVField,
 } = require("../../modules/config");
-const { readData, getTotalCount, nConfig } = require("../../modules/config2");
+const { readData, getTotalCount } = require("../../modules/config2");
 const asyncHandler = require("../../middleware/async");
 // @desc      Get all records
 // @route     GET /api/v1/listrecords
@@ -456,7 +454,7 @@ exports.getListrecords1 = asyncHandler(async (req, res, next) => {
           // let cardConfigFile1 =
           //   "../../cards/cardConfig/" + myCard[k]["template"];
           let cardTemplate =
-            "../../cards/cardConfig/template_example_" +
+            "../../cards/cardConfig/template_sap_" +
             myCard[k]["cardsubType"] +
             ".json";
           var cardData = JSON.stringify(require(cardTemplate));

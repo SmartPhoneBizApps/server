@@ -4,6 +4,7 @@
     "DetailTitle": "Approve Employee Request"
   },
   "Controls": {
+    "style": "SAP",
     "calculation": "No",
     "USP": "UserProfile",
     "StatusColor": "Yes",
@@ -201,13 +202,23 @@
   "Tabs": [
     {
       "value": "Tab0",
+      "style": "SAP",
       "update": "No",
       "name": "Cards",
       "type": "Cards",
       "fioriicon": "responsive"
     },
     {
+      "value": "Tab20",
+      "style": "SAP",
+      "update": "No",
+      "name": "Charts",
+      "type": "Charts",
+      "fioriicon": "business-objects-experience"
+    },
+    {
       "value": "Tab1",
+      "style": "SAP",
       "update": "No",
       "name": "Requester",
       "fioriicon": "person-placeholder",
@@ -215,6 +226,7 @@
     },
     {
       "value": "Tab2",
+      "style": "SAP",
       "update": "No",
       "name": "Details",
       "fioriicon": "zoom-in",
@@ -222,6 +234,7 @@
     },
     {
       "value": "Tab3",
+      "style": "SAP",
       "update": "Yes",
       "name": "Approval Details",
       "fioriicon": "zoom-in",
@@ -359,6 +372,7 @@
       }
     }
   ],
+  "detailCharts": [],
   "cards": [],
   "ControlDisplay": {
     "ControlField": "RequestType",

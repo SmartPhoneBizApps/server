@@ -4,6 +4,7 @@
     "DetailTitle": "Patient Appointments"
   },
   "Controls": {
+    "style": "SAP",
     "calculation": "No",
     "USP": "UserProfile",
     "StatusColor": "Yes",
@@ -325,15 +326,25 @@
     { "type": "ADD", "name": "Add Record", "icon": "sap-icon://add" }
   ],
   "Tabs": [
-    {
-      "value": "Tab0",
-      "update": "No",
-      "name": "Cards",
-      "type": "Cards",
-      "fioriicon": "responsive"
-    },
+{
+    "value": "Tab0",
+    "style": "SAP",
+    "update": "No",
+    "name": "Cards",
+    "type": "Cards",
+    "fioriicon": "responsive"
+  },
+  {
+    "value": "Tab20",
+    "style": "SAP",
+    "update": "No",
+    "name": "Charts",
+    "type": "Charts",
+    "fioriicon": "business-objects-experience"
+  },
     {
       "value": "Tab1",
+      "style": "SAP",
       "update": "Yes",
       "name": "Appointment Details",
       "type": "Field",

@@ -4,6 +4,7 @@
     "DetailTitle": "HCP / HCO Directory"
   },
   "Controls": {
+    "style": "SAP",
     "calculation": "No",
     "USP": "UserProfile",
     "StatusColor": "Yes",
@@ -129,15 +130,25 @@
     }
   ],
   "Tabs": [
-    {
-      "value": "Tab0",
-      "update": "No",
-      "name": "Cards",
-      "type": "Cards",
-      "fioriicon": "responsive"
-    },
+{
+    "value": "Tab0",
+    "style": "SAP",
+    "update": "No",
+    "name": "Cards",
+    "type": "Cards",
+    "fioriicon": "responsive"
+  },
+  {
+    "value": "Tab20",
+    "style": "SAP",
+    "update": "No",
+    "name": "Charts",
+    "type": "Charts",
+    "fioriicon": "business-objects-experience"
+  },
     {
       "value": "Tab1",
+      "style": "SAP",
       "update": "Yes",
       "name": "Personnel Details",
       "fioriicon": "developer-settings",
@@ -145,6 +156,7 @@
     },
     {
       "value": "Tab2",
+      "style": "SAP",
       "update": "Yes",
       "name": "Attachments",
       "type": "MultiAttachments",
@@ -156,6 +168,7 @@
     },
     {
       "value": "Tab4",
+      "style": "SAP",
       "update": "Yes",
       "name": "Certifications",
       "type": "carouselImage",
@@ -163,6 +176,7 @@
     },
     {
       "value": "Tab5",
+      "style": "SAP",
       "update": "Yes",
       "name": "Address",
       "type": "Field",

@@ -4,6 +4,7 @@
     "DetailTitle": "Suplier Purchase Orders"
   },
   "Controls": {
+    "style": "SAP",
     "calculation": "Yes",
     "USP": "UserProfile",
     "StatusColor": "Yes",
@@ -113,13 +114,23 @@
   "Tabs": [
     {
       "value": "Tab0",
+      "style": "SAP",
       "update": "No",
       "name": "Cards",
       "type": "Cards",
       "fioriicon": "responsive"
     },
     {
+      "value": "Tab20",
+      "style": "SAP",
+      "update": "No",
+      "name": "Charts",
+      "type": "Charts",
+      "fioriicon": "business-objects-experience"
+    },
+    {
       "value": "Tab2",
+      "style": "SAP",
       "update": "Yes",
       "name": "Purchase Order",
       "type": "Field",
@@ -128,6 +139,7 @@
     },
     {
       "value": "Tab1",
+      "style": "SAP",
       "update": "Yes",
       "name": "Delivery Details",
       "type": "Field",
@@ -136,6 +148,7 @@
     },
     {
       "value": "Tab3",
+      "style": "SAP",
       "update": "Yes",
       "name": "ItemDetails",
       "type": "Table",
@@ -143,6 +156,7 @@
     },
     {
       "value": "Tab6",
+      "style": "SAP",
       "update": "Yes",
       "name": "Shipping Details",
       "fioriicon": "flight",
@@ -151,6 +165,7 @@
     },
     {
       "value": "Tab7",
+      "style": "SAP",
       "update": "Yes",
       "name": "Invoice Details",
       "fioriicon": "collections-insight",
@@ -159,6 +174,7 @@
     },
     {
       "value": "Tab4",
+      "style": "SAP",
       "update": "Yes",
       "name": "MultiAttachment",
       "fioriicon": "attachment",
@@ -172,6 +188,7 @@
     },
     {
       "value": "Tab5",
+      "style": "SAP",
       "update": "Yes",
       "name": "Status Details",
       "fioriicon": "question-mark",
@@ -180,6 +197,7 @@
     },
     {
       "value": "Tab8",
+      "style": "SAP",
       "update": "Yes",
       "name": "Supplier Query",
       "fioriicon": "sys-help",
@@ -188,6 +206,7 @@
     },
     {
       "value": "Tab9",
+      "style": "SAP",
       "update": "Yes",
       "name": "Supplier Chat",
       "fioriicon": "comment",
@@ -196,6 +215,7 @@
     },
     {
       "value": "Tab10",
+      "style": "SAP",
       "update": "Yes",
       "name": "Process log",
       "fioriicon": "comment",
@@ -892,6 +912,7 @@
         "ItemVATVal",
         "ItemGrossVal"
       ],
+      "detailCharts": [],
       "cards": [],
       "ItemButtons": {
         "itemDisplay": true,

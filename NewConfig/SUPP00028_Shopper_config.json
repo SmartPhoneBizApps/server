@@ -4,6 +4,7 @@
     "DetailTitle": "Suplier Invoice (Supplier view)"
   },
   "Controls": {
+    "style": "SAP",
     "calculation": "Yes",
     "USP": "UserProfile",
     "StatusColor": "Yes",
@@ -135,13 +136,23 @@
   "Tabs": [
     {
       "value": "Tab0",
+      "style": "SAP",
       "update": "No",
       "name": "Cards",
       "type": "Cards",
       "fioriicon": "responsive"
     },
     {
+      "value": "Tab20",
+      "style": "SAP",
+      "update": "No",
+      "name": "Charts",
+      "type": "Charts",
+      "fioriicon": "business-objects-experience"
+    },
+    {
       "value": "Tab1",
+      "style": "SAP",
       "update": "Yes",
       "name": "Invoice",
       "type": "Field",
@@ -149,6 +160,7 @@
     },
     {
       "value": "Tab2",
+      "style": "SAP",
       "update": "Yes",
       "name": "PO",
       "type": "Field",
@@ -156,6 +168,7 @@
     },
     {
       "value": "Tab3",
+      "style": "SAP",
       "update": "Yes",
       "name": "ItemDetails",
       "type": "Table",
@@ -163,6 +176,7 @@
     },
     {
       "value": "Tab4",
+      "style": "SAP",
       "update": "Yes",
       "name": "MultiAttachment",
       "fioriicon": "attachment",
@@ -176,6 +190,7 @@
     },
     {
       "value": "Tab5",
+      "style": "SAP",
       "update": "Yes",
       "name": "Payment",
       "fioriicon": "simple-payment",
@@ -184,6 +199,7 @@
     },
     {
       "value": "Tab6",
+      "style": "SAP",
       "update": "Yes",
       "name": "Checks",
       "fioriicon": "survey",
@@ -770,6 +786,7 @@
         "InvVATVal",
         "InvGrossVal"
       ],
+      "detailCharts": [],
       "cards": [],
       "ItemButtons": {
         "itemDisplay": true,

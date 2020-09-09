@@ -4,6 +4,7 @@
     "DetailTitle": "Annual Review"
   },
   "Controls": {
+    "style": "SAP",
     "calculation": "No",
     "USP": "UserProfile",
     "StatusColor": "Yes",
@@ -154,13 +155,23 @@
   "Tabs": [
     {
       "value": "Tab0",
+      "style": "SAP",
       "update": "No",
       "name": "Cards",
       "type": "Cards",
       "fioriicon": "responsive"
     },
     {
+      "value": "Tab20",
+      "style": "SAP",
+      "update": "No",
+      "name": "Charts",
+      "type": "Charts",
+      "fioriicon": "business-objects-experience"
+    },
+    {
       "value": "Tab1",
+      "style": "SAP",
       "update": "No",
       "name": "Reference",
       "type": "Field",
@@ -168,6 +179,7 @@
     },
     {
       "value": "Tab8",
+      "style": "SAP",
       "update": "No",
       "name": "ProjectFeedback",
       "type": "Table",
@@ -175,6 +187,7 @@
     },
     {
       "value": "Tab2",
+      "style": "SAP",
       "update": "No",
       "name": "Appraisal",
       "type": "Table",
@@ -182,6 +195,7 @@
     },
     {
       "value": "Tab4",
+      "style": "SAP",
       "update": "No",
       "name": "Goals",
       "type": "Table",
@@ -189,6 +203,7 @@
     },
     {
       "value": "Tab5",
+      "style": "SAP",
       "update": "No",
       "name": "MyTraining",
       "fioriicon": "toaster-up",
@@ -196,6 +211,7 @@
     },
     {
       "value": "Tab6",
+      "style": "SAP",
       "update": "No",
       "name": "SupportingDocs",
       "type": "MultiAttachments",
@@ -212,6 +228,7 @@
     },
     {
       "value": "Tab7",
+      "style": "SAP",
       "update": "No",
       "name": "360(Manager)",
       "fioriicon": "toaster-up",
@@ -363,6 +380,7 @@
         "TargetDate2",
         "ItemStatus1"
       ],
+      "detailCharts": [],
       "cards": [
         {
           "type": "Analytical",
@@ -556,6 +574,7 @@
         "TargetDate3",
         "ItemStatus2"
       ],
+      "detailCharts": [],
       "cards": [
         {
           "type": "Analytical",
@@ -700,6 +719,7 @@
         "TargetDate1",
         "ItemStatus3"
       ],
+      "detailCharts": [],
       "cards": [
         {
           "type": "Table",
@@ -787,6 +807,7 @@
         }
       ],
       "DisplayFields": ["ItemStatus5", "MQuestion", "MAnswer"],
+      "detailCharts": [],
       "cards": [
         {
           "type": "Table",
@@ -916,6 +937,7 @@
         "ProjectManager",
         "ItemStatus6"
       ],
+      "detailCharts": [],
       "cards": [
         {
           "type": "Table",

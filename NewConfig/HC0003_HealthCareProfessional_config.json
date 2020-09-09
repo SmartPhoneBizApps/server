@@ -1,6 +1,7 @@
 {
   "Title": { "ApplicationTitle": "Events", "DetailTitle": "Events" },
   "Controls": {
+    "style": "SAP",
     "calculation": "No",
     "USP": "UserProfile",
     "StatusColor": "Yes",
@@ -135,13 +136,23 @@
   "Tabs": [
     {
       "value": "Tab0",
+      "style": "SAP",
       "update": "No",
       "name": "Cards",
       "type": "Cards",
       "fioriicon": "responsive"
     },
     {
+      "value": "Tab20",
+      "style": "SAP",
+      "update": "No",
+      "name": "Charts",
+      "type": "Charts",
+      "fioriicon": "business-objects-experience"
+    },
+    {
       "value": "Tab1",
+      "style": "SAP",
       "update": "Yes",
       "name": "Event Details",
       "fioriicon": "notes",
@@ -150,6 +161,7 @@
     },
     {
       "value": "Tab2",
+      "style": "SAP",
       "update": "Yes",
       "name": "Contact Details",
       "fioriicon": "discussion",
@@ -158,6 +170,7 @@
     },
     {
       "value": "Tab3",
+      "style": "SAP",
       "update": "Yes",
       "name": "Agenda",
       "type": "Table",
@@ -165,6 +178,7 @@
     },
     {
       "value": "Tab4",
+      "style": "SAP",
       "update": "Yes",
       "name": "MultiAttachment",
       "fioriicon": "attachment",
@@ -351,6 +365,7 @@
         }
       ],
       "DisplayFields": ["Topic", "Date", "StartTime", "ItemStatus1"],
+      "detailCharts": [],
       "cards": [],
       "ItemButtons": {
         "itemDisplay": true,

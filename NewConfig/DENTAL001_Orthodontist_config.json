@@ -4,6 +4,7 @@
     "DetailTitle": "Evaluation Form"
   },
   "Controls": {
+    "style": "SAP",
     "calculation": "No",
     "USP": "UserProfile",
     "StatusColor": "Yes",
@@ -14,7 +15,7 @@
     "Update": "Yes",
     "URL": "https://fierce-oasis-51455.herokuapp.com",
     "Source": { "SourceName": "mongoDB", "SourceFile": "NA" },
-    
+
     "filterFields": {
       "header": ["Status"]
     }
@@ -68,15 +69,25 @@
     { "type": "ADD", "name": "Add Record", "icon": "sap-icon://add" }
   ],
   "Tabs": [
-    {
-      "value": "Tab0",
-      "update": "No",
-      "name": "Cards",
-      "type": "Cards",
-      "fioriicon": "responsive"
-    },
+{
+    "value": "Tab0",
+    "style": "SAP",
+    "update": "No",
+    "name": "Cards",
+    "type": "Cards",
+    "fioriicon": "responsive"
+  },
+  {
+    "value": "Tab20",
+    "style": "SAP",
+    "update": "No",
+    "name": "Charts",
+    "type": "Charts",
+    "fioriicon": "business-objects-experience"
+  },
     {
       "value": "Tab1",
+      "style": "SAP",
       "update": "Yes",
       "name": "KeyData",
       "fioriicon": "flag",
@@ -85,6 +96,7 @@
     },
     {
       "value": "Tab2",
+      "style": "SAP",
       "update": "Yes",
       "name": "Payment",
       "fioriicon": "batch-payments",
@@ -93,6 +105,7 @@
     },
     {
       "value": "Tab11",
+      "style": "SAP",
       "update": "Yes",
       "name": "TreatmentPlan",
       "fioriicon": "legend",
@@ -101,6 +114,7 @@
     },
     {
       "value": "Tab4",
+      "style": "SAP",
       "update": "Yes",
       "name": "DentalProfile",
       "fioriicon": "business-card",
@@ -109,6 +123,7 @@
     },
     {
       "value": "Tab5",
+      "style": "SAP",
       "update": "Yes",
       "name": "Appointments",
       "fioriicon": "appointment",
@@ -117,6 +132,7 @@
     },
     {
       "value": "Tab6",
+      "style": "SAP",
       "update": "Yes",
       "name": "Radiology",
       "fioriicon": "x-ray",
@@ -125,6 +141,7 @@
     },
     {
       "value": "Tab7",
+      "style": "SAP",
       "update": "Yes",
       "name": "DentalImages",
       "fioriicon": "camera",
@@ -133,6 +150,7 @@
     },
     {
       "value": "Tab8",
+      "style": "SAP",
       "update": "Yes",
       "name": "AdminNotes",
       "fioriicon": "notes",
@@ -141,6 +159,7 @@
     },
     {
       "value": "Tab9",
+      "style": "SAP",
       "update": "Yes",
       "name": "ClinicalNotes",
       "fioriicon": "microphone",
@@ -149,6 +168,7 @@
     },
     {
       "value": "Tab10",
+      "style": "SAP",
       "update": "Yes",
       "name": "HealthEvaluation",
       "fioriicon": "e-care",
@@ -157,6 +177,7 @@
     },
     {
       "value": "Tab3",
+      "style": "SAP",
       "update": "Yes",
       "name": "ItemDetails",
       "fioriicon": "Item Details",

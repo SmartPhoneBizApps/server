@@ -1,6 +1,7 @@
 {
   "Title": { "ApplicationTitle": "Time Sheet", "DetailTitle": "Time Sheet" },
   "Controls": {
+    "style": "SAP",
     "calculation": "Yes",
     "USP": "UserProfile",
     "StatusColor": "Yes",
@@ -109,13 +110,23 @@
   "Tabs": [
     {
       "value": "Tab0",
+      "style": "SAP",
       "update": "No",
       "name": "Cards",
       "type": "Cards",
       "fioriicon": "responsive"
     },
     {
+      "value": "Tab20",
+      "style": "SAP",
+      "update": "No",
+      "name": "Charts",
+      "type": "Charts",
+      "fioriicon": "business-objects-experience"
+    },
+    {
       "value": "Tab4",
+      "style": "SAP",
       "update": "Yes",
       "name": "Daily Time",
       "fioriicon": "activity-items",
@@ -124,6 +135,7 @@
     },
     {
       "value": "Tab6",
+      "style": "SAP",
       "update": "Yes",
       "name": "Attachments",
       "fioriicon": "attachment",
@@ -136,6 +148,7 @@
     },
     {
       "value": "Tab5",
+      "style": "SAP",
       "update": "No",
       "name": "Process log",
       "fioriicon": "step",
@@ -193,6 +206,7 @@
       }
     }
   ],
+  "detailCharts": [],
   "cards": [],
   "ControlDisplay": {},
   "FieldDef": [
@@ -498,6 +512,50 @@
         "TotalHours",
         "ItemStatus1"
       ],
+      "detailCharts": [
+        {
+          "cardType": "Analytical",
+          "cardsubType": "StackedBar",
+          "title": "Time Sheet Analysis",
+          "subtitle": "Project Code",
+          "unitOfMeasurement": "Days",
+          "source": "myTime",
+          "Data": {
+            "dimension": "ProjectCode",
+            "fact": "records",
+            "operation": "COUNT"
+          },
+          "numericHeader": {
+            "headerNumber": { "Operation": "COUNT", "Field": "ProjectCode" },
+            "trend": { "trend": "DOWN", "Condition": "LTE", "value": 8 },
+            "status": { "state": "Success", "Condition": "LTE", "value": 24 },
+            "details": "Total 24 days",
+            "unit": "Days"
+          }
+        },
+        {
+          "cardType": "Analytical",
+          "cardsubType": "Line",
+          "title": "Time Sheet Analysis",
+          "subtitle": "Time",
+          "unitOfMeasurement": "Hrs",
+          "Data": {
+            "dimension": "Date",
+            "fact": "records",
+            "operation": "COLLECTIVE"
+          },
+          "numericHeader": {
+            "headerNumber": {
+              "Operation": "COLLECTIVE",
+              "Field": "TotalRegWorkHours"
+            },
+            "trend": { "trend": "DOWN", "Condition": "LTE", "value": 40 },
+            "status": { "state": "Success", "Condition": "LTE", "value": 50 },
+            "details": "Max 24 days",
+            "unit": "Days"
+          }
+        }
+      ],
       "cards": [
         {
           "type": "Table",
@@ -510,52 +568,6 @@
             "TotalRegWorkHours",
             "OvertimeHours"
           ]
-        },
-        {
-          "type": "Analytical",
-          "filterKey": "ItemStatus1",
-          "filterKeyLabel": "Item Status",
-          "cardID": "EMP21E01",
-          "title": "Time Analysis",
-          "subtitle": "Regular Vs Over Time",
-          "unitOfMeasurement": "HOURS",
-          "template": "template_analyticalCard_line.json",
-          "analyticsCard": {
-            "chartType": "line",
-
-            "itemvalueMap": {
-              "Score": "TotalRegWorkHours",
-              "Target": "OvertimeHours"
-            },
-            "itemkeyMap": {
-              "Area": "Date"
-            },
-            "itemfixedVal": [{ "Total": 5 }],
-            "sumField": [
-              { "sumScore": "TotalRegWorkHours" },
-              { "sumtargetScore": "OvertimeHours" }
-            ],
-            "headerfieldMap": [
-              { "j_number": "sumScore" },
-              { "j_target": "sumtargetScore" }
-            ]
-          }
-        },
-        {
-          "type": "Analytical",
-          "filterKey": "ItemStatus1",
-          "filterKeyLabel": "Item Status",
-          "cardID": "EMP21E02",
-          "template": "template_analyticalCard_donut.json",
-          "title": "Timesheet ProjectCode Analysis",
-          "analyticsCard": {
-            "chartType": "donut",
-            "cardsDonut": {
-              "measureName": "ProjectCode",
-              "value": "TotalRegWorkHours",
-              "function": "SUM"
-            }
-          }
         }
       ],
       "ItemButtons": {

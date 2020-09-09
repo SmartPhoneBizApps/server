@@ -1165,15 +1165,13 @@ module.exports = {
     }
     switch (deCard) {
       case "StackedBar":
-        cardConfigFile1 =
-          "../cards/cardConfig/template_example_StackedBar.json";
+        cardConfigFile1 = "../cards/cardConfig/template_sap_StackedBar.json";
         break;
       case "StackedColumn":
-        cardConfigFile1 =
-          "../cards/cardConfig/template_example_StackedColumn.json";
+        cardConfigFile1 = "../cards/cardConfig/template_sap_StackedColumn.json";
         break;
       case "Line":
-        cardConfigFile1 = "../cards/cardConfig/template_example_line.json";
+        cardConfigFile1 = "../cards/cardConfig/template_sap_line.json";
         break;
       default:
         break;
@@ -1236,8 +1234,10 @@ module.exports = {
     for (let g = 0; g < FieldDef.length; g++) {
       if (FieldDef[g]["name"] == myCard["Data"]["dimension"]) {
         f_typ = FieldDef[g]["type"];
+        console.log("f_typ", f_typ);
       }
     }
+
     // Perform Sorting..
     switch (f_typ) {
       case "string":
@@ -1264,6 +1264,8 @@ module.exports = {
     } else {
       for (let k = 0; k < outData.length; k++) {
         s_dimension.add(outData[k][myCard["Data"]["dimension"]]);
+        console.log("s_dimension", myCard["Data"]["dimension"], s_dimension);
+        console.log(outData[k]);
       }
     }
     // Collect unique values
@@ -1425,7 +1427,7 @@ module.exports = {
   },
   buildAnalyticalCard: async function (myCard, list, numheader) {
     let cardTemplate =
-      "../cards/cardConfig/template_example_" + myCard["cardsubType"] + ".json";
+      "../cards/cardConfig/template_sap_" + myCard["cardsubType"] + ".json";
     let anacardConfig = require(cardTemplate);
     anacardConfig["sap.card"].content.data.json.list = list;
     js1 = { ...anacardConfig["sap.card"].header.data.json };

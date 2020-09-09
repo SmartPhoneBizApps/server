@@ -1,6 +1,7 @@
 {
   "Title": { "ApplicationTitle": "Contact Us", "DetailTitle": "Contact Us" },
   "Controls": {
+    "style": "SAP",
     "calculation": "No",
     "USP": "UserProfile",
     "StatusColor": "Yes",
@@ -11,7 +12,7 @@
     "Update": "Yes",
     "URL": "https://fierce-oasis-51455.herokuapp.com",
     "Source": { "SourceName": "mongoDB", "SourceFile": "NA" },
-    
+
     "filterFields": {
       "header": ["Status"]
     }
@@ -76,15 +77,25 @@
     }
   ],
   "Tabs": [
-    {
-      "value": "Tab0",
-      "update": "No",
-      "name": "Cards",
-      "type": "Cards",
-      "fioriicon": "responsive"
-    },
+{
+    "value": "Tab0",
+    "style": "SAP",
+    "update": "No",
+    "name": "Cards",
+    "type": "Cards",
+    "fioriicon": "responsive"
+  },
+  {
+    "value": "Tab20",
+    "style": "SAP",
+    "update": "No",
+    "name": "Charts",
+    "type": "Charts",
+    "fioriicon": "business-objects-experience"
+  },
     {
       "value": "Tab2",
+      "style": "SAP",
       "update": "Yes",
       "name": "YourMessage",
       "fioriicon": "message-popup",
@@ -92,6 +103,7 @@
     },
     {
       "value": "Tab1",
+      "style": "SAP",
       "update": "Yes",
       "name": "AboutYou",
       "fioriicon": "employee",
@@ -99,6 +111,7 @@
     },
     {
       "value": "Tab4",
+      "style": "SAP",
       "update": "Yes",
       "name": "Attachment",
       "fioriicon": "attachment",
@@ -111,6 +124,7 @@
     },
     {
       "value": "Tab5",
+      "style": "SAP",
       "update": "Yes",
       "name": "ScreenShots",
       "type": "carouselImage",

@@ -4,6 +4,7 @@
     "DetailTitle": "Approve Shopping Cart"
   },
   "Controls": {
+    "style": "SAP",
     "calculation": "Yes",
     "USP": "UserProfile",
     "StatusColor": "Yes",
@@ -170,13 +171,23 @@
   "Tabs": [
     {
       "value": "Tab0",
+      "style": "SAP",
       "update": "No",
       "name": "Cards",
       "type": "Cards",
       "fioriicon": "responsive"
     },
     {
+      "value": "Tab20",
+      "style": "SAP",
+      "update": "No",
+      "name": "Charts",
+      "type": "Charts",
+      "fioriicon": "business-objects-experience"
+    },
+    {
       "value": "Tab1",
+      "style": "SAP",
       "update": "No",
       "name": "SC",
       "type": "Field",
@@ -184,6 +195,7 @@
     },
     {
       "value": "Tab2",
+      "style": "SAP",
       "update": "No",
       "name": "Delivery",
       "type": "Field",
@@ -191,6 +203,7 @@
     },
     {
       "value": "Tab3",
+      "style": "SAP",
       "update": "Yes",
       "name": "Item",
       "fioriicon": "notes",
@@ -199,6 +212,7 @@
     },
     {
       "value": "Tab4",
+      "style": "SAP",
       "update": "Yes",
       "name": "Process Log",
       "fioriicon": "step",
@@ -677,6 +691,7 @@
         "ItemGrossValue",
         "ItemStatus1"
       ],
+      "detailCharts": [],
       "cards": [
         {
           "type": "Table",

@@ -4,6 +4,7 @@
     "DetailTitle": "Travel Request"
   },
   "Controls": {
+    "style": "SAP",
     "calculation": "No",
     "USP": "UserProfile",
     "SearchString": { "Search": false },
@@ -115,13 +116,23 @@
   "Tabs": [
     {
       "value": "Tab0",
+      "style": "SAP",
       "update": "No",
       "name": "Cards",
       "type": "Cards",
       "fioriicon": "responsive"
     },
     {
+      "value": "Tab20",
+      "style": "SAP",
+      "update": "No",
+      "name": "Charts",
+      "type": "Charts",
+      "fioriicon": "business-objects-experience"
+    },
+    {
       "value": "Tab1",
+      "style": "SAP",
       "update": "Yes",
       "name": "Travel details",
       "type": "Field",
@@ -130,6 +141,7 @@
     },
     {
       "value": "Tab2",
+      "style": "SAP",
       "update": "Yes",
       "name": "Stay details",
       "type": "Field",
@@ -138,6 +150,7 @@
     },
     {
       "value": "Tab3",
+      "style": "SAP",
       "update": "Yes",
       "name": "Processing Log",
       "fioriicon": "step",
@@ -146,6 +159,7 @@
     },
     {
       "value": "Tab4",
+      "style": "SAP",
       "update": "Yes",
       "name": "Other Details",
       "fioriicon": "customer-view",
@@ -154,6 +168,7 @@
     },
     {
       "value": "Tab5",
+      "style": "SAP",
       "update": "Yes",
       "name": "Attachment",
       "fioriicon": "attachment",
@@ -243,6 +258,7 @@
       }
     }
   ],
+  "detailCharts": [],
   "cards": [],
   "ControlDisplay": {},
 

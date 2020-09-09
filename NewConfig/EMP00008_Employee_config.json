@@ -1,6 +1,7 @@
 {
   "Title": { "ApplicationTitle": "Expense", "DetailTitle": "Expense" },
   "Controls": {
+    "style": "SAP",
     "calculation": "Yes",
     "USP": "UserProfile",
     "StatusColor": "Yes",
@@ -106,13 +107,23 @@
   "Tabs": [
     {
       "value": "Tab0",
+      "style": "SAP",
       "update": "No",
       "name": "Cards",
       "type": "Cards",
       "fioriicon": "responsive"
     },
     {
+      "value": "Tab20",
+      "style": "SAP",
+      "update": "No",
+      "name": "Charts",
+      "type": "Charts",
+      "fioriicon": "business-objects-experience"
+    },
+    {
       "value": "Tab1",
+      "style": "SAP",
       "update": "Yes",
       "name": "Detail",
       "type": "Field",
@@ -120,6 +131,7 @@
     },
     {
       "value": "Tab2",
+      "style": "SAP",
       "update": "Yes",
       "name": "Expenses",
       "type": "Table",
@@ -127,6 +139,7 @@
     },
     {
       "value": "Tab5",
+      "style": "SAP",
       "update": "Yes",
       "name": "MultiAttachment",
       "fioriicon": "attachment",
@@ -136,6 +149,7 @@
     },
     {
       "value": "Tab4",
+      "style": "SAP",
       "update": "Yes",
       "name": "Process Log",
       "fioriicon": "step",
@@ -200,6 +214,8 @@
       }
     }
   ],
+
+  "detailCharts": [],
   "cards": [],
   "ControlDisplay": {},
   "tableConfig": {
@@ -375,6 +391,7 @@
         "iCurrency",
         "ItemStatus1"
       ],
+      "detailCharts": [],
       "cards": [
         {
           "type": "Example",
@@ -382,7 +399,7 @@
           "cardsubType": "Line",
           "cardID": "ALN01",
           "cardLevel": "tableData",
-          "template": "template_example_line.json",
+          "template": "template_sap_line.json",
           "title": "Expense Analysis",
           "subtitle": "Expenses details",
           "unitOfMeasurement": "GBP",
@@ -409,7 +426,7 @@
           "cardsubType": "StackedColumn",
           "cardID": "ASC01",
           "cardLevel": "tableData",
-          "template": "template_example_StackedColumn",
+          "template": "template_sap_StackedColumn",
           "title": "Expense Analysis",
           "subtitle": "Expenses details",
           "unitOfMeasurement": "GBP",
@@ -436,7 +453,7 @@
           "cardsubType": "StackedBar",
           "cardID": "ASB01",
           "cardLevel": "tableData",
-          "template": "template_example_StackedBar",
+          "template": "template_sap_StackedBar",
           "title": "Expense Analysis",
           "subtitle": "Expenses details",
           "unitOfMeasurement": "GBP",
@@ -463,7 +480,7 @@
           "cardsubType": "Donut",
           "cardID": "ADT01",
           "cardLevel": "tableData",
-          "template": "template_example_donut.json",
+          "template": "template_sap_donut.json",
           "title": "Expense Type Analysis",
           "analyticsCard": {
             "chartType": "donut",
@@ -476,19 +493,19 @@
         },
         {
           "type": "Example",
-          "template": "template_example_StackedBar.json"
+          "template": "template_sap_StackedBar.json"
         },
         {
           "type": "Example",
-          "template": "template_example_StackedColumn.json"
+          "template": "template_sap_StackedColumn.json"
         },
         {
           "type": "Example",
-          "template": "template_example_line.json"
+          "template": "template_sap_line.json"
         },
         {
           "type": "Example",
-          "template": "template_example_donut.json"
+          "template": "template_sap_donut.json"
         },
         {
           "type": "Example",
@@ -496,7 +513,7 @@
           "cardsubType": "ListNumeric",
           "cardID": "L001",
           "cardLevel": "tableData",
-          "template": "template_example_listNumeric.json",
+          "template": "template_sap_listNumeric.json",
           "mergedFields": {
             "Name": ["ExpenseDate", "ExpType"],
             "Description": ["ExpenseDetails", "ItemStatus1"]
@@ -514,7 +531,7 @@
           "cardsubType": "ListHighLight",
           "cardID": "L002",
           "cardLevel": "tableData",
-          "template": "template_example_listHighLight.json",
+          "template": "template_sap_listHighLight.json",
           "mergedFields": {
             "Name": ["@£", "ExpenseAmount", "@ ", "ExpType"],
             "Description": [
@@ -534,7 +551,7 @@
           "cardsubType": "MicrochartBullet",
           "cardID": "L003",
           "cardLevel": "tableData",
-          "template": "template_example_microchartBullet.json",
+          "template": "template_sap_microchartBullet.json",
           "mergedFields": {
             "Name": ["ExpType", "ExpenseDate"],
             "Description": ["ExpenseDetails", "ItemStatus1"]
@@ -548,67 +565,67 @@
         },
         {
           "type": "Example",
-          "template": "template_example_listBulletChart.json"
+          "template": "template_sap_listBulletChart.json"
         },
         {
           "type": "Example",
-          "template": "template_example_microchartStackedBar.json"
+          "template": "template_sap_microchartStackedBar.json"
         },
         {
           "type": "Example",
-          "template": "template_example_liststackedBar.json"
+          "template": "template_sap_liststackedBar.json"
         },
-        { "type": "Example", "template": "template_example_cardAction.json" },
-        { "type": "Example", "template": "template_example_object.json" },
+        { "type": "Example", "template": "template_sap_cardAction.json" },
+        { "type": "Example", "template": "template_sap_object.json" },
         {
           "type": "Example",
-          "template": "template_example_listHighLight.json"
+          "template": "template_sap_listHighLight.json"
         },
 
         {
           "type": "Example",
-          "template": "template_example_listNumeric.json"
+          "template": "template_sap_listNumeric.json"
         },
         {
           "type": "Example",
-          "template": "template_example_calander.json"
+          "template": "template_sap_calander.json"
         },
         {
           "type": "Example",
-          "template": "template_example_adaptiveCard.json"
+          "template": "template_sap_adaptiveCard.json"
         },
         {
           "type": "Example",
-          "template": "template_example_adaptiveForm.json"
+          "template": "template_sap_adaptiveForm.json"
         },
         {
           "type": "Example",
-          "template": "template_example_adaptivesubmitAction.json"
+          "template": "template_sap_adaptivesubmitAction.json"
         },
         {
           "type": "Example",
-          "template": "template_example_adaptiveMarkdown.json"
+          "template": "template_sap_adaptiveMarkdown.json"
         },
         {
           "type": "Example",
-          "template": "template_example_adaptiveopenURL.json"
+          "template": "template_sap_adaptiveopenURL.json"
         },
         {
           "type": "Example",
-          "template": "template_example_listicon.json"
+          "template": "template_sap_listicon.json"
         },
         {
           "type": "Example",
-          "template": "template_example_timeline.json"
+          "template": "template_sap_timeline.json"
         },
         {
           "type": "Example",
-          "template": "template_example_timeline2.json"
+          "template": "template_sap_timeline2.json"
         },
         {
           "type": "Example",
 
-          "template": "template_example_table.json"
+          "template": "template_sap_table.json"
         },
         {
           "type": "Table",

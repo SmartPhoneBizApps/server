@@ -1,6 +1,7 @@
 {
   "Title": { "ApplicationTitle": "Time Sheet", "DetailTitle": "Time Sheet" },
   "Controls": {
+    "style": "SAP",
     "calculation": "Yes",
     "USP": "UserProfile",
     "StatusColor": "Yes",
@@ -141,13 +142,23 @@
   "Tabs": [
     {
       "value": "Tab0",
+      "style": "SAP",
       "update": "No",
       "name": "Cards",
       "type": "Cards",
       "fioriicon": "responsive"
     },
     {
+      "value": "Tab20",
+      "style": "SAP",
+      "update": "No",
+      "name": "Charts",
+      "type": "Charts",
+      "fioriicon": "business-objects-experience"
+    },
+    {
       "value": "Tab4",
+      "style": "SAP",
       "update": "Yes",
       "name": "Daily Time",
       "fioriicon": "activity-items",
@@ -156,6 +167,7 @@
     },
     {
       "value": "Tab6",
+      "style": "SAP",
       "update": "Yes",
       "name": "Attachments",
       "fioriicon": "attachment",
@@ -168,6 +180,7 @@
     },
     {
       "value": "Tab5",
+      "style": "SAP",
       "update": "No",
       "name": "Process log",
       "fioriicon": "step",
@@ -225,6 +238,7 @@
       }
     }
   ],
+  "detailCharts": [],
   "cards": [],
   "ControlDisplay": {},
   "FieldDef": [
@@ -544,6 +558,7 @@
         "TotalHours",
         "ItemStatus1"
       ],
+      "detailCharts": [],
       "cards": [
         {
           "type": "Table",

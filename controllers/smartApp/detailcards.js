@@ -11,7 +11,11 @@ const {
   analyticalCard,
   listCard,
   adaptivetableCard,
+  countAnalyticalCard,
   adaptiveNew,
+  sumAnalyticalCard,
+  buildAnalyticalCard,
+  numericHeader,
 } = require("../../modules/moduleCards");
 const {
   getCard,
@@ -28,13 +32,11 @@ const {
 // @route     GET /api/v1/adaptiveCard_card/:id
 // @access    Public
 exports.getDetailCardsNew = async (req, res, next) => {
-  iStatus = 0;
-  iMessage = "";
-
   /// Possible values..
   pvappconfig = getPVConfig(req.params.app, req.params.role);
   qPV = getPVQuery(req.params.app, req.params.role, pvappconfig);
   let resPV = await qPV;
+  console.log("Stage1 - Read Poss Values - Done");
 
   // Initial values
   var ivalue = getInitialValues(req.params.app, req.params.role, req.user);
@@ -49,9 +51,11 @@ exports.getDetailCardsNew = async (req, res, next) => {
     ival.Value = o_val;
     ival_out.push(ival);
   }
+  console.log("Stage2 - Read Initial Values - Done");
 
-  outStru = {};
-  let appData = {};
+  iStatus = 0;
+  iMessage = "";
+  let appData = [];
   if (
     req.params.app !== undefined &&
     req.params.app !== "" &&
@@ -82,26 +86,83 @@ exports.getDetailCardsNew = async (req, res, next) => {
   } else {
     // Get list of records
   }
+  console.log("Stage3 - Run basic validations - Done");
 
+  // Get the Tab details for Charts
+  cTab = {};
+  iTab = [];
+  for (let n = 0; n < appconfig["Tabs"].length; n++) {
+    cTab["tabName"] = appconfig["Tabs"][n]["name"];
+    cTab["tab"] = appconfig["Tabs"][n]["value"];
+    cTab["style"] = appconfig["Tabs"][n]["style"];
+    cTab["type"] = appconfig["Tabs"][n]["type"];
+    cTab["Table"] = "";
+    iTab.push({ ...cTab });
+    cTab = {};
+  }
+
+  outStru = {};
+  outStru2 = {};
   // Header Cards...
-  counter = 0;
+  // Collect Charts & Graphs
+  if (appconfig.hasOwnProperty("detailCharts")) {
+    var mycard = appconfig["detailCharts"];
+    for (let k = 0; k < mycard.length; k++) {
+      if (mycard[k]["cardType"] == "Analytical") {
+        let cardTemplate =
+          "../../cards/cardConfig/template_sap_" +
+          myCard[k]["cardsubType"] +
+          ".json";
+        var cardData = JSON.stringify(require(cardTemplate));
+        cardData = cardReplace(
+          myCard[k],
+          cardData,
+          appconfig,
+          "header",
+          "Tab1"
+        );
+        var anacardConfig = JSON.parse(cardData);
+        jCard1 = {};
+        jCard1 = await analyticalCard(mycard[k], appData, anacardConfig);
+        outStru2["HCHART" + k] = { ...jCard1 };
+      }
+    }
+  }
+  // Header Cards...
+  // Collect Charts & Graphs
+  // if (appconfig.hasOwnProperty("cards")) {
+  //   var mycard = appconfig["cards"];
+  //   for (let k = 0; k < mycard.length; k++) {
+  //     if (mycard[k]["cardType"] == "Analytical") {
+  //       let cardTemplate =
+  //         "../../cards/cardConfig/template_sap_" +
+  //         myCard[k]["cardsubType"] +
+  //         ".json";
+  //       var cardData = JSON.stringify(require(cardTemplate));
+  //       cardData = cardReplace(
+  //         myCard[k],
+  //         cardData,
+  //         appconfig,
+  //         "header",
+  //         "Tab1"
+  //       );
+  //       var anacardConfig = JSON.parse(cardData);
+  //       jCard1 = {};
+
+  //       outStru["HCARD" + k] = { ...jCard1 };
+  //     }
+  //   }
+  // }
+
   if (appconfig.hasOwnProperty("cards")) {
     var mycard = appconfig["cards"];
     for (let k = 0; k < mycard.length; k++) {
-      counter = counter + 1;
-      let cardKey = getCardKey(req.params.app, req.params.role, counter, "H");
+      //   let cardKey = "HDR" + k;
       let cardConfigFile1 = "../../cards/cardConfig/" + mycard[k]["template"];
       var cardData = JSON.stringify(require(cardConfigFile1));
       cardData = cardReplace(mycard[k], cardData, appconfig, "header", "Tab1");
       var anacardConfig = JSON.parse(cardData);
       switch (mycard[k]["type"]) {
-        case "Analytical":
-          if (mycard[k]["analyticsCard"]["chartType"] == "donut") {
-            jCard1 = {};
-            jCard1 = await donutCardHead(mycard[k], appData, anacardConfig);
-            outStru[cardKey] = { ...jCard1 };
-          }
-          break;
         case "Adaptive":
           jCard1 = {};
           jCard1 = await adaptivecardCard(
@@ -116,14 +177,19 @@ exports.getDetailCardsNew = async (req, res, next) => {
       }
     }
   }
-
+  console.log("Stage4 - Header Cards - Done");
   //----------------------------------------------
   // Table Cards...
   let cardkey = "";
   tab = "Tab1";
+
+  // Collect Detail Fields for Adaptive Card
   for (const key in appconfig["tableConfig"]) {
+    console.log(key);
     for (let i = 0; i < appconfig["DetailFields"].length; i++) {
+      console.log(appconfig["DetailFields"][i]);
       for (const kc1 in appconfig["DetailFields"][i]) {
+        console.log(kc1, element);
         appconfig["DetailFields"][i][kc1].forEach((element) => {
           if (element == key) {
             tab = kc1;
@@ -132,7 +198,9 @@ exports.getDetailCardsNew = async (req, res, next) => {
       }
     }
 
-    console.log(key, tab);
+    console.log("Stage5 - Find Tab details for table - Done", key, tab);
+
+    // Add Adaptive Card..
     if (appconfig["tableConfig"][key]["ItemButtons"]["itemAdd"] == true) {
       aCard = {};
       aCard = await adaptiveNew(
@@ -151,11 +219,15 @@ exports.getDetailCardsNew = async (req, res, next) => {
       cardkey = "ADD_" + key;
 
       outStru[cardkey] = { ...aCard };
-      console.log(cardkey, outStru[cardkey]);
     }
+    console.log("Stage6 - Build  Adaptive Cards for Table - Done");
+
+    // Build data cards...
     // Step T1 - Check if data for the table is in the record
-    if (appData[key] == undefined) {
-      appData[key] = [];
+    if (appData.hasOwnProperty(key)) {
+      if (appData[key] == undefined) {
+        appData[key] = [];
+      }
     }
     // Step T2 - Find the tab ID Tab1, Tab2 etc from field name
     let tabx = "";
@@ -166,13 +238,12 @@ exports.getDetailCardsNew = async (req, res, next) => {
         }
       });
     }
-
-    // Step T3 - check if card setup is there for the table and loop the cards in the config file
+    console.log("Stage5 - Find Tab details for table - Done", key, tabx);
+    // Step T3A - check if card setup is there for the table and loop the cards in the config file
     if (appconfig["tableConfig"][key].hasOwnProperty("cards")) {
       for (let g = 0; g < appconfig["tableConfig"][key]["cards"].length; g++) {
         let cardKey = "";
         var mycard = appconfig["tableConfig"][key]["cards"][g];
-        counter = counter + 1;
         // Step T4 - Identify the CardID
         if (mycard["cardID"] !== undefined) {
           cardKey = getCardKey(
@@ -182,7 +253,7 @@ exports.getDetailCardsNew = async (req, res, next) => {
             "T"
           );
         } else {
-          cardKey = getCardKey(req.params.app, req.params.role, counter, "T");
+          cardKey = getCardKey(req.params.app, req.params.role, g, "T");
         }
         // Step T5 - Read card Template, Stringify, replace @values then parse back to javaObject
         // if (mycard["cardType"] != "AdaptiveForm") {
@@ -207,7 +278,7 @@ exports.getDetailCardsNew = async (req, res, next) => {
           case "Analytical":
             jCard1 = {};
             jCard1 = await analyticalCard(mycard, appData[key], anacardConfig);
-            outStru[cardKey] = { ...jCard1 };
+            outStru2[cardKey] = { ...jCard1 };
             break;
 
           case "List":
@@ -240,7 +311,7 @@ exports.getDetailCardsNew = async (req, res, next) => {
             if (mycard["analyticsCard"]["chartType"] == "donut") {
               jCard1 = {};
               jCard1 = await donutCard(mycard, appData[key], anacardConfig);
-              outStru[cardKey] = { ...jCard1 };
+              outStru2[cardKey] = { ...jCard1 };
             }
             if (mycard["analyticsCard"]["chartType"] == "line") {
               jCard1 = {};
@@ -268,10 +339,73 @@ exports.getDetailCardsNew = async (req, res, next) => {
         }
       }
     }
+    console.log("01 - Build  New Analy Cards for Table");
+    // Step T3B - check if card setup is there for the table and loop the cards in the config file
+    if (appconfig["tableConfig"][key].hasOwnProperty("detailCharts")) {
+      for (
+        let x = 0;
+        x < appconfig["tableConfig"][key]["detailCharts"].length;
+        x++
+      ) {
+        console.log("detailCharts", key);
+        var myCard = appconfig["tableConfig"][key]["detailCharts"][x];
+        aCard = {};
+        switch (myCard["Data"]["operation"]) {
+          case "COUNT":
+            list = await countAnalyticalCard(
+              myCard,
+              appData[key],
+              "COUNT",
+              appconfig["tableConfig"][key]["ItemFieldDefinition"]
+            );
+            numheader = await numericHeader(myCard, list, "COUNT");
+            aCard = await buildAnalyticalCard(myCard, list, numheader);
+            var cardData = JSON.stringify(aCard);
+            cardData = cardReplace(myCard, cardData, appconfig, key, tabx);
+            aCard = JSON.parse(cardData);
+            outStru2["DCHART-A" + x] = { ...aCard };
+            break;
+          case "COLLECTIVE":
+            list = await countAnalyticalCard(
+              myCard,
+              appData[key],
+              "COLLECTIVE",
+              appconfig["tableConfig"][key]["ItemFieldDefinition"]
+            );
+            numheader = await numericHeader(myCard, list, "COLLECTIVE");
+            aCard = await buildAnalyticalCard(myCard, list, numheader);
+            var cardData = JSON.stringify(aCard);
+            cardData = cardReplace(myCard, cardData, appconfig, key, tabx);
+            aCard = JSON.parse(cardData);
+            outStru2["DCHART-B" + x] = { ...aCard };
+            break;
+          case "SUM":
+            list = await sumAnalyticalCard(
+              appconfig["listCards"][x],
+              outData["data"]
+            );
+            break;
+
+          default:
+            list = await countAnalyticalCard(
+              myCard,
+              appData[key],
+              "COUNT",
+              appconfig["tableConfig"][key]["ItemFieldDefinition"]
+            );
+            numheader = await numericHeader(myCard, list, "COUNT");
+            aCard = await buildAnalyticalCard(myCard, list, numheader);
+            var cardData = JSON.stringify(aCard);
+            cardData = cardReplace(myCard, cardData, appconfig, key, tabx);
+            aCard = JSON.parse(cardData);
+            outStru2["DCHART-C" + x] = { ...aCard };
+            break;
+        }
+      }
+    }
   }
 
   // Global Cards
-  //
   let fg1 = "../../cards/cardConfig/template_timeline.json";
   var GlobalCardConfig = require(fg1);
   if (appData["TransLog"].length > 0) {
@@ -284,6 +418,8 @@ exports.getDetailCardsNew = async (req, res, next) => {
     success: true,
     record: appData,
     data: outStru,
+    tabs: iTab,
+    charts: outStru2,
     config: appconfig,
   });
 };

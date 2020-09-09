@@ -4,6 +4,7 @@
     "DetailTitle": "Shopping Cart"
   },
   "Controls": {
+    "style": "SAP",
     "calculation": "Yes",
     "USP": "UserProfile",
     "StatusColor": "Yes",
@@ -116,13 +117,23 @@
   "Tabs": [
     {
       "value": "Tab0",
+      "style": "SAP",
       "update": "No",
       "name": "Cards",
       "type": "Cards",
       "fioriicon": "responsive"
     },
     {
+      "value": "Tab20",
+      "style": "SAP",
+      "update": "No",
+      "name": "Charts",
+      "type": "Charts",
+      "fioriicon": "business-objects-experience"
+    },
+    {
       "value": "Tab1",
+      "style": "SAP",
       "update": "Yes",
       "name": "SC",
       "type": "Field",
@@ -131,6 +142,7 @@
     },
     {
       "value": "Tab2",
+      "style": "SAP",
       "update": "Yes",
       "name": "Delivery",
       "type": "Field",
@@ -139,6 +151,7 @@
     },
     {
       "value": "Tab3",
+      "style": "SAP",
       "update": "Yes",
       "name": "Item",
       "fioriicon": "notes",
@@ -147,6 +160,7 @@
     },
     {
       "value": "Tab4",
+      "style": "SAP",
       "update": "Yes",
       "name": "Process Log",
       "fioriicon": "step",
@@ -155,6 +169,7 @@
     },
     {
       "value": "Tab5",
+      "style": "SAP",
       "update": "Yes",
       "name": "MultiAttachment",
       "fioriicon": "attachment",
@@ -265,6 +280,7 @@
       }
     }
   ],
+  "detailCharts": [],
   "cards": [],
   "ControlDisplay": {},
   "FieldDef": [
@@ -577,6 +593,7 @@
         "ItemStatus1",
         "Category"
       ],
+      "detailCharts": [],
       "cards": [
         {
           "type": "Table",
@@ -607,7 +624,7 @@
           "cardsubType": "MicrochartBullet",
           "cardID": "L001",
           "cardLevel": "tableData",
-          "template": "template_example_microchartBullet.json",
+          "template": "template_sap_microchartBullet.json",
           "mergedFields": {
             "Name": ["ItemNumber", "ItemName"],
             "Description": ["Category", "ItemStatus1"]
@@ -625,7 +642,7 @@
           "cardsubType": "ListBulletChart",
           "cardID": "L002",
           "cardLevel": "tableData",
-          "template": "template_example_listBulletChart.json",
+          "template": "template_sap_listBulletChart.json",
           "mergedFields": {
             "Name": ["ItemNumber", "ItemName"],
             "Description": ["Category", "ItemStatus1"]
@@ -643,7 +660,7 @@
           "cardsubType": "ListstackedBar",
           "cardID": "L003",
           "cardLevel": "tableData",
-          "template": "template_example_liststackedBar.json",
+          "template": "template_sap_liststackedBar.json",
           "mergedFields": {
             "Name": ["ItemNumber", "ItemName", "Category"]
           },
@@ -660,7 +677,7 @@
           "cardsubType": "MicrochartStackedBar",
           "cardID": "L004",
           "cardLevel": "tableData",
-          "template": "template_example_microchartStackedBar.json",
+          "template": "template_sap_microchartStackedBar.json",
           "mergedFields": {
             "Name": ["ItemNumber", "ItemName", "Category"]
           },
@@ -673,7 +690,7 @@
         },
         {
           "type": "Example",
-          "template": "template_example_liststackedBar.json"
+          "template": "template_sap_liststackedBar.json"
         }
       ],
       "ItemButtons": {

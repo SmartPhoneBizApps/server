@@ -4,6 +4,7 @@
     "DetailTitle": "Approve Travel Request"
   },
   "Controls": {
+    "style": "SAP",
     "calculation": "No",
     "USP": "UserProfile",
     "StatusColor": "Yes",
@@ -161,15 +162,25 @@
     }
   ],
   "Tabs": [
-    {
-      "value": "Tab0",
-      "update": "No",
-      "name": "Cards",
-      "type": "Cards",
-      "fioriicon": "responsive"
-    },
+{
+    "value": "Tab0",
+    "style": "SAP",
+    "update": "No",
+    "name": "Cards",
+    "type": "Cards",
+    "fioriicon": "responsive"
+  },
+  {
+    "value": "Tab20",
+    "style": "SAP",
+    "update": "No",
+    "name": "Charts",
+    "type": "Charts",
+    "fioriicon": "business-objects-experience"
+  },
     {
       "value": "Tab1",
+      "style": "SAP",
       "update": "No",
       "name": "Travel details",
       "type": "Field",
@@ -178,6 +189,7 @@
     },
     {
       "value": "Tab2",
+      "style": "SAP",
       "update": "No",
       "name": "Stay details",
       "type": "Field",
@@ -186,6 +198,7 @@
     },
     {
       "value": "Tab3",
+      "style": "SAP",
       "update": "No",
       "name": "Processing Log",
       "fioriicon": "step",
@@ -194,6 +207,7 @@
     },
     {
       "value": "Tab4",
+      "style": "SAP",
       "update": "No",
       "name": "Other Details",
       "fioriicon": "customer-view",
@@ -202,6 +216,7 @@
     },
     {
       "value": "Tab5",
+      "style": "SAP",
       "update": "No",
       "name": "Attachment",
       "fioriicon": "attachment",
