@@ -278,45 +278,45 @@ exports.listrecordsnew = asyncHandler(async (req, res, next) => {
     //let config = nConfig(applicationId, req, appconfig);
 
     if (mode == "BOTList") {
-      if (applicationId == "SUPP00018" || applicationId == "SUPP00028") {
-        for (let w = 0; w < oResult.length; w++) {
-          buttonData = getButtonData(
-            resPV,
-            applicationId,
-            businessrole,
-            oResult[w],
-            req.user
-          );
-          let myButton = [];
-          if (oResult[w].hasOwnProperty("CurrentStatus")) {
-            myButton = buttonData[oResult[w]["CurrentStatus"]];
-          }
-          if (myButton == undefined) {
-            myButton = [];
-          }
-          oResult[w]["buttons"] = myButton;
-        }
-      } else {
-        for (let w = 0; w < oResult.length; w++) {
-          buttonData = getButtonData(
-            statusPV,
-            applicationId,
-            businessrole,
-            oResult[w],
-            req.user
-          );
+      // if (applicationId == "SUPP00018" || applicationId == "SUPP00028") {
+      //   for (let w = 0; w < oResult.length; w++) {
+      //     buttonData = getButtonData(
+      //       resPV,
+      //       applicationId,
+      //       businessrole,
+      //       oResult[w],
+      //       req.user
+      //     );
+      //     let myButton = [];
+      //     if (oResult[w].hasOwnProperty("CurrentStatus")) {
+      //       myButton = buttonData[oResult[w]["CurrentStatus"]];
+      //     }
+      //     if (myButton == undefined) {
+      //       myButton = [];
+      //     }
+      //     oResult[w]["buttons"] = myButton;
+      //   }
+      // } else {
+      for (let w = 0; w < oResult.length; w++) {
+        buttonData = getButtonData(
+          statusPV,
+          applicationId,
+          businessrole,
+          oResult[w],
+          req.user
+        );
 
-          let myButton = [];
-          if (oResult[w]["Status"] !== undefined) {
-            console.log(oResult[w]["Status"]);
-            myButton = buttonData[oResult[w]["Status"]];
-            console.log(myButton);
-          }
-          if (myButton == undefined) {
-            myButton = [];
-          }
-          oResult[w]["buttons"] = myButton;
+        let myButton = [];
+        if (oResult[w]["Status"] !== undefined) {
+          console.log(oResult[w]["Status"]);
+          myButton = buttonData[oResult[w]["Status"]];
+          console.log(myButton);
         }
+        if (myButton == undefined) {
+          myButton = [];
+        }
+        oResult[w]["buttons"] = myButton;
+        //      }
       }
     }
     outData = {};
