@@ -844,12 +844,57 @@ module.exports = {
     buttonData = {};
     var button = {};
     button = require("../bot/BOT_button.json");
-    if (app == "SUPP00028" || app == "SUPP00018") {
-      results.forEach((element) => {
-        if (element.PossibleValues == "CurrentStatus") {
+    // if (app == "SUPP00028" || app == "SUPP00018") {
+    //   results.forEach((element) => {
+    //     if (element.PossibleValues == "CurrentStatus") {
+    //       for (const key in button[app][element.Value]) {
+    //         if (button[app][element.Value].hasOwnProperty(key)) {
+    //           const element1 = button[app][element.Value][key];
+    //           if (key == role1) {
+    //             buttonData[element.Value] = element1;
+    //           } else if (key == "ALL") {
+    //             buttonData[element.Value] = element1;
+    //           }
+    //         }
+    //       }
+    //     }
+    //   });
+    // } else {
+    results.forEach((element) => {
+      if (element.PossibleValues == "Status") {
+        if (button[app] != undefined) {
           for (const key in button[app][element.Value]) {
             if (button[app][element.Value].hasOwnProperty(key)) {
               const element1 = button[app][element.Value][key];
+              for (let q = 0; q < element1.length; q++) {
+                if (element1[q]["type"] == "postBack") {
+                  var n = app.length - 3;
+                  kng =
+                    app.slice(0, 3) +
+                    "_" +
+                    role1.slice(0, 3) +
+                    "_" +
+                    app.substr(n, 3);
+
+                  klg = element1[q]["title"].replace(/\s/g, "");
+                  element1[q]["payload"] =
+                    kng.toUpperCase() + "-" + klg.toLowerCase();
+                }
+                if (element1[q]["type"] == "web_url" && oData !== undefined) {
+                  element1[q]["messenger_extensions"] = "true";
+                  element1[q]["url"] =
+                    "https://smartphonebizapps.com/smartphoneappswebview/?view=webDisplay&app=" +
+                    app +
+                    "&role=" +
+                    role1 +
+                    "&transID=" +
+                    oData["_id"] +
+                    "&user=" +
+                    user["email"];
+                  var n = app.length - 3;
+                }
+              }
+
               if (key == role1) {
                 buttonData[element.Value] = element1;
               } else if (key == "ALL") {
@@ -858,54 +903,9 @@ module.exports = {
             }
           }
         }
-      });
-    } else {
-      results.forEach((element) => {
-        if (element.PossibleValues == "Status") {
-          if (button[app] != undefined) {
-            for (const key in button[app][element.Value]) {
-              if (button[app][element.Value].hasOwnProperty(key)) {
-                const element1 = button[app][element.Value][key];
-                for (let q = 0; q < element1.length; q++) {
-                  if (element1[q]["type"] == "postBack") {
-                    var n = app.length - 3;
-                    kng =
-                      app.slice(0, 3) +
-                      "_" +
-                      role1.slice(0, 3) +
-                      "_" +
-                      app.substr(n, 3);
-
-                    klg = element1[q]["title"].replace(/\s/g, "");
-                    element1[q]["payload"] =
-                      kng.toUpperCase() + "-" + klg.toLowerCase();
-                  }
-                  if (element1[q]["type"] == "web_url" && oData !== undefined) {
-                    element1[q]["messenger_extensions"] = "true";
-                    element1[q]["url"] =
-                      "https://smartphonebizapps.com/smartphoneappswebview/?view=webDisplay&app=" +
-                      app +
-                      "&role=" +
-                      role1 +
-                      "&transID=" +
-                      oData["_id"] +
-                      "&user=" +
-                      user["email"];
-                    var n = app.length - 3;
-                  }
-                }
-
-                if (key == role1) {
-                  buttonData[element.Value] = element1;
-                } else if (key == "ALL") {
-                  buttonData[element.Value] = element1;
-                }
-              }
-            }
-          }
-        }
-      });
-    }
+      }
+    });
+    //    }
     return buttonData;
   },
   getBotListFields: function (config1) {
