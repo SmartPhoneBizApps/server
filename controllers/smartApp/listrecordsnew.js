@@ -350,6 +350,8 @@ exports.listrecordsnew = asyncHandler(async (req, res, next) => {
       });
     }
     if (mode == "listcards") {
+
+      // 01 - CARD ADAPTIVE CARDS (LIST SCREEN)
       for (let w = 0; w < appconfig["MButtons"].length; w++) {
         if (appconfig["MButtons"][w]["type"] == "ADD") {
           aCard = {};
@@ -369,11 +371,11 @@ exports.listrecordsnew = asyncHandler(async (req, res, next) => {
           outStru["ADD01"] = { ...aCard };
         }
       }
-
       aCard = {};
       aCard = await analyticalNew(appconfig, outData["data"]);
       outStru["ANA01"] = { ...aCard };
 
+      // 02 - CARD Analytical Card (LIST SCREEN)
       if (appconfig.hasOwnProperty("listCards")) {
         for (let x = 0; x < appconfig["listCards"].length; x++) {
           myCard = appconfig["listCards"][x];
@@ -450,41 +452,41 @@ exports.listrecordsnew = asyncHandler(async (req, res, next) => {
         }
       }
 
-      if (appconfig.hasOwnProperty("listCards")) {
-        var myCard = appconfig["listCards"];
-        for (let k = 0; k < myCard.length; k++) {
-          counter = counter + 1;
-          let cardKey = getCardKey(applicationId, businessrole, counter, "L");
-          let cardTemplate =
-            "../../cards/cardConfig/template_sap_" +
-            myCard[k]["cardsubType"] +
-            ".json";
-          var cardData = JSON.stringify(require(cardTemplate));
-          cardData = cardReplace(
-            myCard[k],
-            cardData,
-            appconfig,
-            "header",
-            "Tab1"
-          );
-          var anacardConfig = JSON.parse(cardData);
-          switch (myCard[k]["cardType"]) {
-            case "Analytical":
-              jCard1 = {};
-              jCard1 = await analyticalCard(
-                myCard[k],
-                outData["data"],
-                anacardConfig,
-                "SAP"
-              );
-              console.log("AA", anacardConfig);
-              outStru[cardKey] = { ...jCard1 };
-              break;
-            default:
-              break;
-          }
-        }
-      }
+      // if (appconfig.hasOwnProperty("listCards")) {
+      //   var myCard = appconfig["listCards"];
+      //   for (let k = 0; k < myCard.length; k++) {
+      //     counter = counter + 1;
+      //     let cardKey = getCardKey(applicationId, businessrole, counter, "L");
+      //     let cardTemplate =
+      //       "../../cards/cardConfig/template_sap_" +
+      //       myCard[k]["cardsubType"] +
+      //       ".json";
+      //     var cardData = JSON.stringify(require(cardTemplate));
+      //     cardData = cardReplace(
+      //       myCard[k],
+      //       cardData,
+      //       appconfig,
+      //       "header",
+      //       "Tab1"
+      //     );
+      //     var anacardConfig = JSON.parse(cardData);
+      //     switch (myCard[k]["cardType"]) {
+      //       case "Analytical":
+      //         jCard1 = {};
+      //         jCard1 = await analyticalCard(
+      //           myCard[k],
+      //           outData["data"],
+      //           anacardConfig,
+      //           "SAP"
+      //         );
+      //         console.log("AA", anacardConfig);
+      //         outStru[cardKey] = { ...jCard1 };
+      //         break;
+      //       default:
+      //         break;
+      //     }
+      //   }
+      // }
       res.status(200).json({
         outData,
         possibleValues: resPV,
