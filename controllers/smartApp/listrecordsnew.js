@@ -475,7 +475,7 @@ exports.listrecordsnew = asyncHandler(async (req, res, next) => {
                 myCard[k],
                 outData["data"],
                 anacardConfig,
-                appconfig["Controls"]["style"]
+                "SAP"
               );
               console.log("AA", anacardConfig);
               outStru[cardKey] = { ...jCard1 };
