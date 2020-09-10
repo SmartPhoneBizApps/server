@@ -472,7 +472,8 @@ exports.getListrecords1 = asyncHandler(async (req, res, next) => {
               jCard1 = await analyticalCard(
                 myCard[k],
                 outData["data"],
-                anacardConfig
+                anacardConfig,
+                appconfig["Controls"]["style"]
               );
               outStru[cardKey] = { ...jCard1 };
               break;

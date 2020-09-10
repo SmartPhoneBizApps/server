@@ -474,8 +474,10 @@ exports.listrecordsnew = asyncHandler(async (req, res, next) => {
               jCard1 = await analyticalCard(
                 myCard[k],
                 outData["data"],
-                anacardConfig
+                anacardConfig,
+                appconfig["Controls"]["style"]
               );
+              console.log("AA", anacardConfig);
               outStru[cardKey] = { ...jCard1 };
               break;
             default:

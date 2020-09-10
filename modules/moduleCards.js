@@ -106,95 +106,100 @@ module.exports = {
     adCard["sap.card"]["content"]["actions"] = cardaction["actions"];
     return adCard;
   },
-  analyticalCard: async function (mycard, appData1, anacardConfig) {
+  analyticalCard: async function (mycard, appData1, anacardConfig, style) {
     let mydc2 = {};
     let json1 = {};
     list1 = [];
     list1x = {};
     var set1 = new Set();
-    if (mycard["cardsubType"] == "Donut") {
-      for (let q = 0; q < appData1.length; q++) {
-        set1.add(
-          appData1[q][mycard["analyticsCard"]["cardsDonut"]["measureName"]]
-        );
-      }
-      set1.forEach((val) => {
-        mydc2["measureName"] = val;
-        mydc2["Value2"] = 0;
+    if (style == "SAP") {
+      if (mycard["cardsubType"] == "Donut") {
         for (let q = 0; q < appData1.length; q++) {
-          if (
-            appData1[q][mycard["analyticsCard"]["cardsDonut"]["measureName"]] ==
-              val &&
-            mycard["analyticsCard"]["cardsDonut"]["function"] == "SUM"
-          ) {
-            mydc2["Value2"] =
-              Number(mydc2["Value2"]) +
-              Number(
-                appData1[q][mycard["analyticsCard"]["cardsDonut"]["Value2"]]
-              );
-          }
-          if (
-            appData1[q][mycard["analyticsCard"]["cardsDonut"]["measureName"]] ==
-              val &&
-            mycard["analyticsCard"]["cardsDonut"]["function"] == "COUNT"
-          ) {
-            mydc2["Value2"] = Number(mydc2["Value2"]) + 1;
-          }
+          set1.add(
+            appData1[q][mycard["analyticsCard"]["cardsDonut"]["measureName"]]
+          );
         }
-        list1.push({ ...mydc2 });
-        mydc2 = {};
-      });
-      json1 = { ...anacardConfig["sap.card"].content.data.json };
-      json1["list"] = list1;
-      anacardConfig["sap.card"].content.data.json = {
-        ...json1,
-      };
-    }
-    if (
-      mycard["cardsubType"] == "Line" ||
-      mycard["cardsubType"] == "StackedBar" ||
-      mycard["cardsubType"] == "StackedColumn"
-    ) {
-      let j_number = 10;
-      let trend1 = "Down";
-      let state1 = "Error";
-      let details1 = "2019-2020";
-      head1 = {};
-      head1 = { ...anacardConfig["sap.card"].header };
-      json1 = {
-        ...anacardConfig["sap.card"].content.data.json,
-      };
-      for (let q = 0; q < appData1.length; q++) {
-        for (const k1 in mycard["itemvalueMap"]) {
-          const ek1 = mycard["itemvalueMap"][k1];
-          if (appData1[q][ek1] != undefined) {
-            list1x[k1] = appData1[q][ek1];
-          } else {
-            list1x[k1] = 0;
+        set1.forEach((val) => {
+          mydc2["measureName"] = val;
+          mydc2["Value2"] = 0;
+          for (let q = 0; q < appData1.length; q++) {
+            if (
+              appData1[q][
+                mycard["analyticsCard"]["cardsDonut"]["measureName"]
+              ] == val &&
+              mycard["analyticsCard"]["cardsDonut"]["function"] == "SUM"
+            ) {
+              mydc2["Value2"] =
+                Number(mydc2["Value2"]) +
+                Number(
+                  appData1[q][mycard["analyticsCard"]["cardsDonut"]["Value2"]]
+                );
+            }
+            if (
+              appData1[q][
+                mycard["analyticsCard"]["cardsDonut"]["measureName"]
+              ] == val &&
+              mycard["analyticsCard"]["cardsDonut"]["function"] == "COUNT"
+            ) {
+              mydc2["Value2"] = Number(mydc2["Value2"]) + 1;
+            }
           }
-        }
-        for (const k1 in mycard["itemkeyMap"]) {
-          const ek1 = mycard["itemkeyMap"][k1];
-          if (appData1[q][ek1] != undefined) {
-            list1x[k1] = appData1[q][ek1];
-          } else {
-            list1x[k1] = "NA";
-          }
-        }
-        list1.push({ ...list1x });
+          list1.push({ ...mydc2 });
+          mydc2 = {};
+        });
+        json1 = { ...anacardConfig["sap.card"].content.data.json };
+        json1["list"] = list1;
+        anacardConfig["sap.card"].content.data.json = {
+          ...json1,
+        };
       }
-      json1["list"] = list1;
-      anacardConfig["sap.card"].content.data.json.list = list1;
-      js1 = {};
-      js1 = { ...anacardConfig["sap.card"].header.data.json };
-      js1["number"] = j_number;
-      js1["trend"] = trend1;
-      js1["state"] = state1;
-      js1["details"] = details1;
-      head1["data"]["json"] = { ...js1 };
-      js1 = {};
-      anacardConfig["sap.card"].header = { ...head1 };
-      head1 = {};
+      if (
+        mycard["cardsubType"] == "Line" ||
+        mycard["cardsubType"] == "StackedBar" ||
+        mycard["cardsubType"] == "StackedColumn"
+      ) {
+        let j_number = 10;
+        let trend1 = "Down";
+        let state1 = "Error";
+        let details1 = "2019-2020";
+        head1 = {};
+        head1 = { ...anacardConfig["sap.card"].header };
+        json1 = {
+          ...anacardConfig["sap.card"].content.data.json,
+        };
+        for (let q = 0; q < appData1.length; q++) {
+          for (const k1 in mycard["itemvalueMap"]) {
+            const ek1 = mycard["itemvalueMap"][k1];
+            if (appData1[q][ek1] != undefined) {
+              list1x[k1] = appData1[q][ek1];
+            } else {
+              list1x[k1] = 0;
+            }
+          }
+          for (const k1 in mycard["itemkeyMap"]) {
+            const ek1 = mycard["itemkeyMap"][k1];
+            if (appData1[q][ek1] != undefined) {
+              list1x[k1] = appData1[q][ek1];
+            } else {
+              list1x[k1] = "NA";
+            }
+          }
+          list1.push({ ...list1x });
+        }
+        json1["list"] = list1;
+        anacardConfig["sap.card"].content.data.json.list = list1;
+        js1 = {};
+        js1 = { ...anacardConfig["sap.card"].header.data.json };
+        js1["number"] = j_number;
+        js1["trend"] = trend1;
+        js1["state"] = state1;
+        js1["details"] = details1;
+        head1["data"]["json"] = { ...js1 };
+        js1 = {};
+        anacardConfig["sap.card"].header = { ...head1 };
+        head1 = {};
+      }
+    } else {
     }
 
     list1 = [];
@@ -1237,7 +1242,6 @@ module.exports = {
         console.log("f_typ", f_typ);
       }
     }
-
     // Perform Sorting..
     switch (f_typ) {
       case "string":
@@ -1425,18 +1429,30 @@ module.exports = {
     hdr["details"] = myCard["numericHeader"]["details"];
     return hdr;
   },
-  buildAnalyticalCard: async function (myCard, list, numheader) {
-    let cardTemplate =
-      "../cards/cardConfig/template_sap_" + myCard["cardsubType"] + ".json";
+  buildAnalyticalCard: async function (myCard, list, numheader, style) {
+    let cardTemplate = {};
+    if (style == "SAP") {
+      cardTemplate =
+        "../cards/cardConfig/template_sap_" + myCard["cardsubType"] + ".json";
+    } else {
+      cardTemplate =
+        "../cards/cardConfig/template_google_" +
+        myCard["cardsubType"] +
+        ".json";
+    }
+
     let anacardConfig = require(cardTemplate);
-    anacardConfig["sap.card"].content.data.json.list = list;
-    js1 = { ...anacardConfig["sap.card"].header.data.json };
-    js1["number"] = numheader["number"];
-    js1["trend"] = numheader["trend"];
-    js1["state"] = numheader["state"];
-    js1["details"] = numheader["details"];
-    anacardConfig["sap.card"]["header"]["data"]["json"] = { ...js1 };
-    js1 = {};
+    if (style == "SAP") {
+      anacardConfig["sap.card"].content.data.json.list = list;
+      js1 = { ...anacardConfig["sap.card"].header.data.json };
+      js1["number"] = numheader["number"];
+      js1["trend"] = numheader["trend"];
+      js1["state"] = numheader["state"];
+      js1["details"] = numheader["details"];
+      anacardConfig["sap.card"]["header"]["data"]["json"] = { ...js1 };
+      js1 = {};
+    }
+
     return anacardConfig;
   },
 };
