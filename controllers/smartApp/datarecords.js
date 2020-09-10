@@ -20,6 +20,7 @@ const {
   tableValidate,
   processingLog,
   generateID,
+  getDateValues,
 } = require("../../modules/config");
 const { checkMultiAttachments } = require("../../modules/moduleValidate");
 const calfunction = require("../../models/utilities/calfunction.js");
@@ -182,6 +183,10 @@ exports.addDataRecords = asyncHandler(async (req, res, next) => {
       req.body.ItemData[index]["ID"] = req.body.ID;
     }
   }
+  for (const key in req.body) {
+    req.body[key] = getDateValues(req.body[key]);
+  }
+
   mydata = req.body;
   // Read Card Configuration for the Role (X1)
   if (req.headers.fieldnames == "X") {

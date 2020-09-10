@@ -27,7 +27,6 @@
       ]
     }
   },
-
   "ListFields": {
     "IntroField": "ID",
     "TitleField": "VendorName",
@@ -204,7 +203,6 @@
     "Tab3": ["iData"],
     "Tab5": ["MultiAttachments"]
   },
-
   "listCards": [
     {
       "cardType": "Analytical",
@@ -497,20 +495,15 @@
           "type": "string",
           "width": "10",
           "SLabel": "Item Number",
+          "Option": "Optional",
           "Update": "No"
-        },
-        {
-          "name": "ItemStatus1",
-          "type": "string",
-          "width": "50",
-          "SLabel": "Item Status",
-          "Update": "Yes"
         },
         {
           "name": "Category",
           "type": "string",
           "width": "50",
           "SLabel": "Category",
+          "Option": "Mandatory",
           "Update": "Yes"
         },
         {
@@ -518,6 +511,7 @@
           "type": "string",
           "width": "100",
           "SLabel": "item Name",
+          "Option": "Mandatory",
           "Update": "Yes"
         },
         {
@@ -525,6 +519,7 @@
           "type": "Num,2",
           "width": "100",
           "SLabel": "Item Price",
+          "Option": "Mandatory",
           "Update": "Yes"
         },
         {
@@ -532,6 +527,7 @@
           "type": "Num,2",
           "width": "100",
           "SLabel": "Item Quantity",
+          "Option": "Mandatory",
           "Update": "Yes"
         },
         {
@@ -539,13 +535,15 @@
           "type": "Num,2",
           "width": "100",
           "SLabel": "Item Value",
-          "Update": "No"
+          "Update": "No",
+          "Option": "Optional"
         },
         {
           "name": "iVAT",
           "type": "Num,2",
           "width": "100",
-          "SLabel": "Item Value Added Tax",
+          "SLabel": "VAT/Tax Rate",
+          "Option": "Mandatory",
           "Update": "Yes"
         },
         {
@@ -553,6 +551,7 @@
           "type": "Num,2",
           "width": "100",
           "SLabel": "Item Gross Value",
+          "Option": "Optional",
           "Update": "No"
         },
         {
@@ -560,6 +559,7 @@
           "type": "Num,2",
           "width": "100",
           "SLabel": "Item Tax Rate",
+          "Option": "Optional",
           "Update": "Yes"
         },
         {
@@ -567,7 +567,16 @@
           "type": "Num,3",
           "width": "20",
           "SLabel": "Item VAT Value",
+          "Option": "Optional",
           "Update": "No"
+        },
+        {
+          "name": "ItemStatus1",
+          "type": "string",
+          "width": "50",
+          "SLabel": "Item Status",
+          "Option": "Mandatory",
+          "Update": "Yes"
         }
       ],
       "DisplayFields": [
