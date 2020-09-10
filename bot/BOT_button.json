@@ -183,7 +183,8 @@
       "HealthCareProfessional": [
         {
           "title": "Create Invoice",
-          "action": "action_var-createinvoice transID"
+          "type": "postBack",
+          "payload": ["action_var", "-createinvoice", "transID"]
         }
       ],
       "Purchaser": [

@@ -21,6 +21,7 @@ const {
   processingLog,
   generateID,
   getDateValues,
+  getInitialValues,
 } = require("../../modules/config");
 const { checkMultiAttachments } = require("../../modules/moduleValidate");
 const calfunction = require("../../models/utilities/calfunction.js");
@@ -51,6 +52,23 @@ exports.addDataRecords = asyncHandler(async (req, res, next) => {
     req.headers.businessrole
   );
 
+  // Initial values
+  var ivalue = getInitialValues(
+    req.headers.applicationid,
+    req.headers.businessrole,
+    req.user
+  );
+  let ival_out = [];
+  let ival = {};
+  let out = {};
+  for (let i = 0; i < ivalue.length; i++) {
+    ival = {};
+    const element = ivalue[i];
+    ival = { ...element };
+    o_val = getDateValues(ival.Value);
+    ival.Value = o_val;
+    ival_out.push(ival);
+  }
   // Set Partner field
   if (cardConfig.Controls.hasOwnProperty("Partner")) {
     if (cardConfig.Controls.Partner == "@user") {
@@ -183,8 +201,27 @@ exports.addDataRecords = asyncHandler(async (req, res, next) => {
       req.body.ItemData[index]["ID"] = req.body.ID;
     }
   }
+
+  // Update data values example @currentDate
   for (const key in req.body) {
     req.body[key] = getDateValues(req.body[key]);
+  }
+  // add initial values if user as not provided it..
+  for (let a = 0; a < ival_out.length; a++) {
+    for (let b = 0; b < cardConfig["FieldDef"].length; b++) {
+      if (cardConfig["FieldDef"][b]["name"] == ival_out[a]["Field"]) {
+        if (req.body.hasOwnProperty(ival_out[a]["Field"])) {
+          console.log("USer provided input for: ", ival_out[a]["Field"]);
+        } else {
+          req.body[ival_out[a]["Field"]] = ival_out[a]["Value"];
+          console.log(
+            "User default value added for:",
+            ival_out[a]["Field"],
+            ival_out[a]["Value"]
+          );
+        }
+      }
+    }
   }
 
   mydata = req.body;
@@ -608,6 +645,10 @@ exports.updateDataRecords = asyncHandler(async (req, res, next) => {
     Status = req.body.Status;
   } else {
     Status = "NoChange";
+  }
+  // Update data values example @currentDate
+  for (const key in req.body) {
+    req.body[key] = getDateValues(req.body[key]);
   }
 
   req.body.TransLog = processingLog(
