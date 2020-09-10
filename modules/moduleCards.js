@@ -1159,8 +1159,7 @@ module.exports = {
     }
     return aCard;
   },
-  //---------------------------------------------------------------------
-  analyticalNew: async function (appconfig, outData) {
+  analyticalNew: async function (appconfig, outData, style) {
     var deCard;
     let cardConfigFile1;
     if (appconfig["Controls"].hasOwnProperty("defaultGraph")) {
@@ -1168,19 +1167,39 @@ module.exports = {
     } else {
       deCard = "StackedBar";
     }
-    switch (deCard) {
-      case "StackedBar":
-        cardConfigFile1 = "../cards/cardConfig/template_sap_StackedBar.json";
-        break;
-      case "StackedColumn":
-        cardConfigFile1 = "../cards/cardConfig/template_sap_StackedColumn.json";
-        break;
-      case "Line":
-        cardConfigFile1 = "../cards/cardConfig/template_sap_line.json";
-        break;
-      default:
-        break;
+    if (style == "SAP") {
+      switch (deCard) {
+        case "StackedBar":
+          cardConfigFile1 = "../cards/cardConfig/template_sap_StackedBar.json";
+          break;
+        case "StackedColumn":
+          cardConfigFile1 =
+            "../cards/cardConfig/template_sap_StackedColumn.json";
+          break;
+        case "Line":
+          cardConfigFile1 = "../cards/cardConfig/template_sap_line.json";
+          break;
+        default:
+          break;
+      }
+    } else {
+      switch (deCard) {
+        case "StackedBar":
+          cardConfigFile1 =
+            "../cards/cardConfig/template_google_StackedBar.json";
+          break;
+        case "StackedColumn":
+          cardConfigFile1 =
+            "../cards/cardConfig/template_google_StackedColumn.json";
+          break;
+        case "Line":
+          cardConfigFile1 = "../cards/cardConfig/template_google_line.json";
+          break;
+        default:
+          break;
+      }
     }
+
     let anacardConfig = require(cardConfigFile1);
 
     let j_number = 10;

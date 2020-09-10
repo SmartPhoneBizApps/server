@@ -367,7 +367,7 @@ exports.getListrecords1 = asyncHandler(async (req, res, next) => {
       }
 
       aCard = {};
-      aCard = await analyticalNew(appconfig, outData["data"]);
+      aCard = await analyticalNew(appconfig, outData["data"], "SAP");
       outStru["ANA01"] = { ...aCard };
 
       if (appconfig.hasOwnProperty("listCards")) {
@@ -446,42 +446,42 @@ exports.getListrecords1 = asyncHandler(async (req, res, next) => {
         }
       }
 
-      if (appconfig.hasOwnProperty("listCards")) {
-        var myCard = appconfig["listCards"];
-        for (let k = 0; k < myCard.length; k++) {
-          counter = counter + 1;
-          let cardKey = getCardKey(applicationId, businessrole, counter, "L");
-          // let cardConfigFile1 =
-          //   "../../cards/cardConfig/" + myCard[k]["template"];
-          let cardTemplate =
-            "../../cards/cardConfig/template_sap_" +
-            myCard[k]["cardsubType"] +
-            ".json";
-          var cardData = JSON.stringify(require(cardTemplate));
-          cardData = cardReplace(
-            myCard[k],
-            cardData,
-            appconfig,
-            "header",
-            "Tab1"
-          );
-          var anacardConfig = JSON.parse(cardData);
-          switch (myCard[k]["cardType"]) {
-            case "Analytical":
-              jCard1 = {};
-              jCard1 = await analyticalCard(
-                myCard[k],
-                outData["data"],
-                anacardConfig,
-                appconfig["Controls"]["style"]
-              );
-              outStru[cardKey] = { ...jCard1 };
-              break;
-            default:
-              break;
-          }
-        }
-      }
+      // if (appconfig.hasOwnProperty("listCards")) {
+      //   var myCard = appconfig["listCards"];
+      //   for (let k = 0; k < myCard.length; k++) {
+      //     counter = counter + 1;
+      //     let cardKey = getCardKey(applicationId, businessrole, counter, "L");
+      //     // let cardConfigFile1 =
+      //     //   "../../cards/cardConfig/" + myCard[k]["template"];
+      //     let cardTemplate =
+      //       "../../cards/cardConfig/template_sap_" +
+      //       myCard[k]["cardsubType"] +
+      //       ".json";
+      //     var cardData = JSON.stringify(require(cardTemplate));
+      //     cardData = cardReplace(
+      //       myCard[k],
+      //       cardData,
+      //       appconfig,
+      //       "header",
+      //       "Tab1"
+      //     );
+      //     var anacardConfig = JSON.parse(cardData);
+      //     switch (myCard[k]["cardType"]) {
+      //       case "Analytical":
+      //         jCard1 = {};
+      //         jCard1 = await analyticalCard(
+      //           myCard[k],
+      //           outData["data"],
+      //           anacardConfig,
+      //           appconfig["Controls"]["style"]
+      //         );
+      //         outStru[cardKey] = { ...jCard1 };
+      //         break;
+      //       default:
+      //         break;
+      //     }
+      //   }
+      // }
       res.status(200).json({
         outData,
         possibleValues: resPV,

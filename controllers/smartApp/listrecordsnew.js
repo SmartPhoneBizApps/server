@@ -350,7 +350,6 @@ exports.listrecordsnew = asyncHandler(async (req, res, next) => {
       });
     }
     if (mode == "listcards") {
-
       // 01 - CARD ADAPTIVE CARDS (LIST SCREEN)
       for (let w = 0; w < appconfig["MButtons"].length; w++) {
         if (appconfig["MButtons"][w]["type"] == "ADD") {
@@ -372,7 +371,7 @@ exports.listrecordsnew = asyncHandler(async (req, res, next) => {
         }
       }
       aCard = {};
-      aCard = await analyticalNew(appconfig, outData["data"]);
+      aCard = await analyticalNew(appconfig, outData["data"], "SAP");
       outStru["ANA01"] = { ...aCard };
 
       // 02 - CARD Analytical Card (LIST SCREEN)

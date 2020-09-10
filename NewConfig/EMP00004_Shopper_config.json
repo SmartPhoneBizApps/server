@@ -4,7 +4,7 @@
     "DetailTitle": "Shopping Cart"
   },
   "Controls": {
-    "style": "SAP",
+    "style": "Google",
     "calculation": "Yes",
     "USP": "UserProfile",
     "StatusColor": "Yes",
@@ -189,7 +189,7 @@
     "headerImage": ["USP_Image"],
     "headerColorFields": ["Status"],
     "Tab0": ["cards"],
-    "Tab20":["charts"],
+    "Tab20": ["charts"],
     "None": ["ID", "VendorName"],
     "Tab1": ["SCDate", "NetValue", "VATVal", "GrossValue"],
     "Tab2": [
@@ -206,25 +206,6 @@
   },
 
   "listCards": [
-    {
-      "cardType": "Analytical",
-      "cardsubType": "StackedBar",
-      "title": "ShoppingCart Analysis",
-      "subtitle": "ShoppingCart Status",
-      "unitOfMeasurement": "Days",
-      "Data": {
-        "dimension": "Status",
-        "fact": "records",
-        "operation": "COUNT"
-      },
-      "numericHeader": {
-        "headerNumber": { "Operation": "COUNT", "Field": "ID" },
-        "trend": { "trend": "DOWN", "Condition": "LTE", "value": 8 },
-        "status": { "state": "Success", "Condition": "LTE", "value": 24 },
-        "details": "Total 24 days",
-        "unit": "Days"
-      }
-    },
     {
       "cardType": "Analytical",
       "cardsubType": "StackedColumn",
@@ -596,7 +577,28 @@
         "ItemStatus1",
         "Category"
       ],
-      "detailCharts": [],
+      "detailCharts": [
+        {
+          "cardType": "Analytical",
+          "cardsubType": "StackedBar",
+          "title": "ShoppingCart Category Analysis",
+          "subtitle": "Category",
+          "unitOfMeasurement": "Days",
+          "source": "myTime",
+          "Data": {
+            "dimension": "Category",
+            "fact": "records",
+            "operation": "COUNT"
+          },
+          "numericHeader": {
+            "headerNumber": { "Operation": "COUNT", "Field": "Category" },
+            "trend": { "trend": "DOWN", "Condition": "LTE", "value": 8 },
+            "status": { "state": "Success", "Condition": "LTE", "value": 24 },
+            "details": "Total 24 days",
+            "unit": "Days"
+          }
+        }
+      ],
       "cards": [
         {
           "type": "Table",
@@ -604,96 +606,6 @@
           "filterKeyLabel": "Item Status",
           "template": "template_table.json",
           "tableCardFields": ["ItemName", "ItemGrossValue", "ItemStatus1"]
-        },
-        {
-          "type": "Analytical",
-          "filterKey": "ItemStatus1",
-          "filterKeyLabel": "Item Status",
-          "cardID": "EMP04S02",
-          "template": "template_analyticalCard_donut.json",
-          "title": "Shoppingcart Qty Analysis",
-          "analyticsCard": {
-            "chartType": "donut",
-            "cardsDonut": {
-              "measureName": "ItemName",
-              "value": "ItemQuantity",
-              "function": "SUM"
-            }
-          }
-        },
-        {
-          "type": "Example",
-          "cardType": "List",
-          "cardsubType": "MicrochartBullet",
-          "cardID": "L001",
-          "cardLevel": "tableData",
-          "template": "template_sap_microchartBullet.json",
-          "mergedFields": {
-            "Name": ["ItemNumber", "ItemName"],
-            "Description": ["Category", "ItemStatus1"]
-          },
-          "fieldMap": {
-            "Expected": "ItemVATValue",
-            "Actual": "ItemValue",
-            "Target": "ItemValue"
-          },
-          "colorStatus": "ItemStatus1"
-        },
-        {
-          "type": "Example",
-          "cardType": "List",
-          "cardsubType": "ListBulletChart",
-          "cardID": "L002",
-          "cardLevel": "tableData",
-          "template": "template_sap_listBulletChart.json",
-          "mergedFields": {
-            "Name": ["ItemNumber", "ItemName"],
-            "Description": ["Category", "ItemStatus1"]
-          },
-          "fieldMap": {
-            "Expected": "ItemVATValue",
-            "Actual": "ItemValue",
-            "Target": "ItemValue"
-          },
-          "colorStatus": "ItemStatus1"
-        },
-        {
-          "type": "Example",
-          "cardType": "List",
-          "cardsubType": "ListstackedBar",
-          "cardID": "L003",
-          "cardLevel": "tableData",
-          "template": "template_sap_liststackedBar.json",
-          "mergedFields": {
-            "Name": ["ItemNumber", "ItemName", "Category"]
-          },
-          "fieldMap": {
-            "Category": "ItemName",
-            "Expected": "ItemValue",
-            "Actual": "ItemVATValue"
-          },
-          "colorStatus": "ItemStatus1"
-        },
-        {
-          "type": "Example",
-          "cardType": "List",
-          "cardsubType": "MicrochartStackedBar",
-          "cardID": "L004",
-          "cardLevel": "tableData",
-          "template": "template_sap_microchartStackedBar.json",
-          "mergedFields": {
-            "Name": ["ItemNumber", "ItemName", "Category"]
-          },
-          "fieldMap": {
-            "Category": "ItemName",
-            "Expected": "ItemValue",
-            "Actual": "ItemVATValue"
-          },
-          "colorStatus": "ItemStatus1"
-        },
-        {
-          "type": "Example",
-          "template": "template_sap_liststackedBar.json"
         }
       ],
       "ItemButtons": {
