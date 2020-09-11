@@ -74,6 +74,27 @@
   "DButtons": [
     {
       "type": "WORKFLOW",
+      "name": "Submit",
+      "icon": "sap-icon://decline",
+      "Dialog": [
+        {
+          "label": "Submit Comment",
+          "name": "ProgressComment",
+          "type": "string",
+          "option": "Optional"
+        }
+      ],
+      "transferFields": [
+        { "field": "ID", "value": "@recorddata" },
+        { "field": "Status", "value": "Cancelled" },
+        { "field": "ProgressComment", "value": "@UserInput" }
+      ],
+      "URL": "datarecords/",
+      "Token": "Yes",
+      "URLMethod": "PUT"
+    },
+    {
+      "type": "WORKFLOW",
       "name": "Cancel",
       "icon": "sap-icon://decline",
       "Dialog": [
@@ -182,7 +203,7 @@
     "headerImage": ["USP_Image"],
     "headerColorFields": ["Status"],
     "Tab0": ["data"],
-    "Tab20":["charts"],
+    "Tab20": ["charts"],
     "None": ["ID"],
     "Tab1": ["LeaveType", "LeaveFrom", "LeaveTo", "LeaveDays", "LeaveReason"],
     "Tab2": ["Name", "EmployeeID"],
