@@ -1,7 +1,7 @@
 const asyncHandler = require("../middleware/async");
 const Possval = require("../models/appSetup/Possval");
+const Approles = require("../models/appSetup/Approle");
 const ErrorResponse = require("../utils/errorResponse");
-
 const Agent = require("../models/access/Agent");
 const App = require("../models/appSetup/App");
 const Role = require("../models/appSetup/Role");
@@ -9,7 +9,6 @@ const User = require("../models/access/User");
 const sendEmail = require("../utils/sendEmail");
 const sendEmail1 = require("../utils/sendEmailProd");
 const fs = require("fs");
-
 module.exports = {
   getCard: function (
     data,
@@ -825,7 +824,16 @@ module.exports = {
     query = query.select(fields);
     return query;
   },
+  getAppRoles: function (applicationId) {
+    query_r = Approles.find(
+      {
+        "Apps.applicationID": applicationId,
+      },
+      { _id: 0 }
+    );
 
+    return query_r;
+  },
   getPVField: function (a, b) {
     const fields = "PossibleValues Value Description ColorSAP Score EditLock";
     let query;
@@ -838,75 +846,6 @@ module.exports = {
     );
     query = query.select(fields);
     return query;
-  },
-
-  getButtonData: function (results, app, role1, oData, user) {
-    buttonData = {};
-    var button = {};
-    button = require("../bot/BOT_button.json");
-    // if (app == "SUPP00028" || app == "SUPP00018") {
-    //   results.forEach((element) => {
-    //     if (element.PossibleValues == "CurrentStatus") {
-    //       for (const key in button[app][element.Value]) {
-    //         if (button[app][element.Value].hasOwnProperty(key)) {
-    //           const element1 = button[app][element.Value][key];
-    //           if (key == role1) {
-    //             buttonData[element.Value] = element1;
-    //           } else if (key == "ALL") {
-    //             buttonData[element.Value] = element1;
-    //           }
-    //         }
-    //       }
-    //     }
-    //   });
-    // } else {
-    results.forEach((element) => {
-      if (element.PossibleValues == "Status") {
-        if (button[app] != undefined) {
-          for (const key in button[app][element.Value]) {
-            if (button[app][element.Value].hasOwnProperty(key)) {
-              const element1 = button[app][element.Value][key];
-              for (let q = 0; q < element1.length; q++) {
-                if (element1[q]["type"] == "postBack") {
-                  var n = app.length - 3;
-                  kng =
-                    app.slice(0, 3) +
-                    "_" +
-                    role1.slice(0, 3) +
-                    "_" +
-                    app.substr(n, 3);
-
-                  klg = element1[q]["title"].replace(/\s/g, "");
-                  element1[q]["payload"] =
-                    kng.toUpperCase() + "-" + klg.toLowerCase();
-                }
-                if (element1[q]["type"] == "web_url" && oData !== undefined) {
-                  element1[q]["messenger_extensions"] = "true";
-                  element1[q]["url"] =
-                    "https://smartphonebizapps.com/smartphoneappswebview/?view=webDisplay&app=" +
-                    app +
-                    "&role=" +
-                    role1 +
-                    "&transID=" +
-                    oData["_id"] +
-                    "&user=" +
-                    user["email"];
-                  var n = app.length - 3;
-                }
-              }
-
-              if (key == role1) {
-                buttonData[element.Value] = element1;
-              } else if (key == "ALL") {
-                buttonData[element.Value] = element1;
-              }
-            }
-          }
-        }
-      }
-    });
-    //    }
-    return buttonData;
   },
   getBotListFields: function (config1) {
     lf = [];
@@ -1564,6 +1503,47 @@ module.exports = {
     } else {
       console.log("Decending");
       return array.sort((a, b) => b[field].localeCompare(a[field]));
+    }
+  },
+  buildButtons: function (type, title, app, role1, id, email, ratio, mode) {
+    btn1 = {};
+    if (type == "web_url" && mode == "display") {
+      btn1["type"] = type;
+      btn1["title"] = title;
+      btn1["url"] =
+        "https://smartphonebizapps.com/smartphoneappswebview/?view=webDisplay&app=" +
+        app +
+        "&role=" +
+        role1 +
+        "&transID=" +
+        id +
+        "&user=" +
+        email;
+      btn1["webview_height_ratio"] = ratio;
+      btn1["messenger_extensions"] = true;
+      return btn1;
+    }
+    if (type == "web_url" && mode == "create") {
+      btn1["type"] = type;
+      btn1["title"] = title;
+      btn1["url"] =
+        "https://smartphonebizapps.com/smartphoneappswebview/?view=webCreate&app=" +
+        app +
+        "&role=" +
+        role1 +
+        "&transID=" +
+        id +
+        "&user=" +
+        email;
+      btn1["webview_height_ratio"] = ratio;
+      btn1["messenger_extensions"] = true;
+      return btn1;
+    }
+    if (type == "postBack") {
+      btn1["type"] = type;
+      btn1["title"] = title;
+      btn1["payload"] = ratio + "-" + mode + " " + id;
+      return btn1;
     }
   },
 };

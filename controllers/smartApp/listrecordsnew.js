@@ -12,15 +12,20 @@ const {
 const {
   getPVConfig,
   getPVQuery,
-  getButtonData,
   getInitialValues,
   getDateValues,
   findOneApp,
   cardReplace,
   getNewConfig,
   getPVField,
+  getAppRoles,
 } = require("../../modules/config");
-const { readData, getTotalCount, nConfig } = require("../../modules/config2");
+const {
+  readData,
+  getTotalCount,
+  getButtonData,
+  nConfig,
+} = require("../../modules/config2");
 const asyncHandler = require("../../middleware/async");
 // @desc      Get all records
 // @route     GET /api/v1/listrecords
@@ -278,32 +283,20 @@ exports.listrecordsnew = asyncHandler(async (req, res, next) => {
     //let config = nConfig(applicationId, req, appconfig);
 
     if (mode == "BOTList") {
-      // if (applicationId == "SUPP00018" || applicationId == "SUPP00028") {
-      //   for (let w = 0; w < oResult.length; w++) {
-      //     buttonData = getButtonData(
-      //       resPV,
-      //       applicationId,
-      //       businessrole,
-      //       oResult[w],
-      //       req.user
-      //     );
-      //     let myButton = [];
-      //     if (oResult[w].hasOwnProperty("CurrentStatus")) {
-      //       myButton = buttonData[oResult[w]["CurrentStatus"]];
-      //     }
-      //     if (myButton == undefined) {
-      //       myButton = [];
-      //     }
-      //     oResult[w]["buttons"] = myButton;
-      //   }
-      // } else {
+      // Get list of Roles for the App
+      AppRoles = await getAppRoles(applicationId);
+      applicationRoles = [];
+      for (let k = 0; k < AppRoles.length; k++) {
+        applicationRoles.push(AppRoles[k]["role"]);
+      }
       for (let w = 0; w < oResult.length; w++) {
         buttonData = getButtonData(
           statusPV,
           applicationId,
           businessrole,
           oResult[w],
-          req.user
+          req.user,
+          applicationRoles
         );
 
         let myButton = [];
@@ -316,7 +309,6 @@ exports.listrecordsnew = asyncHandler(async (req, res, next) => {
           myButton = [];
         }
         oResult[w]["buttons"] = myButton;
-        //      }
       }
     }
     outData = {};
@@ -325,9 +317,6 @@ exports.listrecordsnew = asyncHandler(async (req, res, next) => {
     outData["pagination"] = pagination;
     outData["config"] = appconfig;
     outData["data"] = oResult;
-    if (mode == "BOTList") {
-      buttonData = getButtonData(resPV, applicationId, businessrole);
-    }
     if (mode == "BOTList") {
       res.status(200).json({
         outData,
@@ -450,42 +439,6 @@ exports.listrecordsnew = asyncHandler(async (req, res, next) => {
           }
         }
       }
-
-      // if (appconfig.hasOwnProperty("listCards")) {
-      //   var myCard = appconfig["listCards"];
-      //   for (let k = 0; k < myCard.length; k++) {
-      //     counter = counter + 1;
-      //     let cardKey = getCardKey(applicationId, businessrole, counter, "L");
-      //     let cardTemplate =
-      //       "../../cards/cardConfig/template_sap_" +
-      //       myCard[k]["cardsubType"] +
-      //       ".json";
-      //     var cardData = JSON.stringify(require(cardTemplate));
-      //     cardData = cardReplace(
-      //       myCard[k],
-      //       cardData,
-      //       appconfig,
-      //       "header",
-      //       "Tab1"
-      //     );
-      //     var anacardConfig = JSON.parse(cardData);
-      //     switch (myCard[k]["cardType"]) {
-      //       case "Analytical":
-      //         jCard1 = {};
-      //         jCard1 = await analyticalCard(
-      //           myCard[k],
-      //           outData["data"],
-      //           anacardConfig,
-      //           "SAP"
-      //         );
-      //         console.log("AA", anacardConfig);
-      //         outStru[cardKey] = { ...jCard1 };
-      //         break;
-      //       default:
-      //         break;
-      //     }
-      //   }
-      // }
       res.status(200).json({
         outData,
         possibleValues: resPV,

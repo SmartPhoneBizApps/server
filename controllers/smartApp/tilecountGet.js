@@ -2,14 +2,6 @@ const { sendHtmlEmail } = require("../../modules/config");
 const ErrorResponse = require("../../utils/errorResponse");
 const asyncHandler = require("../../middleware/async");
 const Approle = require("../../models/appSetup/Approle");
-const {
-  getPVConfig,
-  getPVQuery,
-  getButtonData,
-  getInitialValues,
-  getDateValues,
-  findOneApp,
-} = require("../../modules/config");
 const { readData, getTotalCount, nConfig } = require("../../modules/config2");
 // @desc      Add record
 // @route     POST /api/v1/datarecords/

@@ -2,7 +2,6 @@ const asyncHandler = require("../../middleware/async");
 const {
   getPVConfig,
   getPVQuery,
-  getButtonData,
   getInitialValues,
   getDateValues,
   findOneApp,

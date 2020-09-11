@@ -11,15 +11,20 @@ const {
 const {
   getPVConfig,
   getPVQuery,
-  getButtonData,
+
   getInitialValues,
   getDateValues,
   findOneApp,
   cardReplace,
   getNewConfig,
   getPVField,
+  getAppRoles,
 } = require("../../modules/config");
-const { readData, getTotalCount } = require("../../modules/config2");
+const {
+  readData,
+  getTotalCount,
+  getButtonData,
+} = require("../../modules/config2");
 const asyncHandler = require("../../middleware/async");
 // @desc      Get all records
 // @route     GET /api/v1/listrecords
@@ -277,42 +282,30 @@ exports.getListrecords1 = asyncHandler(async (req, res, next) => {
     //let config = nConfig(applicationId, req, appconfig);
 
     if (mode == "BOTList") {
-      if (applicationId == "SUPP00018" || applicationId == "SUPP00028") {
-        for (let w = 0; w < oResult.length; w++) {
-          buttonData = getButtonData(
-            resPV,
-            applicationId,
-            businessrole,
-            oResult[w],
-            req.user
-          );
-          let myButton = [];
-          if (oResult[w].hasOwnProperty("CurrentStatus")) {
-            myButton = buttonData[oResult[w]["CurrentStatus"]];
-          }
-          if (myButton == undefined) {
-            myButton = [];
-          }
-          oResult[w]["buttons"] = myButton;
+      // Get list of Roles for the App
+      AppRoles = await getAppRoles(applicationId);
+      applicationRoles = [];
+      for (let k = 0; k < AppRoles.length; k++) {
+        applicationRoles.push(AppRoles[k]["role"]);
+      }
+
+      for (let w = 0; w < oResult.length; w++) {
+        buttonData = getButtonData(
+          statusPV,
+          applicationId,
+          businessrole,
+          oResult[w],
+          req.user,
+          applicationRoles
+        );
+        let myButton = [];
+        if (oResult[w]["Status"] !== undefined) {
+          myButton = buttonData[oResult[w]["Status"]];
         }
-      } else {
-        for (let w = 0; w < oResult.length; w++) {
-          buttonData = getButtonData(
-            statusPV,
-            applicationId,
-            businessrole,
-            oResult[w],
-            req.user
-          );
-          let myButton = [];
-          if (oResult[w]["Status"] !== undefined) {
-            myButton = buttonData[oResult[w]["Status"]];
-          }
-          if (myButton == undefined) {
-            myButton = [];
-          }
-          oResult[w]["buttons"] = myButton;
+        if (myButton == undefined) {
+          myButton = [];
         }
+        oResult[w]["buttons"] = myButton;
       }
     }
     outData = {};
@@ -321,9 +314,6 @@ exports.getListrecords1 = asyncHandler(async (req, res, next) => {
     outData["pagination"] = pagination;
     outData["config"] = appconfig;
     outData["data"] = oResult;
-    if (mode == "BOTList") {
-      buttonData = getButtonData(resPV, applicationId, businessrole);
-    }
     if (mode == "BOTList") {
       res.status(200).json({
         outData,
