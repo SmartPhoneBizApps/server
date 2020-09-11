@@ -835,7 +835,8 @@ module.exports = {
     return query_r;
   },
   getPVField: function (a, b) {
-    const fields = "PossibleValues Value Description ColorSAP Score EditLock";
+    const fields =
+      "Role PossibleValues Value Description ColorSAP Score EditLock";
     let query;
     query = Possval.find(
       {

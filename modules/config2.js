@@ -376,6 +376,12 @@ module.exports = {
     return config;
   },
   getButtonData: function (results, app, role1, oData, user, appRoles) {
+    console.log("------------------------------------------------------------");
+    console.log(" --------   B U T T O N S   --   L O G I C  ----------------");
+    console.log("------------------------------------------------------------");
+    // Get Config File
+    var appconfig = getNewConfig(app, role1);
+
     // Get Action Variable
     action_var =
       role1.substring(0, 3) +
@@ -384,8 +390,10 @@ module.exports = {
       "_" +
       app.slice(app.length - 3);
     var action_var = action_var.toUpperCase();
+
     // Build Buttons...
-    console.log(action_var);
+
+    console.log(action_var, "RecordID", oData["ID"]);
     b_display = buildButtons(
       "web_url",
       "Display",
@@ -406,151 +414,97 @@ module.exports = {
       "compact",
       "create"
     );
-    b_cancel = buildButtons(
-      "postBack",
-      "Cancel",
-      app,
-      role1,
-      oData["ID"],
-      user["email"],
-      action_var,
-      "cancel"
-    );
-    b_approve = buildButtons(
-      "postBack",
-      "Approve",
-      app,
-      role1,
-      oData["ID"],
-      user["email"],
-      action_var,
-      "approve"
-    );
-    b_reject = buildButtons(
-      "postBack",
-      "Reject",
-      app,
-      role1,
-      oData["ID"],
-      user["email"],
-      action_var,
-      "reject"
-    );
-    console.log(b_cancel);
+
     buttonData1 = {};
     btnx = {};
     btn1 = [];
     var button1 = {};
+
+    // If data record exists..
     if (oData != undefined) {
+      // Current Status Value(Example - Submitted)
       currentStatus = oData["Status"];
-      console.log("CurrentStatus", oData["Status"]);
-      // Find Current Score
+
+      // Find Current Score(Example - 200)
       currentScore = 0;
       for (let k = 0; k < results.length; k++) {
-        if (results[k]["Value"] == currentStatus) {
+        if (
+          results[k]["Value"] == currentStatus &&
+          results[k]["Role"] == role1
+        ) {
           currentScore = results[k]["Score"];
         }
       }
-      console.log("Score = ", currentScore);
+      console.log(
+        "CurrentStatus = ",
+        currentStatus,
+        "CurrentScore = ",
+        currentScore
+      );
 
-      // Build Card Buttons
-      results.forEach((element) => {
-        var appconfig = getNewConfig(app, role1);
-        // Add display button
-        btn1.push(b_display);
-        // If create is allowed then add cancel button
-        for (let j = 0; j < appconfig["DButtons"].length; j++) {
-          switch (appconfig["DButtons"][j]["type"]) {
-            case "WORKFLOW":
-              btnx["type"] = "postBack";
-              btnx["title"] = appconfig["DButtons"][j]["name"];
-              btnx["payload"] =
-                action_var +
-                "-" +
-                appconfig["DButtons"][j]["name"] +
-                " " +
-                oData["ID"];
-              // btnx["Dialog"] = appconfig["DButtons"][j]["Dialog"];
-              // btnx["transferFields"] =
-              //   appconfig["DButtons"][j]["transferFields"];
-              //btnx["URL"] = appconfig["DButtons"][j]["URL"];
-              //btnx["Token"] = appconfig["DButtons"][j]["Token"];
-              //btnx["URLMethod"] = appconfig["DButtons"][j]["URLMethod"];
-              //btnx["hideRecord"] = appconfig["DButtons"][j]["hideRecord"];
+      // Add display button (for all Roles and Status Display button will be there)
+      btn1.push(b_display);
 
-              btn1.push({ ...btnx });
-              btnx = {};
-              break;
-
-            default:
-              break;
-          }
-        }
-        buttonData1[element.Value] = btn1;
-        btn1 = [];
-        if (element["Score"] >= currentScore) {
-        } else {
-        }
-        if (
-          element.PossibleValues == "Status" &&
-          element.Score >= currentScore &&
-          element.Value != currentStatus
-        ) {
-          console.log("Next P Vals:", element.Value);
-        }
-        button1[element.Value] = buttonData1;
-      });
-    }
-
-    buttonData = {};
-    var button = {};
-    button = require("../bot/BOT_button.json");
-    results.forEach((element) => {
-      if (element.PossibleValues == "Status") {
-        if (button[app] != undefined) {
-          for (const key in button[app][element.Value]) {
-            if (button[app][element.Value].hasOwnProperty(key)) {
-              const element1 = button[app][element.Value][key];
-              for (let q = 0; q < element1.length; q++) {
-                if (element1[q]["type"] == "postBack") {
-                  var n = app.length - 3;
-                  kng =
-                    app.slice(0, 3) +
-                    "_" +
-                    role1.slice(0, 3) +
-                    "_" +
-                    app.substr(n, 3);
-
-                  klg = element1[q]["title"].replace(/\s/g, "");
-                  element1[q]["payload"] =
-                    kng.toUpperCase() + "-" + klg.toLowerCase();
+      // If create is allowed then add cancel button
+      for (let j = 0; j < appconfig["DButtons"].length; j++) {
+        agbtn = appconfig["DButtons"][j];
+        if (agbtn["type"] == "WORKFLOW") {
+          for (let k = 0; k < agbtn["transferFields"].length; k++) {
+            if (agbtn["transferFields"][k]["field"] == "Status") {
+              results.forEach((element) => {
+                if (
+                  element.PossibleValues == "Status" &&
+                  element.Score >= currentScore &&
+                  element.Value == agbtn["transferFields"][k]["value"] &&
+                  element.Role == role1
+                ) {
+                  if (element.Value != currentStatus) {
+                    console.log(
+                      currentStatus,
+                      "-",
+                      currentScore,
+                      ">",
+                      element.Value,
+                      "-",
+                      element.Score,
+                      ">",
+                      k,
+                      "-",
+                      element.Role,
+                      "> Button Created"
+                    );
+                    btnx["type"] = "postBack";
+                    btnx["title"] = agbtn["name"];
+                    btnx["payload"] =
+                      action_var + "-" + agbtn["name"] + " " + oData["ID"];
+                    btn1.push({ ...btnx });
+                    btnx = {};
+                  } else {
+                    console.log(
+                      currentStatus,
+                      "-",
+                      currentScore,
+                      ">",
+                      element.Value,
+                      "-",
+                      element.Score,
+                      ">",
+                      k,
+                      "-",
+                      element.Role,
+                      "> Button Not Created"
+                    );
+                  }
                 }
-                if (element1[q]["type"] == "web_url" && oData !== undefined) {
-                  element1[q]["messenger_extensions"] = "true";
-                  element1[q]["url"] =
-                    "https://smartphonebizapps.com/smartphoneappswebview/?view=webDisplay&app=" +
-                    app +
-                    "&role=" +
-                    role1 +
-                    "&transID=" +
-                    oData["_id"] +
-                    "&user=" +
-                    user["email"];
-                  var n = app.length - 3;
-                }
-              }
-
-              if (key == role1) {
-                buttonData[element.Value] = element1;
-              } else if (key == "ALL") {
-                buttonData[element.Value] = element1;
-              }
+              });
             }
           }
         }
       }
-    });
-    //    }
+      buttonData1[currentStatus] = btn1;
+      button1[currentStatus] = buttonData1;
+      btn1 = [];
+    }
     return buttonData1;
   },
 };

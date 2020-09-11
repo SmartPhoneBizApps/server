@@ -1,7 +1,4 @@
 const {
-  adaptivecardCard,
-  getCardKey,
-  analyticalCard,
   adaptiveNew,
   analyticalNew,
   countAnalyticalCard,
@@ -24,7 +21,6 @@ const {
   readData,
   getTotalCount,
   getButtonData,
-  nConfig,
 } = require("../../modules/config2");
 const asyncHandler = require("../../middleware/async");
 // @desc      Get all records
@@ -50,6 +46,7 @@ exports.listrecordsnew = asyncHandler(async (req, res, next) => {
   /// Possible values for Status..
   sPV = getPVField(applicationId, "Status");
   let statusPV = await sPV;
+  console.log("AGPVAL", pvappconfig, statusPV);
   // Initial values
   var ivalue = getInitialValues(applicationId, businessrole, req.user);
   let ival_out = [];
@@ -301,9 +298,9 @@ exports.listrecordsnew = asyncHandler(async (req, res, next) => {
 
         let myButton = [];
         if (oResult[w]["Status"] !== undefined) {
-          console.log(oResult[w]["Status"]);
+          //         console.log(oResult[w]["Status"]);
           myButton = buttonData[oResult[w]["Status"]];
-          console.log(myButton);
+          //      console.log(myButton);
         }
         if (myButton == undefined) {
           myButton = [];
