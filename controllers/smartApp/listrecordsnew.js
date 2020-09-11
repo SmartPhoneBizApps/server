@@ -320,7 +320,7 @@ exports.listrecordsnew = asyncHandler(async (req, res, next) => {
     if (mode == "BOTList") {
       res.status(200).json({
         outData,
-        buttons: buttonData,
+        //      buttons: buttonData,
         defaultValues: ival_out,
       });
     }

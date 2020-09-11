@@ -1543,6 +1543,7 @@ module.exports = {
       btn1["type"] = type;
       btn1["title"] = title;
       btn1["payload"] = ratio + "-" + mode + " " + id;
+
       return btn1;
     }
   },

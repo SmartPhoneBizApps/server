@@ -416,8 +416,29 @@ module.exports = {
       action_var,
       "cancel"
     );
+    b_approve = buildButtons(
+      "postBack",
+      "Approve",
+      app,
+      role1,
+      oData["ID"],
+      user["email"],
+      action_var,
+      "approve"
+    );
+    b_reject = buildButtons(
+      "postBack",
+      "Reject",
+      app,
+      role1,
+      oData["ID"],
+      user["email"],
+      action_var,
+      "reject"
+    );
     console.log(b_cancel);
     buttonData1 = {};
+    btnx = {};
     btn1 = [];
     var button1 = {};
     if (oData != undefined) {
@@ -435,11 +456,36 @@ module.exports = {
       // Build Card Buttons
       results.forEach((element) => {
         var appconfig = getNewConfig(app, role1);
+        // Add display button
         btn1.push(b_display);
-        if (appconfig["Create"] == "Yes") {
-          btn1.push(b_cancel);
-        }
+        // If create is allowed then add cancel button
+        for (let j = 0; j < appconfig["DButtons"].length; j++) {
+          switch (appconfig["DButtons"][j]["type"]) {
+            case "WORKFLOW":
+              btnx["type"] = "postBack";
+              btnx["title"] = appconfig["DButtons"][j]["name"];
+              btnx["payload"] =
+                action_var +
+                "-" +
+                appconfig["DButtons"][j]["name"] +
+                " " +
+                oData["ID"];
+              btnx["Dialog"] = appconfig["DButtons"][j]["Dialog"];
+              btnx["transferFields"] =
+                appconfig["DButtons"][j]["transferFields"];
+              btnx["URL"] = appconfig["DButtons"][j]["URL"];
+              btnx["Token"] = appconfig["DButtons"][j]["Token"];
+              btnx["URLMethod"] = appconfig["DButtons"][j]["URLMethod"];
+              btnx["hideRecord"] = appconfig["DButtons"][j]["hideRecord"];
 
+              btn1.push({ ...btnx });
+              btnx = {};
+              break;
+
+            default:
+              break;
+          }
+        }
         buttonData1[element.Value] = btn1;
         btn1 = [];
         if (element["Score"] >= currentScore) {
