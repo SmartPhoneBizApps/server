@@ -470,13 +470,13 @@ module.exports = {
                 appconfig["DButtons"][j]["name"] +
                 " " +
                 oData["ID"];
-              btnx["Dialog"] = appconfig["DButtons"][j]["Dialog"];
-              btnx["transferFields"] =
-                appconfig["DButtons"][j]["transferFields"];
-              btnx["URL"] = appconfig["DButtons"][j]["URL"];
-              btnx["Token"] = appconfig["DButtons"][j]["Token"];
-              btnx["URLMethod"] = appconfig["DButtons"][j]["URLMethod"];
-              btnx["hideRecord"] = appconfig["DButtons"][j]["hideRecord"];
+              // btnx["Dialog"] = appconfig["DButtons"][j]["Dialog"];
+              // btnx["transferFields"] =
+              //   appconfig["DButtons"][j]["transferFields"];
+              //btnx["URL"] = appconfig["DButtons"][j]["URL"];
+              //btnx["Token"] = appconfig["DButtons"][j]["Token"];
+              //btnx["URLMethod"] = appconfig["DButtons"][j]["URLMethod"];
+              //btnx["hideRecord"] = appconfig["DButtons"][j]["hideRecord"];
 
               btn1.push({ ...btnx });
               btnx = {};

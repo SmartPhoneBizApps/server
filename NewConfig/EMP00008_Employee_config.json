@@ -84,6 +84,27 @@
   "DButtons": [
     {
       "type": "WORKFLOW",
+      "name": "Submit",
+      "icon": "sap-icon://decline",
+      "Dialog": [
+        {
+          "label": "Submit Comment",
+          "name": "ProgressComment",
+          "type": "string",
+          "option": "Optional"
+        }
+      ],
+      "transferFields": [
+        { "field": "ID", "value": "@recorddata" },
+        { "field": "Status", "value": "Submitted" },
+        { "field": "ProgressComment", "value": "@UserInput" }
+      ],
+      "URL": "datarecords/",
+      "Token": "Yes",
+      "URLMethod": "PUT"
+    },
+    {
+      "type": "WORKFLOW",
       "name": "Cancel",
       "icon": "sap-icon://decline",
       "Dialog": [
