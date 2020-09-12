@@ -227,113 +227,125 @@ exports.getDetailCardsNew = async (req, res, next) => {
         }
       });
     }
-    console.log("Stage5 - Find Tab details for table - Done", key, tabx);
+    console.log("Stage7 - Find Tab details for table - Done", key, tabx);
+
     // Step T3A - check if card setup is there for the table and loop the cards in the config file
-    if (appconfig["tableConfig"][key].hasOwnProperty("cards")) {
-      for (let g = 0; g < appconfig["tableConfig"][key]["cards"].length; g++) {
-        let cardKey = "";
-        var mycard = appconfig["tableConfig"][key]["cards"][g];
-        // Step T4 - Identify the CardID
-        if (mycard["cardID"] !== undefined) {
-          cardKey = getCardKey(
-            req.params.app,
-            req.params.role,
-            mycard["cardID"],
-            "T"
-          );
-        } else {
-          cardKey = getCardKey(req.params.app, req.params.role, g, "T");
-        }
-        // Step T5 - Read card Template, Stringify, replace @values then parse back to javaObject
-        // if (mycard["cardType"] != "AdaptiveForm") {
-
-        let cardConfigFile1 = "../../cards/cardConfig/" + mycard["template"];
-        var cardData = JSON.stringify(require(cardConfigFile1));
-        cardData = cardReplace(mycard, cardData, appconfig, key, "Tab1");
-        var anacardConfig = JSON.parse(cardData);
-        // }
-
-        // Step T6 - Handle different card Types..
-        switch (mycard["cardType"]) {
-          case "AdaptiveForm":
-            jCard1 = {};
-            jCard1 = await adaptivetableCard(
-              req.params.app,
-              req.params.role,
-              key,
-              anacardConfig
-            );
-            outStru[cardKey] = { ...jCard1 };
-            break;
-          case "Analytical":
-            jCard1 = {};
-            jCard1 = await analyticalCard(
-              mycard,
-              appData[key],
-              anacardConfig,
-              appconfig["Controls"]["style"]
-            );
-            outStru2[cardKey] = { ...jCard1 };
-            break;
-
-          case "List":
-            jCard1 = {};
-            jCard1 = await listCard(mycard, appData[key], anacardConfig);
-            outStru[cardKey] = { ...jCard1 };
-            break;
-
-          case "timeLine":
-            break;
-          case "Table":
-            break;
-          case "Adaptive":
-            break;
-          case "Object":
-            break;
-          case "Calander":
-            break;
-          default:
-            break;
-        }
-
-        switch (mycard["type"]) {
-          case "Example":
-            jCard1 = {};
-            jCard1 = await exampleCard(mycard, appData[key], anacardConfig);
-            outStru[cardKey] = { ...jCard1 };
-            break;
-          case "Analytical":
-            if (mycard["analyticsCard"]["chartType"] == "donut") {
-              jCard1 = {};
-              jCard1 = await donutCard(mycard, appData[key], anacardConfig);
-              outStru2[cardKey] = { ...jCard1 };
-            }
-            if (mycard["analyticsCard"]["chartType"] == "line") {
-              jCard1 = {};
-              jCard1 = await lineCard(mycard, appData[key], anacardConfig);
-              outStru[cardKey] = { ...jCard1 };
-            }
-            if (mycard["analyticsCard"]["chartType"] == "StackedColumn") {
-              jCard1 = {};
-              jCard1 = await StackedColumnCard(
-                mycard,
-                appData[key],
-                anacardConfig
+    if (appconfig["tableConfig"][key]["cards"] != undefined) {
+      if (appconfig["tableConfig"][key].hasOwnProperty("cards")) {
+        //     console.log(appconfig["tableConfig"][key]["cards"]);
+        if (appconfig["tableConfig"][key]["cards"].length > 0) {
+          for (
+            let g = 0;
+            g < appconfig["tableConfig"][key]["cards"].length;
+            g++
+          ) {
+            let cardKey = "";
+            var mycard = appconfig["tableConfig"][key]["cards"][g];
+            // Step T4 - Identify the CardID
+            if (mycard["cardID"] !== undefined) {
+              cardKey = getCardKey(
+                req.params.app,
+                req.params.role,
+                mycard["cardID"],
+                "T"
               );
-              outStru[cardKey] = { ...jCard1 };
+            } else {
+              cardKey = getCardKey(req.params.app, req.params.role, g, "T");
             }
-            break;
-          case "Table":
-            jCard1 = {};
-            jCard1 = await tableCard(mycard, appData[key], anacardConfig);
-            outStru[cardKey] = { ...jCard1 };
-            break;
+            // Step T5 - Read card Template, Stringify, replace @values then parse back to javaObject
+            // if (mycard["cardType"] != "AdaptiveForm") {
 
-          default:
-            break;
+            let cardConfigFile1 =
+              "../../cards/cardConfig/" + mycard["template"];
+            var cardData = JSON.stringify(require(cardConfigFile1));
+            cardData = cardReplace(mycard, cardData, appconfig, key, "Tab1");
+            var anacardConfig = JSON.parse(cardData);
+            // }
+
+            // Step T6 - Handle different card Types..
+            switch (mycard["cardType"]) {
+              case "AdaptiveForm":
+                jCard1 = {};
+                jCard1 = await adaptivetableCard(
+                  req.params.app,
+                  req.params.role,
+                  key,
+                  anacardConfig
+                );
+                outStru[cardKey] = { ...jCard1 };
+                break;
+              case "Analytical":
+                jCard1 = {};
+                jCard1 = await analyticalCard(
+                  mycard,
+                  appData[key],
+                  anacardConfig,
+                  appconfig["Controls"]["style"]
+                );
+                outStru2[cardKey] = { ...jCard1 };
+                break;
+
+              case "List":
+                jCard1 = {};
+                jCard1 = await listCard(mycard, appData[key], anacardConfig);
+                outStru[cardKey] = { ...jCard1 };
+                break;
+
+              case "timeLine":
+                break;
+              case "Table":
+                break;
+              case "Adaptive":
+                break;
+              case "Object":
+                break;
+              case "Calander":
+                break;
+              default:
+                break;
+            }
+
+            switch (mycard["type"]) {
+              case "Example":
+                jCard1 = {};
+                jCard1 = await exampleCard(mycard, appData[key], anacardConfig);
+                outStru[cardKey] = { ...jCard1 };
+                break;
+              case "Analytical":
+                if (mycard["analyticsCard"]["chartType"] == "donut") {
+                  jCard1 = {};
+                  jCard1 = await donutCard(mycard, appData[key], anacardConfig);
+                  outStru2[cardKey] = { ...jCard1 };
+                }
+                if (mycard["analyticsCard"]["chartType"] == "line") {
+                  jCard1 = {};
+                  jCard1 = await lineCard(mycard, appData[key], anacardConfig);
+                  outStru[cardKey] = { ...jCard1 };
+                }
+                if (mycard["analyticsCard"]["chartType"] == "StackedColumn") {
+                  jCard1 = {};
+                  jCard1 = await StackedColumnCard(
+                    mycard,
+                    appData[key],
+                    anacardConfig
+                  );
+                  outStru[cardKey] = { ...jCard1 };
+                }
+                break;
+              case "Table":
+                jCard1 = {};
+                jCard1 = await tableCard(mycard, appData[key], anacardConfig);
+                outStru[cardKey] = { ...jCard1 };
+                break;
+
+              default:
+                break;
+            }
+          }
         }
       }
     }
+
     console.log("01 - Build  New Analy Cards for Table");
     // Step T3B - check if card setup is there for the table and loop the cards in the config file
     if (appconfig["tableConfig"][key].hasOwnProperty("detailCharts")) {
