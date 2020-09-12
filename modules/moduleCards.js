@@ -872,12 +872,13 @@ module.exports = {
           //"valueOff": "false"
           for (let a = 0; a < appconfig["FieldDef"].length; a++) {
             if (appconfig["FieldDef"][a]["name"] == e1["name"]) {
-              if (appconfig["FieldDef"][a]["Option"] == "Mandatory") {
+              if (appconfig["FieldDef"][a]["adaptiveCard"] == "Main") {
                 body.push(body2x);
                 body2x = {};
                 body.push(body1x);
                 body1x = {};
-              } else {
+              }
+              if (appconfig["FieldDef"][a]["adaptiveCard"] == "Additional") {
                 body2.push(body2x);
                 body2x = {};
                 body2.push(body1x);
@@ -1127,12 +1128,13 @@ module.exports = {
         //"valueOff": "false"
         for (let a = 0; a < appconfig["ItemFieldDefinition"].length; a++) {
           if (appconfig["ItemFieldDefinition"][a]["name"] == e1) {
-            if (appconfig["ItemFieldDefinition"][a]["Option"] == "Mandatory") {
+            if (appconfig["ItemFieldDefinition"][a]["adaptiveCard"] == "Main") {
               body.push(body2x);
               body2x = {};
               body.push(body1x);
               body1x = {};
-            } else {
+            } 
+            if (appconfig["ItemFieldDefinition"][a]["adaptiveCard"] == "Additional") {
               body2.push(body2x);
               body2x = {};
               body2.push(body1x);

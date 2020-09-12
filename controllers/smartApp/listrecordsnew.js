@@ -150,13 +150,8 @@ exports.listrecordsnew = asyncHandler(async (req, res, next) => {
     // Get Table Schema
     let path = "../../models/smartApp/" + applicationId;
     const model = require(path);
-    if (appconfig["itemData"] == "Yes") {
-      app2 = applicationId + "_Itm";
-      let path2 = "../../models/smartApp/" + app2;
-      model2 = require(path2);
-    } else {
-      model2 = model;
-    }
+    model2 = model;
+
     // Get total Count
     let query_c = getTotalCount(applicationId, req, appconfig);
     let rec = await query_c;
@@ -177,80 +172,45 @@ exports.listrecordsnew = asyncHandler(async (req, res, next) => {
         }
       }
     }
-    // If Items are present...
-    if (model2 !== model) {
-      // Create query string (Item)
-      for (let i1 = 0; i1 < results.length; i1++) {
-        let results2 = [];
-        reqQuery2["ID"] = results[i1]["ID"];
-        let queryStr2 = JSON.stringify(reqQuery2);
-        // let queryStr2 = reqQuery2;
-        // Create operators ($gt, $gte, etc)
-        queryStr2 = queryStr2.replace(
-          /\b(gt|gte|lt|lte|in|ne)\b/g,
-          (match) => `$${match}`
-        );
-        query2 = model2.find(JSON.parse(queryStr2));
-        results2 = await query2;
-        results[i1].cardImage = application["photo"];
-        if (mode !== "BOTList") {
-          results[i1]["ItemData"] = results2;
+    for (let i1 = 0; i1 < results.length; i1++) {
+      if (results[i1]["ReferenceID"] == undefined) {
+        results[i1]["ReferenceID"] = results[i1].ID;
+      }
+      //   results[i1].cardImage = application["photo"];
+      results[i1].cardImage =
+        "https://images.unsplash.com/photo-1585776462170-f6f0e680e1c8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80";
+
+      if (mode == "") {
+        mode = "Web";
+      }
+      if (mode == "Web" || mode == "web") {
+        if (appconfig["Controls"]["USP"] == "UserProfile") {
+          results[i1].USP_Name = "Atul Gupta";
+          results[i1].USP_Role = businessrole;
+          results[i1].USP_Image =
+            "https://www.espncricinfo.com/inline/content/image/1183835.html?alt=1";
         }
-        results[i1].cardImage = application["photo"];
-        if (mode == "Web" || mode == "web") {
-          if (appconfig["Controls"]["USP"] == "UserProfile") {
-            results[i1].USP_Name = "Atul Gupta";
-            results[i1].USP_Role = businessrole;
-            results[i1].USP_Image =
-              "https://www.espncricinfo.com/inline/content/image/1183835.html?alt=1";
-          }
-          if (appconfig["Controls"]["StatusColor"] == "Yes") {
-            results[i1].StatusState =
+
+        if (appconfig["Controls"]["StatusColor"] == "Yes") {
+          if (colorConfig["Status"][results[i1]["Status"]] == undefined) {
+            results[i1]["StatusState"] = "None";
+          } else {
+            results[i1]["StatusState"] =
               colorConfig["Status"][results[i1]["Status"]];
           }
         }
-      }
-      // If Items are NOT present...
-    } else {
-      for (let i1 = 0; i1 < results.length; i1++) {
-        if (results[i1]["ReferenceID"] == undefined) {
-          results[i1]["ReferenceID"] = results[i1].ID;
-        }
-        //   results[i1].cardImage = application["photo"];
-        results[i1].cardImage =
-          "https://images.unsplash.com/photo-1585776462170-f6f0e680e1c8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80";
-
-        if (mode == "") {
-          mode = "Web";
-        }
-        if (mode == "Web" || mode == "web") {
-          if (appconfig["Controls"]["USP"] == "UserProfile") {
-            results[i1].USP_Name = "Atul Gupta";
-            results[i1].USP_Role = businessrole;
-            results[i1].USP_Image =
-              "https://www.espncricinfo.com/inline/content/image/1183835.html?alt=1";
-          }
-
-          if (appconfig["Controls"]["StatusColor"] == "Yes") {
-            if (colorConfig["Status"][results[i1]["Status"]] == undefined) {
-              results[i1]["StatusState"] = "None";
-            } else {
-              results[i1]["StatusState"] =
-                colorConfig["Status"][results[i1]["Status"]];
-            }
-          }
-          results[i1].SearchString = "";
-          for (let l = 0; l < tabArr.length; l++) {
-            for (let x = 0; x < results[i1][tabArr[l]["table"]].length; x++) {
-              results[i1].SearchString =
-                results[i1].SearchString +
-                results[i1][tabArr[l]["table"]][x][tabArr[l]["field"]] +
-                " ";
-            }
+        results[i1].SearchString = "";
+        for (let l = 0; l < tabArr.length; l++) {
+          for (let x = 0; x < results[i1][tabArr[l]["table"]].length; x++) {
+            results[i1].SearchString =
+              results[i1].SearchString +
+              results[i1][tabArr[l]["table"]][x][tabArr[l]["field"]] +
+              " ";
           }
         }
       }
     }
+
     /////////////////////////////////////////////////////////////////
     const limit = parseInt(req.query.limit, 10) || 25;
     // Pagination

@@ -754,14 +754,6 @@ module.exports = {
     out1["area"] = userX.area;
     return out1;
   },
-  checkItemData: function (a, b) {
-    // Read Create Map Config
-    // These are converted old XML files from smartapp
-    let fn = "../NewConfig/" + a + "_" + b + "_config.json";
-    var result1 = require(fn);
-    var result = result1["itemData"];
-    return result;
-  },
 
   processingLog: function (
     ID,
@@ -885,36 +877,36 @@ module.exports = {
     return result;
   },
 
-  itemValidate: function (itmData, newitemData) {
-    let kys = [];
-    let out1 = {};
-    var set1 = new Set([]);
+  // itemValidate: function (itmData, newitemData) {
+  //   let kys = [];
+  //   let out1 = {};
+  //   var set1 = new Set([]);
 
-    for (let i = 0; i < newitemData.length; i++) {
-      kys.push(newitemData[i]["ItemNumber"]);
-    }
-    for (let x = 0; x < itmData.length; x++) {
-      out1 = {};
-      if (!kys.includes(itmData[x]["ItemNumber"])) {
-        out1 = { ...itmData[x] };
-        newitemData.push(out1);
-        set1.add(out1);
-      }
-    }
+  //   for (let i = 0; i < newitemData.length; i++) {
+  //     kys.push(newitemData[i]["ItemNumber"]);
+  //   }
+  //   for (let x = 0; x < itmData.length; x++) {
+  //     out1 = {};
+  //     if (!kys.includes(itmData[x]["ItemNumber"])) {
+  //       out1 = { ...itmData[x] };
+  //       newitemData.push(out1);
+  //       set1.add(out1);
+  //     }
+  //   }
 
-    let itms = [];
-    ItemFields = {};
-    for (let db2 = 0; db2 < newitemData.length; db2++) {
-      for (let b2 = 0; b2 < itmData.length; b2++) {
-        if (itmData[b2]["ItemNumber"] == newitemData[db2]["ItemNumber"]) {
-          for (const b3 in itmData[b2]) {
-            newitemData[db2][b3] = itmData[b2][b3];
-          }
-        }
-      }
-    }
-    return newitemData;
-  },
+  //   let itms = [];
+  //   ItemFields = {};
+  //   for (let db2 = 0; db2 < newitemData.length; db2++) {
+  //     for (let b2 = 0; b2 < itmData.length; b2++) {
+  //       if (itmData[b2]["ItemNumber"] == newitemData[db2]["ItemNumber"]) {
+  //         for (const b3 in itmData[b2]) {
+  //           newitemData[db2][b3] = itmData[b2][b3];
+  //         }
+  //       }
+  //     }
+  //   }
+  //   return newitemData;
+  // },
   tableValidate: function (itmData, newitemData) {
     let kys = [];
     let out1 = {};

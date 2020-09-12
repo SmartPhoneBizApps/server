@@ -1121,6 +1121,7 @@
       "type": "string",
       "width": "20",
       "Option": "Mandatory",
+      "adaptiveCard":"Main",
       "SLabel": "Identification",
       "Update": "No"
     },
@@ -1129,6 +1130,7 @@
       "type": "string",
       "width": "20",
       "Option": "Optional",
+      "adaptiveCard":"Additional",
       "SLabel": "ReferenceID"
     },
     {
@@ -1136,6 +1138,7 @@
       "type": "string",
       "width": "50",
       "Option": "Mandatory",
+      "adaptiveCard":"Main",
       "SLabel": "Employee ID",
       "LLabel": "Employee ID"
     },
@@ -1144,6 +1147,7 @@
       "type": "string",
       "width": "50",
       "Option": "Mandatory",
+      "adaptiveCard":"Main",
       "SLabel": "First Name",
       "LLabel": "First Name"
     },
@@ -1152,6 +1156,7 @@
       "type": "string",
       "width": "50",
       "Option": "Mandatory",
+      "adaptiveCard":"Main",
       "SLabel": "Last Name",
       "LLabel": "Last Name"
     },
@@ -1160,6 +1165,7 @@
       "type": "Date",
       "width": "10",
       "Option": "Mandatory",
+      "adaptiveCard":"Main",
       "SLabel": "Date of Birth",
       "LLabel": "Date of Birth"
     },
@@ -1173,6 +1179,7 @@
       "URLMethod": "GET",
       "Token": true,
       "Option": "Optional",
+      "adaptiveCard":"Additional",
       "SLabel": "Post Code",
       "LLabel": "Post Code"
     },
@@ -1181,6 +1188,7 @@
       "type": "string",
       "width": "200",
       "Option": "Optional",
+      "adaptiveCard":"Additional",
       "SLabel": "Address",
       "LLabel": "Address"
     },
@@ -1189,6 +1197,7 @@
       "type": "radiobutton",
       "width": "20",
       "Option": "Optional",
+      "adaptiveCard":"Additional",
       "SLabel": "Sex",
       "LLabel": "Sex"
     },
@@ -1197,6 +1206,7 @@
       "type": "radiobutton",
       "width": "20",
       "Option": "Optional",
+      "adaptiveCard":"Additional",
       "SLabel": "MaritalStatus",
       "LLabel": "MaritalStatus"
     },
@@ -1205,6 +1215,7 @@
       "type": "string",
       "width": "20",
       "Option": "Optional",
+      "adaptiveCard":"Additional",
       "SLabel": "Contact No",
       "LLabel": "Contact No"
     },
@@ -1213,6 +1224,7 @@
       "type": "string",
       "width": "50",
       "Option": "Optional",
+      "adaptiveCard":"Additional",
       "SLabel": "Email Id",
       "LLabel": "Email Id"
     },
@@ -1221,14 +1233,16 @@
       "type": "Date",
       "width": "10",
       "Option": "Optional",
+      "adaptiveCard":"Additional",
       "SLabel": "Date Of Joining",
       "LLabel": "Date Of Joining"
     },
     {
       "name": "Package",
       "type": "Array",
-      "width": "500",
+      "width": "200",
       "Option": "Optional",
+      "adaptiveCard":"None",
       "SLabel": "Compensation",
       "LLabel": "Compensation"
     },
@@ -1237,6 +1251,7 @@
       "type": "string",
       "width": "100",
       "Option": "Optional",
+      "adaptiveCard":"Additional",
       "SLabel": "Social Security Number",
       "LLabel": "Social Security Number"
     },
@@ -1245,6 +1260,7 @@
       "type": "string",
       "width": "100",
       "Option": "Optional",
+      "adaptiveCard":"Additional",
       "SLabel": "NI Number",
       "LLabel": "NI Number"
     },
@@ -1253,6 +1269,7 @@
       "type": "string",
       "width": "50",
       "Option": "Mandatory",
+      "adaptiveCard":"Main",
       "SLabel": "Status",
       "LLabel": "Status"
     },
@@ -1261,6 +1278,7 @@
       "type": "string",
       "width": "200",
       "Option": "Optional",
+      "adaptiveCard":"Additional",
       "SLabel": "Search String",
       "LLabel": "Search String"
     },
@@ -1269,6 +1287,7 @@
       "type": "string",
       "width": "1000",
       "Option": "Optional",
+      "adaptiveCard":"Additional",
       "SLabel": "ProgressComment",
       "LLabel": "ProgressComment"
     },
@@ -1277,6 +1296,7 @@
       "type": "Array",
       "width": "200",
       "Option": "Optional",
+      "adaptiveCard":"None",
       "SLabel": "Dependents",
       "LLabel": "Dependents"
     },
@@ -1285,6 +1305,7 @@
       "type": "Array",
       "width": "200",
       "Option": "Optional",
+      "adaptiveCard":"None",
       "SLabel": "Benefits",
       "LLabel": "Benefits"
     },
@@ -1293,6 +1314,7 @@
       "type": "Array",
       "width": "200",
       "Option": "Optional",
+      "adaptiveCard":"None",
       "SLabel": "Contacts/Dependents",
       "LLabel": "Contacts/Dependents"
     },
@@ -1301,6 +1323,7 @@
       "type": "Array",
       "width": "200",
       "Option": "Optional",
+      "adaptiveCard":"None",
       "SLabel": "Education",
       "LLabel": "Education"
     },
@@ -1309,6 +1332,7 @@
       "type": "Array",
       "width": "200",
       "Option": "Optional",
+      "adaptiveCard":"None",
       "SLabel": "Previous Employer",
       "LLabel": "Previous Employer"
     },
@@ -1317,6 +1341,7 @@
       "type": "Array",
       "width": "200",
       "Option": "Optional",
+      "adaptiveCard":"None",
       "SLabel": "Skills",
       "LLabel": "Skills"
     },
@@ -1325,6 +1350,7 @@
       "type": "Array",
       "width": "200",
       "Option": "Optional",
+      "adaptiveCard":"None",
       "SLabel": "Certifications and Trainings",
       "LLabel": "Certifications and Trainings"
     },
@@ -1333,6 +1359,7 @@
       "type": "Array",
       "width": "200",
       "Option": "Optional",
+      "adaptiveCard":"None",
       "SLabel": "Payslips",
       "LLabel": "Payslips"
     },
@@ -1341,6 +1368,7 @@
       "type": "Array",
       "width": "200",
       "Option": "Optional",
+      "adaptiveCard":"None",
       "SLabel": "P60",
       "LLabel": "P60"
     },
@@ -1351,6 +1379,7 @@
       "metadata": "MultipleFields",
       "width": "200",
       "Option": "Optional",
+      "adaptiveCard":"Additional",
       "SLabel": "Learning Documents",
       "LLabel": "Learning Documents"
     },
@@ -1359,6 +1388,7 @@
       "type": "string",
       "width": "50",
       "Option": "Optional",
+      "adaptiveCard":"Additional",
       "SLabel": "ReferenceID",
       "LLabel": "ReferenceID"
     },
@@ -1367,6 +1397,7 @@
       "type": "string",
       "width": "50",
       "Option": "Optional",
+      "adaptiveCard":"Additional",
       "SLabel": "Total Earning",
       "LLabel": "Total Earning"
     },
@@ -1375,6 +1406,7 @@
       "type": "string",
       "width": "50",
       "Option": "Optional",
+      "adaptiveCard":"Additional",
       "SLabel": "Total Deductions",
       "LLabel": "Total Deductions"
     },
@@ -1383,6 +1415,7 @@
       "type": "string",
       "width": "50",
       "Option": "Optional",
+      "adaptiveCard":"Additional",
       "SLabel": "Net Pay",
       "LLabel": "Net Pay"
     }

@@ -148,7 +148,7 @@
     "headerImage": ["USP_Image"],
     "headerColorFields": ["Status"],
     "Tab0": ["data"],
-    "Tab20":["charts"],
+    "Tab20": ["charts"],
     "None": ["ID"],
     "Tab1": [
       "AssetType",
@@ -181,6 +181,7 @@
       "type": "string",
       "width": "20",
       "Option": "Mandatory",
+      "adaptiveCard":"Main",
       "SLabel": "Identification",
       "Update": "No"
     },
@@ -189,34 +190,39 @@
       "type": "string",
       "width": "20",
       "Option": "Optional",
+      "adaptiveCard":"Additional",
       "SLabel": "ReferenceID"
     },
     {
       "name": "AssetType",
       "type": "string",
       "width": "50",
-      "Option": "Optional",
+      "Option": "Mandatory",
+      "adaptiveCard":"Main",
       "SLabel": "Asset Type"
     },
     {
       "name": "SerialNo",
       "type": "string",
       "width": "50",
-      "Option": "Optional",
+      "Option": "Mandatory",
+      "adaptiveCard":"Main",
       "SLabel": "Serial Number"
     },
     {
       "name": "Make",
       "type": "string",
       "width": "50",
-      "Option": "Optional",
+      "Option": "Mandatory",
+      "adaptiveCard":"Main",
       "SLabel": "Make"
     },
     {
       "name": "Model",
       "type": "string",
       "width": "50",
-      "Option": "Optional",
+      "Option": "Mandatory",
+      "adaptiveCard":"Main",
       "SLabel": "Model"
     },
     {
@@ -224,6 +230,7 @@
       "type": "string",
       "width": "50",
       "Option": "Optional",
+      "adaptiveCard":"Additional",
       "SLabel": "RAM"
     },
     {
@@ -231,6 +238,7 @@
       "type": "string",
       "width": "50",
       "Option": "Optional",
+      "adaptiveCard":"Additional",
       "SLabel": "Processor"
     },
     {
@@ -238,13 +246,15 @@
       "type": "string",
       "width": "50",
       "Option": "Optional",
+      "adaptiveCard":"Additional",
       "SLabel": "Laptop Frequency"
     },
     {
       "name": "Description",
       "type": "string",
       "width": "50",
-      "Option": "Optional",
+      "Option": "Mandatory",
+      "adaptiveCard":"Main",
       "SLabel": "Description"
     },
     {
@@ -252,6 +262,7 @@
       "type": "Geocode",
       "width": "50",
       "Option": "Optional",
+      "adaptiveCard":"Additional",
       "SLabel": "Latitude"
     },
     {
@@ -259,6 +270,7 @@
       "type": "Geocode",
       "width": "50",
       "Option": "Optional",
+      "adaptiveCard":"Additional",
       "SLabel": "Longitude"
     },
     {
@@ -267,6 +279,7 @@
       "metadata": "OnlyFileName",
       "width": "200",
       "Option": "Optional",
+      "adaptiveCard":"Additional",
       "SLabel": "Image"
     },
     {
@@ -275,13 +288,15 @@
       "metadata": "MultipleFields",
       "width": "200",
       "Option": "Optional",
+      "adaptiveCard":"Additional",
       "SLabel": "Attachment"
     },
     {
       "name": "WarrantyEnd",
       "type": "Date",
       "width": "10",
-      "Option": "Optional",
+      "Option": "Mandatory",
+      "adaptiveCard":"Main",
       "SLabel": "Warranty End"
     },
     {
@@ -289,6 +304,7 @@
       "type": "string",
       "width": "50",
       "Option": "Optional",
+      "adaptiveCard":"Additional",
       "SLabel": "Issued To"
     },
     {
@@ -296,6 +312,7 @@
       "type": "Date",
       "width": "10",
       "Option": "Optional",
+      "adaptiveCard":"Additional",
       "SLabel": "Issue Date"
     },
     {
@@ -303,6 +320,7 @@
       "type": "string",
       "width": "50",
       "Option": "Optional",
+      "adaptiveCard":"Additional",
       "SLabel": "Employee Mobile"
     },
     {
@@ -310,6 +328,7 @@
       "type": "string",
       "width": "50",
       "Option": "Optional",
+      "adaptiveCard":"Additional",
       "SLabel": "Contact Email"
     },
     {
@@ -317,6 +336,7 @@
       "type": "string",
       "width": "200",
       "Option": "Optional",
+      "adaptiveCard":"Additional",
       "SLabel": "Asset Location"
     },
     {
@@ -324,6 +344,7 @@
       "type": "string",
       "width": "200",
       "Option": "Optional",
+      "adaptiveCard":"Additional",
       "SLabel": "Notes"
     },
     {
@@ -331,6 +352,7 @@
       "type": "string",
       "width": "50",
       "Option": "Mandatory",
+      "adaptiveCard":"Main",
       "SLabel": "Status",
       "LLabel": "Status"
     },
@@ -339,6 +361,7 @@
       "type": "string",
       "width": "200",
       "Option": "Mandatory",
+      "adaptiveCard":"Main",
       "SLabel": "Search String",
       "LLabel": "Search String"
     }

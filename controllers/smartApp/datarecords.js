@@ -9,13 +9,11 @@ const {
   getNewConfig,
   createDocument,
   getApplication,
-  itemValidate,
   findAndUpdateItem,
   findOneUpdateData,
   findOneAppData,
   collectExceptionFields,
   handleArray,
-  checkItemData,
   tableFields,
   tableValidate,
   processingLog,
@@ -194,14 +192,6 @@ exports.addDataRecords = asyncHandler(async (req, res, next) => {
     req.body.area = AreaDetails.id;
   }
 
-  //req.body.OrgData = myorg;
-  if (req.body.ItemData) {
-    for (let index = 0; index < req.body.ItemData.length; index++) {
-      const element = req.body.ItemData[index];
-      req.body.ItemData[index]["ID"] = req.body.ID;
-    }
-  }
-
   // Update data values example @currentDate
   for (const key in req.body) {
     req.body[key] = getDateValues(req.body[key]);
@@ -239,7 +229,6 @@ exports.addDataRecords = asyncHandler(async (req, res, next) => {
     mydata.branchName = req.body.branchName;
     mydata.area = req.body.area;
     mydata.areaName = req.body.areaName;
-    mydata.ItemData = req.body.ItemData;
     mydata.TransLog = req.body.TransLog;
     for (const key in req.body) {
       cardConfig["FieldDef"].forEach((element1) => {
@@ -257,48 +246,13 @@ exports.addDataRecords = asyncHandler(async (req, res, next) => {
     if (req.body.hasOwnProperty(key)) {
       var resField = myFieldArray.includes(key);
       /// Header Validations....
-      if (resField === false && key !== "ItemData") {
+      if (resField === false) {
         return next(
           new ErrorResponse(
             `Header Field # ${key} can't be used with this transaction`,
             400
           )
         );
-      }
-      /// Item Validations....
-      if (key === "ItemData") {
-        myItemArray = [];
-        for (
-          let index = 0;
-          index < cardConfig.itemConfig.ItemFieldDefinition.length;
-          index++
-        ) {
-          const element2 =
-            cardConfig.itemConfig.ItemFieldDefinition[index].name;
-          myItemArray.push(element2);
-        }
-        for (const key2 in req.body.ItemData) {
-          for (const key3 in req.body.ItemData[key2]) {
-            if (req.body.ItemData[key2].hasOwnProperty(key3)) {
-              const element3 = req.body.ItemData[key2][key3];
-              var resItemField = myItemArray.includes(key3);
-              /// Item Validations....
-              if (
-                resItemField === false &&
-                key3 !== "Edit" &&
-                key3 !== "Display" &&
-                key3 !== "Delete"
-              ) {
-                return next(
-                  new ErrorResponse(
-                    `Item Field ${key3} can't be used with this transaction`,
-                    400
-                  )
-                );
-              }
-            }
-          }
-        }
       }
     }
   }
@@ -308,6 +262,8 @@ exports.addDataRecords = asyncHandler(async (req, res, next) => {
   if (req.body.ReferenceID == undefined || req.body.ReferenceID == "") {
     req.body.ReferenceID = req.body.ID;
   }
+
+  /// X99 - Update Processing Log.....
   // Processing Log
   req.body.TransLog = processingLog(
     req.body.ID,
@@ -321,10 +277,8 @@ exports.addDataRecords = asyncHandler(async (req, res, next) => {
     req.headers.buttonname,
     req.body.ProgressComment
   );
-  //---------------------------
-  // Perform Calculations ....
-  //---------------------------
-  // Update Table fields
+
+  /// X99 - Update Calculations.....
   let tblFields = tableFields(cardConfig.FieldDef);
   if (tblFields.length > 0) {
     for (let l = 0; l < tblFields.length; l++) {
@@ -345,26 +299,17 @@ exports.addDataRecords = asyncHandler(async (req, res, next) => {
   } else {
     if (req.headers.calculation == "Yes") {
       var Handler = new calfunction();
-      // mydata = Handler["datacalculation"](mydata, cardConfig["CalculatedFields"]);
-
-      if (cardConfig["itemData"] == "Yes") {
-        mydata = Handler["tablecalculation"](
-          mydata,
-          cardConfig["CalculatedFields"],
-          "ItemData",
-          cardConfig["FieldDef"]
-        );
-      } else {
-        console.log("CREATE - Header calculation starts..");
-        mydata = Handler["headercalculation"](
-          mydata,
-          cardConfig["CalculatedFields"],
-          cardConfig["FieldDef"]
-        );
-        console.log("CREATE - Header calculation completed..");
-      }
+      console.log("CREATE - Header calculation starts..");
+      mydata = Handler["headercalculation"](
+        mydata,
+        cardConfig["CalculatedFields"],
+        cardConfig["FieldDef"]
+      );
+      console.log("CREATE - Header calculation completed..");
     }
   }
+
+  // X99 - Validations.....
   console.log("CREATE - Validation starts..");
   var mydata1 = mydata;
   for (const obj in mydata1) {
@@ -395,7 +340,6 @@ exports.addDataRecords = asyncHandler(async (req, res, next) => {
               return false;
             }
           }
-          //added by atul - End
         }
       }
     } else {
@@ -406,7 +350,6 @@ exports.addDataRecords = asyncHandler(async (req, res, next) => {
       passArray["FieldDef"] = cardConfig["FieldDef"];
       passArray["itemCnt"] = "";
       var sValidation = Handler["validation"](passArray);
-
       mydata = sValidation["data"];
       if (sValidation["status"] == false) {
         res.status(400).json({
@@ -418,15 +361,13 @@ exports.addDataRecords = asyncHandler(async (req, res, next) => {
     }
   }
   console.log("CREATE - Validation ends..");
-  // Create data in mongo DB ...
+
+  // X99 - Create Record [mongoDB].....
   let result = {};
   result = await createDocument(req.headers.applicationid, mydata);
-  if (mydata.ItemData) {
-    app_itm = req.headers.applicationid + "_Itm";
-    result2 = await createDocument(app_itm, mydata.ItemData);
-  }
   mydata = {};
-  // Send Response .....
+
+  // X99 - Send Notification .....
   var Notification;
   var msg =
     "SUCCESS: " +
@@ -467,66 +408,39 @@ exports.addDataRecords = asyncHandler(async (req, res, next) => {
 // -----------------------------------------------------
 // -----------------------------------------------------
 exports.updateDataRecords = asyncHandler(async (req, res, next) => {
+  // 01 - Check if applicationid is provided
   if (!req.headers.applicationid) {
     return next(new ErrorResponse(`Please provide App ID(Header)`, 400));
   }
+  // 01B - Find Exception fields
+  const BodyApp = await App.findOne({
+    applicationID: req.headers.applicationid,
+  });
+
+  // 02 - Check if businessrole is provided
   if (!req.headers.businessrole) {
     return next(new ErrorResponse(`Please provide Role(Header)`, 400));
   }
-  // Read New Config File
+  // 02 - Check if mode is provided
+  if (!req.headers.mode) {
+    return next(new ErrorResponse(`Please provide update mode`, 400));
+  }
+  // 03 - Read New Config File
   var cardConfig = getNewConfig(
     req.headers.applicationid,
     req.headers.businessrole
   );
-  // Find Exception fields
+  // 04 - Find Exception fields
   myFieldArray = collectExceptionFields(cardConfig.FieldDef);
 
-  // Disabled validation for Tables...
-  /*   for (const key in req.body) {
-    if (req.body.hasOwnProperty(key)) {
-      var resField = myFieldArray.includes(key);
-      if (resField === false && key !== "ItemData") {
-        return next(
-          new ErrorResponse(`Field ${key} can't be used with this App`, 400)
-        );
-      }
-    }
-  } */
-  // -----------------------------------------------------
-  // Get App from Header
-  // -----------------------------------------------------
-  const BodyApp = await App.findOne({
-    applicationID: req.headers.applicationid,
-  });
-  // Get Role from the Header
-  // const BusinessRole = await Role.findOne({
-  //   applicationID: req.headers.businessrole,
-  // });
-  req.body.appId = BodyApp.id;
-  req.body.applicationId = req.headers.applicationid;
-
-  req.body.user = req.user.id;
-  req.body.userName = req.user.name;
-  req.body.userEmail = req.user.email;
-  // Get Company Details
+  // 05 - Get and validate - Company Details
   const CompanyDetails = await Company.findById(req.user.company);
-  ///  +++++++++++  VALIDATIONS STARTS +++++++++++++++++++++++ /////////
-  // Check if user setup has company (Pass)
-  // if (!req.user.company) {
-  //   return next(
-  //     new ErrorResponse(
-  //       `The user with ID ${req.user.email} is not setup for any company`,
-  //       400
-  //     )
-  //   );
-  // }
-
   err1 = sendErrorMessage("company", req.user.company, req.user.email);
   if (err1) {
     return next(err1);
   }
 
-  // Validate if user is creating documents in their own company (Pass)
+  // 06 - Validation : Check if user is creating documents in their own company (Pass)
   if (req.headers.company) {
     if (req.headers.company != CompanyDetails.id) {
       return next(
@@ -537,10 +451,18 @@ exports.updateDataRecords = asyncHandler(async (req, res, next) => {
       );
     }
   }
-  // Company validation passed, now USER company can be used!!
+  // Great - Company validation passed, now USER company can be used!!
+
+  // 07 - Set body fields
+  req.body.appId = BodyApp.id;
+  req.body.applicationId = req.headers.applicationid;
+  req.body.user = req.user.id;
+  req.body.userName = req.user.name;
+  req.body.userEmail = req.user.email;
   req.body.company = CompanyDetails.id;
   req.body.companyName = CompanyDetails.companyName;
-  // Get Branch from Header
+
+  // 08 - Get Branch from Header
   if (req.headers.branchname) {
     const BodyBranch = await Branch.findOne({
       branchName: req.headers.branchname,
@@ -551,7 +473,8 @@ exports.updateDataRecords = asyncHandler(async (req, res, next) => {
       req.body.branchName = BodyBranch.branchName;
     }
   }
-  // Get Area from Body
+
+  // 09 - Get Area from Body
   if (req.headers.areaname) {
     const BodyArea = await Area.findOne({
       areaName: req.headers.areaname,
@@ -564,21 +487,12 @@ exports.updateDataRecords = asyncHandler(async (req, res, next) => {
   }
   // Validate if user has provided Branch details (Pass)
   if (!req.headers.branch) {
-    // if (!req.user.branch) {
-    //   return next(
-    //     new ErrorResponse(
-    //       `The user with ID ${req.user.email} can't create document as branch is not provided`,
-    //       400
-    //     )
-    //   );
-    // }
-
     err1 = sendErrorMessage("branch", req.user.branch, req.user.email);
     if (err1) {
       return next(err1);
     }
   }
-  // If user record has got Branch then validate is it matches with body Branch
+  // If user record has got Branch then validate it matches with body Branch
   if (req.user.branch) {
     // if no Area in body but user has area then use it
     if (!req.headers.branch) {
@@ -634,23 +548,54 @@ exports.updateDataRecords = asyncHandler(async (req, res, next) => {
     req.body.area = AreaDetails.id;
   }
   ///  +++++++++++  VALIDATIONS ENDS +++++++++++++++++++++++ /////////
-  // -----------------------------------------------------
-  // Processing Log
-  // -----------------------------------------------------
-  if (!req.headers.mode) {
-    return next(new ErrorResponse(`Please provide update mode`, 400));
+
+  // X2 - Initial values
+  var ivalue = getInitialValues(
+    req.headers.applicationid,
+    req.headers.businessrole,
+    req.user
+  );
+  let ival_out = [];
+  let ival = {};
+  let out = {};
+  for (let i = 0; i < ivalue.length; i++) {
+    ival = {};
+    const element = ivalue[i];
+    ival = { ...element };
+    o_val = getDateValues(ival.Value);
+    ival.Value = o_val;
+    ival_out.push(ival);
   }
+  // X3 - Update data values example @currentDate
+  for (const key in req.body) {
+    req.body[key] = getDateValues(req.body[key]);
+  }
+
+  // X4 - Add initial values / user defaults in the body if user as not provided it..
+  for (let a = 0; a < ival_out.length; a++) {
+    for (let b = 0; b < cardConfig["FieldDef"].length; b++) {
+      if (cardConfig["FieldDef"][b]["name"] == ival_out[a]["Field"]) {
+        if (req.body.hasOwnProperty(ival_out[a]["Field"])) {
+          console.log("USer provided input for: ", ival_out[a]["Field"]);
+        } else {
+          req.body[ival_out[a]["Field"]] = ival_out[a]["Value"];
+          console.log(
+            "User default value added for:",
+            ival_out[a]["Field"],
+            ival_out[a]["Value"]
+          );
+        }
+      }
+    }
+  }
+
+  // X5 - Update Processing Log
   let Status = "";
   if (req.body.Status) {
     Status = req.body.Status;
   } else {
     Status = "NoChange";
   }
-  // Update data values example @currentDate
-  for (const key in req.body) {
-    req.body[key] = getDateValues(req.body[key]);
-  }
-
   req.body.TransLog = processingLog(
     req.body.ID,
     "DATA_UPDATE",
@@ -664,60 +609,16 @@ exports.updateDataRecords = asyncHandler(async (req, res, next) => {
     req.body.ProgressComment
   );
 
-  let nTrans = [];
-  // -----------------------------------------------------
-  // Read data from DB
-  // -----------------------------------------------------
+  // X6 - Read the record
   let myData = await findOneAppData(req.body.ID, req.body.applicationId);
-  // let myData = await SUPP00018.findOne({ ID: req.body.ID });
   if (!myData) {
     return next(new ErrorResponse(`Record with ${req.body.ID} Not found`, 400));
   }
-  //---------------------------
-  // Update Transaction Log
-  //---------------------------
+  // X7 - Update T-Log
   myData.TransLog.unshift(req.body.TransLog);
   req.body.TransLog = myData.TransLog;
 
-  //---------------------------
-  // Item update logic....
-  //---------------------------
-  if (req.body["ItemData"]) {
-    myData["ItemData"] = itemValidate(req.body["ItemData"], myData["ItemData"]);
-  }
-
-  // Update Table fields
-  let tblFields = tableFields(cardConfig.FieldDef);
-  for (const kk in req.body) {
-    console.log("table", kk);
-    if (req.body.hasOwnProperty(kk)) {
-      let tableField = false;
-      tableField = tblFields.includes(kk);
-      if (tableField == true) {
-        myData[kk] = tableValidate(req.body[kk], myData[kk]);
-        req.body[kk] = myData[kk];
-      }
-    }
-  }
-  for (let l = 0; l < tblFields.length; l++) {
-    if (req.headers.calculation == "Yes") {
-      console.log("UPDATE - Table Calculation Starts..", tblFields[l]);
-      var Handler = new calfunction();
-      outdata = Handler["tablecalculation"](
-        myData,
-        cardConfig["CalculatedFields"],
-        tblFields[l],
-        cardConfig["FieldDef"]
-      );
-      console.log("UPDATE - Table Calculation Ends..", tblFields[l]);
-      req.body = outdata;
-      myData = outdata;
-    }
-  }
-
-  //---------------------------
-  // Attachment logic....
-  //---------------------------
+  // X8 - MultiAttachment Logic...
   if (req.body.hasOwnProperty("MultiAttachments")) {
     if (req.body["MultiAttachments"]) {
       if (myData["MultiAttachments"]) {
@@ -738,22 +639,44 @@ exports.updateDataRecords = asyncHandler(async (req, res, next) => {
       }
     }
   }
-  req.body["ItemData"] = myData["ItemData"];
 
-  //---------------------------
-  // Perform Calculations ....
-  //---------------------------
-  if (req.headers.calculation == "Yes") {
-    var Handler = new calfunction();
+  // X8 - Update Table Data
+  let tblFields = tableFields(cardConfig.FieldDef);
+  for (const kk in req.body) {
+    if (req.body.hasOwnProperty(kk)) {
+      let tableField = false;
+      tableField = tblFields.includes(kk);
+      if (tableField == true) {
+        console.log("Table:", kk);
+        myData[kk] = tableValidate(req.body[kk], myData[kk]);
+        req.body[kk] = myData[kk];
+      }
+    }
+  }
 
-    if (cardConfig["itemData"] == "Yes") {
-      outdata = Handler["tablecalculation"](
-        req.body,
-        cardConfig["CalculatedFields"],
-        "ItemData",
-        cardConfig["FieldDef"]
-      );
-    } else {
+  if (tblFields.length > 0) {
+    // X8 - Perform Calculations [Table] ...
+    for (let l = 0; l < tblFields.length; l++) {
+      if (req.headers.calculation == "Yes") {
+        console.log("UPDATE - Table Calculation Starts..", tblFields[l]);
+        var Handler = new calfunction();
+        outdata = Handler["tablecalculation"](
+          myData,
+          cardConfig["CalculatedFields"],
+          tblFields[l],
+          cardConfig["FieldDef"]
+        );
+        console.log("UPDATE - Table Calculation Ends..", tblFields[l]);
+        req.body = outdata;
+        myData = outdata;
+      } else {
+        console.log("UPDATE - Calculation not reqiuired..");
+      }
+    }
+  } else {
+    // X8 - Perform Calculations [Header] ...
+    if (req.headers.calculation == "Yes") {
+      var Handler = new calfunction();
       console.log("UPDATE - Header Calculation Starts..");
       outdata = Handler["headercalculation"](
         req.body,
@@ -761,10 +684,11 @@ exports.updateDataRecords = asyncHandler(async (req, res, next) => {
         cardConfig["FieldDef"]
       );
       console.log("UPDATE - Header Calculation Ends..");
+      req.body = outdata;
     }
-
-    req.body = outdata;
   }
+
+  // X8 - Perform Validations ...
   console.log("CREATE - Validation starts..");
   var mydata1 = req.body;
   for (const obj in mydata1) {
@@ -794,7 +718,6 @@ exports.updateDataRecords = asyncHandler(async (req, res, next) => {
               return false;
             }
           }
-          //added by atul - End
         }
       }
     } else {
@@ -816,21 +739,17 @@ exports.updateDataRecords = asyncHandler(async (req, res, next) => {
       }
     }
   }
-  console.log("CREATE - Validation ends..");
+  console.log("UPDATE - Validation ends..");
 
-  itm = checkItemData(req.headers.applicationid, req.headers.businessrole);
+  // X8 - Set Ref ID ...
   if (req.body.ReferenceID == undefined || req.body.ReferenceID == "") {
     req.body.ReferenceID = req.body.ID;
   }
-  //---------------------------
-  result = await findOneUpdateData(req.body, req.headers.applicationid);
-  if (itm == "Yes") {
-    result2 = await findAndUpdateItem(
-      req.body["ItemData"],
-      req.headers.applicationid
-    );
-  }
 
+  // X8 - Update Record ...
+  result = await findOneUpdateData(req.body, req.headers.applicationid);
+
+  // X8 - Send Notification ...
   var Notification;
   var msg =
     "SUCCESS: " +

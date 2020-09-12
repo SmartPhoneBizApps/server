@@ -53,13 +53,11 @@ class calFun {
     var a = 0;
     var b = 0;
     arr.forEach((aa) => {
-      console.log("AA", aa);
       if (aa != undefined && !isNaN(aa) && aa != "") {
         b = 1;
         a += aa;
       }
     });
-    console.log("A1", b, a);
     if (b) {
       a = this.isInt(a);
       return a;
@@ -77,7 +75,6 @@ class calFun {
         a += aa;
       }
     });
-    console.log("A2", b);
     if (b) {
       a = this.isInt(a);
       return a;
@@ -115,7 +112,6 @@ class calFun {
         cnt = 0;
       } else {
         if (aa != undefined && !isNaN(aa) && aa != "") {
-          console.log("A3", aa);
           a *= aa;
         } else {
           aa = 0;
@@ -179,9 +175,9 @@ class calFun {
       if (aa != undefined && !isNaN(aa) && aa != "") {
         b = 1;
         a = aa / 100;
+        console.log(a);
       }
     });
-    console.log("A4", b);
     if (b) {
       a = this.isInt(a);
       return a;
@@ -535,11 +531,12 @@ class calFun {
     return outdata;
   }
   tablecalculation(outdata, config, tabname, fieldDef) {
-    console.log("Calculation Table", tabname);
-    console.log("Calculation Table Data", outdata[tabname]);
     if (outdata[tabname] != undefined) {
       if (outdata[tabname].length > 0) {
         if (config["Item"].length > 0) {
+          console.log("--------------------------------------");
+          console.log("Item >> Formula");
+          console.log("--------------------------------------");
           for (var i = 0; i < outdata[tabname].length; i++) {
             config["Item"].forEach((configItem) => {
               if (configItem["CalculatedFormula"]["table"] == tabname) {
@@ -550,6 +547,13 @@ class calFun {
                       fieldObj.push(
                         parseFloat(outdata[tabname][i][field["Source"]])
                       ); // get calculated field value in item array
+
+                      console.log(
+                        field["Source"],
+                        ">>",
+                        outdata[tabname][i][field["Source"]]
+                      );
+                      console.log(fieldObj);
                     } else {
                       fieldObj.push(); // get calculated field value in item array
                     }
@@ -559,13 +563,18 @@ class calFun {
                     outdata[tabname][i][
                       configItem["CalculatedFormula"]["Target"]
                     ] = this[fun](fieldObj); // call function and assign value in item array
+                    console.log(
+                      configItem["CalculatedFormula"]["Target"],
+                      outdata[tabname][i][
+                        configItem["CalculatedFormula"]["Target"]
+                      ]
+                    );
                   } else {
                     outdata[tabname][i][
                       configItem["CalculatedFormula"]["Target"]
                     ] = "";
                   }
                 }
-                //Atul
               }
             });
           }
@@ -576,6 +585,9 @@ class calFun {
       if (outdata[tabname] != undefined) {
         if (outdata[tabname].length > 0) {
           config["HeaderItem"].forEach((configItem) => {
+            console.log("--------------------------------------");
+            console.log("Header Item >> Formula");
+            console.log("--------------------------------------");
             if (configItem["CalculatedFormula"]["table"] == tabname) {
               if (this.hasNull(configItem["CalculatedFormula"], 5)) {
                 var fieldObj = [];
@@ -586,6 +598,12 @@ class calFun {
                         outdata[tabname][i][configItem["Fields"][0]["Source"]]
                       )
                     ); // get calculated field value from all items
+                    console.log(
+                      configItem["Fields"][0]["Source"],
+                      ">>",
+                      outdata[tabname][i][configItem["Fields"][0]["Source"]]
+                    );
+                    console.log(fieldObj);
                   } else {
                     fieldObj.push(""); // get calculated field value from all items
                   }
@@ -595,17 +613,23 @@ class calFun {
                   outdata[configItem["CalculatedFormula"]["Target"]] = this[
                     fun
                   ](fieldObj); // call function and assign value in header array
+                  console.log(
+                    configItem["CalculatedFormula"]["Target"],
+                    outdata[configItem["CalculatedFormula"]["Target"]]
+                  );
                 } else {
                   outdata[configItem["CalculatedFormula"]["Target"]] = "";
                 }
               }
             }
-            // Atul
           });
         }
       }
     }
     if (config["Header"].length > 0) {
+      console.log("--------------------------------------");
+      console.log("Header >> Formula");
+      console.log("--------------------------------------");
       // Check Header calculation is exist or not
       config["Header"].forEach((configItem) => {
         if (this.hasNull(configItem["CalculatedFormula"], 4)) {
@@ -626,6 +650,12 @@ class calFun {
                       ? parseFloat(outdata[field["Source"]])
                       : 0
                   ); // get calculated field value
+                  console.log(
+                    field["Source"],
+                    ">>",
+                    outdata[field["Source"]],
+                    fieldObj
+                  );
                 }
               } else {
                 fieldObj.push(""); // get calculated field value

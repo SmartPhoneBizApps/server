@@ -317,6 +317,7 @@
       "type": "string",
       "width": "20",
       "Option": "Mandatory",
+      "adaptiveCard":"Main",
       "SLabel": "Identification",
       "Update": "No"
     },
@@ -326,6 +327,7 @@
       "type": "string",
       "width": "20",
       "Option": "Mandatory",
+      "adaptiveCard":"Main",
       "SLabel": "PO Number",
       "LLabel": "PO Number"
     },
@@ -334,6 +336,7 @@
       "type": "string",
       "width": "20",
       "Option": "Mandatory",
+      "adaptiveCard":"Main",
       "SLabel": "Vendor Number",
       "LLabel": "Vendor Number"
     },
@@ -342,6 +345,7 @@
       "type": "string",
       "width": "50",
       "Option": "Mandatory",
+      "adaptiveCard":"Main",
       "SLabel": "Vendor Name"
     },
     {
@@ -349,6 +353,7 @@
       "type": "string",
       "width": "200",
       "Option": "Mandatory",
+      "adaptiveCard":"Main",
       "SLabel": "Vendor Email"
     },
     {
@@ -356,6 +361,7 @@
       "type": "string",
       "width": "100",
       "Option": "Mandatory",
+      "adaptiveCard":"Main",
       "SLabel": "Deliver To"
     },
     {
@@ -363,6 +369,7 @@
       "type": "string",
       "width": "100",
       "Option": "Mandatory",
+      "adaptiveCard":"Main",
       "SLabel": "Delivery Email"
     },
     {
@@ -370,6 +377,7 @@
       "type": "string",
       "width": "50",
       "Option": "Mandatory",
+      "adaptiveCard":"Main",
       "SLabel": "Current Status",
       "LLabel": "Current Status"
     },
@@ -378,6 +386,7 @@
       "type": "string",
       "width": "50",
       "Option": "Mandatory",
+      "adaptiveCard":"Main",
       "SLabel": "Status",
       "LLabel": "Status"
     },
@@ -386,6 +395,7 @@
       "type": "string",
       "width": "20",
       "Option": "Optional",
+      "adaptiveCard":"Additional",
       "SLabel": "ReferenceID"
     },
     {
@@ -393,6 +403,7 @@
       "type": "string",
       "width": "50",
       "Option": "Optional",
+      "adaptiveCard":"Additional",
       "SLabel": "Company",
       "LLabel": "Company"
     },
@@ -401,6 +412,7 @@
       "type": "string",
       "width": "20",
       "Option": "Optional",
+      "adaptiveCard":"Additional",
       "SLabel": "Payment Term"
     },
     {
@@ -408,6 +420,7 @@
       "type": "Date",
       "width": "10",
       "Option": "Mandatory",
+      "adaptiveCard":"Main",
       "SLabel": "PO Date"
     },
     {
@@ -415,6 +428,7 @@
       "type": "string",
       "width": "10",
       "Option": "Mandatory",
+      "adaptiveCard":"Main",
       "SLabel": "Currency"
     },
     {
@@ -422,6 +436,7 @@
       "type": "Date",
       "width": "10",
       "Option": "Optional",
+      "adaptiveCard":"Additional",
       "SLabel": "PO Delivery Date"
     },
 
@@ -430,6 +445,7 @@
       "type": "string",
       "width": "100",
       "Option": "Optional",
+      "adaptiveCard":"Additional",
       "SLabel": "Delivery Address"
     },
     {
@@ -441,6 +457,7 @@
       "URLMethod": "GET",
       "Token": true,
       "Option": "Optional",
+      "adaptiveCard":"Additional",
       "SLabel": "Delivery Post Code"
     },
     {
@@ -448,6 +465,7 @@
       "type": "string",
       "width": "100",
       "Option": "Optional",
+      "adaptiveCard":"Additional",
       "SLabel": "Delivery Phone"
     },
     {
@@ -455,6 +473,7 @@
       "type": "string",
       "width": "500",
       "Option": "Optional",
+      "adaptiveCard":"Additional",
       "SLabel": "Delivery Instruction"
     },
     {
@@ -462,6 +481,7 @@
       "type": "string",
       "width": "500",
       "Option": "Optional",
+      "adaptiveCard":"Additional",
       "SLabel": "Add Details"
     },
     {
@@ -469,6 +489,7 @@
       "type": "attachment",
       "width": "500",
       "Option": "Optional",
+      "adaptiveCard":"Additional",
       "SLabel": "Attachment"
     },
 
@@ -477,6 +498,7 @@
       "type": "string",
       "width": "200",
       "Option": "Optional",
+      "adaptiveCard":"Additional",
       "SLabel": "Search String",
       "LLabel": "Search String"
     },
@@ -485,6 +507,7 @@
       "type": "string",
       "width": "1000",
       "Option": "Optional",
+      "adaptiveCard":"Additional",
       "SLabel": "ProgressComment",
       "LLabel": "ProgressComment"
     },
@@ -493,6 +516,7 @@
       "type": "Num,2",
       "width": "20",
       "Option": "Optional",
+      "adaptiveCard":"Additional",
       "SLabel": "Total Net Value",
       "LLabel": "Total Net Value"
     },
@@ -501,6 +525,7 @@
       "type": "Num,2",
       "width": "20",
       "Option": "Optional",
+      "adaptiveCard":"Additional",
       "SLabel": "Total Tax",
       "LLabel": "Total Tax"
     },
@@ -509,6 +534,7 @@
       "type": "Num,2",
       "width": "20",
       "Option": "Optional",
+      "adaptiveCard":"Additional",
       "SLabel": "Total Gross Value",
       "LLabel": "Total Gross Value"
     },
@@ -517,6 +543,7 @@
       "type": "string",
       "width": "50",
       "Option": "Optional",
+      "adaptiveCard":"Additional",
       "SLabel": "Acceptance Status",
       "LLabel": "Acceptance Status"
     },
@@ -525,6 +552,7 @@
       "type": "string",
       "width": "50",
       "Option": "Optional",
+      "adaptiveCard":"Additional",
       "SLabel": "Shipping Status",
       "LLabel": "Shipping Status"
     },
@@ -533,6 +561,7 @@
       "type": "string",
       "width": "50",
       "Option": "Optional",
+      "adaptiveCard":"Additional",
       "SLabel": "Invoice Status",
       "LLabel": "Invoice Status"
     },
@@ -541,6 +570,7 @@
       "type": "string",
       "width": "50",
       "Option": "Optional",
+      "adaptiveCard":"Additional",
       "SLabel": "Payment Status",
       "LLabel": "Payment Status"
     },
@@ -549,6 +579,7 @@
       "type": "string",
       "width": "20",
       "Option": "Optional",
+      "adaptiveCard":"Additional",
       "SLabel": "Acceptance Comment",
       "LLabel": "Acceptance Comment"
     },
@@ -557,6 +588,7 @@
       "type": "string",
       "width": "100",
       "Option": "Optional",
+      "adaptiveCard":"Additional",
       "SLabel": "Question Category",
       "LLabel": "Question Category"
     },
@@ -565,6 +597,7 @@
       "type": "string",
       "width": "1000",
       "Option": "Optional",
+      "adaptiveCard":"Additional",
       "SLabel": "Question Details",
       "LLabel": "Question Details"
     },
@@ -573,6 +606,7 @@
       "type": "string",
       "width": "20",
       "Option": "Optional",
+      "adaptiveCard":"Additional",
       "SLabel": "Total Invoice Net Value",
       "LLabel": "Total Invoice Net Value"
     },
@@ -581,6 +615,7 @@
       "type": "string",
       "width": "20",
       "Option": "Optional",
+      "adaptiveCard":"Additional",
       "SLabel": "Total Invoice Gross Value",
       "LLabel": "Total Invoice Gross Value"
     },
@@ -589,6 +624,7 @@
       "type": "string",
       "width": "100",
       "Option": "Optional",
+      "adaptiveCard":"Additional",
       "SLabel": "GR Status",
       "LLabel": "GR Status"
     },
@@ -597,6 +633,7 @@
       "type": "string",
       "width": "500",
       "Option": "Optional",
+      "adaptiveCard":"Additional",
       "SLabel": "GR Comments",
       "LLabel": "GR Comments"
     },
@@ -605,6 +642,7 @@
       "type": "string",
       "width": "500",
       "Option": "Optional",
+      "adaptiveCard":"Additional",
       "SLabel": "Processing Log",
       "LLabel": "Processing Log"
     },
@@ -613,6 +651,7 @@
       "type": "string",
       "width": "50",
       "Option": "Optional",
+      "adaptiveCard":"Additional",
       "SLabel": "Supplier Invoice Number",
       "LLabel": "SupplierInvoiceNumber"
     },
@@ -620,12 +659,16 @@
       "name": "StatusState",
       "type": "string",
       "width": "20",
+      "Option": "Optional",
+      "adaptiveCard":"Additional",
       "SLabel": "StatusState"
     },
     {
       "name": "cardImage",
       "type": "string",
       "width": "500",
+      "Option": "Optional",
+      "adaptiveCard":"Additional",
       "SLabel": "cardImage"
     },
     {
@@ -633,6 +676,8 @@
       "type": "Array",
       "width": "200",
       "Option": "Optional",
+      "adaptiveCard":"None",
+       "adaptiveCard":"None",
       "SLabel": "iData",
       "LLabel": "iData"
     },
@@ -642,6 +687,7 @@
       "metadata": "MultipleFields",
       "width": "200",
       "Option": "Optional",
+      "adaptiveCard":"Additional",
       "SLabel": "MultiAttachments",
       "LLabel": "MultiAttachments"
     }
@@ -658,6 +704,7 @@
           "width": "20",
           "SLabel": "Item Number",
           "Option": "Optional",
+          "adaptiveCard":"Additional",
           "Update": "No"
         },
         {
@@ -666,6 +713,7 @@
           "width": "50",
           "SLabel": "Item Details",
           "Option": "Mandatory",
+          "adaptiveCard":"Main",
           "Update": "Yes"
         },
         {
@@ -674,6 +722,7 @@
           "width": "50",
           "SLabel": "Item Quantity",
           "Option": "Mandatory",
+          "adaptiveCard":"Main",
           "Update": "Yes"
         },
         {
@@ -682,6 +731,7 @@
           "width": "50",
           "SLabel": "Item Price",
           "Option": "Mandatory",
+          "adaptiveCard":"Main",
           "Update": "Yes"
         },
         {
@@ -690,6 +740,7 @@
           "width": "50",
           "SLabel": "Item UOM",
           "Option": "Mandatory",
+          "adaptiveCard":"Main",
           "Update": "Yes"
         },
         {
@@ -698,6 +749,7 @@
           "width": "50",
           "SLabel": "Item Net Value",
           "Option": "Optional",
+          "adaptiveCard":"Additional",
           "Update": "No"
         },
         {
@@ -706,6 +758,7 @@
           "width": "50",
           "SLabel": "Item VAT Rate(%)",
           "Option": "Mandatory",
+          "adaptiveCard":"Main",
           "Update": "Yes"
         },
         {
@@ -714,6 +767,7 @@
           "width": "50",
           "SLabel": "Item VAT Value",
           "Option": "Optional",
+          "adaptiveCard":"Additional",
           "Update": "No"
         },
         {
@@ -722,6 +776,7 @@
           "width": "50",
           "SLabel": "Item Gross Value",
           "Option": "Optional",
+          "adaptiveCard":"Additional",
           "Update": "No"
         },
         {
@@ -730,6 +785,7 @@
           "width": "50",
           "SLabel": "Item VAT Percentage",
           "Option": "Optional",
+          "adaptiveCard":"Additional",
           "Update": "No"
         },
         {
@@ -738,6 +794,7 @@
           "width": "3",
           "SLabel": "Tax Invoice (Y/N)",
           "Option": "Optional",
+          "adaptiveCard":"Additional",
           "Update": "No"
         },
         {
@@ -746,6 +803,7 @@
           "width": "20",
           "SLabel": "Supplier Invoice Number",
           "Option": "Optional",
+          "adaptiveCard":"Additional",
           "Update": "No"
         },
         {
@@ -754,6 +812,7 @@
           "width": "500",
           "SLabel": "Invoice Image URL",
           "Option": "Optional",
+          "adaptiveCard":"Additional",
           "Update": "No"
         },
         {
@@ -762,6 +821,7 @@
           "width": "10",
           "SLabel": "Invoice Qty",
           "Option": "Optional",
+          "adaptiveCard":"Additional",
           "Update": "No"
         },
         {
@@ -770,6 +830,7 @@
           "width": "10",
           "SLabel": "Invoice Price",
           "Option": "Optional",
+          "adaptiveCard":"Additional",
           "Update": "No"
         },
         {
@@ -778,6 +839,7 @@
           "width": "10",
           "SLabel": "Invoice VAT Rate(%)",
           "Option": "Optional",
+          "adaptiveCard":"Additional",
           "Update": "No"
         },
         {
@@ -786,6 +848,7 @@
           "width": "20",
           "SLabel": "Invoice Item Status",
           "Option": "Optional",
+          "adaptiveCard":"Additional",
           "Update": "No"
         },
         {
@@ -794,6 +857,7 @@
           "width": "10",
           "SLabel": "Invoice Tax Percentage",
           "Option": "Optional",
+          "adaptiveCard":"Additional",
           "Update": "No"
         },
         {
@@ -802,6 +866,7 @@
           "width": "20",
           "SLabel": "Invoice Net Value",
           "Option": "Optional",
+          "adaptiveCard":"Additional",
           "Update": "No"
         },
         {
@@ -810,6 +875,7 @@
           "width": "20",
           "SLabel": "Invoice Gross Value",
           "Option": "Optional",
+          "adaptiveCard":"Additional",
           "Update": "No"
         },
         {
@@ -818,6 +884,7 @@
           "width": "10",
           "SLabel": "Invoice Tax Value",
           "Option": "Optional",
+          "adaptiveCard":"Additional",
           "Update": "No"
         },
         {
@@ -826,6 +893,7 @@
           "width": "10",
           "SLabel": "Cumulative Invoice Qty",
           "Option": "Optional",
+          "adaptiveCard":"Additional",
           "Update": "No"
         },
         {
@@ -834,6 +902,7 @@
           "width": "10",
           "SLabel": "Balance Invoice Qty",
           "Option": "Optional",
+          "adaptiveCard":"Additional",
           "Update": "No"
         },
         {
@@ -842,6 +911,7 @@
           "width": "20",
           "SLabel": "Item Shipping Status",
           "Option": "Optional",
+          "adaptiveCard":"Additional",
           "Update": "No"
         },
         {
@@ -850,6 +920,7 @@
           "width": "10",
           "SLabel": "Shipping Date",
           "Option": "Optional",
+          "adaptiveCard":"Additional",
           "Update": "No"
         },
         {
@@ -858,6 +929,7 @@
           "width": "10",
           "SLabel": "Planned Shipping Date",
           "Option": "Optional",
+          "adaptiveCard":"Additional",
           "Update": "No"
         },
         {
@@ -866,6 +938,7 @@
           "width": "200",
           "SLabel": "Delivery Company",
           "Option": "Optional",
+          "adaptiveCard":"Additional",
           "Update": "No"
         },
         {
@@ -874,6 +947,7 @@
           "width": "20",
           "SLabel": "Tracking Number",
           "Option": "Optional",
+          "adaptiveCard":"Additional",
           "Update": "No"
         },
         {
@@ -882,6 +956,7 @@
           "width": "100",
           "SLabel": "Tracking Website",
           "Option": "Optional",
+          "adaptiveCard":"Additional",
           "Update": "No"
         },
         {
@@ -890,6 +965,7 @@
           "width": "10",
           "SLabel": "Invoice Date",
           "Option": "Optional",
+          "adaptiveCard":"Additional",
           "Update": "No"
         },
         {
@@ -898,6 +974,7 @@
           "width": "10",
           "SLabel": "Item Delivery Date",
           "Option": "Optional",
+          "adaptiveCard":"Additional",
           "Update": "No"
         },
         {
@@ -906,6 +983,7 @@
           "width": "1000",
           "SLabel": "Processing Log",
           "Option": "Optional",
+          "adaptiveCard":"Additional",
           "Update": "No"
         },
         {
@@ -914,6 +992,7 @@
           "width": "100",
           "SLabel": "Current Status",
           "Option": "Optional",
+          "adaptiveCard":"Additional",
           "Update": "No"
         },
         {
@@ -922,6 +1001,7 @@
           "width": "50",
           "SLabel": "Notification",
           "Option": "Optional",
+          "adaptiveCard":"Additional",
           "Update": "No"
         },
         {
@@ -930,6 +1010,7 @@
           "width": "100",
           "SLabel": "Notify Role",
           "Option": "Optional",
+          "adaptiveCard":"Additional",
           "Update": "No"
         },
         {
@@ -938,6 +1019,7 @@
           "width": "200",
           "SLabel": "Bus Object",
           "Option": "Optional",
+          "adaptiveCard":"Additional",
           "Update": "No"
         },
         {
@@ -946,6 +1028,7 @@
           "width": "500",
           "SLabel": "Invoice Image",
           "Option": "Optional",
+          "adaptiveCard":"Additional",
           "Update": "No"
         }
       ],

@@ -300,6 +300,7 @@
           "width": "10",
           "SLabel": "ItemNumber",
           "Option": "Optional",
+          "adaptiveCard":"Additional",
           "Update": "No"
         },
         {
@@ -316,6 +317,7 @@
           "width": "50",
           "SLabel": "Service Type",
           "Option": "Mandatory",
+          "adaptiveCard":"Main",
           "Update": "Yes"
         },
         {
@@ -324,6 +326,7 @@
           "width": "20",
           "SLabel": "Service Amount",
           "Option": "Mandatory",
+          "adaptiveCard":"Main",
           "Update": "Yes"
         },
         {
@@ -332,6 +335,7 @@
           "width": "1000",
           "SLabel": "Notes",
           "Option": "Optional",
+          "adaptiveCard":"Additional",
           "Update": "Yes"
         },
         {
@@ -340,6 +344,7 @@
           "width": "10",
           "SLabel": "Item Currency",
           "Option": "Mandatory",
+          "adaptiveCard":"Additional",
           "Update": "No"
         },
         {
@@ -348,6 +353,7 @@
           "width": "50",
           "SLabel": "Item Status",
           "Option": "Mandatory",
+          "adaptiveCard":"Main",
           "Update": "Yes"
         },
         {
@@ -356,6 +362,7 @@
           "width": "100",
           "SLabel": "Item Attachment",
           "Option": "Optional",
+          "adaptiveCard":"Additional",
           "Update": "Yes"
         }
       ],
@@ -423,6 +430,7 @@
           "width": "10",
           "SLabel": "ItemNumber",
           "Option": "Optional",
+          "adaptiveCard":"Additional",
           "Update": "No"
         },
         {
@@ -439,6 +447,7 @@
           "width": "50",
           "SLabel": "Service Type",
           "Option": "Mandatory",
+          "adaptiveCard":"Main",
           "Update": "Yes"
         },
         {
@@ -447,6 +456,7 @@
           "width": "20",
           "SLabel": "Invoice Amount",
           "Option": "Mandatory",
+          "adaptiveCard":"Main",
           "Update": "Yes"
         },
         {
@@ -455,6 +465,7 @@
           "width": "1000",
           "SLabel": "Notes",
           "Option": "Optional",
+          "adaptiveCard":"Additional",
           "Update": "Yes"
         },
         {
@@ -463,6 +474,7 @@
           "width": "10",
           "SLabel": "Item Currency",
           "Option": "Mandatory",
+          "adaptiveCard":"Additional",
           "Update": "No"
         },
         {
@@ -471,6 +483,7 @@
           "width": "50",
           "SLabel": "Item Status",
           "Option": "Mandatory",
+          "adaptiveCard":"Main",
           "Update": "Yes"
         },
         {
@@ -479,6 +492,7 @@
           "width": "100",
           "SLabel": "Item Attachment",
           "Option": "Optional",
+          "adaptiveCard":"Additional",
           "Update": "Yes"
         }
       ],
@@ -524,6 +538,7 @@
       "type": "string",
       "width": "20",
       "Option": "Mandatory",
+      "adaptiveCard":"Main",
       "SLabel": "Document ID"
     },
     {
@@ -531,6 +546,7 @@
       "type": "string",
       "width": "20",
       "Option": "Optional",
+      "adaptiveCard":"Additional",
       "SLabel": "ReferenceID"
     },
     {
@@ -538,6 +554,7 @@
       "type": "string",
       "width": "100",
       "Option": "Optional",
+      "adaptiveCard":"Additional",
       "SLabel": "Contract ID"
     },
     {
@@ -545,6 +562,7 @@
       "type": "string",
       "width": "100",
       "Option": "Mandatory",
+      "adaptiveCard":"Main",
       "SLabel": "Contract Name"
     },
     {
@@ -552,6 +570,7 @@
       "type": "string",
       "width": "50",
       "Option": "Mandatory",
+      "adaptiveCard":"Main",
       "SLabel": "Contract Type"
     },
     {
@@ -559,6 +578,7 @@
       "type": "Date",
       "width": "10",
       "Option": "Mandatory",
+      "adaptiveCard":"Main",
       "SLabel": "Contract Start Date"
     },
     {
@@ -566,6 +586,7 @@
       "type": "string",
       "width": "50",
       "Option": "Mandatory",
+      "adaptiveCard":"Main",
       "SLabel": "Pharma Contact"
     },
     {
@@ -573,20 +594,23 @@
       "type": "Email",
       "width": "100",
       "Option": "Mandatory",
+      "adaptiveCard":"Main",
       "SLabel": "Pharma Contact Email"
     },
     {
       "name": "Services",
       "type": "Array",
-      "width": "500",
+      "width": "200",
       "Option": "Optional",
+      "adaptiveCard":"None",
       "SLabel": "Services"
     },
     {
       "name": "ContractInvoice",
       "type": "Array",
-      "width": "500",
+      "width": "200",
       "Option": "Optional",
+      "adaptiveCard":"None",
       "SLabel": "ContractInvoice"
     },
     {
@@ -595,6 +619,7 @@
       "metadata": "MultipleFields",
       "width": "200",
       "Option": "Optional",
+      "adaptiveCard":"Additional",
       "SLabel": "MultiAttachments",
       "LLabel": "MultiAttachments"
     },
@@ -603,6 +628,7 @@
       "type": "string",
       "width": "50",
       "Option": "Mandatory",
+      "adaptiveCard":"Main",
       "SLabel": "Status",
       "LLabel": "Status"
     },
@@ -611,6 +637,7 @@
       "type": "string",
       "width": "200",
       "Option": "Optional",
+      "adaptiveCard":"Additional",
       "SLabel": "Search String",
       "LLabel": "Search String"
     },
@@ -619,6 +646,7 @@
       "type": "string",
       "width": "1000",
       "Option": "Optional",
+      "adaptiveCard":"Additional",
       "SLabel": "ProgressComment",
       "LLabel": "ProgressComment"
     },
@@ -627,6 +655,7 @@
       "type": "hyperlink",
       "width": "200",
       "Option": "Optional",
+      "adaptiveCard":"Additional",
       "SLabel": "Contract Link"
     },
     {
@@ -634,6 +663,7 @@
       "type": "string",
       "width": "50",
       "Option": "Mandatory",
+      "adaptiveCard":"Main",
       "SLabel": "HCP Email"
     },
     {
@@ -641,6 +671,7 @@
       "type": "string",
       "width": "100",
       "Option": "Mandatory",
+      "adaptiveCard":"Main",
       "SLabel": "HCP Name"
     },
     {
@@ -648,6 +679,7 @@
       "type": "Date",
       "width": "10",
       "Option": "Mandatory",
+      "adaptiveCard":"Main",
       "SLabel": "Contract End Date"
     },
     {
@@ -655,6 +687,7 @@
       "type": "string",
       "width": "50",
       "Option": "Optional",
+      "adaptiveCard":"Additional",
       "SLabel": "Contract Value"
     },
     {
@@ -662,6 +695,7 @@
       "type": "string",
       "width": "50",
       "Option": "Optional",
+      "adaptiveCard":"Additional",
       "SLabel": "Invoice Value"
     },
     {
@@ -669,6 +703,7 @@
       "type": "string",
       "width": "50",
       "Option": "Optional",
+      "adaptiveCard":"Additional",
       "SLabel": "Balance Value"
     },
     {
@@ -676,6 +711,7 @@
       "type": "string",
       "width": "50",
       "Option": "Optional",
+      "adaptiveCard":"Additional",
       "SLabel": "Validation"
     }
   ],

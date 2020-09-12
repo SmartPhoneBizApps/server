@@ -234,6 +234,7 @@
       "type": "string",
       "width": "20",
       "Option": "Mandatory",
+      "adaptiveCard":"Main",
       "SLabel": "Identification",
       "Update": "No"
     },
@@ -242,6 +243,7 @@
       "type": "string",
       "width": "20",
       "Option": "Optional",
+      "adaptiveCard":"Additional",
       "SLabel": "ReferenceID"
     },
     {
@@ -249,6 +251,7 @@
       "type": "string",
       "width": "50",
       "Option": "Mandatory",
+      "adaptiveCard":"Main",
       "SLabel": "Title",
       "LLabel": "Title"
     },
@@ -257,6 +260,7 @@
       "type": "string",
       "width": "50",
       "Option": "Mandatory",
+      "adaptiveCard":"Main",
       "SLabel": "First Name",
       "LLabel": "First Name"
     },
@@ -265,6 +269,7 @@
       "type": "string",
       "width": "50",
       "Option": "Mandatory",
+      "adaptiveCard":"Main",
       "SLabel": "Last Name",
       "LLabel": "Last Name"
     },
@@ -273,6 +278,7 @@
       "type": "string",
       "width": "50",
       "Option": "Optional",
+      "adaptiveCard":"Additional",
       "SLabel": "Full Name",
       "LLabel": "Full Name"
     },
@@ -281,6 +287,7 @@
       "type": "string",
       "width": "50",
       "Option": "Optional",
+      "adaptiveCard":"Additional",
       "SLabel": "Role",
       "LLabel": "Role"
     },
@@ -293,6 +300,7 @@
       "URLMethod": "GET",
       "Token": true,
       "Option": "Optional",
+      "adaptiveCard":"Additional",
       "SLabel": "Post Code",
       "LLabel": "Post Code"
     },
@@ -301,6 +309,7 @@
       "type": "string",
       "width": "200",
       "Option": "Optional",
+      "adaptiveCard":"Additional",
       "SLabel": "Address",
       "LLabel": "Address"
     },
@@ -309,6 +318,7 @@
       "type": "string",
       "width": "50",
       "Option": "Mandatory",
+      "adaptiveCard":"Main",
       "SLabel": "Status",
       "LLabel": "Status"
     },
@@ -317,6 +327,7 @@
       "type": "string",
       "width": "200",
       "Option": "Optional",
+      "adaptiveCard":"Additional",
       "SLabel": "Search String",
       "LLabel": "Search String"
     },
@@ -325,6 +336,7 @@
       "type": "string",
       "width": "1000",
       "Option": "Optional",
+      "adaptiveCard":"Additional",
       "SLabel": "ProgressComment",
       "LLabel": "ProgressComment"
     },
@@ -334,6 +346,7 @@
       "metadata": "MultipleFields",
       "width": "200",
       "Option": "Optional",
+      "adaptiveCard":"Additional",
       "SLabel": "CV",
       "LLabel": "CV"
     },
@@ -343,6 +356,7 @@
       "metadata": "OnlyFileName",
       "width": "200",
       "Option": "Optional",
+      "adaptiveCard":"Additional",
       "SLabel": "Certificates",
       "LLabel": "Certificates"
     },
@@ -351,6 +365,7 @@
       "type": "string",
       "width": "50",
       "Option": "Optional",
+      "adaptiveCard":"Additional",
       "SLabel": "User Role",
       "LLabel": "User Role"
     },
@@ -359,6 +374,7 @@
       "type": "string",
       "width": "100",
       "Option": "Optional",
+      "adaptiveCard":"Additional",
       "SLabel": "User Name",
       "LLabel": "User Name"
     },
@@ -367,6 +383,7 @@
       "type": "string",
       "width": "200",
       "Option": "Optional",
+      "adaptiveCard":"Additional",
       "SLabel": "Profile Image",
       "LLabel": "Profile Image"
     },
@@ -375,6 +392,7 @@
       "type": "string",
       "width": "20",
       "Option": "Optional",
+      "adaptiveCard":"Additional",
       "SLabel": "Contact No",
       "LLabel": "Contact No"
     },
@@ -383,6 +401,7 @@
       "type": "string",
       "width": "50",
       "Option": "Optional",
+      "adaptiveCard":"Additional",
       "SLabel": "Email Id",
       "LLabel": "Email Id"
     },
@@ -391,6 +410,7 @@
       "type": "string",
       "width": "50",
       "Option": "Optional",
+      "adaptiveCard":"Additional",
       "SLabel": "Speciality",
       "LLabel": "Speciality"
     },
@@ -399,6 +419,7 @@
       "type": "string",
       "width": "200",
       "Option": "Optional",
+      "adaptiveCard":"Additional",
       "SLabel": "Institution Name",
       "LLabel": "Institution Name"
     },
@@ -407,6 +428,7 @@
       "type": "string",
       "width": "50",
       "Option": "Optional",
+      "adaptiveCard":"Additional",
       "SLabel": "Phase"
     },
     {
@@ -414,6 +436,7 @@
       "type": "string",
       "width": "50",
       "Option": "Optional",
+      "adaptiveCard":"Additional",
       "SLabel": "Study Type"
     },
     {
@@ -421,35 +444,40 @@
       "type": "string",
       "width": "100",
       "Option": "Optional",
+      "adaptiveCard":"Additional",
       "SLabel": "Study Name"
     },
     {
       "name": "myStudy",
       "type": "Array",
       "width": "200",
-      "SLabel": "My Study",
-      "Option": "Optional"
+      "Option": "Optional",
+           "adaptiveCard":"Additional",
+      "SLabel": "My Study"
     },
     {
       "name": "myEvent",
       "type": "Array",
       "width": "200",
-      "SLabel": "My Event",
-      "Option": "Optional"
+      "Option": "Optional",
+      "adaptiveCard":"None",
+      "SLabel": "my Event"
     },
     {
       "name": "myPO",
       "type": "Array",
       "width": "200",
-      "SLabel": "My PO",
-      "Option": "Optional"
+      "Option": "Optional",
+      "adaptiveCard":"None",
+      "SLabel": "my PO"
     },
     {
       "name": "myContract",
       "type": "Array",
       "width": "200",
-      "SLabel": "My Contract",
-      "Option": "Optional"
+      "Option": "Optional",
+      "adaptiveCard":"None",
+      "SLabel": "my Contract"
     }
   ],
 

@@ -104,6 +104,7 @@
       "type": "string",
       "width": "20",
       "Option": "Mandatory",
+      "adaptiveCard":"Main",
       "SLabel": ""
     },
     {
@@ -111,6 +112,7 @@
       "type": "string",
       "width": "20",
       "Option": "Optional",
+      "adaptiveCard":"Additional",
       "SLabel": "ReferenceID"
     },
     { "name": "RegNo", "type": "string", "width": "50" },
@@ -119,10 +121,11 @@
     { "name": "RegYear", "type": "string", "width": "50" },
     {
       "name": "ChassisNo",
-      "Option": "Optional",
       "type": "barcode",
       "width": "50",
-      "SLabel": ""
+      "Option": "Optional",
+      "adaptiveCard":"Additional",
+      "SLabel": "ChassisNo"
     },
     { "name": "PurchaseDate", "type": "Date", "width": "10" },
     { "name": "IssueDate", "type": "Date", "width": "10" },
@@ -142,6 +145,7 @@
       "type": "string",
       "width": "200",
       "Option": "Mandatory",
+      "adaptiveCard":"Main",
       "SLabel": "Search String",
       "LLabel": "Search String"
     }

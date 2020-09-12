@@ -292,6 +292,7 @@
       "type": "string",
       "width": "20",
       "Option": "Mandatory",
+      "adaptiveCard":"Main",
       "SLabel": "Identification",
       "Update": "No"
     },
@@ -300,6 +301,7 @@
       "type": "string",
       "width": "20",
       "Option": "Optional",
+      "adaptiveCard":"Additional",
       "SLabel": "ReferenceID"
     },
     {
@@ -307,6 +309,7 @@
       "type": "string",
       "width": "50",
       "Option": "Mandatory",
+      "adaptiveCard":"Main",
       "SLabel": "Vendor Name"
     },
     {
@@ -314,6 +317,7 @@
       "type": "string",
       "width": "20",
       "Option": "Optional",
+      "adaptiveCard":"Additional",
       "SLabel": "Plant"
     },
     {
@@ -321,6 +325,7 @@
       "type": "string",
       "width": "20",
       "Option": "Optional",
+      "adaptiveCard":"Additional",
       "SLabel": "Payment Term"
     },
     {
@@ -328,6 +333,7 @@
       "type": "Date",
       "width": "10",
       "Option": "Mandatory",
+      "adaptiveCard":"Main",
       "SLabel": "SC Date"
     },
 
@@ -336,6 +342,7 @@
       "type": "Num,2",
       "width": "50",
       "Option": "Optional",
+      "adaptiveCard":"Additional",
       "SLabel": "Net Value"
     },
     {
@@ -343,6 +350,7 @@
       "type": "Num,2",
       "width": "50",
       "Option": "Optional",
+      "adaptiveCard":"Additional",
       "SLabel": "VAT Value"
     },
     {
@@ -350,6 +358,7 @@
       "type": "Num,2",
       "width": "50",
       "Option": "Optional",
+      "adaptiveCard":"Additional",
       "SLabel": "Gross Value"
     },
     {
@@ -357,6 +366,7 @@
       "type": "string",
       "width": "50",
       "Option": "Optional",
+      "adaptiveCard":"Additional",
       "SLabel": "Currency"
     },
     {
@@ -364,6 +374,7 @@
       "type": "string",
       "width": "50",
       "Option": "Mandatory",
+      "adaptiveCard":"Main",
       "SLabel": "Status",
       "LLabel": "Status"
     },
@@ -372,6 +383,7 @@
       "type": "string",
       "width": "200",
       "Option": "Optional",
+      "adaptiveCard":"Additional",
       "SLabel": "Search String",
       "LLabel": "Search String"
     },
@@ -380,6 +392,7 @@
       "type": "string",
       "width": "1000",
       "Option": "Optional",
+      "adaptiveCard":"Additional",
       "SLabel": "ProgressComment",
       "LLabel": "ProgressComment"
     },
@@ -388,6 +401,7 @@
       "type": "string",
       "width": "1000",
       "Option": "Optional",
+      "adaptiveCard":"Additional",
       "SLabel": "Processing Log",
       "LLabel": "Processing Log"
     },
@@ -396,6 +410,7 @@
       "type": "string",
       "width": "50",
       "Option": "Optional",
+      "adaptiveCard":"Additional",
       "SLabel": "Office"
     },
     {
@@ -403,6 +418,7 @@
       "type": "string",
       "width": "50",
       "Option": "Optional",
+      "adaptiveCard":"Additional",
       "SLabel": "Cost Object"
     },
 
@@ -411,6 +427,7 @@
       "type": "string",
       "width": "20",
       "Option": "Optional",
+      "adaptiveCard":"Additional",
       "SLabel": "GL Account"
     },
     {
@@ -418,6 +435,7 @@
       "type": "string",
       "width": "500",
       "Option": "Optional",
+      "adaptiveCard":"Additional",
       "SLabel": "Other Information"
     },
     {
@@ -425,6 +443,7 @@
       "type": "Date",
       "width": "10",
       "Option": "Optional",
+      "adaptiveCard":"Additional",
       "SLabel": "Delivery Date"
     },
     {
@@ -432,6 +451,7 @@
       "type": "string",
       "width": "100",
       "Option": "Mandatory",
+      "adaptiveCard":"Main",
       "SLabel": "Delivery To"
     },
     {
@@ -439,6 +459,7 @@
       "type": "string",
       "width": "100",
       "Option": "Optional",
+      "adaptiveCard":"Additional",
       "SLabel": "Delivery Address"
     },
     {
@@ -450,6 +471,7 @@
       "URLMethod": "GET",
       "Token": true,
       "Option": "Optional",
+      "adaptiveCard":"Additional",
       "SLabel": "Post Code",
       "LLabel": "Post Code"
     },
@@ -458,6 +480,7 @@
       "type": "string",
       "width": "500",
       "Option": "Mandatory",
+      "adaptiveCard":"Main",
       "SLabel": "Approver Comment"
     },
     {
@@ -465,6 +488,7 @@
       "type": "string",
       "width": "100",
       "Option": "Optional",
+      "adaptiveCard":"Additional",
       "SLabel": "Delivery Phone"
     },
     {
@@ -472,6 +496,7 @@
       "type": "string",
       "width": "100",
       "Option": "Mandatory",
+      "adaptiveCard":"Main",
       "SLabel": "Delivey Email"
     },
     {
@@ -479,6 +504,7 @@
       "type": "Array",
       "width": "200",
       "Option": "Optional",
+      "adaptiveCard":"None",
       "SLabel": "iData",
       "LLabel": "iData"
     },
@@ -488,6 +514,7 @@
       "metadata": "MultipleFields",
       "width": "200",
       "Option": "Optional",
+      "adaptiveCard":"Additional",
       "SLabel": "MultiAttachments",
       "LLabel": "MultiAttachments"
     }
@@ -517,6 +544,7 @@
           "width": "10",
           "SLabel": "Item Number",
           "Option": "Optional",
+          "adaptiveCard":"Additional",
           "Update": "No"
         },
         {
@@ -525,6 +553,7 @@
           "width": "50",
           "SLabel": "Category",
           "Option": "Mandatory",
+          "adaptiveCard":"Main",
           "Update": "Yes"
         },
         {
@@ -533,6 +562,7 @@
           "width": "100",
           "SLabel": "item Name",
           "Option": "Mandatory",
+          "adaptiveCard":"Main",
           "Update": "Yes"
         },
         {
@@ -541,6 +571,7 @@
           "width": "100",
           "SLabel": "Item Price",
           "Option": "Mandatory",
+          "adaptiveCard":"Main",
           "Update": "Yes"
         },
         {
@@ -549,6 +580,7 @@
           "width": "100",
           "SLabel": "Item Quantity",
           "Option": "Mandatory",
+          "adaptiveCard":"Main",
           "Update": "Yes"
         },
         {
@@ -565,6 +597,7 @@
           "width": "100",
           "SLabel": "VAT/Tax Rate",
           "Option": "Mandatory",
+          "adaptiveCard":"Main",
           "Update": "Yes"
         },
         {
@@ -573,6 +606,7 @@
           "width": "100",
           "SLabel": "Item Gross Value",
           "Option": "Optional",
+          "adaptiveCard":"Additional",
           "Update": "No"
         },
         {
@@ -581,6 +615,7 @@
           "width": "100",
           "SLabel": "Item Tax Rate",
           "Option": "Optional",
+          "adaptiveCard":"Additional",
           "Update": "Yes"
         },
         {
@@ -589,6 +624,7 @@
           "width": "20",
           "SLabel": "Item VAT Value",
           "Option": "Optional",
+          "adaptiveCard":"Additional",
           "Update": "No"
         },
         {
@@ -597,6 +633,7 @@
           "width": "50",
           "SLabel": "Item Status",
           "Option": "Mandatory",
+          "adaptiveCard":"Main",
           "Update": "Yes"
         }
       ],

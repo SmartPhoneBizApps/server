@@ -186,14 +186,16 @@
       "name": "ID",
       "type": "string",
       "width": "20",
-      "SLabel": "ID",
-      "Option": "Optional"
+      "Option": "Optional",
+      "adaptiveCard":"Additional",
+      "SLabel": "ID"
     },
     {
       "name": "Group",
       "type": "string",
       "width": "100",
       "Option": "Optional",
+      "adaptiveCard":"Additional",
       "SLabel": "Group",
       "LLabel": "Group"
     },
@@ -202,6 +204,7 @@
       "type": "radiobutton",
       "width": "100",
       "Option": "Optional",
+      "adaptiveCard":"Additional",
       "SLabel": "Sub Group",
       "LLabel": "Sub Group"
     },
@@ -209,21 +212,24 @@
       "name": "title",
       "type": "string",
       "width": "50",
-      "SLabel": "Course Title",
-      "Option": "Optional"
+      "Option": "Optional",
+      "adaptiveCard":"Additional",
+      "SLabel": "Course Title"
     },
     {
       "name": "url",
       "type": "hyperlink",
       "width": "1000",
-      "SLabel": "Course URL",
-      "Option": "Optional"
+      "Option": "Optional",
+      "adaptiveCard":"Additional",
+      "SLabel": "Course URL"
     },
     {
       "name": "SearchString",
       "type": "string",
       "width": "200",
       "Option": "Optional",
+      "adaptiveCard":"Additional",
       "SLabel": "Search String",
       "LLabel": "Search String"
     },
@@ -231,81 +237,93 @@
       "name": "start_date",
       "type": "Date",
       "width": "1000",
-      "SLabel": "Start Date",
-      "Option": "Optional"
+      "Option": "Optional",
+      "adaptiveCard":"Additional",
+      "SLabel": "Start Date"
     },
     {
       "name": "end_date",
       "type": "Date",
       "width": "1000",
-      "SLabel": "End Date",
-      "Option": "Optional"
+      "Option": "Optional",
+      "adaptiveCard":"Additional",
+      "SLabel": "End Date"
     },
     {
       "name": "teacher",
       "type": "string",
       "width": "1000",
-      "SLabel": "Teacher",
-      "Option": "Optional"
+      "Option": "Optional",
+      "adaptiveCard":"Additional",
+      "SLabel": "Teacher"
     },
     {
       "name": "code",
       "type": "string",
       "width": "1000",
-      "SLabel": "Course Code",
-      "Option": "Optional"
+      "Option": "Optional",
+      "adaptiveCard":"Additional",
+      "SLabel": "Course Code"
     },
     {
       "name": "abstract",
       "type": "string",
       "width": "1000",
-      "SLabel": "Course Abstract",
-      "Option": "Optional"
+      "Option": "Optional",
+      "adaptiveCard":"Additional",
+      "SLabel": "Course Abstract"
     },
 
     {
       "name": "description",
       "type": "string",
       "width": "20",
-      "SLabel": "Course Description",
-      "Option": "Optional"
+      "Option": "Optional",
+      "adaptiveCard":"Additional",
+      "SLabel": "Course Description"
     },
     {
       "name": "image",
       "type": "attachment",
       "metadata": "OnlyFileName",
       "width": "200",
-      "SLabel": "image",
-      "Option": "Optional"
+      "Option": "Optional",
+      "adaptiveCard":"Additional",
+      "SLabel": "image"
     },
     {
       "name": "next_events",
       "type": "string",
       "width": "100",
-      "SLabel": "Next Events",
-      "Option": "Optional"
+      "Option": "Optional",
+      "adaptiveCard":"Additional",
+      "SLabel": "Next Events"
     },
     {
       "name": "language",
       "type": "string",
       "width": "100",
-      "SLabel": "Language",
-      "Option": "Optional"
+      "Option": "Optional",
+      "adaptiveCard":"Additional",
+      "SLabel": "Language"
     },
     {
       "name": "categories",
       "type": "string",
       "width": "100",
-      "SLabel": "Categories",
-      "Option": "Optional"
+      "Option": "Optional",
+      "adaptiveCard":"Additional",
+      "SLabel": "Categories"
     },
 
-    { "name": "Status", "type": "string", "SLabel": "Status", "width": "50" },
+    { "name": "Status", "type": "string", "width": "50",       "Option": "Optional",
+      "adaptiveCard":"Additional","SLabel": "Status" },
     {
       "name": "SearchString",
       "type": "string",
       "width": "200",
       "Option": "Optional",
+      "adaptiveCard":"Additional",
       "SLabel": "Search String",
       "LLabel": "Search String"
     },
@@ -314,6 +332,7 @@
       "type": "string",
       "width": "100",
       "Option": "Optional",
+      "adaptiveCard":"Additional",
       "SLabel": "Course ID",
       "LLabel": "Reference Course ID"
     },
@@ -322,6 +341,7 @@
       "type": "string",
       "width": "200",
       "Option": "Optional",
+      "adaptiveCard":"Additional",
       "SLabel": "Course ID",
       "LLabel": "Declaration"
     }
