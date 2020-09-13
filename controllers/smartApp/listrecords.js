@@ -370,7 +370,8 @@ exports.getListrecords1 = asyncHandler(async (req, res, next) => {
                 myCard,
                 outData["data"],
                 "COUNT",
-                appconfig["FieldDef"]
+                appconfig["FieldDef"],
+                "SAP"
               );
               numheader = await numericHeader(myCard, list, "COUNT");
               aCard = await buildAnalyticalCard(myCard, list, numheader, "SAP");
@@ -390,7 +391,8 @@ exports.getListrecords1 = asyncHandler(async (req, res, next) => {
                 appconfig["listCards"][x],
                 outData["data"],
                 "COLLECTIVE",
-                appconfig["FieldDef"]
+                appconfig["FieldDef"],
+                "SAP"
               );
               numheader = await numericHeader(myCard, list, "COLLECTIVE");
               aCard = await buildAnalyticalCard(myCard, list, numheader, "SAP");
@@ -417,7 +419,8 @@ exports.getListrecords1 = asyncHandler(async (req, res, next) => {
                 myCard,
                 outData["data"],
                 "COUNT",
-                appconfig["FieldDef"]
+                appconfig["FieldDef"],
+                "SAP"
               );
               numheader = await numericHeader(myCard, list, "COUNT");
               aCard = await buildAnalyticalCard(myCard, list, numheader, "SAP");

@@ -1204,19 +1204,8 @@ module.exports = {
           break;
       }
     }
-
+    // Common Logic..
     let anacardConfig = require(cardConfigFile1);
-
-    let j_number = 10;
-    let trend1 = "Down";
-    let state1 = "Error";
-    let details1 = "2019-2020";
-    head1 = {};
-    head1 = { ...anacardConfig["sap.card"].header };
-    json1 = {
-      ...anacardConfig["sap.card"].content.data.json,
-    };
-
     list1x = {};
     list1 = [];
     let s_dimension = new Set();
@@ -1237,36 +1226,62 @@ module.exports = {
       list1.push({ ...list1x });
       list1x = {};
     });
+    if (style == "SAP") {
+      let j_number = 10;
+      let trend1 = "Down";
+      let state1 = "Error";
+      let details1 = "2019-2020";
+      head1 = {};
+      head1 = { ...anacardConfig["sap.card"].header };
+      json1 = {
+        ...anacardConfig["sap.card"].content.data.json,
+      };
+      anacardConfig["sap.card"].content.data.json.list = list1;
+      js1 = {};
+      js1 = { ...anacardConfig["sap.card"].header.data.json };
+      js1["number"] = j_number;
+      js1["trend"] = trend1;
+      js1["state"] = state1;
+      js1["details"] = details1;
+      head1["data"]["json"] = { ...js1 };
+      js1 = {};
+      anacardConfig["sap.card"].header = { ...head1 };
+      head1 = {};
+      list1 = [];
+      list1x = {};
+    } else {
+      switch (deCard) {
+        case "StackedBar":
+          // Google card ("StackedBar")
+          console.log(anacardConfig["rows"]);
+          anacardConfig["rows"];
 
-    //  json1["list"] = list1;
-    anacardConfig["sap.card"].content.data.json.list = list1;
-    js1 = {};
-    js1 = { ...anacardConfig["sap.card"].header.data.json };
-    js1["number"] = j_number;
-    js1["trend"] = trend1;
-    js1["state"] = state1;
-    js1["details"] = details1;
-    head1["data"]["json"] = { ...js1 };
-    js1 = {};
-    anacardConfig["sap.card"].header = { ...head1 };
-    head1 = {};
-    list1 = [];
-    //    json1 = {};
-    list1x = {};
+          break;
+        case "StackedColumn":
+          // Google card ("StackedColumn")
+
+          break;
+        case "Line":
+          // Google card ("Line")
+
+          break;
+        default:
+          break;
+      }
+    }
+
     return anacardConfig;
   },
-  sumAnalyticalCard: async function (myCard, outData) {},
-  countAnalyticalCard: async function (myCard, outData, mode, FieldDef) {
-    console.log("Debug", myCard, outData, mode, FieldDef);
-    //const sortedActivities = string(activities,"string");
-    //const sortedActivities = integer(activities,"integer");
+  sumAnalyticalCard: async function (myCard, outData, mode, FieldDef, style) {},
+
+  countAnalyticalCard: async function (myCard, outData, mode, FieldDef, style) {
     f_typ = "string";
     for (let g = 0; g < FieldDef.length; g++) {
       if (FieldDef[g]["name"] == myCard["Data"]["dimension"]) {
         f_typ = FieldDef[g]["type"];
-        console.log("f_typ", f_typ);
       }
     }
+    console.log("09 -  detailCharts : ", f_typ, style);
     // Perform Sorting..
     switch (f_typ) {
       case "string":
@@ -1296,8 +1311,6 @@ module.exports = {
       if (outData != undefined) {
         for (let k = 0; k < outData.length; k++) {
           s_dimension.add(outData[k][myCard["Data"]["dimension"]]);
-          console.log("s_dimension", myCard["Data"]["dimension"], s_dimension);
-          console.log(outData[k]);
         }
       }
     }
@@ -1378,8 +1391,10 @@ module.exports = {
         }
       });
     }
-
+    console.log("Card List", list1);
     return list1;
+    //const sortedActivities = string(activities,"string");
+    //const sortedActivities = integer(activities,"integer");
     // // Change Date Format
     // if (f_typ == "Date") {
     //   for (let k = 0; k < outData.length; k++) {
@@ -1482,6 +1497,8 @@ module.exports = {
       js1["details"] = numheader["details"];
       anacardConfig["sap.card"]["header"]["data"]["json"] = { ...js1 };
       js1 = {};
+    } else {
+      anacardConfig["rows"] = list;
     }
 
     return anacardConfig;
