@@ -1133,8 +1133,11 @@ module.exports = {
               body2x = {};
               body.push(body1x);
               body1x = {};
-            } 
-            if (appconfig["ItemFieldDefinition"][a]["adaptiveCard"] == "Additional") {
+            }
+            if (
+              appconfig["ItemFieldDefinition"][a]["adaptiveCard"] ==
+              "Additional"
+            ) {
               body2.push(body2x);
               body2x = {};
               body2.push(body1x);
@@ -1254,6 +1257,7 @@ module.exports = {
   },
   sumAnalyticalCard: async function (myCard, outData) {},
   countAnalyticalCard: async function (myCard, outData, mode, FieldDef) {
+    console.log("Debug", myCard, outData, mode, FieldDef);
     //const sortedActivities = string(activities,"string");
     //const sortedActivities = integer(activities,"integer");
     f_typ = "string";
@@ -1281,16 +1285,20 @@ module.exports = {
     let d_dimension = new Set();
     let s_dimension = new Set();
     if (f_typ == "Date") {
-      for (let k = 0; k < outData.length; k++) {
-        d_dimension.add(
-          String(outData[k][myCard["Data"]["dimension"]]).substring(0, 10)
-        );
+      if (outData != undefined) {
+        for (let k = 0; k < outData.length; k++) {
+          d_dimension.add(
+            String(outData[k][myCard["Data"]["dimension"]]).substring(0, 10)
+          );
+        }
       }
     } else {
-      for (let k = 0; k < outData.length; k++) {
-        s_dimension.add(outData[k][myCard["Data"]["dimension"]]);
-        console.log("s_dimension", myCard["Data"]["dimension"], s_dimension);
-        console.log(outData[k]);
+      if (outData != undefined) {
+        for (let k = 0; k < outData.length; k++) {
+          s_dimension.add(outData[k][myCard["Data"]["dimension"]]);
+          console.log("s_dimension", myCard["Data"]["dimension"], s_dimension);
+          console.log(outData[k]);
+        }
       }
     }
     // Collect unique values
@@ -1305,17 +1313,19 @@ module.exports = {
         list1x["Area"] = dim;
         list1y["Area"] = dim;
         list1x["Value1"] = 0;
-        for (let k = 0; k < outData.length; k++) {
-          if (outData[k][myCard["Data"]["dimension"]] != undefined) {
-            X1 = String(outData[k][myCard["Data"]["dimension"]]).substring(
-              0,
-              10
-            );
-            if (X1 == dim) {
-              dim_c = dim_c + 1;
-              sTotal = sTotal + 1;
-              list1x["Value1"] = dim_c;
-              list1y["Value1"] = sTotal;
+        if (outData != undefined) {
+          for (let k = 0; k < outData.length; k++) {
+            if (outData[k][myCard["Data"]["dimension"]] != undefined) {
+              X1 = String(outData[k][myCard["Data"]["dimension"]]).substring(
+                0,
+                10
+              );
+              if (X1 == dim) {
+                dim_c = dim_c + 1;
+                sTotal = sTotal + 1;
+                list1x["Value1"] = dim_c;
+                list1y["Value1"] = sTotal;
+              }
             }
           }
         }
