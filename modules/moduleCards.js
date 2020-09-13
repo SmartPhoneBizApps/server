@@ -1275,6 +1275,7 @@ module.exports = {
   sumAnalyticalCard: async function (myCard, outData, mode, FieldDef, style) {},
 
   countAnalyticalCard: async function (myCard, outData, mode, FieldDef, style) {
+    console.log("card", myCard);
     f_typ = "string";
     for (let g = 0; g < FieldDef.length; g++) {
       if (FieldDef[g]["name"] == myCard["Data"]["dimension"]) {
@@ -1371,6 +1372,13 @@ module.exports = {
               sTotal = sTotal + 1;
               list1x["Value1"] = dim_c;
               list1y["Value1"] = sTotal;
+              console.log(
+                myCard["Data"]["dimension"],
+                ">>",
+                list1x["Value1"],
+                ">>",
+                outData[k][myCard["Data"]["dimension"]]
+              );
             }
           }
         }

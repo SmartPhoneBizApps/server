@@ -257,10 +257,13 @@ exports.getDetailCardsNew = async (req, res, next) => {
                 console.log(r1);
                 r1 = [];
               }
-              //           console.log("KK", r2);
               list = r2;
+              console.log(
+                "10 - card data - List : ",
+                list,
+                "DCHART-A" + "-" + key + x
+              );
             }
-
             aCard = await buildAnalyticalCard(
               myCard,
               list,
@@ -270,7 +273,9 @@ exports.getDetailCardsNew = async (req, res, next) => {
             var cardData = JSON.stringify(aCard);
             cardData = cardReplace(myCard, cardData, appconfig, key, tabx);
             aCard = JSON.parse(cardData);
-            outStru2["DCHART-A" + x] = { ...aCard };
+            outStru2["DCHART-A" + "-" + key + x] = { ...aCard };
+            aCard = {};
+            list = [];
             break;
           case "COLLECTIVE":
             list = await countAnalyticalCard(
