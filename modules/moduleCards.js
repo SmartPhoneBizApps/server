@@ -1483,7 +1483,7 @@ module.exports = {
     hdr["details"] = myCard["numericHeader"]["details"];
     return hdr;
   },
-  buildAnalyticalCard: async function (myCard, list, numheader, style) {
+  buildAnalyticalCard: async function (myCard, list, numheader, style, kl) {
     let cardTemplate = {};
     if (style == "SAP") {
       cardTemplate =
@@ -1507,6 +1507,7 @@ module.exports = {
       js1 = {};
     } else {
       anacardConfig["rows"] = list;
+      anacardConfig["cardid"] = kl;
     }
 
     return anacardConfig;

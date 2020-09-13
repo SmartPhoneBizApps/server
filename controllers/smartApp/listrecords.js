@@ -374,7 +374,13 @@ exports.getListrecords1 = asyncHandler(async (req, res, next) => {
                 "SAP"
               );
               numheader = await numericHeader(myCard, list, "COUNT");
-              aCard = await buildAnalyticalCard(myCard, list, numheader, "SAP");
+              aCard = await buildAnalyticalCard(
+                myCard,
+                list,
+                numheader,
+                "SAP",
+                "DCHART-A" + "-" + key + x
+              );
               var cardData = JSON.stringify(aCard);
               cardData = cardReplace(
                 myCard,
@@ -395,7 +401,13 @@ exports.getListrecords1 = asyncHandler(async (req, res, next) => {
                 "SAP"
               );
               numheader = await numericHeader(myCard, list, "COLLECTIVE");
-              aCard = await buildAnalyticalCard(myCard, list, numheader, "SAP");
+              aCard = await buildAnalyticalCard(
+                myCard,
+                list,
+                numheader,
+                "SAP",
+                "DCHART-A" + "-" + key + x
+              );
               var cardData = JSON.stringify(aCard);
               cardData = cardReplace(
                 myCard,
@@ -423,7 +435,13 @@ exports.getListrecords1 = asyncHandler(async (req, res, next) => {
                 "SAP"
               );
               numheader = await numericHeader(myCard, list, "COUNT");
-              aCard = await buildAnalyticalCard(myCard, list, numheader, "SAP");
+              aCard = await buildAnalyticalCard(
+                myCard,
+                list,
+                numheader,
+                "SAP",
+                "DCHART-A" + "-" + key + x
+              );
               var cardData = JSON.stringify(aCard);
               cardData = cardReplace(
                 myCard,

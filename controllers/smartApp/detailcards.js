@@ -268,7 +268,8 @@ exports.getDetailCardsNew = async (req, res, next) => {
               myCard,
               list,
               numheader,
-              appconfig["Controls"]["style"]
+              appconfig["Controls"]["style"],
+              "DCHART-A" + "-" + key + x
             );
             var cardData = JSON.stringify(aCard);
             cardData = cardReplace(myCard, cardData, appconfig, key, tabx);
@@ -290,7 +291,8 @@ exports.getDetailCardsNew = async (req, res, next) => {
               myCard,
               list,
               numheader,
-              appconfig["Controls"]["style"]
+              appconfig["Controls"]["style"],
+              "DCHART-A" + "-" + key + x
             );
             var cardData = JSON.stringify(aCard);
             cardData = cardReplace(myCard, cardData, appconfig, key, tabx);
@@ -317,7 +319,8 @@ exports.getDetailCardsNew = async (req, res, next) => {
               myCard,
               list,
               numheader,
-              appconfig["Controls"]["style"]
+              appconfig["Controls"]["style"],
+              "DCHART-A" + "-" + key + x
             );
             var cardData = JSON.stringify(aCard);
             cardData = cardReplace(myCard, cardData, appconfig, key, tabx);
