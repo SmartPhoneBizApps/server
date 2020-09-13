@@ -340,7 +340,7 @@ exports.listrecordsnew = asyncHandler(async (req, res, next) => {
                 list,
                 numheader,
                 "SAP",
-                "DCHART-A" + "-" + key + x
+                "DCHART-A" + "-" + x
               );
               var cardData = JSON.stringify(aCard);
               cardData = cardReplace(
@@ -367,7 +367,7 @@ exports.listrecordsnew = asyncHandler(async (req, res, next) => {
                 list,
                 numheader,
                 "SAP",
-                "DCHART-A" + "-" + key + x
+                "DCHART-A" + "-" + x
               );
               var cardData = JSON.stringify(aCard);
               cardData = cardReplace(
@@ -401,7 +401,7 @@ exports.listrecordsnew = asyncHandler(async (req, res, next) => {
                 list,
                 numheader,
                 "SAP",
-                "DCHART-A" + "-" + key + x
+                "DCHART-A" + "-" + x
               );
               var cardData = JSON.stringify(aCard);
               cardData = cardReplace(
