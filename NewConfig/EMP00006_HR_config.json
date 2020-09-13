@@ -114,22 +114,22 @@
     }
   ],
   "Tabs": [
-{
-    "value": "Tab0",
-    "style": "SAP",
-    "update": "No",
-    "name": "Cards",
-    "type": "Cards",
-    "fioriicon": "responsive"
-  },
-  {
-    "value": "Tab20",
-    "style": "SAP",
-    "update": "No",
-    "name": "Charts",
-    "type": "Charts",
-    "fioriicon": "business-objects-experience"
-  },
+    {
+      "value": "Tab0",
+      "style": "SAP",
+      "update": "No",
+      "name": "Cards",
+      "type": "Cards",
+      "fioriicon": "responsive"
+    },
+    {
+      "value": "Tab20",
+      "style": "SAP",
+      "update": "No",
+      "name": "Charts",
+      "type": "Charts",
+      "fioriicon": "business-objects-experience"
+    },
     {
       "value": "Tab1",
       "style": "SAP",
@@ -162,7 +162,7 @@
     "headerImage": ["USP_Image"],
     "headerColorFields": ["Status"],
     "Tab0": ["data"],
-    "Tab20":["charts"],
+    "Tab20": ["charts"],
     "None": ["ID", "DateRequested"],
     "Tab1": [
       {
@@ -178,25 +178,6 @@
     "Tab3": ["ProcessingLog"]
   },
   "listCards": [
-    {
-      "cardType": "Analytical",
-      "cardsubType": "StackedBar",
-      "title": "Training Analysis",
-      "subtitle": "Training Status",
-      "unitOfMeasurement": "Days",
-      "Data": {
-        "dimension": "Status",
-        "fact": "records",
-        "operation": "COUNT"
-      },
-      "numericHeader": {
-        "headerNumber": { "Operation": "COUNT", "Field": "ID" },
-        "trend": { "trend": "DOWN", "Condition": "LTE", "value": 8 },
-        "status": { "state": "Success", "Condition": "LTE", "value": 24 },
-        "details": "Total 24 days",
-        "unit": "Days"
-      }
-    },
     {
       "cardType": "Analytical",
       "cardsubType": "StackedColumn",
@@ -243,7 +224,7 @@
       "type": "string",
       "width": "20",
       "Option": "Mandatory",
-      "adaptiveCard":"Main",
+      "adaptiveCard": "Main",
       "SLabel": "Identification",
       "Update": "No"
     },
@@ -252,7 +233,7 @@
       "type": "string",
       "width": "20",
       "Option": "Optional",
-      "adaptiveCard":"Additional",
+      "adaptiveCard": "Additional",
       "SLabel": "ReferenceID"
     },
     {
@@ -260,7 +241,7 @@
       "type": "string",
       "width": "50",
       "Option": "Mandatory",
-      "adaptiveCard":"Main",
+      "adaptiveCard": "Main",
       "SLabel": "Employee ID"
     },
     {
@@ -268,7 +249,7 @@
       "type": "string",
       "width": "50",
       "Option": "Mandatory",
-      "adaptiveCard":"Main",
+      "adaptiveCard": "Main",
       "SLabel": "Employee Name"
     },
     {
@@ -276,7 +257,7 @@
       "type": "Date",
       "width": "10",
       "Option": "Optional",
-      "adaptiveCard":"Additional",
+      "adaptiveCard": "Additional",
       "SLabel": "Date Requested"
     },
     {
@@ -284,7 +265,7 @@
       "type": "radiobutton",
       "width": "50",
       "Option": "Optional",
-      "adaptiveCard":"Additional",
+      "adaptiveCard": "Additional",
       "SLabel": "Project Need"
     },
     {
@@ -292,7 +273,7 @@
       "type": "switch",
       "width": "50",
       "Option": "Optional",
-      "adaptiveCard":"Additional",
+      "adaptiveCard": "Additional",
       "SLabel": "For Employee Development"
     },
     {
@@ -300,7 +281,7 @@
       "type": "radiobutton",
       "width": "50",
       "Option": "Optional",
-      "adaptiveCard":"Additional",
+      "adaptiveCard": "Additional",
       "SLabel": "Training Area"
     },
     {
@@ -308,7 +289,7 @@
       "type": "string",
       "width": "500",
       "Option": "Mandatory",
-      "adaptiveCard":"Main",
+      "adaptiveCard": "Main",
       "SLabel": "Training Details"
     },
     {
@@ -316,7 +297,7 @@
       "type": "string",
       "width": "50",
       "Option": "Optional",
-      "adaptiveCard":"Additional",
+      "adaptiveCard": "Additional",
       "SLabel": "Duration"
     },
     {
@@ -324,7 +305,7 @@
       "type": "radiobutton",
       "width": "50",
       "Option": "Optional",
-      "adaptiveCard":"Additional",
+      "adaptiveCard": "Additional",
       "SLabel": "External Training"
     },
     {
@@ -332,7 +313,7 @@
       "type": "string",
       "width": "50",
       "Option": "Optional",
-      "adaptiveCard":"Additional",
+      "adaptiveCard": "Additional",
       "SLabel": "Training Cost"
     },
     {
@@ -340,7 +321,7 @@
       "type": "string",
       "width": "50",
       "Option": "Mandatory",
-      "adaptiveCard":"Main",
+      "adaptiveCard": "Main",
       "SLabel": "Project Code"
     },
     {
@@ -348,7 +329,7 @@
       "type": "string",
       "width": "50",
       "Option": "Optional",
-      "adaptiveCard":"Additional",
+      "adaptiveCard": "Additional",
       "SLabel": "Cost Centre"
     },
     { "name": "Status", "type": "string", "SLabel": "Status", "width": "50" },
@@ -357,7 +338,7 @@
       "type": "string",
       "width": "200",
       "Option": "Optional",
-      "adaptiveCard":"None",
+      "adaptiveCard": "None",
       "SLabel": "Search String",
       "LLabel": "Search String"
     },
@@ -366,7 +347,7 @@
       "type": "string",
       "width": "500",
       "Option": "Optional",
-      "adaptiveCard":"Additional",
+      "adaptiveCard": "Additional",
       "SLabel": "Justification"
     },
     {
@@ -374,7 +355,7 @@
       "type": "string",
       "width": "500",
       "Option": "Optional",
-      "adaptiveCard":"Additional",
+      "adaptiveCard": "Additional",
       "SLabel": "ProgressComment"
     },
     {
@@ -382,7 +363,7 @@
       "type": "string",
       "width": "1000",
       "Option": "Optional",
-      "adaptiveCard":"Additional",
+      "adaptiveCard": "Additional",
       "SLabel": "Processing Log",
       "LLabel": "Processing Log"
     },
@@ -391,7 +372,7 @@
       "type": "string",
       "width": "200",
       "Option": "Optional",
-      "adaptiveCard":"None",
+      "adaptiveCard": "None",
       "SLabel": "Search String",
       "LLabel": "Search String"
     },
@@ -400,7 +381,7 @@
       "type": "string",
       "width": "100",
       "Option": "Optional",
-      "adaptiveCard":"Additional",
+      "adaptiveCard": "Additional",
       "SLabel": "Approver",
       "LLabel": "Approver"
     }

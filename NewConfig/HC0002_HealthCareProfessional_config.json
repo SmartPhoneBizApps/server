@@ -21,11 +21,11 @@
         { "InvoiceType": "StudyInvoice" }
       ]
     },
+
     "filterFields": {
-      "header": ["Status", "StudyType", "Phase"]
+      "header": ["StudyType", "Phase", "Status", "BalanceValue", "InvoiceValue"]
     }
   },
-
   "ListFields": {
     "IntroField": "StudyStartDate",
     "TitleField": "StudyName",
@@ -47,7 +47,13 @@
       "PharmaContactEmail"
     ]
   },
-  "PossibleValues": ["StudyType", "Phase", "Status"],
+  "PossibleValues": [
+    "StudyType",
+    "Phase",
+    "Status",
+    "ItemStatus2",
+    "ServiceType2"
+  ],
   "MButtons": [
     {
       "type": "DOWNLOAD",
@@ -81,7 +87,6 @@
       "icon": "sap-icon://travel-request",
       "URL": "https://www.messenger.com/t/295020207695029"
     },
-
     { "type": "ADD", "name": "Add Record", "icon": "sap-icon://add" },
     {
       "type": "UPLOAD",
@@ -102,12 +107,63 @@
   ],
   "DButtons": [
     {
+      "type": "ADDTRAINING",
+      "name": "Add HCP/HCO",
+      "icon": "sap-icon://copy",
+      "Dialog": [
+        { "label": "FirstName", "name": "FirstName", "type": "string" },
+        { "label": "LastName", "name": "LastName", "type": "string" },
+        { "label": "Title", "name": "Title", "type": "string" },
+        { "label": "Speciality", "name": "Speciality", "type": "string" },
+        { "label": "Email", "name": "Email", "type": "string" },
+        { "label": "PostCode", "name": "PostCode", "type": "string" },
+        {
+          "label": "InstitutionName",
+          "name": "InstitutionName",
+          "type": "string"
+        }
+      ],
+      "listFields": [
+        "Title",
+        "FirstName",
+        "LastName",
+        "Speciality",
+        "Email",
+        "PostCode"
+      ],
+      "tableField": "myHCPHCO",
+      "transferFields": [
+        "ID",
+        "Title",
+        "FirstName",
+        "LastName",
+        "Speciality",
+        "Email",
+        "PostCode",
+        "InstitutionName"
+      ],
+      "SearchURL": "listrecordsnew/Web/HC0001/Purchaser{filter}",
+      "URL": "util/addTraining/myHCPHCO/HC0001/HC0002/{ID}/{ReferenceID}/{role}",
+      "FieldMapping": {
+        "Title": "Title",
+        "FirstName": "FirstName",
+        "LastName": "LastName",
+        "Speciality": "Speciality",
+        "Email": "Email",
+        "PostCode": "PostCode",
+        "InstitutionName": "InstitutionName"
+      },
+      "FixedValues": [{ "Status": "Active" }],
+      "Token": "Yes",
+      "URLMethod": "POST"
+    },
+    {
       "type": "SELFASSIGN",
       "name": "Submit Invoice",
       "icon": "sap-icon://share-2",
       "Dialog": "{label:'User',name:'user',type:'Email'}",
       "DialogSearch": "{URL}/api/v1/samrtApp/findUser/{user}",
-      "URL": "util/assignCourseUser/HealthCareProfessional/HealthCareProfessional/HC0002/HC0005/{ReferenceID}/{user}",
+      "URL": "util/assignCourseUser/Purchaser/Purchaser/HC0002/HC0005/{ReferenceID}/{user}",
       "Token": "Yes",
       "URLMethod": "POST"
     },
@@ -154,7 +210,7 @@
       "value": "Tab1",
       "style": "SAP",
       "update": "Yes",
-      "name": "Study",
+      "name": "Study Details",
       "fioriicon": "notes",
       "type": "Field",
       "download": "Yes"
@@ -163,10 +219,47 @@
       "value": "Tab2",
       "style": "SAP",
       "update": "Yes",
-      "name": "Contact",
+      "name": "Contact Details",
       "fioriicon": "discussion",
       "type": "Field",
       "download": "Yes"
+    },
+    {
+      "value": "Tab3",
+      "style": "SAP",
+      "update": "Yes",
+      "name": "MultiAttachment",
+      "fioriicon": "attachment",
+      "type": "MultiAttachments",
+      "download": "Yes",
+      "docType": [
+        { "text": "Study", "state": "Success" },
+        { "text": "WorkSchedule", "state": "Information" }
+      ]
+    },
+    {
+      "value": "Tab4",
+      "style": "SAP",
+      "update": "Yes",
+      "name": "Services",
+      "type": "Table",
+      "fioriicon": "expense-report"
+    },
+    {
+      "value": "Tab5",
+      "style": "SAP",
+      "update": "Yes",
+      "name": "StudyInvoice",
+      "type": "Table",
+      "fioriicon": "expense-report"
+    },
+    {
+      "value": "Tab6",
+      "style": "SAP",
+      "update": "Yes",
+      "name": "myHCP/HCO",
+      "type": "Table",
+      "fioriicon": "expense-report"
     }
   ],
   "DetailFields": {
@@ -176,30 +269,23 @@
     "headerColorFields": ["Status"],
     "Tab0": ["data"],
     "Tab20": ["charts"],
-    "None": ["ID", "Phase", "StudyStartDate", "HCPEmail", "VendorName"],
-    "Tab1": ["StudyType", "StudyName", "StudyDetails"],
-    "Tab2": ["PharmaContact", "PharmaContactEmail"]
+    "None": ["ID", "HCPEmail", "VendorName"],
+    "Tab1": [
+      "StudyType",
+      "StudyName",
+      "StudyDetails",
+      "StudyStartDate",
+      "StudyLink",
+      "StudyValue",
+      "Phase"
+    ],
+    "Tab2": ["PharmaContact", "PharmaContactEmail"],
+    "Tab3": ["MultiAttachments"],
+    "Tab4": ["Services"],
+    "Tab5": ["StudyInvoice"],
+    "Tab6": ["myHCPHCO"]
   },
   "listCards": [
-    {
-      "cardType": "Analytical",
-      "cardsubType": "StackedBar",
-      "title": "Study Analysis",
-      "subtitle": "Study Status",
-      "unitOfMeasurement": "Days",
-      "Data": {
-        "dimension": "Status",
-        "fact": "records",
-        "operation": "COUNT"
-      },
-      "numericHeader": {
-        "headerNumber": { "Operation": "COUNT", "Field": "ID" },
-        "trend": { "trend": "DOWN", "Condition": "LTE", "value": 8 },
-        "status": { "state": "Success", "Condition": "LTE", "value": 24 },
-        "details": "Total 24 days",
-        "unit": "Days"
-      }
-    },
     {
       "cardType": "Analytical",
       "cardsubType": "StackedColumn",
@@ -217,6 +303,26 @@
         "status": { "state": "Success", "Condition": "LTE", "value": 24 },
         "details": "Total 24 days",
         "unit": "Days"
+      }
+    },
+    {
+      "cardType": "Analytical",
+      "cardsubType": "StackedBar",
+      "title": "Study/Trial Analysis",
+      "subtitle": "Phase",
+      "unitOfMeasurement": "GBP",
+      "source": "myTime",
+      "Data": {
+        "dimension": "Phase",
+        "fact": "records",
+        "operation": "COUNT"
+      },
+      "numericHeader": {
+        "headerNumber": { "Operation": "COUNT", "Field": "Phase" },
+        "trend": { "trend": "DOWN", "Condition": "LTE", "value": 8 },
+        "status": { "state": "Success", "Condition": "LTE", "value": 24 },
+        "details": "Phase",
+        "unit": "GBP"
       }
     },
     {
@@ -240,6 +346,549 @@
     }
   ],
   "ControlDisplay": {},
+  "tableConfig": {
+    "Services": {
+      "calculation": "Yes",
+      "title": "Services",
+      "subtitle": "Services",
+      "tableFormFields": [
+        {
+          "GrpTitle": "Totals",
+          "Fields": ["StudyValue"]
+        }
+      ],
+      "ItemFieldDefinition": [
+        {
+          "name": "ItemNumber",
+          "type": "string",
+          "width": "10",
+          "SLabel": "ItemNumber",
+          "Option": "Optional",
+          "adaptiveCard": "Additional",
+          "Update": "No"
+        },
+        {
+          "name": "ServiceDetails",
+          "type": "string",
+          "width": "200",
+          "Option": "Mandatory",
+          "SLabel": "Service Details",
+          "Update": "Yes"
+        },
+        {
+          "name": "ServiceType2",
+          "type": "string",
+          "width": "50",
+          "SLabel": "Service Type",
+          "Option": "Mandatory",
+          "adaptiveCard": "Main",
+          "Update": "Yes"
+        },
+        {
+          "name": "ServiceAmount",
+          "type": "Num,1",
+          "width": "20",
+          "SLabel": "Service Amount",
+          "Option": "Mandatory",
+          "adaptiveCard": "Main",
+          "Update": "Yes"
+        },
+        {
+          "name": "Notes",
+          "type": "string",
+          "width": "1000",
+          "SLabel": "Notes",
+          "Option": "Optional",
+          "adaptiveCard": "Main",
+          "Update": "Yes"
+        },
+        {
+          "name": "iCurrency",
+          "type": "string",
+          "width": "10",
+          "SLabel": "Item Currency",
+          "Option": "Optional",
+          "adaptiveCard": "Additional",
+          "Update": "No"
+        },
+        {
+          "name": "ItemStatus2",
+          "type": "string",
+          "width": "50",
+          "SLabel": "Item Status",
+          "Option": "Mandatory",
+          "adaptiveCard": "Main",
+          "Update": "Yes"
+        },
+        {
+          "name": "Attachment",
+          "type": "singleAttachment",
+          "width": "100",
+          "SLabel": "Item Attachment",
+          "Option": "Optional",
+          "adaptiveCard": "None",
+          "Update": "Yes"
+        }
+      ],
+      "DisplayFields": [
+        "ServiceDetails",
+        "ServiceAmount",
+        "ServiceType2",
+        "iCurrency",
+        "ItemStatus2"
+      ],
+      "detailCharts": [
+        {
+          "cardType": "Analytical",
+          "cardsubType": "StackedBar",
+          "title": "Study/Trial Analysis",
+          "subtitle": "Service Type",
+          "unitOfMeasurement": "Count",
+          "source": "Services",
+          "Data": {
+            "dimension": "ServiceType2",
+            "fact": "records",
+            "operation": "COUNT"
+          },
+          "numericHeader": {
+            "headerNumber": { "Operation": "COUNT", "Field": "ServiceType2" },
+            "trend": { "trend": "DOWN", "Condition": "LTE", "value": 8 },
+            "status": { "state": "Success", "Condition": "LTE", "value": 24 },
+            "details": "Service Type",
+            "unit": "Count"
+          }
+        }
+      ],
+      "cards": [],
+      "ItemButtons": {
+        "itemDisplay": true,
+        "itemCheck": true,
+        "itemAdd": false,
+        "itemEdit": true,
+        "itemDelete": true,
+        "additionalButtons": [
+          {
+            "name": "Invoice Item",
+            "type": "INVOICE",
+            "URL": "datarecords/",
+            "tableName": "StudyInvoice",
+            "Token": "Yes",
+            "URLMethod": "PUT",
+            "updateButton": "Add to Invoice",
+            "diffMapping": [{ "ServiceAmount": "InvoiceAmount" }],
+            "popupData": "myHCPHCO"
+          }
+        ]
+      },
+      "CreateFields": [
+        "ServiceType2",
+        "ServiceDetails",
+        "ServiceAmount",
+        "iCurrency",
+        "ItemStatus2",
+        "Notes",
+        "Attachment"
+      ],
+      "ItemDetails": [
+        { "name": "ServiceType2" },
+        { "name": "ServiceDetails" },
+        { "name": "ServiceAmount" },
+        { "name": "iCurrency" },
+        { "name": "Notes" },
+        { "name": "ItemStatus2" },
+        { "name": "Attachment" }
+      ]
+    },
+    "myHCPHCO": {
+      "title": "My HCP/HCO",
+      "subtitle": "HCP/HCO",
+      "ItemFieldDefinition": [
+        {
+          "name": "ItemNumber",
+          "type": "string",
+          "width": "10",
+          "Option": "Optional",
+          "adaptiveCard": "Additional",
+          "SLabel": "Item Number",
+          "Update": "No"
+        },
+        {
+          "name": "ItemStatus1",
+          "type": "string",
+          "width": "50",
+          "Option": "Optional",
+          "adaptiveCard": "Additional",
+          "SLabel": "Item Status",
+          "Update": "Yes"
+        },
+        {
+          "name": "Title",
+          "type": "string",
+          "width": "50",
+          "Option": "Mandatory",
+          "adaptiveCard": "Main",
+          "SLabel": "Title"
+        },
+        {
+          "name": "FirstName",
+          "type": "string",
+          "width": "100",
+          "Option": "Mandatory",
+          "adaptiveCard": "Main",
+          "SLabel": "FirstName"
+        },
+        {
+          "name": "LastName",
+          "type": "string",
+          "width": "100",
+          "Option": "Mandatory",
+          "adaptiveCard": "Main",
+          "SLabel": "LastName"
+        },
+        {
+          "name": "Speciality",
+          "type": "string",
+          "width": "200",
+          "Option": "Optional",
+          "adaptiveCard": "Additional",
+          "SLabel": "Speciality"
+        },
+        {
+          "name": "Email",
+          "type": "Email",
+          "width": "100",
+          "Option": "Mandatory",
+          "adaptiveCard": "Main",
+          "SLabel": "Email"
+        },
+        {
+          "name": "PostCode",
+          "type": "string",
+          "width": "200",
+          "Option": "Optional",
+          "adaptiveCard": "Additional",
+          "SLabel": "PostCode"
+        },
+        {
+          "name": "InstitutionName",
+          "type": "string",
+          "width": "500",
+          "Option": "Optional",
+          "adaptiveCard": "Additional",
+          "SLabel": "InstitutionName"
+        }
+      ],
+      "DisplayFields": [
+        "Title",
+        "FirstName",
+        "LastName",
+        "Email",
+        "PostCode",
+        "ItemStatus1"
+      ],
+      "detailCharts": [
+        {
+          "cardType": "Analytical",
+          "cardsubType": "StackedBar",
+          "title": "HCP/HCO - Study/Trial Analysis",
+          "subtitle": "Speciality",
+          "unitOfMeasurement": "Count",
+          "source": "myHCPHCO",
+          "Data": {
+            "dimension": "Speciality",
+            "fact": "records",
+            "operation": "COUNT"
+          },
+          "numericHeader": {
+            "headerNumber": { "Operation": "COUNT", "Field": "Speciality" },
+            "trend": { "trend": "DOWN", "Condition": "LTE", "value": 8 },
+            "status": { "state": "Success", "Condition": "LTE", "value": 24 },
+            "details": "Speciality",
+            "unit": "Count"
+          }
+        },
+        {
+          "cardType": "Analytical",
+          "cardsubType": "StackedColumn",
+          "title": "HCP/HCO - Study/Trial Analysis",
+          "subtitle": "InstitutionName",
+          "unitOfMeasurement": "Count",
+          "source": "myHCPHCO",
+          "Data": {
+            "dimension": "InstitutionName",
+            "fact": "records",
+            "operation": "COUNT"
+          },
+          "numericHeader": {
+            "headerNumber": {
+              "Operation": "COUNT",
+              "Field": "InstitutionName"
+            },
+            "trend": { "trend": "DOWN", "Condition": "LTE", "value": 8 },
+            "status": { "state": "Success", "Condition": "LTE", "value": 24 },
+            "details": "InstitutionName",
+            "unit": "Count"
+          }
+        }
+      ],
+      "cards": [],
+      "ItemButtons": {
+        "itemDisplay": true,
+        "itemCheck": false,
+        "itemAdd": false,
+        "itemEdit": true,
+        "itemDelete": false
+      },
+      "CreateFields": [
+        "Title",
+        "FirstName",
+        "LastName",
+        "Speciality",
+        "Email",
+        "PostCode",
+        "InstitutionName",
+        "ItemStatus1"
+      ],
+      "ItemDetails": [
+        { "name": "Title" },
+        { "name": "FirstName" },
+        { "name": "LastName" },
+        { "name": "Speciality" },
+        { "name": "Email" },
+        { "name": "PostCode" },
+        { "name": "InstitutionName" },
+        { "name": "ItemStatus1" }
+      ]
+    },
+    "StudyInvoice": {
+      "calculation": "Yes",
+      "title": "Study Invoice",
+      "subtitle": "Invoice Items",
+      "tableFormFields": [
+        {
+          "GrpTitle": "Totals",
+          "Fields": ["InvoiceValue"]
+        }
+      ],
+      "ItemFieldDefinition": [
+        {
+          "name": "ItemNumber",
+          "type": "string",
+          "width": "10",
+          "SLabel": "ItemNumber",
+          "Option": "Optional",
+          "adaptiveCard": "Additional",
+          "Update": "No"
+        },
+        {
+          "name": "ServiceDetails",
+          "type": "string",
+          "width": "200",
+          "Option": "Mandatory",
+          "SLabel": "Service Details",
+          "Update": "Yes"
+        },
+        {
+          "name": "ServiceType2",
+          "type": "string",
+          "width": "50",
+          "SLabel": "Service Type",
+          "Option": "Mandatory",
+          "adaptiveCard": "Main",
+          "Update": "Yes"
+        },
+        {
+          "name": "InvoiceAmount",
+          "type": "Num,1",
+          "width": "20",
+          "SLabel": "Invoice Amount",
+          "Option": "Mandatory",
+          "adaptiveCard": "Main",
+          "Update": "Yes"
+        },
+        {
+          "name": "Notes",
+          "type": "string",
+          "width": "1000",
+          "SLabel": "Notes",
+          "Option": "Optional",
+          "adaptiveCard": "Main",
+          "Update": "Yes"
+        },
+        {
+          "name": "iCurrency",
+          "type": "string",
+          "width": "10",
+          "SLabel": "Item Currency",
+          "Option": "Mandatory",
+          "adaptiveCard": "Additional",
+          "Update": "No"
+        },
+        {
+          "name": "ItemStatus2",
+          "type": "string",
+          "width": "50",
+          "SLabel": "Item Status",
+          "Option": "Mandatory",
+          "adaptiveCard": "Main",
+          "Update": "Yes"
+        },
+        {
+          "name": "Attachment",
+          "type": "singleAttachment",
+          "width": "100",
+          "SLabel": "Item Attachment",
+          "Option": "Optional",
+          "adaptiveCard": "None",
+          "Update": "Yes"
+        },
+        {
+          "name": "Title",
+          "type": "string",
+          "width": "50",
+          "SLabel": "Title",
+          "Option": "Optional"
+        },
+        {
+          "name": "FirstName",
+          "type": "string",
+          "width": "100",
+          "SLabel": "FirstName",
+          "Option": "Optional"
+        },
+        {
+          "name": "LastName",
+          "type": "string",
+          "width": "100",
+          "SLabel": "LastName",
+          "Option": "Optional"
+        },
+        {
+          "name": "Speciality",
+          "type": "string",
+          "width": "200",
+          "SLabel": "Speciality",
+          "Option": "Optional"
+        },
+        {
+          "name": "Email",
+          "type": "Email",
+          "width": "100",
+          "SLabel": "Email",
+          "Option": "Optional"
+        },
+        {
+          "name": "PostCode",
+          "type": "string",
+          "width": "200",
+          "SLabel": "PostCode",
+          "Option": "Optional"
+        },
+        {
+          "name": "InstitutionName",
+          "type": "string",
+          "width": "500",
+          "SLabel": "InstitutionName",
+          "Option": "Optional"
+        }
+      ],
+      "DisplayFields": [
+        "ServiceDetails",
+        "InvoiceAmount",
+        "ServiceType2",
+        "iCurrency",
+        "ItemStatus2",
+        "Title",
+        "FirstName",
+        "LastName",
+        "Email",
+        "PostCode"
+      ],
+      "detailCharts": [
+        {
+          "cardType": "Analytical",
+          "cardsubType": "StackedBar",
+          "title": "HCP/HCO - Invoice Analysis",
+          "subtitle": "Email(HCP/HCO)",
+          "unitOfMeasurement": "Count",
+          "source": "StudyInvoice",
+          "Data": {
+            "dimension": "Email",
+            "fact": "records",
+            "operation": "COUNT"
+          },
+          "numericHeader": {
+            "headerNumber": { "Operation": "COUNT", "Field": "Email" },
+            "trend": { "trend": "DOWN", "Condition": "LTE", "value": 8 },
+            "status": { "state": "Success", "Condition": "LTE", "value": 24 },
+            "details": "Email",
+            "unit": "Count"
+          }
+        },
+        {
+          "cardType": "Analytical",
+          "cardsubType": "StackedColumn",
+          "title": "HCP/HCO - Invoice Analysis",
+          "subtitle": "InstitutionName",
+          "unitOfMeasurement": "Count",
+          "source": "StudyInvoice",
+          "Data": {
+            "dimension": "InstitutionName",
+            "fact": "records",
+            "operation": "COUNT"
+          },
+          "numericHeader": {
+            "headerNumber": {
+              "Operation": "COUNT",
+              "Field": "InstitutionName"
+            },
+            "trend": { "trend": "DOWN", "Condition": "LTE", "value": 8 },
+            "status": { "state": "Success", "Condition": "LTE", "value": 24 },
+            "details": "InstitutionName",
+            "unit": "Count"
+          }
+        }
+      ],
+      "cards": [],
+      "ItemButtons": {
+        "itemDisplay": true,
+        "itemCheck": true,
+        "itemAdd": false,
+        "itemEdit": true,
+        "itemDelete": true
+      },
+      "CreateFields": [
+        "ServiceType2",
+        "ServiceDetails",
+        "InvoiceAmount",
+        "iCurrency",
+        "ItemStatus2",
+        "Notes",
+        "Attachment",
+        "Title",
+        "FirstName",
+        "LastName",
+        "Email",
+        "PostCode"
+      ],
+      "ItemDetails": [
+        { "name": "ServiceType2" },
+        { "name": "ServiceDetails" },
+        { "name": "InvoiceAmount" },
+        { "name": "iCurrency" },
+        { "name": "Notes" },
+        { "name": "ItemStatus2" },
+        { "name": "Attachment" },
+        { "name": "Title" },
+        { "name": "FirstName" },
+        { "name": "LastName" },
+        { "name": "Speciality" },
+        { "name": "Email" },
+        { "name": "PostCode" },
+        { "name": "InstitutionName" }
+      ]
+    }
+  },
   "FieldDef": [
     {
       "name": "ID",
@@ -261,48 +910,82 @@
       "name": "StudyType",
       "type": "string",
       "width": "50",
-      "Option": "Optional",
-      "adaptiveCard": "Additional",
+      "Option": "Mandatory",
+      "adaptiveCard": "Main",
       "SLabel": "Study Type"
     },
     {
       "name": "StudyName",
       "type": "string",
       "width": "100",
-      "Option": "Optional",
-      "adaptiveCard": "Additional",
+      "Option": "Mandatory",
+      "adaptiveCard": "Main",
       "SLabel": "Study Name"
     },
     {
       "name": "PharmaContact",
       "type": "string",
       "width": "50",
-      "Option": "Optional",
-      "adaptiveCard": "Additional",
+      "Option": "Mandatory",
+      "adaptiveCard": "Main",
       "SLabel": "Pharma Contact"
     },
     {
       "name": "PharmaContactEmail",
       "type": "string",
       "width": "50",
-      "Option": "Optional",
-      "adaptiveCard": "Additional",
+      "Option": "Mandatory",
+      "adaptiveCard": "Main",
       "SLabel": "Pharma Contact Email"
+    },
+    {
+      "name": "Services",
+      "type": "Array",
+      "width": "200",
+      "Option": "Optional",
+      "adaptiveCard": "None",
+      "SLabel": "Services"
+    },
+    {
+      "name": "myHCPHCO",
+      "type": "Array",
+      "width": "200",
+      "Option": "Optional",
+      "adaptiveCard": "None",
+      "SLabel": "myHCPHCO"
+    },
+    {
+      "name": "StudyInvoice",
+      "type": "Array",
+      "width": "200",
+      "Option": "Optional",
+      "adaptiveCard": "None",
+      "SLabel": "Study Invoice"
+    },
+    {
+      "name": "MultiAttachments",
+      "type": "attachment",
+      "metadata": "MultipleFields",
+      "width": "200",
+      "Option": "Optional",
+      "adaptiveCard": "None",
+      "SLabel": "MultiAttachments",
+      "LLabel": "MultiAttachments"
     },
     {
       "name": "StudyDetails",
       "type": "string",
       "width": "500",
-      "Option": "Optional",
-      "adaptiveCard": "Additional",
+      "Option": "Mandatory",
+      "adaptiveCard": "Main",
       "SLabel": "Study Details"
     },
     {
       "name": "Phase",
       "type": "string",
       "width": "50",
-      "Option": "Optional",
-      "adaptiveCard": "Additional",
+      "Option": "Mandatory",
+      "adaptiveCard": "Main",
       "SLabel": "Phase"
     },
     {
@@ -333,12 +1016,20 @@
       "LLabel": "ProgressComment"
     },
     {
-      "name": "Date",
+      "name": "StudyLink",
+      "type": "hyperlink",
+      "width": "200",
+      "Option": "Optional",
+      "adaptiveCard": "Additional",
+      "SLabel": "Study Link"
+    },
+    {
+      "name": "StudyStartDate",
       "type": "Date",
       "width": "10",
       "Option": "Optional",
       "adaptiveCard": "Additional",
-      "SLabel": "Date"
+      "SLabel": "StudyStartDate"
     },
     {
       "name": "HCPEmail",
@@ -346,8 +1037,7 @@
       "width": "50",
       "Option": "Optional",
       "adaptiveCard": "Additional",
-      "SLabel": "HCP Email",
-      "LLabel": "HCPEmail"
+      "SLabel": "HCP Email"
     },
     {
       "name": "VendorName",
@@ -355,8 +1045,95 @@
       "width": "100",
       "Option": "Optional",
       "adaptiveCard": "Additional",
-      "SLabel": "HCP Name",
-      "LLabel": "VendorName"
+      "SLabel": "HCP Name"
+    },
+    {
+      "name": "StudyValue",
+      "type": "string",
+      "width": "50",
+      "Option": "Optional",
+      "adaptiveCard": "Additional",
+      "SLabel": "Study Value"
+    },
+    {
+      "name": "InvoiceValue",
+      "type": "string",
+      "width": "50",
+      "Option": "Optional",
+      "adaptiveCard": "Additional",
+      "SLabel": "Invoice Value"
+    },
+    {
+      "name": "BalanceValue",
+      "type": "string",
+      "width": "50",
+      "Option": "Optional",
+      "adaptiveCard": "Additional",
+      "SLabel": "Balance Value"
+    },
+    {
+      "name": "sValidation",
+      "type": "string",
+      "width": "50",
+      "Option": "Optional",
+      "adaptiveCard": "Additional",
+      "SLabel": "Validation"
+    },
+    {
+      "name": "Title",
+      "type": "string",
+      "width": "50",
+      "Option": "Optional",
+      "adaptiveCard": "Additional",
+      "SLabel": "Title"
+    },
+    {
+      "name": "FirstName",
+      "type": "string",
+      "width": "100",
+      "Option": "Optional",
+      "adaptiveCard": "Additional",
+      "SLabel": "FirstName"
+    },
+    {
+      "name": "LastName",
+      "type": "string",
+      "width": "100",
+      "Option": "Optional",
+      "adaptiveCard": "Additional",
+      "SLabel": "LastName"
+    },
+    {
+      "name": "Speciality",
+      "type": "string",
+      "width": "200",
+      "Option": "Optional",
+      "adaptiveCard": "Additional",
+      "SLabel": "Speciality"
+    },
+    {
+      "name": "Email",
+      "type": "Email",
+      "width": "100",
+      "Option": "Optional",
+      "adaptiveCard": "Additional",
+      "SLabel": "Email"
+    },
+    {
+      "name": "PostCode",
+      "type": "string",
+      "width": "200",
+      "Option": "Optional",
+      "adaptiveCard": "Additional",
+      "SLabel": "PostCode"
+    },
+    {
+      "name": "InstitutionName",
+      "type": "string",
+      "width": "500",
+      "Option": "Optional",
+      "adaptiveCard": "Additional",
+      "SLabel": "InstitutionName"
     }
   ],
   "itemData": "No",
@@ -372,7 +1149,112 @@
     "CreateFields": [],
     "ItemDetails": []
   },
-  "CalculatedFields": { "Item": [], "HeaderItem": [], "Header": [] },
-  "Create": "No",
-  "Wizard": []
+  "CalculatedFields": {
+    "Item": [],
+    "HeaderItem": [
+      {
+        "CalculatedFormula": {
+          "name": "ITEMSUM",
+          "table": "Services",
+          "function": "ITEMSUM",
+          "Target": "StudyValue",
+          "type": "HeaderItem"
+        },
+        "Fields": [
+          { "Source": "ServiceAmount", "Type": { "type": "HeaderItem" } }
+        ]
+      },
+      {
+        "CalculatedFormula": {
+          "name": "ITEMSUM",
+          "table": "StudyInvoice",
+          "function": "ITEMSUM",
+          "Target": "InvoiceValue",
+          "type": "HeaderItem"
+        },
+        "Fields": [
+          { "Source": "InvoiceAmount", "Type": { "type": "HeaderItem" } }
+        ]
+      }
+    ],
+    "Header": [
+      {
+        "CalculatedFormula": {
+          "name": "SUB",
+          "function": "SUB",
+          "Target": "BalanceValue",
+          "type": "Header"
+        },
+        "Fields": [
+          { "Source": "StudyValue", "Type": { "type": "Header" } },
+          { "Source": "InvoiceValue", "Type": { "type": "Header" } }
+        ]
+      }
+    ]
+  },
+  "Create": "Yes",
+  "Wizard": [
+    {
+      "id": "Step1",
+      "fields": [
+        { "name": "StudyType", "Mode": "Edit" },
+        { "name": "StudyID", "Mode": "Edit" },
+        { "name": "StudyName", "Mode": "Edit" },
+        { "name": "StudyLink", "Mode": "Edit" }
+      ],
+      "name": "Study Details",
+      "stepType": "FieldList",
+      "intro": "Study   : Study Details"
+    },
+
+    {
+      "id": "Step3",
+      "fields": [
+        { "name": "StudyStartDate", "Mode": "Edit" },
+        { "name": "Phase", "Mode": "Edit" }
+      ],
+      "name": "Dates",
+      "stepType": "FieldList",
+      "intro": "Study   : Dates"
+    },
+    {
+      "id": "Step4",
+      "fields": [{ "name": "MultiAttachments", "Mode": "Edit" }],
+      "name": "MultiAttachments",
+      "stepType": "Attachments",
+      "intro": "Study : Attachments",
+      "attachmentAttribute": {
+        "applicationid": "{applicationid}",
+        "businessrole": "{businessrole}",
+        "mode": "File",
+        "type": "NewUpload",
+        "text": "docType,Study,Success"
+      }
+    },
+    {
+      "id": "Step5",
+      "fields": [
+        { "name": "PharmaContact", "Mode": "Edit" },
+        { "name": "PharmaContactEmail", "Mode": "Edit" }
+      ],
+      "name": "Pharma Company",
+      "stepType": "FieldList",
+      "intro": "Study   : Pharma Contact"
+    },
+    {
+      "id": "Step6",
+      "fields": [{ "name": "Services", "Mode": "Edit" }],
+      "name": "Services",
+      "stepType": "table",
+      "intro": "Study : Services Entries",
+      "text": "docType,ItemAttachment,Information"
+    },
+    {
+      "id": "Step7",
+      "fields": [{ "name": "Status", "Mode": "Edit" }],
+      "name": "Cost Center",
+      "stepType": "FieldList",
+      "intro": "Study   : Status"
+    }
+  ]
 }

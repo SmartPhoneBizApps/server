@@ -188,22 +188,22 @@
     }
   ],
   "Tabs": [
-{
-    "value": "Tab0",
-    "style": "SAP",
-    "update": "No",
-    "name": "Cards",
-    "type": "Cards",
-    "fioriicon": "responsive"
-  },
-  {
-    "value": "Tab20",
-    "style": "SAP",
-    "update": "No",
-    "name": "Charts",
-    "type": "Charts",
-    "fioriicon": "business-objects-experience"
-  },
+    {
+      "value": "Tab0",
+      "style": "SAP",
+      "update": "No",
+      "name": "Cards",
+      "type": "Cards",
+      "fioriicon": "responsive"
+    },
+    {
+      "value": "Tab20",
+      "style": "SAP",
+      "update": "No",
+      "name": "Charts",
+      "type": "Charts",
+      "fioriicon": "business-objects-experience"
+    },
     {
       "value": "Tab1",
       "style": "SAP",
@@ -229,7 +229,7 @@
     "headerImage": ["USP_Image"],
     "headerColorFields": ["Status"],
     "Tab0": ["data"],
-    "Tab20":["charts"],
+    "Tab20": ["charts"],
     "None": ["ID", "BookingFor"],
     "Tab1": [
       "MeetingDate",
@@ -256,25 +256,6 @@
     "Tab2": ["Name", "ContactNo", "Email"]
   },
   "listCards": [
-    {
-      "cardType": "Analytical",
-      "cardsubType": "StackedBar",
-      "title": "Booking Analysis",
-      "subtitle": "Booking Status",
-      "unitOfMeasurement": "Days",
-      "Data": {
-        "dimension": "Status",
-        "fact": "records",
-        "operation": "COUNT"
-      },
-      "numericHeader": {
-        "headerNumber": { "Operation": "COUNT", "Field": "ID" },
-        "trend": { "trend": "DOWN", "Condition": "LTE", "value": 8 },
-        "status": { "state": "Success", "Condition": "LTE", "value": 24 },
-        "details": "Total 24 days",
-        "unit": "Days"
-      }
-    },
     {
       "cardType": "Analytical",
       "cardsubType": "StackedColumn",
@@ -340,7 +321,7 @@
       "type": "string",
       "width": "20",
       "Option": "Mandatory",
-      "adaptiveCard":"Main",
+      "adaptiveCard": "Main",
       "SLabel": "Identification",
       "Update": "No"
     },
@@ -349,7 +330,7 @@
       "type": "string",
       "width": "20",
       "Option": "Optional",
-      "adaptiveCard":"Additional",
+      "adaptiveCard": "Additional",
       "SLabel": "ReferenceID"
     },
     {
@@ -357,7 +338,7 @@
       "type": "Date",
       "width": "10",
       "Option": "Optional",
-      "adaptiveCard":"Additional",
+      "adaptiveCard": "Additional",
       "SLabel": "Start Date"
     },
     {
@@ -365,7 +346,7 @@
       "type": "Time",
       "width": "10",
       "Option": "Optional",
-      "adaptiveCard":"Additional",
+      "adaptiveCard": "Additional",
       "SLabel": "Start Time"
     },
     {
@@ -373,7 +354,7 @@
       "type": "Date",
       "width": "10",
       "Option": "Optional",
-      "adaptiveCard":"Additional",
+      "adaptiveCard": "Additional",
       "SLabel": "End Date"
     },
     {
@@ -381,7 +362,7 @@
       "type": "Time",
       "width": "10",
       "Option": "Optional",
-      "adaptiveCard":"Additional",
+      "adaptiveCard": "Additional",
       "SLabel": "End Time"
     },
     {
@@ -389,7 +370,7 @@
       "type": "string",
       "width": "100",
       "Option": "Optional",
-      "adaptiveCard":"Additional",
+      "adaptiveCard": "Additional",
       "SLabel": "Name"
     },
     {
@@ -397,7 +378,7 @@
       "type": "PhoneNumber",
       "width": "50",
       "Option": "Optional",
-      "adaptiveCard":"Additional",
+      "adaptiveCard": "Additional",
       "SLabel": "Phone Number"
     },
     {
@@ -405,7 +386,7 @@
       "type": "Email",
       "width": "50",
       "Option": "Optional",
-      "adaptiveCard":"Additional",
+      "adaptiveCard": "Additional",
       "SLabel": "Email"
     },
     {
@@ -413,7 +394,7 @@
       "type": "string",
       "width": "50",
       "Option": "Optional",
-      "adaptiveCard":"Additional",
+      "adaptiveCard": "Additional",
       "SLabel": "Car Registration"
     },
     {
@@ -421,7 +402,7 @@
       "type": "string",
       "width": "50",
       "Option": "Optional",
-      "adaptiveCard":"Additional",
+      "adaptiveCard": "Additional",
       "SLabel": "Car Park"
     },
     {
@@ -429,7 +410,7 @@
       "type": "string",
       "width": "50",
       "Option": "Mandatory",
-      "adaptiveCard":"Main",
+      "adaptiveCard": "Main",
       "SLabel": "Status",
       "LLabel": "Status"
     },
@@ -438,7 +419,7 @@
       "type": "string",
       "width": "200",
       "Option": "Optional",
-      "adaptiveCard":"None",
+      "adaptiveCard": "None",
       "SLabel": "Search String",
       "LLabel": "Search String"
     },
@@ -447,7 +428,7 @@
       "type": "string",
       "width": "1000",
       "Option": "Optional",
-      "adaptiveCard":"None",
+      "adaptiveCard": "None",
       "SLabel": "ProgressComment",
       "LLabel": "ProgressComment"
     },
@@ -456,7 +437,7 @@
       "type": "switch",
       "width": "50",
       "Option": "Optional",
-      "adaptiveCard":"Additional",
+      "adaptiveCard": "Additional",
       "SLabel": "Lunch Required",
       "LLabel": "Lunch Required"
     },
@@ -465,7 +446,7 @@
       "type": "PhoneNumber",
       "width": "50",
       "Option": "Optional",
-      "adaptiveCard":"Additional",
+      "adaptiveCard": "Additional",
       "SLabel": "Visitor Phone",
       "LLabel": "Visitor Phone Number"
     },
@@ -474,7 +455,7 @@
       "type": "string",
       "width": "100",
       "Option": "Optional",
-      "adaptiveCard":"Additional",
+      "adaptiveCard": "Additional",
       "SLabel": "Dietary Requirement",
       "LLabel": "Dietary Requirement"
     },
@@ -483,7 +464,7 @@
       "type": "string",
       "width": "100",
       "Option": "Optional",
-      "adaptiveCard":"Additional",
+      "adaptiveCard": "Additional",
       "SLabel": "Building",
       "LLabel": "Building"
     },
@@ -493,7 +474,7 @@
       "type": "string",
       "width": "50",
       "Option": "Optional",
-      "adaptiveCard":"Additional",
+      "adaptiveCard": "Additional",
       "SLabel": "Hot Desk No",
       "LLabel": "Hot Desk No"
     },
@@ -502,7 +483,7 @@
       "type": "string",
       "width": "1000",
       "Option": "Optional",
-      "adaptiveCard":"Additional",
+      "adaptiveCard": "Additional",
       "SLabel": "Comments / Reason",
       "LLabel": "Comments / Reason"
     },
@@ -511,7 +492,7 @@
       "type": "string",
       "width": "100",
       "Option": "Optional",
-      "adaptiveCard":"Additional",
+      "adaptiveCard": "Additional",
       "SLabel": "Visitor Company",
       "LLabel": "Visitor Company"
     },
@@ -520,7 +501,7 @@
       "type": "Email",
       "width": "100",
       "Option": "Optional",
-      "adaptiveCard":"Additional",
+      "adaptiveCard": "Additional",
       "SLabel": "Visitor Email ID",
       "LLabel": "Visitor Email ID"
     },
@@ -529,7 +510,7 @@
       "type": "string",
       "width": "100",
       "Option": "Optional",
-      "adaptiveCard":"Additional",
+      "adaptiveCard": "Additional",
       "SLabel": "Visitor Name",
       "LLabel": "Visitor Name"
     },
@@ -538,7 +519,7 @@
       "type": "switch",
       "width": "10",
       "Option": "Optional",
-      "adaptiveCard":"Additional",
+      "adaptiveCard": "Additional",
       "SLabel": "Parking Required",
       "LLabel": "Parking Required"
     },
@@ -547,7 +528,7 @@
       "type": "Date",
       "width": "10",
       "Option": "Optional",
-      "adaptiveCard":"Additional",
+      "adaptiveCard": "Additional",
       "SLabel": "Meeting Date",
       "LLabel": "Meeting Date"
     },
@@ -556,7 +537,7 @@
       "type": "string",
       "width": "100",
       "Option": "Mandatory",
-      "adaptiveCard":"Main",
+      "adaptiveCard": "Main",
       "SLabel": "Booking For",
       "LLabel": "Booking For"
     },
@@ -565,7 +546,7 @@
       "type": "string",
       "width": "50",
       "Option": "Optional",
-      "adaptiveCard":"Additional",
+      "adaptiveCard": "Additional",
       "SLabel": "No Of People",
       "LLabel": "No Of People"
     },
@@ -574,7 +555,7 @@
       "type": "string",
       "width": "50",
       "Option": "Optional",
-      "adaptiveCard":"Additional",
+      "adaptiveCard": "Additional",
       "SLabel": "Room Layout",
       "LLabel": "Room Layout"
     },
@@ -583,7 +564,7 @@
       "type": "string",
       "width": "500",
       "Option": "Mandatory",
-      "adaptiveCard":"Main",
+      "adaptiveCard": "Main",
       "SLabel": "Approver Comment"
     },
     {
@@ -591,7 +572,7 @@
       "type": "string",
       "width": "100",
       "Option": "Optional",
-      "adaptiveCard":"Additional",
+      "adaptiveCard": "Additional",
       "SLabel": "Slot",
       "LLabel": "Slot"
     }

@@ -219,25 +219,6 @@
   "listCards": [
     {
       "cardType": "Analytical",
-      "cardsubType": "StackedBar",
-      "title": "Event Analysis",
-      "subtitle": "Event Status",
-      "unitOfMeasurement": "Days",
-      "Data": {
-        "dimension": "Status",
-        "fact": "records",
-        "operation": "COUNT"
-      },
-      "numericHeader": {
-        "headerNumber": { "Operation": "COUNT", "Field": "ID" },
-        "trend": { "trend": "DOWN", "Condition": "LTE", "value": 8 },
-        "status": { "state": "Success", "Condition": "LTE", "value": 24 },
-        "details": "Total 24 days",
-        "unit": "Days"
-      }
-    },
-    {
-      "cardType": "Analytical",
       "cardsubType": "StackedColumn",
       "title": "Event Analysis",
       "subtitle": "Event Type",
@@ -277,6 +258,547 @@
   ],
   "ControlDisplay": {},
   "tableConfig": {
+    "Services": {
+      "calculation": "Yes",
+      "title": "Services",
+      "subtitle": "Services",
+      "tableFormFields": [
+        {
+          "GrpTitle": "Totals",
+          "Fields": ["EventValue"]
+        }
+      ],
+      "ItemFieldDefinition": [
+        {
+          "name": "ItemNumber",
+          "type": "string",
+          "width": "10",
+          "SLabel": "ItemNumber",
+          "Option": "Optional",
+          "adaptiveCard": "Additional",
+          "Update": "No"
+        },
+        {
+          "name": "ServiceDetails",
+          "type": "string",
+          "width": "200",
+          "Option": "Mandatory",
+          "SLabel": "Service Details",
+          "Update": "Yes"
+        },
+        {
+          "name": "ServiceType",
+          "type": "string",
+          "width": "50",
+          "SLabel": "Service Type",
+          "Option": "Mandatory",
+          "adaptiveCard": "Main",
+          "Update": "Yes"
+        },
+        {
+          "name": "ServiceAmount",
+          "type": "Num,1",
+          "width": "20",
+          "SLabel": "Service Amount",
+          "Option": "Mandatory",
+          "adaptiveCard": "Main",
+          "Update": "Yes"
+        },
+        {
+          "name": "Notes",
+          "type": "string",
+          "width": "1000",
+          "SLabel": "Notes",
+          "Option": "Optional",
+          "adaptiveCard": "Main",
+          "Update": "Yes"
+        },
+        {
+          "name": "iCurrency",
+          "type": "string",
+          "width": "10",
+          "SLabel": "Item Currency",
+          "Option": "Mandatory",
+          "adaptiveCard": "Additional",
+          "Update": "No"
+        },
+        {
+          "name": "ItemStatus1",
+          "type": "string",
+          "width": "50",
+          "SLabel": "Item Status",
+          "Option": "Mandatory",
+          "adaptiveCard": "Main",
+          "Update": "Yes"
+        },
+        {
+          "name": "Attachment",
+          "type": "singleAttachment",
+          "width": "100",
+          "SLabel": "Item Attachment",
+          "Option": "Optional",
+          "adaptiveCard": "None",
+          "Update": "Yes"
+        }
+      ],
+      "DisplayFields": [
+        "ServiceDetails",
+        "ServiceAmount",
+        "ServiceType",
+        "iCurrency",
+        "ItemStatus1"
+      ],
+      "detailCharts": [
+        {
+          "cardType": "Analytical",
+          "cardsubType": "StackedBar",
+          "title": "Events Analysis",
+          "subtitle": "Service Type",
+          "unitOfMeasurement": "Count",
+          "source": "Services",
+          "Data": {
+            "dimension": "ServiceType",
+            "fact": "records",
+            "operation": "COUNT"
+          },
+          "numericHeader": {
+            "headerNumber": { "Operation": "COUNT", "Field": "ServiceType" },
+            "trend": { "trend": "DOWN", "Condition": "LTE", "value": 8 },
+            "status": { "state": "Success", "Condition": "LTE", "value": 24 },
+            "details": "Service Type",
+            "unit": "Count"
+          }
+        }
+      ],
+      "cards": [],
+      "ItemButtons": {
+        "itemDisplay": true,
+        "itemCheck": false,
+        "itemAdd": false,
+        "itemEdit": false,
+        "itemDelete": false,
+        "additionalButtons": [
+          {
+            "name": "Invoice Item",
+            "type": "INVOICE",
+            "URL": "datarecords/",
+            "tableName": "EventInvoice",
+            "Token": "Yes",
+            "URLMethod": "PUT",
+            "updateButton": "Add to Invoice",
+            "diffMapping": [{ "ServiceAmount": "InvoiceAmount" }],
+            "popupData": "myHCPHCO"
+          }
+        ]
+      },
+      "CreateFields": [
+        "ServiceType",
+        "ServiceDetails",
+        "ServiceAmount",
+        "iCurrency",
+        "ItemStatus1",
+        "Notes",
+        "Attachment"
+      ],
+      "ItemDetails": [
+        { "name": "ServiceType" },
+        { "name": "ServiceDetails" },
+        { "name": "ServiceAmount" },
+        { "name": "iCurrency" },
+        { "name": "Notes" },
+        { "name": "ItemStatus1" },
+        { "name": "Attachment" }
+      ]
+    },
+    "myHCPHCO": {
+      "title": "My HCP/HCO",
+      "subtitle": "HCP/HCO",
+      "ItemFieldDefinition": [
+        {
+          "name": "ItemNumber",
+          "type": "string",
+          "width": "10",
+          "Option": "Optional",
+          "adaptiveCard": "Additional",
+          "SLabel": "Item Number",
+          "Update": "No"
+        },
+        {
+          "name": "ItemStatus1",
+          "type": "string",
+          "width": "50",
+          "Option": "Optional",
+          "adaptiveCard": "Additional",
+          "SLabel": "Item Status",
+          "Update": "Yes"
+        },
+        {
+          "name": "Title",
+          "type": "string",
+          "width": "50",
+          "Option": "Mandatory",
+          "adaptiveCard": "Main",
+          "SLabel": "Title"
+        },
+        {
+          "name": "FirstName",
+          "type": "string",
+          "width": "100",
+          "Option": "Mandatory",
+          "adaptiveCard": "Main",
+          "SLabel": "FirstName"
+        },
+        {
+          "name": "LastName",
+          "type": "string",
+          "width": "100",
+          "Option": "Mandatory",
+          "adaptiveCard": "Main",
+          "SLabel": "LastName"
+        },
+        {
+          "name": "Speciality",
+          "type": "string",
+          "width": "200",
+          "Option": "Optional",
+          "adaptiveCard": "Additional",
+          "SLabel": "Speciality"
+        },
+        {
+          "name": "Email",
+          "type": "Email",
+          "width": "100",
+          "Option": "Mandatory",
+          "adaptiveCard": "Main",
+          "SLabel": "Email"
+        },
+        {
+          "name": "PostCode",
+          "type": "string",
+          "width": "200",
+          "Option": "Optional",
+          "adaptiveCard": "Additional",
+          "SLabel": "PostCode"
+        },
+        {
+          "name": "InstitutionName",
+          "type": "string",
+          "width": "500",
+          "Option": "Optional",
+          "adaptiveCard": "Additional",
+          "SLabel": "InstitutionName"
+        }
+      ],
+      "DisplayFields": [
+        "Title",
+        "FirstName",
+        "LastName",
+        "Email",
+        "PostCode",
+        "ItemStatus1"
+      ],
+      "detailCharts": [
+        {
+          "cardType": "Analytical",
+          "cardsubType": "StackedBar",
+          "title": "HCP/HCO - Events Analysis",
+          "subtitle": "Speciality",
+          "unitOfMeasurement": "Count",
+          "source": "myHCPHCO",
+          "Data": {
+            "dimension": "Speciality",
+            "fact": "records",
+            "operation": "COUNT"
+          },
+          "numericHeader": {
+            "headerNumber": { "Operation": "COUNT", "Field": "Speciality" },
+            "trend": { "trend": "DOWN", "Condition": "LTE", "value": 8 },
+            "status": { "state": "Success", "Condition": "LTE", "value": 24 },
+            "details": "Speciality",
+            "unit": "Count"
+          }
+        },
+        {
+          "cardType": "Analytical",
+          "cardsubType": "StackedColumn",
+          "title": "HCP/HCO - Events Analysis",
+          "subtitle": "InstitutionName",
+          "unitOfMeasurement": "Count",
+          "source": "myHCPHCO",
+          "Data": {
+            "dimension": "InstitutionName",
+            "fact": "records",
+            "operation": "COUNT"
+          },
+          "numericHeader": {
+            "headerNumber": {
+              "Operation": "COUNT",
+              "Field": "InstitutionName"
+            },
+            "trend": { "trend": "DOWN", "Condition": "LTE", "value": 8 },
+            "status": { "state": "Success", "Condition": "LTE", "value": 24 },
+            "details": "InstitutionName",
+            "unit": "Count"
+          }
+        }
+      ],
+      "cards": [],
+      "ItemButtons": {
+        "itemDisplay": true,
+        "itemCheck": false,
+        "itemAdd": false,
+        "itemEdit": true,
+        "itemDelete": false
+      },
+      "CreateFields": [
+        "Title",
+        "FirstName",
+        "LastName",
+        "Speciality",
+        "Email",
+        "PostCode",
+        "InstitutionName",
+        "ItemStatus1"
+      ],
+      "ItemDetails": [
+        { "name": "Title" },
+        { "name": "FirstName" },
+        { "name": "LastName" },
+        { "name": "Speciality" },
+        { "name": "Email" },
+        { "name": "PostCode" },
+        { "name": "InstitutionName" },
+        { "name": "ItemStatus1" }
+      ]
+    },
+    "EventInvoice": {
+      "calculation": "Yes",
+      "title": "Event Invoice",
+      "subtitle": "Invoice Items",
+      "tableFormFields": [
+        {
+          "GrpTitle": "Totals",
+          "Fields": ["InvoiceValue"]
+        }
+      ],
+      "ItemFieldDefinition": [
+        {
+          "name": "ItemNumber",
+          "type": "string",
+          "width": "10",
+          "SLabel": "ItemNumber",
+          "Option": "Optional",
+          "adaptiveCard": "Additional",
+          "Update": "No"
+        },
+        {
+          "name": "ServiceDetails",
+          "type": "string",
+          "width": "200",
+          "Option": "Mandatory",
+          "SLabel": "Service Details",
+          "Update": "Yes"
+        },
+        {
+          "name": "ServiceType",
+          "type": "string",
+          "width": "50",
+          "SLabel": "Service Type",
+          "Option": "Mandatory",
+          "adaptiveCard": "Main",
+          "Update": "Yes"
+        },
+        {
+          "name": "InvoiceAmount",
+          "type": "Num,1",
+          "width": "20",
+          "SLabel": "Invoice Amount",
+          "Option": "Mandatory",
+          "adaptiveCard": "Main",
+          "Update": "Yes"
+        },
+        {
+          "name": "Notes",
+          "type": "string",
+          "width": "1000",
+          "SLabel": "Notes",
+          "Option": "Optional",
+          "adaptiveCard": "Main",
+          "Update": "Yes"
+        },
+        {
+          "name": "iCurrency",
+          "type": "string",
+          "width": "10",
+          "SLabel": "Item Currency",
+          "Option": "Mandatory",
+          "adaptiveCard": "Additional",
+          "Update": "No"
+        },
+        {
+          "name": "ItemStatus1",
+          "type": "string",
+          "width": "50",
+          "SLabel": "Item Status",
+          "Option": "Mandatory",
+          "adaptiveCard": "Main",
+          "Update": "Yes"
+        },
+        {
+          "name": "Attachment",
+          "type": "singleAttachment",
+          "width": "100",
+          "SLabel": "Item Attachment",
+          "Option": "Optional",
+          "adaptiveCard": "None",
+          "Update": "Yes"
+        },
+        {
+          "name": "Title",
+          "type": "string",
+          "width": "50",
+          "SLabel": "Title",
+          "Option": "Optional"
+        },
+        {
+          "name": "FirstName",
+          "type": "string",
+          "width": "100",
+          "SLabel": "FirstName",
+          "Option": "Optional"
+        },
+        {
+          "name": "LastName",
+          "type": "string",
+          "width": "100",
+          "SLabel": "LastName",
+          "Option": "Optional"
+        },
+        {
+          "name": "Speciality",
+          "type": "string",
+          "width": "200",
+          "SLabel": "Speciality",
+          "Option": "Optional"
+        },
+        {
+          "name": "Email",
+          "type": "Email",
+          "width": "100",
+          "SLabel": "Email",
+          "Option": "Optional"
+        },
+        {
+          "name": "PostCode",
+          "type": "string",
+          "width": "200",
+          "SLabel": "PostCode",
+          "Option": "Optional"
+        },
+        {
+          "name": "InstitutionName",
+          "type": "string",
+          "width": "500",
+          "SLabel": "InstitutionName",
+          "Option": "Optional"
+        }
+      ],
+      "DisplayFields": [
+        "ServiceDetails",
+        "InvoiceAmount",
+        "ServiceType",
+        "iCurrency",
+        "ItemStatus1",
+        "Title",
+        "FirstName",
+        "LastName",
+        "Email",
+        "PostCode"
+      ],
+      "detailCharts": [
+        {
+          "cardType": "Analytical",
+          "cardsubType": "StackedBar",
+          "title": "HCP/HCO - Invoice Analysis",
+          "subtitle": "Email(HCP/HCO)",
+          "unitOfMeasurement": "Count",
+          "source": "EventInvoice",
+          "Data": {
+            "dimension": "Email",
+            "fact": "records",
+            "operation": "COUNT"
+          },
+          "numericHeader": {
+            "headerNumber": { "Operation": "COUNT", "Field": "Email" },
+            "trend": { "trend": "DOWN", "Condition": "LTE", "value": 8 },
+            "status": { "state": "Success", "Condition": "LTE", "value": 24 },
+            "details": "Email",
+            "unit": "Count"
+          }
+        },
+        {
+          "cardType": "Analytical",
+          "cardsubType": "StackedColumn",
+          "title": "HCP/HCO - Invoice Analysis",
+          "subtitle": "InstitutionName",
+          "unitOfMeasurement": "Count",
+          "source": "EventInvoice",
+          "Data": {
+            "dimension": "InstitutionName",
+            "fact": "records",
+            "operation": "COUNT"
+          },
+          "numericHeader": {
+            "headerNumber": {
+              "Operation": "COUNT",
+              "Field": "InstitutionName"
+            },
+            "trend": { "trend": "DOWN", "Condition": "LTE", "value": 8 },
+            "status": { "state": "Success", "Condition": "LTE", "value": 24 },
+            "details": "InstitutionName",
+            "unit": "Count"
+          }
+        }
+      ],
+      "cards": [],
+      "ItemButtons": {
+        "itemDisplay": true,
+        "itemCheck": true,
+        "itemAdd": false,
+        "itemEdit": true,
+        "itemDelete": true
+      },
+      "CreateFields": [
+        "ServiceType",
+        "ServiceDetails",
+        "InvoiceAmount",
+        "iCurrency",
+        "ItemStatus1",
+        "Notes",
+        "Attachment",
+        "Title",
+        "FirstName",
+        "LastName",
+        "Email",
+        "PostCode"
+      ],
+      "ItemDetails": [
+        { "name": "ServiceType" },
+        { "name": "ServiceDetails" },
+        { "name": "InvoiceAmount" },
+        { "name": "iCurrency" },
+        { "name": "Notes" },
+        { "name": "ItemStatus1" },
+        { "name": "Attachment" },
+        { "name": "Title" },
+        { "name": "FirstName" },
+        { "name": "LastName" },
+        { "name": "Speciality" },
+        { "name": "Email" },
+        { "name": "PostCode" },
+        { "name": "InstitutionName" }
+      ]
+    },
     "Agenda": {
       "calculation": "Yes",
       "title": "Agenda",

@@ -269,7 +269,7 @@
     "headerColorFields": ["Status"],
     "Tab0": ["data"],
     "Tab20": ["charts"],
-    "None": ["ID"],
+    "None": ["ID", "HCPEmail", "VendorName"],
     "Tab1": [
       "StudyType",
       "StudyName",
@@ -288,25 +288,6 @@
   "listCards": [
     {
       "cardType": "Analytical",
-      "cardsubType": "StackedBar",
-      "title": "Study Analysis",
-      "subtitle": "Study Status",
-      "unitOfMeasurement": "Days",
-      "Data": {
-        "dimension": "Status",
-        "fact": "records",
-        "operation": "COUNT"
-      },
-      "numericHeader": {
-        "headerNumber": { "Operation": "COUNT", "Field": "ID" },
-        "trend": { "trend": "DOWN", "Condition": "LTE", "value": 8 },
-        "status": { "state": "Success", "Condition": "LTE", "value": 24 },
-        "details": "Total 24 days",
-        "unit": "Days"
-      }
-    },
-    {
-      "cardType": "Analytical",
       "cardsubType": "StackedColumn",
       "title": "Study Analysis",
       "subtitle": "Study Type",
@@ -322,6 +303,26 @@
         "status": { "state": "Success", "Condition": "LTE", "value": 24 },
         "details": "Total 24 days",
         "unit": "Days"
+      }
+    },
+    {
+      "cardType": "Analytical",
+      "cardsubType": "StackedBar",
+      "title": "Study/Trial Analysis",
+      "subtitle": "Phase",
+      "unitOfMeasurement": "GBP",
+      "source": "myTime",
+      "Data": {
+        "dimension": "Phase",
+        "fact": "records",
+        "operation": "COUNT"
+      },
+      "numericHeader": {
+        "headerNumber": { "Operation": "COUNT", "Field": "Phase" },
+        "trend": { "trend": "DOWN", "Condition": "LTE", "value": 8 },
+        "status": { "state": "Success", "Condition": "LTE", "value": 24 },
+        "details": "Phase",
+        "unit": "GBP"
       }
     },
     {
@@ -436,7 +437,28 @@
         "iCurrency",
         "ItemStatus2"
       ],
-      "detailCharts": [],
+      "detailCharts": [
+        {
+          "cardType": "Analytical",
+          "cardsubType": "StackedBar",
+          "title": "Study/Trial Analysis",
+          "subtitle": "Service Type",
+          "unitOfMeasurement": "Count",
+          "source": "Services",
+          "Data": {
+            "dimension": "ServiceType2",
+            "fact": "records",
+            "operation": "COUNT"
+          },
+          "numericHeader": {
+            "headerNumber": { "Operation": "COUNT", "Field": "ServiceType2" },
+            "trend": { "trend": "DOWN", "Condition": "LTE", "value": 8 },
+            "status": { "state": "Success", "Condition": "LTE", "value": 24 },
+            "details": "Service Type",
+            "unit": "Count"
+          }
+        }
+      ],
       "cards": [],
       "ItemButtons": {
         "itemDisplay": true,
@@ -564,7 +586,51 @@
         "PostCode",
         "ItemStatus1"
       ],
-      "detailCharts": [],
+      "detailCharts": [
+        {
+          "cardType": "Analytical",
+          "cardsubType": "StackedBar",
+          "title": "HCP/HCO - Study/Trial Analysis",
+          "subtitle": "Speciality",
+          "unitOfMeasurement": "Count",
+          "source": "myHCPHCO",
+          "Data": {
+            "dimension": "Speciality",
+            "fact": "records",
+            "operation": "COUNT"
+          },
+          "numericHeader": {
+            "headerNumber": { "Operation": "COUNT", "Field": "Speciality" },
+            "trend": { "trend": "DOWN", "Condition": "LTE", "value": 8 },
+            "status": { "state": "Success", "Condition": "LTE", "value": 24 },
+            "details": "Speciality",
+            "unit": "Count"
+          }
+        },
+        {
+          "cardType": "Analytical",
+          "cardsubType": "StackedColumn",
+          "title": "HCP/HCO - Study/Trial Analysis",
+          "subtitle": "InstitutionName",
+          "unitOfMeasurement": "Count",
+          "source": "myHCPHCO",
+          "Data": {
+            "dimension": "InstitutionName",
+            "fact": "records",
+            "operation": "COUNT"
+          },
+          "numericHeader": {
+            "headerNumber": {
+              "Operation": "COUNT",
+              "Field": "InstitutionName"
+            },
+            "trend": { "trend": "DOWN", "Condition": "LTE", "value": 8 },
+            "status": { "state": "Success", "Condition": "LTE", "value": 24 },
+            "details": "InstitutionName",
+            "unit": "Count"
+          }
+        }
+      ],
       "cards": [],
       "ItemButtons": {
         "itemDisplay": true,
@@ -738,7 +804,51 @@
         "Email",
         "PostCode"
       ],
-      "detailCharts": [],
+      "detailCharts": [
+        {
+          "cardType": "Analytical",
+          "cardsubType": "StackedBar",
+          "title": "HCP/HCO - Invoice Analysis",
+          "subtitle": "Email(HCP/HCO)",
+          "unitOfMeasurement": "Count",
+          "source": "StudyInvoice",
+          "Data": {
+            "dimension": "Email",
+            "fact": "records",
+            "operation": "COUNT"
+          },
+          "numericHeader": {
+            "headerNumber": { "Operation": "COUNT", "Field": "Email" },
+            "trend": { "trend": "DOWN", "Condition": "LTE", "value": 8 },
+            "status": { "state": "Success", "Condition": "LTE", "value": 24 },
+            "details": "Email",
+            "unit": "Count"
+          }
+        },
+        {
+          "cardType": "Analytical",
+          "cardsubType": "StackedColumn",
+          "title": "HCP/HCO - Invoice Analysis",
+          "subtitle": "InstitutionName",
+          "unitOfMeasurement": "Count",
+          "source": "StudyInvoice",
+          "Data": {
+            "dimension": "InstitutionName",
+            "fact": "records",
+            "operation": "COUNT"
+          },
+          "numericHeader": {
+            "headerNumber": {
+              "Operation": "COUNT",
+              "Field": "InstitutionName"
+            },
+            "trend": { "trend": "DOWN", "Condition": "LTE", "value": 8 },
+            "status": { "state": "Success", "Condition": "LTE", "value": 24 },
+            "details": "InstitutionName",
+            "unit": "Count"
+          }
+        }
+      ],
       "cards": [],
       "ItemButtons": {
         "itemDisplay": true,
@@ -1096,6 +1206,7 @@
       "stepType": "FieldList",
       "intro": "Study   : Study Details"
     },
+
     {
       "id": "Step3",
       "fields": [

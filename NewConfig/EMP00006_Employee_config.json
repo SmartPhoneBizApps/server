@@ -198,25 +198,6 @@
   "listCards": [
     {
       "cardType": "Analytical",
-      "cardsubType": "StackedBar",
-      "title": "Training Analysis",
-      "subtitle": "Training Status",
-      "unitOfMeasurement": "Days",
-      "Data": {
-        "dimension": "Status",
-        "fact": "records",
-        "operation": "COUNT"
-      },
-      "numericHeader": {
-        "headerNumber": { "Operation": "COUNT", "Field": "ID" },
-        "trend": { "trend": "DOWN", "Condition": "LTE", "value": 8 },
-        "status": { "state": "Success", "Condition": "LTE", "value": 24 },
-        "details": "Total 24 days",
-        "unit": "Days"
-      }
-    },
-    {
-      "cardType": "Analytical",
       "cardsubType": "StackedColumn",
       "title": "Training Analysis",
       "subtitle": "Project Code",
@@ -263,7 +244,7 @@
       "type": "string",
       "width": "20",
       "Option": "Mandatory",
-      "adaptiveCard":"Main",
+      "adaptiveCard": "Main",
       "SLabel": "Identification",
       "Update": "No"
     },
@@ -272,7 +253,7 @@
       "type": "string",
       "width": "20",
       "Option": "Optional",
-      "adaptiveCard":"Additional",
+      "adaptiveCard": "Additional",
       "SLabel": "ReferenceID"
     },
     {
@@ -280,7 +261,7 @@
       "type": "string",
       "width": "50",
       "Option": "Mandatory",
-      "adaptiveCard":"Main",
+      "adaptiveCard": "Main",
       "SLabel": "Employee ID"
     },
     {
@@ -288,7 +269,7 @@
       "type": "string",
       "width": "50",
       "Option": "Mandatory",
-      "adaptiveCard":"Main",
+      "adaptiveCard": "Main",
       "SLabel": "Employee Name"
     },
     {
@@ -296,7 +277,7 @@
       "type": "Date",
       "width": "10",
       "Option": "Optional",
-      "adaptiveCard":"Additional",
+      "adaptiveCard": "Additional",
       "SLabel": "Date Requested"
     },
     {
@@ -304,7 +285,7 @@
       "type": "radiobutton",
       "width": "50",
       "Option": "Optional",
-      "adaptiveCard":"Additional",
+      "adaptiveCard": "Additional",
       "SLabel": "Project Need"
     },
     {
@@ -312,7 +293,7 @@
       "type": "switch",
       "width": "50",
       "Option": "Optional",
-      "adaptiveCard":"Additional",
+      "adaptiveCard": "Additional",
       "SLabel": "For Employee Development"
     },
     {
@@ -320,7 +301,7 @@
       "type": "radiobutton",
       "width": "50",
       "Option": "Optional",
-      "adaptiveCard":"Additional",
+      "adaptiveCard": "Additional",
       "SLabel": "Training Area"
     },
     {
@@ -328,7 +309,7 @@
       "type": "string",
       "width": "500",
       "Option": "Mandatory",
-      "adaptiveCard":"Main",
+      "adaptiveCard": "Main",
       "SLabel": "Training Details"
     },
     {
@@ -336,7 +317,7 @@
       "type": "string",
       "width": "50",
       "Option": "Optional",
-      "adaptiveCard":"Additional",
+      "adaptiveCard": "Additional",
       "SLabel": "Duration"
     },
     {
@@ -344,7 +325,7 @@
       "type": "radiobutton",
       "width": "50",
       "Option": "Optional",
-      "adaptiveCard":"Additional",
+      "adaptiveCard": "Additional",
       "SLabel": "External Training"
     },
     {
@@ -352,7 +333,7 @@
       "type": "string",
       "width": "50",
       "Option": "Optional",
-      "adaptiveCard":"Additional",
+      "adaptiveCard": "Additional",
       "SLabel": "Training Cost",
       "Condition": [
         {
@@ -374,7 +355,7 @@
       "type": "string",
       "width": "50",
       "Option": "Mandatory",
-      "adaptiveCard":"Main",
+      "adaptiveCard": "Main",
       "SLabel": "Project Code"
     },
     {
@@ -382,7 +363,7 @@
       "type": "string",
       "width": "50",
       "Option": "Optional",
-      "adaptiveCard":"Additional",
+      "adaptiveCard": "Additional",
       "SLabel": "Cost Centre"
     },
     {
@@ -390,7 +371,7 @@
       "type": "string",
       "width": "1000",
       "Option": "Optional",
-      "adaptiveCard":"Additional",
+      "adaptiveCard": "Additional",
       "SLabel": "Progress Comment"
     },
 
@@ -400,7 +381,7 @@
       "type": "string",
       "width": "200",
       "Option": "Optional",
-      "adaptiveCard":"None",
+      "adaptiveCard": "None",
       "SLabel": "Search String",
       "LLabel": "Search String"
     },
@@ -409,7 +390,7 @@
       "type": "string",
       "width": "500",
       "Option": "Optional",
-      "adaptiveCard":"Additional",
+      "adaptiveCard": "Additional",
       "SLabel": "Justification"
     },
     {
@@ -417,7 +398,7 @@
       "type": "string",
       "width": "200",
       "Option": "Optional",
-      "adaptiveCard":"None",
+      "adaptiveCard": "None",
       "SLabel": "Search String",
       "LLabel": "Search String"
     },
@@ -426,7 +407,7 @@
       "type": "string",
       "width": "1000",
       "Option": "Optional",
-      "adaptiveCard":"Additional",
+      "adaptiveCard": "Additional",
       "SLabel": "Processing Log",
       "LLabel": "Processing Log"
     }

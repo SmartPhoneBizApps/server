@@ -222,26 +222,8 @@
     "Tab4": ["OtherCost", "AdditionalInfo", "CostCentre", "Currency"],
     "Tab5": ["MultiAttachments"]
   },
+
   "listCards": [
-    {
-      "cardType": "Analytical",
-      "cardsubType": "StackedBar",
-      "title": "Travel Analysis",
-      "subtitle": "Travel Status",
-      "unitOfMeasurement": "Days",
-      "Data": {
-        "dimension": "Status",
-        "fact": "records",
-        "operation": "COUNT"
-      },
-      "numericHeader": {
-        "headerNumber": { "Operation": "COUNT", "Field": "ID" },
-        "trend": { "trend": "DOWN", "Condition": "LTE", "value": 8 },
-        "status": { "state": "Success", "Condition": "LTE", "value": 24 },
-        "details": "Total 24 days",
-        "unit": "Days"
-      }
-    },
     {
       "cardType": "Analytical",
       "cardsubType": "StackedColumn",
@@ -291,7 +273,7 @@
       "type": "string",
       "width": "20",
       "Option": "Mandatory",
-      "adaptiveCard":"Main",
+      "adaptiveCard": "Main",
       "SLabel": "Identification",
       "Update": "No"
     },
@@ -300,7 +282,7 @@
       "type": "string",
       "width": "20",
       "Option": "Mandatory",
-      "adaptiveCard":"Main",
+      "adaptiveCard": "Main",
       "SLabel": "ReferenceID"
     },
     {
@@ -308,7 +290,7 @@
       "type": "string",
       "width": "20",
       "Option": "Mandatory",
-      "adaptiveCard":"Additional",
+      "adaptiveCard": "Additional",
       "SLabel": "Employee Code"
     },
     {
@@ -316,7 +298,7 @@
       "type": "string",
       "width": "50",
       "Option": "Mandatory",
-      "adaptiveCard":"Additional",
+      "adaptiveCard": "Additional",
       "SLabel": "Employee Name"
     },
     {
@@ -324,7 +306,7 @@
       "type": "Num,2",
       "width": "20",
       "Option": "Optional",
-      "adaptiveCard":"Additional",
+      "adaptiveCard": "Additional",
       "SLabel": "Total Amount"
     },
     {
@@ -332,7 +314,7 @@
       "type": "string",
       "width": "50",
       "Option": "Mandatory",
-      "adaptiveCard":"Additional",
+      "adaptiveCard": "Additional",
       "SLabel": "Currency"
     },
     {
@@ -340,7 +322,7 @@
       "type": "Date",
       "width": "10",
       "Option": "Mandatory",
-      "adaptiveCard":"Additional",
+      "adaptiveCard": "Additional",
       "SLabel": "Entry Date"
     },
     {
@@ -348,7 +330,7 @@
       "type": "Date",
       "width": "10",
       "Option": "Mandatory",
-      "adaptiveCard":"Main",
+      "adaptiveCard": "Main",
       "SLabel": "Travel Date From"
     },
     {
@@ -356,7 +338,7 @@
       "type": "Date",
       "width": "10",
       "Option": "Mandatory",
-      "adaptiveCard":"Main",
+      "adaptiveCard": "Main",
       "SLabel": "Travel Date To"
     },
     {
@@ -364,7 +346,7 @@
       "type": "string",
       "width": "50",
       "Option": "Mandatory",
-      "adaptiveCard":"Main",
+      "adaptiveCard": "Main",
       "SLabel": "Project Code"
     },
     {
@@ -372,7 +354,7 @@
       "type": "string",
       "width": "50",
       "Option": "Optional",
-      "adaptiveCard":"Additional",
+      "adaptiveCard": "Additional",
       "SLabel": "Cost Centre"
     },
     {
@@ -380,7 +362,7 @@
       "type": "string",
       "width": "50",
       "Option": "Optional",
-      "adaptiveCard":"None",
+      "adaptiveCard": "None",
       "SLabel": "Location"
     },
     {
@@ -388,7 +370,7 @@
       "type": "string",
       "width": "500",
       "Option": "Mandatory",
-      "adaptiveCard":"Main",
+      "adaptiveCard": "Main",
       "SLabel": "Travel Detail"
     },
     {
@@ -396,7 +378,7 @@
       "type": "string",
       "width": "1000",
       "Option": "Mandatory",
-      "adaptiveCard":"Main",
+      "adaptiveCard": "Main",
       "SLabel": "Justification"
     },
     {
@@ -404,7 +386,7 @@
       "type": "string",
       "width": "50",
       "Option": "Mandatory",
-      "adaptiveCard":"Additional",
+      "adaptiveCard": "Additional",
       "SLabel": "Status",
       "LLabel": "Status"
     },
@@ -413,7 +395,7 @@
       "type": "string",
       "width": "200",
       "Option": "Optional",
-      "adaptiveCard":"None",
+      "adaptiveCard": "None",
       "SLabel": "Search String",
       "LLabel": "Search String"
     },
@@ -422,7 +404,7 @@
       "type": "string",
       "width": "1000",
       "Option": "Optional",
-      "adaptiveCard":"None",
+      "adaptiveCard": "None",
       "SLabel": "ProgressComment",
       "LLabel": "ProgressComment"
     },
@@ -431,7 +413,7 @@
       "type": "radiobutton",
       "width": "50",
       "Option": "Mandatory",
-      "adaptiveCard":"Main",
+      "adaptiveCard": "Main",
       "SLabel": "Travelling mode"
     },
     {
@@ -439,7 +421,7 @@
       "type": "string",
       "width": "1000",
       "Option": "Optional",
-      "adaptiveCard":"Additional",
+      "adaptiveCard": "Additional",
       "SLabel": "Processing Log",
       "LLabel": "Processing Log"
     },
@@ -448,7 +430,7 @@
       "type": "Num,2",
       "width": "20",
       "Option": "Optional",
-      "adaptiveCard":"Main",
+      "adaptiveCard": "Main",
       "SLabel": "Food Cost",
       "LLabel": "Food Cost"
     },
@@ -457,7 +439,7 @@
       "type": "Num,2",
       "width": "20",
       "Option": "Optional",
-      "adaptiveCard":"Main",
+      "adaptiveCard": "Main",
       "SLabel": "Travel Cost",
       "LLabel": "Travel Cost"
     },
@@ -466,7 +448,7 @@
       "type": "Num,2",
       "width": "20",
       "Option": "Optional",
-      "adaptiveCard":"Main",
+      "adaptiveCard": "Main",
       "SLabel": "Stay Cost",
       "LLabel": "Stay Cost"
     },
@@ -475,7 +457,7 @@
       "type": "Num,0",
       "width": "20",
       "Option": "Optional",
-      "adaptiveCard":"Main",
+      "adaptiveCard": "Main",
       "SLabel": "Other Cost",
       "LLabel": "Other Cost"
     },
@@ -484,7 +466,7 @@
       "type": "string",
       "width": "500",
       "Option": "Optional",
-      "adaptiveCard":"Additional",
+      "adaptiveCard": "Additional",
       "SLabel": "Additional Info",
       "LLabel": "Additional Info"
     },
@@ -493,7 +475,7 @@
       "type": "string",
       "width": "500",
       "Option": "Optional",
-      "adaptiveCard":"Additional",
+      "adaptiveCard": "Additional",
       "SLabel": "Stay Details",
       "LLabel": "Stay Details"
     },
@@ -502,7 +484,7 @@
       "type": "attachment",
       "width": "100",
       "Option": "Optional",
-      "adaptiveCard":"Additional",
+      "adaptiveCard": "Additional",
       "SLabel": "Attachment",
       "LLabel": "Attachment"
     },
@@ -511,7 +493,7 @@
       "type": "string",
       "width": "20",
       "Option": "Optional",
-      "adaptiveCard":"Additional",
+      "adaptiveCard": "Additional",
       "SLabel": "Validation",
       "LLabel": "Validation"
     }

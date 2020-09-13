@@ -295,25 +295,6 @@
   "listCards": [
     {
       "cardType": "Analytical",
-      "cardsubType": "StackedBar",
-      "title": "Contract Analysis",
-      "subtitle": "Contract Status",
-      "unitOfMeasurement": "Days",
-      "Data": {
-        "dimension": "Status",
-        "fact": "records",
-        "operation": "COUNT"
-      },
-      "numericHeader": {
-        "headerNumber": { "Operation": "COUNT", "Field": "ID" },
-        "trend": { "trend": "DOWN", "Condition": "LTE", "value": 8 },
-        "status": { "state": "Success", "Condition": "LTE", "value": 24 },
-        "details": "Total 24 days",
-        "unit": "Days"
-      }
-    },
-    {
-      "cardType": "Analytical",
       "cardsubType": "StackedColumn",
       "title": "Contract Analysis",
       "subtitle": "Contract Type",
@@ -443,7 +424,28 @@
         "iCurrency",
         "ItemStatus1"
       ],
-      "detailCharts": [],
+      "detailCharts": [
+        {
+          "cardType": "Analytical",
+          "cardsubType": "StackedBar",
+          "title": "Contracts Analysis",
+          "subtitle": "Service Type",
+          "unitOfMeasurement": "Count",
+          "source": "Services",
+          "Data": {
+            "dimension": "ServiceType",
+            "fact": "records",
+            "operation": "COUNT"
+          },
+          "numericHeader": {
+            "headerNumber": { "Operation": "COUNT", "Field": "ServiceType" },
+            "trend": { "trend": "DOWN", "Condition": "LTE", "value": 8 },
+            "status": { "state": "Success", "Condition": "LTE", "value": 24 },
+            "details": "Service Type",
+            "unit": "Count"
+          }
+        }
+      ],
       "cards": [],
       "ItemButtons": {
         "itemDisplay": true,
@@ -492,6 +494,8 @@
           "name": "ItemNumber",
           "type": "string",
           "width": "10",
+          "Option": "Optional",
+          "adaptiveCard": "Additional",
           "SLabel": "Item Number",
           "Update": "No"
         },
@@ -499,6 +503,8 @@
           "name": "ItemStatus1",
           "type": "string",
           "width": "50",
+          "Option": "Optional",
+          "adaptiveCard": "Additional",
           "SLabel": "Item Status",
           "Update": "Yes"
         },
@@ -506,50 +512,57 @@
           "name": "Title",
           "type": "string",
           "width": "50",
-          "SLabel": "Title",
-          "Option": "Mandatory"
+          "Option": "Mandatory",
+          "adaptiveCard": "Main",
+          "SLabel": "Title"
         },
         {
           "name": "FirstName",
           "type": "string",
           "width": "100",
-          "SLabel": "FirstName",
-          "Option": "Mandatory"
+          "Option": "Mandatory",
+          "adaptiveCard": "Main",
+          "SLabel": "FirstName"
         },
         {
           "name": "LastName",
           "type": "string",
           "width": "100",
-          "SLabel": "LastName",
-          "Option": "Mandatory"
+          "Option": "Mandatory",
+          "adaptiveCard": "Main",
+          "SLabel": "LastName"
         },
         {
           "name": "Speciality",
           "type": "string",
           "width": "200",
-          "SLabel": "Speciality",
-          "Option": "Optional"
+          "Option": "Optional",
+          "adaptiveCard": "Additional",
+          "SLabel": "Speciality"
         },
         {
           "name": "Email",
           "type": "Email",
           "width": "100",
-          "SLabel": "Email",
-          "Option": "Mandatory"
+          "Option": "Mandatory",
+          "adaptiveCard": "Main",
+          "SLabel": "Email"
         },
         {
           "name": "PostCode",
           "type": "string",
           "width": "200",
-          "SLabel": "PostCode",
-          "Option": "Optional"
+          "Option": "Optional",
+          "adaptiveCard": "Additional",
+          "SLabel": "PostCode"
         },
         {
           "name": "InstitutionName",
           "type": "string",
           "width": "500",
-          "SLabel": "InstitutionName",
-          "Option": "Optional"
+          "Option": "Optional",
+          "adaptiveCard": "Additional",
+          "SLabel": "InstitutionName"
         }
       ],
       "DisplayFields": [
@@ -560,7 +573,51 @@
         "PostCode",
         "ItemStatus1"
       ],
-      "detailCharts": [],
+      "detailCharts": [
+        {
+          "cardType": "Analytical",
+          "cardsubType": "StackedBar",
+          "title": "HCP/HCO - Contracts Analysis",
+          "subtitle": "Speciality",
+          "unitOfMeasurement": "Count",
+          "source": "myHCPHCO",
+          "Data": {
+            "dimension": "Speciality",
+            "fact": "records",
+            "operation": "COUNT"
+          },
+          "numericHeader": {
+            "headerNumber": { "Operation": "COUNT", "Field": "Speciality" },
+            "trend": { "trend": "DOWN", "Condition": "LTE", "value": 8 },
+            "status": { "state": "Success", "Condition": "LTE", "value": 24 },
+            "details": "Speciality",
+            "unit": "Count"
+          }
+        },
+        {
+          "cardType": "Analytical",
+          "cardsubType": "StackedColumn",
+          "title": "HCP/HCO - Contracts Analysis",
+          "subtitle": "InstitutionName",
+          "unitOfMeasurement": "Count",
+          "source": "myHCPHCO",
+          "Data": {
+            "dimension": "InstitutionName",
+            "fact": "records",
+            "operation": "COUNT"
+          },
+          "numericHeader": {
+            "headerNumber": {
+              "Operation": "COUNT",
+              "Field": "InstitutionName"
+            },
+            "trend": { "trend": "DOWN", "Condition": "LTE", "value": 8 },
+            "status": { "state": "Success", "Condition": "LTE", "value": 24 },
+            "details": "InstitutionName",
+            "unit": "Count"
+          }
+        }
+      ],
       "cards": [],
       "ItemButtons": {
         "itemDisplay": true,
@@ -734,7 +791,51 @@
         "Email",
         "PostCode"
       ],
-      "detailCharts": [],
+      "detailCharts": [
+        {
+          "cardType": "Analytical",
+          "cardsubType": "StackedBar",
+          "title": "HCP/HCO - Invoice Analysis",
+          "subtitle": "Email(HCP/HCO)",
+          "unitOfMeasurement": "Count",
+          "source": "ContractInvoice",
+          "Data": {
+            "dimension": "Email",
+            "fact": "records",
+            "operation": "COUNT"
+          },
+          "numericHeader": {
+            "headerNumber": { "Operation": "COUNT", "Field": "Email" },
+            "trend": { "trend": "DOWN", "Condition": "LTE", "value": 8 },
+            "status": { "state": "Success", "Condition": "LTE", "value": 24 },
+            "details": "Email",
+            "unit": "Count"
+          }
+        },
+        {
+          "cardType": "Analytical",
+          "cardsubType": "StackedColumn",
+          "title": "HCP/HCO - Invoice Analysis",
+          "subtitle": "InstitutionName",
+          "unitOfMeasurement": "Count",
+          "source": "ContractInvoice",
+          "Data": {
+            "dimension": "InstitutionName",
+            "fact": "records",
+            "operation": "COUNT"
+          },
+          "numericHeader": {
+            "headerNumber": {
+              "Operation": "COUNT",
+              "Field": "InstitutionName"
+            },
+            "trend": { "trend": "DOWN", "Condition": "LTE", "value": 8 },
+            "status": { "state": "Success", "Condition": "LTE", "value": 24 },
+            "details": "InstitutionName",
+            "unit": "Count"
+          }
+        }
+      ],
       "cards": [],
       "ItemButtons": {
         "itemDisplay": true,

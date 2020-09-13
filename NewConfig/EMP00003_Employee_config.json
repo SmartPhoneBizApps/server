@@ -252,25 +252,6 @@
   "listCards": [
     {
       "cardType": "Analytical",
-      "cardsubType": "StackedBar",
-      "title": "Travel Analysis",
-      "subtitle": "Travel Status",
-      "unitOfMeasurement": "Days",
-      "Data": {
-        "dimension": "Status",
-        "fact": "records",
-        "operation": "COUNT"
-      },
-      "numericHeader": {
-        "headerNumber": { "Operation": "COUNT", "Field": "ID" },
-        "trend": { "trend": "DOWN", "Condition": "LTE", "value": 8 },
-        "status": { "state": "Success", "Condition": "LTE", "value": 24 },
-        "details": "Total 24 days",
-        "unit": "Days"
-      }
-    },
-    {
-      "cardType": "Analytical",
       "cardsubType": "StackedColumn",
       "title": "Travel Analysis",
       "subtitle": "Travel Type",
@@ -354,7 +335,7 @@
       "type": "string",
       "width": "20",
       "Option": "Mandatory",
-      "adaptiveCard":"Main",
+      "adaptiveCard": "Main",
       "SLabel": "Identification",
       "Update": "No"
     },
@@ -363,7 +344,7 @@
       "type": "string",
       "width": "20",
       "Option": "Optional",
-      "adaptiveCard":"Additional",
+      "adaptiveCard": "Additional",
       "SLabel": "ReferenceID"
     },
     {
@@ -371,7 +352,7 @@
       "type": "string",
       "width": "50",
       "Option": "Mandatory",
-      "adaptiveCard":"None",
+      "adaptiveCard": "None",
       "SLabel": "Name"
     },
     {
@@ -379,7 +360,7 @@
       "type": "string",
       "width": "100",
       "Option": "Mandatory",
-      "adaptiveCard":"None",
+      "adaptiveCard": "None",
       "SLabel": "Email",
       "LLabel": "Email"
     },
@@ -388,7 +369,7 @@
       "type": "string",
       "width": "20",
       "Option": "Optional",
-      "adaptiveCard":"Additional",
+      "adaptiveCard": "Additional",
       "SLabel": "ContactNo"
     },
     {
@@ -396,7 +377,7 @@
       "type": "string",
       "width": "20",
       "Option": "Mandatory",
-      "adaptiveCard":"None",
+      "adaptiveCard": "None",
       "SLabel": "User Account"
     },
     {
@@ -404,7 +385,7 @@
       "type": "string",
       "width": "50",
       "Option": "Mandatory",
-      "adaptiveCard":"Main",
+      "adaptiveCard": "Main",
       "SLabel": "From"
     },
     {
@@ -412,7 +393,7 @@
       "type": "string",
       "width": "50",
       "Option": "Mandatory",
-      "adaptiveCard":"Main",
+      "adaptiveCard": "Main",
       "SLabel": "To"
     },
 
@@ -421,7 +402,7 @@
       "type": "Date",
       "width": "10",
       "Option": "Mandatory",
-      "adaptiveCard":"Main",
+      "adaptiveCard": "Main",
       "SLabel": "Start Date"
     },
     {
@@ -429,7 +410,7 @@
       "type": "Time",
       "width": "10",
       "Option": "Mandatory",
-      "adaptiveCard":"Main",
+      "adaptiveCard": "Main",
       "SLabel": "Start Time"
     },
     {
@@ -437,7 +418,7 @@
       "type": "switch",
       "width": "3",
       "Option": "Mandatory",
-      "adaptiveCard":"Main",
+      "adaptiveCard": "Main",
       "SLabel": "Return Journey"
     },
     {
@@ -445,7 +426,7 @@
       "type": "Date",
       "width": "10",
       "Option": "Optional",
-      "adaptiveCard":"Additional",
+      "adaptiveCard": "Additional",
       "SLabel": "Entry Date"
     },
 
@@ -454,7 +435,7 @@
       "type": "Date",
       "width": "10",
       "Option": "Optional",
-      "adaptiveCard":"Additional",
+      "adaptiveCard": "Additional",
       "SLabel": "Return Date"
     },
     {
@@ -462,7 +443,7 @@
       "type": "Time",
       "width": "10",
       "Option": "Optional",
-      "adaptiveCard":"Additional",
+      "adaptiveCard": "Additional",
       "SLabel": "Return Time"
     },
     {
@@ -470,7 +451,7 @@
       "type": "string",
       "width": "10",
       "Option": "Optional",
-      "adaptiveCard":"Additional",
+      "adaptiveCard": "Additional",
       "SLabel": "Air Fare"
     },
     {
@@ -478,7 +459,7 @@
       "type": "string",
       "width": "10",
       "Option": "Optional",
-      "adaptiveCard":"Additional",
+      "adaptiveCard": "Additional",
       "SLabel": "Taxi Fare"
     },
     {
@@ -486,7 +467,7 @@
       "type": "string",
       "width": "10",
       "Option": "Optional",
-      "adaptiveCard":"Additional",
+      "adaptiveCard": "Additional",
       "SLabel": "Train Fare"
     },
     {
@@ -494,7 +475,7 @@
       "type": "string",
       "width": "10",
       "Option": "Optional",
-      "adaptiveCard":"Additional",
+      "adaptiveCard": "Additional",
       "SLabel": "Currency"
     },
     {
@@ -502,7 +483,7 @@
       "type": "string",
       "width": "20",
       "Option": "Optional",
-      "adaptiveCard":"Additional",
+      "adaptiveCard": "Additional",
       "SLabel": "Cost Centre"
     },
     {
@@ -510,7 +491,7 @@
       "type": "string",
       "width": "50",
       "Option": "Mandatory",
-      "adaptiveCard":"Additional",
+      "adaptiveCard": "Additional",
       "SLabel": "Status",
       "LLabel": "Status"
     },
@@ -519,7 +500,7 @@
       "type": "string",
       "width": "200",
       "Option": "Optional",
-      "adaptiveCard":"None",
+      "adaptiveCard": "None",
       "SLabel": "Search String",
       "LLabel": "Search String"
     },
@@ -528,7 +509,7 @@
       "type": "string",
       "width": "1000",
       "Option": "Optional",
-      "adaptiveCard":"None",
+      "adaptiveCard": "None",
       "SLabel": "ProgressComment",
       "LLabel": "ProgressComment"
     },
@@ -537,7 +518,7 @@
       "type": "string",
       "width": "50",
       "Option": "Optional",
-      "adaptiveCard":"Additional",
+      "adaptiveCard": "Additional",
       "SLabel": "Class"
     },
     {
@@ -545,7 +526,7 @@
       "type": "string",
       "width": "50",
       "Option": "Optional",
-      "adaptiveCard":"Additional",
+      "adaptiveCard": "Additional",
       "SLabel": "Airline"
     },
     {
@@ -553,7 +534,7 @@
       "type": "string",
       "width": "10",
       "Option": "Optional",
-      "adaptiveCard":"Additional",
+      "adaptiveCard": "Additional",
       "SLabel": "Flight Duration"
     },
     {
@@ -561,7 +542,7 @@
       "type": "string",
       "width": "10",
       "Option": "Optional",
-      "adaptiveCard":"Additional",
+      "adaptiveCard": "Additional",
       "SLabel": "Flight Number"
     },
     {
@@ -569,7 +550,7 @@
       "type": "string",
       "width": "20",
       "Option": "Optional",
-      "adaptiveCard":"Additional",
+      "adaptiveCard": "Additional",
       "SLabel": "Dietary Requirement"
     },
     {
@@ -577,7 +558,7 @@
       "type": "string",
       "width": "50",
       "Option": "Optional",
-      "adaptiveCard":"Additional",
+      "adaptiveCard": "Additional",
       "SLabel": "Taxi Fare",
       "LLabel": "Taxi Fare"
     },
@@ -587,7 +568,7 @@
       "metadata": "OnlyFileName",
       "width": "100",
       "Option": "Optional",
-      "adaptiveCard":"None",
+      "adaptiveCard": "None",
       "SLabel": "Screen Shot"
     },
     {
@@ -596,7 +577,7 @@
       "metadata": "MultipleFields",
       "width": "100",
       "Option": "Optional",
-      "adaptiveCard":"None",
+      "adaptiveCard": "None",
       "SLabel": "Attachment"
     },
     {
@@ -604,7 +585,7 @@
       "type": "string",
       "width": "100",
       "Option": "Mandatory",
-      "adaptiveCard":"Main",
+      "adaptiveCard": "Main",
       "SLabel": "Travel Mode",
       "LLabel": "Travel Mode"
     }

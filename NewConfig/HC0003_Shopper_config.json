@@ -21,6 +21,7 @@
         { "InvoiceType": "EventInvoice" }
       ]
     },
+
     "filterFields": {
       "header": [
         "Status",
@@ -279,7 +280,7 @@
     "headerColorFields": ["Status"],
     "Tab0": ["data"],
     "Tab20": ["charts"],
-    "None": ["ID", "HCPEmail", "VendorName"],
+    "None": ["ID"],
     "Tab1": [
       "EventID",
       "EventName",
@@ -299,25 +300,6 @@
     "Tab7": ["Agenda"]
   },
   "listCards": [
-    {
-      "cardType": "Analytical",
-      "cardsubType": "StackedBar",
-      "title": "Event Analysis",
-      "subtitle": "Event Status",
-      "unitOfMeasurement": "Days",
-      "Data": {
-        "dimension": "Status",
-        "fact": "records",
-        "operation": "COUNT"
-      },
-      "numericHeader": {
-        "headerNumber": { "Operation": "COUNT", "Field": "ID" },
-        "trend": { "trend": "DOWN", "Condition": "LTE", "value": 8 },
-        "status": { "state": "Success", "Condition": "LTE", "value": 24 },
-        "details": "Total 24 days",
-        "unit": "Days"
-      }
-    },
     {
       "cardType": "Analytical",
       "cardsubType": "StackedColumn",
@@ -449,7 +431,28 @@
         "iCurrency",
         "ItemStatus1"
       ],
-      "detailCharts": [],
+      "detailCharts": [
+        {
+          "cardType": "Analytical",
+          "cardsubType": "StackedBar",
+          "title": "Events Analysis",
+          "subtitle": "Service Type",
+          "unitOfMeasurement": "Count",
+          "source": "Services",
+          "Data": {
+            "dimension": "ServiceType",
+            "fact": "records",
+            "operation": "COUNT"
+          },
+          "numericHeader": {
+            "headerNumber": { "Operation": "COUNT", "Field": "ServiceType" },
+            "trend": { "trend": "DOWN", "Condition": "LTE", "value": 8 },
+            "status": { "state": "Success", "Condition": "LTE", "value": 24 },
+            "details": "Service Type",
+            "unit": "Count"
+          }
+        }
+      ],
       "cards": [],
       "ItemButtons": {
         "itemDisplay": true,
@@ -577,7 +580,51 @@
         "PostCode",
         "ItemStatus1"
       ],
-      "detailCharts": [],
+      "detailCharts": [
+        {
+          "cardType": "Analytical",
+          "cardsubType": "StackedBar",
+          "title": "HCP/HCO - Events Analysis",
+          "subtitle": "Speciality",
+          "unitOfMeasurement": "Count",
+          "source": "myHCPHCO",
+          "Data": {
+            "dimension": "Speciality",
+            "fact": "records",
+            "operation": "COUNT"
+          },
+          "numericHeader": {
+            "headerNumber": { "Operation": "COUNT", "Field": "Speciality" },
+            "trend": { "trend": "DOWN", "Condition": "LTE", "value": 8 },
+            "status": { "state": "Success", "Condition": "LTE", "value": 24 },
+            "details": "Speciality",
+            "unit": "Count"
+          }
+        },
+        {
+          "cardType": "Analytical",
+          "cardsubType": "StackedColumn",
+          "title": "HCP/HCO - Events Analysis",
+          "subtitle": "InstitutionName",
+          "unitOfMeasurement": "Count",
+          "source": "myHCPHCO",
+          "Data": {
+            "dimension": "InstitutionName",
+            "fact": "records",
+            "operation": "COUNT"
+          },
+          "numericHeader": {
+            "headerNumber": {
+              "Operation": "COUNT",
+              "Field": "InstitutionName"
+            },
+            "trend": { "trend": "DOWN", "Condition": "LTE", "value": 8 },
+            "status": { "state": "Success", "Condition": "LTE", "value": 24 },
+            "details": "InstitutionName",
+            "unit": "Count"
+          }
+        }
+      ],
       "cards": [],
       "ItemButtons": {
         "itemDisplay": true,
@@ -751,7 +798,51 @@
         "Email",
         "PostCode"
       ],
-      "detailCharts": [],
+      "detailCharts": [
+        {
+          "cardType": "Analytical",
+          "cardsubType": "StackedBar",
+          "title": "HCP/HCO - Invoice Analysis",
+          "subtitle": "Email(HCP/HCO)",
+          "unitOfMeasurement": "Count",
+          "source": "EventInvoice",
+          "Data": {
+            "dimension": "Email",
+            "fact": "records",
+            "operation": "COUNT"
+          },
+          "numericHeader": {
+            "headerNumber": { "Operation": "COUNT", "Field": "Email" },
+            "trend": { "trend": "DOWN", "Condition": "LTE", "value": 8 },
+            "status": { "state": "Success", "Condition": "LTE", "value": 24 },
+            "details": "Email",
+            "unit": "Count"
+          }
+        },
+        {
+          "cardType": "Analytical",
+          "cardsubType": "StackedColumn",
+          "title": "HCP/HCO - Invoice Analysis",
+          "subtitle": "InstitutionName",
+          "unitOfMeasurement": "Count",
+          "source": "EventInvoice",
+          "Data": {
+            "dimension": "InstitutionName",
+            "fact": "records",
+            "operation": "COUNT"
+          },
+          "numericHeader": {
+            "headerNumber": {
+              "Operation": "COUNT",
+              "Field": "InstitutionName"
+            },
+            "trend": { "trend": "DOWN", "Condition": "LTE", "value": 8 },
+            "status": { "state": "Success", "Condition": "LTE", "value": 24 },
+            "details": "InstitutionName",
+            "unit": "Count"
+          }
+        }
+      ],
       "cards": [],
       "ItemButtons": {
         "itemDisplay": true,

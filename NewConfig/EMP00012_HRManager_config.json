@@ -218,7 +218,7 @@
     "headerImage": ["USP_Image"],
     "headerColorFields": ["Status"],
     "Tab0": ["data"],
-    "Tab20":["charts"],
+    "Tab20": ["charts"],
     "None": ["ID", "ReviewDate", "Email"],
     "Tab1": [
       "EmployeeID",
@@ -236,27 +236,7 @@
     "Tab7": ["EmployeeFB"],
     "Tab9": ["ManagerFB"]
   },
-  "listCards": [
-    {
-      "cardType": "Analytical",
-      "cardsubType": "StackedBar",
-      "title": "Annual Review Analysis",
-      "subtitle": "Annual Review Status",
-      "unitOfMeasurement": "Days",
-      "Data": {
-        "dimension": "Status",
-        "fact": "records",
-        "operation": "COUNT"
-      },
-      "numericHeader": {
-        "headerNumber": { "Operation": "COUNT", "Field": "ID" },
-        "trend": { "trend": "DOWN", "Condition": "LTE", "value": 8 },
-        "status": { "state": "Success", "Condition": "LTE", "value": 24 },
-        "details": "Total 24 days",
-        "unit": "Days"
-      }
-    }
-  ],
+  "listCards": [],
   "detailCharts": [],
   "cards": [],
 
@@ -1063,7 +1043,7 @@
       "type": "string",
       "width": "20",
       "Option": "Mandatory",
-      "adaptiveCard":"Main",
+      "adaptiveCard": "Main",
       "SLabel": "Identification",
       "Update": "No"
     },
@@ -1072,7 +1052,7 @@
       "type": "string",
       "width": "20",
       "Option": "Optional",
-      "adaptiveCard":"Additional",
+      "adaptiveCard": "Additional",
       "SLabel": "ReferenceID"
     },
     {
@@ -1080,7 +1060,7 @@
       "type": "string",
       "width": "50",
       "Option": "Mandatory",
-      "adaptiveCard":"Main",
+      "adaptiveCard": "Main",
       "SLabel": "Status",
       "LLabel": "Status"
     },
@@ -1089,7 +1069,7 @@
       "type": "string",
       "width": "200",
       "Option": "Optional",
-      "adaptiveCard":"None",
+      "adaptiveCard": "None",
       "SLabel": "Search String",
       "LLabel": "Search String"
     },
@@ -1098,7 +1078,7 @@
       "type": "string",
       "width": "1000",
       "Option": "Optional",
-      "adaptiveCard":"None",
+      "adaptiveCard": "None",
       "SLabel": "ProgressComment",
       "LLabel": "ProgressComment"
     },
@@ -1108,7 +1088,7 @@
       "metadata": "MultipleFields",
       "width": "200",
       "Option": "Optional",
-      "adaptiveCard":"Additional",
+      "adaptiveCard": "Additional",
       "SLabel": "Supporting Documents",
       "LLabel": "Supporting Documents"
     },
@@ -1117,7 +1097,7 @@
       "type": "string",
       "width": "50",
       "Option": "Optional",
-      "adaptiveCard":"Additional",
+      "adaptiveCard": "Additional",
       "SLabel": "Employee Reference"
     },
     {
@@ -1125,7 +1105,7 @@
       "type": "string",
       "width": "200",
       "Option": "Optional",
-      "adaptiveCard":"Additional",
+      "adaptiveCard": "Additional",
       "SLabel": "Employee Email"
     },
     {
@@ -1133,7 +1113,7 @@
       "type": "string",
       "width": "50",
       "Option": "Optional",
-      "adaptiveCard":"Additional",
+      "adaptiveCard": "Additional",
       "SLabel": "ReferenceID"
     },
     {
@@ -1141,7 +1121,7 @@
       "type": "string",
       "width": "50",
       "Option": "Optional",
-      "adaptiveCard":"Additional",
+      "adaptiveCard": "Additional",
       "SLabel": "Employee Name"
     },
     {
@@ -1149,7 +1129,7 @@
       "type": "string",
       "width": "50",
       "Option": "Optional",
-      "adaptiveCard":"Additional",
+      "adaptiveCard": "Additional",
       "SLabel": "Review Period"
     },
     {
@@ -1157,7 +1137,7 @@
       "type": "string",
       "width": "50",
       "Option": "Optional",
-      "adaptiveCard":"Additional",
+      "adaptiveCard": "Additional",
       "SLabel": "Development Manager"
     },
     {
@@ -1165,7 +1145,7 @@
       "type": "string",
       "width": "50",
       "Option": "Optional",
-      "adaptiveCard":"Additional",
+      "adaptiveCard": "Additional",
       "SLabel": "Role"
     },
     {
@@ -1173,7 +1153,7 @@
       "type": "Array",
       "width": "200",
       "Option": "Optional",
-      "adaptiveCard":"None",
+      "adaptiveCard": "None",
       "SLabel": "Employee Feedback",
       "LLabel": "Employee Feedback"
     },
@@ -1182,7 +1162,7 @@
       "type": "Array",
       "width": "200",
       "Option": "Optional",
-      "adaptiveCard":"None",
+      "adaptiveCard": "None",
       "SLabel": "Manager Feedback",
       "LLabel": "Manager Feedback"
     },
@@ -1191,7 +1171,7 @@
       "type": "string",
       "width": "50",
       "Option": "Optional",
-      "adaptiveCard":"Additional",
+      "adaptiveCard": "Additional",
       "SLabel": "Band"
     },
     {
@@ -1199,7 +1179,7 @@
       "type": "Date",
       "width": "10",
       "Option": "Optional",
-      "adaptiveCard":"Additional",
+      "adaptiveCard": "Additional",
       "SLabel": "Review Date"
     },
     {
@@ -1207,7 +1187,7 @@
       "type": "Date",
       "width": "10",
       "Option": "Optional",
-      "adaptiveCard":"Additional",
+      "adaptiveCard": "Additional",
       "SLabel": "Next Review Date"
     },
     {
@@ -1215,7 +1195,7 @@
       "type": "string",
       "width": "50",
       "Option": "Optional",
-      "adaptiveCard":"Additional",
+      "adaptiveCard": "Additional",
       "SLabel": "Area"
     },
     {
@@ -1223,7 +1203,7 @@
       "type": "string",
       "width": "500",
       "Option": "Optional",
-      "adaptiveCard":"Additional",
+      "adaptiveCard": "Additional",
       "SLabel": "Company Description"
     },
     {
@@ -1231,7 +1211,7 @@
       "type": "string",
       "width": "500",
       "Option": "Optional",
-      "adaptiveCard":"Additional",
+      "adaptiveCard": "Additional",
       "SLabel": "Appraise communication"
     },
     {
@@ -1239,7 +1219,7 @@
       "type": "string",
       "width": "500",
       "Option": "Optional",
-      "adaptiveCard":"Additional",
+      "adaptiveCard": "Additional",
       "SLabel": "Appraiser Communication"
     },
     {
@@ -1247,7 +1227,7 @@
       "type": "string",
       "width": "50",
       "Option": "Optional",
-      "adaptiveCard":"Additional",
+      "adaptiveCard": "Additional",
       "SLabel": "Grade"
     },
     {
@@ -1255,7 +1235,7 @@
       "type": "Num,0",
       "width": "50",
       "Option": "Optional",
-      "adaptiveCard":"Additional",
+      "adaptiveCard": "Additional",
       "SLabel": "Score (out of 5)"
     },
     {
@@ -1263,7 +1243,7 @@
       "type": "Num,0",
       "width": "50",
       "Option": "Optional",
-      "adaptiveCard":"Additional",
+      "adaptiveCard": "Additional",
       "SLabel": "Maximum Score"
     },
     {
@@ -1271,7 +1251,7 @@
       "type": "string",
       "width": "50",
       "Option": "Optional",
-      "adaptiveCard":"Additional",
+      "adaptiveCard": "Additional",
       "SLabel": "Title"
     },
     {
@@ -1279,7 +1259,7 @@
       "type": "string",
       "width": "50",
       "Option": "Optional",
-      "adaptiveCard":"Additional",
+      "adaptiveCard": "Additional",
       "SLabel": "Course ID"
     },
     {
@@ -1287,7 +1267,7 @@
       "type": "string",
       "width": "50",
       "Option": "Optional",
-      "adaptiveCard":"Additional",
+      "adaptiveCard": "Additional",
       "SLabel": "Group"
     },
     {
@@ -1295,7 +1275,7 @@
       "type": "string",
       "width": "50",
       "Option": "Optional",
-      "adaptiveCard":"Additional",
+      "adaptiveCard": "Additional",
       "SLabel": "SubGroup"
     },
     {
@@ -1303,7 +1283,7 @@
       "type": "Array",
       "width": "200",
       "Option": "Optional",
-      "adaptiveCard":"None",
+      "adaptiveCard": "None",
       "SLabel": "My Trainings"
     },
     {
@@ -1311,7 +1291,7 @@
       "type": "Array",
       "width": "200",
       "Option": "Optional",
-      "adaptiveCard":"None",
+      "adaptiveCard": "None",
       "SLabel": "My Goals"
     },
     {
@@ -1319,7 +1299,7 @@
       "type": "Array",
       "width": "200",
       "Option": "Optional",
-      "adaptiveCard":"None",
+      "adaptiveCard": "None",
       "SLabel": "My Appraisal"
     },
     {
@@ -1327,7 +1307,7 @@
       "type": "Num,0",
       "width": "200",
       "Option": "Optional",
-      "adaptiveCard":"Additional",
+      "adaptiveCard": "Additional",
       "SLabel": "Test Score",
       "LLabel": "Test Score"
     },
@@ -1336,7 +1316,7 @@
       "type": "Array",
       "width": "200",
       "Option": "Optional",
-      "adaptiveCard":"None",
+      "adaptiveCard": "None",
       "SLabel": "Project Feedback",
       "LLabel": "Project Feedback"
     },
@@ -1346,7 +1326,7 @@
       "type": "string",
       "width": "200",
       "Option": "Optional",
-      "adaptiveCard":"Additional",
+      "adaptiveCard": "Additional",
       "SLabel": "Question 1",
       "LLabel": "Question 1"
     },
@@ -1355,7 +1335,7 @@
       "type": "string",
       "width": "200",
       "Option": "Optional",
-      "adaptiveCard":"Additional",
+      "adaptiveCard": "Additional",
       "SLabel": "Question 2",
       "LLabel": "Question 2"
     },
@@ -1364,7 +1344,7 @@
       "type": "string",
       "width": "200",
       "Option": "Optional",
-      "adaptiveCard":"Additional",
+      "adaptiveCard": "Additional",
       "SLabel": "Question 3",
       "LLabel": "Question 3"
     },
@@ -1373,7 +1353,7 @@
       "type": "string",
       "width": "200",
       "Option": "Optional",
-      "adaptiveCard":"Additional",
+      "adaptiveCard": "Additional",
       "SLabel": "Question 4",
       "LLabel": "Question 4"
     },
@@ -1382,7 +1362,7 @@
       "type": "string",
       "width": "200",
       "Option": "Optional",
-      "adaptiveCard":"Additional",
+      "adaptiveCard": "Additional",
       "SLabel": "Question 5",
       "LLabel": "Question 5"
     },
@@ -1391,7 +1371,7 @@
       "type": "string",
       "width": "200",
       "Option": "Optional",
-      "adaptiveCard":"Additional",
+      "adaptiveCard": "Additional",
       "SLabel": "Question 6",
       "LLabel": "Question 6"
     },
@@ -1400,7 +1380,7 @@
       "type": "string",
       "width": "200",
       "Option": "Optional",
-      "adaptiveCard":"Additional",
+      "adaptiveCard": "Additional",
       "SLabel": "Question 7",
       "LLabel": "Question 7"
     },
@@ -1409,7 +1389,7 @@
       "type": "string",
       "width": "200",
       "Option": "Optional",
-      "adaptiveCard":"Additional",
+      "adaptiveCard": "Additional",
       "SLabel": "Question 8",
       "LLabel": "Question 8"
     },
@@ -1418,7 +1398,7 @@
       "type": "string",
       "width": "200",
       "Option": "Optional",
-      "adaptiveCard":"Additional",
+      "adaptiveCard": "Additional",
       "SLabel": "Question 9",
       "LLabel": "Question 9"
     },
@@ -1427,7 +1407,7 @@
       "type": "string",
       "width": "200",
       "Option": "Optional",
-      "adaptiveCard":"Additional",
+      "adaptiveCard": "Additional",
       "SLabel": "Question 10",
       "LLabel": "Question 10"
     },
@@ -1436,7 +1416,7 @@
       "type": "string",
       "width": "200",
       "Option": "Optional",
-      "adaptiveCard":"Additional",
+      "adaptiveCard": "Additional",
       "SLabel": "Question 11",
       "LLabel": "Question 11"
     },
@@ -1445,7 +1425,7 @@
       "type": "string",
       "width": "200",
       "Option": "Optional",
-      "adaptiveCard":"Additional",
+      "adaptiveCard": "Additional",
       "SLabel": "Question 12",
       "LLabel": "Question 12"
     },
@@ -1454,7 +1434,7 @@
       "type": "string",
       "width": "200",
       "Option": "Optional",
-      "adaptiveCard":"Additional",
+      "adaptiveCard": "Additional",
       "SLabel": "Question 13",
       "LLabel": "Question 13"
     },
@@ -1463,7 +1443,7 @@
       "type": "string",
       "width": "200",
       "Option": "Optional",
-      "adaptiveCard":"Additional",
+      "adaptiveCard": "Additional",
       "SLabel": "Question 14",
       "LLabel": "Question 14"
     },
@@ -1472,7 +1452,7 @@
       "type": "string",
       "width": "200",
       "Option": "Optional",
-      "adaptiveCard":"Additional",
+      "adaptiveCard": "Additional",
       "SLabel": "Answer 1",
       "LLabel": "Answer 1"
     },
@@ -1481,7 +1461,7 @@
       "type": "string",
       "width": "200",
       "Option": "Optional",
-      "adaptiveCard":"Additional",
+      "adaptiveCard": "Additional",
       "SLabel": "Answer 2",
       "LLabel": "Answer 2"
     },
@@ -1490,7 +1470,7 @@
       "type": "string",
       "width": "500",
       "Option": "Optional",
-      "adaptiveCard":"Additional",
+      "adaptiveCard": "Additional",
       "SLabel": "Answer 3",
       "LLabel": "Answer 3"
     },
@@ -1499,7 +1479,7 @@
       "type": "string",
       "width": "500",
       "Option": "Optional",
-      "adaptiveCard":"Additional",
+      "adaptiveCard": "Additional",
       "SLabel": "Answer 4",
       "LLabel": "Answer 4"
     },
@@ -1508,7 +1488,7 @@
       "type": "string",
       "width": "200",
       "Option": "Optional",
-      "adaptiveCard":"Additional",
+      "adaptiveCard": "Additional",
       "SLabel": "Answer 5",
       "LLabel": "Answer 5"
     },
@@ -1517,7 +1497,7 @@
       "type": "string",
       "width": "200",
       "Option": "Optional",
-      "adaptiveCard":"Additional",
+      "adaptiveCard": "Additional",
       "SLabel": "Answer 6",
       "LLabel": "Answer 6"
     },
@@ -1526,7 +1506,7 @@
       "type": "string",
       "width": "200",
       "Option": "Optional",
-      "adaptiveCard":"Additional",
+      "adaptiveCard": "Additional",
       "SLabel": "Answer 7",
       "LLabel": "Answer 7"
     },
@@ -1535,7 +1515,7 @@
       "type": "string",
       "width": "200",
       "Option": "Optional",
-      "adaptiveCard":"Additional",
+      "adaptiveCard": "Additional",
       "SLabel": "Answer 8",
       "LLabel": "Answer 8"
     },
@@ -1544,7 +1524,7 @@
       "type": "string",
       "width": "200",
       "Option": "Optional",
-      "adaptiveCard":"Additional",
+      "adaptiveCard": "Additional",
       "SLabel": "Answer 9",
       "LLabel": "Answer 9"
     },
@@ -1553,7 +1533,7 @@
       "type": "string",
       "width": "200",
       "Option": "Optional",
-      "adaptiveCard":"Additional",
+      "adaptiveCard": "Additional",
       "SLabel": "Answer 10",
       "LLabel": "Answer 10"
     },
@@ -1562,7 +1542,7 @@
       "type": "string",
       "width": "200",
       "Option": "Optional",
-      "adaptiveCard":"Additional",
+      "adaptiveCard": "Additional",
       "SLabel": "Answer 11",
       "LLabel": "Answer 11"
     },
@@ -1571,7 +1551,7 @@
       "type": "string",
       "width": "200",
       "Option": "Optional",
-      "adaptiveCard":"Additional",
+      "adaptiveCard": "Additional",
       "SLabel": "Answer 12",
       "LLabel": "Answer 12"
     },
@@ -1580,7 +1560,7 @@
       "type": "string",
       "width": "200",
       "Option": "Optional",
-      "adaptiveCard":"Additional",
+      "adaptiveCard": "Additional",
       "SLabel": "Answer 13",
       "LLabel": "Answer 13"
     },
@@ -1589,7 +1569,7 @@
       "type": "string",
       "width": "200",
       "Option": "Optional",
-      "adaptiveCard":"Additional",
+      "adaptiveCard": "Additional",
       "SLabel": "Answer 14",
       "LLabel": "Answer 14"
     }

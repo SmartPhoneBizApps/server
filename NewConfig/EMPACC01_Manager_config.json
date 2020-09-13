@@ -247,7 +247,7 @@
     "headerImage": ["USP_Image"],
     "headerColorFields": ["Status"],
     "Tab0": ["data"],
-    "Tab20":["charts"],
+    "Tab20": ["charts"],
     "None": ["ID", "RequestType", "Name"],
     "Tab1": [
       {
@@ -316,25 +316,6 @@
     ]
   },
   "listCards": [
-    {
-      "cardType": "Analytical",
-      "cardsubType": "StackedBar",
-      "title": "Request Analysis",
-      "subtitle": "Request Status",
-      "unitOfMeasurement": "Days",
-      "Data": {
-        "dimension": "Status",
-        "fact": "records",
-        "operation": "COUNT"
-      },
-      "numericHeader": {
-        "headerNumber": { "Operation": "COUNT", "Field": "ID" },
-        "trend": { "trend": "DOWN", "Condition": "LTE", "value": 8 },
-        "status": { "state": "Success", "Condition": "LTE", "value": 24 },
-        "details": "Total 24 days",
-        "unit": "Days"
-      }
-    },
     {
       "cardType": "Analytical",
       "cardsubType": "StackedColumn",
@@ -434,7 +415,7 @@
       "type": "string",
       "width": "20",
       "Option": "Mandatory",
-      "adaptiveCard":"Main",
+      "adaptiveCard": "Main",
       "SLabel": "Identification",
       "Update": "No"
     },
@@ -443,7 +424,7 @@
       "type": "string",
       "width": "20",
       "Option": "Optional",
-      "adaptiveCard":"Additional",
+      "adaptiveCard": "Additional",
       "SLabel": "ReferenceID"
     },
     {
@@ -451,7 +432,7 @@
       "type": "string",
       "width": "50",
       "Option": "Mandatory",
-      "adaptiveCard":"Main",
+      "adaptiveCard": "Main",
       "SLabel": "Employee ID"
     },
     {
@@ -459,7 +440,7 @@
       "type": "string",
       "width": "50",
       "Option": "Mandatory",
-      "adaptiveCard":"Main",
+      "adaptiveCard": "Main",
       "SLabel": "Name"
     },
     {
@@ -467,7 +448,7 @@
       "type": "string",
       "width": "50",
       "Option": "Optional",
-      "adaptiveCard":"Additional",
+      "adaptiveCard": "Additional",
       "SLabel": "Email"
     },
     {
@@ -475,7 +456,7 @@
       "type": "string",
       "width": "50",
       "Option": "Optional",
-      "adaptiveCard":"Additional",
+      "adaptiveCard": "Additional",
       "SLabel": "Phone Number"
     },
     {
@@ -483,7 +464,7 @@
       "type": "Date",
       "width": "10",
       "Option": "Optional",
-      "adaptiveCard":"Additional",
+      "adaptiveCard": "Additional",
       "SLabel": "Date Of Request"
     },
     {
@@ -491,7 +472,7 @@
       "type": "string",
       "width": "50",
       "Option": "Optional",
-      "adaptiveCard":"Additional",
+      "adaptiveCard": "Additional",
       "SLabel": "Access Card Number"
     },
     {
@@ -499,7 +480,7 @@
       "type": "string",
       "width": "50",
       "Option": "Optional",
-      "adaptiveCard":"Additional",
+      "adaptiveCard": "Additional",
       "SLabel": "Building Name"
     },
     {
@@ -507,7 +488,7 @@
       "type": "Date",
       "width": "10",
       "Option": "Optional",
-      "adaptiveCard":"Additional",
+      "adaptiveCard": "Additional",
       "SLabel": "Start Date"
     },
     {
@@ -515,7 +496,7 @@
       "type": "Date",
       "width": "10",
       "Option": "Optional",
-      "adaptiveCard":"Additional",
+      "adaptiveCard": "Additional",
       "SLabel": "End Date"
     },
     {
@@ -523,7 +504,7 @@
       "type": "string",
       "width": "500",
       "Option": "Mandatory",
-      "adaptiveCard":"Main",
+      "adaptiveCard": "Main",
       "SLabel": "Reason"
     },
     {
@@ -531,7 +512,7 @@
       "type": "string",
       "width": "50",
       "Option": "Mandatory",
-      "adaptiveCard":"Main",
+      "adaptiveCard": "Main",
       "SLabel": "Status",
       "LLabel": "Status"
     },
@@ -540,7 +521,7 @@
       "type": "string",
       "width": "200",
       "Option": "Optional",
-      "adaptiveCard":"None",
+      "adaptiveCard": "None",
       "SLabel": "Search String",
       "LLabel": "Search String"
     },
@@ -549,7 +530,7 @@
       "type": "string",
       "width": "1000",
       "Option": "Optional",
-      "adaptiveCard":"None",
+      "adaptiveCard": "None",
       "SLabel": "ProgressComment",
       "LLabel": "ProgressComment"
     },
@@ -558,7 +539,7 @@
       "type": "Date",
       "width": "10",
       "Option": "Optional",
-      "adaptiveCard":"Additional",
+      "adaptiveCard": "Additional",
       "SLabel": "Approval Date"
     },
     {
@@ -566,7 +547,7 @@
       "type": "string",
       "width": "500",
       "Option": "Optional",
-      "adaptiveCard":"Additional",
+      "adaptiveCard": "Additional",
       "SLabel": "Approver Comment"
     },
     {
@@ -574,7 +555,7 @@
       "type": "string",
       "width": "50",
       "Option": "Optional",
-      "adaptiveCard":"Additional",
+      "adaptiveCard": "Additional",
       "SLabel": "Officer"
     },
     {
@@ -582,7 +563,7 @@
       "type": "string",
       "width": "100",
       "Option": "Mandatory",
-      "adaptiveCard":"Main",
+      "adaptiveCard": "Main",
       "SLabel": "Request Type",
       "LLabel": "Request Type"
     },
@@ -591,7 +572,7 @@
       "type": "string",
       "width": "100",
       "Option": "Optional",
-      "adaptiveCard":"Additional",
+      "adaptiveCard": "Additional",
       "SLabel": "Application Name",
       "LLabel": "Application Name"
     },
@@ -600,7 +581,7 @@
       "type": "string",
       "width": "100",
       "Option": "Optional",
-      "adaptiveCard":"Additional",
+      "adaptiveCard": "Additional",
       "SLabel": "Cost Centre",
       "LLabel": "Cost Centre"
     },
@@ -609,7 +590,7 @@
       "type": "string",
       "width": "100",
       "Option": "Optional",
-      "adaptiveCard":"Additional",
+      "adaptiveCard": "Additional",
       "SLabel": "Details of Hardware upgrade",
       "LLabel": "Details of Hardware upgrade"
     },
@@ -618,7 +599,7 @@
       "type": "string",
       "width": "100",
       "Option": "Optional",
-      "adaptiveCard":"Additional",
+      "adaptiveCard": "Additional",
       "SLabel": "Asset / Laptop ID",
       "LLabel": "Asset / Laptop ID"
     },
@@ -627,7 +608,7 @@
       "type": "string",
       "width": "100",
       "Option": "Optional",
-      "adaptiveCard":"Additional",
+      "adaptiveCard": "Additional",
       "SLabel": "Processor",
       "LLabel": "Processor"
     },
@@ -636,7 +617,7 @@
       "type": "string",
       "width": "100",
       "Option": "Optional",
-      "adaptiveCard":"Additional",
+      "adaptiveCard": "Additional",
       "SLabel": "Hard Drive",
       "LLabel": "Hard Drive"
     },
@@ -645,7 +626,7 @@
       "type": "switch",
       "width": "100",
       "Option": "Optional",
-      "adaptiveCard":"Additional",
+      "adaptiveCard": "Additional",
       "SLabel": "KeyBoard",
       "LLabel": "KeyBoard"
     },
@@ -654,7 +635,7 @@
       "type": "string",
       "width": "100",
       "Option": "Optional",
-      "adaptiveCard":"Additional",
+      "adaptiveCard": "Additional",
       "SLabel": "Operating System",
       "LLabel": "Operating System"
     },
@@ -663,7 +644,7 @@
       "type": "string",
       "width": "100",
       "Option": "Optional",
-      "adaptiveCard":"Additional",
+      "adaptiveCard": "Additional",
       "SLabel": "RAM",
       "LLabel": "RAM"
     },
@@ -672,7 +653,7 @@
       "type": "switch",
       "width": "100",
       "Option": "Optional",
-      "adaptiveCard":"Additional",
+      "adaptiveCard": "Additional",
       "SLabel": "HDMI Port",
       "LLabel": "HDMI Port"
     },
@@ -681,7 +662,7 @@
       "type": "switch",
       "width": "100",
       "Option": "Optional",
-      "adaptiveCard":"Additional",
+      "adaptiveCard": "Additional",
       "SLabel": "USB Port",
       "LLabel": "USB Port"
     },
@@ -690,7 +671,7 @@
       "type": "switch",
       "width": "100",
       "Option": "Optional",
-      "adaptiveCard":"Additional",
+      "adaptiveCard": "Additional",
       "SLabel": "CD Drive",
       "LLabel": "CD Drive"
     },
@@ -699,7 +680,7 @@
       "type": "switch",
       "width": "100",
       "Option": "Optional",
-      "adaptiveCard":"Additional",
+      "adaptiveCard": "Additional",
       "SLabel": "Docking Station",
       "LLabel": "Docking Station"
     },
@@ -708,7 +689,7 @@
       "type": "switch",
       "width": "100",
       "Option": "Optional",
-      "adaptiveCard":"Additional",
+      "adaptiveCard": "Additional",
       "SLabel": "Bag",
       "LLabel": "Bag"
     },
@@ -717,7 +698,7 @@
       "type": "switch",
       "width": "100",
       "Option": "Optional",
-      "adaptiveCard":"Additional",
+      "adaptiveCard": "Additional",
       "SLabel": "Mouse",
       "LLabel": "Mouse"
     },
@@ -726,7 +707,7 @@
       "type": "string",
       "width": "100",
       "Option": "Optional",
-      "adaptiveCard":"Additional",
+      "adaptiveCard": "Additional",
       "SLabel": "Software",
       "LLabel": "Software"
     },
@@ -735,7 +716,7 @@
       "type": "string",
       "width": "100",
       "Option": "Optional",
-      "adaptiveCard":"Additional",
+      "adaptiveCard": "Additional",
       "SLabel": "System",
       "LLabel": "System"
     },
@@ -744,7 +725,7 @@
       "type": "string",
       "width": "100",
       "Option": "Optional",
-      "adaptiveCard":"Additional",
+      "adaptiveCard": "Additional",
       "SLabel": "Environment",
       "LLabel": "Environment"
     },
@@ -753,7 +734,7 @@
       "type": "string",
       "width": "100",
       "Option": "Optional",
-      "adaptiveCard":"Additional",
+      "adaptiveCard": "Additional",
       "SLabel": "CloneUser",
       "LLabel": "CloneUser"
     },
@@ -762,7 +743,7 @@
       "type": "string",
       "width": "100",
       "Option": "Optional",
-      "adaptiveCard":"Additional",
+      "adaptiveCard": "Additional",
       "SLabel": "Roles Required",
       "LLabel": "Roles Required"
     },
@@ -771,7 +752,7 @@
       "type": "string",
       "width": "100",
       "Option": "Optional",
-      "adaptiveCard":"Additional",
+      "adaptiveCard": "Additional",
       "SLabel": "Transactions Required",
       "LLabel": "Transactions Required"
     }

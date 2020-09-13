@@ -235,25 +235,6 @@
   "listCards": [
     {
       "cardType": "Analytical",
-      "cardsubType": "StackedBar",
-      "title": "Contract Analysis",
-      "subtitle": "Contract Status",
-      "unitOfMeasurement": "Days",
-      "Data": {
-        "dimension": "Status",
-        "fact": "records",
-        "operation": "COUNT"
-      },
-      "numericHeader": {
-        "headerNumber": { "Operation": "COUNT", "Field": "ID" },
-        "trend": { "trend": "DOWN", "Condition": "LTE", "value": 8 },
-        "status": { "state": "Success", "Condition": "LTE", "value": 24 },
-        "details": "Total 24 days",
-        "unit": "Days"
-      }
-    },
-    {
-      "cardType": "Analytical",
       "cardsubType": "StackedColumn",
       "title": "Contract Analysis",
       "subtitle": "Contract Type",
@@ -383,7 +364,28 @@
         "iCurrency",
         "ItemStatus1"
       ],
-      "detailCharts": [],
+      "detailCharts": [
+        {
+          "cardType": "Analytical",
+          "cardsubType": "StackedBar",
+          "title": "Contracts Analysis",
+          "subtitle": "Service Type",
+          "unitOfMeasurement": "Count",
+          "source": "Services",
+          "Data": {
+            "dimension": "ServiceType",
+            "fact": "records",
+            "operation": "COUNT"
+          },
+          "numericHeader": {
+            "headerNumber": { "Operation": "COUNT", "Field": "ServiceType" },
+            "trend": { "trend": "DOWN", "Condition": "LTE", "value": 8 },
+            "status": { "state": "Success", "Condition": "LTE", "value": 24 },
+            "details": "Service Type",
+            "unit": "Count"
+          }
+        }
+      ],
       "cards": [],
       "ItemButtons": {
         "itemDisplay": true,
@@ -421,6 +423,167 @@
         { "name": "Notes" },
         { "name": "ItemStatus1" },
         { "name": "Attachment" }
+      ]
+    },
+    "myHCPHCO": {
+      "title": "My HCP/HCO",
+      "subtitle": "HCP/HCO",
+      "ItemFieldDefinition": [
+        {
+          "name": "ItemNumber",
+          "type": "string",
+          "width": "10",
+          "Option": "Optional",
+          "adaptiveCard": "Additional",
+          "SLabel": "Item Number",
+          "Update": "No"
+        },
+        {
+          "name": "ItemStatus1",
+          "type": "string",
+          "width": "50",
+          "Option": "Optional",
+          "adaptiveCard": "Additional",
+          "SLabel": "Item Status",
+          "Update": "Yes"
+        },
+        {
+          "name": "Title",
+          "type": "string",
+          "width": "50",
+          "Option": "Mandatory",
+          "adaptiveCard": "Main",
+          "SLabel": "Title"
+        },
+        {
+          "name": "FirstName",
+          "type": "string",
+          "width": "100",
+          "Option": "Mandatory",
+          "adaptiveCard": "Main",
+          "SLabel": "FirstName"
+        },
+        {
+          "name": "LastName",
+          "type": "string",
+          "width": "100",
+          "Option": "Mandatory",
+          "adaptiveCard": "Main",
+          "SLabel": "LastName"
+        },
+        {
+          "name": "Speciality",
+          "type": "string",
+          "width": "200",
+          "Option": "Optional",
+          "adaptiveCard": "Additional",
+          "SLabel": "Speciality"
+        },
+        {
+          "name": "Email",
+          "type": "Email",
+          "width": "100",
+          "Option": "Mandatory",
+          "adaptiveCard": "Main",
+          "SLabel": "Email"
+        },
+        {
+          "name": "PostCode",
+          "type": "string",
+          "width": "200",
+          "Option": "Optional",
+          "adaptiveCard": "Additional",
+          "SLabel": "PostCode"
+        },
+        {
+          "name": "InstitutionName",
+          "type": "string",
+          "width": "500",
+          "Option": "Optional",
+          "adaptiveCard": "Additional",
+          "SLabel": "InstitutionName"
+        }
+      ],
+      "DisplayFields": [
+        "Title",
+        "FirstName",
+        "LastName",
+        "Email",
+        "PostCode",
+        "ItemStatus1"
+      ],
+      "detailCharts": [
+        {
+          "cardType": "Analytical",
+          "cardsubType": "StackedBar",
+          "title": "HCP/HCO - Contracts Analysis",
+          "subtitle": "Speciality",
+          "unitOfMeasurement": "Count",
+          "source": "myHCPHCO",
+          "Data": {
+            "dimension": "Speciality",
+            "fact": "records",
+            "operation": "COUNT"
+          },
+          "numericHeader": {
+            "headerNumber": { "Operation": "COUNT", "Field": "Speciality" },
+            "trend": { "trend": "DOWN", "Condition": "LTE", "value": 8 },
+            "status": { "state": "Success", "Condition": "LTE", "value": 24 },
+            "details": "Speciality",
+            "unit": "Count"
+          }
+        },
+        {
+          "cardType": "Analytical",
+          "cardsubType": "StackedColumn",
+          "title": "HCP/HCO - Contracts Analysis",
+          "subtitle": "InstitutionName",
+          "unitOfMeasurement": "Count",
+          "source": "myHCPHCO",
+          "Data": {
+            "dimension": "InstitutionName",
+            "fact": "records",
+            "operation": "COUNT"
+          },
+          "numericHeader": {
+            "headerNumber": {
+              "Operation": "COUNT",
+              "Field": "InstitutionName"
+            },
+            "trend": { "trend": "DOWN", "Condition": "LTE", "value": 8 },
+            "status": { "state": "Success", "Condition": "LTE", "value": 24 },
+            "details": "InstitutionName",
+            "unit": "Count"
+          }
+        }
+      ],
+      "cards": [],
+      "ItemButtons": {
+        "itemDisplay": true,
+        "itemCheck": false,
+        "itemAdd": false,
+        "itemEdit": true,
+        "itemDelete": false
+      },
+      "CreateFields": [
+        "Title",
+        "FirstName",
+        "LastName",
+        "Speciality",
+        "Email",
+        "PostCode",
+        "InstitutionName",
+        "ItemStatus1"
+      ],
+      "ItemDetails": [
+        { "name": "Title" },
+        { "name": "FirstName" },
+        { "name": "LastName" },
+        { "name": "Speciality" },
+        { "name": "Email" },
+        { "name": "PostCode" },
+        { "name": "InstitutionName" },
+        { "name": "ItemStatus1" }
       ]
     },
     "ContractInvoice": {
