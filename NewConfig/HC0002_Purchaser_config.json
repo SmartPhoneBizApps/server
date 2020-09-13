@@ -307,6 +307,25 @@
     },
     {
       "cardType": "Analytical",
+      "cardsubType": "StackedColumn",
+      "title": "Study/Trial Analysis",
+      "subtitle": "Pharma Contact Email",
+      "unitOfMeasurement": "Count",
+      "Data": {
+        "dimension": "PharmaContactEmail",
+        "fact": "records",
+        "operation": "COUNT"
+      },
+      "numericHeader": {
+        "headerNumber": { "Operation": "COUNT", "Field": "ID" },
+        "trend": { "trend": "DOWN", "Condition": "LTE", "value": 8 },
+        "status": { "state": "Success", "Condition": "LTE", "value": 24 },
+        "details": "Pharma Contact Email",
+        "unit": "Count"
+      }
+    },
+    {
+      "cardType": "Analytical",
       "cardsubType": "StackedBar",
       "title": "Study/Trial Analysis",
       "subtitle": "Phase",
@@ -805,26 +824,6 @@
         "PostCode"
       ],
       "detailCharts": [
-        {
-          "cardType": "Analytical",
-          "cardsubType": "StackedBar",
-          "title": "HCP/HCO - Invoice Analysis",
-          "subtitle": "Email(HCP/HCO)",
-          "unitOfMeasurement": "Count",
-          "source": "StudyInvoice",
-          "Data": {
-            "dimension": "Email",
-            "fact": "records",
-            "operation": "COUNT"
-          },
-          "numericHeader": {
-            "headerNumber": { "Operation": "COUNT", "Field": "Email" },
-            "trend": { "trend": "DOWN", "Condition": "LTE", "value": 8 },
-            "status": { "state": "Success", "Condition": "LTE", "value": 24 },
-            "details": "Email",
-            "unit": "Count"
-          }
-        },
         {
           "cardType": "Analytical",
           "cardsubType": "StackedColumn",
