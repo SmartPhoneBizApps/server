@@ -32,19 +32,24 @@
     }
   },
   "ListFields": {
-    "IntroField": "VendorName",
+    "IntroField": "EventStartDate",
     "TitleField": "EventName",
     "sStatus": "EventType",
     "fStatus": "Status",
     "numberField": "EventValue",
-    "LFields": ["InvoiceValue", "HCPEmail", "ID"],
+    "LFields": ["ID", "Address", "PharmaContact", "PharmaContactEmail"],
     "numberUnitField": ""
   },
   "ListBOTFields": {
     "None": ["cardImage", "StatusState"],
     "Title": ["ID"],
     "SubTitle": ["EventName", "EventStartDate"],
-    "Description": ["EventType", "EventValue", "InvoiceValue"]
+    "Description": [
+      "EventType",
+      "EventValue",
+      "PharmaContact",
+      "PharmaContactEmail"
+    ]
   },
   "PossibleValues": ["EventType", "Status", "ItemStatus1", "ServiceType"],
   "MButtons": [
@@ -54,8 +59,6 @@
       "icon": "sap-icon://download",
       "downloadFields": [
         "ID",
-        "HCPEmail",
-        "VendorName",
         "EventID",
         "EventName",
         "EventType",
@@ -275,7 +278,7 @@
     "headerImage": ["USP_Image"],
     "headerColorFields": ["Status"],
     "Tab0": ["data"],
-    "Tab20":["charts"],
+    "Tab20": ["charts"],
     "None": ["ID", "HCPEmail", "VendorName"],
     "Tab1": [
       "EventID",
@@ -373,7 +376,7 @@
           "width": "10",
           "SLabel": "ItemNumber",
           "Option": "Optional",
-          "adaptiveCard":"Additional",
+          "adaptiveCard": "Additional",
           "Update": "No"
         },
         {
@@ -390,7 +393,7 @@
           "width": "50",
           "SLabel": "Service Type",
           "Option": "Mandatory",
-          "adaptiveCard":"Main",
+          "adaptiveCard": "Main",
           "Update": "Yes"
         },
         {
@@ -399,7 +402,7 @@
           "width": "20",
           "SLabel": "Service Amount",
           "Option": "Mandatory",
-          "adaptiveCard":"Main",
+          "adaptiveCard": "Main",
           "Update": "Yes"
         },
         {
@@ -408,7 +411,7 @@
           "width": "1000",
           "SLabel": "Notes",
           "Option": "Optional",
-          "adaptiveCard":"Additional",
+          "adaptiveCard": "Main",
           "Update": "Yes"
         },
         {
@@ -417,7 +420,7 @@
           "width": "10",
           "SLabel": "Item Currency",
           "Option": "Mandatory",
-          "adaptiveCard":"Additional",
+          "adaptiveCard": "Additional",
           "Update": "No"
         },
         {
@@ -426,7 +429,7 @@
           "width": "50",
           "SLabel": "Item Status",
           "Option": "Mandatory",
-          "adaptiveCard":"Main",
+          "adaptiveCard": "Main",
           "Update": "Yes"
         },
         {
@@ -435,7 +438,7 @@
           "width": "100",
           "SLabel": "Item Attachment",
           "Option": "Optional",
-          "adaptiveCard":"Additional",
+          "adaptiveCard": "None",
           "Update": "Yes"
         }
       ],
@@ -495,6 +498,8 @@
           "name": "ItemNumber",
           "type": "string",
           "width": "10",
+          "Option": "Optional",
+          "adaptiveCard": "Additional",
           "SLabel": "Item Number",
           "Update": "No"
         },
@@ -502,6 +507,8 @@
           "name": "ItemStatus1",
           "type": "string",
           "width": "50",
+          "Option": "Optional",
+          "adaptiveCard": "Additional",
           "SLabel": "Item Status",
           "Update": "Yes"
         },
@@ -509,50 +516,57 @@
           "name": "Title",
           "type": "string",
           "width": "50",
-          "SLabel": "Title",
-          "Option": "Mandatory"
+          "Option": "Mandatory",
+          "adaptiveCard": "Main",
+          "SLabel": "Title"
         },
         {
           "name": "FirstName",
           "type": "string",
           "width": "100",
-          "SLabel": "FirstName",
-          "Option": "Mandatory"
+          "Option": "Mandatory",
+          "adaptiveCard": "Main",
+          "SLabel": "FirstName"
         },
         {
           "name": "LastName",
           "type": "string",
           "width": "100",
-          "SLabel": "LastName",
-          "Option": "Mandatory"
+          "Option": "Mandatory",
+          "adaptiveCard": "Main",
+          "SLabel": "LastName"
         },
         {
           "name": "Speciality",
           "type": "string",
           "width": "200",
-          "SLabel": "Speciality",
-          "Option": "Optional"
+          "Option": "Optional",
+          "adaptiveCard": "Additional",
+          "SLabel": "Speciality"
         },
         {
           "name": "Email",
           "type": "Email",
           "width": "100",
-          "SLabel": "Email",
-          "Option": "Mandatory"
+          "Option": "Mandatory",
+          "adaptiveCard": "Main",
+          "SLabel": "Email"
         },
         {
           "name": "PostCode",
           "type": "string",
           "width": "200",
-          "SLabel": "PostCode",
-          "Option": "Optional"
+          "Option": "Optional",
+          "adaptiveCard": "Additional",
+          "SLabel": "PostCode"
         },
         {
           "name": "InstitutionName",
           "type": "string",
           "width": "500",
-          "SLabel": "InstitutionName",
-          "Option": "Optional"
+          "Option": "Optional",
+          "adaptiveCard": "Additional",
+          "SLabel": "InstitutionName"
         }
       ],
       "DisplayFields": [
@@ -610,7 +624,7 @@
           "width": "10",
           "SLabel": "ItemNumber",
           "Option": "Optional",
-          "adaptiveCard":"Additional",
+          "adaptiveCard": "Additional",
           "Update": "No"
         },
         {
@@ -627,7 +641,7 @@
           "width": "50",
           "SLabel": "Service Type",
           "Option": "Mandatory",
-          "adaptiveCard":"Main",
+          "adaptiveCard": "Main",
           "Update": "Yes"
         },
         {
@@ -636,7 +650,7 @@
           "width": "20",
           "SLabel": "Invoice Amount",
           "Option": "Mandatory",
-          "adaptiveCard":"Main",
+          "adaptiveCard": "Main",
           "Update": "Yes"
         },
         {
@@ -645,7 +659,7 @@
           "width": "1000",
           "SLabel": "Notes",
           "Option": "Optional",
-          "adaptiveCard":"Additional",
+          "adaptiveCard": "Main",
           "Update": "Yes"
         },
         {
@@ -654,7 +668,7 @@
           "width": "10",
           "SLabel": "Item Currency",
           "Option": "Mandatory",
-          "adaptiveCard":"Additional",
+          "adaptiveCard": "Additional",
           "Update": "No"
         },
         {
@@ -663,7 +677,7 @@
           "width": "50",
           "SLabel": "Item Status",
           "Option": "Mandatory",
-          "adaptiveCard":"Main",
+          "adaptiveCard": "Main",
           "Update": "Yes"
         },
         {
@@ -672,7 +686,7 @@
           "width": "100",
           "SLabel": "Item Attachment",
           "Option": "Optional",
-          "adaptiveCard":"Additional",
+          "adaptiveCard": "None",
           "Update": "Yes"
         },
         {
@@ -794,14 +808,15 @@
           "width": "10",
           "SLabel": "ItemNumber",
           "Option": "Optional",
-          "adaptiveCard":"Additional",
+          "adaptiveCard": "Additional",
           "Update": "No"
         },
         {
           "name": "Topic",
           "type": "string",
           "width": "500",
-          "Option": "Optional",
+          "Option": "Mandatory",
+          "adaptiveCard": "Main",
           "SLabel": "Topic",
           "Update": "Yes"
         },
@@ -810,8 +825,8 @@
           "type": "string",
           "width": "1000",
           "SLabel": "Details",
-          "Option": "Optional",
-          "adaptiveCard":"Additional",
+          "Option": "Mandatory",
+          "adaptiveCard": "Main",
           "Update": "Yes"
         },
         {
@@ -820,7 +835,7 @@
           "width": "500",
           "SLabel": "Speaker",
           "Option": "Optional",
-          "adaptiveCard":"Additional",
+          "adaptiveCard": "Additional",
           "Update": "Yes"
         },
         {
@@ -829,7 +844,7 @@
           "width": "200",
           "SLabel": "Sponsoredby",
           "Option": "Optional",
-          "adaptiveCard":"Additional",
+          "adaptiveCard": "Additional",
           "Update": "Yes"
         },
         {
@@ -837,8 +852,8 @@
           "type": "Date",
           "width": "10",
           "SLabel": "Date",
-          "Option": "Optional",
-          "adaptiveCard":"Additional",
+          "Option": "Mandatory",
+          "adaptiveCard": "Main",
           "Update": "No"
         },
         {
@@ -846,8 +861,8 @@
           "type": "Time",
           "width": "20",
           "SLabel": "Start Time",
-          "Option": "Optional",
-          "adaptiveCard":"Additional",
+          "Option": "Mandatory",
+          "adaptiveCard": "Main",
           "Update": "Yes"
         },
         {
@@ -855,8 +870,8 @@
           "type": "Time",
           "width": "20",
           "SLabel": "Start Time",
-          "Option": "Optional",
-          "adaptiveCard":"Additional",
+          "Option": "Mandatory",
+          "adaptiveCard": "Main",
           "Update": "Yes"
         },
         {
@@ -865,7 +880,7 @@
           "width": "50",
           "SLabel": "ItemStatus1",
           "Option": "Optional",
-          "adaptiveCard":"Additional",
+          "adaptiveCard": "Additional",
           "Update": "Yes"
         },
         {
@@ -874,7 +889,7 @@
           "width": "100",
           "SLabel": "Item Attachment",
           "Option": "Optional",
-          "adaptiveCard":"Additional",
+          "adaptiveCard": "None",
           "Update": "Yes"
         }
       ],
@@ -918,7 +933,7 @@
       "type": "string",
       "width": "20",
       "Option": "Mandatory",
-      "adaptiveCard":"Main",
+      "adaptiveCard": "Main",
       "SLabel": "Document ID"
     },
     {
@@ -926,7 +941,7 @@
       "type": "string",
       "width": "20",
       "Option": "Optional",
-      "adaptiveCard":"Additional",
+      "adaptiveCard": "Additional",
       "SLabel": "ReferenceID"
     },
     {
@@ -934,7 +949,7 @@
       "type": "string",
       "width": "100",
       "Option": "Optional",
-      "adaptiveCard":"Additional",
+      "adaptiveCard": "Additional",
       "SLabel": "Event Id"
     },
     {
@@ -942,7 +957,7 @@
       "type": "string",
       "width": "100",
       "Option": "Mandatory",
-      "adaptiveCard":"Main",
+      "adaptiveCard": "Main",
       "SLabel": "Event Name"
     },
     {
@@ -950,7 +965,7 @@
       "type": "string",
       "width": "50",
       "Option": "Mandatory",
-      "adaptiveCard":"Main",
+      "adaptiveCard": "Main",
       "SLabel": "Event Type"
     },
     {
@@ -958,7 +973,7 @@
       "type": "Date",
       "width": "10",
       "Option": "Mandatory",
-      "adaptiveCard":"Main",
+      "adaptiveCard": "Main",
       "SLabel": "Event Start Date"
     },
     {
@@ -966,7 +981,7 @@
       "type": "string",
       "width": "50",
       "Option": "Mandatory",
-      "adaptiveCard":"Main",
+      "adaptiveCard": "Main",
       "SLabel": "Time"
     },
     {
@@ -974,7 +989,7 @@
       "type": "string",
       "width": "20",
       "Option": "Mandatory",
-      "adaptiveCard":"Main",
+      "adaptiveCard": "Main",
       "SLabel": "Duration"
     },
     {
@@ -982,7 +997,7 @@
       "type": "string",
       "width": "50",
       "Option": "Mandatory",
-      "adaptiveCard":"Main",
+      "adaptiveCard": "Main",
       "SLabel": "Pharma Contact"
     },
     {
@@ -990,7 +1005,7 @@
       "type": "Email",
       "width": "100",
       "Option": "Mandatory",
-      "adaptiveCard":"Main",
+      "adaptiveCard": "Main",
       "SLabel": "Pharma Contact Email"
     },
     {
@@ -998,7 +1013,7 @@
       "type": "string",
       "width": "500",
       "Option": "Mandatory",
-      "adaptiveCard":"Main",
+      "adaptiveCard": "Main",
       "SLabel": "Organiser"
     },
     {
@@ -1006,7 +1021,7 @@
       "type": "string",
       "width": "100",
       "Option": "Mandatory",
-      "adaptiveCard":"Main",
+      "adaptiveCard": "Main",
       "SLabel": "Organiser Name"
     },
     {
@@ -1014,7 +1029,7 @@
       "type": "Email",
       "width": "100",
       "Option": "Mandatory",
-      "adaptiveCard":"Main",
+      "adaptiveCard": "Main",
       "SLabel": "Organiser Email"
     },
     {
@@ -1022,7 +1037,7 @@
       "type": "string",
       "width": "100",
       "Option": "Mandatory",
-      "adaptiveCard":"Main",
+      "adaptiveCard": "Main",
       "SLabel": "Organiser Telephone"
     },
     {
@@ -1030,7 +1045,7 @@
       "type": "string",
       "width": "200",
       "Option": "Optional",
-      "adaptiveCard":"Additional",
+      "adaptiveCard": "Additional",
       "SLabel": "Event Address"
     },
     {
@@ -1038,7 +1053,7 @@
       "type": "Array",
       "width": "200",
       "Option": "Optional",
-      "adaptiveCard":"None",
+      "adaptiveCard": "None",
       "SLabel": "Agenda"
     },
     {
@@ -1046,7 +1061,7 @@
       "type": "Array",
       "width": "200",
       "Option": "Optional",
-      "adaptiveCard":"None",
+      "adaptiveCard": "None",
       "SLabel": "Services"
     },
     {
@@ -1054,7 +1069,7 @@
       "type": "Array",
       "width": "200",
       "Option": "Optional",
-      "adaptiveCard":"None",
+      "adaptiveCard": "None",
       "SLabel": "myHCPHCO"
     },
     {
@@ -1062,7 +1077,7 @@
       "type": "Array",
       "width": "200",
       "Option": "Optional",
-      "adaptiveCard":"None",
+      "adaptiveCard": "None",
       "SLabel": "EventInvoice"
     },
     {
@@ -1071,7 +1086,7 @@
       "metadata": "MultipleFields",
       "width": "200",
       "Option": "Optional",
-      "adaptiveCard":"None",
+      "adaptiveCard": "None",
       "SLabel": "MultiAttachments",
       "LLabel": "MultiAttachments"
     },
@@ -1080,7 +1095,7 @@
       "type": "string",
       "width": "500",
       "Option": "Optional",
-      "adaptiveCard":"Additional",
+      "adaptiveCard": "Additional",
       "SLabel": "Overview"
     },
     {
@@ -1088,7 +1103,7 @@
       "type": "string",
       "width": "50",
       "Option": "Mandatory",
-      "adaptiveCard":"Main",
+      "adaptiveCard": "Main",
       "SLabel": "Status",
       "LLabel": "Status"
     },
@@ -1097,7 +1112,7 @@
       "type": "string",
       "width": "200",
       "Option": "Optional",
-      "adaptiveCard":"None",
+      "adaptiveCard": "None",
       "SLabel": "Search String",
       "LLabel": "Search String"
     },
@@ -1106,7 +1121,7 @@
       "type": "string",
       "width": "1000",
       "Option": "Optional",
-      "adaptiveCard":"None",
+      "adaptiveCard": "None",
       "SLabel": "ProgressComment",
       "LLabel": "ProgressComment"
     },
@@ -1115,7 +1130,7 @@
       "type": "hyperlink",
       "width": "200",
       "Option": "Optional",
-      "adaptiveCard":"Additional",
+      "adaptiveCard": "Additional",
       "SLabel": "Event Link"
     },
     {
@@ -1123,7 +1138,7 @@
       "type": "Date",
       "width": "10",
       "Option": "Mandatory",
-      "adaptiveCard":"Main",
+      "adaptiveCard": "Main",
       "SLabel": "Event End Date"
     },
     {
@@ -1131,7 +1146,7 @@
       "type": "string",
       "width": "50",
       "Option": "Optional",
-      "adaptiveCard":"Additional",
+      "adaptiveCard": "Additional",
       "SLabel": "HCP Email"
     },
     {
@@ -1139,7 +1154,7 @@
       "type": "string",
       "width": "100",
       "Option": "Optional",
-      "adaptiveCard":"Additional",
+      "adaptiveCard": "Additional",
       "SLabel": "HCP Name"
     },
     {
@@ -1147,7 +1162,7 @@
       "type": "string",
       "width": "50",
       "Option": "Optional",
-      "adaptiveCard":"Additional",
+      "adaptiveCard": "Additional",
       "SLabel": "Event Value"
     },
     {
@@ -1155,7 +1170,7 @@
       "type": "string",
       "width": "50",
       "Option": "Optional",
-      "adaptiveCard":"Additional",
+      "adaptiveCard": "Additional",
       "SLabel": "Invoice Value"
     },
     {
@@ -1163,7 +1178,7 @@
       "type": "string",
       "width": "50",
       "Option": "Optional",
-      "adaptiveCard":"Additional",
+      "adaptiveCard": "Additional",
       "SLabel": "Balance Value"
     },
     {
@@ -1171,7 +1186,7 @@
       "type": "string",
       "width": "50",
       "Option": "Optional",
-      "adaptiveCard":"Additional",
+      "adaptiveCard": "Additional",
       "SLabel": "Validation"
     },
     {
@@ -1179,7 +1194,7 @@
       "type": "string",
       "width": "50",
       "Option": "Optional",
-      "adaptiveCard":"Additional",
+      "adaptiveCard": "Additional",
       "SLabel": "Title"
     },
     {
@@ -1187,7 +1202,7 @@
       "type": "string",
       "width": "100",
       "Option": "Optional",
-      "adaptiveCard":"Additional",
+      "adaptiveCard": "Additional",
       "SLabel": "FirstName"
     },
     {
@@ -1195,7 +1210,7 @@
       "type": "string",
       "width": "100",
       "Option": "Optional",
-      "adaptiveCard":"Additional",
+      "adaptiveCard": "Additional",
       "SLabel": "LastName"
     },
     {
@@ -1203,7 +1218,7 @@
       "type": "string",
       "width": "200",
       "Option": "Optional",
-      "adaptiveCard":"Additional",
+      "adaptiveCard": "Additional",
       "SLabel": "Speciality"
     },
     {
@@ -1211,7 +1226,7 @@
       "type": "Email",
       "width": "100",
       "Option": "Optional",
-      "adaptiveCard":"Additional",
+      "adaptiveCard": "Additional",
       "SLabel": "Email"
     },
     {
@@ -1219,7 +1234,7 @@
       "type": "string",
       "width": "200",
       "Option": "Optional",
-      "adaptiveCard":"Additional",
+      "adaptiveCard": "Additional",
       "SLabel": "PostCode"
     },
     {
@@ -1227,7 +1242,7 @@
       "type": "string",
       "width": "500",
       "Option": "Optional",
-      "adaptiveCard":"Additional",
+      "adaptiveCard": "Additional",
       "SLabel": "InstitutionName"
     },
     {
@@ -1235,7 +1250,7 @@
       "type": "string",
       "width": "50",
       "Option": "Optional",
-      "adaptiveCard":"Additional",
+      "adaptiveCard": "Additional",
       "SLabel": "Budget",
       "LLabel": "Budget"
     },
@@ -1244,7 +1259,7 @@
       "type": "string",
       "width": "100",
       "Option": "Optional",
-      "adaptiveCard":"Additional",
+      "adaptiveCard": "Additional",
       "SLabel": "HCP Name",
       "LLabel": "VendorName"
     }
@@ -1338,16 +1353,7 @@
       "stepType": "FieldList",
       "intro": "Event   : Event Details"
     },
-    {
-      "id": "Step2",
-      "fields": [
-        { "name": "HCPEmail", "Mode": "Edit" },
-        { "name": "VendorName", "Mode": "Edit" }
-      ],
-      "name": "HCP / HCO - Details",
-      "stepType": "FieldList",
-      "intro": "Event   : HCP / HCO Details"
-    },
+
     {
       "id": "Step3",
       "fields": [

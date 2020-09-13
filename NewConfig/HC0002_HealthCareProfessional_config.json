@@ -27,19 +27,25 @@
   },
 
   "ListFields": {
-    "IntroField": "ID",
+    "IntroField": "StudyStartDate",
     "TitleField": "StudyName",
     "sStatus": "StudyType",
     "fStatus": "Status",
-    "numberField": "",
-    "LFields": ["VendorName", "HCPEmail"],
+    "numberField": "StudyValue",
+    "LFields": ["InvoiceValue", "ID", "PharmaContact", "PharmaContactEmail"],
     "numberUnitField": ""
   },
   "ListBOTFields": {
     "None": ["cardImage", "StatusState"],
     "Title": ["ID"],
-    "SubTitle": ["StudyType"],
-    "Description": ["Phase"]
+    "SubTitle": ["StudyName", "StudyType"],
+    "Description": [
+      "StudyStartDate",
+      "Phase",
+      "StudyValue",
+      "PharmaContact",
+      "PharmaContactEmail"
+    ]
   },
   "PossibleValues": ["StudyType", "Phase", "Status"],
   "MButtons": [
@@ -51,12 +57,9 @@
         "ID",
         "Phase",
         "StudyStartDate",
-        "HCPEmail",
-        "VendorName",
         "StudyType",
         "StudyName",
         "StudyDetails",
-        "StudyStartDate",
         "StudyLink",
         "StudyValue",
         "InvoiceValue",
@@ -131,22 +134,22 @@
     }
   ],
   "Tabs": [
-{
-    "value": "Tab0",
-    "style": "SAP",
-    "update": "No",
-    "name": "Cards",
-    "type": "Cards",
-    "fioriicon": "responsive"
-  },
-  {
-    "value": "Tab20",
-    "style": "SAP",
-    "update": "No",
-    "name": "Charts",
-    "type": "Charts",
-    "fioriicon": "business-objects-experience"
-  },
+    {
+      "value": "Tab0",
+      "style": "SAP",
+      "update": "No",
+      "name": "Cards",
+      "type": "Cards",
+      "fioriicon": "responsive"
+    },
+    {
+      "value": "Tab20",
+      "style": "SAP",
+      "update": "No",
+      "name": "Charts",
+      "type": "Charts",
+      "fioriicon": "business-objects-experience"
+    },
     {
       "value": "Tab1",
       "style": "SAP",
@@ -172,7 +175,7 @@
     "headerImage": ["USP_Image"],
     "headerColorFields": ["Status"],
     "Tab0": ["data"],
-    "Tab20":["charts"],
+    "Tab20": ["charts"],
     "None": ["ID", "Phase", "StudyStartDate", "HCPEmail", "VendorName"],
     "Tab1": ["StudyType", "StudyName", "StudyDetails"],
     "Tab2": ["PharmaContact", "PharmaContactEmail"]
@@ -243,7 +246,7 @@
       "type": "string",
       "width": "20",
       "Option": "Mandatory",
-      "adaptiveCard":"Main",
+      "adaptiveCard": "Main",
       "SLabel": "Document ID"
     },
     {
@@ -251,7 +254,7 @@
       "type": "string",
       "width": "20",
       "Option": "Optional",
-      "adaptiveCard":"Additional",
+      "adaptiveCard": "Additional",
       "SLabel": "ReferenceID"
     },
     {
@@ -259,7 +262,7 @@
       "type": "string",
       "width": "50",
       "Option": "Optional",
-      "adaptiveCard":"Additional",
+      "adaptiveCard": "Additional",
       "SLabel": "Study Type"
     },
     {
@@ -267,7 +270,7 @@
       "type": "string",
       "width": "100",
       "Option": "Optional",
-      "adaptiveCard":"Additional",
+      "adaptiveCard": "Additional",
       "SLabel": "Study Name"
     },
     {
@@ -275,7 +278,7 @@
       "type": "string",
       "width": "50",
       "Option": "Optional",
-      "adaptiveCard":"Additional",
+      "adaptiveCard": "Additional",
       "SLabel": "Pharma Contact"
     },
     {
@@ -283,7 +286,7 @@
       "type": "string",
       "width": "50",
       "Option": "Optional",
-      "adaptiveCard":"Additional",
+      "adaptiveCard": "Additional",
       "SLabel": "Pharma Contact Email"
     },
     {
@@ -291,7 +294,7 @@
       "type": "string",
       "width": "500",
       "Option": "Optional",
-      "adaptiveCard":"Additional",
+      "adaptiveCard": "Additional",
       "SLabel": "Study Details"
     },
     {
@@ -299,7 +302,7 @@
       "type": "string",
       "width": "50",
       "Option": "Optional",
-      "adaptiveCard":"Additional",
+      "adaptiveCard": "Additional",
       "SLabel": "Phase"
     },
     {
@@ -307,7 +310,7 @@
       "type": "string",
       "width": "50",
       "Option": "Mandatory",
-      "adaptiveCard":"Main",
+      "adaptiveCard": "Main",
       "SLabel": "Status",
       "LLabel": "Status"
     },
@@ -316,7 +319,7 @@
       "type": "string",
       "width": "200",
       "Option": "Optional",
-      "adaptiveCard":"None",
+      "adaptiveCard": "None",
       "SLabel": "Search String",
       "LLabel": "Search String"
     },
@@ -325,7 +328,7 @@
       "type": "string",
       "width": "1000",
       "Option": "Optional",
-      "adaptiveCard":"None",
+      "adaptiveCard": "None",
       "SLabel": "ProgressComment",
       "LLabel": "ProgressComment"
     },
@@ -334,7 +337,7 @@
       "type": "Date",
       "width": "10",
       "Option": "Optional",
-      "adaptiveCard":"Additional",
+      "adaptiveCard": "Additional",
       "SLabel": "Date"
     },
     {
@@ -342,7 +345,7 @@
       "type": "string",
       "width": "50",
       "Option": "Optional",
-      "adaptiveCard":"Additional",
+      "adaptiveCard": "Additional",
       "SLabel": "HCP Email",
       "LLabel": "HCPEmail"
     },
@@ -351,7 +354,7 @@
       "type": "string",
       "width": "100",
       "Option": "Optional",
-      "adaptiveCard":"Additional",
+      "adaptiveCard": "Additional",
       "SLabel": "HCP Name",
       "LLabel": "VendorName"
     }
