@@ -590,11 +590,11 @@ class calFun {
                 for (var i = 0; i < outdata[tabname].length; i++) {
                   if (this.hasNull(configItem["Fields"][0], 2)) {
                     var getFieldType = this.fieldType(
-                      field["Source"],
+                      configItem["Source"],
                       fieldDef
                     ); // get field type
                     if (getFieldType.toLowerCase() == "date") {
-                      fieldObj.push(new Date(outdata[field["Source"]])); // get calculated field value
+                      fieldObj.push(new Date(outdata[configItem["Source"]])); // get calculated field value
                     } else {
                       fieldObj.push(
                         outdata[tabname][i].hasOwnProperty(
