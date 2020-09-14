@@ -4,19 +4,27 @@
   "cardMinRows": 4,
   "cardColumn": 4,
   "columns": [
-    { "coltype": "string", "coltitle": "Topping" },
-    { "coltype": "number", "coltitle": "Slices" }
+    0,
+    1,
+    {
+      "calc": "stringify",
+      "sourceColumn": 1,
+      "type": "string",
+      "role": "annotation"
+    },
+    2
   ],
   "rows": [
-    ["Mushrooms", 4],
-    ["Onions", 2],
-    ["Olives", 1],
-    ["Zucchini", 1],
-    ["Pepperoni", 2]
+    ["Element", "Density", { "role": "style" }],
+    ["Copper", 8.94, "#b87333"],
+    ["Silver", 10.49, "silver"],
+    ["Gold", 19.3, "gold"],
+    ["Platinum", 21.45, "color: #e5e4e2"]
   ],
   "options": {
     "title": "@Title",
     "height": 400,
-    "legend": "none"
+    "bar": { "groupWidth": "95%" },
+    "legend": { "position": "none" }
   }
 }
