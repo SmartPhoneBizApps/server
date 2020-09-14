@@ -1203,6 +1203,10 @@ module.exports = {
         case "gauge":
           cardConfigFile1 = "../cards/cardConfig/template_google_Gauge.json";
           break;
+        case "addressMap":
+          cardConfigFile1 =
+            "../cards/cardConfig/template_google_addressMap.json";
+          break;
         case "histogram":
           cardConfigFile1 =
             "../cards/cardConfig/template_google_Histogram.json";
@@ -1516,7 +1520,14 @@ module.exports = {
       anacardConfig["sap.card"]["header"]["data"]["json"] = { ...js1 };
       js1 = {};
     } else {
-      anacardConfig["rows"] = list;
+      if (
+        myCard["cardsubType"] == "StackedBar" ||
+        myCard["cardsubType"] == "StackedColumn" ||
+        myCard["cardsubType"] == "gauge"
+      ) {
+        anacardConfig["rows"] = list;
+      }
+
       anacardConfig["cardid"] = kl;
     }
     console.log(anacardConfig);

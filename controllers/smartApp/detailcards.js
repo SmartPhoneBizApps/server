@@ -271,6 +271,7 @@ exports.getDetailCardsNew = async (req, res, next) => {
                     console.log(r1);
                     r1 = [];
                   }
+                  list = r2;
                   break;
                 case "StackedColumn":
                   kg = { role: "style" };
@@ -291,8 +292,10 @@ exports.getDetailCardsNew = async (req, res, next) => {
                     console.log(r1);
                     r1 = [];
                   }
+                  list = r2;
                   break;
                 case "Line":
+                  list = r2;
                   break;
                 case "gauge":
                   r1.push("Label");
@@ -310,33 +313,20 @@ exports.getDetailCardsNew = async (req, res, next) => {
                     console.log(r1);
                     r1 = [];
                   }
+                  list = r2;
                   break;
                 case "histogram":
-                  kg = { role: "style" };
-                  r1.push("Col");
-                  r1.push("Val");
-                  r1.push(kg);
-                  r2.push(r1);
-                  console.log(r1);
-                  r1 = [];
-                  for (let y = 0; y < list.length; y++) {
-                    var randomColor = Math.floor(
-                      Math.random() * 16777215
-                    ).toString(16);
-                    r1.push(list[y]["Area"]);
-                    r1.push(list[y]["Value1"]);
-                    r1.push(randomColor);
-                    r2.push(r1);
-                    console.log(r1);
-                    r1 = [];
-                  }
+                  break;
+                case "map":
                   break;
                 case "TimeLine":
+                  //  list = r2;
                   break;
                 default:
+                  //    list = r2;
                   break;
               }
-              list = r2;
+
               console.log(
                 "10 - card data - List : ",
                 list,
