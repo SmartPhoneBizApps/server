@@ -41,7 +41,6 @@ exports.getDetailCardsNew = async (req, res, next) => {
   var ivalue = getInitialValues(req.params.app, req.params.role, req.user);
   let ival_out = [];
   let ival = {};
-  let out = {};
   for (let i = 0; i < ivalue.length; i++) {
     ival = {};
     const element = ivalue[i];
@@ -50,7 +49,6 @@ exports.getDetailCardsNew = async (req, res, next) => {
     ival.Value = o_val;
     ival_out.push(ival);
   }
-
   iStatus = 0;
   iMessage = "";
   let appData = [];
@@ -253,13 +251,6 @@ exports.getDetailCardsNew = async (req, res, next) => {
 
               switch (myCard["cardsubType"]) {
                 case "StackedBar":
-                  // for (let y = 0; y < list.length; y++) {
-                  //   r1.push(list[y]["Area"]);
-                  //   r1.push(list[y]["Value1"]);
-                  //   r2.push(r1);
-                  //   console.log(r1);
-                  //   r1 = [];
-                  // }
                   kg = { role: "style" };
                   r1.push("Col");
                   r1.push("Val");
@@ -300,6 +291,46 @@ exports.getDetailCardsNew = async (req, res, next) => {
                   }
                   break;
                 case "Line":
+                  break;
+                case "Gauge":
+                  r1.push("Label");
+                  r1.push("Value");
+                  r2.push(r1);
+                  console.log(r1);
+                  r1 = [];
+                  for (let y = 0; y < list.length; y++) {
+                    var randomColor = Math.floor(
+                      Math.random() * 16777215
+                    ).toString(16);
+                    r1.push(list[y]["Area"]);
+                    r1.push(list[y]["Value1"]);
+                    r2.push(r1);
+                    console.log(r1);
+                    r1 = [];
+                  }
+                  console.log("Gauge card...", r2);
+                  break;
+                case "Histogram":
+                  kg = { role: "style" };
+                  r1.push("Col");
+                  r1.push("Val");
+                  r1.push(kg);
+                  r2.push(r1);
+                  console.log(r1);
+                  r1 = [];
+                  for (let y = 0; y < list.length; y++) {
+                    var randomColor = Math.floor(
+                      Math.random() * 16777215
+                    ).toString(16);
+                    r1.push(list[y]["Area"]);
+                    r1.push(list[y]["Value1"]);
+                    r1.push(randomColor);
+                    r2.push(r1);
+                    console.log(r1);
+                    r1 = [];
+                  }
+                  break;
+                case "TimeLine":
                   break;
                 default:
                   break;

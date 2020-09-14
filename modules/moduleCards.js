@@ -1200,6 +1200,16 @@ module.exports = {
         case "Line":
           cardConfigFile1 = "../cards/cardConfig/template_google_line.json";
           break;
+        case "Gauge":
+          cardConfigFile1 = "../cards/cardConfig/template_google_Gauge.json";
+          break;
+        case "Histogram":
+          cardConfigFile1 =
+            "../cards/cardConfig/template_google_Histogram.json";
+          break;
+        case "TimeLine":
+          cardConfigFile1 = "../cards/cardConfig/template_google_TimeLine.json";
+          break;
         default:
           break;
       }
@@ -1494,7 +1504,7 @@ module.exports = {
         myCard["cardsubType"] +
         ".json";
     }
-
+    console.log("GraphConfig:", cardTemplate);
     let anacardConfig = require(cardTemplate);
     if (style == "SAP") {
       anacardConfig["sap.card"].content.data.json.list = list;
@@ -1509,7 +1519,7 @@ module.exports = {
       anacardConfig["rows"] = list;
       anacardConfig["cardid"] = kl;
     }
-
+    console.log(anacardConfig);
     return anacardConfig;
   },
 };
