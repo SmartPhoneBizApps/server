@@ -134,7 +134,7 @@ exports.getUserapps = asyncHandler(async (req, res, next) => {
         /////////////////////////
         
 
-        if (approleX.Apps[j].type == undefined) {
+        if (approleX.Apps[j] == undefined) {
           appTemp["Type"] = "MasterDetail";
           approleX.Apps[j].type = "masterList";
         }
