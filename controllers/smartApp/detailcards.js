@@ -253,31 +253,31 @@ exports.getDetailCardsNew = async (req, res, next) => {
 
               switch (myCard["cardsubType"]) {
                 case "StackedBar":
-                  // for (let y = 0; y < list.length; y++) {
-                  //   r1.push(list[y]["Area"]);
-                  //   r1.push(list[y]["Value1"]);
-                  //   r2.push(r1);
-                  //   console.log(r1);
-                  //   r1 = [];
-                  // }
-                  kg = { role: "style" };
-                  r1.push("Col");
-                  r1.push("Val");
-                  r1.push(kg);
-                  r2.push(r1);
-                  console.log(r1);
-                  r1 = [];
                   for (let y = 0; y < list.length; y++) {
-                    var randomColor = Math.floor(
-                      Math.random() * 16777215
-                    ).toString(16);
                     r1.push(list[y]["Area"]);
                     r1.push(list[y]["Value1"]);
-                    r1.push(randomColor);
                     r2.push(r1);
                     console.log(r1);
                     r1 = [];
                   }
+                  // kg = { role: "style" };
+                  // r1.push("Col");
+                  // r1.push("Val");
+                  // r1.push(kg);
+                  // r2.push(r1);
+                  // console.log(r1);
+                  // r1 = [];
+                  // for (let y = 0; y < list.length; y++) {
+                  //   var randomColor = Math.floor(
+                  //     Math.random() * 16777215
+                  //   ).toString(16);
+                  //   r1.push(list[y]["Area"]);
+                  //   r1.push(list[y]["Value1"]);
+                  //   r1.push(randomColor);
+                  //   r2.push(r1);
+                  //   console.log(r1);
+                  //   r1 = [];
+                  // }
                   break;
                 case "StackedColumn":
                   kg = { role: "style" };
