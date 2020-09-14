@@ -853,8 +853,32 @@
         },
         {
           "cardType": "Analytical",
-          "style": ["SAP", "Google"],
-          "cardsubType": "Gauge",
+          "style": ["Google"],
+          "cardsubType": "gauge",
+          "title": "HCP/HCO - Invoice Analysis",
+          "subtitle": "Speciality",
+          "unitOfMeasurement": "Count",
+          "source": "StudyInvoice",
+          "Data": {
+            "dimension": "Speciality",
+            "fact": "records",
+            "operation": "COUNT"
+          },
+          "numericHeader": {
+            "headerNumber": {
+              "Operation": "COUNT",
+              "Field": "Speciality"
+            },
+            "trend": { "trend": "DOWN", "Condition": "LTE", "value": 8 },
+            "status": { "state": "Success", "Condition": "LTE", "value": 24 },
+            "details": "Speciality",
+            "unit": "Count"
+          }
+        },
+        {
+          "cardType": "Analytical",
+          "style": ["Google"],
+          "cardsubType": "histogram",
           "title": "HCP/HCO - Invoice Analysis",
           "subtitle": "Speciality",
           "unitOfMeasurement": "Count",

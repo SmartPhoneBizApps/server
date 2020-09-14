@@ -232,6 +232,8 @@ exports.getDetailCardsNew = async (req, res, next) => {
         console.log("08 -  detailCharts : ", key);
         var myCard = appconfig["tableConfig"][key]["detailCharts"][x];
         aCard = {};
+        dt = new Date(0, 0, 0, 12, 0, 0);
+        console.log("myDate", dt);
         switch (myCard["Data"]["operation"]) {
           case "COUNT":
             list = await countAnalyticalCard(
@@ -292,7 +294,7 @@ exports.getDetailCardsNew = async (req, res, next) => {
                   break;
                 case "Line":
                   break;
-                case "Gauge":
+                case "gauge":
                   r1.push("Label");
                   r1.push("Value");
                   r2.push(r1);
@@ -308,9 +310,8 @@ exports.getDetailCardsNew = async (req, res, next) => {
                     console.log(r1);
                     r1 = [];
                   }
-                  console.log("Gauge card...", r2);
                   break;
-                case "Histogram":
+                case "histogram":
                   kg = { role: "style" };
                   r1.push("Col");
                   r1.push("Val");
