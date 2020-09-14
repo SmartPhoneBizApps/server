@@ -856,22 +856,22 @@
           "style": ["SAP", "Google"],
           "cardsubType": "Gauge",
           "title": "HCP/HCO - Invoice Analysis",
-          "subtitle": "InstitutionName",
+          "subtitle": "Speciality",
           "unitOfMeasurement": "Count",
           "source": "StudyInvoice",
           "Data": {
-            "dimension": "InstitutionName",
+            "dimension": "Speciality",
             "fact": "records",
             "operation": "COUNT"
           },
           "numericHeader": {
             "headerNumber": {
               "Operation": "COUNT",
-              "Field": "InstitutionName"
+              "Field": "Speciality"
             },
             "trend": { "trend": "DOWN", "Condition": "LTE", "value": 8 },
             "status": { "state": "Success", "Condition": "LTE", "value": 24 },
-            "details": "InstitutionName",
+            "details": "Speciality",
             "unit": "Count"
           }
         }
