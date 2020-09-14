@@ -132,6 +132,13 @@ exports.getUserapps = asyncHandler(async (req, res, next) => {
         let count = rec.length;
         appTemp["count"] = count;
         /////////////////////////
+        
+
+        if (approleX.Apps[j].type == undefined) {
+          appTemp["Type"] = "MasterDetail";
+          approleX.Apps[j].type = "masterList";
+        }
+        console.log(approleX.Apps[j].type, approleX.Apps[j].applicationID)
         if (
           approleX.Apps[j].type == "filterData" ||
           approleX.Apps[j].type == "FilterData"
@@ -141,8 +148,6 @@ exports.getUserapps = asyncHandler(async (req, res, next) => {
           appTemp["Type"] = "MasterDetail";
         }
         appTemp["tileType"] = "MasterDetail";
-        console.log(appTemp["tileType"]);
-
         tile[j + 1] = { ...appTemp };
       }
     }

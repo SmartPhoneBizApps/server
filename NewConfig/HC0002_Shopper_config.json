@@ -1059,6 +1059,14 @@
       "SLabel": "Study Value"
     },
     {
+      "name": "StudyID",
+      "type": "string",
+      "width": "50",
+      "Option": "Optional",
+      "adaptiveCard": "Additional",
+      "SLabel": "Study ID"
+    },
+    {
       "name": "InvoiceValue",
       "type": "string",
       "width": "50",
@@ -1202,6 +1210,7 @@
       "fields": [
         { "name": "StudyType", "Mode": "Edit" },
         { "name": "StudyID", "Mode": "Edit" },
+        { "name": "StudyDetails", "Mode": "Edit" },
         { "name": "StudyName", "Mode": "Edit" },
         { "name": "StudyLink", "Mode": "Edit" }
       ],
