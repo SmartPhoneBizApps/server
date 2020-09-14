@@ -430,25 +430,26 @@ class calFun {
               var fieldObj = [];
               configItem["Fields"].forEach((field) => {
                 if (this.hasNull(field, 2)) {
-                  var getFieldType = this.fieldType(field["Source"], fieldDef); // get field type
-                  if (getFieldType.toLowerCase() == "date") {
-                    fieldObj.push(new Date(outdata[field["Source"]]));
-                  } else {
-                    fieldObj.push(
-                      outdata["ItemData"][i].hasOwnProperty(field["Source"])
-                        ? parseFloat(outdata["ItemData"][i][field["Source"]])
-                        : 0
-                    );
-                  }
+                  /*                   console.log(
+                                  field["Source"] +
+                                  "--" +
+                                  outdata["ItemData"][i][field["Source"]]
+                                  ); */
+                  fieldObj.push(
+                    parseFloat(outdata["ItemData"][i][field["Source"]])
+                  ); // get calculated field value in item array
                 } else {
                   fieldObj.push(); // get calculated field value in item array
                 }
               });
-              var fun = configItem["CalculatedFormula"]["function"];
+              var fun = configItem["CalculatedFormula"]["function"]; // get function name
+              //   console.log("Function name -->" + fun);
               if (typeof this[fun] !== "undefined") {
+                //     console.log("Calue --" + this[fun](fieldObj));
+                //    console.log("---------------");
                 outdata["ItemData"][i][
                   configItem["CalculatedFormula"]["Target"]
-                ] = this[fun](fieldObj);
+                ] = this[fun](fieldObj); // call function and assign value in item array
               } else {
                 outdata["ItemData"][i][
                   configItem["CalculatedFormula"]["Target"]
@@ -466,16 +467,11 @@ class calFun {
             var fieldObj = [];
             for (var i = 0; i < outdata["ItemData"].length; i++) {
               if (this.hasNull(configItem["Fields"][0], 2)) {
-                var getFieldType = this.fieldType(field["Source"], fieldDef); // get field type
-                if (getFieldType.toLowerCase() == "date") {
-                  fieldObj.push(new Date(outdata[field["Source"]])); // get calculated field value
-                } else {
-                  fieldObj.push(
-                    parseFloat(
-                      outdata["ItemData"][i][configItem["Fields"][0]["Source"]]
-                    )
-                  );
-                }
+                fieldObj.push(
+                  parseFloat(
+                    outdata["ItemData"][i][configItem["Fields"][0]["Source"]]
+                  )
+                ); // get calculated field value from all items
               } else {
                 fieldObj.push(""); // get calculated field value from all items
               }
@@ -484,7 +480,7 @@ class calFun {
             if (typeof this[fun] !== "undefined") {
               outdata[configItem["CalculatedFormula"]["Target"]] = this[fun](
                 fieldObj
-              );
+              ); // call function and assign value in header array
             } else {
               outdata[configItem["CalculatedFormula"]["Target"]] = "";
             }
@@ -493,21 +489,26 @@ class calFun {
       }
     }
     if (config["Header"].length > 0) {
+      // Check Header calculation is exist or not
       config["Header"].forEach((configItem) => {
         if (this.hasNull(configItem["CalculatedFormula"], 4)) {
+          // loop config header
           var fieldObj = [];
           if (configItem["Fields"].length > 0) {
             configItem["Fields"].forEach((field) => {
               if (this.hasNull(field, 2)) {
+                //    fieldObj.push(parseFloat(outdata[field["Source"]])); // get calculated field value
                 var getFieldType = this.fieldType(field["Source"], fieldDef); // get field type
                 if (getFieldType.toLowerCase() == "date") {
+                  // get working day in between 2 dates
                   fieldObj.push(new Date(outdata[field["Source"]])); // get calculated field value
                 } else {
+                  //     fieldObj.push(parseFloat(outdata[field["Source"]])); // get calculated field value
                   fieldObj.push(
                     outdata.hasOwnProperty(field["Source"])
                       ? parseFloat(outdata[field["Source"]])
                       : 0
-                  );
+                  ); // get calculated field value
                 }
               } else {
                 fieldObj.push(""); // get calculated field value
@@ -520,7 +521,7 @@ class calFun {
           if (typeof this[fun] !== "undefined") {
             outdata[configItem["CalculatedFormula"]["Target"]] = this[fun](
               fieldObj
-            );
+            ); // call function and assign value in header array
           } else {
             outdata[configItem["CalculatedFormula"]["Target"]] = "";
           }
@@ -543,19 +544,16 @@ class calFun {
                   var fieldObj = [];
                   configItem["Fields"].forEach((field) => {
                     if (this.hasNull(field, 2)) {
-                      var getFieldType = this.fieldType(
+                      fieldObj.push(
+                        parseFloat(outdata[tabname][i][field["Source"]])
+                      ); // get calculated field value in item array
+
+                      console.log(
                         field["Source"],
-                        fieldDef
-                      ); // get field type
-                      if (getFieldType.toLowerCase() == "date") {
-                        fieldObj.push(new Date(outdata[field["Source"]])); // get calculated field value
-                      } else {
-                        fieldObj.push(
-                          outdata[tabname][i].hasOwnProperty(field["Source"])
-                            ? parseFloat(outdata[tabname][i][field["Source"]])
-                            : 0
-                        );
-                      }
+                        ">>",
+                        outdata[tabname][i][field["Source"]]
+                      );
+                      console.log(fieldObj);
                     } else {
                       fieldObj.push(); // get calculated field value in item array
                     }
@@ -564,7 +562,13 @@ class calFun {
                   if (typeof this[fun] !== "undefined") {
                     outdata[tabname][i][
                       configItem["CalculatedFormula"]["Target"]
-                    ] = this[fun](fieldObj);
+                    ] = this[fun](fieldObj); // call function and assign value in item array
+                    console.log(
+                      configItem["CalculatedFormula"]["Target"],
+                      outdata[tabname][i][
+                        configItem["CalculatedFormula"]["Target"]
+                      ]
+                    );
                   } else {
                     outdata[tabname][i][
                       configItem["CalculatedFormula"]["Target"]
@@ -589,25 +593,17 @@ class calFun {
                 var fieldObj = [];
                 for (var i = 0; i < outdata[tabname].length; i++) {
                   if (this.hasNull(configItem["Fields"][0], 2)) {
-                    var getFieldType = this.fieldType(
-                      field["Source"],
-                      fieldDef
-                    ); // get field type
-                    if (getFieldType.toLowerCase() == "date") {
-                      fieldObj.push(new Date(outdata[field["Source"]])); // get calculated field value
-                    } else {
-                      fieldObj.push(
-                        outdata[tabname][i].hasOwnProperty(
-                          configItem["Fields"][0]["Source"]
-                        )
-                          ? parseFloat(
-                              outdata[tabname][i][
-                                configItem["Fields"][0]["Source"]
-                              ]
-                            )
-                          : 0
-                      );
-                    }
+                    fieldObj.push(
+                      parseFloat(
+                        outdata[tabname][i][configItem["Fields"][0]["Source"]]
+                      )
+                    ); // get calculated field value from all items
+                    console.log(
+                      configItem["Fields"][0]["Source"],
+                      ">>",
+                      outdata[tabname][i][configItem["Fields"][0]["Source"]]
+                    );
+                    console.log(fieldObj);
                   } else {
                     fieldObj.push(""); // get calculated field value from all items
                   }
@@ -616,7 +612,11 @@ class calFun {
                 if (typeof this[fun] !== "undefined") {
                   outdata[configItem["CalculatedFormula"]["Target"]] = this[
                     fun
-                  ](fieldObj);
+                  ](fieldObj); // call function and assign value in header array
+                  console.log(
+                    configItem["CalculatedFormula"]["Target"],
+                    outdata[configItem["CalculatedFormula"]["Target"]]
+                  );
                 } else {
                   outdata[configItem["CalculatedFormula"]["Target"]] = "";
                 }
@@ -638,14 +638,23 @@ class calFun {
           if (configItem["Fields"].length > 0) {
             configItem["Fields"].forEach((field) => {
               if (this.hasNull(field, 2)) {
+                //   fieldObj.push(parseFloat(outdata[field["Source"]])); // get calculated field value
                 var getFieldType = this.fieldType(field["Source"], fieldDef); // get field type
                 if (getFieldType.toLowerCase() == "date") {
+                  // get working day in between 2 dates
                   fieldObj.push(new Date(outdata[field["Source"]])); // get calculated field value
                 } else {
+                  //     fieldObj.push(parseFloat(outdata[field["Source"]])); // get calculated field value
                   fieldObj.push(
                     outdata.hasOwnProperty(field["Source"])
                       ? parseFloat(outdata[field["Source"]])
                       : 0
+                  ); // get calculated field value
+                  console.log(
+                    field["Source"],
+                    ">>",
+                    outdata[field["Source"]],
+                    fieldObj
                   );
                 }
               } else {
@@ -681,8 +690,10 @@ class calFun {
               configItem["Fields"].forEach((field) => {
                 console.log(configItem["Fields"], outdata[field["Source"]]);
                 if (this.hasNull(field, 2)) {
+                  //   fieldObj.push(parseFloat(outdata[field["Source"]])); // get calculated field value
                   var getFieldType = this.fieldType(field["Source"], fieldDef); // get field type
                   if (getFieldType.toLowerCase() == "date") {
+                    // get working day in between 2 dates
                     fieldObj.push(new Date(outdata[field["Source"]])); // get calculated field value
                   } else {
                     //         fieldObj.push(parseFloat(outdata[field["Source"]])); // get calculated field value
@@ -690,7 +701,7 @@ class calFun {
                       outdata.hasOwnProperty(field["Source"])
                         ? parseFloat(outdata[field["Source"]])
                         : 0
-                    );
+                    ); // get calculated field value
                   }
                 } else {
                   fieldObj.push(""); // get calculated field value
