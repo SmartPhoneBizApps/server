@@ -614,9 +614,9 @@ class calFun {
                 }
                 var fun = configItem["CalculatedFormula"]["function"]; // get function name
                 if (typeof this[fun] !== "undefined") {
-                  outdata[configItem["CalculatedFormula"]["Target"]] = this[
-                    fun
-                  ](fieldObj);
+                  outdata[
+                    configItem["CalculatedFormula"]["Target"].trim()
+                  ] = this[fun](fieldObj);
                 } else {
                   outdata[configItem["CalculatedFormula"]["Target"]] = "";
                 }
@@ -629,6 +629,7 @@ class calFun {
     if (config["Header"].length > 0) {
       console.log("--------------------------------------");
       console.log("Header >> Formula");
+      // console.log(outdata);
       console.log("--------------------------------------");
       // Check Header calculation is exist or not
       config["Header"].forEach((configItem) => {
@@ -642,11 +643,15 @@ class calFun {
                 if (getFieldType.toLowerCase() == "date") {
                   fieldObj.push(new Date(outdata[field["Source"]])); // get calculated field value
                 } else {
-                  fieldObj.push(
-                    outdata.hasOwnProperty(field["Source"])
-                      ? parseFloat(outdata[field["Source"]])
-                      : 0
-                  );
+                  if (
+                    outdata[field["Source"]] !== undefined &&
+                    outdata[field["Source"]] !== null &&
+                    outdata[field["Source"]] !== ""
+                  ) {
+                    fieldObj.push(parseFloat(outdata[field["Source"]]));
+                  } else {
+                    fieldObj.push(0);
+                  }
                 }
               } else {
                 fieldObj.push(""); // get calculated field value
@@ -656,6 +661,8 @@ class calFun {
             fieldObj.push("");
           }
           var fun = configItem["CalculatedFormula"]["function"]; // get function name
+          console.log("Function name -- " + fun);
+          console.log(fieldObj);
           if (typeof this[fun] !== "undefined") {
             outdata[configItem["CalculatedFormula"]["Target"]] = this[fun](
               fieldObj
@@ -685,12 +692,15 @@ class calFun {
                   if (getFieldType.toLowerCase() == "date") {
                     fieldObj.push(new Date(outdata[field["Source"]])); // get calculated field value
                   } else {
-                    //         fieldObj.push(parseFloat(outdata[field["Source"]])); // get calculated field value
-                    fieldObj.push(
-                      outdata.hasOwnProperty(field["Source"])
-                        ? parseFloat(outdata[field["Source"]])
-                        : 0
-                    );
+                    if (
+                      outdata[field["Source"]] !== undefined &&
+                      outdata[field["Source"]] !== null &&
+                      outdata[field["Source"]] !== ""
+                    ) {
+                      fieldObj.push(outdata[field["Source"]]);
+                    } else {
+                      fieldObj.push(0);
+                    }
                   }
                 } else {
                   fieldObj.push(""); // get calculated field value
@@ -701,6 +711,8 @@ class calFun {
             }
             var fun = configItem["CalculatedFormula"]["function"]; // get function name
             if (typeof this[fun] !== "undefined") {
+              console.log("Function name --" + fun);
+              console.log(fieldObj);
               outdata[configItem["CalculatedFormula"]["Target"]] = this[fun](
                 fieldObj
               ); // call function and assign value in header array

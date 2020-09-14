@@ -28,15 +28,12 @@ exports.dataFilters = asyncHandler(async (req, res, next) => {
     let filter = config1["Controls"]["filterFields"]["header"];
     var set = new Set();
     // Collect the keys
-    console.log("A1", filter);
     for (let x = 0; x < filter.length; x++) {
-      console.log("A2", filter[x]);
       for (let y = 0; y < results.length; y++) {
         if (results[y][filter[x]] !== undefined) {
           set.add(results[y][filter[x]]);
         }
       }
-      console.log(set);
       set.forEach((en1) => {
         stat["field"] = filter[x];
         stat["key"] = en1;
@@ -47,7 +44,6 @@ exports.dataFilters = asyncHandler(async (req, res, next) => {
       });
       set = new Set();
     }
-    console.log(tableOut);
     // Get Header Counts
     for (let y = 0; y < results.length; y++) {
       for (let k = 0; k < tableOut.length; k++) {
@@ -56,7 +52,7 @@ exports.dataFilters = asyncHandler(async (req, res, next) => {
         }
       }
     }
-    let data = {};
+
     let nTable = [];
     var set1 = new Set();
     let nTab = [];
@@ -83,7 +79,7 @@ exports.dataFilters = asyncHandler(async (req, res, next) => {
       nTab = [];
     });
   }
-  data = {};
+
   res.status(200).json({
     success: true,
     data: xObject,
