@@ -124,10 +124,6 @@
     "type": "String",
     "maxlength": [100, "TransType can not be more than 100"]
   },
-  "CountryImpacted": {
-    "type": "String",
-    "maxlength": [50, "CountryImpacted can not be more than 50"]
-  },
   "Notification": {
     "type": "String",
     "maxlength": [50, "Notification can not be more than 50"]
@@ -187,6 +183,14 @@
   "DiscountAmount": {
     "type": "String",
     "maxlength": [50, "DiscountAmount can not be more than 50"]
+  },
+  "SupplierQuestion": {
+    "type": "String",
+    "maxlength": [500, "SupplierQuestion can not be more than 50"]
+  },
+  "CountryImpacted": {
+    "type": "String",
+    "maxlength": [50, "CountryImpacted can not be more than 50"]
   },
 
   "TransLog": [],

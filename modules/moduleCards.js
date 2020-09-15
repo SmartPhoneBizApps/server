@@ -1200,14 +1200,14 @@ module.exports = {
         case "Line":
           cardConfigFile1 = "../cards/cardConfig/template_google_line.json";
           break;
-        case "gauge":
+        case "Gauge":
           cardConfigFile1 = "../cards/cardConfig/template_google_Gauge.json";
           break;
         case "addressMap":
           cardConfigFile1 =
             "../cards/cardConfig/template_google_addressMap.json";
           break;
-        case "histogram":
+        case "Histogram":
           cardConfigFile1 =
             "../cards/cardConfig/template_google_Histogram.json";
           break;

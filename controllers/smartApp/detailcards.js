@@ -297,7 +297,7 @@ exports.getDetailCardsNew = async (req, res, next) => {
                 case "Line":
                   list = r2;
                   break;
-                case "gauge":
+                case "Gauge":
                   r1.push("Label");
                   r1.push("Value");
                   r2.push(r1);
@@ -315,9 +315,9 @@ exports.getDetailCardsNew = async (req, res, next) => {
                   }
                   list = r2;
                   break;
-                case "histogram":
+                case "Histogram":
                   break;
-                case "map":
+                case "addressMap":
                   break;
                 case "TimeLine":
                   //  list = r2;
