@@ -303,7 +303,7 @@
     "headerImage": ["USP_Image"],
     "headerColorFields": ["Status"],
     "Tab0": ["data"],
-    "Tab20":["charts"],
+    "Tab20": ["charts"],
     "None": ["Status"],
     "Tab1": [
       "ID",
@@ -720,69 +720,6 @@
             "ContractStartDate",
             "BalanceValue"
           ]
-        },
-
-        {
-          "type": "Analytical",
-          "filterKey": "ItemStatus3",
-          "filterKeyLabel": "Item Status",
-          "cardID": "HC0001",
-          "template": "template_analyticalCard_StackedColumn.json",
-
-          "analyticsCard": {
-            "chartType": "StackedColumn",
-            "colKey": { "Category": "ContractName" },
-            "colValues": {
-              "Val1": "ContractValue",
-              "Val2": "BalanceValue",
-              "Val3": "UsedValue"
-            }
-          }
-        },
-        {
-          "type": "Analytical",
-          "filterKey": "ItemStatus3",
-          "filterKeyLabel": "Item Status",
-          "cardID": "HC0001",
-          "template": "template_analyticalCard_donut.json",
-          "title": "Contract Type Analysis",
-          "analyticsCard": {
-            "chartType": "donut",
-            "cardsDonut": {
-              "measureName": "ContractType",
-              "value": "ContractType",
-              "function": "COUNT"
-            }
-          }
-        },
-        {
-          "type": "Analytical",
-          "filterKey": "ItemStatus3",
-          "filterKeyLabel": "Item Status",
-          "cardID": "HC0001",
-          "title": "Contract Analysis",
-          "subtitle": "Contract Vs Balance value",
-          "unitOfMeasurement": "GBP",
-          "template": "template_analyticalCard_line.json",
-          "analyticsCard": {
-            "chartType": "line",
-            "itemvalueMap": {
-              "Score": "BalanceValue",
-              "Target": "ContractValue"
-            },
-            "itemkeyMap": {
-              "Area": "ContractName"
-            },
-            "itemfixedVal": [],
-            "sumField": [
-              { "sumScore": "BalanceValue" },
-              { "sumtargetScore": "ContractValue" }
-            ],
-            "headerfieldMap": [
-              { "j_number": "sumScore" },
-              { "j_target": "sumtargetScore" }
-            ]
-          }
         }
       ],
 
@@ -824,7 +761,7 @@
       "type": "string",
       "width": "20",
       "Option": "Mandatory",
-      "adaptiveCard":"Main",
+      "adaptiveCard": "Main",
       "SLabel": "Identification",
       "Update": "No"
     },
@@ -833,7 +770,7 @@
       "type": "string",
       "width": "20",
       "Option": "Optional",
-      "adaptiveCard":"Additional",
+      "adaptiveCard": "Additional",
       "SLabel": "ReferenceID"
     },
     {
@@ -841,7 +778,7 @@
       "type": "string",
       "width": "50",
       "Option": "Mandatory",
-      "adaptiveCard":"Main",
+      "adaptiveCard": "Main",
       "SLabel": "Title",
       "LLabel": "Title"
     },
@@ -850,7 +787,7 @@
       "type": "string",
       "width": "50",
       "Option": "Mandatory",
-      "adaptiveCard":"Main",
+      "adaptiveCard": "Main",
       "SLabel": "First Name",
       "LLabel": "First Name"
     },
@@ -859,7 +796,7 @@
       "type": "string",
       "width": "50",
       "Option": "Mandatory",
-      "adaptiveCard":"Main",
+      "adaptiveCard": "Main",
       "SLabel": "Last Name",
       "LLabel": "Last Name"
     },
@@ -868,7 +805,7 @@
       "type": "string",
       "width": "50",
       "Option": "Optional",
-      "adaptiveCard":"Additional",
+      "adaptiveCard": "Additional",
       "SLabel": "Full Name",
       "LLabel": "Full Name"
     },
@@ -877,7 +814,7 @@
       "type": "string",
       "width": "50",
       "Option": "Optional",
-      "adaptiveCard":"Additional",
+      "adaptiveCard": "Additional",
       "SLabel": "Role",
       "LLabel": "Role"
     },
@@ -890,7 +827,7 @@
       "URLMethod": "GET",
       "Token": true,
       "Option": "Optional",
-      "adaptiveCard":"Additional",
+      "adaptiveCard": "Additional",
       "SLabel": "Post Code",
       "LLabel": "Post Code"
     },
@@ -899,7 +836,7 @@
       "type": "string",
       "width": "200",
       "Option": "Optional",
-      "adaptiveCard":"Additional",
+      "adaptiveCard": "Additional",
       "SLabel": "Address",
       "LLabel": "Address"
     },
@@ -908,7 +845,7 @@
       "type": "string",
       "width": "50",
       "Option": "Mandatory",
-      "adaptiveCard":"Main",
+      "adaptiveCard": "Main",
       "SLabel": "Status",
       "LLabel": "Status"
     },
@@ -917,7 +854,7 @@
       "type": "string",
       "width": "200",
       "Option": "Optional",
-      "adaptiveCard":"None",
+      "adaptiveCard": "None",
       "SLabel": "Search String",
       "LLabel": "Search String"
     },
@@ -926,7 +863,7 @@
       "type": "string",
       "width": "1000",
       "Option": "Optional",
-      "adaptiveCard":"None",
+      "adaptiveCard": "None",
       "SLabel": "ProgressComment",
       "LLabel": "ProgressComment"
     },
@@ -936,7 +873,7 @@
       "metadata": "MultipleFields",
       "width": "200",
       "Option": "Optional",
-      "adaptiveCard":"Additional",
+      "adaptiveCard": "Additional",
       "SLabel": "CV",
       "LLabel": "CV"
     },
@@ -946,7 +883,7 @@
       "metadata": "OnlyFileName",
       "width": "200",
       "Option": "Optional",
-      "adaptiveCard":"Additional",
+      "adaptiveCard": "Additional",
       "SLabel": "Certificates",
       "LLabel": "Certificates"
     },
@@ -955,7 +892,7 @@
       "type": "string",
       "width": "50",
       "Option": "Optional",
-      "adaptiveCard":"Additional",
+      "adaptiveCard": "Additional",
       "SLabel": "User Role",
       "LLabel": "User Role"
     },
@@ -964,7 +901,7 @@
       "type": "string",
       "width": "100",
       "Option": "Optional",
-      "adaptiveCard":"Additional",
+      "adaptiveCard": "Additional",
       "SLabel": "User Name",
       "LLabel": "User Name"
     },
@@ -973,7 +910,7 @@
       "type": "string",
       "width": "200",
       "Option": "Optional",
-      "adaptiveCard":"Additional",
+      "adaptiveCard": "Additional",
       "SLabel": "Profile Image",
       "LLabel": "Profile Image"
     },
@@ -982,7 +919,7 @@
       "type": "string",
       "width": "20",
       "Option": "Optional",
-      "adaptiveCard":"Additional",
+      "adaptiveCard": "Additional",
       "SLabel": "Contact No",
       "LLabel": "Contact No"
     },
@@ -991,7 +928,7 @@
       "type": "string",
       "width": "50",
       "Option": "Optional",
-      "adaptiveCard":"Additional",
+      "adaptiveCard": "Additional",
       "SLabel": "Email Id",
       "LLabel": "Email Id"
     },
@@ -1000,7 +937,7 @@
       "type": "string",
       "width": "50",
       "Option": "Optional",
-      "adaptiveCard":"Additional",
+      "adaptiveCard": "Additional",
       "SLabel": "Speciality",
       "LLabel": "Speciality"
     },
@@ -1009,7 +946,7 @@
       "type": "string",
       "width": "200",
       "Option": "Optional",
-      "adaptiveCard":"Additional",
+      "adaptiveCard": "Additional",
       "SLabel": "Institution Name",
       "LLabel": "Institution Name"
     },
@@ -1018,7 +955,7 @@
       "type": "string",
       "width": "50",
       "Option": "Optional",
-      "adaptiveCard":"Additional",
+      "adaptiveCard": "Additional",
       "SLabel": "Phase"
     },
     {
@@ -1026,7 +963,7 @@
       "type": "string",
       "width": "50",
       "Option": "Optional",
-      "adaptiveCard":"Additional",
+      "adaptiveCard": "Additional",
       "SLabel": "Study Type"
     },
     {
@@ -1034,7 +971,7 @@
       "type": "string",
       "width": "100",
       "Option": "Optional",
-      "adaptiveCard":"Additional",
+      "adaptiveCard": "Additional",
       "SLabel": "Study ID"
     },
     {
@@ -1042,7 +979,7 @@
       "type": "string",
       "width": "100",
       "Option": "Optional",
-      "adaptiveCard":"Additional",
+      "adaptiveCard": "Additional",
       "SLabel": "Study Details"
     },
     {
@@ -1050,7 +987,7 @@
       "type": "string",
       "width": "100",
       "Option": "Optional",
-      "adaptiveCard":"Additional",
+      "adaptiveCard": "Additional",
       "SLabel": "Study Name"
     },
     {
@@ -1058,7 +995,7 @@
       "type": "string",
       "width": "50",
       "Option": "Optional",
-      "adaptiveCard":"Additional",
+      "adaptiveCard": "Additional",
       "SLabel": "Event Type"
     },
     {
@@ -1066,7 +1003,7 @@
       "type": "string",
       "width": "100",
       "Option": "Optional",
-      "adaptiveCard":"Additional",
+      "adaptiveCard": "Additional",
       "SLabel": "Event ID"
     },
     {
@@ -1074,7 +1011,7 @@
       "type": "string",
       "width": "100",
       "Option": "Optional",
-      "adaptiveCard":"Additional",
+      "adaptiveCard": "Additional",
       "SLabel": "Event Name"
     },
     {
@@ -1082,7 +1019,7 @@
       "type": "string",
       "width": "20",
       "Option": "Optional",
-      "adaptiveCard":"Additional",
+      "adaptiveCard": "Additional",
       "SLabel": "PostCode"
     },
     {
@@ -1090,7 +1027,7 @@
       "type": "string",
       "width": "200",
       "Option": "Optional",
-      "adaptiveCard":"Additional",
+      "adaptiveCard": "Additional",
       "SLabel": "Address"
     },
     {
@@ -1098,7 +1035,7 @@
       "type": "Date",
       "width": "20",
       "Option": "Optional",
-      "adaptiveCard":"Additional",
+      "adaptiveCard": "Additional",
       "SLabel": "EventStartDate"
     },
     {
@@ -1106,7 +1043,7 @@
       "type": "string",
       "width": "50",
       "Option": "Optional",
-      "adaptiveCard":"Additional",
+      "adaptiveCard": "Additional",
       "SLabel": "Contract Type"
     },
     {
@@ -1114,7 +1051,7 @@
       "type": "string",
       "width": "100",
       "Option": "Optional",
-      "adaptiveCard":"Additional",
+      "adaptiveCard": "Additional",
       "SLabel": "Contract ID"
     },
     {
@@ -1122,7 +1059,7 @@
       "type": "string",
       "width": "100",
       "Option": "Optional",
-      "adaptiveCard":"Additional",
+      "adaptiveCard": "Additional",
       "SLabel": "Contract Name"
     },
     {
@@ -1130,7 +1067,7 @@
       "type": "Date",
       "width": "20",
       "Option": "Optional",
-      "adaptiveCard":"Additional",
+      "adaptiveCard": "Additional",
       "SLabel": "ContractStartDate"
     },
     {
@@ -1138,7 +1075,7 @@
       "type": "Date",
       "width": "20",
       "Option": "Optional",
-      "adaptiveCard":"Additional",
+      "adaptiveCard": "Additional",
       "SLabel": "ContractEndDate"
     },
     {
@@ -1146,7 +1083,7 @@
       "type": "Array",
       "width": "200",
       "Option": "Optional",
-      "adaptiveCard":"None",
+      "adaptiveCard": "None",
       "SLabel": "My Study"
     }
   ],
