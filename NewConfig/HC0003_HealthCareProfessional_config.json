@@ -2,7 +2,7 @@
   "Title": { "ApplicationTitle": "Events", "DetailTitle": "Events" },
   "Controls": {
     "style": "SAP",
-    "calculation": "No",
+    "calculation": "Yes",
     "USP": "UserProfile",
     "StatusColor": "Yes",
     "SearchString": { "Search": false },
@@ -22,10 +22,15 @@
       ]
     },
     "filterFields": {
-      "header": ["Status", "EventType", "EventStartDate"]
+      "header": [
+        "Status",
+        "EventType",
+        "EventStartDate",
+        "BalanceValue",
+        "InvoiceValue"
+      ]
     }
   },
-
   "ListFields": {
     "IntroField": "EventStartDate",
     "TitleField": "EventName",
@@ -46,7 +51,7 @@
       "PharmaContactEmail"
     ]
   },
-  "PossibleValues": ["EventType", "Status"],
+  "PossibleValues": ["EventType", "Status", "ItemStatus1", "ServiceType"],
   "MButtons": [
     {
       "type": "DOWNLOAD",
@@ -157,22 +162,46 @@
       "value": "Tab3",
       "style": "SAP",
       "update": "Yes",
-      "name": "Agenda",
-      "type": "Table",
-      "fioriicon": "expense-report"
-    },
-    {
-      "value": "Tab4",
-      "style": "SAP",
-      "update": "Yes",
       "name": "MultiAttachment",
       "fioriicon": "attachment",
       "type": "MultiAttachments",
       "download": "Yes",
       "docType": [
-        { "text": "InformationSheet", "state": "Success" },
-        { "text": "EntryPass", "state": "Information" }
+        { "text": "Event", "state": "Success" },
+        { "text": "WorkSchedule", "state": "Information" }
       ]
+    },
+    {
+      "value": "Tab4",
+      "style": "SAP",
+      "update": "Yes",
+      "name": "Services",
+      "type": "Table",
+      "fioriicon": "expense-report"
+    },
+    {
+      "value": "Tab5",
+      "style": "SAP",
+      "update": "Yes",
+      "name": "EventInvoice",
+      "type": "Table",
+      "fioriicon": "expense-report"
+    },
+    {
+      "value": "Tab6",
+      "style": "SAP",
+      "update": "Yes",
+      "name": "myHCP/HCO",
+      "type": "Table",
+      "fioriicon": "expense-report"
+    },
+    {
+      "value": "Tab7",
+      "style": "SAP",
+      "update": "Yes",
+      "name": "Agenda",
+      "type": "Table",
+      "fioriicon": "expense-report"
     }
   ],
   "DetailFields": {
@@ -182,21 +211,24 @@
     "headerColorFields": ["Status"],
     "Tab0": ["data"],
     "Tab20": ["charts"],
-    "None": ["ID", "HCPEmail", "VendorName"],
+    "None": ["ID"],
     "Tab1": [
       "EventID",
       "EventName",
       "EventType",
       "EventStartDate",
-      "Time",
-      "Duration",
-      "Address",
-      "Overview",
-      "EventLink"
+      "EventLink",
+      "EventEndDate",
+      "EventValue",
+      "InvoiceValue",
+      "BalanceValue"
     ],
     "Tab2": ["PharmaContact", "PharmaContactEmail"],
-    "Tab3": ["Agenda"],
-    "Tab4": ["MultiAttachments"]
+    "Tab3": ["MultiAttachments"],
+    "Tab4": ["Services"],
+    "Tab5": ["EventInvoice"],
+    "Tab6": ["myHCPHCO"],
+    "Tab7": ["Agenda"]
   },
   "listCards": [
     {
@@ -551,7 +583,7 @@
         "itemDisplay": true,
         "itemCheck": false,
         "itemAdd": false,
-        "itemEdit": true,
+        "itemEdit": false,
         "itemDelete": false
       },
       "CreateFields": [
@@ -891,10 +923,10 @@
       "cards": [],
       "ItemButtons": {
         "itemDisplay": true,
-        "itemCheck": true,
-        "itemAdd": true,
-        "itemEdit": true,
-        "itemDelete": true
+        "itemCheck": false,
+        "itemAdd": false,
+        "itemEdit": false,
+        "itemDelete": false
       },
       "CreateFields": [
         "Topic",
@@ -941,8 +973,8 @@
       "name": "EventID",
       "type": "string",
       "width": "100",
-      "Option": "Mandatory",
-      "adaptiveCard": "Main",
+      "Option": "Optional",
+      "adaptiveCard": "Additional",
       "SLabel": "Event Id"
     },
     {
@@ -995,11 +1027,43 @@
     },
     {
       "name": "PharmaContactEmail",
-      "type": "string",
-      "width": "50",
+      "type": "Email",
+      "width": "100",
       "Option": "Mandatory",
       "adaptiveCard": "Main",
       "SLabel": "Pharma Contact Email"
+    },
+    {
+      "name": "Organiser",
+      "type": "string",
+      "width": "500",
+      "Option": "Mandatory",
+      "adaptiveCard": "Main",
+      "SLabel": "Organiser"
+    },
+    {
+      "name": "OrganiserName",
+      "type": "string",
+      "width": "100",
+      "Option": "Mandatory",
+      "adaptiveCard": "Main",
+      "SLabel": "Organiser Name"
+    },
+    {
+      "name": "OrganiserEmail",
+      "type": "Email",
+      "width": "100",
+      "Option": "Mandatory",
+      "adaptiveCard": "Main",
+      "SLabel": "Organiser Email"
+    },
+    {
+      "name": "OrganiserTelephone",
+      "type": "string",
+      "width": "100",
+      "Option": "Mandatory",
+      "adaptiveCard": "Main",
+      "SLabel": "Organiser Telephone"
     },
     {
       "name": "Address",
@@ -1016,6 +1080,30 @@
       "Option": "Optional",
       "adaptiveCard": "None",
       "SLabel": "Agenda"
+    },
+    {
+      "name": "Services",
+      "type": "Array",
+      "width": "200",
+      "Option": "Optional",
+      "adaptiveCard": "None",
+      "SLabel": "Services"
+    },
+    {
+      "name": "myHCPHCO",
+      "type": "Array",
+      "width": "200",
+      "Option": "Optional",
+      "adaptiveCard": "None",
+      "SLabel": "myHCPHCO"
+    },
+    {
+      "name": "EventInvoice",
+      "type": "Array",
+      "width": "200",
+      "Option": "Optional",
+      "adaptiveCard": "None",
+      "SLabel": "EventInvoice"
     },
     {
       "name": "MultiAttachments",
@@ -1071,13 +1159,116 @@
       "SLabel": "Event Link"
     },
     {
+      "name": "EventEndDate",
+      "type": "Date",
+      "width": "10",
+      "Option": "Mandatory",
+      "adaptiveCard": "Main",
+      "SLabel": "Event End Date"
+    },
+    {
       "name": "HCPEmail",
       "type": "string",
       "width": "50",
       "Option": "Optional",
       "adaptiveCard": "Additional",
-      "SLabel": "HCP Email",
-      "LLabel": "HCPEmail"
+      "SLabel": "HCP Email"
+    },
+    {
+      "name": "VendorName",
+      "type": "string",
+      "width": "100",
+      "Option": "Optional",
+      "adaptiveCard": "Additional",
+      "SLabel": "HCP Name"
+    },
+    {
+      "name": "EventValue",
+      "type": "string",
+      "width": "50",
+      "Option": "Optional",
+      "adaptiveCard": "Additional",
+      "SLabel": "Event Value"
+    },
+    {
+      "name": "InvoiceValue",
+      "type": "string",
+      "width": "50",
+      "Option": "Optional",
+      "adaptiveCard": "Additional",
+      "SLabel": "Invoice Value"
+    },
+    {
+      "name": "BalanceValue",
+      "type": "string",
+      "width": "50",
+      "Option": "Optional",
+      "adaptiveCard": "Additional",
+      "SLabel": "Balance Value"
+    },
+    {
+      "name": "sValidation",
+      "type": "string",
+      "width": "50",
+      "Option": "Optional",
+      "adaptiveCard": "Additional",
+      "SLabel": "Validation"
+    },
+    {
+      "name": "Title",
+      "type": "string",
+      "width": "50",
+      "Option": "Optional",
+      "adaptiveCard": "Additional",
+      "SLabel": "Title"
+    },
+    {
+      "name": "FirstName",
+      "type": "string",
+      "width": "100",
+      "Option": "Optional",
+      "adaptiveCard": "Additional",
+      "SLabel": "FirstName"
+    },
+    {
+      "name": "LastName",
+      "type": "string",
+      "width": "100",
+      "Option": "Optional",
+      "adaptiveCard": "Additional",
+      "SLabel": "LastName"
+    },
+    {
+      "name": "Speciality",
+      "type": "string",
+      "width": "200",
+      "Option": "Optional",
+      "adaptiveCard": "Additional",
+      "SLabel": "Speciality"
+    },
+    {
+      "name": "Email",
+      "type": "Email",
+      "width": "100",
+      "Option": "Optional",
+      "adaptiveCard": "Additional",
+      "SLabel": "Email"
+    },
+    {
+      "name": "PostCode",
+      "type": "string",
+      "width": "200",
+      "Option": "Optional",
+      "adaptiveCard": "Additional",
+      "SLabel": "PostCode"
+    },
+    {
+      "name": "InstitutionName",
+      "type": "string",
+      "width": "500",
+      "Option": "Optional",
+      "adaptiveCard": "Additional",
+      "SLabel": "InstitutionName"
     },
     {
       "name": "Budget",
@@ -1111,7 +1302,68 @@
     "CreateFields": [],
     "ItemDetails": []
   },
-  "CalculatedFields": { "Item": [], "HeaderItem": [], "Header": [] },
+  "Validations": {
+    "Field": {},
+    "Sequence": {
+      "EventEndDate": [
+        {
+          "name": "SEQUENCE",
+          "function": "GTE",
+          "Target": "sValidation",
+          "type": "Header",
+          "msg": "Event End Date can't be less than Event Start Date",
+          "Fields": [
+            { "Source": "EventEndDate", "Type": { "type": "Header" } },
+            { "Source": "EventStartDate", "Type": { "type": "Header" } }
+          ]
+        }
+      ]
+    },
+    "Document": {}
+  },
+  "CalculatedFields": {
+    "Item": [],
+    "HeaderItem": [
+      {
+        "CalculatedFormula": {
+          "name": "ITEMSUM",
+          "table": "Services",
+          "function": "ITEMSUM",
+          "Target": "EventValue",
+          "type": "HeaderItem"
+        },
+        "Fields": [
+          { "Source": "ServiceAmount", "Type": { "type": "HeaderItem" } }
+        ]
+      },
+      {
+        "CalculatedFormula": {
+          "name": "ITEMSUM",
+          "table": "EventInvoice",
+          "function": "ITEMSUM",
+          "Target": "InvoiceValue",
+          "type": "HeaderItem"
+        },
+        "Fields": [
+          { "Source": "InvoiceAmount", "Type": { "type": "HeaderItem" } }
+        ]
+      }
+    ],
+    "Header": [
+      {
+        "CalculatedFormula": {
+          "name": "SUB",
+          "function": "SUB",
+          "Target": "BalanceValue",
+          "type": "Header"
+        },
+        "Fields": [
+          { "Source": "EventValue", "Type": { "type": "Header" } },
+          { "Source": "InvoiceValue", "Type": { "type": "Header" } }
+        ]
+      }
+    ]
+  },
   "Create": "No",
   "Wizard": []
 }

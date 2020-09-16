@@ -189,6 +189,14 @@
       "name": "ContractInvoice",
       "type": "Table",
       "fioriicon": "expense-report"
+    },
+    {
+      "value": "Tab6",
+      "style": "SAP",
+      "update": "Yes",
+      "name": "myHCP/HCO",
+      "type": "Table",
+      "fioriicon": "expense-report"
     }
   ],
   "DetailFields": {
@@ -213,7 +221,8 @@
     "Tab2": ["PharmaContact", "PharmaContactEmail"],
     "Tab3": ["MultiAttachments"],
     "Tab4": ["Services"],
-    "Tab5": ["ContractInvoice"]
+    "Tab5": ["ContractInvoice"],
+    "Tab6": ["myHCPHCO"]
   },
   "listCards": [
     {
@@ -405,7 +414,8 @@
             "Token": "Yes",
             "URLMethod": "PUT",
             "updateButton": "Add to Invoice",
-            "diffMapping": [{ "ServiceAmount": "InvoiceAmount" }]
+            "diffMapping": [{ "ServiceAmount": "InvoiceAmount" }],
+            "popupData": "myHCPHCO"
           }
         ]
       },
@@ -567,7 +577,7 @@
         "itemDisplay": true,
         "itemCheck": false,
         "itemAdd": false,
-        "itemEdit": true,
+        "itemEdit": false,
         "itemDelete": false
       },
       "CreateFields": [
@@ -594,7 +604,7 @@
     "ContractInvoice": {
       "calculation": "Yes",
       "title": "Contract Invoice",
-      "subtitle": "Contract Invoice",
+      "subtitle": "Invoice Items",
       "tableFormFields": [
         {
           "GrpTitle": "Totals",
@@ -672,6 +682,55 @@
           "Option": "Optional",
           "adaptiveCard": "None",
           "Update": "Yes"
+        },
+        {
+          "name": "Title",
+          "type": "string",
+          "width": "50",
+          "SLabel": "Title",
+          "Option": "Optional"
+        },
+        {
+          "name": "FirstName",
+          "type": "string",
+          "width": "100",
+          "SLabel": "FirstName",
+          "Option": "Optional"
+        },
+        {
+          "name": "LastName",
+          "type": "string",
+          "width": "100",
+          "SLabel": "LastName",
+          "Option": "Optional"
+        },
+        {
+          "name": "Speciality",
+          "type": "string",
+          "width": "200",
+          "SLabel": "Speciality",
+          "Option": "Optional"
+        },
+        {
+          "name": "Email",
+          "type": "Email",
+          "width": "100",
+          "SLabel": "Email",
+          "Option": "Optional"
+        },
+        {
+          "name": "PostCode",
+          "type": "string",
+          "width": "200",
+          "SLabel": "PostCode",
+          "Option": "Optional"
+        },
+        {
+          "name": "InstitutionName",
+          "type": "string",
+          "width": "500",
+          "SLabel": "InstitutionName",
+          "Option": "Optional"
         }
       ],
       "DisplayFields": [
@@ -679,7 +738,12 @@
         "InvoiceAmount",
         "ServiceType",
         "iCurrency",
-        "ItemStatus1"
+        "ItemStatus1",
+        "Title",
+        "FirstName",
+        "LastName",
+        "Email",
+        "PostCode"
       ],
       "detailCharts": [
         {
@@ -722,7 +786,12 @@
         "iCurrency",
         "ItemStatus1",
         "Notes",
-        "Attachment"
+        "Attachment",
+        "Title",
+        "FirstName",
+        "LastName",
+        "Email",
+        "PostCode"
       ],
       "ItemDetails": [
         { "name": "ServiceType" },
@@ -731,7 +800,14 @@
         { "name": "iCurrency" },
         { "name": "Notes" },
         { "name": "ItemStatus1" },
-        { "name": "Attachment" }
+        { "name": "Attachment" },
+        { "name": "Title" },
+        { "name": "FirstName" },
+        { "name": "LastName" },
+        { "name": "Speciality" },
+        { "name": "Email" },
+        { "name": "PostCode" },
+        { "name": "InstitutionName" }
       ]
     }
   },
@@ -809,6 +885,14 @@
       "SLabel": "Services"
     },
     {
+      "name": "myHCPHCO",
+      "type": "Array",
+      "width": "200",
+      "Option": "Optional",
+      "adaptiveCard": "None",
+      "SLabel": "myHCPHCO"
+    },
+    {
       "name": "ContractInvoice",
       "type": "Array",
       "width": "200",
@@ -862,19 +946,27 @@
       "SLabel": "Contract Link"
     },
     {
+      "name": "ContractEndDate",
+      "type": "Date",
+      "width": "10",
+      "Option": "Mandatory",
+      "adaptiveCard": "Main",
+      "SLabel": "Contract End Date"
+    },
+    {
       "name": "HCPEmail",
       "type": "string",
       "width": "50",
-      "Option": "Mandatory",
-      "adaptiveCard": "Main",
+      "Option": "Optional",
+      "adaptiveCard": "Additional",
       "SLabel": "HCP Email"
     },
     {
       "name": "VendorName",
       "type": "string",
       "width": "100",
-      "Option": "Mandatory",
-      "adaptiveCard": "Main",
+      "Option": "Optional",
+      "adaptiveCard": "Additional",
       "SLabel": "HCP Name"
     },
     {
@@ -916,6 +1008,62 @@
       "Option": "Optional",
       "adaptiveCard": "Additional",
       "SLabel": "Validation"
+    },
+    {
+      "name": "Title",
+      "type": "string",
+      "width": "50",
+      "Option": "Optional",
+      "adaptiveCard": "Additional",
+      "SLabel": "Title"
+    },
+    {
+      "name": "FirstName",
+      "type": "string",
+      "width": "100",
+      "Option": "Optional",
+      "adaptiveCard": "Additional",
+      "SLabel": "FirstName"
+    },
+    {
+      "name": "LastName",
+      "type": "string",
+      "width": "100",
+      "Option": "Optional",
+      "adaptiveCard": "Additional",
+      "SLabel": "LastName"
+    },
+    {
+      "name": "Speciality",
+      "type": "string",
+      "width": "200",
+      "Option": "Optional",
+      "adaptiveCard": "Additional",
+      "SLabel": "Speciality"
+    },
+    {
+      "name": "Email",
+      "type": "Email",
+      "width": "100",
+      "Option": "Optional",
+      "adaptiveCard": "Additional",
+      "SLabel": "Email"
+    },
+    {
+      "name": "PostCode",
+      "type": "string",
+      "width": "200",
+      "Option": "Optional",
+      "adaptiveCard": "Additional",
+      "SLabel": "PostCode"
+    },
+    {
+      "name": "InstitutionName",
+      "type": "string",
+      "width": "500",
+      "Option": "Optional",
+      "adaptiveCard": "Additional",
+      "SLabel": "InstitutionName"
     }
   ],
   "itemData": "No",
@@ -987,7 +1135,7 @@
           "type": "Header"
         },
         "Fields": [
-          { "Source": "ServiceValue", "Type": { "type": "Header" } },
+          { "Source": "ContractValue", "Type": { "type": "Header" } },
           { "Source": "InvoiceValue", "Type": { "type": "Header" } }
         ]
       }
