@@ -21,17 +21,17 @@
   "ListFields": {
     "IntroField": "ProjectCode",
     "TitleField": "Name",
-    "sStatus": "ReferenceID",
+    "sStatus": "ID",
     "fStatus": "Status",
     "numberField": "TotalAmount",
-    "LFields": ["ID", "EmployeeID"],
+    "LFields": ["EmployeeID"],
     "numberUnitField": "Currency"
   },
   "ListBOTFields": {
     "None": ["cardImage", "StatusState"],
-    "Title": ["ReferenceID", "Name", "ProjectCode"],
+    "Title": ["ID", "Name", "ProjectCode"],
     "SubTitle": ["TotalAmount", "Status"],
-    "Description": ["ID", "EmployeeID"]
+    "Description": ["EmployeeID"]
   },
   "PossibleValues": [
     "Currency",

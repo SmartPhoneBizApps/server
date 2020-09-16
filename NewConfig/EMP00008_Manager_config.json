@@ -29,17 +29,17 @@
   "ListFields": {
     "IntroField": "ProjectCode",
     "TitleField": "Name",
-    "sStatus": "ReferenceID",
+    "sStatus": "ID",
     "fStatus": "Status",
     "numberField": "TotalAmount",
-    "LFields": ["ID", "EmployeeID"],
+    "LFields": ["EmployeeID"],
     "numberUnitField": "Currency"
   },
   "ListBOTFields": {
     "None": ["cardImage", "StatusState"],
-    "Title": ["ReferenceID", "Name", "ProjectCode"],
+    "Title": ["ID", "Name", "ProjectCode"],
     "SubTitle": ["TotalAmount", "Status"],
-    "Description": ["ID", "EmployeeID"]
+    "Description": ["EmployeeID"]
   },
   "PossibleValues": [
     "Currency",
@@ -264,7 +264,7 @@
           "width": "10",
           "SLabel": "ItemNumber",
           "Option": "Optional",
-          "adaptiveCard":"Additional",
+          "adaptiveCard": "Additional",
           "Update": "No"
         },
         {
@@ -273,7 +273,7 @@
           "width": "10",
           "SLabel": "Expense Date",
           "Option": "Mandatory",
-          "adaptiveCard":"Main",
+          "adaptiveCard": "Main",
           "Update": "Yes"
         },
         {
@@ -282,7 +282,7 @@
           "width": "20",
           "SLabel": "Expense Amount",
           "Option": "Mandatory",
-          "adaptiveCard":"Main",
+          "adaptiveCard": "Main",
           "Update": "Yes"
         },
         {
@@ -299,7 +299,7 @@
           "width": "50",
           "SLabel": "Expense Type",
           "Option": "Optional",
-          "adaptiveCard":"Additional",
+          "adaptiveCard": "Additional",
           "Update": "Yes"
         },
         {
@@ -316,7 +316,7 @@
           "width": "1000",
           "SLabel": "Comment",
           "Option": "Optional",
-          "adaptiveCard":"Additional",
+          "adaptiveCard": "Additional",
           "Update": "Yes"
         },
         {
@@ -325,7 +325,7 @@
           "width": "10",
           "SLabel": "Item Currency",
           "Option": "Optional",
-          "adaptiveCard":"Additional",
+          "adaptiveCard": "Additional",
           "Update": "No"
         },
         {
@@ -334,7 +334,7 @@
           "width": "50",
           "SLabel": "Item Status",
           "Option": "Optional",
-          "adaptiveCard":"Additional",
+          "adaptiveCard": "Additional",
           "Update": "Yes"
         },
         {
@@ -343,7 +343,7 @@
           "width": "100",
           "SLabel": "Item Attachment",
           "Option": "Optional",
-          "adaptiveCard":"Additional",
+          "adaptiveCard": "Additional",
           "Update": "Yes"
         }
       ],
@@ -729,7 +729,7 @@
       "type": "string",
       "width": "20",
       "Option": "Mandatory",
-      "adaptiveCard":"Main",
+      "adaptiveCard": "Main",
       "SLabel": "Identification",
       "Update": "No"
     },
@@ -738,7 +738,7 @@
       "type": "string",
       "width": "20",
       "Option": "Mandatory",
-      "adaptiveCard":"Main",
+      "adaptiveCard": "Main",
       "SLabel": "ReferenceID"
     },
     {
@@ -746,7 +746,7 @@
       "type": "string",
       "width": "20",
       "Option": "Mandatory",
-      "adaptiveCard":"Main",
+      "adaptiveCard": "Main",
       "SLabel": "Employee Code"
     },
     {
@@ -754,7 +754,7 @@
       "type": "string",
       "width": "50",
       "Option": "Optional",
-      "adaptiveCard":"Additional",
+      "adaptiveCard": "Additional",
       "SLabel": "Employee Name"
     },
     {
@@ -762,7 +762,7 @@
       "type": "string",
       "width": "20",
       "Option": "Optional",
-      "adaptiveCard":"Additional",
+      "adaptiveCard": "Additional",
       "SLabel": "Expense Amount"
     },
     {
@@ -770,7 +770,7 @@
       "type": "string",
       "width": "10",
       "Option": "Mandatory",
-      "adaptiveCard":"Main",
+      "adaptiveCard": "Main",
       "SLabel": "Currency"
     },
     {
@@ -778,7 +778,7 @@
       "type": "Date",
       "width": "10",
       "Option": "Mandatory",
-      "adaptiveCard":"Main",
+      "adaptiveCard": "Main",
       "SLabel": "Entry Date"
     },
     {
@@ -786,7 +786,7 @@
       "type": "Date",
       "width": "10",
       "Option": "Mandatory",
-      "adaptiveCard":"Main",
+      "adaptiveCard": "Main",
       "SLabel": "Expense Start Date"
     },
     {
@@ -794,7 +794,7 @@
       "type": "Date",
       "width": "10",
       "Option": "Mandatory",
-      "adaptiveCard":"Main",
+      "adaptiveCard": "Main",
       "SLabel": "Expense End Date"
     },
     {
@@ -802,7 +802,7 @@
       "type": "string",
       "width": "50",
       "Option": "Mandatory",
-      "adaptiveCard":"Main",
+      "adaptiveCard": "Main",
       "SLabel": "Project Code"
     },
     {
@@ -810,7 +810,7 @@
       "type": "string",
       "width": "50",
       "Option": "Mandatory",
-      "adaptiveCard":"Main",
+      "adaptiveCard": "Main",
       "SLabel": "Cost Centre"
     },
     {
@@ -819,7 +819,7 @@
       "metadata": "MultipleFields",
       "width": "200",
       "Option": "Optional",
-      "adaptiveCard":"None",
+      "adaptiveCard": "None",
       "SLabel": "MultiAttachments",
       "LLabel": "MultiAttachments"
     },
@@ -829,7 +829,7 @@
       "type": "string",
       "width": "50",
       "Option": "Mandatory",
-      "adaptiveCard":"Main",
+      "adaptiveCard": "Main",
       "SLabel": "Status",
       "LLabel": "Status"
     },
@@ -838,7 +838,7 @@
       "type": "string",
       "width": "200",
       "Option": "Optional",
-      "adaptiveCard":"None",
+      "adaptiveCard": "None",
       "SLabel": "Search String",
       "LLabel": "Search String"
     },
@@ -847,7 +847,7 @@
       "type": "string",
       "width": "1000",
       "Option": "Optional",
-      "adaptiveCard":"None",
+      "adaptiveCard": "None",
       "SLabel": "ProgressComment",
       "LLabel": "ProgressComment"
     },
@@ -856,7 +856,7 @@
       "type": "string",
       "width": "1000",
       "Option": "Optional",
-      "adaptiveCard":"Additional",
+      "adaptiveCard": "Additional",
       "SLabel": "Processing Log",
       "LLabel": "Processing Log"
     },
@@ -865,7 +865,7 @@
       "type": "Array",
       "width": "200",
       "Option": "Optional",
-      "adaptiveCard":"None",
+      "adaptiveCard": "None",
       "SLabel": "myExpenses",
       "LLabel": "myExpenses"
     },
@@ -874,7 +874,7 @@
       "type": "string",
       "width": "20",
       "Option": "Optional",
-      "adaptiveCard":"Additional",
+      "adaptiveCard": "Additional",
       "SLabel": "Validation",
       "LLabel": "Validation"
     }
