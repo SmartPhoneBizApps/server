@@ -60,7 +60,22 @@
       "URL": "https://www.messenger.com/t/295020207695029"
     },
     { "type": "ADD", "name": "Add Record", "icon": "sap-icon://add" },
-    { "type": "UPLOAD", "name": "Upload Record", "icon": "sap-icon://upload" }
+    {
+      "type": "UPLOAD",
+      "name": "Upload Record",
+      "icon": "sap-icon://upload",
+      "Option": ["Header"],
+      "ItemOptions": [],
+      "URL": "datarecords/",
+      "URLMethodHDR": "POST",
+      "URLMethodTable": "PUT",
+      "dataFields": "FieldName",
+      "key": {
+        "ID": "External",
+        "generateID": [],
+        "seperator": "-"
+      }
+    }
   ],
   "DButtons": [
     {
@@ -197,7 +212,7 @@
       "type": "string",
       "width": "20",
       "Option": "Mandatory",
-      "adaptiveCard":"Main",
+      "adaptiveCard": "Main",
       "SLabel": "Identification",
       "Update": "No"
     },
@@ -206,7 +221,7 @@
       "type": "string",
       "width": "20",
       "Option": "Optional",
-      "adaptiveCard":"Additional",
+      "adaptiveCard": "Additional",
       "SLabel": "ReferenceID"
     },
     {
@@ -214,7 +229,7 @@
       "type": "string",
       "width": "50",
       "Option": "Mandatory",
-      "adaptiveCard":"Main",
+      "adaptiveCard": "Main",
       "SLabel": "Employee Name",
       "LLabel": "Employee Name"
     },
@@ -223,7 +238,7 @@
       "type": "string",
       "width": "50",
       "Option": "Mandatory",
-      "adaptiveCard":"None",
+      "adaptiveCard": "None",
       "SLabel": "Employee Code",
       "LLabel": "Employee Code"
     },
@@ -232,7 +247,7 @@
       "type": "Date",
       "width": "10",
       "Option": "Mandatory",
-      "adaptiveCard":"Main",
+      "adaptiveCard": "Main",
       "SLabel": "Timesheet start date",
       "LLabel": "Timesheet start date"
     },
@@ -241,7 +256,7 @@
       "type": "Date",
       "width": "10",
       "Option": "Mandatory",
-      "adaptiveCard":"Main",
+      "adaptiveCard": "Main",
       "SLabel": "Timesheet end date",
       "LLabel": "Timesheet end date"
     },
@@ -250,7 +265,7 @@
       "type": "Num,1",
       "width": "20",
       "Option": "Optional",
-      "adaptiveCard":"Additional",
+      "adaptiveCard": "Additional",
       "SLabel": "Total Regular Work Hours",
       "LLabel": "Total Work Hours"
     },
@@ -259,7 +274,7 @@
       "type": "Num,2",
       "width": "50",
       "Option": "Mandatory",
-      "adaptiveCard":"None",
+      "adaptiveCard": "None",
       "SLabel": "Hourly Rate",
       "LLabel": "Hourly Rate"
     },
@@ -268,7 +283,7 @@
       "type": "Num,2",
       "width": "50",
       "Option": "Optional",
-      "adaptiveCard":"Additional",
+      "adaptiveCard": "Additional",
       "SLabel": "Regular Amount",
       "LLabel": "Regular Amount"
     },
@@ -277,7 +292,7 @@
       "type": "Num,2",
       "width": "50",
       "Option": "Optional",
-      "adaptiveCard":"Additional",
+      "adaptiveCard": "Additional",
       "SLabel": "Total Overtime Hours",
       "LLabel": "Total Overtime Hours"
     },
@@ -286,7 +301,7 @@
       "type": "Num,2",
       "width": "50",
       "Option": "Mandatory",
-      "adaptiveCard":"None",
+      "adaptiveCard": "None",
       "SLabel": "Overtime Rate",
       "LLabel": "Overtime Rate"
     },
@@ -295,7 +310,7 @@
       "type": "Num,2",
       "width": "50",
       "Option": "Optional",
-      "adaptiveCard":"Additional",
+      "adaptiveCard": "Additional",
       "SLabel": "Overtime Amount",
       "LLabel": "Overtime Amount"
     },
@@ -304,7 +319,7 @@
       "type": "Num,2",
       "width": "50",
       "Option": "Optional",
-      "adaptiveCard":"Additional",
+      "adaptiveCard": "Additional",
       "SLabel": "Net Amount",
       "LLabel": "NetAmount"
     },
@@ -313,7 +328,7 @@
       "type": "Num,2",
       "width": "50",
       "Option": "Mandatory",
-      "adaptiveCard":"None",
+      "adaptiveCard": "None",
       "SLabel": "VAT Rate",
       "LLabel": "VATRate"
     },
@@ -322,7 +337,7 @@
       "type": "Num,2",
       "width": "50",
       "Option": "Optional",
-      "adaptiveCard":"Additional",
+      "adaptiveCard": "Additional",
       "SLabel": "VAT Amount",
       "LLabel": "VATAmount"
     },
@@ -331,7 +346,7 @@
       "type": "Num,2",
       "width": "50",
       "Option": "Optional",
-      "adaptiveCard":"Additional",
+      "adaptiveCard": "Additional",
       "SLabel": "Gross Amount",
       "LLabel": "Gross Amount"
     },
@@ -340,7 +355,7 @@
       "type": "Array",
       "width": "200",
       "Option": "Optional",
-      "adaptiveCard":"None",
+      "adaptiveCard": "None",
       "SLabel": "myTime",
       "LLabel": "myTime"
     },
@@ -349,7 +364,7 @@
       "type": "string",
       "width": "20",
       "Option": "Mandatory",
-      "adaptiveCard":"Main",
+      "adaptiveCard": "Main",
       "SLabel": "Timesheet Status",
       "LLabel": "Status"
     },
@@ -358,7 +373,7 @@
       "type": "Num,2",
       "width": "20",
       "Option": "Optional",
-      "adaptiveCard":"Additional",
+      "adaptiveCard": "Additional",
       "SLabel": "VAT Percentage",
       "LLabel": "VAT Percentage"
     },
@@ -367,7 +382,7 @@
       "type": "string",
       "width": "1000",
       "Option": "Optional",
-      "adaptiveCard":"Additional",
+      "adaptiveCard": "Additional",
       "SLabel": "Processing Log",
       "LLabel": "ProcessingLog"
     },
@@ -376,7 +391,7 @@
       "type": "string",
       "width": "50",
       "Option": "Optional",
-      "adaptiveCard":"Additional",
+      "adaptiveCard": "Additional",
       "SLabel": "Approver",
       "LLabel": "Approver"
     },
@@ -385,7 +400,7 @@
       "type": "string",
       "width": "1000",
       "Option": "Optional",
-      "adaptiveCard":"None",
+      "adaptiveCard": "None",
       "SLabel": "ProgressComment",
       "LLabel": "ProgressComment"
     },
@@ -394,7 +409,7 @@
       "type": "attachment",
       "width": "200",
       "Option": "Optional",
-      "adaptiveCard":"Additional",
+      "adaptiveCard": "Additional",
       "SLabel": "Attachments",
       "LLabel": "Attachments"
     }
@@ -442,7 +457,7 @@
           "width": "10",
           "SLabel": "ItemNumber",
           "Option": "Optional",
-          "adaptiveCard":"Additional",
+          "adaptiveCard": "Additional",
           "Update": "Yes"
         },
 
@@ -452,7 +467,7 @@
           "width": "50",
           "SLabel": "Project Code",
           "Option": "Mandatory",
-          "adaptiveCard":"Main",
+          "adaptiveCard": "Main",
           "Update": "Yes"
         },
         {
@@ -461,7 +476,7 @@
           "width": "10",
           "SLabel": "Timesheet Date",
           "Option": "Mandatory",
-          "adaptiveCard":"Main",
+          "adaptiveCard": "Main",
           "Update": "Yes"
         },
         {
@@ -470,7 +485,7 @@
           "width": "50",
           "SLabel": "Regular work hours",
           "Option": "Mandatory",
-          "adaptiveCard":"Main",
+          "adaptiveCard": "Main",
           "Update": "Yes"
         },
         {
@@ -479,7 +494,7 @@
           "width": "50",
           "SLabel": "Overtime Hours",
           "Option": "Optional",
-          "adaptiveCard":"Additional",
+          "adaptiveCard": "Additional",
           "Update": "Yes"
         },
         {
@@ -488,7 +503,7 @@
           "width": "50",
           "SLabel": "Total Hours",
           "Option": "Optional",
-          "adaptiveCard":"Additional",
+          "adaptiveCard": "Additional",
           "Update": "No"
         },
         {

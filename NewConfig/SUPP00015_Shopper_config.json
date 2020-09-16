@@ -41,6 +41,7 @@
     "Professionalism",
     "Courtesy",
     "Friendliness",
+    "PresentationOfNewProductsAndPackage",
     "TimelinessOfDeliveries",
     "ConditionOfDeliveredProduct",
     "AccuracyOfOrderFill",
@@ -50,29 +51,67 @@
     "DiscountingPolicies",
     "ClarityOfPriceListInformation",
     "SeeSalesRepresentative",
+    "OverallServicePerformanceCompareToLastYear",
     "FurtherComments",
     "OverallRating",
     "Status"
   ],
-  "MButtons": [],
-  "DButtons": [],
+  "MButtons": [
+    {
+      "type": "DOWNLOAD",
+      "name": "Download File",
+      "icon": "sap-icon://download"
+    },
+    {
+      "type": "APPHELP",
+      "name": "Get App Help",
+      "icon": "sap-icon://sys-help-2"
+    },
+    {
+      "type": "OPENURL",
+      "name": "Launch BOT",
+      "icon": "sap-icon://travel-request",
+      "URL": "https://www.messenger.com/t/295020207695029"
+    },
+
+    { "type": "ADD", "name": "Add Record", "icon": "sap-icon://add" },
+    {
+      "type": "UPLOAD",
+      "name": "Upload Record",
+      "icon": "sap-icon://upload",
+      "Option": ["Header"],
+      "ItemOptions": [],
+      "URL": "datarecords/",
+      "URLMethodHDR": "POST",
+      "URLMethodTable": "PUT",
+      "dataFields": "FieldName",
+      "key": {
+        "ID": "External",
+        "generateID": [],
+        "seperator": "-"
+      }
+    }
+  ],
+  "DButtons": [
+    { "type": "ADD", "name": "Add Record", "icon": "sap-icon://add" }
+  ],
   "Tabs": [
-{
-    "value": "Tab0",
-    "style": "SAP",
-    "update": "No",
-    "name": "Cards",
-    "type": "Cards",
-    "fioriicon": "responsive"
-  },
-  {
-    "value": "Tab20",
-    "style": "SAP",
-    "update": "No",
-    "name": "Charts",
-    "type": "Charts",
-    "fioriicon": "business-objects-experience"
-  },
+    {
+      "value": "Tab0",
+      "style": "SAP",
+      "update": "No",
+      "name": "Cards",
+      "type": "Cards",
+      "fioriicon": "responsive"
+    },
+    {
+      "value": "Tab20",
+      "style": "SAP",
+      "update": "No",
+      "name": "Charts",
+      "type": "Charts",
+      "fioriicon": "business-objects-experience"
+    },
     {
       "value": "Tab1",
       "style": "SAP",
@@ -104,7 +143,7 @@
     "headerImage": ["USP_Image"],
     "headerColorFields": ["Status"],
     "Tab0": ["data"],
-    "Tab20":["charts"],
+    "Tab20": ["charts"],
     "None": ["ID", "SupplierID", "SupplierName"],
     "Tab1": ["SurveyDate", "Customer", "Assesse", "Phone", "Email", "Assessor"],
     "Tab2": [
@@ -114,6 +153,7 @@
       "Professionalism",
       "Courtesy",
       "Friendliness",
+      "PresentationOfNewProductsAndPackage",
       "TimelinessOfDeliveries",
       "ConditionOfDeliveredProduct"
     ],
@@ -125,6 +165,7 @@
       "DiscountingPolicies",
       "ClarityOfPriceListInformation",
       "SeeSalesRepresentative",
+      "OverallServicePerformanceCompareToLastYear",
       "FurtherComments",
       "OverallRating"
     ]
@@ -136,7 +177,7 @@
       "type": "string",
       "width": "20",
       "Option": "Mandatory",
-      "adaptiveCard":"Main",
+      "adaptiveCard": "Main",
       "SLabel": ""
     },
     {
@@ -144,7 +185,7 @@
       "type": "string",
       "width": "20",
       "Option": "Optional",
-      "adaptiveCard":"Additional",
+      "adaptiveCard": "Additional",
       "SLabel": "ReferenceID"
     },
     { "name": "SupplierID", "type": "string", "width": "50" },
@@ -161,6 +202,14 @@
     { "name": "Professionalism", "type": "string", "width": "50" },
     { "name": "Courtesy", "type": "string", "width": "50" },
     { "name": "Friendliness", "type": "string", "width": "50" },
+    {
+      "name": "PresentationOfNewProductsAndPackage",
+      "type": "string",
+      "width": "50",
+      "Option": "Optional",
+      "adaptiveCard": "Additional",
+      "SLabel": ""
+    },
     { "name": "TimelinessOfDeliveries", "type": "string", "width": "50" },
     { "name": "ConditionOfDeliveredProduct", "type": "string", "width": "50" },
     { "name": "AccuracyOfOrderFill", "type": "string", "width": "50" },
@@ -174,33 +223,22 @@
       "width": "50"
     },
     { "name": "SeeSalesRepresentative", "type": "string", "width": "50" },
+    {
+      "name": "OverallServicePerformanceCompareToLastYear",
+      "type": "string",
+      "width": "50"
+    },
     { "name": "FurtherComments", "type": "string", "width": "50" },
-    { "name": "OverallRating", "type": "string", "width": "50" },
+    { "name": "OverallRating", "type": "rating,5", "width": "50" },
     { "name": "Status", "type": "string", "SLabel": "Status", "width": "50" },
     {
       "name": "SearchString",
       "type": "string",
       "width": "200",
-      "Option": "Optional",
-      "adaptiveCard":"None",
+      "Option": "Mandatory",
+      "adaptiveCard": "None",
       "SLabel": "Search String",
       "LLabel": "Search String"
-    },
-    {
-      "name": "PresentationOfNewProductsAndPackage",
-      "type": "string",
-      "width": "100",
-      "Option": "Optional",
-      "adaptiveCard":"Additional",
-      "SLabel": ""
-    },
-    {
-      "name": "OverallServicePerformanceCompareToLastYear",
-      "type": "string",
-      "width": "100",
-      "Option": "Optional",
-      "adaptiveCard":"Additional",
-      "SLabel": ""
     }
   ],
   "itemData": "No",
@@ -217,6 +255,111 @@
     "ItemDetails": []
   },
   "CalculatedFields": {},
-  "Create": "No",
-  "Wizard": []
+  "Create": "Yes",
+  "Wizard": [
+    {
+      "id": "Step1",
+      "fields": [
+        { "name": "SupplierID", "Mode": "Edit" },
+        { "name": "SupplierName", "Mode": "Edit" },
+        { "name": "SurveyDate", "Mode": "Edit" }
+      ],
+      "name": "Supplier Details",
+      "stepType": "FieldList",
+      "intro": "Supplier Performance : Supplier Details"
+    },
+    {
+      "id": "Step2",
+      "fields": [
+        { "name": "Phone", "Mode": "Edit" },
+        { "name": "SeeSalesRepresentative", "Mode": "Edit" },
+        { "name": "Email", "Mode": "Edit" },
+        { "name": "Assessor", "Mode": "Edit" },
+        { "name": "Assesse", "Mode": "Edit" }
+      ],
+      "name": "Contact Details",
+      "stepType": "FieldList",
+      "intro": "Supplier Performance : Contact Details"
+    },
+    {
+      "id": "Step3",
+      "fields": [
+        {
+          "name": "ClarityOfPriceListInformation",
+
+          "Mode": "Edit"
+        },
+        {
+          "name": "ConditionOfDeliveredProduct",
+
+          "Mode": "Edit"
+        },
+        { "name": "DiscountingPolicies", "Mode": "Edit" },
+        { "name": "Friendliness", "Mode": "Edit" },
+        {
+          "name": "PresentationOfNewProductsAndPackage",
+
+          "Mode": "Edit"
+        },
+        { "name": "Professionalism", "Mode": "Edit" },
+        { "name": "PromotionalEffectiveness", "Mode": "Edit" },
+        { "name": "Responsiveness", "Mode": "Edit" },
+        { "name": "TimelinessOfDeliveries", "Mode": "Edit" },
+        { "name": "AbilityToSolveProblems", "Mode": "Edit" },
+        { "name": "DriverProfessionalism", "Mode": "Edit" },
+        { "name": "UnderstandingOfMyNeeds", "Mode": "Edit" }
+      ],
+      "name": "Survey Response",
+      "stepType": "FieldList",
+      "intro": "Supplier Performance : Survey Response"
+    },
+    {
+      "id": "Step4",
+      "fields": [{ "name": "FurtherComments", "Mode": "Edit" }],
+      "name": "Additional Details",
+      "stepType": "FieldList",
+      "intro": "Supplier Performance : Additional Details"
+    },
+    {
+      "id": "Step5",
+      "fields": [
+        { "name": "Customer", "Mode": "Edit" },
+        { "name": "Courtesy", "Mode": "Edit" }
+      ],
+      "name": "Customer Details",
+      "stepType": "FieldList",
+      "intro": "Supplier Performance : Customer Details"
+    },
+    {
+      "id": "Step6",
+      "fields": [
+        { "name": "AccuracyOfInvoices", "Mode": "Edit" },
+        { "name": "AccuracyOfOrderFill", "Mode": "Edit" }
+      ],
+      "name": "Fulfillment and Invoicing",
+      "stepType": "FieldList",
+      "intro": "Supplier Performance : Fulfillment and Invoicing"
+    },
+    {
+      "id": "Step7",
+      "fields": [
+        { "name": "OverallRating", "Mode": "Edit" },
+        {
+          "name": "OverallServicePerformanceCompareToLastYear",
+
+          "Mode": "Edit"
+        }
+      ],
+      "name": "Overall",
+      "stepType": "FieldList",
+      "intro": "Supplier Performance : Overall"
+    },
+    {
+      "id": "Step8",
+      "fields": [{ "name": "Status", "Mode": "Edit" }],
+      "name": "Admin",
+      "stepType": "FieldList",
+      "intro": "Supplier Performance : Admin"
+    }
+  ]
 }
