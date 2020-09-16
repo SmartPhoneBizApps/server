@@ -6,7 +6,7 @@
     "USP": "UserProfile",
     "StatusColor": "Yes",
     "SearchString": { "Search": false },
-    "Filters": [],
+    "Filters": [{ "myHCPHCO.Email": "@user" }],
     "Partner": "@user",
     "UserSpecific": "Yes",
     "Update": "Yes",
@@ -1130,71 +1130,6 @@
     "ItemDetails": []
   },
   "CalculatedFields": { "Item": [], "HeaderItem": [], "Header": [] },
-  "Create": "Yes",
-  "Wizard": [
-    {
-      "id": "Step1",
-      "fields": [
-        { "name": "EventType", "Mode": "Edit" },
-        { "name": "EventID", "Mode": "Edit" },
-        { "name": "EventName", "Mode": "Edit" },
-        { "name": "EventLink", "Mode": "Edit" },
-        { "name": "Budget", "Mode": "Edit" }
-      ],
-      "name": "Event Details",
-      "stepType": "FieldList",
-      "intro": "Event   : Event Details"
-    },
-
-    {
-      "id": "Step3",
-      "fields": [
-        { "name": "EventStartDate", "Mode": "Edit" },
-        { "name": "Time", "Mode": "Edit" },
-        { "name": "Duration", "Mode": "Edit" }
-      ],
-      "name": "Dates",
-      "stepType": "FieldList",
-      "intro": "Event   : Dates"
-    },
-    {
-      "id": "Step4",
-      "fields": [{ "name": "MultiAttachments", "Mode": "Edit" }],
-      "name": "MultiAttachments",
-      "stepType": "Attachments",
-      "intro": "Event : Attachments",
-      "attachmentAttribute": {
-        "applicationid": "{applicationid}",
-        "businessrole": "{businessrole}",
-        "mode": "File",
-        "type": "NewUpload",
-        "text": "docType,Receipt,Success"
-      }
-    },
-    {
-      "id": "Step5",
-      "fields": [
-        { "name": "PharmaContact", "Mode": "Edit" },
-        { "name": "PharmaContactEmail", "Mode": "Edit" }
-      ],
-      "name": "Pharma Company",
-      "stepType": "FieldList",
-      "intro": "Event : Pharma Contact"
-    },
-    {
-      "id": "Step6",
-      "fields": [{ "name": "Agenda", "Mode": "Edit" }],
-      "name": "Agenda",
-      "stepType": "table",
-      "intro": "Event : Agenda",
-      "text": "docType,ItemAttachment,Information"
-    },
-    {
-      "id": "Step7",
-      "fields": [{ "name": "Status", "Mode": "Edit" }],
-      "name": "Cost Center",
-      "stepType": "FieldList",
-      "intro": "Event   : Status"
-    }
-  ]
+  "Create": "No",
+  "Wizard": []
 }

@@ -6,7 +6,7 @@
     "USP": "UserProfile",
     "StatusColor": "Yes",
     "SearchString": { "Search": false },
-    "Filters": [],
+    "Filters": [{ "myHCPHCO.Email": "@user" }],
     "Partner": "@user",
     "UserSpecific": "Yes",
     "Update": "Yes",
@@ -1195,69 +1195,6 @@
       }
     ]
   },
-  "Create": "Yes",
-  "Wizard": [
-    {
-      "id": "Step1",
-      "fields": [
-        { "name": "StudyType", "Mode": "Edit" },
-        { "name": "StudyID", "Mode": "Edit" },
-        { "name": "StudyName", "Mode": "Edit" },
-        { "name": "StudyLink", "Mode": "Edit" }
-      ],
-      "name": "Study Details",
-      "stepType": "FieldList",
-      "intro": "Study   : Study Details"
-    },
-
-    {
-      "id": "Step3",
-      "fields": [
-        { "name": "StudyStartDate", "Mode": "Edit" },
-        { "name": "Phase", "Mode": "Edit" }
-      ],
-      "name": "Dates",
-      "stepType": "FieldList",
-      "intro": "Study   : Dates"
-    },
-    {
-      "id": "Step4",
-      "fields": [{ "name": "MultiAttachments", "Mode": "Edit" }],
-      "name": "MultiAttachments",
-      "stepType": "Attachments",
-      "intro": "Study : Attachments",
-      "attachmentAttribute": {
-        "applicationid": "{applicationid}",
-        "businessrole": "{businessrole}",
-        "mode": "File",
-        "type": "NewUpload",
-        "text": "docType,Study,Success"
-      }
-    },
-    {
-      "id": "Step5",
-      "fields": [
-        { "name": "PharmaContact", "Mode": "Edit" },
-        { "name": "PharmaContactEmail", "Mode": "Edit" }
-      ],
-      "name": "Pharma Company",
-      "stepType": "FieldList",
-      "intro": "Study   : Pharma Contact"
-    },
-    {
-      "id": "Step6",
-      "fields": [{ "name": "Services", "Mode": "Edit" }],
-      "name": "Services",
-      "stepType": "table",
-      "intro": "Study : Services Entries",
-      "text": "docType,ItemAttachment,Information"
-    },
-    {
-      "id": "Step7",
-      "fields": [{ "name": "Status", "Mode": "Edit" }],
-      "name": "Cost Center",
-      "stepType": "FieldList",
-      "intro": "Study   : Status"
-    }
-  ]
+  "Create": "No",
+  "Wizard": []
 }
