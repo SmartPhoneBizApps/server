@@ -109,23 +109,25 @@ module.exports = {
   },
 
   getTotalCount: function (app, req, config1) {
-    let config = {};
+    //   let config = {};
     fl1 = {};
     fl2 = [];
-    let app2;
+    //    let app2;
     let model2;
 
     // Get Table Schema
     let path = "../models/smartApp/" + app;
     const model = require(path);
+    console.log("X1", path);
 
-    if (config1["itemData"] == "Yes") {
-      app2 = app + "_Itm";
-      let path = "../models/smartApp/" + app2;
-      model2 = require(path);
-    } else {
-      model2 = model;
-    }
+    // if (config1["itemData"] == "Yes") {
+    //   app2 = app + "_Itm";
+    //   let path = "../models/smartApp/" + app2;
+    //   model2 = require(path);
+    // } else {
+    //   model2 = model;
+    // }
+    model2 = model;
     let query;
     const reqQuery1 = { ...req.query };
     // Filters...
@@ -142,6 +144,7 @@ module.exports = {
     for (let x = 0; x < config1.Controls.Filters.length; x++) {
       for (const key in config1.Controls.Filters[x]) {
         if (config1.Controls.Filters[x].hasOwnProperty(key)) {
+          console.log("X1", key);
           switch (config1.Controls.Filters[x][key]) {
             case "@user":
               reqQuery1[key] = req.user.email;
@@ -155,7 +158,6 @@ module.exports = {
                 }
               }
               break;
-
             //     Status=ne|Complete
             default:
               reqQuery1[key] = config1.Controls.Filters[x][key];
@@ -164,6 +166,20 @@ module.exports = {
         }
       }
     }
+
+    for (const k1 in req.query) {
+      if (req.query.hasOwnProperty(k1)) {
+        var res = req.query[k1].split("|");
+        if (res.length > 1) {
+          tx = {};
+          tx["in"] = res;
+          reqQuery1[k1] = tx;
+        } else {
+          reqQuery1[k1] = res[0];
+        }
+      }
+    }
+
     const removeFields = ["select", "sort", "page", "limit"];
     removeFields.forEach((param) => delete reqQuery1[param]);
     reqQuery2 = {};
@@ -172,19 +188,20 @@ module.exports = {
     /// Split Header and Item Queries
     rn = {};
     for (const key in reqQuery1) {
-      var n = key.includes("ItemData");
-      if ((n == true) & (model !== model2)) {
-        const fList = key.split("_");
-        reqQuery2[fList[1]] = reqQuery1[key];
-        var r1 = reqQuery1[key].includes("ne"); // Add the logic for gt, lt etc...
-        if (r1 == true) {
-          rg01 = reqQuery1[key].split("|");
-          rn[rg01[0]] = rg01[1];
-          reqQuery2[fList[1]] = rn;
-        }
-      } else {
-        reqQuery[key] = reqQuery1[key];
-      }
+      console.log(key);
+      //  var n = key.includes("ItemData");
+      // if ((n == true) & (model !== model2)) {
+      //   const fList = key.split("_");
+      //   reqQuery2[fList[1]] = reqQuery1[key];
+      //   var r1 = reqQuery1[key].includes("ne"); // Add the logic for gt, lt etc...
+      //   if (r1 == true) {
+      //     rg01 = reqQuery1[key].split("|");
+      //     rn[rg01[0]] = rg01[1];
+      //     reqQuery2[fList[1]] = rn;
+      //   }
+      //   } else {
+      reqQuery[key] = reqQuery1[key];
+      //    }
     }
     // Create query string (Header)
     let queryStr = JSON.stringify(reqQuery);
@@ -256,7 +273,6 @@ module.exports = {
         }
       }
     }
-    //{"FirstName": /.*Atul.*/}
     for (const k1 in req.query) {
       if (req.query.hasOwnProperty(k1)) {
         var res = req.query[k1].split("|");
@@ -266,16 +282,6 @@ module.exports = {
           reqQuery1[k1] = tx;
         } else {
           reqQuery1[k1] = res[0];
-          // ///^bar$/i
-          // // reqQuery1[k1] = "/^" + res[0] + "$/i";
-          // res[0] = res[0].replace("%", "/.*");
-          // res[0] = res[0].replace("%", ".*/");
-          // ty = {};
-          // ty["$regex"] = res[0];
-          // console.log("Query", reqQuery1);
-          // var re = /\\"\$regex\\"/g;
-          // ty["$regex"] = ty["$regex"].replace(re, "$regex");
-          // reqQuery1[k1] = ty;
         }
       }
     }

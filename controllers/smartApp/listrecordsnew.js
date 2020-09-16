@@ -27,6 +27,7 @@ const asyncHandler = require("../../middleware/async");
 // @route     GET /api/v1/listrecords
 // @access    Private
 exports.listrecordsnew = asyncHandler(async (req, res, next) => {
+  console.log("API Call : /api/v1/listrecordsnew/");
   outStru = {};
   const applicationId = req.params.app;
   const businessrole = req.params.businessrole;
@@ -46,7 +47,7 @@ exports.listrecordsnew = asyncHandler(async (req, res, next) => {
   /// Possible values for Status..
   sPV = getPVField(applicationId, "Status");
   let statusPV = await sPV;
-  console.log("AGPVAL", pvappconfig, statusPV);
+
   // Initial values
   var ivalue = getInitialValues(applicationId, businessrole, req.user);
   let ival_out = [];
@@ -103,7 +104,7 @@ exports.listrecordsnew = asyncHandler(async (req, res, next) => {
     const page = parseInt(req.query.page, 10) || 1;
     const startIndex = (page - 1) * limit;
     const endIndex = page * limit;
-
+    console.log("Pagination:", startIndex, endIndex, page);
     // Pagination result
     const pagination = {};
     if (endIndex < tCount) {
@@ -156,8 +157,12 @@ exports.listrecordsnew = asyncHandler(async (req, res, next) => {
     let query_c = getTotalCount(applicationId, req, appconfig);
     let rec = await query_c;
     const count = rec.length;
+    console.log("Record Count :", count);
+
     let query = readData(applicationId, req, appconfig);
     let results = await query;
+    console.log("Result collected :");
+
     tabObj = {};
     tabArr = [];
     if (appconfig["Controls"]["SearchString"]["Search"] == true) {
@@ -214,6 +219,8 @@ exports.listrecordsnew = asyncHandler(async (req, res, next) => {
     /////////////////////////////////////////////////////////////////
     const limit = parseInt(req.query.limit, 10) || 25;
     // Pagination
+    console.log("Pagination Starts :", limit);
+
     const page = parseInt(req.query.page, 10) || 1;
     const startIndex = (page - 1) * limit;
     const endIndex = page * limit;
