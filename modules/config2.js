@@ -242,6 +242,7 @@ module.exports = {
     if (reqQuery1) {
       reqQuery1["company"] = req.user.company;
     }
+
     /// Initial values..
     var ivalue = getInitialValues(
       req.params.id,
@@ -273,6 +274,7 @@ module.exports = {
         }
       }
     }
+
     for (const k1 in req.query) {
       if (req.query.hasOwnProperty(k1)) {
         var res = req.query[k1].split("|");
@@ -285,7 +287,7 @@ module.exports = {
         }
       }
     }
-    console.log("Query", reqQuery1);
+
     const removeFields = ["select", "sort", "page", "limit"];
     removeFields.forEach((param) => delete reqQuery1[param]);
     reqQuery2 = {};
@@ -293,24 +295,8 @@ module.exports = {
     /////////////////////////////////////////////////////////////////
     /// Split Header and Item Queries
     rn = {};
-    for (const key in reqQuery1) {
-      // var n = key.includes("ItemData");
-      // if ((n == true) & (model !== model2)) {
-      //   const fList = key.split("_");
-      //   reqQuery2[fList[1]] = reqQuery1[key];
-      //   var r1 = reqQuery1[key].includes("ne"); // Add the logic for gt, lt etc...
-      //   if (r1 == true) {
-      //     rg01 = reqQuery1[key].split("|");
-      //     rn[rg01[0]] = rg01[1];
-      //     reqQuery2[fList[1]] = rn;
-      //   }
-      // } else {
-      reqQuery[key] = reqQuery1[key];
-      //    }
-    }
-
     // Create query string (Header)
-    let queryStr = JSON.stringify(reqQuery);
+    let queryStr = JSON.stringify(reqQuery1);
     // Create operators ($gt, $gte, etc)
     queryStr = queryStr.replace(
       /\b(gt|gte|lt|lte|in|regex|options)\b/g,
@@ -319,6 +305,7 @@ module.exports = {
     /////////////////////////////////////////////////////////////////
     // Finding resource
     query = model.find(JSON.parse(queryStr));
+
     let fields;
     if (req.headers.mode == "BOTList") {
       fields = lf.join(" ");

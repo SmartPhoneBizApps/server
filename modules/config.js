@@ -1018,7 +1018,6 @@ module.exports = {
       (match) => `$${match}`
     );
     filter = JSON.parse(queryStr);
-    console.log("myFilter", filter);
 
     grp = {};
     sn = {};
@@ -1054,9 +1053,7 @@ module.exports = {
     // Filters
     for (let x = 0; x < config1.Controls.Filters.length; x++) {
       for (const key in config1.Controls.Filters[x]) {
-        console.log("X1", config1.Controls.Filters[x]);
         if (config1.Controls.Filters[x].hasOwnProperty(key)) {
-          console.log("X1", config1.Controls.Filters[x]);
           switch (config1.Controls.Filters[x][key]) {
             case "@user":
               reqQuery[key] = req.user.email;
@@ -1090,10 +1087,9 @@ module.exports = {
         }
       }
     }
-    if (reqQuery) {
-      reqQuery["company"] = req.user.company;
-    }
-    console.log(reqQuery);
+    // if (reqQuery) {
+    //   reqQuery["company"] = req.user.company;
+    // }
     const removeFields = ["select", "sort", "page", "limit"];
     removeFields.forEach((param) => delete reqQuery[param]);
     reqQuery2 = {};
@@ -1106,10 +1102,8 @@ module.exports = {
       /\b(gt|gte|lt|lte|in|regex|options)\b/g,
       (match) => `$${match}`
     );
-    console.log("queryStr", queryStr);
     filter = {};
-    //  filter = JSON.parse(queryStr);
-    console.log("myFilter", filter);
+    filter = JSON.parse(queryStr);
     grp = {};
     sn = {};
 
@@ -1131,12 +1125,13 @@ module.exports = {
     const Model2 = require(path2);
     // Aggregate(SUM) from mongoDB
     c3 = Model2.aggregate([
-      { $match: filter },
+      {
+        $match: filter,
+      },
       { $group: { _id: ID, count: { $sum: 1 } } },
       // { $group: grp },
       { $sort: Sort },
     ]);
-    console.log("01", filter, "02", ID, "03", c3, "04", Sort);
     return c3;
   },
   // Business Application Modules....
@@ -1167,7 +1162,6 @@ module.exports = {
   findOneUpdateData: function (mdata, app) {
     let path = "../models/smartApp/" + app;
     const Model = require(path);
-    console.log(mdata.ID);
     result = Model.findOneAndUpdate({ ID: mdata.ID }, mdata, {
       new: true,
       runValidators: true,
@@ -1192,8 +1186,6 @@ module.exports = {
     //  const Model = require(path);
     //  result = Model.create(mydata);
     var request = require("request");
-    console.log("Posting Data", app, role, calculation, mydata);
-    console.log(authorization);
     var options = {
       method: "POST",
       url: "https://fierce-oasis-51455.herokuapp.com/api/v1/datarecords/",
