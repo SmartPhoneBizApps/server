@@ -294,19 +294,19 @@ module.exports = {
     /// Split Header and Item Queries
     rn = {};
     for (const key in reqQuery1) {
-      var n = key.includes("ItemData");
-      if ((n == true) & (model !== model2)) {
-        const fList = key.split("_");
-        reqQuery2[fList[1]] = reqQuery1[key];
-        var r1 = reqQuery1[key].includes("ne"); // Add the logic for gt, lt etc...
-        if (r1 == true) {
-          rg01 = reqQuery1[key].split("|");
-          rn[rg01[0]] = rg01[1];
-          reqQuery2[fList[1]] = rn;
-        }
-      } else {
-        reqQuery[key] = reqQuery1[key];
-      }
+      // var n = key.includes("ItemData");
+      // if ((n == true) & (model !== model2)) {
+      //   const fList = key.split("_");
+      //   reqQuery2[fList[1]] = reqQuery1[key];
+      //   var r1 = reqQuery1[key].includes("ne"); // Add the logic for gt, lt etc...
+      //   if (r1 == true) {
+      //     rg01 = reqQuery1[key].split("|");
+      //     rn[rg01[0]] = rg01[1];
+      //     reqQuery2[fList[1]] = rn;
+      //   }
+      // } else {
+      reqQuery[key] = reqQuery1[key];
+      //    }
     }
 
     // Create query string (Header)

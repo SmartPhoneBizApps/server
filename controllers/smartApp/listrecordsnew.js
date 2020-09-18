@@ -160,6 +160,7 @@ exports.listrecordsnew = asyncHandler(async (req, res, next) => {
     console.log("Record Count :", count);
 
     let query = readData(applicationId, req, appconfig);
+    console.log(query);
     let results = await query;
     console.log("Result collected :");
 

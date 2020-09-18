@@ -1,4 +1,4 @@
-const { getPVConfig, getPVQuery } = require("../../modules/config");
+const { aggregateCount } = require("../../modules/config");
 const { readData } = require("../../modules/config2");
 const asyncHandler = require("../../middleware/async");
 // @desc      Add record
@@ -6,6 +6,7 @@ const asyncHandler = require("../../middleware/async");
 // @access    Private
 exports.dataFilters = asyncHandler(async (req, res, next) => {
   let xObject = {};
+
   // Read Config File...
   let fn1 =
     "../../NewConfig/" +
@@ -28,6 +29,16 @@ exports.dataFilters = asyncHandler(async (req, res, next) => {
     let filter = config1["Controls"]["filterFields"]["header"];
     var set = new Set();
     // Collect the keys
+    filterVal = {};
+    filterData = [];
+    for (let x = 0; x < filter.length; x++) {
+      aggCount = await aggregateCount(req, filter[x], "Descending", config1);
+      filterVal[filter[x]] = aggCount;
+
+      //   filterData.push({ ...filterVal });
+      //   filterVal = {};
+    }
+    console.log(filterData);
     for (let x = 0; x < filter.length; x++) {
       for (let y = 0; y < results.length; y++) {
         if (results[y][filter[x]] !== undefined) {
@@ -82,6 +93,7 @@ exports.dataFilters = asyncHandler(async (req, res, next) => {
 
   res.status(200).json({
     success: true,
-    data: xObject,
+    data2: xObject,
+    data: filterVal,
   });
 });

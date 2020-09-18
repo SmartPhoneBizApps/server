@@ -122,6 +122,7 @@ app.use("/api/v1/userapps", require("./routes/appSetup/userapps"));
 //  ----------  ***** BUSINESS DATA *****  ----------
 //  -------------------------------------------------
 // Listing of Data Records with Config Data
+app.use("/api/v1/test", require("./routes/smartApp/test"));
 app.use("/api/v1/deletedata", require("./routes/smartApp/deleteRecord"));
 app.use("/api/v1/deleteall", require("./routes/smartApp/deleteAll"));
 app.use("/api/v1/listrecords", require("./routes/smartApp/listrecords"));
