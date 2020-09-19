@@ -5,7 +5,13 @@ const Approle = require("../../models/appSetup/Approle");
 const Role = require("../../models/appSetup/Role");
 const User = require("../../models/access/User");
 const App = require("../../models/appSetup/App");
-const { readData, getTotalCount, nConfig } = require("../../modules/config2");
+const {
+  readData,
+  getTotalCount,
+  nConfig,
+  tileCount,
+} = require("../../modules/config2");
+const { getInitialValues } = require("../../modules/config");
 
 // @desc      Get all approles
 // @route     GET /api/v1/userapps
@@ -44,6 +50,25 @@ exports.getUserapps = asyncHandler(async (req, res, next) => {
   };
   X1 = {};
   r = 0;
+  // c4 = await User.aggregate([
+  //   { $unwind: "$bRole" },
+  //   {
+  //     $lookup: {
+  //       from: "Approle",
+  //       localField: "bRole",
+  //       foreignField: "role",
+  //       as: "businessRoles1",
+  //     },
+  //   },
+  //   //   { $unwind: "$businessRoles1" },
+  //   {
+  //     $group: {
+  //       _id: "$role",
+  //       bRole: { $push: "$bRole" },
+  //       businessRoles1: { $push: "$businessRoles1" },
+  //     },
+  //   },
+  // ]);
   // let path = "https://fierce-oasis-51455.herokuapp.com/appImages/";
   let path = process.env.APPURL + "appImages/";
   for (i = 0; i < userX.businessRoles.length; i++) {
@@ -122,23 +147,38 @@ exports.getUserapps = asyncHandler(async (req, res, next) => {
           approleX.role +
           "_config.json";
         var config1 = require(fn1);
-        // Get total Count
-        let query_c = getTotalCount(
+
+        /// Initial values..
+
+        var ivalue = getInitialValues(
           approleX.Apps[j].applicationID,
-          req,
-          config1
+          approleX.role,
+          req.user
         );
-        let rec = await query_c;
-        let count = rec.length;
-        appTemp["count"] = count;
+        // Get total Count
+        tCount = await tileCount(
+          req,
+          approleX.Apps[j].applicationID,
+          config1,
+          ivalue
+        );
+        appTemp["count"] = tCount;
+
+        // let query_c = getTotalCount(
+        //   approleX.Apps[j].applicationID,
+        //   req,
+        //   config1
+        // );
+
+        // let rec = await query_c;
+        // let count = rec.length;
+        // appTemp["count"] = count;
         /////////////////////////
-        
 
         if (approleX.Apps[j] == undefined) {
           appTemp["Type"] = "MasterDetail";
           approleX.Apps[j].type = "masterList";
         }
-        console.log(approleX.Apps[j].type, approleX.Apps[j].applicationID)
         if (
           approleX.Apps[j].type == "filterData" ||
           approleX.Apps[j].type == "FilterData"

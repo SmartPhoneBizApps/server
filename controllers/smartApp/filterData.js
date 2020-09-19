@@ -4,7 +4,6 @@ const {
   getPVQuery,
   getInitialValues,
   getDateValues,
-  findOneApp,
   getNewConfig,
   getPVField,
 } = require("../../modules/config");
@@ -26,7 +25,6 @@ exports.filterData = asyncHandler(async (req, res, next) => {
   var ivalue = getInitialValues(applicationId, businessrole, req.user);
   let ival_out = [];
   let ival = {};
-  let out = {};
   for (let i = 0; i < ivalue.length; i++) {
     ival = {};
     const element = ivalue[i];

@@ -1,23 +1,14 @@
 const asyncHandler = require("../middleware/async");
 const Possval = require("../models/appSetup/Possval");
-//const ErrorResponse = require("../utils/errorResponse");
-//var button = require("../bot/Supplier_button.json");
-const Agent = require("../models/access/Agent");
-const App = require("../models/appSetup/App");
-const Role = require("../models/appSetup/Role");
-const User = require("../models/access/User");
 const {
   getBotListFields,
   getInitialValues,
   buildButtons,
   getNewConfig,
+  additionalFilters,
+  formatQuery,
+  replaceDefaults,
 } = require("./config");
-const fs = require("fs");
-const path = require("path");
-const utils = require("util");
-const puppeteer = require("puppeteer");
-const hb = require("handlebars");
-const readFile = utils.promisify(fs.readFile);
 const sendEmail = require("../utils/sendEmail");
 const sendEmail1 = require("../utils/sendEmailProd");
 var request = require("request");
@@ -109,109 +100,44 @@ module.exports = {
   },
 
   getTotalCount: function (app, req, config1) {
-    //   let config = {};
     fl1 = {};
     fl2 = [];
-    //    let app2;
-    let model2;
+    let query;
 
     // Get Table Schema
     let path = "../models/smartApp/" + app;
     const model = require(path);
-    console.log("X1", path);
 
-    // if (config1["itemData"] == "Yes") {
-    //   app2 = app + "_Itm";
-    //   let path = "../models/smartApp/" + app2;
-    //   model2 = require(path);
-    // } else {
-    //   model2 = model;
-    // }
-    model2 = model;
-    let query;
-    const reqQuery1 = { ...req.query };
+    // User Query Data
+    let reqQuery1 = { ...req.query };
+
     // Filters...
     if (reqQuery1) {
       reqQuery1["company"] = req.user.company;
     }
+
     /// Initial values..
-    var ivalue = getInitialValues(
-      req.params.id,
-      req.headers.businessrole,
-      req.user
-    );
-    // Filters
-    for (let x = 0; x < config1.Controls.Filters.length; x++) {
-      for (const key in config1.Controls.Filters[x]) {
-        if (config1.Controls.Filters[x].hasOwnProperty(key)) {
-          console.log("X1", key);
-          switch (config1.Controls.Filters[x][key]) {
-            case "@user":
-              reqQuery1[key] = req.user.email;
-              break;
-            case "@CostCentre":
-              for (let y = 0; y < ivalue.length; y++) {
-                for (const key in ivalue[y]) {
-                  if (ivalue[y]["Field"] == "CostCentre") {
-                    reqQuery1["CostCentre"] = ivalue[y]["Value"];
-                  }
-                }
-              }
-              break;
-            //     Status=ne|Complete
-            default:
-              reqQuery1[key] = config1.Controls.Filters[x][key];
-              break;
-          }
-        }
-      }
+    if (req.headers.businessrole != undefined) {
+      var ivalue = getInitialValues(
+        req.headers.applicationid,
+        req.headers.businessrole,
+        req.user
+      );
+    } else {
+      var ivalue = getInitialValues(
+        req.params.id,
+        req.headers.businessrole,
+        req.user
+      );
     }
-
-    for (const k1 in req.query) {
-      if (req.query.hasOwnProperty(k1)) {
-        var res = req.query[k1].split("|");
-        if (res.length > 1) {
-          tx = {};
-          tx["in"] = res;
-          reqQuery1[k1] = tx;
-        } else {
-          reqQuery1[k1] = res[0];
-        }
-      }
-    }
-
-    const removeFields = ["select", "sort", "page", "limit"];
-    removeFields.forEach((param) => delete reqQuery1[param]);
-    reqQuery2 = {};
-    reqQuery = {};
-    /////////////////////////////////////////////////////////////////
-    /// Split Header and Item Queries
-    rn = {};
-    for (const key in reqQuery1) {
-      console.log(key);
-      //  var n = key.includes("ItemData");
-      // if ((n == true) & (model !== model2)) {
-      //   const fList = key.split("_");
-      //   reqQuery2[fList[1]] = reqQuery1[key];
-      //   var r1 = reqQuery1[key].includes("ne"); // Add the logic for gt, lt etc...
-      //   if (r1 == true) {
-      //     rg01 = reqQuery1[key].split("|");
-      //     rn[rg01[0]] = rg01[1];
-      //     reqQuery2[fList[1]] = rn;
-      //   }
-      //   } else {
-      reqQuery[key] = reqQuery1[key];
-      //    }
-    }
-    // Create query string (Header)
-    let queryStr = JSON.stringify(reqQuery);
-    // Create operators ($gt, $gte, etc)
-    queryStr = queryStr.replace(
-      /\b(gt|gte|lt|lte|in)\b/g,
-      (match) => `$${match}`
-    );
+    // Format Query
+    reqQuery1 = replaceDefaults(req, reqQuery1, config1, ivalue);
+    reqQuery1 = additionalFilters(req, reqQuery1);
+    queryStr = formatQuery(reqQuery1);
     query = model.find(JSON.parse(queryStr));
     query = query.select("ID");
+
+    // Return the Query
     return query;
   },
   readData: function (app, req, config1) {
@@ -238,70 +164,82 @@ module.exports = {
     // Executing query
     ////////////////////////////////////////////////////////////////////////////////////////////////
     let query;
-    const reqQuery1 = { ...req.query };
+    let reqQuery1 = { ...req.query };
     if (reqQuery1) {
       reqQuery1["company"] = req.user.company;
     }
 
     /// Initial values..
-    var ivalue = getInitialValues(
-      req.params.id,
-      req.headers.businessrole,
-      req.user
-    );
+    if (req.headers.businessrole != undefined) {
+      var ivalue = getInitialValues(
+        req.headers.applicationid,
+        req.headers.businessrole,
+        req.user
+      );
+    } else {
+      var ivalue = getInitialValues(
+        req.params.id,
+        req.headers.businessrole,
+        req.user
+      );
+    }
+    // Format Query
+    reqQuery1 = replaceDefaults(req, reqQuery1, config1, ivalue);
+    reqQuery1 = additionalFilters(req, reqQuery1);
+    queryStr = formatQuery(reqQuery1);
     // Filters
-    for (let x = 0; x < config1.Controls.Filters.length; x++) {
-      for (const key in config1.Controls.Filters[x]) {
-        if (config1.Controls.Filters[x].hasOwnProperty(key)) {
-          switch (config1.Controls.Filters[x][key]) {
-            case "@user":
-              reqQuery1[key] = req.user.email;
-              break;
-            case "@CostCentre":
-              for (let y = 0; y < ivalue.length; y++) {
-                for (const key in ivalue[y]) {
-                  if (ivalue[y]["Field"] == "CostCentre") {
-                    reqQuery1["CostCentre"] = ivalue[y]["Value"];
-                  }
-                }
-              }
-              break;
-            //     Status=ne|Complete
-            default:
-              reqQuery1[key] = config1.Controls.Filters[x][key];
-              break;
-          }
-        }
-      }
-    }
+    // for (let x = 0; x < config1.Controls.Filters.length; x++) {
+    //   for (const key in config1.Controls.Filters[x]) {
+    //     if (config1.Controls.Filters[x].hasOwnProperty(key)) {
+    //       switch (config1.Controls.Filters[x][key]) {
+    //         case "@user":
+    //           reqQuery1[key] = req.user.email;
+    //           break;
+    //         case "@CostCentre":
+    //           for (let y = 0; y < ivalue.length; y++) {
+    //             for (const key in ivalue[y]) {
+    //               if (ivalue[y]["Field"] == "CostCentre") {
+    //                 reqQuery1["CostCentre"] = ivalue[y]["Value"];
+    //               }
+    //             }
+    //           }
+    //           break;
+    //         //     Status=ne|Complete
+    //         default:
+    //           reqQuery1[key] = config1.Controls.Filters[x][key];
+    //           break;
+    //       }
+    //     }
+    //   }
+    // }
 
-    for (const k1 in req.query) {
-      if (req.query.hasOwnProperty(k1)) {
-        var res = req.query[k1].split("|");
-        if (res.length > 1) {
-          tx = {};
-          tx["in"] = res;
-          reqQuery1[k1] = tx;
-        } else {
-          reqQuery1[k1] = res[0];
-        }
-      }
-    }
+    // for (const k1 in req.query) {
+    //   if (req.query.hasOwnProperty(k1)) {
+    //     var res = req.query[k1].split("|");
+    //     if (res.length > 1) {
+    //       tx = {};
+    //       tx["in"] = res;
+    //       reqQuery1[k1] = tx;
+    //     } else {
+    //       reqQuery1[k1] = res[0];
+    //     }
+    //   }
+    // }
 
-    const removeFields = ["select", "sort", "page", "limit"];
-    removeFields.forEach((param) => delete reqQuery1[param]);
-    reqQuery2 = {};
-    reqQuery = {};
-    /////////////////////////////////////////////////////////////////
-    /// Split Header and Item Queries
-    rn = {};
-    // Create query string (Header)
-    let queryStr = JSON.stringify(reqQuery1);
-    // Create operators ($gt, $gte, etc)
-    queryStr = queryStr.replace(
-      /\b(gt|gte|lt|lte|in|regex|options)\b/g,
-      (match) => `$${match}`
-    );
+    // const removeFields = ["select", "sort", "page", "limit"];
+    // removeFields.forEach((param) => delete reqQuery1[param]);
+    // reqQuery2 = {};
+    // reqQuery = {};
+    // /////////////////////////////////////////////////////////////////
+    // /// Split Header and Item Queries
+    // rn = {};
+    // // Create query string (Header)
+    // let queryStr = JSON.stringify(reqQuery1);
+    // // Create operators ($gt, $gte, etc)
+    // queryStr = queryStr.replace(
+    //   /\b(gt|gte|lt|lte|in|regex|options)\b/g,
+    //   (match) => `$${match}`
+    // );
     /////////////////////////////////////////////////////////////////
     // Finding resource
     query = model.find(JSON.parse(queryStr));
@@ -324,10 +262,8 @@ module.exports = {
     if (req.headers.mode == "BOTList") {
       query = query.select(fields);
     }
-
     return query;
   },
-
   nConfig: function (app, req, config1) {
     let config = {};
     // Get BOT List Fields
@@ -499,5 +435,143 @@ module.exports = {
       btn1 = [];
     }
     return buttonData1;
+  },
+  aggregateSum: function (req, IDx, Valuex, Sorting, config1, ivalue) {
+    let reqQuery = { ...req.query };
+    // Filters
+    //   queryStr = applyFilters(req, reqQuery, config1, ivalue);
+    reqQuery = replaceDefaults(req, reqQuery, config1, ivalue);
+    reqQuery = additionalFilters(req, reqQuery, config1, ivalue);
+    queryStr = formatQuery(reqQuery);
+    // console.log(reqQuery);
+
+    filter = {};
+    filter = JSON.parse(queryStr);
+
+    // Grouping..
+    ID = "$" + IDx;
+    Value = "$" + Valuex;
+
+    // Sorting..
+    Sort = {};
+    if (Sorting == "ascending" || Sorting == "Ascending") {
+      Sort["value"] = 1;
+    } else {
+      Sort["value"] = -1;
+    }
+
+    // Table Schema
+    let path2 = "../models/smartApp/" + req.headers.applicationid;
+    const Model2 = require(path2);
+
+    // Aggregate(SUM) from mongoDB
+    c3 = Model2.aggregate([
+      { $match: filter },
+      { $group: { _id: ID, total: { $sum: Value } } },
+      { $sort: Sort },
+    ]);
+    return c3;
+  },
+  aggregateCount: function (req, IDx, Sorting, config1, ivalue) {
+    let reqQuery = { ...req.query };
+    //   queryStr = applyFilters(req, reqQuery, config1, ivalue);
+    reqQuery = replaceDefaults(req, reqQuery, config1, ivalue);
+    reqQuery = additionalFilters(req, reqQuery, config1, ivalue);
+    queryStr = formatQuery(reqQuery);
+    // Filters
+    // if (config1 != undefined) {
+    //   if (config1.length > 0) {
+    //     for (let x = 0; x < config1.Controls.Filters.length; x++) {
+    //       for (const key in config1.Controls.Filters[x]) {
+    //         if (config1.Controls.Filters[x].hasOwnProperty(key)) {
+    //           switch (config1.Controls.Filters[x][key]) {
+    //             case "@user":
+    //               reqQuery[key] = req.user.email;
+    //               break;
+    //             case "@CostCentre":
+    //               for (let y = 0; y < ivalue.length; y++) {
+    //                 for (const key in ivalue[y]) {
+    //                   if (ivalue[y]["Field"] == "CostCentre") {
+    //                     reqQuery["CostCentre"] = ivalue[y]["Value"];
+    //                   }
+    //                 }
+    //               }
+    //               break;
+    //             //     Status=ne|Complete
+    //             default:
+    //               reqQuery[key] = config1.Controls.Filters[x][key];
+    //               break;
+    //           }
+    //         }
+    //       }
+    //     }
+    //   }
+    // }
+
+    // for (const k1 in req.query) {
+    //   if (req.query.hasOwnProperty(k1)) {
+    //     var res = req.query[k1].split("|");
+    //     if (res.length > 1) {
+    //       tx = {};
+    //       tx["in"] = res;
+    //       reqQuery[k1] = tx;
+    //     } else {
+    //       reqQuery[k1] = res[0];
+    //     }
+    //   }
+    // }
+    // if (reqQuery) {
+    //   reqQuery["company"] = req.user.company;
+    // }
+    // const removeFields = ["select", "sort", "page", "limit"];
+    // removeFields.forEach((param) => delete reqQuery[param]);
+
+    // let queryStr = JSON.stringify(reqQuery);
+    // // Create operators ($gt, $gte, etc)
+    // queryStr = queryStr.replace(
+    //   /\b(gt|gte|lt|lte|in|regex|options)\b/g,
+    //   (match) => `$${match}`
+    // );
+    filter = {};
+    filter = JSON.parse(queryStr);
+
+    // Grouping..
+    ID = "$" + IDx;
+
+    // Sorting..
+    Sort = {};
+    if (Sorting == "ascending" || Sorting == "Ascending") {
+      Sort["value"] = 1;
+    } else {
+      Sort["value"] = -1;
+    }
+
+    // Table Schema
+    let path2 = "../models/smartApp/" + req.headers.applicationid;
+    const Model2 = require(path2);
+
+    // Aggregate(SUM) from mongoDB
+    c3 = Model2.aggregate([
+      { $match: filter },
+      { $group: { _id: ID, count: { $sum: 1 } } },
+      { $sort: Sort },
+    ]);
+    return c3;
+  },
+  tileCount: function (req, app, config1, ivalue) {
+    let reqQuery = { ...req.query };
+    //   queryStr = applyFilters(req, reqQuery, config1, ivalue);
+    reqQuery = replaceDefaults(req, reqQuery, config1, ivalue);
+    reqQuery = additionalFilters(req, reqQuery, config1, ivalue);
+    queryStr = formatQuery(reqQuery);
+    filter = {};
+    filter = JSON.parse(queryStr);
+    // Table Schema
+    let path2 = "../models/smartApp/" + app;
+    const Model2 = require(path2);
+
+    c1 = Model2.countDocuments(filter);
+
+    return c1;
   },
 };
