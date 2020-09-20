@@ -500,6 +500,10 @@
             "status": { "state": "Good", "Condition": "LTE", "value": 24 },
             "details": "Service Type",
             "unit": "Count"
+          },
+          "cardValues": {
+            "@Value1": "Commutative",
+            "@Value2": "Count"
           }
         }
       ],
@@ -654,6 +658,10 @@
             "status": { "state": "Good", "Condition": "LTE", "value": 24 },
             "details": "Speciality",
             "unit": "Count"
+          },
+          "cardValues": {
+            "@Value1": "Commutative",
+            "@Value2": "Count"
           }
         },
         {
@@ -682,6 +690,10 @@
             "status": { "state": "Good", "Condition": "LTE", "value": 24 },
             "details": "InstitutionName",
             "unit": "Count"
+          },
+          "cardValues": {
+            "@Value1": "Commutative",
+            "@Value2": "Count"
           }
         }
       ],
@@ -947,6 +959,90 @@
           "cardType": "Analytical",
           "style": ["Google"],
           "cardsubType": "addressMap",
+          "title": "HCP/HCO - Invoice Analysis",
+          "subtitle": "Speciality",
+          "unitOfMeasurement": "Count",
+          "source": "StudyInvoice",
+          "Data": {
+            "dimension": "Speciality",
+            "fact": "Count",
+            "operation": "COUNT",
+            "sorting": "Ascending",
+            "aggregate": "Yes",
+            "sortField": "Count",
+            "dType": "string"
+          },
+          "numericHeader": {
+            "headerNumber": {
+              "Operation": "COUNT",
+              "Field": "Speciality"
+            },
+            "trend": { "trend": "DOWN", "Condition": "LTE", "value": 8 },
+            "status": { "state": "Good", "Condition": "LTE", "value": 24 },
+            "details": "Speciality",
+            "unit": "Count"
+          }
+        },
+        {
+          "cardType": "Analytical",
+          "style": ["Google"],
+          "cardsubType": "Org",
+          "title": "HCP/HCO - Invoice Analysis",
+          "subtitle": "Speciality",
+          "unitOfMeasurement": "Count",
+          "source": "StudyInvoice",
+          "Data": {
+            "dimension": "Speciality",
+            "fact": "Count",
+            "operation": "COUNT",
+            "sorting": "Ascending",
+            "aggregate": "Yes",
+            "sortField": "Count",
+            "dType": "string"
+          },
+          "numericHeader": {
+            "headerNumber": {
+              "Operation": "COUNT",
+              "Field": "Speciality"
+            },
+            "trend": { "trend": "DOWN", "Condition": "LTE", "value": 8 },
+            "status": { "state": "Good", "Condition": "LTE", "value": 24 },
+            "details": "Speciality",
+            "unit": "Count"
+          }
+        },
+        {
+          "cardType": "Analytical",
+          "style": ["Google"],
+          "cardsubType": "Scatter",
+          "title": "HCP/HCO - Invoice Analysis",
+          "subtitle": "Speciality",
+          "unitOfMeasurement": "Count",
+          "source": "StudyInvoice",
+          "Data": {
+            "dimension": "Speciality",
+            "fact": "Count",
+            "operation": "COUNT",
+            "sorting": "Ascending",
+            "aggregate": "Yes",
+            "sortField": "Count",
+            "dType": "string"
+          },
+          "numericHeader": {
+            "headerNumber": {
+              "Operation": "COUNT",
+              "Field": "Speciality"
+            },
+            "trend": { "trend": "DOWN", "Condition": "LTE", "value": 8 },
+            "status": { "state": "Good", "Condition": "LTE", "value": 24 },
+            "details": "Speciality",
+            "unit": "Count"
+          }
+        },
+        {
+          "cardType": "Analytical",
+          "style": ["Google"],
+          "cardsubType": "Table",
           "title": "HCP/HCO - Invoice Analysis",
           "subtitle": "Speciality",
           "unitOfMeasurement": "Count",

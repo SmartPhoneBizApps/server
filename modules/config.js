@@ -1293,28 +1293,28 @@ module.exports = {
         cardData = cardData.replace("@subTitle", mode);
       }
     }
-    // if (mycard.title != undefined) {
-    //   cardData = cardData.replace("@Title", mycard.title);
-    // } else {
-    //   cardData = cardData.replace(
-    //     "@Title",
-    //     appconfig["Title"]["ApplicationTitle"]
-    //   );
-    // }
-    // if (mycard.subTitle != undefined) {
-    //   cardData = cardData.replace("@subTitle", mycard.subtitle);
-    // } else {
-    //   cardData = cardData.replace(
-    //     "@subTitle",
-    //     appconfig["Title"]["DetailTitle"]
-    //   );
-    // }
-    cardData = cardData.replace("@unitOfMeasurement", mycard.unitOfMeasurement);
-    cardData = cardData.replace("@filterKey", mycard["filterKey"]);
-    cardData = cardData.replace("@filterKey", mycard["filterKey"]);
-    cardData = cardData.replace("@filterKeyLabel", mycard["filterKeyLabel"]);
-    cardData = cardData.replace("@filterKeyLabel", mycard["filterKeyLabel"]);
-    cardData = cardData.replace("@HeaderActionURL", tab);
+    console.log("AtulTest", mycard, mycard.length);
+
+    if (mycard.length > 0) {
+      console.log("AtulTest-00");
+      if (mycard["cardValues"].hasOwnProperty("@Value1")) {
+        cardData = cardData.replace("@Value1", mycard["cardValues"]["@Value1"]);
+      }
+      if (mycard["cardValues"].hasOwnProperty("@Value2")) {
+        cardData = cardData.replace("@Value2", mycard["cardValues"]["@Value2"]);
+      }
+      cardData = cardData.replace("@Value2", mycard["cardValues"]["@Value2"]);
+      cardData = cardData.replace("@UOM", mycard.unitOfMeasurement);
+      cardData = cardData.replace(
+        "@unitOfMeasurement",
+        mycard.unitOfMeasurement
+      );
+      cardData = cardData.replace("@filterKey", mycard["filterKey"]);
+      cardData = cardData.replace("@filterKey", mycard["filterKey"]);
+      cardData = cardData.replace("@filterKeyLabel", mycard["filterKeyLabel"]);
+      cardData = cardData.replace("@filterKeyLabel", mycard["filterKeyLabel"]);
+      cardData = cardData.replace("@HeaderActionURL", tab);
+    }
 
     var d = new Date();
     var n = d.getTime();

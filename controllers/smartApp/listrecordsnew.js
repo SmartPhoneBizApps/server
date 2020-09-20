@@ -1,9 +1,6 @@
 const {
   adaptiveNew,
-  analyticalNew,
-  countAnalyticalCard,
   countAnalyticalCard_hdr,
-  sumAnalyticalCard,
   buildAnalyticalCard,
   numericHeader,
 } = require("../../modules/moduleCards");
@@ -294,7 +291,7 @@ exports.listrecordsnew = asyncHandler(async (req, res, next) => {
         defaultValues: ival_out,
       });
     }
-    if (mode == "listcards" || mode == "BOTDetail") {
+    if (mode == "listcards") {
       // 01 - CARD ADAPTIVE CARDS (LIST SCREEN)
       for (let w = 0; w < appconfig["MButtons"].length; w++) {
         if (appconfig["MButtons"][w]["type"] == "ADD") {
@@ -315,17 +312,11 @@ exports.listrecordsnew = asyncHandler(async (req, res, next) => {
           outStru["ADD01"] = { ...aCard };
         }
       }
-
-      // aCard = {};
-      // aCard = await analyticalNew(appconfig, outData["data"], "SAP");
-      // outStru["ANA01"] = { ...aCard };
-
       // 02 - CARD Analytical Card (LIST SCREEN)
       if (appconfig.hasOwnProperty("listCards")) {
         for (let x = 0; x < appconfig["listCards"].length; x++) {
           myCard = appconfig["listCards"][x];
           aCard = {};
-
           list = await countAnalyticalCard_hdr(
             myCard,
             outData["data"],

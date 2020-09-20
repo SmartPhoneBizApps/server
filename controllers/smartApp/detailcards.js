@@ -104,9 +104,12 @@ exports.getDetailCardsNew = async (req, res, next) => {
   // Collect Charts & Graphs
   if (appconfig.hasOwnProperty("detailCharts")) {
     var mycard = appconfig["detailCharts"];
+    console.log(mycard);
     for (let k = 0; k < mycard.length; k++) {
+      console.log(mycard[k]);
       if (mycard[k]["cardType"] == "Analytical") {
         let cardTemplate = {};
+        // Find the Chart Config File
         if (appconfig["Controls"]["style"] == "SAP") {
           console.log("05 -  Header SAP Card..", myCard[k]["cardsubType"]);
           cardTemplate =
@@ -120,6 +123,17 @@ exports.getDetailCardsNew = async (req, res, next) => {
             myCard[k]["cardsubType"] +
             ".json";
         }
+
+        // Build chart
+        jCard1 = {};
+        jCard1 = await analyticalCard(
+          mycard[k],
+          appData,
+          anacardConfig,
+          appconfig["Controls"]["style"]
+        );
+
+        // Replace the @values
         var cardData = JSON.stringify(require(cardTemplate));
         cardData = cardReplace(
           myCard[k],
@@ -129,13 +143,8 @@ exports.getDetailCardsNew = async (req, res, next) => {
           "Tab1"
         );
         var anacardConfig = JSON.parse(cardData);
-        jCard1 = {};
-        jCard1 = await analyticalCard(
-          mycard[k],
-          appData,
-          anacardConfig,
-          appconfig["Controls"]["style"]
-        );
+
+        // Output Chart
         outStru2["HCHART" + k] = { ...jCard1 };
       }
     }
@@ -212,39 +221,39 @@ exports.getDetailCardsNew = async (req, res, next) => {
         appData[key] = [];
       }
     }
+    console.log("08 -  Again table and tab found : ", appData[key]);
     // Step T2 - Find the tab ID Tab1, Tab2 etc from field name
     let tabx = "";
     for (const k1 in appconfig["DetailFields"]) {
       appconfig["DetailFields"][k1].forEach((e4) => {
         if (key == e4) {
           tabx = k1;
-          console.log("07 -  Again table and tab found : ", key, tabx);
+          console.log("08 -  Again table and tab found : ", key, tabx);
         }
       });
     }
-
+    console.log("08 -  detailCharts : ", appconfig["tableConfig"][key]);
+    // Table cards....
     if (appconfig["tableConfig"][key].hasOwnProperty("detailCharts")) {
       for (
         let x = 0;
         x < appconfig["tableConfig"][key]["detailCharts"].length;
         x++
       ) {
-        console.log("08 -  detailCharts : ", key);
+        console.log("09 -  detailCharts : ", key);
         var myCard = appconfig["tableConfig"][key]["detailCharts"][x];
         aCard = {};
         dt = new Date(0, 0, 0, 12, 0, 0);
         console.log("myDate", dt);
+
         switch (myCard["Data"]["operation"]) {
           case "COUNT":
             list = await countAnalyticalCard(
               myCard,
               appData[key],
               "COUNT",
-              appconfig["tableConfig"][key]["ItemFieldDefinition"],
-              appconfig["Controls"]["style"],
-              req
+              appconfig["tableConfig"][key]["ItemFieldDefinition"]
             );
-
             if (appconfig["Controls"]["style"] == "SAP") {
               numheader = await numericHeader(myCard, list, "COUNT");
             } else {
@@ -320,6 +329,14 @@ exports.getDetailCardsNew = async (req, res, next) => {
                   break;
                 case "addressMap":
                   break;
+                case "table":
+                  break;
+                case "scatter":
+                  break;
+                case "org":
+                  break;
+                case "gantt":
+                  break;
                 case "TimeLine":
                   //  list = r2;
                   break;
@@ -353,9 +370,7 @@ exports.getDetailCardsNew = async (req, res, next) => {
               myCard,
               appData[key],
               "COLLECTIVE_COUNT",
-              appconfig["tableConfig"][key]["ItemFieldDefinition"],
-              appconfig["Controls"]["style"],
-              req
+              appconfig["tableConfig"][key]["ItemFieldDefinition"]
             );
             numheader = await numericHeader(myCard, list, "COLLECTIVE");
             aCard = await buildAnalyticalCard(
@@ -382,9 +397,7 @@ exports.getDetailCardsNew = async (req, res, next) => {
               myCard,
               appData[key],
               "COUNT",
-              appconfig["tableConfig"][key]["ItemFieldDefinition"],
-              appconfig["Controls"]["style"],
-              req
+              appconfig["tableConfig"][key]["ItemFieldDefinition"]
             );
             numheader = await numericHeader(myCard, list, "COUNT");
             aCard = await buildAnalyticalCard(

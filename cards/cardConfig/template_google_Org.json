@@ -1,0 +1,44 @@
+{
+  "cardid": "org_div",
+  "charttype": "org",
+  "cardMinRows": 4,
+  "cardColumn": 4,
+  "columns": [
+    {
+      "coltype": "string",
+      "coltitle": "Name"
+    },
+    {
+      "coltype": "string",
+      "coltitle": "Manager"
+    },
+    {
+      "coltype": "string",
+      "coltitle": "ToolTip"
+    }
+  ],
+  "rows": [
+    [
+      {
+        "v": "Mike",
+        "f": "Mike<div style=\"color:red; font-style:italic\">President</div>"
+      },
+      "",
+      "The President"
+    ],
+    [
+      {
+        "v": "Jim",
+        "f": "Jim<div style=\"color:red; font-style:italic\">Vice President</div>"
+      },
+      "Mike",
+      "VP"
+    ],
+    ["Alice", "Mike", ""],
+    ["Bob", "Jim", "Bob Sponge"],
+    ["Carol", "Bob", ""]
+  ],
+  "options": {
+    "allowHtml": true
+  }
+}
