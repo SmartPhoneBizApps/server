@@ -187,6 +187,35 @@
     "Tab3": ["Image"],
     "Tab4": ["Attachment"]
   },
+  "listCards": [
+    {
+      "cardType": "Analytical",
+      "cardsubType": "StackedBar",
+      "title": "Asset Tracking",
+      "subtitle": "Asset Tracking",
+      "unitOfMeasurement": "Count",
+      "Data": {
+        "dimension": "Status",
+        "fact": "Count",
+        "operation": "COUNT",
+        "sorting": "Ascending",
+        "aggregate": "Yes",
+        "sortField": "Status",
+        "dType": "string"
+      },
+      "numericHeader": {
+        "headerNumber": { "Operation": "COUNT", "Field": "ID" },
+        "trend": { "trend": "DOWN", "Condition": "LTE", "value": 500 },
+        "status": { "state": "Good", "Condition": "LTE", "value": 800 },
+        "details": "Speciality",
+        "unit": "Count"
+      },
+      "cardValues": {
+        "@Value1": "Commutative",
+        "@Value2": "Count"
+      }
+    }
+  ],
   "detailCharts": [],
   "cards": [],
   "ControlDisplay": {},

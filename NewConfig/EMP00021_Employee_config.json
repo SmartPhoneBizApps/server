@@ -201,9 +201,13 @@
       "numericHeader": {
         "headerNumber": { "Operation": "COLLECTIVE", "Field": "ID" },
         "trend": { "trend": "DOWN", "Condition": "LTE", "value": 8 },
-        "status": { "state": "Success", "Condition": "LTE", "value": 24 },
+        "status": { "state": "Good", "Condition": "LTE", "value": 24 },
         "details": "Max 24 days",
         "unit": "Days"
+      },
+      "cardValues": {
+        "@Value1": "Commutative",
+        "@Value2": "Count"
       }
     }
   ],
@@ -563,8 +567,8 @@
           "numericHeader": {
             "headerNumber": { "Operation": "COUNT", "Field": "ProjectCode" },
             "trend": { "trend": "DOWN", "Condition": "LTE", "value": 8 },
-            "status": { "state": "Success", "Condition": "LTE", "value": 24 },
-            "details": "Total 24 days",
+            "status": { "state": "Good", "Condition": "LTE", "value": 24 },
+            "details": "Employee",
             "unit": "Days"
           }
         },
@@ -590,7 +594,7 @@
               "Field": "TotalRegWorkHours"
             },
             "trend": { "trend": "DOWN", "Condition": "LTE", "value": 40 },
-            "status": { "state": "Success", "Condition": "LTE", "value": 50 },
+            "status": { "state": "Good", "Condition": "LTE", "value": 50 },
             "details": "Max 24 days",
             "unit": "Days"
           }

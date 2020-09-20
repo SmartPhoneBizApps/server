@@ -287,8 +287,8 @@
       "numericHeader": {
         "headerNumber": { "Operation": "COUNT", "Field": "ID" },
         "trend": { "trend": "DOWN", "Condition": "LTE", "value": 8 },
-        "status": { "state": "Success", "Condition": "LTE", "value": 24 },
-        "details": "Total 24 days",
+        "status": { "state": "Good", "Condition": "LTE", "value": 24 },
+        "details": "Employee",
         "unit": "Days"
       }
     },
@@ -310,7 +310,7 @@
       "numericHeader": {
         "headerNumber": { "Operation": "COUNT", "Field": "ID" },
         "trend": { "trend": "DOWN", "Condition": "LTE", "value": 8 },
-        "status": { "state": "Success", "Condition": "LTE", "value": 24 },
+        "status": { "state": "Good", "Condition": "LTE", "value": 24 },
         "details": "Pharma Contact Email",
         "unit": "Count"
       }
@@ -334,7 +334,7 @@
       "numericHeader": {
         "headerNumber": { "Operation": "COUNT", "Field": "Phase" },
         "trend": { "trend": "DOWN", "Condition": "LTE", "value": 8 },
-        "status": { "state": "Success", "Condition": "LTE", "value": 24 },
+        "status": { "state": "Good", "Condition": "LTE", "value": 24 },
         "details": "Phase",
         "unit": "GBP"
       }
@@ -357,9 +357,13 @@
       "numericHeader": {
         "headerNumber": { "Operation": "COLLECTIVE", "Field": "ID" },
         "trend": { "trend": "DOWN", "Condition": "LTE", "value": 8 },
-        "status": { "state": "Success", "Condition": "LTE", "value": 24 },
+        "status": { "state": "Good", "Condition": "LTE", "value": 24 },
         "details": "Max 24 days",
         "unit": "Days"
+      },
+      "cardValues": {
+        "@Value1": "Commutative",
+        "@Value2": "Count"
       }
     }
   ],
@@ -476,7 +480,7 @@
           "numericHeader": {
             "headerNumber": { "Operation": "COUNT", "Field": "ServiceType2" },
             "trend": { "trend": "DOWN", "Condition": "LTE", "value": 8 },
-            "status": { "state": "Success", "Condition": "LTE", "value": 24 },
+            "status": { "state": "Good", "Condition": "LTE", "value": 24 },
             "details": "Service Type",
             "unit": "Count"
           }
@@ -630,7 +634,7 @@
           "numericHeader": {
             "headerNumber": { "Operation": "COUNT", "Field": "Speciality" },
             "trend": { "trend": "DOWN", "Condition": "LTE", "value": 8 },
-            "status": { "state": "Success", "Condition": "LTE", "value": 24 },
+            "status": { "state": "Good", "Condition": "LTE", "value": 24 },
             "details": "Speciality",
             "unit": "Count"
           }
@@ -658,7 +662,7 @@
               "Field": "InstitutionName"
             },
             "trend": { "trend": "DOWN", "Condition": "LTE", "value": 8 },
-            "status": { "state": "Success", "Condition": "LTE", "value": 24 },
+            "status": { "state": "Good", "Condition": "LTE", "value": 24 },
             "details": "InstitutionName",
             "unit": "Count"
           }
@@ -861,7 +865,7 @@
               "Field": "InstitutionName"
             },
             "trend": { "trend": "DOWN", "Condition": "LTE", "value": 8 },
-            "status": { "state": "Success", "Condition": "LTE", "value": 24 },
+            "status": { "state": "Good", "Condition": "LTE", "value": 24 },
             "details": "InstitutionName",
             "unit": "Count"
           }

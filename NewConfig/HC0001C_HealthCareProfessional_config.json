@@ -342,6 +342,35 @@
     "Tab7": ["myEvent"],
     "Tab8": ["myContract"]
   },
+  "listCards": [
+    {
+      "cardType": "Analytical",
+      "cardsubType": "StackedBar",
+      "title": "HCP Company View",
+      "subtitle": "HCP Company View",
+      "unitOfMeasurement": "Count",
+      "Data": {
+        "dimension": "Status",
+        "fact": "Count",
+        "operation": "COUNT",
+        "sorting": "Ascending",
+        "aggregate": "Yes",
+        "sortField": "Status",
+        "dType": "string"
+      },
+      "numericHeader": {
+        "headerNumber": { "Operation": "COUNT", "Field": "ID" },
+        "trend": { "trend": "DOWN", "Condition": "LTE", "value": 500 },
+        "status": { "state": "Good", "Condition": "LTE", "value": 800 },
+        "details": "Speciality",
+        "unit": "Count"
+      },
+      "cardValues": {
+        "@Value1": "Commutative",
+        "@Value2": "Count"
+      }
+    }
+  ],
   "tableConfig": {
     "myStudy": {
       "title": "My Studies",

@@ -258,9 +258,9 @@
       "numericHeader": {
         "headerNumber": { "Operation": "COLLECTIVE", "Field": "ID" },
         "trend": { "trend": "DOWN", "Condition": "LTE", "value": 8 },
-        "status": { "state": "Success", "Condition": "LTE", "value": 24 },
+        "status": { "state": "Good", "Condition": "LTE", "value": 24 },
         "details": "Shopper",
-        "unit": "D"
+        "unit": "Count"
       },
       "cardValues": {
         "@Value1": "Commutative",
@@ -285,9 +285,9 @@
       "numericHeader": {
         "headerNumber": { "Operation": "COLLECTIVE", "Field": "ID" },
         "trend": { "trend": "DOWN", "Condition": "LTE", "value": 8 },
-        "status": { "state": "Success", "Condition": "LTE", "value": 24 },
+        "status": { "state": "Good", "Condition": "LTE", "value": 24 },
         "details": "Shopper",
-        "unit": "D"
+        "unit": "Count"
       },
       "cardValues": {
         "@Value1": "Commutative",
@@ -312,9 +312,9 @@
       "numericHeader": {
         "headerNumber": { "Operation": "COLLECTIVE", "Field": "ID" },
         "trend": { "trend": "DOWN", "Condition": "LTE", "value": 8 },
-        "status": { "state": "Success", "Condition": "LTE", "value": 24 },
+        "status": { "state": "Good", "Condition": "LTE", "value": 24 },
         "details": "Shopper",
-        "unit": "D"
+        "unit": "Count"
       },
       "cardValues": {
         "@Value1": "Commutative",
@@ -326,7 +326,7 @@
       "cardsubType": "StackedColumn",
       "title": "ShoppingCart Analysis",
       "subtitle": "ShoppingCarts",
-      "unitOfMeasurement": "Days",
+      "unitOfMeasurement": "GBP",
       "Data": {
         "dimension": "VendorName",
         "fact": "NetValue",
@@ -339,9 +339,9 @@
       "numericHeader": {
         "headerNumber": { "Operation": "COLLECTIVE", "Field": "ID" },
         "trend": { "trend": "DOWN", "Condition": "LTE", "value": 8 },
-        "status": { "state": "Success", "Condition": "LTE", "value": 24 },
+        "status": { "state": "Good", "Condition": "LTE", "value": 24 },
         "details": "Shopper",
-        "unit": "D"
+        "unit": "GBP"
       },
       "cardValues": {
         "@Value1": "Commutative",
@@ -731,8 +731,8 @@
           "numericHeader": {
             "headerNumber": { "Operation": "COUNT", "Field": "Category" },
             "trend": { "trend": "DOWN", "Condition": "LTE", "value": 8 },
-            "status": { "state": "Success", "Condition": "LTE", "value": 24 },
-            "details": "Total 24 days",
+            "status": { "state": "Good", "Condition": "LTE", "value": 24 },
+            "details": "Employee",
             "unit": "Days"
           }
         }

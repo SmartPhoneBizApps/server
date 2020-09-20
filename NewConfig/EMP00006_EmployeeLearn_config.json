@@ -229,8 +229,8 @@
       "numericHeader": {
         "headerNumber": { "Operation": "COUNT", "Field": "ID" },
         "trend": { "trend": "DOWN", "Condition": "LTE", "value": 8 },
-        "status": { "state": "Success", "Condition": "LTE", "value": 24 },
-        "details": "Total 24 days",
+        "status": { "state": "Good", "Condition": "LTE", "value": 24 },
+        "details": "Employee",
         "unit": "Days"
       }
     },
@@ -252,9 +252,13 @@
       "numericHeader": {
         "headerNumber": { "Operation": "COLLECTIVE", "Field": "ID" },
         "trend": { "trend": "DOWN", "Condition": "LTE", "value": 8 },
-        "status": { "state": "Success", "Condition": "LTE", "value": 24 },
-        "details": "Max 24 days",
+        "status": { "state": "Good", "Condition": "LTE", "value": 24 },
+        "details": "Employee",
         "unit": "Days"
+      },
+      "cardValues": {
+        "@Value1": "Commutative",
+        "@Value2": "Count"
       }
     }
   ],
