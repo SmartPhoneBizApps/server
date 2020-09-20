@@ -1736,6 +1736,15 @@ module.exports = {
       js1["trend"] = numheader["trend"];
       js1["state"] = numheader["state"];
       js1["details"] = numheader["details"];
+      js1["unit"] = numheader["unit"];
+
+      if (js1.hasOwnProperty("target")) {
+        js1["target"] = { ...numheader["target"] };
+      }
+      if (js1.hasOwnProperty("deviation")) {
+        js1["deviation"] = { ...numheader["deviation"] };
+      }
+
       anacardConfig["sap.card"]["header"]["data"]["json"] = { ...js1 };
       js1 = {};
     } else {
