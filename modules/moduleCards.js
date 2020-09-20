@@ -1688,35 +1688,33 @@ module.exports = {
   numericHeader: async function (myCard, list, mode) {
     hdr = {};
     hdr["number"] = 0;
-    switch (myCard["numericHeader"]["headerNumber"]["Operation"]) {
-      case "COUNT":
-        for (let m = 0; m < list.length; m++) {
-          hdr["number"] = hdr["number"] + list[m]["Value1"];
-        }
-        break;
-      case "COLLECTIVE":
-        for (let m = 0; m < list.length; m++) {
-          hdr["number"] = list[m]["Value1"];
-        }
-        break;
-      default:
-        for (let m = 0; m < list.length; m++) {
-          hdr["number"] = hdr["number"] + list[m]["Value1"];
-        }
-        break;
+    console.log(myCard["cardsubType"]);
+    for (let m = 0; m < list.length; m++) {
+      hdr["number"] = hdr["number"] + list[m]["Value1"];
     }
-
+    hdr["target"] = {};
+    hdr["deviation"] = {};
+    hdr["target"]["number"] = hdr["number"];
+    hdr["deviation"]["number"] = 0;
+    //Set Trend
     if (hdr["number"] <= myCard["numericHeader"]["trend"]["value"]) {
       hdr["trend"] = "DOWN";
     } else {
       hdr["trend"] = "UP";
     }
+    //Set State
     if (hdr["number"] <= myCard["numericHeader"]["status"]["value"]) {
       hdr["state"] = "Success";
     } else {
       hdr["state"] = "Error";
     }
+    //Set Details..
     hdr["details"] = myCard["numericHeader"]["details"];
+    //Set unit..
+    hdr["unit"] = myCard["numericHeader"]["unit"];
+    hdr["target"]["unit"] = myCard["numericHeader"]["unit"];
+    console.log(hdr["target"]);
+    console.log(hdr["deviation"]);
     return hdr;
   },
   buildAnalyticalCard: async function (myCard, list, numheader, style, kl) {

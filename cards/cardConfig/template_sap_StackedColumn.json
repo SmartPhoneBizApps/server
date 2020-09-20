@@ -2,8 +2,10 @@
   "cardMinRows": 4,
   "cardColumn": 3,
   "sap.app": {
+    "id": "smartphoneapps",
     "type": "card",
-    "id": "smartphoneapps"
+    "title": "Stacked Column Chart",
+    "subTitle": "Stacked Column Chart"
   },
   "sap.ui": {
     "technology": "UI5",
@@ -20,7 +22,15 @@
           "number": "56",
           "unit": "%",
           "trend": "Up",
-          "state": "Good"
+          "state": "Good",
+          "target": {
+            "number": "@htargetNumber",
+            "unit": "@htargetUnit"
+          },
+          "deviation": {
+            "number": "@hNumber"
+          },
+          "details": "@hDetail"
         }
       },
       "title": "@Title",
@@ -32,16 +42,16 @@
         "trend": "{trend}",
         "state": "{state}"
       },
-      "details": "Details, additional information",
+      "details": "{details}",
       "sideIndicators": [
         {
           "title": "Target",
-          "number": "3252.234",
-          "unit": "K"
+          "number": "{target/number}",
+          "unit": "{target/unit}"
         },
         {
           "title": "Deviation",
-          "number": "22.43",
+          "number": "{deviation/number}",
           "unit": "%"
         }
       ],
@@ -58,9 +68,9 @@
     "content": {
       "chartType": "StackedColumn",
       "legend": {
-        "visible": true,
-        "position": "Bottom",
-        "alignment": "TopLeft"
+        "visible": "{legend/visible}",
+        "position": "{legend/position}",
+        "alignment": "{legend/alignment}"
       },
       "plotArea": {
         "dataLabel": {
@@ -83,6 +93,18 @@
       "dimensionAxis": "categoryAxis",
       "data": {
         "json": {
+          "dimensions": {
+            "AreaLabel": "Areas"
+          },
+          "measures": {
+            "Value1Label": "@Value1",
+            "Value2Label": "@Value2"
+          },
+          "legend": {
+            "visible": true,
+            "position": "Bottom",
+            "alignment": "TopLeft"
+          },
           "list": [
             {
               "Area": "CW14",
@@ -160,17 +182,17 @@
       },
       "dimensions": [
         {
-          "label": "Areas",
+          "label": "{dimensions/AreaLabel}",
           "value": "{Area}"
         }
       ],
       "measures": [
         {
-          "label": "Value1",
+          "label": "{measures/Value1Label}",
           "value": "{Value1}"
         },
         {
-          "label": "Value2",
+          "label": "{measures/Value2Label}",
           "value": "{Value2}"
         }
       ]
