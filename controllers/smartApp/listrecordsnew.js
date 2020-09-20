@@ -2,6 +2,7 @@ const {
   adaptiveNew,
   analyticalNew,
   countAnalyticalCard,
+  countAnalyticalCard_hdr,
   sumAnalyticalCard,
   buildAnalyticalCard,
   numericHeader,
@@ -104,7 +105,6 @@ exports.listrecordsnew = asyncHandler(async (req, res, next) => {
     const page = parseInt(req.query.page, 10) || 1;
     const startIndex = (page - 1) * limit;
     const endIndex = page * limit;
-    console.log("Pagination:", startIndex, endIndex, page);
     // Pagination result
     const pagination = {};
     if (endIndex < tCount) {
@@ -157,13 +157,8 @@ exports.listrecordsnew = asyncHandler(async (req, res, next) => {
     let query_c = getTotalCount(applicationId, req, appconfig);
     let rec = await query_c;
     const count = rec.length;
-    console.log("Record Count :", count);
-
     let query = readData(applicationId, req, appconfig);
-    console.log(query);
     let results = await query;
-    console.log("Result collected :");
-
     tabObj = {};
     tabArr = [];
     if (appconfig["Controls"]["SearchString"]["Search"] == true) {
@@ -220,8 +215,6 @@ exports.listrecordsnew = asyncHandler(async (req, res, next) => {
     /////////////////////////////////////////////////////////////////
     const limit = parseInt(req.query.limit, 10) || 25;
     // Pagination
-    console.log("Pagination Starts :", limit);
-
     const page = parseInt(req.query.page, 10) || 1;
     const startIndex = (page - 1) * limit;
     const endIndex = page * limit;
@@ -266,9 +259,7 @@ exports.listrecordsnew = asyncHandler(async (req, res, next) => {
 
         let myButton = [];
         if (oResult[w]["Status"] !== undefined) {
-          //         console.log(oResult[w]["Status"]);
           myButton = buttonData[oResult[w]["Status"]];
-          //      console.log(myButton);
         }
         if (myButton == undefined) {
           myButton = [];
@@ -333,104 +324,137 @@ exports.listrecordsnew = asyncHandler(async (req, res, next) => {
         for (let x = 0; x < appconfig["listCards"].length; x++) {
           myCard = appconfig["listCards"][x];
           aCard = {};
-          switch (myCard["Data"]["operation"]) {
-            case "COUNT":
-              list = await countAnalyticalCard(
-                myCard,
-                outData["data"],
-                "COUNT",
-                appconfig["FieldDef"],
-                "SAP"
-              );
-              numheader = await numericHeader(myCard, list, "COUNT");
-              aCard = await buildAnalyticalCard(
-                myCard,
-                list,
-                numheader,
-                "SAP",
-                "DCHART-A" + "-" + x
-              );
-              var cardData = JSON.stringify(aCard);
-              cardData = cardReplace(
-                myCard,
-                cardData,
-                appconfig,
-                "header",
-                "Tab1"
-              );
-              aCard = JSON.parse(cardData);
-              outStru["ANAX" + x] = { ...aCard };
-              break;
-            case "COLLECTIVE":
-              list = await countAnalyticalCard(
-                appconfig["listCards"][x],
-                outData["data"],
-                "COLLECTIVE",
-                appconfig["FieldDef"],
-                "SAP"
-              );
-              numheader = await numericHeader(myCard, list, "COLLECTIVE");
-              aCard = await buildAnalyticalCard(
-                myCard,
-                list,
-                numheader,
-                "SAP",
-                "DCHART-A" + "-" + x
-              );
-              var cardData = JSON.stringify(aCard);
-              cardData = cardReplace(
-                myCard,
-                cardData,
-                appconfig,
-                "header",
-                "Tab1"
-              );
-              aCard = JSON.parse(cardData);
-              outStru["ANAL" + x] = { ...aCard };
-              break;
-            case "SUM":
-              list = await sumAnalyticalCard(
-                appconfig["listCards"][x],
-                outData["data"]
-              );
-              break;
 
-            default:
-              list = await countAnalyticalCard(
-                myCard,
-                outData["data"],
-                "COUNT",
-                appconfig["FieldDef"],
-                "SAP"
-              );
-              numheader = await numericHeader(myCard, list, "COUNT");
-              aCard = await buildAnalyticalCard(
-                myCard,
-                list,
-                numheader,
-                "SAP",
-                "DCHART-A" + "-" + x
-              );
-              var cardData = JSON.stringify(aCard);
-              cardData = cardReplace(
-                myCard,
-                cardData,
-                appconfig,
-                "header",
-                "Tab1"
-              );
-              aCard = JSON.parse(cardData);
-              outStru["ANAX" + x] = { ...aCard };
-              break;
-          }
+          list = await countAnalyticalCard_hdr(
+            myCard,
+            outData["data"],
+            "COUNT",
+            appconfig["FieldDef"],
+            "SAP",
+            req,
+            appconfig,
+            ivalue
+          );
+          numheader = await numericHeader(myCard, list, "COUNT");
+          aCard = await buildAnalyticalCard(
+            myCard,
+            list,
+            numheader,
+            "SAP",
+            "DCHART-A" + "-" + x
+          );
+          var cardData = JSON.stringify(aCard);
+          cardData = cardReplace(myCard, cardData, appconfig, "header", "Tab1");
+          aCard = JSON.parse(cardData);
+          outStru["ANAX" + x] = { ...aCard };
+
+          // switch (myCard["Data"]["operation"]) {
+          //   case "COUNT":
+          //     list = await countAnalyticalCard_hdr(
+          //       myCard,
+          //       outData["data"],
+          //       "COUNT",
+          //       appconfig["FieldDef"],
+          //       "SAP",
+          //       req,
+          //       appconfig,
+          //       ivalue
+          //     );
+          //     numheader = await numericHeader(myCard, list, "COUNT");
+          //     aCard = await buildAnalyticalCard(
+          //       myCard,
+          //       list,
+          //       numheader,
+          //       "SAP",
+          //       "DCHART-A" + "-" + x
+          //     );
+          //     var cardData = JSON.stringify(aCard);
+          //     cardData = cardReplace(
+          //       myCard,
+          //       cardData,
+          //       appconfig,
+          //       "header",
+          //       "Tab1"
+          //     );
+          //     aCard = JSON.parse(cardData);
+          //     outStru["ANAX" + x] = { ...aCard };
+          //     break;
+          //   case "COLLECTIVE_COUNT":
+          //     list = await countAnalyticalCard(
+          //       appconfig["listCards"][x],
+          //       outData["data"],
+          //       "COLLECTIVE_COUNT",
+          //       appconfig["FieldDef"],
+          //       "SAP",
+          //       req,
+          //       appconfig,
+          //       ivalue
+          //     );
+          //     numheader = await numericHeader(myCard, list, "COLLECTIVE");
+          //     aCard = await buildAnalyticalCard(
+          //       myCard,
+          //       list,
+          //       numheader,
+          //       "SAP",
+          //       "DCHART-A" + "-" + x
+          //     );
+          //     var cardData = JSON.stringify(aCard);
+          //     cardData = cardReplace(
+          //       myCard,
+          //       cardData,
+          //       appconfig,
+          //       "header",
+          //       "Tab1"
+          //     );
+          //     aCard = JSON.parse(cardData);
+          //     outStru["ANAL" + x] = { ...aCard };
+          //     break;
+          //   case "SUM":
+          //     list = await sumAnalyticalCard(
+          //       appconfig["listCards"][x],
+          //       outData["data"]
+          //     );
+          //     break;
+
+          //   default:
+          //     list = await countAnalyticalCard(
+          //       myCard,
+          //       outData["data"],
+          //       "COUNT",
+          //       appconfig["FieldDef"],
+          //       "SAP",
+          //       req,
+          //       config1,
+          //       ivalue
+          //     );
+          //     numheader = await numericHeader(myCard, list, "COUNT");
+          //     aCard = await buildAnalyticalCard(
+          //       myCard,
+          //       list,
+          //       numheader,
+          //       "SAP",
+          //       "DCHART-A" + "-" + x
+          //     );
+          //     var cardData = JSON.stringify(aCard);
+          //     cardData = cardReplace(
+          //       myCard,
+          //       cardData,
+          //       appconfig,
+          //       "header",
+          //       "Tab1"
+          //     );
+          //     aCard = JSON.parse(cardData);
+          //     outStru["ANAX" + x] = { ...aCard };
+          //     break;
+          // }
         }
       }
       res.status(200).json({
         outData,
+        listCards: outStru,
         possibleValues: resPV,
         defaultValues: ival_out,
         statusValues: statusPV,
-        listCards: outStru,
       });
     }
   }

@@ -301,8 +301,12 @@
       "unitOfMeasurement": "Days",
       "Data": {
         "dimension": "ContractType",
-        "fact": "records",
-        "operation": "COUNT"
+        "fact": "Count",
+        "operation": "COUNT",
+        "sorting": "Ascending",
+        "aggregate": "Yes",
+        "sortField": "Count",
+        "dType": "string"
       },
       "numericHeader": {
         "headerNumber": { "Operation": "COUNT", "Field": "ID" },
@@ -320,8 +324,12 @@
       "unitOfMeasurement": "Count",
       "Data": {
         "dimension": "PharmaContactEmail",
-        "fact": "records",
-        "operation": "COUNT"
+        "fact": "Count",
+        "operation": "COUNT",
+        "sorting": "Ascending",
+        "aggregate": "Yes",
+        "sortField": "Count",
+        "dType": "string"
       },
       "numericHeader": {
         "headerNumber": { "Operation": "COUNT", "Field": "ID" },
@@ -339,8 +347,12 @@
       "unitOfMeasurement": "Days",
       "Data": {
         "dimension": "ContractStartDate",
-        "fact": "records",
-        "operation": "COLLECTIVE"
+        "fact": "Count",
+        "operation": "COLLECTIVE_COUNT",
+        "sorting": "Ascending",
+        "aggregate": "Yes",
+        "sortField": "Count",
+        "dType": "Date"
       },
       "numericHeader": {
         "headerNumber": { "Operation": "COLLECTIVE", "Field": "ID" },
@@ -454,8 +466,12 @@
           "source": "Services",
           "Data": {
             "dimension": "ServiceType",
-            "fact": "records",
-            "operation": "COUNT"
+            "fact": "Count",
+            "operation": "COUNT",
+            "sorting": "Ascending",
+            "aggregate": "Yes",
+            "sortField": "Count",
+            "dType": "string"
           },
           "numericHeader": {
             "headerNumber": { "Operation": "COUNT", "Field": "ServiceType" },
@@ -604,8 +620,12 @@
           "source": "myHCPHCO",
           "Data": {
             "dimension": "Speciality",
-            "fact": "records",
-            "operation": "COUNT"
+            "fact": "Count",
+            "operation": "COUNT",
+            "sorting": "Ascending",
+            "aggregate": "Yes",
+            "sortField": "Count",
+            "dType": "string"
           },
           "numericHeader": {
             "headerNumber": { "Operation": "COUNT", "Field": "Speciality" },
@@ -625,8 +645,12 @@
           "source": "myHCPHCO",
           "Data": {
             "dimension": "InstitutionName",
-            "fact": "records",
-            "operation": "COUNT"
+            "fact": "Count",
+            "operation": "COUNT",
+            "sorting": "Ascending",
+            "aggregate": "Yes",
+            "sortField": "Count",
+            "dType": "string"
           },
           "numericHeader": {
             "headerNumber": {
@@ -824,8 +848,12 @@
           "source": "ContractInvoice",
           "Data": {
             "dimension": "InstitutionName",
-            "fact": "records",
-            "operation": "COUNT"
+            "fact": "Count",
+            "operation": "COUNT",
+            "sorting": "Ascending",
+            "aggregate": "Yes",
+            "sortField": "Count",
+            "dType": "string"
           },
           "numericHeader": {
             "headerNumber": {

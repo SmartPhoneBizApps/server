@@ -241,7 +241,8 @@ exports.getDetailCardsNew = async (req, res, next) => {
               appData[key],
               "COUNT",
               appconfig["tableConfig"][key]["ItemFieldDefinition"],
-              appconfig["Controls"]["style"]
+              appconfig["Controls"]["style"],
+              req
             );
 
             if (appconfig["Controls"]["style"] == "SAP") {
@@ -347,13 +348,14 @@ exports.getDetailCardsNew = async (req, res, next) => {
             aCard = {};
             list = [];
             break;
-          case "COLLECTIVE":
+          case "COLLECTIVE_COUNT":
             list = await countAnalyticalCard(
               myCard,
               appData[key],
-              "COLLECTIVE",
+              "COLLECTIVE_COUNT",
               appconfig["tableConfig"][key]["ItemFieldDefinition"],
-              appconfig["Controls"]["style"]
+              appconfig["Controls"]["style"],
+              req
             );
             numheader = await numericHeader(myCard, list, "COLLECTIVE");
             aCard = await buildAnalyticalCard(
@@ -381,7 +383,8 @@ exports.getDetailCardsNew = async (req, res, next) => {
               appData[key],
               "COUNT",
               appconfig["tableConfig"][key]["ItemFieldDefinition"],
-              appconfig["Controls"]["style"]
+              appconfig["Controls"]["style"],
+              req
             );
             numheader = await numericHeader(myCard, list, "COUNT");
             aCard = await buildAnalyticalCard(

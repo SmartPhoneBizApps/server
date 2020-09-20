@@ -15,7 +15,7 @@ const {
   exampleCard,
 } = require("../../modules/moduleCards");
 const {
-  getCard,
+  // getCard,
   findOneAppDatabyid,
   findOneAppData,
   cardReplace,

@@ -237,8 +237,12 @@
       "unitOfMeasurement": "Days",
       "Data": {
         "dimension": "LeaveType",
-        "fact": "records",
-        "operation": "COUNT"
+        "fact": "Count",
+        "operation": "COUNT",
+        "sorting": "Ascending",
+        "aggregate": "Yes",
+        "sortField": "Count",
+        "dType": "string"
       },
       "numericHeader": {
         "headerNumber": { "Operation": "COUNT", "Field": "ID" },
@@ -256,8 +260,12 @@
       "unitOfMeasurement": "Days",
       "Data": {
         "dimension": "LeaveFrom",
-        "fact": "records",
-        "operation": "COLLECTIVE"
+        "fact": "Count",
+        "operation": "COLLECTIVE_COUNT",
+        "sorting": "Ascending",
+        "aggregate": "Yes",
+        "sortField": "Count",
+        "dType": "Date"
       },
       "numericHeader": {
         "headerNumber": { "Operation": "COLLECTIVE", "Field": "ID" },

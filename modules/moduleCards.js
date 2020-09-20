@@ -1,22 +1,6 @@
 const asyncHandler = require("../middleware/async");
-const Possval = require("../models/appSetup/Possval");
-//const ErrorResponse = require("../utils/errorResponse");
-//var button = require("../bot/Supplier_button.json");
-const Agent = require("../models/access/Agent");
-const App = require("../models/appSetup/App");
-const Role = require("../models/appSetup/Role");
-const User = require("../models/access/User");
 const { date1, string, integer } = require("./config");
-
-const fs = require("fs");
-const path = require("path");
-const utils = require("util");
-const puppeteer = require("puppeteer");
-const hb = require("handlebars");
-const readFile = utils.promisify(fs.readFile);
-const sendEmail = require("../utils/sendEmail");
-const sendEmail1 = require("../utils/sendEmailProd");
-var request = require("request");
+const { aggregateCount, aggregateSum } = require("../modules/config2");
 
 module.exports = {
   getCardKey: function (a, b, c, d) {
@@ -1267,7 +1251,6 @@ module.exports = {
       switch (deCard) {
         case "StackedBar":
           // Google card ("StackedBar")
-          console.log(anacardConfig["rows"]);
           anacardConfig["rows"];
 
           break;
@@ -1287,16 +1270,265 @@ module.exports = {
     return anacardConfig;
   },
   sumAnalyticalCard: async function (myCard, outData, mode, FieldDef, style) {},
+  countAnalyticalCard_hdr: async function (
+    myCard,
+    outData,
+    mode,
+    FieldDef,
+    style,
+    req,
+    config1,
+    ivalue
+  ) {
+    myData = [];
+    if (myCard["Data"]["aggregate"] == "Yes") {
+      if (
+        myCard["Data"]["operation"] == "COUNT" ||
+        myCard["Data"]["operation"] == "COLLECTIVE_COUNT"
+      ) {
+        // Aggregate data
+        myData = await aggregateCount(
+          req,
+          myCard["Data"]["dimension"],
+          myCard["Data"]["sorting"],
+          config1,
+          ivalue
+        );
+      } else {
+        // Aggregate data
+        myData = await aggregateSum(
+          req,
+          myCard["Data"]["dimension"],
+          myCard["Data"]["fact"],
+          myCard["Data"]["sorting"],
+          config1,
+          ivalue
+        );
+      }
+    } else {
+      // List data
+      outData;
 
-  countAnalyticalCard: async function (myCard, outData, mode, FieldDef, style) {
-    console.log("card", myCard);
+      switch (myCard["Data"]["dType"]) {
+        case "string":
+          //    outData = string(outData, myCard["Data"]["dimension"], "D");
+          break;
+        case "Date":
+          outData = date1(
+            outData,
+            myCard["Data"]["dimension"],
+            myCard["Data"]["sorting"]
+          );
+          break;
+        case "Num,0":
+          if (
+            myCard["Data"]["sortField"] == "Count" ||
+            myCard["Data"]["sortField"] == "Value"
+          ) {
+            outData = integer(
+              outData,
+              myCard["Data"]["dimension"],
+              myCard["Data"]["sorting"]
+            );
+          } else {
+          }
+
+          break;
+        default:
+          break;
+      }
+    }
+    myResult = [];
+    myResultx = {};
+    myResulty = {};
+    t_total = 0;
+    if (
+      myCard["cardsubType"] == "StackedColumn" ||
+      myCard["cardsubType"] == "StackedBar" ||
+      myCard["cardsubType"] == "Line" ||
+      myCard["cardsubType"] == "Donut"
+    ) {
+      for (let i = 0; i < myData.length; i++) {
+        // Check if data type is Date
+        if (myCard["Data"]["dType"] == "Date") {
+          myResultx["Area"] = String(myData[i]["_id"]).substring(0, 10);
+        } else {
+          myResultx["Area"] = myData[i]["_id"];
+        }
+        // Check Operation..
+
+        switch (myCard["Data"]["operation"]) {
+          case "COUNT":
+            myResultx["Value1"] = myData[i]["count"];
+            break;
+          case "COLLECTIVE_COUNT":
+            t_total = t_total + myData[i]["count"];
+            myResultx["Value1"] = t_total;
+            myResultx["Value2"] = myData[i]["count"];
+            break;
+          case "SUM":
+            myResultx["Value1"] = myData[i]["total"];
+            break;
+          case "COLLECTIVE_SUM":
+            t_total = t_total + myData[i]["total"];
+            myResultx["Value1"] = t_total;
+            myResultx["Value2"] = myData[i]["total"];
+
+            break;
+          default:
+            myResultx["Value1"] = myData[i]["count"];
+            break;
+        }
+        myResult.push({ ...myResultx });
+        myResultx = {};
+      }
+    }
+
+    console.log("New Card Data", myResult);
+    return myResult;
+
+    //   f_typ = myCard["Data"]["dType"];
+
+    // for (let g = 0; g < FieldDef.length; g++) {
+    //   if (FieldDef[g]["name"] == myCard["Data"]["dimension"]) {
+    //     f_typ = FieldDef[g]["type"];
+    //   }
+    // }
+    // Perform Sorting..
+    // switch (f_typ) {
+    //   case "string":
+    //     //    outData = string(outData, myCard["Data"]["dimension"], "D");
+    //     break;
+    //   case "Date":
+    //     outData = date1(outData, myCard["Data"]["dimension"], "A");
+    //     break;
+    //   case "Num,0":
+    //     outData = integer(outData, myCard["Data"]["dimension"], "A");
+    //     break;
+    //   default:
+    //     break;
+    // }
+    //collect Date..
+    // let d_dimension = new Set();
+    // let s_dimension = new Set();
+    // if (f_typ == "Date") {
+    //   if (outData != undefined) {
+    //     for (let k = 0; k < outData.length; k++) {
+    //       d_dimension.add(
+    //         String(outData[k][myCard["Data"]["dimension"]]).substring(0, 10)
+    //       );
+    //     }
+    //   }
+    // } else {
+    //   if (outData != undefined) {
+    //     for (let k = 0; k < outData.length; k++) {
+    //       s_dimension.add(outData[k][myCard["Data"]["dimension"]]);
+    //     }
+    //   }
+    // }
+    // Collect unique values
+    // list1x = {};
+    // list1y = {};
+    // list1 = [];
+    // list1y["Value1"] = 0;
+    // sTotal = 0;
+    // if (f_typ == "Date") {
+    //   d_dimension.forEach((dim) => {
+    //     dim_c = 0;
+    //     list1x["Area"] = dim;
+    //     list1y["Area"] = dim;
+    //     list1x["Value1"] = 0;
+    //     if (outData != undefined) {
+    //       for (let k = 0; k < outData.length; k++) {
+    //         if (outData[k][myCard["Data"]["dimension"]] != undefined) {
+    //           X1 = String(outData[k][myCard["Data"]["dimension"]]).substring(
+    //             0,
+    //             10
+    //           );
+    //           if (X1 == dim) {
+    //             dim_c = dim_c + 1;
+    //             sTotal = sTotal + 1;
+    //             list1x["Value1"] = dim_c;
+    //             list1y["Value1"] = sTotal;
+    //           }
+    //         }
+    //       }
+    //     }
+    //     dim_c = 0;
+    //     switch (mode) {
+    //       case "COUNT":
+    //         list1.push({ ...list1x });
+    //         list1x = {};
+    //         break;
+    //       case "COLLECTIVE_COUNT":
+    //         list1.push({ ...list1y });
+    //         list1y = {};
+    //         break;
+    //       default:
+    //         list1.push({ ...list1x });
+    //         list1x = {};
+    //         break;
+    //     }
+    //   });
+    // } else {
+    //   s_dimension.forEach((dim) => {
+    //     dim_c = 0;
+    //     list1x["Area"] = dim;
+    //     list1y["Area"] = dim;
+    //     list1x["Value1"] = 0;
+    //     for (let k = 0; k < outData.length; k++) {
+    //       if (outData[k][myCard["Data"]["dimension"]] != undefined) {
+    //         if (outData[k][myCard["Data"]["dimension"]] == dim) {
+    //           dim_c = dim_c + 1;
+    //           sTotal = sTotal + 1;
+    //           list1x["Value1"] = dim_c;
+    //           list1y["Value1"] = sTotal;
+    //         }
+    //       }
+    //     }
+    //     dim_c = 0;
+    //     switch (mode) {
+    //       case "COUNT":
+    //         list1.push({ ...list1x });
+    //         list1x = {};
+    //         break;
+    //       case "COLLECTIVE_COUNT":
+    //         list1.push({ ...list1y });
+    //         list1y = {};
+    //         break;
+    //       default:
+    //         list1.push({ ...list1x });
+    //         list1x = {};
+    //         break;
+    //     }
+    //   });
+    // }
+    //    return list1;
+  },
+  countAnalyticalCard: async function (
+    myCard,
+    outData,
+    mode,
+    FieldDef,
+    style,
+    req,
+    config1,
+    ivalue
+  ) {
+    aggCount = await aggregateCount(
+      req,
+      myCard["Data"]["dimension"],
+      "Descending",
+      config1,
+      ivalue
+    );
     f_typ = "string";
+
     for (let g = 0; g < FieldDef.length; g++) {
       if (FieldDef[g]["name"] == myCard["Data"]["dimension"]) {
         f_typ = FieldDef[g]["type"];
       }
     }
-    console.log("09 -  detailCharts : ", f_typ, style);
     // Perform Sorting..
     switch (f_typ) {
       case "string":
@@ -1363,7 +1595,7 @@ module.exports = {
             list1.push({ ...list1x });
             list1x = {};
             break;
-          case "COLLECTIVE":
+          case "COLLECTIVE_COUNT":
             list1.push({ ...list1y });
             list1y = {};
             break;
@@ -1386,13 +1618,6 @@ module.exports = {
               sTotal = sTotal + 1;
               list1x["Value1"] = dim_c;
               list1y["Value1"] = sTotal;
-              console.log(
-                myCard["Data"]["dimension"],
-                ">>",
-                list1x["Value1"],
-                ">>",
-                outData[k][myCard["Data"]["dimension"]]
-              );
             }
           }
         }
@@ -1402,7 +1627,7 @@ module.exports = {
             list1.push({ ...list1x });
             list1x = {};
             break;
-          case "COLLECTIVE":
+          case "COLLECTIVE_COUNT":
             list1.push({ ...list1y });
             list1y = {};
             break;
@@ -1413,7 +1638,6 @@ module.exports = {
         }
       });
     }
-    console.log("Card List", list1);
     return list1;
     //const sortedActivities = string(activities,"string");
     //const sortedActivities = integer(activities,"integer");
@@ -1473,8 +1697,6 @@ module.exports = {
       case "COLLECTIVE":
         for (let m = 0; m < list.length; m++) {
           hdr["number"] = list[m]["Value1"];
-          console.log(hdr["number"]);
-          console.log(list[m]["Value1"]);
         }
         break;
       default:
@@ -1508,7 +1730,6 @@ module.exports = {
         myCard["cardsubType"] +
         ".json";
     }
-    console.log("GraphConfig:", cardTemplate);
     let anacardConfig = require(cardTemplate);
     if (style == "SAP") {
       anacardConfig["sap.card"].content.data.json.list = list;
@@ -1530,7 +1751,6 @@ module.exports = {
 
       anacardConfig["cardid"] = kl;
     }
-    console.log(anacardConfig);
     return anacardConfig;
   },
 };

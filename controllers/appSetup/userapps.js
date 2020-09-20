@@ -1,16 +1,9 @@
-const path = require("path");
 const ErrorResponse = require("../../utils/errorResponse");
 const asyncHandler = require("../../middleware/async");
 const Approle = require("../../models/appSetup/Approle");
 const Role = require("../../models/appSetup/Role");
 const User = require("../../models/access/User");
-const App = require("../../models/appSetup/App");
-const {
-  readData,
-  getTotalCount,
-  nConfig,
-  tileCount,
-} = require("../../modules/config2");
+const { tileCount } = require("../../modules/config2");
 const { getInitialValues } = require("../../modules/config");
 
 // @desc      Get all approles
@@ -163,17 +156,6 @@ exports.getUserapps = asyncHandler(async (req, res, next) => {
           ivalue
         );
         appTemp["count"] = tCount;
-
-        // let query_c = getTotalCount(
-        //   approleX.Apps[j].applicationID,
-        //   req,
-        //   config1
-        // );
-
-        // let rec = await query_c;
-        // let count = rec.length;
-        // appTemp["count"] = count;
-        /////////////////////////
 
         if (approleX.Apps[j] == undefined) {
           appTemp["Type"] = "MasterDetail";

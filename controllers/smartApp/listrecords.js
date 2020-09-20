@@ -371,7 +371,8 @@ exports.getListrecords1 = asyncHandler(async (req, res, next) => {
                 outData["data"],
                 "COUNT",
                 appconfig["FieldDef"],
-                "SAP"
+                "SAP",
+                req
               );
               numheader = await numericHeader(myCard, list, "COUNT");
               aCard = await buildAnalyticalCard(
@@ -392,13 +393,14 @@ exports.getListrecords1 = asyncHandler(async (req, res, next) => {
               aCard = JSON.parse(cardData);
               outStru["ANAX" + x] = { ...aCard };
               break;
-            case "COLLECTIVE":
+            case "COLLECTIVE_COUNT":
               list = await countAnalyticalCard(
                 appconfig["listCards"][x],
                 outData["data"],
-                "COLLECTIVE",
+                "COLLECTIVE_COUNT",
                 appconfig["FieldDef"],
-                "SAP"
+                "SAP",
+                req
               );
               numheader = await numericHeader(myCard, list, "COLLECTIVE");
               aCard = await buildAnalyticalCard(
@@ -432,7 +434,8 @@ exports.getListrecords1 = asyncHandler(async (req, res, next) => {
                 outData["data"],
                 "COUNT",
                 appconfig["FieldDef"],
-                "SAP"
+                "SAP",
+                req
               );
               numheader = await numericHeader(myCard, list, "COUNT");
               aCard = await buildAnalyticalCard(

@@ -221,8 +221,12 @@
       "unitOfMeasurement": "Days",
       "Data": {
         "dimension": "ExpenseStDate",
-        "fact": "records",
-        "operation": "COLLECTIVE"
+        "fact": "Count",
+        "operation": "COLLECTIVE_COUNT",
+        "sorting": "Ascending",
+        "aggregate": "Yes",
+        "sortField": "Count",
+        "dType": "Date"
       },
       "numericHeader": {
         "headerNumber": { "Operation": "COLLECTIVE", "Field": "ID" },

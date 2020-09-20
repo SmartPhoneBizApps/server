@@ -191,8 +191,12 @@
       "unitOfMeasurement": "Days",
       "Data": {
         "dimension": "StartDate",
-        "fact": "records",
-        "operation": "COLLECTIVE"
+        "fact": "Count",
+        "operation": "COLLECTIVE_COUNT",
+        "sorting": "Ascending",
+        "aggregate": "Yes",
+        "sortField": "Count",
+        "dType": "Date"
       },
       "numericHeader": {
         "headerNumber": { "Operation": "COLLECTIVE", "Field": "ID" },
@@ -549,8 +553,12 @@
           "source": "myTime",
           "Data": {
             "dimension": "ProjectCode",
-            "fact": "records",
-            "operation": "COUNT"
+            "fact": "Count",
+            "operation": "COUNT",
+            "sorting": "Ascending",
+            "aggregate": "Yes",
+            "sortField": "Count",
+            "dType": "string"
           },
           "numericHeader": {
             "headerNumber": { "Operation": "COUNT", "Field": "ProjectCode" },
@@ -569,8 +577,12 @@
           "unitOfMeasurement": "Hrs",
           "Data": {
             "dimension": "Date",
-            "fact": "records",
-            "operation": "COLLECTIVE"
+            "fact": "Count",
+            "operation": "COLLECTIVE_COUNT",
+            "sorting": "Ascending",
+            "aggregate": "Yes",
+            "sortField": "Count",
+            "dType": "string"
           },
           "numericHeader": {
             "headerNumber": {

@@ -1,9 +1,5 @@
-const ErrorResponse = require("../../utils/errorResponse");
-const Role = require("../../models/appSetup/Role");
-const Approle = require("../../models/appSetup/Approle");
 const { getCard } = require("../../modules/config");
-const { readData, getTotalCount, nConfig } = require("../../modules/config2");
-const { json } = require("express");
+const { readData } = require("../../modules/config2");
 // @desc      Get adaptiveCard_card
 // @route     GET /api/v1/adaptiveCard_card/:id
 // @access    Public

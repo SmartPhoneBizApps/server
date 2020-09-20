@@ -248,8 +248,12 @@
       "unitOfMeasurement": "Days",
       "Data": {
         "dimension": "BookingFor",
-        "fact": "records",
-        "operation": "COUNT"
+        "fact": "Count",
+        "operation": "COUNT",
+        "sorting": "Ascending",
+        "aggregate": "Yes",
+        "sortField": "Count",
+        "dType": "string"
       },
       "numericHeader": {
         "headerNumber": { "Operation": "COUNT", "Field": "ID" },

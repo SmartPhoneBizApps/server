@@ -219,8 +219,12 @@
       "unitOfMeasurement": "Days",
       "Data": {
         "dimension": "InvoiceType",
-        "fact": "records",
-        "operation": "COUNT"
+        "fact": "Count",
+        "operation": "COUNT",
+        "sorting": "Ascending",
+        "aggregate": "Yes",
+        "sortField": "Count",
+        "dType": "string"
       },
       "numericHeader": {
         "headerNumber": { "Operation": "COUNT", "Field": "ID" },
@@ -238,8 +242,12 @@
       "unitOfMeasurement": "Days",
       "Data": {
         "dimension": "InvoiceDate",
-        "fact": "records",
-        "operation": "COLLECTIVE"
+        "fact": "Count",
+        "operation": "COLLECTIVE_COUNT",
+        "sorting": "Ascending",
+        "aggregate": "Yes",
+        "sortField": "Count",
+        "dType": "Date"
       },
       "numericHeader": {
         "headerNumber": { "Operation": "COLLECTIVE", "Field": "ID" },
@@ -407,8 +415,12 @@
           "source": "ContractInvoice",
           "Data": {
             "dimension": "InstitutionName",
-            "fact": "records",
-            "operation": "COUNT"
+            "fact": "Count",
+            "operation": "COUNT",
+            "sorting": "Ascending",
+            "aggregate": "Yes",
+            "sortField": "Count",
+            "dType": "string"
           },
           "numericHeader": {
             "headerNumber": {
@@ -616,8 +628,12 @@
           "source": "EventInvoice",
           "Data": {
             "dimension": "InstitutionName",
-            "fact": "records",
-            "operation": "COUNT"
+            "fact": "Count",
+            "operation": "COUNT",
+            "sorting": "Ascending",
+            "aggregate": "Yes",
+            "sortField": "Count",
+            "dType": "string"
           },
           "numericHeader": {
             "headerNumber": {
@@ -825,8 +841,12 @@
           "source": "StudyInvoice",
           "Data": {
             "dimension": "InstitutionName",
-            "fact": "records",
-            "operation": "COUNT"
+            "fact": "Count",
+            "operation": "COUNT",
+            "sorting": "Ascending",
+            "aggregate": "Yes",
+            "sortField": "Count",
+            "dType": "string"
           },
           "numericHeader": {
             "headerNumber": {
@@ -1161,8 +1181,12 @@
           "source": "myHCPHCO",
           "Data": {
             "dimension": "Speciality",
-            "fact": "records",
-            "operation": "COUNT"
+            "fact": "Count",
+            "operation": "COUNT",
+            "sorting": "Ascending",
+            "aggregate": "Yes",
+            "sortField": "Count",
+            "dType": "string"
           },
           "numericHeader": {
             "headerNumber": { "Operation": "COUNT", "Field": "Speciality" },
@@ -1182,8 +1206,12 @@
           "source": "myHCPHCO",
           "Data": {
             "dimension": "InstitutionName",
-            "fact": "records",
-            "operation": "COUNT"
+            "fact": "Count",
+            "operation": "COUNT",
+            "sorting": "Ascending",
+            "aggregate": "Yes",
+            "sortField": "Count",
+            "dType": "string"
           },
           "numericHeader": {
             "headerNumber": {
