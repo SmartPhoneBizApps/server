@@ -9,7 +9,17 @@
     "USP": "UserProfile",
     "StatusColor": "Yes",
     "SearchString": { "Search": false },
-    "Filters": [],
+    "Filters": [
+      {
+        "$and": [
+          { "Status": { "$ne": "Approved" } },
+          { "Status": { "$ne": "Rejected" } },
+          { "Status": { "$ne": "ReferredBack" } },
+          { "Status": { "$ne": "Saved" } },
+          { "Status": { "$ne": "Cancelled" } }
+        ]
+      }
+    ],
     "Partner": "@user",
     "UserSpecific": "Yes",
     "Update": "Yes",
@@ -54,11 +64,11 @@
   "DButtons": [
     {
       "type": "WORKFLOW",
-      "name": "Approve",
+      "name": "Stage1",
       "icon": "sap-icon://accept",
       "Dialog": [
         {
-          "label": "Approver Comment",
+          "label": "Stage1 Comment",
           "name": "ProgressComment",
           "type": "string",
           "option": "Optional"
@@ -66,20 +76,21 @@
       ],
       "transferFields": [
         { "field": "ID", "value": "@recorddata" },
-        { "field": "Status", "value": "Approved" },
+        { "field": "Status", "value": "Stage1" },
         { "field": "ProgressComment", "value": "@UserInput" }
       ],
       "URL": "datarecords/",
       "Token": "Yes",
-      "URLMethod": "PUT"
+      "URLMethod": "PUT",
+      "hideRecord": "Yes"
     },
     {
       "type": "WORKFLOW",
-      "name": "Reject",
-      "icon": "sap-icon://decline",
+      "name": "Stage2",
+      "icon": "sap-icon://accept",
       "Dialog": [
         {
-          "label": "Approver Comment",
+          "label": "Stage2 Comment",
           "name": "ProgressComment",
           "type": "string",
           "option": "Optional"
@@ -87,20 +98,43 @@
       ],
       "transferFields": [
         { "field": "ID", "value": "@recorddata" },
-        { "field": "Status", "value": "Rejected" },
+        { "field": "Status", "value": "Stage2" },
         { "field": "ProgressComment", "value": "@UserInput" }
       ],
       "URL": "datarecords/",
       "Token": "Yes",
-      "URLMethod": "PUT"
+      "URLMethod": "PUT",
+      "hideRecord": "Yes"
     },
     {
       "type": "WORKFLOW",
-      "name": "ReferBack",
+      "name": "Stage3",
+      "icon": "sap-icon://accept",
+      "Dialog": [
+        {
+          "label": "Stage3 Comment",
+          "name": "ProgressComment",
+          "type": "string",
+          "option": "Optional"
+        }
+      ],
+      "transferFields": [
+        { "field": "ID", "value": "@recorddata" },
+        { "field": "Status", "value": "Stage3" },
+        { "field": "ProgressComment", "value": "@UserInput" }
+      ],
+      "URL": "datarecords/",
+      "Token": "Yes",
+      "URLMethod": "PUT",
+      "hideRecord": "Yes"
+    },
+    {
+      "type": "WORKFLOW",
+      "name": "Scheduled",
       "icon": "sap-icon://hint",
       "Dialog": [
         {
-          "label": "Approver Comment",
+          "label": "Scheduled Comment",
           "name": "ProgressComment",
           "type": "string",
           "option": "Optional"
@@ -108,31 +142,76 @@
       ],
       "transferFields": [
         { "field": "ID", "value": "@recorddata" },
-        { "field": "Status", "value": "ReferredBack" },
+        { "field": "Status", "value": "Scheduled" },
         { "field": "ProgressComment", "value": "@UserInput" }
       ],
       "URL": "datarecords/",
       "Token": "Yes",
-      "URLMethod": "PUT"
+      "URLMethod": "PUT",
+      "hideRecord": "Yes"
+    },
+    {
+      "type": "WORKFLOW",
+      "name": "Selected",
+      "icon": "sap-icon://hint",
+      "Dialog": [
+        {
+          "label": "Selected Comment",
+          "name": "ProgressComment",
+          "type": "string",
+          "option": "Optional"
+        }
+      ],
+      "transferFields": [
+        { "field": "ID", "value": "@recorddata" },
+        { "field": "Status", "value": "Selected" },
+        { "field": "ProgressComment", "value": "@UserInput" }
+      ],
+      "URL": "datarecords/",
+      "Token": "Yes",
+      "URLMethod": "PUT",
+      "hideRecord": "Yes"
+    },
+    {
+      "type": "WORKFLOW",
+      "name": "NotSelected",
+      "icon": "sap-icon://hint",
+      "Dialog": [
+        {
+          "label": "NotSelected Comment",
+          "name": "ProgressComment",
+          "type": "string",
+          "option": "Optional"
+        }
+      ],
+      "transferFields": [
+        { "field": "ID", "value": "@recorddata" },
+        { "field": "Status", "value": "NotSelected" },
+        { "field": "ProgressComment", "value": "@UserInput" }
+      ],
+      "URL": "datarecords/",
+      "Token": "Yes",
+      "URLMethod": "PUT",
+      "hideRecord": "Yes"
     }
   ],
   "Tabs": [
-{
-    "value": "Tab0",
-    "style": "SAP",
-    "update": "No",
-    "name": "Cards",
-    "type": "Cards",
-    "fioriicon": "responsive"
-  },
-  {
-    "value": "Tab20",
-    "style": "SAP",
-    "update": "No",
-    "name": "Charts",
-    "type": "Charts",
-    "fioriicon": "business-objects-experience"
-  },
+    {
+      "value": "Tab0",
+      "style": "SAP",
+      "update": "No",
+      "name": "Cards",
+      "type": "Cards",
+      "fioriicon": "responsive"
+    },
+    {
+      "value": "Tab20",
+      "style": "SAP",
+      "update": "No",
+      "name": "Charts",
+      "type": "Charts",
+      "fioriicon": "business-objects-experience"
+    },
     {
       "value": "Tab1",
       "style": "SAP",
@@ -164,7 +243,7 @@
     "headerImage": ["USP_Image"],
     "headerColorFields": ["Status"],
     "Tab0": ["data"],
-    "Tab20":["charts"],
+    "Tab20": ["charts"],
     "None": ["ID", "Candidate"],
     "Tab1": [
       "InterviewDate",
@@ -251,7 +330,7 @@
       "type": "string",
       "width": "20",
       "Option": "Mandatory",
-      "adaptiveCard":"Main",
+      "adaptiveCard": "Main",
       "SLabel": "Identification",
       "Update": "No"
     },
@@ -260,7 +339,7 @@
       "type": "string",
       "width": "20",
       "Option": "Optional",
-      "adaptiveCard":"Additional",
+      "adaptiveCard": "Additional",
       "SLabel": "ReferenceID"
     },
     {
@@ -268,7 +347,7 @@
       "type": "Date",
       "width": "10",
       "Option": "Optional",
-      "adaptiveCard":"Additional",
+      "adaptiveCard": "Additional",
       "SLabel": "Interview Date"
     },
     {
@@ -276,7 +355,7 @@
       "type": "string",
       "width": "50",
       "Option": "Optional",
-      "adaptiveCard":"Additional",
+      "adaptiveCard": "Additional",
       "SLabel": "Position"
     },
     {
@@ -284,7 +363,7 @@
       "type": "string",
       "width": "50",
       "Option": "Mandatory",
-      "adaptiveCard":"Main",
+      "adaptiveCard": "Main",
       "SLabel": "Candidate",
       "LLabel": "Candidate"
     },
@@ -293,7 +372,7 @@
       "type": "Date",
       "width": "10",
       "Option": "Optional",
-      "adaptiveCard":"Additional",
+      "adaptiveCard": "Additional",
       "SLabel": "Date Of Birth"
     },
     {
@@ -301,7 +380,7 @@
       "type": "string",
       "width": "100",
       "Option": "Mandatory",
-      "adaptiveCard":"Main",
+      "adaptiveCard": "Main",
       "SLabel": "Email ID"
     },
     {
@@ -309,7 +388,7 @@
       "type": "string",
       "width": "50",
       "Option": "Optional",
-      "adaptiveCard":"Additional",
+      "adaptiveCard": "Additional",
       "SLabel": "ContactNo No"
     },
     {
@@ -317,7 +396,7 @@
       "type": "string",
       "width": "50",
       "Option": "Optional",
-      "adaptiveCard":"Additional",
+      "adaptiveCard": "Additional",
       "SLabel": "About Company"
     },
     {
@@ -325,7 +404,7 @@
       "type": "string",
       "width": "50",
       "Option": "Optional",
-      "adaptiveCard":"Additional",
+      "adaptiveCard": "Additional",
       "SLabel": "Communication"
     },
     {
@@ -333,7 +412,7 @@
       "type": "string",
       "width": "100",
       "Option": "Optional",
-      "adaptiveCard":"Additional",
+      "adaptiveCard": "Additional",
       "SLabel": "Leadership Skills"
     },
     {
@@ -341,7 +420,7 @@
       "type": "string",
       "width": "100",
       "Option": "Optional",
-      "adaptiveCard":"Additional",
+      "adaptiveCard": "Additional",
       "SLabel": "Problem Solving Skills"
     },
     {
@@ -349,7 +428,7 @@
       "type": "string",
       "width": "100",
       "Option": "Optional",
-      "adaptiveCard":"Additional",
+      "adaptiveCard": "Additional",
       "SLabel": "Motivational Skills"
     },
     {
@@ -357,7 +436,7 @@
       "type": "string",
       "width": "50",
       "Option": "Optional",
-      "adaptiveCard":"Additional",
+      "adaptiveCard": "Additional",
       "SLabel": "Current Job Type"
     },
     {
@@ -365,7 +444,7 @@
       "type": "string",
       "width": "50",
       "Option": "Optional",
-      "adaptiveCard":"Additional",
+      "adaptiveCard": "Additional",
       "SLabel": "Current Employer"
     },
     {
@@ -373,7 +452,7 @@
       "type": "string",
       "width": "50",
       "Option": "Optional",
-      "adaptiveCard":"Additional",
+      "adaptiveCard": "Additional",
       "SLabel": "Current Job Role"
     },
     {
@@ -381,7 +460,7 @@
       "type": "string",
       "width": "50",
       "Option": "Optional",
-      "adaptiveCard":"Additional",
+      "adaptiveCard": "Additional",
       "SLabel": "Reason leaving"
     },
     {
@@ -389,7 +468,7 @@
       "type": "string",
       "width": "50",
       "Option": "Optional",
-      "adaptiveCard":"Additional",
+      "adaptiveCard": "Additional",
       "SLabel": "Current Base Salary"
     },
     {
@@ -397,7 +476,7 @@
       "type": "string",
       "width": "50",
       "Option": "Optional",
-      "adaptiveCard":"Additional",
+      "adaptiveCard": "Additional",
       "SLabel": "Current Gross Salary"
     },
     {
@@ -405,7 +484,7 @@
       "type": "string",
       "width": "50",
       "Option": "Optional",
-      "adaptiveCard":"Additional",
+      "adaptiveCard": "Additional",
       "SLabel": "Expected Base Salary"
     },
     {
@@ -413,7 +492,7 @@
       "type": "string",
       "width": "50",
       "Option": "Optional",
-      "adaptiveCard":"Additional",
+      "adaptiveCard": "Additional",
       "SLabel": "Expected Gross Salary"
     },
     {
@@ -421,7 +500,7 @@
       "type": "switch",
       "width": "50",
       "Option": "Optional",
-      "adaptiveCard":"Additional",
+      "adaptiveCard": "Additional",
       "SLabel": "Pension Plan"
     },
     {
@@ -429,7 +508,7 @@
       "type": "string",
       "width": "50",
       "Option": "Optional",
-      "adaptiveCard":"Additional",
+      "adaptiveCard": "Additional",
       "SLabel": "Health Care"
     },
     {
@@ -437,7 +516,7 @@
       "type": "switch",
       "width": "50",
       "Option": "Optional",
-      "adaptiveCard":"Additional",
+      "adaptiveCard": "Additional",
       "SLabel": "Life Assurance"
     },
     {
@@ -445,7 +524,7 @@
       "type": "string",
       "width": "50",
       "Option": "Optional",
-      "adaptiveCard":"Additional",
+      "adaptiveCard": "Additional",
       "SLabel": "Bonus"
     },
     {
@@ -453,7 +532,7 @@
       "type": "switch",
       "width": "50",
       "Option": "Optional",
-      "adaptiveCard":"Additional",
+      "adaptiveCard": "Additional",
       "SLabel": "Company Car"
     },
     {
@@ -461,7 +540,7 @@
       "type": "string",
       "width": "50",
       "Option": "Optional",
-      "adaptiveCard":"Additional",
+      "adaptiveCard": "Additional",
       "SLabel": "Other Allowance "
     },
     {
@@ -469,7 +548,7 @@
       "type": "string",
       "width": "50",
       "Option": "Optional",
-      "adaptiveCard":"Additional",
+      "adaptiveCard": "Additional",
       "SLabel": "Notice Period"
     },
     {
@@ -477,7 +556,7 @@
       "type": "switch",
       "width": "100",
       "Option": "Optional",
-      "adaptiveCard":"Additional",
+      "adaptiveCard": "Additional",
       "SLabel": "Consider ReLocation"
     },
     {
@@ -485,7 +564,7 @@
       "type": "string",
       "width": "50",
       "Option": "Optional",
-      "adaptiveCard":"Additional",
+      "adaptiveCard": "Additional",
       "SLabel": "Consider Travel"
     },
     {
@@ -493,7 +572,7 @@
       "type": "string",
       "width": "50",
       "Option": "Optional",
-      "adaptiveCard":"Additional",
+      "adaptiveCard": "Additional",
       "SLabel": "UK Resident"
     },
     {
@@ -501,7 +580,7 @@
       "type": "switch",
       "width": "50",
       "Option": "Optional",
-      "adaptiveCard":"Additional",
+      "adaptiveCard": "Additional",
       "SLabel": "Eligibility"
     },
     {
@@ -509,7 +588,7 @@
       "type": "string",
       "width": "50",
       "Option": "Optional",
-      "adaptiveCard":"Additional",
+      "adaptiveCard": "Additional",
       "SLabel": "Citizenship"
     },
     {
@@ -517,7 +596,7 @@
       "type": "string",
       "width": "50",
       "Option": "Optional",
-      "adaptiveCard":"Additional",
+      "adaptiveCard": "Additional",
       "SLabel": "Visa"
     },
     {
@@ -525,7 +604,7 @@
       "type": "Date",
       "width": "10",
       "Option": "Optional",
-      "adaptiveCard":"Additional",
+      "adaptiveCard": "Additional",
       "SLabel": "Visa Validity"
     },
     {
@@ -533,7 +612,7 @@
       "type": "Date",
       "width": "10",
       "Option": "Optional",
-      "adaptiveCard":"Additional",
+      "adaptiveCard": "Additional",
       "SLabel": "Date Of Joining"
     },
     {
@@ -541,7 +620,7 @@
       "type": "string",
       "width": "50",
       "Option": "Optional",
-      "adaptiveCard":"Additional",
+      "adaptiveCard": "Additional",
       "SLabel": "Location"
     },
     {
@@ -549,7 +628,7 @@
       "type": "string",
       "width": "50",
       "Option": "Optional",
-      "adaptiveCard":"Additional",
+      "adaptiveCard": "Additional",
       "SLabel": "Duration"
     },
     {
@@ -557,7 +636,7 @@
       "type": "string",
       "width": "50",
       "Option": "Optional",
-      "adaptiveCard":"Additional",
+      "adaptiveCard": "Additional",
       "SLabel": "Rate"
     },
     {
@@ -565,7 +644,7 @@
       "type": "string",
       "width": "50",
       "Option": "Optional",
-      "adaptiveCard":"Additional",
+      "adaptiveCard": "Additional",
       "SLabel": "Base Salary"
     },
     {
@@ -573,7 +652,7 @@
       "type": "string",
       "width": "50",
       "Option": "Optional",
-      "adaptiveCard":"Additional",
+      "adaptiveCard": "Additional",
       "SLabel": "Gross Salary"
     },
     {
@@ -581,7 +660,7 @@
       "type": "string",
       "width": "50",
       "Option": "Optional",
-      "adaptiveCard":"Additional",
+      "adaptiveCard": "Additional",
       "SLabel": "Job Type"
     },
     {
@@ -589,7 +668,7 @@
       "type": "string",
       "width": "1000",
       "Option": "Optional",
-      "adaptiveCard":"Additional",
+      "adaptiveCard": "Additional",
       "SLabel": "HR Feedback"
     },
     {
@@ -597,7 +676,7 @@
       "type": "string",
       "width": "1000",
       "Option": "Optional",
-      "adaptiveCard":"Additional",
+      "adaptiveCard": "Additional",
       "SLabel": "Technical Feedback"
     },
     {
@@ -605,7 +684,7 @@
       "type": "string",
       "width": "1000",
       "Option": "Optional",
-      "adaptiveCard":"Additional",
+      "adaptiveCard": "Additional",
       "SLabel": "Lead Feedback"
     },
     {
@@ -613,7 +692,7 @@
       "type": "string",
       "width": "50",
       "Option": "Mandatory",
-      "adaptiveCard":"Main",
+      "adaptiveCard": "Main",
       "SLabel": "Status",
       "LLabel": "Status"
     },
@@ -622,7 +701,7 @@
       "type": "string",
       "width": "200",
       "Option": "Optional",
-      "adaptiveCard":"None",
+      "adaptiveCard": "None",
       "SLabel": "Search String",
       "LLabel": "Search String"
     },
@@ -631,7 +710,7 @@
       "type": "string",
       "width": "1000",
       "Option": "Optional",
-      "adaptiveCard":"None",
+      "adaptiveCard": "None",
       "SLabel": "ProgressComment",
       "LLabel": "ProgressComment"
     },
@@ -640,7 +719,7 @@
       "type": "string",
       "width": "100",
       "Option": "Optional",
-      "adaptiveCard":"Additional",
+      "adaptiveCard": "Additional",
       "SLabel": "Screening Status"
     },
     {
@@ -648,7 +727,7 @@
       "type": "string",
       "width": "100",
       "Option": "Optional",
-      "adaptiveCard":"Additional",
+      "adaptiveCard": "Additional",
       "SLabel": "Technical Status"
     },
     {
@@ -656,7 +735,7 @@
       "type": "string",
       "width": "100",
       "Option": "Optional",
-      "adaptiveCard":"Additional",
+      "adaptiveCard": "Additional",
       "SLabel": "Lead Status"
     },
     {
@@ -664,7 +743,7 @@
       "type": "string",
       "width": "100",
       "Option": "Optional",
-      "adaptiveCard":"Additional",
+      "adaptiveCard": "Additional",
       "SLabel": "HR Status"
     },
     {
@@ -672,7 +751,7 @@
       "type": "string",
       "width": "200",
       "Option": "Optional",
-      "adaptiveCard":"Additional",
+      "adaptiveCard": "Additional",
       "SLabel": "Work Permit Visa"
     },
     {
@@ -680,7 +759,7 @@
       "type": "string",
       "width": "500",
       "Option": "Optional",
-      "adaptiveCard":"Additional",
+      "adaptiveCard": "Additional",
       "SLabel": "Screen Feedback"
     },
     {
@@ -688,7 +767,7 @@
       "type": "Date",
       "width": "10",
       "Option": "Optional",
-      "adaptiveCard":"Additional",
+      "adaptiveCard": "Additional",
       "SLabel": "HR Interview Date"
     },
     {
@@ -696,7 +775,7 @@
       "type": "Date",
       "width": "10",
       "Option": "Optional",
-      "adaptiveCard":"Additional",
+      "adaptiveCard": "Additional",
       "SLabel": "Technical Interview Date"
     },
     {
@@ -704,15 +783,23 @@
       "type": "Date",
       "width": "10",
       "Option": "Optional",
-      "adaptiveCard":"Additional",
+      "adaptiveCard": "Additional",
       "SLabel": "Lead Interview Date"
+    },
+    {
+      "name": "ProgressComment",
+      "type": "string",
+      "width": "500",
+      "Option": "Mandatory",
+      "adaptiveCard": "Main",
+      "SLabel": "Approver Comment"
     },
     {
       "name": "ScreenDt",
       "type": "Date",
       "width": "10",
       "Option": "Optional",
-      "adaptiveCard":"Additional",
+      "adaptiveCard": "Additional",
       "SLabel": "Screen Date"
     }
   ],

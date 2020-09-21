@@ -49,7 +49,52 @@
       "URL": "https://www.messenger.com/t/295020207695029"
     }
   ],
-  "DButtons": [],
+  "DButtons": [
+    {
+      "type": "WORKFLOW",
+      "name": "Applied",
+      "icon": "sap-icon://accept",
+      "Dialog": [
+        {
+          "label": "Applied Comment",
+          "name": "ProgressComment",
+          "type": "string",
+          "option": "Optional"
+        }
+      ],
+      "transferFields": [
+        { "field": "ID", "value": "@recorddata" },
+        { "field": "Status", "value": "Applied" },
+        { "field": "ProgressComment", "value": "@UserInput" }
+      ],
+      "URL": "datarecords/",
+      "Token": "Yes",
+      "URLMethod": "PUT",
+      "hideRecord": "Yes"
+    },
+    {
+      "type": "WORKFLOW",
+      "name": "Favourite",
+      "icon": "sap-icon://accept",
+      "Dialog": [
+        {
+          "label": "Favourite Comment",
+          "name": "ProgressComment",
+          "type": "string",
+          "option": "Optional"
+        }
+      ],
+      "transferFields": [
+        { "field": "ID", "value": "@recorddata" },
+        { "field": "Status", "value": "Favourite" },
+        { "field": "ProgressComment", "value": "@UserInput" }
+      ],
+      "URL": "datarecords/",
+      "Token": "Yes",
+      "URLMethod": "PUT",
+      "hideRecord": "Yes"
+    }
+  ],
   "Tabs": [
     {
       "value": "Tab0",

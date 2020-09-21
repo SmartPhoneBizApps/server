@@ -54,11 +54,11 @@
   "DButtons": [
     {
       "type": "WORKFLOW",
-      "name": "Approve",
+      "name": "Stage1Done",
       "icon": "sap-icon://accept",
       "Dialog": [
         {
-          "label": "Approver Comment",
+          "label": "Stage1Done Comment",
           "name": "ProgressComment",
           "type": "string",
           "option": "Optional"
@@ -66,20 +66,21 @@
       ],
       "transferFields": [
         { "field": "ID", "value": "@recorddata" },
-        { "field": "Status", "value": "Approved" },
+        { "field": "Status", "value": "Stage1Done" },
         { "field": "ProgressComment", "value": "@UserInput" }
       ],
       "URL": "datarecords/",
       "Token": "Yes",
-      "URLMethod": "PUT"
+      "URLMethod": "PUT",
+      "hideRecord": "Yes"
     },
     {
       "type": "WORKFLOW",
-      "name": "Reject",
-      "icon": "sap-icon://decline",
+      "name": "Stage2Done",
+      "icon": "sap-icon://accept",
       "Dialog": [
         {
-          "label": "Approver Comment",
+          "label": "Stage2Done Comment",
           "name": "ProgressComment",
           "type": "string",
           "option": "Optional"
@@ -87,20 +88,21 @@
       ],
       "transferFields": [
         { "field": "ID", "value": "@recorddata" },
-        { "field": "Status", "value": "Rejected" },
+        { "field": "Status", "value": "Stage2Done" },
         { "field": "ProgressComment", "value": "@UserInput" }
       ],
       "URL": "datarecords/",
       "Token": "Yes",
-      "URLMethod": "PUT"
+      "URLMethod": "PUT",
+      "hideRecord": "Yes"
     },
     {
       "type": "WORKFLOW",
-      "name": "ReferBack",
-      "icon": "sap-icon://hint",
+      "name": "Stage3Done",
+      "icon": "sap-icon://accept",
       "Dialog": [
         {
-          "label": "Approver Comment",
+          "label": "Stage3Done Comment",
           "name": "ProgressComment",
           "type": "string",
           "option": "Optional"
@@ -108,12 +110,13 @@
       ],
       "transferFields": [
         { "field": "ID", "value": "@recorddata" },
-        { "field": "Status", "value": "ReferredBack" },
+        { "field": "Status", "value": "Stage3Done" },
         { "field": "ProgressComment", "value": "@UserInput" }
       ],
       "URL": "datarecords/",
       "Token": "Yes",
-      "URLMethod": "PUT"
+      "URLMethod": "PUT",
+      "hideRecord": "Yes"
     }
   ],
   "Tabs": [

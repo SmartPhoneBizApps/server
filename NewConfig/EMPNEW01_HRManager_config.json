@@ -134,27 +134,6 @@
   "DButtons": [
     {
       "type": "WORKFLOW",
-      "name": "Submit",
-      "icon": "sap-icon://decline",
-      "Dialog": [
-        {
-          "label": "Submit Comment",
-          "name": "ProgressComment",
-          "type": "string",
-          "option": "Optional"
-        }
-      ],
-      "transferFields": [
-        { "field": "ID", "value": "@recorddata" },
-        { "field": "Status", "value": "Submitted" },
-        { "field": "ProgressComment", "value": "@UserInput" }
-      ],
-      "URL": "datarecords/",
-      "Token": "Yes",
-      "URLMethod": "PUT"
-    },
-    {
-      "type": "WORKFLOW",
       "name": "Request Processed",
       "icon": "sap-icon://decline",
       "Dialog": [
@@ -189,6 +168,90 @@
       "transferFields": [
         { "field": "ID", "value": "@recorddata" },
         { "field": "Status", "value": "RequestMoreInfo" },
+        { "field": "ProgressComment", "value": "@UserInput" }
+      ],
+      "URL": "datarecords/",
+      "Token": "Yes",
+      "URLMethod": "PUT"
+    },
+    {
+      "type": "WORKFLOW",
+      "name": "Active",
+      "icon": "sap-icon://decline",
+      "Dialog": [
+        {
+          "label": "Active Comment",
+          "name": "ProgressComment",
+          "type": "string",
+          "option": "Optional"
+        }
+      ],
+      "transferFields": [
+        { "field": "ID", "value": "@recorddata" },
+        { "field": "Status", "value": "Active" },
+        { "field": "ProgressComment", "value": "@UserInput" }
+      ],
+      "URL": "datarecords/",
+      "Token": "Yes",
+      "URLMethod": "PUT"
+    },
+    {
+      "type": "WORKFLOW",
+      "name": "Left",
+      "icon": "sap-icon://decline",
+      "Dialog": [
+        {
+          "label": "Left Comment",
+          "name": "ProgressComment",
+          "type": "string",
+          "option": "Optional"
+        }
+      ],
+      "transferFields": [
+        { "field": "ID", "value": "@recorddata" },
+        { "field": "Status", "value": "Left" },
+        { "field": "ProgressComment", "value": "@UserInput" }
+      ],
+      "URL": "datarecords/",
+      "Token": "Yes",
+      "URLMethod": "PUT"
+    },
+    {
+      "type": "WORKFLOW",
+      "name": "Request Update",
+      "icon": "sap-icon://decline",
+      "Dialog": [
+        {
+          "label": "Update Requested",
+          "name": "ProgressComment",
+          "type": "string",
+          "option": "Optional"
+        }
+      ],
+      "transferFields": [
+        { "field": "ID", "value": "@recorddata" },
+        { "field": "Status", "value": "UpdateRequested" },
+        { "field": "ProgressComment", "value": "@UserInput" }
+      ],
+      "URL": "datarecords/",
+      "Token": "Yes",
+      "URLMethod": "PUT"
+    },
+    {
+      "type": "WORKFLOW",
+      "name": "Cancel",
+      "icon": "sap-icon://decline",
+      "Dialog": [
+        {
+          "label": "Cancellation Comment",
+          "name": "ProgressComment",
+          "type": "string",
+          "option": "Optional"
+        }
+      ],
+      "transferFields": [
+        { "field": "ID", "value": "@recorddata" },
+        { "field": "Status", "value": "Cancelled" },
         { "field": "ProgressComment", "value": "@UserInput" }
       ],
       "URL": "datarecords/",

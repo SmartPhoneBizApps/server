@@ -67,7 +67,96 @@
       }
     }
   ],
-  "DButtons": [],
+  "DButtons": [
+    {
+      "type": "WORKFLOW",
+      "name": "Open",
+      "icon": "sap-icon://accept",
+      "Dialog": [
+        {
+          "label": "Open Comment",
+          "name": "ProgressComment",
+          "type": "string",
+          "option": "Optional"
+        }
+      ],
+      "transferFields": [
+        { "field": "ID", "value": "@recorddata" },
+        { "field": "Status", "value": "Open" },
+        { "field": "ProgressComment", "value": "@UserInput" }
+      ],
+      "URL": "datarecords/",
+      "Token": "Yes",
+      "URLMethod": "PUT",
+      "hideRecord": "Yes"
+    },
+    {
+      "type": "WORKFLOW",
+      "name": "Closed",
+      "icon": "sap-icon://accept",
+      "Dialog": [
+        {
+          "label": "Closed Comment",
+          "name": "ProgressComment",
+          "type": "string",
+          "option": "Optional"
+        }
+      ],
+      "transferFields": [
+        { "field": "ID", "value": "@recorddata" },
+        { "field": "Status", "value": "Closed" },
+        { "field": "ProgressComment", "value": "@UserInput" }
+      ],
+      "URL": "datarecords/",
+      "Token": "Yes",
+      "URLMethod": "PUT",
+      "hideRecord": "Yes"
+    },
+    {
+      "type": "WORKFLOW",
+      "name": "ReOpen",
+      "icon": "sap-icon://accept",
+      "Dialog": [
+        {
+          "label": "ReOpen Comment",
+          "name": "ProgressComment",
+          "type": "string",
+          "option": "Optional"
+        }
+      ],
+      "transferFields": [
+        { "field": "ID", "value": "@recorddata" },
+        { "field": "Status", "value": "ReOpen" },
+        { "field": "ProgressComment", "value": "@UserInput" }
+      ],
+      "URL": "datarecords/",
+      "Token": "Yes",
+      "URLMethod": "PUT",
+      "hideRecord": "Yes"
+    },
+    {
+      "type": "WORKFLOW",
+      "name": "Open",
+      "icon": "sap-icon://accept",
+      "Dialog": [
+        {
+          "label": "Open Comment",
+          "name": "ProgressComment",
+          "type": "string",
+          "option": "Optional"
+        }
+      ],
+      "transferFields": [
+        { "field": "ID", "value": "@recorddata" },
+        { "field": "Status", "value": "Open" },
+        { "field": "ProgressComment", "value": "@UserInput" }
+      ],
+      "URL": "datarecords/",
+      "Token": "Yes",
+      "URLMethod": "PUT",
+      "hideRecord": "Yes"
+    }
+  ],
   "Tabs": [
     {
       "value": "Tab0",
