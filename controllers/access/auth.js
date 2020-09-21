@@ -120,6 +120,16 @@ exports.login = asyncHandler(async (req, res, next) => {
   if (!isMatch) {
     return next(new ErrorResponse("Invalid credentials", 401));
   }
+
+  if (user["userSettings"] == undefined) {
+    user["userSettings"]["Theme"] = "sap_belize";
+  }
+  if (user["userSettings"]["Theme"] == undefined) {
+    user["userSettings"]["Theme"] = "sap_belize";
+  }
+  if (user["userSettings"]["Theme"] == "") {
+    user["userSettings"]["Theme"] = "sap_belize";
+  }
   sendTokenResponse(user, 200, res);
 });
 // @desc      Log user out / clear cookie
