@@ -120,7 +120,7 @@
       "icon": "sap-icon://accept",
       "Dialog": [
         {
-          "label": "HR Comment",
+          "label": "HR Comment(Closed)",
           "name": "ProgressComment",
           "type": "string",
           "option": "Optional"
@@ -128,7 +128,29 @@
       ],
       "transferFields": [
         { "field": "ID", "value": "@recorddata" },
-        { "field": "Status", "value": "CloseReview" },
+        { "field": "Status", "value": "Closed" },
+        { "field": "ProgressComment", "value": "@UserInput" }
+      ],
+      "URL": "datarecords/",
+      "Token": "Yes",
+      "URLMethod": "PUT",
+      "hideRecord": "Yes"
+    },
+    {
+      "type": "WORKFLOW",
+      "name": "Open",
+      "icon": "sap-icon://accept",
+      "Dialog": [
+        {
+          "label": "HR Comment(Open)",
+          "name": "ProgressComment",
+          "type": "string",
+          "option": "Optional"
+        }
+      ],
+      "transferFields": [
+        { "field": "ID", "value": "@recorddata" },
+        { "field": "Status", "value": "Open" },
         { "field": "ProgressComment", "value": "@UserInput" }
       ],
       "URL": "datarecords/",
