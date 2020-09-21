@@ -23,6 +23,7 @@ exports.test = asyncHandler(async (req, res, next) => {
       set_app.add(e3["applicationID"]);
       m1 = e3["applicationID"] + "_" + e2["role"] + "_config.json";
       set_approle.add(m1);
+      console.log("----------------------");
       console.log(
         e2["role"],
         e3["applicationID"],
@@ -32,6 +33,7 @@ exports.test = asyncHandler(async (req, res, next) => {
     set_role.add(e2["role"]);
   });
   console.log(set_app, set_role, set_approle);
+
   // // Loop App
 
   // let path = "../../models/smartApp/" + "HC0001";
