@@ -1,4 +1,7 @@
 const asyncHandler = require("../../middleware/async");
+const fs = require("fs");
+
+const { checkFile } = require("../../modules/config");
 const {
   aggregateCount,
   aggregateSum,
@@ -32,7 +35,18 @@ exports.test = asyncHandler(async (req, res, next) => {
     });
     set_role.add(e2["role"]);
   });
-  console.log(set_app, set_role, set_approle);
+
+  set_approle.forEach((con1) => {
+    res001 = checkFile(con1);
+    if (res001 == "Success") {
+      var result = require(path);
+      console.error("File found : ", con1);
+    } else {
+      console.error("File Not found : ", con1);
+    }
+  });
+
+  // console.log(set_app, set_role, set_approle);
 
   // // Loop App
 

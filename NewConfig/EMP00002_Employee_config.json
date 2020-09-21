@@ -601,8 +601,30 @@
         },
         "Fields": [
           { "Source": "TravelCost", "Type": { "type": "Header" } },
-          { "Source": "StayCost", "Type": { "type": "Header" } },
-          { "Source": "OtherCost", "Type": { "type": "Header" } },
+          { "Source": "StayCost", "Type": { "type": "Header" } }
+        ]
+      },
+      {
+        "CalculatedFormula": {
+          "name": "Addition",
+          "function": "ADD",
+          "Target": "TotalAmount",
+          "type": "Header"
+        },
+        "Fields": [
+          { "Source": "TotalAmount", "Type": { "type": "Header" } },
+          { "Source": "OtherCost", "Type": { "type": "Header" } }
+        ]
+      },
+      {
+        "CalculatedFormula": {
+          "name": "Addition",
+          "function": "ADD",
+          "Target": "TotalAmount",
+          "type": "Header"
+        },
+        "Fields": [
+          { "Source": "TotalAmount", "Type": { "type": "Header" } },
           { "Source": "FoodCost", "Type": { "type": "Header" } }
         ]
       }

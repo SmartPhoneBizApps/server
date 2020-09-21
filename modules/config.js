@@ -720,6 +720,19 @@ module.exports = {
     var result = require(fn);
     return result;
   },
+  checkFile: async function (con1) {
+    const path = "../NewConfig/" + con1;
+    try {
+      if (fs.existsSync(path)) {
+        //file exists
+        result = "Success";
+        return result;
+      }
+    } catch (err) {
+      result = "Fail";
+      return result;
+    }
+  },
   getNewCopyRecord: function (configData, Appdata, paramID, userX, appID) {
     out1 = {};
     for (let i = 0; i < configData.FieldDef.length; i++) {
