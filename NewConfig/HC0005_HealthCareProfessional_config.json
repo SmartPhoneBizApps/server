@@ -10,13 +10,15 @@
     "StatusColor": "Yes",
     "SearchString": { "Search": false },
 
-    "Filters": {
-      "$or": [
-        { "ContractInvoice.Email": "@user" },
-        { "EventInvoice.Email": "@user" },
-        { "StudyInvoice.Email": "@user" }
-      ]
-    },
+    "Filters": [
+      {
+        "$or": [
+          { "ContractInvoice.Email": "@user" },
+          { "EventInvoice.Email": "@user" },
+          { "StudyInvoice.Email": "@user" }
+        ]
+      }
+    ],
     "Partner": "@user",
     "UserSpecific": "Yes",
     "Update": "Yes",

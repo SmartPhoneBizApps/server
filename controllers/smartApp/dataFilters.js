@@ -1,5 +1,9 @@
 const { readData, aggregateCount } = require("../../modules/config2");
-const { getInitialValues, getDateValues } = require("../../modules/config");
+const {
+  getInitialValues,
+  getDateValues,
+  replaceConfig,
+} = require("../../modules/config");
 
 const asyncHandler = require("../../middleware/async");
 // @desc      Add record
@@ -15,6 +19,7 @@ exports.dataFilters = asyncHandler(async (req, res, next) => {
     req.headers.businessrole +
     "_config.json";
   var config1 = require(fn1);
+  var appconfig = replaceConfig(appconfig, req.user);
 
   // Initial values
   var ivalue = getInitialValues(
