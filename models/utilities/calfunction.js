@@ -648,7 +648,12 @@ class calFun {
                     outdata[field["Source"]] !== null &&
                     outdata[field["Source"]] !== ""
                   ) {
-                    fieldObj.push(parseFloat(outdata[field["Source"]]));
+                    //    fieldObj.push(parseFloat(outdata[field["Source"]]));
+                    fieldObj.push(
+                      outdata.hasOwnProperty(field["Source"])
+                        ? parseFloat(outdata[field["Source"]])
+                        : 0
+                    );
                   } else {
                     fieldObj.push(0);
                   }
@@ -697,7 +702,11 @@ class calFun {
                       outdata[field["Source"]] !== null &&
                       outdata[field["Source"]] !== ""
                     ) {
-                      fieldObj.push(outdata[field["Source"]]);
+                      fieldObj.push(
+                        outdata.hasOwnProperty(field["Source"])
+                          ? parseFloat(outdata[field["Source"]])
+                          : 0
+                      );
                     } else {
                       fieldObj.push(0);
                     }
