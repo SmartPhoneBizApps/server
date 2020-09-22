@@ -224,14 +224,14 @@
       "cardsubType": "Line",
       "title": "Expense Analysis",
       "subtitle": "Expenses",
-      "unitOfMeasurement": "Days",
+      "unitOfMeasurement": "GBP",
       "Data": {
         "dimension": "ExpenseStDate",
-        "fact": "Count",
-        "operation": "COLLECTIVE_COUNT",
+        "fact": "TotalAmount",
+        "operation": "COLLECTIVE_SUM",
         "sorting": "Ascending",
         "aggregate": "Yes",
-        "sortField": "Count",
+        "sortField": "ExpenseStDate",
         "dType": "Date"
       },
       "numericHeader": {
@@ -239,7 +239,7 @@
         "trend": { "trend": "DOWN", "Condition": "LTE", "value": 8 },
         "status": { "state": "Good", "Condition": "LTE", "value": 24 },
         "details": "Employee",
-        "unit": "Days"
+        "unit": "GBP"
       },
       "cardValues": {
         "@Value1": "Commutative",

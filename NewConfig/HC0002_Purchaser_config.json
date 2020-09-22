@@ -364,11 +364,11 @@
       "unitOfMeasurement": "Days",
       "Data": {
         "dimension": "StudyStartDate",
-        "fact": "Count",
-        "operation": "COLLECTIVE_COUNT",
+        "fact": "StudyValue",
+        "operation": "COLLECTIVE_SUM",
         "sorting": "Ascending",
         "aggregate": "Yes",
-        "sortField": "Count",
+        "sortField": "StudyStartDate",
         "dType": "Date"
       },
       "numericHeader": {

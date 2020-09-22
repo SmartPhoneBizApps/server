@@ -135,7 +135,6 @@ module.exports = {
     queryStr = formatQuery(reqQuery1);
     query = model.find(JSON.parse(queryStr));
     query = query.select("ID");
-
     // Return the Query
     return query;
   },
@@ -185,8 +184,15 @@ module.exports = {
     // Format Query
     reqQuery1 = replaceDefaults(req, reqQuery1, config1, ivalue);
     reqQuery1 = additionalFilters(req, reqQuery1);
+    for (const key in config1["Controls"]["Filters"]) {
+      reqQuery1[key] = config1["Controls"]["Filters"][key];
+    }
     queryStr = formatQuery(reqQuery1);
     query = model.find(JSON.parse(queryStr));
+
+    console.log("X1", config1["Controls"]["Filters"]);
+    console.log("X2", queryStr);
+    console.log("X3", query);
 
     // List of fields for BOT
     let fields;
@@ -384,6 +390,7 @@ module.exports = {
     reqQuery = replaceDefaults(req, reqQuery, config1, ivalue);
     reqQuery = additionalFilters(req, reqQuery, config1, ivalue);
     queryStr = formatQuery(reqQuery);
+    console.log("AG-Query01", queryStr);
     filter = {};
     filter = JSON.parse(queryStr);
     // Grouping..

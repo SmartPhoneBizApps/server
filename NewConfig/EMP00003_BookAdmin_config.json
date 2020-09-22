@@ -320,11 +320,11 @@
       "unitOfMeasurement": "Days",
       "Data": {
         "dimension": "StartDate",
-        "fact": "Count",
-        "operation": "COLLECTIVE_COUNT",
+        "fact": "AirFare",
+        "operation": "COLLECTIVE_SUM",
         "sorting": "Ascending",
         "aggregate": "Yes",
-        "sortField": "Count",
+        "sortField": "StartDate",
         "dType": "Date"
       },
       "numericHeader": {

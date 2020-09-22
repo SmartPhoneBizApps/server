@@ -14,6 +14,7 @@ const {
   getNewConfig,
   getPVField,
   getAppRoles,
+  replaceConfig,
 } = require("../../modules/config");
 const {
   readData,
@@ -30,12 +31,14 @@ exports.listrecordsnew = asyncHandler(async (req, res, next) => {
   const applicationId = req.params.app;
   const businessrole = req.params.businessrole;
   const mode = req.params.mode;
+
   // Read Color Configuration
   let fileNameColor = "../../config/colorConfig.json";
   var colorConfig = require(fileNameColor);
 
   const application = await findOneApp(applicationId);
   var appconfig = getNewConfig(applicationId, businessrole);
+  var appconfig = replaceConfig(appconfig, req.user);
 
   /// Possible values..
   pvappconfig = getPVConfig(applicationId, businessrole);

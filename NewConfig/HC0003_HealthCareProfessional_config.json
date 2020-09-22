@@ -285,11 +285,11 @@
       "unitOfMeasurement": "Days",
       "Data": {
         "dimension": "EventStartDate",
-        "fact": "Count",
-        "operation": "COLLECTIVE_COUNT",
+        "fact": "EventValue",
+        "operation": "COLLECTIVE_SUM",
         "sorting": "Ascending",
         "aggregate": "Yes",
-        "sortField": "Count",
+        "sortField": "EventStartDate",
         "dType": "Date"
       },
       "numericHeader": {

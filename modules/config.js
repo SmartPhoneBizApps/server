@@ -1306,10 +1306,7 @@ module.exports = {
         cardData = cardData.replace("@subTitle", mode);
       }
     }
-    console.log("AtulTest", mycard, mycard.length);
-
     if (mycard.length > 0) {
-      console.log("AtulTest-00");
       if (mycard["cardValues"].hasOwnProperty("@Value1")) {
         cardData = cardData.replace("@Value1", mycard["cardValues"]["@Value1"]);
       }
@@ -1518,6 +1515,17 @@ module.exports = {
     );
 
     return queryStr;
+  },
+  replaceConfig: function (appconfig, user) {
+    console.log("User Email:", user.email);
+    let con01 = JSON.stringify(appconfig);
+    con01 = con01.replace("@user", user.email);
+    con01 = con01.replace("@user", user.email);
+    con01 = con01.replace("@user", user.email);
+    con01 = con01.replace("@user", user.email);
+    con01 = con01.replace("@user", user.email);
+    appconfig = JSON.parse(con01);
+    return appconfig;
   },
   buildButtons: function (type, title, app, role1, id, email, ratio, mode) {
     btn1 = {};

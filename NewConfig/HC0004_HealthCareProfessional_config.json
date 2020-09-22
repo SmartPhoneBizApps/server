@@ -279,11 +279,11 @@
       "unitOfMeasurement": "Days",
       "Data": {
         "dimension": "ContractStartDate",
-        "fact": "Count",
-        "operation": "COLLECTIVE_COUNT",
+        "fact": "ContractValue",
+        "operation": "COLLECTIVE_SUM",
         "sorting": "Ascending",
         "aggregate": "Yes",
-        "sortField": "Count",
+        "sortField": "ContractStartDate",
         "dType": "Date"
       },
       "numericHeader": {
