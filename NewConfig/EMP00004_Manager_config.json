@@ -6,6 +6,7 @@
   "Controls": {
     "style": "SAP",
     "calculation": "Yes",
+    "defaultGraph": "StackedBar",
     "USP": "UserProfile",
     "StatusColor": "Yes",
     "SearchString": { "Search": false },
@@ -22,7 +23,7 @@
     ],
     "Partner": "@user",
     "UserSpecific": "Yes",
-    "update": "No",
+    "Update": "Yes",
     "URL": "https://fierce-oasis-51455.herokuapp.com",
     "Source": { "SourceName": "mongoDB", "SourceFile": "NA" },
     "filterFields": {
@@ -32,13 +33,11 @@
         "CostCentre",
         "Currency",
         "VATRate",
-        "PaymentOption",
         "GLAccount"
       ],
       "downloadTables": ["iData"]
     }
   },
-
   "ListFields": {
     "IntroField": "ID",
     "TitleField": "VendorName",
@@ -63,7 +62,6 @@
     "GLAccount",
     "VATRate",
     "Status",
-    "PaymentOption",
     "iVAT",
     "ItemStatus1"
   ],
@@ -86,7 +84,8 @@
         "ContactNo",
         "OtherInfo",
         "Status"
-      ]
+      ],
+      "downloadTables": ["iData"]
     },
     {
       "type": "APPHELP",
@@ -218,6 +217,20 @@
       "fioriicon": "step",
       "type": "Chat",
       "download": "No"
+    },
+    {
+      "value": "Tab5",
+      "style": "SAP",
+      "update": "Yes",
+      "name": "MultiAttachment",
+      "fioriicon": "attachment",
+      "type": "MultiAttachments",
+      "download": "Yes",
+      "docType": [
+        { "text": "Receipt", "state": "Information" },
+        { "text": "SupplierAttachment", "state": "Error" },
+        { "text": "Quote", "state": "Success" }
+      ]
     }
   ],
   "DetailFields": {
@@ -228,18 +241,7 @@
     "Tab0": ["data"],
     "Tab20": ["charts"],
     "None": ["ID", "VendorName"],
-    "Tab1": [
-      "SCDate",
-      "Category",
-      "Details",
-      "SCQty",
-      "UoM",
-      "Price",
-      "NetValue",
-      "VATRate",
-      "VATVal",
-      "GrossValue"
-    ],
+    "Tab1": ["SCDate", "NetValue", "VATVal", "GrossValue"],
     "Tab2": [
       "DeliveryDt",
       "DelTo",
@@ -249,7 +251,8 @@
       "OtherInfo"
     ],
     "Tab4": ["ProcessingLog"],
-    "Tab3": ["iData"]
+    "Tab3": ["iData"],
+    "Tab5": ["MultiAttachments"]
   },
   "listCards": [
     {
@@ -361,8 +364,9 @@
       }
     }
   ],
+  "detailCharts": [],
+  "cards": [],
   "ControlDisplay": {},
-
   "FieldDef": [
     {
       "name": "ID",
@@ -409,8 +413,8 @@
       "name": "SCDate",
       "type": "Date",
       "width": "10",
-      "Option": "Optional",
-      "adaptiveCard": "Additional",
+      "Option": "Mandatory",
+      "adaptiveCard": "Main",
       "SLabel": "SC Date"
     },
 
@@ -527,8 +531,8 @@
       "name": "DelTo",
       "type": "string",
       "width": "100",
-      "Option": "Optional",
-      "adaptiveCard": "Additional",
+      "Option": "Mandatory",
+      "adaptiveCard": "Main",
       "SLabel": "Delivery To"
     },
     {
@@ -577,82 +581,6 @@
       "SLabel": "Delivey Email"
     },
     {
-      "name": "DeliveryInstr",
-      "type": "string",
-      "width": "500",
-      "Option": "Optional",
-      "adaptiveCard": "Additional",
-      "SLabel": "Delivery Instructor"
-    },
-    {
-      "name": "BudgetUsed",
-      "type": "string",
-      "width": "10",
-      "Option": "Optional",
-      "adaptiveCard": "Additional",
-      "SLabel": "Budget Used"
-    },
-    {
-      "name": "PaymentAmount",
-      "type": "string",
-      "width": "50",
-      "Option": "Optional",
-      "adaptiveCard": "Additional",
-      "SLabel": "Payment Amount"
-    },
-    {
-      "name": "PaymentOption",
-      "type": "radiobutton",
-      "width": "50",
-      "Option": "Optional",
-      "adaptiveCard": "Additional",
-      "SLabel": "Payment Option"
-    },
-    {
-      "name": "TransactionID",
-      "type": "string",
-      "width": "50",
-      "Option": "Optional",
-      "adaptiveCard": "Additional",
-      "SLabel": "Transaction ID"
-    },
-    {
-      "name": "TransactionStatus",
-      "type": "string",
-      "width": "50",
-      "Option": "Optional",
-      "adaptiveCard": "Additional",
-      "SLabel": "Transaction Status"
-    },
-    {
-      "name": "VATPer",
-      "type": "Num,1",
-      "width": "100",
-      "Option": "Optional",
-      "adaptiveCard": "Additional",
-      "SLabel": "VAT Percentage",
-      "LLabel": "VAT Percentage"
-    },
-    {
-      "name": "Approver",
-      "type": "string",
-      "width": "50",
-      "Option": "Optional",
-      "adaptiveCard": "Additional",
-      "SLabel": "Approver",
-      "LLabel": "Approver"
-    },
-
-    {
-      "name": "MutiItems",
-      "type": "string",
-      "width": "3",
-      "Option": "Optional",
-      "adaptiveCard": "Additional",
-      "SLabel": "MutiItems",
-      "LLabel": "MutiItems"
-    },
-    {
       "name": "iData",
       "type": "Array",
       "width": "200",
@@ -660,6 +588,16 @@
       "adaptiveCard": "None",
       "SLabel": "iData",
       "LLabel": "iData"
+    },
+    {
+      "name": "MultiAttachments",
+      "type": "attachment",
+      "metadata": "MultipleFields",
+      "width": "200",
+      "Option": "Optional",
+      "adaptiveCard": "None",
+      "SLabel": "MultiAttachments",
+      "LLabel": "MultiAttachments"
     }
   ],
   "ItemData": "No",
@@ -783,12 +721,41 @@
       "DisplayFields": [
         "ItemName",
         "ItemValue",
-        "iVAT",
-        "ItemVATValue",
         "ItemGrossValue",
-        "ItemStatus1"
+        "ItemStatus1",
+        "Category"
       ],
-      "detailCharts": [],
+      "detailCharts": [
+        {
+          "cardType": "Analytical",
+          "style": ["SAP", "Google"],
+          "cardsubType": "StackedBar",
+          "title": "ShoppingCart Category Analysis",
+          "subtitle": "Category",
+          "unitOfMeasurement": "Days",
+          "source": "myTime",
+          "Data": {
+            "dimension": "Category",
+            "fact": "Count",
+            "operation": "COUNT",
+            "sorting": "Ascending",
+            "aggregate": "Yes",
+            "sortField": "Count",
+            "dType": "string"
+          },
+          "numericHeader": {
+            "headerNumber": { "Operation": "COUNT", "Field": "Category" },
+            "trend": { "trend": "DOWN", "Condition": "LTE", "value": 8 },
+            "status": { "state": "Good", "Condition": "LTE", "value": 24 },
+            "details": "Employee",
+            "unit": "Days"
+          },
+          "cardValues": {
+            "@Value1": "Commutative",
+            "@Value2": "Count"
+          }
+        }
+      ],
       "cards": [
         {
           "type": "Table",
@@ -801,22 +768,6 @@
             "ItemValue",
             "ItemGrossValue"
           ]
-        },
-        {
-          "type": "Analytical",
-          "filterKey": "ItemStatus1",
-          "filterKeyLabel": "Item Status",
-          "cardID": "EMP04E02",
-          "template": "template_analyticalCard_donut.json",
-          "title": "Shoppingcart Qty Analysis",
-          "analyticsCard": {
-            "chartType": "donut",
-            "cardsDonut": {
-              "measureName": "ItemName",
-              "value": "ItemQuantity",
-              "function": "SUM"
-            }
-          }
         }
       ],
 
@@ -831,7 +782,8 @@
         "ItemName",
         "ItemPrice",
         "ItemQuantity",
-        "ItemTaxRate",
+        "iVAT",
+        "Category",
         "ItemStatus1"
       ],
       "ItemDetails": [
@@ -843,7 +795,8 @@
         { "name": "iVAT" },
         { "name": "ItemGrossValue" },
         { "name": "ItemVATValue" },
-        { "name": "ItemTaxRate" }
+        { "name": "ItemTaxRate" },
+        { "name": "Category" }
       ]
     }
   },

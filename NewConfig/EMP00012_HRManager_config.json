@@ -6,6 +6,7 @@
   "Controls": {
     "style": "SAP",
     "calculation": "No",
+    "defaultGraph": "StackedBar",
     "USP": "UserProfile",
     "StatusColor": "Yes",
     "SearchString": { "Search": false },
@@ -13,7 +14,10 @@
     "UserSpecific": "Yes",
     "Update": "Yes",
     "URL": "https://fierce-oasis-51455.herokuapp.com",
-    "Source": { "SourceName": "mongoDB", "SourceFile": "NA" },
+    "Source": {
+      "SourceName": "mongoDB",
+      "SourceFile": "NA"
+    },
     "filterFields": {
       "header": [
         "Status",
@@ -53,6 +57,8 @@
     "Area",
     "AppraisalArea",
     "GoalsArea",
+    "Group",
+    "SubGroup",
     "PerformanceRating",
     "GoalStatus",
     "ProjFeedback",
@@ -85,6 +91,7 @@
         "Appraisal",
         "MyTraining",
         "EmployeeFB",
+        "ManagerFB",
         "ProjectFeedback"
       ]
     },
@@ -177,6 +184,14 @@
       "fioriicon": "business-objects-experience"
     },
     {
+      "value": "Tab1",
+      "style": "SAP",
+      "update": "Yes",
+      "name": "Reference",
+      "type": "Field",
+      "fioriicon": "request"
+    },
+    {
       "value": "Tab8",
       "style": "SAP",
       "update": "Yes",
@@ -215,7 +230,15 @@
       "name": "SupportingDocs",
       "type": "MultiAttachments",
       "fioriicon": "attachment",
-      "docType": [{ "text": "AnnualReviewGuide", "state": "Success" }]
+      "docType": [
+        { "text": "ProjectFeedback", "state": "Success" },
+        { "text": "PeerFeedback", "state": "Information" },
+        { "text": "CustomerFeedback", "state": "Error" },
+        { "text": "Awards", "state": "Success" },
+        { "text": "Appreciation", "state": "Error" },
+        { "text": "Certifications", "state": "Success" },
+        { "text": "Others", "state": "Information" }
+      ]
     },
     {
       "value": "Tab7",
@@ -248,7 +271,8 @@
       "DevManager",
       "Role",
       "Band",
-      "ReviewPeriod"
+      "ReviewPeriod",
+      "Area"
     ],
     "Tab2": ["Appraisal"],
     "Tab4": ["Goals"],
@@ -259,9 +283,6 @@
     "Tab9": ["ManagerFB"]
   },
   "listCards": [],
-  "detailCharts": [],
-  "cards": [],
-
   "tableConfig": {
     "Goals": {
       "title": "My Goals",
@@ -287,22 +308,27 @@
           "type": "string",
           "width": "10",
           "SLabel": "Goal Area",
-          "Option": "Optional"
+          "Option": "Optional",
+          "adaptiveCard": "Additional",
+          "Update": "No"
         },
         {
           "name": "Goal2",
           "type": "string",
           "width": "500",
           "SLabel": "Goal",
-          "Option": "Optional"
+          "Option": "Optional",
+          "adaptiveCard": "Additional",
+          "Update": "No"
         },
-
         {
           "name": "Score2",
           "type": "Num,0",
           "width": "20",
           "SLabel": "Goal Score",
-          "Option": "Optional"
+          "Option": "Optional",
+          "adaptiveCard": "Additional",
+          "Update": "No"
         },
         {
           "name": "TargetScore2",
@@ -317,28 +343,35 @@
           "width": "200",
           "SLabel": "Goal Max Score",
           "Option": "Optional",
-          "Default": "5"
+          "Default": "5",
+          "Update": "No"
         },
         {
           "name": "AppraiseComm2",
           "type": "string",
           "width": "1000",
           "SLabel": "Employee Comments",
-          "Option": "Optional"
+          "Option": "Optional",
+          "adaptiveCard": "Additional",
+          "Update": "Yes"
         },
         {
           "name": "ManagerComm2",
           "type": "string",
           "width": "1000",
           "SLabel": "Manager Comment",
-          "Option": "Optional"
+          "Option": "Optional",
+          "adaptiveCard": "Additional",
+          "Update": "No"
         },
         {
           "name": "GoalStatus",
           "type": "string",
           "width": "200",
           "SLabel": "Goal Status",
-          "Option": "Optional"
+          "Option": "Optional",
+          "adaptiveCard": "Additional",
+          "Update": "No"
         },
         {
           "name": "SetDate2",
@@ -346,21 +379,26 @@
           "width": "10",
           "SLabel": "Goal Set Date",
           "Option": "Optional",
-          "Default": "@currentDate"
+          "Default": "@currentDate",
+          "Update": "No"
         },
         {
           "name": "TargetDate2",
           "type": "Date",
           "width": "10",
           "SLabel": "Goal Target Date",
-          "Option": "Optional"
+          "Option": "Optional",
+          "adaptiveCard": "Additional",
+          "Update": "No"
         },
         {
           "name": "NextRevDate2",
           "type": "Date",
           "width": "10",
           "SLabel": "Next Review Date",
-          "Option": "Optional"
+          "Option": "Optional",
+          "adaptiveCard": "Additional",
+          "Update": "No"
         }
       ],
       "DisplayFields": [
@@ -499,21 +537,27 @@
           "type": "string",
           "width": "100",
           "SLabel": "Appraisal Area",
-          "Option": "Optional"
+          "Option": "Optional",
+          "adaptiveCard": "Additional",
+          "Update": "No"
         },
         {
           "name": "PerformanceRating",
           "type": "string",
           "width": "100",
           "SLabel": "Performance Rating",
-          "Option": "Optional"
+          "Option": "Optional",
+          "adaptiveCard": "Additional",
+          "Update": "No"
         },
         {
           "name": "Score3",
           "type": "rating,5",
           "width": "200",
           "SLabel": "Appraisal Score(Max 5)",
-          "Option": "Optional"
+          "Option": "Optional",
+          "adaptiveCard": "Additional",
+          "Update": "No"
         },
         {
           "name": "AppraiseComm3",
@@ -527,21 +571,27 @@
           "type": "string",
           "width": "1000",
           "SLabel": "Appraise Comment",
-          "Option": "Optional"
+          "Option": "Optional",
+          "adaptiveCard": "Additional",
+          "Update": "No"
         },
         {
           "name": "PositiveComments",
           "type": "string",
           "width": "1000",
           "SLabel": "Positive Comments",
-          "Option": "Optional"
+          "Option": "Optional",
+          "adaptiveCard": "Additional",
+          "Update": "No"
         },
         {
           "name": "NeedsImprovement",
           "type": "string",
           "width": "1000",
           "SLabel": "Needs Improvement Comments",
-          "Option": "Optional"
+          "Option": "Optional",
+          "adaptiveCard": "Additional",
+          "Update": "No"
         },
         {
           "name": "AssignDate3",
@@ -549,14 +599,17 @@
           "width": "10",
           "SLabel": "Assignment Date",
           "Option": "Optional",
-          "Default": "@currentDate"
+          "Default": "@currentDate",
+          "Update": "No"
         },
         {
           "name": "TargetDate3",
           "type": "Date",
           "width": "10",
           "SLabel": "Appraisal Target Date",
-          "Option": "Optional"
+          "Option": "Optional",
+          "adaptiveCard": "Additional",
+          "Update": "No"
         }
       ],
       "DisplayFields": [
@@ -598,6 +651,27 @@
           ]
         },
         {
+          "type": "Example",
+          "cardType": "List",
+          "cardsubType": "ListHighLight",
+          "cardID": "L001",
+          "cardLevel": "tableData",
+          "template": "template_sap_listHighLight.json",
+          "mergedFields": {
+            "Name": ["GoalsArea", "@>>", "Goal2"],
+            "Description": [
+              "@Score:",
+              "Score2",
+              "@ ",
+              "TargetDate2",
+              "@ ",
+              "GoalStatus"
+            ]
+          },
+          "fieldMap": {},
+          "colorStatus": "ItemStatus1"
+        },
+        {
           "type": "Analytical",
           "filterKey": "ItemStatus2",
           "filterKeyLabel": "Item Status",
@@ -630,7 +704,6 @@
         "TargetDate3",
         "ItemStatus2"
       ],
-
       "ItemDetails": [
         { "name": "PerformanceRating" },
         { "name": "ItemStatus2" },
@@ -720,6 +793,20 @@
           "filterKeyLabel": "Item Status",
           "template": "template_table.json",
           "tableCardFields": ["SubGroup1", "Title1", "TargetDate1"]
+        },
+        {
+          "type": "Example",
+          "cardType": "List",
+          "cardsubType": "ListHighLight",
+          "cardID": "L002",
+          "cardLevel": "tableData",
+          "template": "template_sap_listHighLight.json",
+          "mergedFields": {
+            "Name": ["ReferenceID1", "@ ", "Group1", "@ ", "SubGroup1"],
+            "Description": ["Title1", "@ ", "TargetDate1"]
+          },
+          "fieldMap": {},
+          "colorStatus": "ItemStatus3"
         }
       ],
 
@@ -771,28 +858,36 @@
           "type": "string",
           "width": "10",
           "SLabel": "Question",
-          "Option": "Optional"
+          "Option": "Optional",
+          "adaptiveCard": "Additional",
+          "Update": "No"
         },
         {
           "name": "Answer",
           "type": "string",
           "width": "20",
           "SLabel": "Answer",
-          "Option": "Optional"
+          "Option": "Optional",
+          "adaptiveCard": "Additional",
+          "Update": "No"
         },
         {
           "name": "CorrectAnswer",
           "type": "string",
           "width": "20",
           "SLabel": "Correct Ans",
-          "Option": "Optional"
+          "Option": "Optional",
+          "adaptiveCard": "Additional",
+          "Update": "No"
         },
         {
           "name": "Score",
           "type": "Num,0",
           "width": "20",
           "SLabel": "Score",
-          "Option": "Optional"
+          "Option": "Optional",
+          "adaptiveCard": "Additional",
+          "Update": "No"
         }
       ],
       "DisplayFields": ["ItemStatus4", "Question", "Answer"],

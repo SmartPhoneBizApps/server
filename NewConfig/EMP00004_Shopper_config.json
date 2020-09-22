@@ -6,6 +6,7 @@
   "Controls": {
     "style": "Google",
     "calculation": "Yes",
+    "defaultGraph": "StackedBar",
     "USP": "UserProfile",
     "StatusColor": "Yes",
     "SearchString": { "Search": false },
@@ -22,9 +23,9 @@
         "CostCentre",
         "Currency",
         "VATRate",
-        "PaymentOption",
         "GLAccount"
-      ]
+      ],
+      "downloadTables": ["iData"]
     }
   },
   "ListFields": {
@@ -747,7 +748,12 @@
           "filterKey": "ItemStatus1",
           "filterKeyLabel": "Item Status",
           "template": "template_table.json",
-          "tableCardFields": ["ItemName", "ItemGrossValue", "ItemStatus1"]
+          "tableCardFields": [
+            "ItemNumber",
+            "ItemName",
+            "ItemValue",
+            "ItemGrossValue"
+          ]
         }
       ],
       "ItemButtons": {

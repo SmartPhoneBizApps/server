@@ -293,7 +293,9 @@
       "PostCode",
       "Address",
       "SSNumber",
-      "NINumber"
+      "NINumber",
+      "TotalEarning",
+      "TotalDeductions"
     ],
     "Tab3": ["Skills"],
     "Tab6": ["Education"],
@@ -333,6 +335,8 @@
       }
     }
   ],
+  "detailCharts": [],
+  "cards": [],
   "ControlDisplay": {},
   "tableConfig": {
     "Skills": {
@@ -556,7 +560,7 @@
     },
     "PreviousEmployer": {
       "title": "Previous Employers",
-      "subtitle": "mployers",
+      "subtitle": "Employers",
       "ItemFieldDefinition": [
         {
           "name": "ItemNumber",
@@ -677,7 +681,7 @@
       ]
     },
     "EmergencyContacts": {
-      "title": "Employee Emergency Contacts / Dependents",
+      "title": "Employee Emergency Contacts",
       "subtitle": "Emergency Contacts",
       "ItemFieldDefinition": [
         {
@@ -716,17 +720,17 @@
           "Option": "Optional"
         },
         {
-          "name": "Comments4",
-          "type": "string",
-          "width": "500",
-          "SLabel": "Comments",
-          "Option": "Optional"
-        },
-        {
           "name": "ContactType",
           "type": "string",
           "width": "100",
           "SLabel": "Contact Type",
+          "Option": "Optional"
+        },
+        {
+          "name": "Comments4",
+          "type": "string",
+          "width": "500",
+          "SLabel": "Comments",
           "Option": "Optional"
         }
       ],
@@ -853,9 +857,10 @@
       ]
     },
     "Package": {
-      "calculation": "No",
+      "calculation": "Yes",
       "title": "Employee Compensation Package",
       "subtitle": "Compensation Package",
+      "detailCard": "Yes",
       "ItemFieldDefinition": [
         {
           "name": "ItemNumber",
@@ -1330,8 +1335,8 @@
       "width": "200",
       "Option": "Optional",
       "adaptiveCard": "None",
-      "SLabel": "Contacts/Dependents",
-      "LLabel": "Contacts/Dependents"
+      "SLabel": "Emergency Contacts",
+      "LLabel": "Emergency Contacts"
     },
     {
       "name": "Education",
@@ -1368,6 +1373,24 @@
       "adaptiveCard": "None",
       "SLabel": "Certifications and Trainings",
       "LLabel": "Certifications and Trainings"
+    },
+    {
+      "name": "Payslips",
+      "type": "Array",
+      "width": "200",
+      "Option": "Optional",
+      "adaptiveCard": "None",
+      "SLabel": "Payslips",
+      "LLabel": "Payslips"
+    },
+    {
+      "name": "P60",
+      "type": "Array",
+      "width": "200",
+      "Option": "Optional",
+      "adaptiveCard": "None",
+      "SLabel": "P60",
+      "LLabel": "P60"
     },
 
     {
@@ -1474,10 +1497,11 @@
     {
       "id": "Step1",
       "fields": [
-        { "name": "FirstName" },
-        { "name": "LastName" },
-        { "name": "EmployeeID" }
+        { "name": "FirstName", "Mode": "Edit" },
+        { "name": "LastName", "Mode": "Edit" },
+        { "name": "EmployeeID", "Mode": "Edit" }
       ],
+
       "name": "Employee Details",
       "stepType": "FieldList",
       "intro": "Employee  : Key Details"
@@ -1485,10 +1509,20 @@
     {
       "id": "Step2",
       "fields": [
-        { "name": "SSNumber" },
-        { "name": "NINumber" },
-        { "name": "ContactNo" },
-        { "name": "Email" }
+        { "name": "SSNumber", "Mode": "Edit" },
+        { "name": "NINumber", "Mode": "Edit" },
+        { "name": "ContactNo", "Mode": "Edit" },
+        { "name": "Email", "Mode": "Edit" }
+      ],
+      "name": "Employee Details",
+      "stepType": "FieldList",
+      "intro": "Employee  : Address Details"
+    },
+    {
+      "id": "Step3",
+      "fields": [
+        { "name": "PostCode", "Mode": "Edit" },
+        { "name": "Address", "Mode": "Edit" }
       ],
       "name": "Employee Details",
       "stepType": "FieldList",
@@ -1496,14 +1530,7 @@
     },
     {
       "id": "Step4",
-      "fields": [{ "name": "PostCode" }, { "name": "Address" }],
-      "name": "Employee Details",
-      "stepType": "FieldList",
-      "intro": "Employee  : Address Details"
-    },
-    {
-      "id": "Step5",
-      "fields": [{ "name": "Status" }],
+      "fields": [{ "name": "Status", "Mode": "Edit" }],
       "name": "Employee Details",
       "stepType": "FieldList",
       "intro": "Employee  : Status"

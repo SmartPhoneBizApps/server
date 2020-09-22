@@ -65,7 +65,20 @@
     {
       "type": "DOWNLOAD",
       "name": "Download File",
-      "icon": "sap-icon://download"
+      "icon": "sap-icon://download",
+      "downloadFields": [
+        "ID",
+        "Status",
+        "ChairID",
+        "Date",
+        "Time",
+        "SlotLength",
+        "PatientID",
+        "PatientName",
+        "DoctorID",
+        "DoctorName",
+        "Comments"
+      ]
     },
     {
       "type": "APPHELP",

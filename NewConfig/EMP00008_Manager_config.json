@@ -3,6 +3,7 @@
   "Controls": {
     "style": "SAP",
     "calculation": "Yes",
+    "defaultGraph": "StackedBar",
     "USP": "UserProfile",
     "StatusColor": "Yes",
     "SearchString": { "Search": false },
@@ -19,7 +20,7 @@
     ],
     "Partner": "@user",
     "UserSpecific": "Yes",
-    "update": "No",
+    "Update": "Yes",
     "URL": "https://fierce-oasis-51455.herokuapp.com",
     "Source": { "SourceName": "mongoDB", "SourceFile": "NA" },
     "filterFields": {
@@ -48,7 +49,12 @@
     "ReferenceID",
     "ItemStatus1",
     "ExpType",
-    "ProjectCode"
+    "ProjectCode",
+    "iHotel",
+    "iMeals",
+    "iTravel",
+    "iParking",
+    "iMobile"
   ],
   "MButtons": [
     {
@@ -192,15 +198,6 @@
       "type": "MultiAttachments",
       "download": "Yes",
       "docType": [{ "text": "Receipt", "state": "Information" }]
-    },
-    {
-      "value": "Tab4",
-      "style": "SAP",
-      "update": "No",
-      "name": "Process Log",
-      "fioriicon": "step",
-      "type": "Chat",
-      "download": "No"
     }
   ],
   "DetailFields": {
@@ -219,8 +216,7 @@
       "ExpenseEndDate"
     ],
     "Tab2": ["myExpenses"],
-    "Tab5": ["MultiAttachments"],
-    "Tab4": ["ProcessingLog"]
+    "Tab5": ["MultiAttachments"]
   },
   "listCards": [
     {
@@ -307,7 +303,7 @@
           "width": "50",
           "SLabel": "Expense Type",
           "Option": "Optional",
-          "adaptiveCard": "Additional",
+          "adaptiveCard": "Main",
           "Update": "Yes"
         },
         {
@@ -324,7 +320,7 @@
           "width": "1000",
           "SLabel": "Comment",
           "Option": "Optional",
-          "adaptiveCard": "Additional",
+          "adaptiveCard": "Main",
           "Update": "Yes"
         },
         {
@@ -351,6 +347,87 @@
           "width": "100",
           "SLabel": "Item Attachment",
           "Option": "Optional",
+          "adaptiveCard": "None",
+          "Update": "Yes"
+        },
+        {
+          "name": "From",
+          "type": "string",
+          "width": "100",
+          "SLabel": "From",
+          "Option": "Optional",
+          "adaptiveCard": "Additional",
+          "Update": "Yes"
+        },
+        {
+          "name": "To",
+          "type": "string",
+          "width": "100",
+          "SLabel": "To",
+          "Option": "Optional",
+          "adaptiveCard": "Additional",
+          "Update": "Yes"
+        },
+        {
+          "name": "iMiles",
+          "type": "Num,0",
+          "width": "50",
+          "SLabel": "Total Miles",
+          "Option": "Optional",
+          "adaptiveCard": "Additional",
+          "Update": "Yes"
+        },
+        {
+          "name": "MilesRate",
+          "type": "Num,2",
+          "width": "20",
+          "SLabel": "Miles Rate",
+          "Option": "Optional",
+          "adaptiveCard": "Additional",
+          "Update": "Yes"
+        },
+        {
+          "name": "iMobile",
+          "type": "string",
+          "width": "100",
+          "SLabel": "Bill Type",
+          "Option": "Optional",
+          "adaptiveCard": "Additional",
+          "Update": "Yes"
+        },
+        {
+          "name": "iParking",
+          "type": "string",
+          "width": "100",
+          "SLabel": "Charge Type",
+          "Option": "Optional",
+          "adaptiveCard": "Additional",
+          "Update": "Yes"
+        },
+        {
+          "name": "iTravel",
+          "type": "string",
+          "width": "100",
+          "SLabel": "Travel Mode",
+          "Option": "Optional",
+          "adaptiveCard": "Additional",
+          "Update": "Yes"
+        },
+        {
+          "name": "iMeals",
+          "type": "string",
+          "width": "100",
+          "SLabel": "Meals Type",
+          "Option": "Optional",
+          "adaptiveCard": "Additional",
+          "Update": "Yes"
+        },
+        {
+          "name": "iHotel",
+          "type": "string",
+          "width": "100",
+          "SLabel": "Accomodation Type",
+          "Option": "Optional",
           "adaptiveCard": "Additional",
           "Update": "Yes"
         }
@@ -364,276 +441,7 @@
         "ItemStatus1"
       ],
       "detailCharts": [],
-      "cards": [
-        {
-          "type": "Example",
-          "cardType": "Analytical",
-          "style": ["SAP", "Google"],
-          "cardsubType": "Line",
-          "cardID": "ALN01",
-          "cardLevel": "tableData",
-          "template": "template_sap_line.json",
-          "title": "Expense Analysis",
-          "subtitle": "Expenses details",
-          "unitOfMeasurement": "GBP",
-          "itemvalueMap": {
-            "Value1": "ExpenseAmount",
-            "Value2": "Deductions"
-          },
-          "itemkeyMap": {
-            "Area": "ExpType"
-          },
-          "itemfixedVal": [{ "Total": 5 }],
-          "sumField": [
-            { "sumValue1": "ExpenseAmount" },
-            { "sumValue2": "Deductions" }
-          ],
-          "headerfieldMap": [
-            { "j_number": "sumValue1" },
-            { "j_target": "sumValue2" }
-          ]
-        },
-        {
-          "type": "Example",
-          "cardType": "Analytical",
-          "style": ["SAP", "Google"],
-          "cardsubType": "StackedColumn",
-          "cardID": "ASC01",
-          "cardLevel": "tableData",
-          "template": "template_sap_StackedColumn",
-          "title": "Expense Analysis",
-          "subtitle": "Expenses details",
-          "unitOfMeasurement": "GBP",
-          "itemvalueMap": {
-            "Value1": "ExpenseAmount",
-            "Value2": "Deductions"
-          },
-          "itemkeyMap": {
-            "Area": "ExpType"
-          },
-          "itemfixedVal": [{ "Total": 5 }],
-          "sumField": [
-            { "sumValue1": "ExpenseAmount" },
-            { "sumValue2": "Deductions" }
-          ],
-          "headerfieldMap": [
-            { "j_number": "sumValue1" },
-            { "j_target": "sumValue2" }
-          ]
-        },
-        {
-          "type": "Example",
-          "cardType": "Analytical",
-          "style": ["SAP", "Google"],
-          "cardsubType": "StackedBar",
-          "cardID": "ASB01",
-          "cardLevel": "tableData",
-          "template": "template_sap_StackedBar",
-          "title": "Expense Analysis",
-          "subtitle": "Expenses details",
-          "unitOfMeasurement": "GBP",
-          "itemvalueMap": {
-            "Value1": "ExpenseAmount",
-            "Value2": "Deductions"
-          },
-          "itemkeyMap": {
-            "Area": "ExpType"
-          },
-          "itemfixedVal": [{ "Total": 5 }],
-          "sumField": [
-            { "sumValue1": "ExpenseAmount" },
-            { "sumValue2": "Deductions" }
-          ],
-          "headerfieldMap": [
-            { "j_number": "sumValue1" },
-            { "j_target": "sumValue2" }
-          ]
-        },
-        {
-          "type": "Example",
-          "cardType": "Analytical",
-          "style": ["SAP", "Google"],
-          "cardsubType": "Donut",
-          "cardID": "ADT01",
-          "cardLevel": "tableData",
-          "template": "template_sap_donut.json",
-          "title": "Expense Type Analysis",
-          "analyticsCard": {
-            "chartType": "donut",
-            "cardsDonut": {
-              "measureName": "ExpType",
-              "Value2": "ExpenseAmount",
-              "function": "SUM"
-            }
-          }
-        },
-        {
-          "type": "Example",
-          "template": "template_sap_StackedBar.json"
-        },
-        {
-          "type": "Example",
-          "template": "template_sap_StackedColumn.json"
-        },
-        {
-          "type": "Example",
-          "template": "template_sap_line.json"
-        },
-        {
-          "type": "Example",
-          "template": "template_sap_donut.json"
-        },
-        {
-          "type": "Example",
-          "cardType": "List",
-          "cardsubType": "ListNumeric",
-          "cardID": "L001",
-          "cardLevel": "tableData",
-          "template": "template_sap_listNumeric.json",
-          "mergedFields": {
-            "Name": ["ExpenseDate", "ExpType"],
-            "Description": ["ExpenseDetails", "ItemStatus1"]
-          },
-          "fieldMap": {
-            "Expected": "ExpenseAmount",
-            "Actual": "Deductions",
-            "Target": "Deductions"
-          },
-          "colorStatus": "ItemStatus1"
-        },
-        {
-          "type": "Example",
-          "cardType": "List",
-          "cardsubType": "ListHighLight",
-          "cardID": "L002",
-          "cardLevel": "tableData",
-          "template": "template_sap_listHighLight.json",
-          "mergedFields": {
-            "Name": ["@£", "ExpenseAmount", "@ ", "ExpType"],
-            "Description": [
-              "ExpenseDetails",
-              "@ ",
-              "ItemStatus1",
-              "@ ",
-              "ExpenseDate"
-            ]
-          },
-          "fieldMap": {},
-          "colorStatus": "ItemStatus1"
-        },
-        {
-          "type": "Example",
-          "cardType": "List",
-          "cardsubType": "MicrochartBullet",
-          "cardID": "L003",
-          "cardLevel": "tableData",
-          "template": "template_sap_microchartBullet.json",
-          "mergedFields": {
-            "Name": ["ExpType", "ExpenseDate"],
-            "Description": ["ExpenseDetails", "ItemStatus1"]
-          },
-          "fieldMap": {
-            "Expected": "ExpenseAmount",
-            "Actual": "Deductions",
-            "Target": "Deductions"
-          },
-          "colorStatus": "ItemStatus1"
-        },
-        {
-          "type": "Example",
-          "template": "template_sap_listBulletChart.json"
-        },
-        {
-          "type": "Example",
-          "template": "template_sap_microchartStackedBar.json"
-        },
-        {
-          "type": "Example",
-          "template": "template_sap_liststackedBar.json"
-        },
-        { "type": "Example", "template": "template_sap_cardAction.json" },
-        { "type": "Example", "template": "template_sap_object.json" },
-        {
-          "type": "Example",
-          "template": "template_sap_listHighLight.json"
-        },
-
-        {
-          "type": "Example",
-          "template": "template_sap_listNumeric.json"
-        },
-        {
-          "type": "Example",
-          "template": "template_sap_calander.json"
-        },
-        {
-          "type": "Example",
-          "template": "template_sap_adaptiveCard.json"
-        },
-        {
-          "type": "Example",
-          "template": "template_sap_adaptiveForm.json"
-        },
-        {
-          "type": "Example",
-          "template": "template_sap_adaptivesubmitAction.json"
-        },
-        {
-          "type": "Example",
-          "template": "template_sap_adaptiveMarkdown.json"
-        },
-        {
-          "type": "Example",
-          "template": "template_sap_adaptiveopenURL.json"
-        },
-        {
-          "type": "Example",
-          "template": "template_sap_listicon.json"
-        },
-        {
-          "type": "Example",
-          "template": "template_sap_timeline.json"
-        },
-        {
-          "type": "Example",
-          "template": "template_sap_timeline2.json"
-        },
-        {
-          "type": "Example",
-
-          "template": "template_sap_table.json"
-        },
-        {
-          "type": "Table",
-          "filterKey": "ItemStatus1",
-          "filterKeyLabel": "Item Status",
-          "template": "template_table.json",
-          "tableCardFields": [
-            "ExpenseDate",
-            "ExpenseAmount",
-            "ExpType",
-            "ExpenseDetails",
-            "ItemStatus1"
-          ]
-        },
-        {
-          "type": "Analytical",
-          "filterKey": "ItemStatus1",
-          "filterKeyLabel": "Item Status",
-          "cardID": "EMP08E01",
-          "template": "template_analyticalCard_donut.json",
-          "title": "Expense Type Analysis",
-          "analyticsCard": {
-            "chartType": "donut",
-            "cardsDonut": {
-              "measureName": "ExpType",
-              "value": "ExpenseAmount",
-              "function": "SUM"
-            }
-          }
-        }
-      ],
-
+      "cards": [],
       "ItemButtons": {
         "itemDisplay": true,
         "itemCheck": false,
@@ -649,7 +457,16 @@
         "iCurrency",
         "ItemStatus1",
         "Comment",
-        "Attachment"
+        "Attachment",
+        "From",
+        "To",
+        "iMiles",
+        "MilesRate",
+        "iMobile",
+        "iParking",
+        "iTravel",
+        "iMeals",
+        "iHotel"
       ],
       "ItemDetails": [
         { "name": "ExpenseDate" },
@@ -659,7 +476,16 @@
         { "name": "iCurrency" },
         { "name": "Comment" },
         { "name": "ItemStatus1" },
-        { "name": "Attachment" }
+        { "name": "Attachment" },
+        { "name": "From" },
+        { "name": "To" },
+        { "name": "iMiles" },
+        { "name": "MilesRate" },
+        { "name": "iMobile" },
+        { "name": "iParking" },
+        { "name": "iTravel" },
+        { "name": "iMeals" },
+        { "name": "iHotel" }
       ],
       "ControlDisplay": {
         "ControlField": "ExpType",
@@ -754,14 +580,14 @@
       "type": "string",
       "width": "20",
       "Option": "Mandatory",
-      "adaptiveCard": "Main",
+      "adaptiveCard": "Additional",
       "SLabel": "Employee Code"
     },
     {
       "name": "Name",
       "type": "string",
       "width": "50",
-      "Option": "Optional",
+      "Option": "Mandatory",
       "adaptiveCard": "Additional",
       "SLabel": "Employee Name"
     },
@@ -778,7 +604,7 @@
       "type": "string",
       "width": "10",
       "Option": "Mandatory",
-      "adaptiveCard": "Main",
+      "adaptiveCard": "Additional",
       "SLabel": "Currency"
     },
     {
@@ -786,7 +612,7 @@
       "type": "Date",
       "width": "10",
       "Option": "Mandatory",
-      "adaptiveCard": "Main",
+      "adaptiveCard": "Additional",
       "SLabel": "Entry Date"
     },
     {
@@ -817,8 +643,8 @@
       "name": "CostCentre",
       "type": "string",
       "width": "50",
-      "Option": "Mandatory",
-      "adaptiveCard": "Main",
+      "Option": "Optional",
+      "adaptiveCard": "Additional",
       "SLabel": "Cost Centre"
     },
     {
@@ -837,7 +663,7 @@
       "type": "string",
       "width": "50",
       "Option": "Mandatory",
-      "adaptiveCard": "Main",
+      "adaptiveCard": "Additional",
       "SLabel": "Status",
       "LLabel": "Status"
     },
@@ -846,7 +672,7 @@
       "type": "string",
       "width": "200",
       "Option": "Optional",
-      "adaptiveCard": "None",
+      "adaptiveCard": "Additional",
       "SLabel": "Search String",
       "LLabel": "Search String"
     },
@@ -855,7 +681,7 @@
       "type": "string",
       "width": "1000",
       "Option": "Optional",
-      "adaptiveCard": "None",
+      "adaptiveCard": "Additional",
       "SLabel": "ProgressComment",
       "LLabel": "ProgressComment"
     },

@@ -5,7 +5,7 @@
   },
   "Controls": {
     "style": "SAP",
-    "calculation": "No",
+    "calculation": "Yes",
     "USP": "UserProfile",
     "StatusColor": "Yes",
     "SearchString": {
@@ -268,7 +268,9 @@
       "PostCode",
       "Address",
       "SSNumber",
-      "NINumber"
+      "NINumber",
+      "TotalEarning",
+      "TotalDeductions"
     ],
     "Tab3": ["Skills"],
     "Tab6": ["Education"],
@@ -308,6 +310,8 @@
       }
     }
   ],
+  "detailCharts": [],
+  "cards": [],
   "ControlDisplay": {},
   "tableConfig": {
     "Skills": {
@@ -652,8 +656,8 @@
       ]
     },
     "EmergencyContacts": {
-      "title": "Employee Emergency Contacts / Dependents",
-      "subtitle": "Contacts / Dependents",
+      "title": "Employee Emergency Contacts",
+      "subtitle": "Emergency Contacts",
       "ItemFieldDefinition": [
         {
           "name": "ItemNumber",
@@ -747,7 +751,6 @@
         { "name": "ItemStatus4" }
       ]
     },
-
     "Certifications": {
       "title": "Employee Certifications",
       "subtitle": "Certifications",
@@ -829,8 +832,8 @@
         { "name": "ItemStatus5" }
       ]
     },
-
     "Package": {
+      "calculation": "Yes",
       "title": "Employee Compensation Package",
       "subtitle": "Employee Compensation Package",
       "detailCard": "Yes",
@@ -919,7 +922,6 @@
           "template": "template_analyticalCard_line.json",
           "analyticsCard": {
             "chartType": "line",
-
             "itemvalueMap": { "Score": "Answer", "Target": "Deductions" },
             "itemkeyMap": { "Area": "Question" },
             "itemfixedVal": [{ "Total": 5 }],
@@ -1304,8 +1306,8 @@
       "width": "200",
       "Option": "Optional",
       "adaptiveCard": "None",
-      "SLabel": "Contacts/Dependents",
-      "LLabel": "Contacts/Dependents"
+      "SLabel": "Emergency Contacts",
+      "LLabel": "Emergency Contacts"
     },
     {
       "name": "Education",
@@ -1446,7 +1448,20 @@
         "Fields": [{ "Source": "Deductions", "Type": { "type": "HeaderItem" } }]
       }
     ],
-    "Header": []
+    "Header": [
+      {
+        "CalculatedFormula": {
+          "name": "Substraction",
+          "function": "SUB",
+          "Target": "NetPay",
+          "type": "Header"
+        },
+        "Fields": [
+          { "Source": "TotalEarning", "Type": { "type": "Header" } },
+          { "Source": "TotalDeductions", "Type": { "type": "Header" } }
+        ]
+      }
+    ]
   },
   "Create": "No",
   "Wizard": []

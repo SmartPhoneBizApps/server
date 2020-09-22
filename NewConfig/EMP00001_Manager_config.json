@@ -6,6 +6,7 @@
   "Controls": {
     "style": "SAP",
     "calculation": "Yes",
+    "defaultGraph": "StackedBar",
     "USP": "UserProfile",
     "StatusColor": "Yes",
     "SearchString": { "Search": false },
@@ -240,7 +241,7 @@
     "Tab2": ["Name", "EmployeeID"],
     "Tab3": ["Address", "PostCode"],
     "Tab4": ["ContactNo", "Email"],
-    "Tab5": ["CostCentre", "Approver", "Comment"],
+    "Tab5": ["CostCentre", "Comment"],
     "Tab6": ["ProcessingLog"],
     "Tab8": ["MultiAttachments"]
   },
@@ -307,11 +308,11 @@
       "unitOfMeasurement": "Days",
       "Data": {
         "dimension": "LeaveFrom",
-        "fact": "Count",
+        "fact": "LeaveDays",
         "operation": "COLLECTIVE_SUM",
         "sorting": "Ascending",
         "aggregate": "Yes",
-        "sortField": "Count",
+        "sortField": "LeaveFrom",
         "dType": "Date"
       },
       "numericHeader": {
@@ -483,14 +484,6 @@
       "Option": "Mandatory",
       "adaptiveCard": "Main",
       "SLabel": "Reason For Leave"
-    },
-    {
-      "name": "Approver",
-      "type": "string",
-      "width": "50",
-      "Option": "Optional",
-      "adaptiveCard": "Additional",
-      "SLabel": "Approver"
     },
     {
       "name": "Status",

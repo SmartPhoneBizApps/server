@@ -38,7 +38,20 @@
     {
       "type": "DOWNLOAD",
       "name": "Download File",
-      "icon": "sap-icon://download"
+      "icon": "sap-icon://download",
+      "downloadFields": [
+        "ID",
+        "Material",
+        "Description",
+        "StockDate",
+        "Location",
+        "StorageLoc",
+        "TotalStock",
+        "Returns",
+        "Reserved",
+        "Sales",
+        "Blocked"
+      ]
     },
     {
       "type": "APPHELP",

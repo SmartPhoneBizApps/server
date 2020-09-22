@@ -6,6 +6,7 @@
   "Controls": {
     "style": "SAP",
     "calculation": "No",
+    "defaultGraph": "StackedBar",
     "USP": "UserProfile",
     "StatusColor": "Yes",
     "SearchString": { "Search": false },
@@ -37,7 +38,26 @@
     {
       "type": "DOWNLOAD",
       "name": "Download File",
-      "icon": "sap-icon://download"
+      "icon": "sap-icon://download",
+      "downloadFields": [
+        "ID",
+        "Name",
+        "Address",
+        "Problem",
+        "Resolution",
+        "Area",
+        "Impact",
+        "IncidentType",
+        "StartDate",
+        "StartTime",
+        "FinishDate",
+        "FinishTime",
+        "Priority",
+        "Urgency",
+        "Agent",
+        "Company",
+        "Status"
+      ]
     },
     {
       "type": "APPHELP",

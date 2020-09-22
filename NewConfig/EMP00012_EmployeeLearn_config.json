@@ -6,13 +6,13 @@
   "Controls": {
     "style": "SAP",
     "calculation": "No",
+    "defaultGraph": "StackedBar",
     "USP": "UserProfile",
     "StatusColor": "Yes",
     "SearchString": { "Search": false },
     "Filters": [{ "Email": "@user" }],
     "UserSpecific": "Yes",
     "Update": "Yes",
-
     "URL": "https://fierce-oasis-51455.herokuapp.com",
     "Source": {
       "SourceName": "mongoDB",
@@ -33,7 +33,6 @@
       "MyTraining": ["Group", "SubGroup"]
     }
   },
-
   "ListFields": {
     "IntroField": "ReviewPeriod",
     "TitleField": "Name",
@@ -315,7 +314,6 @@
           "adaptiveCard": "Additional",
           "Update": "No"
         },
-
         {
           "name": "Score2",
           "type": "string",
@@ -324,6 +322,13 @@
           "Option": "Optional",
           "adaptiveCard": "Additional",
           "Update": "No"
+        },
+        {
+          "name": "TargetScore2",
+          "type": "Num,0",
+          "width": "20",
+          "SLabel": "Target Goal Score",
+          "Option": "Optional"
         },
         {
           "name": "MaxScore2",
@@ -361,7 +366,6 @@
           "adaptiveCard": "Additional",
           "Update": "No"
         },
-
         {
           "name": "SetDate2",
           "type": "Date",
@@ -394,6 +398,7 @@
         "GoalsArea",
         "Goal2",
         "Score2",
+        "TargetScore2",
         "AppraiseComm2",
         "TargetDate2",
         "GoalStatus",
@@ -468,27 +473,6 @@
           "template": "template_table.json",
           "tableCardFields": ["GoalsArea", "Goal2", "TargetDate2"],
           "cardID": "tab001"
-        },
-        {
-          "type": "Example",
-          "cardType": "List",
-          "cardsubType": "ListHighLight",
-          "cardID": "L001",
-          "cardLevel": "tableData",
-          "template": "template_sap_listHighLight.json",
-          "mergedFields": {
-            "Name": ["GoalsArea", "@>>", "Goal2"],
-            "Description": [
-              "@Score:",
-              "Score2",
-              "@ ",
-              "TargetDate2",
-              "@ ",
-              "GoalStatus"
-            ]
-          },
-          "fieldMap": {},
-          "colorStatus": "ItemStatus1"
         }
       ],
 
@@ -662,15 +646,22 @@
           "type": "Example",
           "cardType": "List",
           "cardsubType": "ListHighLight",
-          "cardID": "L002",
+          "cardID": "L001",
           "cardLevel": "tableData",
           "template": "template_sap_listHighLight.json",
           "mergedFields": {
-            "Name": ["AppraisalArea", "@>>", "PerformanceRating"],
-            "Description": ["@Score:", "Score3", "@ ", "TargetDate3"]
+            "Name": ["GoalsArea", "@>>", "Goal2"],
+            "Description": [
+              "@Score:",
+              "Score2",
+              "@ ",
+              "TargetDate2",
+              "@ ",
+              "GoalStatus"
+            ]
           },
           "fieldMap": {},
-          "colorStatus": "ItemStatus2"
+          "colorStatus": "ItemStatus1"
         },
         {
           "type": "Analytical",
@@ -720,7 +711,7 @@
     "MyTraining": {
       "title": "My Learning",
       "subtitle": "List",
-      "unitOfMeasurement": "COUNT",
+      "unitOfMeasurement": "SCORE",
       "ItemFieldDefinition": [
         {
           "name": "ItemNumber",
@@ -827,6 +818,7 @@
       ],
       "ItemDetails": [
         { "name": "Group1" },
+
         { "name": "SubGroup1" },
         { "name": "Title1" },
         { "name": "ReferenceID1" },
@@ -859,28 +851,36 @@
           "type": "string",
           "width": "10",
           "SLabel": "Question",
-          "Option": "Optional"
+          "Option": "Optional",
+          "adaptiveCard": "Additional",
+          "Update": "No"
         },
         {
           "name": "Answer",
           "type": "string",
           "width": "20",
           "SLabel": "Answer",
-          "Option": "Optional"
+          "Option": "Optional",
+          "adaptiveCard": "Additional",
+          "Update": "Yes"
         },
         {
           "name": "CorrectAnswer",
           "type": "string",
           "width": "20",
           "SLabel": "Correct Ans",
-          "Option": "Optional"
+          "Option": "Optional",
+          "adaptiveCard": "Additional",
+          "Update": "Yes"
         },
         {
           "name": "Score",
           "type": "Num,0",
           "width": "20",
           "SLabel": "Score",
-          "Option": "Optional"
+          "Option": "Optional",
+          "adaptiveCard": "Additional",
+          "Update": "Yes"
         }
       ],
       "DisplayFields": ["ItemStatus4", "Question", "Answer"],

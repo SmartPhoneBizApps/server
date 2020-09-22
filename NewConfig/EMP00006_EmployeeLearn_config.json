@@ -6,6 +6,7 @@
   "Controls": {
     "style": "SAP",
     "calculation": "No",
+    "defaultGraph": "StackedBar",
     "USP": "UserProfile",
     "StatusColor": "Yes",
     "SearchString": { "Search": false },
@@ -178,15 +179,6 @@
       "name": "Project Details",
       "type": "Field",
       "fioriicon": "request"
-    },
-    {
-      "value": "Tab3",
-      "style": "SAP",
-      "update": "Yes",
-      "name": "Process Log",
-      "fioriicon": "step",
-      "type": "Chat",
-      "download": "No"
     }
   ],
   "DetailFields": {
@@ -207,8 +199,7 @@
         "Fields": ["EmployeeID", "Name"]
       }
     ],
-    "Tab2": ["ProjectNeed", "Cost", "CostCentre"],
-    "Tab3": ["ProcessingLog"]
+    "Tab2": ["ProjectNeed", "Cost", "CostCentre", "ProgressComment"]
   },
   "listCards": [
     {
@@ -401,7 +392,6 @@
       "adaptiveCard": "Additional",
       "SLabel": "Progress Comment"
     },
-
     { "name": "Status", "type": "string", "SLabel": "Status", "width": "50" },
     {
       "name": "SearchString",
@@ -428,15 +418,6 @@
       "adaptiveCard": "None",
       "SLabel": "Search String",
       "LLabel": "Search String"
-    },
-    {
-      "name": "ProcessingLog",
-      "type": "string",
-      "width": "1000",
-      "Option": "Optional",
-      "adaptiveCard": "Additional",
-      "SLabel": "Processing Log",
-      "LLabel": "Processing Log"
     }
   ],
   "itemData": "No",

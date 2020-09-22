@@ -6,7 +6,9 @@
   "Controls": {
     "style": "SAP",
     "calculation": "Yes",
+    "defaultGraph": "StackedBar",
     "USP": "UserProfile",
+    "StatusColor": "Yes",
     "SearchString": { "Search": false },
     "Filters": [{ "Partner": "@user" }],
     "Partner": "@user",
@@ -170,7 +172,7 @@
       "value": "Tab1",
       "style": "SAP",
       "update": "Yes",
-      "name": "Travel details",
+      "name": "Trip details",
       "type": "Field",
       "fioriicon": "request",
       "download": "Yes"
@@ -179,7 +181,7 @@
       "value": "Tab2",
       "style": "SAP",
       "update": "Yes",
-      "name": "Stay details",
+      "name": "Cost Details",
       "type": "Field",
       "fioriicon": "database",
       "download": "Yes"
@@ -188,22 +190,13 @@
       "value": "Tab3",
       "style": "SAP",
       "update": "Yes",
-      "name": "Processing Log",
-      "fioriicon": "step",
-      "type": "Chat",
-      "download": "Yes"
-    },
-    {
-      "value": "Tab4",
-      "style": "SAP",
-      "update": "Yes",
-      "name": "Other Details",
+      "name": "Additional Info",
       "fioriicon": "customer-view",
       "type": "Field",
       "download": "Yes"
     },
     {
-      "value": "Tab5",
+      "value": "Tab4",
       "style": "SAP",
       "update": "Yes",
       "name": "Attachment",
@@ -230,14 +223,12 @@
       "TravelDetail",
       "Justification",
       "TravelMode",
-      "TravelCost"
+      "StayDetails"
     ],
-    "Tab2": ["FoodCost", "StayCost", "StayDetails"],
-    "Tab3": ["ProcessingLog"],
-    "Tab4": ["OtherCost", "AdditionalInfo", "CostCentre", "Currency"],
-    "Tab5": ["MultiAttachments"]
+    "Tab2": ["TravelCost", "StayCost", "FoodCost", "OtherCost", "Currency"],
+    "Tab3": ["AdditionalInfo", "CostCentre", "ProgressComment"],
+    "Tab4": ["MultiAttachments"]
   },
-
   "listCards": [
     {
       "cardType": "Analytical",
@@ -312,7 +303,7 @@
         "headerNumber": { "Operation": "COLLECTIVE", "Field": "ID" },
         "trend": { "trend": "DOWN", "Condition": "LTE", "value": 8 },
         "status": { "state": "Good", "Condition": "LTE", "value": 24 },
-        "details": "Max 24 days",
+        "details": "Employee",
         "unit": "Days"
       },
       "cardValues": {
@@ -536,6 +527,14 @@
       "adaptiveCard": "Additional",
       "SLabel": "Stay Details",
       "LLabel": "Stay Details"
+    },
+    {
+      "name": "ProgressComment",
+      "type": "string",
+      "width": "500",
+      "Option": "Mandatory",
+      "adaptiveCard": "Main",
+      "SLabel": "Approver Comment"
     },
     {
       "name": "MultiAttachments",

@@ -35,7 +35,29 @@
     {
       "type": "DOWNLOAD",
       "name": "Download File",
-      "icon": "sap-icon://download"
+      "icon": "sap-icon://download",
+      "downloadFields": [
+        "ID",
+        "Status",
+        "Title",
+        "Location",
+        "JobType",
+        "Salary",
+        "Rate",
+        "Summary",
+        "Details",
+        "EssentialExp",
+        "PreferredExp",
+        "Duration",
+        "StartDate",
+        "Industry",
+        "EmpBusiness",
+        "Contact",
+        "ContactNo",
+        "Email",
+        "WebLink",
+        "PostedDate"
+      ]
     },
     {
       "type": "APPHELP",
@@ -147,14 +169,6 @@
       "name": "Certifications",
       "type": "carouselImage",
       "fioriicon": "contacts"
-    },
-    {
-      "value": "Tab5",
-      "style": "SAP",
-      "update": "Yes",
-      "name": "Process Log",
-      "type": "ProcessingLog",
-      "fioriicon": "contacts"
     }
   ],
   "DetailFields": {
@@ -183,8 +197,7 @@
       "PostedDate"
     ],
     "Tab3": ["MultiAttachments"],
-    "Tab4": ["carouselImage"],
-    "Tab5": ["ProcessingLog"]
+    "Tab4": ["carouselImage"]
   },
   "ControlDisplay": {},
   "FieldDef": [

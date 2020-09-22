@@ -51,7 +51,20 @@
     {
       "type": "DOWNLOAD",
       "name": "Download File",
-      "icon": "sap-icon://download"
+      "icon": "sap-icon://download",
+      "downloadFields": [
+        "ID",
+        "Status",
+        "Name",
+        "Email",
+        "Phone",
+        "DateOfComplaint",
+        "AgainstWhom",
+        "DescribeIncident",
+        "AdditionalComments",
+        "Supervisor",
+        "SupervisorComment"
+      ]
     },
     {
       "type": "APPHELP",

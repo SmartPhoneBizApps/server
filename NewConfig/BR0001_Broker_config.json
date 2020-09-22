@@ -39,7 +39,20 @@
     {
       "type": "DOWNLOAD",
       "name": "Download File",
-      "icon": "sap-icon://download"
+      "icon": "sap-icon://download",
+      "downloadFields": [
+        "ID",
+        "Status",
+        "Exchange",
+        "StockPriceHigh",
+        "StockPriceLow",
+        "StockSymbol",
+        "StockPriceOpen",
+        "StockPriceClose",
+        "StockVolume",
+        "StockPriceAdjClose",
+        "Date"
+      ]
     },
     {
       "type": "APPHELP",

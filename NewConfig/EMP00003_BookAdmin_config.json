@@ -6,6 +6,7 @@
   "Controls": {
     "style": "SAP",
     "calculation": "No",
+    "defaultGraph": "StackedBar",
     "USP": "UserProfile",
     "StatusColor": "Yes",
     "SearchString": { "Search": false },
@@ -402,7 +403,7 @@
       "type": "string",
       "width": "50",
       "Option": "Mandatory",
-      "adaptiveCard": "Main",
+      "adaptiveCard": "None",
       "SLabel": "Name"
     },
     {
@@ -410,7 +411,7 @@
       "type": "string",
       "width": "100",
       "Option": "Mandatory",
-      "adaptiveCard": "Main",
+      "adaptiveCard": "None",
       "SLabel": "Email",
       "LLabel": "Email"
     },
@@ -427,7 +428,7 @@
       "type": "string",
       "width": "20",
       "Option": "Mandatory",
-      "adaptiveCard": "Main",
+      "adaptiveCard": "None",
       "SLabel": "User Account"
     },
     {
@@ -458,8 +459,8 @@
       "name": "StartDate",
       "type": "Date",
       "width": "10",
-      "Option": "Optional",
-      "adaptiveCard": "Additional",
+      "Option": "Mandatory",
+      "adaptiveCard": "Main",
       "SLabel": "Start Date"
     },
     {
@@ -474,8 +475,8 @@
       "name": "StartTime",
       "type": "Time",
       "width": "10",
-      "Option": "Optional",
-      "adaptiveCard": "Additional",
+      "Option": "Mandatory",
+      "adaptiveCard": "Main",
       "SLabel": "Start Time"
     },
     {
@@ -539,7 +540,7 @@
       "type": "string",
       "width": "50",
       "Option": "Mandatory",
-      "adaptiveCard": "Main",
+      "adaptiveCard": "Additional",
       "SLabel": "Status",
       "LLabel": "Status"
     },

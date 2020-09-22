@@ -6,6 +6,7 @@
   "Controls": {
     "style": "SAP",
     "calculation": "No",
+    "defaultGraph": "StackedBar",
     "USP": "UserProfile",
     "StatusColor": "Yes",
     "SearchString": { "Search": false },
@@ -22,7 +23,7 @@
     ],
     "Partner": "@user",
     "UserSpecific": "Yes",
-    "update": "No",
+    "Update": "Yes",
     "URL": "https://fierce-oasis-51455.herokuapp.com",
     "Source": { "SourceName": "mongoDB", "SourceFile": "NA" },
     "filterFields": {
@@ -194,15 +195,6 @@
       "name": "Project Details",
       "type": "Field",
       "fioriicon": "request"
-    },
-    {
-      "value": "Tab3",
-      "style": "SAP",
-      "update": "No",
-      "name": "Process Log",
-      "fioriicon": "step",
-      "type": "Chat",
-      "download": "No"
     }
   ],
   "DetailFields": {
@@ -223,8 +215,7 @@
         "Fields": ["EmployeeID", "Name"]
       }
     ],
-    "Tab2": ["ProjectNeed", "Cost", "CostCentre", "ProgressComment"],
-    "Tab3": ["ProcessingLog"]
+    "Tab2": ["ProjectNeed", "Cost", "CostCentre", "ProgressComment"]
   },
   "listCards": [
     {
@@ -278,6 +269,8 @@
       }
     }
   ],
+  "detailCharts": [],
+  "cards": [],
   "ControlDisplay": {},
   "FieldDef": [
     {
@@ -375,7 +368,21 @@
       "width": "50",
       "Option": "Optional",
       "adaptiveCard": "Additional",
-      "SLabel": "Training Cost"
+      "SLabel": "Training Cost",
+      "Condition": [
+        {
+          "cField": "External",
+          "fieldType": "header",
+          "cValue": "External",
+          "cOperator": "EQ"
+        },
+        {
+          "rField": "Cost",
+          "fieldType": "header",
+          "rValue": "0",
+          "rOperator": "GT"
+        }
+      ]
     },
     {
       "name": "ProjectCode",
@@ -392,6 +399,14 @@
       "Option": "Optional",
       "adaptiveCard": "Additional",
       "SLabel": "Cost Centre"
+    },
+    {
+      "name": "ProgressComment",
+      "type": "string",
+      "width": "1000",
+      "Option": "Optional",
+      "adaptiveCard": "Additional",
+      "SLabel": "Progress Comment"
     },
     { "name": "Status", "type": "string", "SLabel": "Status", "width": "50" },
     {
@@ -412,23 +427,6 @@
       "SLabel": "Justification"
     },
     {
-      "name": "ProcessingLog",
-      "type": "string",
-      "width": "1000",
-      "Option": "Optional",
-      "adaptiveCard": "Additional",
-      "SLabel": "Processing Log",
-      "LLabel": "Processing Log"
-    },
-    {
-      "name": "ProgressComment",
-      "type": "string",
-      "width": "500",
-      "Option": "Mandatory",
-      "adaptiveCard": "Main",
-      "SLabel": "Approver Comment"
-    },
-    {
       "name": "SearchString",
       "type": "string",
       "width": "200",
@@ -436,15 +434,6 @@
       "adaptiveCard": "None",
       "SLabel": "Search String",
       "LLabel": "Search String"
-    },
-    {
-      "name": "Approver",
-      "type": "string",
-      "width": "100",
-      "Option": "Optional",
-      "adaptiveCard": "Additional",
-      "SLabel": "Approver",
-      "LLabel": "Approver"
     }
   ],
   "itemData": "No",
@@ -459,6 +448,25 @@
     },
     "CreateFields": [],
     "ItemDetails": []
+  },
+  "Validations": {
+    "Field": {},
+    "Sequence": {
+      "DateRequested": [
+        {
+          "name": "SEQUENCE",
+          "function": "GTE",
+          "Target": "sValidation",
+          "type": "Header",
+          "msg": "To Request Date can not be a past date",
+          "Fields": [
+            { "Source": "DateRequested", "Type": { "type": "Header" } },
+            { "Source": "@currentDate", "Type": { "type": "Constant" } }
+          ]
+        }
+      ]
+    },
+    "Document": {}
   },
   "CalculatedFields": {},
   "Create": "No",

@@ -38,7 +38,30 @@
     {
       "type": "DOWNLOAD",
       "name": "Download File",
-      "icon": "sap-icon://download"
+      "icon": "sap-icon://download",
+      "downloadFields": [
+        "ID",
+        "Status",
+        "RegNo",
+        "Vehicle",
+        "Model",
+        "RegYear",
+        "ChassisNo",
+        "PurchaseDate",
+        "IssueDate",
+        "IssuesTo",
+        "EmpID",
+        "Phone",
+        "Email"
+      ],
+      "None": [
+        "ID",
+        "MOTDueDate",
+        "LastService",
+        "NextService",
+        "Millage",
+        "MillageDate"
+      ]
     },
     {
       "type": "APPHELP",

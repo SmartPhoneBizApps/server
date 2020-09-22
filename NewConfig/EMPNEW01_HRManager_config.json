@@ -645,7 +645,7 @@
     },
     "PreviousEmployer": {
       "title": "Previous Employers",
-      "subtitle": "mployers",
+      "subtitle": "Employers",
       "ItemFieldDefinition": [
         {
           "name": "ItemNumber",
@@ -805,17 +805,17 @@
           "Option": "Optional"
         },
         {
-          "name": "Comments4",
-          "type": "string",
-          "width": "500",
-          "SLabel": "Comments",
-          "Option": "Optional"
-        },
-        {
           "name": "ContactType",
           "type": "string",
           "width": "100",
           "SLabel": "Contact Type",
+          "Option": "Optional"
+        },
+        {
+          "name": "Comments4",
+          "type": "string",
+          "width": "500",
+          "SLabel": "Comments",
           "Option": "Optional"
         }
       ],
@@ -836,7 +836,6 @@
           "tableCardFields": ["ContactName1", "ContactPhone1", "Relation1"]
         }
       ],
-
       "ItemButtons": {
         "itemDisplay": true,
         "itemCheck": false,
@@ -946,6 +945,7 @@
       "calculation": "Yes",
       "title": "Employee Compensation Package",
       "subtitle": "Compensation Package",
+      "detailCard": "Yes",
       "ItemFieldDefinition": [
         {
           "name": "ItemNumber",
@@ -1392,6 +1392,15 @@
       "LLabel": "ProgressComment"
     },
     {
+      "name": "Dependents",
+      "type": "Array",
+      "width": "200",
+      "Option": "Optional",
+      "adaptiveCard": "None",
+      "SLabel": "Dependents",
+      "LLabel": "Dependents"
+    },
+    {
       "name": "Benefits",
       "type": "Array",
       "width": "200",
@@ -1444,6 +1453,24 @@
       "adaptiveCard": "None",
       "SLabel": "Certifications and Trainings",
       "LLabel": "Certifications and Trainings"
+    },
+    {
+      "name": "Payslips",
+      "type": "Array",
+      "width": "200",
+      "Option": "Optional",
+      "adaptiveCard": "None",
+      "SLabel": "Payslips",
+      "LLabel": "Payslips"
+    },
+    {
+      "name": "P60",
+      "type": "Array",
+      "width": "200",
+      "Option": "Optional",
+      "adaptiveCard": "None",
+      "SLabel": "P60",
+      "LLabel": "P60"
     },
 
     {

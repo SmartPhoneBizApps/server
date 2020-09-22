@@ -6,6 +6,7 @@
   "Controls": {
     "style": "SAP",
     "calculation": "Yes",
+    "defaultGraph": "StackedBar",
     "USP": "UserProfile",
     "StatusColor": "Yes",
     "SearchString": { "Search": false },
@@ -22,7 +23,7 @@
     ],
     "Partner": "@user",
     "UserSpecific": "Yes",
-    "update": "No",
+    "Update": "Yes",
     "URL": "https://fierce-oasis-51455.herokuapp.com",
     "Source": { "SourceName": "mongoDB", "SourceFile": "NA" },
     "filterFields": {
@@ -37,7 +38,6 @@
       ]
     }
   },
-
   "ListFields": {
     "IntroField": "Name",
     "TitleField": "NoValue",
@@ -53,7 +53,13 @@
     "SubTitle": ["Name", "TotalAmount", "Status"],
     "Description": ["TravelDtFrom", "TravelDateTo", "Justification"]
   },
-  "PossibleValues": ["Currency", "CostCentre", "Status", "TravelMode"],
+  "PossibleValues": [
+    "Currency",
+    "ProjectCode",
+    "CostCentre",
+    "Status",
+    "TravelMode"
+  ],
   "MButtons": [
     {
       "type": "DOWNLOAD",
@@ -182,7 +188,7 @@
       "value": "Tab1",
       "style": "SAP",
       "update": "No",
-      "name": "Travel details",
+      "name": "Trip details",
       "type": "Field",
       "fioriicon": "request",
       "download": "Yes"
@@ -191,7 +197,7 @@
       "value": "Tab2",
       "style": "SAP",
       "update": "No",
-      "name": "Stay details",
+      "name": "Cost Details",
       "type": "Field",
       "fioriicon": "database",
       "download": "Yes"
@@ -200,22 +206,13 @@
       "value": "Tab3",
       "style": "SAP",
       "update": "No",
-      "name": "Processing Log",
-      "fioriicon": "step",
-      "type": "Chat",
-      "download": "Yes"
-    },
-    {
-      "value": "Tab4",
-      "style": "SAP",
-      "update": "No",
-      "name": "Other Details",
+      "name": "Additional Info",
       "fioriicon": "customer-view",
       "type": "Field",
       "download": "Yes"
     },
     {
-      "value": "Tab5",
+      "value": "Tab4",
       "style": "SAP",
       "update": "No",
       "name": "Attachment",
@@ -242,18 +239,11 @@
       "TravelDetail",
       "Justification",
       "TravelMode",
-      "TravelCost"
+      "StayDetails"
     ],
-    "Tab2": ["FoodCost", "StayCost", "StayDetails"],
-    "Tab3": ["ProcessingLog"],
-    "Tab4": [
-      "OtherCost",
-      "AdditionalInfo",
-      "CostCentre",
-      "Currency",
-      "ProgressComment"
-    ],
-    "Tab5": ["MultiAttachments"]
+    "Tab2": ["TravelCost", "StayCost", "FoodCost", "OtherCost", "Currency"],
+    "Tab3": ["AdditionalInfo", "CostCentre", "ProgressComment"],
+    "Tab4": ["MultiAttachments"]
   },
   "listCards": [
     {
@@ -329,7 +319,7 @@
         "headerNumber": { "Operation": "COLLECTIVE", "Field": "ID" },
         "trend": { "trend": "DOWN", "Condition": "LTE", "value": 8 },
         "status": { "state": "Good", "Condition": "LTE", "value": 24 },
-        "details": "Employee",
+        "details": "Manager",
         "unit": "Days"
       },
       "cardValues": {
@@ -338,6 +328,8 @@
       }
     }
   ],
+  "detailCharts": [],
+  "cards": [],
   "ControlDisplay": {},
 
   "FieldDef": [
@@ -354,15 +346,15 @@
       "name": "ReferenceID",
       "type": "string",
       "width": "20",
-      "Option": "Optional",
-      "adaptiveCard": "Additional",
+      "Option": "Mandatory",
+      "adaptiveCard": "Main",
       "SLabel": "ReferenceID"
     },
     {
       "name": "EmployeeID",
       "type": "string",
       "width": "20",
-      "Option": "Optional",
+      "Option": "Mandatory",
       "adaptiveCard": "Additional",
       "SLabel": "Employee Code"
     },
@@ -370,7 +362,7 @@
       "name": "Name",
       "type": "string",
       "width": "50",
-      "Option": "Optional",
+      "Option": "Mandatory",
       "adaptiveCard": "Additional",
       "SLabel": "Employee Name"
     },
@@ -386,7 +378,7 @@
       "name": "Currency",
       "type": "string",
       "width": "50",
-      "Option": "Optional",
+      "Option": "Mandatory",
       "adaptiveCard": "Additional",
       "SLabel": "Currency"
     },
@@ -394,7 +386,7 @@
       "name": "EntryDate",
       "type": "Date",
       "width": "10",
-      "Option": "Optional",
+      "Option": "Mandatory",
       "adaptiveCard": "Additional",
       "SLabel": "Entry Date"
     },
@@ -402,16 +394,16 @@
       "name": "TravelDtFrom",
       "type": "Date",
       "width": "10",
-      "Option": "Optional",
-      "adaptiveCard": "Additional",
+      "Option": "Mandatory",
+      "adaptiveCard": "Main",
       "SLabel": "Travel Date From"
     },
     {
       "name": "TravelDateTo",
       "type": "Date",
       "width": "10",
-      "Option": "Optional",
-      "adaptiveCard": "Additional",
+      "Option": "Mandatory",
+      "adaptiveCard": "Main",
       "SLabel": "Travel Date To"
     },
     {
@@ -435,23 +427,23 @@
       "type": "string",
       "width": "50",
       "Option": "Optional",
-      "adaptiveCard": "Additional",
+      "adaptiveCard": "None",
       "SLabel": "Location"
     },
     {
       "name": "TravelDetail",
       "type": "string",
       "width": "500",
-      "Option": "Optional",
-      "adaptiveCard": "Additional",
+      "Option": "Mandatory",
+      "adaptiveCard": "Main",
       "SLabel": "Travel Detail"
     },
     {
       "name": "Justification",
       "type": "string",
       "width": "1000",
-      "Option": "Optional",
-      "adaptiveCard": "Additional",
+      "Option": "Mandatory",
+      "adaptiveCard": "Main",
       "SLabel": "Justification"
     },
     {
@@ -459,7 +451,7 @@
       "type": "string",
       "width": "50",
       "Option": "Mandatory",
-      "adaptiveCard": "Main",
+      "adaptiveCard": "Additional",
       "SLabel": "Status",
       "LLabel": "Status"
     },
@@ -485,8 +477,8 @@
       "name": "TravelMode",
       "type": "radiobutton",
       "width": "50",
-      "Option": "Optional",
-      "adaptiveCard": "Additional",
+      "Option": "Mandatory",
+      "adaptiveCard": "Main",
       "SLabel": "Travelling mode"
     },
     {
@@ -503,7 +495,7 @@
       "type": "Num,2",
       "width": "20",
       "Option": "Optional",
-      "adaptiveCard": "Additional",
+      "adaptiveCard": "Main",
       "SLabel": "Food Cost",
       "LLabel": "Food Cost"
     },
@@ -512,7 +504,7 @@
       "type": "Num,2",
       "width": "20",
       "Option": "Optional",
-      "adaptiveCard": "Additional",
+      "adaptiveCard": "Main",
       "SLabel": "Travel Cost",
       "LLabel": "Travel Cost"
     },
@@ -521,16 +513,16 @@
       "type": "Num,2",
       "width": "20",
       "Option": "Optional",
-      "adaptiveCard": "Additional",
+      "adaptiveCard": "Main",
       "SLabel": "Stay Cost",
       "LLabel": "Stay Cost"
     },
     {
       "name": "OtherCost",
-      "type": "Num,0",
+      "type": "Num,2",
       "width": "20",
       "Option": "Optional",
-      "adaptiveCard": "Additional",
+      "adaptiveCard": "Main",
       "SLabel": "Other Cost",
       "LLabel": "Other Cost"
     },
@@ -592,7 +584,6 @@
     "CreateFields": [],
     "ItemDetails": []
   },
-
   "Validations": {
     "Field": {},
     "Sequence": {
@@ -625,8 +616,30 @@
         },
         "Fields": [
           { "Source": "TravelCost", "Type": { "type": "Header" } },
-          { "Source": "StayCost", "Type": { "type": "Header" } },
-          { "Source": "OtherCost", "Type": { "type": "Header" } },
+          { "Source": "StayCost", "Type": { "type": "Header" } }
+        ]
+      },
+      {
+        "CalculatedFormula": {
+          "name": "Addition",
+          "function": "ADD",
+          "Target": "TotalAmount",
+          "type": "Header"
+        },
+        "Fields": [
+          { "Source": "TotalAmount", "Type": { "type": "Header" } },
+          { "Source": "OtherCost", "Type": { "type": "Header" } }
+        ]
+      },
+      {
+        "CalculatedFormula": {
+          "name": "Addition",
+          "function": "ADD",
+          "Target": "TotalAmount",
+          "type": "Header"
+        },
+        "Fields": [
+          { "Source": "TotalAmount", "Type": { "type": "Header" } },
           { "Source": "FoodCost", "Type": { "type": "Header" } }
         ]
       }

@@ -19,7 +19,7 @@
     ],
     "Partner": "@user",
     "UserSpecific": "Yes",
-    "update": "No",
+    "Update": "Yes",
     "URL": "https://fierce-oasis-51455.herokuapp.com",
     "Source": { "SourceName": "mongoDB", "SourceFile": "NA" },
 
@@ -27,7 +27,6 @@
       "header": ["Status", "EmployeeID", "StartDate"]
     }
   },
-
   "ListFields": {
     "IntroField": "ID",
     "TitleField": "Name",
@@ -264,7 +263,7 @@
       "type": "string",
       "width": "50",
       "Option": "Mandatory",
-      "adaptiveCard": "Main",
+      "adaptiveCard": "None",
       "SLabel": "Employee Code",
       "LLabel": "Employee Code"
     },
@@ -272,8 +271,8 @@
       "name": "StartDate",
       "type": "Date",
       "width": "10",
-      "Option": "Optional",
-      "adaptiveCard": "Additional",
+      "Option": "Mandatory",
+      "adaptiveCard": "Main",
       "SLabel": "Timesheet start date",
       "LLabel": "Timesheet start date"
     },
@@ -290,8 +289,8 @@
       "name": "EndDate",
       "type": "Date",
       "width": "10",
-      "Option": "Optional",
-      "adaptiveCard": "Additional",
+      "Option": "Mandatory",
+      "adaptiveCard": "Main",
       "SLabel": "Timesheet end date",
       "LLabel": "Timesheet end date"
     },
@@ -492,7 +491,7 @@
           "width": "10",
           "SLabel": "ItemNumber",
           "Option": "Optional",
-
+          "adaptiveCard": "Additional",
           "Update": "Yes"
         },
 
@@ -502,7 +501,7 @@
           "width": "50",
           "SLabel": "Project Code",
           "Option": "Mandatory",
-
+          "adaptiveCard": "Main",
           "Update": "Yes"
         },
         {
@@ -511,7 +510,7 @@
           "width": "10",
           "SLabel": "Timesheet Date",
           "Option": "Mandatory",
-
+          "adaptiveCard": "Main",
           "Update": "Yes"
         },
         {
@@ -519,8 +518,8 @@
           "type": "Num,1",
           "width": "50",
           "SLabel": "Regular work hours",
-          "Option": "Optional",
-
+          "Option": "Mandatory",
+          "adaptiveCard": "Main",
           "Update": "Yes"
         },
         {
@@ -529,7 +528,7 @@
           "width": "50",
           "SLabel": "Overtime Hours",
           "Option": "Optional",
-
+          "adaptiveCard": "Additional",
           "Update": "Yes"
         },
         {
@@ -538,7 +537,7 @@
           "width": "50",
           "SLabel": "Total Hours",
           "Option": "Optional",
-
+          "adaptiveCard": "Additional",
           "Update": "No"
         },
         {
@@ -555,7 +554,7 @@
           "type": "string",
           "width": "1000",
           "SLabel": "Comment",
-          "Option": "Optional"
+          "Option": "Mandatory"
         },
         {
           "name": "ItemStatus1",
@@ -573,7 +572,68 @@
         "TotalHours",
         "ItemStatus1"
       ],
-      "detailCharts": [],
+      "detailCharts": [
+        {
+          "cardType": "Analytical",
+          "style": ["SAP", "Google"],
+          "cardsubType": "StackedBar",
+          "title": "Time Sheet Analysis",
+          "subtitle": "Project Code",
+          "unitOfMeasurement": "Days",
+          "source": "myTime",
+          "Data": {
+            "dimension": "ProjectCode",
+            "fact": "Count",
+            "operation": "COUNT",
+            "sorting": "Ascending",
+            "aggregate": "Yes",
+            "sortField": "Count",
+            "dType": "string"
+          },
+          "numericHeader": {
+            "headerNumber": { "Operation": "COUNT", "Field": "ProjectCode" },
+            "trend": { "trend": "DOWN", "Condition": "LTE", "value": 8 },
+            "status": { "state": "Good", "Condition": "LTE", "value": 24 },
+            "details": "Employee",
+            "unit": "Days"
+          },
+          "cardValues": {
+            "@Value1": "Commutative",
+            "@Value2": "Count"
+          }
+        },
+        {
+          "cardType": "Analytical",
+          "style": ["SAP", "Google"],
+          "cardsubType": "Line",
+          "title": "Time Sheet Analysis",
+          "subtitle": "Time",
+          "unitOfMeasurement": "Hrs",
+          "Data": {
+            "dimension": "Date",
+            "fact": "Count",
+            "operation": "COLLECTIVE_COUNT",
+            "sorting": "Ascending",
+            "aggregate": "Yes",
+            "sortField": "Count",
+            "dType": "string"
+          },
+          "numericHeader": {
+            "headerNumber": {
+              "Operation": "COLLECTIVE",
+              "Field": "TotalRegWorkHours"
+            },
+            "trend": { "trend": "DOWN", "Condition": "LTE", "value": 40 },
+            "status": { "state": "Good", "Condition": "LTE", "value": 50 },
+            "details": "Max 24 days",
+            "unit": "Days"
+          },
+          "cardValues": {
+            "@Value1": "Commutative",
+            "@Value2": "Count"
+          }
+        }
+      ],
       "cards": [
         {
           "type": "Table",

@@ -38,8 +38,24 @@
     {
       "type": "DOWNLOAD",
       "name": "Download File",
-      "icon": "sap-icon://download"
+      "icon": "sap-icon://download",
+      "downloadFields": [
+        "ID",
+        "Status",
+        "Name",
+        "Email",
+        "Department",
+        "EmployeeID",
+        "DescribeProblem",
+        "ComputerID",
+        "DateCreated",
+        "DateResolved",
+        "ResolutionDetails",
+        "UserFeedback",
+        "Score"
+      ]
     },
+
     {
       "type": "APPHELP",
       "name": "Get App Help",

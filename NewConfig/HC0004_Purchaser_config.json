@@ -274,7 +274,7 @@
     "headerColorFields": ["Status"],
     "Tab0": ["data"],
     "Tab20": ["charts"],
-    "None": ["ID", "HCPEmail", "VendorName"],
+    "None": ["ID"],
     "Tab1": [
       "ContractID",
       "ContractName",
@@ -1066,30 +1066,6 @@
       "SLabel": "Contract End Date"
     },
     {
-      "name": "HCPEmail",
-      "type": "string",
-      "width": "50",
-      "Option": "Optional",
-      "adaptiveCard": "Additional",
-      "SLabel": "HCP Email"
-    },
-    {
-      "name": "VendorName",
-      "type": "string",
-      "width": "100",
-      "Option": "Optional",
-      "adaptiveCard": "Additional",
-      "SLabel": "HCP Name"
-    },
-    {
-      "name": "ContractEndDate",
-      "type": "Date",
-      "width": "10",
-      "Option": "Mandatory",
-      "adaptiveCard": "Main",
-      "SLabel": "Contract End Date"
-    },
-    {
       "name": "ContractValue",
       "type": "string",
       "width": "50",
@@ -1269,7 +1245,7 @@
     },
 
     {
-      "id": "Step3",
+      "id": "Step2",
       "fields": [
         { "name": "ContractStartDate", "Mode": "Edit" },
         { "name": "ContractEndDate", "Mode": "Edit" }
@@ -1279,7 +1255,7 @@
       "intro": "Contract   : Dates"
     },
     {
-      "id": "Step4",
+      "id": "Step3",
       "fields": [{ "name": "MultiAttachments", "Mode": "Edit" }],
       "name": "MultiAttachments",
       "stepType": "Attachments",
@@ -1293,7 +1269,7 @@
       }
     },
     {
-      "id": "Step5",
+      "id": "Step4",
       "fields": [
         { "name": "PharmaContact", "Mode": "Edit" },
         { "name": "PharmaContactEmail", "Mode": "Edit" }
@@ -1303,7 +1279,7 @@
       "intro": "Contract   : Pharma Contact"
     },
     {
-      "id": "Step6",
+      "id": "Step5",
       "fields": [{ "name": "Services", "Mode": "Edit" }],
       "name": "Services",
       "stepType": "table",
@@ -1311,7 +1287,7 @@
       "text": "docType,ItemAttachment,Information"
     },
     {
-      "id": "Step7",
+      "id": "Step6",
       "fields": [{ "name": "Status", "Mode": "Edit" }],
       "name": "Cost Center",
       "stepType": "FieldList",

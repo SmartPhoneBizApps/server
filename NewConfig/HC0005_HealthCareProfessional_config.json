@@ -9,7 +9,14 @@
     "USP": "UserProfile",
     "StatusColor": "Yes",
     "SearchString": { "Search": false },
-    "Filters": [{ "myHCPHCO.Email": "@user" }],
+
+    "Filters": {
+      "$or": [
+        { "ContractInvoice.Email": "@user" },
+        { "EventInvoice.Email": "@user" },
+        { "StudyInvoice.Email": "@user" }
+      ]
+    },
     "Partner": "@user",
     "UserSpecific": "Yes",
     "Update": "Yes",
@@ -21,26 +28,25 @@
         "ContractType",
         "ContractStartDate",
         "BalanceValue",
-        "InvoiceValue",
-        "Invoice"
+        "InvoiceValue"
       ]
     }
   },
 
   "ListFields": {
-    "IntroField": "VendorName",
-    "TitleField": "ContractName",
-    "sStatus": "ContractType",
+    "IntroField": "PharmaContactEmail",
+    "TitleField": "PharmaContact",
+    "sStatus": "InvoiceType",
     "fStatus": "Status",
     "numberField": "InvoiceValue",
-    "LFields": ["HCPEmail", "ID"],
+    "LFields": ["ID"],
     "numberUnitField": ""
   },
   "ListBOTFields": {
     "None": ["cardImage", "StatusState"],
     "Title": ["ID"],
-    "SubTitle": ["ContractName", "ContractStartDate"],
-    "Description": ["ContractType", "InvoiceValue"]
+    "SubTitle": ["PharmaContact", "PharmaContactEmail", "ContractStartDate"],
+    "Description": ["InvoiceType", "InvoiceValue"]
   },
   "PossibleValues": [
     "ContractType",
@@ -68,7 +74,6 @@
         "PharmaContact",
         "PharmaContactEmail",
         "Status",
-        "Invoice",
         "InvoiceType"
       ],
       "downloadTables": ["ContractInvoice", "StudyInvoice", "EventInvoice"]
@@ -164,7 +169,7 @@
       "value": "Tab6",
       "style": "SAP",
       "update": "Yes",
-      "name": "myHCP/HCO",
+      "name": "EventInvoice",
       "type": "Table",
       "fioriicon": "expense-report"
     },
@@ -192,7 +197,7 @@
     "headerColorFields": ["Status"],
     "Tab0": ["data"],
     "Tab20": ["charts"],
-    "None": ["ID", "HCPEmail", "VendorName", "InvoiceType"],
+    "None": ["ID", "InvoiceType"],
     "Tab1": [
       "ContractID",
       "ContractName",
@@ -202,7 +207,6 @@
       "ContractEndDate",
       "ContractValue",
       "InvoiceValue",
-      "Invoice",
       "BalanceValue"
     ],
     "Tab2": ["PharmaContact", "PharmaContactEmail"],
@@ -1145,7 +1149,7 @@
       "width": "10",
       "Option": "Mandatory",
       "adaptiveCard": "Main",
-      "SLabel": "Invoice"
+      "SLabel": "Invoice Date"
     },
     {
       "name": "ContractStartDate",
@@ -1247,22 +1251,6 @@
       "Option": "Optional",
       "adaptiveCard": "Additional",
       "SLabel": "Contract Link"
-    },
-    {
-      "name": "HCPEmail",
-      "type": "string",
-      "width": "50",
-      "Option": "Mandatory",
-      "adaptiveCard": "Main",
-      "SLabel": "HCP Email"
-    },
-    {
-      "name": "VendorName",
-      "type": "string",
-      "width": "100",
-      "Option": "Mandatory",
-      "adaptiveCard": "Main",
-      "SLabel": "HCP Name"
     },
     {
       "name": "ContractEndDate",

@@ -6,6 +6,7 @@
   "Controls": {
     "style": "SAP",
     "calculation": "No",
+    "defaultGraph": "StackedBar",
     "USP": "UserProfile",
     "StatusColor": "Yes",
     "SearchString": { "Search": false },
@@ -14,7 +15,10 @@
     "UserSpecific": "Yes",
     "Update": "Yes",
     "URL": "https://fierce-oasis-51455.herokuapp.com",
-    "Source": { "SourceName": "mongoDB", "SourceFile": "NA" },
+    "Source": {
+      "SourceName": "mongoDB",
+      "SourceFile": "NA"
+    },
     "filterFields": {
       "header": [
         "Status",
@@ -423,7 +427,14 @@
       "adaptiveCard": "Main",
       "SLabel": "To"
     },
-
+    {
+      "name": "ReturnJourney",
+      "type": "switch",
+      "width": "3",
+      "Option": "Optional",
+      "adaptiveCard": "Additional",
+      "SLabel": "Return Journey"
+    },
     {
       "name": "StartDate",
       "type": "Date",
@@ -433,22 +444,6 @@
       "SLabel": "Start Date"
     },
     {
-      "name": "StartTime",
-      "type": "Time",
-      "width": "10",
-      "Option": "Mandatory",
-      "adaptiveCard": "Main",
-      "SLabel": "Start Time"
-    },
-    {
-      "name": "ReturnJourney",
-      "type": "switch",
-      "width": "3",
-      "Option": "Mandatory",
-      "adaptiveCard": "Main",
-      "SLabel": "Return Journey"
-    },
-    {
       "name": "EntryDate",
       "type": "Date",
       "width": "10",
@@ -456,7 +451,14 @@
       "adaptiveCard": "Additional",
       "SLabel": "Entry Date"
     },
-
+    {
+      "name": "StartTime",
+      "type": "Time",
+      "width": "10",
+      "Option": "Mandatory",
+      "adaptiveCard": "Main",
+      "SLabel": "Start Time"
+    },
     {
       "name": "ReturnDate",
       "type": "Date",

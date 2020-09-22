@@ -6,6 +6,7 @@
   "Controls": {
     "style": "SAP",
     "calculation": "Yes",
+    "defaultGraph": "StackedBar",
     "USP": "UserProfile",
     "StatusColor": "Yes",
     "SearchString": { "Search": false },
@@ -223,7 +224,7 @@
     "Tab2": ["Name", "EmployeeID"],
     "Tab3": ["Address", "PostCode"],
     "Tab4": ["ContactNo", "Email"],
-    "Tab5": ["CostCentre", "Approver", "Comment"],
+    "Tab5": ["CostCentre", "Comment"],
     "Tab6": ["ProcessingLog"],
     "Tab8": ["MultiAttachments"]
   },
@@ -290,11 +291,11 @@
       "unitOfMeasurement": "Days",
       "Data": {
         "dimension": "LeaveFrom",
-        "fact": "Count",
+        "fact": "LeaveDays",
         "operation": "COLLECTIVE_SUM",
         "sorting": "Ascending",
         "aggregate": "Yes",
-        "sortField": "Count",
+        "sortField": "LeaveFrom",
         "dType": "Date"
       },
       "numericHeader": {
@@ -457,7 +458,8 @@
       "width": "10",
       "Option": "Optional",
       "adaptiveCard": "Additional",
-      "SLabel": "No of days "
+      "SLabel": "No of days",
+      "group": "facts"
     },
     {
       "name": "LeaveReason",
@@ -495,7 +497,7 @@
       "type": "string",
       "width": "200",
       "Option": "Optional",
-      "adaptiveCard": "None",
+      "adaptiveCard": "Additional",
       "SLabel": "Search String",
       "LLabel": "Search String"
     },
@@ -522,7 +524,7 @@
       "type": "string",
       "width": "1000",
       "Option": "Optional",
-      "adaptiveCard": "None",
+      "adaptiveCard": "Additional",
       "SLabel": "ProgressComment",
       "LLabel": "ProgressComment"
     },
@@ -558,7 +560,6 @@
     "CreateFields": [],
     "ItemDetails": []
   },
-
   "Validations": {
     "Field": {},
     "Sequence": {

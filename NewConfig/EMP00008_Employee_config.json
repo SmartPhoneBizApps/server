@@ -3,6 +3,7 @@
   "Controls": {
     "style": "SAP",
     "calculation": "Yes",
+    "defaultGraph": "StackedBar",
     "USP": "UserProfile",
     "StatusColor": "Yes",
     "SearchString": { "Search": false },
@@ -182,15 +183,6 @@
       "type": "MultiAttachments",
       "download": "Yes",
       "docType": [{ "text": "Receipt", "state": "Information" }]
-    },
-    {
-      "value": "Tab4",
-      "style": "SAP",
-      "update": "Yes",
-      "name": "Process Log",
-      "fioriicon": "step",
-      "type": "Chat",
-      "download": "No"
     }
   ],
   "DetailFields": {
@@ -209,8 +201,7 @@
       "ExpenseEndDate"
     ],
     "Tab2": ["myExpenses"],
-    "Tab5": ["MultiAttachments"],
-    "Tab4": ["ProcessingLog"]
+    "Tab5": ["MultiAttachments"]
   },
   "listCards": [
     {
@@ -241,7 +232,6 @@
       }
     }
   ],
-
   "detailCharts": [],
   "cards": [],
   "ControlDisplay": {},
