@@ -321,23 +321,26 @@ exports.addDataRecords = asyncHandler(async (req, res, next) => {
           var passArray = {};
           //added by atul - Start
           console.log("Atul Debug", cardConfig["tableConfig"][obj], obj);
-          if (cardConfig["tableConfig"][obj].hasOwnProperty("Validations")) {
-            passArray["fieldName"] = obj;
-            passArray["data"] = mydata;
-            passArray["config"] = cardConfig["tableConfig"][obj]["Validations"];
-            passArray["FieldDef"] = cardConfig["FieldDef"].concat(
-              cardConfig["tableConfig"][obj]["ItemFieldDefinition"]
-            );
-            passArray["itemCnt"] = ii;
-            var sValidation = Handler["validation"](passArray);
-            mydata = sValidation["data"];
-            if (sValidation["status"] == false) {
-              res.status(400).json({
-                message: sValidation["message"],
-                success: false,
-                fieldValue: sValidation["fieldValue"],
-              });
-              return false;
+          if (cardConfig["tableConfig"][obj] != undefined) {
+            if (cardConfig["tableConfig"][obj].hasOwnProperty("Validations")) {
+              passArray["fieldName"] = obj;
+              passArray["data"] = mydata;
+              passArray["config"] =
+                cardConfig["tableConfig"][obj]["Validations"];
+              passArray["FieldDef"] = cardConfig["FieldDef"].concat(
+                cardConfig["tableConfig"][obj]["ItemFieldDefinition"]
+              );
+              passArray["itemCnt"] = ii;
+              var sValidation = Handler["validation"](passArray);
+              mydata = sValidation["data"];
+              if (sValidation["status"] == false) {
+                res.status(400).json({
+                  message: sValidation["message"],
+                  success: false,
+                  fieldValue: sValidation["fieldValue"],
+                });
+                return false;
+              }
             }
           }
         }
