@@ -4,7 +4,7 @@ const Approle = require("../../models/appSetup/Approle");
 const Role = require("../../models/appSetup/Role");
 const User = require("../../models/access/User");
 const { tileCount } = require("../../modules/config2");
-const { getInitialValues } = require("../../modules/config");
+const { getInitialValues, replaceConfig } = require("../../modules/config");
 
 // @desc      Get all approles
 // @route     GET /api/v1/userapps
@@ -140,6 +140,7 @@ exports.getUserapps = asyncHandler(async (req, res, next) => {
           approleX.role +
           "_config.json";
         var config1 = require(fn1);
+        var config1 = replaceConfig(config1, req.user);
 
         /// Initial values..
 
