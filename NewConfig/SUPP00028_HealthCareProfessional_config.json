@@ -15,9 +15,8 @@
     "Update": "Yes",
     "URL": "https://fierce-oasis-51455.herokuapp.com",
     "Source": { "SourceName": "mongoDB", "SourceFile": "NA" },
-
     "filterFields": {
-      "header": ["Status"]
+      "header": ["Status", "TaxInvoice", "PaymentTerm", "InvoiceType"]
     }
   },
 
@@ -890,7 +889,6 @@
         "InvVATPer"
       ],
       "ItemDetails": [
-        { "name": "ItemNumber" },
         { "name": "ItemDetails" },
         { "name": "InvQty" },
         { "name": "InvPrice" },

@@ -17,7 +17,7 @@
     "Source": { "SourceName": "mongoDB", "SourceFile": "NA" },
 
     "filterFields": {
-      "header": ["Status"]
+      "header": ["Status", "TaxInvoice", "PaymentTerm", "InvoiceType"]
     }
   },
 
@@ -896,7 +896,6 @@
         "InvVATPer"
       ],
       "ItemDetails": [
-        { "name": "ItemNumber" },
         { "name": "ItemDetails" },
         { "name": "InvQty" },
         { "name": "InvPrice" },

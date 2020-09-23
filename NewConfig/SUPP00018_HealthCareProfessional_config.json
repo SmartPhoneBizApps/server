@@ -17,7 +17,7 @@
     "Source": { "SourceName": "mongoDB", "SourceFile": "NA" },
 
     "filterFields": {
-      "header": ["Status"]
+      "header": ["Status", "PaymentTerm"]
     }
   },
 
@@ -1064,7 +1064,6 @@
         "ItemVATPer"
       ],
       "ItemDetails": [
-        { "name": "ItemNumber" },
         { "name": "ItemDetails" },
         { "name": "ItemQty" },
         { "name": "ItemPrice" },

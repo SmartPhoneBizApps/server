@@ -16,7 +16,7 @@
     "URL": "https://fierce-oasis-51455.herokuapp.com",
     "Source": { "SourceName": "mongoDB", "SourceFile": "NA" },
     "filterFields": {
-      "header": ["Status"]
+      "header": ["Status", "PaymentTerm"]
     }
   },
   "ListFields": {
@@ -1062,7 +1062,6 @@
         "ItemVATPer"
       ],
       "ItemDetails": [
-        { "name": "ItemNumber" },
         { "name": "ItemDetails" },
         { "name": "ItemQty" },
         { "name": "ItemPrice" },

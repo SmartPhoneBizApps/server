@@ -17,7 +17,15 @@
     "Source": { "SourceName": "mongoDB", "SourceFile": "NA" },
 
     "filterFields": {
-      "header": ["Status"]
+      "header": [
+        "Status",
+        "Gender",
+        "Status",
+        "Group",
+        "PatientType",
+        "PatientStatus",
+        "PostCode"
+      ]
     }
   },
 
@@ -44,6 +52,7 @@
     "PatientStatus",
     "ItemStatus"
   ],
+
   "MButtons": [
     {
       "type": "DOWNLOAD",
@@ -770,7 +779,6 @@
     },
     "CreateFields": ["Description", "Amount", "iCurrency", "ItemStatus"],
     "ItemDetails": [
-      { "name": "ItemNumber" },
       { "name": "Description" },
       { "name": "Amount" },
       { "name": "iCurrency" },
