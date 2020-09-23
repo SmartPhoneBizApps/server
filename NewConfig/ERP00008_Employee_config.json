@@ -203,7 +203,7 @@
       "Location",
       "Notes"
     ],
-    "Tab3": ["Image"],
+    "Tab3": ["carouselImage"],
     "Tab4": ["MultiAttachments"]
   },
   "listCards": [
@@ -337,13 +337,13 @@
       "SLabel": "Longitude"
     },
     {
-      "name": "Image",
+      "name": "carouselImage",
       "type": "carouselImage",
       "metadata": "OnlyFileName",
       "width": "200",
       "Option": "Optional",
       "adaptiveCard": "None",
-      "SLabel": "Image"
+      "SLabel": "carouselImage"
     },
     {
       "name": "MultiAttachments",
@@ -475,17 +475,17 @@
     },
     {
       "id": "Step3",
-      "fields": [{ "name": "Image", "Mode": "Edit" }],
+      "fields": [{ "name": "carouselImage", "Mode": "Edit" }],
       "name": "Images and Attachment",
       "stepType": "carouselImage",
-      "intro": "IT Asset Tracking : Images and Attachment"
+      "intro": "Screenshots and Images : Here you can upload screenshots, images (jpg, png, etc..)"
     },
     {
       "id": "Step4",
       "fields": [{ "name": "MultiAttachments", "Mode": "Edit" }],
       "name": "MultiAttachments",
       "stepType": "Attachments",
-      "intro": "Asset : Attachments",
+      "intro": "Documents and Files : Here you can upload documents and files (word, powerpoint, excel, pdf, text etc..)",
       "attachmentAttribute": {
         "applicationid": "{applicationid}",
         "businessrole": "{businessrole}",

@@ -77,34 +77,16 @@
       "name": "Launch BOT",
       "icon": "sap-icon://travel-request",
       "URL": "https://www.messenger.com/t/295020207695029"
-    },
-
-    { "type": "ADD", "name": "Add Record", "icon": "sap-icon://add" },
-    {
-      "type": "UPLOAD",
-      "name": "Upload Record",
-      "icon": "sap-icon://upload",
-      "Option": ["Header"],
-      "ItemOptions": [],
-      "URL": "datarecords/",
-      "URLMethodHDR": "POST",
-      "URLMethodTable": "PUT",
-      "dataFields": "FieldName",
-      "key": {
-        "ID": "External",
-        "generateID": [],
-        "seperator": "-"
-      }
     }
   ],
   "DButtons": [
     {
       "type": "WORKFLOW",
-      "name": "Cancel",
+      "name": "UpdateRequest",
       "icon": "sap-icon://decline",
       "Dialog": [
         {
-          "label": "Cancellation Comment",
+          "label": "Update Request Comment",
           "name": "ProgressComment",
           "type": "string",
           "option": "Optional"
@@ -112,21 +94,12 @@
       ],
       "transferFields": [
         { "field": "ID", "value": "@recorddata" },
-        { "field": "Status", "value": "Cancelled" },
+        { "field": "Status", "value": "UpdateRequest" },
         { "field": "ProgressComment", "value": "@UserInput" }
       ],
       "URL": "datarecords/",
       "Token": "Yes",
       "URLMethod": "PUT"
-    },
-    {
-      "type": "CATALOG",
-      "name": "Add to MyCompany",
-      "icon": "sap-icon://product",
-      "URL": "util/addCourseCatalog/HC0001/HC0001C/{ID}/{role}",
-      "Token": "Yes",
-      "URLMethod": "POST",
-      "confirmationMsg": "Are you sure you want to add the HCP/HCO?"
     }
   ],
   "Tabs": [
@@ -170,7 +143,7 @@
       "value": "Tab4",
       "style": "SAP",
       "update": "Yes",
-      "name": "Certifications",
+      "name": "Images",
       "type": "carouselImage",
       "fioriicon": "contacts"
     },
@@ -354,9 +327,9 @@
       "metadata": "MultipleFields",
       "width": "200",
       "Option": "Optional",
-      "adaptiveCard": "Additional",
-      "SLabel": "CV",
-      "LLabel": "CV"
+      "adaptiveCard": "None",
+      "SLabel": "MultiAttachments",
+      "LLabel": "MultiAttachments"
     },
     {
       "name": "carouselImage",
@@ -503,46 +476,6 @@
     "ItemDetails": []
   },
   "CalculatedFields": {},
-  "Create": "Yes",
-  "Wizard": [
-    {
-      "id": "Step1",
-      "fields": [
-        { "name": "Title", "Mode": "Edit" },
-        { "name": "FirstName", "Mode": "Edit" },
-        { "name": "LastName", "Mode": "Edit" }
-      ],
-      "name": "Leave Details",
-      "stepType": "FieldList",
-      "intro": "HCP - HCO  : Personal Details"
-    },
-    {
-      "id": "Step2",
-      "fields": [
-        { "name": "Speciality", "Mode": "Edit" },
-        { "name": "Email", "Mode": "Edit" },
-        { "name": "ContactNo", "Mode": "Edit" }
-      ],
-      "name": "Employee Details",
-      "stepType": "FieldList",
-      "intro": "HCP - HCO  : Experties and Contact"
-    },
-    {
-      "id": "Step3",
-      "fields": [
-        { "name": "PostCode", "Mode": "Edit" },
-        { "name": "Address", "Mode": "Edit" }
-      ],
-      "name": "Address",
-      "stepType": "FieldList",
-      "intro": "HCP - HCO  : Address"
-    },
-    {
-      "id": "Step4",
-      "fields": [{ "name": "Status", "Mode": "Edit" }],
-      "name": "Pharma Company / Institution Name",
-      "stepType": "FieldList",
-      "intro": "HCP - HCO  : Pharma Company / Institution Name"
-    }
-  ]
+  "Create": "No",
+  "Wizard": []
 }

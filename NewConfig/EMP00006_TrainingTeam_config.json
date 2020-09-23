@@ -108,28 +108,64 @@
       "type": "WORKFLOW",
       "name": "Booked",
       "icon": "sap-icon://complete",
-      "updateFields": [
-        { "ProgressComment": "Optional", "mode": "Append" },
-        { "Status": "Booked", "mode": "Insert" }
-      ]
+      "Dialog": [
+        {
+          "label": "Booking Comment",
+          "name": "ProgressComment",
+          "type": "string",
+          "option": "Optional"
+        }
+      ],
+      "transferFields": [
+        { "field": "ID", "value": "@recorddata" },
+        { "field": "Status", "value": "Booked" },
+        { "field": "ProgressComment", "value": "@UserInput" }
+      ],
+      "URL": "datarecords/",
+      "Token": "Yes",
+      "URLMethod": "PUT"
     },
     {
       "type": "WORKFLOW",
-      "name": "Reject",
-      "icon": "sap-icon://decline",
-      "updateFields": [
-        { "ProgressComment": "Required", "mode": "Append" },
-        { "Status": "NotBooked", "mode": "Insert" }
-      ]
+      "name": "NotAvailable",
+      "icon": "sap-icon://complete",
+      "Dialog": [
+        {
+          "label": "NotAvailable Comment",
+          "name": "ProgressComment",
+          "type": "string",
+          "option": "Optional"
+        }
+      ],
+      "transferFields": [
+        { "field": "ID", "value": "@recorddata" },
+        { "field": "Status", "value": "NotAvailable" },
+        { "field": "ProgressComment", "value": "@UserInput" }
+      ],
+      "URL": "datarecords/",
+      "Token": "Yes",
+      "URLMethod": "PUT"
     },
     {
       "type": "WORKFLOW",
       "name": "Refer Back",
-      "icon": "sap-icon://hint",
-      "updateFields": [
-        { "ProgressComment": "Optional", "mode": "Append" },
-        { "Status": "MoreInfo-HR", "mode": "Insert" }
-      ]
+      "icon": "sap-icon://complete",
+      "Dialog": [
+        {
+          "label": "Refer Back Comment",
+          "name": "ProgressComment",
+          "type": "string",
+          "option": "Optional"
+        }
+      ],
+      "transferFields": [
+        { "field": "ID", "value": "@recorddata" },
+        { "field": "Status", "value": "ReferBack" },
+        { "field": "ProgressComment", "value": "@UserInput" }
+      ],
+      "URL": "datarecords/",
+      "Token": "Yes",
+      "URLMethod": "PUT"
     },
     {
       "type": "WORKFLOW",

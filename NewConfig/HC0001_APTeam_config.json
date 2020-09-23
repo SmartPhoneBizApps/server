@@ -16,7 +16,6 @@
     "URL": "https://fierce-oasis-51455.herokuapp.com",
     "Source": { "SourceName": "mongoDB", "SourceFile": "NA" },
     "filterScreen": true,
-
     "filterScFields": [
       "Status",
       "FirstName",
@@ -48,7 +47,7 @@
     "Description": ["Email"]
   },
 
-  "PossibleValues": ["Status"],
+  "PossibleValues": ["ContractType", "Status"],
   "MButtons": [
     {
       "type": "DOWNLOAD",
@@ -101,6 +100,27 @@
   ],
   "DButtons": [
     {
+      "type": "WORKFLOW",
+      "name": "Cancel",
+      "icon": "sap-icon://decline",
+      "Dialog": [
+        {
+          "label": "Cancellation Comment",
+          "name": "ProgressComment",
+          "type": "string",
+          "option": "Optional"
+        }
+      ],
+      "transferFields": [
+        { "field": "ID", "value": "@recorddata" },
+        { "field": "Status", "value": "Cancelled" },
+        { "field": "ProgressComment", "value": "@UserInput" }
+      ],
+      "URL": "datarecords/",
+      "Token": "Yes",
+      "URLMethod": "PUT"
+    },
+    {
       "type": "CATALOG",
       "name": "Add to MyCompany",
       "icon": "sap-icon://product",
@@ -151,7 +171,7 @@
       "value": "Tab4",
       "style": "SAP",
       "update": "Yes",
-      "name": "Certifications",
+      "name": "Images",
       "type": "carouselImage",
       "fioriicon": "contacts"
     },
@@ -335,9 +355,9 @@
       "metadata": "MultipleFields",
       "width": "200",
       "Option": "Optional",
-      "adaptiveCard": "Additional",
-      "SLabel": "CV",
-      "LLabel": "CV"
+      "adaptiveCard": "None",
+      "SLabel": "MultiAttachments",
+      "LLabel": "MultiAttachments"
     },
     {
       "name": "carouselImage",
@@ -520,6 +540,27 @@
     },
     {
       "id": "Step4",
+      "fields": [{ "name": "Image", "Mode": "Edit" }],
+      "name": "Images and Attachment",
+      "stepType": "carouselImage",
+      "intro": "Screenshots and Images : Here you can upload screenshots, images (jpg, png, etc..)"
+    },
+    {
+      "id": "Step5",
+      "fields": [{ "name": "MultiAttachments", "Mode": "Edit" }],
+      "name": "MultiAttachments",
+      "stepType": "Attachments",
+      "intro": "Documents and Files : Here you can upload documents and files (word, powerpoint, excel, pdf, text etc..)",
+      "attachmentAttribute": {
+        "applicationid": "{applicationid}",
+        "businessrole": "{businessrole}",
+        "mode": "File",
+        "type": "NewUpload",
+        "text": "docType,Header,Information"
+      }
+    },
+    {
+      "id": "Step6",
       "fields": [{ "name": "Status", "Mode": "Edit" }],
       "name": "Pharma Company / Institution Name",
       "stepType": "FieldList",
