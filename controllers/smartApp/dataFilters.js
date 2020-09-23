@@ -19,7 +19,7 @@ exports.dataFilters = asyncHandler(async (req, res, next) => {
     req.headers.businessrole +
     "_config.json";
   var config1 = require(fn1);
-  var appconfig = replaceConfig(appconfig, req.user);
+  var config1 = replaceConfig(config1, req.user);
 
   // Initial values
   var ivalue = getInitialValues(
