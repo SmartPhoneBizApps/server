@@ -289,12 +289,18 @@
     ],
     "Tab3": [
       {
-        "GrpTitle": "Approval Details",
-        "Fields": ["ApprovalDate", "ProgressComment"]
+        "GrpTitle": "Admin Details",
+        "Fields": [
+          "DateOfRequest",
+          "Reason",
+          "Officer",
+          "CostCentre",
+          "AssetID"
+        ]
       },
       {
-        "GrpTitle": "Admin Details",
-        "Fields": ["DateOfRequest", "Reason", "Officer"]
+        "GrpTitle": "Approval Details",
+        "Fields": ["ProgressComment"]
       }
     ]
   },
@@ -367,14 +373,13 @@
             "RequestType",
             "Status",
             "ProgressComment",
-            "ApprovalDate",
             "Officer",
             "Email"
           ]
         },
         { "AccessCard": ["AccessCardNo", "StartDate", "EndDate"] },
         { "ApplicationLogin": ["Application"] },
-        { "HardwareUpgrade": ["Hardware"] },
+        { "HardwareUpgrade": ["Hardware", "AssetID", "CostCentre"] },
         {
           "LaptopRequest": [
             "Processor",
@@ -387,11 +392,12 @@
             "CDDrive",
             "DockingStation",
             "Bag",
-            "Mouse"
+            "Mouse",
+            "CostCentre"
           ]
         },
         { "OfficeBuilding": ["StartDate", "EndDate"] },
-        { "SoftwareRequest": ["Software"] },
+        { "SoftwareRequest": ["Software", "AssetID", "CostCentre"] },
         {
           "UserAccounts": [
             "System",
@@ -528,22 +534,6 @@
       "adaptiveCard": "None",
       "SLabel": "ProgressComment",
       "LLabel": "ProgressComment"
-    },
-    {
-      "name": "ApprovalDate",
-      "type": "Date",
-      "width": "10",
-      "Option": "Optional",
-      "adaptiveCard": "Additional",
-      "SLabel": "Approval Date"
-    },
-    {
-      "name": "ProgressComment",
-      "type": "string",
-      "width": "500",
-      "Option": "Optional",
-      "adaptiveCard": "Additional",
-      "SLabel": "Approver Comment"
     },
     {
       "name": "Officer",
@@ -771,7 +761,6 @@
     {
       "id": "Step1",
       "fields": [
-        { "name": "Name", "Mode": "Display" },
         { "name": "EmployeeID", "Mode": "Display" },
         { "name": "RequestType", "Mode": "Display" },
         { "name": "DateOfRequest", "Mode": "Edit" }
@@ -783,11 +772,9 @@
     {
       "id": "Step2",
       "fields": [
+        { "name": "Name", "Mode": "Display" },
         { "name": "ContactNo", "Mode": "Display" },
-        { "name": "Email", "Mode": "Display" },
-        { "name": "StartDate", "Mode": "Edit" },
-        { "name": "EndDate", "Mode": "Edit" },
-        { "name": "Reason", "Mode": "Edit" }
+        { "name": "Email", "Mode": "Display" }
       ],
       "name": "Contact Details and Dates",
       "stepType": "FieldList",
@@ -797,18 +784,27 @@
       "id": "Step3",
       "fields": [
         { "name": "AccessCardNo", "Mode": "Edit" },
+        { "name": "StartDate", "Mode": "Edit" },
+        { "name": "EndDate", "Mode": "Edit" },
+
+        { "name": "Application", "Mode": "Edit" },
+
+        { "name": "Hardware", "Mode": "Edit" },
+
+        { "name": "Software", "Mode": "Edit" },
+
         { "name": "BuildingName", "Mode": "Edit" },
+
         { "name": "Processor", "Mode": "Edit" },
+        { "name": "HardDrive", "Mode": "Edit" },
         { "name": "RAM", "Mode": "Edit" },
         { "name": "OS", "Mode": "Edit" },
-        { "name": "Application", "Mode": "Edit" },
-        { "name": "CostCentre", "Mode": "Display" },
-        { "name": "HardDrive", "Mode": "Edit" },
 
         { "name": "Environment", "Mode": "Edit" },
-        { "name": "Software", "Mode": "Edit" },
-        { "name": "AssetID", "Mode": "Edit" },
-        { "name": "Hardware", "Mode": "Edit" }
+        { "name": "System", "Mode": "Edit" },
+
+        { "name": "CostCentre", "Mode": "Display" },
+        { "name": "AssetID", "Mode": "Edit" }
       ],
       "name": "Key Details1",
       "stepType": "FieldList",
@@ -817,28 +813,24 @@
     {
       "id": "Step4",
       "fields": [
+        { "name": "KeyBoard", "Mode": "Edit" },
         { "name": "CDDrive", "Mode": "Edit" },
         { "name": "HDMIPort", "Mode": "Edit" },
         { "name": "USBPort", "Mode": "Edit" },
         { "name": "DockingStation", "Mode": "Edit" },
         { "name": "Bag", "Mode": "Edit" },
         { "name": "Mouse", "Mode": "Edit" },
-        { "name": "System", "Mode": "Edit" },
+
         { "name": "CloneUser", "Mode": "Edit" },
         { "name": "RolesRequired", "Mode": "Edit" },
         { "name": "TransactionsRequired", "Mode": "Edit" },
-        { "name": "KeyBoard", "Mode": "Edit" }
+
+        { "name": "Reason", "Mode": "Edit" },
+        { "name": "Status", "Mode": "Display" }
       ],
       "name": "Key Details2",
       "stepType": "FieldList",
       "intro": "Access : Key Details2"
-    },
-    {
-      "id": "Step5",
-      "fields": [{ "name": "Status", "Mode": "Display" }],
-      "name": "Admin",
-      "stepType": "FieldList",
-      "intro": "Access : Status"
     }
   ]
 }

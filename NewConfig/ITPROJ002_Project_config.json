@@ -205,7 +205,15 @@
     { "name": "Details", "type": "string", "width": "200" },
     { "name": "Approver", "type": "string", "width": "20" },
     { "name": "ApprovalDate", "type": "Date", "width": "10" },
-    { "name": "ProgressComments", "type": "string", "width": "500" },
+    {
+      "name": "ProgressComment",
+      "type": "string",
+      "width": "1000",
+      "Option": "Optional",
+      "adaptiveCard": "None",
+      "SLabel": "ProgressComment",
+      "LLabel": "ProgressComment"
+    },
     { "name": "CopyUserID", "type": "string", "width": "20" },
     { "name": "RequestedRoles", "type": "string", "width": "1000" },
     { "name": "Systems", "type": "string", "width": "100" },

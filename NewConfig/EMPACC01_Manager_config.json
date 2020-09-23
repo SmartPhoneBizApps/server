@@ -306,12 +306,18 @@
     ],
     "Tab3": [
       {
-        "GrpTitle": "Approval Details",
-        "Fields": ["ApprovalDate", "ProgressComment"]
+        "GrpTitle": "Admin Details",
+        "Fields": [
+          "DateOfRequest",
+          "Reason",
+          "Officer",
+          "CostCentre",
+          "AssetID"
+        ]
       },
       {
-        "GrpTitle": "Admin Details",
-        "Fields": ["DateOfRequest", "Reason", "Officer"]
+        "GrpTitle": "Approval Details",
+        "Fields": ["ProgressComment"]
       }
     ]
   },
@@ -384,7 +390,6 @@
             "RequestType",
             "Status",
             "ProgressComment",
-            "ApprovalDate",
             "Officer",
             "Email"
           ]
@@ -404,11 +409,12 @@
             "CDDrive",
             "DockingStation",
             "Bag",
-            "Mouse"
+            "Mouse",
+            "CostCentre"
           ]
         },
         { "OfficeBuilding": ["StartDate", "EndDate"] },
-        { "SoftwareRequest": ["Software"] },
+        { "SoftwareRequest": ["Software", "AssetID", "CostCentre"] },
         {
           "UserAccounts": [
             "System",
@@ -545,22 +551,6 @@
       "adaptiveCard": "None",
       "SLabel": "ProgressComment",
       "LLabel": "ProgressComment"
-    },
-    {
-      "name": "ApprovalDate",
-      "type": "Date",
-      "width": "10",
-      "Option": "Optional",
-      "adaptiveCard": "Additional",
-      "SLabel": "Approval Date"
-    },
-    {
-      "name": "ProgressComment",
-      "type": "string",
-      "width": "500",
-      "Option": "Optional",
-      "adaptiveCard": "Additional",
-      "SLabel": "Approver Comment"
     },
     {
       "name": "Officer",
