@@ -166,10 +166,10 @@
       "value": "Tab4",
       "style": "SAP",
       "update": "Yes",
-      "name": "Attachment",
+      "name": "MultiAttachment",
       "fioriicon": "attachment",
       "type": "MultiAttachments",
-      "download": "No",
+      "download": "Yes",
       "docType": [
         { "text": "HeaderAttachment", "state": "Information" },
         { "text": "ItemAttachment", "state": "Success" }
@@ -204,7 +204,7 @@
       "Notes"
     ],
     "Tab3": ["Image"],
-    "Tab4": ["Attachment"]
+    "Tab4": ["MultiAttachments"]
   },
   "listCards": [
     {
@@ -338,7 +338,7 @@
     },
     {
       "name": "Image",
-      "type": "attachment",
+      "type": "carouselImage",
       "metadata": "OnlyFileName",
       "width": "200",
       "Option": "Optional",
@@ -346,13 +346,14 @@
       "SLabel": "Image"
     },
     {
-      "name": "Attachment",
+      "name": "MultiAttachments",
       "type": "attachment",
       "metadata": "MultipleFields",
       "width": "200",
       "Option": "Optional",
       "adaptiveCard": "None",
-      "SLabel": "Attachment"
+      "SLabel": "MultiAttachments",
+      "LLabel": "MultiAttachments"
     },
     {
       "name": "WarrantyEnd",
@@ -476,11 +477,25 @@
       "id": "Step3",
       "fields": [{ "name": "Image", "Mode": "Edit" }],
       "name": "Images and Attachment",
-      "stepType": "FieldList",
+      "stepType": "carouselImage",
       "intro": "IT Asset Tracking : Images and Attachment"
     },
     {
       "id": "Step4",
+      "fields": [{ "name": "MultiAttachments", "Mode": "Edit" }],
+      "name": "MultiAttachments",
+      "stepType": "Attachments",
+      "intro": "Asset : Attachments",
+      "attachmentAttribute": {
+        "applicationid": "{applicationid}",
+        "businessrole": "{businessrole}",
+        "mode": "File",
+        "type": "NewUpload",
+        "text": "docType,Header,Information"
+      }
+    },
+    {
+      "id": "Step5",
       "fields": [
         { "name": "EmpMobile", "Mode": "Edit" },
         { "name": "Email", "Mode": "Edit" },
@@ -491,7 +506,7 @@
       "intro": "IT Asset Tracking : Employee Details"
     },
     {
-      "id": "Step5",
+      "id": "Step6",
       "fields": [
         { "name": "Notes", "Mode": "Edit" },
         { "name": "Status", "Mode": "Edit" }
