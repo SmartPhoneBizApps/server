@@ -196,6 +196,15 @@
       "download": "Yes"
     },
     {
+      "value": "Tab5",
+      "style": "SAP",
+      "update": "Yes",
+      "name": "Images",
+      "fioriicon": "camera",
+      "type": "carouselImage",
+      "download": "No"
+    },
+    {
       "value": "Tab4",
       "style": "SAP",
       "update": "Yes",
@@ -227,6 +236,7 @@
     ],
     "Tab2": ["TravelCost", "StayCost", "FoodCost", "OtherCost", "Currency"],
     "Tab3": ["AdditionalInfo", "CostCentre", "ProgressComment"],
+    "Tab5": ["carouselImage"],
     "Tab4": ["MultiAttachments"]
   },
   "listCards": [
@@ -537,6 +547,15 @@
       "SLabel": "Approver Comment"
     },
     {
+      "name": "carouselImage",
+      "type": "carouselImage",
+      "metadata": "OnlyFileName",
+      "width": "200",
+      "Option": "Optional",
+      "adaptiveCard": "None",
+      "SLabel": "carouselImage"
+    },
+    {
       "name": "MultiAttachments",
       "type": "attachment",
       "width": "100",
@@ -667,6 +686,27 @@
     },
     {
       "id": "Step4",
+      "fields": [{ "name": "carouselImage", "Mode": "Edit" }],
+      "name": "Images and Attachment",
+      "stepType": "FieldList",
+      "intro": "Screenshots and Images : Here you can upload screenshots, images (jpg, png, etc..)"
+    },
+    {
+      "id": "Step5",
+      "fields": [{ "name": "MultiAttachments", "Mode": "Edit" }],
+      "name": "MultiAttachments",
+      "stepType": "Attachments",
+      "intro": "Documents and Files : Here you can upload documents, email attachments and files (Word, Powerpoint, Excel, PDF, Text etc..)",
+      "attachmentAttribute": {
+        "applicationid": "{applicationid}",
+        "businessrole": "{businessrole}",
+        "mode": "File",
+        "type": "NewUpload",
+        "text": "docType,HeaderAttachment,Information"
+      }
+    },
+    {
+      "id": "Step5",
       "fields": [
         { "name": "Justification", "Mode": "Edit" },
         { "name": "Status", "Mode": "Display" }

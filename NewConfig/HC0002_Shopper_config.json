@@ -238,6 +238,14 @@
       ]
     },
     {
+      "value": "Tab8",
+      "style": "SAP",
+      "update": "Yes",
+      "name": "Images",
+      "type": "carouselImage",
+      "fioriicon": "contacts"
+    },
+    {
       "value": "Tab4",
       "style": "SAP",
       "update": "Yes",
@@ -283,7 +291,8 @@
     "Tab3": ["MultiAttachments"],
     "Tab4": ["Services"],
     "Tab5": ["StudyInvoice"],
-    "Tab6": ["myHCPHCO"]
+    "Tab6": ["myHCPHCO"],
+    "Tab8": ["carouselImage"]
   },
   "listCards": [
     {
@@ -1192,6 +1201,16 @@
       "LLabel": "MultiAttachments"
     },
     {
+      "name": "carouselImage",
+      "type": "attachment",
+      "metadata": "OnlyFileName",
+      "width": "200",
+      "Option": "Optional",
+      "adaptiveCard": "Additional",
+      "SLabel": "Certificates",
+      "LLabel": "Certificates"
+    },
+    {
       "name": "StudyDetails",
       "type": "string",
       "width": "500",
@@ -1420,7 +1439,7 @@
     },
 
     {
-      "id": "Step3",
+      "id": "Step2",
       "fields": [
         { "name": "StudyStartDate", "Mode": "Edit" },
         { "name": "Phase", "Mode": "Edit" }
@@ -1428,6 +1447,13 @@
       "name": "Dates",
       "stepType": "FieldList",
       "intro": "Study   : Dates"
+    },
+    {
+      "id": "Step3",
+      "fields": [{ "name": "carouselImage", "Mode": "Edit" }],
+      "name": "Images and Attachment",
+      "stepType": "FieldList",
+      "intro": "Screenshots and Images : Here you can upload screenshots, images (jpg, png, etc..)"
     },
     {
       "id": "Step4",

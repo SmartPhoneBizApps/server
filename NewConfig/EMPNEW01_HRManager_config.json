@@ -1610,6 +1610,20 @@
     },
     {
       "id": "Step4",
+      "fields": [{ "name": "MultiAttachments", "Mode": "Edit" }],
+      "name": "MultiAttachments",
+      "stepType": "Attachments",
+      "intro": "Documents and Files : Here you can upload documents, email attachments and files (Word, Powerpoint, Excel, PDF, Text etc..)",
+      "attachmentAttribute": {
+        "applicationid": "{applicationid}",
+        "businessrole": "{businessrole}",
+        "mode": "File",
+        "type": "NewUpload",
+        "text": "docType,HeaderAttachment,Information"
+      }
+    },
+    {
+      "id": "Step5",
       "fields": [{ "name": "Status", "Mode": "Edit" }],
       "name": "Employee Details",
       "stepType": "FieldList",

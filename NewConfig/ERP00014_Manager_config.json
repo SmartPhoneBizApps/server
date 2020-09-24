@@ -149,10 +149,21 @@
     {
       "value": "Tab3",
       "style": "SAP",
-      "update": "No",
-      "name": "Attachment",
-      "type": "Attachment",
-      "fioriicon": "attachment"
+      "update": "Yes",
+      "name": "Images",
+      "fioriicon": "camera",
+      "type": "carouselImage",
+      "download": "No"
+    },
+    {
+      "value": "Tab5",
+      "style": "SAP",
+      "update": "Yes",
+      "name": "MultiAttachment",
+      "fioriicon": "attachment",
+      "type": "MultiAttachments",
+      "download": "Yes",
+      "docType": [{ "text": "Receipt", "state": "Information" }]
     }
   ],
   "DetailFields": {
@@ -174,7 +185,8 @@
       "Comment"
     ],
     "Tab2": ["Remark"],
-    "Tab3": ["CertificateAtt", "ReportAtt"]
+    "Tab3": ["carouselImage"],
+    "Tab5": ["MultiAttachments"]
   },
   "listCards": [
     {
@@ -287,6 +299,25 @@
       "Option": "Optional",
       "adaptiveCard": "Additional",
       "SLabel": "Serial Number"
+    },
+    {
+      "name": "carouselImage",
+      "type": "carouselImage",
+      "metadata": "OnlyFileName",
+      "width": "200",
+      "Option": "Optional",
+      "adaptiveCard": "None",
+      "SLabel": "carouselImage"
+    },
+    {
+      "name": "MultiAttachments",
+      "type": "attachment",
+      "metadata": "MultipleFields",
+      "width": "200",
+      "Option": "Optional",
+      "adaptiveCard": "None",
+      "SLabel": "MultiAttachments",
+      "LLabel": "MultiAttachments"
     },
     {
       "name": "CertificateAtt",

@@ -15,7 +15,10 @@
     "UserSpecific": "Yes",
     "Update": "Yes",
     "URL": "https://fierce-oasis-51455.herokuapp.com",
-    "Source": { "SourceName": "mongoDB", "SourceFile": "NA" },
+    "Source": {
+      "SourceName": "mongoDB",
+      "SourceFile": "NA"
+    },
     "filterFields": {
       "header": [
         "Status",
@@ -207,6 +210,15 @@
       "value": "Tab4",
       "style": "SAP",
       "update": "Yes",
+      "name": "Images",
+      "fioriicon": "camera",
+      "type": "carouselImage",
+      "download": "No"
+    },
+    {
+      "value": "Tab5",
+      "style": "SAP",
+      "update": "Yes",
       "name": "Attachment",
       "fioriicon": "attachment",
       "type": "MultiAttachments",
@@ -215,15 +227,6 @@
         { "text": "HeaderAttachment", "state": "Information" },
         { "text": "ItemAttachment", "state": "Success" }
       ]
-    },
-    {
-      "value": "Tab5",
-      "style": "SAP",
-      "update": "Yes",
-      "name": "ScreenShots",
-      "type": "carouselImage",
-      "fioriicon": "contacts",
-      "download": "No"
     }
   ],
   "DetailFields": {
@@ -262,8 +265,8 @@
       "Airline",
       "Class"
     ],
-    "Tab4": ["Attachment"],
-    "Tab5": ["ScreenShot"]
+    "Tab4": ["carouselImage"],
+    "Tab5": ["Attachment"]
   },
   "listCards": [
     {
@@ -563,6 +566,25 @@
       "LLabel": "ProgressComment"
     },
     {
+      "name": "carouselImage",
+      "type": "carouselImage",
+      "metadata": "OnlyFileName",
+      "width": "200",
+      "Option": "Optional",
+      "adaptiveCard": "None",
+      "SLabel": "carouselImage"
+    },
+    {
+      "name": "MultiAttachments",
+      "type": "attachment",
+      "metadata": "MultipleFields",
+      "width": "200",
+      "Option": "Optional",
+      "adaptiveCard": "None",
+      "SLabel": "MultiAttachments",
+      "LLabel": "MultiAttachments"
+    },
+    {
       "name": "Class",
       "type": "string",
       "width": "50",
@@ -706,6 +728,27 @@
     },
     {
       "id": "Step5",
+      "fields": [{ "name": "carouselImage", "Mode": "Edit" }],
+      "name": "Images and Attachment",
+      "stepType": "FieldList",
+      "intro": "Screenshots and Images : Here you can upload screenshots, images (jpg, png, etc..)"
+    },
+    {
+      "id": "Step6",
+      "fields": [{ "name": "MultiAttachments", "Mode": "Edit" }],
+      "name": "MultiAttachments",
+      "stepType": "Attachments",
+      "intro": "Documents and Files : Here you can upload documents, email attachments and files (Word, Powerpoint, Excel, PDF, Text etc..)",
+      "attachmentAttribute": {
+        "applicationid": "{applicationid}",
+        "businessrole": "{businessrole}",
+        "mode": "File",
+        "type": "NewUpload",
+        "text": "docType,Generic,Information"
+      }
+    },
+    {
+      "id": "Step7",
       "fields": [{ "name": "Status", "Mode": "Display" }],
       "name": "Admin",
       "stepType": "FieldList",

@@ -55,7 +55,6 @@
         "Score"
       ]
     },
-
     {
       "type": "APPHELP",
       "name": "Get App Help",
@@ -150,6 +149,15 @@
       "value": "Tab4",
       "style": "SAP",
       "update": "Yes",
+      "name": "Images",
+      "fioriicon": "camera",
+      "type": "carouselImage",
+      "download": "No"
+    },
+    {
+      "value": "Tab5",
+      "style": "SAP",
+      "update": "Yes",
       "name": "Attachment",
       "fioriicon": "attachment",
       "type": "MultiAttachments",
@@ -158,15 +166,6 @@
         { "text": "HeaderAttachment", "state": "Information" },
         { "text": "ItemAttachment", "state": "Success" }
       ]
-    },
-    {
-      "value": "Tab5",
-      "style": "SAP",
-      "update": "Yes",
-      "name": "ScreenShots",
-      "type": "carouselImage",
-      "fioriicon": "contacts",
-      "download": "No"
     }
   ],
   "DetailFields": {
@@ -180,8 +179,8 @@
     "Tab1": ["Name", "Email", "Department", "EmployeeID"],
     "Tab2": ["DescribeProblem", "ComputerID", "DateCreated"],
     "Tab3": ["DateResolved", "ResolutionDetails", "UserFeedback", "Score"],
-    "Tab4": ["Attachment"],
-    "Tab5": ["ScreenShot"]
+    "Tab4": ["carouselImage"],
+    "Tab5": ["Attachment"]
   },
   "listCards": [
     {
@@ -236,7 +235,7 @@
       "type": "string",
       "width": "50",
       "Option": "Mandatory",
-      "adaptiveCard": "None",
+      "adaptiveCard": "Main",
       "SLabel": "Name"
     },
     {
@@ -244,7 +243,7 @@
       "type": "string",
       "width": "100",
       "Option": "Mandatory",
-      "adaptiveCard": "None",
+      "adaptiveCard": "Main",
       "SLabel": "Email",
       "LLabel": "Email"
     },
@@ -253,7 +252,7 @@
       "type": "string",
       "width": "50",
       "Option": "Optional",
-      "adaptiveCard": "None",
+      "adaptiveCard": "Additional",
       "SLabel": "Department"
     },
     {
@@ -269,7 +268,7 @@
       "type": "string",
       "width": "20",
       "Option": "Mandatory",
-      "adaptiveCard": "None",
+      "adaptiveCard": "Main",
       "SLabel": "User Account"
     },
     {
@@ -308,22 +307,23 @@
       "LLabel": "ProgressComment"
     },
     {
-      "name": "ScreenShot",
-      "type": "attachment",
+      "name": "carouselImage",
+      "type": "carouselImage",
       "metadata": "OnlyFileName",
-      "width": "100",
+      "width": "200",
       "Option": "Optional",
       "adaptiveCard": "None",
-      "SLabel": "Screen Shot"
+      "SLabel": "carouselImage"
     },
     {
-      "name": "Attachment",
+      "name": "MultiAttachments",
       "type": "attachment",
       "metadata": "MultipleFields",
-      "width": "100",
+      "width": "200",
       "Option": "Optional",
       "adaptiveCard": "None",
-      "SLabel": "Attachment"
+      "SLabel": "MultiAttachments",
+      "LLabel": "MultiAttachments"
     },
     {
       "name": "DateCreated",
@@ -415,12 +415,32 @@
       "intro": "IT Service Ticket : Contact Details of user"
     },
     {
+      "id": "Step6",
+      "fields": [{ "name": "carouselImage", "Mode": "Edit" }],
+      "name": "Images and Attachment",
+      "stepType": "FieldList",
+      "intro": "Screenshots and Images : Here you can upload screenshots, images (jpg, png, etc..)"
+    },
+    {
       "id": "Step7",
+      "fields": [{ "name": "MultiAttachments", "Mode": "Edit" }],
+      "name": "MultiAttachments",
+      "stepType": "Attachments",
+      "intro": "Documents and Files : Here you can upload documents, email attachments and files (Word, Powerpoint, Excel, PDF, Text etc..)",
+      "attachmentAttribute": {
+        "applicationid": "{applicationid}",
+        "businessrole": "{businessrole}",
+        "mode": "File",
+        "type": "NewUpload",
+        "text": "docType,Generic,Information"
+      }
+    },
+    {
+      "id": "Step8",
       "fields": [
         { "name": "Status", "Mode": "Display" },
         { "name": "DateCreated", "Mode": "Display" }
       ],
-
       "name": "Admin",
       "stepType": "FieldList",
       "intro": "IT Service Ticket : Administrative information"

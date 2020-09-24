@@ -190,6 +190,15 @@
       "fioriicon": "expense-report"
     },
     {
+      "value": "Tab3",
+      "style": "SAP",
+      "update": "Yes",
+      "name": "Images",
+      "fioriicon": "camera",
+      "type": "carouselImage",
+      "download": "No"
+    },
+    {
       "value": "Tab5",
       "style": "SAP",
       "update": "Yes",
@@ -216,6 +225,7 @@
       "ExpenseEndDate"
     ],
     "Tab2": ["myExpenses"],
+    "Tab3": ["carouselImage"],
     "Tab5": ["MultiAttachments"]
   },
   "listCards": [
@@ -646,6 +656,15 @@
       "Option": "Optional",
       "adaptiveCard": "Additional",
       "SLabel": "Cost Centre"
+    },
+    {
+      "name": "carouselImage",
+      "type": "carouselImage",
+      "metadata": "OnlyFileName",
+      "width": "200",
+      "Option": "Optional",
+      "adaptiveCard": "None",
+      "SLabel": "carouselImage"
     },
     {
       "name": "MultiAttachments",

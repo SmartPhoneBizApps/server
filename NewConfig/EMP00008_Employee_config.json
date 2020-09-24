@@ -175,6 +175,15 @@
       "fioriicon": "expense-report"
     },
     {
+      "value": "Tab3",
+      "style": "SAP",
+      "update": "Yes",
+      "name": "Images",
+      "fioriicon": "camera",
+      "type": "carouselImage",
+      "download": "No"
+    },
+    {
       "value": "Tab5",
       "style": "SAP",
       "update": "Yes",
@@ -201,6 +210,7 @@
       "ExpenseEndDate"
     ],
     "Tab2": ["myExpenses"],
+    "Tab3": ["carouselImage"],
     "Tab5": ["MultiAttachments"]
   },
   "listCards": [
@@ -633,6 +643,15 @@
       "SLabel": "Cost Centre"
     },
     {
+      "name": "carouselImage",
+      "type": "carouselImage",
+      "metadata": "OnlyFileName",
+      "width": "200",
+      "Option": "Optional",
+      "adaptiveCard": "None",
+      "SLabel": "carouselImage"
+    },
+    {
       "name": "MultiAttachments",
       "type": "attachment",
       "metadata": "MultipleFields",
@@ -778,6 +797,14 @@
     },
     {
       "id": "Step2",
+      "fields": [{ "name": "myExpenses", "Mode": "Edit" }],
+      "name": "myExpenses",
+      "stepType": "table",
+      "intro": "Expense : Expense Entries",
+      "text": "docType,ItemAttachment,Information"
+    },
+    {
+      "id": "Step3",
       "fields": [
         { "name": "EmployeeID", "Mode": "Display" },
         { "name": "Name", "Mode": "Display" }
@@ -787,29 +814,30 @@
       "intro": "Expense : Employee Details"
     },
     {
-      "id": "Step3",
+      "id": "Step4",
+      "fields": [{ "name": "carouselImage", "Mode": "Edit" }],
+      "name": "Images and Attachment",
+      "stepType": "FieldList",
+      "intro": "Screenshots and Images : Here you can upload screenshots, images (jpg, png, etc..)"
+    },
+
+    {
+      "id": "Step5",
       "fields": [{ "name": "MultiAttachments", "Mode": "Edit" }],
       "name": "MultiAttachments",
       "stepType": "Attachments",
-      "intro": "Expense : Attachments",
+      "intro": "Documents and Files : Here you can upload documents and files (word, powerpoint, excel, pdf, text etc..)",
       "attachmentAttribute": {
         "applicationid": "{applicationid}",
         "businessrole": "{businessrole}",
         "mode": "File",
         "type": "NewUpload",
-        "text": "docType,Receipt,Success"
+        "text": "docType,Header,Information"
       }
     },
+
     {
-      "id": "Step4",
-      "fields": [{ "name": "myExpenses", "Mode": "Edit" }],
-      "name": "myExpenses",
-      "stepType": "table",
-      "intro": "Expense : Expense Entries",
-      "text": "docType,ItemAttachment,Information"
-    },
-    {
-      "id": "Step5",
+      "id": "Step6",
       "fields": [
         { "name": "Status", "Mode": "Display" },
         { "name": "EntryDate", "Mode": "Display" }

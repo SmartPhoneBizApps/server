@@ -212,6 +212,15 @@
       "download": "Yes"
     },
     {
+      "value": "Tab5",
+      "style": "SAP",
+      "update": "No",
+      "name": "Images",
+      "fioriicon": "camera",
+      "type": "carouselImage",
+      "download": "No"
+    },
+    {
       "value": "Tab4",
       "style": "SAP",
       "update": "No",
@@ -243,6 +252,7 @@
     ],
     "Tab2": ["TravelCost", "StayCost", "FoodCost", "OtherCost", "Currency"],
     "Tab3": ["AdditionalInfo", "CostCentre", "ProgressComment"],
+    "Tab5": ["carouselImage"],
     "Tab4": ["MultiAttachments"]
   },
   "listCards": [
@@ -551,6 +561,15 @@
       "Option": "Mandatory",
       "adaptiveCard": "Main",
       "SLabel": "Approver Comment"
+    },
+    {
+      "name": "carouselImage",
+      "type": "carouselImage",
+      "metadata": "OnlyFileName",
+      "width": "200",
+      "Option": "Optional",
+      "adaptiveCard": "None",
+      "SLabel": "carouselImage"
     },
     {
       "name": "MultiAttachments",

@@ -274,6 +274,20 @@
     },
     {
       "id": "Step4",
+      "fields": [{ "name": "MultiAttachments", "Mode": "Edit" }],
+      "name": "MultiAttachments",
+      "stepType": "Attachments",
+      "intro": "Shopping Cart : Attachments",
+      "attachmentAttribute": {
+        "applicationid": "{applicationid}",
+        "businessrole": "{businessrole}",
+        "mode": "File",
+        "type": "NewUpload",
+        "text": "docType,SupplierAttachment,Information"
+      }
+    },
+    {
+      "id": "Step5",
       "fields": [{ "name": "XXXXXX", "Mode": "Edit" }],
       "name": "Contact Details",
       "stepType": "FieldList",

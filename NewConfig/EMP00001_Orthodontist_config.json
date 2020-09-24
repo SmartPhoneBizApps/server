@@ -11,6 +11,7 @@
     "StatusColor": "Yes",
     "SearchString": { "Search": false },
     "Filters": [{ "Partner": "@user" }],
+
     "Partner": "@user",
     "UserSpecific": "Yes",
     "Update": "Yes",
@@ -632,6 +633,20 @@
     },
     {
       "id": "Step5",
+      "fields": [{ "name": "MultiAttachments", "Mode": "Edit" }],
+      "name": "MultiAttachments",
+      "stepType": "Attachments",
+      "intro": "Documents and Files : Here you can upload documents, email attachments and files (Word, Powerpoint, Excel, PDF, Text etc..)",
+      "attachmentAttribute": {
+        "applicationid": "{applicationid}",
+        "businessrole": "{businessrole}",
+        "mode": "File",
+        "type": "NewUpload",
+        "text": "docType,HeaderAttachment,Information"
+      }
+    },
+    {
+      "id": "Step6",
       "fields": [{ "name": "Status", "Mode": "Display" }],
       "name": "Admin",
       "stepType": "FieldList",

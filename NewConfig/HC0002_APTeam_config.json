@@ -1,7 +1,7 @@
 {
   "Title": { "ApplicationTitle": "Study/Trial", "DetailTitle": "Study/Trial" },
   "Controls": {
-    "style": "SAP",
+    "style": "Google",
     "calculation": "Yes",
     "USP": "UserProfile",
     "StatusColor": "Yes",
@@ -238,6 +238,14 @@
       ]
     },
     {
+      "value": "Tab8",
+      "style": "SAP",
+      "update": "Yes",
+      "name": "Images",
+      "type": "carouselImage",
+      "fioriicon": "contacts"
+    },
+    {
       "value": "Tab4",
       "style": "SAP",
       "update": "Yes",
@@ -283,12 +291,13 @@
     "Tab3": ["MultiAttachments"],
     "Tab4": ["Services"],
     "Tab5": ["StudyInvoice"],
-    "Tab6": ["myHCPHCO"]
+    "Tab6": ["myHCPHCO"],
+    "Tab8": ["carouselImage"]
   },
   "listCards": [
     {
       "cardType": "Analytical",
-      "cardsubType": "StackedColumn",
+      "cardsubType": "StackedBar",
       "title": "Study Analysis",
       "subtitle": "Study Type",
       "unitOfMeasurement": "Days",
@@ -311,7 +320,7 @@
     },
     {
       "cardType": "Analytical",
-      "cardsubType": "StackedColumn",
+      "cardsubType": "StackedBar",
       "title": "Study/Trial Analysis",
       "subtitle": "Pharma Contact Email",
       "unitOfMeasurement": "Count",
@@ -638,7 +647,7 @@
         {
           "cardType": "Analytical",
           "style": ["SAP", "Google"],
-          "cardsubType": "StackedBar",
+          "cardsubType": "StackedColumn",
           "title": "HCP/HCO - Study/Trial Analysis",
           "subtitle": "Speciality",
           "unitOfMeasurement": "Count",
@@ -874,7 +883,7 @@
         {
           "cardType": "Analytical",
           "style": ["SAP", "Google"],
-          "cardsubType": "StackedColumn",
+          "cardsubType": "StackedBar",
           "title": "HCP/HCO - Invoice Analysis",
           "subtitle": "InstitutionName",
           "unitOfMeasurement": "Count",
@@ -896,6 +905,174 @@
             "trend": { "trend": "DOWN", "Condition": "LTE", "value": 8 },
             "status": { "state": "Good", "Condition": "LTE", "value": 24 },
             "details": "InstitutionName",
+            "unit": "Count"
+          }
+        },
+        {
+          "cardType": "Analytical",
+          "style": ["Google"],
+          "cardsubType": "Gauge",
+          "title": "HCP/HCO - Invoice Analysis",
+          "subtitle": "Speciality",
+          "unitOfMeasurement": "Count",
+          "source": "StudyInvoice",
+          "Data": {
+            "dimension": "Speciality",
+            "fact": "Count",
+            "operation": "COUNT",
+            "sorting": "Ascending",
+            "aggregate": "Yes",
+            "sortField": "Count",
+            "dType": "string"
+          },
+          "numericHeader": {
+            "headerNumber": {
+              "Operation": "COUNT",
+              "Field": "Speciality"
+            },
+            "trend": { "trend": "DOWN", "Condition": "LTE", "value": 8 },
+            "status": { "state": "Good", "Condition": "LTE", "value": 24 },
+            "details": "Speciality",
+            "unit": "Count"
+          }
+        },
+        {
+          "cardType": "Analytical",
+          "style": ["Google"],
+          "cardsubType": "Histogram",
+          "title": "HCP/HCO - Invoice Analysis",
+          "subtitle": "Speciality",
+          "unitOfMeasurement": "Count",
+          "source": "StudyInvoice",
+          "Data": {
+            "dimension": "Speciality",
+            "fact": "Count",
+            "operation": "COUNT",
+            "sorting": "Ascending",
+            "aggregate": "Yes",
+            "sortField": "Count",
+            "dType": "string"
+          },
+          "numericHeader": {
+            "headerNumber": {
+              "Operation": "COUNT",
+              "Field": "Speciality"
+            },
+            "trend": { "trend": "DOWN", "Condition": "LTE", "value": 8 },
+            "status": { "state": "Good", "Condition": "LTE", "value": 24 },
+            "details": "Speciality",
+            "unit": "Count"
+          }
+        },
+        {
+          "cardType": "Analytical",
+          "style": ["Google"],
+          "cardsubType": "addressMap",
+          "title": "HCP/HCO - Invoice Analysis",
+          "subtitle": "Speciality",
+          "unitOfMeasurement": "Count",
+          "source": "StudyInvoice",
+          "Data": {
+            "dimension": "Speciality",
+            "fact": "Count",
+            "operation": "COUNT",
+            "sorting": "Ascending",
+            "aggregate": "Yes",
+            "sortField": "Count",
+            "dType": "string"
+          },
+          "numericHeader": {
+            "headerNumber": {
+              "Operation": "COUNT",
+              "Field": "Speciality"
+            },
+            "trend": { "trend": "DOWN", "Condition": "LTE", "value": 8 },
+            "status": { "state": "Good", "Condition": "LTE", "value": 24 },
+            "details": "Speciality",
+            "unit": "Count"
+          }
+        },
+        {
+          "cardType": "Analytical",
+          "style": ["Google"],
+          "cardsubType": "Org",
+          "title": "HCP/HCO - Invoice Analysis",
+          "subtitle": "Speciality",
+          "unitOfMeasurement": "Count",
+          "source": "StudyInvoice",
+          "Data": {
+            "dimension": "Speciality",
+            "fact": "Count",
+            "operation": "COUNT",
+            "sorting": "Ascending",
+            "aggregate": "Yes",
+            "sortField": "Count",
+            "dType": "string"
+          },
+          "numericHeader": {
+            "headerNumber": {
+              "Operation": "COUNT",
+              "Field": "Speciality"
+            },
+            "trend": { "trend": "DOWN", "Condition": "LTE", "value": 8 },
+            "status": { "state": "Good", "Condition": "LTE", "value": 24 },
+            "details": "Speciality",
+            "unit": "Count"
+          }
+        },
+        {
+          "cardType": "Analytical",
+          "style": ["Google"],
+          "cardsubType": "Scatter",
+          "title": "HCP/HCO - Invoice Analysis",
+          "subtitle": "Speciality",
+          "unitOfMeasurement": "Count",
+          "source": "StudyInvoice",
+          "Data": {
+            "dimension": "Speciality",
+            "fact": "Count",
+            "operation": "COUNT",
+            "sorting": "Ascending",
+            "aggregate": "Yes",
+            "sortField": "Count",
+            "dType": "string"
+          },
+          "numericHeader": {
+            "headerNumber": {
+              "Operation": "COUNT",
+              "Field": "Speciality"
+            },
+            "trend": { "trend": "DOWN", "Condition": "LTE", "value": 8 },
+            "status": { "state": "Good", "Condition": "LTE", "value": 24 },
+            "details": "Speciality",
+            "unit": "Count"
+          }
+        },
+        {
+          "cardType": "Analytical",
+          "style": ["Google"],
+          "cardsubType": "Table",
+          "title": "HCP/HCO - Invoice Analysis",
+          "subtitle": "Speciality",
+          "unitOfMeasurement": "Count",
+          "source": "StudyInvoice",
+          "Data": {
+            "dimension": "Speciality",
+            "fact": "Count",
+            "operation": "COUNT",
+            "sorting": "Ascending",
+            "aggregate": "Yes",
+            "sortField": "Count",
+            "dType": "string"
+          },
+          "numericHeader": {
+            "headerNumber": {
+              "Operation": "COUNT",
+              "Field": "Speciality"
+            },
+            "trend": { "trend": "DOWN", "Condition": "LTE", "value": 8 },
+            "status": { "state": "Good", "Condition": "LTE", "value": 24 },
+            "details": "Speciality",
             "unit": "Count"
           }
         }
@@ -1022,6 +1199,16 @@
       "adaptiveCard": "None",
       "SLabel": "MultiAttachments",
       "LLabel": "MultiAttachments"
+    },
+    {
+      "name": "carouselImage",
+      "type": "attachment",
+      "metadata": "OnlyFileName",
+      "width": "200",
+      "Option": "Optional",
+      "adaptiveCard": "Additional",
+      "SLabel": "Certificates",
+      "LLabel": "Certificates"
     },
     {
       "name": "StudyDetails",
@@ -1252,7 +1439,7 @@
     },
 
     {
-      "id": "Step3",
+      "id": "Step2",
       "fields": [
         { "name": "StudyStartDate", "Mode": "Edit" },
         { "name": "Phase", "Mode": "Edit" }
@@ -1260,6 +1447,13 @@
       "name": "Dates",
       "stepType": "FieldList",
       "intro": "Study   : Dates"
+    },
+    {
+      "id": "Step3",
+      "fields": [{ "name": "carouselImage", "Mode": "Edit" }],
+      "name": "Images and Attachment",
+      "stepType": "FieldList",
+      "intro": "Screenshots and Images : Here you can upload screenshots, images (jpg, png, etc..)"
     },
     {
       "id": "Step4",

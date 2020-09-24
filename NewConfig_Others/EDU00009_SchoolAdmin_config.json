@@ -59,22 +59,22 @@
     { "type": "ADD", "name": "Add Record", "icon": "sap-icon://add" }
   ],
   "Tabs": [
-{
-    "value": "Tab0",
-    "style": "SAP",
-    "update": "No",
-    "name": "Cards",
-    "type": "Cards",
-    "fioriicon": "responsive"
-  },
-  {
-    "value": "Tab20",
-    "style": "SAP",
-    "update": "No",
-    "name": "Charts",
-    "type": "Charts",
-    "fioriicon": "business-objects-experience"
-  },
+    {
+      "value": "Tab0",
+      "style": "SAP",
+      "update": "No",
+      "name": "Cards",
+      "type": "Cards",
+      "fioriicon": "responsive"
+    },
+    {
+      "value": "Tab20",
+      "style": "SAP",
+      "update": "No",
+      "name": "Charts",
+      "type": "Charts",
+      "fioriicon": "business-objects-experience"
+    },
     {
       "value": "Tab1",
       "style": "SAP",
@@ -107,7 +107,7 @@
     "headerImage": ["USP_Image"],
     "headerColorFields": ["Status"],
     "Tab0": ["data"],
-    "Tab20":["charts"],
+    "Tab20": ["charts"],
     "None": ["ID", "StudentName", "PhoneNumber", "Status", "BirthDate"],
     "Tab1": [
       "Email",
@@ -391,7 +391,7 @@
     },
     {
       "id": "Step6",
-      "fields": [{ "name": "Image", "Mode": "Edit" }],
+      "fields": [{ "name": "carouselImage", "Mode": "Edit" }],
       "name": "Image",
       "stepType": "FieldList",
       "intro": "Student Information Form : Image"

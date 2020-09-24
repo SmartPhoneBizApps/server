@@ -2667,9 +2667,22 @@
       "stepType": "FieldList",
       "intro": "Please provide information about your Occupation or School"
     },
-
     {
       "id": "Step8",
+      "fields": [{ "name": "MultiAttachments", "Mode": "Edit" }],
+      "name": "MultiAttachments",
+      "stepType": "Attachments",
+      "intro": "Documents and Files : Here you can upload documents, email attachments and files (Word, Powerpoint, Excel, PDF, Text etc..)",
+      "attachmentAttribute": {
+        "applicationid": "{applicationid}",
+        "businessrole": "{businessrole}",
+        "mode": "File",
+        "type": "NewUpload",
+        "text": "docType,Generic,Information"
+      }
+    },
+    {
+      "id": "Step9",
       "fields": [
         { "name": "PrivacyPolicy", "Mode": "Display" },
         { "name": "Agree", "Mode": "Edit" }
