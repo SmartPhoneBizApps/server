@@ -603,7 +603,7 @@
       "update": "Yes",
       "name": "DentalImages",
       "fioriicon": "camera",
-      "type": "CarouselWithText",
+      "type": "carouselImage",
       "download": "Yes"
     },
     {
@@ -2667,6 +2667,7 @@
       "stepType": "FieldList",
       "intro": "Please provide information about your Occupation or School"
     },
+
     {
       "id": "Step8",
       "fields": [{ "name": "MultiAttachments", "Mode": "Edit" }],
@@ -2683,6 +2684,20 @@
     },
     {
       "id": "Step9",
+      "fields": [{ "name": "Radiology", "Mode": "Edit" }],
+      "name": "Radiology Images",
+      "stepType": "FieldList",
+      "intro": "Screenshots and Images : Here you can upload screenshots, images (jpg, png, etc..)"
+    },
+    {
+      "id": "Step10",
+      "fields": [{ "name": "DentalImages", "Mode": "Edit" }],
+      "name": "Dental Patient Images",
+      "stepType": "FieldList",
+      "intro": "Screenshots and Images : Here you can upload screenshots, images (jpg, png, etc..)"
+    },
+    {
+      "id": "Step11",
       "fields": [
         { "name": "PrivacyPolicy", "Mode": "Display" },
         { "name": "Agree", "Mode": "Edit" }

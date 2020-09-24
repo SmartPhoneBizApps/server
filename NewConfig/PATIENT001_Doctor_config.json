@@ -603,7 +603,7 @@
       "update": "Yes",
       "name": "DentalImages",
       "fioriicon": "camera",
-      "type": "CarouselWithText",
+      "type": "carouselImage",
       "download": "Yes"
     },
     {
@@ -1804,70 +1804,6 @@
   },
   "tableConfig": {
     "paymentDetails": {
-      "Formatter": {
-        "FieldLevel": [
-          {
-            "action": "setColor",
-            "field": "PaidAmount",
-            "color": "green"
-          },
-          {
-            "action": "setColor",
-            "field": "Amount",
-            "color": "red"
-          }
-        ],
-        "FieldValue": [
-          {
-            "ItemStatus1": [
-              {
-                "action": "setColor",
-                "value": "New",
-                "color": "green"
-              },
-              {
-                "action": "setColor",
-                "value": "InProgress",
-                "color": "green"
-              },
-              {
-                "action": "setColor",
-                "value": "Completed",
-                "color": "green"
-              }
-            ]
-          }
-        ],
-        "Table": [
-          {
-            "Date": {
-              "name": "SEQUENCE",
-              "function": "LT",
-              "Target": "sValidation",
-              "type": "Header",
-              "msg": "Timesheet Date can't be less than Start date"
-            },
-            "Fields": [
-              { "Source": "Date", "Type": { "type": "Item" } },
-              { "Source": "StartDate", "Type": { "type": "Header" } }
-            ]
-          },
-          {
-            "Date": {
-              "name": "SEQUENCE",
-              "function": "GTE",
-              "Target": "sValidation",
-              "type": "Header",
-              "msg": "Timesheet Date can't be less than Start date"
-            },
-            "Fields": [
-              { "Source": "Date", "Type": { "type": "Item" } },
-              { "Source": "EndDate", "Type": { "type": "Header" } }
-            ]
-          }
-        ],
-        "Document": []
-      },
       "calculation": "Yes",
       "title": "Item Details",
       "ItemFieldDefinition": [
@@ -1894,8 +1830,8 @@
           "type": "string",
           "width": "20",
           "SLabel": "Status",
-          "Option": "Optional",
-          "adaptiveCard": "Additional",
+          "Option": "Mandatory",
+          "adaptiveCard": "Main",
           "Update": "Yes"
         },
         {
@@ -1903,8 +1839,8 @@
           "type": "string",
           "width": "200",
           "SLabel": "Details",
-          "Option": "Optional",
-          "adaptiveCard": "Additional",
+          "Option": "Mandatory",
+          "adaptiveCard": "Main",
           "Update": "Yes"
         },
         {
@@ -2199,6 +2135,8 @@
           "type": "string",
           "width": "50",
           "SLabel": "Item Status",
+          "Option": "Mandatory",
+          "adaptiveCard": "Main",
           "Update": "Yes"
         },
         {
@@ -2213,21 +2151,21 @@
           "type": "string",
           "width": "20",
           "SLabel": "Task",
-          "Option": "Optional"
+          "Option": "Mandatory"
         },
         {
           "name": "ExpectedDate",
           "type": "Date",
           "width": "10",
           "SLabel": "Expected Date",
-          "Option": "Optional"
+          "Option": "Mandatory"
         },
         {
           "name": "TPStatus",
           "type": "string",
           "width": "20",
           "SLabel": "TP Status",
-          "Option": "Optional"
+          "Option": "Mandatory"
         }
       ],
       "DisplayFields": [
@@ -2299,42 +2237,44 @@
           "type": "string",
           "width": "50",
           "SLabel": "Item Status",
+          "Option": "Mandatory",
+          "adaptiveCard": "Main",
           "Update": "Yes"
         },
         {
           "name": "VisitReason",
           "type": "string",
-          "width": "10",
+          "width": "500",
           "SLabel": "VisitReason",
-          "Option": "Optional"
+          "Option": "Mandatory"
         },
         {
           "name": "VisitDate",
           "type": "Date",
           "width": "10",
           "SLabel": "Visit Date",
-          "Option": "Optional"
+          "Option": "Mandatory"
         },
         {
           "name": "ExaminationNotes",
           "type": "string",
           "width": "500",
           "SLabel": "Examination Notes",
-          "Option": "Optional"
+          "Option": "Mandatory"
         },
         {
           "name": "Examination",
           "type": "string",
           "width": "500",
           "SLabel": "Examination",
-          "Option": "Optional"
+          "Option": "Mandatory"
         },
         {
           "name": "Doctor",
           "type": "string",
           "width": "100",
           "SLabel": "Doctor",
-          "Option": "Optional"
+          "Option": "Mandatory"
         },
         {
           "name": "MedicalNotes",
@@ -2401,6 +2341,8 @@
           "type": "string",
           "width": "50",
           "SLabel": "Item Status",
+          "Option": "Mandatory",
+          "adaptiveCard": "Main",
           "Update": "Yes"
         },
         {
@@ -2408,14 +2350,14 @@
           "type": "Date",
           "width": "10",
           "SLabel": "Date",
-          "Option": "Optional"
+          "Option": "Mandatory"
         },
         {
           "name": "Notes",
           "type": "string",
           "width": "500",
           "SLabel": "Notes",
-          "Option": "Optional"
+          "Option": "Mandatory"
         },
         {
           "name": "Action",
@@ -2725,6 +2667,7 @@
       "stepType": "FieldList",
       "intro": "Please provide information about your Occupation or School"
     },
+
     {
       "id": "Step8",
       "fields": [{ "name": "MultiAttachments", "Mode": "Edit" }],
@@ -2741,6 +2684,20 @@
     },
     {
       "id": "Step9",
+      "fields": [{ "name": "Radiology", "Mode": "Edit" }],
+      "name": "Radiology Images",
+      "stepType": "FieldList",
+      "intro": "Screenshots and Images : Here you can upload screenshots, images (jpg, png, etc..)"
+    },
+    {
+      "id": "Step10",
+      "fields": [{ "name": "DentalImages", "Mode": "Edit" }],
+      "name": "Dental Patient Images",
+      "stepType": "FieldList",
+      "intro": "Screenshots and Images : Here you can upload screenshots, images (jpg, png, etc..)"
+    },
+    {
+      "id": "Step11",
       "fields": [
         { "name": "PrivacyPolicy", "Mode": "Display" },
         { "name": "Agree", "Mode": "Edit" }
