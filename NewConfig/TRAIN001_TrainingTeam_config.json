@@ -322,6 +322,24 @@
       "Token": "Yes",
       "theme": "chrome",
       "updatetheme": "default"
+    },
+    {
+      "value": "Tab7",
+      "style": "SAP",
+      "update": "Yes",
+      "name": "Images1",
+      "fioriicon": "camera",
+      "type": "carouselImage",
+      "download": "No"
+    },
+    {
+      "value": "Tab8",
+      "style": "SAP",
+      "update": "Yes",
+      "name": "Images2",
+      "fioriicon": "camera",
+      "type": "carouselImage",
+      "download": "No"
     }
   ],
   "DetailFields": {
@@ -366,7 +384,9 @@
     "Tab3": ["MultiAttachments"],
     "Tab4": ["Video"],
     "Tab5": ["CourseLink"],
-    "Tab6": ["questioner"]
+    "Tab6": ["questioner"],
+    "Tab7": ["carouselImage"],
+    "Tab8": ["carouselImage1"]
   },
   "listCards": [
     {
@@ -706,6 +726,24 @@
       "LLabel": "Date Requested"
     },
     {
+      "name": "carouselImage",
+      "type": "carouselImage",
+      "metadata": "OnlyFileName",
+      "width": "200",
+      "Option": "Optional",
+      "adaptiveCard": "None",
+      "SLabel": "carouselImage"
+    },
+    {
+      "name": "carouselImage1",
+      "type": "carouselImage",
+      "metadata": "OnlyFileName",
+      "width": "200",
+      "Option": "Optional",
+      "adaptiveCard": "None",
+      "SLabel": "carouselImage1"
+    },
+    {
       "name": "MultiAttachments",
       "type": "attachment",
       "metadata": "MultipleFields",
@@ -922,6 +960,13 @@
     },
     {
       "id": "Step4",
+      "fields": [{ "name": "carouselImage", "Mode": "Edit" }],
+      "name": "Images and Attachment",
+      "stepType": "FieldList",
+      "intro": "Screenshots and Images : Here you can upload screenshots, images (jpg, png, etc..)"
+    },
+    {
+      "id": "Step5",
       "fields": [{ "name": "MultiAttachments", "Mode": "Edit" }],
       "name": "MultiAttachments",
       "stepType": "Attachments",
@@ -935,7 +980,14 @@
       }
     },
     {
-      "id": "Step5",
+      "id": "Step6",
+      "fields": [{ "name": "carouselImage1", "Mode": "Edit" }],
+      "name": "Images and Attachment",
+      "stepType": "FieldList",
+      "intro": "Screenshots and Images : Here you can upload screenshots, images (jpg, png, etc..)"
+    },
+    {
+      "id": "Step7",
       "fields": [{ "name": "CourseLink", "Mode": "Edit" }],
       "name": "Link to External Course (if Any)",
       "stepType": "FieldList",

@@ -114,8 +114,8 @@
 
     { "type": "ADD", "name": "Add Record", "icon": "sap-icon://add" },
     {
-      "type": "FILEUPLOAD",
-      "name": "Upload Questions",
+      "type": "UPLOAD",
+      "name": "Upload Courses",
       "icon": "sap-icon://upload",
       "Option": ["Header"],
       "ItemOptions": [],
@@ -134,7 +134,40 @@
       "Token": "Yes",
       "URLMethod": "POST"
     },
-
+    {
+      "type": "CODE",
+      "name": "Exam Questions",
+      "icon": "sap-icon://internet-browser",
+      "tabconfig": {
+        "tabs": [
+          {
+            "value": "codeTab0",
+            "field": "questioner",
+            "name": "Questions",
+            "theme": "chrome",
+            "updatetheme": "default",
+            "type": "json",
+            "jsonURL": "util/getjsonFile/questioner/{ID}",
+            "readMethod": "GET",
+            "updateMethod": "PUT",
+            "updateJSON": "body",
+            "Token": "Yes",
+            "editable": true
+          },
+          {
+            "value": "codeTab1",
+            "field": "examQuestions2",
+            "name": "Code1",
+            "theme": "chrome",
+            "updatetheme": "default",
+            "type": "json",
+            "jsonURL": "util/getjsonFile/examQuestions2/{ID}",
+            "Token": "Yes",
+            "editable": true
+          }
+        ]
+      }
+    },
     {
       "type": "CATALOG",
       "name": "Add to Catalogue",
@@ -144,7 +177,6 @@
       "URLMethod": "POST",
       "confirmationMsg": "Are you sure you want to add to catalog?"
     },
-
     {
       "type": "ADDVIDEO",
       "name": "Add video",
@@ -169,14 +201,15 @@
       "URLMethod": "PUT"
     },
     {
-      "type": "UPLOAD",
+      "type": "FILEUPLOAD",
       "name": "Upload Questions",
       "icon": "sap-icon://upload",
       "Option": ["Header"],
       "ItemOptions": [],
       "URL": "uploadFile/questioner/{ID}",
       "URLMethodHDR": "POST",
-      "dataFields": "FieldName"
+      "dataFields": "FieldName",
+      "Token": "Yes"
     },
     {
       "type": "WORKFLOW",
@@ -266,6 +299,38 @@
       "name": "Video",
       "fioriicon": "step",
       "type": "video"
+    },
+    {
+      "value": "Tab5",
+      "style": "SAP",
+      "update": "Yes",
+      "name": "Course Link",
+      "fioriicon": "internet-browser",
+      "type": "webpage"
+    },
+    {
+      "value": "Tab6",
+      "style": "SAP",
+      "update": "Yes",
+      "name": "Questions",
+      "fioriicon": "internet-browser",
+      "type": "jsoncode",
+      "jsonURL": "util/getjsonFile/questioner/{ID}",
+      "readMethod": "GET",
+      "updateMethod": "PUT",
+      "updateJSON": "body",
+      "Token": "Yes",
+      "theme": "chrome",
+      "updatetheme": "default"
+    },
+    {
+      "value": "Tab7",
+      "style": "SAP",
+      "update": "Yes",
+      "name": "Images",
+      "fioriicon": "camera",
+      "type": "carouselImage",
+      "download": "No"
     }
   ],
   "DetailFields": {
@@ -296,9 +361,11 @@
         "Fields": ["ProjectNeed", "Cost", "Duration", "External"]
       }
     ],
-
     "Tab3": ["MultiAttachments"],
-    "Tab4": ["Video"]
+    "Tab4": ["Video"],
+    "Tab5": ["CourseLink"],
+    "Tab6": ["questioner"],
+    "Tab7": ["carouselImage"]
   },
   "listCards": [
     {
@@ -362,17 +429,17 @@
       "name": "Group",
       "type": "string",
       "width": "100",
-      "Option": "Optional",
-      "adaptiveCard": "Additional",
+      "Option": "Mandatory",
+      "adaptiveCard": "Main",
       "SLabel": "Group",
       "LLabel": "Group"
     },
     {
       "name": "SubGroup",
-      "type": "string",
+      "type": "radiobutton",
       "width": "100",
-      "Option": "Optional",
-      "adaptiveCard": "Additional",
+      "Option": "Mandatory",
+      "adaptiveCard": "Main",
       "SLabel": "Sub Group",
       "LLabel": "Sub Group"
     },
@@ -380,8 +447,8 @@
       "name": "Overview",
       "type": "string",
       "width": "2000",
-      "Option": "Optional",
-      "adaptiveCard": "Additional",
+      "Option": "Mandatory",
+      "adaptiveCard": "Main",
       "SLabel": "Overview",
       "LLabel": "Overview"
     },
@@ -395,11 +462,29 @@
       "LLabel": "Course Link"
     },
     {
+      "name": "Questions",
+      "type": "json",
+      "width": "1000",
+      "Option": "Optional",
+      "adaptiveCard": "Additional",
+      "SLabel": "Questions",
+      "LLabel": "Questions"
+    },
+    {
+      "name": "examQuestions2",
+      "type": "json",
+      "width": "1000",
+      "Option": "Optional",
+      "adaptiveCard": "Additional",
+      "SLabel": "Exam Questions",
+      "LLabel": "Exam Questions"
+    },
+    {
       "name": "Title",
       "type": "string",
       "width": "500",
-      "Option": "Optional",
-      "adaptiveCard": "Additional",
+      "Option": "Mandatory",
+      "adaptiveCard": "Main",
       "SLabel": "Course Title",
       "LLabel": "Course Title"
     },
@@ -452,8 +537,8 @@
       "name": "Regulatory",
       "type": "string",
       "width": "100",
-      "Option": "Optional",
-      "adaptiveCard": "Additional",
+      "Option": "Mandatory",
+      "adaptiveCard": "Main",
       "SLabel": "Regulatory",
       "LLabel": "Regulatory"
     },
@@ -461,8 +546,8 @@
       "name": "SelfAssign",
       "type": "string",
       "width": "100",
-      "Option": "Optional",
-      "adaptiveCard": "Additional",
+      "Option": "Mandatory",
+      "adaptiveCard": "Main",
       "SLabel": "Self Assign",
       "LLabel": "Self Assign"
     },
@@ -470,8 +555,8 @@
       "name": "Compliance",
       "type": "string",
       "width": "100",
-      "Option": "Optional",
-      "adaptiveCard": "Additional",
+      "Option": "Mandatory",
+      "adaptiveCard": "Main",
       "SLabel": "Compliance",
       "LLabel": "Compliance"
     },
@@ -479,8 +564,8 @@
       "name": "Exam",
       "type": "string",
       "width": "100",
-      "Option": "Optional",
-      "adaptiveCard": "Additional",
+      "Option": "Mandatory",
+      "adaptiveCard": "Main",
       "SLabel": "Exam",
       "LLabel": "Exam"
     },
@@ -524,8 +609,8 @@
       "name": "External",
       "type": "string",
       "width": "100",
-      "Option": "Optional",
-      "adaptiveCard": "Additional",
+      "Option": "Mandatory",
+      "adaptiveCard": "Main",
       "SLabel": "External",
       "LLabel": "External"
     },
@@ -569,8 +654,8 @@
       "name": "ProjectNeed",
       "type": "string",
       "width": "50",
-      "Option": "Optional",
-      "adaptiveCard": "Additional",
+      "Option": "Mandatory",
+      "adaptiveCard": "Main",
       "SLabel": "Project Need",
       "LLabel": "Project Need"
     },
@@ -587,8 +672,8 @@
       "name": "Duration",
       "type": "string",
       "width": "50",
-      "Option": "Optional",
-      "adaptiveCard": "Additional",
+      "Option": "Mandatory",
+      "adaptiveCard": "Main",
       "SLabel": "Duration",
       "LLabel": "Duration"
     },
@@ -596,8 +681,8 @@
       "name": "EmpDev",
       "type": "string",
       "width": "50",
-      "Option": "Optional",
-      "adaptiveCard": "Additional",
+      "Option": "Mandatory",
+      "adaptiveCard": "Main",
       "SLabel": "For Employee Development",
       "LLabel": "For Employee Development"
     },
@@ -605,8 +690,8 @@
       "name": "Area",
       "type": "string",
       "width": "50",
-      "Option": "Optional",
-      "adaptiveCard": "Additional",
+      "Option": "Mandatory",
+      "adaptiveCard": "Main",
       "SLabel": "Training Area",
       "LLabel": "Training Area"
     },
@@ -618,6 +703,15 @@
       "adaptiveCard": "Additional",
       "SLabel": "Date Requested",
       "LLabel": "Date Requested"
+    },
+    {
+      "name": "carouselImage",
+      "type": "carouselImage",
+      "metadata": "OnlyFileName",
+      "width": "200",
+      "Option": "Optional",
+      "adaptiveCard": "None",
+      "SLabel": "carouselImage"
     },
     {
       "name": "MultiAttachments",
@@ -836,6 +930,13 @@
     },
     {
       "id": "Step4",
+      "fields": [{ "name": "carouselImage", "Mode": "Edit" }],
+      "name": "Images and Attachment",
+      "stepType": "FieldList",
+      "intro": "Screenshots and Images : Here you can upload screenshots, images (jpg, png, etc..)"
+    },
+    {
+      "id": "Step5",
       "fields": [{ "name": "MultiAttachments", "Mode": "Edit" }],
       "name": "MultiAttachments",
       "stepType": "Attachments",
@@ -849,7 +950,7 @@
       }
     },
     {
-      "id": "Step5",
+      "id": "Step6",
       "fields": [{ "name": "CourseLink", "Mode": "Edit" }],
       "name": "Link to External Course (if Any)",
       "stepType": "FieldList",

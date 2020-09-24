@@ -114,8 +114,8 @@
 
     { "type": "ADD", "name": "Add Record", "icon": "sap-icon://add" },
     {
-      "type": "FILEUPLOAD",
-      "name": "Upload Questions",
+      "type": "UPLOAD",
+      "name": "Upload Courses",
       "icon": "sap-icon://upload",
       "Option": ["Header"],
       "ItemOptions": [],
@@ -279,7 +279,6 @@
       "type": "FieldGroup",
       "fioriicon": "notes"
     },
-
     {
       "value": "Tab3",
       "style": "SAP",
@@ -323,6 +322,15 @@
       "Token": "Yes",
       "theme": "chrome",
       "updatetheme": "default"
+    },
+    {
+      "value": "Tab7",
+      "style": "SAP",
+      "update": "Yes",
+      "name": "Images",
+      "fioriicon": "camera",
+      "type": "carouselImage",
+      "download": "No"
     }
   ],
   "DetailFields": {
@@ -356,7 +364,8 @@
     "Tab3": ["MultiAttachments"],
     "Tab4": ["Video"],
     "Tab5": ["CourseLink"],
-    "Tab6": ["questioner"]
+    "Tab6": ["questioner"],
+    "Tab7": ["carouselImage"]
   },
   "listCards": [
     {
@@ -696,6 +705,15 @@
       "LLabel": "Date Requested"
     },
     {
+      "name": "carouselImage",
+      "type": "carouselImage",
+      "metadata": "OnlyFileName",
+      "width": "200",
+      "Option": "Optional",
+      "adaptiveCard": "None",
+      "SLabel": "carouselImage"
+    },
+    {
       "name": "MultiAttachments",
       "type": "attachment",
       "metadata": "MultipleFields",
@@ -912,6 +930,13 @@
     },
     {
       "id": "Step4",
+      "fields": [{ "name": "carouselImage", "Mode": "Edit" }],
+      "name": "Images and Attachment",
+      "stepType": "FieldList",
+      "intro": "Screenshots and Images : Here you can upload screenshots, images (jpg, png, etc..)"
+    },
+    {
+      "id": "Step5",
       "fields": [{ "name": "MultiAttachments", "Mode": "Edit" }],
       "name": "MultiAttachments",
       "stepType": "Attachments",
@@ -925,7 +950,7 @@
       }
     },
     {
-      "id": "Step5",
+      "id": "Step6",
       "fields": [{ "name": "CourseLink", "Mode": "Edit" }],
       "name": "Link to External Course (if Any)",
       "stepType": "FieldList",
