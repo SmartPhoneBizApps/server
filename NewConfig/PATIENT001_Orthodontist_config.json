@@ -1131,7 +1131,7 @@
     },
     {
       "name": "Radiology",
-      "type": "attachment",
+      "type": "carouselImage",
       "width": "200",
       "Option": "Optional",
       "adaptiveCard": "Additional",
@@ -1149,7 +1149,7 @@
     },
     {
       "name": "DentalImages",
-      "type": "attachment",
+      "type": "carouselImage",
       "width": "200",
       "Option": "Optional",
       "adaptiveCard": "Additional",
@@ -2581,6 +2581,20 @@
   "Create": "Yes",
   "Wizard": [
     {
+      "id": "Step9",
+      "fields": [{ "name": "Radiology", "Mode": "Edit" }],
+      "name": "Radiology Images",
+      "stepType": "FieldList",
+      "intro": "Screenshots and Images : Here you can upload screenshots, images (jpg, png, etc..)"
+    },
+    {
+      "id": "Step10",
+      "fields": [{ "name": "DentalImages", "Mode": "Edit" }],
+      "name": "Dental Patient Images",
+      "stepType": "FieldList",
+      "intro": "Screenshots and Images : Here you can upload screenshots, images (jpg, png, etc..)"
+    },
+    {
       "id": "Step0",
       "fields": [{ "name": "paymentDetails", "Mode": "Edit" }],
       "name": "paymentDetails",
@@ -2681,20 +2695,6 @@
         "type": "NewUpload",
         "text": "docType,Generic,Information"
       }
-    },
-    {
-      "id": "Step9",
-      "fields": [{ "name": "Radiology", "Mode": "Edit" }],
-      "name": "Radiology Images",
-      "stepType": "FieldList",
-      "intro": "Screenshots and Images : Here you can upload screenshots, images (jpg, png, etc..)"
-    },
-    {
-      "id": "Step10",
-      "fields": [{ "name": "DentalImages", "Mode": "Edit" }],
-      "name": "Dental Patient Images",
-      "stepType": "FieldList",
-      "intro": "Screenshots and Images : Here you can upload screenshots, images (jpg, png, etc..)"
     },
     {
       "id": "Step11",
