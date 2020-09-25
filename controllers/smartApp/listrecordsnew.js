@@ -265,6 +265,11 @@ exports.listrecordsnew = asyncHandler(async (req, res, next) => {
           myButton = [];
         }
         oResult[w]["buttons"] = myButton;
+        console.log(
+          "Atul_BOT_BUtton",
+          oResult[w]["Status"],
+          oResult[w]["buttons"]
+        );
       }
     }
     outData = {};
