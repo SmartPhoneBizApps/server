@@ -62,6 +62,19 @@ exports.validateAppSetup = asyncHandler(async (req, res, next) => {
     config = {};
     config = getNewConfig(req.headers.applicationid, role);
 
+    if (
+      config["CalculatedFields"]["Item"].length > 0 &&
+      config["Controls"]["calculation"] == "No"
+    ) {
+      console.log(
+        "Error : Calculation should be Yes ".red.inverse,
+        " (",
+        req.headers.applicationid,
+        role,
+        ")"
+      );
+    }
+
     // Filter Checks...
     if (config["Controls"]["calculation"] != undefined) {
       console.log(
@@ -75,10 +88,104 @@ exports.validateAppSetup = asyncHandler(async (req, res, next) => {
     } else {
       console.log("Calculation flag not maintained".red.inverse);
     }
-
-    //     for (let k = 0; k < config["Controls"].length; k++) {
-    //   }
   }
+  console.log("-------------------------------------------------------------");
+
+  console.log("-------------------------------------------------------------");
+  console.log("-----          FILTERS  - HEADER         ------------");
+  for (let r = 0; r < AppRoles.length; r++) {
+    role = AppRoles[r]["role"];
+    config = {};
+    config = getNewConfig(req.headers.applicationid, role);
+
+    // Filter Checks...
+    if (config["Controls"]["Filters"] != undefined) {
+      if (config["Controls"]["Create"] == "Yes") {
+        console.log(
+          "Filters : ".green.inverse,
+          config["Controls"]["Filters"],
+          " (",
+          req.headers.applicationid,
+          role,
+          ")",
+          "Create - Yes"
+        );
+      } else {
+        console.log(
+          "Filters : ".green.inverse,
+          config["Controls"]["Filters"],
+          " (",
+          req.headers.applicationid,
+          role,
+          ")",
+          "Create - No"
+        );
+      }
+    } else {
+      console.log("Filters flag not maintained".red.inverse);
+    }
+  }
+  console.log("-------------------------------------------------------------");
+  console.log("-------------------------------------------------------------");
+  console.log("-----          WIZARD - HEADER         ------------");
+  for (let r = 0; r < AppRoles.length; r++) {
+    role = AppRoles[r]["role"];
+    config = {};
+    config = getNewConfig(req.headers.applicationid, role);
+
+    // Filter Checks...
+    if (config["Wizard"] != undefined) {
+      if (config["Wizard"].length > 0) {
+        if (config["Controls"]["Create"] == "No") {
+          console.log(
+            "Error : With Wizard create should be Yes".red.inverse,
+            " (",
+            req.headers.applicationid,
+            role,
+            ")"
+          );
+        } else {
+          console.log(
+            "Create with Wizard : ".green.inverse,
+            " (",
+            req.headers.applicationid,
+            role,
+            ")"
+          );
+        }
+      } else {
+        if (config["Controls"]["Create"] == "No") {
+          console.log(
+            "Info : Wizard not requird".cyan.inverse,
+            " (",
+            req.headers.applicationid,
+            role,
+            ")"
+          );
+        } else if (config["Controls"]["Create"] == "Yes") {
+          console.log(
+            "Error : Pls setup Wizard for Create = Yes".red.inverse,
+            " (",
+            req.headers.applicationid,
+            role,
+            ")"
+          );
+        }
+      }
+    } else {
+      console.log(
+        "Error : Wizard tag missing".red.inverse,
+        " (",
+        req.headers.applicationid,
+        role,
+        ")"
+      );
+    }
+  }
+  console.log("-------------------------------------------------------------");
+
+  //     for (let k = 0; k < config["Controls"].length; k++) {
+  //   }
 
   for (let r = 0; r < AppRoles.length; r++) {
     role = AppRoles[r]["role"];
