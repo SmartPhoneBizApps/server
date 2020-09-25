@@ -108,7 +108,92 @@
       }
     }
   ],
-  "DButtons": [],
+  "DButtons": [
+    {
+      "type": "WORKFLOW",
+      "name": "Submit",
+      "icon": "sap-icon://decline",
+      "Dialog": [
+        {
+          "label": "Submit Comment",
+          "name": "ProgressComment",
+          "type": "string",
+          "option": "Optional"
+        }
+      ],
+      "transferFields": [
+        { "field": "ID", "value": "@recorddata" },
+        { "field": "Status", "value": "Submitted" },
+        { "field": "ProgressComment", "value": "@UserInput" }
+      ],
+      "URL": "datarecords/",
+      "Token": "Yes",
+      "URLMethod": "PUT"
+    },
+    {
+      "type": "WORKFLOW",
+      "name": "Cancel",
+      "icon": "sap-icon://decline",
+      "Dialog": [
+        {
+          "label": "Cancellation Comment",
+          "name": "ProgressComment",
+          "type": "string",
+          "option": "Optional"
+        }
+      ],
+      "transferFields": [
+        { "field": "ID", "value": "@recorddata" },
+        { "field": "Status", "value": "Cancelled" },
+        { "field": "ProgressComment", "value": "@UserInput" }
+      ],
+      "URL": "datarecords/",
+      "Token": "Yes",
+      "URLMethod": "PUT"
+    },
+    {
+      "type": "WORKFLOW",
+      "name": "Submit",
+      "icon": "sap-icon://decline",
+      "Dialog": [
+        {
+          "label": "Submit Comment",
+          "name": "ProgressComment",
+          "type": "string",
+          "option": "Optional"
+        }
+      ],
+      "transferFields": [
+        { "field": "ID", "value": "@recorddata" },
+        { "field": "Status", "value": "Submitted" },
+        { "field": "ProgressComment", "value": "@UserInput" }
+      ],
+      "URL": "datarecords/",
+      "Token": "Yes",
+      "URLMethod": "PUT"
+    },
+    {
+      "type": "WORKFLOW",
+      "name": "Replied",
+      "icon": "sap-icon://reply",
+      "Dialog": [
+        {
+          "label": "Reply",
+          "name": "ProgressComment",
+          "type": "string",
+          "option": "Optional"
+        }
+      ],
+      "transferFields": [
+        { "field": "ID", "value": "@recorddata" },
+        { "field": "Status", "value": "Replied" },
+        { "field": "ProgressComment", "value": "@UserInput" }
+      ],
+      "URL": "datarecords/",
+      "Token": "Yes",
+      "URLMethod": "PUT"
+    }
+  ],
   "Tabs": [
     {
       "value": "Tab0",
@@ -233,7 +318,7 @@
       "type": "string",
       "width": "20",
       "Option": "Mandatory",
-      "adaptiveCard": "Main",
+      "adaptiveCard": "None",
       "SLabel": "Identification",
       "Update": "No"
     },
