@@ -30,15 +30,16 @@ exports.validateAppSetup = asyncHandler(async (req, res, next) => {
   let messages = [];
   let mStru = {};
 
-  //--------------------------------------
-  // 001 - Validation  - Check if Schema exists
-  //--------------------------------------
-  // Read mongo Schema
+  console.log("-------------------------------------------------------------");
+  console.log("--------                 APP                        ---------");
+  console.log("APP:", req.headers.applicationid);
+  console.log("-------------------------------------------------------------");
+
   let fn02 = "../../applicationJSON/" + req.headers.applicationid + ".json";
   var mongoDBSchema = require(fn02);
 
   if (!mongoDBSchema) {
-    console.log("ERROR: Application Schema missing");
+    console.log("ERROR: Application Schema missing".red.inverse);
     mStru["type"] = "error";
     mStru["number"] = "002";
     mStru[
@@ -46,17 +47,20 @@ exports.validateAppSetup = asyncHandler(async (req, res, next) => {
     ] = `Schema file missing for App: ${req.headers.applicationid}`;
     messages.push({ ...mStru });
     mStru = {};
+  } else{
+    console.log("SUCCESS:Schema found".green.inverse);
   }
 
   AppRoles = await getAppRoles(req.headers.applicationid);
 
   for (let r = 0; r < AppRoles.length; r++) {
-    console.log(AppRoles[r]["role"]);
     const role = AppRoles[r]["role"];
-    console.log("-----------------------------------------");
+    console.log("-------------------------------------------------------------");
+    console.log("--------                 APP - ROLE                 ---------");
     console.log("APP:", req.headers.applicationid);
     console.log("ROLE:", role);
-    console.log("-------- VALIDATION STARTS ---------");
+    console.log("-------------------------------------------------------------");
+
 
     //--------------------------------------
     // 002 - Validation  - Check if Config File Exists
@@ -81,6 +85,8 @@ exports.validateAppSetup = asyncHandler(async (req, res, next) => {
       ] = `Config file missing for App: ${req.headers.applicationid} & Role: ${role}`;
       messages.push({ ...mStru });
       mStru = {};
+    }else{
+      console.log("SUCCESS:Config File found".green.inverse);
     }
 
     console.log("-------- Tab Type and Field Type Validation ---------");
@@ -137,6 +143,9 @@ exports.validateAppSetup = asyncHandler(async (req, res, next) => {
               config["FieldDef"][m]["name"] ==
               config["DetailFields"][config["Tabs"][k]["value"]][0]
             ) {
+              if (config["FieldDef"][m]["type"] != undefined) {
+                console.log("Error...".red.inverse);
+              }
               console.log(
                 config["Tabs"][k]["type"],
                 " - ",
@@ -156,6 +165,9 @@ exports.validateAppSetup = asyncHandler(async (req, res, next) => {
               config["FieldDef"][m]["name"] ==
               config["DetailFields"][config["Tabs"][k]["value"]][0]
             ) {
+              if (config["FieldDef"][m]["type"] != undefined) {
+                console.log("Error...".red.inverse);
+              }
               console.log(
                 config["Tabs"][k]["type"],
                 " - ",
@@ -182,12 +194,12 @@ exports.validateAppSetup = asyncHandler(async (req, res, next) => {
     console.log("-------- Adaptive Card Setup ---------");
     for (let m = 0; m < config["FieldDef"].length; m++) {
       if (config["FieldDef"][m]["adaptiveCard"] == "Main") {
-        console.log("Main", " - ", config["FieldDef"][m]["name"]);
+        console.log("Main".cyan.inverse, " - ", config["FieldDef"][m]["name"]);
       }
     }
     for (let m = 0; m < config["FieldDef"].length; m++) {
       if (config["FieldDef"][m]["adaptiveCard"] == "Additional") {
-        console.log("Additional", " - ", config["FieldDef"][m]["name"]);
+        console.log("Additional".magenta.inverse, " - ", config["FieldDef"][m]["name"]);
       }
     }
     for (let m = 0; m < config["FieldDef"].length; m++) {
@@ -356,7 +368,7 @@ exports.validateAppSetup = asyncHandler(async (req, res, next) => {
         }
       }
       if (manField == false) {
-        console.log("Attn...".green.inverse);
+        console.log("Attn...".brown.inverse);
         if (schemaExclude.includes(def[c]["name"])) {
           console.log("Field Excluded: ", def[c]["name"]);
         } else {
