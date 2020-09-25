@@ -361,8 +361,10 @@ module.exports = {
                     );
                     btnx["type"] = "postBack";
                     btnx["title"] = agbtn["name"];
+                    // btnx["payload"] =
+                    //   action_var + "-" + agbtn["name"] + " " + oData["ID"];
                     btnx["payload"] =
-                      action_var + "-" + agbtn["name"] + " " + oData["ID"];
+                    action_var + "-" + "Status" + " " + element.Value + " " + oData["ID"];
                     btn1.push({ ...btnx });
                     btnx = {};
                   } else {

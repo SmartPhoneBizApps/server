@@ -169,7 +169,7 @@
     "None": ["ID"],
     "Tab1": ["YourName", "Email", "YourPhone", "Department", "YourBusiness"],
     "Tab2": ["Subject", "YourMessage", "ContactDate"],
-    "Tab4": ["Attachment"],
+    "Tab4": ["MultiAttachments"],
     "Tab5": ["ScreenShot"]
   },
   "listCards": [
@@ -217,7 +217,7 @@
       "type": "string",
       "width": "20",
       "Option": "Optional",
-      "adaptiveCard": "Additional",
+      "adaptiveCard": "None",
       "SLabel": "ReferenceID"
     },
     {
@@ -313,7 +313,7 @@
     },
     {
       "name": "ScreenShot",
-      "type": "attachment",
+      "type": "carouselImage",
       "metadata": "OnlyFileName",
       "width": "100",
       "Option": "Optional",
@@ -321,13 +321,14 @@
       "SLabel": "Screen Shot"
     },
     {
-      "name": "Attachment",
+      "name": "MultiAttachments",
       "type": "attachment",
       "metadata": "MultipleFields",
-      "width": "100",
+      "width": "200",
       "Option": "Optional",
-      "adaptiveCard": "Additional",
-      "SLabel": "Attachment"
+      "adaptiveCard": "None",
+      "SLabel": "MultiAttachments",
+      "LLabel": "MultiAttachments"
     }
   ],
   "itemData": "No",

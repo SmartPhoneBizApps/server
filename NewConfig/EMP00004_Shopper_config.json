@@ -195,15 +195,6 @@
       "download": "No"
     },
     {
-      "value": "Tab4",
-      "style": "SAP",
-      "update": "Yes",
-      "name": "Process Log",
-      "fioriicon": "step",
-      "type": "Chat",
-      "download": "No"
-    },
-    {
       "value": "Tab5",
       "style": "SAP",
       "update": "Yes",
@@ -235,7 +226,6 @@
       "ContactNo",
       "OtherInfo"
     ],
-    "Tab4": ["ProcessingLog"],
     "Tab3": ["iData"],
     "Tab5": ["MultiAttachments"]
   },
@@ -367,7 +357,7 @@
       "type": "string",
       "width": "20",
       "Option": "Optional",
-      "adaptiveCard": "Additional",
+      "adaptiveCard": "None",
       "SLabel": "ReferenceID"
     },
     {
@@ -461,15 +451,6 @@
       "adaptiveCard": "None",
       "SLabel": "ProgressComment",
       "LLabel": "ProgressComment"
-    },
-    {
-      "name": "ProcessingLog",
-      "type": "string",
-      "width": "1000",
-      "Option": "Optional",
-      "adaptiveCard": "Additional",
-      "SLabel": "Processing Log",
-      "LLabel": "Processing Log"
     },
     {
       "name": "Office",
@@ -914,6 +895,7 @@
     {
       "id": "Step3",
       "fields": [
+        { "name": "DelTo", "Mode": "Edit" },
         { "name": "Address", "Mode": "Edit" },
         { "name": "PostCode", "Mode": "Edit" },
         { "name": "ContactNo", "Mode": "Edit" },

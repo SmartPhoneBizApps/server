@@ -1,6 +1,12 @@
 var randomstring = require("randomstring");
 const asyncHandler = require("../../middleware/async");
-const { getPVConfig, getPVQuery } = require("../../modules/config");
+const {
+  getPVConfig,
+  getPVQuery,
+  getAppRoles,
+  getDateValues,
+  getInitialValues,
+} = require("../../modules/config");
 // @desc      Perform Encoding
 // @route     GET /api/v1/roles
 // @access    Public
@@ -16,40 +22,23 @@ exports.validateAppSetup = asyncHandler(async (req, res, next) => {
     "Partner",
     "buttons",
     "cardImage",
+    "ProgressComment",
+    "ReferenceID"
   ];
+
   DetailFieldsExclude = ["USP_Image", "USP_Role", "USP_Name"];
   let messages = [];
   let mStru = {};
 
-  // Read New Config File
-  /// Application Details..
   //--------------------------------------
-  // 001 - Validation  - Check if Config File Exists
-  //--------------------------------------
-  let fn01 =
-    "../../NewConfig/" +
-    req.headers.applicationid +
-    "_" +
-    req.headers.businessrole +
-    "_config.json";
-  var config = require(fn01);
-  if (!config) {
-    mStru["type"] = "error";
-    mStru["number"] = "001";
-    mStru[
-      "message"
-    ] = `Config file missing for App: ${req.headers.applicationid} & Role: ${req.headers.businessrole}`;
-    messages.push({ ...mStru });
-    mStru = {};
-  }
-  //--------------------------------------
-  // 002 - Validation  - Check if Schema exists
+  // 001 - Validation  - Check if Schema exists
   //--------------------------------------
   // Read mongo Schema
   let fn02 = "../../applicationJSON/" + req.headers.applicationid + ".json";
   var mongoDBSchema = require(fn02);
 
   if (!mongoDBSchema) {
+    console.log("ERROR: Application Schema missing");
     mStru["type"] = "error";
     mStru["number"] = "002";
     mStru[
@@ -58,20 +47,155 @@ exports.validateAppSetup = asyncHandler(async (req, res, next) => {
     messages.push({ ...mStru });
     mStru = {};
   }
-  //--------------------------------------
-  // 003 - Validation  - Model is missing
-  //--------------------------------------
-  // Read mongo Schema
-  let fn03 = "../../applicationJSON/" + req.headers.applicationid + ".json";
-  var tableModel = require(fn03);
 
-  if (!tableModel) {
-    mStru["type"] = "error";
-    mStru["number"] = "003";
-    mStru["message"] = `Model is missing for App: ${req.headers.applicationid}`;
-    messages.push({ ...mStru });
-    mStru = {};
-  }
+  AppRoles = await getAppRoles(req.headers.applicationid);
+
+  for (let r = 0; r < AppRoles.length; r++) {
+    console.log(AppRoles[r]["role"]);
+    const role = AppRoles[r]["role"];
+    console.log("-----------------------------------------");
+    console.log("APP:", req.headers.applicationid);
+    console.log("ROLE:", role);
+    console.log("-------- VALIDATION STARTS ---------");
+
+    //--------------------------------------
+    // 002 - Validation  - Check if Config File Exists
+    //--------------------------------------
+    var config = {};
+    let fn01 = "";
+
+    fn01 =
+      "../../NewConfig/" +
+      req.headers.applicationid +
+      "_" +
+      role +
+      "_config.json";
+
+    config = require(fn01);
+    if (!config) {
+      console.log("ERROR: Config file missing");
+      mStru["type"] = "error";
+      mStru["number"] = "001";
+      mStru[
+        "message"
+      ] = `Config file missing for App: ${req.headers.applicationid} & Role: ${role}`;
+      messages.push({ ...mStru });
+      mStru = {};
+    }
+
+    console.log("-------- Tab Type and Field Type Validation ---------");
+    for (let k = 0; k < config["Tabs"].length; k++) {
+      // "carouselImage"
+      if (config["Tabs"][k]["type"] == "carouselImage") {
+        if (config["DetailFields"].hasOwnProperty(config["Tabs"][k]["value"])) {
+          for (let m = 0; m < config["FieldDef"].length; m++) {
+            if (
+              config["FieldDef"][m]["name"] ==
+              config["DetailFields"][config["Tabs"][k]["value"]][0]
+            ) {
+              if (config["FieldDef"][m]["type"] != "carouselImage") {
+                console.log("Error...".red.inverse);
+              }
+              console.log(
+                config["Tabs"][k]["type"],
+                " - ",
+                config["DetailFields"][config["Tabs"][k]["value"]][0],
+                config["Tabs"][k]["value"],
+                config["FieldDef"][m]["type"]
+              );
+            }
+          }
+        }
+      }
+      // "MultiAttachments"
+      if (config["Tabs"][k]["type"] == "MultiAttachments") {
+        if (config["DetailFields"].hasOwnProperty(config["Tabs"][k]["value"])) {
+          for (let m = 0; m < config["FieldDef"].length; m++) {
+            if (
+              config["FieldDef"][m]["name"] ==
+              config["DetailFields"][config["Tabs"][k]["value"]][0]
+            ) {
+              if (config["FieldDef"][m]["type"] != "attachment") {
+                console.log("Error...".red.inverse);
+              }
+              console.log(
+                config["Tabs"][k]["type"],
+                " - ",
+                config["DetailFields"][config["Tabs"][k]["value"]][0],
+                config["Tabs"][k]["value"],
+                config["FieldDef"][m]["type"]
+              );
+            }
+          }
+        }
+      }
+      // "Charts"
+      if (config["Tabs"][k]["type"] == "Charts") {
+        if (config["DetailFields"].hasOwnProperty(config["Tabs"][k]["value"])) {
+          for (let m = 0; m < config["FieldDef"].length; m++) {
+            if (
+              config["FieldDef"][m]["name"] ==
+              config["DetailFields"][config["Tabs"][k]["value"]][0]
+            ) {
+              console.log(
+                config["Tabs"][k]["type"],
+                " - ",
+                config["DetailFields"][config["Tabs"][k]["value"]][0],
+                config["Tabs"][k]["value"],
+                config["FieldDef"][m]["type"]
+              );
+            }
+          }
+        }
+      }
+      // "Cards"
+      if (config["Tabs"][k]["type"] == "Cards") {
+        if (config["DetailFields"].hasOwnProperty(config["Tabs"][k]["value"])) {
+          for (let m = 0; m < config["FieldDef"].length; m++) {
+            if (
+              config["FieldDef"][m]["name"] ==
+              config["DetailFields"][config["Tabs"][k]["value"]][0]
+            ) {
+              console.log(
+                config["Tabs"][k]["type"],
+                " - ",
+                config["DetailFields"][config["Tabs"][k]["value"]][0],
+                config["Tabs"][k]["value"],
+                config["FieldDef"][m]["type"]
+              );
+            }
+          }
+        }
+      }
+      // "Field"
+      if ((config["Tabs"][k]["type"] = "Field")) {
+        if (config["DetailFields"].hasOwnProperty(config["Tabs"][k]["value"])) {
+          // console.log(
+          //   "Field - ",
+          //   config["DetailFields"][config["Tabs"][k]["value"]],
+          //   config["Tabs"][k]["value"]
+          // );
+        }
+      }
+    }
+
+    console.log("-------- Adaptive Card Setup ---------");
+    for (let m = 0; m < config["FieldDef"].length; m++) {
+      if (config["FieldDef"][m]["adaptiveCard"] == "Main") {
+        console.log("Main", " - ", config["FieldDef"][m]["name"]);
+      }
+    }
+    for (let m = 0; m < config["FieldDef"].length; m++) {
+      if (config["FieldDef"][m]["adaptiveCard"] == "Additional") {
+        console.log("Additional", " - ", config["FieldDef"][m]["name"]);
+      }
+    }
+    for (let m = 0; m < config["FieldDef"].length; m++) {
+      if (config["FieldDef"][m]["adaptiveCard"] == "None") {
+        console.log("None", " - ", config["FieldDef"][m]["name"]);
+      }
+    }
+
 
   //----------------------------------------------
   // 003A - Validation  - Model Vs Config (11*)
@@ -80,6 +204,12 @@ exports.validateAppSetup = asyncHandler(async (req, res, next) => {
     if (mongoDBSchema.hasOwnProperty(config["FieldDef"][a]["name"])) {
       //  console.log("Field Matched", config["FieldDef"][a]["name"]);
     } else {
+      console.log("Error...".red.inverse);
+      console.log(
+        config["FieldDef"][a]["name"],
+        " missing in Schema for ",
+        req.headers.applicationid
+      );
       mStru["type"] = "error";
       mStru["number"] = "11A";
       mStru[
@@ -89,6 +219,8 @@ exports.validateAppSetup = asyncHandler(async (req, res, next) => {
       mStru = {};
     }
   }
+
+
   //----------------------------------------------
   // 003B - Validation  - Model Vs Config (11*)
   //----------------------------------------------
@@ -113,14 +245,33 @@ exports.validateAppSetup = asyncHandler(async (req, res, next) => {
       mStru = {};
     }
   }
-  //----------------------------------------------
+
+  // Initial values
+  var ivalue = getInitialValues(
+    req.headers.applicationid,
+    role,
+    req.user
+  );
+  let ival_out = [];
+  let ival = {};
+  let out = {};
+  for (let i = 0; i < ivalue.length; i++) {
+    ival = {};
+    const element = ivalue[i];
+    ival = { ...element };
+    o_val = getDateValues(ival.Value);
+    ival.Value = o_val;
+    ival_out.push(ival);
+  }
+
+    //----------------------------------------------
   // 003B - Validation  - Possible Values (12*)
   //----------------------------------------------
   /// Possible values..
-  pvconfig1 = getPVConfig(req.headers.applicationid, req.headers.businessrole);
+  pvconfig1 = getPVConfig(req.headers.applicationid, role);
   qPV = getPVQuery(
     req.headers.applicationid,
-    req.headers.businessrole,
+    role,
     pvconfig1
   );
   let resPV = await qPV;
@@ -142,12 +293,17 @@ exports.validateAppSetup = asyncHandler(async (req, res, next) => {
       mStru = {};
     }
   }
-  //----------------------------------------------
+
+    //----------------------------------------------
   // 003B - Validation  - Table Validations.....
   //----------------------------------------------
   for (let a = 0; a < config["Tabs"].length; a++) {
     if (config["Tabs"][a]["type"] == "Field") {
       fieldArr = config["DetailFields"][config["Tabs"][a]["value"]];
+      if(fieldArr == undefined){
+        console.log("Error...".red.inverse);
+        console.log("Tab",config["Tabs"][a]["value"]);
+      }
       for (let r = 0; r < fieldArr.length; r++) {
         match = false;
         for (let y = 0; y < config["FieldDef"].length; y++) {
@@ -166,7 +322,7 @@ exports.validateAppSetup = asyncHandler(async (req, res, next) => {
         }
       }
 
-      console.log(fieldArr);
+      //      console.log(fieldArr);
     }
 
     if (config["Tabs"][a]["type"] == "Table") {
@@ -176,11 +332,8 @@ exports.validateAppSetup = asyncHandler(async (req, res, next) => {
       console.log(config["DetailFields"][config["Tabs"][a]["value"]][0]);
     }
   }
-  //----------------------------------------------
-  // 003B - Validation  - Table Validations.....
-  //----------------------------------------------
 
-  //----------------------------------------------
+    //----------------------------------------------
   // 003B - Validation  - Wizard Validations.....
   //----------------------------------------------
   // Check all Mandatory fields are in Wizard
@@ -203,6 +356,16 @@ exports.validateAppSetup = asyncHandler(async (req, res, next) => {
         }
       }
       if (manField == false) {
+        console.log("Attn...".green.inverse);
+        if (schemaExclude.includes(def[c]["name"])) {
+          console.log("Field Excluded: ", def[c]["name"]);
+        } else {
+          for (let a = 0; a < ival_out.length; a++) {
+            if (def[c]["name"] == ival_out[a]["Field"]) {
+              console.log("USer provided input for: ", ival_out[a]["Field"], ival_out[a]["Value"]);
+            }
+         }
+        }
         console.log("Mandatory Field not setup in Wizard", def[c]["name"]);
         mStru["type"] = "error";
         mStru["number"] = "wizard01";
@@ -224,6 +387,7 @@ exports.validateAppSetup = asyncHandler(async (req, res, next) => {
         }
       }
       if (matchField == false) {
+        console.log("Error...".red.inverse);
         console.log(
           "Wizard Field not setup",
           config["Wizard"][a]["fields"][b]["name"]
@@ -238,6 +402,35 @@ exports.validateAppSetup = asyncHandler(async (req, res, next) => {
       }
     }
   }
+  //XXX
+  }
+
+  // //--------------------------------------
+  // // 003 - Validation  - Model is missing
+  // //--------------------------------------
+  // // Read mongo Schema
+  // let fn03 = "../../applicationJSON/" + req.headers.applicationid + ".json";
+  // var tableModel = require(fn03);
+
+  // if (!tableModel) {
+  //   mStru["type"] = "error";
+  //   mStru["number"] = "003";
+  //   mStru["message"] = `Model is missing for App: ${req.headers.applicationid}`;
+  //   messages.push({ ...mStru });
+  //   mStru = {};
+  // }
+
+
+
+
+
+
+
+  //----------------------------------------------
+  // 003B - Validation  - Table Validations.....
+  //----------------------------------------------
+
+
 
   res.status(200).json({
     success: true,

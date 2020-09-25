@@ -49,22 +49,22 @@
   "MButtons": [],
   "DButtons": [],
   "Tabs": [
-{
-    "value": "Tab0",
-    "style": "SAP",
-    "update": "No",
-    "name": "Cards",
-    "type": "Cards",
-    "fioriicon": "responsive"
-  },
-  {
-    "value": "Tab20",
-    "style": "SAP",
-    "update": "No",
-    "name": "Charts",
-    "type": "Charts",
-    "fioriicon": "business-objects-experience"
-  },
+    {
+      "value": "Tab0",
+      "style": "SAP",
+      "update": "No",
+      "name": "Cards",
+      "type": "Cards",
+      "fioriicon": "responsive"
+    },
+    {
+      "value": "Tab20",
+      "style": "SAP",
+      "update": "No",
+      "name": "Charts",
+      "type": "Charts",
+      "fioriicon": "business-objects-experience"
+    },
     {
       "value": "Tab1",
       "style": "SAP",
@@ -126,7 +126,7 @@
     "headerImage": ["USP_Image"],
     "headerColorFields": ["Status"],
     "Tab0": ["data"],
-    "Tab20":["charts"],
+    "Tab20": ["charts"],
     "None": ["ID", "RequestDate"],
     "Tab1": [
       "RequestType",
@@ -170,8 +170,7 @@
     "Tab2": ["Attachment", "AdditionalInfo", "RejectReason"],
     "Tab3": ["Postcode1", "Address1"],
     "Tab4": ["Name", "ContactNo", "Email", "YourAddress"],
-    "Tab5": ["Question_Response"],
-    "Tab6": ["ProcessingLog"]
+    "Tab5": ["Question_Response"]
   },
   "ControlDisplay": {
     "ControlField": "RequestType",
@@ -190,8 +189,7 @@
             "Status",
             "RejectReason",
             "Approver",
-            "Question_Response",
-            "ProcessingLog"
+            "Question_Response"
           ]
         },
         { "BulkyCollection": ["CollectionItems", "ItemType", "Condition"] },
@@ -628,14 +626,6 @@
       "Option": "Optional",
       "SLabel": "Here Is Chat Details",
       "LLabel": "Question_Responce"
-    },
-    {
-      "name": "ProcessingLog",
-      "type": "string",
-      "width": "500",
-      "Option": "Optional",
-      "SLabel": "Processing Log",
-      "LLabel": "Processing Log"
     }
   ],
   "itemData": "No",

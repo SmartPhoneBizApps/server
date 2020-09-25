@@ -9,7 +9,6 @@ const {
   getNewConfig,
   createDocument,
   getApplication,
-  findAndUpdateItem,
   findOneUpdateData,
   findOneAppData,
   collectExceptionFields,
@@ -213,7 +212,6 @@ exports.addDataRecords = asyncHandler(async (req, res, next) => {
       }
     }
   }
-
   mydata = req.body;
   // Read Card Configuration for the Role (X1)
   if (req.headers.fieldnames == "X") {

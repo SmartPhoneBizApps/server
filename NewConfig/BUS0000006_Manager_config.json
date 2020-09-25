@@ -78,7 +78,50 @@
       "URL": "https://www.messenger.com/t/295020207695029"
     }
   ],
-  "DButtons": [],
+  "DButtons": [
+    {
+      "type": "WORKFLOW",
+      "name": "Investigation Completed",
+      "icon": "sap-icon://close-command-field",
+      "Dialog": [
+        {
+          "label": "Investigation Completion Comment",
+          "name": "ProgressComment",
+          "type": "string",
+          "option": "Optional"
+        }
+      ],
+      "transferFields": [
+        { "field": "ID", "value": "@recorddata" },
+        { "field": "Status", "value": "InvestigationCompleted" },
+        { "field": "ProgressComment", "value": "@UserInput" }
+      ],
+      "URL": "datarecords/",
+      "Token": "Yes",
+      "URLMethod": "PUT"
+    },
+    {
+      "type": "WORKFLOW",
+      "name": "UnderInvestigation",
+      "icon": "sap-icon://close-command-field",
+      "Dialog": [
+        {
+          "label": "Under Investigation Comment",
+          "name": "ProgressComment",
+          "type": "string",
+          "option": "Optional"
+        }
+      ],
+      "transferFields": [
+        { "field": "ID", "value": "@recorddata" },
+        { "field": "Status", "value": "UnderInvestigation" },
+        { "field": "ProgressComment", "value": "@UserInput" }
+      ],
+      "URL": "datarecords/",
+      "Token": "Yes",
+      "URLMethod": "PUT"
+    }
+  ],
   "Tabs": [
     {
       "value": "Tab0",
@@ -111,6 +154,28 @@
       "name": "Supervisor",
       "fioriicon": "group",
       "type": "Field"
+    },
+    {
+      "value": "Tab4",
+      "style": "SAP",
+      "update": "Yes",
+      "name": "Attachment",
+      "fioriicon": "attachment",
+      "type": "MultiAttachments",
+      "download": "No",
+      "docType": [
+        { "text": "HeaderAttachment", "state": "Information" },
+        { "text": "ItemAttachment", "state": "Success" }
+      ]
+    },
+    {
+      "value": "Tab5",
+      "style": "SAP",
+      "update": "Yes",
+      "name": "ScreenShots",
+      "type": "carouselImage",
+      "fioriicon": "contacts",
+      "download": "No"
     }
   ],
   "DetailFields": {
@@ -130,7 +195,9 @@
       "DescribeIncident",
       "AdditionalComments"
     ],
-    "Tab2": ["Supervisor", "SupervisorComment"]
+    "Tab2": ["Supervisor", "SupervisorComment"],
+    "Tab4": ["MultiAttachments"],
+    "Tab5": ["ScreenShot"]
   },
   "listCards": [
     {
@@ -177,7 +244,7 @@
       "type": "string",
       "width": "20",
       "Option": "Optional",
-      "adaptiveCard": "Additional",
+      "adaptiveCard": "None",
       "SLabel": "ReferenceID"
     },
     {
@@ -279,6 +346,25 @@
       "Option": "Optional",
       "adaptiveCard": "Additional",
       "SLabel": "Supervisor Comment"
+    },
+    {
+      "name": "ScreenShot",
+      "type": "carouselImage",
+      "metadata": "OnlyFileName",
+      "width": "100",
+      "Option": "Optional",
+      "adaptiveCard": "None",
+      "SLabel": "Screen Shot"
+    },
+    {
+      "name": "MultiAttachments",
+      "type": "attachment",
+      "metadata": "MultipleFields",
+      "width": "200",
+      "Option": "Optional",
+      "adaptiveCard": "None",
+      "SLabel": "MultiAttachments",
+      "LLabel": "MultiAttachments"
     }
   ],
   "itemData": "No",
@@ -295,73 +381,6 @@
     "ItemDetails": []
   },
   "CalculatedFields": {},
-  "Create": "Yes",
-  "Wizard": [
-    {
-      "id": "Step1",
-      "fields": [{ "name": "DateOfComplaint", "Mode": "Edit" }],
-      "name": "Complaint Details",
-      "stepType": "FieldList",
-      "intro": "Employee Complaint : Complaint Details"
-    },
-    {
-      "id": "Step2",
-      "fields": [
-        { "name": "DescribeIncident", "Mode": "Edit" },
-        { "name": "AdditionalComments", "Mode": "Edit" }
-      ],
-      "name": "Incident Details",
-      "stepType": "FieldList",
-      "intro": "Employee Complaint : Incident Details"
-    },
-    {
-      "id": "Step3",
-      "fields": [{ "name": "AgainstWhom", "Mode": "Edit" }],
-      "name": "Against Whom",
-      "stepType": "FieldList",
-      "intro": "Employee Complaint : Against Whom"
-    },
-    {
-      "id": "Step4",
-      "fields": [
-        { "name": "Supervisor", "Mode": "Edit" },
-        { "name": "SupervisorComment", "Mode": "Edit" }
-      ],
-      "name": "Supervisor",
-      "stepType": "FieldList",
-      "intro": "Employee Complaint : Supervisor"
-    },
-    {
-      "id": "Step5",
-      "fields": [
-        { "name": "Name", "Mode": "Edit" },
-        { "name": "Email", "Mode": "Edit" },
-        { "name": "Phone", "Mode": "Edit" }
-      ],
-      "name": "Contact Details",
-      "stepType": "FieldList",
-      "intro": "Employee Complaint : Contact Details"
-    },
-    {
-      "id": "Step6",
-      "fields": [{ "name": "MultiAttachments", "Mode": "Edit" }],
-      "name": "MultiAttachments",
-      "stepType": "Attachments",
-      "intro": "Documents and Files : Here you can upload documents, email attachments and files (Word, Powerpoint, Excel, PDF, Text etc..)",
-      "attachmentAttribute": {
-        "applicationid": "{applicationid}",
-        "businessrole": "{businessrole}",
-        "mode": "File",
-        "type": "NewUpload",
-        "text": "docType,Generic,Information"
-      }
-    },
-    {
-      "id": "Step7",
-      "fields": [{ "name": "Status", "Mode": "Edit" }],
-      "name": "Admin",
-      "stepType": "FieldList",
-      "intro": "Employee Complaint : Admin"
-    }
-  ]
+  "Create": "No",
+  "Wizard": []
 }

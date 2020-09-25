@@ -231,14 +231,6 @@
       "name": "Certifications",
       "type": "carouselImage",
       "fioriicon": "contacts"
-    },
-    {
-      "value": "Tab5",
-      "style": "SAP",
-      "update": "Yes",
-      "name": "Process Log",
-      "type": "ProcessingLog",
-      "fioriicon": "contacts"
     }
   ],
   "DetailFields": {
@@ -267,8 +259,7 @@
       "PostedDate"
     ],
     "Tab3": ["MultiAttachments"],
-    "Tab4": ["carouselImage"],
-    "Tab5": ["ProcessingLog"]
+    "Tab4": ["carouselImage"]
   },
   "ControlDisplay": {},
   "FieldDef": [
@@ -286,7 +277,7 @@
       "type": "string",
       "width": "20",
       "Option": "Optional",
-      "adaptiveCard": "Additional",
+      "adaptiveCard": "None",
       "SLabel": "ReferenceID"
     },
     {
@@ -497,15 +488,6 @@
       "adaptiveCard": "Additional",
       "SLabel": "Certificates",
       "LLabel": "Certificates"
-    },
-    {
-      "name": "ProcessingLog",
-      "type": "string",
-      "width": "200",
-      "Option": "Optional",
-      "adaptiveCard": "Additional",
-      "SLabel": "Processing Log",
-      "LLabel": "Processing Log"
     },
     {
       "name": "USP_Role",

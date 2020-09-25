@@ -208,8 +208,7 @@
         "Fields": ["EmployeeID", "Name"]
       }
     ],
-    "Tab2": ["ProjectNeed", "Cost", "CostCentre"],
-    "Tab3": ["ProcessingLog"]
+    "Tab2": ["ProjectNeed", "Cost", "CostCentre"]
   },
   "listCards": [
     {
@@ -281,7 +280,7 @@
       "type": "string",
       "width": "20",
       "Option": "Optional",
-      "adaptiveCard": "Additional",
+      "adaptiveCard": "None",
       "SLabel": "ReferenceID"
     },
     {
@@ -429,15 +428,6 @@
       "adaptiveCard": "None",
       "SLabel": "Search String",
       "LLabel": "Search String"
-    },
-    {
-      "name": "ProcessingLog",
-      "type": "string",
-      "width": "1000",
-      "Option": "Optional",
-      "adaptiveCard": "Additional",
-      "SLabel": "Processing Log",
-      "LLabel": "Processing Log"
     }
   ],
   "itemData": "No",
@@ -503,6 +493,7 @@
       "id": "Step3",
       "fields": [
         { "name": "CostCentre", "Mode": "Edit" },
+        { "name": "ProjectCode", "Mode": "Edit" },
         { "name": "Cost", "Mode": "Edit" },
         { "name": "Justification", "Mode": "Edit" }
       ],

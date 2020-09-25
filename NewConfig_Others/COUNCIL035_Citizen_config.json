@@ -65,22 +65,22 @@
     { "type": "ADD", "name": "Add Record", "icon": "sap-icon://add" }
   ],
   "Tabs": [
-{
-    "value": "Tab0",
-    "style": "SAP",
-    "update": "No",
-    "name": "Cards",
-    "type": "Cards",
-    "fioriicon": "responsive"
-  },
-  {
-    "value": "Tab20",
-    "style": "SAP",
-    "update": "No",
-    "name": "Charts",
-    "type": "Charts",
-    "fioriicon": "business-objects-experience"
-  },
+    {
+      "value": "Tab0",
+      "style": "SAP",
+      "update": "No",
+      "name": "Cards",
+      "type": "Cards",
+      "fioriicon": "responsive"
+    },
+    {
+      "value": "Tab20",
+      "style": "SAP",
+      "update": "No",
+      "name": "Charts",
+      "type": "Charts",
+      "fioriicon": "business-objects-experience"
+    },
     {
       "value": "Tab1",
       "style": "SAP",
@@ -133,7 +133,7 @@
     "headerImage": ["USP_Image"],
     "headerColorFields": ["Status"],
     "Tab0": ["data"],
-    "Tab20":["charts"],
+    "Tab20": ["charts"],
     "None": ["ID", "ApplicationDate"],
     "Tab1": [
       "RegisterFor",
@@ -173,8 +173,7 @@
       "GroomFatherName"
     ],
     "Tab3": ["Name", "ContactNo", "Email", "Address", "Postcode"],
-    "Tab4": ["Question_Response"],
-    "Tab5": ["ProcessingLog"]
+    "Tab4": ["Question_Response"]
   },
   "ControlDisplay": {
     "ControlField": "RegisterFor",
@@ -192,8 +191,7 @@
             "RegisterFor",
             "Status",
             "Approver",
-            "Question_Response",
-            "ProcessingLog"
+            "Question_Response"
           ]
         },
         {
@@ -604,14 +602,6 @@
       "Option": "Optional",
       "SLabel": "Here Is Chat Details",
       "LLabel": "Question_Response"
-    },
-    {
-      "name": "ProcessingLog",
-      "type": "string",
-      "width": "500",
-      "Option": "Optional",
-      "SLabel": "Processing Log",
-      "LLabel": "Processing Log"
     }
   ],
   "itemData": "No",

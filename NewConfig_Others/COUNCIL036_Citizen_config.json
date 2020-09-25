@@ -66,22 +66,22 @@
     { "type": "ADD", "name": "Add Record", "icon": "sap-icon://add" }
   ],
   "Tabs": [
-{
-    "value": "Tab0",
-    "style": "SAP",
-    "update": "No",
-    "name": "Cards",
-    "type": "Cards",
-    "fioriicon": "responsive"
-  },
-  {
-    "value": "Tab20",
-    "style": "SAP",
-    "update": "No",
-    "name": "Charts",
-    "type": "Charts",
-    "fioriicon": "business-objects-experience"
-  },
+    {
+      "value": "Tab0",
+      "style": "SAP",
+      "update": "No",
+      "name": "Cards",
+      "type": "Cards",
+      "fioriicon": "responsive"
+    },
+    {
+      "value": "Tab20",
+      "style": "SAP",
+      "update": "No",
+      "name": "Charts",
+      "type": "Charts",
+      "fioriicon": "business-objects-experience"
+    },
     {
       "value": "Tab1",
       "style": "SAP",
@@ -134,7 +134,7 @@
     "headerImage": ["USP_Image"],
     "headerColorFields": ["Status"],
     "Tab0": ["data"],
-    "Tab20":["charts"],
+    "Tab20": ["charts"],
     "None": ["ID", "BookingFor", "ApplicationDate", "Approver"],
     "Tab1": [
       "ParticipantLastName",
@@ -153,8 +153,7 @@
       "PreferredTime",
       "PreferredCenter"
     ],
-    "Tab4": ["Question_Response"],
-    "Tab5": ["ProcessingLog"]
+    "Tab4": ["Question_Response"]
   },
   "ControlDisplay": {},
   "FieldDef": [
@@ -368,14 +367,6 @@
       "Option": "Optional",
       "SLabel": "Here Is Chat Details",
       "LLabel": "Question_Response"
-    },
-    {
-      "name": "ProcessingLog",
-      "type": "string",
-      "width": "500",
-      "Option": "Optional",
-      "SLabel": "Processing Log",
-      "LLabel": "Processing Log"
     }
   ],
   "itemData": "No",

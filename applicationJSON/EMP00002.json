@@ -50,10 +50,6 @@
     "type": "String",
     "maxlength": [50, "TravelMode can not be more than 50 characters"]
   },
-  "ProcessingLog": {
-    "type": "String",
-    "maxlength": [1000, "ProcessingLog can not be more than 1000 characters"]
-  },
   "AdditionalInfo": {
     "type": "String",
     "maxlength": [500, "AdditionalInfo can not be more than 500 characters"]
@@ -62,7 +58,10 @@
     "type": "String",
     "maxlength": [500, "StayDetails can not be more than 500 characters"]
   },
-
+  "ProjectCode": {
+    "type": "String",
+    "maxlength": [200, "ProjectCode can not be more than 200 characters"]
+  },
   "TotalAmount": {
     "type": "Number",
     "maxlength": [20, "TotalAmount can not be more than 20 characters"],

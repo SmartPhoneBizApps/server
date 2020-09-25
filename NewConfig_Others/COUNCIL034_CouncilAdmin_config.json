@@ -46,22 +46,22 @@
   "MButtons": [],
   "DButtons": [],
   "Tabs": [
-{
-    "value": "Tab0",
-    "style": "SAP",
-    "update": "No",
-    "name": "Cards",
-    "type": "Cards",
-    "fioriicon": "responsive"
-  },
-  {
-    "value": "Tab20",
-    "style": "SAP",
-    "update": "No",
-    "name": "Charts",
-    "type": "Charts",
-    "fioriicon": "business-objects-experience"
-  },
+    {
+      "value": "Tab0",
+      "style": "SAP",
+      "update": "No",
+      "name": "Cards",
+      "type": "Cards",
+      "fioriicon": "responsive"
+    },
+    {
+      "value": "Tab20",
+      "style": "SAP",
+      "update": "No",
+      "name": "Charts",
+      "type": "Charts",
+      "fioriicon": "business-objects-experience"
+    },
     {
       "value": "Tab1",
       "style": "SAP",
@@ -123,7 +123,7 @@
     "headerImage": ["USP_Image"],
     "headerColorFields": ["Status"],
     "Tab0": ["data"],
-    "Tab20":["charts"],
+    "Tab20": ["charts"],
     "None": ["ID", "ReportDate"],
     "Tab1": [
       "InfoAbout",
@@ -204,8 +204,7 @@
       "PAddress"
     ],
     "Tab4": ["Name", "ContactNo", "Email", "YourAddress"],
-    "Tab5": ["Question_Response"],
-    "Tab6": ["ProcessingLog"]
+    "Tab5": ["Question_Response"]
   },
   "ControlDisplay": {
     "ControlField": "InfoAbout",
@@ -224,7 +223,6 @@
             "Status",
             "BriefDetails",
             "Approver",
-            "ProcessingLog",
             "Question_Response"
           ]
         },
@@ -975,14 +973,6 @@
       "Option": "Optional",
       "SLabel": "Approver",
       "LLabel": "Approver"
-    },
-    {
-      "name": "ProcessingLog",
-      "type": "string",
-      "width": "1000",
-      "Option": "Optional",
-      "SLabel": "Processing Log",
-      "LLabel": "Processing Log"
     },
     {
       "name": "Question_Response",

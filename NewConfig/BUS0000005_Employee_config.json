@@ -1,8 +1,5 @@
 {
-  "Title": {
-    "ApplicationTitle": "Employee Complaint",
-    "DetailTitle": "Employee Complaint"
-  },
+  "Title": { "ApplicationTitle": "Contact Us", "DetailTitle": "Contact Us" },
   "Controls": {
     "style": "SAP",
     "calculation": "No",
@@ -17,26 +14,24 @@
     "Source": { "SourceName": "mongoDB", "SourceFile": "NA" },
 
     "filterFields": {
-      "header": ["Status", "DateOfComplaint", "Supervisor"]
+      "header": ["Status", "Department", "ContactDate"]
     }
   },
 
   "ListFields": {
-    "IntroField": "Email",
-    "TitleField": "Name",
-    "sStatus": "Status",
-    "fStatus": "",
-    "numberField": "",
-    "LFields": ["AgainstWhom", "DateOfComplaint", "Phone"],
-    "numberUnitField": ""
+    "IntroField": "YourBusiness",
+    "TitleField": "YourName",
+    "sStatus": "Subject",
+    "fStatus": "Status",
+    "LFields": ["ID", "Email"]
   },
   "ListBOTFields": {
     "None": ["cardImage", "StatusState"],
-    "Title": ["Name", "Email"],
-    "SubTitle": ["Status"],
-    "Description": ["AgainstWhom", "DateOfComplaint", "Phone"]
+    "Title": ["YourBusiness"],
+    "SubTitle": ["YourName", "Subject"],
+    "Description": ["Status", "ID", "Email"]
   },
-  "PossibleValues": ["Status"],
+  "PossibleValues": ["Status", "Department"],
   "MButtons": [
     {
       "type": "DOWNLOAD",
@@ -45,15 +40,14 @@
       "downloadFields": [
         "ID",
         "Status",
-        "Name",
+        "YourName",
         "Email",
-        "Phone",
-        "DateOfComplaint",
-        "AgainstWhom",
-        "DescribeIncident",
-        "AdditionalComments",
-        "Supervisor",
-        "SupervisorComment"
+        "YourPhone",
+        "Department",
+        "YourBusiness",
+        "Subject",
+        "YourMessage",
+        "ContactDate"
       ]
     },
     {
@@ -66,16 +60,34 @@
       "name": "Launch BOT",
       "icon": "sap-icon://travel-request",
       "URL": "https://www.messenger.com/t/295020207695029"
+    },
+
+    { "type": "ADD", "name": "Add Record", "icon": "sap-icon://add" },
+    {
+      "type": "UPLOAD",
+      "name": "Upload Record",
+      "icon": "sap-icon://upload",
+      "Option": ["Header"],
+      "ItemOptions": [],
+      "URL": "datarecords/",
+      "URLMethodHDR": "POST",
+      "URLMethodTable": "PUT",
+      "dataFields": "FieldName",
+      "key": {
+        "ID": "External",
+        "generateID": [],
+        "seperator": "-"
+      }
     }
   ],
   "DButtons": [
     {
       "type": "WORKFLOW",
-      "name": "Investigation Completed",
-      "icon": "sap-icon://close-command-field",
+      "name": "Cancel",
+      "icon": "sap-icon://decline",
       "Dialog": [
         {
-          "label": "Investigation Completion Comment",
+          "label": "Cancellation Comment",
           "name": "ProgressComment",
           "type": "string",
           "option": "Optional"
@@ -83,28 +95,7 @@
       ],
       "transferFields": [
         { "field": "ID", "value": "@recorddata" },
-        { "field": "Status", "value": "InvestigationCompleted" },
-        { "field": "ProgressComment", "value": "@UserInput" }
-      ],
-      "URL": "datarecords/",
-      "Token": "Yes",
-      "URLMethod": "PUT"
-    },
-    {
-      "type": "WORKFLOW",
-      "name": "UnderInvestigation",
-      "icon": "sap-icon://close-command-field",
-      "Dialog": [
-        {
-          "label": "Under Investigation Comment",
-          "name": "ProgressComment",
-          "type": "string",
-          "option": "Optional"
-        }
-      ],
-      "transferFields": [
-        { "field": "ID", "value": "@recorddata" },
-        { "field": "Status", "value": "UnderInvestigation" },
+        { "field": "Status", "value": "Cancelled" },
         { "field": "ProgressComment", "value": "@UserInput" }
       ],
       "URL": "datarecords/",
@@ -130,19 +121,19 @@
       "fioriicon": "business-objects-experience"
     },
     {
-      "value": "Tab1",
-      "style": "SAP",
-      "update": "Yes",
-      "name": "Complaint",
-      "fioriicon": "warning2",
-      "type": "Field"
-    },
-    {
       "value": "Tab2",
       "style": "SAP",
       "update": "Yes",
-      "name": "Supervisor",
-      "fioriicon": "group",
+      "name": "YourMessage",
+      "fioriicon": "message-popup",
+      "type": "Field"
+    },
+    {
+      "value": "Tab1",
+      "style": "SAP",
+      "update": "Yes",
+      "name": "AboutYou",
+      "fioriicon": "employee",
       "type": "Field"
     },
     {
@@ -176,16 +167,8 @@
     "Tab0": ["data"],
     "Tab20": ["charts"],
     "None": ["ID"],
-    "Tab1": [
-      "Name",
-      "Email",
-      "Phone",
-      "DateOfComplaint",
-      "AgainstWhom",
-      "DescribeIncident",
-      "AdditionalComments"
-    ],
-    "Tab2": ["Supervisor", "SupervisorComment"],
+    "Tab1": ["YourName", "Email", "YourPhone", "Department", "YourBusiness"],
+    "Tab2": ["Subject", "YourMessage", "ContactDate"],
     "Tab4": ["MultiAttachments"],
     "Tab5": ["ScreenShot"]
   },
@@ -193,8 +176,8 @@
     {
       "cardType": "Analytical",
       "cardsubType": "StackedBar",
-      "title": "Employee Complaint",
-      "subtitle": "Employee Complaint",
+      "title": "Contact Us",
+      "subtitle": "Contact Us",
       "unitOfMeasurement": "Count",
       "Data": {
         "dimension": "Status",
@@ -265,77 +248,68 @@
       "LLabel": "ProgressComment"
     },
     {
-      "name": "Name",
+      "name": "YourName",
       "type": "string",
       "width": "50",
       "Option": "Optional",
-      "adaptiveCard": "Additional",
-      "SLabel": "Name"
+      "adaptiveCard": "Main",
+      "SLabel": "Your Name"
     },
     {
       "name": "Email",
       "type": "string",
-      "width": "100",
-      "Option": "Mandatory",
+      "width": "50",
+      "Option": "Optional",
       "adaptiveCard": "Main",
-      "SLabel": "Email",
-      "LLabel": "Email"
+      "SLabel": "Your Email"
     },
     {
-      "name": "Phone",
+      "name": "YourPhone",
       "type": "string",
       "width": "20",
       "Option": "Optional",
-      "adaptiveCard": "Additional",
-      "SLabel": "Phone"
+      "adaptiveCard": "Main",
+      "SLabel": "Your Phone"
     },
     {
-      "name": "DateOfComplaint",
-      "type": "Date",
-      "width": "10",
-      "Option": "Optional",
-      "adaptiveCard": "Additional",
-      "SLabel": "Date Of Complaint"
-    },
-    {
-      "name": "Supervisor",
+      "name": "Department",
       "type": "string",
       "width": "50",
       "Option": "Optional",
       "adaptiveCard": "Additional",
-      "SLabel": "Supervisor"
+      "SLabel": "Your Department"
     },
     {
-      "name": "AgainstWhom",
+      "name": "YourBusiness",
+      "type": "string",
+      "width": "50",
+      "Option": "Optional",
+      "adaptiveCard": "Additional",
+      "SLabel": "Your Business"
+    },
+    {
+      "name": "Subject",
       "type": "string",
       "width": "100",
       "Option": "Optional",
-      "adaptiveCard": "Additional",
-      "SLabel": "Against Whom"
+      "adaptiveCard": "Main",
+      "SLabel": "Subject"
     },
     {
-      "name": "DescribeIncident",
+      "name": "YourMessage",
       "type": "string",
-      "width": "200",
+      "width": "1000",
       "Option": "Optional",
-      "adaptiveCard": "Additional",
-      "SLabel": "Describe Incident"
+      "adaptiveCard": "Main",
+      "SLabel": "Your Message"
     },
     {
-      "name": "AdditionalComments",
-      "type": "string",
-      "width": "500",
+      "name": "ContactDate",
+      "type": "Date",
+      "width": "10",
       "Option": "Optional",
       "adaptiveCard": "Additional",
-      "SLabel": "Additional Comments"
-    },
-    {
-      "name": "SupervisorComment",
-      "type": "string",
-      "width": "500",
-      "Option": "Optional",
-      "adaptiveCard": "Additional",
-      "SLabel": "Supervisor Comment"
+      "SLabel": "Contact Date"
     },
     {
       "name": "ScreenShot",
@@ -371,6 +345,58 @@
     "ItemDetails": []
   },
   "CalculatedFields": {},
-  "Create": "No",
-  "Wizard": []
+  "Create": "Yes",
+  "Wizard": [
+    {
+      "id": "Step1",
+      "fields": [
+        { "name": "Subject", "Mode": "Edit" },
+        { "name": "YourMessage", "Mode": "Edit" },
+        { "name": "ContactDate", "Mode": "Edit" }
+      ],
+      "name": "Message",
+      "stepType": "FieldList",
+      "intro": "Contact Us : Message"
+    },
+    {
+      "id": "Step2",
+      "fields": [
+        { "name": "YourPhone", "Mode": "Edit" },
+        { "name": "Email", "Mode": "Edit" },
+        { "name": "YourBusiness", "Mode": "Edit" },
+        { "name": "Department", "Mode": "Edit" }
+      ],
+      "name": "Personnel Details",
+      "stepType": "FieldList",
+      "intro": "Contact Us : Personnel Details"
+    },
+    {
+      "id": "Step3",
+      "fields": [{ "name": "YourName", "Mode": "Edit" }],
+      "name": "Contact Details",
+      "stepType": "FieldList",
+      "intro": "Contact Us : Contact Details"
+    },
+    {
+      "id": "Step4",
+      "fields": [{ "name": "MultiAttachments", "Mode": "Edit" }],
+      "name": "MultiAttachments",
+      "stepType": "Attachments",
+      "intro": "Documents and Files : Here you can upload documents, email attachments and files (Word, Powerpoint, Excel, PDF, Text etc..)",
+      "attachmentAttribute": {
+        "applicationid": "{applicationid}",
+        "businessrole": "{businessrole}",
+        "mode": "File",
+        "type": "NewUpload",
+        "text": "docType,Generic,Information"
+      }
+    },
+    {
+      "id": "Step5",
+      "fields": [{ "name": "Status", "Mode": "Edit" }],
+      "name": "Admin",
+      "stepType": "FieldList",
+      "intro": "Contact Us : Admin"
+    }
+  ]
 }

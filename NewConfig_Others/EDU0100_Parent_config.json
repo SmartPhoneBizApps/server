@@ -63,22 +63,22 @@
     { "type": "ADD", "name": "Add Record", "icon": "sap-icon://add" }
   ],
   "Tabs": [
-{
-    "value": "Tab0",
-    "style": "SAP",
-    "update": "No",
-    "name": "Cards",
-    "type": "Cards",
-    "fioriicon": "responsive"
-  },
-  {
-    "value": "Tab20",
-    "style": "SAP",
-    "update": "No",
-    "name": "Charts",
-    "type": "Charts",
-    "fioriicon": "business-objects-experience"
-  },
+    {
+      "value": "Tab0",
+      "style": "SAP",
+      "update": "No",
+      "name": "Cards",
+      "type": "Cards",
+      "fioriicon": "responsive"
+    },
+    {
+      "value": "Tab20",
+      "style": "SAP",
+      "update": "No",
+      "name": "Charts",
+      "type": "Charts",
+      "fioriicon": "business-objects-experience"
+    },
     {
       "value": "Tab1",
       "style": "SAP",
@@ -122,7 +122,7 @@
     "headerImage": ["USP_Image"],
     "headerColorFields": ["Status"],
     "Tab0": ["data"],
-    "Tab20":["charts"],
+    "Tab20": ["charts"],
     "None": ["ID", "RequestFor", "Status"],
     "Tab1": [
       "StudentName",
@@ -161,8 +161,7 @@
       "LeaveDays",
       "LeaveReason"
     ],
-    "Tab3": ["Question_Response"],
-    "Tab4": ["ProcessingLog"]
+    "Tab3": ["Question_Response"]
   },
   "ControlDisplay": {
     "ControlField": "RequestFor",
@@ -179,8 +178,7 @@
             "Question_Response",
             "AnyComment",
             "RequestDate",
-            "ParentEmail",
-            "ProcessingLog"
+            "ParentEmail"
           ]
         },
         { "BusRequest": ["RequiredDate"] },
@@ -538,14 +536,6 @@
       "Option": "Optional",
       "SLabel": "Parent Email",
       "LLabel": "ParentEmail"
-    },
-    {
-      "name": "ProcessingLog",
-      "type": "string",
-      "width": "500",
-      "Option": "Optional",
-      "SLabel": "Processing Log",
-      "LLabel": "ProcessingLog"
     }
   ],
   "itemData": "No",

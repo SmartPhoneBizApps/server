@@ -62,22 +62,22 @@
     { "type": "ADD", "name": "Add Record", "icon": "sap-icon://add" }
   ],
   "Tabs": [
-{
-    "value": "Tab0",
-    "style": "SAP",
-    "update": "No",
-    "name": "Cards",
-    "type": "Cards",
-    "fioriicon": "responsive"
-  },
-  {
-    "value": "Tab20",
-    "style": "SAP",
-    "update": "No",
-    "name": "Charts",
-    "type": "Charts",
-    "fioriicon": "business-objects-experience"
-  },
+    {
+      "value": "Tab0",
+      "style": "SAP",
+      "update": "No",
+      "name": "Cards",
+      "type": "Cards",
+      "fioriicon": "responsive"
+    },
+    {
+      "value": "Tab20",
+      "style": "SAP",
+      "update": "No",
+      "name": "Charts",
+      "type": "Charts",
+      "fioriicon": "business-objects-experience"
+    },
     {
       "value": "Tab1",
       "style": "SAP",
@@ -121,7 +121,7 @@
     "headerImage": ["USP_Image"],
     "headerColorFields": ["Status"],
     "Tab0": ["data"],
-    "Tab20":["charts"],
+    "Tab20": ["charts"],
     "None": ["ID"],
     "Tab1": [
       "StudentName",
@@ -150,8 +150,7 @@
       "ParentConsent",
       "Comment"
     ],
-    "Tab3": ["Question_Response"],
-    "Tab4": ["ProcessingLog"]
+    "Tab3": ["Question_Response"]
   },
   "ControlDisplay": {
     "ControlField": "BookingFor",
@@ -171,8 +170,7 @@
             "Question_Response",
             "ParentName",
             "PhoneNumber",
-            "ParentEmail",
-            "ProcessingLog"
+            "ParentEmail"
           ]
         },
         {
@@ -430,14 +428,6 @@
       "Option": "Mandatory",
       "SLabel": "Parent Email",
       "LLabel": "ParentEmail"
-    },
-    {
-      "name": "ProcessingLog",
-      "type": "string",
-      "width": "500",
-      "Option": "Optional",
-      "SLabel": "Processing Log",
-      "LLabel": "ProcessingLog"
     }
   ],
   "itemData": "No",
