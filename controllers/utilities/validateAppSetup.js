@@ -100,7 +100,7 @@ exports.validateAppSetup = asyncHandler(async (req, res, next) => {
 
     // Filter Checks...
     if (config["Controls"]["Filters"] != undefined) {
-      if (config["Controls"]["Create"] == "Yes") {
+      if (config["Create"] == "Yes") {
         console.log(
           "Filters : ".green.inverse,
           config["Controls"]["Filters"],
@@ -136,7 +136,7 @@ exports.validateAppSetup = asyncHandler(async (req, res, next) => {
     // Filter Checks...
     if (config["Wizard"] != undefined) {
       if (config["Wizard"].length > 0) {
-        if (config["Controls"]["Create"] == "No") {
+        if (config["Create"] == "No") {
           console.log(
             "Error : With Wizard create should be Yes".red.inverse,
             " (",
@@ -154,7 +154,7 @@ exports.validateAppSetup = asyncHandler(async (req, res, next) => {
           );
         }
       } else {
-        if (config["Controls"]["Create"] == "No") {
+        if (config["Create"] == "No") {
           console.log(
             "Info : Wizard not requird".cyan.inverse,
             " (",
@@ -162,7 +162,7 @@ exports.validateAppSetup = asyncHandler(async (req, res, next) => {
             role,
             ")"
           );
-        } else if (config["Controls"]["Create"] == "Yes") {
+        } else if (config["Create"] == "Yes") {
           console.log(
             "Error : Pls setup Wizard for Create = Yes".red.inverse,
             " (",

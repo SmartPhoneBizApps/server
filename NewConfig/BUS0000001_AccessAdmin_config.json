@@ -9,7 +9,7 @@
     "USP": "UserProfile",
     "StatusColor": "Yes",
     "SearchString": { "Search": false },
-    "Filters": [{ "Partner": "@user" }],
+    "Filters": [],
     "Partner": "@user",
     "UserSpecific": "Yes",
     "Update": "Yes",
@@ -65,34 +65,16 @@
       "name": "Launch BOT",
       "icon": "sap-icon://travel-request",
       "URL": "https://www.messenger.com/t/295020207695029"
-    },
-
-    { "type": "ADD", "name": "Add Record", "icon": "sap-icon://add" },
-    {
-      "type": "UPLOAD",
-      "name": "Upload Record",
-      "icon": "sap-icon://upload",
-      "Option": ["Header"],
-      "ItemOptions": [],
-      "URL": "datarecords/",
-      "URLMethodHDR": "POST",
-      "URLMethodTable": "PUT",
-      "dataFields": "FieldName",
-      "key": {
-        "ID": "External",
-        "generateID": [],
-        "seperator": "-"
-      }
     }
   ],
   "DButtons": [
     {
       "type": "WORKFLOW",
-      "name": "Cancel",
-      "icon": "sap-icon://decline",
+      "name": "Resolved",
+      "icon": "sap-icon://sys-enter",
       "Dialog": [
         {
-          "label": "Cancellation Comment",
+          "label": "Resolution Comment",
           "name": "ProgressComment",
           "type": "string",
           "option": "Optional"
@@ -100,7 +82,49 @@
       ],
       "transferFields": [
         { "field": "ID", "value": "@recorddata" },
-        { "field": "Status", "value": "Cancelled" },
+        { "field": "Status", "value": "Resolved" },
+        { "field": "ProgressComment", "value": "@UserInput" }
+      ],
+      "URL": "datarecords/",
+      "Token": "Yes",
+      "URLMethod": "PUT"
+    },
+    {
+      "type": "WORKFLOW",
+      "name": "MoreInfo",
+      "icon": "sap-icon://decline",
+      "Dialog": [
+        {
+          "label": "More Info Required Comment",
+          "name": "ProgressComment",
+          "type": "string",
+          "option": "Optional"
+        }
+      ],
+      "transferFields": [
+        { "field": "ID", "value": "@recorddata" },
+        { "field": "Status", "value": "MoreInfo" },
+        { "field": "ProgressComment", "value": "@UserInput" }
+      ],
+      "URL": "datarecords/",
+      "Token": "Yes",
+      "URLMethod": "PUT"
+    },
+    {
+      "type": "WORKFLOW",
+      "name": "InProcess",
+      "icon": "sap-icon://drill-up",
+      "Dialog": [
+        {
+          "label": "In Progress Comment",
+          "name": "ProgressComment",
+          "type": "string",
+          "option": "Optional"
+        }
+      ],
+      "transferFields": [
+        { "field": "ID", "value": "@recorddata" },
+        { "field": "Status", "value": "InProcess" },
         { "field": "ProgressComment", "value": "@UserInput" }
       ],
       "URL": "datarecords/",
@@ -383,71 +407,7 @@
     "Item": [],
     "HeaderItem": [],
     "Header": []
-},
-  "Create": "Yes",
-  "Wizard": [
-    {
-      "id": "Step1",
-      "fields": [{ "name": "DescribeProblem", "Mode": "Edit" }],
-      "name": "Incident Details",
-      "stepType": "FieldList",
-      "intro": "IT Service Ticket : Details of the Problem"
-    },
-    {
-      "id": "Step2",
-      "fields": [{ "name": "EmployeeID", "Mode": "Display" }],
-      "name": "User Details",
-      "stepType": "FieldList",
-      "intro": "IT Service Ticket : Details of the Problem"
-    },
-    {
-      "id": "Step4",
-      "fields": [{ "name": "ComputerID", "Mode": "Edit" }],
-      "name": "Asset",
-      "stepType": "FieldList",
-      "intro": "IT Service Ticket : Details of the Asset where you are facing Problem"
-    },
-    {
-      "id": "Step5",
-      "fields": [
-        { "name": "Name", "Mode": "Display" },
-        { "name": "Email", "Mode": "Display" },
-        { "name": "Department", "Mode": "Display" }
-      ],
-      "name": "Contact Details",
-      "stepType": "FieldList",
-      "intro": "IT Service Ticket : Contact Details of user"
-    },
-    {
-      "id": "Step6",
-      "fields": [{ "name": "carouselImage", "Mode": "Edit" }],
-      "name": "Images and Attachment",
-      "stepType": "FieldList",
-      "intro": "Screenshots and Images : Here you can upload screenshots, images (jpg, png, etc..)"
-    },
-    {
-      "id": "Step7",
-      "fields": [{ "name": "MultiAttachments", "Mode": "Edit" }],
-      "name": "MultiAttachments",
-      "stepType": "Attachments",
-      "intro": "Documents and Files : Here you can upload documents, email attachments and files (Word, Powerpoint, Excel, PDF, Text etc..)",
-      "attachmentAttribute": {
-        "applicationid": "{applicationid}",
-        "businessrole": "{businessrole}",
-        "mode": "File",
-        "type": "NewUpload",
-        "text": "docType,Generic,Information"
-      }
-    },
-    {
-      "id": "Step8",
-      "fields": [
-        { "name": "Status", "Mode": "Display" },
-        { "name": "DateCreated", "Mode": "Display" }
-      ],
-      "name": "Admin",
-      "stepType": "FieldList",
-      "intro": "IT Service Ticket : Administrative information"
-    }
-  ]
+  },
+  "Create": "No",
+  "Wizard": []
 }

@@ -99,11 +99,11 @@
   "DButtons": [
     {
       "type": "WORKFLOW",
-      "name": "Submit",
-      "icon": "sap-icon://decline",
+      "name": "Payment Approved",
+      "icon": "sap-icon://accept",
       "Dialog": [
         {
-          "label": "Submit Comment",
+          "label": "PaymentApproved Comment",
           "name": "ProgressComment",
           "type": "string",
           "option": "Optional"
@@ -111,20 +111,21 @@
       ],
       "transferFields": [
         { "field": "ID", "value": "@recorddata" },
-        { "field": "Status", "value": "Submitted" },
+        { "field": "Status", "value": "PaymentApproved" },
         { "field": "ProgressComment", "value": "@UserInput" }
       ],
       "URL": "datarecords/",
       "Token": "Yes",
-      "URLMethod": "PUT"
+      "URLMethod": "PUT",
+      "hideRecord": "Yes"
     },
     {
       "type": "WORKFLOW",
-      "name": "Cancel",
+      "name": "PaymentRejected",
       "icon": "sap-icon://decline",
       "Dialog": [
         {
-          "label": "Cancellation Comment",
+          "label": "PaymentRejected Comment",
           "name": "ProgressComment",
           "type": "string",
           "option": "Optional"
@@ -132,20 +133,21 @@
       ],
       "transferFields": [
         { "field": "ID", "value": "@recorddata" },
-        { "field": "Status", "value": "Cancelled" },
+        { "field": "Status", "value": "PaymentRejected" },
         { "field": "ProgressComment", "value": "@UserInput" }
       ],
       "URL": "datarecords/",
       "Token": "Yes",
-      "URLMethod": "PUT"
+      "URLMethod": "PUT",
+      "hideRecord": "Yes"
     },
     {
       "type": "WORKFLOW",
-      "name": "Reply",
-      "icon": "sap-icon://decline",
+      "name": "APQuery",
+      "icon": "sap-icon://hint",
       "Dialog": [
         {
-          "label": "Reply Comment",
+          "label": "AP Query",
           "name": "ProgressComment",
           "type": "string",
           "option": "Optional"
@@ -153,12 +155,13 @@
       ],
       "transferFields": [
         { "field": "ID", "value": "@recorddata" },
-        { "field": "Status", "value": "Reply" },
+        { "field": "Status", "value": "APQuery" },
         { "field": "ProgressComment", "value": "@UserInput" }
       ],
       "URL": "datarecords/",
       "Token": "Yes",
-      "URLMethod": "PUT"
+      "URLMethod": "PUT",
+      "hideRecord": "Yes"
     }
   ],
   "Tabs": [

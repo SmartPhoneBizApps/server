@@ -10,7 +10,7 @@
     "USP": "UserProfile",
     "StatusColor": "Yes",
     "SearchString": { "Search": false },
-    "Filters": [{ "Partner": "@user" }],
+    "Filters": [{ "Email": "@user" }],
     "Partner": "@user",
     "UserSpecific": "Yes",
     "Update": "Yes",
@@ -208,7 +208,7 @@
         "Fields": ["EmployeeID", "Name"]
       }
     ],
-    "Tab2": ["ProjectNeed", "Cost", "CostCentre"]
+    "Tab2": ["ProjectNeed", "Cost", "CostCentre", "ProgressComment"]
   },
   "listCards": [
     {
@@ -312,7 +312,7 @@
       "type": "radiobutton",
       "width": "50",
       "Option": "Optional",
-      "adaptiveCard": "Additional",
+      "adaptiveCard": "Main",
       "SLabel": "Project Need"
     },
     {
@@ -320,7 +320,7 @@
       "type": "switch",
       "width": "50",
       "Option": "Optional",
-      "adaptiveCard": "Additional",
+      "adaptiveCard": "Main",
       "SLabel": "For Employee Development"
     },
     {
@@ -328,7 +328,7 @@
       "type": "radiobutton",
       "width": "50",
       "Option": "Optional",
-      "adaptiveCard": "Additional",
+      "adaptiveCard": "Main",
       "SLabel": "Training Area"
     },
     {
@@ -344,7 +344,7 @@
       "type": "string",
       "width": "50",
       "Option": "Optional",
-      "adaptiveCard": "Additional",
+      "adaptiveCard": "Main",
       "SLabel": "Duration"
     },
     {
@@ -352,7 +352,7 @@
       "type": "radiobutton",
       "width": "50",
       "Option": "Optional",
-      "adaptiveCard": "Additional",
+      "adaptiveCard": "Main",
       "SLabel": "External Training"
     },
     {
@@ -360,7 +360,7 @@
       "type": "string",
       "width": "50",
       "Option": "Optional",
-      "adaptiveCard": "Additional",
+      "adaptiveCard": "Main",
       "SLabel": "Training Cost",
       "Condition": [
         {
@@ -398,11 +398,18 @@
       "type": "string",
       "width": "1000",
       "Option": "Optional",
-      "adaptiveCard": "Additional",
+      "adaptiveCard": "None",
       "SLabel": "Progress Comment"
     },
 
-    { "name": "Status", "type": "string", "SLabel": "Status", "width": "50" },
+    {
+      "name": "Status",
+      "type": "string",
+      "width": "50",
+      "Option": "Mandatory",
+      "adaptiveCard": "Additional",
+      "SLabel": "Status"
+    },
     {
       "name": "SearchString",
       "type": "string",
@@ -417,7 +424,7 @@
       "type": "string",
       "width": "500",
       "Option": "Optional",
-      "adaptiveCard": "Additional",
+      "adaptiveCard": "Main",
       "SLabel": "Justification"
     },
     {
@@ -466,7 +473,7 @@
     "Item": [],
     "HeaderItem": [],
     "Header": []
-},
+  },
   "Create": "Yes",
   "Wizard": [
     {
