@@ -108,17 +108,17 @@ exports.validateAppSetup = asyncHandler(async (req, res, next) => {
           req.headers.applicationid,
           role,
           ")",
-          "Create - Yes"
+          "Create - Yes".green.inverse
         );
       } else {
         console.log(
-          "Filters : ".green.inverse,
+          "Filters : ".cyan.inverse,
           config["Controls"]["Filters"],
           " (",
           req.headers.applicationid,
           role,
           ")",
-          "Create - No"
+          "Create - No".cyan.inverse
         );
       }
     } else {

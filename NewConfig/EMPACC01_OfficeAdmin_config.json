@@ -12,7 +12,7 @@
     "Filters": [
       {
         "$and": [
-          { "Status": { "$ne": "Approved" } },
+          { "Status": { "$ne": "Requested" } },
           { "Status": { "$ne": "Rejected" } },
           { "Status": { "$ne": "ReferredBack" } },
           { "Status": { "$ne": "Saved" } },
@@ -20,7 +20,8 @@
           { "Status": { "$ne": "MoreInfo" } }, 
           { "Status": { "$ne": "Cancelled" } }
         ]
-      }
+      },
+      { "RequestType": "Access to Office Building" }
     ],
     "Partner": "@user",
     "UserSpecific": "Yes",
@@ -756,7 +757,7 @@
     "Item": [],
     "HeaderItem": [],
     "Header": []
-},
+  },
   "Create": "No",
   "Wizard": []
 }

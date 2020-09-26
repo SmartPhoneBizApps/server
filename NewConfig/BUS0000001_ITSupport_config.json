@@ -9,7 +9,30 @@
     "USP": "UserProfile",
     "StatusColor": "Yes",
     "SearchString": { "Search": false },
-    "Filters": [],
+    "Filters": [
+      {
+        "$and": [
+          { "Status": { "$ne": "Resolved" } },
+          { "Status": { "$ne": "MoreInfo" } },
+          { "Status": { "$ne": "Saved" } },
+          { "Status": { "$ne": "Cancelled" } }
+        ]
+      },
+      {
+        "$or": [
+          { "IssueType": "Computer Crashed" },
+          { "IssueType": "Virus / Malware Issue" },
+          { "IssueType": "Email Issue" },
+          { "IssueType": "I deleted some important files!" },
+          { "IssueType": "My computer is running too slowly!" },
+          { "IssueType": "Application is running too slowly!" },
+          { "IssueType": "I can’t print" },
+          { "IssueType": "My computer does not recognise my USB device!" },
+          { "IssueType": "Internet/Network Issue" },
+          { "IssueType": "Data Protection and Compliance" }
+        ]
+      }
+    ],
     "Partner": "@user",
     "UserSpecific": "Yes",
     "Update": "Yes",
@@ -21,19 +44,19 @@
     }
   },
   "ListFields": {
-    "IntroField": "ID",
+    "IntroField": "IssueType",
     "TitleField": "DescribeProblem",
     "sStatus": "Department",
     "fStatus": "Status",
-    "LFields": ["EmployeeID", "Email", "Name"]
+    "LFields": ["ID", "EmployeeID", "Email", "Name"]
   },
   "ListBOTFields": {
     "None": ["cardImage", "StatusState"],
-    "Title": ["DescribeProblem"],
+    "Title": ["IssueType"],
     "SubTitle": ["Name", "Department"],
-    "Description": ["EmployeeID", "Email", "Status"]
+    "Description": ["DescribeProblem", "EmployeeID", "Email", "Status"]
   },
-  "PossibleValues": ["Department", "Status"],
+  "PossibleValues": ["Department", "Status", "IssueType"],
   "MButtons": [
     {
       "type": "DOWNLOAD",
@@ -41,6 +64,7 @@
       "icon": "sap-icon://download",
       "downloadFields": [
         "ID",
+        "IssueType",
         "Status",
         "Name",
         "Email",
@@ -199,7 +223,7 @@
     "headerColorFields": ["Status"],
     "Tab0": ["data"],
     "Tab20": ["charts"],
-    "None": ["ID"],
+    "None": ["ID", "IssueType"],
     "Tab1": ["Name", "Email", "Department", "EmployeeID"],
     "Tab2": ["DescribeProblem", "ComputerID", "DateCreated"],
     "Tab3": ["DateResolved", "ResolutionDetails", "UserFeedback", "Score"],
@@ -280,6 +304,14 @@
       "SLabel": "Department"
     },
     {
+      "name": "IssueType",
+      "type": "string",
+      "width": "20",
+      "Option": "Optional",
+      "adaptiveCard": "Main",
+      "SLabel": "Issue Type"
+    },
+    {
       "name": "ComputerID",
       "type": "string",
       "width": "20",
@@ -308,7 +340,7 @@
       "type": "string",
       "width": "50",
       "Option": "Mandatory",
-      "adaptiveCard": "Main",
+      "adaptiveCard": "Additional",
       "SLabel": "Status",
       "LLabel": "Status"
     },

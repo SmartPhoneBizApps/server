@@ -12,13 +12,19 @@
     "Filters": [
       {
         "$and": [
-          { "Status": { "$ne": "Approved" } },
+          { "Status": { "$ne": "Requested" } },
           { "Status": { "$ne": "Rejected" } },
           { "Status": { "$ne": "ReferredBack" } },
           { "Status": { "$ne": "Saved" } },
           { "Status": { "$ne": "Completed" } },
           { "Status": { "$ne": "MoreInfo" } }, 
           { "Status": { "$ne": "Cancelled" } }
+        ]
+      },
+      {
+        "$or": [
+          { "RequestType": "New Access Card" },
+          { "RequestType": "Application Login" }
         ]
       }
     ],
@@ -756,7 +762,7 @@
     "Item": [],
     "HeaderItem": [],
     "Header": []
-},
+  },
   "Create": "No",
   "Wizard": []
 }

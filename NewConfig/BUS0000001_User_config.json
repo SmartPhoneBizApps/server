@@ -21,19 +21,19 @@
     }
   },
   "ListFields": {
-    "IntroField": "ID",
+    "IntroField": "IssueType",
     "TitleField": "DescribeProblem",
     "sStatus": "Department",
     "fStatus": "Status",
-    "LFields": ["EmployeeID", "Email", "Name"]
+    "LFields": ["ID", "EmployeeID", "Email", "Name"]
   },
   "ListBOTFields": {
     "None": ["cardImage", "StatusState"],
-    "Title": ["DescribeProblem"],
+    "Title": ["IssueType"],
     "SubTitle": ["Name", "Department"],
-    "Description": ["EmployeeID", "Email", "Status"]
+    "Description": ["DescribeProblem", "EmployeeID", "Email", "Status"]
   },
-  "PossibleValues": ["Department", "Status"],
+  "PossibleValues": ["Department", "Status", "IssueType"],
   "MButtons": [
     {
       "type": "DOWNLOAD",
@@ -41,6 +41,7 @@
       "icon": "sap-icon://download",
       "downloadFields": [
         "ID",
+        "IssueType",
         "Status",
         "Name",
         "Email",
@@ -217,7 +218,7 @@
     "headerColorFields": ["Status"],
     "Tab0": ["data"],
     "Tab20": ["charts"],
-    "None": ["ID"],
+    "None": ["ID", "IssueType"],
     "Tab1": ["Name", "Email", "Department", "EmployeeID"],
     "Tab2": ["DescribeProblem", "ComputerID", "DateCreated"],
     "Tab3": ["DateResolved", "ResolutionDetails", "UserFeedback", "Score"],
@@ -298,6 +299,14 @@
       "SLabel": "Department"
     },
     {
+      "name": "IssueType",
+      "type": "string",
+      "width": "20",
+      "Option": "Optional",
+      "adaptiveCard": "Main",
+      "SLabel": "Issue Type"
+    },
+    {
       "name": "ComputerID",
       "type": "string",
       "width": "20",
@@ -326,7 +335,7 @@
       "type": "string",
       "width": "50",
       "Option": "Mandatory",
-      "adaptiveCard": "Main",
+      "adaptiveCard": "Additional",
       "SLabel": "Status",
       "LLabel": "Status"
     },
@@ -430,28 +439,19 @@
   "Wizard": [
     {
       "id": "Step1",
-      "fields": [{ "name": "DescribeProblem", "Mode": "Edit" }],
+      "fields": [
+        { "name": "IssueType", "Mode": "Edit" },
+        { "name": "DescribeProblem", "Mode": "Edit" },
+        { "name": "ComputerID", "Mode": "Edit" }
+      ],
       "name": "Incident Details",
       "stepType": "FieldList",
       "intro": "IT Service Ticket : Details of the Problem"
     },
     {
       "id": "Step2",
-      "fields": [{ "name": "EmployeeID", "Mode": "Display" }],
-      "name": "User Details",
-      "stepType": "FieldList",
-      "intro": "IT Service Ticket : Details of the Problem"
-    },
-    {
-      "id": "Step4",
-      "fields": [{ "name": "ComputerID", "Mode": "Edit" }],
-      "name": "Asset",
-      "stepType": "FieldList",
-      "intro": "IT Service Ticket : Details of the Asset where you are facing Problem"
-    },
-    {
-      "id": "Step5",
       "fields": [
+        { "name": "EmployeeID", "Mode": "Display" },
         { "name": "Name", "Mode": "Display" },
         { "name": "Email", "Mode": "Display" },
         { "name": "Department", "Mode": "Display" }
@@ -461,14 +461,14 @@
       "intro": "IT Service Ticket : Contact Details of user"
     },
     {
-      "id": "Step6",
+      "id": "Step3",
       "fields": [{ "name": "carouselImage", "Mode": "Edit" }],
       "name": "Images and Attachment",
       "stepType": "FieldList",
       "intro": "Screenshots and Images : Here you can upload screenshots, images (jpg, png, etc..)"
     },
     {
-      "id": "Step7",
+      "id": "Step4",
       "fields": [{ "name": "MultiAttachments", "Mode": "Edit" }],
       "name": "MultiAttachments",
       "stepType": "Attachments",
@@ -482,7 +482,7 @@
       }
     },
     {
-      "id": "Step8",
+      "id": "Step5",
       "fields": [
         { "name": "Status", "Mode": "Display" },
         { "name": "DateCreated", "Mode": "Display" }
