@@ -1,5 +1,16 @@
 const asyncHandler = require("../middleware/async");
-const { date1, string, integer } = require("./config");
+const {
+  date1,
+  string,
+  integer,
+  body2xAdaptiveCard,
+  body1xAdaptiveCard,
+  body1xChoiceSet,
+  body2xChoiceSet,
+  body2xIValue,
+  body1xIValueH,
+  body1xIValueI,
+} = require("./config");
 const { aggregateCount, aggregateSum } = require("../modules/config2");
 
 module.exports = {
@@ -607,269 +618,477 @@ module.exports = {
     let cardConfigFile1 = "../cards/cardConfig/template_adaptiveForm.json";
     let aCard = require(cardConfigFile1);
     if (mode == "header") {
-      for (let l = 0; l < appconfig["Wizard"].length; l++) {
-        const rkg = appconfig["Wizard"][l];
-        rkg["fields"].forEach((e1) => {
-          for (let a = 0; a < appconfig["FieldDef"].length; a++) {
-            if (appconfig["FieldDef"][a]["name"] == e1["name"]) {
-              switch (appconfig["FieldDef"][a]["type"]) {
-                case "string":
-                  // Text >> Input.Text
-                  //"style": "text",
-                  body2x["size"] = "medium";
-                  body2x["isSubtle"] = true;
-                  body2x["type"] = "TextBlock";
-                  body2x["text"] = e1["name"];
-
-                  body1x["style"] = "text";
-                  body1x["type"] = "Input.Text";
-                  body1x["id"] = e1["name"];
-                  body1x["placeholder"] = e1["name"];
-                  //"isMultiline"
-                  if (appconfig["FieldDef"][a]["width"] > 100) {
-                    body1x["isMultiline"] = true;
-                  } else {
-                    body1x["isMultiline"] = false;
+      if (appconfig["ControlDisplay"]["ControlField"] != undefined) {
+        // Check Controlled Display..
+        ControlField = appconfig["ControlDisplay"]["ControlField"];
+        var set1 = new Set([]);
+        for (let a = 0; a < poss_val.length; a++) {
+          if (poss_val[a]["PossibleValues"] == ControlField) {
+            set1.add(poss_val[a]["Value"]);
+          }
+        }
+        console.log(set1);
+        // Check Controlled Display..
+        for (
+          let s = 0;
+          s < appconfig["ControlDisplay"]["Fields"][0].length;
+          s++
+        ) {
+          if (
+            appconfig["ControlDisplay"]["Fields"][0][s].hasOwnProperty("ALL")
+          ) {
+            appconfig["ControlDisplay"]["Fields"][0][s]["ALL"].forEach((ex) => {
+              for (let l = 0; l < appconfig["Wizard"].length; l++) {
+                const rkg = appconfig["Wizard"][l];
+                rkg["fields"].forEach((e1) => {
+                  if (ex == e1["name"]) {
+                    console.log("EX:", ex, e1["name"]);
+                    for (let a = 0; a < appconfig["FieldDef"].length; a++) {
+                      if (appconfig["FieldDef"][a]["name"] == e1["name"]) {
+                        body2x = body2xAdaptiveCard(
+                          appconfig["FieldDef"][a]["type"],
+                          appconfig["FieldDef"][a]["width"],
+                          body2x,
+                          e1["name"]
+                        );
+                        body1x = body1xAdaptiveCard(
+                          appconfig["FieldDef"][a]["type"],
+                          appconfig["FieldDef"][a]["width"],
+                          body1x,
+                          e1["name"]
+                        );
+                      }
+                    }
+                    // Possible Values..
+                    for (let a = 0; a < poss_val.length; a++) {
+                      // Possible Values >> Input.ChoiceSet
+                      if (poss_val[a] == e1["name"]) {
+                        body1x = {};
+                        body2x = {};
+                        body2x = body2xChoiceSet(body2x, e1["name"]);
+                        body1x = body1xChoiceSet(body1x, e1["name"], resPV);
+                      }
+                    }
+                    // Initial Values (Header)..
+                    for (let d = 0; d < ival_out.length; d++) {
+                      if (ival_out[d]["Field"] == e1["name"]) {
+                        body2x = body2xIValue(body2x, e1["name"]);
+                        body1x = body1xIValueH(
+                          body1x,
+                          appconfig,
+                          e1["name"],
+                          ival_out[d]["Value"]
+                        );
+                      }
+                    }
+                    for (let a = 0; a < appconfig["FieldDef"].length; a++) {
+                      if (appconfig["FieldDef"][a]["name"] == e1["name"]) {
+                        if (
+                          appconfig["FieldDef"][a]["adaptiveCard"] == "Main"
+                        ) {
+                          body.push(body2x);
+                          body2x = {};
+                          body.push(body1x);
+                          body1x = {};
+                        }
+                        if (
+                          appconfig["FieldDef"][a]["adaptiveCard"] ==
+                          "Additional"
+                        ) {
+                          body2.push(body2x);
+                          body2x = {};
+                          body2.push(body1x);
+                          body1x = {};
+                        }
+                      }
+                    }
                   }
-                  break;
-                case "Date":
-                  // Date >> Input.Date
-                  body2x["size"] = "medium";
-                  body2x["isSubtle"] = true;
-                  body2x["type"] = "TextBlock";
-                  body2x["text"] = e1["name"];
+                });
+              }
+              //             aCard["sap.card"]["content"]["body"] = body;
+            });
+          }
+        }
 
-                  body1x["type"] = "Input.Date";
-                  body1x["id"] = e1["name"];
-                  body1x["placeholder"] = e1["name"];
-                  //           body1x["value"] = "@currentDate";
-
-                  break;
-
-                case "hyperlink":
-                  //"style": "url",
-                  // Text >> Input.Text
-                  body2x["size"] = "medium";
-                  body2x["isSubtle"] = true;
-                  body2x["type"] = "TextBlock";
-                  body2x["text"] = e1["name"];
-
-                  body1x["style"] = "url";
-                  body1x["type"] = "Input.Text";
-                  body1x["id"] = e1["name"];
-                  body1x["placeholder"] = "Website Url";
-
-                  break;
-
-                case "Email":
-                  //"style": "email",
-                  // Text >> Input.Text
-                  body2x["size"] = "medium";
-                  body2x["isSubtle"] = true;
-                  body2x["type"] = "TextBlock";
-                  body2x["text"] = e1["name"];
-
-                  body1x["style"] = "email";
-                  body1x["type"] = "Input.Text";
-                  body1x["id"] = e1["name"];
-                  body1x["placeholder"] = "youremail@example.com";
-
-                  break;
-                case "Time":
-                  // Time >> Input.Time
-                  body2x["size"] = "medium";
-                  body2x["isSubtle"] = true;
-                  body2x["type"] = "TextBlock";
-                  body2x["text"] = e1["name"];
-
-                  body1x["type"] = "Input.Time";
-                  body1x["id"] = e1["name"];
-                  body1x["placeholder"] = e1["name"];
-                  break;
-                case "Num,0":
-                  // Number >> Input.Number
-                  body2x["size"] = "medium";
-                  body2x["isSubtle"] = true;
-                  body2x["type"] = "TextBlock";
-                  body2x["text"] = e1["name"];
-
-                  body1x["type"] = "Input.Number";
-                  body1x["id"] = e1["name"];
-                  body1x["placeholder"] = e1["name"];
-                  break;
-                case "Num,1":
-                  // Number >> Input.Number
-                  body2x["size"] = "medium";
-                  body2x["isSubtle"] = true;
-                  body2x["type"] = "TextBlock";
-                  body2x["text"] = e1["name"];
-
-                  body1x["type"] = "Input.Number";
-                  body1x["id"] = e1["name"];
-                  body1x["placeholder"] = e1["name"];
-                  break;
-                case "Num,2":
-                  // Number >> Input.Number
-                  body2x["size"] = "medium";
-                  body2x["isSubtle"] = true;
-                  body2x["type"] = "TextBlock";
-                  body2x["text"] = e1["name"];
-
-                  body1x["type"] = "Input.Number";
-                  body1x["id"] = e1["name"];
-                  body1x["placeholder"] = e1["name"];
-                  break;
-                case "Num,3":
-                  // Number >> Input.Number
-                  body2x["size"] = "medium";
-                  body2x["isSubtle"] = true;
-                  body2x["type"] = "TextBlock";
-                  body2x["text"] = e1["name"];
-
-                  body1x["type"] = "Input.Number";
-                  body1x["id"] = e1["name"];
-                  body1x["placeholder"] = e1["name"];
-                  break;
-                default:
-                  body2x["size"] = "medium";
-                  body2x["isSubtle"] = true;
-                  body2x["type"] = "TextBlock";
-                  body2x["text"] = e1["name"];
-
-                  body1x["style"] = "text";
-                  body1x["type"] = "Input.Text";
-                  body1x["id"] = e1["name"];
-                  body1x["placeholder"] = e1["name"];
-                  //"isMultiline"
-                  if (appconfig["FieldDef"]["width"] > 100) {
-                    body1x["isMultiline"] = true;
-                  } else {
-                    body1x["isMultiline"] = false;
+        for (
+          let s = 0;
+          s < appconfig["ControlDisplay"]["Fields"][0].length;
+          s++
+        ) {
+          set1.forEach((cVal) => {
+            if (
+              appconfig["ControlDisplay"]["Fields"][0][s].hasOwnProperty(cVal)
+            ) {
+              appconfig["ControlDisplay"]["Fields"][0][s][cVal].forEach(
+                (ex) => {
+                  for (let l = 0; l < appconfig["Wizard"].length; l++) {
+                    const rkg = appconfig["Wizard"][l];
+                    rkg["fields"].forEach((e1) => {
+                      if (ex == e1["name"]) {
+                        console.log("EX:", ex, e1["name"]);
+                        for (let a = 0; a < appconfig["FieldDef"].length; a++) {
+                          if (appconfig["FieldDef"][a]["name"] == e1["name"]) {
+                            body2x = body2xAdaptiveCard(
+                              appconfig["FieldDef"][a]["type"],
+                              appconfig["FieldDef"][a]["width"],
+                              body2x,
+                              e1["name"]
+                            );
+                            body1x = body1xAdaptiveCard(
+                              appconfig["FieldDef"][a]["type"],
+                              appconfig["FieldDef"][a]["width"],
+                              body1x,
+                              e1["name"]
+                            );
+                          }
+                        }
+                        // Possible Values..
+                        for (let a = 0; a < poss_val.length; a++) {
+                          // Possible Values >> Input.ChoiceSet
+                          if (poss_val[a] == e1["name"]) {
+                            body1x = {};
+                            body2x = {};
+                            body2x = body2xChoiceSet(body2x, e1["name"]);
+                            body1x = body1xChoiceSet(body1x, e1["name"], resPV);
+                          }
+                        }
+                        // Initial Values (Header)..
+                        for (let d = 0; d < ival_out.length; d++) {
+                          if (ival_out[d]["Field"] == e1["name"]) {
+                            body2x = body2xIValue(body2x, e1["name"]);
+                            body1x = body1xIValueH(
+                              body1x,
+                              appconfig,
+                              e1["name"],
+                              ival_out[d]["Value"]
+                            );
+                          }
+                        }
+                        for (let a = 0; a < appconfig["FieldDef"].length; a++) {
+                          if (appconfig["FieldDef"][a]["name"] == e1["name"]) {
+                            if (
+                              appconfig["FieldDef"][a]["adaptiveCard"] == "Main"
+                            ) {
+                              body.push(body2x);
+                              body2x = {};
+                              body.push(body1x);
+                              body1x = {};
+                            }
+                            if (
+                              appconfig["FieldDef"][a]["adaptiveCard"] ==
+                              "Additional"
+                            ) {
+                              body2.push(body2x);
+                              body2x = {};
+                              body2.push(body1x);
+                              body1x = {};
+                            }
+                          }
+                        }
+                      }
+                    });
                   }
-                  break;
+                  aCard["sap.card"]["content"]["body"] = body;
+                  for (
+                    let m = 0;
+                    m < aCard["sap.card"]["content"]["actions"].length;
+                    m++
+                  ) {
+                    if (
+                      aCard["sap.card"]["content"]["actions"][m]["type"] ==
+                      "Action.ShowCard"
+                    ) {
+                      aCard["sap.card"]["content"]["actions"][m]["card"][
+                        "body"
+                      ] = body2;
+                    }
+                    if (
+                      aCard["sap.card"]["content"]["actions"][m]["type"] ==
+                      "Action.Submit"
+                    ) {
+                      console.log("table", mode);
+                      aCard["sap.card"]["content"]["actions"][m][
+                        "table"
+                      ] = mode;
+                    }
+                  }
+                }
+              );
+            }
+          });
+        }
+        console.log("CARD:", body, body2, aCard);
+      } else {
+        for (let l = 0; l < appconfig["Wizard"].length; l++) {
+          const rkg = appconfig["Wizard"][l];
+          rkg["fields"].forEach((e1) => {
+            for (let a = 0; a < appconfig["FieldDef"].length; a++) {
+              if (appconfig["FieldDef"][a]["name"] == e1["name"]) {
+                switch (appconfig["FieldDef"][a]["type"]) {
+                  case "string":
+                    // Text >> Input.Text
+                    //"style": "text",
+                    body2x["size"] = "medium";
+                    body2x["isSubtle"] = true;
+                    body2x["type"] = "TextBlock";
+                    body2x["text"] = e1["name"];
+
+                    body1x["style"] = "text";
+                    body1x["type"] = "Input.Text";
+                    body1x["id"] = e1["name"];
+                    body1x["placeholder"] = e1["name"];
+                    //"isMultiline"
+                    if (appconfig["FieldDef"][a]["width"] > 100) {
+                      body1x["isMultiline"] = true;
+                    } else {
+                      body1x["isMultiline"] = false;
+                    }
+                    break;
+                  case "Date":
+                    // Date >> Input.Date
+                    body2x["size"] = "medium";
+                    body2x["isSubtle"] = true;
+                    body2x["type"] = "TextBlock";
+                    body2x["text"] = e1["name"];
+
+                    body1x["type"] = "Input.Date";
+                    body1x["id"] = e1["name"];
+                    body1x["placeholder"] = e1["name"];
+                    //           body1x["value"] = "@currentDate";
+
+                    break;
+
+                  case "hyperlink":
+                    //"style": "url",
+                    // Text >> Input.Text
+                    body2x["size"] = "medium";
+                    body2x["isSubtle"] = true;
+                    body2x["type"] = "TextBlock";
+                    body2x["text"] = e1["name"];
+
+                    body1x["style"] = "url";
+                    body1x["type"] = "Input.Text";
+                    body1x["id"] = e1["name"];
+                    body1x["placeholder"] = "Website Url";
+
+                    break;
+
+                  case "Email":
+                    //"style": "email",
+                    // Text >> Input.Text
+                    body2x["size"] = "medium";
+                    body2x["isSubtle"] = true;
+                    body2x["type"] = "TextBlock";
+                    body2x["text"] = e1["name"];
+
+                    body1x["style"] = "email";
+                    body1x["type"] = "Input.Text";
+                    body1x["id"] = e1["name"];
+                    body1x["placeholder"] = "youremail@example.com";
+
+                    break;
+                  case "Time":
+                    // Time >> Input.Time
+                    body2x["size"] = "medium";
+                    body2x["isSubtle"] = true;
+                    body2x["type"] = "TextBlock";
+                    body2x["text"] = e1["name"];
+
+                    body1x["type"] = "Input.Time";
+                    body1x["id"] = e1["name"];
+                    body1x["placeholder"] = e1["name"];
+                    break;
+                  case "Num,0":
+                    // Number >> Input.Number
+                    body2x["size"] = "medium";
+                    body2x["isSubtle"] = true;
+                    body2x["type"] = "TextBlock";
+                    body2x["text"] = e1["name"];
+
+                    body1x["type"] = "Input.Number";
+                    body1x["id"] = e1["name"];
+                    body1x["placeholder"] = e1["name"];
+                    break;
+                  case "Num,1":
+                    // Number >> Input.Number
+                    body2x["size"] = "medium";
+                    body2x["isSubtle"] = true;
+                    body2x["type"] = "TextBlock";
+                    body2x["text"] = e1["name"];
+
+                    body1x["type"] = "Input.Number";
+                    body1x["id"] = e1["name"];
+                    body1x["placeholder"] = e1["name"];
+                    break;
+                  case "Num,2":
+                    // Number >> Input.Number
+                    body2x["size"] = "medium";
+                    body2x["isSubtle"] = true;
+                    body2x["type"] = "TextBlock";
+                    body2x["text"] = e1["name"];
+
+                    body1x["type"] = "Input.Number";
+                    body1x["id"] = e1["name"];
+                    body1x["placeholder"] = e1["name"];
+                    break;
+                  case "Num,3":
+                    // Number >> Input.Number
+                    body2x["size"] = "medium";
+                    body2x["isSubtle"] = true;
+                    body2x["type"] = "TextBlock";
+                    body2x["text"] = e1["name"];
+
+                    body1x["type"] = "Input.Number";
+                    body1x["id"] = e1["name"];
+                    body1x["placeholder"] = e1["name"];
+                    break;
+                  default:
+                    body2x["size"] = "medium";
+                    body2x["isSubtle"] = true;
+                    body2x["type"] = "TextBlock";
+                    body2x["text"] = e1["name"];
+
+                    body1x["style"] = "text";
+                    body1x["type"] = "Input.Text";
+                    body1x["id"] = e1["name"];
+                    body1x["placeholder"] = e1["name"];
+                    //"isMultiline"
+                    if (appconfig["FieldDef"]["width"] > 100) {
+                      body1x["isMultiline"] = true;
+                    } else {
+                      body1x["isMultiline"] = false;
+                    }
+                    break;
+                }
               }
             }
-          }
-          for (let a = 0; a < poss_val.length; a++) {
-            if (poss_val[a] == e1["name"]) {
+            // Possible Values..
+            for (let a = 0; a < poss_val.length; a++) {
               // Possible Values >> Input.ChoiceSet
-              //"style": "expanded",
-              body1x = {};
-              body2x = {};
+              if (poss_val[a] == e1["name"]) {
+                body1x = {};
+                body2x = {};
+                body2x = body2xChoiceSet(body2x, e1["name"]);
+                body1x = body1xChoiceSet(body1x, e1["name"], resPV);
+              }
+            }
+            // Initial Values (Header)..
+            for (let d = 0; d < ival_out.length; d++) {
+              if (ival_out[d]["Field"] == e1["name"]) {
+                body2x = body2xIValue(body2x, e1["name"]);
+                body1x = body1xIValueH(
+                  body1x,
+                  appconfig,
+                  e1["name"],
+                  ival_out[d]["Value"]
+                );
+              }
+            }
+            // for (let d = 0; d < ival_out.length; d++) {
+            //   if (ival_out[d]["Field"] == e1["name"]) {
+            //     body2x["size"] = "medium";
+            //     body2x["isSubtle"] = true;
+            //     body2x["type"] = "TextBlock";
+            //     body2x["text"] = e1["name"];
 
-              body2x["isSubtle"] = true;
-              body2x["type"] = "TextBlock";
-              body2x["text"] = e1["name"];
+            //     body1x["id"] = e1["name"];
+            //     body1x["value"] = ival_out[d]["Value"];
+            //     for (let a = 0; a < appconfig["FieldDef"].length; a++) {
+            //       if (appconfig["FieldDef"][a]["name"] == e1["name"]) {
+            //         switch (appconfig["FieldDef"][a]["type"]) {
+            //           case "string":
+            //             body1x["type"] = "Input.Text";
+            //             body1x["style"] = "text";
+            //             break;
+            //           case "Date":
+            //             //  Input.Date
+            //             body1x["type"] = "Input.Date";
+            //             body1x["style"] = "";
+            //             break;
+            //           case "hyperlink":
+            //             // Input.Text
+            //             body1x["type"] = "Input.Text";
+            //             body1x["style"] = "url";
+            //             break;
+            //           case "Email":
+            //             //"style": "email",
+            //             // Text >> Input.Text
+            //             body1x["type"] = "Input.Text";
+            //             body1x["style"] = "email";
+            //             break;
 
-              body1x["style"] = "expanded";
-              body1x["type"] = "Input.ChoiceSet";
-              body1x["id"] = e1["name"];
-
-              x_ch = [];
-              for (let j = 0; j < resPV.length; j++) {
-                if (resPV[j]["PossibleValues"] == e1["name"]) {
-                  x_choices = {};
-                  x_choices["title"] = resPV[j]["Description"];
-                  x_choices["value"] = resPV[j]["Value"];
-                  x_ch.push(x_choices);
+            //           case "Time":
+            //             // Time >> Input.Time
+            //             body1x["type"] = "Input.Time";
+            //             body1x["style"] = "";
+            //             break;
+            //           case "Num,0":
+            //             // Number >> Input.Number
+            //             body1x["type"] = "Input.Number";
+            //             body1x["style"] = "";
+            //             break;
+            //           case "Num,1":
+            //             // Number >> Input.Number
+            //             body1x["type"] = "Input.Number";
+            //             body1x["style"] = "";
+            //             break;
+            //           case "Num,2":
+            //             // Number >> Input.Number
+            //             body1x["type"] = "Input.Number";
+            //             body1x["style"] = "";
+            //             break;
+            //           case "Num,3":
+            //             // Number >> Input.Number
+            //             body1x["type"] = "Input.Number";
+            //             body1x["style"] = "";
+            //             break;
+            //           default:
+            //             body1x["type"] = "Input.Text";
+            //             body1x["style"] = "text";
+            //             break;
+            //         }
+            //       }
+            //     }
+            //   }
+            // }
+            for (let a = 0; a < appconfig["FieldDef"].length; a++) {
+              if (appconfig["FieldDef"][a]["name"] == e1["name"]) {
+                if (appconfig["FieldDef"][a]["adaptiveCard"] == "Main") {
+                  body.push(body2x);
+                  body2x = {};
+                  body.push(body1x);
+                  body1x = {};
+                }
+                if (appconfig["FieldDef"][a]["adaptiveCard"] == "Additional") {
+                  body2.push(body2x);
+                  body2x = {};
+                  body2.push(body1x);
+                  body1x = {};
                 }
               }
-              body1x["choices"] = x_ch;
             }
+          });
+        }
+        aCard["sap.card"]["content"]["body"] = body;
+        for (
+          let m = 0;
+          m < aCard["sap.card"]["content"]["actions"].length;
+          m++
+        ) {
+          if (
+            aCard["sap.card"]["content"]["actions"][m]["type"] ==
+            "Action.ShowCard"
+          ) {
+            aCard["sap.card"]["content"]["actions"][m]["card"]["body"] = body2;
           }
-          for (let d = 0; d < ival_out.length; d++) {
-            if (ival_out[d]["Field"] == e1["name"]) {
-              body2x["size"] = "medium";
-              body2x["isSubtle"] = true;
-              body2x["type"] = "TextBlock";
-              body2x["text"] = e1["name"];
-
-              body1x["id"] = e1["name"];
-              body1x["value"] = ival_out[d]["Value"];
-              for (let a = 0; a < appconfig["FieldDef"].length; a++) {
-                if (appconfig["FieldDef"][a]["name"] == e1["name"]) {
-                  switch (appconfig["FieldDef"][a]["type"]) {
-                    case "string":
-                      body1x["type"] = "Input.Text";
-                      body1x["style"] = "text";
-                      break;
-                    case "Date":
-                      //  Input.Date
-                      body1x["type"] = "Input.Date";
-                      body1x["style"] = "";
-                      break;
-                    case "hyperlink":
-                      // Input.Text
-                      body1x["type"] = "Input.Text";
-                      body1x["style"] = "url";
-                      break;
-                    case "Email":
-                      //"style": "email",
-                      // Text >> Input.Text
-                      body1x["type"] = "Input.Text";
-                      body1x["style"] = "email";
-                      break;
-
-                    case "Time":
-                      // Time >> Input.Time
-                      body1x["type"] = "Input.Time";
-                      body1x["style"] = "";
-                      break;
-                    case "Num,0":
-                      // Number >> Input.Number
-                      body1x["type"] = "Input.Number";
-                      body1x["style"] = "";
-                      break;
-                    case "Num,1":
-                      // Number >> Input.Number
-                      body1x["type"] = "Input.Number";
-                      body1x["style"] = "";
-                      break;
-                    case "Num,2":
-                      // Number >> Input.Number
-                      body1x["type"] = "Input.Number";
-                      body1x["style"] = "";
-                      break;
-                    case "Num,3":
-                      // Number >> Input.Number
-                      body1x["type"] = "Input.Number";
-                      body1x["style"] = "";
-                      break;
-                    default:
-                      body1x["type"] = "Input.Text";
-                      body1x["style"] = "text";
-                      break;
-                  }
-                }
-              }
-            }
+          if (
+            aCard["sap.card"]["content"]["actions"][m]["type"] ==
+            "Action.Submit"
+          ) {
+            console.log("table", mode);
+            aCard["sap.card"]["content"]["actions"][m]["table"] = mode;
           }
-          //"style": "tel",
-          // Toggle >> Input.Toggle
-          // "type": "Input.Toggle",
-          //"title": "I accept the terms and conditions",
-          //"id": "Checked",
-          //"wrap": true,
-          //"value": "false",
-          //"valueOn": "true",
-          //"valueOff": "false"
-          for (let a = 0; a < appconfig["FieldDef"].length; a++) {
-            if (appconfig["FieldDef"][a]["name"] == e1["name"]) {
-              if (appconfig["FieldDef"][a]["adaptiveCard"] == "Main") {
-                body.push(body2x);
-                body2x = {};
-                body.push(body1x);
-                body1x = {};
-              }
-              if (appconfig["FieldDef"][a]["adaptiveCard"] == "Additional") {
-                body2.push(body2x);
-                body2x = {};
-                body2.push(body1x);
-                body1x = {};
-              }
-            }
-          }
-        });
+        }
       }
     } else {
       appconfig["CreateFields"].forEach((e1) => {
@@ -1011,104 +1230,23 @@ module.exports = {
             }
           }
         }
+        // Possible Values..
         for (let a = 0; a < poss_val.length; a++) {
-          if (poss_val[a] == e1) {
-            // Possible Values >> Input.ChoiceSet
-            //"style": "expanded",
+          // Possible Values >> Input.ChoiceSet
+          if (poss_val[a] == e1["name"]) {
             body1x = {};
             body2x = {};
-            body2x["isSubtle"] = true;
-            body2x["type"] = "TextBlock";
-            body2x["text"] = e1;
-            body1x["style"] = "expanded";
-            body1x["type"] = "Input.ChoiceSet";
-            body1x["id"] = e1;
-            x_ch = [];
-            for (let j = 0; j < resPV.length; j++) {
-              if (resPV[j]["PossibleValues"] == e1) {
-                x_choices = {};
-                x_choices["title"] = resPV[j]["Description"];
-                x_choices["value"] = resPV[j]["Value"];
-                x_ch.push(x_choices);
-              }
-            }
-            body1x["choices"] = x_ch;
+            body2x = body2xChoiceSet(body2x, e1["name"]);
+            body1x = body1xChoiceSet(body1x, e1["name"], resPV);
           }
         }
+        // Initial Values (Tables)..
         for (let d = 0; d < ival_out.length; d++) {
           if (ival_out[d]["Field"] == e1) {
-            body2x["size"] = "medium";
-            body2x["isSubtle"] = true;
-            body2x["type"] = "TextBlock";
-            body2x["text"] = e1;
-            body1x["id"] = e1;
-            body1x["value"] = ival_out[d]["Value"];
-            for (let a = 0; a < appconfig["ItemFieldDefinition"].length; a++) {
-              if (appconfig["ItemFieldDefinition"][a]["name"] == e1) {
-                switch (appconfig["ItemFieldDefinition"][a]["type"]) {
-                  case "string":
-                    body1x["type"] = "Input.Text";
-                    body1x["style"] = "text";
-                    break;
-                  case "Date":
-                    //  Input.Date
-                    body1x["type"] = "Input.Date";
-                    body1x["style"] = "";
-                    break;
-                  case "hyperlink":
-                    // Input.Text
-                    body1x["type"] = "Input.Text";
-                    body1x["style"] = "url";
-                    break;
-                  case "Email":
-                    //"style": "email",
-                    // Text >> Input.Text
-                    body1x["type"] = "Input.Text";
-                    body1x["style"] = "email";
-                    break;
-                  case "Time":
-                    // Time >> Input.Time
-                    body1x["type"] = "Input.Time";
-                    body1x["style"] = "";
-                    break;
-                  case "Num,0":
-                    // Number >> Input.Number
-                    body1x["type"] = "Input.Number";
-                    body1x["style"] = "";
-                    break;
-                  case "Num,1":
-                    // Number >> Input.Number
-                    body1x["type"] = "Input.Number";
-                    body1x["style"] = "";
-                    break;
-                  case "Num,2":
-                    // Number >> Input.Number
-                    body1x["type"] = "Input.Number";
-                    body1x["style"] = "";
-                    break;
-                  case "Num,3":
-                    // Number >> Input.Number
-                    body1x["type"] = "Input.Number";
-                    body1x["style"] = "";
-                    break;
-                  default:
-                    body1x["type"] = "Input.Text";
-                    body1x["style"] = "text";
-                    break;
-                }
-              }
-            }
+            body2x = body2xIValue(body2x, e1);
+            body1x = body1xIValueI(body1x, appconfig, e1, ival_out[d]["Value"]);
           }
         }
-        //"style": "tel",
-        // Toggle >> Input.Toggle
-        // "type": "Input.Toggle",
-        //"title": "I accept the terms and conditions",
-        //"id": "Checked",
-        //"wrap": true,
-        //"value": "false",
-        //"valueOn": "true",
-        //"valueOff": "false"
         for (let a = 0; a < appconfig["ItemFieldDefinition"].length; a++) {
           if (appconfig["ItemFieldDefinition"][a]["name"] == e1) {
             if (appconfig["ItemFieldDefinition"][a]["adaptiveCard"] == "Main") {
@@ -1129,22 +1267,23 @@ module.exports = {
           }
         }
       });
+      aCard["sap.card"]["content"]["body"] = body;
+      for (let m = 0; m < aCard["sap.card"]["content"]["actions"].length; m++) {
+        if (
+          aCard["sap.card"]["content"]["actions"][m]["type"] ==
+          "Action.ShowCard"
+        ) {
+          aCard["sap.card"]["content"]["actions"][m]["card"]["body"] = body2;
+        }
+        if (
+          aCard["sap.card"]["content"]["actions"][m]["type"] == "Action.Submit"
+        ) {
+          console.log("table", mode);
+          aCard["sap.card"]["content"]["actions"][m]["table"] = mode;
+        }
+      }
     }
 
-    aCard["sap.card"]["content"]["body"] = body;
-    for (let m = 0; m < aCard["sap.card"]["content"]["actions"].length; m++) {
-      if (
-        aCard["sap.card"]["content"]["actions"][m]["type"] == "Action.ShowCard"
-      ) {
-        aCard["sap.card"]["content"]["actions"][m]["card"]["body"] = body2;
-      }
-      if (
-        aCard["sap.card"]["content"]["actions"][m]["type"] == "Action.Submit"
-      ) {
-        console.log("table", mode);
-        aCard["sap.card"]["content"]["actions"][m]["table"] = mode;
-      }
-    }
     return aCard;
   },
   analyticalNew: async function (appconfig, outData, style) {

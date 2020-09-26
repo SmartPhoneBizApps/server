@@ -1528,6 +1528,326 @@ module.exports = {
     appconfig = JSON.parse(con01);
     return appconfig;
   },
+  body2xIValue: function (body2x, name) {
+    body2x["size"] = "medium";
+    body2x["isSubtle"] = true;
+    body2x["type"] = "TextBlock";
+    body2x["text"] = name;
+    return body2x;
+  },
+
+  body1xIValueH: function (body1x, appconfig, name, val) {
+    body1x["id"] = name;
+    body1x["value"] = val;
+    for (let a = 0; a < appconfig["FieldDef"].length; a++) {
+      if (appconfig["FieldDef"][a]["name"] == name) {
+        switch (appconfig["FieldDef"][a]["type"]) {
+          case "string":
+            body1x["type"] = "Input.Text";
+            body1x["style"] = "text";
+            break;
+          case "Date":
+            //  Input.Date
+            body1x["type"] = "Input.Date";
+            body1x["style"] = "";
+            break;
+          case "hyperlink":
+            // Input.Text
+            body1x["type"] = "Input.Text";
+            body1x["style"] = "url";
+            break;
+          case "Email":
+            //"style": "email",
+            // Text >> Input.Text
+            body1x["type"] = "Input.Text";
+            body1x["style"] = "email";
+            break;
+
+          case "Time":
+            // Time >> Input.Time
+            body1x["type"] = "Input.Time";
+            body1x["style"] = "";
+            break;
+          case "Num,0":
+            // Number >> Input.Number
+            body1x["type"] = "Input.Number";
+            body1x["style"] = "";
+            break;
+          case "Num,1":
+            // Number >> Input.Number
+            body1x["type"] = "Input.Number";
+            body1x["style"] = "";
+            break;
+          case "Num,2":
+            // Number >> Input.Number
+            body1x["type"] = "Input.Number";
+            body1x["style"] = "";
+            break;
+          case "Num,3":
+            // Number >> Input.Number
+            body1x["type"] = "Input.Number";
+            body1x["style"] = "";
+            break;
+          default:
+            body1x["type"] = "Input.Text";
+            body1x["style"] = "text";
+            break;
+        }
+      }
+    }
+    return body1x;
+  },
+  body1xIValueI: function (body1x, appconfig, name, val) {
+    body1x["id"] = name;
+    body1x["value"] = val;
+    for (let a = 0; a < appconfig["ItemFieldDefinition"].length; a++) {
+      if (appconfig["ItemFieldDefinition"][a]["name"] == name) {
+        switch (appconfig["ItemFieldDefinition"][a]["type"]) {
+          case "string":
+            body1x["type"] = "Input.Text";
+            body1x["style"] = "text";
+            break;
+          case "Date":
+            //  Input.Date
+            body1x["type"] = "Input.Date";
+            body1x["style"] = "";
+            break;
+          case "hyperlink":
+            // Input.Text
+            body1x["type"] = "Input.Text";
+            body1x["style"] = "url";
+            break;
+          case "Email":
+            //"style": "email",
+            // Text >> Input.Text
+            body1x["type"] = "Input.Text";
+            body1x["style"] = "email";
+            break;
+          case "Time":
+            // Time >> Input.Time
+            body1x["type"] = "Input.Time";
+            body1x["style"] = "";
+            break;
+          case "Num,0":
+            // Number >> Input.Number
+            body1x["type"] = "Input.Number";
+            body1x["style"] = "";
+            break;
+          case "Num,1":
+            // Number >> Input.Number
+            body1x["type"] = "Input.Number";
+            body1x["style"] = "";
+            break;
+          case "Num,2":
+            // Number >> Input.Number
+            body1x["type"] = "Input.Number";
+            body1x["style"] = "";
+            break;
+          case "Num,3":
+            // Number >> Input.Number
+            body1x["type"] = "Input.Number";
+            body1x["style"] = "";
+            break;
+          default:
+            body1x["type"] = "Input.Text";
+            body1x["style"] = "text";
+            break;
+        }
+      }
+    }
+    return body1x;
+  },
+  body2xChoiceSet: function (body2x, name) {
+    body2x["isSubtle"] = true;
+    body2x["type"] = "TextBlock";
+    body2x["text"] = name;
+    return body2x;
+  },
+  body1xChoiceSet: function (body1x, name, resPV) {
+    x_ch = [];
+    body1x["style"] = "expanded";
+    body1x["type"] = "Input.ChoiceSet";
+    body1x["id"] = name;
+    for (let j = 0; j < resPV.length; j++) {
+      if (resPV[j]["PossibleValues"] == name) {
+        x_choices = {};
+        x_choices["title"] = resPV[j]["Description"];
+        x_choices["value"] = resPV[j]["Value"];
+        x_ch.push(x_choices);
+      }
+    }
+    body1x["choices"] = x_ch;
+    return body1x;
+  },
+  body2xIValue: function (body2x, name) {
+    body2x["size"] = "medium";
+    body2x["isSubtle"] = true;
+    body2x["type"] = "TextBlock";
+    body2x["text"] = name;
+    return body2x;
+  },
+  body1xAdaptiveCard: function (type, width, body1x, name) {
+    switch (type) {
+      case "string":
+        // Text >> Input.Text
+        //"style": "text",
+        body1x["style"] = "text";
+        body1x["type"] = "Input.Text";
+        body1x["id"] = name;
+        body1x["placeholder"] = name;
+        //"isMultiline"
+        if (width > 100) {
+          body1x["isMultiline"] = true;
+        } else {
+          body1x["isMultiline"] = false;
+        }
+        break;
+      case "Date":
+        // Date >> Input.Date
+        body1x["type"] = "Input.Date";
+        body1x["id"] = name;
+        body1x["placeholder"] = name;
+        break;
+      case "hyperlink":
+        //"style": "url",
+        // Text >> Input.Text
+        body1x["style"] = "url";
+        body1x["type"] = "Input.Text";
+        body1x["id"] = name;
+        body1x["placeholder"] = "Website Url";
+
+        break;
+      case "Email":
+        //"style": "email",
+        // Text >> Input.Text
+        body1x["style"] = "email";
+        body1x["type"] = "Input.Text";
+        body1x["id"] = name;
+        body1x["placeholder"] = "youremail@example.com";
+
+        break;
+      case "Time":
+        // Time >> Input.Time
+        body1x["type"] = "Input.Time";
+        body1x["id"] = name;
+        body1x["placeholder"] = name;
+        break;
+      case "Num,0":
+        // Number >> Input.Number
+        body1x["type"] = "Input.Number";
+        body1x["id"] = name;
+        body1x["placeholder"] = name;
+        break;
+      case "Num,1":
+        // Number >> Input.Number
+        body1x["type"] = "Input.Number";
+        body1x["id"] = name;
+        body1x["placeholder"] = name;
+        break;
+      case "Num,2":
+        // Number >> Input.Number
+        body1x["type"] = "Input.Number";
+        body1x["id"] = name;
+        body1x["placeholder"] = name;
+        break;
+      case "Num,3":
+        // Number >> Input.Number
+        body1x["type"] = "Input.Number";
+        body1x["id"] = name;
+        body1x["placeholder"] = name;
+        break;
+      default:
+        body1x["style"] = "text";
+        body1x["type"] = "Input.Text";
+        body1x["id"] = name;
+        body1x["placeholder"] = name;
+        //"isMultiline"
+        if (appconfig["FieldDef"]["width"] > 100) {
+          body1x["isMultiline"] = true;
+        } else {
+          body1x["isMultiline"] = false;
+        }
+        break;
+    }
+    return body1x;
+  },
+  body2xAdaptiveCard: function (type, width, body2x, name) {
+    switch (type) {
+      case "string":
+        // Text >> Input.Text
+        //"style": "text",
+        body2x["size"] = "medium";
+        body2x["isSubtle"] = true;
+        body2x["type"] = "TextBlock";
+        body2x["text"] = name;
+        break;
+      case "Date":
+        // Date >> Input.Date
+        body2x["size"] = "medium";
+        body2x["isSubtle"] = true;
+        body2x["type"] = "TextBlock";
+        body2x["text"] = name;
+        break;
+      case "hyperlink":
+        //"style": "url",
+        // Text >> Input.Text
+        body2x["size"] = "medium";
+        body2x["isSubtle"] = true;
+        body2x["type"] = "TextBlock";
+        body2x["text"] = name;
+        break;
+      case "Email":
+        //"style": "email",
+        // Text >> Input.Text
+        body2x["size"] = "medium";
+        body2x["isSubtle"] = true;
+        body2x["type"] = "TextBlock";
+        body2x["text"] = name;
+        break;
+      case "Time":
+        // Time >> Input.Time
+        body2x["size"] = "medium";
+        body2x["isSubtle"] = true;
+        body2x["type"] = "TextBlock";
+        body2x["text"] = name;
+        break;
+      case "Num,0":
+        // Number >> Input.Number
+        body2x["size"] = "medium";
+        body2x["isSubtle"] = true;
+        body2x["type"] = "TextBlock";
+        body2x["text"] = name;
+        break;
+      case "Num,1":
+        // Number >> Input.Number
+        body2x["size"] = "medium";
+        body2x["isSubtle"] = true;
+        body2x["type"] = "TextBlock";
+        body2x["text"] = name;
+        break;
+      case "Num,2":
+        // Number >> Input.Number
+        body2x["size"] = "medium";
+        body2x["isSubtle"] = true;
+        body2x["type"] = "TextBlock";
+        body2x["text"] = name;
+        break;
+      case "Num,3":
+        // Number >> Input.Number
+        body2x["size"] = "medium";
+        body2x["isSubtle"] = true;
+        body2x["type"] = "TextBlock";
+        body2x["text"] = name;
+        break;
+      default:
+        body2x["size"] = "medium";
+        body2x["isSubtle"] = true;
+        body2x["type"] = "TextBlock";
+        body2x["text"] = name;
+        break;
+    }
+    return body2x;
+  },
   buildButtons: function (type, title, app, role1, id, email, ratio, mode) {
     btn1 = {};
     if (type == "web_url" && mode == "display") {
