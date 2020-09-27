@@ -103,11 +103,11 @@
     },
     {
       "type": "WORKFLOW",
-      "name": "Cancel",
-      "icon": "sap-icon://decline",
+      "name": "Query",
+      "icon": "sap-icon://sys-help",
       "Dialog": [
         {
-          "label": "Cancellation Comment",
+          "label": "Query Details",
           "name": "ProgressComment",
           "type": "string",
           "option": "Optional"
@@ -115,7 +115,7 @@
       ],
       "transferFields": [
         { "field": "ID", "value": "@recorddata" },
-        { "field": "Status", "value": "Cancelled" },
+        { "field": "Status", "value": "Query" },
         { "field": "ProgressComment", "value": "@UserInput" }
       ],
       "URL": "datarecords/",
@@ -150,15 +150,6 @@
       "download": "Yes"
     },
     {
-      "value": "Tab2",
-      "style": "SAP",
-      "update": "Yes",
-      "name": "Contact Details",
-      "fioriicon": "discussion",
-      "type": "Field",
-      "download": "Yes"
-    },
-    {
       "value": "Tab3",
       "style": "SAP",
       "update": "Yes",
@@ -170,6 +161,14 @@
         { "text": "Event", "state": "Success" },
         { "text": "WorkSchedule", "state": "Information" }
       ]
+    },
+    {
+      "value": "Tab8",
+      "style": "SAP",
+      "update": "Yes",
+      "name": "Images",
+      "type": "carouselImage",
+      "fioriicon": "contacts"
     },
     {
       "value": "Tab4",
@@ -213,22 +212,46 @@
     "Tab20": ["charts"],
     "None": ["ID"],
     "Tab1": [
-      "EventID",
-      "EventName",
-      "EventType",
-      "EventStartDate",
-      "EventLink",
-      "EventEndDate",
-      "EventValue",
-      "InvoiceValue",
-      "BalanceValue"
+      {
+        "GrpTitle": "Event Details",
+        "Fields": [
+          "EventID",
+          "EventName",
+          "EventType",
+          "EventStartDate",
+          "EventLink",
+          "EventEndDate",
+          "EventValue"
+        ]
+      },
+      {
+        "GrpTitle": "Organiser Details",
+        "Fields": [
+          "OrganiserCompany",
+          "OrganiserName",
+          "OrganiserEmail",
+          "OrganiserTelephone"
+        ]
+      },
+      {
+        "GrpTitle": "Pharma Company Details",
+        "Fields": ["PharmaContact", "PharmaContactEmail"]
+      },
+      {
+        "GrpTitle": "Date / Time",
+        "Fields": ["Time", "Duration"]
+      },
+      {
+        "GrpTitle": "Event Values",
+        "Fields": ["InvoiceValue", "BalanceValue"]
+      }
     ],
-    "Tab2": ["PharmaContact", "PharmaContactEmail"],
     "Tab3": ["MultiAttachments"],
     "Tab4": ["Services"],
     "Tab5": ["EventInvoice"],
     "Tab6": ["myHCPHCO"],
-    "Tab7": ["Agenda"]
+    "Tab7": ["Agenda"],
+    "Tab8": ["carouselImage"]
   },
   "listCards": [
     {
@@ -1078,12 +1101,12 @@
       "SLabel": "Pharma Contact Email"
     },
     {
-      "name": "Organiser",
+      "name": "OrganiserCompany",
       "type": "string",
       "width": "500",
       "Option": "Mandatory",
       "adaptiveCard": "Main",
-      "SLabel": "Organiser"
+      "SLabel": "OrganiserCompany"
     },
     {
       "name": "OrganiserName",
@@ -1158,6 +1181,16 @@
       "adaptiveCard": "None",
       "SLabel": "MultiAttachments",
       "LLabel": "MultiAttachments"
+    },
+    {
+      "name": "carouselImage",
+      "type": "carouselImage",
+      "metadata": "OnlyFileName",
+      "width": "200",
+      "Option": "Optional",
+      "adaptiveCard": "Additional",
+      "SLabel": "Certificates",
+      "LLabel": "Certificates"
     },
     {
       "name": "Overview",

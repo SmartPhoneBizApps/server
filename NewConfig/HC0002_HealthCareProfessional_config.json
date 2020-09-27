@@ -90,57 +90,6 @@
   ],
   "DButtons": [
     {
-      "type": "ADDTRAINING",
-      "name": "Add HCP/HCO",
-      "icon": "sap-icon://copy",
-      "Dialog": [
-        { "label": "FirstName", "name": "FirstName", "type": "string" },
-        { "label": "LastName", "name": "LastName", "type": "string" },
-        { "label": "Title", "name": "Title", "type": "string" },
-        { "label": "Speciality", "name": "Speciality", "type": "string" },
-        { "label": "Email", "name": "Email", "type": "string" },
-        { "label": "PostCode", "name": "PostCode", "type": "string" },
-        {
-          "label": "InstitutionName",
-          "name": "InstitutionName",
-          "type": "string"
-        }
-      ],
-      "listFields": [
-        "Title",
-        "FirstName",
-        "LastName",
-        "Speciality",
-        "Email",
-        "PostCode"
-      ],
-      "tableField": "myHCPHCO",
-      "transferFields": [
-        "ID",
-        "Title",
-        "FirstName",
-        "LastName",
-        "Speciality",
-        "Email",
-        "PostCode",
-        "InstitutionName"
-      ],
-      "SearchURL": "listrecordsnew/Web/HC0001/Purchaser{filter}",
-      "URL": "util/addTraining/myHCPHCO/HC0001/HC0002/{ID}/{ReferenceID}/{role}",
-      "FieldMapping": {
-        "Title": "Title",
-        "FirstName": "FirstName",
-        "LastName": "LastName",
-        "Speciality": "Speciality",
-        "Email": "Email",
-        "PostCode": "PostCode",
-        "InstitutionName": "InstitutionName"
-      },
-      "FixedValues": [{ "Status": "Active" }],
-      "Token": "Yes",
-      "URLMethod": "POST"
-    },
-    {
       "type": "SELFASSIGN",
       "name": "Submit Invoice",
       "icon": "sap-icon://share-2",
@@ -152,11 +101,11 @@
     },
     {
       "type": "WORKFLOW",
-      "name": "Cancel",
-      "icon": "sap-icon://decline",
+      "name": "Query",
+      "icon": "sap-icon://sys-help",
       "Dialog": [
         {
-          "label": "Cancellation Comment",
+          "label": "Query Details",
           "name": "ProgressComment",
           "type": "string",
           "option": "Optional"
@@ -164,7 +113,7 @@
       ],
       "transferFields": [
         { "field": "ID", "value": "@recorddata" },
-        { "field": "Status", "value": "Cancelled" },
+        { "field": "Status", "value": "Query" },
         { "field": "ProgressComment", "value": "@UserInput" }
       ],
       "URL": "datarecords/",

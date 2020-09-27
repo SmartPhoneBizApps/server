@@ -109,7 +109,29 @@
       }
     }
   ],
-  "DButtons": [],
+  "DButtons": [
+    {
+      "type": "WORKFLOW",
+      "name": "Query",
+      "icon": "sap-icon://sys-help",
+      "Dialog": [
+        {
+          "label": "Query Details",
+          "name": "ProgressComment",
+          "type": "string",
+          "option": "Optional"
+        }
+      ],
+      "transferFields": [
+        { "field": "ID", "value": "@recorddata" },
+        { "field": "Status", "value": "Query" },
+        { "field": "ProgressComment", "value": "@UserInput" }
+      ],
+      "URL": "datarecords/",
+      "Token": "Yes",
+      "URLMethod": "PUT"
+    }
+  ],
   "Tabs": [
     {
       "value": "Tab0",

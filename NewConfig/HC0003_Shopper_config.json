@@ -171,6 +171,48 @@
     },
     {
       "type": "WORKFLOW",
+      "name": "Completed",
+      "icon": "sap-icon://complete",
+      "Dialog": [
+        {
+          "label": "Completion Details",
+          "name": "ProgressComment",
+          "type": "string",
+          "option": "Optional"
+        }
+      ],
+      "transferFields": [
+        { "field": "ID", "value": "@recorddata" },
+        { "field": "Status", "value": "Completed" },
+        { "field": "ProgressComment", "value": "@UserInput" }
+      ],
+      "URL": "datarecords/",
+      "Token": "Yes",
+      "URLMethod": "PUT"
+    },
+    {
+      "type": "WORKFLOW",
+      "name": "Suspended",
+      "icon": "sap-icon://pause",
+      "Dialog": [
+        {
+          "label": "Suspend Details",
+          "name": "ProgressComment",
+          "type": "string",
+          "option": "Optional"
+        }
+      ],
+      "transferFields": [
+        { "field": "ID", "value": "@recorddata" },
+        { "field": "Status", "value": "Suspended" },
+        { "field": "ProgressComment", "value": "@UserInput" }
+      ],
+      "URL": "datarecords/",
+      "Token": "Yes",
+      "URLMethod": "PUT"
+    },
+    {
+      "type": "WORKFLOW",
       "name": "Cancel",
       "icon": "sap-icon://decline",
       "Dialog": [
@@ -214,15 +256,6 @@
       "update": "Yes",
       "name": "Event Details",
       "fioriicon": "notes",
-      "type": "Field",
-      "download": "Yes"
-    },
-    {
-      "value": "Tab2",
-      "style": "SAP",
-      "update": "Yes",
-      "name": "Contact Details",
-      "fioriicon": "discussion",
       "type": "Field",
       "download": "Yes"
     },
@@ -289,17 +322,40 @@
     "Tab20": ["charts"],
     "None": ["ID"],
     "Tab1": [
-      "EventID",
-      "EventName",
-      "EventType",
-      "EventStartDate",
-      "EventLink",
-      "EventEndDate",
-      "EventValue",
-      "InvoiceValue",
-      "BalanceValue"
+      {
+        "GrpTitle": "Event Details",
+        "Fields": [
+          "EventID",
+          "EventName",
+          "EventType",
+          "EventStartDate",
+          "EventLink",
+          "EventEndDate",
+          "EventValue"
+        ]
+      },
+      {
+        "GrpTitle": "Organiser Details",
+        "Fields": [
+          "OrganiserCompany",
+          "OrganiserName",
+          "OrganiserEmail",
+          "OrganiserTelephone"
+        ]
+      },
+      {
+        "GrpTitle": "Pharma Company Details",
+        "Fields": ["PharmaContact", "PharmaContactEmail"]
+      },
+      {
+        "GrpTitle": "Date / Time",
+        "Fields": ["Time", "Duration"]
+      },
+      {
+        "GrpTitle": "Event Values",
+        "Fields": ["InvoiceValue", "BalanceValue"]
+      }
     ],
-    "Tab2": ["PharmaContact", "PharmaContactEmail"],
     "Tab3": ["MultiAttachments"],
     "Tab4": ["Services"],
     "Tab5": ["EventInvoice"],
@@ -1155,12 +1211,12 @@
       "SLabel": "Pharma Contact Email"
     },
     {
-      "name": "Organiser",
+      "name": "OrganiserCompany",
       "type": "string",
       "width": "500",
       "Option": "Mandatory",
       "adaptiveCard": "Main",
-      "SLabel": "Organiser"
+      "SLabel": "OrganiserCompany"
     },
     {
       "name": "OrganiserName",
@@ -1238,7 +1294,7 @@
     },
     {
       "name": "carouselImage",
-      "type": "attachment",
+      "type": "carouselImage",
       "metadata": "OnlyFileName",
       "width": "200",
       "Option": "Optional",
@@ -1493,26 +1549,39 @@
       "stepType": "FieldList",
       "intro": "Event   : Event Details"
     },
-
     {
       "id": "Step2",
       "fields": [
+        { "name": "OrganiserCompany", "Mode": "Edit" },
+        { "name": "OrganiserName", "Mode": "Edit" },
+        { "name": "OrganiserEmail", "Mode": "Edit" },
+        { "name": "OrganiserTelephone", "Mode": "Edit" }
+      ],
+      "name": "Event Organiser Details",
+      "stepType": "FieldList",
+      "intro": "Event   : Organiser"
+    },
+    {
+      "id": "Step3",
+      "fields": [
         { "name": "EventStartDate", "Mode": "Edit" },
-        { "name": "EventEndDate", "Mode": "Edit" }
+        { "name": "EventEndDate", "Mode": "Edit" },
+        { "name": "Time", "Mode": "Edit" },
+        { "name": "Duration", "Mode": "Edit" }
       ],
       "name": "Dates",
       "stepType": "FieldList",
       "intro": "Event   : Dates"
     },
     {
-      "id": "Step3",
+      "id": "Step4",
       "fields": [{ "name": "carouselImage", "Mode": "Edit" }],
       "name": "Images and Attachment",
       "stepType": "FieldList",
       "intro": "Screenshots and Images : Here you can upload screenshots, images (jpg, png, etc..)"
     },
     {
-      "id": "Step4",
+      "id": "Step5",
       "fields": [{ "name": "MultiAttachments", "Mode": "Edit" }],
       "name": "MultiAttachments",
       "stepType": "Attachments",
@@ -1526,7 +1595,7 @@
       }
     },
     {
-      "id": "Step5",
+      "id": "Step6",
       "fields": [
         { "name": "PharmaContact", "Mode": "Edit" },
         { "name": "PharmaContactEmail", "Mode": "Edit" }
@@ -1536,7 +1605,7 @@
       "intro": "Event   : Pharma Contact"
     },
     {
-      "id": "Step6",
+      "id": "Step7",
       "fields": [{ "name": "Services", "Mode": "Edit" }],
       "name": "Services",
       "stepType": "table",
@@ -1544,7 +1613,7 @@
       "text": "docType,ItemAttachment,Information"
     },
     {
-      "id": "Step7",
+      "id": "Step8",
       "fields": [{ "name": "Status", "Mode": "Edit" }],
       "name": "Status",
       "stepType": "FieldList",

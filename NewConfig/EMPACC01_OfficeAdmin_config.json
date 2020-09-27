@@ -17,7 +17,7 @@
           { "Status": { "$ne": "ReferredBack" } },
           { "Status": { "$ne": "Saved" } },
           { "Status": { "$ne": "Completed" } },
-          { "Status": { "$ne": "MoreInfo" } }, 
+          { "Status": { "$ne": "MoreInfo" } },
           { "Status": { "$ne": "Cancelled" } }
         ]
       },
@@ -160,7 +160,7 @@
     {
       "type": "WORKFLOW",
       "name": "Completed",
-      "icon": "sap-icon://decline",
+      "icon": "sap-icon://complete",
       "Dialog": [
         {
           "label": "Completion Comment",
@@ -546,7 +546,7 @@
       "type": "string",
       "width": "100",
       "Option": "Mandatory",
-      "adaptiveCard": "Main",
+      "adaptiveCard": "Additional",
       "SLabel": "Request Type",
       "LLabel": "Request Type"
     },

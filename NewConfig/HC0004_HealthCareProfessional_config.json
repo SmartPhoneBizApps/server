@@ -106,11 +106,11 @@
     },
     {
       "type": "WORKFLOW",
-      "name": "Cancel",
-      "icon": "sap-icon://decline",
+      "name": "Query",
+      "icon": "sap-icon://sys-help",
       "Dialog": [
         {
-          "label": "Cancellation Comment",
+          "label": "Query Details",
           "name": "ProgressComment",
           "type": "string",
           "option": "Optional"
@@ -118,7 +118,7 @@
       ],
       "transferFields": [
         { "field": "ID", "value": "@recorddata" },
-        { "field": "Status", "value": "Cancelled" },
+        { "field": "Status", "value": "Query" },
         { "field": "ProgressComment", "value": "@UserInput" }
       ],
       "URL": "datarecords/",

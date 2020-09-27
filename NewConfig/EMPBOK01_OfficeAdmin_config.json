@@ -1,15 +1,27 @@
 {
   "Title": {
-    "ApplicationTitle": "Employee Bookings(Internal)",
-    "DetailTitle": "Employee Bookings(Internal)"
+    "ApplicationTitle": "Approve Employee Bookings(Internal)",
+    "DetailTitle": "Approve Employee Bookings(Internal)"
   },
   "Controls": {
     "style": "SAP",
     "calculation": "No",
     "USP": "UserProfile",
     "StatusColor": "Yes",
-    "SearchString": { "Search": false },
-    "Filters": [{ "Email": "@user" }],
+    "SearchString": { "Search": true },
+    "Filters": [
+      {
+        "$and": [
+          { "Status": { "$ne": "Requested" } },
+          { "Status": { "$ne": "Rejected" } },
+          { "Status": { "$ne": "ReferredBack" } },
+          { "Status": { "$ne": "Saved" } },
+          { "Status": { "$ne": "Completed" } },
+          { "Status": { "$ne": "MoreInfo" } },
+          { "Status": { "$ne": "Cancelled" } }
+        ]
+      }
+    ],
     "Partner": "@user",
     "UserSpecific": "Yes",
     "Update": "Yes",
@@ -107,34 +119,16 @@
       "name": "Launch BOT",
       "icon": "sap-icon://travel-request",
       "URL": "https://www.messenger.com/t/295020207695029"
-    },
-
-    { "type": "ADD", "name": "Add Record", "icon": "sap-icon://add" },
-    {
-      "type": "UPLOAD",
-      "name": "Upload Record",
-      "icon": "sap-icon://upload",
-      "Option": ["Header"],
-      "ItemOptions": [],
-      "URL": "datarecords/",
-      "URLMethodHDR": "POST",
-      "URLMethodTable": "PUT",
-      "dataFields": "FieldName",
-      "key": {
-        "ID": "External",
-        "generateID": [],
-        "seperator": "-"
-      }
     }
   ],
   "DButtons": [
     {
       "type": "WORKFLOW",
-      "name": "Submit",
-      "icon": "sap-icon://decline",
+      "name": "MoreInfo",
+      "icon": "sap-icon://accept",
       "Dialog": [
         {
-          "label": "Submit Comment",
+          "label": "Info Required",
           "name": "ProgressComment",
           "type": "string",
           "option": "Optional"
@@ -142,20 +136,21 @@
       ],
       "transferFields": [
         { "field": "ID", "value": "@recorddata" },
-        { "field": "Status", "value": "Submitted" },
+        { "field": "Status", "value": "MoreInfo" },
         { "field": "ProgressComment", "value": "@UserInput" }
       ],
       "URL": "datarecords/",
       "Token": "Yes",
-      "URLMethod": "PUT"
+      "URLMethod": "PUT",
+      "hideRecord": "Yes"
     },
     {
       "type": "WORKFLOW",
-      "name": "Cancel",
-      "icon": "sap-icon://decline",
+      "name": "Completed",
+      "icon": "sap-icon://complete",
       "Dialog": [
         {
-          "label": "Cancellation Comment",
+          "label": "Completion Comment",
           "name": "ProgressComment",
           "type": "string",
           "option": "Optional"
@@ -163,12 +158,13 @@
       ],
       "transferFields": [
         { "field": "ID", "value": "@recorddata" },
-        { "field": "Status", "value": "Cancelled" },
+        { "field": "Status", "value": "Completed" },
         { "field": "ProgressComment", "value": "@UserInput" }
       ],
       "URL": "datarecords/",
       "Token": "Yes",
-      "URLMethod": "PUT"
+      "URLMethod": "PUT",
+      "hideRecord": "Yes"
     }
   ],
   "Tabs": [
@@ -191,7 +187,7 @@
     {
       "value": "Tab1",
       "style": "SAP",
-      "update": "Yes",
+      "update": "No",
       "name": "Booking",
       "type": "Field",
       "fioriicon": "hint",
@@ -200,10 +196,10 @@
     {
       "value": "Tab2",
       "style": "SAP",
-      "update": "Yes",
+      "update": "No",
       "name": "Contact",
       "type": "Field",
-      "fioriicon": "contacts",
+      "fioriicon": "hint",
       "download": "Yes"
     }
   ],
@@ -581,62 +577,6 @@
     "HeaderItem": [],
     "Header": []
   },
-  "Create": "Yes",
-  "Wizard": [
-    {
-      "id": "Step1",
-      "fields": [
-        { "name": "BookingFor", "Mode": "Display" },
-        { "name": "CarPark", "Mode": "Edit" },
-        { "name": "StartDate", "Mode": "Edit" },
-        { "name": "EndDate", "Mode": "Edit" },
-        { "name": "MeetingDate", "Mode": "Edit" },
-        { "name": "Slot", "Mode": "Edit" },
-        { "name": "NoOfPeople", "Mode": "Edit" },
-        { "name": "RoomLayout", "Mode": "Edit" },
-        { "name": "LunchRequired", "Mode": "Edit" },
-        { "name": "DietaryRequirement", "Mode": "Edit" },
-        { "name": "HotDeskNo", "Mode": "Edit" },
-        { "name": "Building", "Mode": "Edit" },
-        { "name": "ParkingRequired", "Mode": "Edit" },
-        { "name": "VisitorName", "Mode": "Edit" },
-        { "name": "VisitorEmail", "Mode": "Edit" },
-        { "name": "VisitorPhone", "Mode": "Edit" },
-        { "name": "VisitorCompany", "Mode": "Edit" },
-        { "name": "CarRegistration", "Mode": "Edit" }
-      ],
-      "name": "Booking Details",
-      "stepType": "FieldList",
-      "intro": " Booking : Booking Details"
-    },
-    {
-      "id": "Step2",
-      "fields": [
-        { "name": "Name", "Mode": "Display" },
-        { "name": "ContactNo", "Mode": "Display" },
-        { "name": "Email", "Mode": "Display" }
-      ],
-      "name": "Your Details",
-      "stepType": "FieldList",
-      "intro": "Booking : Your Details"
-    },
-    {
-      "id": "Step3",
-      "fields": [
-        { "name": "StartTime", "Mode": "Edit" },
-        { "name": "EndTime", "Mode": "Edit" },
-        { "name": "Comments", "Mode": "Edit" }
-      ],
-      "name": "Additional Details",
-      "stepType": "FieldList",
-      "intro": "Booking : Additional Details"
-    },
-    {
-      "id": "Step4",
-      "fields": [{ "name": "Status", "Mode": "Display" }],
-      "name": "Admin and other details",
-      "stepType": "FieldList",
-      "intro": "Booking : Admin and other details"
-    }
-  ]
+  "Create": "No",
+  "Wizard": []
 }
