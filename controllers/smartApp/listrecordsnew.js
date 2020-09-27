@@ -300,25 +300,67 @@ exports.listrecordsnew = asyncHandler(async (req, res, next) => {
     }
     if (mode == "listcards") {
       // 01 - CARD ADAPTIVE CARDS (LIST SCREEN)
-      for (let w = 0; w < appconfig["MButtons"].length; w++) {
-        if (appconfig["MButtons"][w]["type"] == "ADD") {
-          aCard = {};
-          aCard = await adaptiveNew(
-            appconfig,
-            resPV,
-            ival_out,
-            "header",
-            appconfig["PossibleValues"],
-            "Tab1"
-          );
-          var cardData = JSON.stringify(aCard);
-          cardData = cardReplace({}, cardData, appconfig, "header", "Tab1");
-          cardData = cardReplace({}, cardData, appconfig, "header", "Tab1");
-          cardData = cardReplace({}, cardData, appconfig, "header", "Tab1");
-          aCard = JSON.parse(cardData);
-          outStru["ADD01"] = { ...aCard };
+      // Collect control display values
+      ControlField = "header";
+      if (appconfig["ControlDisplay"]["ControlField"] != undefined) {
+        // Check Controlled Display..
+        ControlField = appconfig["ControlDisplay"]["ControlField"];
+        arr1 = [];
+        //     var set1 = new Set([]);
+        for (let a = 0; a < resPV.length; a++) {
+          if (resPV[a]["PossibleValues"] == ControlField) {
+            arr1.push(resPV[a]["Value"]);
+            //       set1.add(resPV[a]["Value"]);
+          }
+        }
+        for (let w = 0; w < appconfig["MButtons"].length; w++) {
+          for (let y = 0; y < arr1.length; y++) {
+            if (appconfig["MButtons"][w]["type"] == "ADD") {
+              aCard = {};
+              aCard = await adaptiveNew(
+                appconfig,
+                resPV,
+                ival_out,
+                "header",
+                appconfig["PossibleValues"],
+                "Tab1",
+                arr1[y],
+                ControlField
+              );
+              var cardData = JSON.stringify(aCard);
+              console.log("X6", aCard);
+              cardData = cardReplace({}, cardData, appconfig, "header", "Tab1");
+              cardData = cardReplace({}, cardData, appconfig, "header", "Tab1");
+              cardData = cardReplace({}, cardData, appconfig, "header", "Tab1");
+              aCard = JSON.parse(cardData);
+              outStru["ADD01_" + arr1[y]] = { ...aCard };
+            }
+          }
+        }
+      } else {
+        for (let w = 0; w < appconfig["MButtons"].length; w++) {
+          if (appconfig["MButtons"][w]["type"] == "ADD") {
+            aCard = {};
+            aCard = await adaptiveNew(
+              appconfig,
+              resPV,
+              ival_out,
+              "header",
+              appconfig["PossibleValues"],
+              "Tab1",
+              "header",
+              ControlField
+            );
+            var cardData = JSON.stringify(aCard);
+            cardData = cardReplace({}, cardData, appconfig, "header", "Tab1");
+            cardData = cardReplace({}, cardData, appconfig, "header", "Tab1");
+            cardData = cardReplace({}, cardData, appconfig, "header", "Tab1");
+            aCard = JSON.parse(cardData);
+            outStru["ADD01"] = { ...aCard };
+          }
         }
       }
+
       // 02 - CARD Analytical Card (LIST SCREEN)
       if (appconfig.hasOwnProperty("listCards")) {
         for (let x = 0; x < appconfig["listCards"].length; x++) {

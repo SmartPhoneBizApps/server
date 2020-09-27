@@ -1528,6 +1528,13 @@ module.exports = {
     appconfig = JSON.parse(con01);
     return appconfig;
   },
+  cdbody1xIValue: function (body1x, name, cVal) {
+    body1x["id"] = name;
+    body1x["value"] = cVal;
+    body1x["type"] = "Input.Text";
+    body1x["style"] = "text";
+    return body1x;
+  },
   body2xIValue: function (body2x, name) {
     body2x["size"] = "medium";
     body2x["isSubtle"] = true;
@@ -1537,6 +1544,7 @@ module.exports = {
   },
 
   body1xIValueH: function (body1x, appconfig, name, val) {
+    // Control Display = OFF
     body1x["id"] = name;
     body1x["value"] = val;
     for (let a = 0; a < appconfig["FieldDef"].length; a++) {
@@ -1663,20 +1671,32 @@ module.exports = {
     body2x["text"] = name;
     return body2x;
   },
-  body1xChoiceSet: function (body1x, name, resPV) {
+  body1xChoiceSet: function (body1x, name, resPV, ControlField) {
     x_ch = [];
-    body1x["style"] = "expanded";
-    body1x["type"] = "Input.ChoiceSet";
-    body1x["id"] = name;
-    for (let j = 0; j < resPV.length; j++) {
-      if (resPV[j]["PossibleValues"] == name) {
-        x_choices = {};
-        x_choices["title"] = resPV[j]["Description"];
-        x_choices["value"] = resPV[j]["Value"];
-        x_ch.push(x_choices);
+
+    if (ControlField == name) {
+      // Control Display = ON
+      // NO Possible values required!!
+      body1x["style"] = "text";
+      body1x["type"] = "Input.Text";
+      body1x["id"] = name;
+      body1x["placeholder"] = name;
+    } else {
+      // Control Display = OFF
+      body1x["style"] = "expanded";
+      body1x["type"] = "Input.ChoiceSet";
+      body1x["id"] = name;
+      for (let j = 0; j < resPV.length; j++) {
+        if (resPV[j]["PossibleValues"] == name) {
+          x_choices = {};
+          x_choices["title"] = resPV[j]["Description"];
+          x_choices["value"] = resPV[j]["Value"];
+          x_ch.push(x_choices);
+        }
       }
+      body1x["choices"] = x_ch;
     }
-    body1x["choices"] = x_ch;
+
     return body1x;
   },
   body2xIValue: function (body2x, name) {
@@ -1762,7 +1782,7 @@ module.exports = {
         body1x["id"] = name;
         body1x["placeholder"] = name;
         //"isMultiline"
-        if (appconfig["FieldDef"]["width"] > 100) {
+        if (width > 100) {
           body1x["isMultiline"] = true;
         } else {
           body1x["isMultiline"] = false;

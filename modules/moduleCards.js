@@ -10,6 +10,7 @@ const {
   body2xIValue,
   body1xIValueH,
   body1xIValueI,
+  cdbody1xIValue,
 } = require("./config");
 const { aggregateCount, aggregateSum } = require("../modules/config2");
 
@@ -608,27 +609,22 @@ module.exports = {
     ival_out,
     mode,
     poss_val,
-    tab
+    tab,
+    cVal,
+    ControlField
   ) {
     body = [];
     body2 = [];
     body2 = [];
     body1x = {};
     body2x = {};
+
     let cardConfigFile1 = "../cards/cardConfig/template_adaptiveForm.json";
     let aCard = require(cardConfigFile1);
     if (mode == "header") {
+      // Header Adaptive Cards
       if (appconfig["ControlDisplay"]["ControlField"] != undefined) {
-        // Check Controlled Display..
-        ControlField = appconfig["ControlDisplay"]["ControlField"];
-        var set1 = new Set([]);
-        for (let a = 0; a < poss_val.length; a++) {
-          if (poss_val[a]["PossibleValues"] == ControlField) {
-            set1.add(poss_val[a]["Value"]);
-          }
-        }
-        console.log(set1);
-        // Check Controlled Display..
+        // Control Display = ON [ ALL Fields]
         for (
           let s = 0;
           s < appconfig["ControlDisplay"]["Fields"][0].length;
@@ -666,9 +662,15 @@ module.exports = {
                         body1x = {};
                         body2x = {};
                         body2x = body2xChoiceSet(body2x, e1["name"]);
-                        body1x = body1xChoiceSet(body1x, e1["name"], resPV);
+                        body1x = body1xChoiceSet(
+                          body1x,
+                          e1["name"],
+                          resPV,
+                          ControlField
+                        );
                       }
                     }
+
                     // Initial Values (Header)..
                     for (let d = 0; d < ival_out.length; d++) {
                       if (ival_out[d]["Field"] == e1["name"]) {
@@ -681,6 +683,13 @@ module.exports = {
                         );
                       }
                     }
+                    // Control Display...
+                    if (ControlField == e1["name"]) {
+                      // Control Display = ON
+                      body2x = body2xIValue(body2x, e1["name"]);
+                      body1x = cdbody1xIValue(body1x, e1["name"], cVal);
+                    }
+
                     for (let a = 0; a < appconfig["FieldDef"].length; a++) {
                       if (appconfig["FieldDef"][a]["name"] == e1["name"]) {
                         if (
@@ -709,116 +718,124 @@ module.exports = {
             });
           }
         }
-
+        // Control Display = ON [ Control Display Fields]
         for (
           let s = 0;
           s < appconfig["ControlDisplay"]["Fields"][0].length;
           s++
         ) {
-          set1.forEach((cVal) => {
-            if (
-              appconfig["ControlDisplay"]["Fields"][0][s].hasOwnProperty(cVal)
-            ) {
-              appconfig["ControlDisplay"]["Fields"][0][s][cVal].forEach(
-                (ex) => {
-                  for (let l = 0; l < appconfig["Wizard"].length; l++) {
-                    const rkg = appconfig["Wizard"][l];
-                    rkg["fields"].forEach((e1) => {
-                      if (ex == e1["name"]) {
-                        console.log("EX:", ex, e1["name"]);
-                        for (let a = 0; a < appconfig["FieldDef"].length; a++) {
-                          if (appconfig["FieldDef"][a]["name"] == e1["name"]) {
-                            body2x = body2xAdaptiveCard(
-                              appconfig["FieldDef"][a]["type"],
-                              appconfig["FieldDef"][a]["width"],
-                              body2x,
-                              e1["name"]
-                            );
-                            body1x = body1xAdaptiveCard(
-                              appconfig["FieldDef"][a]["type"],
-                              appconfig["FieldDef"][a]["width"],
-                              body1x,
-                              e1["name"]
-                            );
-                          }
+          if (
+            appconfig["ControlDisplay"]["Fields"][0][s].hasOwnProperty(cVal)
+          ) {
+            appconfig["ControlDisplay"]["Fields"][0][s][cVal].forEach((ex) => {
+              for (let l = 0; l < appconfig["Wizard"].length; l++) {
+                const rkg = appconfig["Wizard"][l];
+                rkg["fields"].forEach((e1) => {
+                  if (ex == e1["name"]) {
+                    console.log("EX:", ex, e1["name"]);
+                    for (let a = 0; a < appconfig["FieldDef"].length; a++) {
+                      if (appconfig["FieldDef"][a]["name"] == e1["name"]) {
+                        body2x = body2xAdaptiveCard(
+                          appconfig["FieldDef"][a]["type"],
+                          appconfig["FieldDef"][a]["width"],
+                          body2x,
+                          e1["name"]
+                        );
+                        body1x = body1xAdaptiveCard(
+                          appconfig["FieldDef"][a]["type"],
+                          appconfig["FieldDef"][a]["width"],
+                          body1x,
+                          e1["name"]
+                        );
+                      }
+                    }
+                    // Possible Values..
+                    for (let a = 0; a < poss_val.length; a++) {
+                      // Possible Values >> Input.ChoiceSet
+                      if (poss_val[a] == e1["name"]) {
+                        body1x = {};
+                        body2x = {};
+                        body2x = body2xChoiceSet(body2x, e1["name"]);
+                        body1x = body1xChoiceSet(
+                          body1x,
+                          e1["name"],
+                          resPV,
+                          ControlField
+                        );
+                      }
+                    }
+                    // Initial Values (Header)..
+                    for (let d = 0; d < ival_out.length; d++) {
+                      if (ival_out[d]["Field"] == e1["name"]) {
+                        body2x = body2xIValue(body2x, e1["name"]);
+                        body1x = body1xIValueH(
+                          body1x,
+                          appconfig,
+                          e1["name"],
+                          ival_out[d]["Value"]
+                        );
+                      }
+                    }
+
+                    // Control Display...
+                    if (ControlField == e1["name"]) {
+                      // Control Display = ON
+                      body2x = body2xIValue(body2x, e1["name"]);
+                      body1x = cdbody1xIValue(body1x, e1["name"], cVal);
+                    }
+
+                    for (let a = 0; a < appconfig["FieldDef"].length; a++) {
+                      if (appconfig["FieldDef"][a]["name"] == e1["name"]) {
+                        if (
+                          appconfig["FieldDef"][a]["adaptiveCard"] == "Main"
+                        ) {
+                          body.push(body2x);
+                          body2x = {};
+                          body.push(body1x);
+                          body1x = {};
                         }
-                        // Possible Values..
-                        for (let a = 0; a < poss_val.length; a++) {
-                          // Possible Values >> Input.ChoiceSet
-                          if (poss_val[a] == e1["name"]) {
-                            body1x = {};
-                            body2x = {};
-                            body2x = body2xChoiceSet(body2x, e1["name"]);
-                            body1x = body1xChoiceSet(body1x, e1["name"], resPV);
-                          }
-                        }
-                        // Initial Values (Header)..
-                        for (let d = 0; d < ival_out.length; d++) {
-                          if (ival_out[d]["Field"] == e1["name"]) {
-                            body2x = body2xIValue(body2x, e1["name"]);
-                            body1x = body1xIValueH(
-                              body1x,
-                              appconfig,
-                              e1["name"],
-                              ival_out[d]["Value"]
-                            );
-                          }
-                        }
-                        for (let a = 0; a < appconfig["FieldDef"].length; a++) {
-                          if (appconfig["FieldDef"][a]["name"] == e1["name"]) {
-                            if (
-                              appconfig["FieldDef"][a]["adaptiveCard"] == "Main"
-                            ) {
-                              body.push(body2x);
-                              body2x = {};
-                              body.push(body1x);
-                              body1x = {};
-                            }
-                            if (
-                              appconfig["FieldDef"][a]["adaptiveCard"] ==
-                              "Additional"
-                            ) {
-                              body2.push(body2x);
-                              body2x = {};
-                              body2.push(body1x);
-                              body1x = {};
-                            }
-                          }
+                        if (
+                          appconfig["FieldDef"][a]["adaptiveCard"] ==
+                          "Additional"
+                        ) {
+                          body2.push(body2x);
+                          body2x = {};
+                          body2.push(body1x);
+                          body1x = {};
                         }
                       }
-                    });
-                  }
-                  aCard["sap.card"]["content"]["body"] = body;
-                  for (
-                    let m = 0;
-                    m < aCard["sap.card"]["content"]["actions"].length;
-                    m++
-                  ) {
-                    if (
-                      aCard["sap.card"]["content"]["actions"][m]["type"] ==
-                      "Action.ShowCard"
-                    ) {
-                      aCard["sap.card"]["content"]["actions"][m]["card"][
-                        "body"
-                      ] = body2;
-                    }
-                    if (
-                      aCard["sap.card"]["content"]["actions"][m]["type"] ==
-                      "Action.Submit"
-                    ) {
-                      console.log("table", mode);
-                      aCard["sap.card"]["content"]["actions"][m][
-                        "table"
-                      ] = mode;
                     }
                   }
+                });
+              }
+              aCard["sap.card"]["content"]["body"] = body;
+              for (
+                let m = 0;
+                m < aCard["sap.card"]["content"]["actions"].length;
+                m++
+              ) {
+                if (
+                  aCard["sap.card"]["content"]["actions"][m]["type"] ==
+                  "Action.ShowCard"
+                ) {
+                  aCard["sap.card"]["content"]["actions"][m]["card"][
+                    "body"
+                  ] = body2;
                 }
-              );
-            }
-          });
+                if (
+                  aCard["sap.card"]["content"]["actions"][m]["type"] ==
+                  "Action.Submit"
+                ) {
+                  console.log("table", mode);
+                  aCard["sap.card"]["content"]["actions"][m]["table"] = mode;
+                }
+              }
+            });
+          }
         }
-        console.log("CARD:", body, body2, aCard);
+        console.log("X4");
       } else {
+        // Control Display = OFF
         for (let l = 0; l < appconfig["Wizard"].length; l++) {
           const rkg = appconfig["Wizard"][l];
           rkg["fields"].forEach((e1) => {
@@ -969,7 +986,12 @@ module.exports = {
                 body1x = {};
                 body2x = {};
                 body2x = body2xChoiceSet(body2x, e1["name"]);
-                body1x = body1xChoiceSet(body1x, e1["name"], resPV);
+                body1x = body1xChoiceSet(
+                  body1x,
+                  e1["name"],
+                  resPV,
+                  ControlField
+                );
               }
             }
             // Initial Values (Header)..
@@ -983,6 +1005,13 @@ module.exports = {
                   ival_out[d]["Value"]
                 );
               }
+            }
+
+            // Control Display...
+            if (ControlField == e1["name"]) {
+              // Control Display = ON
+              body2x = body2xIValue(body2x, e1["name"]);
+              body1x = cdbody1xIValue(body1x, e1["name"], cVal);
             }
             // for (let d = 0; d < ival_out.length; d++) {
             //   if (ival_out[d]["Field"] == e1["name"]) {
@@ -1090,6 +1119,7 @@ module.exports = {
           }
         }
       }
+      console.log("X5");
     } else {
       appconfig["CreateFields"].forEach((e1) => {
         for (let a = 0; a < appconfig["ItemFieldDefinition"].length; a++) {
@@ -1237,7 +1267,7 @@ module.exports = {
             body1x = {};
             body2x = {};
             body2x = body2xChoiceSet(body2x, e1["name"]);
-            body1x = body1xChoiceSet(body1x, e1["name"], resPV);
+            body1x = body1xChoiceSet(body1x, e1["name"], resPV, ControlField);
           }
         }
         // Initial Values (Tables)..
@@ -1283,7 +1313,7 @@ module.exports = {
         }
       }
     }
-
+    console.log("CARD:", aCard);
     return aCard;
   },
   analyticalNew: async function (appconfig, outData, style) {

@@ -138,7 +138,6 @@ module.exports = {
         reqQuery1[key] = config1["Controls"]["Filters"][i][key];
       }
     }
-    console.log("AKG", reqQuery1);
     queryStr = formatQuery(reqQuery1);
     query = model.find(JSON.parse(queryStr));
 
@@ -198,7 +197,6 @@ module.exports = {
         reqQuery1[key] = config1["Controls"]["Filters"][i][key];
       }
     }
-    console.log("AKG", reqQuery1);
     queryStr = formatQuery(reqQuery1);
     query = model.find(JSON.parse(queryStr));
 
@@ -364,7 +362,13 @@ module.exports = {
                     // btnx["payload"] =
                     //   action_var + "-" + agbtn["name"] + " " + oData["ID"];
                     btnx["payload"] =
-                    action_var + "-" + "Status" + " " + element.Value + " " + oData["ID"];
+                      action_var +
+                      "-" +
+                      "Status" +
+                      " " +
+                      element.Value +
+                      " " +
+                      oData["ID"];
                     btn1.push({ ...btnx });
                     btnx = {};
                   } else {
@@ -405,7 +409,6 @@ module.exports = {
         reqQuery[key] = config1["Controls"]["Filters"][i][key];
       }
     }
-    console.log("AKG", reqQuery);
     queryStr = formatQuery(reqQuery);
     filter = {};
     filter = JSON.parse(queryStr);
@@ -447,7 +450,6 @@ module.exports = {
         reqQuery[key] = config1["Controls"]["Filters"][i][key];
       }
     }
-    console.log("AKG", reqQuery);
     queryStr = formatQuery(reqQuery);
     filter = {};
     filter = JSON.parse(queryStr);
@@ -491,7 +493,6 @@ module.exports = {
       }
     }
 
-    console.log("AKG", reqQuery);
     queryStr = formatQuery(reqQuery);
     filter = {};
     filter = JSON.parse(queryStr);
