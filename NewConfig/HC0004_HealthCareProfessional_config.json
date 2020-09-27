@@ -149,16 +149,7 @@
       "update": "Yes",
       "name": "Contract Details",
       "fioriicon": "notes",
-      "type": "Field",
-      "download": "Yes"
-    },
-    {
-      "value": "Tab2",
-      "style": "SAP",
-      "update": "Yes",
-      "name": "Contact Details",
-      "fioriicon": "discussion",
-      "type": "Field",
+      "type": "FieldGroup",
       "download": "Yes"
     },
     {
@@ -173,6 +164,14 @@
         { "text": "Contract", "state": "Success" },
         { "text": "WorkSchedule", "state": "Information" }
       ]
+    },
+    {
+      "value": "Tab7",
+      "style": "SAP",
+      "update": "Yes",
+      "name": "Images",
+      "type": "carouselImage",
+      "fioriicon": "contacts"
     },
     {
       "value": "Tab4",
@@ -208,21 +207,31 @@
     "Tab20": ["charts"],
     "None": ["ID"],
     "Tab1": [
-      "ContractID",
-      "ContractName",
-      "ContractType",
-      "ContractStartDate",
-      "ContractLink",
-      "ContractEndDate",
-      "ContractValue",
-      "InvoiceValue",
-      "BalanceValue"
+      {
+        "GrpTitle": "Contract Details",
+        "Fields": [
+          "ContractID",
+          "ContractName",
+          "ContractType",
+          "ContractStartDate",
+          "ContractLink",
+          "ContractEndDate"
+        ]
+      },
+      {
+        "GrpTitle": "Contract Values",
+        "Fields": ["ContractValue", "InvoiceValue", "BalanceValue"]
+      },
+      {
+        "GrpTitle": "Pharma Contacts",
+        "Fields": ["PharmaContact", "PharmaContactEmail"]
+      }
     ],
-    "Tab2": ["PharmaContact", "PharmaContactEmail"],
     "Tab3": ["MultiAttachments"],
     "Tab4": ["Services"],
     "Tab5": ["ContractInvoice"],
-    "Tab6": ["myHCPHCO"]
+    "Tab6": ["myHCPHCO"],
+    "Tab7": ["carouselImage"]
   },
   "listCards": [
     {
@@ -953,6 +962,16 @@
       "adaptiveCard": "None",
       "SLabel": "MultiAttachments",
       "LLabel": "MultiAttachments"
+    },
+    {
+      "name": "carouselImage",
+      "type": "carouselImage",
+      "metadata": "OnlyFileName",
+      "width": "200",
+      "Option": "Optional",
+      "adaptiveCard": "Additional",
+      "SLabel": "Certificates",
+      "LLabel": "Certificates"
     },
     {
       "name": "Status",

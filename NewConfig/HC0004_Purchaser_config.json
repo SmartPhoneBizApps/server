@@ -280,16 +280,7 @@
       "update": "Yes",
       "name": "Contract Details",
       "fioriicon": "notes",
-      "type": "Field",
-      "download": "Yes"
-    },
-    {
-      "value": "Tab2",
-      "style": "SAP",
-      "update": "Yes",
-      "name": "Contact Details",
-      "fioriicon": "discussion",
-      "type": "Field",
+      "type": "FieldGroup",
       "download": "Yes"
     },
     {
@@ -347,17 +338,26 @@
     "Tab20": ["charts"],
     "None": ["ID"],
     "Tab1": [
-      "ContractID",
-      "ContractName",
-      "ContractType",
-      "ContractStartDate",
-      "ContractLink",
-      "ContractEndDate",
-      "ContractValue",
-      "InvoiceValue",
-      "BalanceValue"
+      {
+        "GrpTitle": "Contract Details",
+        "Fields": [
+          "ContractID",
+          "ContractName",
+          "ContractType",
+          "ContractStartDate",
+          "ContractLink",
+          "ContractEndDate"
+        ]
+      },
+      {
+        "GrpTitle": "Contract Values",
+        "Fields": ["ContractValue", "InvoiceValue", "BalanceValue"]
+      },
+      {
+        "GrpTitle": "Pharma Contacts",
+        "Fields": ["PharmaContact", "PharmaContactEmail"]
+      }
     ],
-    "Tab2": ["PharmaContact", "PharmaContactEmail"],
     "Tab3": ["MultiAttachments"],
     "Tab4": ["Services"],
     "Tab5": ["ContractInvoice"],
@@ -1138,6 +1138,14 @@
       "Option": "Optional",
       "adaptiveCard": "Additional",
       "SLabel": "Contract Link"
+    },
+    {
+      "name": "ContractEndDate",
+      "type": "Date",
+      "width": "10",
+      "Option": "Mandatory",
+      "adaptiveCard": "Main",
+      "SLabel": "Contract End Date"
     },
     {
       "name": "ContractEndDate",
