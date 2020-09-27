@@ -841,142 +841,155 @@ module.exports = {
           rkg["fields"].forEach((e1) => {
             for (let a = 0; a < appconfig["FieldDef"].length; a++) {
               if (appconfig["FieldDef"][a]["name"] == e1["name"]) {
-                switch (appconfig["FieldDef"][a]["type"]) {
-                  case "string":
-                    // Text >> Input.Text
-                    //"style": "text",
-                    body2x["size"] = "medium";
-                    body2x["isSubtle"] = true;
-                    body2x["type"] = "TextBlock";
-                    body2x["text"] = e1["name"];
+                body2x = body2xAdaptiveCard(
+                  appconfig["FieldDef"][a]["type"],
+                  appconfig["FieldDef"][a]["width"],
+                  body2x,
+                  e1["name"]
+                );
+                body1x = body1xAdaptiveCard(
+                  appconfig["FieldDef"][a]["type"],
+                  appconfig["FieldDef"][a]["width"],
+                  body1x,
+                  e1["name"]
+                );
 
-                    body1x["style"] = "text";
-                    body1x["type"] = "Input.Text";
-                    body1x["id"] = e1["name"];
-                    body1x["placeholder"] = e1["name"];
-                    //"isMultiline"
-                    if (appconfig["FieldDef"][a]["width"] > 100) {
-                      body1x["isMultiline"] = true;
-                    } else {
-                      body1x["isMultiline"] = false;
-                    }
-                    break;
-                  case "Date":
-                    // Date >> Input.Date
-                    body2x["size"] = "medium";
-                    body2x["isSubtle"] = true;
-                    body2x["type"] = "TextBlock";
-                    body2x["text"] = e1["name"];
+                // switch (appconfig["FieldDef"][a]["type"]) {
+                //   case "string":
+                //     // Text >> Input.Text
+                //     //"style": "text",
+                //     body2x["size"] = "medium";
+                //     body2x["isSubtle"] = true;
+                //     body2x["type"] = "TextBlock";
+                //     body2x["text"] = e1["name"];
 
-                    body1x["type"] = "Input.Date";
-                    body1x["id"] = e1["name"];
-                    body1x["placeholder"] = e1["name"];
-                    //           body1x["value"] = "@currentDate";
+                //     body1x["style"] = "text";
+                //     body1x["type"] = "Input.Text";
+                //     body1x["id"] = e1["name"];
+                //     body1x["placeholder"] = e1["name"];
+                //     //"isMultiline"
+                //     if (appconfig["FieldDef"][a]["width"] > 100) {
+                //       body1x["isMultiline"] = true;
+                //     } else {
+                //       body1x["isMultiline"] = false;
+                //     }
+                //     break;
+                //   case "Date":
+                //     // Date >> Input.Date
+                //     body2x["size"] = "medium";
+                //     body2x["isSubtle"] = true;
+                //     body2x["type"] = "TextBlock";
+                //     body2x["text"] = e1["name"];
 
-                    break;
+                //     body1x["type"] = "Input.Date";
+                //     body1x["id"] = e1["name"];
+                //     body1x["placeholder"] = e1["name"];
+                //     //           body1x["value"] = "@currentDate";
 
-                  case "hyperlink":
-                    //"style": "url",
-                    // Text >> Input.Text
-                    body2x["size"] = "medium";
-                    body2x["isSubtle"] = true;
-                    body2x["type"] = "TextBlock";
-                    body2x["text"] = e1["name"];
+                //     break;
 
-                    body1x["style"] = "url";
-                    body1x["type"] = "Input.Text";
-                    body1x["id"] = e1["name"];
-                    body1x["placeholder"] = "Website Url";
+                //   case "hyperlink":
+                //     //"style": "url",
+                //     // Text >> Input.Text
+                //     body2x["size"] = "medium";
+                //     body2x["isSubtle"] = true;
+                //     body2x["type"] = "TextBlock";
+                //     body2x["text"] = e1["name"];
 
-                    break;
+                //     body1x["style"] = "url";
+                //     body1x["type"] = "Input.Text";
+                //     body1x["id"] = e1["name"];
+                //     body1x["placeholder"] = "Website Url";
 
-                  case "Email":
-                    //"style": "email",
-                    // Text >> Input.Text
-                    body2x["size"] = "medium";
-                    body2x["isSubtle"] = true;
-                    body2x["type"] = "TextBlock";
-                    body2x["text"] = e1["name"];
+                //     break;
 
-                    body1x["style"] = "email";
-                    body1x["type"] = "Input.Text";
-                    body1x["id"] = e1["name"];
-                    body1x["placeholder"] = "youremail@example.com";
+                //   case "Email":
+                //     //"style": "email",
+                //     // Text >> Input.Text
+                //     body2x["size"] = "medium";
+                //     body2x["isSubtle"] = true;
+                //     body2x["type"] = "TextBlock";
+                //     body2x["text"] = e1["name"];
 
-                    break;
-                  case "Time":
-                    // Time >> Input.Time
-                    body2x["size"] = "medium";
-                    body2x["isSubtle"] = true;
-                    body2x["type"] = "TextBlock";
-                    body2x["text"] = e1["name"];
+                //     body1x["style"] = "email";
+                //     body1x["type"] = "Input.Text";
+                //     body1x["id"] = e1["name"];
+                //     body1x["placeholder"] = "youremail@example.com";
 
-                    body1x["type"] = "Input.Time";
-                    body1x["id"] = e1["name"];
-                    body1x["placeholder"] = e1["name"];
-                    break;
-                  case "Num,0":
-                    // Number >> Input.Number
-                    body2x["size"] = "medium";
-                    body2x["isSubtle"] = true;
-                    body2x["type"] = "TextBlock";
-                    body2x["text"] = e1["name"];
+                //     break;
+                //   case "Time":
+                //     // Time >> Input.Time
+                //     body2x["size"] = "medium";
+                //     body2x["isSubtle"] = true;
+                //     body2x["type"] = "TextBlock";
+                //     body2x["text"] = e1["name"];
 
-                    body1x["type"] = "Input.Number";
-                    body1x["id"] = e1["name"];
-                    body1x["placeholder"] = e1["name"];
-                    break;
-                  case "Num,1":
-                    // Number >> Input.Number
-                    body2x["size"] = "medium";
-                    body2x["isSubtle"] = true;
-                    body2x["type"] = "TextBlock";
-                    body2x["text"] = e1["name"];
+                //     body1x["type"] = "Input.Time";
+                //     body1x["id"] = e1["name"];
+                //     body1x["placeholder"] = e1["name"];
+                //     break;
+                //   case "Num,0":
+                //     // Number >> Input.Number
+                //     body2x["size"] = "medium";
+                //     body2x["isSubtle"] = true;
+                //     body2x["type"] = "TextBlock";
+                //     body2x["text"] = e1["name"];
 
-                    body1x["type"] = "Input.Number";
-                    body1x["id"] = e1["name"];
-                    body1x["placeholder"] = e1["name"];
-                    break;
-                  case "Num,2":
-                    // Number >> Input.Number
-                    body2x["size"] = "medium";
-                    body2x["isSubtle"] = true;
-                    body2x["type"] = "TextBlock";
-                    body2x["text"] = e1["name"];
+                //     body1x["type"] = "Input.Number";
+                //     body1x["id"] = e1["name"];
+                //     body1x["placeholder"] = e1["name"];
+                //     break;
+                //   case "Num,1":
+                //     // Number >> Input.Number
+                //     body2x["size"] = "medium";
+                //     body2x["isSubtle"] = true;
+                //     body2x["type"] = "TextBlock";
+                //     body2x["text"] = e1["name"];
 
-                    body1x["type"] = "Input.Number";
-                    body1x["id"] = e1["name"];
-                    body1x["placeholder"] = e1["name"];
-                    break;
-                  case "Num,3":
-                    // Number >> Input.Number
-                    body2x["size"] = "medium";
-                    body2x["isSubtle"] = true;
-                    body2x["type"] = "TextBlock";
-                    body2x["text"] = e1["name"];
+                //     body1x["type"] = "Input.Number";
+                //     body1x["id"] = e1["name"];
+                //     body1x["placeholder"] = e1["name"];
+                //     break;
+                //   case "Num,2":
+                //     // Number >> Input.Number
+                //     body2x["size"] = "medium";
+                //     body2x["isSubtle"] = true;
+                //     body2x["type"] = "TextBlock";
+                //     body2x["text"] = e1["name"];
 
-                    body1x["type"] = "Input.Number";
-                    body1x["id"] = e1["name"];
-                    body1x["placeholder"] = e1["name"];
-                    break;
-                  default:
-                    body2x["size"] = "medium";
-                    body2x["isSubtle"] = true;
-                    body2x["type"] = "TextBlock";
-                    body2x["text"] = e1["name"];
+                //     body1x["type"] = "Input.Number";
+                //     body1x["id"] = e1["name"];
+                //     body1x["placeholder"] = e1["name"];
+                //     break;
+                //   case "Num,3":
+                //     // Number >> Input.Number
+                //     body2x["size"] = "medium";
+                //     body2x["isSubtle"] = true;
+                //     body2x["type"] = "TextBlock";
+                //     body2x["text"] = e1["name"];
 
-                    body1x["style"] = "text";
-                    body1x["type"] = "Input.Text";
-                    body1x["id"] = e1["name"];
-                    body1x["placeholder"] = e1["name"];
-                    //"isMultiline"
-                    if (appconfig["FieldDef"]["width"] > 100) {
-                      body1x["isMultiline"] = true;
-                    } else {
-                      body1x["isMultiline"] = false;
-                    }
-                    break;
-                }
+                //     body1x["type"] = "Input.Number";
+                //     body1x["id"] = e1["name"];
+                //     body1x["placeholder"] = e1["name"];
+                //     break;
+                //   default:
+                //     body2x["size"] = "medium";
+                //     body2x["isSubtle"] = true;
+                //     body2x["type"] = "TextBlock";
+                //     body2x["text"] = e1["name"];
+
+                //     body1x["style"] = "text";
+                //     body1x["type"] = "Input.Text";
+                //     body1x["id"] = e1["name"];
+                //     body1x["placeholder"] = e1["name"];
+                //     //"isMultiline"
+                //     if (appconfig["FieldDef"]["width"] > 100) {
+                //       body1x["isMultiline"] = true;
+                //     } else {
+                //       body1x["isMultiline"] = false;
+                //     }
+                //     break;
+                // }
               }
             }
             // Possible Values..

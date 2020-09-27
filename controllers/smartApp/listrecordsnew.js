@@ -329,9 +329,30 @@ exports.listrecordsnew = asyncHandler(async (req, res, next) => {
               );
               var cardData = JSON.stringify(aCard);
               console.log("X6", aCard);
-              cardData = cardReplace({}, cardData, appconfig, "header", "Tab1");
-              cardData = cardReplace({}, cardData, appconfig, "header", "Tab1");
-              cardData = cardReplace({}, cardData, appconfig, "header", "Tab1");
+              cardData = cardReplace(
+                {},
+                cardData,
+                appconfig,
+                "header",
+                "Tab1",
+                arr1[y]
+              );
+              cardData = cardReplace(
+                {},
+                cardData,
+                appconfig,
+                "header",
+                "Tab1",
+                arr1[y]
+              );
+              cardData = cardReplace(
+                {},
+                cardData,
+                appconfig,
+                "header",
+                "Tab1",
+                arr1[y]
+              );
               aCard = JSON.parse(cardData);
               outStru["ADD01_" + arr1[y]] = { ...aCard };
             }
@@ -349,12 +370,33 @@ exports.listrecordsnew = asyncHandler(async (req, res, next) => {
               appconfig["PossibleValues"],
               "Tab1",
               "header",
-              ControlField
+              "ControlField"
             );
             var cardData = JSON.stringify(aCard);
-            cardData = cardReplace({}, cardData, appconfig, "header", "Tab1");
-            cardData = cardReplace({}, cardData, appconfig, "header", "Tab1");
-            cardData = cardReplace({}, cardData, appconfig, "header", "Tab1");
+            cardData = cardReplace(
+              {},
+              cardData,
+              appconfig,
+              "header",
+              "Tab1",
+              "NA"
+            );
+            cardData = cardReplace(
+              {},
+              cardData,
+              appconfig,
+              "header",
+              "Tab1",
+              "NA"
+            );
+            cardData = cardReplace(
+              {},
+              cardData,
+              appconfig,
+              "header",
+              "Tab1",
+              "NA"
+            );
             aCard = JSON.parse(cardData);
             outStru["ADD01"] = { ...aCard };
           }
@@ -385,7 +427,14 @@ exports.listrecordsnew = asyncHandler(async (req, res, next) => {
             "DCHART-A" + "-" + x
           );
           var cardData = JSON.stringify(aCard);
-          cardData = cardReplace(myCard, cardData, appconfig, "header", "Tab1");
+          cardData = cardReplace(
+            myCard,
+            cardData,
+            appconfig,
+            "header",
+            "Tab1",
+            "NA"
+          );
           aCard = JSON.parse(cardData);
           outStru["ANAX" + x] = { ...aCard };
         }

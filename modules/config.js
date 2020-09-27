@@ -1276,12 +1276,18 @@ module.exports = {
       }
     });
   },
-  cardReplace: function (mycard, cardData, appconfig, mode, tab) {
+  cardReplace: function (mycard, cardData, appconfig, mode, tab, ControlValue) {
     if (mode == "header") {
-      cardData = cardData.replace(
-        "@Title",
-        appconfig["Title"]["ApplicationTitle"]
-      );
+      if (ControlValue != "NA") {
+        // Control Display = ON
+        cardData = cardData.replace("@Title", ControlValue);
+      } else {
+        // Control Display = OFF
+        cardData = cardData.replace(
+          "@Title",
+          appconfig["Title"]["ApplicationTitle"]
+        );
+      }
     } else {
       if (appconfig["tableConfig"][mode]["title"] != undefined) {
         cardData = cardData.replace(
