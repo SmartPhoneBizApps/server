@@ -5,7 +5,7 @@
   },
   "Controls": {
     "style": "SAP",
-    "calculation": "No",
+    "calculation": "Yes",
     "USP": "UserProfile",
     "StatusColor": "Yes",
     "SearchString": {
@@ -15,7 +15,7 @@
     },
     "Filters": [],
     "UserSpecific": "Yes",
-    "update": "No",
+    "Update": "Yes",
     "URL": "https://fierce-oasis-51455.herokuapp.com",
     "Source": { "SourceName": "mongoDB", "SourceFile": "NA" },
     "filterFields": {
@@ -105,22 +105,6 @@
       "URL": "https://www.messenger.com/t/295020207695029"
     },
 
-    {
-      "type": "UPLOAD",
-      "name": "Upload Record",
-      "icon": "sap-icon://upload",
-      "Option": ["Header", "Items"],
-      "ItemOptions": ["Package"],
-      "URL": "datarecords/",
-      "URLMethodHDR": "POST",
-      "URLMethodTable": "PUT",
-      "dataFields": "FieldName",
-      "key": {
-        "ID": "External",
-        "generateID": [],
-        "seperator": "-"
-      }
-    },
     {
       "type": "TABLEFILTER",
       "name": "Copy Course",
@@ -236,7 +220,7 @@
       "value": "Tab4",
       "style": "SAP",
       "update": "No",
-      "name": "Emergency Contacts",
+      "name": "Contacts",
       "fioriicon": "accidental-leave",
       "type": "Table"
     },
@@ -348,6 +332,7 @@
           "type": "string",
           "width": "10",
           "SLabel": "Item Number",
+          "adaptiveCard": "None",
           "Update": "No"
         },
         {
@@ -355,6 +340,7 @@
           "type": "string",
           "width": "50",
           "SLabel": "Item Status",
+          "adaptiveCard": "Additional",
           "Update": "Yes"
         },
         {
@@ -362,6 +348,7 @@
           "type": "string",
           "width": "200",
           "SLabel": "Area",
+          "adaptiveCard": "Main",
           "Option": "Optional"
         },
         {
@@ -369,6 +356,7 @@
           "type": "string",
           "width": "200",
           "SLabel": "Skill",
+          "adaptiveCard": "Main",
           "Option": "Optional"
         },
         {
@@ -376,6 +364,7 @@
           "type": "string",
           "width": "100",
           "SLabel": "Experience",
+          "adaptiveCard": "Main",
           "Option": "Optional"
         },
         {
@@ -383,6 +372,7 @@
           "type": "string",
           "width": "100",
           "SLabel": "Role",
+          "adaptiveCard": "Main",
           "Option": "Optional"
         },
         {
@@ -390,6 +380,7 @@
           "type": "string",
           "width": "100",
           "SLabel": "Skill Level",
+          "adaptiveCard": "Main",
           "Option": "Optional"
         },
         {
@@ -397,6 +388,7 @@
           "type": "string",
           "width": "500",
           "SLabel": "Comments",
+          "adaptiveCard": "Main",
           "Option": "Optional"
         }
       ],
@@ -408,7 +400,37 @@
         "ExperienceRole1",
         "ItemStatus1"
       ],
-      "detailCharts": [],
+      "detailCharts": [
+        {
+          "cardType": "Analytical",
+          "style": ["SAP", "Google"],
+          "cardsubType": "StackedColumn",
+          "title": "Skill Analysis",
+          "subtitle": "Skill Area",
+          "unitOfMeasurement": "Count",
+          "source": "Skills",
+          "Data": {
+            "dimension": "Area",
+            "fact": "Count",
+            "operation": "COUNT",
+            "sorting": "Ascending",
+            "aggregate": "Yes",
+            "sortField": "Count",
+            "dType": "string"
+          },
+          "numericHeader": {
+            "headerNumber": { "Operation": "COUNT", "Field": "Area" },
+            "trend": { "trend": "DOWN", "Condition": "LTE", "value": 8 },
+            "status": { "state": "Good", "Condition": "LTE", "value": 24 },
+            "details": "Employee",
+            "unit": "Count"
+          },
+          "cardValues": {
+            "@Value1": "Commutative",
+            "@Value2": "Count"
+          }
+        }
+      ],
       "cards": [],
 
       "ItemButtons": {
@@ -446,6 +468,7 @@
           "type": "string",
           "width": "10",
           "SLabel": "Item Number",
+          "adaptiveCard": "None",
           "Update": "No"
         },
         {
@@ -453,6 +476,7 @@
           "type": "string",
           "width": "50",
           "SLabel": "Item Status",
+          "adaptiveCard": "Additional",
           "Update": "Yes"
         },
         {
@@ -460,6 +484,7 @@
           "type": "string",
           "width": "200",
           "SLabel": "Qualification",
+          "adaptiveCard": "Main",
           "Option": "Optional"
         },
         {
@@ -467,6 +492,7 @@
           "type": "string",
           "width": "200",
           "SLabel": "Subject",
+          "adaptiveCard": "Main",
           "Option": "Optional"
         },
 
@@ -475,6 +501,7 @@
           "type": "string",
           "width": "100",
           "SLabel": "Year Completed",
+          "adaptiveCard": "Main",
           "Option": "Optional"
         },
         {
@@ -482,6 +509,7 @@
           "type": "string",
           "width": "100",
           "SLabel": "Uni/College",
+          "adaptiveCard": "Main",
           "Option": "Optional"
         },
         {
@@ -489,6 +517,7 @@
           "type": "string",
           "width": "500",
           "SLabel": "Comments",
+          "adaptiveCard": "Main",
           "Option": "Optional"
         }
       ],
@@ -535,6 +564,7 @@
           "type": "string",
           "width": "10",
           "SLabel": "Item Number",
+          "adaptiveCard": "None",
           "Update": "No"
         },
         {
@@ -542,6 +572,7 @@
           "type": "string",
           "width": "50",
           "SLabel": "Item Status",
+          "adaptiveCard": "Additional",
           "Update": "Yes"
         },
         {
@@ -549,6 +580,7 @@
           "type": "string",
           "width": "200",
           "SLabel": "From Date",
+          "adaptiveCard": "Main",
           "Option": "Optional"
         },
         {
@@ -556,6 +588,7 @@
           "type": "string",
           "width": "200",
           "SLabel": "To Date",
+          "adaptiveCard": "Main",
           "Option": "Optional"
         },
         {
@@ -563,6 +596,7 @@
           "type": "Num,1",
           "width": "20",
           "SLabel": "Experience Years",
+          "adaptiveCard": "Main",
           "Option": "Optional"
         },
         {
@@ -570,6 +604,7 @@
           "type": "string",
           "width": "200",
           "SLabel": "Employer",
+          "adaptiveCard": "Main",
           "Option": "Optional"
         },
         {
@@ -577,6 +612,7 @@
           "type": "string",
           "width": "100",
           "SLabel": "Role",
+          "adaptiveCard": "Main",
           "Option": "Optional"
         },
         {
@@ -584,6 +620,7 @@
           "type": "string",
           "width": "500",
           "SLabel": "Comments",
+          "adaptiveCard": "Main",
           "Option": "Optional"
         }
       ],
@@ -633,6 +670,7 @@
           "type": "string",
           "width": "10",
           "SLabel": "Item Number",
+          "adaptiveCard": "None",
           "Update": "No"
         },
         {
@@ -640,6 +678,7 @@
           "type": "string",
           "width": "50",
           "SLabel": "Item Status",
+          "adaptiveCard": "Additional",
           "Update": "Yes"
         },
         {
@@ -647,6 +686,7 @@
           "type": "string",
           "width": "200",
           "SLabel": "Contact Name",
+          "adaptiveCard": "Main",
           "Option": "Optional"
         },
         {
@@ -654,6 +694,7 @@
           "type": "string",
           "width": "200",
           "SLabel": "ContactPhone",
+          "adaptiveCard": "Main",
           "Option": "Optional"
         },
         {
@@ -661,6 +702,7 @@
           "type": "string",
           "width": "100",
           "SLabel": "Relation1",
+          "adaptiveCard": "Main",
           "Option": "Optional"
         },
         {
@@ -668,6 +710,7 @@
           "type": "string",
           "width": "100",
           "SLabel": "Contact Type",
+          "adaptiveCard": "Main",
           "Option": "Optional"
         },
         {
@@ -675,6 +718,7 @@
           "type": "string",
           "width": "500",
           "SLabel": "Comments",
+          "adaptiveCard": "Main",
           "Option": "Optional"
         }
       ],
@@ -720,6 +764,7 @@
           "type": "string",
           "width": "10",
           "SLabel": "Item Number",
+          "adaptiveCard": "None",
           "Update": "No"
         },
         {
@@ -727,6 +772,7 @@
           "type": "string",
           "width": "50",
           "SLabel": "Item Status",
+          "adaptiveCard": "Additional",
           "Update": "Yes"
         },
         {
@@ -734,6 +780,7 @@
           "type": "string",
           "width": "200",
           "SLabel": "CourseName",
+          "adaptiveCard": "Main",
           "Option": "Optional"
         },
         {
@@ -741,6 +788,7 @@
           "type": "Date",
           "width": "200",
           "SLabel": "DateCertified",
+          "adaptiveCard": "Main",
           "Option": "Optional"
         },
         {
@@ -748,6 +796,7 @@
           "type": "hyperlink",
           "width": "100",
           "SLabel": "Certificate Link",
+          "adaptiveCard": "Main",
           "Option": "Optional"
         },
         {
@@ -755,6 +804,7 @@
           "type": "string",
           "width": "500",
           "SLabel": "Comments",
+          "adaptiveCard": "Main",
           "Option": "Optional"
         }
       ],
@@ -795,6 +845,7 @@
           "type": "string",
           "width": "10",
           "SLabel": "Item Number",
+          "adaptiveCard": "None",
           "Update": "No"
         },
         {
@@ -802,6 +853,7 @@
           "type": "string",
           "width": "50",
           "SLabel": "Item Status",
+          "adaptiveCard": "Additional",
           "Update": "Yes"
         },
         {
@@ -809,6 +861,7 @@
           "type": "string",
           "width": "10",
           "SLabel": "Salary Details",
+          "adaptiveCard": "Main",
           "Option": "Optional"
         },
         {
@@ -816,6 +869,7 @@
           "type": "string",
           "width": "20",
           "SLabel": "Earnings",
+          "adaptiveCard": "Main",
           "Option": "Optional"
         },
         {
@@ -823,6 +877,7 @@
           "type": "string",
           "width": "20",
           "SLabel": "Deductions",
+          "adaptiveCard": "Main",
           "Option": "Optional"
         },
         {
@@ -830,6 +885,7 @@
           "type": "string",
           "width": "200",
           "SLabel": "Comments",
+          "adaptiveCard": "Main",
           "Option": "Optional"
         },
         {
@@ -837,6 +893,7 @@
           "type": "string",
           "width": "20",
           "SLabel": "Correct Ans",
+          "adaptiveCard": "Main",
           "Option": "Optional"
         },
         {
@@ -844,6 +901,7 @@
           "type": "string",
           "width": "20",
           "SLabel": "Score",
+          "adaptiveCard": "Main",
           "Option": "Optional"
         }
       ],
@@ -854,7 +912,37 @@
         "AddComments",
         "ItemStatus6"
       ],
-      "detailCharts": [],
+      "detailCharts": [
+        {
+          "cardType": "Analytical",
+          "style": ["SAP", "Google"],
+          "cardsubType": "Line",
+          "title": "Package/Salary Analysis",
+          "subtitle": "Package",
+          "unitOfMeasurement": "GBP",
+          "source": "Package",
+          "Data": {
+            "dimension": "Question",
+            "fact": "Answer",
+            "operation": "COLLECTIVE_SUM",
+            "sorting": "Ascending",
+            "aggregate": "Yes",
+            "sortField": "Question",
+            "dType": "string"
+          },
+          "numericHeader": {
+            "headerNumber": { "Operation": "COLLECTIVE", "Field": "ID" },
+            "trend": { "trend": "DOWN", "Condition": "LTE", "value": 8 },
+            "status": { "state": "Good", "Condition": "LTE", "value": 24 },
+            "details": "Employee",
+            "unit": "GBP"
+          },
+          "cardValues": {
+            "@Value1": "Gross",
+            "@Value2": "Amount"
+          }
+        }
+      ],
       "cards": [],
 
       "ItemButtons": {
@@ -888,6 +976,7 @@
           "type": "string",
           "width": "10",
           "SLabel": "Item Number",
+          "adaptiveCard": "None",
           "Update": "No"
         },
         {
@@ -895,6 +984,7 @@
           "type": "string",
           "width": "50",
           "SLabel": "Item Status",
+          "adaptiveCard": "Additional",
           "Update": "Yes"
         },
         {
@@ -902,6 +992,7 @@
           "type": "string",
           "width": "200",
           "SLabel": "Insurance Plan",
+          "adaptiveCard": "Main",
           "Option": "Optional"
         },
         {
@@ -909,6 +1000,7 @@
           "type": "hyperlink",
           "width": "200",
           "SLabel": "Insurance Plan Link",
+          "adaptiveCard": "Main",
           "Option": "Optional"
         },
         {
@@ -916,6 +1008,7 @@
           "type": "string",
           "width": "200",
           "SLabel": "Medical Coverage",
+          "adaptiveCard": "Main",
           "Option": "Optional"
         },
         {
@@ -923,6 +1016,7 @@
           "type": "hyperlink",
           "width": "200",
           "SLabel": "Medical Coverage Link",
+          "adaptiveCard": "Main",
           "Option": "Optional"
         },
         {
@@ -930,6 +1024,7 @@
           "type": "string",
           "width": "200",
           "SLabel": "Dental Coverage",
+          "adaptiveCard": "Main",
           "Option": "Optional"
         },
         {
@@ -937,6 +1032,7 @@
           "type": "hyperlink",
           "width": "200",
           "SLabel": "Dental Coverage Link",
+          "adaptiveCard": "Main",
           "Option": "Optional"
         },
         {
@@ -944,6 +1040,7 @@
           "type": "string",
           "width": "200",
           "SLabel": "Vision Coverage",
+          "adaptiveCard": "Main",
           "Option": "Optional"
         },
         {
@@ -951,6 +1048,7 @@
           "type": "hyperlink",
           "width": "200",
           "SLabel": "Vision Coverage Link",
+          "adaptiveCard": "Main",
           "Option": "Optional"
         },
         {
@@ -958,6 +1056,7 @@
           "type": "string",
           "width": "200",
           "SLabel": "Accidental Death",
+          "adaptiveCard": "Main",
           "Option": "Optional"
         },
         {
@@ -965,6 +1064,7 @@
           "type": "hyperlink",
           "width": "200",
           "SLabel": "Accidental Death Link",
+          "adaptiveCard": "Main",
           "Option": "Optional"
         },
         {
@@ -972,6 +1072,7 @@
           "type": "string",
           "width": "500",
           "SLabel": "Comments",
+          "adaptiveCard": "Main",
           "Option": "Optional"
         }
       ],

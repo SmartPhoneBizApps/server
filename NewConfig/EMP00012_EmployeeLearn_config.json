@@ -287,6 +287,7 @@
           "type": "string",
           "width": "10",
           "SLabel": "Item Number",
+          "adaptiveCard": "None",
           "Update": "No"
         },
         {
@@ -294,6 +295,7 @@
           "type": "string",
           "width": "50",
           "SLabel": "Item Status",
+          "adaptiveCard": "Additional",
           "Update": "Yes"
         },
         {
@@ -447,6 +449,7 @@
           "type": "string",
           "width": "10",
           "SLabel": "Item Number",
+          "adaptiveCard": "None",
           "Update": "No"
         },
         {
@@ -454,6 +457,7 @@
           "type": "string",
           "width": "50",
           "SLabel": "Item Status",
+          "adaptiveCard": "Additional",
           "Update": "Yes"
         },
         {
@@ -602,6 +606,35 @@
             "@Value1": "Commutative",
             "@Value2": "Count"
           }
+        },
+        {
+          "cardType": "Analytical",
+          "style": ["SAP", "Google"],
+          "cardsubType": "Line",
+          "title": "Appraisal Analysis",
+          "subtitle": "Appraisal",
+          "unitOfMeasurement": "GBP",
+          "source": "Appraisal",
+          "Data": {
+            "dimension": "AppraisalArea",
+            "fact": "PerformanceRating",
+            "operation": "COLLECTIVE_SUM",
+            "sorting": "Ascending",
+            "aggregate": "Yes",
+            "sortField": "AppraisalArea",
+            "dType": "string"
+          },
+          "numericHeader": {
+            "headerNumber": { "Operation": "COLLECTIVE", "Field": "ID" },
+            "trend": { "trend": "DOWN", "Condition": "LTE", "value": 8 },
+            "status": { "state": "Good", "Condition": "LTE", "value": 24 },
+            "details": "Employee",
+            "unit": "Score/Rating"
+          },
+          "cardValues": {
+            "@Value1": "Commutative",
+            "@Value2": "Rating"
+          }
         }
       ],
       "cards": [],
@@ -643,6 +676,7 @@
           "type": "string",
           "width": "10",
           "SLabel": "Item Number",
+          "adaptiveCard": "None",
           "Update": "No"
         },
         {
@@ -650,6 +684,7 @@
           "type": "string",
           "width": "50",
           "SLabel": "Item Status",
+          "adaptiveCard": "Additional",
           "Update": "Yes"
         },
         {
@@ -740,6 +775,7 @@
           "type": "string",
           "width": "10",
           "SLabel": "Item Number",
+          "adaptiveCard": "None",
           "Update": "No"
         },
         {
@@ -747,6 +783,7 @@
           "type": "string",
           "width": "50",
           "SLabel": "Item Status",
+          "adaptiveCard": "Additional",
           "Update": "Yes"
         },
         {
@@ -820,6 +857,7 @@
           "type": "string",
           "width": "10",
           "SLabel": "Item Number",
+          "adaptiveCard": "None",
           "Update": "No"
         },
         {
@@ -827,6 +865,7 @@
           "type": "string",
           "width": "50",
           "SLabel": "Item Status",
+          "adaptiveCard": "Additional",
           "Update": "Yes"
         },
         {
