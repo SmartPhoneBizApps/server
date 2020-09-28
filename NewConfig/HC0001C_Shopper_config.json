@@ -412,47 +412,7 @@
         "ItemStatus1"
       ],
       "detailCharts": [],
-      "cards": [
-        {
-          "type": "Table",
-          "filterKey": "ItemStatus1",
-          "filterKeyLabel": "Item Status",
-          "template": "template_table.json",
-          "tableCardFields": ["StudyType", "StudyName", "Phase"]
-        },
-        {
-          "type": "Analytical",
-          "filterKey": "ItemStatus1",
-          "filterKeyLabel": "Item Status",
-          "cardID": "HC0001",
-          "template": "template_analyticalCard_donut.json",
-          "title": "Study Type Analysis",
-          "analyticsCard": {
-            "chartType": "donut",
-            "cardsDonut": {
-              "measureName": "StudyType",
-              "value": "StudyType",
-              "function": "COUNT"
-            }
-          }
-        },
-        {
-          "type": "Analytical",
-          "filterKey": "ItemStatus1",
-          "filterKeyLabel": "Item Status",
-          "cardID": "HC0001",
-          "template": "template_analyticalCard_donut.json",
-          "title": "Study Phases Analysis",
-          "analyticsCard": {
-            "chartType": "donut",
-            "cardsDonut": {
-              "measureName": "Phase",
-              "value": "Phase",
-              "function": "COUNT"
-            }
-          }
-        }
-      ],
+      "cards": [],
 
       "ItemButtons": {
         "itemDisplay": true,
@@ -569,47 +529,7 @@
         "ItemStatus2"
       ],
       "detailCharts": [],
-      "cards": [
-        {
-          "type": "Table",
-          "filterKey": "ItemStatus2",
-          "filterKeyLabel": "Item Status",
-          "template": "template_table.json",
-          "tableCardFields": ["EventType", "EventName", "EventStartDate"]
-        },
-        {
-          "type": "Analytical",
-          "filterKey": "ItemStatus2",
-          "filterKeyLabel": "Item Status",
-          "cardID": "HC0001",
-          "template": "template_analyticalCard_donut.json",
-          "title": "Event Type Analysis",
-          "analyticsCard": {
-            "chartType": "donut",
-            "cardsDonut": {
-              "measureName": "EventType",
-              "value": "EventType",
-              "function": "COUNT"
-            }
-          }
-        },
-        {
-          "type": "Analytical",
-          "filterKey": "ItemStatus2",
-          "filterKeyLabel": "Item Status",
-          "cardID": "HC0001",
-          "template": "template_analyticalCard_donut.json",
-          "title": "Events Analysis",
-          "analyticsCard": {
-            "chartType": "donut",
-            "cardsDonut": {
-              "measureName": "EventName",
-              "value": "EventName",
-              "function": "COUNT"
-            }
-          }
-        }
-      ],
+      "cards": [],
 
       "ItemButtons": {
         "itemDisplay": true,
@@ -735,20 +655,7 @@
         "ItemStatus3"
       ],
       "detailCharts": [],
-      "cards": [
-        {
-          "type": "Table",
-          "filterKey": "ItemStatus3",
-          "filterKeyLabel": "Item Status",
-          "template": "template_table.json",
-          "tableCardFields": [
-            "ContractType",
-            "ContractName",
-            "ContractStartDate",
-            "BalanceValue"
-          ]
-        }
-      ],
+      "cards": [],
 
       "ItemButtons": {
         "itemDisplay": true,

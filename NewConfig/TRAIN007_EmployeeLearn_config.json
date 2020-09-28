@@ -362,31 +362,7 @@
         "ItemStatus1"
       ],
       "detailCharts": [],
-      "cards": [
-        {
-          "type": "Table",
-          "filterKey": "ItemStatus1",
-          "filterKeyLabel": "Item Status",
-          "template": "template_table.json",
-          "tableCardFields": ["Question", "Answer"]
-        },
-        {
-          "type": "Analytical",
-          "filterKey": "ItemStatus1",
-          "filterKeyLabel": "Item Status",
-          "cardID": "SUP001",
-          "template": "template_analyticalCard_donut.json",
-          "title": "Training Analysis",
-          "analyticsCard": {
-            "chartType": "donut",
-            "cardsDonut": {
-              "measureName": "Score",
-              "value": "Score",
-              "function": "COUNT"
-            }
-          }
-        }
-      ],
+      "cards": [],
 
       "ItemButtons": {
         "itemDisplay": true,

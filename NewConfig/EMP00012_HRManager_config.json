@@ -411,76 +411,7 @@
         "ItemStatus1"
       ],
       "detailCharts": [],
-      "cards": [
-        {
-          "type": "Analytical",
-          "filterKey": "ItemStatus1",
-          "filterKeyLabel": "Item Status",
-          "cardID": "EMP12H01",
-          "title": "Goal Area Analysis",
-          "subtitle": "Actual Vs Target Score",
-          "unitOfMeasurement": "SCORE",
-          "template": "template_analyticalCard_line.json",
-          "analyticsCard": {
-            "chartType": "line",
-
-            "itemvalueMap": {
-              "Score": "Score2",
-              "Target": "TargetScore2"
-            },
-            "itemkeyMap": {
-              "Area": "GoalsArea"
-            },
-            "itemfixedVal": [{ "Total": 5 }],
-            "sumField": [
-              { "sumScore": "Score2" },
-              { "sumtargetScore": "TargetScore2" }
-            ],
-            "headerfieldMap": [
-              { "j_number": "sumScore" },
-              { "j_target": "sumtargetScore" }
-            ]
-          }
-        },
-        {
-          "type": "Analytical",
-          "filterKey": "ItemStatus1",
-          "filterKeyLabel": "Item Status",
-          "cardID": "EMP12H02",
-          "title": "Goal Area Analysis",
-          "subtitle": "Actual Vs Target Score",
-          "unitOfMeasurement": "SCORE",
-          "template": "template_analyticalCard_line.json",
-          "analyticsCard": {
-            "chartType": "line",
-
-            "itemvalueMap": {
-              "Score": "Score2",
-              "Target": "TargetScore2"
-            },
-            "itemkeyMap": {
-              "Area": "TargetDate2"
-            },
-            "itemfixedVal": [{ "Total": 5 }],
-            "sumField": [
-              { "sumScore": "Score2" },
-              { "sumtargetScore": "TargetScore2" }
-            ],
-            "headerfieldMap": [
-              { "j_number": "sumScore" },
-              { "j_target": "sumtargetScore" }
-            ]
-          }
-        },
-        {
-          "type": "Table",
-          "filterKey": "ItemStatus1",
-          "filterKeyLabel": "Item Status",
-          "template": "template_table.json",
-          "tableCardFields": ["GoalsArea", "Goal2", "TargetDate2"],
-          "cardID": "tab001"
-        }
-      ],
+      "cards": [],
 
       "ItemButtons": {
         "itemDisplay": true,
@@ -621,72 +552,7 @@
         "ItemStatus2"
       ],
       "detailCharts": [],
-      "cards": [
-        {
-          "type": "Analytical",
-          "filterKey": "ItemStatus2",
-          "filterKeyLabel": "Item Status",
-          "cardID": "EMP12H03",
-          "template": "template_analyticalCard_donut.json",
-          "title": "Apprisal based on Area",
-          "analyticsCard": {
-            "chartType": "donut",
-            "cardsDonut": {
-              "measureName": "AppraisalArea",
-              "value": "Score3",
-              "function": "SUM"
-            }
-          }
-        },
-        {
-          "type": "Table",
-          "filterKey": "ItemStatus2",
-          "filterKeyLabel": "Item Status",
-          "template": "template_table.json",
-          "tableCardFields": [
-            "AppraisalArea",
-            "PerformanceRating",
-            "TargetDate3"
-          ]
-        },
-        {
-          "type": "Example",
-          "cardType": "List",
-          "cardsubType": "ListHighLight",
-          "cardID": "L001",
-          "cardLevel": "tableData",
-          "template": "template_sap_listHighLight.json",
-          "mergedFields": {
-            "Name": ["GoalsArea", "@>>", "Goal2"],
-            "Description": [
-              "@Score:",
-              "Score2",
-              "@ ",
-              "TargetDate2",
-              "@ ",
-              "GoalStatus"
-            ]
-          },
-          "fieldMap": {},
-          "colorStatus": "ItemStatus1"
-        },
-        {
-          "type": "Analytical",
-          "filterKey": "ItemStatus2",
-          "filterKeyLabel": "Item Status",
-          "cardID": "EMP12H04",
-          "template": "template_analyticalCard_donut.json",
-          "title": "Apprisal based on Ratings",
-          "analyticsCard": {
-            "chartType": "donut",
-            "cardsDonut": {
-              "measureName": "PerformanceRating",
-              "value": "Score3",
-              "function": "SUM"
-            }
-          }
-        }
-      ],
+      "cards": [],
 
       "ItemButtons": {
         "itemDisplay": true,
@@ -785,29 +651,7 @@
         "ItemStatus3"
       ],
       "detailCharts": [],
-      "cards": [
-        {
-          "type": "Table",
-          "filterKey": "ItemStatus3",
-          "filterKeyLabel": "Item Status",
-          "template": "template_table.json",
-          "tableCardFields": ["SubGroup1", "Title1", "TargetDate1"]
-        },
-        {
-          "type": "Example",
-          "cardType": "List",
-          "cardsubType": "ListHighLight",
-          "cardID": "L002",
-          "cardLevel": "tableData",
-          "template": "template_sap_listHighLight.json",
-          "mergedFields": {
-            "Name": ["ReferenceID1", "@ ", "Group1", "@ ", "SubGroup1"],
-            "Description": ["Title1", "@ ", "TargetDate1"]
-          },
-          "fieldMap": {},
-          "colorStatus": "ItemStatus3"
-        }
-      ],
+      "cards": [],
 
       "ItemButtons": {
         "itemDisplay": true,
@@ -891,15 +735,7 @@
       ],
       "DisplayFields": ["ItemStatus4", "Question", "Answer"],
       "detailCharts": [],
-      "cards": [
-        {
-          "type": "Table",
-          "filterKey": "ItemStatus4",
-          "filterKeyLabel": "Item Status",
-          "template": "template_table.json",
-          "tableCardFields": ["Question", "Answer"]
-        }
-      ],
+      "cards": [],
 
       "ItemButtons": {
         "itemDisplay": true,
@@ -971,15 +807,7 @@
       ],
       "DisplayFields": ["ItemStatus5", "MQuestion", "MAnswer"],
       "detailCharts": [],
-      "cards": [
-        {
-          "type": "Table",
-          "filterKey": "ItemStatus5",
-          "filterKeyLabel": "Item Status",
-          "template": "template_table.json",
-          "tableCardFields": ["MQuestion", "MAnswer"]
-        }
-      ],
+      "cards": [],
 
       "ItemButtons": {
         "itemDisplay": true,
@@ -1101,20 +929,7 @@
         "ItemStatus6"
       ],
       "detailCharts": [],
-      "cards": [
-        {
-          "type": "Table",
-          "filterKey": "ItemStatus6",
-          "filterKeyLabel": "Item Status",
-          "template": "template_table.json",
-          "tableCardFields": [
-            "ProjectName",
-            "StartDate",
-            "EndDate",
-            "ProjectManager"
-          ]
-        }
-      ],
+      "cards": [],
 
       "ItemButtons": {
         "itemDisplay": true,
