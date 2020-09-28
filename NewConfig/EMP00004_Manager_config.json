@@ -702,10 +702,39 @@
           "cardType": "Analytical",
           "style": ["SAP", "Google"],
           "cardsubType": "StackedBar",
+          "title": "Shoppingcart Analysis",
+          "subtitle": "ItemStatus",
+          "unitOfMeasurement": "Count",
+          "source": "iData",
+          "Data": {
+            "dimension": "ItemStatus1",
+            "fact": "Count",
+            "operation": "COUNT",
+            "sorting": "Ascending",
+            "aggregate": "Yes",
+            "sortField": "Count",
+            "dType": "string"
+          },
+          "numericHeader": {
+            "headerNumber": { "Operation": "COUNT", "Field": "ItemStatus1" },
+            "trend": { "trend": "DOWN", "Condition": "LTE", "value": 8 },
+            "status": { "state": "Good", "Condition": "LTE", "value": 24 },
+            "details": "ItemStatus1",
+            "unit": "Count"
+          },
+          "cardValues": {
+            "@Value1": "Commutative",
+            "@Value2": "Count"
+          }
+        },
+        {
+          "cardType": "Analytical",
+          "style": ["SAP", "Google"],
+          "cardsubType": "StackedColumn",
           "title": "ShoppingCart Category Analysis",
           "subtitle": "Category",
           "unitOfMeasurement": "Days",
-          "source": "myTime",
+          "source": "iData",
           "Data": {
             "dimension": "Category",
             "fact": "Count",

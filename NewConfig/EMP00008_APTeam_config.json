@@ -458,7 +458,98 @@
         "iCurrency",
         "ItemStatus1"
       ],
-      "detailCharts": [],
+      "detailCharts": [
+        {
+          "cardType": "Analytical",
+          "style": ["SAP", "Google"],
+          "cardsubType": "StackedBar",
+          "title": "Expenses Analysis",
+          "subtitle": "ItemStatus",
+          "unitOfMeasurement": "Count",
+          "source": "myExpenses",
+          "Data": {
+            "dimension": "ItemStatus1",
+            "fact": "Count",
+            "operation": "COUNT",
+            "sorting": "Ascending",
+            "aggregate": "Yes",
+            "sortField": "Count",
+            "dType": "string"
+          },
+          "numericHeader": {
+            "headerNumber": { "Operation": "COUNT", "Field": "ItemStatus1" },
+            "trend": { "trend": "DOWN", "Condition": "LTE", "value": 8 },
+            "status": { "state": "Good", "Condition": "LTE", "value": 24 },
+            "details": "ItemStatus1",
+            "unit": "Count"
+          },
+          "cardValues": {
+            "@Value1": "Commutative",
+            "@Value2": "Count"
+          }
+        },
+        {
+          "cardType": "Analytical",
+          "style": ["SAP", "Google"],
+          "cardsubType": "StackedColumn",
+          "title": "Expenses Analysis",
+          "subtitle": "ExpType",
+          "unitOfMeasurement": "Count",
+          "source": "myExpenses",
+          "Data": {
+            "dimension": "ExpType",
+            "fact": "Count",
+            "operation": "COUNT",
+            "sorting": "Ascending",
+            "aggregate": "Yes",
+            "sortField": "Count",
+            "dType": "string"
+          },
+          "numericHeader": {
+            "headerNumber": {
+              "Operation": "COUNT",
+              "Field": "ExpType"
+            },
+            "trend": { "trend": "DOWN", "Condition": "LTE", "value": 8 },
+            "status": { "state": "Good", "Condition": "LTE", "value": 24 },
+            "details": "ExpType",
+            "unit": "Count"
+          },
+          "cardValues": {
+            "@Value1": "Commutative",
+            "@Value2": "Count"
+          }
+        },
+        {
+          "cardType": "Analytical",
+          "style": ["SAP", "Google"],
+          "cardsubType": "Line",
+          "title": "Expense Analysis",
+          "subtitle": "Expenses",
+          "unitOfMeasurement": "GBP",
+          "source": "myExpenses",
+          "Data": {
+            "dimension": "ExpenseDate",
+            "fact": "ExpenseAmount",
+            "operation": "COLLECTIVE_SUM",
+            "sorting": "Ascending",
+            "aggregate": "Yes",
+            "sortField": "ExpenseDate",
+            "dType": "Date"
+          },
+          "numericHeader": {
+            "headerNumber": { "Operation": "COLLECTIVE", "Field": "ID" },
+            "trend": { "trend": "DOWN", "Condition": "LTE", "value": 8 },
+            "status": { "state": "Good", "Condition": "LTE", "value": 24 },
+            "details": "Employee",
+            "unit": "GBP"
+          },
+          "cardValues": {
+            "@Value1": "Commutative",
+            "@Value2": "Expense Amount"
+          }
+        }
+      ],
       "cards": [],
       "ItemButtons": {
         "itemDisplay": true,

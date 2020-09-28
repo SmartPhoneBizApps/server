@@ -551,7 +551,95 @@
         "TargetDate3",
         "ItemStatus2"
       ],
-      "detailCharts": [],
+      "detailCharts": [
+        {
+          "cardType": "Analytical",
+          "style": ["SAP", "Google"],
+          "cardsubType": "StackedBar",
+          "title": "Shoppingcart Analysis",
+          "subtitle": "ItemStatus",
+          "unitOfMeasurement": "Count",
+          "source": "Appraisal",
+          "Data": {
+            "dimension": "ItemStatus2",
+            "fact": "Count",
+            "operation": "COUNT",
+            "sorting": "Ascending",
+            "aggregate": "Yes",
+            "sortField": "Count",
+            "dType": "string"
+          },
+          "numericHeader": {
+            "headerNumber": { "Operation": "COUNT", "Field": "ItemStatus2" },
+            "trend": { "trend": "DOWN", "Condition": "LTE", "value": 8 },
+            "status": { "state": "Good", "Condition": "LTE", "value": 24 },
+            "details": "ItemStatus2",
+            "unit": "Count"
+          },
+          "cardValues": {
+            "@Value1": "Commutative",
+            "@Value2": "Count"
+          }
+        },
+        {
+          "cardType": "Analytical",
+          "style": ["SAP", "Google"],
+          "cardsubType": "StackedColumn",
+          "title": "ShoppingCart Category Analysis",
+          "subtitle": "Appraisal Area",
+          "unitOfMeasurement": "Days",
+          "source": "Appraisal",
+          "Data": {
+            "dimension": "AppraisalArea",
+            "fact": "Count",
+            "operation": "COUNT",
+            "sorting": "Ascending",
+            "aggregate": "Yes",
+            "sortField": "Count",
+            "dType": "string"
+          },
+          "numericHeader": {
+            "headerNumber": { "Operation": "COUNT", "Field": "AppraisalArea" },
+            "trend": { "trend": "DOWN", "Condition": "LTE", "value": 8 },
+            "status": { "state": "Good", "Condition": "LTE", "value": 24 },
+            "details": "Employee",
+            "unit": "Count"
+          },
+          "cardValues": {
+            "@Value1": "Commutative",
+            "@Value2": "Count"
+          }
+        },
+        {
+          "cardType": "Analytical",
+          "style": ["SAP", "Google"],
+          "cardsubType": "Line",
+          "title": "Appraisal Analysis",
+          "subtitle": "Appraisal",
+          "unitOfMeasurement": "GBP",
+          "source": "Appraisal",
+          "Data": {
+            "dimension": "AppraisalArea",
+            "fact": "PerformanceRating",
+            "operation": "COLLECTIVE_SUM",
+            "sorting": "Ascending",
+            "aggregate": "Yes",
+            "sortField": "AppraisalArea",
+            "dType": "string"
+          },
+          "numericHeader": {
+            "headerNumber": { "Operation": "COLLECTIVE", "Field": "ID" },
+            "trend": { "trend": "DOWN", "Condition": "LTE", "value": 8 },
+            "status": { "state": "Good", "Condition": "LTE", "value": 24 },
+            "details": "Employee",
+            "unit": "Score/Rating"
+          },
+          "cardValues": {
+            "@Value1": "Commutative",
+            "@Value2": "Rating"
+          }
+        }
+      ],
       "cards": [],
 
       "ItemButtons": {
