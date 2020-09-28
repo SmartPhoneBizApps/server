@@ -6,7 +6,16 @@
     "USP": "UserProfile",
     "StatusColor": "Yes",
     "SearchString": { "Search": false },
-    "Filters": [{ "myHCPHCO.Email": "@user" }],
+    "Filters": [
+      { "myHCPHCO.Email": "@user" },
+      {
+        "$and": [
+          { "StudyInvoice.ItemStatus2": { "$ne": "Completed" } },
+          { "Services.ItemStatus2": { "$ne": "Completed" } },
+          { "myHCPHCO.ItemStatus2": { "$ne": "Completed" } }
+        ]
+      }
+    ],
     "Partner": "@user",
     "UserSpecific": "Yes",
     "Update": "Yes",
@@ -19,6 +28,11 @@
       "FixedValues": [
         { "Status": "Invoiced" },
         { "InvoiceType": "StudyInvoice" }
+      ],
+      "sourceTableUpdate": [
+        {
+          "StudyInvoice": [{ "ItemStatus2": "Completed" }]
+        }
       ]
     },
 

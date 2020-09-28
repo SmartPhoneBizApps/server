@@ -6,7 +6,15 @@
     "USP": "UserProfile",
     "StatusColor": "Yes",
     "SearchString": { "Search": false },
-    "Filters": [],
+    "Filters": [
+      {
+        "$and": [
+          { "EventInvoice.ItemStatus1": { "$ne": "Completed" } },
+          { "Services.ItemStatus1": { "$ne": "Completed" } },
+          { "myHCPHCO.ItemStatus1": { "$ne": "Completed" } }
+        ]
+      }
+    ],
     "Partner": "@user",
     "UserSpecific": "Yes",
     "Update": "Yes",
@@ -19,6 +27,11 @@
       "FixedValues": [
         { "Status": "Invoiced" },
         { "InvoiceType": "EventInvoice" }
+      ],
+      "sourceTableUpdate": [
+        {
+          "StudyInvoice": [{ "ItemStatus1": "Completed" }]
+        }
       ]
     },
     "filterFields": {

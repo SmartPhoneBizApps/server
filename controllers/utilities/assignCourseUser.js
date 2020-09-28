@@ -119,9 +119,69 @@ exports.assignCourseUser = asyncHandler(async (req, res, next) => {
     "Yes",
     "Messenger",
     out1,
-    req.headers.authorization
+    req.headers.authorization,
+    "POST",
+    "ADD",
+    "Create with Reference",
+    "Create"
   );
 
+  if (configFrom["Controls"]["Source"]["sourceTableUpdate"].length > 0) {
+    console.log("Source Field..");
+    Out2 = {};
+    Out2["ID"] = req.params.ID;
+    for (
+      let j = 0;
+      j < configFrom["Controls"]["Source"]["sourceTableUpdate"].length;
+      j++
+    ) {
+      tab1 = configFrom["Controls"]["Source"]["sourceTableUpdate"][j];
+      //{"ID":"386953","Services":[{"ServiceAmount":"101","ItemNumber":2}]}
+      o2 = {};
+      o2x = [];
+      items2u = [];
+      for (const kk in tab1) {
+        for (let d = 0; d < out1[kk].length; d++) {
+          console.log(out1[kk][d]["ItemNumber"]);
+          items2u.push(out1[kk][d]["ItemNumber"]);
+        }
+        for (let i = 0; i < tab1[kk].length; i++) {
+          for (const ki in tab1[kk][i]) {
+            o2[ki] = tab1[kk][i][ki];
+            items2u.forEach((ew) => {
+              o2["ItemNumber"] = ew;
+              o2x.push({ ...o2 });
+            });
+            console.log(
+              "ItemData to be updated",
+              kk,
+              ki,
+              tab1[kk][i][ki],
+              items2u
+            );
+          }
+        }
+        Out2[kk] = o2x;
+        o2x = [];
+      }
+
+      // Create the new copied document...
+      result = await createDocumentAPI(
+        req.params.fromApp,
+        req.params.targetRole,
+        "Yes",
+        "Messenger",
+        Out2,
+        req.headers.authorization,
+        "PUT",
+        "UPDATE",
+        "Update with Reference",
+        "FieldUpdate"
+      );
+
+      console.log(req.params.fromApp, req.params.targetRole, Out2);
+    }
+  }
   let message = "";
   message =
     "Hi " +

@@ -1004,19 +1004,24 @@ module.exports = {
     calculation,
     notify,
     mydata,
-    authorization
+    authorization,
+    method,
+    buttonType,
+    buttonName,
+    mode
   ) {
     console.log("MyData", mydata);
     var request = require("request");
     var options = {
-      method: "POST",
+      method: method,
       url: "https://fierce-oasis-51455.herokuapp.com/api/v1/datarecords/",
       // url: "http://localhost:5000/api/v1/datarecords/",
       headers: {
         applicationid: app,
         businessRole: role,
-        buttonName: "Create with Reference",
-        buttonType: "ADD",
+        buttonName: buttonName,
+        mode: mode,
+        buttonType: buttonType,
         calculation: calculation,
         "Content-Type": "application/json",
         notification: notify,
