@@ -8,11 +8,7 @@
     "SearchString": { "Search": false },
     "Filters": [
       {
-        "$and": [
-          { "StudyInvoice.ItemStatus2": { "$ne": "Completed" } },
-          { "Services.ItemStatus2": { "$ne": "Completed" } },
-          { "myHCPHCO.ItemStatus2": { "$ne": "Completed" } }
-        ]
+        "$and": [{ "myHCPHCO.ItemStatus2": { "$ne": "Completed" } }]
       }
     ],
     "Partner": "@user",
@@ -813,6 +809,7 @@
     },
     "StudyInvoice": {
       "calculation": "Yes",
+      "itemFilter": [{ "ItemStatus2": { "$ne": "Completed" } }],
       "title": "Study Invoice",
       "subtitle": "Invoice Items",
       "tableFormFields": [

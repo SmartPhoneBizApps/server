@@ -8,11 +8,7 @@
     "SearchString": { "Search": false },
     "Filters": [
       {
-        "$and": [
-          { "ContractInvoice.ItemStatus1": { "$ne": "Completed" } },
-          { "Services.ItemStatus1": { "$ne": "Completed" } },
-          { "myHCPHCO.ItemStatus1": { "$ne": "Completed" } }
-        ]
+        "$and": [{ "myHCPHCO.ItemStatus1": { "$ne": "Completed" } }]
       }
     ],
     "Partner": "@user",
@@ -775,6 +771,7 @@
     },
     "ContractInvoice": {
       "calculation": "Yes",
+      "itemFilter": [{ "ItemStatus1": { "$ne": "Completed" } }],
       "title": "Contract Invoice",
       "subtitle": "Invoice Items",
       "tableFormFields": [

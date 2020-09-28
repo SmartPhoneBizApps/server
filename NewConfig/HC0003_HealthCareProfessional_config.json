@@ -9,11 +9,7 @@
     "Filters": [
       { "myHCPHCO.Email": "@user" },
       {
-        "$and": [
-          { "EventInvoice.ItemStatus1": { "$ne": "Completed" } },
-          { "Services.ItemStatus1": { "$ne": "Completed" } },
-          { "myHCPHCO.ItemStatus1": { "$ne": "Completed" } }
-        ]
+        "$and": [{ "myHCPHCO.ItemStatus1": { "$ne": "Completed" } }]
       }
     ],
     "Partner": "@user",
@@ -686,6 +682,7 @@
     },
     "EventInvoice": {
       "calculation": "Yes",
+      "itemFilter": [{ "ItemStatus1": { "$ne": "Completed" } }],
       "title": "Event Invoice",
       "subtitle": "Invoice Items",
       "tableFormFields": [

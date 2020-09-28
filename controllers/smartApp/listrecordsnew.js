@@ -161,6 +161,43 @@ exports.listrecordsnew = asyncHandler(async (req, res, next) => {
     let results = await query;
     tabObj = {};
     tabArr = [];
+
+    // Apply Item filters.. [Starts]
+    if (appconfig.hasOwnProperty("tableConfig")) {
+      for (const kq in appconfig["tableConfig"]) {
+        if (appconfig["tableConfig"][kq].hasOwnProperty("itemFilter")) {
+          itmFilter = appconfig["tableConfig"][kq]["itemFilter"];
+          for (let j = 0; j < itmFilter.length; j++) {
+            for (const kt in itmFilter[j]) {
+              for (const e1 in itmFilter[j][kt]) {
+                console.log("ItemFilter", kq, kt, e1, itmFilter[j][kt][e1]);
+                out1 = [];
+                out1x = {};
+                out2 = [];
+                for (let p = 0; p < results.length; p++) {
+                  console.log("ItemFilter", results[p].hasOwnProperty(kq));
+                  if (results[p].hasOwnProperty(kq)) {
+                    for (let g = 0; g < results[p][kq].length; g++) {
+                      out1x = { ...results[p][kq][g] };
+                      if (results[p][kq][g][kt] == itmFilter[j][kt][e1]) {
+                        out1.push({ ...out1x });
+                      } else {
+                        out2.push({ ...out1x });
+                      }
+                      out1x = {};
+                      // console.log(results[kq][g][kt]);
+                      // results[kq][g][kt] = itmFilter[j][kt][e1];
+                      // console.log(results[kq][g][kt]);
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+    // Apply Item filters.. [Ends]
     if (appconfig["Controls"]["SearchString"]["Search"] == true) {
       tableString = appconfig["Controls"]["SearchString"]["table"];
       for (const key in tableString) {
