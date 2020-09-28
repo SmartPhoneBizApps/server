@@ -183,6 +183,38 @@ exports.validateAppSetup = asyncHandler(async (req, res, next) => {
     }
   }
   console.log("-------------------------------------------------------------");
+  console.log("-------------------------------------------------------------");
+  console.log("-----          Deatil Cards  - HEADER         ------------");
+  for (let r = 0; r < AppRoles.length; r++) {
+    role = AppRoles[r]["role"];
+    config = {};
+    config = getNewConfig(req.headers.applicationid, role);
+
+    for (let a = 0; a < config["Tabs"].length; a++) {
+      if (config["Tabs"][a]["type"] == "Table") {
+        console.log(
+          "TABLES : ".green.inverse,
+          config["Tabs"][a]["value"],
+          config["Tabs"][a]["name"],
+          config["DetailFields"][config["Tabs"][a]["value"]][0],
+          " (",
+          req.headers.applicationid,
+          role,
+          ")"
+        );
+        tabValue = config["Tabs"][a]["value"];
+        tabField = config["DetailFields"][tabValue][0];
+        console.log("AA01", tabField, tabValue);
+        if (config["tableConfig"][tabField]["detailCharts"].length > 0) {
+          console.log("Detail Cards maintained".green.inverse);
+        } else {
+          console.log("Detail Cards missing".red.inverse);
+        }
+      }
+    }
+    console.log("*************************");
+  }
+  console.log("-------------------------------------------------------------");
 
   //     for (let k = 0; k < config["Controls"].length; k++) {
   //   }

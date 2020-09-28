@@ -439,16 +439,17 @@ exports.getDetailCardsNew = async (req, res, next) => {
             } else {
               cardKey = getCardKey(req.params.app, req.params.role, g, "T");
             }
+
             // Step T5 - Read card Template, Stringify, replace @values then parse back to javaObject
             // if (mycard["cardType"] != "AdaptiveForm") {
-
+            console.log("08A", mycard["cardType"], mycard["template"]);
             let cardConfigFile1 =
               "../../cards/cardConfig/" + mycard["template"];
             var cardData = JSON.stringify(require(cardConfigFile1));
             cardData = cardReplace(mycard, cardData, appconfig, key, "Tab1");
             var anacardConfig = JSON.parse(cardData);
             // }
-
+            console.log("08A", mycard["cardType"]);
             // Step T6 - Handle different card Types..
             switch (mycard["cardType"]) {
               case "AdaptiveForm":

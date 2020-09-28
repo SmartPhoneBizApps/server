@@ -562,6 +562,7 @@
         "TotalHours",
         "ItemStatus1"
       ],
+
       "detailCharts": [
         {
           "cardType": "Analytical",
@@ -624,66 +625,7 @@
           }
         }
       ],
-      "cards": [
-        {
-          "type": "Table",
-          "filterKey": "ItemStatus1",
-          "filterKeyLabel": "Item Status",
-          "template": "template_table.json",
-          "tableCardFields": [
-            "ProjectCode",
-            "Date",
-            "TotalRegWorkHours",
-            "OvertimeHours"
-          ]
-        },
-        {
-          "type": "Analytical",
-          "filterKey": "ItemStatus1",
-          "filterKeyLabel": "Item Status",
-          "cardID": "EMP21E01",
-          "title": "Time Analysis",
-          "subtitle": "Regular Vs Over Time",
-          "unitOfMeasurement": "HOURS",
-          "template": "template_analyticalCard_line.json",
-          "analyticsCard": {
-            "chartType": "line",
-
-            "itemvalueMap": {
-              "Score": "TotalRegWorkHours",
-              "Target": "OvertimeHours"
-            },
-            "itemkeyMap": {
-              "Area": "Date"
-            },
-            "itemfixedVal": [{ "Total": 5 }],
-            "sumField": [
-              { "sumScore": "TotalRegWorkHours" },
-              { "sumtargetScore": "OvertimeHours" }
-            ],
-            "headerfieldMap": [
-              { "j_number": "sumScore" },
-              { "j_target": "sumtargetScore" }
-            ]
-          }
-        },
-        {
-          "type": "Analytical",
-          "filterKey": "ItemStatus1",
-          "filterKeyLabel": "Item Status",
-          "cardID": "EMP21E02",
-          "template": "template_analyticalCard_donut.json",
-          "title": "Timesheet ProjectCode Analysis",
-          "analyticsCard": {
-            "chartType": "donut",
-            "cardsDonut": {
-              "measureName": "ProjectCode",
-              "value": "TotalRegWorkHours",
-              "function": "SUM"
-            }
-          }
-        }
-      ],
+      "cards": [],
       "ItemButtons": {
         "itemDisplay": true,
         "itemCheck": false,
