@@ -304,7 +304,7 @@
           "width": "100",
           "SLabel": "Goals Area",
           "Option": "Optional",
-          "adaptiveCard": "Additional",
+          "adaptiveCard": "Main",
           "Update": "No"
         },
         {
@@ -313,7 +313,7 @@
           "width": "500",
           "SLabel": "Goal",
           "Option": "Optional",
-          "adaptiveCard": "Additional",
+          "adaptiveCard": "Main",
           "Update": "No"
         },
         {
@@ -322,7 +322,7 @@
           "width": "200",
           "SLabel": "Score",
           "Option": "Optional",
-          "adaptiveCard": "Additional",
+          "adaptiveCard": "None",
           "Update": "No"
         },
         {
@@ -330,6 +330,7 @@
           "type": "Num,0",
           "width": "20",
           "SLabel": "Target Goal Score",
+          "adaptiveCard": "Main",
           "Option": "Optional"
         },
         {
@@ -338,6 +339,7 @@
           "width": "200",
           "SLabel": "Max Score",
           "Option": "Optional",
+          "adaptiveCard": "Main",
           "Default": "5",
           "Update": "No"
         },
@@ -347,7 +349,7 @@
           "width": "1000",
           "SLabel": "Employee Comments",
           "Option": "Optional",
-          "adaptiveCard": "Additional",
+          "adaptiveCard": "None",
           "Update": "Yes"
         },
         {
@@ -356,7 +358,7 @@
           "width": "1000",
           "SLabel": "Manager Comment",
           "Option": "Optional",
-          "adaptiveCard": "Additional",
+          "adaptiveCard": "None",
           "Update": "No"
         },
         {
@@ -375,6 +377,7 @@
           "SLabel": "Set Date",
           "Option": "Optional",
           "Default": "@currentDate",
+          "adaptiveCard": "Additional",
           "Update": "No"
         },
         {
@@ -406,7 +409,95 @@
         "GoalStatus",
         "ItemStatus1"
       ],
-      "detailCharts": [],
+      "detailCharts": [
+        {
+          "cardType": "Analytical",
+          "style": ["SAP", "Google"],
+          "cardsubType": "StackedBar",
+          "title": "Goals Analysis",
+          "subtitle": "Goals Status",
+          "unitOfMeasurement": "Count",
+          "source": "Goals",
+          "Data": {
+            "dimension": "ItemStatus1",
+            "fact": "Count",
+            "operation": "COUNT",
+            "sorting": "Ascending",
+            "aggregate": "Yes",
+            "sortField": "Count",
+            "dType": "string"
+          },
+          "numericHeader": {
+            "headerNumber": { "Operation": "COUNT", "Field": "ItemStatus1" },
+            "trend": { "trend": "DOWN", "Condition": "LTE", "value": 8 },
+            "status": { "state": "Good", "Condition": "LTE", "value": 24 },
+            "details": "ItemStatus1",
+            "unit": "Count"
+          },
+          "cardValues": {
+            "@Value1": "Commutative",
+            "@Value2": "Count"
+          }
+        },
+        {
+          "cardType": "Analytical",
+          "style": ["SAP", "Google"],
+          "cardsubType": "StackedColumn",
+          "title": "Goals Analysis",
+          "subtitle": "Goals Area",
+          "unitOfMeasurement": "Count",
+          "source": "Goals",
+          "Data": {
+            "dimension": "GoalsArea",
+            "fact": "Count",
+            "operation": "COUNT",
+            "sorting": "Ascending",
+            "aggregate": "Yes",
+            "sortField": "Count",
+            "dType": "string"
+          },
+          "numericHeader": {
+            "headerNumber": { "Operation": "COUNT", "Field": "GoalsArea" },
+            "trend": { "trend": "DOWN", "Condition": "LTE", "value": 8 },
+            "status": { "state": "Good", "Condition": "LTE", "value": 24 },
+            "details": "Employee",
+            "unit": "Count"
+          },
+          "cardValues": {
+            "@Value1": "Commutative",
+            "@Value2": "Count"
+          }
+        },
+        {
+          "cardType": "Analytical",
+          "style": ["SAP", "Google"],
+          "cardsubType": "Line",
+          "title": "Appraisal Analysis",
+          "subtitle": "Appraisal",
+          "unitOfMeasurement": "GBP",
+          "source": "Goals",
+          "Data": {
+            "dimension": "GoalsArea",
+            "fact": "Score2",
+            "operation": "COLLECTIVE_SUM",
+            "sorting": "Ascending",
+            "aggregate": "Yes",
+            "sortField": "GoalsArea",
+            "dType": "string"
+          },
+          "numericHeader": {
+            "headerNumber": { "Operation": "COLLECTIVE", "Field": "ID" },
+            "trend": { "trend": "DOWN", "Condition": "LTE", "value": 8 },
+            "status": { "state": "Good", "Condition": "LTE", "value": 24 },
+            "details": "Employee",
+            "unit": "Score/Rating"
+          },
+          "cardValues": {
+            "@Value1": "Commutative",
+            "@Value2": "Rating"
+          }
+        }
+      ],
       "cards": [],
 
       "ItemButtons": {
@@ -553,7 +644,7 @@
           "cardType": "Analytical",
           "style": ["SAP", "Google"],
           "cardsubType": "StackedBar",
-          "title": "Shoppingcart Analysis",
+          "title": "Appraisal Analysis",
           "subtitle": "ItemStatus",
           "unitOfMeasurement": "Count",
           "source": "Appraisal",
@@ -582,7 +673,7 @@
           "cardType": "Analytical",
           "style": ["SAP", "Google"],
           "cardsubType": "StackedColumn",
-          "title": "ShoppingCart Category Analysis",
+          "title": "Appraisal Analysis",
           "subtitle": "Appraisal Area",
           "unitOfMeasurement": "Days",
           "source": "Appraisal",
