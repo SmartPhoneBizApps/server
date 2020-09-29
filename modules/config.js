@@ -1327,6 +1327,7 @@ module.exports = {
       }
       cardData = cardData.replace("@Value2", mycard["cardValues"]["@Value2"]);
       cardData = cardData.replace("@UOM", mycard.unitOfMeasurement);
+      cardData = cardData.replace("@UOM", mycard.unitOfMeasurement);
       cardData = cardData.replace(
         "@unitOfMeasurement",
         mycard.unitOfMeasurement
