@@ -234,7 +234,16 @@
       "TravelMode",
       "StayDetails"
     ],
-    "Tab2": ["TravelCost", "StayCost", "FoodCost", "OtherCost", "Currency"],
+    "Tab2": [
+      "TravelCost",
+      "StayCost",
+      "FoodCost",
+      "OtherCost",
+      "Currency",
+      "MaxStay",
+      "MaxTravel",
+      "MaxFood"
+    ],
     "Tab3": ["AdditionalInfo", "CostCentre", "ProgressComment"],
     "Tab5": ["carouselImage"],
     "Tab4": ["MultiAttachments"]
@@ -450,6 +459,33 @@
       "LLabel": "Status"
     },
     {
+      "name": "MaxStay",
+      "type": "string",
+      "width": "50",
+      "Option": "Mandatory",
+      "adaptiveCard": "Additional",
+      "SLabel": "MaxStay",
+      "LLabel": "MaxStay"
+    },
+    {
+      "name": "MaxTravel",
+      "type": "string",
+      "width": "50",
+      "Option": "Mandatory",
+      "adaptiveCard": "Additional",
+      "SLabel": "MaxTravel",
+      "LLabel": "MaxTravel"
+    },
+    {
+      "name": "MaxFood",
+      "type": "string",
+      "width": "50",
+      "Option": "Mandatory",
+      "adaptiveCard": "Additional",
+      "SLabel": "MaxFood",
+      "LLabel": "MaxFood"
+    },
+    {
       "name": "SearchString",
       "type": "string",
       "width": "200",
@@ -628,6 +664,39 @@
           { "Source": "TotalAmount", "Type": { "type": "Header" } },
           { "Source": "FoodCost", "Type": { "type": "Header" } }
         ]
+      },
+      {
+        "CalculatedFormula": {
+          "name": "COMPARE",
+          "function": "COMPARE",
+          "Target": "MaxTravel",
+          "type": "Header",
+          "value": "100",
+          "subfunction": "GT"
+        },
+        "Fields": [{ "Source": "TravelCost", "Type": { "type": "Header" } }]
+      },
+      {
+        "CalculatedFormula": {
+          "name": "COMPARE",
+          "function": "COMPARE",
+          "Target": "MaxFood",
+          "type": "Header",
+          "value": "40",
+          "subfunction": "GT"
+        },
+        "Fields": [{ "Source": "FoodCost", "Type": { "type": "Header" } }]
+      },
+      {
+        "CalculatedFormula": {
+          "name": "COMPARE",
+          "function": "COMPARE",
+          "Target": "MaxStay",
+          "type": "Header",
+          "value": "100",
+          "subfunction": "GT"
+        },
+        "Fields": [{ "Source": "StayCost", "Type": { "type": "Header" } }]
       }
     ]
   },

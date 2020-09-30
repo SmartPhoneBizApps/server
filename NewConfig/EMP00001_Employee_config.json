@@ -210,7 +210,14 @@
     "Tab0": ["data"],
     "Tab20": ["charts"],
     "None": ["ID"],
-    "Tab1": ["LeaveType", "LeaveFrom", "LeaveTo", "LeaveDays", "LeaveReason"],
+    "Tab1": [
+      "LeaveType",
+      "LeaveFrom",
+      "LeaveTo",
+      "LeaveDays",
+      "LeaveReason",
+      "MaxReached"
+    ],
     "Tab2": ["Name", "EmployeeID"],
     "Tab3": ["Address", "PostCode"],
     "Tab4": ["ContactNo", "Email"],
@@ -384,6 +391,14 @@
       "adaptiveCard": "Additional",
       "SLabel": "Post Code",
       "LLabel": "Post Code"
+    },
+    {
+      "name": "MaxReached",
+      "type": "string",
+      "width": "20",
+      "Option": "Optional",
+      "adaptiveCard": "Additional",
+      "SLabel": "Max Days Reached"
     },
     {
       "name": "ContactNo",
@@ -566,6 +581,17 @@
           { "Source": "LeaveFrom", "Type": { "type": "Header" } },
           { "Source": "LeaveTo", "Type": { "type": "Header" } }
         ]
+      },
+      {
+        "CalculatedFormula": {
+          "name": "COMPARE",
+          "function": "COMPARE",
+          "Target": "MaxReached",
+          "type": "Header",
+          "value": "5",
+          "subfunction": "GE"
+        },
+        "Fields": [{ "Source": "LeaveDays", "Type": { "type": "Header" } }]
       }
     ]
   },
