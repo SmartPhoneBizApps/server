@@ -11,7 +11,7 @@ const App = require("../models/appSetup/App");
 exports.uploadFile = asyncHandler(async (req, res, next) => {
   // Note the logic currently supports only one file at a time..
   console.log("Inside Upload...");
-
+  let header = {};
   const file = req.files.file;
   /////////////////////////////////////////////////////////////////////////
   //   --------  Input - Validations  -------------------
@@ -22,13 +22,20 @@ exports.uploadFile = asyncHandler(async (req, res, next) => {
   if (!req.files.file) {
     return next(new ErrorResponse(`No file with parameter file`, 400));
   }
-  const header = req.files.file;
-  console.log(header.mimetype);
-  if (req.headers.filetype == "csv") {
-    if (header && !header.mimetype.startsWith("text/csv")) {
-      return next(new ErrorResponse(`Please upload an csv file(header)`, 400));
+  if (req.files.hasOwnProperty("file")) {
+    header = req.files.file;
+    console.log(header.mimetype);
+    if (req.headers.filetype == "csv") {
+      if (header && !header.mimetype.startsWith("text/csv")) {
+        return next(
+          new ErrorResponse(`Please upload an csv file(header)`, 400)
+        );
+      }
     }
+  } else {
+    return next(new ErrorResponse(`No file with parameter file`, 400));
   }
+
   if (file.size > process.env.MAX_FILE_UPLOAD) {
     return next(
       new ErrorResponse(
