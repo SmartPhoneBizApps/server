@@ -1282,6 +1282,7 @@ module.exports = {
     });
   },
   cardReplace: function (mycard, cardData, appconfig, mode, tab, ControlValue) {
+    console.log("mycard", mycard);
     if (mode == "header") {
       if (ControlValue != "NA") {
         // Control Display = ON
@@ -1314,8 +1315,10 @@ module.exports = {
           "@subTitle",
           appconfig["tableConfig"][mode]["subtitle"]
         );
+        cardData = cardData.replace("@UOM", mycard.unitOfMeasurement);
       } else {
         cardData = cardData.replace("@subTitle", mode);
+        cardData = cardData.replace("@UOM", mycard.unitOfMeasurement);
       }
     }
     if (mycard.length > 0) {

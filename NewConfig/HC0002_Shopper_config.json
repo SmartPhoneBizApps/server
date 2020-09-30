@@ -1,5 +1,5 @@
 {
-  "Title": { "ApplicationTitle": "Study/Trial", "DetailTitle": "Study/Trial" },
+  "Title": { "ApplicationTitle": "Study/Trial", "DetailTitle": "HCP/HCO" },
   "Controls": {
     "style": "Google",
     "calculation": "Yes",
@@ -432,7 +432,7 @@
         "dType": "Date"
       },
       "numericHeader": {
-        "headerNumber": { "Operation": "COLLECTIVE", "Field": "ID" },
+        "headerNumber": { "Operation": "COLLECTIVE", "Field": "StudyValue" },
         "trend": { "trend": "DOWN", "Condition": "LTE", "value": 8 },
         "status": { "state": "Good", "Condition": "LTE", "value": 24 },
         "details": "Max 24 days",
@@ -790,7 +790,7 @@
       "calculation": "Yes",
       "itemFilter": [{ "ItemStatus2": { "$ne": "Completed" } }],
       "title": "Study Invoice",
-      "subtitle": "Invoice Items",
+      "subtitle": "HCP/HCO",
       "tableFormFields": [
         {
           "GrpTitle": "Totals",

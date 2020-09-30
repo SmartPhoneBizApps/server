@@ -1,5 +1,5 @@
 {
-  "Title": { "ApplicationTitle": "Events", "DetailTitle": "Events" },
+  "Title": { "ApplicationTitle": "Events", "DetailTitle": "HCP/HCO" },
   "Controls": {
     "style": "SAP",
     "calculation": "Yes",
@@ -326,7 +326,7 @@
         "dType": "Date"
       },
       "numericHeader": {
-        "headerNumber": { "Operation": "COLLECTIVE", "Field": "ID" },
+        "headerNumber": { "Operation": "COLLECTIVE", "Field": "EventValue" },
         "trend": { "trend": "DOWN", "Condition": "LTE", "value": 8 },
         "status": { "state": "Good", "Condition": "LTE", "value": 24 },
         "details": "Max 24 days",
@@ -684,7 +684,7 @@
       "calculation": "Yes",
       "itemFilter": [{ "ItemStatus1": { "$ne": "Completed" } }],
       "title": "Event Invoice",
-      "subtitle": "Invoice Items",
+      "subtitle": "HCP/HCO",
       "tableFormFields": [
         {
           "GrpTitle": "Totals",

@@ -1,7 +1,7 @@
 {
   "Title": {
-    "ApplicationTitle": "HCP/HCO Invoice",
-    "DetailTitle": "HCP / HCO View"
+    "ApplicationTitle": "Invoices",
+    "DetailTitle": "HCP/HCO"
   },
   "Controls": {
     "style": "SAP",
@@ -313,7 +313,7 @@
         "dType": "Date"
       },
       "numericHeader": {
-        "headerNumber": { "Operation": "COLLECTIVE", "Field": "ID" },
+        "headerNumber": { "Operation": "COLLECTIVE", "Field": "InvoiceValue" },
         "trend": { "trend": "DOWN", "Condition": "LTE", "value": 8 },
         "status": { "state": "Good", "Condition": "LTE", "value": 24 },
         "details": "Max 24 days",
@@ -330,7 +330,7 @@
     "ContractInvoice": {
       "calculation": "Yes",
       "title": "Contract Invoice",
-      "subtitle": "Invoice Items",
+      "subtitle": "HCP/HCO",
       "tableFormFields": [
         {
           "GrpTitle": "Totals",
@@ -543,7 +543,7 @@
     "EventInvoice": {
       "calculation": "Yes",
       "title": "Event Invoice",
-      "subtitle": "Invoice Items",
+      "subtitle": "HCP/HCO",
       "tableFormFields": [
         {
           "GrpTitle": "Totals",
@@ -756,7 +756,7 @@
     "StudyInvoice": {
       "calculation": "Yes",
       "title": "Study Invoice",
-      "subtitle": "Invoice Items",
+      "subtitle": "HCP/HCO",
       "tableFormFields": [
         {
           "GrpTitle": "Totals",
@@ -969,7 +969,7 @@
     "DonationGrant": {
       "calculation": "Yes",
       "title": "Study Invoice",
-      "subtitle": "Invoice Items",
+      "subtitle": "HCP/HCO",
       "tableFormFields": [
         {
           "GrpTitle": "Totals",
