@@ -9,7 +9,7 @@ const {
 } = require("../../modules/config2");
 exports.test = asyncHandler(async (req, res, next) => {
 
-  let googleAPIFile = "/Users/atulgupta/Downloads/smartApp/config/apikey.json";
+  let googleAPIFile = "./smartapp/apikey.json";
  // var googleAPI = require(googleAPIFile);
  
 // // Imports the Google Cloud client library
@@ -30,8 +30,8 @@ exports.test = asyncHandler(async (req, res, next) => {
   const vision = require('@google-cloud/vision');
 
   // Creates a client
- // const client = new vision.ImageAnnotatorClient({keyFilename:googleAPIFile});
-  const client = new vision.ImageAnnotatorClient();
+  const client = new vision.ImageAnnotatorClient({keyFilename:googleAPIFile});
+ // const client = new vision.ImageAnnotatorClient();
 
   // Performs label detection on the image file
   const [result] = await client.labelDetection('./resources/kitty.png');
