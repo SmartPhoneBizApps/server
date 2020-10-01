@@ -3,6 +3,7 @@
     "ApplicationTitle": "IT Asset Tracking",
     "DetailTitle": "IT Asset Tracking"
   },
+  "Constants":{},
   "Controls": {
     "style": "SAP",
     "calculation": "No",
@@ -451,6 +452,13 @@
   "Wizard": [
     {
       "id": "Step1",
+      "fields": [{ "name": "carouselImage", "Mode": "Edit" }],
+      "name": "Images and Attachment",
+      "stepType": "carouselImage",
+      "intro": "Screenshots and Images : Here you can upload screenshots, images (jpg, png, etc..)"
+    },
+    {
+      "id": "Step2",
       "fields": [
         { "name": "AssetType", "Mode": "Edit" },
         { "name": "SerialNo", "Mode": "Edit" },
@@ -463,7 +471,7 @@
       "intro": "IT Asset Tracking : Asset Details"
     },
     {
-      "id": "Step2",
+      "id": "Step3",
       "fields": [
         { "name": "Processor", "Mode": "Edit" },
         { "name": "LapFrequency", "Mode": "Edit" },
@@ -476,14 +484,6 @@
       "stepType": "FieldList",
       "intro": "IT Asset Tracking : Asset Specification"
     },
-    {
-      "id": "Step3",
-      "fields": [{ "name": "carouselImage", "Mode": "Edit" }],
-      "name": "Images and Attachment",
-      "stepType": "carouselImage",
-      "intro": "Screenshots and Images : Here you can upload screenshots, images (jpg, png, etc..)"
-    },
-
     {
       "id": "Step4",
       "fields": [{ "name": "MultiAttachments", "Mode": "Edit" }],
