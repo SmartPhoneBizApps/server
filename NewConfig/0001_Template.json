@@ -199,7 +199,6 @@
     {
       "name": "carouselImage",
       "type": "carouselImage",
-      "metadata": "OnlyFileName",
       "width": "200",
       "Option": "Optional",
       "adaptiveCard": "Additional",
@@ -278,6 +277,13 @@
     },
     {
       "id": "Step4",
+      "fields": [{ "name": "carouselImage", "Mode": "Edit" }],
+      "name": "Images and Attachment",
+      "stepType": "FieldList",
+      "intro": "Screenshots and Images : Here you can upload screenshots, images (jpg, png, etc..)"
+    },
+    {
+      "id": "Step5",
       "fields": [{ "name": "MultiAttachments", "Mode": "Edit" }],
       "name": "MultiAttachments",
       "stepType": "Attachments",
@@ -291,7 +297,7 @@
       }
     },
     {
-      "id": "Step5",
+      "id": "Step6",
       "fields": [{ "name": "XXXXXX", "Mode": "Edit" }],
       "name": "Contact Details",
       "stepType": "FieldList",
