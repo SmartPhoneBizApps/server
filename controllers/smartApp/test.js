@@ -9,7 +9,7 @@ const {
 } = require("../../modules/config2");
 exports.test = asyncHandler(async (req, res, next) => {
 
-  let googleAPIFile = "./smartapp/apikey.json";
+  let googleAPIFile = "./config/apikey.json";
  // var googleAPI = require(googleAPIFile);
  
 // // Imports the Google Cloud client library
@@ -35,6 +35,7 @@ exports.test = asyncHandler(async (req, res, next) => {
 
   // Performs label detection on the image file
   const [result] = await client.labelDetection('./resources/kitty.png');
+  console.log(result)
   const labels = result.labelAnnotations;
   console.log('Labels:');
   labels.forEach(label => console.log(label.description));
@@ -181,6 +182,7 @@ exports.test = asyncHandler(async (req, res, next) => {
   // });
   res.status(200).json({
     success: true,
+    result:result
     // apps: set_app,
     // role: set_role,
     // appRole: set_approle,
