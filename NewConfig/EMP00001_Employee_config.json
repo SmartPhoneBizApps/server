@@ -558,9 +558,10 @@
           "Target": "sValidation",
           "type": "Header",
           "msg": "To Date can't be less than From date",
+          "value": "20201010",
+          "subfunction": "GE",
           "Fields": [
-            { "Source": "LeaveTo", "Type": { "type": "Header" } },
-            { "Source": "LeaveFrom", "Type": { "type": "Header" } }
+            { "Source": "LeaveTo", "Type": { "type": "Header" } }
           ]
         }
       ]

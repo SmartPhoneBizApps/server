@@ -19,9 +19,9 @@ exports.test = asyncHandler(async (req, res, next) => {
 // const client = new vision.ImageAnnotatorClient();
 // console.log("Stage2")
 // // Performs label detection on the image file
-// const [result] = await client.labelDetection('./resources/kitty.png');
+// const [label] = await client.labelDetection('./resources/kitty.png');
 // console.log("Stage3")
-// const labels = result.labelAnnotations;
+// const labels = label.labelAnnotations;
 // console.log("Stage4")
 // console.log('Labels:');
 // labels.forEach(label => console.log(label.description));
@@ -34,9 +34,22 @@ exports.test = asyncHandler(async (req, res, next) => {
  // const client = new vision.ImageAnnotatorClient();
 
   // Performs label detection on the image file
-  const [result] = await client.labelDetection('./resources/kitty.png');
-  console.log(result)
-  const labels = result.labelAnnotations;
+  //const [landmark] = await client.landmarkDetection('./resources/cc.png');
+  //const [label] = await client.labelDetection('./resources/cc.png');
+  //const [logo] = await client.logoDetection('./resources/cc.png');
+  // const [face] = await client.faceDetection('./resources/cc.png');
+  // const [text] = await client.textDetection('./resources/cc.png');
+  // const [web] = await client.webDetection('./resources/cc.png');
+  
+  const [landmark] = await client.landmarkDetection('./resources/Rec.jpg');
+  const [label] = await client.labelDetection('./resources/Rec.jpg');
+  const [logo] = await client.logoDetection('./resources/Rec.jpg');
+  const [face] = await client.faceDetection('./resources/Rec.jpg');
+  const [text] = await client.textDetection('./resources/Rec.jpg');
+  const [web] = await client.webDetection('./resources/Rec.jpg');
+
+  console.log(label)
+  const labels = label.labelAnnotations;
   console.log('Labels:');
   labels.forEach(label => console.log(label.description));
 ///////
@@ -71,7 +84,7 @@ exports.test = asyncHandler(async (req, res, next) => {
   // set_approle.forEach((con1) => {
   //   res001 = checkFile(con1);
   //   if (res001 == "Success") {
-  //     var result = require(path);
+  //     var label = require(path);
   //     console.error("File found : ", con1);
   //   } else {
   //     console.error("File Not found : ", con1);
@@ -180,9 +193,16 @@ exports.test = asyncHandler(async (req, res, next) => {
   //   lookup2: c5,
   //   tCount: tCount,
   // });
+
   res.status(200).json({
     success: true,
-    result:result
+    label:label.labelAnnotations,
+    logo:logo.logoAnnotations,
+    landmark:landmark.landmarkAnnotations,
+    face:face.faceAnnotations,
+    text:text.textAnnotations,
+    web:web.webAnnotations
+
     // apps: set_app,
     // role: set_role,
     // appRole: set_approle,

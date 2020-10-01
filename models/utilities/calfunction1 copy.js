@@ -530,7 +530,6 @@ class calFun {
     return outdata;
   }
   tablecalculation(outdata, config, tabname, fieldDef) {
-    console.log("Divyesh here");
     if (outdata[tabname] != undefined) {
       if (outdata[tabname].length > 0) {
         if (config["Item"].length > 0) {
@@ -650,6 +649,11 @@ class calFun {
                     outdata[field["Source"]] !== ""
                   ) {
                     fieldObj.push(parseFloat(outdata[field["Source"]]));
+                    // fieldObj.push(
+                    //   outdata.hasOwnProperty(field["Source"])
+                    //     ? parseFloat(outdata[field["Source"]])
+                    //     : 0
+                    // );
                   } else {
                     fieldObj.push(0);
                   }
@@ -665,7 +669,6 @@ class calFun {
           console.log("Function name -- " + fun);
           console.log(fieldObj);
           if (typeof this[fun] !== "undefined") {
-            console.log(this[fun](fieldObj));
             outdata[configItem["CalculatedFormula"]["Target"]] = this[fun](
               fieldObj
             ); // call function and assign value in header array
