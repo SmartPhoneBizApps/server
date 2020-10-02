@@ -3,7 +3,7 @@
     "ApplicationTitle": "Leave Application",
     "DetailTitle": "Leave Application"
   },
-  "Constants":{},
+  "Constants": {},
   "Controls": {
     "style": "SAP",
     "calculation": "Yes",
@@ -558,11 +558,9 @@
           "Target": "sValidation",
           "type": "Header",
           "msg": "To Date can't be less than From date",
-          "value": "20201010",
+          "value": "2020-10-10",
           "subfunction": "GE",
-          "Fields": [
-            { "Source": "LeaveTo", "Type": { "type": "Header" } }
-          ]
+          "Fields": [{ "Source": "LeaveTo", "Type": { "type": "Header" } }]
         }
       ]
     },
