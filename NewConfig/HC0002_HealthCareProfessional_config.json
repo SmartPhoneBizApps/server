@@ -1,6 +1,6 @@
 {
   "Title": { "ApplicationTitle": "Study/Trial", "DetailTitle": "HCP/HCO" },
-  "Constants":{},
+  "Constants": {},
   "Controls": {
     "style": "SAP",
     "calculation": "Yes",
@@ -203,6 +203,14 @@
       "name": "myHCP/HCO",
       "type": "Table",
       "fioriicon": "expense-report"
+    },
+    {
+      "value": "Tab7",
+      "style": "SAP",
+      "update": "Yes",
+      "name": "ProcessFlow",
+      "type": "processflow",
+      "fioriicon": "process"
     }
   ],
   "DetailFields": {
@@ -226,7 +234,8 @@
     "Tab3": ["MultiAttachments"],
     "Tab4": ["Services"],
     "Tab5": ["StudyInvoice"],
-    "Tab6": ["myHCPHCO"]
+    "Tab6": ["myHCPHCO"],
+    "Tab7": ["processflow"]
   },
   "listCards": [
     {
@@ -948,6 +957,14 @@
       "Option": "Optional",
       "adaptiveCard": "None",
       "SLabel": "myHCPHCO"
+    },
+    {
+      "name": "processflow",
+      "type": "processflow",
+      "width": "200",
+      "Option": "Optional",
+      "adaptiveCard": "None",
+      "SLabel": "Process Flow"
     },
     {
       "name": "StudyInvoice",
