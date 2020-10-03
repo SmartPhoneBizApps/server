@@ -54,7 +54,8 @@
     "pType",
     "Title",
     "ItemStatus1",
-    "ItemStatus2"
+    "ItemStatus2",
+    "Year"
   ],
   "MButtons": [
     {
@@ -320,7 +321,7 @@
           "name": "PaymentAmount",
           "type": "Num,1",
           "width": "20",
-          "SLabel": "Payment Type",
+          "SLabel": "Amount",
           "Option": "Mandatory",
           "adaptiveCard": "Main",
           "Update": "Yes"
@@ -511,6 +512,14 @@
           "SLabel": "PostCode"
         },
         {
+          "name": "cAddress",
+          "type": "string",
+          "width": "200",
+          "Option": "Optional",
+          "adaptiveCard": "Additional",
+          "SLabel": "Address"
+        },
+        {
           "name": "cInstitutionName",
           "type": "string",
           "width": "500",
@@ -525,6 +534,7 @@
         "cLastName",
         "cEmail",
         "cPostCode",
+        "cAddress",
         "ItemStatus2"
       ],
       "detailCharts": [],
@@ -543,6 +553,7 @@
         "cSpeciality",
         "cEmail",
         "cPostCode",
+        "cAddress",
         "cInstitutionName",
         "ItemStatus2"
       ],
@@ -553,6 +564,7 @@
         { "name": "cSpeciality" },
         { "name": "cEmail" },
         { "name": "cPostCode" },
+        { "name": "cAddress" },
         { "name": "cInstitutionName" },
         { "name": "ItemStatus2" }
       ]
