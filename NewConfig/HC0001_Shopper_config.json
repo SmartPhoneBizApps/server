@@ -48,7 +48,15 @@
     "Description": ["Email"]
   },
 
-  "PossibleValues": ["Status", "PaymentType", "HCOType", "pType"],
+  "PossibleValues": [
+    "Status",
+    "PaymentType",
+    "HCOType",
+    "pType",
+    "Title",
+    "ItemStatus1",
+    "ItemStatus2"
+  ],
   "MButtons": [
     {
       "type": "DOWNLOAD",
@@ -155,7 +163,7 @@
       "update": "Yes",
       "name": "Personnel Details",
       "fioriicon": "developer-settings",
-      "type": "Field"
+      "type": "FieldGroup"
     },
     {
       "value": "Tab2",
