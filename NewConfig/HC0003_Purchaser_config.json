@@ -1,6 +1,6 @@
 {
   "Title": { "ApplicationTitle": "Events", "DetailTitle": "HCP/HCO" },
-  "Constants":{},
+  "Constants": {},
   "Controls": {
     "style": "SAP",
     "calculation": "Yes",
@@ -512,8 +512,17 @@
           "name": "ServiceAmount",
           "type": "Num,1",
           "width": "20",
-          "SLabel": "Service Amount",
+          "SLabel": "Max Limit",
           "Option": "Mandatory",
+          "adaptiveCard": "Main",
+          "Update": "Yes"
+        },
+        {
+          "name": "ActualAmount",
+          "type": "Num,1",
+          "width": "20",
+          "SLabel": "Actual Amount",
+          "Option": "Optional",
           "adaptiveCard": "Main",
           "Update": "Yes"
         },
@@ -557,6 +566,7 @@
       "DisplayFields": [
         "ServiceDetails",
         "ServiceAmount",
+        "ActualAmount",
         "ServiceType",
         "iCurrency",
         "ItemStatus1"
@@ -608,7 +618,7 @@
             "Token": "Yes",
             "URLMethod": "PUT",
             "updateButton": "Add to Invoice",
-            "diffMapping": [{ "ServiceAmount": "InvoiceAmount" }],
+            "diffMapping": [{ "ActualAmount": "InvoiceAmount" }],
             "popupData": "myHCPHCO"
           }
         ]
@@ -617,6 +627,7 @@
         "ServiceType",
         "ServiceDetails",
         "ServiceAmount",
+        "ActualAmount",
         "iCurrency",
         "ItemStatus1",
         "Notes",
@@ -626,6 +637,7 @@
         { "name": "ServiceType" },
         { "name": "ServiceDetails" },
         { "name": "ServiceAmount" },
+        { "name": "ActualAmount" },
         { "name": "iCurrency" },
         { "name": "Notes" },
         { "name": "ItemStatus1" },

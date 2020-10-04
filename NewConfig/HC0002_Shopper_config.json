@@ -1,6 +1,6 @@
 {
   "Title": { "ApplicationTitle": "Study/Trial", "DetailTitle": "HCP/HCO" },
-  "Constants":{},
+  "Constants": {},
   "Controls": {
     "style": "Google",
     "calculation": "Yes",
@@ -488,8 +488,17 @@
           "name": "ServiceAmount",
           "type": "Num,1",
           "width": "20",
-          "SLabel": "Service Amount",
+          "SLabel": "Max Limit",
           "Option": "Mandatory",
+          "adaptiveCard": "Main",
+          "Update": "Yes"
+        },
+        {
+          "name": "ActualAmount",
+          "type": "Num,1",
+          "width": "20",
+          "SLabel": "Actual Amount",
+          "Option": "Optional",
           "adaptiveCard": "Main",
           "Update": "Yes"
         },
@@ -533,6 +542,7 @@
       "DisplayFields": [
         "ServiceDetails",
         "ServiceAmount",
+        "ActualAmount",
         "ServiceType2",
         "iCurrency",
         "ItemStatus2"
@@ -584,7 +594,7 @@
             "Token": "Yes",
             "URLMethod": "PUT",
             "updateButton": "Add to Invoice",
-            "diffMapping": [{ "ServiceAmount": "InvoiceAmount" }],
+            "diffMapping": [{ "ActualAmount": "InvoiceAmount" }],
             "popupData": "myHCPHCO"
           }
         ]
@@ -593,6 +603,7 @@
         "ServiceType2",
         "ServiceDetails",
         "ServiceAmount",
+        "ActualAmount",
         "iCurrency",
         "ItemStatus2",
         "Notes",
@@ -602,6 +613,7 @@
         { "name": "ServiceType2" },
         { "name": "ServiceDetails" },
         { "name": "ServiceAmount" },
+        { "name": "ActualAmount" },
         { "name": "iCurrency" },
         { "name": "Notes" },
         { "name": "ItemStatus2" },
