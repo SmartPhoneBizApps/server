@@ -55,11 +55,7 @@
     "pType",
     "Title",
     "cTitle",
-    "ItemStatus1",
-    "ItemStatus2",
-    "ItemStatus3",
-    "ItemStatus4",
-    "ItemStatus5",
+    "ItemActive",
     "Year",
     "idType",
     "BankCountry"
@@ -415,10 +411,10 @@
           "Update": "No"
         },
         {
-          "name": "ItemStatus1",
+          "name": "ItemActive",
           "type": "string",
           "width": "50",
-          "SLabel": "Item Status",
+          "SLabel": "Status",
           "Option": "Mandatory",
           "adaptiveCard": "Main",
           "Update": "Yes"
@@ -438,7 +434,7 @@
         "PaymentType",
         "PaymentAmount",
         "iCurrency",
-        "ItemStatus1"
+        "ItemActive"
       ],
       "detailCharts": [
         {
@@ -497,18 +493,18 @@
         "PaymentType",
         "PaymentAmount",
         "iCurrency",
-        "ItemStatus1",
         "Notes",
-        "Attachment"
+        "Attachment",
+        "ItemActive"
       ],
       "ItemDetails": [
         { "name": "Year" },
         { "name": "PaymentType" },
         { "name": "PaymentAmount" },
         { "name": "iCurrency" },
-        { "name": "ItemStatus1" },
         { "name": "Notes" },
-        { "name": "Attachment" }
+        { "name": "Attachment" },
+        { "name": "ItemActive" }
       ]
     },
     "ContactPerson": {
@@ -525,12 +521,12 @@
           "Update": "No"
         },
         {
-          "name": "ItemStatus2",
+          "name": "ItemActive",
           "type": "string",
           "width": "50",
           "Option": "Optional",
           "adaptiveCard": "Additional",
-          "SLabel": "Item Status",
+          "SLabel": "Status",
           "Update": "Yes"
         },
         {
@@ -605,7 +601,7 @@
         "cEmail",
         "cPostCode",
         "cAddress",
-        "ItemStatus2"
+        "ItemActive"
       ],
       "detailCharts": [],
       "cards": [],
@@ -625,7 +621,7 @@
         "cPostCode",
         "cAddress",
         "cInstitutionName",
-        "ItemStatus2"
+        "ItemActive"
       ],
       "ItemDetails": [
         { "name": "cTitle" },
@@ -636,7 +632,7 @@
         { "name": "cPostCode" },
         { "name": "cAddress" },
         { "name": "cInstitutionName" },
-        { "name": "ItemStatus2" }
+        { "name": "ItemActive" }
       ]
     },
     "BusinessUnits": {
@@ -653,12 +649,12 @@
           "Update": "No"
         },
         {
-          "name": "ItemStatus3",
+          "name": "ItemActive",
           "type": "string",
           "width": "50",
           "Option": "Optional",
           "adaptiveCard": "Additional",
-          "SLabel": "Item Status",
+          "SLabel": "Status",
           "Update": "Yes"
         },
         {
@@ -708,7 +704,7 @@
         "bEmail",
         "bPostCode",
         "bAddress",
-        "ItemStatus3"
+        "ItemActive"
       ],
       "detailCharts": [],
       "cards": [],
@@ -725,7 +721,7 @@
         "bEmail",
         "bPostCode",
         "bAddress",
-        "ItemStatus3"
+        "ItemActive"
       ],
       "ItemDetails": [
         { "name": "bID" },
@@ -733,7 +729,7 @@
         { "name": "bEmail" },
         { "name": "bPostCode" },
         { "name": "bAddress" },
-        { "name": "ItemStatus3" }
+        { "name": "ItemActive" }
       ]
     },
     "Bank": {
@@ -750,12 +746,12 @@
           "Update": "No"
         },
         {
-          "name": "ItemStatus4",
+          "name": "ItemActive",
           "type": "string",
           "width": "50",
           "Option": "Optional",
           "adaptiveCard": "Additional",
-          "SLabel": "Item Status",
+          "SLabel": "Status",
           "Update": "Yes"
         },
         {
@@ -814,7 +810,7 @@
         "BankKey",
         "SwiftKey",
         "BankName",
-        "ItemStatus4"
+        "ItemActive"
       ],
       "detailCharts": [],
       "cards": [],
@@ -832,7 +828,7 @@
         "SwiftKey",
         "IBAN",
         "BankName",
-        "ItemStatus4"
+        "ItemActive"
       ],
       "ItemDetails": [
         { "name": "BankCountry" },
@@ -841,7 +837,7 @@
         { "name": "SwiftKey" },
         { "name": "IBAN" },
         { "name": "BankName" },
-        { "name": "ItemStatus4" }
+        { "name": "ItemActive" }
       ]
     },
     "Identification": {
@@ -858,12 +854,12 @@
           "Update": "No"
         },
         {
-          "name": "ItemStatus5",
+          "name": "ItemActive",
           "type": "string",
           "width": "50",
           "Option": "Optional",
           "adaptiveCard": "Additional",
-          "SLabel": "Item Status",
+          "SLabel": "Status",
           "Update": "Yes"
         },
         {
@@ -905,7 +901,7 @@
         "idNumber",
         "validityDate",
         "Comments",
-        "ItemStatus5"
+        "ItemActive"
       ],
       "detailCharts": [],
       "cards": [],
@@ -921,14 +917,14 @@
         "idNumber",
         "validityDate",
         "Comments",
-        "ItemStatus5"
+        "ItemActive"
       ],
       "ItemDetails": [
         { "name": "idType" },
         { "name": "idNumber" },
         { "name": "validityDate" },
         { "name": "Comments" },
-        { "name": "ItemStatus5" }
+        { "name": "ItemActive" }
       ]
     }
   },
