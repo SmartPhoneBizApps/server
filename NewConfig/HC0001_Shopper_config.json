@@ -58,8 +58,10 @@
     "ItemStatus2",
     "ItemStatus3",
     "ItemStatus4",
+    "ItemStatus5",
     "Year",
-    "idType"
+    "idType",
+    "BankCountry"
   ],
   "MButtons": [
     {
@@ -209,7 +211,7 @@
       "update": "Yes",
       "name": "BusinessUnits",
       "type": "Table",
-      "fioriicon": "donut-chart"
+      "fioriicon": "building"
     },
     {
       "value": "Tab8",
@@ -217,7 +219,7 @@
       "update": "Yes",
       "name": "Bank",
       "type": "Table",
-      "fioriicon": "donut-chart"
+      "fioriicon": "loan"
     },
     {
       "value": "Tab9",
@@ -225,7 +227,7 @@
       "update": "Yes",
       "name": "Identification",
       "type": "Table",
-      "fioriicon": "donut-chart"
+      "fioriicon": "business-card"
     },
     {
       "value": "Tab5",
@@ -233,7 +235,7 @@
       "update": "Yes",
       "name": "Images",
       "type": "carouselImage",
-      "fioriicon": "contacts"
+      "fioriicon": "picture"
     },
     {
       "value": "Tab6",
@@ -241,7 +243,7 @@
       "update": "Yes",
       "name": "Address",
       "type": "Field",
-      "fioriicon": "contacts"
+      "fioriicon": "address-book"
     }
   ],
   "DetailFields": {
@@ -855,6 +857,15 @@
           "Update": "No"
         },
         {
+          "name": "ItemStatus5",
+          "type": "string",
+          "width": "50",
+          "Option": "Optional",
+          "adaptiveCard": "Additional",
+          "SLabel": "Item Status",
+          "Update": "Yes"
+        },
+        {
           "name": "idType",
           "type": "string",
           "width": "50",
@@ -877,7 +888,7 @@
           "width": "10",
           "Option": "Mandatory",
           "adaptiveCard": "Main",
-          "SLabel": "validity Date"
+          "SLabel": "Validity Date"
         },
         {
           "name": "Comments",
