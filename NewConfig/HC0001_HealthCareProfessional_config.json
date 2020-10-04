@@ -55,7 +55,10 @@
     "Title",
     "ItemStatus1",
     "ItemStatus2",
-    "Year"
+    "ItemStatus3",
+    "ItemStatus4",
+    "Year",
+    "idType"
   ],
   "MButtons": [
     {
@@ -76,7 +79,13 @@
         "Address",
         "InstitutionName"
       ],
-      "downloadTables": ["ContactPerson", "Disclosure"]
+      "downloadTables": [
+        "ContactPerson",
+        "Disclosure",
+        "BusinessUnits",
+        "Bank",
+        "Identification"
+      ]
     },
     {
       "type": "APPHELP",
@@ -167,6 +176,30 @@
       "fioriicon": "donut-chart"
     },
     {
+      "value": "Tab7",
+      "style": "SAP",
+      "update": "Yes",
+      "name": "BusinessUnits",
+      "type": "Table",
+      "fioriicon": "donut-chart"
+    },
+    {
+      "value": "Tab8",
+      "style": "SAP",
+      "update": "Yes",
+      "name": "Bank",
+      "type": "Table",
+      "fioriicon": "donut-chart"
+    },
+    {
+      "value": "Tab9",
+      "style": "SAP",
+      "update": "Yes",
+      "name": "Identification",
+      "type": "Table",
+      "fioriicon": "donut-chart"
+    },
+    {
       "value": "Tab5",
       "style": "SAP",
       "update": "Yes",
@@ -210,6 +243,9 @@
     "Tab2": ["MultiAttachments"],
     "Tab3": ["ContactPerson"],
     "Tab4": ["Disclosure"],
+    "Tab7": ["BusinessUnits"],
+    "Tab8": ["Bank"],
+    "Tab9": ["Identification"],
     "Tab5": ["carouselImage"],
     "Tab6": ["PostCode", "Address"]
   },
@@ -260,7 +296,10 @@
             "ContactNo",
             "Email",
             "InstitutionName",
-            "Disclosure"
+            "Disclosure",
+            "BusinessUnits",
+            "Bank",
+            "Identification"
           ]
         },
         {
@@ -311,7 +350,7 @@
         {
           "name": "PaymentType",
           "type": "string",
-          "width": "200",
+          "width": "100",
           "SLabel": "Payment Type",
           "Option": "Mandatory",
           "adaptiveCard": "Main",
@@ -490,7 +529,7 @@
         {
           "name": "cSpeciality",
           "type": "string",
-          "width": "200",
+          "width": "100",
           "Option": "Optional",
           "adaptiveCard": "Additional",
           "SLabel": "Speciality"
@@ -506,7 +545,7 @@
         {
           "name": "cPostCode",
           "type": "string",
-          "width": "200",
+          "width": "20",
           "Option": "Optional",
           "adaptiveCard": "Additional",
           "SLabel": "PostCode"
@@ -567,6 +606,289 @@
         { "name": "cAddress" },
         { "name": "cInstitutionName" },
         { "name": "ItemStatus2" }
+      ]
+    },
+    "BusinessUnits": {
+      "title": "Business Units",
+      "subtitle": "Business Units",
+      "ItemFieldDefinition": [
+        {
+          "name": "ItemNumber",
+          "type": "string",
+          "width": "10",
+          "Option": "Optional",
+          "adaptiveCard": "Additional",
+          "SLabel": "Item Number",
+          "Update": "No"
+        },
+        {
+          "name": "ItemStatus3",
+          "type": "string",
+          "width": "50",
+          "Option": "Optional",
+          "adaptiveCard": "Additional",
+          "SLabel": "Item Status",
+          "Update": "Yes"
+        },
+        {
+          "name": "bID",
+          "type": "string",
+          "width": "50",
+          "Option": "Mandatory",
+          "adaptiveCard": "Main",
+          "SLabel": "BU ID"
+        },
+        {
+          "name": "bName",
+          "type": "string",
+          "width": "100",
+          "Option": "Mandatory",
+          "adaptiveCard": "Main",
+          "SLabel": "BU Name"
+        },
+        {
+          "name": "bEmail",
+          "type": "Email",
+          "width": "100",
+          "Option": "Mandatory",
+          "adaptiveCard": "Main",
+          "SLabel": "BU Email"
+        },
+        {
+          "name": "bPostCode",
+          "type": "string",
+          "width": "10",
+          "Option": "Optional",
+          "adaptiveCard": "Additional",
+          "SLabel": "BU PostCode"
+        },
+        {
+          "name": "bAddress",
+          "type": "string",
+          "width": "200",
+          "Option": "Optional",
+          "adaptiveCard": "Additional",
+          "SLabel": "BU Address"
+        }
+      ],
+      "DisplayFields": [
+        "bID",
+        "bName",
+        "bEmail",
+        "bPostCode",
+        "bAddress",
+        "ItemStatus3"
+      ],
+      "detailCharts": [],
+      "cards": [],
+      "ItemButtons": {
+        "itemDisplay": true,
+        "itemCheck": false,
+        "itemAdd": true,
+        "itemEdit": true,
+        "itemDelete": false
+      },
+      "CreateFields": [
+        "bID",
+        "bName",
+        "bEmail",
+        "bPostCode",
+        "bAddress",
+        "ItemStatus3"
+      ],
+      "ItemDetails": [
+        { "name": "bID" },
+        { "name": "bName" },
+        { "name": "bEmail" },
+        { "name": "bPostCode" },
+        { "name": "bAddress" },
+        { "name": "ItemStatus3" }
+      ]
+    },
+    "Bank": {
+      "title": "Business Units",
+      "subtitle": "Business Units",
+      "ItemFieldDefinition": [
+        {
+          "name": "ItemNumber",
+          "type": "string",
+          "width": "10",
+          "Option": "Optional",
+          "adaptiveCard": "Additional",
+          "SLabel": "Item Number",
+          "Update": "No"
+        },
+        {
+          "name": "ItemStatus4",
+          "type": "string",
+          "width": "50",
+          "Option": "Optional",
+          "adaptiveCard": "Additional",
+          "SLabel": "Item Status",
+          "Update": "Yes"
+        },
+        {
+          "name": "BankCountry",
+          "type": "string",
+          "width": "10",
+          "Option": "Mandatory",
+          "adaptiveCard": "Main",
+          "SLabel": "Bank Country"
+        },
+        {
+          "name": "AccountNumber",
+          "type": "string",
+          "width": "50",
+          "Option": "Mandatory",
+          "adaptiveCard": "Main",
+          "SLabel": "Account Number"
+        },
+        {
+          "name": "BankKey",
+          "type": "Email",
+          "width": "50",
+          "Option": "Mandatory",
+          "adaptiveCard": "Main",
+          "SLabel": "Bank Key"
+        },
+        {
+          "name": "SwiftKey",
+          "type": "string",
+          "width": "50",
+          "Option": "Optional",
+          "adaptiveCard": "Additional",
+          "SLabel": "Swift Key"
+        },
+        {
+          "name": "BankName",
+          "type": "string",
+          "width": "100",
+          "Option": "Optional",
+          "adaptiveCard": "Additional",
+          "SLabel": "Bank Name"
+        },
+        {
+          "name": "IBAN",
+          "type": "string",
+          "width": "100",
+          "Option": "Optional",
+          "adaptiveCard": "Additional",
+          "SLabel": "IBAN"
+        }
+      ],
+      "DisplayFields": [
+        "IBAN",
+        "BankCountry",
+        "AccountNumber",
+        "BankKey",
+        "SwiftKey",
+        "BankName",
+        "ItemStatus4"
+      ],
+      "detailCharts": [],
+      "cards": [],
+      "ItemButtons": {
+        "itemDisplay": true,
+        "itemCheck": false,
+        "itemAdd": true,
+        "itemEdit": true,
+        "itemDelete": false
+      },
+      "CreateFields": [
+        "BankCountry",
+        "AccountNumber",
+        "BankKey",
+        "SwiftKey",
+        "IBAN",
+        "BankName",
+        "ItemStatus4"
+      ],
+      "ItemDetails": [
+        { "name": "BankCountry" },
+        { "name": "AccountNumber" },
+        { "name": "BankKey" },
+        { "name": "SwiftKey" },
+        { "name": "IBAN" },
+        { "name": "BankName" },
+        { "name": "ItemStatus4" }
+      ]
+    },
+    "Identification": {
+      "title": "Identification",
+      "subtitle": "Identification",
+      "ItemFieldDefinition": [
+        {
+          "name": "ItemNumber",
+          "type": "string",
+          "width": "10",
+          "Option": "Optional",
+          "adaptiveCard": "Additional",
+          "SLabel": "Item Number",
+          "Update": "No"
+        },
+        {
+          "name": "idType",
+          "type": "string",
+          "width": "50",
+          "Option": "Optional",
+          "adaptiveCard": "Additional",
+          "SLabel": "ID Type",
+          "Update": "Yes"
+        },
+        {
+          "name": "idNumber",
+          "type": "string",
+          "width": "10",
+          "Option": "Mandatory",
+          "adaptiveCard": "Main",
+          "SLabel": "Identification"
+        },
+        {
+          "name": "validityDate",
+          "type": "Date",
+          "width": "10",
+          "Option": "Mandatory",
+          "adaptiveCard": "Main",
+          "SLabel": "validity Date"
+        },
+        {
+          "name": "Comments",
+          "type": "string",
+          "width": "1000",
+          "Option": "Mandatory",
+          "adaptiveCard": "Main",
+          "SLabel": "Comments"
+        }
+      ],
+      "DisplayFields": [
+        "idType",
+        "idNumber",
+        "validityDate",
+        "Comments",
+        "ItemStatus5"
+      ],
+      "detailCharts": [],
+      "cards": [],
+      "ItemButtons": {
+        "itemDisplay": true,
+        "itemCheck": false,
+        "itemAdd": true,
+        "itemEdit": true,
+        "itemDelete": false
+      },
+      "CreateFields": [
+        "idType",
+        "idNumber",
+        "validityDate",
+        "Comments",
+        "ItemStatus5"
+      ],
+      "ItemDetails": [
+        { "name": "idType" },
+        { "name": "idNumber" },
+        { "name": "validityDate" },
+        { "name": "Comments" },
+        { "name": "ItemStatus5" }
       ]
     }
   },
@@ -704,7 +1026,6 @@
     {
       "name": "carouselImage",
       "type": "carouselImage",
-
       "width": "200",
       "Option": "Optional",
       "adaptiveCard": "Additional",
@@ -777,7 +1098,7 @@
     {
       "name": "HCOType",
       "type": "string",
-      "width": "200",
+      "width": "20",
       "Option": "Optional",
       "adaptiveCard": "Additional",
       "SLabel": "HCO Type",
@@ -790,6 +1111,30 @@
       "Option": "Optional",
       "adaptiveCard": "None",
       "SLabel": "ContactPerson"
+    },
+    {
+      "name": "BusinessUnits",
+      "type": "Array",
+      "width": "200",
+      "Option": "Optional",
+      "adaptiveCard": "None",
+      "SLabel": "BusinessUnits"
+    },
+    {
+      "name": "Bank",
+      "type": "Array",
+      "width": "200",
+      "Option": "Optional",
+      "adaptiveCard": "None",
+      "SLabel": "Bank"
+    },
+    {
+      "name": "Identification",
+      "type": "Array",
+      "width": "200",
+      "Option": "Optional",
+      "adaptiveCard": "None",
+      "SLabel": "Identification"
     },
     {
       "name": "Disclosure",
