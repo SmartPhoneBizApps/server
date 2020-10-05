@@ -3,7 +3,7 @@
     "ApplicationTitle": "Invoices",
     "DetailTitle": "HCP/HCO"
   },
-  "Constants":{},
+  "Constants": {},
   "Controls": {
     "style": "SAP",
     "calculation": "Yes",
@@ -70,7 +70,15 @@
         "Status",
         "InvoiceType"
       ],
-      "downloadTables": ["ContractInvoice", "StudyInvoice", "EventInvoice"]
+      "downloadTables": [
+        "ContractInvoice",
+        "StudyInvoice",
+        "EventInvoice",
+        "ContactPerson",
+        "BusinessUnits",
+        "Bank",
+        "Identification"
+      ]
     },
     {
       "type": "APPHELP",

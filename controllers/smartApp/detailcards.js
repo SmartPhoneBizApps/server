@@ -84,6 +84,15 @@ exports.getDetailCardsNew = async (req, res, next) => {
     // Get list of records
   }
 
+  if (appconfig["Controls"].hasOwnProperty("processflow")) {
+    if (appconfig["Controls"]["processflow"] == "Yes") {
+      let pf = "../../NewConfig/processflow.json";
+      var pflow = require(pf);
+      console.log("PROCESS-FLOW");
+      appData["processflow"] = pflow;
+    }
+  }
+
   // 03 -  Tab details..
   console.log("04 -  Tab details..");
   cTab = {};
