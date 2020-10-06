@@ -115,7 +115,7 @@ exports.checkSocialmedia = asyncHandler(async (req, res, next) => {
         // } else {
         //   status["loginRequired"] = "USER_LOGIN_REQUIRED";
         // }
-
+        tokens["accessToken"] = smedia.accessToken;
         try {
           // Verify token
           const decoded = jwt.verify(
@@ -125,10 +125,43 @@ exports.checkSocialmedia = asyncHandler(async (req, res, next) => {
           vUser = await User.findById(decoded.id);
           status["loginRequired"] = "USER_LOGIN_NOT_REQUIRED";
         } catch (err) {
+          // Situation User Already created and Invalid Access Token
+          tokens["accessToken"] = "";
           status["loginRequired"] = "USER_LOGIN_REQUIRED";
+          tokens["accessToken"] = "";
+          // Get reset token
+          UserPIN = Math.floor(100000 + Math.random() * 900000);
+          user.UserPIN = UserPIN;
+          const resetToken = user.getResetPasswordToken();
+          await user.save({ validateBeforeSave: false });
+          let resetUrl = "";
+          resetUrl = `${req.protocol}://${req.get(
+            "host"
+          )}/api/v1/auth/checkbotpin/${resetToken}`;
+          tokens["resetURL"] = resetUrl;
+          tokens["resetToken"] = resetToken;
+          status["emailStatus"] = "EMAIL_SENT_USER";
+          const message = `Your PIN number is: ${UserPIN} , you are receiving this email because you (or someone else) is performing login to SmartApp`;
+          try {
+            await sendEmail({
+              email: user.email,
+              subject: "Social Media reset token",
+              message,
+            });
+            res.status(200).json({
+              success: true,
+              data: data,
+              tokens: tokens,
+              status: status,
+            });
+          } catch (err) {
+            console.log(err);
+            user.resetPasswordToken = undefined;
+            user.resetPasswordExpire = undefined;
+            await user.save({ validateBeforeSave: false });
+            return next(new ErrorResponse("Email could not be sent", 500));
+          }
         }
-
-        tokens["accessToken"] = smedia.accessToken;
         res.status(200).json({
           success: true,
           data: data,
@@ -136,7 +169,54 @@ exports.checkSocialmedia = asyncHandler(async (req, res, next) => {
           status: status,
         });
       } else {
+        tokens["accessToken"] = smedia.accessToken;
         // Situation User Already created and access Token already there..
+        try {
+          // Verify token
+          const decoded = jwt.verify(
+            smedia.accessToken,
+            process.env.JWT_SECRET
+          );
+          vUser = await User.findById(decoded.id);
+          status["loginRequired"] = "USER_LOGIN_NOT_REQUIRED";
+        } catch (err) {
+          // Situation User Already created and Invalid Access Token
+          tokens["accessToken"] = "";
+          status["loginRequired"] = "USER_LOGIN_REQUIRED";
+          tokens["accessToken"] = "";
+          // Get reset token
+          UserPIN = Math.floor(100000 + Math.random() * 900000);
+          user.UserPIN = UserPIN;
+          const resetToken = user.getResetPasswordToken();
+          await user.save({ validateBeforeSave: false });
+          let resetUrl = "";
+          resetUrl = `${req.protocol}://${req.get(
+            "host"
+          )}/api/v1/auth/checkbotpin/${resetToken}`;
+          tokens["resetURL"] = resetUrl;
+          tokens["resetToken"] = resetToken;
+          status["emailStatus"] = "EMAIL_SENT_USER";
+          const message = `Your PIN number is: ${UserPIN} , you are receiving this email because you (or someone else) is performing login to SmartApp`;
+          try {
+            await sendEmail({
+              email: user.email,
+              subject: "Social Media reset token",
+              message,
+            });
+            res.status(200).json({
+              success: true,
+              data: data,
+              tokens: tokens,
+              status: status,
+            });
+          } catch (err) {
+            console.log(err);
+            user.resetPasswordToken = undefined;
+            user.resetPasswordExpire = undefined;
+            await user.save({ validateBeforeSave: false });
+            return next(new ErrorResponse("Email could not be sent", 500));
+          }
+        }
         res.status(200).json({
           success: true,
           data: data,
