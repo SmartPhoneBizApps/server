@@ -108,11 +108,23 @@ exports.checkSocialmedia = asyncHandler(async (req, res, next) => {
         // Situation User Already created and access Token already there..
 
         // Verify token
-        const decoded = jwt.verify(smedia.accessToken, process.env.JWT_SECRET);
-        vUser = await User.findById(decoded.id);
-        if (vUser != undefined) {
+        // const decoded = jwt.verify(smedia.accessToken, process.env.JWT_SECRET);
+        // vUser = await User.findById(decoded.id);
+        // if (vUser != undefined) {
+        //   status["loginRequired"] = "USER_LOGIN_NOT_REQUIRED";
+        // } else {
+        //   status["loginRequired"] = "USER_LOGIN_REQUIRED";
+        // }
+
+        try {
+          // Verify token
+          const decoded = jwt.verify(
+            smedia.accessToken,
+            process.env.JWT_SECRET
+          );
+          vUser = await User.findById(decoded.id);
           status["loginRequired"] = "USER_LOGIN_NOT_REQUIRED";
-        } else {
+        } catch (err) {
           status["loginRequired"] = "USER_LOGIN_REQUIRED";
         }
 
