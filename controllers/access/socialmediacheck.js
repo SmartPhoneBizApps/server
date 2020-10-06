@@ -3,6 +3,7 @@ const asyncHandler = require("../../middleware/async");
 const Socialmedia = require("../../models/access/Socialmedia");
 const sendEmail = require("../../utils/sendEmail");
 const User = require("../../models/access/User");
+const jwt = require("jsonwebtoken");
 // @desc      Create socialmedia
 // @route     GET /api/v1/auth/socialmedias
 // @access    Private/Admin
@@ -105,7 +106,16 @@ exports.checkSocialmedia = asyncHandler(async (req, res, next) => {
         status["userRegistered"] !== "USER_NOT_REGISTERED"
       ) {
         // Situation User Already created and access Token already there..
-        status["loginRequired"] = "USER_LOGIN_NOT_REQUIRED";
+
+        // Verify token
+        const decoded = jwt.verify(smedia.accessToken, process.env.JWT_SECRET);
+        vUser = await User.findById(decoded.id);
+        if (vUser != undefined) {
+          status["loginRequired"] = "USER_LOGIN_NOT_REQUIRED";
+        } else {
+          status["loginRequired"] = "USER_LOGIN_REQUIRED";
+        }
+
         tokens["accessToken"] = smedia.accessToken;
         res.status(200).json({
           success: true,

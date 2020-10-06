@@ -195,6 +195,10 @@ app.use(
   require("./routes/utilities/assignCourseUser")
 );
 app.use(
+  "/api/v1/util/createInvoice/",
+  require("./routes/utilities/createInvoice")
+);
+app.use(
   "/api/v1/util/assignCourseRole/",
   require("./routes/utilities/assignCourseRole")
 );
