@@ -76,6 +76,7 @@
         "EventStartDate",
         "Time",
         "Duration",
+        "HCPNumber",
         "Address",
         "Agenda",
         "EventLink",
@@ -177,7 +178,12 @@
         "Speciality": "Speciality",
         "Email": "Email",
         "PostCode": "PostCode",
-        "InstitutionName": "InstitutionName"
+        "InstitutionName": "InstitutionName",
+        "HCPNumber": "ID",
+        "ContactPerson": "ContactPerson",
+        "BusinessUnits": "BusinessUnits",
+        "Bank": "Bank",
+        "Identification": "Identification"
       },
       "FixedValues": [{ "Status": "Active" }],
       "Token": "Yes",
@@ -1687,6 +1693,14 @@
       "Option": "Mandatory",
       "adaptiveCard": "Main",
       "SLabel": "Time"
+    },
+    {
+      "name": "HCPNumber",
+      "type": "string",
+      "width": "20",
+      "Option": "Optional",
+      "adaptiveCard": "None",
+      "SLabel": "HCPNumber"
     },
     {
       "name": "Duration",

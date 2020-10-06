@@ -63,7 +63,7 @@
     "Phase",
     "Status",
     "ItemStatus2",
-    "ServiceType2"
+    "ServiceType"
   ],
   "MButtons": [
     {
@@ -175,6 +175,7 @@
         "Email": "Email",
         "PostCode": "PostCode",
         "InstitutionName": "InstitutionName",
+        "HCPNumber": "ID",
         "ContactPerson": "ContactPerson",
         "BusinessUnits": "BusinessUnits",
         "Bank": "Bank",
@@ -559,7 +560,7 @@
           "Update": "Yes"
         },
         {
-          "name": "ServiceType2",
+          "name": "ServiceType",
           "type": "string",
           "width": "50",
           "SLabel": "Service Type",
@@ -626,7 +627,7 @@
         "ServiceDetails",
         "ServiceAmount",
         "ActualAmount",
-        "ServiceType2",
+        "ServiceType",
         "iCurrency",
         "ItemStatus2"
       ],
@@ -640,7 +641,7 @@
           "unitOfMeasurement": "Count",
           "source": "Services",
           "Data": {
-            "dimension": "ServiceType2",
+            "dimension": "ServiceType",
             "fact": "Count",
             "operation": "COUNT",
             "sorting": "Ascending",
@@ -649,7 +650,7 @@
             "dType": "string"
           },
           "numericHeader": {
-            "headerNumber": { "Operation": "COUNT", "Field": "ServiceType2" },
+            "headerNumber": { "Operation": "COUNT", "Field": "ServiceType" },
             "trend": { "trend": "DOWN", "Condition": "LTE", "value": 8 },
             "status": { "state": "Good", "Condition": "LTE", "value": 24 },
             "details": "Service Type",
@@ -683,7 +684,7 @@
         ]
       },
       "CreateFields": [
-        "ServiceType2",
+        "ServiceType",
         "ServiceDetails",
         "ServiceAmount",
         "ActualAmount",
@@ -693,7 +694,7 @@
         "Attachment"
       ],
       "ItemDetails": [
-        { "name": "ServiceType2" },
+        { "name": "ServiceType" },
         { "name": "ServiceDetails" },
         { "name": "ServiceAmount" },
         { "name": "ActualAmount" },
@@ -912,7 +913,7 @@
           "Update": "Yes"
         },
         {
-          "name": "ServiceType2",
+          "name": "ServiceType",
           "type": "string",
           "width": "50",
           "SLabel": "Service Type",
@@ -1018,7 +1019,7 @@
       "DisplayFields": [
         "ServiceDetails",
         "InvoiceAmount",
-        "ServiceType2",
+        "ServiceType",
         "iCurrency",
         "ItemStatus2",
         "Title",
@@ -1234,7 +1235,7 @@
         "itemDelete": true
       },
       "CreateFields": [
-        "ServiceType2",
+        "ServiceType",
         "ServiceDetails",
         "InvoiceAmount",
         "iCurrency",
@@ -1248,7 +1249,7 @@
         "PostCode"
       ],
       "ItemDetails": [
-        { "name": "ServiceType2" },
+        { "name": "ServiceType" },
         { "name": "ServiceDetails" },
         { "name": "InvoiceAmount" },
         { "name": "iCurrency" },
@@ -1860,6 +1861,14 @@
       "adaptiveCard": "None",
       "SLabel": "ProgressComment",
       "LLabel": "ProgressComment"
+    },
+    {
+      "name": "HCPNumber",
+      "type": "string",
+      "width": "20",
+      "Option": "Optional",
+      "adaptiveCard": "None",
+      "SLabel": "HCPNumber"
     },
     {
       "name": "StudyLink",

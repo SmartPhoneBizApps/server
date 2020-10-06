@@ -15,9 +15,8 @@ const sendEmail = require("../../utils/sendEmail");
 // @access    Private (Application Users)
 exports.addHCP = asyncHandler(async (req, res, next) => {
   console.log("Function - utilities/addHCP");
-  out1 = {};
-  newOut = {};
 
+  // From App
   appX = await App.findOne({ applicationID: req.params.fromApp });
   if (!appX) {
     res.status(400).json({
@@ -25,18 +24,6 @@ exports.addHCP = asyncHandler(async (req, res, next) => {
       message: "1st applicationID is incorrect",
     });
   }
-  console.log(req.params.fromApp, req.params.ReferenceID);
-  // Appdata = await findOneAppDataRefID(
-  //   req.params.ReferenceID,
-  //   req.params.fromApp
-  // );
-  // if (!Appdata) {
-  //   res.status(400).json({
-  //     success: true,
-  //     message: "Record not found",
-  //   });
-  //   return false;
-  // }
 
   // Read Config File
   configData = getNewConfig(req.params.toApp, req.params.role);
@@ -44,25 +31,30 @@ exports.addHCP = asyncHandler(async (req, res, next) => {
   if (!myData) {
     return next(new ErrorResponse(`Record with ${req.body.ID} Not found`, 400));
   }
-  let Status = "NoChange";
+
   mytrain = {};
   mytr = [];
-  console.log(req.params.table);
-  //mytrain[req.params.table];
   mytrain["ItemNumber"] = Math.floor(100 + Math.random() * 900);
+
   for (let q = 0; q < configData["DButtons"].length; q++) {
     for (const ky in configData["DButtons"][q]["FieldMapping"]) {
       const ex = configData["DButtons"][q]["FieldMapping"][ky];
-      if (ex == ky) {
+      //   if (ex == ky) {
+      if (req.body[ex] != undefined) {
         mytrain[ky] = req.body[ex];
-        console.log("Key: ", ky, "/", ex);
+        console.log("Key: ", ky, "/", ex, mytrain[ky], req.body[ex]);
       }
+      console.log("Key: ", ky, "/", ex, mytrain[ky]);
+
+      //   }
     }
   }
+
   mytr.push(mytrain);
   myData[req.params.table] = tableValidate(mytr, myData[req.params.table]);
-  // console.log("Table Data", myData);
+
   // Processing Log
+  let Status = "NoChange";
   myData["TransLog"] = processingLog(
     req.params.ID,
     "NEW_RECORD",

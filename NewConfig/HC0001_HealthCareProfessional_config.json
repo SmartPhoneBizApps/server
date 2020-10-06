@@ -408,37 +408,7 @@
         "iCurrency",
         "ItemActive"
       ],
-      "detailCharts": [
-        {
-          "cardType": "Analytical",
-          "style": ["SAP", "Google"],
-          "cardsubType": "StackedBar",
-          "title": "Study/Trial Analysis",
-          "subtitle": "Service Type",
-          "unitOfMeasurement": "Count",
-          "source": "Services",
-          "Data": {
-            "dimension": "ServiceType2",
-            "fact": "Count",
-            "operation": "COUNT",
-            "sorting": "Ascending",
-            "aggregate": "Yes",
-            "sortField": "Count",
-            "dType": "string"
-          },
-          "numericHeader": {
-            "headerNumber": { "Operation": "COUNT", "Field": "ServiceType2" },
-            "trend": { "trend": "DOWN", "Condition": "LTE", "value": 8 },
-            "status": { "state": "Good", "Condition": "LTE", "value": 24 },
-            "details": "Service Type",
-            "unit": "Count"
-          },
-          "cardValues": {
-            "@Value1": "Commutative",
-            "@Value2": "Count"
-          }
-        }
-      ],
+      "detailCharts": [],
       "cards": [],
       "ItemButtons": {
         "itemDisplay": true,
