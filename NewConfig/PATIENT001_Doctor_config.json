@@ -3,7 +3,7 @@
     "ApplicationTitle": "Health Evaluation Form",
     "DetailTitle": "Evaluation Form"
   },
-  "Constants":{},
+  "Constants": {},
   "Controls": {
     "style": "SAP",
     "calculation": "Yes",
@@ -2192,6 +2192,13 @@
           "width": "500",
           "SLabel": "MedicalNotes",
           "Option": "Optional"
+        },
+        {
+          "name": "MedicalNotesVoice",
+          "type": "voice",
+          "width": "500",
+          "SLabel": "MedicalNotesVoice",
+          "Option": "Optional"
         }
       ],
       "DisplayFields": [
@@ -2200,6 +2207,7 @@
         "ExaminationNotes",
         "Examination",
         "Doctor",
+        "MedicalNotesVoice",
         "ItemStatus4"
       ],
       "detailCharts": [],
@@ -2217,6 +2225,7 @@
         "ExaminationNotes",
         "Examination",
         "MedicalNotes",
+        "MedicalNotesVoice",
         "Doctor",
         "ItemStatus4"
       ],
@@ -2227,6 +2236,7 @@
         { "name": "ExaminationNotes" },
         { "name": "Examination" },
         { "name": "MedicalNotes" },
+        { "name": "MedicalNotesVoice" },
         { "name": "Doctor" }
       ]
     },
