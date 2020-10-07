@@ -843,7 +843,192 @@
         "itemCheck": false,
         "itemAdd": true,
         "itemEdit": true,
-        "itemDelete": false
+        "itemDelete": false,
+        "additionalButtons": [
+          {
+            "name": "Bank",
+            "type": "SUBITEM",
+            "subTable": "Bank",
+            "displayFields": [
+              {
+                "name": "ItemNumber",
+                "SLabel": "Item Number",
+                "type": "string"
+              },
+              {
+                "name": "ItemActive",
+                "type": "string",
+                "SLabel": "Status"
+              },
+              {
+                "name": "BankCountry",
+                "type": "string",
+                "SLabel": "Bank Country"
+              },
+              {
+                "name": "AccountNumber",
+                "type": "string",
+                "SLabel": "Account Number"
+              },
+              {
+                "name": "BankKey",
+                "type": "Email",
+                "SLabel": "Bank Key"
+              },
+              {
+                "name": "SwiftKey",
+                "type": "string",
+                "SLabel": "Swift Key"
+              },
+              {
+                "name": "BankName",
+                "type": "string",
+                "SLabel": "Bank Name"
+              },
+              {
+                "name": "IBAN",
+                "type": "string",
+                "SLabel": "IBAN"
+              }
+            ]
+          },
+          {
+            "name": "ContactPerson",
+            "type": "SUBITEM",
+            "subTable": "Contacts",
+            "displayFields": [
+              {
+                "name": "ItemNumber",
+                "type": "string",
+                "SLabel": "Item Number"
+              },
+              {
+                "name": "ItemActive",
+                "type": "string",
+                "SLabel": "Status"
+              },
+              {
+                "name": "cTitle",
+                "type": "string",
+                "SLabel": "Title"
+              },
+              {
+                "name": "cFirstName",
+                "type": "string",
+                "SLabel": "FirstName"
+              },
+              {
+                "name": "cLastName",
+                "type": "string",
+                "SLabel": "LastName"
+              },
+              {
+                "name": "cSpeciality",
+                "type": "string",
+                "SLabel": "Speciality"
+              },
+              {
+                "name": "cEmail",
+                "type": "Email",
+                "SLabel": "Email"
+              },
+              {
+                "name": "cPostCode",
+                "type": "string",
+                "SLabel": "PostCode"
+              },
+              {
+                "name": "cAddress",
+                "type": "string",
+                "SLabel": "Address"
+              },
+              {
+                "name": "cInstitutionName",
+                "type": "string",
+                "SLabel": "InstitutionName"
+              }
+            ]
+          },
+          {
+            "name": "ContactPerson",
+            "type": "SUBITEM",
+            "subTable": "Business Units",
+            "displayFields": [
+              {
+                "name": "ItemNumber",
+                "type": "string",
+                "SLabel": "Item Number"
+              },
+              {
+                "name": "ItemActive",
+                "type": "string",
+                "SLabel": "Status"
+              },
+              {
+                "name": "bID",
+                "type": "string",
+                "SLabel": "BU ID"
+              },
+              {
+                "name": "bName",
+                "type": "string",
+                "SLabel": "BU Name"
+              },
+              {
+                "name": "bEmail",
+                "type": "Email",
+                "SLabel": "BU Email"
+              },
+              {
+                "name": "bPostCode",
+                "type": "string",
+                "SLabel": "BU PostCode"
+              },
+              {
+                "name": "bAddress",
+                "type": "string",
+                "SLabel": "BU Address"
+              }
+            ]
+          },
+          {
+            "name": "Identification",
+            "type": "SUBITEM",
+            "subTable": "Identification",
+            "displayFields": [
+              {
+                "name": "ItemNumber",
+                "type": "string",
+                "SLabel": "Item Number"
+              },
+              {
+                "name": "ItemActive",
+                "type": "string",
+                "SLabel": "Status"
+              },
+              {
+                "name": "idType",
+                "type": "string",
+                "SLabel": "ID Type"
+              },
+              {
+                "name": "idNumber",
+                "type": "string",
+                "SLabel": "Identification"
+              },
+              {
+                "name": "validityDate",
+                "type": "Date",
+                "SLabel": "Validity Date"
+              },
+              {
+                "name": "Comments",
+                "type": "string",
+                "SLabel": "Comments"
+              }
+            ]
+          }
+        ]
       },
       "CreateFields": [
         "Title",
