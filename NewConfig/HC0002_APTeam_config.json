@@ -295,17 +295,40 @@
       "update": "Yes",
       "name": "Study Details",
       "fioriicon": "notes",
-      "type": "Field",
+      "type": "FieldGroup",
       "download": "Yes"
     },
     {
-      "value": "Tab2",
+      "value": "Tab6",
       "style": "SAP",
       "update": "Yes",
-      "name": "Contact Details",
-      "fioriicon": "discussion",
-      "type": "Field",
-      "download": "Yes"
+      "name": "myHCP/HCO",
+      "type": "Table",
+      "fioriicon": "expense-report"
+    },
+    {
+      "value": "Tab4",
+      "style": "SAP",
+      "update": "Yes",
+      "name": "Services",
+      "type": "Table",
+      "fioriicon": "expense-report"
+    },
+    {
+      "value": "Tab5",
+      "style": "SAP",
+      "update": "Yes",
+      "name": "StudyInvoice",
+      "type": "Table",
+      "fioriicon": "expense-report"
+    },
+    {
+      "value": "Tab7",
+      "style": "SAP",
+      "update": "Yes",
+      "name": "ProcessFlow",
+      "type": "processflow",
+      "fioriicon": "process"
     },
     {
       "value": "Tab3",
@@ -327,38 +350,6 @@
       "name": "Images",
       "type": "carouselImage",
       "fioriicon": "contacts"
-    },
-    {
-      "value": "Tab7",
-      "style": "SAP",
-      "update": "Yes",
-      "name": "ProcessFlow",
-      "type": "processflow",
-      "fioriicon": "process"
-    },
-    {
-      "value": "Tab4",
-      "style": "SAP",
-      "update": "Yes",
-      "name": "Services",
-      "type": "Table",
-      "fioriicon": "expense-report"
-    },
-    {
-      "value": "Tab5",
-      "style": "SAP",
-      "update": "Yes",
-      "name": "StudyInvoice",
-      "type": "Table",
-      "fioriicon": "expense-report"
-    },
-    {
-      "value": "Tab6",
-      "style": "SAP",
-      "update": "Yes",
-      "name": "myHCP/HCO",
-      "type": "Table",
-      "fioriicon": "expense-report"
     }
   ],
   "DetailFields": {
@@ -370,15 +361,26 @@
     "Tab20": ["charts"],
     "None": ["ID"],
     "Tab1": [
-      "StudyType",
-      "StudyName",
-      "StudyDetails",
-      "StudyStartDate",
-      "StudyLink",
-      "StudyValue",
-      "Phase"
+      {
+        "GrpTitle": "Study Details",
+        "Fields": [
+          "StudyType",
+          "StudyName",
+          "StudyDetails",
+          "StudyStartDate",
+          "StudyLink",
+          "Phase"
+        ]
+      },
+      {
+        "GrpTitle": "Pharma Company Details",
+        "Fields": ["PharmaContact", "PharmaContactEmail"]
+      },
+      {
+        "GrpTitle": "Study Values",
+        "Fields": ["StudyValue", "InvoiceValue", "BalanceValue"]
+      }
     ],
-    "Tab2": ["PharmaContact", "PharmaContactEmail"],
     "Tab3": ["MultiAttachments"],
     "Tab4": ["Services"],
     "Tab5": ["StudyInvoice"],
