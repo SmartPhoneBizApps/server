@@ -87,16 +87,7 @@
         "PharmaContactEmail",
         "Status"
       ],
-      "downloadTables": [
-        "EventInvoice",
-        "Agenda",
-        "myHCPHCO",
-        "Services",
-        "ContactPerson",
-        "BusinessUnits",
-        "Bank",
-        "Identification"
-      ]
+      "downloadTables": ["EventInvoice", "Agenda", "myHCPHCO", "Services"]
     },
     {
       "type": "APPHELP",
@@ -260,27 +251,6 @@
       "URL": "datarecords/",
       "Token": "Yes",
       "URLMethod": "PUT"
-    },
-    {
-      "type": "WORKFLOW",
-      "name": "QueryReply",
-      "icon": "sap-icon://sys-help",
-      "Dialog": [
-        {
-          "label": "QueryReply Details",
-          "name": "ProgressComment",
-          "type": "string",
-          "option": "Optional"
-        }
-      ],
-      "transferFields": [
-        { "field": "ID", "value": "@recorddata" },
-        { "field": "Status", "value": "QueryReply" },
-        { "field": "ProgressComment", "value": "@UserInput" }
-      ],
-      "URL": "datarecords/",
-      "Token": "Yes",
-      "URLMethod": "PUT"
     }
   ],
   "Tabs": [
@@ -369,38 +339,6 @@
       "name": "Agenda",
       "type": "Table",
       "fioriicon": "expense-report"
-    },
-    {
-      "value": "Tab9",
-      "style": "SAP",
-      "update": "Yes",
-      "name": "Bank",
-      "type": "Table",
-      "fioriicon": "loan"
-    },
-    {
-      "value": "Tab10",
-      "style": "SAP",
-      "update": "Yes",
-      "name": "Identification",
-      "type": "Table",
-      "fioriicon": "two-keys"
-    },
-    {
-      "value": "Tab11",
-      "style": "SAP",
-      "update": "Yes",
-      "name": "BusinessUnits",
-      "type": "Table",
-      "fioriicon": "building"
-    },
-    {
-      "value": "Tab12",
-      "style": "SAP",
-      "update": "Yes",
-      "name": "ContactPerson",
-      "type": "Table",
-      "fioriicon": "business-card"
     }
   ],
   "DetailFields": {
@@ -452,11 +390,7 @@
     "Tab6": ["myHCPHCO"],
     "Tab13": ["Agenda"],
     "Tab8": ["carouselImage"],
-    "Tab7": ["processflow"],
-    "Tab9": ["Bank"],
-    "Tab10": ["Identification"],
-    "Tab11": ["BusinessUnits"],
-    "Tab12": ["ContactPerson"]
+    "Tab7": ["processflow"]
   },
   "listCards": [
     {
@@ -971,7 +905,7 @@
             ]
           },
           {
-            "name": "ContactPerson",
+            "name": "BusinessUnits",
             "type": "SUBITEM",
             "subTable": "Business Units",
             "displayFields": [
@@ -1420,426 +1354,6 @@
         { "name": "ItemStatus1" },
         { "name": "Attachment" }
       ]
-    },
-    "ContactPerson": {
-      "title": "Contact Person",
-      "subtitle": "Contact Person",
-      "ItemFieldDefinition": [
-        {
-          "name": "ItemNumber",
-          "type": "string",
-          "width": "10",
-          "Option": "Optional",
-          "adaptiveCard": "Additional",
-          "SLabel": "Item Number",
-          "Update": "No"
-        },
-        {
-          "name": "ItemActive",
-          "type": "string",
-          "width": "50",
-          "Option": "Optional",
-          "adaptiveCard": "Additional",
-          "SLabel": "Status",
-          "Update": "Yes"
-        },
-        {
-          "name": "cTitle",
-          "type": "string",
-          "width": "50",
-          "Option": "Mandatory",
-          "adaptiveCard": "Main",
-          "SLabel": "Title"
-        },
-        {
-          "name": "cFirstName",
-          "type": "string",
-          "width": "100",
-          "Option": "Mandatory",
-          "adaptiveCard": "Main",
-          "SLabel": "FirstName"
-        },
-        {
-          "name": "cLastName",
-          "type": "string",
-          "width": "100",
-          "Option": "Mandatory",
-          "adaptiveCard": "Main",
-          "SLabel": "LastName"
-        },
-        {
-          "name": "cSpeciality",
-          "type": "string",
-          "width": "100",
-          "Option": "Optional",
-          "adaptiveCard": "Additional",
-          "SLabel": "Speciality"
-        },
-        {
-          "name": "cEmail",
-          "type": "Email",
-          "width": "100",
-          "Option": "Mandatory",
-          "adaptiveCard": "Main",
-          "SLabel": "Email"
-        },
-        {
-          "name": "cPostCode",
-          "type": "string",
-          "width": "20",
-          "Option": "Optional",
-          "adaptiveCard": "Additional",
-          "SLabel": "PostCode"
-        },
-        {
-          "name": "cAddress",
-          "type": "string",
-          "width": "200",
-          "Option": "Optional",
-          "adaptiveCard": "Additional",
-          "SLabel": "Address"
-        },
-        {
-          "name": "cInstitutionName",
-          "type": "string",
-          "width": "500",
-          "Option": "Optional",
-          "adaptiveCard": "Additional",
-          "SLabel": "InstitutionName"
-        }
-      ],
-      "DisplayFields": [
-        "cTitle",
-        "cFirstName",
-        "cLastName",
-        "cEmail",
-        "cPostCode",
-        "cAddress",
-        "ItemActive"
-      ],
-      "detailCharts": [],
-      "cards": [],
-      "ItemButtons": {
-        "itemDisplay": true,
-        "itemCheck": false,
-        "itemAdd": true,
-        "itemEdit": true,
-        "itemDelete": false
-      },
-      "CreateFields": [
-        "cTitle",
-        "cFirstName",
-        "cLastName",
-        "cSpeciality",
-        "cEmail",
-        "cPostCode",
-        "cAddress",
-        "cInstitutionName",
-        "ItemActive"
-      ],
-      "ItemDetails": [
-        { "name": "cTitle" },
-        { "name": "cFirstName" },
-        { "name": "cLastName" },
-        { "name": "cSpeciality" },
-        { "name": "cEmail" },
-        { "name": "cPostCode" },
-        { "name": "cAddress" },
-        { "name": "cInstitutionName" },
-        { "name": "ItemActive" }
-      ]
-    },
-    "BusinessUnits": {
-      "title": "Business Units",
-      "subtitle": "Business Units",
-      "ItemFieldDefinition": [
-        {
-          "name": "ItemNumber",
-          "type": "string",
-          "width": "10",
-          "Option": "Optional",
-          "adaptiveCard": "Additional",
-          "SLabel": "Item Number",
-          "Update": "No"
-        },
-        {
-          "name": "ItemActive",
-          "type": "string",
-          "width": "50",
-          "Option": "Optional",
-          "adaptiveCard": "Additional",
-          "SLabel": "Status",
-          "Update": "Yes"
-        },
-        {
-          "name": "bID",
-          "type": "string",
-          "width": "50",
-          "Option": "Mandatory",
-          "adaptiveCard": "Main",
-          "SLabel": "BU ID"
-        },
-        {
-          "name": "bName",
-          "type": "string",
-          "width": "100",
-          "Option": "Mandatory",
-          "adaptiveCard": "Main",
-          "SLabel": "BU Name"
-        },
-        {
-          "name": "bEmail",
-          "type": "Email",
-          "width": "100",
-          "Option": "Mandatory",
-          "adaptiveCard": "Main",
-          "SLabel": "BU Email"
-        },
-        {
-          "name": "bPostCode",
-          "type": "string",
-          "width": "10",
-          "Option": "Optional",
-          "adaptiveCard": "Additional",
-          "SLabel": "BU PostCode"
-        },
-        {
-          "name": "bAddress",
-          "type": "string",
-          "width": "200",
-          "Option": "Optional",
-          "adaptiveCard": "Additional",
-          "SLabel": "BU Address"
-        }
-      ],
-      "DisplayFields": [
-        "bID",
-        "bName",
-        "bEmail",
-        "bPostCode",
-        "bAddress",
-        "ItemActive"
-      ],
-      "detailCharts": [],
-      "cards": [],
-      "ItemButtons": {
-        "itemDisplay": true,
-        "itemCheck": false,
-        "itemAdd": true,
-        "itemEdit": true,
-        "itemDelete": false
-      },
-      "CreateFields": [
-        "bID",
-        "bName",
-        "bEmail",
-        "bPostCode",
-        "bAddress",
-        "ItemActive"
-      ],
-      "ItemDetails": [
-        { "name": "bID" },
-        { "name": "bName" },
-        { "name": "bEmail" },
-        { "name": "bPostCode" },
-        { "name": "bAddress" },
-        { "name": "ItemActive" }
-      ]
-    },
-    "Bank": {
-      "title": "Business Units",
-      "subtitle": "Business Units",
-      "ItemFieldDefinition": [
-        {
-          "name": "ItemNumber",
-          "type": "string",
-          "width": "10",
-          "Option": "Optional",
-          "adaptiveCard": "Additional",
-          "SLabel": "Item Number",
-          "Update": "No"
-        },
-        {
-          "name": "ItemActive",
-          "type": "string",
-          "width": "50",
-          "Option": "Optional",
-          "adaptiveCard": "Additional",
-          "SLabel": "Status",
-          "Update": "Yes"
-        },
-        {
-          "name": "BankCountry",
-          "type": "string",
-          "width": "10",
-          "Option": "Mandatory",
-          "adaptiveCard": "Main",
-          "SLabel": "Bank Country"
-        },
-        {
-          "name": "AccountNumber",
-          "type": "string",
-          "width": "50",
-          "Option": "Mandatory",
-          "adaptiveCard": "Main",
-          "SLabel": "Account Number"
-        },
-        {
-          "name": "BankKey",
-          "type": "Email",
-          "width": "50",
-          "Option": "Mandatory",
-          "adaptiveCard": "Main",
-          "SLabel": "Bank Key"
-        },
-        {
-          "name": "SwiftKey",
-          "type": "string",
-          "width": "50",
-          "Option": "Optional",
-          "adaptiveCard": "Additional",
-          "SLabel": "Swift Key"
-        },
-        {
-          "name": "BankName",
-          "type": "string",
-          "width": "100",
-          "Option": "Optional",
-          "adaptiveCard": "Additional",
-          "SLabel": "Bank Name"
-        },
-        {
-          "name": "IBAN",
-          "type": "string",
-          "width": "100",
-          "Option": "Optional",
-          "adaptiveCard": "Additional",
-          "SLabel": "IBAN"
-        }
-      ],
-      "DisplayFields": [
-        "IBAN",
-        "BankCountry",
-        "AccountNumber",
-        "BankKey",
-        "SwiftKey",
-        "BankName",
-        "ItemActive"
-      ],
-      "detailCharts": [],
-      "cards": [],
-      "ItemButtons": {
-        "itemDisplay": true,
-        "itemCheck": false,
-        "itemAdd": true,
-        "itemEdit": true,
-        "itemDelete": false
-      },
-      "CreateFields": [
-        "BankCountry",
-        "AccountNumber",
-        "BankKey",
-        "SwiftKey",
-        "IBAN",
-        "BankName",
-        "ItemActive"
-      ],
-      "ItemDetails": [
-        { "name": "BankCountry" },
-        { "name": "AccountNumber" },
-        { "name": "BankKey" },
-        { "name": "SwiftKey" },
-        { "name": "IBAN" },
-        { "name": "BankName" },
-        { "name": "ItemActive" }
-      ]
-    },
-    "Identification": {
-      "title": "Identification",
-      "subtitle": "Identification",
-      "ItemFieldDefinition": [
-        {
-          "name": "ItemNumber",
-          "type": "string",
-          "width": "10",
-          "Option": "Optional",
-          "adaptiveCard": "Additional",
-          "SLabel": "Item Number",
-          "Update": "No"
-        },
-        {
-          "name": "ItemActive",
-          "type": "string",
-          "width": "50",
-          "Option": "Optional",
-          "adaptiveCard": "Additional",
-          "SLabel": "Status",
-          "Update": "Yes"
-        },
-        {
-          "name": "idType",
-          "type": "string",
-          "width": "50",
-          "Option": "Optional",
-          "adaptiveCard": "Additional",
-          "SLabel": "ID Type",
-          "Update": "Yes"
-        },
-        {
-          "name": "idNumber",
-          "type": "string",
-          "width": "10",
-          "Option": "Mandatory",
-          "adaptiveCard": "Main",
-          "SLabel": "Identification"
-        },
-        {
-          "name": "validityDate",
-          "type": "Date",
-          "width": "10",
-          "Option": "Mandatory",
-          "adaptiveCard": "Main",
-          "SLabel": "Validity Date"
-        },
-        {
-          "name": "Comments",
-          "type": "string",
-          "width": "1000",
-          "Option": "Mandatory",
-          "adaptiveCard": "Main",
-          "SLabel": "Comments"
-        }
-      ],
-      "DisplayFields": [
-        "idType",
-        "idNumber",
-        "validityDate",
-        "Comments",
-        "ItemActive"
-      ],
-      "detailCharts": [],
-      "cards": [],
-      "ItemButtons": {
-        "itemDisplay": true,
-        "itemCheck": false,
-        "itemAdd": true,
-        "itemEdit": true,
-        "itemDelete": false
-      },
-      "CreateFields": [
-        "idType",
-        "idNumber",
-        "validityDate",
-        "Comments",
-        "ItemActive"
-      ],
-      "ItemDetails": [
-        { "name": "idType" },
-        { "name": "idNumber" },
-        { "name": "validityDate" },
-        { "name": "Comments" },
-        { "name": "ItemActive" }
-      ]
     }
   },
   "FieldDef": [
@@ -1898,14 +1412,6 @@
       "Option": "Mandatory",
       "adaptiveCard": "Main",
       "SLabel": "Time"
-    },
-    {
-      "name": "HCPNumber",
-      "type": "string",
-      "width": "20",
-      "Option": "Optional",
-      "adaptiveCard": "None",
-      "SLabel": "HCPNumber"
     },
     {
       "name": "Duration",
@@ -1988,38 +1494,6 @@
       "SLabel": "Services"
     },
     {
-      "name": "ContactPerson",
-      "type": "Array",
-      "width": "200",
-      "Option": "Optional",
-      "adaptiveCard": "None",
-      "SLabel": "ContactPerson"
-    },
-    {
-      "name": "BusinessUnits",
-      "type": "Array",
-      "width": "200",
-      "Option": "Optional",
-      "adaptiveCard": "None",
-      "SLabel": "BusinessUnits"
-    },
-    {
-      "name": "Bank",
-      "type": "Array",
-      "width": "200",
-      "Option": "Optional",
-      "adaptiveCard": "None",
-      "SLabel": "Bank"
-    },
-    {
-      "name": "Identification",
-      "type": "Array",
-      "width": "200",
-      "Option": "Optional",
-      "adaptiveCard": "None",
-      "SLabel": "Identification"
-    },
-    {
       "name": "myHCPHCO",
       "type": "Array",
       "width": "200",
@@ -2048,7 +1522,6 @@
     {
       "name": "carouselImage",
       "type": "carouselImage",
-
       "width": "200",
       "Option": "Optional",
       "adaptiveCard": "Additional",
@@ -2211,6 +1684,14 @@
       "adaptiveCard": "Additional",
       "SLabel": "HCP Name",
       "LLabel": "VendorName"
+    },
+    {
+      "name": "processflow",
+      "type": "processflow",
+      "width": "200",
+      "Option": "Optional",
+      "adaptiveCard": "None",
+      "SLabel": "Process Flow"
     }
   ],
   "itemData": "No",
