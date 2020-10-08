@@ -12,7 +12,20 @@ exports.uploadFile = asyncHandler(async (req, res, next) => {
   // Note the logic currently supports only one file at a time..
   console.log("Inside Upload...");
   let header = {};
-  const file = req.files.file;
+  const file = "";
+
+  if (req.hasOwnProperty("files")) {
+    console.log("Files", req.files);
+    if (req.files.hasOwnProperty("file")) {
+      console.log("File", req.files.file);
+      file = req.files.file;
+    } else {
+      return next(new ErrorResponse(`files(req.files) is missing`, 400));
+    }
+  } else {
+    return next(new ErrorResponse(`file(req.files.file) is missing`, 400));
+  }
+
   /////////////////////////////////////////////////////////////////////////
   //   --------  Input - Validations  -------------------
   /////////////////////////////////////////////////////////////////////////
