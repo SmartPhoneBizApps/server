@@ -512,7 +512,7 @@
           "SLabel": "Max Limit",
           "Option": "Mandatory",
           "adaptiveCard": "Main",
-          "Update": "No"
+          "Update": "Yes"
         },
         {
           "name": "ActualAmount",
@@ -520,8 +520,8 @@
           "width": "20",
           "SLabel": "Actual Amount",
           "Option": "Optional",
-          "adaptiveCard": "Main",
-          "Update": "Yes"
+          "adaptiveCard": "None",
+          "Update": "No"
         },
         {
           "name": "Notes",
@@ -563,7 +563,6 @@
       "DisplayFields": [
         "ServiceDetails",
         "ServiceAmount",
-        "ActualAmount",
         "ServiceType",
         "iCurrency",
         "ItemStatus1"
@@ -606,25 +605,12 @@
         "itemAdd": true,
         "itemEdit": true,
         "itemDelete": true,
-        "additionalButtons": [
-          {
-            "name": "Invoice Item",
-            "type": "INVOICE",
-            "URL": "datarecords/",
-            "tableName": "EventInvoice",
-            "Token": "Yes",
-            "URLMethod": "PUT",
-            "updateButton": "Add to Invoice",
-            "diffMapping": [{ "ActualAmount": "InvoiceAmount" }],
-            "popupData": "myHCPHCO"
-          }
-        ]
+        "additionalButtons": []
       },
       "CreateFields": [
         "ServiceType",
         "ServiceDetails",
         "ServiceAmount",
-        "ActualAmount",
         "iCurrency",
         "ItemStatus1",
         "Notes",
@@ -795,9 +781,9 @@
       "ItemButtons": {
         "itemDisplay": true,
         "itemCheck": false,
-        "itemAdd": true,
+        "itemAdd": false,
         "itemEdit": true,
-        "itemDelete": false,
+        "itemDelete": true,
         "additionalButtons": [
           {
             "name": "Bank",

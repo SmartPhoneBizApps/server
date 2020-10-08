@@ -12,10 +12,10 @@ exports.uploadFile = asyncHandler(async (req, res, next) => {
   // Note the logic currently supports only one file at a time..
   console.log("Inside Upload...");
   let header = {};
-  const file = "";
+  let file = "";
 
   if (req.hasOwnProperty("files")) {
-    console.log("Files", req);
+    //  console.log("Files", req);
     if (req.files.hasOwnProperty("file")) {
       console.log("File", req.files.file);
       file = req.files.file;

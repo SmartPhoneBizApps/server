@@ -10,7 +10,7 @@
     "SearchString": { "Search": false },
     "Filters": [
       {
-        "$and": [{ "myHCPHCO.ItemStatus1": { "$ne": "Completed" } }]
+        "$and": [{ "myHCPHCO.ItemActive": { "$ne": "Completed" } }]
       }
     ],
     "Partner": "@user",
@@ -28,7 +28,7 @@
       ],
       "sourceTableUpdate": [
         {
-          "ContractInvoice": [{ "ItemStatus1": "Completed" }]
+          "ContractInvoice": [{ "ItemActive": "Completed" }]
         }
       ]
     },
@@ -69,7 +69,7 @@
       "PharmaContactEmail"
     ]
   },
-  "PossibleValues": ["ContractType", "Status", "ItemStatus1", "ServiceType"],
+  "PossibleValues": ["ContractType", "Status", "ItemActive", "ServiceType"],
   "MButtons": [
     {
       "type": "DOWNLOAD",
@@ -102,23 +102,6 @@
       "name": "Launch BOT",
       "icon": "sap-icon://travel-request",
       "URL": "https://www.messenger.com/t/295020207695029"
-    },
-    { "type": "ADD", "name": "Add Record", "icon": "sap-icon://add" },
-    {
-      "type": "UPLOAD",
-      "name": "Upload Record",
-      "icon": "sap-icon://upload",
-      "Option": ["Header"],
-      "ItemOptions": [],
-      "URL": "datarecords/",
-      "URLMethodHDR": "POST",
-      "URLMethodTable": "PUT",
-      "dataFields": "FieldName",
-      "key": {
-        "ID": "External",
-        "generateID": [],
-        "seperator": "-"
-      }
     }
   ],
   "DButtons": [
@@ -524,7 +507,7 @@
           "Update": "No"
         },
         {
-          "name": "ItemStatus1",
+          "name": "ItemActive",
           "type": "string",
           "width": "50",
           "SLabel": "Item Status",
@@ -545,10 +528,9 @@
       "DisplayFields": [
         "ServiceDetails",
         "ServiceAmount",
-        "ActualAmount",
         "ServiceType",
         "iCurrency",
-        "ItemStatus1"
+        "ItemActive"
       ],
       "detailCharts": [
         {
@@ -584,10 +566,10 @@
       "cards": [],
       "ItemButtons": {
         "itemDisplay": true,
-        "itemCheck": true,
-        "itemAdd": true,
-        "itemEdit": true,
-        "itemDelete": true,
+        "itemCheck": false,
+        "itemAdd": false,
+        "itemEdit": false,
+        "itemDelete": false,
         "additionalButtons": [
           {
             "name": "Invoice Item",
@@ -606,9 +588,8 @@
         "ServiceType",
         "ServiceDetails",
         "ServiceAmount",
-        "ActualAmount",
         "iCurrency",
-        "ItemStatus1",
+        "ItemActive",
         "Notes",
         "Attachment"
       ],
@@ -619,7 +600,7 @@
         { "name": "ActualAmount" },
         { "name": "iCurrency" },
         { "name": "Notes" },
-        { "name": "ItemStatus1" },
+        { "name": "ItemActive" },
         { "name": "Attachment" }
       ]
     },
@@ -637,7 +618,7 @@
           "Update": "No"
         },
         {
-          "name": "ItemStatus1",
+          "name": "ItemActive",
           "type": "string",
           "width": "50",
           "Option": "Optional",
@@ -708,7 +689,7 @@
         "LastName",
         "Email",
         "PostCode",
-        "ItemStatus1"
+        "ItemActive"
       ],
       "detailCharts": [
         {
@@ -777,8 +758,8 @@
       "ItemButtons": {
         "itemDisplay": true,
         "itemCheck": false,
-        "itemAdd": true,
-        "itemEdit": true,
+        "itemAdd": false,
+        "itemEdit": false,
         "itemDelete": false,
         "additionalButtons": [
           {
@@ -974,7 +955,7 @@
         "Email",
         "PostCode",
         "InstitutionName",
-        "ItemStatus1"
+        "ItemActive"
       ],
       "ItemDetails": [
         { "name": "Title" },
@@ -984,12 +965,12 @@
         { "name": "Email" },
         { "name": "PostCode" },
         { "name": "InstitutionName" },
-        { "name": "ItemStatus1" }
+        { "name": "ItemActive" }
       ]
     },
     "ContractInvoice": {
       "calculation": "Yes",
-      "itemFilter": [{ "ItemStatus1": { "$ne": "Completed" } }],
+      "itemFilter": [{ "ItemActive": { "$ne": "Completed" } }],
       "title": "Contract Invoice",
       "subtitle": "HCP/HCO",
       "tableFormFields": [
@@ -1053,7 +1034,7 @@
           "Update": "No"
         },
         {
-          "name": "ItemStatus1",
+          "name": "ItemActive",
           "type": "string",
           "width": "50",
           "SLabel": "Item Status",
@@ -1125,7 +1106,7 @@
         "InvoiceAmount",
         "ServiceType",
         "iCurrency",
-        "ItemStatus1",
+        "ItemActive",
         "Title",
         "FirstName",
         "LastName",
@@ -1175,7 +1156,7 @@
         "ServiceDetails",
         "InvoiceAmount",
         "iCurrency",
-        "ItemStatus1",
+        "ItemActive",
         "Notes",
         "Attachment",
         "Title",
@@ -1190,7 +1171,7 @@
         { "name": "InvoiceAmount" },
         { "name": "iCurrency" },
         { "name": "Notes" },
-        { "name": "ItemStatus1" },
+        { "name": "ItemActive" },
         { "name": "Attachment" },
         { "name": "Title" },
         { "name": "FirstName" },
@@ -1517,76 +1498,6 @@
       }
     ]
   },
-  "Create": "Yes",
-  "Wizard": [
-    {
-      "id": "Step1",
-      "fields": [
-        { "name": "ContractType", "Mode": "Edit" },
-        { "name": "ContractID", "Mode": "Edit" },
-        { "name": "ContractName", "Mode": "Edit" },
-        { "name": "ContractLink", "Mode": "Edit" }
-      ],
-      "name": "Contract Details",
-      "stepType": "FieldList",
-      "intro": "Contract   : Contract Details"
-    },
-
-    {
-      "id": "Step2",
-      "fields": [
-        { "name": "ContractStartDate", "Mode": "Edit" },
-        { "name": "ContractEndDate", "Mode": "Edit" }
-      ],
-      "name": "Dates",
-      "stepType": "FieldList",
-      "intro": "Contract   : Dates"
-    },
-    {
-      "id": "Step3",
-      "fields": [{ "name": "carouselImage", "Mode": "Edit" }],
-      "name": "Images and Attachment",
-      "stepType": "FieldList",
-      "intro": "Screenshots and Images : Here you can upload screenshots, images (jpg, png, etc..)"
-    },
-    {
-      "id": "Step4",
-      "fields": [{ "name": "MultiAttachments", "Mode": "Edit" }],
-      "name": "MultiAttachments",
-      "stepType": "Attachments",
-      "intro": "Contract : Attachments",
-      "attachmentAttribute": {
-        "applicationid": "{applicationid}",
-        "businessrole": "{businessrole}",
-        "mode": "File",
-        "type": "NewUpload",
-        "text": "docType,Contract,Success"
-      }
-    },
-    {
-      "id": "Step5",
-      "fields": [
-        { "name": "PharmaContact", "Mode": "Edit" },
-        { "name": "PharmaContactEmail", "Mode": "Edit" }
-      ],
-      "name": "Pharma Company",
-      "stepType": "FieldList",
-      "intro": "Contract   : Pharma Contact"
-    },
-    {
-      "id": "Step6",
-      "fields": [{ "name": "Services", "Mode": "Edit" }],
-      "name": "Services",
-      "stepType": "table",
-      "intro": "Contract : Services Entries",
-      "text": "docType,ItemAttachment,Information"
-    },
-    {
-      "id": "Step7",
-      "fields": [{ "name": "Status", "Mode": "Edit" }],
-      "name": "Status",
-      "stepType": "FieldList",
-      "intro": "Contract   : Status"
-    }
-  ]
+  "Create": "No",
+  "Wizard": []
 }

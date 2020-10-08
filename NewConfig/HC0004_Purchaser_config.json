@@ -10,7 +10,7 @@
     "SearchString": { "Search": false },
     "Filters": [
       {
-        "$and": [{ "myHCPHCO.ItemStatus1": { "$ne": "Completed" } }]
+        "$and": [{ "myHCPHCO.ItemActive": { "$ne": "Completed" } }]
       }
     ],
     "Partner": "@user",
@@ -28,7 +28,7 @@
       ],
       "sourceTableUpdate": [
         {
-          "ContractInvoice": [{ "ItemStatus1": "Completed" }]
+          "ContractInvoice": [{ "ItemActive": "Completed" }]
         }
       ]
     },
@@ -69,7 +69,7 @@
       "PharmaContactEmail"
     ]
   },
-  "PossibleValues": ["ContractType", "Status", "ItemStatus1", "ServiceType"],
+  "PossibleValues": ["ContractType", "Status", "ItemActive", "ServiceType"],
   "MButtons": [
     {
       "type": "DOWNLOAD",
@@ -515,7 +515,7 @@
           "SLabel": "Max Limit",
           "Option": "Mandatory",
           "adaptiveCard": "Main",
-          "Update": "No"
+          "Update": "Yes"
         },
         {
           "name": "ActualAmount",
@@ -523,8 +523,8 @@
           "width": "20",
           "SLabel": "Actual Amount",
           "Option": "Optional",
-          "adaptiveCard": "Main",
-          "Update": "Yes"
+          "adaptiveCard": "None",
+          "Update": "No"
         },
         {
           "name": "Notes",
@@ -545,7 +545,7 @@
           "Update": "No"
         },
         {
-          "name": "ItemStatus1",
+          "name": "ItemActive",
           "type": "string",
           "width": "50",
           "SLabel": "Item Status",
@@ -566,10 +566,9 @@
       "DisplayFields": [
         "ServiceDetails",
         "ServiceAmount",
-        "ActualAmount",
         "ServiceType",
         "iCurrency",
-        "ItemStatus1"
+        "ItemActive"
       ],
       "detailCharts": [
         {
@@ -609,27 +608,14 @@
         "itemAdd": true,
         "itemEdit": true,
         "itemDelete": true,
-        "additionalButtons": [
-          {
-            "name": "Invoice Item",
-            "type": "INVOICE",
-            "URL": "datarecords/",
-            "tableName": "ContractInvoice",
-            "Token": "Yes",
-            "URLMethod": "PUT",
-            "updateButton": "Add to Invoice",
-            "diffMapping": [{ "ActualAmount": "InvoiceAmount" }],
-            "popupData": "myHCPHCO"
-          }
-        ]
+        "additionalButtons": []
       },
       "CreateFields": [
         "ServiceType",
         "ServiceDetails",
         "ServiceAmount",
-        "ActualAmount",
         "iCurrency",
-        "ItemStatus1",
+        "ItemActive",
         "Notes",
         "Attachment"
       ],
@@ -640,7 +626,7 @@
         { "name": "ActualAmount" },
         { "name": "iCurrency" },
         { "name": "Notes" },
-        { "name": "ItemStatus1" },
+        { "name": "ItemActive" },
         { "name": "Attachment" }
       ]
     },
@@ -658,7 +644,7 @@
           "Update": "No"
         },
         {
-          "name": "ItemStatus1",
+          "name": "ItemActive",
           "type": "string",
           "width": "50",
           "Option": "Optional",
@@ -729,7 +715,7 @@
         "LastName",
         "Email",
         "PostCode",
-        "ItemStatus1"
+        "ItemActive"
       ],
       "detailCharts": [
         {
@@ -798,9 +784,9 @@
       "ItemButtons": {
         "itemDisplay": true,
         "itemCheck": false,
-        "itemAdd": true,
+        "itemAdd": false,
         "itemEdit": true,
-        "itemDelete": false,
+        "itemDelete": true,
         "additionalButtons": [
           {
             "name": "Bank",
@@ -995,7 +981,7 @@
         "Email",
         "PostCode",
         "InstitutionName",
-        "ItemStatus1"
+        "ItemActive"
       ],
       "ItemDetails": [
         { "name": "Title" },
@@ -1005,12 +991,12 @@
         { "name": "Email" },
         { "name": "PostCode" },
         { "name": "InstitutionName" },
-        { "name": "ItemStatus1" }
+        { "name": "ItemActive" }
       ]
     },
     "ContractInvoice": {
       "calculation": "Yes",
-      "itemFilter": [{ "ItemStatus1": { "$ne": "Completed" } }],
+      "itemFilter": [{ "ItemActive": { "$ne": "Completed" } }],
       "title": "Contract Invoice",
       "subtitle": "HCP/HCO",
       "tableFormFields": [
@@ -1074,7 +1060,7 @@
           "Update": "No"
         },
         {
-          "name": "ItemStatus1",
+          "name": "ItemActive",
           "type": "string",
           "width": "50",
           "SLabel": "Item Status",
@@ -1146,7 +1132,7 @@
         "InvoiceAmount",
         "ServiceType",
         "iCurrency",
-        "ItemStatus1",
+        "ItemActive",
         "Title",
         "FirstName",
         "LastName",
@@ -1186,17 +1172,17 @@
       "cards": [],
       "ItemButtons": {
         "itemDisplay": true,
-        "itemCheck": true,
+        "itemCheck": false,
         "itemAdd": false,
-        "itemEdit": true,
-        "itemDelete": true
+        "itemEdit": false,
+        "itemDelete": false
       },
       "CreateFields": [
         "ServiceType",
         "ServiceDetails",
         "InvoiceAmount",
         "iCurrency",
-        "ItemStatus1",
+        "ItemActive",
         "Notes",
         "Attachment",
         "Title",
@@ -1211,7 +1197,7 @@
         { "name": "InvoiceAmount" },
         { "name": "iCurrency" },
         { "name": "Notes" },
-        { "name": "ItemStatus1" },
+        { "name": "ItemActive" },
         { "name": "Attachment" },
         { "name": "Title" },
         { "name": "FirstName" },

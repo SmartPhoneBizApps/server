@@ -97,23 +97,6 @@
       "name": "Launch BOT",
       "icon": "sap-icon://travel-request",
       "URL": "https://www.messenger.com/t/295020207695029"
-    },
-    { "type": "ADD", "name": "Add Record", "icon": "sap-icon://add" },
-    {
-      "type": "UPLOAD",
-      "name": "Upload Record",
-      "icon": "sap-icon://upload",
-      "Option": ["Header"],
-      "ItemOptions": [],
-      "URL": "datarecords/",
-      "URLMethodHDR": "POST",
-      "URLMethodTable": "PUT",
-      "dataFields": "FieldName",
-      "key": {
-        "ID": "External",
-        "generateID": [],
-        "seperator": "-"
-      }
     }
   ],
   "DButtons": [
@@ -584,7 +567,6 @@
       "DisplayFields": [
         "ServiceDetails",
         "ServiceAmount",
-        "ActualAmount",
         "ServiceType",
         "iCurrency",
         "ItemStatus2"
@@ -623,10 +605,10 @@
       "cards": [],
       "ItemButtons": {
         "itemDisplay": true,
-        "itemCheck": true,
-        "itemAdd": true,
-        "itemEdit": true,
-        "itemDelete": true,
+        "itemCheck": false,
+        "itemAdd": false,
+        "itemEdit": false,
+        "itemDelete": false,
         "additionalButtons": [
           {
             "name": "Invoice Item",
@@ -645,7 +627,6 @@
         "ServiceType",
         "ServiceDetails",
         "ServiceAmount",
-        "ActualAmount",
         "iCurrency",
         "ItemStatus2",
         "Notes",
@@ -816,8 +797,8 @@
       "ItemButtons": {
         "itemDisplay": true,
         "itemCheck": false,
-        "itemAdd": true,
-        "itemEdit": true,
+        "itemAdd": false,
+        "itemEdit": false,
         "itemDelete": false,
         "additionalButtons": [
           {
@@ -1722,77 +1703,6 @@
       }
     ]
   },
-  "Create": "Yes",
-  "Wizard": [
-    {
-      "id": "Step1",
-      "fields": [
-        { "name": "StudyType", "Mode": "Edit" },
-        { "name": "StudyID", "Mode": "Edit" },
-        { "name": "StudyDetails", "Mode": "Edit" },
-        { "name": "StudyName", "Mode": "Edit" },
-        { "name": "StudyLink", "Mode": "Edit" }
-      ],
-      "name": "Study Details",
-      "stepType": "FieldList",
-      "intro": "Study   : Study Details"
-    },
-
-    {
-      "id": "Step2",
-      "fields": [
-        { "name": "StudyStartDate", "Mode": "Edit" },
-        { "name": "Phase", "Mode": "Edit" }
-      ],
-      "name": "Dates",
-      "stepType": "FieldList",
-      "intro": "Study   : Dates"
-    },
-    {
-      "id": "Step3",
-      "fields": [{ "name": "carouselImage", "Mode": "Edit" }],
-      "name": "Images and Attachment",
-      "stepType": "FieldList",
-      "intro": "Screenshots and Images : Here you can upload screenshots, images (jpg, png, etc..)"
-    },
-    {
-      "id": "Step4",
-      "fields": [{ "name": "MultiAttachments", "Mode": "Edit" }],
-      "name": "MultiAttachments",
-      "stepType": "Attachments",
-      "intro": "Study : Attachments",
-      "attachmentAttribute": {
-        "applicationid": "{applicationid}",
-        "businessrole": "{businessrole}",
-        "mode": "File",
-        "type": "NewUpload",
-        "text": "docType,Study,Success"
-      }
-    },
-    {
-      "id": "Step5",
-      "fields": [
-        { "name": "PharmaContact", "Mode": "Edit" },
-        { "name": "PharmaContactEmail", "Mode": "Edit" }
-      ],
-      "name": "Pharma Company",
-      "stepType": "FieldList",
-      "intro": "Study   : Pharma Contact"
-    },
-    {
-      "id": "Step6",
-      "fields": [{ "name": "Services", "Mode": "Edit" }],
-      "name": "Services",
-      "stepType": "table",
-      "intro": "Study : Services Entries",
-      "text": "docType,ItemAttachment,Information"
-    },
-    {
-      "id": "Step7",
-      "fields": [{ "name": "Status", "Mode": "Edit" }],
-      "name": "Cost Center",
-      "stepType": "FieldList",
-      "intro": "Study   : Status"
-    }
-  ]
+  "Create": "No",
+  "Wizard": []
 }

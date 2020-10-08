@@ -440,23 +440,11 @@
       "cards": [],
       "ItemButtons": {
         "itemDisplay": true,
-        "itemCheck": true,
-        "itemAdd": true,
-        "itemEdit": true,
-        "itemDelete": true,
-        "additionalButtons": [
-          {
-            "name": "Invoice Item",
-            "type": "INVOICE",
-            "URL": "datarecords/",
-            "tableName": "StudyInvoice",
-            "Token": "Yes",
-            "URLMethod": "PUT",
-            "updateButton": "Add to Invoice",
-            "diffMapping": [{ "ActualAmount": "InvoiceAmount" }],
-            "popupData": "myHCPHCO"
-          }
-        ]
+        "itemCheck": false,
+        "itemAdd": false,
+        "itemEdit": false,
+        "itemDelete": false,
+        "additionalButtons": []
       },
       "CreateFields": [
         "Year",
