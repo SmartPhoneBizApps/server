@@ -10,7 +10,7 @@
     "USP": "UserProfile",
     "StatusColor": "Yes",
     "SearchString": { "Search": false },
-    "Filters": [{ "Partner": "@user" }],
+    "Filters": [{ "Email": "@user" }],
     "Partner": "@user",
     "UserSpecific": "Yes",
     "Update": "Yes",
@@ -101,11 +101,74 @@
   "DButtons": [
     {
       "type": "WORKFLOW",
-      "name": "UpdateRequest",
-      "icon": "sap-icon://decline",
+      "name": "UpdateBank",
+      "icon": "sap-icon://loan",
       "Dialog": [
         {
-          "label": "Update Request Comment",
+          "label": "Bank Country",
+          "name": "BankCountry",
+          "type": "string",
+          "option": "Optional"
+        },
+        {
+          "label": "Bank Key",
+          "name": "BankKey",
+          "type": "string",
+          "option": "Optional"
+        },
+        {
+          "label": "Account Number",
+          "name": "AccountNumber",
+          "type": "string",
+          "option": "Optional"
+        },
+        {
+          "label": "IBAN",
+          "name": "IBAN",
+          "type": "string",
+          "option": "Optional"
+        },
+        {
+          "label": "Swift Key",
+          "name": "SwiftKey",
+          "type": "string",
+          "option": "Optional"
+        },
+        {
+          "label": "Bank Name",
+          "name": "BankName",
+          "type": "string",
+          "option": "Optional"
+        },
+        {
+          "label": "Update Request - Bank Details",
+          "name": "ProgressComment",
+          "type": "string",
+          "option": "Optional"
+        }
+      ],
+      "transferFields": [
+        { "field": "ID", "value": "@recorddata" },
+        { "field": "Status", "value": "UpdateBank" },
+        { "field": "BankCountry", "value": "@BankCountry" },
+        { "field": "BankKey", "value": "@BankKey" },
+        { "field": "AccountNumber", "value": "@AccountNumber" },
+        { "field": "IBAN", "value": "@IBAN" },
+        { "field": "SwiftKey", "value": "@SwiftKey" },
+        { "field": "BankName", "value": "@BankName" },
+        { "field": "ProgressComment", "value": "@UserInput" }
+      ],
+      "URL": "datarecords/",
+      "Token": "Yes",
+      "URLMethod": "PUT"
+    },
+    {
+      "type": "WORKFLOW",
+      "name": "UpdateRequest",
+      "icon": "sap-icon://activities",
+      "Dialog": [
+        {
+          "label": "Generic Update Request",
           "name": "ProgressComment",
           "type": "string",
           "option": "Optional"
