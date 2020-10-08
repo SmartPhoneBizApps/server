@@ -70,15 +70,7 @@
         "Status",
         "InvoiceType"
       ],
-      "downloadTables": [
-        "ContractInvoice",
-        "StudyInvoice",
-        "EventInvoice",
-        "ContactPerson",
-        "BusinessUnits",
-        "Bank",
-        "Identification"
-      ]
+      "downloadTables": ["ContractInvoice", "StudyInvoice", "EventInvoice"]
     },
     {
       "type": "APPHELP",
@@ -260,39 +252,6 @@
       "name": "Images",
       "type": "carouselImage",
       "fioriicon": "contacts"
-    },
-
-    {
-      "value": "Tab9",
-      "style": "SAP",
-      "update": "Yes",
-      "name": "Bank",
-      "type": "Table",
-      "fioriicon": "loan"
-    },
-    {
-      "value": "Tab10",
-      "style": "SAP",
-      "update": "Yes",
-      "name": "Identification",
-      "type": "Table",
-      "fioriicon": "two-keys"
-    },
-    {
-      "value": "Tab11",
-      "style": "SAP",
-      "update": "Yes",
-      "name": "BusinessUnits",
-      "type": "Table",
-      "fioriicon": "building"
-    },
-    {
-      "value": "Tab12",
-      "style": "SAP",
-      "update": "Yes",
-      "name": "ContactPerson",
-      "type": "Table",
-      "fioriicon": "business-card"
     }
   ],
   "DetailFields": {
@@ -1785,14 +1744,6 @@
       "LLabel": "ProgressComment"
     },
     {
-      "name": "HCPNumber",
-      "type": "string",
-      "width": "20",
-      "Option": "Optional",
-      "adaptiveCard": "None",
-      "SLabel": "HCPNumber"
-    },
-    {
       "name": "ContractLink",
       "type": "hyperlink",
       "width": "200",
@@ -1839,38 +1790,6 @@
       "Option": "Optional",
       "adaptiveCard": "None",
       "SLabel": "Validation"
-    },
-    {
-      "name": "ContactPerson",
-      "type": "Array",
-      "width": "200",
-      "Option": "Optional",
-      "adaptiveCard": "None",
-      "SLabel": "ContactPerson"
-    },
-    {
-      "name": "BusinessUnits",
-      "type": "Array",
-      "width": "200",
-      "Option": "Optional",
-      "adaptiveCard": "None",
-      "SLabel": "BusinessUnits"
-    },
-    {
-      "name": "Bank",
-      "type": "Array",
-      "width": "200",
-      "Option": "Optional",
-      "adaptiveCard": "None",
-      "SLabel": "Bank"
-    },
-    {
-      "name": "Identification",
-      "type": "Array",
-      "width": "200",
-      "Option": "Optional",
-      "adaptiveCard": "None",
-      "SLabel": "Identification"
     },
     {
       "name": "processflow",
