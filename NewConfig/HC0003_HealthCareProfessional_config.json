@@ -63,7 +63,13 @@
       "PharmaContactEmail"
     ]
   },
-  "PossibleValues": ["EventType", "Status", "ItemStatus1", "ServiceType"],
+  "PossibleValues": [
+    "EventType",
+    "Status",
+    "ItemStatus1",
+    "ServiceType",
+    "Duration"
+  ],
   "MButtons": [
     {
       "type": "DOWNLOAD",
@@ -1167,7 +1173,7 @@
         {
           "name": "StartTime",
           "type": "Time",
-          "width": "20",
+          "width": "10",
           "SLabel": "Start Time",
           "Option": "Mandatory",
           "adaptiveCard": "Main",
@@ -1176,8 +1182,8 @@
         {
           "name": "EndTime",
           "type": "Time",
-          "width": "20",
-          "SLabel": "Start Time",
+          "width": "10",
+          "SLabel": "End Time",
           "Option": "Mandatory",
           "adaptiveCard": "Main",
           "Update": "Yes"
@@ -1286,8 +1292,8 @@
     },
     {
       "name": "Time",
-      "type": "string",
-      "width": "50",
+      "type": "Time",
+      "width": "10",
       "Option": "Mandatory",
       "adaptiveCard": "Main",
       "SLabel": "Time"
@@ -1404,8 +1410,8 @@
       "width": "200",
       "Option": "Optional",
       "adaptiveCard": "Additional",
-      "SLabel": "Certificates",
-      "LLabel": "Certificates"
+      "SLabel": "Images",
+      "LLabel": "Images"
     },
     {
       "name": "Overview",

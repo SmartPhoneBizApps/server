@@ -1335,12 +1335,11 @@
     {
       "name": "carouselImage",
       "type": "carouselImage",
-
       "width": "200",
       "Option": "Optional",
       "adaptiveCard": "Additional",
-      "SLabel": "Certificates",
-      "LLabel": "Certificates"
+      "SLabel": "Images",
+      "LLabel": "Images"
     },
     {
       "name": "Status",
@@ -1576,7 +1575,8 @@
       "id": "Step2",
       "fields": [
         { "name": "ContractStartDate", "Mode": "Edit" },
-        { "name": "ContractEndDate", "Mode": "Edit" }
+        { "name": "ContractEndDate", "Mode": "Edit" },
+        { "name": "Status", "Mode": "Edit" }
       ],
       "name": "Dates",
       "stepType": "FieldList",
@@ -1584,13 +1584,24 @@
     },
     {
       "id": "Step3",
-      "fields": [{ "name": "carouselImage", "Mode": "Edit" }],
-      "name": "Images and Attachment",
-      "stepType": "FieldList",
-      "intro": "Screenshots and Images : Here you can upload screenshots, images (jpg, png, etc..)"
+      "fields": [{ "name": "Services", "Mode": "Edit" }],
+      "name": "Services",
+      "stepType": "table",
+      "intro": "Contract : Services Entries",
+      "text": "docType,ItemAttachment,Information"
     },
     {
       "id": "Step4",
+      "fields": [
+        { "name": "PharmaContact", "Mode": "Edit" },
+        { "name": "PharmaContactEmail", "Mode": "Edit" }
+      ],
+      "name": "Pharma Company",
+      "stepType": "FieldList",
+      "intro": "Contract   : Pharma Contact"
+    },
+    {
+      "id": "Step5",
       "fields": [{ "name": "MultiAttachments", "Mode": "Edit" }],
       "name": "MultiAttachments",
       "stepType": "Attachments",
@@ -1602,31 +1613,6 @@
         "type": "NewUpload",
         "text": "docType,Contract,Success"
       }
-    },
-    {
-      "id": "Step5",
-      "fields": [
-        { "name": "PharmaContact", "Mode": "Edit" },
-        { "name": "PharmaContactEmail", "Mode": "Edit" }
-      ],
-      "name": "Pharma Company",
-      "stepType": "FieldList",
-      "intro": "Contract   : Pharma Contact"
-    },
-    {
-      "id": "Step6",
-      "fields": [{ "name": "Services", "Mode": "Edit" }],
-      "name": "Services",
-      "stepType": "table",
-      "intro": "Contract : Services Entries",
-      "text": "docType,ItemAttachment,Information"
-    },
-    {
-      "id": "Step7",
-      "fields": [{ "name": "Status", "Mode": "Edit" }],
-      "name": "Status",
-      "stepType": "FieldList",
-      "intro": "Contract   : Status"
     }
   ]
 }

@@ -62,7 +62,13 @@
       "PharmaContactEmail"
     ]
   },
-  "PossibleValues": ["EventType", "Status", "ItemStatus1", "ServiceType"],
+  "PossibleValues": [
+    "EventType",
+    "Status",
+    "ItemStatus1",
+    "ServiceType",
+    "Duration"
+  ],
   "MButtons": [
     {
       "type": "DOWNLOAD",
@@ -1273,7 +1279,7 @@
         {
           "name": "StartTime",
           "type": "Time",
-          "width": "20",
+          "width": "10",
           "SLabel": "Start Time",
           "Option": "Mandatory",
           "adaptiveCard": "Main",
@@ -1282,8 +1288,8 @@
         {
           "name": "EndTime",
           "type": "Time",
-          "width": "20",
-          "SLabel": "Start Time",
+          "width": "10",
+          "SLabel": "End Time",
           "Option": "Mandatory",
           "adaptiveCard": "Main",
           "Update": "Yes"
@@ -1392,8 +1398,8 @@
     },
     {
       "name": "Time",
-      "type": "string",
-      "width": "50",
+      "type": "Time",
+      "width": "10",
       "Option": "Mandatory",
       "adaptiveCard": "Main",
       "SLabel": "Time"
@@ -1510,8 +1516,8 @@
       "width": "200",
       "Option": "Optional",
       "adaptiveCard": "Additional",
-      "SLabel": "Certificates",
-      "LLabel": "Certificates"
+      "SLabel": "Images",
+      "LLabel": "Images"
     },
     {
       "name": "Overview",
@@ -1786,7 +1792,8 @@
         { "name": "EventStartDate", "Mode": "Edit" },
         { "name": "EventEndDate", "Mode": "Edit" },
         { "name": "Time", "Mode": "Edit" },
-        { "name": "Duration", "Mode": "Edit" }
+        { "name": "Duration", "Mode": "Edit" },
+        { "name": "Status", "Mode": "Edit" }
       ],
       "name": "Dates",
       "stepType": "FieldList",
@@ -1794,13 +1801,24 @@
     },
     {
       "id": "Step4",
-      "fields": [{ "name": "carouselImage", "Mode": "Edit" }],
-      "name": "Images and Attachment",
-      "stepType": "FieldList",
-      "intro": "Screenshots and Images : Here you can upload screenshots, images (jpg, png, etc..)"
+      "fields": [{ "name": "Services", "Mode": "Edit" }],
+      "name": "Services",
+      "stepType": "table",
+      "intro": "Event : Services Entries",
+      "text": "docType,ItemAttachment,Information"
     },
     {
       "id": "Step5",
+      "fields": [
+        { "name": "PharmaContact", "Mode": "Edit" },
+        { "name": "PharmaContactEmail", "Mode": "Edit" }
+      ],
+      "name": "Pharma Company",
+      "stepType": "FieldList",
+      "intro": "Event   : Pharma Contact"
+    },
+    {
+      "id": "Step6",
       "fields": [{ "name": "MultiAttachments", "Mode": "Edit" }],
       "name": "MultiAttachments",
       "stepType": "Attachments",
@@ -1812,31 +1830,6 @@
         "type": "NewUpload",
         "text": "docType,Event,Success"
       }
-    },
-    {
-      "id": "Step6",
-      "fields": [
-        { "name": "PharmaContact", "Mode": "Edit" },
-        { "name": "PharmaContactEmail", "Mode": "Edit" }
-      ],
-      "name": "Pharma Company",
-      "stepType": "FieldList",
-      "intro": "Event   : Pharma Contact"
-    },
-    {
-      "id": "Step7",
-      "fields": [{ "name": "Services", "Mode": "Edit" }],
-      "name": "Services",
-      "stepType": "table",
-      "intro": "Event : Services Entries",
-      "text": "docType,ItemAttachment,Information"
-    },
-    {
-      "id": "Step8",
-      "fields": [{ "name": "Status", "Mode": "Edit" }],
-      "name": "Status",
-      "stepType": "FieldList",
-      "intro": "Event   : Status"
     }
   ]
 }
