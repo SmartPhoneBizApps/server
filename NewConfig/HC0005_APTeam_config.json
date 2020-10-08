@@ -6,6 +6,7 @@
   "Constants": {},
   "Controls": {
     "style": "SAP",
+    "processflow": "Yes",
     "calculation": "Yes",
     "USP": "UserProfile",
     "StatusColor": "Yes",
@@ -44,9 +45,9 @@
   "PossibleValues": [
     "ContractType",
     "Status",
-    "ItemStatus1",
     "ServiceType",
-    "InvoiceType"
+    "InvoiceType",
+    "ItemActive"
   ],
   "MButtons": [
     {
@@ -430,7 +431,7 @@
           "Update": "No"
         },
         {
-          "name": "ItemStatus1",
+          "name": "ItemActive",
           "type": "string",
           "width": "50",
           "SLabel": "Item Status",
@@ -502,7 +503,7 @@
         "InvoiceAmount",
         "ServiceType",
         "iCurrency",
-        "ItemStatus1",
+        "ItemActive",
         "Title",
         "FirstName",
         "LastName",
@@ -737,7 +738,7 @@
         "ServiceDetails",
         "InvoiceAmount",
         "iCurrency",
-        "ItemStatus1",
+        "ItemActive",
         "Notes",
         "Attachment",
         "Title",
@@ -752,7 +753,7 @@
         { "name": "InvoiceAmount" },
         { "name": "iCurrency" },
         { "name": "Notes" },
-        { "name": "ItemStatus1" },
+        { "name": "ItemActive" },
         { "name": "Attachment" },
         { "name": "Title" },
         { "name": "FirstName" },
@@ -828,7 +829,7 @@
           "Update": "No"
         },
         {
-          "name": "ItemStatus1",
+          "name": "ItemActive",
           "type": "string",
           "width": "50",
           "SLabel": "Item Status",
@@ -900,7 +901,7 @@
         "InvoiceAmount",
         "ServiceType",
         "iCurrency",
-        "ItemStatus1",
+        "ItemActive",
         "Title",
         "FirstName",
         "LastName",
@@ -1135,7 +1136,7 @@
         "ServiceDetails",
         "InvoiceAmount",
         "iCurrency",
-        "ItemStatus1",
+        "ItemActive",
         "Notes",
         "Attachment",
         "Title",
@@ -1150,7 +1151,7 @@
         { "name": "InvoiceAmount" },
         { "name": "iCurrency" },
         { "name": "Notes" },
-        { "name": "ItemStatus1" },
+        { "name": "ItemActive" },
         { "name": "Attachment" },
         { "name": "Title" },
         { "name": "FirstName" },
@@ -1226,7 +1227,7 @@
           "Update": "No"
         },
         {
-          "name": "ItemStatus2",
+          "name": "ItemActive",
           "type": "string",
           "width": "50",
           "SLabel": "Item Status",
@@ -1298,7 +1299,7 @@
         "InvoiceAmount",
         "ServiceType2",
         "iCurrency",
-        "ItemStatus2",
+        "ItemActive",
         "Title",
         "FirstName",
         "LastName",
@@ -1533,7 +1534,7 @@
         "ServiceDetails",
         "InvoiceAmount",
         "iCurrency",
-        "ItemStatus2",
+        "ItemActive",
         "Notes",
         "Attachment",
         "Title",
@@ -1548,7 +1549,7 @@
         { "name": "InvoiceAmount" },
         { "name": "iCurrency" },
         { "name": "Notes" },
-        { "name": "ItemStatus2" },
+        { "name": "ItemActive" },
         { "name": "Attachment" },
         { "name": "Title" },
         { "name": "FirstName" },
@@ -1624,7 +1625,7 @@
           "Update": "No"
         },
         {
-          "name": "ItemStatus2",
+          "name": "ItemActive",
           "type": "string",
           "width": "50",
           "SLabel": "Item Status",
@@ -1696,7 +1697,7 @@
         "InvoiceAmount",
         "ServiceType2",
         "iCurrency",
-        "ItemStatus2",
+        "ItemActive",
         "Title",
         "FirstName",
         "LastName",
@@ -1902,7 +1903,7 @@
         "ServiceDetails",
         "InvoiceAmount",
         "iCurrency",
-        "ItemStatus2",
+        "ItemActive",
         "Notes",
         "Attachment",
         "Title",
@@ -1917,7 +1918,7 @@
         { "name": "InvoiceAmount" },
         { "name": "iCurrency" },
         { "name": "Notes" },
-        { "name": "ItemStatus2" },
+        { "name": "ItemActive" },
         { "name": "Attachment" },
         { "name": "Title" },
         { "name": "FirstName" },

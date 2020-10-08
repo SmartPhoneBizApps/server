@@ -10,7 +10,7 @@
     "SearchString": { "Search": false },
     "Filters": [
       {
-        "$and": [{ "myHCPHCO.ItemStatus1": { "$ne": "Completed" } }]
+        "$and": [{ "myHCPHCO.ItemActive": { "$ne": "Completed" } }]
       }
     ],
     "Partner": "@user",
@@ -28,7 +28,7 @@
       ],
       "sourceTableUpdate": [
         {
-          "EventInvoice": [{ "ItemStatus1": "Completed" }]
+          "EventInvoice": [{ "ItemActive": "Completed" }]
         }
       ]
     },
@@ -65,7 +65,7 @@
   "PossibleValues": [
     "EventType",
     "Status",
-    "ItemStatus1",
+    "ItemActive",
     "ServiceType",
     "Duration"
   ],
@@ -408,7 +408,7 @@
           "Update": "No"
         },
         {
-          "name": "ItemStatus1",
+          "name": "ItemActive",
           "type": "string",
           "width": "50",
           "SLabel": "Item Status",
@@ -431,7 +431,7 @@
         "ServiceAmount",
         "ServiceType",
         "iCurrency",
-        "ItemStatus1"
+        "ItemActive"
       ],
       "detailCharts": [
         {
@@ -490,7 +490,7 @@
         "ServiceDetails",
         "ServiceAmount",
         "iCurrency",
-        "ItemStatus1",
+        "ItemActive",
         "Notes",
         "Attachment"
       ],
@@ -501,7 +501,7 @@
         { "name": "ActualAmount" },
         { "name": "iCurrency" },
         { "name": "Notes" },
-        { "name": "ItemStatus1" },
+        { "name": "ItemActive" },
         { "name": "Attachment" }
       ]
     },
@@ -519,7 +519,7 @@
           "Update": "No"
         },
         {
-          "name": "ItemStatus1",
+          "name": "ItemActive",
           "type": "string",
           "width": "50",
           "Option": "Optional",
@@ -590,7 +590,7 @@
         "LastName",
         "Email",
         "PostCode",
-        "ItemStatus1"
+        "ItemActive"
       ],
       "detailCharts": [
         {
@@ -856,7 +856,7 @@
         "Email",
         "PostCode",
         "InstitutionName",
-        "ItemStatus1"
+        "ItemActive"
       ],
       "ItemDetails": [
         { "name": "Title" },
@@ -866,12 +866,12 @@
         { "name": "Email" },
         { "name": "PostCode" },
         { "name": "InstitutionName" },
-        { "name": "ItemStatus1" }
+        { "name": "ItemActive" }
       ]
     },
     "EventInvoice": {
       "calculation": "Yes",
-      "itemFilter": [{ "ItemStatus1": { "$ne": "Completed" } }],
+      "itemFilter": [{ "ItemActive": { "$ne": "Completed" } }],
       "title": "Event Invoice",
       "subtitle": "HCP/HCO",
       "tableFormFields": [
@@ -935,7 +935,7 @@
           "Update": "No"
         },
         {
-          "name": "ItemStatus1",
+          "name": "ItemActive",
           "type": "string",
           "width": "50",
           "SLabel": "Item Status",
@@ -1007,7 +1007,7 @@
         "InvoiceAmount",
         "ServiceType",
         "iCurrency",
-        "ItemStatus1",
+        "ItemActive",
         "Title",
         "FirstName",
         "LastName",
@@ -1242,7 +1242,7 @@
         "ServiceDetails",
         "InvoiceAmount",
         "iCurrency",
-        "ItemStatus1",
+        "ItemActive",
         "Notes",
         "Attachment",
         "Title",
@@ -1257,7 +1257,7 @@
         { "name": "InvoiceAmount" },
         { "name": "iCurrency" },
         { "name": "Notes" },
-        { "name": "ItemStatus1" },
+        { "name": "ItemActive" },
         { "name": "Attachment" },
         { "name": "Title" },
         { "name": "FirstName" },
@@ -1352,10 +1352,10 @@
           "Update": "Yes"
         },
         {
-          "name": "ItemStatus1",
+          "name": "ItemActive",
           "type": "string",
           "width": "50",
-          "SLabel": "ItemStatus1",
+          "SLabel": "ItemActive",
           "Option": "Optional",
           "adaptiveCard": "Additional",
           "Update": "Yes"
@@ -1370,7 +1370,7 @@
           "Update": "Yes"
         }
       ],
-      "DisplayFields": ["Topic", "Date", "StartTime", "ItemStatus1"],
+      "DisplayFields": ["Topic", "Date", "StartTime", "ItemActive"],
       "detailCharts": [],
       "cards": [],
       "ItemButtons": {
@@ -1388,7 +1388,7 @@
         "Date",
         "StartTime",
         "EndTime",
-        "ItemStatus1",
+        "ItemActive",
         "Attachment"
       ],
       "ItemDetails": [
@@ -1399,7 +1399,7 @@
         { "name": "Date" },
         { "name": "StartTime" },
         { "name": "EndTime" },
-        { "name": "ItemStatus1" },
+        { "name": "ItemActive" },
         { "name": "Attachment" }
       ]
     }

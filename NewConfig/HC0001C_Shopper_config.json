@@ -3,7 +3,7 @@
     "ApplicationTitle": "HCP/HCO Company View",
     "DetailTitle": "HCP/HCO Company View"
   },
-  "Constants":{},
+  "Constants": {},
   "Controls": {
     "style": "SAP",
     "calculation": "No",
@@ -38,7 +38,7 @@
     "Description": ["Email"]
   },
 
-  "PossibleValues": ["Status", "ItemStatus1", "ItemStatus2", "ItemStatus3"],
+  "PossibleValues": ["Status", "ItemActive"],
   "MButtons": [
     {
       "type": "DOWNLOAD",
@@ -364,7 +364,7 @@
           "Update": "No"
         },
         {
-          "name": "ItemStatus1",
+          "name": "ItemActive",
           "type": "string",
           "width": "50",
           "SLabel": "Item Status",
@@ -412,7 +412,7 @@
         "StudyType",
         "StudyName",
         "Phase",
-        "ItemStatus1"
+        "ItemActive"
       ],
       "detailCharts": [],
       "cards": [],
@@ -430,11 +430,11 @@
         "StudyName",
         "Phase",
         "StudyDetails",
-        "ItemStatus1"
+        "ItemActive"
       ],
       "ItemDetails": [
         { "name": "StudyType" },
-        { "name": "ItemStatus1" },
+        { "name": "ItemActive" },
         { "name": "StudyName" },
         { "name": "Phase" },
         { "name": "StudyID" },
@@ -454,7 +454,7 @@
           "Update": "No"
         },
         {
-          "name": "ItemStatus2",
+          "name": "ItemActive",
           "type": "string",
           "width": "50",
           "SLabel": "Item Status",
@@ -531,7 +531,7 @@
         "EventName",
         "EventStartDate",
         "Time",
-        "ItemStatus2"
+        "ItemActive"
       ],
       "detailCharts": [],
       "cards": [],
@@ -553,11 +553,11 @@
         "Agenda",
         "Address",
         "PostCode",
-        "ItemStatus2"
+        "ItemActive"
       ],
       "ItemDetails": [
         { "name": "EventType" },
-        { "name": "ItemStatus2" },
+        { "name": "ItemActive" },
         { "name": "EventName" },
         { "name": "EventStartDate" },
         { "name": "EventID" },
@@ -581,7 +581,7 @@
           "Update": "No"
         },
         {
-          "name": "ItemStatus3",
+          "name": "ItemActive",
           "type": "string",
           "width": "50",
           "SLabel": "Item Status",
@@ -659,7 +659,7 @@
         "ContractStartDate",
         "ContractEndDate",
         "BalanceValue",
-        "ItemStatus3"
+        "ItemActive"
       ],
       "detailCharts": [],
       "cards": [],
@@ -679,11 +679,11 @@
         "ContractEndDate",
         "ContractValue",
         "Services",
-        "ItemStatus3"
+        "ItemActive"
       ],
       "ItemDetails": [
         { "name": "ContractType" },
-        { "name": "ItemStatus3" },
+        { "name": "ItemActive" },
         { "name": "ContractName" },
         { "name": "ContractStartDate" },
         { "name": "ContractEndDate" },

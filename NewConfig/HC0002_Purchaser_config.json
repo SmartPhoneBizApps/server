@@ -10,7 +10,7 @@
     "SearchString": { "Search": false },
     "Filters": [
       {
-        "$and": [{ "myHCPHCO.ItemStatus2": { "$ne": "Completed" } }]
+        "$and": [{ "myHCPHCO.ItemActive": { "$ne": "Completed" } }]
       }
     ],
     "Partner": "@user",
@@ -28,7 +28,7 @@
       ],
       "sourceTableUpdate": [
         {
-          "StudyInvoice": [{ "ItemStatus2": "Completed" }]
+          "StudyInvoice": [{ "ItemActive": "Completed" }]
         }
       ]
     },
@@ -62,7 +62,7 @@
     "StudyType",
     "Phase",
     "Status",
-    "ItemStatus2",
+    "ItemActive",
     "ServiceType"
   ],
   "MButtons": [
@@ -553,7 +553,7 @@
           "Update": "No"
         },
         {
-          "name": "ItemStatus2",
+          "name": "ItemActive",
           "type": "string",
           "width": "50",
           "SLabel": "Item Status",
@@ -576,7 +576,7 @@
         "ServiceAmount",
         "ServiceType",
         "iCurrency",
-        "ItemStatus2"
+        "ItemActive"
       ],
       "detailCharts": [
         {
@@ -623,7 +623,7 @@
         "ServiceDetails",
         "ServiceAmount",
         "iCurrency",
-        "ItemStatus2",
+        "ItemActive",
         "Notes",
         "Attachment"
       ],
@@ -634,7 +634,7 @@
         { "name": "ActualAmount" },
         { "name": "iCurrency" },
         { "name": "Notes" },
-        { "name": "ItemStatus2" },
+        { "name": "ItemActive" },
         { "name": "Attachment" }
       ]
     },
@@ -652,7 +652,7 @@
           "Update": "No"
         },
         {
-          "name": "ItemStatus1",
+          "name": "ItemActive",
           "type": "string",
           "width": "50",
           "Option": "Optional",
@@ -723,7 +723,7 @@
         "LastName",
         "Email",
         "PostCode",
-        "ItemStatus1"
+        "ItemActive"
       ],
       "detailCharts": [
         {
@@ -942,7 +942,7 @@
         "Email",
         "PostCode",
         "InstitutionName",
-        "ItemStatus1"
+        "ItemActive"
       ],
       "ItemDetails": [
         { "name": "Title" },
@@ -952,12 +952,12 @@
         { "name": "Email" },
         { "name": "PostCode" },
         { "name": "InstitutionName" },
-        { "name": "ItemStatus1" }
+        { "name": "ItemActive" }
       ]
     },
     "StudyInvoice": {
       "calculation": "Yes",
-      "itemFilter": [{ "ItemStatus2": { "$ne": "Completed" } }],
+      "itemFilter": [{ "ItemActive": { "$ne": "Completed" } }],
       "title": "Study Invoice",
       "subtitle": "HCP/HCO",
       "tableFormFields": [
@@ -1021,7 +1021,7 @@
           "Update": "No"
         },
         {
-          "name": "ItemStatus2",
+          "name": "ItemActive",
           "type": "string",
           "width": "50",
           "SLabel": "Item Status",
@@ -1093,7 +1093,7 @@
         "InvoiceAmount",
         "ServiceType",
         "iCurrency",
-        "ItemStatus2",
+        "ItemActive",
         "Title",
         "FirstName",
         "LastName",
@@ -1449,7 +1449,7 @@
         "ServiceDetails",
         "InvoiceAmount",
         "iCurrency",
-        "ItemStatus2",
+        "ItemActive",
         "Notes",
         "Attachment",
         "Title",
@@ -1464,7 +1464,7 @@
         { "name": "InvoiceAmount" },
         { "name": "iCurrency" },
         { "name": "Notes" },
-        { "name": "ItemStatus2" },
+        { "name": "ItemActive" },
         { "name": "Attachment" },
         { "name": "Title" },
         { "name": "FirstName" },
