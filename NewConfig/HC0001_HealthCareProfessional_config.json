@@ -99,7 +99,7 @@
   "DButtons": [
     {
       "type": "WORKFLOW",
-      "name": "UpdateBank",
+      "name": "Update Bank Details",
       "icon": "sap-icon://loan",
       "Dialog": [
         {
@@ -162,7 +162,7 @@
     },
     {
       "type": "WORKFLOW",
-      "name": "UpdateIdentification",
+      "name": "Update Identification",
       "icon": "sap-icon://loan",
       "Dialog": [
         {
@@ -193,7 +193,7 @@
       ],
       "transferFields": [
         { "field": "ID", "value": "@recorddata" },
-        { "field": "Status", "value": "UpdateBank" },
+        { "field": "Status", "value": "UpdateID" },
         { "field": "idType", "value": "@idType" },
         { "field": "idNumber", "value": "@idNumber" },
         { "field": "validityDate", "value": "@validityDate" },
@@ -205,7 +205,94 @@
     },
     {
       "type": "WORKFLOW",
-      "name": "AddBusinessUnit",
+      "name": "Update Contacts",
+      "icon": "sap-icon://contacts",
+      "Dialog": [
+        {
+          "name": "cTitle",
+          "type": "string",
+          "width": "50",
+          "Option": "Mandatory",
+          "adaptiveCard": "Main",
+          "SLabel": "Title"
+        },
+        {
+          "name": "cFirstName",
+          "type": "string",
+          "width": "100",
+          "Option": "Mandatory",
+          "adaptiveCard": "Main",
+          "SLabel": "FirstName"
+        },
+        {
+          "name": "cLastName",
+          "type": "string",
+          "width": "100",
+          "Option": "Mandatory",
+          "adaptiveCard": "Main",
+          "SLabel": "LastName"
+        },
+        {
+          "name": "cSpeciality",
+          "type": "string",
+          "width": "100",
+          "Option": "Optional",
+          "adaptiveCard": "Additional",
+          "SLabel": "Speciality"
+        },
+        {
+          "name": "cEmail",
+          "type": "Email",
+          "width": "100",
+          "Option": "Mandatory",
+          "adaptiveCard": "Main",
+          "SLabel": "Email"
+        },
+        {
+          "name": "cPostCode",
+          "type": "string",
+          "width": "20",
+          "Option": "Optional",
+          "adaptiveCard": "Additional",
+          "SLabel": "PostCode"
+        },
+        {
+          "name": "cAddress",
+          "type": "string",
+          "width": "200",
+          "Option": "Optional",
+          "adaptiveCard": "Additional",
+          "SLabel": "Address"
+        },
+        {
+          "name": "cInstitutionName",
+          "type": "string",
+          "width": "500",
+          "Option": "Optional",
+          "adaptiveCard": "Additional",
+          "SLabel": "InstitutionName"
+        }
+      ],
+      "transferFields": [
+        { "field": "ID", "value": "@recorddata" },
+        { "field": "Status", "value": "UpdateContact" },
+        { "field": "cTitle", "value": "@cTitle" },
+        { "field": "cFirstName", "value": "@cFirstName" },
+        { "field": "cLastName", "value": "@cLastName" },
+        { "field": "cSpeciality", "value": "@cSpeciality" },
+        { "field": "cEmail", "value": "@cEmail" },
+        { "field": "cPostCode", "value": "@cPostCode" },
+        { "field": "cAddress", "value": "@cAddress" },
+        { "field": "cInstitutionName", "value": "@cInstitutionName" },
+        { "field": "ProgressComment", "value": "@UserInput" }
+      ],
+      "URL": "datarecords/",
+      "Token": "Yes",
+      "URLMethod": "PUT"
+    },
+    {
+      "type": "WORKFLOW",
+      "name": "Add Business Unit",
       "icon": "sap-icon://loan",
       "Dialog": [
         {
@@ -251,7 +338,7 @@
       ],
       "transferFields": [
         { "field": "ID", "value": "@recorddata" },
-        { "field": "Status", "value": "UpdateBank" },
+        { "field": "Status", "value": "UpdateBU" },
         { "field": "bID", "value": "@bID" },
         { "field": "bName", "value": "@bName" },
         { "field": "bEmail", "value": "@bEmail" },
