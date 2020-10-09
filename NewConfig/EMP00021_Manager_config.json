@@ -242,6 +242,237 @@
   "cards": [],
   "ControlDisplay": {},
   "tableConfig": {    
+    "myTime": {
+      "calculation": "Yes",
+      "title": "Daily time booking",
+      "subtitle": "Timesheets",
+      "tableFormFields": [
+        {
+          "GrpTitle": "Regular Hours",
+          "Fields": ["TotalRegHours", "RegularNetAmount"]
+        },
+        {
+          "GrpTitle": "OverTime Hours",
+          "Fields": ["TotalOvertimeHours", "OvertimeNetAmount"]
+        },
+        {
+          "GrpTitle": "Totals",
+          "Fields": ["NetAmount", "VATAmount", "GrossAmount"]
+        },
+        {
+          "GrpTitle": "Rates",
+          "Fields": ["HourlyRate", "OvertimeRate", "VATRate"]
+        }
+      ],
+      "ItemFieldDefinition": [
+        {
+          "name": "ItemNumber",
+          "type": "string",
+          "width": "10",
+          "SLabel": "ItemNumber",
+          "Option": "Optional",
+          "adaptiveCard": "Additional",
+          "Update": "Yes"
+        },
+
+        {
+          "name": "ProjectCode",
+          "type": "string",
+          "width": "50",
+          "SLabel": "Project Code",
+          "Option": "Mandatory",
+          "adaptiveCard": "Main",
+          "Update": "Yes"
+        },
+        {
+          "name": "Date",
+          "type": "Date",
+          "width": "10",
+          "SLabel": "Timesheet Date",
+          "Option": "Mandatory",
+          "adaptiveCard": "Main",
+          "Update": "Yes"
+        },
+        {
+          "name": "TotalRegWorkHours",
+          "type": "Num,1",
+          "width": "50",
+          "SLabel": "Regular work hours",
+          "Option": "Mandatory",
+          "adaptiveCard": "Main",
+          "Update": "Yes"
+        },
+        {
+          "name": "OvertimeHours",
+          "type": "Num,1",
+          "width": "50",
+          "SLabel": "Overtime Hours",
+          "Option": "Optional",
+          "adaptiveCard": "Additional",
+          "Update": "Yes"
+        },
+        {
+          "name": "TotalHours",
+          "type": "Num,1",
+          "width": "50",
+          "SLabel": "Total Hours",
+          "Option": "Optional",
+          "adaptiveCard": "Additional",
+          "Update": "No"
+        },
+        {
+          "name": "SearchString",
+          "type": "string",
+          "width": "200",
+          "Option": "Mandatory",
+          "SLabel": "Search String",
+          "LLabel": "Search String",
+          "Update": "No"
+        },
+        {
+          "name": "Comment",
+          "type": "string",
+          "width": "1000",
+          "SLabel": "Comment",
+          "Option": "Mandatory"
+        },
+        {
+          "name": "ItemStatus1",
+          "type": "string",
+          "width": "50",
+          "SLabel": "Item Status",
+          "Update": "Yes"
+        }
+      ],
+      "DisplayFields": [
+        "ProjectCode",
+        "Date",
+        "TotalRegWorkHours",
+        "OvertimeHours",
+        "TotalHours",
+        "ItemStatus1"
+      ],
+
+      "detailCharts": [
+        {
+          "cardType": "Analytical",
+          "style": ["SAP", "Google"],
+          "cardsubType": "StackedBar",
+          "title": "Time Sheet Analysis",
+          "subtitle": "Project Code",
+          "unitOfMeasurement": "Days",
+          "source": "myTime",
+          "Data": {
+            "dimension": "ProjectCode",
+            "fact": "Count",
+            "operation": "COUNT",
+            "sorting": "Ascending",
+            "aggregate": "Yes",
+            "sortField": "Count",
+            "dType": "string"
+          },
+          "numericHeader": {
+            "headerNumber": { "Operation": "COUNT", "Field": "ProjectCode" },
+            "trend": { "trend": "DOWN", "Condition": "LTE", "value": 8 },
+            "status": { "state": "Good", "Condition": "LTE", "value": 24 },
+            "details": "Employee",
+            "unit": "Days"
+          },
+          "cardValues": {
+            "@Value1": "Commutative",
+            "@Value2": "Count"
+          }
+        },
+        {
+          "cardType": "Analytical",
+          "style": ["SAP", "Google"],
+          "cardsubType": "Line",
+          "title": "Time Sheet Analysis",
+          "subtitle": "Time",
+          "unitOfMeasurement": "Hrs",
+          "source": "myTime",
+          "Data": {
+            "dimension": "Date",
+            "fact": "Count",
+            "operation": "COLLECTIVE_COUNT",
+            "sorting": "Ascending",
+            "aggregate": "Yes",
+            "sortField": "Count",
+            "dType": "string"
+          },
+          "numericHeader": {
+            "headerNumber": {
+              "Operation": "COLLECTIVE",
+              "Field": "TotalRegWorkHours"
+            },
+            "trend": { "trend": "DOWN", "Condition": "LTE", "value": 40 },
+            "status": { "state": "Good", "Condition": "LTE", "value": 50 },
+            "details": "Max 24 days",
+            "unit": "Days"
+          },
+          "cardValues": {
+            "@Value1": "Commutative",
+            "@Value2": "Count"
+          }
+        }
+      ],
+      "cards": [],
+      "ItemButtons": {
+        "itemDisplay": true,
+        "itemCheck": false,
+        "itemAdd": false,
+        "itemEdit": false,
+        "itemDelete": false
+      },
+      "CreateFields": [
+        "ProjectCode",
+        "Date",
+        "TotalRegWorkHours",
+        "OvertimeHours",
+        "Comment",
+        "TotalHours",
+        "ItemStatus1"
+      ],
+      "ItemDetails": [
+        { "name": "ProjectCode" },
+        { "name": "Date" },
+        { "name": "TotalRegWorkHours" },
+        { "name": "OvertimeHours" },
+        { "name": "Comment" },
+        { "name": "TotalHours" },
+        { "name": "ItemStatus1" }
+      ],
+      "Validations": {
+        "Field": {},
+        "Sequence": {
+          "myTime": [
+            {
+              "name": "SEQUENCE",
+              "function": "GTE",
+              "Target": "sValidation",
+              "type": "Header",
+              "msg": "Expense Date can't be less than Start date",
+              "Fields": [
+                { "Source": "Date", "Type": { "type": "Item" } },
+                { "Source": "StartDate", "Type": { "type": "Header" } }
+              ]
+            },
+            {
+              "name": "SEQUENCE",
+              "function": "LTE",
+              "Target": "sValidation",
+              "type": "Header",
+              "msg": "Time Date can't be greater than End date",
+              "Fields": [
+                { "Source": "Date", "Type": { "type": "Item" } },
+                { "Source": "EndDate", "Type": { "type": "Header" } }
+              ]
+            }
+          ]
+        },
+        "Document": {}
+      }
+    },
     "actionLog": {
     "title": "Action Log",
     "subtitle": "Action Log",
@@ -288,14 +519,7 @@
         "adaptiveCard": "Main",
         "SLabel": "Transaction"
       },
-      {
-        "name": "DetailLog",
-        "type": "Array",
-        "width": "200",
-        "Option": "Optional",
-        "adaptiveCard": "None",
-        "SLabel": "Detail Log"
-      },
+
       {
         "name": "ID",
         "type": "string",
@@ -652,239 +876,6 @@
     },
     "CreateFields": [],
     "ItemDetails": []
-  },
-  "tableConfig": {
-    "myTime": {
-      "calculation": "Yes",
-      "title": "Daily time booking",
-      "subtitle": "Timesheets",
-      "tableFormFields": [
-        {
-          "GrpTitle": "Regular Hours",
-          "Fields": ["TotalRegHours", "RegularNetAmount"]
-        },
-        {
-          "GrpTitle": "OverTime Hours",
-          "Fields": ["TotalOvertimeHours", "OvertimeNetAmount"]
-        },
-        {
-          "GrpTitle": "Totals",
-          "Fields": ["NetAmount", "VATAmount", "GrossAmount"]
-        },
-        {
-          "GrpTitle": "Rates",
-          "Fields": ["HourlyRate", "OvertimeRate", "VATRate"]
-        }
-      ],
-      "ItemFieldDefinition": [
-        {
-          "name": "ItemNumber",
-          "type": "string",
-          "width": "10",
-          "SLabel": "ItemNumber",
-          "Option": "Optional",
-          "adaptiveCard": "Additional",
-          "Update": "Yes"
-        },
-
-        {
-          "name": "ProjectCode",
-          "type": "string",
-          "width": "50",
-          "SLabel": "Project Code",
-          "Option": "Mandatory",
-          "adaptiveCard": "Main",
-          "Update": "Yes"
-        },
-        {
-          "name": "Date",
-          "type": "Date",
-          "width": "10",
-          "SLabel": "Timesheet Date",
-          "Option": "Mandatory",
-          "adaptiveCard": "Main",
-          "Update": "Yes"
-        },
-        {
-          "name": "TotalRegWorkHours",
-          "type": "Num,1",
-          "width": "50",
-          "SLabel": "Regular work hours",
-          "Option": "Mandatory",
-          "adaptiveCard": "Main",
-          "Update": "Yes"
-        },
-        {
-          "name": "OvertimeHours",
-          "type": "Num,1",
-          "width": "50",
-          "SLabel": "Overtime Hours",
-          "Option": "Optional",
-          "adaptiveCard": "Additional",
-          "Update": "Yes"
-        },
-        {
-          "name": "TotalHours",
-          "type": "Num,1",
-          "width": "50",
-          "SLabel": "Total Hours",
-          "Option": "Optional",
-          "adaptiveCard": "Additional",
-          "Update": "No"
-        },
-        {
-          "name": "SearchString",
-          "type": "string",
-          "width": "200",
-          "Option": "Mandatory",
-          "SLabel": "Search String",
-          "LLabel": "Search String",
-          "Update": "No"
-        },
-        {
-          "name": "Comment",
-          "type": "string",
-          "width": "1000",
-          "SLabel": "Comment",
-          "Option": "Mandatory"
-        },
-        {
-          "name": "ItemStatus1",
-          "type": "string",
-          "width": "50",
-          "SLabel": "Item Status",
-          "Update": "Yes"
-        }
-      ],
-      "DisplayFields": [
-        "ProjectCode",
-        "Date",
-        "TotalRegWorkHours",
-        "OvertimeHours",
-        "TotalHours",
-        "ItemStatus1"
-      ],
-
-      "detailCharts": [
-        {
-          "cardType": "Analytical",
-          "style": ["SAP", "Google"],
-          "cardsubType": "StackedBar",
-          "title": "Time Sheet Analysis",
-          "subtitle": "Project Code",
-          "unitOfMeasurement": "Days",
-          "source": "myTime",
-          "Data": {
-            "dimension": "ProjectCode",
-            "fact": "Count",
-            "operation": "COUNT",
-            "sorting": "Ascending",
-            "aggregate": "Yes",
-            "sortField": "Count",
-            "dType": "string"
-          },
-          "numericHeader": {
-            "headerNumber": { "Operation": "COUNT", "Field": "ProjectCode" },
-            "trend": { "trend": "DOWN", "Condition": "LTE", "value": 8 },
-            "status": { "state": "Good", "Condition": "LTE", "value": 24 },
-            "details": "Employee",
-            "unit": "Days"
-          },
-          "cardValues": {
-            "@Value1": "Commutative",
-            "@Value2": "Count"
-          }
-        },
-        {
-          "cardType": "Analytical",
-          "style": ["SAP", "Google"],
-          "cardsubType": "Line",
-          "title": "Time Sheet Analysis",
-          "subtitle": "Time",
-          "unitOfMeasurement": "Hrs",
-          "source": "myTime",
-          "Data": {
-            "dimension": "Date",
-            "fact": "Count",
-            "operation": "COLLECTIVE_COUNT",
-            "sorting": "Ascending",
-            "aggregate": "Yes",
-            "sortField": "Count",
-            "dType": "string"
-          },
-          "numericHeader": {
-            "headerNumber": {
-              "Operation": "COLLECTIVE",
-              "Field": "TotalRegWorkHours"
-            },
-            "trend": { "trend": "DOWN", "Condition": "LTE", "value": 40 },
-            "status": { "state": "Good", "Condition": "LTE", "value": 50 },
-            "details": "Max 24 days",
-            "unit": "Days"
-          },
-          "cardValues": {
-            "@Value1": "Commutative",
-            "@Value2": "Count"
-          }
-        }
-      ],
-      "cards": [],
-      "ItemButtons": {
-        "itemDisplay": true,
-        "itemCheck": false,
-        "itemAdd": false,
-        "itemEdit": false,
-        "itemDelete": false
-      },
-      "CreateFields": [
-        "ProjectCode",
-        "Date",
-        "TotalRegWorkHours",
-        "OvertimeHours",
-        "Comment",
-        "TotalHours",
-        "ItemStatus1"
-      ],
-      "ItemDetails": [
-        { "name": "ProjectCode" },
-        { "name": "Date" },
-        { "name": "TotalRegWorkHours" },
-        { "name": "OvertimeHours" },
-        { "name": "Comment" },
-        { "name": "TotalHours" },
-        { "name": "ItemStatus1" }
-      ],
-      "Validations": {
-        "Field": {},
-        "Sequence": {
-          "myTime": [
-            {
-              "name": "SEQUENCE",
-              "function": "GTE",
-              "Target": "sValidation",
-              "type": "Header",
-              "msg": "Expense Date can't be less than Start date",
-              "Fields": [
-                { "Source": "Date", "Type": { "type": "Item" } },
-                { "Source": "StartDate", "Type": { "type": "Header" } }
-              ]
-            },
-            {
-              "name": "SEQUENCE",
-              "function": "LTE",
-              "Target": "sValidation",
-              "type": "Header",
-              "msg": "Time Date can't be greater than End date",
-              "Fields": [
-                { "Source": "Date", "Type": { "type": "Item" } },
-                { "Source": "EndDate", "Type": { "type": "Header" } }
-              ]
-            }
-          ]
-        },
-        "Document": {}
-      }
-    }
   },
   "Validations": {
     "Field": [],
