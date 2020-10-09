@@ -450,7 +450,7 @@
       "cards": [],
       "ItemButtons": {
         "itemDisplay": true,
-        "itemCheck": true,
+        "itemCheck": false,
         "itemAdd": true,
         "itemEdit": true,
         "itemDelete": true,
@@ -526,7 +526,7 @@
           "type": "string",
           "width": "100",
           "Option": "Optional",
-          "adaptiveCard": "Additional",
+          "adaptiveCard": "Main",
           "SLabel": "Speciality"
         },
         {
@@ -542,7 +542,7 @@
           "type": "string",
           "width": "20",
           "Option": "Optional",
-          "adaptiveCard": "Additional",
+          "adaptiveCard": "Main",
           "SLabel": "PostCode"
         },
         {
@@ -550,7 +550,7 @@
           "type": "string",
           "width": "200",
           "Option": "Optional",
-          "adaptiveCard": "Additional",
+          "adaptiveCard": "Main",
           "SLabel": "Address"
         },
         {
@@ -558,7 +558,7 @@
           "type": "string",
           "width": "500",
           "Option": "Optional",
-          "adaptiveCard": "Additional",
+          "adaptiveCard": "Main",
           "SLabel": "InstitutionName"
         }
       ],
@@ -654,7 +654,7 @@
           "type": "string",
           "width": "10",
           "Option": "Optional",
-          "adaptiveCard": "Additional",
+          "adaptiveCard": "Main",
           "SLabel": "BU PostCode"
         },
         {
@@ -662,7 +662,7 @@
           "type": "string",
           "width": "200",
           "Option": "Optional",
-          "adaptiveCard": "Additional",
+          "adaptiveCard": "Main",
           "SLabel": "BU Address"
         }
       ],
@@ -759,7 +759,7 @@
           "type": "string",
           "width": "100",
           "Option": "Optional",
-          "adaptiveCard": "Additional",
+          "adaptiveCard": "Main",
           "SLabel": "Bank Name"
         },
         {
@@ -767,7 +767,7 @@
           "type": "string",
           "width": "100",
           "Option": "Optional",
-          "adaptiveCard": "Additional",
+          "adaptiveCard": "Main",
           "SLabel": "IBAN"
         }
       ],
@@ -835,7 +835,7 @@
           "type": "string",
           "width": "50",
           "Option": "Optional",
-          "adaptiveCard": "Additional",
+          "adaptiveCard": "Main",
           "SLabel": "ID Type",
           "Update": "Yes"
         },
@@ -1016,8 +1016,8 @@
       "ItemButtons": {
         "itemDisplay": true,
         "itemCheck": false,
-        "itemAdd": true,
-        "itemEdit": true,
+        "itemAdd": false,
+        "itemEdit": false,
         "itemDelete": false,
         "additionalButtons": [
           {
@@ -1157,7 +1157,7 @@
       "URLMethod": "GET",
       "Token": true,
       "Option": "Optional",
-      "adaptiveCard": "Additional",
+      "adaptiveCard": "Main",
       "SLabel": "Post Code",
       "LLabel": "Post Code"
     },
@@ -1166,7 +1166,7 @@
       "type": "string",
       "width": "200",
       "Option": "Optional",
-      "adaptiveCard": "Additional",
+      "adaptiveCard": "Main",
       "SLabel": "Address",
       "LLabel": "Address"
     },
@@ -1212,7 +1212,7 @@
       "type": "carouselImage",
       "width": "200",
       "Option": "Optional",
-      "adaptiveCard": "Additional",
+      "adaptiveCard": "None",
       "SLabel": "Certificates",
       "LLabel": "Certificates"
     },
@@ -1248,16 +1248,16 @@
       "type": "string",
       "width": "20",
       "Option": "Optional",
-      "adaptiveCard": "Additional",
+      "adaptiveCard": "Main",
       "SLabel": "Contact No",
       "LLabel": "Contact No"
     },
     {
       "name": "Email",
-      "type": "string",
+      "type": "Email",
       "width": "50",
       "Option": "Optional",
-      "adaptiveCard": "Additional",
+      "adaptiveCard": "Main",
       "SLabel": "Email Id",
       "LLabel": "Email Id"
     },
@@ -1275,7 +1275,7 @@
       "type": "string",
       "width": "200",
       "Option": "Optional",
-      "adaptiveCard": "Additional",
+      "adaptiveCard": "Main",
       "SLabel": "Institution Name",
       "LLabel": "Institution Name"
     },
@@ -1284,7 +1284,7 @@
       "type": "string",
       "width": "20",
       "Option": "Optional",
-      "adaptiveCard": "Additional",
+      "adaptiveCard": "Main",
       "SLabel": "HCO Type",
       "LLabel": "HCO Type"
     },
@@ -1360,6 +1360,7 @@
         { "name": "Speciality", "Mode": "Edit" },
         { "name": "Email", "Mode": "Edit" },
         { "name": "ContactNo", "Mode": "Edit" },
+        { "name": "pType", "Mode": "Edit" },
         { "name": "Status", "Mode": "Edit" }
       ],
       "name": "Leave Details",
