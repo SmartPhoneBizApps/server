@@ -276,6 +276,7 @@ exports.addDataRecords = asyncHandler(async (req, res, next) => {
     req.headers.buttonname,
     req.body.ProgressComment
   );
+  console.log("Line 279");
   req.body["actionLog"] = [];
   req.body.actionLog = actionLog(
     req,
@@ -371,8 +372,9 @@ exports.addDataRecords = asyncHandler(async (req, res, next) => {
     }
   }
   console.log("CREATE - Validation ends..");
+  console.log("Line 375");
   console.log("CREATE - Data..", mydata, mydata["actionLog"]);
-  mydata
+  mydata;
 
   // X99 - Create Record [mongoDB].....
   let result = {};
@@ -629,7 +631,7 @@ exports.updateDataRecords = asyncHandler(async (req, res, next) => {
   // X7 - Update T-Log
   myData.TransLog.unshift(req.body.TransLog);
   req.body.TransLog = myData.TransLog;
-
+  console.log("Line 634");
   myData.actionLog = actionLog(
     req,
     "UPDATE",
@@ -710,7 +712,7 @@ exports.updateDataRecords = asyncHandler(async (req, res, next) => {
   }
 
   // X8 - Perform Validations ...
-  console.log("CREATE - Validation starts..");
+  console.log("UPDATE - Validation starts..");
   var mydata1 = req.body;
   for (const obj in mydata1) {
     var Handler = new calfunction();

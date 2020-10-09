@@ -801,25 +801,48 @@ module.exports = {
     detailL = {};
     newLog = {};
     detailLog = [];
+    excludeList = [
+      "TransLog",
+      "actionLog",
+      "ID",
+      "appId",
+      "applicationId",
+      "user",
+      "company",
+      "companyName",
+      "branch",
+      "area",
+    ];
     if (buttonType != undefined) {
       newLog["buttonType"] = buttonType;
+    } else {
+      if (type == "UPDATE") {
+        newLog["buttonType"] = "UPDATE";
+      }
     }
     if (buttonName != undefined) {
       newLog["Transaction"] = buttonName;
-    }
-    if(type == "UPDATE"){
-      for (const key in req.body) {
-        detailL["Key"] = key;
-        detailL["Value"] = req.body[key];
-        detailLog.push({ ...detailL });
-        detailL = {};
+    } else {
+      if (type == "UPDATE") {
+        newLog["Transaction"] = "DataUpdate";
       }
     }
-
+    if (type == "UPDATE") {
+      for (const key in req.body) {
+        if (!excludeList.includes(key)) {
+          detailL["Key"] = key;
+          detailL["Value"] = req.body[key];
+          detailLog.push({ ...detailL });
+          detailL = {};
+        }
+      }
+    }
+    console.log("detailLog", detailLog);
     newLog["ID"] = req.body.ID;
+    console.log("Type", detailLog);
     newLog["Type"] = type;
     newLog["DetailLog"] = detailLog;
-    newLog["User"] = req.body.user;
+    newLog["User"] = req.body.userEmail;
     newLog["UserName"] = req.body.userName;
     newLog["Status"] = req.body.Status;
     newLog["Role"] = req.headers.businessrole;
@@ -829,7 +852,7 @@ module.exports = {
     // add the Log
     actionLog.unshift({ ...newLog });
     newLog = {};
-
+    console.log("actionLog", actionLog);
     return actionLog;
   },
   getPVConfig: function (a, b) {
