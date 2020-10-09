@@ -16,6 +16,7 @@ const {
   tableFields,
   tableValidate,
   processingLog,
+  actionLog,
   generateID,
   getDateValues,
   getInitialValues,
@@ -265,7 +266,7 @@ exports.addDataRecords = asyncHandler(async (req, res, next) => {
   // Processing Log
   req.body.TransLog = processingLog(
     req.body.ID,
-    "NEW_RECORD",
+    "CREATE",
     req.body.user,
     req.body.userName,
     req.body.Status,
@@ -274,6 +275,14 @@ exports.addDataRecords = asyncHandler(async (req, res, next) => {
     req.headers.buttontype,
     req.headers.buttonname,
     req.body.ProgressComment
+  );
+  req.body["actionLog"] = [];
+  req.body.actionLog = actionLog(
+    req,
+    "CREATE",
+    req.body["actionLog"],
+    req.headers.buttontype,
+    req.headers.buttonname
   );
 
   /// X99 - Update Calculations.....
@@ -599,7 +608,7 @@ exports.updateDataRecords = asyncHandler(async (req, res, next) => {
   }
   req.body.TransLog = processingLog(
     req.body.ID,
-    "DATA_UPDATE",
+    "UPDATE",
     req.body.user,
     req.body.userName,
     Status,
@@ -618,6 +627,15 @@ exports.updateDataRecords = asyncHandler(async (req, res, next) => {
   // X7 - Update T-Log
   myData.TransLog.unshift(req.body.TransLog);
   req.body.TransLog = myData.TransLog;
+
+  myData.actionLog = actionLog(
+    req,
+    "UPDATE",
+    myData["actionLog"],
+    req.headers.buttontype,
+    req.headers.buttonname
+  );
+  req.body.actionLog = myData.actionLog;
 
   // X8 - MultiAttachment Logic...
   if (req.body.hasOwnProperty("MultiAttachments")) {

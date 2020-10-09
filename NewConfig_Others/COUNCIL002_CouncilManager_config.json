@@ -22,7 +22,7 @@
     }
   },
   "ListFields": {
-    "IntroField": "ReportNo",
+    "IntroField": "ID",
     "TitleField": "YourName",
     "fStatus": "Status",
     "LFields": ["Email"]
@@ -53,13 +53,34 @@
     "type": "Charts",
     "fioriicon": "business-objects-experience"
   },
-    { "value": "Tab1", "update": "Yes", "name": "Report It", "type": "Field" },
+    {
+      "value": "Tab1",
+      "style": "SAP",
+      "update": "Yes",
+      "name": "Report It",
+      "type": "Field",
+      "fioriicon": "citizen-connect"
+    },
     {
       "value": "Tab2",
       "style": "SAP",
       "update": "Yes",
       "name": "Additional Info",
-      "type": "Field"
+      "type": "Field",
+      "fioriicon": "action-settings"
+    },
+    {
+      "value": "Tab3",
+      "style": "SAP",
+      "update": "Yes",
+      "name": "Attachment",
+      "fioriicon": "attachment",
+      "type": "MultiAttachments",
+      "download": "No",
+      "docType": [
+        { "text": "HeaderAttachment", "state": "Information" },
+        { "text": "ItemAttachment", "state": "Success" }
+      ]
     }
   ],
   "DetailFields": {
@@ -69,34 +90,158 @@
     "headerColorFields": ["Status"],
     "Tab0": ["data"],
     "Tab20":["charts"],
-    "None": ["ReportNo", "YourName", "ContactNo", "Email"],
+    "None": ["ID", "YourName", "ContactNo", "Email"],
     "Tab1": ["Address", "Q1", "A1", "Q2", "A2", "Q3", "A3", "Q4", "A4"],
-    "Tab2": ["AdditionalInfo"]
+    "Tab2": ["AdditionalInfo"],
+    "Tab3": ["Attachment"]
   },
   "ControlDisplay": {},
   "FieldDef": [
-    { "name": "ReportNo", "type": "string", "width": "20" },
-    { "name": "YourName", "type": "string", "width": "50" },
-    { "name": "ContactNo", "type": "string", "width": "20" },
-    { "name": "Email", "type": "string", "width": "100" },
-    { "name": "Address", "type": "string", "width": "500" },
-    { "name": "Q1", "type": "string", "width": "500" },
-    { "name": "A1", "type": "string", "width": "500" },
-    { "name": "Q2", "type": "string", "width": "500" },
-    { "name": "A2", "type": "string", "width": "500" },
-    { "name": "Q3", "type": "string", "width": "500" },
-    { "name": "A3", "type": "string", "width": "500" },
-    { "name": "Q4", "type": "string", "width": "500" },
-    { "name": "A4", "type": "Date", "width": "10" },
-    { "name": "AdditionalInfo", "type": "string", "width": "1000" },
+    {
+      "name": "ID",
+      "type": "string",
+      "width": "20",
+      "Option": "Mandatory",
+      "adaptiveCard": "None",
+      "SLabel": "Identification",
+      "Update": "No"
+    },
+    {
+      "name": "actionLog",
+      "type": "Array",
+      "width": "200",
+      "Option": "Optional",
+      "adaptiveCard": "None",
+      "SLabel": "actionLog",
+      "LLabel": "actionLog"
+    },
+    {
+      "name": "ReferenceID",
+      "type": "string",
+      "width": "20",
+      "Option": "Optional",
+      "SLabel": "ReferenceID"
+    },
+    {
+      "name": "YourName",
+      "type": "string",
+      "width": "50",
+      "Option": "Optional",
+      "SLabel": "Your Name",
+      "LLabel": ""
+    },
+    {
+      "name": "ContactNo",
+      "type": "string",
+      "width": "20",
+      "Option": "Optional",
+      "SLabel": "Contact Number",
+      "LLabel": ""
+    },
+    {
+      "name": "Email",
+      "type": "string",
+      "width": "100",
+      "Option": "Optional",
+      "SLabel": "Email ID",
+      "LLabel": ""
+    },
+    {
+      "name": "Address",
+      "type": "string",
+      "width": "500",
+      "Option": "Optional",
+      "SLabel": "Address",
+      "LLabel": ""
+    },
+    {
+      "name": "Q1",
+      "type": "string",
+      "width": "500",
+      "Option": "Optional",
+      "SLabel": "Question 1",
+      "LLabel": ""
+    },
+    {
+      "name": "A1",
+      "type": "string",
+      "width": "500",
+      "Option": "Optional",
+      "SLabel": "Answer 1",
+      "LLabel": ""
+    },
+    {
+      "name": "Q2",
+      "type": "string",
+      "width": "500",
+      "Option": "Optional",
+      "SLabel": "Question 2",
+      "LLabel": ""
+    },
+    {
+      "name": "A2",
+      "type": "string",
+      "width": "500",
+      "Option": "Optional",
+      "SLabel": "Answer 2",
+      "LLabel": ""
+    },
+    {
+      "name": "Q3",
+      "type": "string",
+      "width": "500",
+      "Option": "Optional",
+      "SLabel": "Question 3",
+      "LLabel": ""
+    },
+    {
+      "name": "A3",
+      "type": "string",
+      "width": "500",
+      "Option": "Optional",
+      "SLabel": "Answer 3",
+      "LLabel": ""
+    },
+    {
+      "name": "Q4",
+      "type": "string",
+      "width": "500",
+      "Option": "Optional",
+      "SLabel": "Question 4",
+      "LLabel": ""
+    },
+    {
+      "name": "A4",
+      "type": "Date",
+      "width": "10",
+      "Option": "Optional",
+      "SLabel": "Answer 4",
+      "LLabel": ""
+    },
+    {
+      "name": "AdditionalInfo",
+      "type": "string",
+      "width": "1000",
+      "Option": "Optional",
+      "SLabel": "Additional Information",
+      "LLabel": ""
+    },
     { "name": "Status", "type": "string", "SLabel": "Status", "width": "50" },
     {
       "name": "SearchString",
       "type": "string",
       "width": "200",
-      "Option": "Mandatory",
+      "Option": "Optional",
       "SLabel": "Search String",
       "LLabel": "Search String"
+    },
+    {
+      "name": "Attachment",
+      "type": "attachment",
+      "width": "200",
+      "Option": "Optional",
+      "SLabel": "Attachment",
+      "LLabel": ""
     }
   ],
   "itemData": "No",

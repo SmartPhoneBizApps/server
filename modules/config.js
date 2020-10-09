@@ -797,6 +797,38 @@ module.exports = {
     }
     return pLog;
   },
+  actionLog: function (req, type, actionLog, buttonType, buttonName) {
+    detailL = {};
+    newLog = {};
+    detailLog = [];
+    if (buttonType != undefined) {
+      newLog["buttonType"] = buttonType;
+    }
+    if (buttonName != undefined) {
+      newLog["Transaction"] = buttonName;
+    }
+    for (const key in req.body) {
+      detailL["Key"] = key;
+      detailL["Value"] = req.body[key];
+      detailLog.push({ ...detailL });
+      detailL = {};
+    }
+    newLog["ID"] = req.body.ID;
+    newLog["Type"] = type;
+    newLog["DetailLog"] = detailLog;
+    newLog["User"] = req.body.user;
+    newLog["UserName"] = req.body.userName;
+    newLog["Status"] = req.body.Status;
+    newLog["Role"] = req.headers.businessrole;
+    newLog["applicationId"] = req.headers.applicationid;
+    newLog["TimeStamp"] = Date.now();
+
+    // add the Log
+    actionLog.unshift({ ...newLog });
+    newLog = {};
+
+    return actionLog;
+  },
   getPVConfig: function (a, b) {
     // Read Create Map Config
     // These are converted old XML files from smartapp
