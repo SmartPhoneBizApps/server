@@ -371,6 +371,8 @@ exports.addDataRecords = asyncHandler(async (req, res, next) => {
     }
   }
   console.log("CREATE - Validation ends..");
+  console.log("CREATE - Data..", mydata, mydata["actionLog"]);
+  mydata
 
   // X99 - Create Record [mongoDB].....
   let result = {};

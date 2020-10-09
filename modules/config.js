@@ -807,12 +807,15 @@ module.exports = {
     if (buttonName != undefined) {
       newLog["Transaction"] = buttonName;
     }
-    for (const key in req.body) {
-      detailL["Key"] = key;
-      detailL["Value"] = req.body[key];
-      detailLog.push({ ...detailL });
-      detailL = {};
+    if(type == "UPDATE"){
+      for (const key in req.body) {
+        detailL["Key"] = key;
+        detailL["Value"] = req.body[key];
+        detailLog.push({ ...detailL });
+        detailL = {};
+      }
     }
+
     newLog["ID"] = req.body.ID;
     newLog["Type"] = type;
     newLog["DetailLog"] = detailLog;

@@ -281,6 +281,15 @@
       "type": "Chat",
       "download": "No"
     }
+,
+    {
+      "value": "Tab99",
+      "style": "SAP",
+      "update": "Yes",
+      "name": "actionLog",
+      "type": "Table",
+      "fioriicon": "workflow-tasks"
+    }
   ],
   "DetailFields": {
     "headerTitle": ["USP_Name"],
@@ -289,6 +298,7 @@
     "headerColorFields": ["Status"],
     "Tab0": ["data"],
     "Tab20": ["charts"],
+    "Tab99": ["actionLog"],
     "None": ["ID", "VendorName", "PONumber", "VendorNumber", "VendorEmail"],
     "Tab1": [
       "DelTo",
@@ -327,388 +337,7 @@
     "Tab9": ["CommsDetails"]
   },
   "ControlDisplay": {},
-  "FieldDef": [
-    {
-      "name": "ID",
-      "type": "string",
-      "width": "20",
-      "Option": "Mandatory",
-      "adaptiveCard": "None",
-      "SLabel": "Identification",
-      "Update": "No"
-    },
-    {
-      "name": "actionLog",
-      "type": "Array",
-      "width": "200",
-      "Option": "Optional",
-      "adaptiveCard": "None",
-      "SLabel": "actionLog",
-      "LLabel": "actionLog"
-    },
-
-    {
-      "name": "PONumber",
-      "type": "string",
-      "width": "20",
-      "Option": "Mandatory",
-      "adaptiveCard": "Main",
-      "SLabel": "PO Number",
-      "LLabel": "PO Number"
-    },
-    {
-      "name": "VendorNumber",
-      "type": "string",
-      "width": "20",
-      "Option": "Mandatory",
-      "adaptiveCard": "Main",
-      "SLabel": "Vendor Number",
-      "LLabel": "Vendor Number"
-    },
-    {
-      "name": "VendorName",
-      "type": "string",
-      "width": "50",
-      "Option": "Mandatory",
-      "adaptiveCard": "Main",
-      "SLabel": "Vendor Name"
-    },
-    {
-      "name": "VendorEmail",
-      "type": "string",
-      "width": "200",
-      "Option": "Mandatory",
-      "adaptiveCard": "Main",
-      "SLabel": "Vendor Email"
-    },
-    {
-      "name": "DelTo",
-      "type": "string",
-      "width": "100",
-      "Option": "Mandatory",
-      "adaptiveCard": "Main",
-      "SLabel": "Deliver To"
-    },
-    {
-      "name": "Email",
-      "type": "string",
-      "width": "100",
-      "Option": "Mandatory",
-      "adaptiveCard": "Main",
-      "SLabel": "Delivery Email"
-    },
-    {
-      "name": "CurrentStatus",
-      "type": "string",
-      "width": "50",
-      "Option": "Mandatory",
-      "adaptiveCard": "Main",
-      "SLabel": "Current Status",
-      "LLabel": "Current Status"
-    },
-    {
-      "name": "Status",
-      "type": "string",
-      "width": "50",
-      "Option": "Mandatory",
-      "adaptiveCard": "Additional",
-      "SLabel": "Status",
-      "LLabel": "Status"
-    },
-    {
-      "name": "ReferenceID",
-      "type": "string",
-      "width": "20",
-      "Option": "Optional",
-      "adaptiveCard": "None",
-      "SLabel": "ReferenceID"
-    },
-    {
-      "name": "Company",
-      "type": "string",
-      "width": "50",
-      "Option": "Optional",
-      "adaptiveCard": "Additional",
-      "SLabel": "Company",
-      "LLabel": "Company"
-    },
-    {
-      "name": "PaymentTerm",
-      "type": "string",
-      "width": "20",
-      "Option": "Optional",
-      "adaptiveCard": "Additional",
-      "SLabel": "Payment Term"
-    },
-    {
-      "name": "PODate",
-      "type": "Date",
-      "width": "10",
-      "Option": "Mandatory",
-      "adaptiveCard": "Main",
-      "SLabel": "PO Date"
-    },
-    {
-      "name": "Currency",
-      "type": "string",
-      "width": "10",
-      "Option": "Mandatory",
-      "adaptiveCard": "Main",
-      "SLabel": "Currency"
-    },
-    {
-      "name": "PODeliveryDt",
-      "type": "Date",
-      "width": "10",
-      "Option": "Optional",
-      "adaptiveCard": "Additional",
-      "SLabel": "PO Delivery Date"
-    },
-
-    {
-      "name": "Address",
-      "type": "string",
-      "width": "100",
-      "Option": "Optional",
-      "adaptiveCard": "Additional",
-      "SLabel": "Delivery Address"
-    },
-    {
-      "name": "PostCode",
-      "type": "searchField",
-      "width": "20",
-      "linkFields": "Address",
-      "URL": "{URL}/api/v1/util/address/{PostCode}",
-      "URLMethod": "GET",
-      "Token": true,
-      "Option": "Optional",
-      "adaptiveCard": "Additional",
-      "SLabel": "Delivery Post Code"
-    },
-    {
-      "name": "ContactNo",
-      "type": "string",
-      "width": "100",
-      "Option": "Optional",
-      "adaptiveCard": "Additional",
-      "SLabel": "Delivery Phone"
-    },
-    {
-      "name": "DeliveryInstr",
-      "type": "string",
-      "width": "500",
-      "Option": "Optional",
-      "adaptiveCard": "Additional",
-      "SLabel": "Delivery Instruction"
-    },
-    {
-      "name": "AddDetails",
-      "type": "string",
-      "width": "500",
-      "Option": "Optional",
-      "adaptiveCard": "Additional",
-      "SLabel": "Add Details"
-    },
-    {
-      "name": "Attachment",
-      "type": "attachment",
-      "width": "500",
-      "Option": "Optional",
-      "adaptiveCard": "Additional",
-      "SLabel": "Attachment"
-    },
-
-    {
-      "name": "SearchString",
-      "type": "string",
-      "width": "200",
-      "Option": "Optional",
-      "adaptiveCard": "None",
-      "SLabel": "Search String",
-      "LLabel": "Search String"
-    },
-    {
-      "name": "ProgressComment",
-      "type": "string",
-      "width": "1000",
-      "Option": "Optional",
-      "adaptiveCard": "None",
-      "SLabel": "ProgressComment",
-      "LLabel": "ProgressComment"
-    },
-    {
-      "name": "TotalNetVal",
-      "type": "Num,2",
-      "width": "20",
-      "Option": "Optional",
-      "adaptiveCard": "Additional",
-      "SLabel": "Total Net Value",
-      "LLabel": "Total Net Value"
-    },
-    {
-      "name": "TotalTax",
-      "type": "Num,2",
-      "width": "20",
-      "Option": "Optional",
-      "adaptiveCard": "Additional",
-      "SLabel": "Total Tax",
-      "LLabel": "Total Tax"
-    },
-    {
-      "name": "TotalGrossVal",
-      "type": "Num,2",
-      "width": "20",
-      "Option": "Optional",
-      "adaptiveCard": "Additional",
-      "SLabel": "Total Gross Value",
-      "LLabel": "Total Gross Value"
-    },
-    {
-      "name": "AcceptanceStatus",
-      "type": "string",
-      "width": "50",
-      "Option": "Optional",
-      "adaptiveCard": "Additional",
-      "SLabel": "Acceptance Status",
-      "LLabel": "Acceptance Status"
-    },
-    {
-      "name": "ShippingStatus",
-      "type": "string",
-      "width": "50",
-      "Option": "Optional",
-      "adaptiveCard": "Additional",
-      "SLabel": "Shipping Status",
-      "LLabel": "Shipping Status"
-    },
-    {
-      "name": "InvoiceStatus",
-      "type": "string",
-      "width": "50",
-      "Option": "Optional",
-      "adaptiveCard": "Additional",
-      "SLabel": "Invoice Status",
-      "LLabel": "Invoice Status"
-    },
-    {
-      "name": "PaymentStatus",
-      "type": "string",
-      "width": "50",
-      "Option": "Optional",
-      "adaptiveCard": "Additional",
-      "SLabel": "Payment Status",
-      "LLabel": "Payment Status"
-    },
-    {
-      "name": "AcceptanceComment",
-      "type": "string",
-      "width": "20",
-      "Option": "Optional",
-      "adaptiveCard": "Additional",
-      "SLabel": "Acceptance Comment",
-      "LLabel": "Acceptance Comment"
-    },
-    {
-      "name": "QuestionCategory",
-      "type": "string",
-      "width": "100",
-      "Option": "Optional",
-      "adaptiveCard": "Additional",
-      "SLabel": "Question Category",
-      "LLabel": "Question Category"
-    },
-    {
-      "name": "CommsDetails",
-      "type": "string",
-      "width": "1000",
-      "Option": "Optional",
-      "adaptiveCard": "Additional",
-      "SLabel": "Question Details",
-      "LLabel": "Question Details"
-    },
-    {
-      "name": "TotalInvNetVal",
-      "type": "string",
-      "width": "20",
-      "Option": "Optional",
-      "adaptiveCard": "Additional",
-      "SLabel": "Total Invoice Net Value",
-      "LLabel": "Total Invoice Net Value"
-    },
-    {
-      "name": "TotalInvGrossVal",
-      "type": "string",
-      "width": "20",
-      "Option": "Optional",
-      "adaptiveCard": "Additional",
-      "SLabel": "Total Invoice Gross Value",
-      "LLabel": "Total Invoice Gross Value"
-    },
-    {
-      "name": "GRStatus",
-      "type": "string",
-      "width": "100",
-      "Option": "Optional",
-      "adaptiveCard": "Additional",
-      "SLabel": "GR Status",
-      "LLabel": "GR Status"
-    },
-    {
-      "name": "GRComments",
-      "type": "string",
-      "width": "500",
-      "Option": "Optional",
-      "adaptiveCard": "Additional",
-      "SLabel": "GR Comments",
-      "LLabel": "GR Comments"
-    },
-
-    {
-      "name": "SupplierInvoiceNumber",
-      "type": "string",
-      "width": "50",
-      "Option": "Optional",
-      "adaptiveCard": "Additional",
-      "SLabel": "Supplier Invoice Number",
-      "LLabel": "SupplierInvoiceNumber"
-    },
-    {
-      "name": "StatusState",
-      "type": "string",
-      "width": "20",
-      "Option": "Optional",
-      "adaptiveCard": "Additional",
-      "SLabel": "StatusState"
-    },
-    {
-      "name": "cardImage",
-      "type": "string",
-      "width": "500",
-      "Option": "Optional",
-      "adaptiveCard": "Additional",
-      "SLabel": "cardImage"
-    },
-    {
-      "name": "iData",
-      "type": "Array",
-      "width": "200",
-      "Option": "Optional",
-      "adaptiveCard": "None",
-      "SLabel": "Item Data",
-      "LLabel": "Item Data"
-    },
-    {
-      "name": "MultiAttachments",
-      "type": "attachment",
-      "metadata": "MultipleFields",
-      "width": "200",
-      "Option": "Optional",
-      "adaptiveCard": "None",
-      "SLabel": "MultiAttachments",
-      "LLabel": "MultiAttachments"
-    }
-  ],
-  "tableConfig": {
+  "tableConfig": {   
     "iData": {
       "calculation": "Yes",
       "title": "Item Details",
@@ -1101,8 +730,570 @@
         { "name": "ItemShippingStatus" },
         { "name": "InvVATPer" }
       ]
+    } ,
+    "actionLog": {
+    "title": "Action Log",
+    "subtitle": "Action Log",
+    "ItemFieldDefinition": [
+      {
+        "name": "ItemNumber",
+        "type": "string",
+        "width": "10",
+        "Option": "Optional",
+        "adaptiveCard": "Additional",
+        "SLabel": "Item Number",
+        "Update": "No"
+      },
+      {
+        "name": "ItemActive",
+        "type": "string",
+        "width": "50",
+        "Option": "Optional",
+        "adaptiveCard": "Additional",
+        "SLabel": "Status",
+        "Update": "Yes"
+      },
+      {
+        "name": "Type",
+        "type": "string",
+        "width": "50",
+        "Option": "Optional",
+        "adaptiveCard": "Main",
+        "SLabel": "Type"
+      },
+      {
+        "name": "buttonType",
+        "type": "string",
+        "width": "100",
+        "Option": "Optional",
+        "adaptiveCard": "Main",
+        "SLabel": "buttonType"
+      },
+      {
+        "name": "Transaction",
+        "type": "string",
+        "width": "100",
+        "Option": "Optional",
+        "adaptiveCard": "Main",
+        "SLabel": "Transaction"
+      },
+      {
+        "name": "DetailLog",
+        "type": "Array",
+        "width": "200",
+        "Option": "Optional",
+        "adaptiveCard": "None",
+        "SLabel": "Detail Log"
+      },
+      {
+        "name": "ID",
+        "type": "string",
+        "width": "20",
+        "Option": "Optional",
+        "adaptiveCard": "Additional",
+        "SLabel": "Identification"
+      },
+      {
+        "name": "User",
+        "type": "string",
+        "width": "200",
+        "Option": "Optional",
+        "adaptiveCard": "Additional",
+        "SLabel": "User"
+      },
+      {
+        "name": "UserName",
+        "type": "string",
+        "width": "100",
+        "Option": "Optional",
+        "adaptiveCard": "Additional",
+        "SLabel": "User Name"
+      },
+      {
+        "name": "Status",
+        "type": "string",
+        "width": "50",
+        "Option": "Optional",
+        "adaptiveCard": "Additional",
+        "SLabel": "Status"
+      },
+      {
+        "name": "Role",
+        "type": "string",
+        "width": "100",
+        "Option": "Optional",
+        "adaptiveCard": "Additional",
+        "SLabel": "Role"
+      },
+      {
+        "name": "TimeStamp",
+        "type": "DateTime",
+        "width": "20",
+        "Option": "Optional",
+        "adaptiveCard": "Additional",
+        "SLabel": "TimeStamp"
+      },
+      {
+        "name": "applicationId",
+        "type": "string",
+        "width": "100",
+        "Option": "Optional",
+        "adaptiveCard": "Additional",
+        "SLabel": "applicationId"
+      }
+    ],
+    "DisplayFields": [
+      "Type",
+      "buttonType",
+      "Transaction",
+      "DetailLog",
+      "ID",
+      "User",
+      "UserName",
+      "Status",
+      "Role",
+      "applicationId",
+      "ItemActive"
+    ],
+    "detailCharts": [],
+    "cards": [],
+    "ItemButtons": {
+      "itemDisplay": true,
+      "itemCheck": false,
+      "itemAdd": true,
+      "itemEdit": true,
+      "itemDelete": false,
+      "additionalButtons": [
+        {
+          "name": "Detail Log",
+          "type": "SUBITEM",
+          "subTable": "DetailLog",
+          "displayFields": [
+            {
+              "name": "Key",
+              "SLabel": "Key",
+              "type": "string"
+            },
+            {
+              "name": "Value",
+              "type": "string",
+              "SLabel": "Value"
+            }
+          ]
+        }
+      ]
+    },
+    "CreateFields": [
+      "Type",
+      "buttonType",
+      "Transaction",
+      "DetailLog",
+      "ID",
+      "User",
+      "UserName",
+      "Status",
+      "Role",
+      "applicationId",
+      "ItemActive"
+    ],
+    "ItemDetails": [
+      { "name": "Type" },
+      { "name": "buttonType" },
+      { "name": "Transaction" },
+      { "name": "DetailLog" },
+      { "name": "ID" },
+      { "name": "User" },
+      { "name": "UserName" },
+      { "name": "Status" },
+      { "name": "Role" },
+      { "name": "applicationId" },
+      { "name": "TimeStamp" },
+      { "name": "ItemActive" }
+    ]
+  }
+},
+  "FieldDef": [
+    {
+      "name": "ID",
+      "type": "string",
+      "width": "20",
+      "Option": "Mandatory",
+      "adaptiveCard": "None",
+      "SLabel": "Identification",
+      "Update": "No"
+    },
+    {
+      "name": "actionLog",
+      "type": "Array",
+      "width": "200",
+      "Option": "Optional",
+      "adaptiveCard": "None",
+      "SLabel": "actionLog",
+      "LLabel": "actionLog"
+    },
+
+    {
+      "name": "PONumber",
+      "type": "string",
+      "width": "20",
+      "Option": "Mandatory",
+      "adaptiveCard": "Main",
+      "SLabel": "PO Number",
+      "LLabel": "PO Number"
+    },
+    {
+      "name": "VendorNumber",
+      "type": "string",
+      "width": "20",
+      "Option": "Mandatory",
+      "adaptiveCard": "Main",
+      "SLabel": "Vendor Number",
+      "LLabel": "Vendor Number"
+    },
+    {
+      "name": "VendorName",
+      "type": "string",
+      "width": "50",
+      "Option": "Mandatory",
+      "adaptiveCard": "Main",
+      "SLabel": "Vendor Name"
+    },
+    {
+      "name": "VendorEmail",
+      "type": "string",
+      "width": "200",
+      "Option": "Mandatory",
+      "adaptiveCard": "Main",
+      "SLabel": "Vendor Email"
+    },
+    {
+      "name": "DelTo",
+      "type": "string",
+      "width": "100",
+      "Option": "Mandatory",
+      "adaptiveCard": "Main",
+      "SLabel": "Deliver To"
+    },
+    {
+      "name": "Email",
+      "type": "string",
+      "width": "100",
+      "Option": "Mandatory",
+      "adaptiveCard": "Main",
+      "SLabel": "Delivery Email"
+    },
+    {
+      "name": "CurrentStatus",
+      "type": "string",
+      "width": "50",
+      "Option": "Mandatory",
+      "adaptiveCard": "Main",
+      "SLabel": "Current Status",
+      "LLabel": "Current Status"
+    },
+    {
+      "name": "Status",
+      "type": "string",
+      "width": "50",
+      "Option": "Mandatory",
+      "adaptiveCard": "Additional",
+      "SLabel": "Status",
+      "LLabel": "Status"
+    },
+    {
+      "name": "ReferenceID",
+      "type": "string",
+      "width": "20",
+      "Option": "Optional",
+      "adaptiveCard": "None",
+      "SLabel": "ReferenceID"
+    },
+    {
+      "name": "Company",
+      "type": "string",
+      "width": "50",
+      "Option": "Optional",
+      "adaptiveCard": "Additional",
+      "SLabel": "Company",
+      "LLabel": "Company"
+    },
+    {
+      "name": "PaymentTerm",
+      "type": "string",
+      "width": "20",
+      "Option": "Optional",
+      "adaptiveCard": "Additional",
+      "SLabel": "Payment Term"
+    },
+    {
+      "name": "PODate",
+      "type": "Date",
+      "width": "10",
+      "Option": "Mandatory",
+      "adaptiveCard": "Main",
+      "SLabel": "PO Date"
+    },
+    {
+      "name": "Currency",
+      "type": "string",
+      "width": "10",
+      "Option": "Mandatory",
+      "adaptiveCard": "Main",
+      "SLabel": "Currency"
+    },
+    {
+      "name": "PODeliveryDt",
+      "type": "Date",
+      "width": "10",
+      "Option": "Optional",
+      "adaptiveCard": "Additional",
+      "SLabel": "PO Delivery Date"
+    },
+
+    {
+      "name": "Address",
+      "type": "string",
+      "width": "100",
+      "Option": "Optional",
+      "adaptiveCard": "Additional",
+      "SLabel": "Delivery Address"
+    },
+    {
+      "name": "PostCode",
+      "type": "searchField",
+      "width": "20",
+      "linkFields": "Address",
+      "URL": "{URL}/api/v1/util/address/{PostCode}",
+      "URLMethod": "GET",
+      "Token": true,
+      "Option": "Optional",
+      "adaptiveCard": "Additional",
+      "SLabel": "Delivery Post Code"
+    },
+    {
+      "name": "ContactNo",
+      "type": "string",
+      "width": "100",
+      "Option": "Optional",
+      "adaptiveCard": "Additional",
+      "SLabel": "Delivery Phone"
+    },
+    {
+      "name": "DeliveryInstr",
+      "type": "string",
+      "width": "500",
+      "Option": "Optional",
+      "adaptiveCard": "Additional",
+      "SLabel": "Delivery Instruction"
+    },
+    {
+      "name": "AddDetails",
+      "type": "string",
+      "width": "500",
+      "Option": "Optional",
+      "adaptiveCard": "Additional",
+      "SLabel": "Add Details"
+    },
+    {
+      "name": "Attachment",
+      "type": "attachment",
+      "width": "500",
+      "Option": "Optional",
+      "adaptiveCard": "Additional",
+      "SLabel": "Attachment"
+    },
+
+    {
+      "name": "SearchString",
+      "type": "string",
+      "width": "200",
+      "Option": "Optional",
+      "adaptiveCard": "None",
+      "SLabel": "Search String",
+      "LLabel": "Search String"
+    },
+    {
+      "name": "ProgressComment",
+      "type": "string",
+      "width": "1000",
+      "Option": "Optional",
+      "adaptiveCard": "None",
+      "SLabel": "ProgressComment",
+      "LLabel": "ProgressComment"
+    },
+    {
+      "name": "TotalNetVal",
+      "type": "Num,2",
+      "width": "20",
+      "Option": "Optional",
+      "adaptiveCard": "Additional",
+      "SLabel": "Total Net Value",
+      "LLabel": "Total Net Value"
+    },
+    {
+      "name": "TotalTax",
+      "type": "Num,2",
+      "width": "20",
+      "Option": "Optional",
+      "adaptiveCard": "Additional",
+      "SLabel": "Total Tax",
+      "LLabel": "Total Tax"
+    },
+    {
+      "name": "TotalGrossVal",
+      "type": "Num,2",
+      "width": "20",
+      "Option": "Optional",
+      "adaptiveCard": "Additional",
+      "SLabel": "Total Gross Value",
+      "LLabel": "Total Gross Value"
+    },
+    {
+      "name": "AcceptanceStatus",
+      "type": "string",
+      "width": "50",
+      "Option": "Optional",
+      "adaptiveCard": "Additional",
+      "SLabel": "Acceptance Status",
+      "LLabel": "Acceptance Status"
+    },
+    {
+      "name": "ShippingStatus",
+      "type": "string",
+      "width": "50",
+      "Option": "Optional",
+      "adaptiveCard": "Additional",
+      "SLabel": "Shipping Status",
+      "LLabel": "Shipping Status"
+    },
+    {
+      "name": "InvoiceStatus",
+      "type": "string",
+      "width": "50",
+      "Option": "Optional",
+      "adaptiveCard": "Additional",
+      "SLabel": "Invoice Status",
+      "LLabel": "Invoice Status"
+    },
+    {
+      "name": "PaymentStatus",
+      "type": "string",
+      "width": "50",
+      "Option": "Optional",
+      "adaptiveCard": "Additional",
+      "SLabel": "Payment Status",
+      "LLabel": "Payment Status"
+    },
+    {
+      "name": "AcceptanceComment",
+      "type": "string",
+      "width": "20",
+      "Option": "Optional",
+      "adaptiveCard": "Additional",
+      "SLabel": "Acceptance Comment",
+      "LLabel": "Acceptance Comment"
+    },
+    {
+      "name": "QuestionCategory",
+      "type": "string",
+      "width": "100",
+      "Option": "Optional",
+      "adaptiveCard": "Additional",
+      "SLabel": "Question Category",
+      "LLabel": "Question Category"
+    },
+    {
+      "name": "CommsDetails",
+      "type": "string",
+      "width": "1000",
+      "Option": "Optional",
+      "adaptiveCard": "Additional",
+      "SLabel": "Question Details",
+      "LLabel": "Question Details"
+    },
+    {
+      "name": "TotalInvNetVal",
+      "type": "string",
+      "width": "20",
+      "Option": "Optional",
+      "adaptiveCard": "Additional",
+      "SLabel": "Total Invoice Net Value",
+      "LLabel": "Total Invoice Net Value"
+    },
+    {
+      "name": "TotalInvGrossVal",
+      "type": "string",
+      "width": "20",
+      "Option": "Optional",
+      "adaptiveCard": "Additional",
+      "SLabel": "Total Invoice Gross Value",
+      "LLabel": "Total Invoice Gross Value"
+    },
+    {
+      "name": "GRStatus",
+      "type": "string",
+      "width": "100",
+      "Option": "Optional",
+      "adaptiveCard": "Additional",
+      "SLabel": "GR Status",
+      "LLabel": "GR Status"
+    },
+    {
+      "name": "GRComments",
+      "type": "string",
+      "width": "500",
+      "Option": "Optional",
+      "adaptiveCard": "Additional",
+      "SLabel": "GR Comments",
+      "LLabel": "GR Comments"
+    },
+
+    {
+      "name": "SupplierInvoiceNumber",
+      "type": "string",
+      "width": "50",
+      "Option": "Optional",
+      "adaptiveCard": "Additional",
+      "SLabel": "Supplier Invoice Number",
+      "LLabel": "SupplierInvoiceNumber"
+    },
+    {
+      "name": "StatusState",
+      "type": "string",
+      "width": "20",
+      "Option": "Optional",
+      "adaptiveCard": "Additional",
+      "SLabel": "StatusState"
+    },
+    {
+      "name": "cardImage",
+      "type": "string",
+      "width": "500",
+      "Option": "Optional",
+      "adaptiveCard": "Additional",
+      "SLabel": "cardImage"
+    },
+    {
+      "name": "iData",
+      "type": "Array",
+      "width": "200",
+      "Option": "Optional",
+      "adaptiveCard": "None",
+      "SLabel": "Item Data",
+      "LLabel": "Item Data"
+    },
+    {
+      "name": "MultiAttachments",
+      "type": "attachment",
+      "metadata": "MultipleFields",
+      "width": "200",
+      "Option": "Optional",
+      "adaptiveCard": "None",
+      "SLabel": "MultiAttachments",
+      "LLabel": "MultiAttachments"
     }
-  },
+  ],
+
   "ItemData": "No",
   "itemConfig": {
     "ItemFieldDefinition": [],
