@@ -604,7 +604,7 @@ exports.updateDataRecords = asyncHandler(async (req, res, next) => {
     req.body.userName,
     Status,
     req.body.applicationId,
-    "Document is updated",
+    "UPDATE",
     req.headers.buttontype,
     req.headers.buttonname,
     req.body.ProgressComment

@@ -143,6 +143,15 @@
           "name": "ProgressComment",
           "type": "string",
           "option": "Optional"
+        },
+        {
+          "name": "Attachment",
+          "type": "singleAttachment",
+          "width": "100",
+          "SLabel": "Item Attachment",
+          "Option": "Optional",
+          "adaptiveCard": "None",
+          "Update": "Yes"
         }
       ],
       "transferFields": [
@@ -154,6 +163,7 @@
         { "field": "IBAN", "value": "@IBAN" },
         { "field": "SwiftKey", "value": "@SwiftKey" },
         { "field": "BankName", "value": "@BankName" },
+        { "field": "Attachment", "value": "@Attachment" },
         { "field": "ProgressComment", "value": "@UserInput" }
       ],
       "URL": "datarecords/",
