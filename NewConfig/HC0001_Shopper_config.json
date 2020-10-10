@@ -343,7 +343,7 @@
       "tableFormFields": [
         {
           "GrpTitle": "Totals",
-          "Fields": ["StudyValue"]
+          "Fields": ["DisclosedValue"]
         }
       ],
       "ItemFieldDefinition": [
@@ -380,6 +380,15 @@
           "SLabel": "Amount",
           "Option": "Mandatory",
           "adaptiveCard": "Main",
+          "Update": "Yes"
+        },
+        {
+          "name": "DisclosedValue",
+          "type": "Num,1",
+          "width": "20",
+          "SLabel": "Disclosed Value",
+          "Option": "Optional",
+          "adaptiveCard": "Additional",
           "Update": "Yes"
         },
         {
@@ -1035,7 +1044,6 @@
         { "name": "Type" },
         { "name": "buttonType" },
         { "name": "Transaction" },
-
         { "name": "ID" },
         { "name": "User" },
         { "name": "UserName" },
@@ -1519,7 +1527,20 @@
   },
   "CalculatedFields": {
     "Item": [],
-    "HeaderItem": [],
+    "HeaderItem": [
+      {
+        "CalculatedFormula": {
+          "name": "ITEMSUM",
+          "table": "myExpenses",
+          "function": "ITEMSUM",
+          "Target": "DisclosedValue",
+          "type": "HeaderItem"
+        },
+        "Fields": [
+          { "Source": "PaymentAmount", "Type": { "type": "HeaderItem" } }
+        ]
+      }
+    ],
     "Header": []
   },
   "Create": "No",
