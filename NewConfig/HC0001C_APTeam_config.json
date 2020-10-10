@@ -297,15 +297,6 @@
       "type": "Table",
       "fioriicon": "contacts"
     }
-,
-    {
-      "value": "Tab99",
-      "style": "SAP",
-      "update": "Yes",
-      "name": "actionLog",
-      "type": "Table",
-      "fioriicon": "workflow-tasks"
-    }
   ],
   "DetailFields": {
     "headerTitle": ["USP_Name"],
@@ -314,7 +305,6 @@
     "headerColorFields": ["Status"],
     "Tab0": ["data"],
     "Tab20": ["charts"],
-    "Tab99": ["actionLog"],
     "None": ["ID"],
     "Tab1": [
       "Title",
@@ -706,7 +696,7 @@
         { "name": "Services" }
       ]
     },
-    "actionLog": {
+        "actionLog": {
       "title": "Action Log",
       "subtitle": "Action Log",
       "ItemFieldDefinition": [
@@ -752,7 +742,14 @@
           "adaptiveCard": "Main",
           "SLabel": "Transaction"
         },
-
+        {
+          "name": "DetailLog",
+          "type": "Array",
+          "width": "200",
+          "Option": "Optional",
+          "adaptiveCard": "None",
+          "SLabel": "Detail Log"
+        },
         {
           "name": "ID",
           "type": "string",
@@ -814,6 +811,7 @@
         "Type",
         "buttonType",
         "Transaction",
+        "DetailLog",
         "ID",
         "User",
         "UserName",
@@ -854,6 +852,7 @@
         "Type",
         "buttonType",
         "Transaction",
+        "DetailLog",
         "ID",
         "User",
         "UserName",
@@ -866,7 +865,7 @@
         { "name": "Type" },
         { "name": "buttonType" },
         { "name": "Transaction" },
-
+        { "name": "DetailLog" },
         { "name": "ID" },
         { "name": "User" },
         { "name": "UserName" },
