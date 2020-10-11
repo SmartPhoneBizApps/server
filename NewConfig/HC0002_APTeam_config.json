@@ -4,10 +4,81 @@
   "Controls": {
     "style": "Google",
     "calculation": "Yes",
-    "processflow": "Yes",
+    "processflow": {
+      "active": "Yes",
+      "config": [
+        {
+          "Stage": "currentDoc",
+          "ApplicationID": "HC0002",
+          "Table": "Header",
+          "id": "0",
+          "label": "Study/Trial",
+          "fieldMap": {
+            "id": "@counter",
+            "lane": 0,
+            "title": "Study/Trial @ID",
+            "titleAbbreviation": "Joint Working",
+            "children": [],
+            "state": "Positive",
+            "stateText": "OK status",
+            "focused": true,
+            "highlighted": false,
+            "texts": "Collaboration between HCP and pharma organisations on trials is essential to the development of new medicines"
+          }
+        }
+      ],
+
+      "lanes": [
+        {
+          "id": "0",
+          "icon": "sap-icon://doctor",
+          "label": "Study/Trial",
+          "position": 0
+        },
+        {
+          "id": "1",
+          "icon": "sap-icon://order-status",
+          "label": "Order Processing",
+          "position": 1
+        },
+        {
+          "id": "2",
+          "icon": "sap-icon://payment-approval",
+          "label": "Invoicing",
+          "position": 2
+        },
+        {
+          "id": "3",
+          "icon": "sap-icon://money-bills",
+          "label": "Accounting",
+          "position": 3
+        },
+        {
+          "id": "4",
+          "icon": "sap-icon://payment-approval",
+          "label": "Payment Processing",
+          "position": 4
+        }
+      ],
+      "node": {
+        "fields": [
+          "id",
+          "lane",
+          "title",
+          "titleAbbreviation",
+          "children",
+          "state",
+          "stateText",
+          "focused",
+          "highlighted",
+          "texts"
+        ]
+      }
+    },
     "USP": "UserProfile",
     "StatusColor": "Yes",
     "SearchString": { "Search": false },
+
     "Filters": [
       {
         "$and": [{ "myHCPHCO.ItemActive": { "$ne": "Completed" } }]
@@ -189,8 +260,7 @@
       "name": "Images",
       "type": "carouselImage",
       "fioriicon": "contacts"
-    }
-,
+    },
     {
       "value": "Tab99",
       "style": "SAP",
@@ -1223,54 +1293,54 @@
         "itemAdd": false,
         "itemEdit": true,
         "itemDelete": true,
-        "additionalButtons": [          
+        "additionalButtons": [
           {
-          "name": "Bank",
-          "type": "SUBITEM",
-          "subTable": "Bank",
-          "displayFields": [
-            {
-              "name": "ItemNumber",
-              "SLabel": "Item Number",
-              "type": "string"
-            },
-            {
-              "name": "ItemActive",
-              "type": "string",
-              "SLabel": "Status"
-            },
-            {
-              "name": "BankCountry",
-              "type": "string",
-              "SLabel": "Bank Country"
-            },
-            {
-              "name": "AccountNumber",
-              "type": "string",
-              "SLabel": "Account Number"
-            },
-            {
-              "name": "BankKey",
-              "type": "Email",
-              "SLabel": "Bank Key"
-            },
-            {
-              "name": "SwiftKey",
-              "type": "string",
-              "SLabel": "Swift Key"
-            },
-            {
-              "name": "BankName",
-              "type": "string",
-              "SLabel": "Bank Name"
-            },
-            {
-              "name": "IBAN",
-              "type": "string",
-              "SLabel": "IBAN"
-            }
-          ]
-        },
+            "name": "Bank",
+            "type": "SUBITEM",
+            "subTable": "Bank",
+            "displayFields": [
+              {
+                "name": "ItemNumber",
+                "SLabel": "Item Number",
+                "type": "string"
+              },
+              {
+                "name": "ItemActive",
+                "type": "string",
+                "SLabel": "Status"
+              },
+              {
+                "name": "BankCountry",
+                "type": "string",
+                "SLabel": "Bank Country"
+              },
+              {
+                "name": "AccountNumber",
+                "type": "string",
+                "SLabel": "Account Number"
+              },
+              {
+                "name": "BankKey",
+                "type": "Email",
+                "SLabel": "Bank Key"
+              },
+              {
+                "name": "SwiftKey",
+                "type": "string",
+                "SLabel": "Swift Key"
+              },
+              {
+                "name": "BankName",
+                "type": "string",
+                "SLabel": "Bank Name"
+              },
+              {
+                "name": "IBAN",
+                "type": "string",
+                "SLabel": "IBAN"
+              }
+            ]
+          },
           {
             "name": "ContactPerson",
             "type": "SUBITEM",

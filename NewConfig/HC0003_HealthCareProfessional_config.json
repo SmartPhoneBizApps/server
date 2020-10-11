@@ -4,7 +4,57 @@
   "Controls": {
     "style": "SAP",
     "calculation": "Yes",
-    "processflow": "Yes",
+    "processflow": {
+      "active": "Yes",
+      "lanes": [
+        {
+          "id": "0",
+          "icon": "sap-icon://doctor",
+          "label": "Study/Trial",
+          "position": 0
+        },
+        {
+          "id": "1",
+          "icon": "sap-icon://order-status",
+          "label": "Order Processing",
+          "position": 1
+        },
+        {
+          "id": "2",
+          "icon": "sap-icon://payment-approval",
+          "label": "Invoicing",
+          "position": 2
+        },
+        {
+          "id": "3",
+          "icon": "sap-icon://money-bills",
+          "label": "Accounting",
+          "position": 3
+        },
+        {
+          "id": "4",
+          "icon": "sap-icon://payment-approval",
+          "label": "Payment Processing",
+          "position": 4
+        }
+      ],
+      "node": [
+        {
+          "fields": [
+            "id",
+            "lane",
+            "title",
+            "titleAbbreviation",
+            "children",
+            "state",
+            "stateText",
+            "focused",
+            "highlighted",
+            "texts"
+          ]
+        }
+      ]
+    },
     "USP": "UserProfile",
     "StatusColor": "Yes",
     "SearchString": { "Search": false },
@@ -227,8 +277,7 @@
       "name": "Images",
       "type": "carouselImage",
       "fioriicon": "contacts"
-    }
-,
+    },
     {
       "value": "Tab99",
       "style": "SAP",

@@ -83,12 +83,27 @@ exports.getDetailCardsNew = async (req, res, next) => {
   } else {
     // Get list of records
   }
-
+  let pflow = {};
+  let nod = {};
+  let nods = [];
+  let nodFields = [];
   if (appconfig["Controls"].hasOwnProperty("processflow")) {
-    if (appconfig["Controls"]["processflow"] == "Yes") {
-      let pf = "../../NewConfig/processflow.json";
-      var pflow = require(pf);
-      console.log("PROCESS-FLOW");
+    if (appconfig["Controls"]["processflow"]["active"] == "Yes") {
+      console.log("Process Flow");
+      //let pf = "../../NewConfig/processflow.json";
+      //      pflow = require(pf);
+      pflow["lanes"] = appconfig["Controls"]["processflow"]["lanes"];
+      nodFields = appconfig["Controls"]["processflow"]["config"];
+
+      for (let a = 0; a < nodFields.length; a++) {
+        nod = nodFields[a]["fieldMap"];
+        nod["id"] = a;
+        nod["title"] = nod["title"].replace("@ID", appData["ID"]);
+        nods.push({ ...nod });
+        nod = {};
+      }
+      pflow["nodes"] = nods;
+      nods = [];
       appData["processflow"] = pflow;
     }
   }
