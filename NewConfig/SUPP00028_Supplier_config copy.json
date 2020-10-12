@@ -3,7 +3,7 @@
     "ApplicationTitle": "Suplier Invoice (Supplier view)",
     "DetailTitle": "Suplier Invoice (Supplier view)"
   },
-  "Constants":{},
+  "Constants": {},
   "Controls": {
     "style": "SAP",
     "calculation": "No",
@@ -215,8 +215,7 @@
       "fioriicon": "survey",
       "type": "Field",
       "download": "Yes"
-    }
-,
+    },
     {
       "value": "Tab99",
       "style": "SAP",
@@ -708,7 +707,12 @@
         "SLabel": "Inv VAT Percentage"
       },
       { "name": "POQty", "type": "Num,0", "width": "10", "SLabel": "PO Qty" },
-      { "name": "POUOM", "type": "string", "width": "10", "SLabel": "PO UOM" },
+      {
+        "name": "POUOM",
+        "type": "string",
+        "width": "10",
+        "SLabel": "PO UOM"
+      },
       {
         "name": "POPrice",
         "type": "Num,1",

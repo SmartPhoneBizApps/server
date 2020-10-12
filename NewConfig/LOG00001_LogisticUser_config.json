@@ -3,7 +3,7 @@
     "ApplicationTitle": "Book Shipment",
     "DetailTitle": "Book Shipment"
   },
-  "Constants":{},
+  "Constants": {},
   "Controls": {
     "style": "SAP",
     "calculation": "No",
@@ -149,8 +149,7 @@
       "name": "Attachment",
       "fioriicon": "hint",
       "type": "Attachment"
-    }
-,
+    },
     {
       "value": "Tab99",
       "style": "SAP",
@@ -176,178 +175,178 @@
     "Tab5": ["Photos"]
   },
   "ControlDisplay": {},
-  "tableConfig": {    
+  "tableConfig": {
     "actionLog": {
-    "title": "Action Log",
-    "subtitle": "Action Log",
-    "ItemFieldDefinition": [
-      {
-        "name": "ItemNumber",
-        "type": "string",
-        "width": "10",
-        "Option": "Optional",
-        "adaptiveCard": "Additional",
-        "SLabel": "Item Number",
-        "Update": "No"
-      },
-      {
-        "name": "ItemActive",
-        "type": "string",
-        "width": "50",
-        "Option": "Optional",
-        "adaptiveCard": "Additional",
-        "SLabel": "Status",
-        "Update": "Yes"
-      },
-      {
-        "name": "Type",
-        "type": "string",
-        "width": "50",
-        "Option": "Optional",
-        "adaptiveCard": "Main",
-        "SLabel": "Type"
-      },
-      {
-        "name": "buttonType",
-        "type": "string",
-        "width": "100",
-        "Option": "Optional",
-        "adaptiveCard": "Main",
-        "SLabel": "buttonType"
-      },
-      {
-        "name": "Transaction",
-        "type": "string",
-        "width": "100",
-        "Option": "Optional",
-        "adaptiveCard": "Main",
-        "SLabel": "Transaction"
-      },
-
-      {
-        "name": "ID",
-        "type": "string",
-        "width": "20",
-        "Option": "Optional",
-        "adaptiveCard": "Additional",
-        "SLabel": "Identification"
-      },
-      {
-        "name": "User",
-        "type": "string",
-        "width": "200",
-        "Option": "Optional",
-        "adaptiveCard": "Additional",
-        "SLabel": "User"
-      },
-      {
-        "name": "UserName",
-        "type": "string",
-        "width": "100",
-        "Option": "Optional",
-        "adaptiveCard": "Additional",
-        "SLabel": "User Name"
-      },
-      {
-        "name": "Status",
-        "type": "string",
-        "width": "50",
-        "Option": "Optional",
-        "adaptiveCard": "Additional",
-        "SLabel": "Status"
-      },
-      {
-        "name": "Role",
-        "type": "string",
-        "width": "100",
-        "Option": "Optional",
-        "adaptiveCard": "Additional",
-        "SLabel": "Role"
-      },
-      {
-        "name": "TimeStamp",
-        "type": "DateTime",
-        "width": "20",
-        "Option": "Optional",
-        "adaptiveCard": "Additional",
-        "SLabel": "TimeStamp"
-      },
-      {
-        "name": "applicationId",
-        "type": "string",
-        "width": "100",
-        "Option": "Optional",
-        "adaptiveCard": "Additional",
-        "SLabel": "applicationId"
-      }
-    ],
-    "DisplayFields": [
-      "Type",
-      "buttonType",
-      "Transaction",
-      "ID",
-      "User",
-      "UserName",
-      "Status",
-      "Role",
-      "applicationId",
-      "ItemActive"
-    ],
-    "detailCharts": [],
-    "cards": [],
-    "ItemButtons": {
-      "itemDisplay": true,
-      "itemCheck": false,
-      "itemAdd": false,
-      "itemEdit": false,
-      "itemDelete": false,
-      "additionalButtons": [
+      "title": "Action Log",
+      "subtitle": "Action Log",
+      "ItemFieldDefinition": [
         {
-          "name": "Detail Log",
-          "type": "SUBITEM",
-          "subTable": "DetailLog",
-          "displayFields": [
-            {
-              "name": "Key",
-              "SLabel": "Key",
-              "type": "string"
-            },
-            {
-              "name": "Value",
-              "type": "string",
-              "SLabel": "Value"
-            }
-          ]
+          "name": "ItemNumber",
+          "type": "string",
+          "width": "10",
+          "Option": "Optional",
+          "adaptiveCard": "Additional",
+          "SLabel": "Item Number",
+          "Update": "No"
+        },
+        {
+          "name": "ItemActive",
+          "type": "string",
+          "width": "50",
+          "Option": "Optional",
+          "adaptiveCard": "Additional",
+          "SLabel": "Status",
+          "Update": "Yes"
+        },
+        {
+          "name": "Type",
+          "type": "string",
+          "width": "50",
+          "Option": "Optional",
+          "adaptiveCard": "Main",
+          "SLabel": "Type"
+        },
+        {
+          "name": "buttonType",
+          "type": "string",
+          "width": "100",
+          "Option": "Optional",
+          "adaptiveCard": "Main",
+          "SLabel": "buttonType"
+        },
+        {
+          "name": "Transaction",
+          "type": "string",
+          "width": "100",
+          "Option": "Optional",
+          "adaptiveCard": "Main",
+          "SLabel": "Transaction"
+        },
+
+        {
+          "name": "ID",
+          "type": "string",
+          "width": "20",
+          "Option": "Optional",
+          "adaptiveCard": "Additional",
+          "SLabel": "Identification"
+        },
+        {
+          "name": "User",
+          "type": "string",
+          "width": "200",
+          "Option": "Optional",
+          "adaptiveCard": "Additional",
+          "SLabel": "User"
+        },
+        {
+          "name": "UserName",
+          "type": "string",
+          "width": "100",
+          "Option": "Optional",
+          "adaptiveCard": "Additional",
+          "SLabel": "User Name"
+        },
+        {
+          "name": "Status",
+          "type": "string",
+          "width": "50",
+          "Option": "Optional",
+          "adaptiveCard": "Additional",
+          "SLabel": "Status"
+        },
+        {
+          "name": "Role",
+          "type": "string",
+          "width": "100",
+          "Option": "Optional",
+          "adaptiveCard": "Additional",
+          "SLabel": "Role"
+        },
+        {
+          "name": "TimeStamp",
+          "type": "DateTime",
+          "width": "20",
+          "Option": "Optional",
+          "adaptiveCard": "Additional",
+          "SLabel": "TimeStamp"
+        },
+        {
+          "name": "applicationId",
+          "type": "string",
+          "width": "100",
+          "Option": "Optional",
+          "adaptiveCard": "Additional",
+          "SLabel": "applicationId"
         }
+      ],
+      "DisplayFields": [
+        "Type",
+        "buttonType",
+        "Transaction",
+        "ID",
+        "User",
+        "UserName",
+        "Status",
+        "Role",
+        "applicationId",
+        "ItemActive"
+      ],
+      "detailCharts": [],
+      "cards": [],
+      "ItemButtons": {
+        "itemDisplay": true,
+        "itemCheck": false,
+        "itemAdd": false,
+        "itemEdit": false,
+        "itemDelete": false,
+        "additionalButtons": [
+          {
+            "name": "Detail Log",
+            "type": "SUBITEM",
+            "subTable": "DetailLog",
+            "displayFields": [
+              {
+                "name": "Key",
+                "SLabel": "Key",
+                "type": "string"
+              },
+              {
+                "name": "Value",
+                "type": "string",
+                "SLabel": "Value"
+              }
+            ]
+          }
+        ]
+      },
+      "CreateFields": [
+        "Type",
+        "buttonType",
+        "Transaction",
+        "ID",
+        "User",
+        "UserName",
+        "Status",
+        "Role",
+        "applicationId",
+        "ItemActive"
+      ],
+      "ItemDetails": [
+        { "name": "Type" },
+        { "name": "buttonType" },
+        { "name": "Transaction" },
+        { "name": "ID" },
+        { "name": "User" },
+        { "name": "UserName" },
+        { "name": "Status" },
+        { "name": "Role" },
+        { "name": "applicationId" },
+        { "name": "TimeStamp" },
+        { "name": "ItemActive" }
       ]
-    },
-    "CreateFields": [
-      "Type",
-      "buttonType",
-      "Transaction",
-      "ID",
-      "User",
-      "UserName",
-      "Status",
-      "Role",
-      "applicationId",
-      "ItemActive"
-    ],
-    "ItemDetails": [
-      { "name": "Type" },
-      { "name": "buttonType" },
-      { "name": "Transaction" },
-      { "name": "ID" },
-      { "name": "User" },
-      { "name": "UserName" },
-      { "name": "Status" },
-      { "name": "Role" },
-      { "name": "applicationId" },
-      { "name": "TimeStamp" },
-      { "name": "ItemActive" }
-    ]
-  }
-},
+    }
+  },
   "FieldDef": [
     {
       "name": "ID",
@@ -384,28 +383,79 @@
       "adaptiveCard": "None",
       "SLabel": "ReferenceID"
     },
-    { "name": "YourName", "type": "string", "width": "20" },
-    { "name": "Surname", "type": "string", "width": "20" },
+    {
+      "name": "YourName",
+      "SLabel": "YourName",
+      "type": "string",
+      "width": "20"
+    },
+    { "name": "Surname", "SLabel": "Surname", "type": "string", "width": "20" },
     {
       "name": "ContactNo",
+      "SLabel": "ContactNo",
       "type": "string",
       "width": "20",
       "Option": "Optional"
     },
-    { "name": "Email", "type": "string", "width": "20" },
-    { "name": "ProductType", "type": "string", "width": "100" },
-    { "name": "ProdDetail", "type": "string", "width": "100" },
-    { "name": "Weight", "type": "string", "width": "50" },
-    { "name": "Volume", "type": "string", "width": "100" },
-    { "name": "NoOfItems", "type": "string", "width": "100" },
-    { "name": "Photos", "type": "attachment", "width": "200" },
-    { "name": "PickUpAdd", "type": "string", "width": "500" },
-    { "name": "PickUpDate", "type": "Date", "width": "10" },
-    { "name": "PickUpTime", "type": "Time", "width": "10" },
-    { "name": "DelAdd", "type": "string", "width": "500" },
-    { "name": "UserComm", "type": "string", "width": "1000" },
-    { "name": "TransporterComm", "type": "string", "width": "1000" },
-    { "name": "Price", "type": "string", "width": "20" },
+    { "name": "Email", "SLabel": "Email", "type": "string", "width": "20" },
+    {
+      "name": "ProductType",
+      "SLabel": "ProductType",
+      "type": "string",
+      "width": "100"
+    },
+    {
+      "name": "ProdDetail",
+      "SLabel": "ProdDetail",
+      "type": "string",
+      "width": "100"
+    },
+    { "name": "Weight", "SLabel": "Weight", "type": "string", "width": "50" },
+    { "name": "Volume", "SLabel": "Volume", "type": "string", "width": "100" },
+    {
+      "name": "NoOfItems",
+      "SLabel": "NoOfItems",
+      "type": "string",
+      "width": "100"
+    },
+    {
+      "name": "Photos",
+      "SLabel": "Photos",
+      "type": "attachment",
+      "width": "200"
+    },
+    {
+      "name": "PickUpAdd",
+      "SLabel": "PickUpAdd",
+      "type": "string",
+      "width": "500"
+    },
+    {
+      "name": "PickUpDate",
+      "SLabel": "PickUpDate",
+      "type": "Date",
+      "width": "10"
+    },
+    {
+      "name": "PickUpTime",
+      "SLabel": "PickUpTime",
+      "type": "Time",
+      "width": "10"
+    },
+    { "name": "DelAdd", "SLabel": "DelAdd", "type": "string", "width": "500" },
+    {
+      "name": "UserComm",
+      "SLabel": "UserComm",
+      "type": "string",
+      "width": "1000"
+    },
+    {
+      "name": "TransporterComm",
+      "SLabel": "TransporterComm",
+      "type": "string",
+      "width": "1000"
+    },
+    { "name": "Price", "SLabel": "Price", "type": "string", "width": "20" },
     { "name": "Status", "type": "string", "SLabel": "Status", "width": "50" },
     {
       "name": "SearchString",

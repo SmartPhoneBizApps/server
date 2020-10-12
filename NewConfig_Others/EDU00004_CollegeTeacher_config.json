@@ -1,6 +1,6 @@
 {
   "Title": { "ApplicationTitle": "Time Table", "DetailTitle": "Time Table" },
-  "Constants":{},
+  "Constants": {},
   "Controls": {
     "style": "SAP",
     "calculation": "No",
@@ -34,22 +34,22 @@
   "MButtons": [],
   "DButtons": [],
   "Tabs": [
-{
-    "value": "Tab0",
-    "style": "SAP",
-    "update": "No",
-    "name": "Cards",
-    "type": "Cards",
-    "fioriicon": "responsive"
-  },
-  {
-    "value": "Tab20",
-    "style": "SAP",
-    "update": "No",
-    "name": "Charts",
-    "type": "Charts",
-    "fioriicon": "business-objects-experience"
-  },
+    {
+      "value": "Tab0",
+      "style": "SAP",
+      "update": "No",
+      "name": "Cards",
+      "type": "Cards",
+      "fioriicon": "responsive"
+    },
+    {
+      "value": "Tab20",
+      "style": "SAP",
+      "update": "No",
+      "name": "Charts",
+      "type": "Charts",
+      "fioriicon": "business-objects-experience"
+    },
     {
       "value": "Tab1",
       "style": "SAP",
@@ -65,8 +65,7 @@
       "name": "Timeline",
       "type": "Field",
       "fioriicon": "time-account"
-    }
-,
+    },
     {
       "value": "Tab99",
       "style": "SAP",
@@ -82,184 +81,184 @@
     "headerImage": ["USP_Image"],
     "headerColorFields": ["Status"],
     "Tab0": ["data"],
-    "Tab20":["charts"],
+    "Tab20": ["charts"],
     "None": ["ID", "Class", "Section", "Term", "Status"],
     "Tab1": ["Subject", "Room", "Type", "AnyChange"],
     "Tab2": ["Day", "Period", "TimeSlot"]
   },
   "ControlDisplay": {},
-  "tableConfig": {    
+  "tableConfig": {
     "actionLog": {
-    "title": "Action Log",
-    "subtitle": "Action Log",
-    "ItemFieldDefinition": [
-      {
-        "name": "ItemNumber",
-        "type": "string",
-        "width": "10",
-        "Option": "Optional",
-        "adaptiveCard": "Additional",
-        "SLabel": "Item Number",
-        "Update": "No"
-      },
-      {
-        "name": "ItemActive",
-        "type": "string",
-        "width": "50",
-        "Option": "Optional",
-        "adaptiveCard": "Additional",
-        "SLabel": "Status",
-        "Update": "Yes"
-      },
-      {
-        "name": "Type",
-        "type": "string",
-        "width": "50",
-        "Option": "Optional",
-        "adaptiveCard": "Main",
-        "SLabel": "Type"
-      },
-      {
-        "name": "buttonType",
-        "type": "string",
-        "width": "100",
-        "Option": "Optional",
-        "adaptiveCard": "Main",
-        "SLabel": "buttonType"
-      },
-      {
-        "name": "Transaction",
-        "type": "string",
-        "width": "100",
-        "Option": "Optional",
-        "adaptiveCard": "Main",
-        "SLabel": "Transaction"
-      },
-
-      {
-        "name": "ID",
-        "type": "string",
-        "width": "20",
-        "Option": "Optional",
-        "adaptiveCard": "Additional",
-        "SLabel": "Identification"
-      },
-      {
-        "name": "User",
-        "type": "string",
-        "width": "200",
-        "Option": "Optional",
-        "adaptiveCard": "Additional",
-        "SLabel": "User"
-      },
-      {
-        "name": "UserName",
-        "type": "string",
-        "width": "100",
-        "Option": "Optional",
-        "adaptiveCard": "Additional",
-        "SLabel": "User Name"
-      },
-      {
-        "name": "Status",
-        "type": "string",
-        "width": "50",
-        "Option": "Optional",
-        "adaptiveCard": "Additional",
-        "SLabel": "Status"
-      },
-      {
-        "name": "Role",
-        "type": "string",
-        "width": "100",
-        "Option": "Optional",
-        "adaptiveCard": "Additional",
-        "SLabel": "Role"
-      },
-      {
-        "name": "TimeStamp",
-        "type": "DateTime",
-        "width": "20",
-        "Option": "Optional",
-        "adaptiveCard": "Additional",
-        "SLabel": "TimeStamp"
-      },
-      {
-        "name": "applicationId",
-        "type": "string",
-        "width": "100",
-        "Option": "Optional",
-        "adaptiveCard": "Additional",
-        "SLabel": "applicationId"
-      }
-    ],
-    "DisplayFields": [
-      "Type",
-      "buttonType",
-      "Transaction",
-      "ID",
-      "User",
-      "UserName",
-      "Status",
-      "Role",
-      "applicationId",
-      "ItemActive"
-    ],
-    "detailCharts": [],
-    "cards": [],
-    "ItemButtons": {
-      "itemDisplay": true,
-      "itemCheck": false,
-      "itemAdd": false,
-      "itemEdit": false,
-      "itemDelete": false,
-      "additionalButtons": [
+      "title": "Action Log",
+      "subtitle": "Action Log",
+      "ItemFieldDefinition": [
         {
-          "name": "Detail Log",
-          "type": "SUBITEM",
-          "subTable": "DetailLog",
-          "displayFields": [
-            {
-              "name": "Key",
-              "SLabel": "Key",
-              "type": "string"
-            },
-            {
-              "name": "Value",
-              "type": "string",
-              "SLabel": "Value"
-            }
-          ]
+          "name": "ItemNumber",
+          "type": "string",
+          "width": "10",
+          "Option": "Optional",
+          "adaptiveCard": "Additional",
+          "SLabel": "Item Number",
+          "Update": "No"
+        },
+        {
+          "name": "ItemActive",
+          "type": "string",
+          "width": "50",
+          "Option": "Optional",
+          "adaptiveCard": "Additional",
+          "SLabel": "Status",
+          "Update": "Yes"
+        },
+        {
+          "name": "Type",
+          "type": "string",
+          "width": "50",
+          "Option": "Optional",
+          "adaptiveCard": "Main",
+          "SLabel": "Type"
+        },
+        {
+          "name": "buttonType",
+          "type": "string",
+          "width": "100",
+          "Option": "Optional",
+          "adaptiveCard": "Main",
+          "SLabel": "buttonType"
+        },
+        {
+          "name": "Transaction",
+          "type": "string",
+          "width": "100",
+          "Option": "Optional",
+          "adaptiveCard": "Main",
+          "SLabel": "Transaction"
+        },
+
+        {
+          "name": "ID",
+          "type": "string",
+          "width": "20",
+          "Option": "Optional",
+          "adaptiveCard": "Additional",
+          "SLabel": "Identification"
+        },
+        {
+          "name": "User",
+          "type": "string",
+          "width": "200",
+          "Option": "Optional",
+          "adaptiveCard": "Additional",
+          "SLabel": "User"
+        },
+        {
+          "name": "UserName",
+          "type": "string",
+          "width": "100",
+          "Option": "Optional",
+          "adaptiveCard": "Additional",
+          "SLabel": "User Name"
+        },
+        {
+          "name": "Status",
+          "type": "string",
+          "width": "50",
+          "Option": "Optional",
+          "adaptiveCard": "Additional",
+          "SLabel": "Status"
+        },
+        {
+          "name": "Role",
+          "type": "string",
+          "width": "100",
+          "Option": "Optional",
+          "adaptiveCard": "Additional",
+          "SLabel": "Role"
+        },
+        {
+          "name": "TimeStamp",
+          "type": "DateTime",
+          "width": "20",
+          "Option": "Optional",
+          "adaptiveCard": "Additional",
+          "SLabel": "TimeStamp"
+        },
+        {
+          "name": "applicationId",
+          "type": "string",
+          "width": "100",
+          "Option": "Optional",
+          "adaptiveCard": "Additional",
+          "SLabel": "applicationId"
         }
+      ],
+      "DisplayFields": [
+        "Type",
+        "buttonType",
+        "Transaction",
+        "ID",
+        "User",
+        "UserName",
+        "Status",
+        "Role",
+        "applicationId",
+        "ItemActive"
+      ],
+      "detailCharts": [],
+      "cards": [],
+      "ItemButtons": {
+        "itemDisplay": true,
+        "itemCheck": false,
+        "itemAdd": false,
+        "itemEdit": false,
+        "itemDelete": false,
+        "additionalButtons": [
+          {
+            "name": "Detail Log",
+            "type": "SUBITEM",
+            "subTable": "DetailLog",
+            "displayFields": [
+              {
+                "name": "Key",
+                "SLabel": "Key",
+                "type": "string"
+              },
+              {
+                "name": "Value",
+                "type": "string",
+                "SLabel": "Value"
+              }
+            ]
+          }
+        ]
+      },
+      "CreateFields": [
+        "Type",
+        "buttonType",
+        "Transaction",
+        "ID",
+        "User",
+        "UserName",
+        "Status",
+        "Role",
+        "applicationId",
+        "ItemActive"
+      ],
+      "ItemDetails": [
+        { "name": "Type" },
+        { "name": "buttonType" },
+        { "name": "Transaction" },
+        { "name": "ID" },
+        { "name": "User" },
+        { "name": "UserName" },
+        { "name": "Status" },
+        { "name": "Role" },
+        { "name": "applicationId" },
+        { "name": "TimeStamp" },
+        { "name": "ItemActive" }
       ]
-    },
-    "CreateFields": [
-      "Type",
-      "buttonType",
-      "Transaction",
-      "ID",
-      "User",
-      "UserName",
-      "Status",
-      "Role",
-      "applicationId",
-      "ItemActive"
-    ],
-    "ItemDetails": [
-      { "name": "Type" },
-      { "name": "buttonType" },
-      { "name": "Transaction" },
-      { "name": "ID" },
-      { "name": "User" },
-      { "name": "UserName" },
-      { "name": "Status" },
-      { "name": "Role" },
-      { "name": "applicationId" },
-      { "name": "TimeStamp" },
-      { "name": "ItemActive" }
-    ]
-  }
-},
+    }
+  },
   "FieldDef": [
     {
       "name": "ID",
@@ -404,7 +403,12 @@
   "itemConfig": {
     "title": "Item Details",
     "ItemFieldDefinition": [
-      { "name": "ID", "type": "string", "width": "1", "SLabel": "ID" }
+      {
+        "name": "ID",
+        "SLabel": "ID",
+        "type": "string",
+        "width": "1"
+      }
     ],
     "DisplayFields": [],
     "ItemButtons": {

@@ -3,7 +3,7 @@
     "ApplicationTitle": "Health Evaluation Form",
     "DetailTitle": "Evaluation Form"
   },
-  "Constants":{},
+  "Constants": {},
   "Controls": {
     "style": "SAP",
     "calculation": "No",
@@ -38,22 +38,22 @@
   "MButtons": [],
   "DButtons": [],
   "Tabs": [
-{
-    "value": "Tab0",
-    "style": "SAP",
-    "update": "No",
-    "name": "Cards",
-    "type": "Cards",
-    "fioriicon": "responsive"
-  },
-  {
-    "value": "Tab20",
-    "style": "SAP",
-    "update": "No",
-    "name": "Charts",
-    "type": "Charts",
-    "fioriicon": "business-objects-experience"
-  },
+    {
+      "value": "Tab0",
+      "style": "SAP",
+      "update": "No",
+      "name": "Cards",
+      "type": "Cards",
+      "fioriicon": "responsive"
+    },
+    {
+      "value": "Tab20",
+      "style": "SAP",
+      "update": "No",
+      "name": "Charts",
+      "type": "Charts",
+      "fioriicon": "business-objects-experience"
+    },
     {
       "value": "Tab1",
       "style": "SAP",
@@ -85,8 +85,7 @@
       "name": "Healthhistory",
       "fioriicon": "hint",
       "type": "Field"
-    }
-,
+    },
     {
       "value": "Tab99",
       "style": "SAP",
@@ -102,7 +101,7 @@
     "headerImage": ["USP_Image"],
     "headerColorFields": ["Status"],
     "Tab0": ["data"],
-    "Tab20":["charts"],
+    "Tab20": ["charts"],
     "None": ["ID"],
     "Tab1": ["FirstName", "LastName", "Gender", "Email", "ContactNo"],
     "Tab2": [
@@ -168,178 +167,178 @@
     ]
   },
   "ControlDisplay": {},
-  "tableConfig": {    
+  "tableConfig": {
     "actionLog": {
-    "title": "Action Log",
-    "subtitle": "Action Log",
-    "ItemFieldDefinition": [
-      {
-        "name": "ItemNumber",
-        "type": "string",
-        "width": "10",
-        "Option": "Optional",
-        "adaptiveCard": "Additional",
-        "SLabel": "Item Number",
-        "Update": "No"
-      },
-      {
-        "name": "ItemActive",
-        "type": "string",
-        "width": "50",
-        "Option": "Optional",
-        "adaptiveCard": "Additional",
-        "SLabel": "Status",
-        "Update": "Yes"
-      },
-      {
-        "name": "Type",
-        "type": "string",
-        "width": "50",
-        "Option": "Optional",
-        "adaptiveCard": "Main",
-        "SLabel": "Type"
-      },
-      {
-        "name": "buttonType",
-        "type": "string",
-        "width": "100",
-        "Option": "Optional",
-        "adaptiveCard": "Main",
-        "SLabel": "buttonType"
-      },
-      {
-        "name": "Transaction",
-        "type": "string",
-        "width": "100",
-        "Option": "Optional",
-        "adaptiveCard": "Main",
-        "SLabel": "Transaction"
-      },
-
-      {
-        "name": "ID",
-        "type": "string",
-        "width": "20",
-        "Option": "Optional",
-        "adaptiveCard": "Additional",
-        "SLabel": "Identification"
-      },
-      {
-        "name": "User",
-        "type": "string",
-        "width": "200",
-        "Option": "Optional",
-        "adaptiveCard": "Additional",
-        "SLabel": "User"
-      },
-      {
-        "name": "UserName",
-        "type": "string",
-        "width": "100",
-        "Option": "Optional",
-        "adaptiveCard": "Additional",
-        "SLabel": "User Name"
-      },
-      {
-        "name": "Status",
-        "type": "string",
-        "width": "50",
-        "Option": "Optional",
-        "adaptiveCard": "Additional",
-        "SLabel": "Status"
-      },
-      {
-        "name": "Role",
-        "type": "string",
-        "width": "100",
-        "Option": "Optional",
-        "adaptiveCard": "Additional",
-        "SLabel": "Role"
-      },
-      {
-        "name": "TimeStamp",
-        "type": "DateTime",
-        "width": "20",
-        "Option": "Optional",
-        "adaptiveCard": "Additional",
-        "SLabel": "TimeStamp"
-      },
-      {
-        "name": "applicationId",
-        "type": "string",
-        "width": "100",
-        "Option": "Optional",
-        "adaptiveCard": "Additional",
-        "SLabel": "applicationId"
-      }
-    ],
-    "DisplayFields": [
-      "Type",
-      "buttonType",
-      "Transaction",
-      "ID",
-      "User",
-      "UserName",
-      "Status",
-      "Role",
-      "applicationId",
-      "ItemActive"
-    ],
-    "detailCharts": [],
-    "cards": [],
-    "ItemButtons": {
-      "itemDisplay": true,
-      "itemCheck": false,
-      "itemAdd": false,
-      "itemEdit": false,
-      "itemDelete": false,
-      "additionalButtons": [
+      "title": "Action Log",
+      "subtitle": "Action Log",
+      "ItemFieldDefinition": [
         {
-          "name": "Detail Log",
-          "type": "SUBITEM",
-          "subTable": "DetailLog",
-          "displayFields": [
-            {
-              "name": "Key",
-              "SLabel": "Key",
-              "type": "string"
-            },
-            {
-              "name": "Value",
-              "type": "string",
-              "SLabel": "Value"
-            }
-          ]
+          "name": "ItemNumber",
+          "type": "string",
+          "width": "10",
+          "Option": "Optional",
+          "adaptiveCard": "Additional",
+          "SLabel": "Item Number",
+          "Update": "No"
+        },
+        {
+          "name": "ItemActive",
+          "type": "string",
+          "width": "50",
+          "Option": "Optional",
+          "adaptiveCard": "Additional",
+          "SLabel": "Status",
+          "Update": "Yes"
+        },
+        {
+          "name": "Type",
+          "type": "string",
+          "width": "50",
+          "Option": "Optional",
+          "adaptiveCard": "Main",
+          "SLabel": "Type"
+        },
+        {
+          "name": "buttonType",
+          "type": "string",
+          "width": "100",
+          "Option": "Optional",
+          "adaptiveCard": "Main",
+          "SLabel": "buttonType"
+        },
+        {
+          "name": "Transaction",
+          "type": "string",
+          "width": "100",
+          "Option": "Optional",
+          "adaptiveCard": "Main",
+          "SLabel": "Transaction"
+        },
+
+        {
+          "name": "ID",
+          "type": "string",
+          "width": "20",
+          "Option": "Optional",
+          "adaptiveCard": "Additional",
+          "SLabel": "Identification"
+        },
+        {
+          "name": "User",
+          "type": "string",
+          "width": "200",
+          "Option": "Optional",
+          "adaptiveCard": "Additional",
+          "SLabel": "User"
+        },
+        {
+          "name": "UserName",
+          "type": "string",
+          "width": "100",
+          "Option": "Optional",
+          "adaptiveCard": "Additional",
+          "SLabel": "User Name"
+        },
+        {
+          "name": "Status",
+          "type": "string",
+          "width": "50",
+          "Option": "Optional",
+          "adaptiveCard": "Additional",
+          "SLabel": "Status"
+        },
+        {
+          "name": "Role",
+          "type": "string",
+          "width": "100",
+          "Option": "Optional",
+          "adaptiveCard": "Additional",
+          "SLabel": "Role"
+        },
+        {
+          "name": "TimeStamp",
+          "type": "DateTime",
+          "width": "20",
+          "Option": "Optional",
+          "adaptiveCard": "Additional",
+          "SLabel": "TimeStamp"
+        },
+        {
+          "name": "applicationId",
+          "type": "string",
+          "width": "100",
+          "Option": "Optional",
+          "adaptiveCard": "Additional",
+          "SLabel": "applicationId"
         }
+      ],
+      "DisplayFields": [
+        "Type",
+        "buttonType",
+        "Transaction",
+        "ID",
+        "User",
+        "UserName",
+        "Status",
+        "Role",
+        "applicationId",
+        "ItemActive"
+      ],
+      "detailCharts": [],
+      "cards": [],
+      "ItemButtons": {
+        "itemDisplay": true,
+        "itemCheck": false,
+        "itemAdd": false,
+        "itemEdit": false,
+        "itemDelete": false,
+        "additionalButtons": [
+          {
+            "name": "Detail Log",
+            "type": "SUBITEM",
+            "subTable": "DetailLog",
+            "displayFields": [
+              {
+                "name": "Key",
+                "SLabel": "Key",
+                "type": "string"
+              },
+              {
+                "name": "Value",
+                "type": "string",
+                "SLabel": "Value"
+              }
+            ]
+          }
+        ]
+      },
+      "CreateFields": [
+        "Type",
+        "buttonType",
+        "Transaction",
+        "ID",
+        "User",
+        "UserName",
+        "Status",
+        "Role",
+        "applicationId",
+        "ItemActive"
+      ],
+      "ItemDetails": [
+        { "name": "Type" },
+        { "name": "buttonType" },
+        { "name": "Transaction" },
+        { "name": "ID" },
+        { "name": "User" },
+        { "name": "UserName" },
+        { "name": "Status" },
+        { "name": "Role" },
+        { "name": "applicationId" },
+        { "name": "TimeStamp" },
+        { "name": "ItemActive" }
       ]
-    },
-    "CreateFields": [
-      "Type",
-      "buttonType",
-      "Transaction",
-      "ID",
-      "User",
-      "UserName",
-      "Status",
-      "Role",
-      "applicationId",
-      "ItemActive"
-    ],
-    "ItemDetails": [
-      { "name": "Type" },
-      { "name": "buttonType" },
-      { "name": "Transaction" },
-      { "name": "ID" },
-      { "name": "User" },
-      { "name": "UserName" },
-      { "name": "Status" },
-      { "name": "Role" },
-      { "name": "applicationId" },
-      { "name": "TimeStamp" },
-      { "name": "ItemActive" }
-    ]
-  }
-},
+    }
+  },
   "FieldDef": [
     {
       "name": "ID",
@@ -364,7 +363,7 @@
       "type": "string",
       "width": "20",
       "Option": "Optional",
-      "adaptiveCard":"Additional",
+      "adaptiveCard": "None",
       "SLabel": "ReferenceID"
     },
     {
@@ -373,72 +372,147 @@
       "width": "20",
       "Option": "Optional"
     },
-    { "name": "LastName", "type": "string", "width": "20" },
-    { "name": "Gender", "type": "switch", "width": "20" },
-    { "name": "Email", "type": "string", "width": "20" },
-    { "name": "ContactNo", "type": "string", "width": "20" },
-    { "name": "Q1", "type": "string", "width": "100" },
-    { "name": "A1", "type": "string", "width": "100" },
-    { "name": "DOB", "type": "Date", "width": "10" },
-    { "name": "Height", "type": "string", "width": "50" },
-    { "name": "Weight", "type": "string", "width": "50" },
-    { "name": "Q2", "type": "string", "width": "200" },
-    { "name": "A2", "type": "string", "width": "200" },
-    { "name": "AnyotherReason", "type": "string", "width": "500" },
-    { "name": "Q3", "type": "string", "width": "200" },
-    { "name": "A3", "type": "string", "width": "200" },
-    { "name": "Q4", "type": "string", "width": "200" },
-    { "name": "A4", "type": "string", "width": "200" },
-    { "name": "Q5", "type": "string", "width": "200" },
-    { "name": "A5", "type": "string", "width": "200" },
-    { "name": "Q6", "type": "string", "width": "200" },
-    { "name": "A6", "type": "string", "width": "200" },
-    { "name": "Q7", "type": "string", "width": "200" },
-    { "name": "A7", "type": "switch", "width": "200" },
-    { "name": "Q8", "type": "string", "width": "200" },
-    { "name": "A8", "type": "switch", "width": "200" },
-    { "name": "Q9", "type": "string", "width": "200" },
-    { "name": "A9", "type": "switch", "width": "200" },
-    { "name": "Q10", "type": "string", "width": "200" },
-    { "name": "A10", "type": "switch", "width": "200" },
-    { "name": "Q11", "type": "string", "width": "200" },
-    { "name": "A11", "type": "switch", "width": "200" },
-    { "name": "PlsListAllergies", "type": "string", "width": "500" },
-    { "name": "Q12", "type": "string", "width": "200" },
-    { "name": "A12", "type": "string", "width": "200" },
-    { "name": "Q13", "type": "string", "width": "200" },
-    { "name": "A13", "type": "string", "width": "200" },
-    { "name": "Q14", "type": "string", "width": "200" },
-    { "name": "A14", "type": "string", "width": "200" },
-    { "name": "Q15", "type": "string", "width": "200" },
-    { "name": "A15", "type": "string", "width": "200" },
-    { "name": "AnyOther", "type": "string", "width": "500" },
-    { "name": "DoYouExercise", "type": "switch", "width": "50" },
-    { "name": "HowFrequently", "type": "string", "width": "100" },
-    { "name": "WhatExercise", "type": "string", "width": "500" },
-    { "name": "DoYouSmoke", "type": "switch", "width": "50" },
-    { "name": "AnyAllergies", "type": "string", "width": "200" },
-    { "name": "DrinkAlcohal", "type": "switch", "width": "200" },
-    { "name": "HowMany", "type": "string", "width": "200" },
-    { "name": "Age", "type": "string", "width": "50" },
-    { "name": "Q16", "type": "string", "width": "200" },
-    { "name": "A16", "type": "switch", "width": "200" },
-    { "name": "PregOrBreastFeeding", "type": "switch", "width": "200" },
-    { "name": "DoYouDiet", "type": "switch", "width": "200" },
-    { "name": "Q17", "type": "string", "width": "200" },
-    { "name": "A17", "type": "switch", "width": "200" },
-    { "name": "Q18", "type": "string", "width": "200" },
-    { "name": "A18", "type": "string", "width": "200" },
-    { "name": "Q19", "type": "string", "width": "200" },
-    { "name": "A19", "type": "string", "width": "200" },
-    { "name": "DateOfReg", "type": "Date", "width": "10" },
+    {
+      "name": "LastName",
+      "SLabel": "LastName",
+      "type": "string",
+      "width": "20"
+    },
+    { "name": "Gender", "SLabel": "Gender", "type": "switch", "width": "20" },
+    { "name": "Email", "SLabel": "Email", "type": "string", "width": "20" },
+    {
+      "name": "ContactNo",
+      "SLabel": "ContactNo",
+      "type": "string",
+      "width": "20"
+    },
+    { "name": "Q1", "SLabel": "Q1", "type": "string", "width": "100" },
+    { "name": "A1", "SLabel": "A1", "type": "string", "width": "100" },
+    { "name": "DOB", "SLabel": "DOB", "type": "Date", "width": "10" },
+    { "name": "Height", "SLabel": "Height", "type": "string", "width": "50" },
+    { "name": "Weight", "SLabel": "Weight", "type": "string", "width": "50" },
+    { "name": "Q2", "SLabel": "Q2", "type": "string", "width": "200" },
+    { "name": "A2", "SLabel": "A2", "type": "string", "width": "200" },
+    {
+      "name": "AnyotherReason",
+      "SLabel": "AnyotherReason",
+      "type": "string",
+      "width": "500"
+    },
+    { "name": "Q3", "SLabel": "Q3", "type": "string", "width": "200" },
+    { "name": "A3", "SLabel": "A3", "type": "string", "width": "200" },
+    { "name": "Q4", "SLabel": "Q4", "type": "string", "width": "200" },
+    { "name": "A4", "SLabel": "A4", "type": "string", "width": "200" },
+    { "name": "Q5", "SLabel": "Q5", "type": "string", "width": "200" },
+    { "name": "A5", "SLabel": "A5", "type": "string", "width": "200" },
+    { "name": "Q6", "SLabel": "Q6", "type": "string", "width": "200" },
+    { "name": "A6", "SLabel": "A6", "type": "string", "width": "200" },
+    { "name": "Q7", "SLabel": "Q7", "type": "string", "width": "200" },
+    { "name": "A7", "SLabel": "A7", "type": "switch", "width": "200" },
+    { "name": "Q8", "SLabel": "Q8", "type": "string", "width": "200" },
+    { "name": "A8", "SLabel": "A8", "type": "switch", "width": "200" },
+    { "name": "Q9", "SLabel": "Q9", "type": "string", "width": "200" },
+    { "name": "A9", "SLabel": "A9", "type": "switch", "width": "200" },
+    { "name": "Q10", "SLabel": "Q10", "type": "string", "width": "200" },
+    { "name": "A10", "SLabel": "A10", "type": "switch", "width": "200" },
+    { "name": "Q11", "SLabel": "Q11", "type": "string", "width": "200" },
+    { "name": "A11", "SLabel": "A11", "type": "switch", "width": "200" },
+    {
+      "name": "PlsListAllergies",
+      "SLabel": "PlsListAllergies",
+      "type": "string",
+      "width": "500"
+    },
+    { "name": "Q12", "SLabel": "Q12", "type": "string", "width": "200" },
+    { "name": "A12", "SLabel": "A12", "type": "string", "width": "200" },
+    { "name": "Q13", "SLabel": "Q13", "type": "string", "width": "200" },
+    { "name": "A13", "SLabel": "A13", "type": "string", "width": "200" },
+    { "name": "Q14", "SLabel": "Q14", "type": "string", "width": "200" },
+    { "name": "A14", "SLabel": "A14", "type": "string", "width": "200" },
+    { "name": "Q15", "SLabel": "Q15", "type": "string", "width": "200" },
+    { "name": "A15", "SLabel": "A15", "type": "string", "width": "200" },
+    {
+      "name": "AnyOther",
+      "SLabel": "AnyOther",
+      "type": "string",
+      "width": "500"
+    },
+    {
+      "name": "DoYouExercise",
+      "SLabel": "DoYouExercise",
+      "type": "switch",
+      "width": "50"
+    },
+    {
+      "name": "HowFrequently",
+      "SLabel": "HowFrequently",
+      "type": "string",
+      "width": "100"
+    },
+    {
+      "name": "WhatExercise",
+      "SLabel": "WhatExercise",
+      "type": "string",
+      "width": "500"
+    },
+    {
+      "name": "DoYouSmoke",
+      "SLabel": "DoYouSmoke",
+      "type": "switch",
+      "width": "50"
+    },
+    {
+      "name": "AnyAllergies",
+      "SLabel": "AnyAllergies",
+      "type": "string",
+      "width": "200"
+    },
+    {
+      "name": "DrinkAlcohal",
+      "SLabel": "DrinkAlcohal",
+      "type": "switch",
+      "width": "200"
+    },
+    {
+      "name": "HowMany",
+      "SLabel": "HowMany",
+      "type": "string",
+      "width": "200"
+    },
+    { "name": "Age", "SLabel": "Age", "type": "string", "width": "50" },
+    { "name": "Q16", "SLabel": "Q16", "type": "string", "width": "200" },
+    { "name": "A16", "SLabel": "A16", "type": "switch", "width": "200" },
+    {
+      "name": "PregOrBreastFeeding",
+      "SLabel": "PregOrBreastFeeding",
+      "type": "switch",
+      "width": "200"
+    },
+    {
+      "name": "DoYouDiet",
+      "SLabel": "DoYouDiet",
+      "type": "switch",
+      "width": "200"
+    },
+    { "name": "Q17", "SLabel": "Q17", "type": "string", "width": "200" },
+    { "name": "A17", "SLabel": "A17", "type": "switch", "width": "200" },
+    { "name": "Q18", "SLabel": "Q18", "type": "string", "width": "200" },
+    { "name": "A18", "SLabel": "A18", "type": "string", "width": "200" },
+    { "name": "Q19", "SLabel": "Q19", "type": "string", "width": "200" },
+    { "name": "A19", "SLabel": "A19", "type": "string", "width": "200" },
+    {
+      "name": "DateOfReg",
+      "SLabel": "DateOfReg",
+      "type": "Date",
+      "width": "10"
+    },
     { "name": "Status", "type": "string", "SLabel": "Status", "width": "50" },
     {
       "name": "SearchString",
       "type": "string",
       "width": "200",
       "Option": "Mandatory",
-      "adaptiveCard":"None",
+      "adaptiveCard": "None",
       "SLabel": "Search String",
       "LLabel": "Search String"
     }
@@ -460,7 +534,7 @@
     "Item": [],
     "HeaderItem": [],
     "Header": []
-},
+  },
   "Create": "No",
   "Wizard": []
 }
