@@ -3,11 +3,9 @@ const asyncHandler = require("../../middleware/async");
 const {
   getNewConfig,
   findOneAppData,
-  createDocument,
   createDocumentAPI,
   getNewCopyRecord,
   getDateValues,
-  getInitialValues,
   findOneAppDataRefID,
 } = require("../../modules/config");
 const User = require("../../models/access/User");
@@ -55,6 +53,12 @@ exports.createInvoice = asyncHandler(async (req, res, next) => {
       Appdata = await findOneAppDataRefID(req.params.ID, req.params.fromApp);
     } else {
       Appdata = await findOneAppData(req.params.ID, req.params.fromApp);
+    }
+    if (!Appdata) {
+      res.status(400).json({
+        success: true,
+        message: "Record not found",
+      });
     }
 
     // Assign mapping values...
@@ -116,20 +120,10 @@ exports.createInvoice = asyncHandler(async (req, res, next) => {
         table = m2["Table"];
         masterdata = await findOneAppData(req.params.ID, table);
         CopyFields = m2["CopyFields"];
-        // for (const m3 in m2) {
-        //   m2[m3] = getDateValues(m2[m3]);
-        //   Appdata[m3] = m2[m3];
-        // }
       }
     }
   }
 
-  if (!Appdata) {
-    res.status(400).json({
-      success: true,
-      message: "Record not found",
-    });
-  }
   out1 = getNewCopyRecord(configData, Appdata, req.params.ID, userX, appX.id);
   //result = await createDocument(req.params.toApp, out1);
 
@@ -146,7 +140,7 @@ exports.createInvoice = asyncHandler(async (req, res, next) => {
     "Create with Reference",
     "Create"
   );
-
+  console.log("NewDocument", result);
   if (configFrom["Controls"]["Source"]["sourceTableUpdate"].length > 0) {
     console.log("Source Field..");
     Out2 = {};
