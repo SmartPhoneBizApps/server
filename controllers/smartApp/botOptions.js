@@ -33,7 +33,6 @@ exports.botOptions = (req, res, next) => {
   buttons.push({ ...buttonx });
   buttonx = {};
 
-  
   for (let k = 0; k < appconfig["MButtons"].length; k++) {
     const el = appconfig["MButtons"][k];
     if (appconfig["MButtons"][k]["type"] == "ADD") {
@@ -44,7 +43,7 @@ exports.botOptions = (req, res, next) => {
         "https://smartphonebizapps.com/smartphoneappswebview/?view=wizard&app=" +
         req.headers.applicationid +
         "&role=" +
-        req.headers.businessrole ;
+        req.headers.businessrole;
 
       buttonx["payload"] = kng.toUpperCase() + "-" + "create";
       buttons.push({ ...buttonx });
@@ -52,11 +51,11 @@ exports.botOptions = (req, res, next) => {
     }
   }
 
-  buttonx["title"] = "Display";
-  buttonx["type"] = "postBack";
-  buttonx["payload"] = kng.toUpperCase() + "-" + "display";
-  buttons.push({ ...buttonx });
-  buttonx = {};
+  // buttonx["title"] = "Display";
+  // buttonx["type"] = "postBack";
+  // buttonx["payload"] = kng.toUpperCase() + "-" + "display";
+  // buttons.push({ ...buttonx });
+  // buttonx = {};
 
   res.status(200).json({
     success: true,
