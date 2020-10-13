@@ -67,11 +67,27 @@ module.exports = {
     return mgsObj;
   },
   notifiyMessanger: async function (a, b, c, d, e, f) {
+    // Read BOT configuration to find Agent from business Role..
+    let botName = "Error";
+    let botM = "../bot/botMaster.json";
+    const botSetup = require(botM);
+    for (const key in botSetup) {
+      for (let k = 0; k < botSetup[key].length; k++) {
+        if (botSetup[key][k] == b) {
+          botName = key.toLowerCase();
+        }
+      }
+    }
+    console.log("AgenName", botName);
+
+    // Find Social Media ID from DB (Agen Name + Email + Social Media Type - Facebook)
     let path = "../models/access/" + "Socialmedia";
     const Model = require(path);
-    SM1 = Model.findOne({ email: a, SocialMediaType: e });
+    SM1 = Model.findOne({ email: a, SocialMediaType: e, agent: botName });
     SM = await SM1;
     console.log(SM);
+
+    // Generate Notification URL...
     URL =
       "https://fbnotificationbot.herokuapp.com/?userFBID=" +
       SM["SocialMediaAccountID"] +
@@ -84,18 +100,18 @@ module.exports = {
       "&token=" +
       f;
     console.log(URL);
+    // Method POST...
     var options = {
       method: "POST",
       url: URL,
     };
-
+    // Method POST...
     request.post(options, function (error, response, body) {
       if (error) throw new Error(error);
       console.log("Notification sent", error);
     });
-    //  "https://fbnotificationbot.herokuapp.com/?userFBID=1805665356118639&role=Employee&message=Your%20record%20created%20successfully...&messageType=Text",
-
-    cKey = d + a.substring(0, 3) + a.slice(-2) + b.substring(0, 3) + c;
+    //  "https://fbnotificationbot.herokuapp.com/?userFBID=1805665356118639&role=Employee&message=Your%20record%20created%20successfully...&messageType=Text"
+    // cKey = d + a.substring(0, 3) + a.slice(-2) + b.substring(0, 3) + c;
     return true;
   },
   getTotalCount: function (app, req, config1) {
