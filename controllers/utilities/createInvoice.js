@@ -151,7 +151,6 @@ exports.createInvoice = asyncHandler(async (req, res, next) => {
       j++
     ) {
       tab1 = configFrom["Controls"]["Source"]["sourceTableUpdate"][j];
-
       o2 = {};
       o2x = [];
       items2u = [];
@@ -163,7 +162,6 @@ exports.createInvoice = asyncHandler(async (req, res, next) => {
             items2u.push(out1[kk][d]["ItemNumber"]);
           }
         }
-
         for (let i = 0; i < tab1[kk].length; i++) {
           for (const ki in tab1[kk][i]) {
             o2[ki] = tab1[kk][i][ki];
@@ -183,7 +181,6 @@ exports.createInvoice = asyncHandler(async (req, res, next) => {
         Out2[kk] = o2x;
         o2x = [];
       }
-
       // Create the new copied document...
       result = await createDocumentAPI(
         req.params.fromApp,
@@ -197,7 +194,6 @@ exports.createInvoice = asyncHandler(async (req, res, next) => {
         "Update with Reference",
         "FieldUpdate"
       );
-
       console.log(req.params.fromApp, req.params.targetRole, Out2);
     }
   }
