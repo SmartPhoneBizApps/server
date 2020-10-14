@@ -8,6 +8,7 @@ const {
   additionalFilters,
   formatQuery,
   replaceDefaults,
+  collectListFields,
 } = require("./config");
 const sendEmail = require("../utils/sendEmail");
 const sendEmail1 = require("../utils/sendEmailProd");
@@ -218,9 +219,16 @@ module.exports = {
 
     // List of fields for BOT
     let fields;
+    let fieldSet = [];
     if (req.headers.mode == "BOTList") {
       fields = lf.join(" ");
       query = query.select(fields);
+    }
+    if (req.params.mode == "listcards") {
+      fieldSet = collectListFields(config1["ListFields"]);
+      console.log("Web Field List", fieldSet);
+      fSet = fieldSet.join(" ");
+      query = query.select(fSet);
     }
 
     // Sorting

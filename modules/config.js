@@ -720,6 +720,35 @@ module.exports = {
     var result = require(fn);
     return result;
   },
+
+  collectListFields: function (a) {
+    var fieldSet = new Set();
+    if (a["IntroField"] != undefined) {
+      fieldSet.add(a["IntroField"]);
+    }
+    if (a["TitleField"] != undefined) {
+      fieldSet.add(a["TitleField"]);
+    }
+    if (a["sStatus"] != undefined) {
+      fieldSet.add(a["sStatus"]);
+    }
+    if (a["fStatus"] != undefined) {
+      fieldSet.add(a["fStatus"]);
+    }
+    if (a["numberField"] != undefined) {
+      fieldSet.add(a["numberField"]);
+    }
+    if (a["LFields"] != undefined) {
+      for (let j = 0; j < a["LFields"].length; j++) {
+        fieldSet.add(a["LFields"][j]);
+      }
+    }
+    ary = [];
+    fieldSet.forEach((element) => {
+      ary.push(element);
+    });
+    return ary;
+  },
   checkFile: async function (con1) {
     const path = "../NewConfig/" + con1;
     try {

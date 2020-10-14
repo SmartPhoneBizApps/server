@@ -15,6 +15,7 @@ const {
   getPVField,
   getAppRoles,
   replaceConfig,
+  collectListFields,
 } = require("../../modules/config");
 const {
   readData,
@@ -90,6 +91,7 @@ exports.listrecordsnew = asyncHandler(async (req, res, next) => {
       t_image.push(results1[i1]["image"]);
       results2["image"] = t_image;
       t_image = [];
+      // Mode is Web....
       if (mode == "Web" || mode == "web") {
         if (appconfig["Controls"]["USP"] == "UserProfile") {
           results2["USP_Name"] = "OpenSAP course catalog";
@@ -134,6 +136,7 @@ exports.listrecordsnew = asyncHandler(async (req, res, next) => {
     outData["data"] = oResult;
     outData["config"] = appconfig;
 
+    // Mode is Web....
     if (mode == "Web" || mode == "web") {
       res.status(200).json({
         outData,
@@ -147,16 +150,14 @@ exports.listrecordsnew = asyncHandler(async (req, res, next) => {
       });
     }
   } else {
-    //// Data Source is mongoDB....
-    // Get Table Schema
-    let path = "../../models/smartApp/" + applicationId;
-    const model = require(path);
-    model2 = model;
+    // Data Source is mongoDB....
 
-    // Get total Count
+    // Step 1 : Get Total Count
     let query_c = getTotalCount(applicationId, req, appconfig);
     let rec = await query_c;
     const count = rec.length;
+
+    // Setp 2 : Collect Data
     let query = readData(applicationId, req, appconfig);
     let results = await query;
     tabObj = {};
@@ -221,6 +222,7 @@ exports.listrecordsnew = asyncHandler(async (req, res, next) => {
       if (mode == "") {
         mode = "Web";
       }
+      // Mode is Web....
       if (mode == "Web" || mode == "web") {
         if (appconfig["Controls"]["USP"] == "UserProfile") {
           results[i1].USP_Name = "Atul Gupta";
@@ -302,11 +304,6 @@ exports.listrecordsnew = asyncHandler(async (req, res, next) => {
           myButton = [];
         }
         oResult[w]["buttons"] = myButton;
-        console.log(
-          "Atul_BOT_BUtton",
-          oResult[w]["Status"],
-          oResult[w]["buttons"]
-        );
       }
     }
     outData = {};
