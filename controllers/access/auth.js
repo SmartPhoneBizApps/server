@@ -651,7 +651,7 @@ exports.sendEmail = asyncHandler(async (req, res, next) => {
   Subject = req.body.subject;
   message = req.body.message;
   try {
-    await sendEmail1({
+    await sendEmail({
       email: emailTo,
       subject: Subject,
       message: message,
