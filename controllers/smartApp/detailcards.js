@@ -627,13 +627,16 @@ exports.getDetailCardsNew = async (req, res, next) => {
     jCard1 = await globalCard(appData["TransLog"], GlobalCardConfig);
     outStru["TransLog"] = { ...jCard1 };
   }
-  appData["charts"] = outStru2;
-  appData["config"] = appconfig;
-  appData["cards"] = outStru;
+  NewOut = {};
+  NewOut = appData;
+  NewOut["charts"] = outStru2;
+  NewOut["config"] = appconfig;
+  NewOut["card"] = outStru;
 
   res.status(200).json({
     success: true,
-    record: appData,
+    //    record: appData,
+    record: NewOut,
     data: outStru,
     tabs: iTab,
     charts: outStru2,
