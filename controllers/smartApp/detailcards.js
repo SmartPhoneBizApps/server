@@ -635,11 +635,11 @@ exports.getDetailCardsNew = async (req, res, next) => {
 
   res.status(200).json({
     success: true,
-    //    record: appData,
     record: NewOut,
-    data: outStru,
     tabs: iTab,
-    charts: outStru2,
     config: appconfig,
+    //    record: appData,
+    //    data: outStru,
+    //   charts: outStru2,
   });
 };
