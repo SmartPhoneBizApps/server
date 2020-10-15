@@ -4,17 +4,11 @@ const App = require("../../models/appSetup/App");
 const Role = require("../../models/appSetup/Role");
 //const postcode = require("../../models/utilities/postcode.js");
 const { getNewConfig, getpostcodeData } = require("../../modules/config");
-
 const request = require("request");
 const https = require("https");
-
 // @desc      Perform Calculations
 // @route     GET /api/v1/util/calculation
 // @access    Private (Application Users)
-
-// var aa = new calfunction();
-// console.log(aa.Handler[ADD1()]);
-// return false;
 
 exports.getaddress = asyncHandler(async (req, res, next) => {
   console.log("Function - utilities/getaddress");

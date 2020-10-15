@@ -61,7 +61,6 @@ exports.assignCourseUser = asyncHandler(async (req, res, next) => {
           const e2 = x1[y];
           for (const k3 in e2) {
             Appdata[k3] = Appdata[x][e2[k3]];
-            console.log("Appdata[k3]", Appdata[k3]);
           }
         }
       }
@@ -78,7 +77,6 @@ exports.assignCourseUser = asyncHandler(async (req, res, next) => {
         for (let y = 0; y < x1.length; y++) {
           const e2 = x1[y];
           for (const k3 in e2) {
-            console.log(results1["courses"][x][e2[k3]]);
             if (k3 == "Image") {
               i_temp.push(results1["courses"][x][e2[k3]]);
               Appdata[k3] = i_temp;
@@ -136,7 +134,6 @@ exports.assignCourseUser = asyncHandler(async (req, res, next) => {
   );
 
   if (configFrom["Controls"]["Source"]["sourceTableUpdate"].length > 0) {
-    console.log("Source Field..");
     Out2 = {};
     Out2["ID"] = req.params.ID;
     for (
@@ -150,10 +147,8 @@ exports.assignCourseUser = asyncHandler(async (req, res, next) => {
       o2x = [];
       items2u = [];
       for (const kk in tab1) {
-        console.log(kk, tab1[kk], out1);
         if (out1.hasOwnProperty(kk)) {
           for (let d = 0; d < out1[kk].length; d++) {
-            console.log(out1[kk][d]["ItemNumber"]);
             items2u.push(out1[kk][d]["ItemNumber"]);
           }
         }
@@ -165,13 +160,6 @@ exports.assignCourseUser = asyncHandler(async (req, res, next) => {
               o2["ItemNumber"] = ew;
               o2x.push({ ...o2 });
             });
-            console.log(
-              "ItemData to be updated",
-              kk,
-              ki,
-              tab1[kk][i][ki],
-              items2u
-            );
           }
         }
         Out2[kk] = o2x;
@@ -192,8 +180,6 @@ exports.assignCourseUser = asyncHandler(async (req, res, next) => {
         "FieldUpdate",
         "Internal"
       );
-
-      console.log(req.params.fromApp, req.params.targetRole, Out2);
     }
   }
   let message = "";

@@ -39,14 +39,9 @@ exports.addHCP = asyncHandler(async (req, res, next) => {
   for (let q = 0; q < configData["DButtons"].length; q++) {
     for (const ky in configData["DButtons"][q]["FieldMapping"]) {
       const ex = configData["DButtons"][q]["FieldMapping"][ky];
-      //   if (ex == ky) {
       if (req.body[ex] != undefined) {
         mytrain[ky] = req.body[ex];
-        console.log("Key: ", ky, "/", ex, mytrain[ky], req.body[ex]);
       }
-      console.log("Key: ", ky, "/", ex, mytrain[ky]);
-
-      //   }
     }
   }
 
@@ -66,9 +61,7 @@ exports.addHCP = asyncHandler(async (req, res, next) => {
     req.headers.buttontype,
     req.headers.buttonname
   );
-  // console.log(req.params.toApp, myData);
   result = await findOneUpdateData(myData, req.params.toApp);
-  console.log(result);
   if (result) {
     res.status(201).json({
       success: true,

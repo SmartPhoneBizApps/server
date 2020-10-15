@@ -9,7 +9,6 @@ exports.generatePDF = asyncHandler(async (req, res, next) => {
   var passData = {};
   // passData = { ...req.body };
   passData["ID"] = req.query["ID"];
-  console.log("Req:", req.query);
   if (req.query["ReferenceID"]) {
     passData["Title"] =
       req.query["Title"] + " (" + req.query["ReferenceID"] + ")";
@@ -19,8 +18,6 @@ exports.generatePDF = asyncHandler(async (req, res, next) => {
   passData["score"] = req.query.TestScore;
   passData["generatedDate"] = new Date();
   passData["fullName"] = req.user.name;
-  console.log("CertData1:", passData);
-  // console.log(passData);
   passData["req"] = req;
   passData["res"] = res;
 

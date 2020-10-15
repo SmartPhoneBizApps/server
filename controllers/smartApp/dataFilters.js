@@ -60,7 +60,6 @@ exports.dataFilters = asyncHandler(async (req, res, next) => {
       );
       filterVal[filter[x]] = aggCount;
     }
-    console.log(filterVal);
   }
 
   res.status(200).json({

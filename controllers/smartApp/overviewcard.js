@@ -63,7 +63,6 @@ exports.adaptiveCard_card = async (req, res, next) => {
   // Read Card Configuration for the Role (X1)
   let fileName = "../../cards/cardConfig/" + role.role + "_cardConfig.json";
   var cardConfig = require(fileName);
-  console.log("OverviewCard/CardConfig : ", fileName);
 
   // Read Color Configuration
   let fileNameColor = "../../config/colorConfig.json";
@@ -72,7 +71,6 @@ exports.adaptiveCard_card = async (req, res, next) => {
   // Read card User Settings  for the Role
   let fileName2 = "../../userSettings/" + req.user.email + "_cardsSetup.json";
   var userSetCards = require(fileName2);
-  console.log("OverviewCard/UserSettings : ", fileName2);
 
   // When tab is "Tab1", a full template with Tab1 data will be returned, for all other cases on data for that tab
   if (tab == "Tab1") {
@@ -119,7 +117,6 @@ exports.adaptiveCard_card = async (req, res, next) => {
                     applicationID,
                     req.params.role
                   );
-                  console.log(calendarCard);
                 }
 
                 if (tabCX[tab].Tiles[key3].Type == "Adaptive1") {
@@ -127,7 +124,6 @@ exports.adaptiveCard_card = async (req, res, next) => {
                     applicationID,
                     req.params.role
                   );
-                  console.log(cardData);
                 }
 
                 // User can see data only for there own company (User Specific is TRUE)
@@ -184,7 +180,6 @@ exports.adaptiveCard_card = async (req, res, next) => {
                   // Select Fields
                   const fList = [];
                   if (tabCX[tab].Tiles[key3].fieldList) {
-                    console.log("AG:", query);
                     const fields = tabCX[tab].Tiles[key3].fieldList;
                     query = query.select(fields);
                     const fList = tabCX[tab].Tiles[key3].fieldList.split(" ");
@@ -209,7 +204,6 @@ exports.adaptiveCard_card = async (req, res, next) => {
                   }
                   // Get data
                   let results = await query;
-                  console.log("Card Data : ", applicationID, results);
                   jsonArray["json" + con] = results;
                 }
                 key = {};
@@ -220,9 +214,6 @@ exports.adaptiveCard_card = async (req, res, next) => {
                       "../../cards/templates/" +
                       tabCX[tab].Tiles[key3].Type +
                       "_template.json";
-
-                    console.log("Card Template : ", fileName3);
-
                     key = {};
                     key["con" + con] = require(fileName3);
                     //-------------------------------------------------
@@ -230,10 +221,6 @@ exports.adaptiveCard_card = async (req, res, next) => {
                     //Set Header ... All Cards
                     key["con" + con]["sap.card"]["header"] =
                       tabCX[tab].Tiles[key3].header;
-                    console.log(
-                      "Card Header : ",
-                      tabCX[tab].Tiles[key3].header
-                    );
                     //-------------------------------------------------
                     //object1 : set group
                     if (tabCX[tab].Tiles[key3].Type == "object1") {
@@ -303,9 +290,7 @@ exports.adaptiveCard_card = async (req, res, next) => {
                       jsonOut = {};
                       jsonOutArray = [];
                       name1 = tabCX[tab].Tiles[key3].fieldMap["ReferenceID"];
-                      console.log(name1);
                       description1 = tabCX[tab].Tiles[key3].fieldMap["Title"];
-                      console.log(description1);
                       icon1 = tabCX[tab].Tiles[key3].fieldMap["icon"];
                       k = 0;
                       jsonArray["json" + con].forEach((eln1) => {
@@ -322,7 +307,6 @@ exports.adaptiveCard_card = async (req, res, next) => {
                         ...myD,
                       };
                       jsonArray["json" + con] = [];
-                      console.log("Card Template : ", myD);
                     }
 
                     //  if (tabCX[tab].Tiles[key3].Type.includes("list2A")) {
@@ -352,7 +336,6 @@ exports.adaptiveCard_card = async (req, res, next) => {
                         ...myD,
                       };
                       jsonArray["json" + con] = [];
-                      console.log("Card Template : ", myD);
                     }
 
                     //list2 - Actions

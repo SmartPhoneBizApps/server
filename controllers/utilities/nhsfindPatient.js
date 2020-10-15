@@ -4,11 +4,6 @@ const request = require("request");
 // @desc      Perform Calculations
 // @route     GET /api/v1/util/calculation
 // @access    Private (Application Users)
-
-// var aa = new calfunction();
-// console.log(aa.Handler[ADD1()]);
-// return false;
-
 exports.nhsfindPatient = asyncHandler(async (req, res, next) => {
   outData = [];
   request(

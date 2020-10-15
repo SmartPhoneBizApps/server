@@ -157,13 +157,10 @@ exports.overviewcardNew = async (req, res, next) => {
   };
   let xjson = {};
   let json = [];
-  //console.log(results);
   if (config1["cardSetup"]) {
     for (let k = 0; k < config1["cardSetup"].length; k++) {
       if (config1["cardSetup"][k]["cardType"] == req.headers.mycard) {
         t_item = config1["cardSetup"][k]["item"];
-        console.log(config1["cardSetup"][k]["json"]);
-
         if (
           req.headers.mycard == "list1" ||
           req.headers.mycard == "list2" ||
@@ -173,14 +170,12 @@ exports.overviewcardNew = async (req, res, next) => {
             for (let m = 0; m < config1["cardSetup"][k]["json"].length; m++) {
               var ele1 = config1["cardSetup"][k]["json"][m];
               for (const key in ele1) {
-                console.log("222", key, ele1[key]);
                 arr1 = ele1[key].split("+");
                 for (let s = 0; s < arr1.length; s++) {
                   if (key == "infoState") {
                     xjson["infoState"] = arr1[s];
                   }
                   if (results[n][arr1[s]] != undefined) {
-                    console.log(results[n][arr1[s]]);
                     if (key == "name") {
                       xjson["name"] = results[n][arr1[s]];
                     }
@@ -192,8 +187,6 @@ exports.overviewcardNew = async (req, res, next) => {
                     }
 
                     if (key == "description") {
-                      //    arr2 = String(results[n][arr1[s]]).split("T")[0];
-                      //   console.log(arr2);
                       if (s == 0) {
                         xjson["description"] = results[n][arr1[s]];
                       } else {
@@ -203,13 +196,11 @@ exports.overviewcardNew = async (req, res, next) => {
                     }
                   }
                 }
-                console.log("KK", arr1);
                 arr1 = [];
               }
             }
             json.push({ ...xjson });
             xjson = {};
-            console.log("jsonData", json);
           }
         }
 

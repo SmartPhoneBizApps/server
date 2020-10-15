@@ -89,7 +89,7 @@ exports.getDetailCardsNew = async (req, res, next) => {
   let nodFields = [];
   if (appconfig["Controls"].hasOwnProperty("processflow")) {
     if (appconfig["Controls"]["processflow"]["active"] == "Yes") {
-      console.log("Process Flow");
+      console.log("04 -  Process Flow");
       //let pf = "../../NewConfig/processflow.json";
       //      pflow = require(pf);
       pflow["lanes"] = appconfig["Controls"]["processflow"]["lanes"];
@@ -164,7 +164,7 @@ exports.getDetailCardsNew = async (req, res, next) => {
   }
 
   // 03 -  Tab details..
-  console.log("04 -  Tab details..");
+  console.log("05 -  Tab details..");
   cTab = {};
   iTab = [];
   for (let n = 0; n < appconfig["Tabs"].length; n++) {
@@ -183,20 +183,18 @@ exports.getDetailCardsNew = async (req, res, next) => {
   // Collect Charts & Graphs
   if (appconfig.hasOwnProperty("detailCharts")) {
     var mycard = appconfig["detailCharts"];
-    console.log(mycard);
     for (let k = 0; k < mycard.length; k++) {
-      console.log(mycard[k]);
       if (mycard[k]["cardType"] == "Analytical") {
         let cardTemplate = {};
         // Find the Chart Config File
         if (appconfig["Controls"]["style"] == "SAP") {
-          console.log("05 -  Header SAP Card..", myCard[k]["cardsubType"]);
+          console.log("06 -  Header SAP Card..", myCard[k]["cardsubType"]);
           cardTemplate =
             "../../cards/cardConfig/template_sap_" +
             myCard[k]["cardsubType"] +
             ".json";
         } else {
-          console.log("05 -  Header Google Card..", myCard[k]["cardsubType"]);
+          console.log("06 -  Header Google Card..", myCard[k]["cardsubType"]);
           cardTemplate =
             "../../cards/cardConfig/template_google_" +
             myCard[k]["cardsubType"] +
@@ -265,7 +263,7 @@ exports.getDetailCardsNew = async (req, res, next) => {
         appconfig["DetailFields"][i][kc1].forEach((element) => {
           if (element == key) {
             tab = kc1;
-            console.log("06 -  Table / Tab : ", key, tab);
+            console.log("07 -  Table / Tab : ", key, tab);
           }
         });
       }
@@ -274,7 +272,7 @@ exports.getDetailCardsNew = async (req, res, next) => {
     // Add Adaptive Card..
     if (appconfig["tableConfig"][key]["ItemButtons"]["itemAdd"] == true) {
       aCard = {};
-      console.log("07 -  Table Adaptive Card : ", key, tab);
+      console.log("08 -  Table Adaptive Card : ", key, tab);
       aCard = await adaptiveNew(
         appconfig["tableConfig"][key],
         resPV,
@@ -307,11 +305,10 @@ exports.getDetailCardsNew = async (req, res, next) => {
       appconfig["DetailFields"][k1].forEach((e4) => {
         if (key == e4) {
           tabx = k1;
-          console.log("08 -  Again table and tab found : ", key, tabx);
         }
       });
     }
-    console.log("08 -  detailCharts : ", appconfig["tableConfig"][key]);
+    console.log("09 -  detailCharts : ", appconfig["tableConfig"][key]);
     // Table cards....
     if (appconfig["tableConfig"][key].hasOwnProperty("detailCharts")) {
       for (
@@ -323,8 +320,6 @@ exports.getDetailCardsNew = async (req, res, next) => {
         var myCard = appconfig["tableConfig"][key]["detailCharts"][x];
         aCard = {};
         dt = new Date(0, 0, 0, 12, 0, 0);
-        console.log("myDate", dt);
-
         switch (myCard["Data"]["operation"]) {
           case "COUNT":
             list = await countAnalyticalCard(
@@ -347,7 +342,6 @@ exports.getDetailCardsNew = async (req, res, next) => {
                   r1.push("Val");
                   r1.push(kg);
                   r2.push(r1);
-                  console.log(r1);
                   r1 = [];
                   for (let y = 0; y < list.length; y++) {
                     var randomColor = Math.floor(
@@ -357,7 +351,6 @@ exports.getDetailCardsNew = async (req, res, next) => {
                     r1.push(list[y]["Value1"]);
                     r1.push(randomColor);
                     r2.push(r1);
-                    console.log(r1);
                     r1 = [];
                   }
                   list = r2;
@@ -368,7 +361,6 @@ exports.getDetailCardsNew = async (req, res, next) => {
                   r1.push("Val");
                   r1.push(kg);
                   r2.push(r1);
-                  console.log(r1);
                   r1 = [];
                   for (let y = 0; y < list.length; y++) {
                     var randomColor = Math.floor(
@@ -378,7 +370,6 @@ exports.getDetailCardsNew = async (req, res, next) => {
                     r1.push(list[y]["Value1"]);
                     r1.push(randomColor);
                     r2.push(r1);
-                    console.log(r1);
                     r1 = [];
                   }
                   list = r2;
@@ -390,7 +381,6 @@ exports.getDetailCardsNew = async (req, res, next) => {
                   r1.push("Label");
                   r1.push("Value");
                   r2.push(r1);
-                  console.log(r1);
                   r1 = [];
                   for (let y = 0; y < list.length; y++) {
                     var randomColor = Math.floor(
@@ -399,7 +389,6 @@ exports.getDetailCardsNew = async (req, res, next) => {
                     r1.push(list[y]["Area"]);
                     r1.push(list[y]["Value1"]);
                     r2.push(r1);
-                    console.log(r1);
                     r1 = [];
                   }
                   list = r2;
@@ -545,16 +534,6 @@ exports.getDetailCardsNew = async (req, res, next) => {
                 console.log(
                   "Setup Error : Analytical should not be added in cards!"
                 );
-                //  jCard1 = {};
-                // jCard1 = await analyticalCard(
-                //   mycard,
-                //   appData[key],
-                //   anacardConfig,
-                //   appconfig["Controls"]["style"]
-                // );
-                //  jCard1 = await analyticalNew(appconfig, appData[key], "SAP");
-                // outStru2[cardKey] = { ...jCard1 };
-                //   console.log("CardKey", cardKey);
                 break;
 
               case "List":

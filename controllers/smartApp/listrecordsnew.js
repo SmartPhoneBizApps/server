@@ -171,12 +171,10 @@ exports.listrecordsnew = asyncHandler(async (req, res, next) => {
           for (let j = 0; j < itmFilter.length; j++) {
             for (const kt in itmFilter[j]) {
               for (const e1 in itmFilter[j][kt]) {
-                console.log("ItemFilter", kq, kt, e1, itmFilter[j][kt][e1]);
                 out1 = [];
                 out1x = {};
                 out2 = [];
                 for (let p = 0; p < results.length; p++) {
-                  console.log("ItemFilter", results[p].hasOwnProperty(kq));
                   if (results[p].hasOwnProperty(kq)) {
                     for (let g = 0; g < results[p][kq].length; g++) {
                       out1x = { ...results[p][kq][g] };
@@ -186,9 +184,6 @@ exports.listrecordsnew = asyncHandler(async (req, res, next) => {
                         out2.push({ ...out1x });
                       }
                       out1x = {};
-                      // console.log(results[kq][g][kt]);
-                      // results[kq][g][kt] = itmFilter[j][kt][e1];
-                      // console.log(results[kq][g][kt]);
                     }
                   }
                 }
@@ -362,7 +357,6 @@ exports.listrecordsnew = asyncHandler(async (req, res, next) => {
                 ControlField
               );
               var cardData = JSON.stringify(aCard);
-              console.log("X6", aCard);
               cardData = cardReplace(
                 {},
                 cardData,

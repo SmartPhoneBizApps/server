@@ -76,7 +76,6 @@ exports.addDataRecords = asyncHandler(async (req, res, next) => {
       cardConfig.Controls.Partner == "@VendorEmail" &&
       req.body.VendorEmail != undefined
     ) {
-      console.log(req.body.VendorEmail);
       req.body.Partner = req.body.VendorEmail;
     }
   }
@@ -200,9 +199,8 @@ exports.addDataRecords = asyncHandler(async (req, res, next) => {
   for (let a = 0; a < ival_out.length; a++) {
     for (let b = 0; b < cardConfig["FieldDef"].length; b++) {
       if (cardConfig["FieldDef"][b]["name"] == ival_out[a]["Field"]) {
-        if (req.body.hasOwnProperty(ival_out[a]["Field"])) {
-          console.log("USer provided input for: ", ival_out[a]["Field"]);
-        } else {
+        if (!req.body.hasOwnProperty(ival_out[a]["Field"])) {
+          //       } else {
           req.body[ival_out[a]["Field"]] = ival_out[a]["Value"];
           console.log(
             "User default value added for:",
@@ -286,7 +284,6 @@ exports.addDataRecords = asyncHandler(async (req, res, next) => {
     req.headers.buttonname,
     req.body.ProgressComment
   );
-  console.log("Line 279");
   req.body["actionLog"] = [];
   req.body.actionLog = actionLog(
     req,
@@ -338,7 +335,6 @@ exports.addDataRecords = asyncHandler(async (req, res, next) => {
         for (var ii = 0; ii < mydata[obj].length; ii++) {
           var passArray = {};
           //added by atul - Start
-          console.log("Atul Debug", cardConfig["tableConfig"][obj], obj);
           if (cardConfig["tableConfig"][obj] != undefined) {
             if (cardConfig["tableConfig"][obj].hasOwnProperty("Validations")) {
               passArray["fieldName"] = obj;
@@ -382,9 +378,6 @@ exports.addDataRecords = asyncHandler(async (req, res, next) => {
     }
   }
   console.log("CREATE - Validation ends..");
-  console.log("Line 375");
-  console.log("CREATE - Data..", mydata, mydata["actionLog"]);
-  mydata;
 
   // X99 - Create Record [mongoDB].....
   let result = {};
@@ -400,8 +393,8 @@ exports.addDataRecords = asyncHandler(async (req, res, next) => {
     result["ID"] +
     ", by User: " +
     req.user.email;
+  // FB Messenger
   if (req.headers.notification == "Messenger") {
-    console.log("send FB messenger..");
     // Read Tokens
     let fx = "../../bot/messengerToken.json";
     var messengerToken = require(fx);
@@ -436,7 +429,8 @@ exports.updateDataRecords = asyncHandler(async (req, res, next) => {
   if (!req.headers.applicationid) {
     return next(new ErrorResponse(`Please provide App ID(Header)`, 400));
   }
-  // 01B - Find Exception fields
+
+  // 01B - Find App record
   const BodyApp = await App.findOne({
     applicationID: req.headers.applicationid,
   });
@@ -445,15 +439,18 @@ exports.updateDataRecords = asyncHandler(async (req, res, next) => {
   if (!req.headers.businessrole) {
     return next(new ErrorResponse(`Please provide Role(Header)`, 400));
   }
+
   // 02 - Check if mode is provided
   if (!req.headers.mode) {
     return next(new ErrorResponse(`Please provide update mode`, 400));
   }
+
   // 03 - Read New Config File
   var cardConfig = getNewConfig(
     req.headers.applicationid,
     req.headers.businessrole
   );
+
   // 04 - Find Exception fields
   myFieldArray = collectExceptionFields(cardConfig.FieldDef);
 
@@ -599,9 +596,8 @@ exports.updateDataRecords = asyncHandler(async (req, res, next) => {
   for (let a = 0; a < ival_out.length; a++) {
     for (let b = 0; b < cardConfig["FieldDef"].length; b++) {
       if (cardConfig["FieldDef"][b]["name"] == ival_out[a]["Field"]) {
-        if (req.body.hasOwnProperty(ival_out[a]["Field"])) {
-          console.log("USer provided input for: ", ival_out[a]["Field"]);
-        } else {
+        if (!req.body.hasOwnProperty(ival_out[a]["Field"])) {
+          //    } else {
           req.body[ival_out[a]["Field"]] = ival_out[a]["Value"];
           console.log(
             "User default value added for:",
@@ -641,7 +637,6 @@ exports.updateDataRecords = asyncHandler(async (req, res, next) => {
   // X7 - Update T-Log
   myData.TransLog.unshift(req.body.TransLog);
   req.body.TransLog = myData.TransLog;
-  console.log("Line 634");
   myData.actionLog = actionLog(
     req,
     "UPDATE",
@@ -676,17 +671,17 @@ exports.updateDataRecords = asyncHandler(async (req, res, next) => {
   // X8 - Update Table Data
   let tblFields = tableFields(cardConfig.FieldDef);
   for (const kk in req.body) {
-    if (req.body.hasOwnProperty(kk)) {
-      let tableField = false;
-      tableField = tblFields.includes(kk);
-      if (tableField == true) {
-        console.log("Table:", kk);
-        myData[kk] = tableValidate(req.body[kk], myData[kk]);
-        req.body[kk] = myData[kk];
-      }
+    let tableField = false;
+    tableField = tblFields.includes(kk);
+    if (tableField == true && kk != "actionLog") {
+      console.log("Table:", kk);
+      myData[kk] = tableValidate(req.body[kk], myData[kk]);
+      req.body[kk] = myData[kk];
+    } else {
+      console.log("NoTable", kk);
+      myData[kk] = req.body[kk];
     }
   }
-
   if (tblFields.length > 0) {
     // X8 - Perform Calculations [Table] ...
     for (let l = 0; l < tblFields.length; l++) {
@@ -761,7 +756,6 @@ exports.updateDataRecords = asyncHandler(async (req, res, next) => {
       passArray["FieldDef"] = cardConfig["FieldDef"];
       passArray["itemCnt"] = "";
       var sValidation = Handler["validation"](passArray);
-
       req.body = sValidation["data"];
       if (sValidation["status"] == false) {
         res.status(400).json({
@@ -778,7 +772,6 @@ exports.updateDataRecords = asyncHandler(async (req, res, next) => {
   if (req.body.ReferenceID == undefined || req.body.ReferenceID == "") {
     req.body.ReferenceID = req.body.ID;
   }
-
   // X8 - Update Record ...
   result = await findOneUpdateData(req.body, req.headers.applicationid);
 

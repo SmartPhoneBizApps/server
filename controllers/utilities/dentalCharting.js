@@ -15,11 +15,6 @@ const https = require("https");
 // @desc      Perform Calculations
 // @route     GET /api/v1/util/calculation
 // @access    Private (Application Users)
-
-// var aa = new calfunction();
-// console.log(aa.Handler[ADD1()]);
-// return false;
-
 exports.dentalCharting = asyncHandler(async (req, res, next) => {
   let result = await findOneAppData(req.query.patientId, "PATIENT001");
   let out = {};

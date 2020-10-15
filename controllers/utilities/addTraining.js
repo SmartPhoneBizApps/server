@@ -25,18 +25,7 @@ exports.addTraining = asyncHandler(async (req, res, next) => {
       message: "1st applicationID is incorrect",
     });
   }
-  console.log(req.params.fromApp, req.params.ReferenceID);
-  // Appdata = await findOneAppDataRefID(
-  //   req.params.ReferenceID,
-  //   req.params.fromApp
-  // );
-  // if (!Appdata) {
-  //   res.status(400).json({
-  //     success: true,
-  //     message: "Record not found",
-  //   });
-  //   return false;
-  // }
+
   // Read Config File
   configData = getNewConfig(req.params.toApp, req.params.role);
   let myData = await findOneAppData(req.params.ID, req.params.toApp);
@@ -46,21 +35,18 @@ exports.addTraining = asyncHandler(async (req, res, next) => {
   let Status = "NoChange";
   mytrain = {};
   mytr = [];
-  console.log(req.params.table);
-  //mytrain[req.params.table];
   mytrain["ItemNumber"] = Math.floor(100 + Math.random() * 900);
   for (let q = 0; q < configData["DButtons"].length; q++) {
     for (const ky in configData["DButtons"][q]["FieldMapping"]) {
       const ex = configData["DButtons"][q]["FieldMapping"][ky];
       if (ex == ky) {
         mytrain[ky] = req.body[ex];
-        console.log("Key: ", ky, "/", ex);
       }
     }
   }
   mytr.push(mytrain);
   myData[req.params.table] = tableValidate(mytr, myData[req.params.table]);
-  // console.log("Table Data", myData);
+
   // Processing Log
   myData["TransLog"] = processingLog(
     req.params.ID,
@@ -73,9 +59,7 @@ exports.addTraining = asyncHandler(async (req, res, next) => {
     req.headers.buttontype,
     req.headers.buttonname
   );
-  // console.log(req.params.toApp, myData);
   result = await findOneUpdateData(myData, req.params.toApp);
-  console.log(result);
   if (result) {
     res.status(201).json({
       success: true,

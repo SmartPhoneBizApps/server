@@ -12,10 +12,6 @@ const https = require("https");
 // @route     GET /api/v1/util/calculation
 // @access    Private (Application Users)
 
-// var aa = new calfunction();
-// console.log(aa.Handler[ADD1()]);
-// return false;
-
 exports.placeDetails = asyncHandler(async (req, res, next) => {
   var PLACEID = req.params.id;
   //  var PLACEID = "ChIJN1t_tDeuEmsRUsoyG83frY4";
@@ -30,7 +26,7 @@ exports.placeDetails = asyncHandler(async (req, res, next) => {
     FIELDS +
     "&key=" +
     API_KEY;
-  console.log(reqGoogle);
+
   https: request(
     reqGoogle,
     {
@@ -65,10 +61,8 @@ exports.placeDetails = asyncHandler(async (req, res, next) => {
       }
       for (let i = 0; i < body.result.address_components.length; i++) {
         const e2 = body.result.address_components[i];
-        console.log(e2);
 
         for (let a = 0; a < e2.types.length; a++) {
-          console.log(e2.types[a]);
           switch (e2.types[a]) {
             case "street_number":
               address["house_no"] = e2["short_name"];

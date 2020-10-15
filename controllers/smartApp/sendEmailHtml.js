@@ -14,6 +14,5 @@ exports.sendEmailHtml = asyncHandler(async (req, res, next) => {
   passData["buttonLink"] = "https://www.google.com";
   passData["req"] = req;
   passData["res"] = res;
-  console.log(passData);
   await sendHtmlEmail(passData);
 });

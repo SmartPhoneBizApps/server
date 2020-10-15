@@ -168,7 +168,6 @@ exports.getListrecords1 = asyncHandler(async (req, res, next) => {
     if (appconfig["Controls"]["SearchString"]["Search"] == true) {
       tableString = appconfig["Controls"]["SearchString"]["table"];
       for (const key in tableString) {
-        console.log("table:", key);
         tabObj["table"] = key;
         for (let k = 0; k < tableString[key].length; k++) {
           tabObj["field"] = tableString[key][k];

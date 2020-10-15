@@ -889,9 +889,7 @@ module.exports = {
         }
       }
     }
-    //   console.log("detailLog", detailLog);
     newLog["ID"] = req.body.ID;
-    //   console.log("Type", detailLog);
     newLog["Type"] = type;
     newLog["DetailLog"] = detailLog;
     newLog["User"] = req.body.userEmail;
@@ -1120,12 +1118,11 @@ module.exports = {
     mode,
     numberRange
   ) {
-    //   console.log("MyData", mydata);
     var request = require("request");
     var options = {
       method: method,
       url: "https://fierce-oasis-51455.herokuapp.com/api/v1/datarecords/",
-      //url: "http://localhost:5000/api/v1/datarecords/",
+      // url: "http://localhost:5000/api/v1/datarecords/",
       headers: {
         applicationid: app,
         businessRole: role,
@@ -1135,7 +1132,6 @@ module.exports = {
         calculation: calculation,
         numberRange: numberRange,
         "Content-Type": "application/json",
-
         notification: notify,
         Authorization: authorization,
       },
@@ -1143,7 +1139,6 @@ module.exports = {
     };
     request(options, function (error, response) {
       if (error) throw new Error(error);
-      console.log(response.body);
     });
     return mydata;
   },
@@ -1396,7 +1391,6 @@ module.exports = {
     });
   },
   cardReplace: function (mycard, cardData, appconfig, mode, tab, ControlValue) {
-    //  console.log("mycard", mycard);
     if (mode == "header") {
       if (ControlValue != "NA") {
         // Control Display = ON

@@ -133,7 +133,6 @@ const advancedDataList = (model, model2, AppID, populate) => async (
           console.log("Date:", cl1);
           // rag = results[a][key].toString().split(" ");
           //  ndt = rag[0] + " " + rag[1] + " " + rag[2] + " " + rag[3];
-          //  console.log(ndt);
           var d = new Date();
           var n = d.toLocaleDateString();
           console.log("Divyesh2", typeof results[a][key]);

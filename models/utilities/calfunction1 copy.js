@@ -2,12 +2,9 @@ class calFun {
   constructor() {}
 
   isInt(n) {
-    // console.log("isInt" + n);
     if (n % 1 === 0) {
-      //   console.log("IF");
       return n;
     } else {
-      //   console.log("ELSE");
       return Number(Number(n).toFixed(2));
     }
   }

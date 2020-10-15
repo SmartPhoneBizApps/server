@@ -14,8 +14,6 @@ const sendEmail = require("../../utils/sendEmail");
 // @route     GET /api/v1/util/calculation
 // @access    Private (Application Users)
 exports.copyCourse = asyncHandler(async (req, res, next) => {
-  console.log("Function - utilities/copyCourse(File : addCourseCatalog)");
-
   appX = await App.findOne({ applicationID: req.params.fromApp });
   if (!appX) {
     res.status(400).json({

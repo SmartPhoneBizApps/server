@@ -45,7 +45,6 @@ exports.appointmentsGet = asyncHandler(async (req, res, next) => {
     req.query = { ...query1 };
   }
   let query = readData(req.headers.applicationid, req, config1);
-  console.log("AG", query);
   let results = await query;
 
   outData = {};
@@ -95,7 +94,6 @@ exports.appointmentsGet = asyncHandler(async (req, res, next) => {
         slot["Status"] = 0;
         slot["ChairName"] = outData["ChairName"];
         slot["ChairID"] = appSchedule["Chairs"][a]["ID"];
-        console.log(appSchedule["Chairs"][a]["ID"]);
 
         // Add Doctor Details..
         for (let p = 0; p < drSch.length; p++) {

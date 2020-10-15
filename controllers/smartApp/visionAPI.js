@@ -29,19 +29,6 @@ exports.visionAPI = asyncHandler(async (req, res, next) => {
   logo = {};
   text = {};
 
-  // const [landmark] = await client.landmarkDetection(fileName);
-  // const [label] = await client.labelDetection(fileName);
-  // const [logo] = await client.logoDetection(fileName);
-  // const [face] = await client.faceDetection(fileName);
-  // const [text] = await client.textDetection(fileName);
-  // const [web] = await client.webDetection(fileName);
-
-  // // console.log(label);
-  // const labels = label.labelAnnotations;
-  // console.log("Labels:");
-  // labels.forEach((label) => console.log(label.description));
-
-  //Place
   if (req.headers.imagetype == "Place") {
     [landmark] = await client.landmarkDetection(fileName);
     [label] = await client.labelDetection(fileName);

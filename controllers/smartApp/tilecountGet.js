@@ -17,9 +17,7 @@ exports.tilecountGet = asyncHandler(async (req, res, next) => {
     );
   }
 
-  console.log(approle["Apps"]);
   for (let x = 0; x < approle["Apps"].length; x++) {
-    console.log(approle["Apps"][x]["applicationID"]);
     // Read New Config File
     let fn =
       "../../NewConfig/" +
@@ -31,18 +29,7 @@ exports.tilecountGet = asyncHandler(async (req, res, next) => {
 
     query = getTotalCount(approle["Apps"][x]["applicationID"], req, config1);
     let count = await query;
-
-    console.log("App", approle["Apps"][x]["applicationID"], count);
   }
-
-  console.log("Atul");
-  //   const application = await findOneApp(req.params.id);
-  //   data = [];
-
-  //   approles
-  //   role
-  // :
-  // "AccessAdmin"
 
   res.status(200).json({
     success: true,

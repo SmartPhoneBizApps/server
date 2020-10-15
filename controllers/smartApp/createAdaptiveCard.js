@@ -51,14 +51,12 @@ exports.createAdaptiveCard = asyncHandler(async (req, res, next) => {
         body2x["isSubtle"] = true;
         body2x["size"] = "medium";
         body.push(body2x);
-        console.log(body2x);
         body2x = {};
 
         body1x["type"] = "TextBlock";
         body1x["text"] = e1["name"];
         body1x["id"] = e1["name"];
         body.push(body1x);
-        console.log(body1x);
         body1x = {};
       } else {
         body2x["type"] = "TextBlock";
@@ -66,14 +64,12 @@ exports.createAdaptiveCard = asyncHandler(async (req, res, next) => {
         body2x["isSubtle"] = true;
         body2x["size"] = "medium";
         body2.push(body2x);
-        console.log(body2x);
         body2x = {};
 
         body1x["type"] = "TextBlock";
         body1x["text"] = e1["name"];
         body1x["id"] = e1["name"];
         body2.push(body1x);
-        console.log(body1x);
         body1x = {};
       }
     });

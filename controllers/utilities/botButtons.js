@@ -8,9 +8,6 @@ exports.botButtons = asyncHandler(async (req, res, next) => {
   let query1;
   query1 = App.find();
   const applist = await query1;
-  console.log(applist);
-
-  console.log(req.params.applicationID, req.params.Role);
   app1 = req.params.applicationID;
   app2 = "GLOBAL";
   role1 = req.params.Role;
@@ -20,8 +17,6 @@ exports.botButtons = asyncHandler(async (req, res, next) => {
   query = Possval.find(
     {
       PossibleValues: req.params.PValue,
-      //     ApplicationID: { $in: [app1, app2] },
-      //      Role: { $in: [role1, role2] },
     },
     { _id: 0 }
   );
@@ -34,7 +29,5 @@ exports.botButtons = asyncHandler(async (req, res, next) => {
 
   // Executing query
   const results = await query;
-  //  console.log(results, fields, query);
-
   res.status(200).json(results);
 });
