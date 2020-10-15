@@ -1117,7 +1117,8 @@ module.exports = {
     method,
     buttonType,
     buttonName,
-    mode
+    mode,
+    numberRange
   ) {
     //   console.log("MyData", mydata);
     var request = require("request");
@@ -1132,7 +1133,9 @@ module.exports = {
         mode: mode,
         buttonType: buttonType,
         calculation: calculation,
+        numberRange: numberRange,
         "Content-Type": "application/json",
+
         notification: notify,
         Authorization: authorization,
       },
@@ -1337,9 +1340,9 @@ module.exports = {
     card["sap.card"] = cardSub1;
     return card;
   },
-  generateID: function (buttonName, body, MButtons) {
+  generateID: function (buttonName, body, MButtons, numberRange) {
     /// Calculate ID
-    let sourceID = "Internal";
+    let sourceID = numberRange;
 
     if (buttonName == "UPLOAD") {
       for (let a = 0; a < MButtons.length; a++) {

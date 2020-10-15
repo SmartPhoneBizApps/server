@@ -147,12 +147,14 @@ exports.createInvoice = asyncHandler(async (req, res, next) => {
     "POST",
     "ADD",
     "Create with Reference",
-    "Create"
+    "Create",
+    "External"
   );
-  //  console.log("NewDocument", result);
+
+  // Update Master document...
+  Out2 = {};
   if (configFrom["Controls"]["Source"]["sourceTableUpdate"].length > 0) {
     console.log("Source Field..");
-    Out2 = {};
     Out2["ID"] = req.params.ID;
     for (
       let j = 0;
@@ -182,22 +184,34 @@ exports.createInvoice = asyncHandler(async (req, res, next) => {
         Out2[kk] = o2x;
         o2x = [];
       }
-      // Create the new copied document...
-      result = await createDocumentAPI(
-        req.params.fromApp,
-        req.params.targetRole,
-        "Yes",
-        "Messenger",
-        Out2,
-        req.headers.authorization,
-        "PUT",
-        "UPDATE",
-        "Update with Reference",
-        "FieldUpdate"
-      );
       console.log(req.params.fromApp, req.params.targetRole, Out2);
     }
   }
+  if (Out2["lowerNodes"] == undefined) {
+    Out2["lowerNodes"] = [];
+  }
+  lNode = {};
+  lNode["toID"] = result["ID"];
+  lNode["toApp"] = req.params.toApp;
+  Out2["lowerNodes"].push({ ...lNode });
+  console.log("lNode", lNode);
+  lNode = {};
+
+  // Create the new copied document...
+  result = await createDocumentAPI(
+    req.params.fromApp,
+    req.params.targetRole,
+    "Yes",
+    "Messenger",
+    Out2,
+    req.headers.authorization,
+    "PUT",
+    "UPDATE",
+    "Update with Reference",
+    "FieldUpdate",
+    "Internal"
+  );
+
   let message = "";
   message =
     "Hi " +
@@ -230,10 +244,4 @@ exports.createInvoice = asyncHandler(async (req, res, next) => {
       message: "Record assigned to the user but Email could not be sent",
     });
   }
-
-  /*   res.status(201).json({
-    success: true,
-    data: result,
-    message: "Course assigned to the user",
-  }); */
 });

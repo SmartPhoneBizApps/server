@@ -131,7 +131,8 @@ exports.assignCourseUser = asyncHandler(async (req, res, next) => {
     "POST",
     "ADD",
     "Create with Reference",
-    "Create"
+    "Create",
+    "External"
   );
 
   if (configFrom["Controls"]["Source"]["sourceTableUpdate"].length > 0) {
@@ -188,7 +189,8 @@ exports.assignCourseUser = asyncHandler(async (req, res, next) => {
         "PUT",
         "UPDATE",
         "Update with Reference",
-        "FieldUpdate"
+        "FieldUpdate",
+        "Internal"
       );
 
       console.log(req.params.fromApp, req.params.targetRole, Out2);

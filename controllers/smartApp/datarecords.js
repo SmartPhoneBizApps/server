@@ -257,7 +257,17 @@ exports.addDataRecords = asyncHandler(async (req, res, next) => {
   }
   /////--------------------------------------------------
   /// Calculate ID
-  req.body = generateID(req.headers.buttonname, req.body, cardConfig.MButtons);
+  if (req.headers.numberRange != undefined) {
+    numberRange = req.headers.numberRange;
+  } else {
+    numberRange = "Internal";
+  }
+  req.body = generateID(
+    req.headers.buttonname,
+    req.body,
+    cardConfig.MButtons,
+    numberRange
+  );
   if (req.body.ReferenceID == undefined || req.body.ReferenceID == "") {
     req.body.ReferenceID = req.body.ID;
   }
