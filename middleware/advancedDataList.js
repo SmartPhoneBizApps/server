@@ -121,33 +121,6 @@ const advancedDataList = (model, model2, AppID, populate) => async (
   let results = await query;
 
   rag = [];
-  /*   for (let a = 0; a < results.length; a++) {
-    const el1 = results[a];
-    const el3 = results[a];
-    console.log("Divyesh1", el1);
-    for (const key in el1) {
-      const el2 = results[a][key];
-      for (let b = 0; b < config1.FieldDef.length; b++) {
-        const cl1 = config1.FieldDef[b];
-        if ((cl1["type"] == "Date") & (cl1["name"] == key)) {
-          console.log("Date:", cl1);
-          // rag = results[a][key].toString().split(" ");
-          //  ndt = rag[0] + " " + rag[1] + " " + rag[2] + " " + rag[3];
-          var d = new Date();
-          var n = d.toLocaleDateString();
-          console.log("Divyesh2", typeof results[a][key]);
-          console.log("Divyesh3", n);
-          console.log("Divyesh3A", el3[key]);
-          el3[key] = n;
-
-          console.log("Divyesh4", el3[key]);
-          console.log("----------");
-          break;
-        }
-      }
-    }
-    results[a] = el3;
-  } */
 
   /////////////////////////////////////////////////////////////////
   if (model2 !== model) {

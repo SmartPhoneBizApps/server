@@ -830,7 +830,7 @@ module.exports = {
     pLog["User"] = userid;
     pLog["UserName"] = userName;
     pLog["Status"] = Status;
-    pLog["TimeStamp"] = Date.now();
+    pLog["TimeStamp"] = new Date();
     pLog["ID"] = ID;
     pLog["applicationId"] = app;
     pLog["Comment"] = comment;
@@ -845,7 +845,15 @@ module.exports = {
     }
     return pLog;
   },
-  actionLog: function (req, type, actionLog, buttonType, buttonName) {
+  actionLog: function (
+    req,
+    type,
+    actionLog,
+    buttonType,
+    buttonName,
+    userInputs
+  ) {
+    console.log("actionLog1", userInputs);
     detailL = {};
     newLog = {};
     detailLog = [];
@@ -880,10 +888,10 @@ module.exports = {
       }
     }
     if (type == "UPDATE") {
-      for (const key in req.body) {
+      for (const key in userInputs) {
         if (!excludeList.includes(key)) {
           detailL["Key"] = key;
-          detailL["Value"] = req.body[key];
+          detailL["Value"] = userInputs[key];
           detailLog.push({ ...detailL });
           detailL = {};
         }
@@ -898,6 +906,8 @@ module.exports = {
     newLog["Role"] = req.headers.businessrole;
     newLog["applicationId"] = req.headers.applicationid;
     newLog["TimeStamp"] = Date.now();
+    // dt = Date.now();
+    // newLog["TimeStamp"] = dt.toString();
 
     // add the Log
     actionLog.unshift({ ...newLog });

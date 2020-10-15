@@ -290,7 +290,8 @@ exports.addDataRecords = asyncHandler(async (req, res, next) => {
     "CREATE",
     req.body["actionLog"],
     req.headers.buttontype,
-    req.headers.buttonname
+    req.headers.buttonname,
+    userInputs
   );
 
   /// X99 - Update Calculations.....
@@ -425,6 +426,8 @@ exports.addDataRecords = asyncHandler(async (req, res, next) => {
 // -----------------------------------------------------
 // -----------------------------------------------------
 exports.updateDataRecords = asyncHandler(async (req, res, next) => {
+  console.log(req.body);
+  let userInputs = { ...req.body };
   // 01 - Check if applicationid is provided
   if (!req.headers.applicationid) {
     return next(new ErrorResponse(`Please provide App ID(Header)`, 400));
@@ -642,7 +645,8 @@ exports.updateDataRecords = asyncHandler(async (req, res, next) => {
     "UPDATE",
     myData["actionLog"],
     req.headers.buttontype,
-    req.headers.buttonname
+    req.headers.buttonname,
+    userInputs
   );
   req.body.actionLog = myData.actionLog;
 
