@@ -109,7 +109,15 @@ exports.assignCourseUser = asyncHandler(async (req, res, next) => {
       message: "Record not found",
     });
   }
-  out1 = getNewCopyRecord(configData, Appdata, req.params.ID, userX, appX.id);
+  out1 = getNewCopyRecord(
+    configData,
+    Appdata,
+    req.params.ID,
+    userX,
+    appX.id,
+    req.params.fromApp,
+    req.params.toApp
+  );
   //result = await createDocument(req.params.toApp, out1);
 
   // Create the new copied document...

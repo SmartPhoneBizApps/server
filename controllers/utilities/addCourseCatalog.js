@@ -39,7 +39,9 @@ exports.copyCourse = asyncHandler(async (req, res, next) => {
     Appdata,
     req.params.ID,
     req.user,
-    appX.id
+    appX.id,
+    req.params.fromApp,
+    req.params.toApp
   );
   result = await createDocument(req.params.toApp, out1);
 

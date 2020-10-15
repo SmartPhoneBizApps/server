@@ -54,6 +54,7 @@ exports.createInvoice = asyncHandler(async (req, res, next) => {
     } else {
       Appdata = await findOneAppData(req.params.ID, req.params.fromApp);
     }
+
     if (!Appdata) {
       res.status(400).json({
         success: true,
@@ -69,7 +70,7 @@ exports.createInvoice = asyncHandler(async (req, res, next) => {
           const e2 = x1[y];
           for (const k3 in e2) {
             Appdata[k3] = Appdata[x][e2[k3]];
-            console.log("Appdata[k3]", Appdata[k3]);
+            //          console.log("Appdata[k3]", Appdata[k3]);
           }
         }
       }
@@ -86,7 +87,7 @@ exports.createInvoice = asyncHandler(async (req, res, next) => {
         for (let y = 0; y < x1.length; y++) {
           const e2 = x1[y];
           for (const k3 in e2) {
-            console.log(results1["courses"][x][e2[k3]]);
+            //         console.log(results1["courses"][x][e2[k3]]);
             if (k3 == "Image") {
               i_temp.push(results1["courses"][x][e2[k3]]);
               Appdata[k3] = i_temp;
@@ -110,8 +111,8 @@ exports.createInvoice = asyncHandler(async (req, res, next) => {
       }
     }
   }
-  // Assign MasterData values...
 
+  // Assign MasterData values...
   if (configFrom["Controls"]["Source"].hasOwnProperty("MasterData")) {
     m1 = configFrom["Controls"]["Source"]["MasterData"];
     if (m1 != undefined) {
@@ -124,7 +125,15 @@ exports.createInvoice = asyncHandler(async (req, res, next) => {
     }
   }
 
-  out1 = getNewCopyRecord(configData, Appdata, req.params.ID, userX, appX.id);
+  out1 = getNewCopyRecord(
+    configData,
+    Appdata,
+    req.params.ID,
+    userX,
+    appX.id,
+    req.params.fromApp,
+    req.params.toApp
+  );
   //result = await createDocument(req.params.toApp, out1);
 
   // Create the new copied document...
@@ -140,7 +149,7 @@ exports.createInvoice = asyncHandler(async (req, res, next) => {
     "Create with Reference",
     "Create"
   );
-  console.log("NewDocument", result);
+  //  console.log("NewDocument", result);
   if (configFrom["Controls"]["Source"]["sourceTableUpdate"].length > 0) {
     console.log("Source Field..");
     Out2 = {};
@@ -155,10 +164,9 @@ exports.createInvoice = asyncHandler(async (req, res, next) => {
       o2x = [];
       items2u = [];
       for (const kk in tab1) {
-        console.log(kk, tab1[kk], out1);
+        //      console.log(kk, tab1[kk], out1);
         if (out1.hasOwnProperty(kk)) {
           for (let d = 0; d < out1[kk].length; d++) {
-            console.log(out1[kk][d]["ItemNumber"]);
             items2u.push(out1[kk][d]["ItemNumber"]);
           }
         }
@@ -169,13 +177,6 @@ exports.createInvoice = asyncHandler(async (req, res, next) => {
               o2["ItemNumber"] = ew;
               o2x.push({ ...o2 });
             });
-            console.log(
-              "ItemData to be updated",
-              kk,
-              ki,
-              tab1[kk][i][ki],
-              items2u
-            );
           }
         }
         Out2[kk] = o2x;

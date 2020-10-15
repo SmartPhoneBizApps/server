@@ -762,8 +762,19 @@ module.exports = {
       return result;
     }
   },
-  getNewCopyRecord: function (configData, Appdata, paramID, userX, appID) {
+  getNewCopyRecord: function (
+    configData,
+    Appdata,
+    paramID,
+    userX,
+    appID,
+    fromApp,
+    toApp
+  ) {
     out1 = {};
+    out1["upperNodes"] = [];
+    fromID = Appdata["ID"];
+    toID = "";
     for (let i = 0; i < configData.FieldDef.length; i++) {
       const el1 = configData.FieldDef[i];
       for (const key in Appdata) {
@@ -772,8 +783,16 @@ module.exports = {
           if (key == "ID") {
             out1["ReferenceID"] = paramID;
             out1[key] = Math.floor(100000 + Math.random() * 900000);
+            toID = out1[key];
           } else {
             out1[key] = element;
+          }
+          if (el1.name == "upperNodes") {
+            uNode = {};
+            uNode["fromID"] = fromID;
+            uNode["fromApp"] = fromApp;
+            out1["upperNodes"].push({ ...uNode });
+            uNode = {};
           }
         }
       }
@@ -841,6 +860,10 @@ module.exports = {
       "companyName",
       "branch",
       "area",
+      "SearchString",
+      "ProgressComment",
+      "upperNodes",
+      "lowerNodes",
     ];
     if (buttonType != undefined) {
       newLog["buttonType"] = buttonType;
@@ -866,9 +889,9 @@ module.exports = {
         }
       }
     }
-    console.log("detailLog", detailLog);
+    //   console.log("detailLog", detailLog);
     newLog["ID"] = req.body.ID;
-    console.log("Type", detailLog);
+    //   console.log("Type", detailLog);
     newLog["Type"] = type;
     newLog["DetailLog"] = detailLog;
     newLog["User"] = req.body.userEmail;
@@ -881,7 +904,6 @@ module.exports = {
     // add the Log
     actionLog.unshift({ ...newLog });
     newLog = {};
-    console.log("actionLog", actionLog);
     return actionLog;
   },
   getPVConfig: function (a, b) {
@@ -1097,12 +1119,12 @@ module.exports = {
     buttonName,
     mode
   ) {
-    console.log("MyData", mydata);
+    //   console.log("MyData", mydata);
     var request = require("request");
     var options = {
       method: method,
       url: "https://fierce-oasis-51455.herokuapp.com/api/v1/datarecords/",
-      // url: "http://localhost:5000/api/v1/datarecords/",
+      //url: "http://localhost:5000/api/v1/datarecords/",
       headers: {
         applicationid: app,
         businessRole: role,
@@ -1181,6 +1203,8 @@ module.exports = {
       "Partner",
       "TaxInvoicekey",
       "InvoiceTypekey",
+      "lowerNodes",
+      "upperNodes",
     ];
     myFieldArray.push.apply(myFieldArray, exclude_array);
     return myFieldArray;
@@ -1369,7 +1393,7 @@ module.exports = {
     });
   },
   cardReplace: function (mycard, cardData, appconfig, mode, tab, ControlValue) {
-    console.log("mycard", mycard);
+    //  console.log("mycard", mycard);
     if (mode == "header") {
       if (ControlValue != "NA") {
         // Control Display = ON
