@@ -107,7 +107,8 @@
       ],
       "URL": "datarecords/",
       "Token": "Yes",
-      "URLMethod": "PUT"
+      "URLMethod": "PUT",
+      "Condition": { "Field": "Status", "value": "Saved" }
     },
     {
       "type": "WORKFLOW",
@@ -149,7 +150,8 @@
       ],
       "URL": "datarecords/",
       "Token": "Yes",
-      "URLMethod": "PUT"
+      "URLMethod": "PUT",
+      "Condition": { "Field": "Status", "value": "MoreInfo" }
     }
   ],
   "Tabs": [
