@@ -113,7 +113,7 @@
     {
       "type": "WORKFLOW",
       "name": "Submit",
-      "icon": "sap-icon://decline",
+      "icon": "sap-icon://add-document",
       "Dialog": [
         {
           "label": "Submit Comment",
@@ -129,7 +129,8 @@
       ],
       "URL": "datarecords/",
       "Token": "Yes",
-      "URLMethod": "PUT"
+      "URLMethod": "PUT",
+      "Condition": { "Field": "Status", "value": "Saved" }
     },
     {
       "type": "WORKFLOW",
@@ -155,7 +156,7 @@
     {
       "type": "WORKFLOW",
       "name": "Submit",
-      "icon": "sap-icon://decline",
+      "icon": "sap-icon://add-document",
       "Dialog": [
         {
           "label": "Submit Comment",
@@ -171,7 +172,8 @@
       ],
       "URL": "datarecords/",
       "Token": "Yes",
-      "URLMethod": "PUT"
+      "URLMethod": "PUT",
+      "Condition": { "Field": "Status", "value": "Saved" }
     },
     {
       "type": "WORKFLOW",
