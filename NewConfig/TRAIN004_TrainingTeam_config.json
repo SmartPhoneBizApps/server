@@ -167,7 +167,8 @@
             "editable": true
           }
         ]
-      }
+      },
+      "Condition": { "Field": "Exam", "value": "Yes" }
     },
     {
       "type": "CATALOG",
@@ -210,7 +211,8 @@
       "URL": "uploadFile/questioner/{ID}",
       "URLMethodHDR": "POST",
       "dataFields": "FieldName",
-      "Token": "Yes"
+      "Token": "Yes",
+      "Condition": { "Field": "Exam", "value": "Yes" }
     },
     {
       "type": "WORKFLOW",
