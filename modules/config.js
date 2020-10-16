@@ -853,7 +853,7 @@ module.exports = {
     buttonName,
     userInputs
   ) {
-    console.log("actionLog1", userInputs);
+  //  console.log("actionLog1", userInputs);
     detailL = {};
     newLog = {};
     detailLog = [];
@@ -1131,8 +1131,8 @@ module.exports = {
     var request = require("request");
     var options = {
       method: method,
-      url: "https://fierce-oasis-51455.herokuapp.com/api/v1/datarecords/",
-      // url: "http://localhost:5000/api/v1/datarecords/",
+     // url: "https://fierce-oasis-51455.herokuapp.com/api/v1/datarecords/",
+       url: "http://localhost:5000/api/v1/datarecords/",
       headers: {
         applicationid: app,
         businessRole: role,
@@ -1150,6 +1150,7 @@ module.exports = {
     request(options, function (error, response) {
       if (error) throw new Error(error);
     });
+ //   console.log(response)
     return mydata;
   },
   gerCardData: function (app, q1) {
@@ -1348,6 +1349,7 @@ module.exports = {
   generateID: function (buttonName, body, MButtons, numberRange) {
     /// Calculate ID
     let sourceID = numberRange;
+    console.log("sourceIDNumber1", sourceID)
 
     if (buttonName == "UPLOAD") {
       for (let a = 0; a < MButtons.length; a++) {
@@ -1378,6 +1380,7 @@ module.exports = {
       console.log("Internal ID");
       body["ID"] = Math.floor(100000 + Math.random() * 900000);
     }
+    console.log("sourceIDNumber1", sourceID, body["ID"])
     return body;
   },
   updateFile: function (fn01, config) {

@@ -28,6 +28,15 @@ const calfunction = require("../../models/utilities/calfunction.js");
 // @route     POST /api/v1/datarecords/
 // @access    Private
 exports.addDataRecords = asyncHandler(async (req, res, next) => {
+  // Reserve user Inputs
+  let userInputs = { ...req.body };
+
+  // Number Range...
+  if (req.headers.numberRange != undefined) {
+    numberRange = req.headers.numberRange;
+  } else {
+    numberRange = "Internal";
+  }
   // Check MultiAttachments Tag
   req.body.MultiAttachments = checkMultiAttachments(req.body.MultiAttachments);
   //Get Company
@@ -255,11 +264,8 @@ exports.addDataRecords = asyncHandler(async (req, res, next) => {
   }
   /////--------------------------------------------------
   /// Calculate ID
-  if (req.headers.numberRange != undefined) {
-    numberRange = req.headers.numberRange;
-  } else {
-    numberRange = "Internal";
-  }
+
+
   req.body = generateID(
     req.headers.buttonname,
     req.body,
@@ -426,7 +432,7 @@ exports.addDataRecords = asyncHandler(async (req, res, next) => {
 // -----------------------------------------------------
 // -----------------------------------------------------
 exports.updateDataRecords = asyncHandler(async (req, res, next) => {
-  console.log(req.body);
+//  console.log(req.body);
   let userInputs = { ...req.body };
   // 01 - Check if applicationid is provided
   if (!req.headers.applicationid) {

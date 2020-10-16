@@ -203,7 +203,7 @@ exports.createInvoice = asyncHandler(async (req, res, next) => {
     "UPDATE",
     "Update with Reference",
     "FieldUpdate",
-    "Internal"
+    "External"
   );
 
   let message = "";

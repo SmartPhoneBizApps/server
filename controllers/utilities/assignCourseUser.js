@@ -178,7 +178,7 @@ exports.assignCourseUser = asyncHandler(async (req, res, next) => {
         "UPDATE",
         "Update with Reference",
         "FieldUpdate",
-        "Internal"
+        "External"
       );
     }
   }
