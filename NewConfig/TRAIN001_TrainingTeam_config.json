@@ -336,15 +336,6 @@
       "download": "No"
     },
     {
-      "value": "Tab8",
-      "style": "SAP",
-      "update": "Yes",
-      "name": "Images2",
-      "fioriicon": "camera",
-      "type": "carouselImage",
-      "download": "No"
-    },
-    {
       "value": "Tab99",
       "style": "SAP",
       "update": "Yes",
@@ -397,8 +388,7 @@
     "Tab4": ["Video"],
     "Tab5": ["CourseLink"],
     "Tab6": ["questioner"],
-    "Tab7": ["carouselImage"],
-    "Tab8": ["carouselImage1"]
+    "Tab7": ["carouselImage"]
   },
   "listCards": [
     {
@@ -943,15 +933,6 @@
       "SLabel": "carouselImage"
     },
     {
-      "name": "carouselImage1",
-      "type": "carouselImage",
-
-      "width": "200",
-      "Option": "Optional",
-      "adaptiveCard": "None",
-      "SLabel": "carouselImage1"
-    },
-    {
       "name": "MultiAttachments",
       "type": "attachment",
 
@@ -1194,13 +1175,6 @@
     },
     {
       "id": "Step6",
-      "fields": [{ "name": "carouselImage1", "Mode": "Edit" }],
-      "name": "Images and Attachment",
-      "stepType": "FieldList",
-      "intro": "Screenshots and Images : Here you can upload screenshots, images (jpg, png, etc..)"
-    },
-    {
-      "id": "Step7",
       "fields": [{ "name": "CourseLink", "Mode": "Edit" }],
       "name": "Link to External Course (if Any)",
       "stepType": "FieldList",
