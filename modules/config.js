@@ -1129,9 +1129,12 @@ module.exports = {
     numberRange
   ) {
     var request = require("request");
+    processURL = process.env.APPURL + "api/v1/datarecords/";
+    console.log("processURL", processURL)
     var options = {
       method: method,
-      url: "https://fierce-oasis-51455.herokuapp.com/api/v1/datarecords/",
+      url: processURL,
+     //  url: "https://fierce-oasis-51455.herokuapp.com/api/v1/datarecords/",
      //  url: "http://localhost:5000/api/v1/datarecords/",
       headers: {
         applicationid: app,
