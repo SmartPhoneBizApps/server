@@ -888,44 +888,44 @@ module.exports = {
         newLog["Transaction"] = "DataUpdate";
       }
     }
-    if (type == "UPDATE") {
-      for (const key in userInputs) {
-        if (!excludeList.includes(key)) {
-          console.log("FieldList");
-          for (let g = 0; g < FieldDef.length; g++) {
-            if (FieldDef[g]["name"] == key) {
-              switch (FieldDef[g]["type"]) {
-                case "Array":
-                  detailL["Key"] = key;
-                  detailL["Value"] = "Table updated - ";
-                  for (let p = 0; p < userInputs[key].length; p++) {
-                    detailL["Value"] = detailL["Value"] + "[";
-                    for (const kp in userInputs[key][p]) {
-                      detailL["Value"] =
-                        detailL["Value"] +
-                        kp +
-                        ":" +
-                        userInputs[key][p][kp] +
-                        ", ";
-                    }
-                    detailL["Value"] = detailL["Value"] + "]";
+    //    if (type == "UPDATE") {
+    for (const key in userInputs) {
+      if (!excludeList.includes(key)) {
+        console.log("FieldList");
+        for (let g = 0; g < FieldDef.length; g++) {
+          if (FieldDef[g]["name"] == key) {
+            switch (FieldDef[g]["type"]) {
+              case "Array":
+                detailL["Key"] = key;
+                detailL["Value"] = "Table updated - ";
+                for (let p = 0; p < userInputs[key].length; p++) {
+                  detailL["Value"] = detailL["Value"] + "[";
+                  for (const kp in userInputs[key][p]) {
+                    detailL["Value"] =
+                      detailL["Value"] +
+                      kp +
+                      ":" +
+                      userInputs[key][p][kp] +
+                      ", ";
                   }
+                  detailL["Value"] = detailL["Value"] + "]";
+                }
 
-                  detailLog.push({ ...detailL });
-                  detailL = {};
-                  break;
-                default:
-                  detailL["Key"] = key;
-                  detailL["Value"] = userInputs[key];
-                  detailLog.push({ ...detailL });
-                  detailL = {};
-                  break;
-              }
+                detailLog.push({ ...detailL });
+                detailL = {};
+                break;
+              default:
+                detailL["Key"] = key;
+                detailL["Value"] = userInputs[key];
+                detailLog.push({ ...detailL });
+                detailL = {};
+                break;
             }
           }
         }
       }
     }
+    //    }
     newLog["ID"] = req.body.ID;
     newLog["Type"] = type;
     newLog["DetailLog"] = [];

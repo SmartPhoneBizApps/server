@@ -31,7 +31,6 @@
       "header": ["Status", "LeaveType", "EmployeeID", "LeaveFrom", "LeaveDays"]
     }
   },
-
   "ListFields": {
     "IntroField": "LeaveFrom",
     "TitleField": "Name",
@@ -173,30 +172,6 @@
       "fioriicon": "employee"
     },
     {
-      "value": "Tab2",
-      "style": "SAP",
-      "update": "No",
-      "name": "Employee",
-      "type": "Field",
-      "fioriicon": "employee"
-    },
-    {
-      "value": "Tab3",
-      "style": "SAP",
-      "update": "No",
-      "name": "Address",
-      "fioriicon": "addresses",
-      "type": "Field"
-    },
-    {
-      "value": "Tab4",
-      "style": "SAP",
-      "update": "No",
-      "name": "Contact",
-      "fioriicon": "business-card",
-      "type": "Field"
-    },
-    {
       "value": "Tab5",
       "style": "SAP",
       "update": "No",
@@ -235,11 +210,15 @@
     "Tab0": ["data"],
     "Tab20": ["charts"],
     "Tab99": ["actionLog"],
-    "None": ["ID"],
-    "Tab1": ["LeaveType", "LeaveFrom", "LeaveTo", "LeaveDays", "LeaveReason"],
-    "Tab2": ["Name", "EmployeeID"],
-    "Tab3": ["Address", "PostCode"],
-    "Tab4": ["ContactNo", "Email"],
+    "None": ["ID", "Name", "EmployeeID", "ContactNo", "Email"],
+    "Tab1": [
+      "LeaveType",
+      "LeaveFrom",
+      "LeaveTo",
+      "LeaveDays",
+      "LeaveReason",
+      "MaxReached"
+    ],
     "Tab5": ["CostCentre", "Comment"],
     "Tab8": ["MultiAttachments"]
   },
@@ -560,7 +539,7 @@
       "type": "string",
       "width": "20",
       "Option": "Mandatory",
-      "adaptiveCard": "Main",
+      "adaptiveCard": "Additional",
       "SLabel": "Employee ID"
     },
     {
@@ -568,29 +547,16 @@
       "type": "string",
       "width": "50",
       "Option": "Mandatory",
-      "adaptiveCard": "Main",
+      "adaptiveCard": "Additional",
       "SLabel": "Employee Full Name"
     },
     {
-      "name": "Address",
+      "name": "MaxReached",
       "type": "string",
-      "width": "200",
-      "Option": "Optional",
-      "adaptiveCard": "Additional",
-      "SLabel": "Address"
-    },
-    {
-      "name": "PostCode",
-      "type": "searchField",
       "width": "20",
-      "linkFields": "Address",
-      "URL": "{URL}/api/v1/util/address/{PostCode}",
-      "URLMethod": "GET",
-      "Token": true,
       "Option": "Optional",
       "adaptiveCard": "Additional",
-      "SLabel": "Post Code",
-      "LLabel": "Post Code"
+      "SLabel": "Max Days Reached"
     },
     {
       "name": "ContactNo",
@@ -613,7 +579,7 @@
       "type": "string",
       "width": "50",
       "Option": "Mandatory",
-      "adaptiveCard": "Main",
+      "adaptiveCard": "Additional",
       "SLabel": "Email ID"
     },
     {
@@ -654,7 +620,7 @@
       "width": "10",
       "Option": "Optional",
       "adaptiveCard": "Additional",
-      "SLabel": "No of days "
+      "SLabel": "No of days"
     },
     {
       "name": "LeaveReason",
@@ -663,6 +629,14 @@
       "Option": "Mandatory",
       "adaptiveCard": "Main",
       "SLabel": "Reason For Leave"
+    },
+    {
+      "name": "Team",
+      "type": "string",
+      "width": "50",
+      "Option": "Optional",
+      "adaptiveCard": "Additional",
+      "SLabel": "Team"
     },
     {
       "name": "Status",
