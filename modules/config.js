@@ -888,7 +888,7 @@ module.exports = {
         newLog["Transaction"] = "DataUpdate";
       }
     }
-    //    if (type == "UPDATE") {
+
     for (const key in userInputs) {
       if (!excludeList.includes(key)) {
         console.log("FieldList");
@@ -925,7 +925,6 @@ module.exports = {
         }
       }
     }
-    //    }
     newLog["ID"] = req.body.ID;
     newLog["Type"] = type;
     newLog["DetailLog"] = [];

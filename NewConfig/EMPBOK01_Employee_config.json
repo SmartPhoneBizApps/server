@@ -22,7 +22,6 @@
         "BookingFor",
         "MeetingDate",
         "NoOfPeople",
-        "Slot",
         "RoomLayout",
         "LunchRequired",
         "DietaryRequirement",
@@ -62,7 +61,10 @@
     "CarPark",
     "BookingFor",
     "ParkingRequired",
-    "LunchRequired"
+    "LunchRequired",
+    "Building",
+    "RoomLayout",
+    "DietaryRequirement"
   ],
   "MButtons": [
     {
@@ -77,7 +79,6 @@
         "ContactNo",
         "Email",
         "NoOfPeople",
-        "Slot",
         "RoomLayout",
         "LunchRequired",
         "DietaryRequirement",
@@ -200,15 +201,6 @@
       "download": "Yes"
     },
     {
-      "value": "Tab2",
-      "style": "SAP",
-      "update": "Yes",
-      "name": "Contact",
-      "type": "Field",
-      "fioriicon": "contacts",
-      "download": "Yes"
-    },
-    {
       "value": "Tab99",
       "style": "SAP",
       "update": "Yes",
@@ -225,11 +217,10 @@
     "Tab0": ["data"],
     "Tab20": ["charts"],
     "Tab99": ["actionLog"],
-    "None": ["ID", "BookingFor"],
+    "None": ["ID", "BookingFor", "Name", "ContactNo", "Email"],
     "Tab1": [
       "MeetingDate",
       "NoOfPeople",
-      "Slot",
       "RoomLayout",
       "LunchRequired",
       "DietaryRequirement",
@@ -247,8 +238,7 @@
       "CarRegistration",
       "CarPark",
       "Comments"
-    ],
-    "Tab2": ["Name", "ContactNo", "Email"]
+    ]
   },
   "listCards": [
     {
@@ -297,15 +287,16 @@
           ]
         },
         { "CarPark": ["CarPark", "CarRegistration", "StartTime", "EndTime"] },
-        { "HotDesk": ["Building", "HotDeskNo"] },
+        { "HotDesk": ["Building", "StartDate", "EndDate", "HotDeskNo"] },
         {
           "MeetingRoom": [
             "NoOfPeople",
             "RoomLayout",
-            "Slot",
+            "MeetingDate",
+            "StartTime",
+            "EndTime",
             "LunchRequired",
-            "DietaryRequirement",
-            "MeetingDate"
+            "DietaryRequirement"
           ]
         },
         {
@@ -685,7 +676,7 @@
       "type": "string",
       "width": "1000",
       "Option": "Optional",
-      "adaptiveCard": "Additional",
+      "adaptiveCard": "Main",
       "SLabel": "Comments / Reason",
       "LLabel": "Comments / Reason"
     },
@@ -760,15 +751,6 @@
       "adaptiveCard": "Main",
       "SLabel": "Room Layout",
       "LLabel": "Room Layout"
-    },
-    {
-      "name": "Slot",
-      "type": "string",
-      "width": "100",
-      "Option": "Optional",
-      "adaptiveCard": "Main",
-      "SLabel": "Slot",
-      "LLabel": "Slot"
     }
   ],
   "itemData": "No",
@@ -799,12 +781,10 @@
         { "name": "StartDate", "Mode": "Edit" },
         { "name": "EndDate", "Mode": "Edit" },
         { "name": "MeetingDate", "Mode": "Edit" },
-        { "name": "Slot", "Mode": "Edit" },
         { "name": "NoOfPeople", "Mode": "Edit" },
         { "name": "RoomLayout", "Mode": "Edit" },
         { "name": "LunchRequired", "Mode": "Edit" },
         { "name": "DietaryRequirement", "Mode": "Edit" },
-        { "name": "HotDeskNo", "Mode": "Edit" },
         { "name": "Building", "Mode": "Edit" },
         { "name": "ParkingRequired", "Mode": "Edit" },
         { "name": "VisitorName", "Mode": "Edit" },
