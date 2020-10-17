@@ -111,6 +111,7 @@ app.use("/api/v1/areas", require("./routes/orgSetup/areas"));
 //  --------------------------------------------------
 //App Setup
 app.use("/api/v1/apps", require("./routes/appSetup/apps"));
+app.use("/api/v1/numberRange", require("./routes/appSetup/NumberRange"));
 // Roles
 app.use("/api/v1/roles", require("./routes/appSetup/roles"));
 // App and Roles

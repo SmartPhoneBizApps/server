@@ -4,6 +4,7 @@ const Approles = require("../models/appSetup/Approle");
 const ErrorResponse = require("../utils/errorResponse");
 const Agent = require("../models/access/Agent");
 const App = require("../models/appSetup/App");
+const NumberRange = require("../models/appSetup/NumberRange");
 const Role = require("../models/appSetup/Role");
 const User = require("../models/access/User");
 const sendEmail = require("../utils/sendEmail");
@@ -1377,11 +1378,9 @@ module.exports = {
     card["sap.card"] = cardSub1;
     return card;
   },
-  generateID: function (buttonName, body, MButtons, numberRange) {
+  generateID: async function (buttonName, body, MButtons, numberRange, req) {
     /// Calculate ID
     let sourceID = numberRange;
-    console.log("sourceIDNumber1", sourceID);
-
     if (buttonName == "UPLOAD") {
       for (let a = 0; a < MButtons.length; a++) {
         if (
@@ -1408,10 +1407,54 @@ module.exports = {
     if (sourceID == "External") {
       console.log("ID is read from the file", sourceID);
     } else {
+      let numberR = {};
+      let newNumber = 0;
       console.log("Internal ID");
-      body["ID"] = Math.floor(100000 + Math.random() * 900000);
+      numberR = await NumberRange.findOne({
+        numberRange: req.headers.applicationid,
+      });
+      console.log("NumberRange", numberR);
+      if (numberR != undefined) {
+        newNumber = Number(numberR["current"]) + 1;
+        numberR2 = await NumberRange.findByIdAndUpdate(numberR.id, {
+          current: newNumber,
+        });
+        var userString = req.user.email.substring(2, 0).toUpperCase();
+        numberofDigits = numberR["maxLen"] - 5;
+        countLen = numberR["current"].length;
+        switch (numberofDigits - countLen) {
+          case 1:
+            body["ID"] = numberR["preString"] + userString + "0" + newNumber;
+            break;
+          case 2:
+            body["ID"] = numberR["preString"] + userString + "00" + newNumber;
+            break;
+          case 3:
+            body["ID"] = numberR["preString"] + userString + "000" + newNumber;
+            break;
+          case 4:
+            body["ID"] = numberR["preString"] + userString + "0000" + newNumber;
+            break;
+          case 5:
+            body["ID"] =
+              numberR["preString"] + userString + "00000" + newNumber;
+            break;
+          case 6:
+            body["ID"] =
+              numberR["preString"] + userString + "000000" + newNumber;
+            break;
+          case 7:
+            body["ID"] =
+              numberR["preString"] + userString + "0000000" + newNumber;
+            break;
+          default:
+            body["ID"] = numberR["preString"] + userString + newNumber;
+            break;
+        }
+      } else {
+        body["ID"] = Math.floor(100000 + Math.random() * 900000);
+      }
     }
-    console.log("sourceIDNumber1", sourceID, body["ID"]);
     return body;
   },
   updateFile: function (fn01, config) {

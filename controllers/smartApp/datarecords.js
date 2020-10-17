@@ -4,6 +4,7 @@ const Company = require("../../models/orgSetup/Company");
 const Branch = require("../../models/orgSetup/Branch");
 const Area = require("../../models/orgSetup/Area");
 const App = require("../../models/appSetup/App");
+const NumberRange = require("../../models/appSetup/NumberRange");
 const { sendErrorMessage, notifiyMessanger } = require("../../modules/config2");
 const {
   getNewConfig,
@@ -28,17 +29,19 @@ const calfunction = require("../../models/utilities/calfunction.js");
 // @route     POST /api/v1/datarecords/
 // @access    Private
 exports.addDataRecords = asyncHandler(async (req, res, next) => {
-  // Reserve user Inputs
+  // 01 - Reserve user Inputs
   let userInputs = { ...req.body };
 
-  // Number Range...
+  // 02 - Number Range...
   if (req.headers.numberRange != undefined) {
     numberRange = req.headers.numberRange;
   } else {
     numberRange = "Internal";
   }
+
   // Check MultiAttachments Tag
   req.body.MultiAttachments = checkMultiAttachments(req.body.MultiAttachments);
+
   //Get Company
   const BodyApp = await getApplication(req.headers.applicationid);
   // ---------------------
@@ -265,11 +268,12 @@ exports.addDataRecords = asyncHandler(async (req, res, next) => {
   /////--------------------------------------------------
   /// Calculate ID
 
-  req.body = generateID(
+  req.body = await generateID(
     req.headers.buttonname,
     req.body,
     cardConfig.MButtons,
-    numberRange
+    numberRange,
+    req
   );
   if (req.body.ReferenceID == undefined || req.body.ReferenceID == "") {
     req.body.ReferenceID = req.body.ID;
