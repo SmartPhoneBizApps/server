@@ -44,7 +44,22 @@
     "TitleField": "Name",
     "sStatus": "EmployeeID",
     "fStatus": "Status",
-    "LFields": ["ID", "DateOfRequest"]
+    "LFields": [
+      "ID",
+      "Email",
+      "DateOfRequest",
+      "AccessCardNo",
+      "Application",
+      "Hardware",
+      "System",
+      "Environment",
+      "Software",
+      "System",
+      "Processor",
+      "OS",
+      "RAM",
+      "Building"
+    ]
   },
   "ListBOTFields": {
     "None": ["cardImage", "StatusState"],
@@ -68,7 +83,8 @@
     "DockingStation",
     "Bag",
     "Mouse",
-    "System"
+    "System",
+    "Building"
   ],
   "MButtons": [
     {
@@ -102,11 +118,6 @@
         "RolesRequired",
         "TransactionsRequired",
         "Software",
-        "System",
-        "Environment",
-        "CloneUser",
-        "RolesRequired",
-        "TransactionsRequired",
         "Status"
       ]
     },
@@ -253,7 +264,7 @@
     "Tab2": [
       {
         "GrpTitle": "Access Card Details",
-        "Fields": ["AccessCardNo"]
+        "Fields": ["AccessCardNo", "Building"]
       },
       {
         "GrpTitle": "Application Details",
@@ -388,8 +399,8 @@
             "Email"
           ]
         },
-        { "AccessCard": ["AccessCardNo", "StartDate", "EndDate"] },
-        { "ApplicationLogin": ["Application"] },
+        { "AccessCard": ["AccessCardNo", "StartDate", "EndDate", "Building"] },
+        { "ApplicationLogin": ["Application", "System", "Environment"] },
         { "HardwareUpgrade": ["Hardware", "AssetID", "CostCentre"] },
         {
           "LaptopRequest": [
@@ -407,7 +418,6 @@
             "CostCentre"
           ]
         },
-        { "OfficeBuilding": ["StartDate", "EndDate"] },
         { "SoftwareRequest": ["Software", "AssetID", "CostCentre"] },
         {
           "UserAccounts": [
@@ -625,7 +635,7 @@
       "type": "string",
       "width": "50",
       "Option": "Mandatory",
-      "adaptiveCard": "Main",
+      "adaptiveCard": "Additional",
       "SLabel": "Employee ID"
     },
     {
@@ -633,7 +643,7 @@
       "type": "string",
       "width": "50",
       "Option": "Mandatory",
-      "adaptiveCard": "Main",
+      "adaptiveCard": "Additional",
       "SLabel": "Name"
     },
     {
@@ -653,6 +663,15 @@
       "SLabel": "Phone Number"
     },
     {
+      "name": "Building",
+      "type": "string",
+      "width": "100",
+      "Option": "Optional",
+      "adaptiveCard": "Main",
+      "SLabel": "Building",
+      "LLabel": "Building"
+    },
+    {
       "name": "DateOfRequest",
       "type": "Date",
       "width": "10",
@@ -667,14 +686,6 @@
       "Option": "Optional",
       "adaptiveCard": "Main",
       "SLabel": "Access Card Number"
-    },
-    {
-      "name": "BuildingName",
-      "type": "string",
-      "width": "50",
-      "Option": "Optional",
-      "adaptiveCard": "Main",
-      "SLabel": "Building Name"
     },
     {
       "name": "StartDate",
@@ -998,23 +1009,16 @@
         { "name": "AccessCardNo", "Mode": "Edit" },
         { "name": "StartDate", "Mode": "Edit" },
         { "name": "EndDate", "Mode": "Edit" },
-
         { "name": "Application", "Mode": "Edit" },
-
         { "name": "Hardware", "Mode": "Edit" },
-
         { "name": "Software", "Mode": "Edit" },
-
-        { "name": "BuildingName", "Mode": "Edit" },
-
+        { "name": "Building", "Mode": "Edit" },
         { "name": "Processor", "Mode": "Edit" },
         { "name": "HardDrive", "Mode": "Edit" },
         { "name": "RAM", "Mode": "Edit" },
         { "name": "OS", "Mode": "Edit" },
-
         { "name": "Environment", "Mode": "Edit" },
         { "name": "System", "Mode": "Edit" },
-
         { "name": "CostCentre", "Mode": "Display" },
         { "name": "AssetID", "Mode": "Edit" }
       ],
