@@ -48,7 +48,20 @@
     "TitleField": "BookingFor",
     "sStatus": "ID",
     "fStatus": "Status",
-    "LFields": ["Name"]
+    "LFields": [
+      "StartDate",
+      "EndDate",
+      "CarPark",
+      "CarRegistration",
+      "MeetingDate",
+      "NoOfPeople",
+      "RoomLayout",
+      "DietaryRequirement",
+      "VisitorName",
+      "VisitorCompany",
+      "VisitorEmail",
+      "Building"
+    ]
   },
   "ListBOTFields": {
     "None": ["cardImage", "StatusState"],
@@ -276,18 +289,26 @@
     "Fields": [
       [
         {
-          "ALL": [
-            "ID",
-            "Name",
-            "ContactNo",
-            "Status",
-            "Email",
-            "Comments",
-            "BookingFor"
+          "ALL": ["ID", "Name", "ContactNo", "Status", "Email", "BookingFor"]
+        },
+        {
+          "CarPark": [
+            "CarPark",
+            "CarRegistration",
+            "StartTime",
+            "EndTime",
+            "Comments"
           ]
         },
-        { "CarPark": ["CarPark", "CarRegistration", "StartTime", "EndTime"] },
-        { "HotDesk": ["Building", "StartDate", "EndDate", "HotDeskNo"] },
+        {
+          "HotDesk": [
+            "Building",
+            "StartDate",
+            "EndDate",
+            "HotDeskNo",
+            "Comments"
+          ]
+        },
         {
           "MeetingRoom": [
             "NoOfPeople",
@@ -296,7 +317,8 @@
             "StartTime",
             "EndTime",
             "LunchRequired",
-            "DietaryRequirement"
+            "DietaryRequirement",
+            "Comments"
           ]
         },
         {
@@ -305,7 +327,8 @@
             "VisitorName",
             "VisitorPhone",
             "VisitorEmail",
-            "ParkingRequired"
+            "ParkingRequired",
+            "Comments"
           ]
         }
       ]
