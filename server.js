@@ -168,6 +168,10 @@ app.use(
   require("./routes/utilities/validateAppSetup")
 );
 app.use(
+  "/api/v1/util/validateAppSetup2",
+  require("./routes/utilities/validateAppSetup2")
+);
+app.use(
   "/api/v1/smartApp/appointmentsGet",
   require("./routes/smartApp/appointmentsGet")
 );

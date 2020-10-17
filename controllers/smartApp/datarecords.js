@@ -265,7 +265,6 @@ exports.addDataRecords = asyncHandler(async (req, res, next) => {
   /////--------------------------------------------------
   /// Calculate ID
 
-
   req.body = generateID(
     req.headers.buttonname,
     req.body,
@@ -297,7 +296,8 @@ exports.addDataRecords = asyncHandler(async (req, res, next) => {
     req.body["actionLog"],
     req.headers.buttontype,
     req.headers.buttonname,
-    userInputs
+    userInputs,
+    cardConfig.FieldDef
   );
 
   /// X99 - Update Calculations.....
@@ -432,7 +432,7 @@ exports.addDataRecords = asyncHandler(async (req, res, next) => {
 // -----------------------------------------------------
 // -----------------------------------------------------
 exports.updateDataRecords = asyncHandler(async (req, res, next) => {
-//  console.log(req.body);
+  //  console.log(req.body);
   let userInputs = { ...req.body };
   // 01 - Check if applicationid is provided
   if (!req.headers.applicationid) {
@@ -652,7 +652,8 @@ exports.updateDataRecords = asyncHandler(async (req, res, next) => {
     myData["actionLog"],
     req.headers.buttontype,
     req.headers.buttonname,
-    userInputs
+    userInputs,
+    cardConfig.FieldDef
   );
   req.body.actionLog = myData.actionLog;
 
