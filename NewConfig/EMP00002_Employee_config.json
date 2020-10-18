@@ -60,7 +60,8 @@
     "iMeals",
     "iTravel",
     "iParking",
-    "iMobile"
+    "iMobile",
+    "ExpType"
   ],
   "MButtons": [
     {
@@ -210,15 +211,6 @@
       "download": "Yes"
     },
     {
-      "value": "Tab3",
-      "style": "SAP",
-      "update": "Yes",
-      "name": "Additional Info",
-      "fioriicon": "customer-view",
-      "type": "Field",
-      "download": "Yes"
-    },
-    {
       "value": "Tab5",
       "style": "SAP",
       "update": "Yes",
@@ -271,7 +263,10 @@
       "TravelDetail",
       "Justification",
       "TravelMode",
-      "StayDetails"
+      "StayDetails",
+      "AdditionalInfo",
+      "CostCentre",
+      "ProgressComment"
     ],
     "Tab12": [
       "TravelCost",
@@ -284,7 +279,6 @@
       "MaxFood"
     ],
     "Tab2": ["myExpenses"],
-    "Tab3": ["AdditionalInfo", "CostCentre", "ProgressComment"],
     "Tab5": ["carouselImage"],
     "Tab4": ["MultiAttachments"]
   },
@@ -556,6 +550,79 @@
           "Option": "Optional",
           "adaptiveCard": "Additional",
           "Update": "Yes"
+        },
+        {
+          "name": "iFareAmt",
+          "type": "string",
+          "width": "100",
+          "SLabel": "Fare Amount",
+          "Option": "Optional",
+          "adaptiveCard": "Main",
+          "Update": "Yes"
+        },
+        {
+          "name": "iParkingAmt",
+          "type": "string",
+          "width": "100",
+          "SLabel": "Parking Amount",
+          "Option": "Optional",
+          "adaptiveCard": "Main",
+          "Update": "Yes"
+        },
+        {
+          "name": "iFoodAmt",
+          "type": "string",
+          "width": "100",
+          "SLabel": "Food Amount",
+          "Option": "Optional",
+          "adaptiveCard": "Main",
+          "Update": "Yes"
+        },
+        {
+          "name": "iStayAmt",
+          "type": "string",
+          "width": "100",
+          "SLabel": "Stay Amount",
+          "Option": "Optional",
+          "adaptiveCard": "Main",
+          "Update": "Yes"
+        },
+        {
+          "name": "iCommAmt",
+          "type": "string",
+          "width": "100",
+          "SLabel": "Bill Amount",
+          "Option": "Optional",
+          "adaptiveCard": "Main",
+          "Update": "Yes"
+        },
+        {
+          "name": "iOther",
+          "type": "string",
+          "width": "100",
+          "SLabel": "Other Amount",
+          "Option": "Optional",
+          "adaptiveCard": "Main",
+          "Update": "Yes"
+        },
+        {
+          "name": "iMiscellaneous",
+          "type": "string",
+          "width": "100",
+          "SLabel": "Miscellaneous Amount",
+          "Option": "Optional",
+          "adaptiveCard": "Main",
+          "Update": "Yes"
+        },
+
+        {
+          "name": "iMilesAmt",
+          "type": "string",
+          "width": "100",
+          "SLabel": "Milage Amount",
+          "Option": "Optional",
+          "adaptiveCard": "Main",
+          "Update": "Yes"
         }
       ],
       "DisplayFields": [
@@ -683,7 +750,15 @@
         "iParking",
         "iTravel",
         "iMeals",
-        "iHotel"
+        "iHotel",
+        "iFareAmt",
+        "iParkingAmt",
+        "iFoodAmt",
+        "iStayAmt",
+        "iCommAmt",
+        "iOther",
+        "iMiscellaneous",
+        "iMilesAmt"
       ],
       "ItemDetails": [
         { "name": "ExpenseDate" },
@@ -702,7 +777,15 @@
         { "name": "iParking" },
         { "name": "iTravel" },
         { "name": "iMeals" },
-        { "name": "iHotel" }
+        { "name": "iHotel" },
+        { "name": "iFareAmt" },
+        { "name": "iParkingAmt" },
+        { "name": "iFoodAmt" },
+        { "name": "iStayAmt" },
+        { "name": "iCommAmt" },
+        { "name": "iMiscellaneous" },
+        { "name": "iOther" },
+        { "name": "iMilesAmt" }
       ],
       "ControlDisplay": {
         "ControlField": "ExpType",
@@ -722,22 +805,25 @@
               ]
             },
             {
-              "Mileage": ["From", "To", "iMiles", "MilesRate"]
+              "Mileage": ["From", "To", "iMiles", "MilesRate", "iMilesAmt"]
             },
             {
-              "Mobile/Telephone/Internet": ["iMobile"]
+              "Mobile/Telephone/Internet": ["iMobile", "iCommAmt"]
             },
             {
-              "Parking/Toll/Congestion": ["iParking"]
+              "Parking/Toll/Congestion": ["iParking", "iParkingAmt"]
             },
             {
-              "Air/Train/BusFare": ["iTravel"]
+              "Air/Train/BusFare": ["iTravel", "iFareAmt"]
             },
             {
-              "Meals": ["iMeals"]
+              "Meals": ["iMeals", "iFoodAmt"]
             },
             {
-              "Hotel": ["iHotel"]
+              "Hotel": ["iHotel", "iStayAmt"]
+            },
+            {
+              "Miscellaneous": ["iMiscellaneous"]
             }
           ]
         ]
@@ -1276,19 +1362,100 @@
     "Document": {}
   },
   "CalculatedFields": {
-    "Item": [],
+    "Item": [
+      {
+        "CalculatedFormula": {
+          "name": "Multiplication",
+          "table": "myExpenses",
+          "function": "MUL",
+          "Target": "iMilesAmt",
+          "type": "Item"
+        },
+        "Fields": [
+          { "Source": "iMiles", "Type": { "type": "Item" } },
+          { "Source": "MilesRate", "Type": { "type": "Item" } }
+        ]
+      },
+      {
+        "CalculatedFormula": {
+          "name": "Addition",
+          "table": "myExpenses",
+          "function": "ADD",
+          "Target": "iTravelAmt",
+          "type": "Item"
+        },
+        "Fields": [
+          { "Source": "iFareAmt", "Type": { "type": "Item" } },
+          { "Source": "iParkingAmt", "Type": { "type": "Item" } }
+        ]
+      },
+      {
+        "CalculatedFormula": {
+          "name": "Addition",
+          "table": "myExpenses",
+          "function": "ADD",
+          "Target": "iTravelAmt",
+          "type": "Item"
+        },
+        "Fields": [
+          { "Source": "iTravelAmt", "Type": { "type": "Item" } },
+          { "Source": "iMilesAmt", "Type": { "type": "Item" } }
+        ]
+      },
+      {
+        "CalculatedFormula": {
+          "name": "Addition",
+          "table": "myExpenses",
+          "function": "ADD",
+          "Target": "iOther",
+          "type": "Item"
+        },
+        "Fields": [
+          { "Source": "iCommAmt", "Type": { "type": "Item" } },
+          { "Source": "iMiscellaneous", "Type": { "type": "Item" } }
+        ]
+      }
+    ],
     "HeaderItem": [
       {
         "CalculatedFormula": {
           "name": "ITEMSUM",
           "table": "myExpenses",
           "function": "ITEMSUM",
-          "Target": "ItemTotal",
+          "Target": "TravelCost",
           "type": "HeaderItem"
         },
-        "Fields": [
-          { "Source": "ExpenseAmount", "Type": { "type": "HeaderItem" } }
-        ]
+        "Fields": [{ "Source": "iTravelAmt", "Type": { "type": "HeaderItem" } }]
+      },
+      {
+        "CalculatedFormula": {
+          "name": "ITEMSUM",
+          "table": "myExpenses",
+          "function": "ITEMSUM",
+          "Target": "FoodCost",
+          "type": "HeaderItem"
+        },
+        "Fields": [{ "Source": "iFoodAmt", "Type": { "type": "HeaderItem" } }]
+      },
+      {
+        "CalculatedFormula": {
+          "name": "ITEMSUM",
+          "table": "myExpenses",
+          "function": "ITEMSUM",
+          "Target": "StayCost",
+          "type": "HeaderItem"
+        },
+        "Fields": [{ "Source": "iStayAmt", "Type": { "type": "HeaderItem" } }]
+      },
+      {
+        "CalculatedFormula": {
+          "name": "ITEMSUM",
+          "table": "myExpenses",
+          "function": "ITEMSUM",
+          "Target": "OtherCost",
+          "type": "HeaderItem"
+        },
+        "Fields": [{ "Source": "iOther", "Type": { "type": "HeaderItem" } }]
       }
     ],
     "Header": [
