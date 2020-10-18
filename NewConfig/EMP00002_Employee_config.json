@@ -25,8 +25,7 @@
         "ProjectCode",
         "Currency",
         "EmployeeID",
-        "TotalAmount",
-        "ItemTotal"
+        "TotalAmount"
       ]
     }
   },
@@ -36,19 +35,14 @@
     "sStatus": "CostCentre",
     "fStatus": "Status",
     "numberField": "TotalAmount",
-    "LFields": ["TravelDtFrom", "TravelDateTo", "TravelMode", "ItemTotal"],
+    "LFields": ["TravelDtFrom", "TravelDateTo", "TravelMode"],
     "numberUnitField": "Currency"
   },
   "ListBOTFields": {
     "None": ["cardImage", "StatusState"],
     "Title": ["ID"],
     "SubTitle": ["Name", "TotalAmount", "Status"],
-    "Description": [
-      "TravelDtFrom",
-      "TravelDateTo",
-      "Justification",
-      "ItemTotal"
-    ]
+    "Description": ["TravelDtFrom", "TravelDateTo", "Justification"]
   },
   "PossibleValues": [
     "Currency",
@@ -74,7 +68,6 @@
         "Name",
         "EntryDate",
         "TotalAmount",
-        "ItemTotal",
         "TravelDtFrom",
         "TravelDateTo",
         "TravelDetail",
@@ -249,14 +242,7 @@
     "Tab0": ["data"],
     "Tab20": ["charts"],
     "Tab99": ["actionLog"],
-    "None": [
-      "ID",
-      "EmployeeID",
-      "Name",
-      "EntryDate",
-      "TotalAmount",
-      "ItemTotal"
-    ],
+    "None": ["ID", "EmployeeID", "Name", "EntryDate"],
     "Tab1": [
       "TravelDtFrom",
       "TravelDateTo",
@@ -269,6 +255,7 @@
       "ProgressComment"
     ],
     "Tab12": [
+      "TotalAmount",
       "TravelCost",
       "StayCost",
       "FoodCost",
@@ -376,7 +363,13 @@
       "tableFormFields": [
         {
           "GrpTitle": "Totals",
-          "Fields": ["ItemTotal"]
+          "Fields": [
+            "TotalAmount",
+            "TravelCost",
+            "StayCost",
+            "FoodCost",
+            "OtherCost"
+          ]
         }
       ],
       "ItemFieldDefinition": [
@@ -1030,14 +1023,6 @@
       "Option": "Mandatory",
       "adaptiveCard": "Additional",
       "SLabel": "Employee Name"
-    },
-    {
-      "name": "ItemTotal",
-      "type": "Num,2",
-      "width": "20",
-      "Option": "Optional",
-      "adaptiveCard": "Additional",
-      "SLabel": "Total Amount"
     },
     {
       "name": "TotalAmount",
