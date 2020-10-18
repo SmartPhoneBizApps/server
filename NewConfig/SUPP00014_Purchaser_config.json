@@ -67,7 +67,6 @@
         "Address",
         "PostCode",
         "Phone",
-        "Fax",
         "Language",
         "DateOfRegistration"
       ],
@@ -217,7 +216,7 @@
     "Tab7": ["BusinessUnits"],
     "Tab8": ["Bank"],
     "Tab9": ["Identification"],
-    "Tab4": ["Phone", "Fax", "Language", "DateOfRegistration"]
+    "Tab4": ["Phone", "Language", "DateOfRegistration"]
   },
   "ControlDisplay": {},
   "tableConfig": {
@@ -980,7 +979,7 @@
       "name": "IntrestArea",
       "SLabel": "IntrestArea",
       "type": "string",
-      "width": "100",
+      "width": "500",
       "Option": "Optional",
       "adaptiveCard": "Main"
     },
@@ -988,7 +987,7 @@
       "name": "DetailsOfServices",
       "SLabel": "DetailsOfServices",
       "type": "string",
-      "width": "100",
+      "width": "500",
       "Option": "Optional",
       "adaptiveCard": "Main"
     },
@@ -996,17 +995,17 @@
       "name": "DetailsOfProducts",
       "SLabel": "DetailsOfProducts",
       "type": "string",
-      "width": "100",
+      "width": "500",
       "Option": "Optional",
       "adaptiveCard": "Main"
     },
     {
-      "name": "Fax",
-      "SLabel": "Fax",
+      "name": "Phone",
+      "SLabel": "Phone",
       "type": "string",
       "width": "100",
       "Option": "Optional",
-      "adaptiveCard": "Main"
+      "adaptiveCard": "Additional"
     },
     {
       "name": "Language",
@@ -1106,7 +1105,6 @@
       "id": "Step3",
       "fields": [
         { "name": "Phone", "Mode": "Edit" },
-        { "name": "Fax", "Mode": "Edit" },
         { "name": "BusinessType", "Mode": "Edit" },
         { "name": "WebSiteURL", "Mode": "Edit" },
         { "name": "Language", "Mode": "Edit" },

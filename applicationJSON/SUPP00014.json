@@ -121,19 +121,10 @@
   },
   "Phone": {
     "type": "String",
-    "required": [true, "Please add Mandatory field :Phone"],
     "maxlength": [100, "Phone can not be more than 100 characters"],
     "match": [
       "UK_PHONE_V1",
       "Please provide valid UK Phone number in field :Phone"
-    ]
-  },
-  "Fax": {
-    "type": "String",
-    "maxlength": [100, "Fax can not be more than 100 characters"],
-    "match": [
-      "UK_PHONE_V1",
-      "Please provide valid UK Phone number in field :Fax"
     ]
   },
   "Language": {
@@ -147,7 +138,6 @@
   },
   "Partner": {
     "type": "String",
-    "required": [true, "Please add Mandatory field :Partner"],
     "maxlength": [200, "Partner can not be more than 200 characters"]
   },
   "GoogleProfile": {
@@ -183,6 +173,7 @@
   "USP_Role": { "type": "String" },
   "USP_Image": { "type": "String" },
   "StatusState": { "type": "String" },
+  "Address": "",
   "carouselImage": [],
   "MultiAttachments": {},
   "lowerNodes": [],
