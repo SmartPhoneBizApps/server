@@ -16,10 +16,6 @@
     "type": "String",
     "maxlength": [50, "Currency can not be more than 50 characters"]
   },
-  "ProjectCode": {
-    "type": "String",
-    "maxlength": [50, "ProjectCode can not be more than 50 characters"]
-  },
   "CostCentre": {
     "type": "String",
     "maxlength": [50, "CostCentre can not be more than 50 characters"]
@@ -36,6 +32,15 @@
     "type": "String",
     "maxlength": [200, "ExpenseDetails can not be more than 200 characters"]
   },
+  "TravelDetail": {
+    "type": "String",
+    "maxlength": [500, "TravelDetail can not be more than 500 characters"]
+  },
+  "Justification": {
+    "type": "String",
+    "required": [true, "Please add Mandatory field :Justification"],
+    "maxlength": [1000, "Justification can not be more than 1000 characters"]
+  },
   "Status": {
     "type": "String",
     "maxlength": [50, "Status can not be more than 50 characters"]
@@ -47,6 +52,22 @@
   "Approver": {
     "type": "String",
     "maxlength": [100, "Approver can not be more than 100 characters"]
+  },
+  "TravelMode": {
+    "type": "String",
+    "maxlength": [50, "TravelMode can not be more than 50 characters"]
+  },
+  "AdditionalInfo": {
+    "type": "String",
+    "maxlength": [500, "AdditionalInfo can not be more than 500 characters"]
+  },
+  "StayDetails": {
+    "type": "String",
+    "maxlength": [500, "StayDetails can not be more than 500 characters"]
+  },
+  "ProjectCode": {
+    "type": "String",
+    "maxlength": [200, "ProjectCode can not be more than 200 characters"]
   },
   "TotalAmount": {
     "type": "Number",
@@ -80,7 +101,38 @@
       "Please provide date in YYYY-MM-DD format for field :EntryDate"
     ]
   },
-  "myExpenses": {},
+  "FoodCost": {
+    "type": "Number",
+    "maxlength": [20, "FoodCost can not be more than 20 characters"],
+    "match": [
+      "NUM_2_DEC_PLACE_V1",
+      "Please provide value with 2 decimal places in the field :FoodCost"
+    ]
+  },
+  "TravelCost": {
+    "type": "Number",
+    "maxlength": [20, "TravelCost can not be more than 20 characters"],
+    "match": [
+      "NUM_2_DEC_PLACE_V1",
+      "Please provide value with 2 decimal places in the field :TravelCost"
+    ]
+  },
+  "StayCost": {
+    "type": "Number",
+    "maxlength": [20, "StayCost can not be more than 20 characters"],
+    "match": [
+      "NUM_2_DEC_PLACE_V1",
+      "Please provide value with 2 decimal places in the field :StayCost"
+    ]
+  },
+  "OtherCost": {
+    "type": "Number",
+    "maxlength": [20, "OtherCost can not be more than 20 characters"],
+    "match": [
+      "NUM_2_DEC_PLACE_V1",
+      "Please provide value with 2 decimal places in the field :OtherCost"
+    ]
+  },
   "ReferenceID": {
     "type": "String",
     "maxlength": [50, "ReferenceID can not be more than 50"]
@@ -95,6 +147,12 @@
   "upperNodes": [],
   "TransLog": [],
   "ProgressComment": [],
+  "ItemTotal": "",
+  "MaxStay": "",
+  "MaxTravel": "",
+  "MaxFood": "",
+  "TravelDays": "",
+  "myExpenses": {},
   "actionLog": [],
   "SearchString": {
     "type": "String",

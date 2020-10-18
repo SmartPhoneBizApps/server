@@ -23,9 +23,17 @@
     "type": "String",
     "maxlength": [50, "CostCentre can not be more than 50 characters"]
   },
-  "Location": {
+  "Receipt": {
     "type": "String",
-    "maxlength": [50, "Location can not be more than 50 characters"]
+    "maxlength": [100, "Receipt can not be more than 100 characters"]
+  },
+  "ExpType": {
+    "type": "String",
+    "maxlength": [100, "ExpType can not be more than 100 characters"]
+  },
+  "ExpenseDetails": {
+    "type": "String",
+    "maxlength": [200, "ExpenseDetails can not be more than 200 characters"]
   },
   "TravelDetail": {
     "type": "String",
@@ -70,14 +78,6 @@
       "Please provide value with 2 decimal places in the field :TotalAmount"
     ]
   },
-  "EntryDate": {
-    "type": "Date",
-    "maxlength": [10, "EntryDate can not be more than 10 characters"],
-    "match": [
-      "DATE_V1",
-      "Please provide date in YYYY-MM-DD format for field :ApplicationDate"
-    ]
-  },
   "TravelDtFrom": {
     "type": "Date",
     "maxlength": [10, "TravelDtFrom can not be more than 10 characters"],
@@ -89,6 +89,14 @@
   "TravelDateTo": {
     "type": "Date",
     "maxlength": [10, "TravelDateTo can not be more than 10 characters"],
+    "match": [
+      "DATE_V1",
+      "Please provide date in YYYY-MM-DD format for field :ApplicationDate"
+    ]
+  },
+  "EntryDate": {
+    "type": "Date",
+    "maxlength": [10, "EntryDate can not be more than 10 characters"],
     "match": [
       "DATE_V1",
       "Please provide date in YYYY-MM-DD format for field :ApplicationDate"
@@ -144,7 +152,8 @@
   "MaxStay": "",
   "MaxTravel": "",
   "MaxFood": "",
-  "myExpenses": [],
+  "TravelDays": "",
+  "myExpenses": {},
   "actionLog": [],
   "SearchString": {
     "type": "String",
@@ -154,5 +163,6 @@
   "charts": {},
   "config": {},
   "card": {},
-  "sValidation": ""
+  "sValidation": "",
+  "cardImage": ""
 }
