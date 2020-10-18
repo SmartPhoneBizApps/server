@@ -351,6 +351,7 @@
         {
           "GrpTitle": "Totals",
           "Fields": [
+            "TravelDays",
             "TotalAmount",
             "TravelCost",
             "StayCost",
@@ -1413,8 +1414,8 @@
     "Header": [
       {
         "CalculatedFormula": {
-          "name": "Substraction",
-          "function": "SUB",
+          "name": "WORKINGDAYS",
+          "function": "WORKINGDAYS",
           "Target": "TravelDays",
           "type": "Header"
         },
