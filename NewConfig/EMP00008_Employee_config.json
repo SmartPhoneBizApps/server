@@ -318,18 +318,25 @@
       "subtitle": "Expenses",
       "tableFormFields": [
         {
-          "GrpTitle": "Totals",
+          "GrpTitle": "Cost Break-up",
           "Fields": [
-            "TravelDays",
             "TotalAmount",
             "TravelCost",
             "StayCost",
             "FoodCost",
             "OtherCost",
-            "Currency",
+            "Currency"
+          ]
+        },
+        {
+          "GrpTitle": "Policy",
+          "Fields": [
+            "TravelDays",
+            "stayPolicy",
             "MaxStay",
-            "MaxTravel",
+            "foodPolicy",
             "MaxFood",
+            "otherPolicy",
             "MaxOther"
           ]
         }
@@ -1151,6 +1158,33 @@
       "LLabel": "MaxStay"
     },
     {
+      "name": "stayPolicy",
+      "type": "string",
+      "width": "50",
+      "Option": "Mandatory",
+      "adaptiveCard": "Additional",
+      "SLabel": "Accomodation policy @day",
+      "LLabel": "Accomodation policy @day"
+    },
+    {
+      "name": "foodPolicy",
+      "type": "string",
+      "width": "50",
+      "Option": "Mandatory",
+      "adaptiveCard": "Additional",
+      "SLabel": "Food policy @day",
+      "LLabel": "Food policy @day"
+    },
+    {
+      "name": "otherPolicy",
+      "type": "string",
+      "width": "50",
+      "Option": "Mandatory",
+      "adaptiveCard": "Additional",
+      "SLabel": "Miscellaneous policy @day",
+      "LLabel": "Miscellaneous policy @day"
+    },
+    {
       "name": "MaxTravel",
       "type": "string",
       "width": "50",
@@ -1460,8 +1494,44 @@
           "type": "Header"
         },
         "Fields": [
-          { "Source": "ExpenseEndDate", "Type": { "type": "Header" } },
-          { "Source": "ExpenseStDate", "Type": { "type": "Header" } }
+          { "Source": "ExpenseStDate", "Type": { "type": "Header" } },
+          { "Source": "ExpenseEndDate", "Type": { "type": "Header" } }
+        ]
+      },
+      {
+        "CalculatedFormula": {
+          "name": "Multiplication",
+          "function": "MUL",
+          "Target": "MaxStay",
+          "type": "Header"
+        },
+        "Fields": [
+          { "Source": "stayPolicy", "Type": { "type": "Header" } },
+          { "Source": "TravelDays", "Type": { "type": "Header" } }
+        ]
+      },
+      {
+        "CalculatedFormula": {
+          "name": "Multiplication",
+          "function": "MUL",
+          "Target": "MaxFood",
+          "type": "Header"
+        },
+        "Fields": [
+          { "Source": "foodPolicy", "Type": { "type": "Header" } },
+          { "Source": "TravelDays", "Type": { "type": "Header" } }
+        ]
+      },
+      {
+        "CalculatedFormula": {
+          "name": "Multiplication",
+          "function": "MUL",
+          "Target": "MaxOther",
+          "type": "Header"
+        },
+        "Fields": [
+          { "Source": "otherPolicy", "Type": { "type": "Header" } },
+          { "Source": "TravelDays", "Type": { "type": "Header" } }
         ]
       },
       {

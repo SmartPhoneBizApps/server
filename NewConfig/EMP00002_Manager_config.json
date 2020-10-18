@@ -31,9 +31,10 @@
       "header": [
         "Status",
         "TravelMode",
+        "ExpType",
         "CostCentre",
-        "ProjectCode",
         "Currency",
+        "ProjectCode",
         "EmployeeID",
         "TotalAmount"
       ]
@@ -50,8 +51,8 @@
   },
   "ListBOTFields": {
     "None": ["cardImage", "StatusState"],
-    "Title": ["ID"],
-    "SubTitle": ["Name", "TotalAmount", "Status"],
+    "Title": ["ID", "Name", "ProjectCode"],
+    "SubTitle": ["TotalAmount", "Status"],
     "Description": [
       "TravelDtFrom",
       "TravelDateTo",
@@ -61,10 +62,11 @@
   },
   "PossibleValues": [
     "Currency",
-    "ProjectCode",
     "CostCentre",
     "Status",
     "TravelMode",
+    "ItemStatus1",
+    "ProjectCode",
     "iHotel",
     "iMeals",
     "iTravel",
@@ -95,8 +97,9 @@
         "StayDetails",
         "OtherCost",
         "AdditionalInfo",
-        "CostCentre",
         "Currency",
+        "ProjectCode",
+        "CostCentre",
         "Status"
       ],
       "downloadTables": ["myExpenses"]
@@ -204,8 +207,7 @@
       "update": "No",
       "name": "Trip details",
       "type": "Field",
-      "fioriicon": "request",
-      "download": "Yes"
+      "fioriicon": "request"
     },
     {
       "value": "Tab2",
@@ -263,6 +265,8 @@
       "TravelMode",
       "StayDetails",
       "AdditionalInfo",
+      "EntryDate",
+      "ProjectCode",
       "CostCentre",
       "ProgressComment"
     ],
@@ -363,18 +367,25 @@
       "subtitle": "Expenses",
       "tableFormFields": [
         {
-          "GrpTitle": "Totals",
+          "GrpTitle": "Cost Break-up",
           "Fields": [
-            "TravelDays",
             "TotalAmount",
             "TravelCost",
             "StayCost",
             "FoodCost",
             "OtherCost",
-            "Currency",
+            "Currency"
+          ]
+        },
+        {
+          "GrpTitle": "Policy",
+          "Fields": [
+            "TravelDays",
+            "stayPolicy",
             "MaxStay",
-            "MaxTravel",
+            "foodPolicy",
             "MaxFood",
+            "otherPolicy",
             "MaxOther"
           ]
         }
@@ -901,7 +912,6 @@
           "adaptiveCard": "Main",
           "SLabel": "Transaction"
         },
-
         {
           "name": "ID",
           "type": "string",
@@ -1074,15 +1084,15 @@
       "type": "Num,2",
       "width": "20",
       "Option": "Optional",
-      "adaptiveCard": "Additional",
+      "adaptiveCard": "None",
       "SLabel": "Total Amount"
     },
     {
       "name": "Currency",
       "type": "string",
-      "width": "50",
-      "Option": "Mandatory",
-      "adaptiveCard": "Additional",
+      "width": "10",
+      "Option": "Optional",
+      "adaptiveCard": "None",
       "SLabel": "Currency"
     },
     {
@@ -1121,7 +1131,7 @@
       "name": "ProjectCode",
       "type": "string",
       "width": "50",
-      "Option": "Optional",
+      "Option": "Mandatory",
       "adaptiveCard": "Main",
       "SLabel": "Project Code"
     },
@@ -1132,14 +1142,6 @@
       "Option": "Optional",
       "adaptiveCard": "Additional",
       "SLabel": "Cost Centre"
-    },
-    {
-      "name": "Location",
-      "type": "string",
-      "width": "50",
-      "Option": "Optional",
-      "adaptiveCard": "None",
-      "SLabel": "Location"
     },
     {
       "name": "TravelDetail",
@@ -1174,6 +1176,33 @@
       "adaptiveCard": "Additional",
       "SLabel": "MaxStay",
       "LLabel": "MaxStay"
+    },
+    {
+      "name": "stayPolicy",
+      "type": "string",
+      "width": "50",
+      "Option": "Mandatory",
+      "adaptiveCard": "Additional",
+      "SLabel": "Accomodation policy @day",
+      "LLabel": "Accomodation policy @day"
+    },
+    {
+      "name": "foodPolicy",
+      "type": "string",
+      "width": "50",
+      "Option": "Mandatory",
+      "adaptiveCard": "Additional",
+      "SLabel": "Food policy @day",
+      "LLabel": "Food policy @day"
+    },
+    {
+      "name": "otherPolicy",
+      "type": "string",
+      "width": "50",
+      "Option": "Mandatory",
+      "adaptiveCard": "Additional",
+      "SLabel": "Miscellaneous policy @day",
+      "LLabel": "Miscellaneous policy @day"
     },
     {
       "name": "MaxTravel",
