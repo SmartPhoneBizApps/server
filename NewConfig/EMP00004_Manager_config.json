@@ -43,14 +43,14 @@
     "TitleField": "VendorName",
     "fStatus": "Status",
     "numberField": "GrossValue",
-    "LFields": ["SCDate"],
+    "LFields": ["SCDate", "DelTo", "PostCode", "Email", "DeliveryDt"],
     "numberUnitField": "Currency"
   },
   "ListBOTFields": {
     "None": ["cardImage", "StatusState"],
     "Title": ["VendorName"],
-    "SubTitle": ["GrossValue", "Status"],
-    "Description": ["ID", "SCDate"]
+    "SubTitle": ["GrossValue", "Status", "DeliveryDt"],
+    "Description": ["ID", "SCDate", "DelTo", "PostCode", "Email"]
   },
   "PossibleValues": [
     "VendorName",
@@ -530,7 +530,7 @@
       "type": "Date",
       "width": "10",
       "Option": "Optional",
-      "adaptiveCard": "Additional",
+      "adaptiveCard": "Main",
       "SLabel": "Delivery Date"
     },
     {
