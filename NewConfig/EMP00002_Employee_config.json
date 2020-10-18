@@ -703,8 +703,7 @@
         "iStayAmt",
         "iCommAmt",
         "iOther",
-        "iMiscellaneous",
-        "iMilesAmt"
+        "iMiscellaneous"
       ],
       "ItemDetails": [
         { "name": "ExpenseDate" },
@@ -737,37 +736,76 @@
         "Fields": [
           [
             {
-              "ALL": [
-                "ItemNumber",
-                "ExpenseDate",
+              "ALL": ["ItemNumber", "ExpType", "ExpenseDate", "ExpenseDetails"]
+            },
+            {
+              "Mileage": [
+                "From",
+                "To",
+                "iMiles",
+                "MilesRate",
+                "iMilesAmt",
                 "iCurrency",
-                "ExpenseDetails",
                 "Comment",
-                "ItemStatus1",
-                "Attachment",
-                "ExpType"
+                "ItemStatus1"
               ]
             },
             {
-              "Mileage": ["From", "To", "iMiles", "MilesRate", "iMilesAmt"]
+              "Mobile/Telephone/Internet": [
+                "iMobile",
+                "iCommAmt",
+                "iCurrency",
+                "Comment",
+                "Attachment",
+                "ItemStatus1"
+              ]
             },
             {
-              "Mobile/Telephone/Internet": ["iMobile", "iCommAmt"]
+              "Parking/Toll/Congestion": [
+                "iParking",
+                "iParkingAmt",
+                "iCurrency",
+                "Comment",
+                "Attachment",
+                "ItemStatus1"
+              ]
             },
             {
-              "Parking/Toll/Congestion": ["iParking", "iParkingAmt"]
+              "Air/Train/BusFare": [
+                "iTravel",
+                "iFareAmt",
+                "iCurrency",
+                "Comment",
+                "Attachment",
+                "ItemStatus1"
+              ]
             },
             {
-              "Air/Train/BusFare": ["iTravel", "iFareAmt"]
+              "Meals": [
+                "iMeals",
+                "iFoodAmt",
+                "iCurrency",
+                "Comment",
+                "Attachment",
+                "ItemStatus1"
+              ]
             },
             {
-              "Meals": ["iMeals", "iFoodAmt"]
+              "Hotel": [
+                "iHotel",
+                "iStayAmt",
+                "iCurrency",
+                "Attachment",
+                "ItemStatus1"
+              ]
             },
             {
-              "Hotel": ["iHotel", "iStayAmt"]
-            },
-            {
-              "Miscellaneous": ["iMiscellaneous"]
+              "Miscellaneous": [
+                "iMiscellaneous",
+                "iCurrency",
+                "Attachment",
+                "ItemStatus1"
+              ]
             }
           ]
         ]
@@ -1524,7 +1562,9 @@
         { "name": "TravelDtFrom", "Mode": "Edit" },
         { "name": "TravelDateTo", "Mode": "Edit" },
         { "name": "TravelMode", "Mode": "Edit" },
-        { "name": "TravelDetail", "Mode": "Edit" }
+        { "name": "TravelDetail", "Mode": "Edit" },
+        { "name": "Justification", "Mode": "Edit" },
+        { "name": "Status", "Mode": "Display" }
       ],
       "name": "Travel Details",
       "stepType": "FieldList",
@@ -1532,15 +1572,11 @@
     },
     {
       "id": "Step3",
-      "fields": [
-        { "name": "FoodCost", "Mode": "Edit" },
-        { "name": "TravelCost", "Mode": "Edit" },
-        { "name": "StayCost", "Mode": "Edit" },
-        { "name": "OtherCost", "Mode": "Edit" }
-      ],
-      "name": "Travel Cost",
-      "stepType": "FieldList",
-      "intro": "Travel Cost Details"
+      "fields": [{ "name": "myExpenses", "Mode": "Edit" }],
+      "name": "myExpenses",
+      "stepType": "table",
+      "intro": "Expense : Expense Entries",
+      "text": "docType,ItemAttachment,Information"
     },
     {
       "id": "Step4",
@@ -1551,14 +1587,6 @@
     },
     {
       "id": "Step5",
-      "fields": [{ "name": "myExpenses", "Mode": "Edit" }],
-      "name": "myExpenses",
-      "stepType": "table",
-      "intro": "Expense : Expense Entries",
-      "text": "docType,ItemAttachment,Information"
-    },
-    {
-      "id": "Step6",
       "fields": [{ "name": "MultiAttachments", "Mode": "Edit" }],
       "name": "MultiAttachments",
       "stepType": "Attachments",
@@ -1570,16 +1598,6 @@
         "type": "NewUpload",
         "text": "docType,HeaderAttachment,Information"
       }
-    },
-    {
-      "id": "Step7",
-      "fields": [
-        { "name": "Justification", "Mode": "Edit" },
-        { "name": "Status", "Mode": "Display" }
-      ],
-      "name": "Travel Details",
-      "stepType": "FieldList",
-      "intro": "Travel Request : Status"
     }
   ]
 }
