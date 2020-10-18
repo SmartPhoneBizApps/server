@@ -31,8 +31,7 @@
   },
   "WebSiteURL": {
     "type": "String",
-    "maxlength": [50, "WebSiteURL can not be more than 50 characters"],
-    "match": ["WEBSITE_V1", "Invalid web address in field :WebSiteURL"]
+    "maxlength": [200, "WebSiteURL can not be more than 200 characters"]
   },
   "VATRegistration": {
     "type": "String",
@@ -115,9 +114,7 @@
   },
   "Email": {
     "type": "String",
-    "required": [true, "Please add Mandatory field :Email"],
-    "maxlength": [200, "Email can not be more than 200 characters"],
-    "match": ["EMAIL_V1", "Invalid Email for field :Email"]
+    "maxlength": [200, "Email can not be more than 200 characters"]
   },
   "Phone": {
     "type": "String",
@@ -146,8 +143,8 @@
     "match": ["WEBSITE_V1", "Invalid web address in field :GoogleProfile"]
   },
   "PastSupplier": {
-    "type": "Boolean",
-    "maxlength": [100, "PastSupplier can not be more than 100 characters"]
+    "type": "String",
+    "maxlength": [20, "PastSupplier can not be more than 20 characters"]
   },
   "DateOfRegistration": {
     "type": "Date",
