@@ -352,7 +352,8 @@
             "Currency",
             "MaxStay",
             "MaxTravel",
-            "MaxFood"
+            "MaxFood",
+            "MaxOther"
           ]
         }
       ],
@@ -1125,6 +1126,15 @@
       "LLabel": "MaxFood"
     },
     {
+      "name": "MaxOther",
+      "type": "string",
+      "width": "50",
+      "Option": "Mandatory",
+      "adaptiveCard": "Additional",
+      "SLabel": "MaxOther",
+      "LLabel": "MaxOther"
+    },
+    {
       "name": "SearchString",
       "type": "string",
       "width": "200",
@@ -1443,6 +1453,17 @@
           "subfunction": "GT"
         },
         "Fields": [{ "Source": "FoodCost", "Type": { "type": "Header" } }]
+      },
+      {
+        "CalculatedFormula": {
+          "name": "COMPARE",
+          "function": "COMPARE",
+          "Target": "MaxOther",
+          "type": "Header",
+          "value": "40",
+          "subfunction": "GT"
+        },
+        "Fields": [{ "Source": "OtherCost", "Type": { "type": "Header" } }]
       },
       {
         "CalculatedFormula": {
