@@ -399,15 +399,6 @@
           "Update": "Yes"
         },
         {
-          "name": "ExpenseAmount",
-          "type": "Num,1",
-          "width": "20",
-          "SLabel": "Expense Amount",
-          "Option": "Mandatory",
-          "adaptiveCard": "Main",
-          "Update": "Yes"
-        },
-        {
           "name": "ExpenseDetails",
           "type": "string",
           "width": "200",
@@ -627,7 +618,6 @@
       ],
       "DisplayFields": [
         "ExpenseDate",
-        "ExpenseAmount",
         "ExpType",
         "ExpenseDetails",
         "iCurrency",
@@ -694,35 +684,6 @@
             "@Value1": "Commutative",
             "@Value2": "Count"
           }
-        },
-        {
-          "cardType": "Analytical",
-          "style": ["SAP", "Google"],
-          "cardsubType": "Line",
-          "title": "Expense Analysis",
-          "subtitle": "Expenses",
-          "unitOfMeasurement": "GBP",
-          "source": "myExpenses",
-          "Data": {
-            "dimension": "ExpenseDate",
-            "fact": "ExpenseAmount",
-            "operation": "COLLECTIVE_SUM",
-            "sorting": "Ascending",
-            "aggregate": "Yes",
-            "sortField": "ExpenseDate",
-            "dType": "Date"
-          },
-          "numericHeader": {
-            "headerNumber": { "Operation": "COLLECTIVE", "Field": "ID" },
-            "trend": { "trend": "DOWN", "Condition": "LTE", "value": 8 },
-            "status": { "state": "Good", "Condition": "LTE", "value": 24 },
-            "details": "Employee",
-            "unit": "GBP"
-          },
-          "cardValues": {
-            "@Value1": "Commutative",
-            "@Value2": "Expense Amount"
-          }
         }
       ],
       "cards": [],
@@ -735,7 +696,6 @@
       },
       "CreateFields": [
         "ExpenseDate",
-        "ExpenseAmount",
         "ExpType",
         "ExpenseDetails",
         "iCurrency",
@@ -762,7 +722,6 @@
       ],
       "ItemDetails": [
         { "name": "ExpenseDate" },
-        { "name": "ExpenseAmount" },
         { "name": "ExpType" },
         { "name": "ExpenseDetails" },
         { "name": "iCurrency" },
@@ -797,7 +756,6 @@
                 "ExpenseDate",
                 "iCurrency",
                 "ExpenseDetails",
-                "ExpenseAmount",
                 "Comment",
                 "ItemStatus1",
                 "Attachment",
