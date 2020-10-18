@@ -1170,63 +1170,63 @@
     },
     {
       "name": "MaxStay",
-      "type": "string",
+      "type": "Num,2",
       "width": "50",
-      "Option": "Mandatory",
+      "Option": "Optional",
       "adaptiveCard": "Additional",
-      "SLabel": "MaxStay",
-      "LLabel": "MaxStay"
+      "SLabel": "Max Accomodation Cost",
+      "LLabel": "Max Accomodation Cost"
     },
     {
       "name": "stayPolicy",
-      "type": "string",
+      "type": "Num,2",
       "width": "50",
-      "Option": "Mandatory",
+      "Option": "Optional",
       "adaptiveCard": "Additional",
       "SLabel": "Accomodation policy @day",
       "LLabel": "Accomodation policy @day"
     },
     {
       "name": "foodPolicy",
-      "type": "string",
+      "type": "Num,2",
       "width": "50",
-      "Option": "Mandatory",
+      "Option": "Optional",
       "adaptiveCard": "Additional",
       "SLabel": "Food policy @day",
       "LLabel": "Food policy @day"
     },
     {
       "name": "otherPolicy",
-      "type": "string",
+      "type": "Num,2",
       "width": "50",
-      "Option": "Mandatory",
+      "Option": "Optional",
       "adaptiveCard": "Additional",
       "SLabel": "Miscellaneous policy @day",
       "LLabel": "Miscellaneous policy @day"
     },
     {
       "name": "MaxTravel",
-      "type": "string",
+      "type": "Num,2",
       "width": "50",
-      "Option": "Mandatory",
+      "Option": "Optional",
       "adaptiveCard": "Additional",
-      "SLabel": "MaxTravel",
-      "LLabel": "MaxTravel"
+      "SLabel": "Max Travel Cost",
+      "LLabel": "MaxTravel Cost"
     },
     {
       "name": "MaxFood",
-      "type": "string",
+      "type": "Num,2",
       "width": "50",
-      "Option": "Mandatory",
+      "Option": "Optional",
       "adaptiveCard": "Additional",
-      "SLabel": "MaxFood",
-      "LLabel": "MaxFood"
+      "SLabel": "Max Food Cost",
+      "LLabel": "Max Food Cost"
     },
     {
       "name": "MaxOther",
-      "type": "string",
+      "type": "Num,2",
       "width": "50",
-      "Option": "Mandatory",
+      "Option": "Optional",
       "adaptiveCard": "Additional",
       "SLabel": "MaxOther",
       "LLabel": "MaxOther"
@@ -1387,8 +1387,8 @@
           "type": "Header",
           "msg": "To Date can't be less than From date",
           "Fields": [
-            { "Source": "TravelDtFrom", "Type": { "type": "Header" } },
-            { "Source": "TravelDateTo", "Type": { "type": "Header" } }
+            { "Source": "TravelDateTo", "Type": { "type": "Header" } },
+            { "Source": "TravelDtFrom", "Type": { "type": "Header" } }
           ]
         }
       ]
@@ -1501,8 +1501,8 @@
           "type": "Header"
         },
         "Fields": [
-          { "Source": "TravelDateTo", "Type": { "type": "Header" } },
-          { "Source": "TravelDtFrom", "Type": { "type": "Header" } }
+          { "Source": "TravelDtFrom", "Type": { "type": "Header" } },
+          { "Source": "TravelDateTo", "Type": { "type": "Header" } }
         ]
       },
       {
