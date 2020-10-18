@@ -23,7 +23,7 @@
   },
 
   "ListFields": {
-    "IntroField": "BusinessType",
+    "IntroField": "PostCode",
     "TitleField": "CompanyName",
     "sStatus": "CompanyType",
     "fStatus": "Status",
@@ -31,7 +31,7 @@
   },
   "ListBOTFields": {
     "None": ["cardImage", "StatusState"],
-    "Title": ["CompanyName", "BusinessType"],
+    "Title": ["CompanyName"],
     "SubTitle": ["Status", "CompanyType"],
     "Description": ["IntrestArea", "ID", "AnnualTurnover"]
   },
@@ -39,7 +39,6 @@
     "CompanyType",
     "GeographicalCoverage",
     "PastSupplier",
-    "BusinessType",
     "Language",
     "AnnualTurnover",
     "Status"
@@ -59,7 +58,6 @@
         "AnnualTurnover",
         "GeographicalCoverage",
         "PastSupplier",
-        "BusinessType",
         "IntrestArea",
         "DetailsOfServices",
         "DetailsOfProducts",
@@ -206,7 +204,6 @@
       "AnnualTurnover",
       "GeographicalCoverage",
       "PastSupplier",
-      "BusinessType",
       "IntrestArea",
       "DetailsOfServices",
       "DetailsOfProducts"
@@ -877,7 +874,7 @@
       "type": "string",
       "width": "50",
       "Option": "Optional",
-      "adaptiveCard": "None"
+      "adaptiveCard": "Main"
     },
     {
       "name": "WebSiteURL",
@@ -962,14 +959,6 @@
     {
       "name": "PastSupplier",
       "SLabel": "PastSupplier",
-      "type": "string",
-      "width": "100",
-      "Option": "Optional",
-      "adaptiveCard": "Main"
-    },
-    {
-      "name": "BusinessType",
-      "SLabel": "BusinessType",
       "type": "string",
       "width": "100",
       "Option": "Optional",
@@ -1105,7 +1094,6 @@
       "id": "Step3",
       "fields": [
         { "name": "Phone", "Mode": "Edit" },
-        { "name": "BusinessType", "Mode": "Edit" },
         { "name": "WebSiteURL", "Mode": "Edit" },
         { "name": "Language", "Mode": "Edit" },
         { "name": "CompanyType", "Mode": "Edit" },
