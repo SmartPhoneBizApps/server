@@ -582,41 +582,42 @@ exports.updateDataRecords = asyncHandler(async (req, res, next) => {
     req.body.area = AreaDetails.id;
   }
   ///  +++++++++++  VALIDATIONS ENDS +++++++++++++++++++++++ /////////
+  if (req.headers.updateiv == "Yes") {
+    // X2 - Initial values
+    var ivalue = getInitialValues(
+      req.headers.applicationid,
+      req.headers.businessrole,
+      req.user
+    );
+    let ival_out = [];
+    let ival = {};
+    let out = {};
+    for (let i = 0; i < ivalue.length; i++) {
+      ival = {};
+      const element = ivalue[i];
+      ival = { ...element };
+      o_val = getDateValues(ival.Value);
+      ival.Value = o_val;
+      ival_out.push(ival);
+    }
+    // X3 - Update data values example @currentDate
+    for (const key in req.body) {
+      req.body[key] = getDateValues(req.body[key]);
+    }
 
-  // X2 - Initial values
-  var ivalue = getInitialValues(
-    req.headers.applicationid,
-    req.headers.businessrole,
-    req.user
-  );
-  let ival_out = [];
-  let ival = {};
-  let out = {};
-  for (let i = 0; i < ivalue.length; i++) {
-    ival = {};
-    const element = ivalue[i];
-    ival = { ...element };
-    o_val = getDateValues(ival.Value);
-    ival.Value = o_val;
-    ival_out.push(ival);
-  }
-  // X3 - Update data values example @currentDate
-  for (const key in req.body) {
-    req.body[key] = getDateValues(req.body[key]);
-  }
-
-  // X4 - Add initial values / user defaults in the body if user as not provided it..
-  for (let a = 0; a < ival_out.length; a++) {
-    for (let b = 0; b < cardConfig["FieldDef"].length; b++) {
-      if (cardConfig["FieldDef"][b]["name"] == ival_out[a]["Field"]) {
-        if (!req.body.hasOwnProperty(ival_out[a]["Field"])) {
-          //    } else {
-          req.body[ival_out[a]["Field"]] = ival_out[a]["Value"];
-          console.log(
-            "User default value added for:",
-            ival_out[a]["Field"],
-            ival_out[a]["Value"]
-          );
+    // X4 - Add initial values / user defaults in the body if user as not provided it..
+    for (let a = 0; a < ival_out.length; a++) {
+      for (let b = 0; b < cardConfig["FieldDef"].length; b++) {
+        if (cardConfig["FieldDef"][b]["name"] == ival_out[a]["Field"]) {
+          if (!req.body.hasOwnProperty(ival_out[a]["Field"])) {
+            //    } else {
+            req.body[ival_out[a]["Field"]] = ival_out[a]["Value"];
+            console.log(
+              "User default value added for:",
+              ival_out[a]["Field"],
+              ival_out[a]["Value"]
+            );
+          }
         }
       }
     }
