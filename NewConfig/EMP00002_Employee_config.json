@@ -25,7 +25,8 @@
         "ProjectCode",
         "Currency",
         "EmployeeID",
-        "TotalAmount"
+        "TotalAmount",
+        "ItemTotal"
       ]
     }
   },
@@ -35,21 +36,31 @@
     "sStatus": "CostCentre",
     "fStatus": "Status",
     "numberField": "TotalAmount",
-    "LFields": ["TravelDtFrom", "TravelDateTo", "TravelMode"],
+    "LFields": ["TravelDtFrom", "TravelDateTo", "TravelMode", "ItemTotal"],
     "numberUnitField": "Currency"
   },
   "ListBOTFields": {
     "None": ["cardImage", "StatusState"],
     "Title": ["ID"],
     "SubTitle": ["Name", "TotalAmount", "Status"],
-    "Description": ["TravelDtFrom", "TravelDateTo", "Justification"]
+    "Description": [
+      "TravelDtFrom",
+      "TravelDateTo",
+      "Justification",
+      "ItemTotal"
+    ]
   },
   "PossibleValues": [
     "Currency",
     "ProjectCode",
     "CostCentre",
     "Status",
-    "TravelMode"
+    "TravelMode",
+    "iHotel",
+    "iMeals",
+    "iTravel",
+    "iParking",
+    "iMobile"
   ],
   "MButtons": [
     {
@@ -62,6 +73,7 @@
         "Name",
         "EntryDate",
         "TotalAmount",
+        "ItemTotal",
         "TravelDtFrom",
         "TravelDateTo",
         "TravelDetail",
@@ -76,7 +88,8 @@
         "CostCentre",
         "Currency",
         "Status"
-      ]
+      ],
+      "downloadTables": ["myExpenses"]
     },
     {
       "type": "APPHELP",
@@ -183,6 +196,14 @@
       "value": "Tab2",
       "style": "SAP",
       "update": "Yes",
+      "name": "Expenses",
+      "type": "Table",
+      "fioriicon": "expense-report"
+    },
+    {
+      "value": "Tab12",
+      "style": "SAP",
+      "update": "Yes",
       "name": "Cost Details",
       "type": "Field",
       "fioriicon": "database",
@@ -236,7 +257,14 @@
     "Tab0": ["data"],
     "Tab20": ["charts"],
     "Tab99": ["actionLog"],
-    "None": ["ID", "EmployeeID", "Name", "EntryDate", "TotalAmount"],
+    "None": [
+      "ID",
+      "EmployeeID",
+      "Name",
+      "EntryDate",
+      "TotalAmount",
+      "ItemTotal"
+    ],
     "Tab1": [
       "TravelDtFrom",
       "TravelDateTo",
@@ -245,7 +273,7 @@
       "TravelMode",
       "StayDetails"
     ],
-    "Tab2": [
+    "Tab12": [
       "TravelCost",
       "StayCost",
       "FoodCost",
@@ -255,6 +283,7 @@
       "MaxTravel",
       "MaxFood"
     ],
+    "Tab2": ["myExpenses"],
     "Tab3": ["AdditionalInfo", "CostCentre", "ProgressComment"],
     "Tab5": ["carouselImage"],
     "Tab4": ["MultiAttachments"]
@@ -346,6 +375,404 @@
   "cards": [],
   "ControlDisplay": {},
   "tableConfig": {
+    "myExpenses": {
+      "calculation": "Yes",
+      "title": "Expenses booking",
+      "subtitle": "Expenses",
+      "tableFormFields": [
+        {
+          "GrpTitle": "Totals",
+          "Fields": ["ItemTotal"]
+        }
+      ],
+      "ItemFieldDefinition": [
+        {
+          "name": "ItemNumber",
+          "type": "string",
+          "width": "10",
+          "SLabel": "ItemNumber",
+          "Option": "Optional",
+          "adaptiveCard": "Additional",
+          "Update": "No"
+        },
+        {
+          "name": "ExpenseDate",
+          "type": "Date",
+          "width": "10",
+          "SLabel": "Expense Date",
+          "Option": "Mandatory",
+          "adaptiveCard": "Main",
+          "Update": "Yes"
+        },
+        {
+          "name": "ExpenseAmount",
+          "type": "Num,1",
+          "width": "20",
+          "SLabel": "Expense Amount",
+          "Option": "Mandatory",
+          "adaptiveCard": "Main",
+          "Update": "Yes"
+        },
+        {
+          "name": "ExpenseDetails",
+          "type": "string",
+          "width": "200",
+          "Option": "Optional",
+          "SLabel": "Expense Detail",
+          "adaptiveCard": "Main",
+          "Update": "Yes"
+        },
+        {
+          "name": "ExpType",
+          "type": "string",
+          "width": "50",
+          "SLabel": "Expense Type",
+          "Option": "Optional",
+          "adaptiveCard": "Main",
+          "Update": "Yes"
+        },
+        {
+          "name": "SearchString",
+          "type": "string",
+          "width": "200",
+          "Option": "Mandatory",
+          "SLabel": "Search String",
+          "adaptiveCard": "None",
+          "Update": "Yes"
+        },
+        {
+          "name": "Comment",
+          "type": "string",
+          "width": "1000",
+          "SLabel": "Comment",
+          "Option": "Optional",
+          "adaptiveCard": "Main",
+          "Update": "Yes"
+        },
+        {
+          "name": "iCurrency",
+          "type": "string",
+          "width": "10",
+          "SLabel": "Item Currency",
+          "Option": "Optional",
+          "adaptiveCard": "Additional",
+          "Update": "No"
+        },
+        {
+          "name": "ItemStatus1",
+          "type": "string",
+          "width": "50",
+          "SLabel": "Item Status",
+          "Option": "Optional",
+          "adaptiveCard": "Additional",
+          "Update": "Yes"
+        },
+        {
+          "name": "Attachment",
+          "type": "singleAttachment",
+          "width": "100",
+          "SLabel": "Item Attachment",
+          "Option": "Optional",
+          "adaptiveCard": "None",
+          "Update": "Yes"
+        },
+        {
+          "name": "From",
+          "type": "string",
+          "width": "100",
+          "SLabel": "From",
+          "Option": "Optional",
+          "adaptiveCard": "Additional",
+          "Update": "Yes"
+        },
+        {
+          "name": "To",
+          "type": "string",
+          "width": "100",
+          "SLabel": "To",
+          "Option": "Optional",
+          "adaptiveCard": "Additional",
+          "Update": "Yes"
+        },
+        {
+          "name": "iMiles",
+          "type": "Num,0",
+          "width": "50",
+          "SLabel": "Total Miles",
+          "Option": "Optional",
+          "adaptiveCard": "Additional",
+          "Update": "Yes"
+        },
+        {
+          "name": "MilesRate",
+          "type": "Num,2",
+          "width": "20",
+          "SLabel": "Miles Rate",
+          "Option": "Optional",
+          "adaptiveCard": "Additional",
+          "Update": "Yes"
+        },
+        {
+          "name": "iMobile",
+          "type": "string",
+          "width": "100",
+          "SLabel": "Bill Type",
+          "Option": "Optional",
+          "adaptiveCard": "Additional",
+          "Update": "Yes"
+        },
+        {
+          "name": "iParking",
+          "type": "string",
+          "width": "100",
+          "SLabel": "Charge Type",
+          "Option": "Optional",
+          "adaptiveCard": "Additional",
+          "Update": "Yes"
+        },
+        {
+          "name": "iTravel",
+          "type": "string",
+          "width": "100",
+          "SLabel": "Travel Mode",
+          "Option": "Optional",
+          "adaptiveCard": "Additional",
+          "Update": "Yes"
+        },
+        {
+          "name": "iMeals",
+          "type": "string",
+          "width": "100",
+          "SLabel": "Meals Type",
+          "Option": "Optional",
+          "adaptiveCard": "Additional",
+          "Update": "Yes"
+        },
+        {
+          "name": "iHotel",
+          "type": "string",
+          "width": "100",
+          "SLabel": "Accomodation Type",
+          "Option": "Optional",
+          "adaptiveCard": "Additional",
+          "Update": "Yes"
+        }
+      ],
+      "DisplayFields": [
+        "ExpenseDate",
+        "ExpenseAmount",
+        "ExpType",
+        "ExpenseDetails",
+        "iCurrency",
+        "ItemStatus1"
+      ],
+      "detailCharts": [
+        {
+          "cardType": "Analytical",
+          "style": ["SAP", "Google"],
+          "cardsubType": "StackedBar",
+          "title": "Expenses Analysis",
+          "subtitle": "ItemStatus",
+          "unitOfMeasurement": "Count",
+          "source": "myExpenses",
+          "Data": {
+            "dimension": "ItemStatus1",
+            "fact": "Count",
+            "operation": "COUNT",
+            "sorting": "Ascending",
+            "aggregate": "Yes",
+            "sortField": "Count",
+            "dType": "string"
+          },
+          "numericHeader": {
+            "headerNumber": { "Operation": "COUNT", "Field": "ItemStatus1" },
+            "trend": { "trend": "DOWN", "Condition": "LTE", "value": 8 },
+            "status": { "state": "Good", "Condition": "LTE", "value": 24 },
+            "details": "ItemStatus1",
+            "unit": "Count"
+          },
+          "cardValues": {
+            "@Value1": "Commutative",
+            "@Value2": "Count"
+          }
+        },
+        {
+          "cardType": "Analytical",
+          "style": ["SAP", "Google"],
+          "cardsubType": "StackedColumn",
+          "title": "Expenses Analysis",
+          "subtitle": "ExpType",
+          "unitOfMeasurement": "Count",
+          "source": "myExpenses",
+          "Data": {
+            "dimension": "ExpType",
+            "fact": "Count",
+            "operation": "COUNT",
+            "sorting": "Ascending",
+            "aggregate": "Yes",
+            "sortField": "Count",
+            "dType": "string"
+          },
+          "numericHeader": {
+            "headerNumber": {
+              "Operation": "COUNT",
+              "Field": "ExpType"
+            },
+            "trend": { "trend": "DOWN", "Condition": "LTE", "value": 8 },
+            "status": { "state": "Good", "Condition": "LTE", "value": 24 },
+            "details": "ExpType",
+            "unit": "Count"
+          },
+          "cardValues": {
+            "@Value1": "Commutative",
+            "@Value2": "Count"
+          }
+        },
+        {
+          "cardType": "Analytical",
+          "style": ["SAP", "Google"],
+          "cardsubType": "Line",
+          "title": "Expense Analysis",
+          "subtitle": "Expenses",
+          "unitOfMeasurement": "GBP",
+          "source": "myExpenses",
+          "Data": {
+            "dimension": "ExpenseDate",
+            "fact": "ExpenseAmount",
+            "operation": "COLLECTIVE_SUM",
+            "sorting": "Ascending",
+            "aggregate": "Yes",
+            "sortField": "ExpenseDate",
+            "dType": "Date"
+          },
+          "numericHeader": {
+            "headerNumber": { "Operation": "COLLECTIVE", "Field": "ID" },
+            "trend": { "trend": "DOWN", "Condition": "LTE", "value": 8 },
+            "status": { "state": "Good", "Condition": "LTE", "value": 24 },
+            "details": "Employee",
+            "unit": "GBP"
+          },
+          "cardValues": {
+            "@Value1": "Commutative",
+            "@Value2": "Expense Amount"
+          }
+        }
+      ],
+      "cards": [],
+      "ItemButtons": {
+        "itemDisplay": true,
+        "itemCheck": true,
+        "itemAdd": true,
+        "itemEdit": true,
+        "itemDelete": true
+      },
+      "CreateFields": [
+        "ExpenseDate",
+        "ExpenseAmount",
+        "ExpType",
+        "ExpenseDetails",
+        "iCurrency",
+        "ItemStatus1",
+        "Comment",
+        "Attachment",
+        "From",
+        "To",
+        "iMiles",
+        "MilesRate",
+        "iMobile",
+        "iParking",
+        "iTravel",
+        "iMeals",
+        "iHotel"
+      ],
+      "ItemDetails": [
+        { "name": "ExpenseDate" },
+        { "name": "ExpenseAmount" },
+        { "name": "ExpType" },
+        { "name": "ExpenseDetails" },
+        { "name": "iCurrency" },
+        { "name": "Comment" },
+        { "name": "ItemStatus1" },
+        { "name": "Attachment" },
+        { "name": "From" },
+        { "name": "To" },
+        { "name": "iMiles" },
+        { "name": "MilesRate" },
+        { "name": "iMobile" },
+        { "name": "iParking" },
+        { "name": "iTravel" },
+        { "name": "iMeals" },
+        { "name": "iHotel" }
+      ],
+      "ControlDisplay": {
+        "ControlField": "ExpType",
+        "Fields": [
+          [
+            {
+              "ALL": [
+                "ItemNumber",
+                "ExpenseDate",
+                "iCurrency",
+                "ExpenseDetails",
+                "ExpenseAmount",
+                "Comment",
+                "ItemStatus1",
+                "Attachment",
+                "ExpType"
+              ]
+            },
+            {
+              "Mileage": ["From", "To", "iMiles", "MilesRate"]
+            },
+            {
+              "Mobile/Telephone/Internet": ["iMobile"]
+            },
+            {
+              "Parking/Toll/Congestion": ["iParking"]
+            },
+            {
+              "Air/Train/BusFare": ["iTravel"]
+            },
+            {
+              "Meals": ["iMeals"]
+            },
+            {
+              "Hotel": ["iHotel"]
+            }
+          ]
+        ]
+      },
+      "Validations": {
+        "Field": {},
+        "Sequence": {
+          "myExpenses": [
+            {
+              "name": "SEQUENCE",
+              "function": "GTE",
+              "Target": "sValidation",
+              "type": "Header",
+              "msg": "Expense Date can't be less than Start date 124",
+              "Fields": [
+                { "Source": "ExpenseDate", "Type": { "type": "Item" } },
+                { "Source": "ExpenseStDate", "Type": { "type": "Header" } }
+              ]
+            },
+            {
+              "name": "SEQUENCE",
+              "function": "LTE",
+              "Target": "sValidation",
+              "type": "Header",
+              "msg": "Expense Date can't be greater than End date 125",
+              "Fields": [
+                { "Source": "ExpenseDate", "Type": { "type": "Item" } },
+                { "Source": "ExpenseEndDate", "Type": { "type": "Header" } }
+              ]
+            }
+          ]
+        },
+        "Document": {}
+      }
+    },
     "actionLog": {
       "title": "Action Log",
       "subtitle": "Action Log",
@@ -561,6 +988,14 @@
       "SLabel": "Employee Name"
     },
     {
+      "name": "ItemTotal",
+      "type": "Num,2",
+      "width": "20",
+      "Option": "Optional",
+      "adaptiveCard": "Additional",
+      "SLabel": "Total Amount"
+    },
+    {
       "name": "TotalAmount",
       "type": "Num,2",
       "width": "20",
@@ -720,6 +1155,15 @@
       "LLabel": "MultiAttachments"
     },
     {
+      "name": "myExpenses",
+      "type": "Array",
+      "width": "200",
+      "Option": "Optional",
+      "adaptiveCard": "None",
+      "SLabel": "myExpenses",
+      "LLabel": "myExpenses"
+    },
+    {
       "name": "TravelMode",
       "type": "radiobutton",
       "width": "50",
@@ -833,7 +1277,20 @@
   },
   "CalculatedFields": {
     "Item": [],
-    "HeaderItem": [],
+    "HeaderItem": [
+      {
+        "CalculatedFormula": {
+          "name": "ITEMSUM",
+          "table": "myExpenses",
+          "function": "ITEMSUM",
+          "Target": "ItemTotal",
+          "type": "HeaderItem"
+        },
+        "Fields": [
+          { "Source": "ExpenseAmount", "Type": { "type": "HeaderItem" } }
+        ]
+      }
+    ],
     "Header": [
       {
         "CalculatedFormula": {
@@ -951,6 +1408,14 @@
     },
     {
       "id": "Step5",
+      "fields": [{ "name": "myExpenses", "Mode": "Edit" }],
+      "name": "myExpenses",
+      "stepType": "table",
+      "intro": "Expense : Expense Entries",
+      "text": "docType,ItemAttachment,Information"
+    },
+    {
+      "id": "Step6",
       "fields": [{ "name": "MultiAttachments", "Mode": "Edit" }],
       "name": "MultiAttachments",
       "stepType": "Attachments",
@@ -964,7 +1429,7 @@
       }
     },
     {
-      "id": "Step6",
+      "id": "Step7",
       "fields": [
         { "name": "Justification", "Mode": "Edit" },
         { "name": "Status", "Mode": "Display" }
