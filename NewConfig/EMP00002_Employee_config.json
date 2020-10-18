@@ -35,14 +35,19 @@
     "sStatus": "CostCentre",
     "fStatus": "Status",
     "numberField": "TotalAmount",
-    "LFields": ["TravelDtFrom", "TravelDateTo", "TravelMode"],
+    "LFields": ["TravelDtFrom", "TravelDateTo", "TravelMode", "TravelDays"],
     "numberUnitField": "Currency"
   },
   "ListBOTFields": {
     "None": ["cardImage", "StatusState"],
     "Title": ["ID"],
     "SubTitle": ["Name", "TotalAmount", "Status"],
-    "Description": ["TravelDtFrom", "TravelDateTo", "Justification"]
+    "Description": [
+      "TravelDtFrom",
+      "TravelDateTo",
+      "Justification",
+      "TravelDays"
+    ]
   },
   "PossibleValues": [
     "Currency",
@@ -70,6 +75,7 @@
         "TotalAmount",
         "TravelDtFrom",
         "TravelDateTo",
+        "TravelDays",
         "TravelDetail",
         "Justification",
         "TravelMode",
@@ -236,6 +242,7 @@
     "None": ["ID", "EmployeeID", "Name", "EntryDate"],
     "Tab1": [
       "TravelDtFrom",
+      "TravelDays",
       "TravelDateTo",
       "TravelDetail",
       "Justification",
@@ -1042,6 +1049,14 @@
       "SLabel": "Travel Date From"
     },
     {
+      "name": "TravelDays",
+      "type": "Num,0",
+      "width": "10",
+      "Option": "Optional",
+      "adaptiveCard": "None",
+      "SLabel": "Travel Days"
+    },
+    {
       "name": "TravelDateTo",
       "type": "Date",
       "width": "10",
@@ -1396,6 +1411,18 @@
       }
     ],
     "Header": [
+      {
+        "CalculatedFormula": {
+          "name": "Substraction",
+          "function": "SUB",
+          "Target": "TravelDays",
+          "type": "Header"
+        },
+        "Fields": [
+          { "Source": "TravelDateTo", "Type": { "type": "Header" } },
+          { "Source": "TravelDtFrom", "Type": { "type": "Header" } }
+        ]
+      },
       {
         "CalculatedFormula": {
           "name": "Addition",
