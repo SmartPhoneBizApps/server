@@ -170,15 +170,6 @@
       "fioriicon": "business-objects-experience"
     },
     {
-      "value": "Tab1",
-      "style": "SAP",
-      "update": "Yes",
-      "name": "SC",
-      "type": "Field",
-      "fioriicon": "notes",
-      "download": "Yes"
-    },
-    {
       "value": "Tab2",
       "style": "SAP",
       "update": "Yes",
@@ -227,8 +218,7 @@
     "Tab0": ["data"],
     "Tab20": ["charts"],
     "Tab99": ["actionLog"],
-    "None": ["ID", "VendorName"],
-    "Tab1": ["SCDate", "NetValue", "VATVal", "GrossValue"],
+    "None": ["ID", "VendorName", "SCDate"],
     "Tab2": [
       "DeliveryDt",
       "DelTo",
@@ -542,7 +532,7 @@
       "type": "string",
       "width": "100",
       "Option": "Optional",
-      "adaptiveCard": "Additional",
+      "adaptiveCard": "Main",
       "SLabel": "Delivery Address"
     },
     {
@@ -554,7 +544,7 @@
       "URLMethod": "GET",
       "Token": true,
       "Option": "Optional",
-      "adaptiveCard": "Additional",
+      "adaptiveCard": "Main",
       "SLabel": "Post Code",
       "LLabel": "Post Code"
     },
@@ -563,7 +553,7 @@
       "type": "string",
       "width": "100",
       "Option": "Optional",
-      "adaptiveCard": "Additional",
+      "adaptiveCard": "Main",
       "SLabel": "Delivery Phone"
     },
     {
@@ -611,6 +601,12 @@
       "calculation": "Yes",
       "title": "Item Details",
       "subtitle": "Shopping items",
+      "tableFormFields": [
+        {
+          "GrpTitle": "Cost Break-up",
+          "Fields": ["NetValue", "VATVal", "GrossValue"]
+        }
+      ],
       "ItemFieldDefinition": [
         {
           "name": "ItemNumber",
