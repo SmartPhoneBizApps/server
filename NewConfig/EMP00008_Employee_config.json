@@ -9,15 +9,22 @@
     "StatusColor": "Yes",
     "SearchString": { "Search": false },
     "Filters": [{ "Partner": "@user" }],
-    "itemattachment": {},
-    "headerattachment": {},
     "Partner": "@user",
     "UserSpecific": "Yes",
     "Update": "Yes",
     "URL": "https://fierce-oasis-51455.herokuapp.com",
     "Source": { "SourceName": "mongoDB", "SourceFile": "NA" },
     "filterFields": {
-      "header": ["Status", "ExpType", "CostCentre", "Currency", "ProjectCode"]
+      "header": [
+        "Status",
+        "TravelMode",
+        "ExpType",
+        "CostCentre",
+        "Currency",
+        "ProjectCode",
+        "EmployeeID",
+        "TotalAmount"
+      ]
     }
   },
   "ListFields": {
@@ -26,27 +33,39 @@
     "sStatus": "ID",
     "fStatus": "Status",
     "numberField": "TotalAmount",
-    "LFields": ["EmployeeID"],
+    "LFields": [
+      "EmployeeID",
+      "ExpenseStDate",
+      "ExpenseEndDate",
+      "TravelMode",
+      "TravelDays"
+    ],
     "numberUnitField": "Currency"
   },
   "ListBOTFields": {
     "None": ["cardImage", "StatusState"],
     "Title": ["ID", "Name", "ProjectCode"],
     "SubTitle": ["TotalAmount", "Status"],
-    "Description": ["EmployeeID"]
+    "Description": [
+      "ExpenseStDate",
+      "ExpenseEndDate",
+      "Justification",
+      "TravelDays"
+    ]
   },
   "PossibleValues": [
     "Currency",
     "CostCentre",
     "Status",
+    "TravelMode",
     "ItemStatus1",
-    "ExpType",
     "ProjectCode",
     "iHotel",
     "iMeals",
     "iTravel",
     "iParking",
-    "iMobile"
+    "iMobile",
+    "ExpType"
   ],
   "MButtons": [
     {
@@ -57,13 +76,23 @@
         "ID",
         "EmployeeID",
         "Name",
-        "TotalAmount",
-        "Currency",
         "EntryDate",
-        "ProjectCode",
-        "CostCentre",
+        "TotalAmount",
         "ExpenseStDate",
         "ExpenseEndDate",
+        "TravelDays",
+        "TravelDetail",
+        "Justification",
+        "TravelMode",
+        "TravelCost",
+        "FoodCost",
+        "StayCost",
+        "StayDetails",
+        "OtherCost",
+        "AdditionalInfo",
+        "Currency",
+        "ProjectCode",
+        "CostCentre",
         "Status"
       ],
       "downloadTables": ["myExpenses"]
@@ -197,7 +226,7 @@
       "fioriicon": "expense-report"
     },
     {
-      "value": "Tab3",
+      "value": "Tab5",
       "style": "SAP",
       "update": "Yes",
       "name": "Images",
@@ -206,13 +235,13 @@
       "download": "No"
     },
     {
-      "value": "Tab5",
+      "value": "Tab4",
       "style": "SAP",
       "update": "Yes",
-      "name": "MultiAttachment",
+      "name": "MultiAttachments",
       "fioriicon": "attachment",
       "type": "MultiAttachments",
-      "download": "Yes",
+      "download": "No",
       "docType": [{ "text": "Receipt", "state": "Information" }]
     },
     {
@@ -232,17 +261,23 @@
     "Tab0": ["data"],
     "Tab20": ["charts"],
     "Tab99": ["actionLog"],
-    "None": ["ID", "EmployeeID", "Name", "TotalAmount", "Currency"],
+    "None": ["ID", "EmployeeID", "Name", "EntryDate"],
     "Tab1": [
+      "ExpenseStDate",
+      "ExpenseEndDate",
+      "TravelDetail",
+      "Justification",
+      "TravelMode",
+      "StayDetails",
+      "AdditionalInfo",
       "EntryDate",
       "ProjectCode",
       "CostCentre",
-      "ExpenseStDate",
-      "ExpenseEndDate"
+      "ProgressComment"
     ],
     "Tab2": ["myExpenses"],
-    "Tab3": ["carouselImage"],
-    "Tab5": ["MultiAttachments"]
+    "Tab5": ["carouselImage"],
+    "Tab4": ["MultiAttachments"]
   },
   "listCards": [
     {
@@ -284,7 +319,19 @@
       "tableFormFields": [
         {
           "GrpTitle": "Totals",
-          "Fields": ["TotalAmount"]
+          "Fields": [
+            "TravelDays",
+            "TotalAmount",
+            "TravelCost",
+            "StayCost",
+            "FoodCost",
+            "OtherCost",
+            "Currency",
+            "MaxStay",
+            "MaxTravel",
+            "MaxFood",
+            "MaxOther"
+          ]
         }
       ],
       "ItemFieldDefinition": [
@@ -302,15 +349,6 @@
           "type": "Date",
           "width": "10",
           "SLabel": "Expense Date",
-          "Option": "Mandatory",
-          "adaptiveCard": "Main",
-          "Update": "Yes"
-        },
-        {
-          "name": "ExpenseAmount",
-          "type": "Num,1",
-          "width": "20",
-          "SLabel": "Expense Amount",
           "Option": "Mandatory",
           "adaptiveCard": "Main",
           "Update": "Yes"
@@ -458,11 +496,83 @@
           "Option": "Optional",
           "adaptiveCard": "Additional",
           "Update": "Yes"
+        },
+        {
+          "name": "iFareAmt",
+          "type": "string",
+          "width": "100",
+          "SLabel": "Fare Amount",
+          "Option": "Optional",
+          "adaptiveCard": "Main",
+          "Update": "Yes"
+        },
+        {
+          "name": "iParkingAmt",
+          "type": "string",
+          "width": "100",
+          "SLabel": "Parking Amount",
+          "Option": "Optional",
+          "adaptiveCard": "Main",
+          "Update": "Yes"
+        },
+        {
+          "name": "iFoodAmt",
+          "type": "string",
+          "width": "100",
+          "SLabel": "Food Amount",
+          "Option": "Optional",
+          "adaptiveCard": "Main",
+          "Update": "Yes"
+        },
+        {
+          "name": "iStayAmt",
+          "type": "string",
+          "width": "100",
+          "SLabel": "Stay Amount",
+          "Option": "Optional",
+          "adaptiveCard": "Main",
+          "Update": "Yes"
+        },
+        {
+          "name": "iCommAmt",
+          "type": "string",
+          "width": "100",
+          "SLabel": "Bill Amount",
+          "Option": "Optional",
+          "adaptiveCard": "Main",
+          "Update": "Yes"
+        },
+        {
+          "name": "iOther",
+          "type": "string",
+          "width": "100",
+          "SLabel": "Other Amount",
+          "Option": "Optional",
+          "adaptiveCard": "Main",
+          "Update": "Yes"
+        },
+        {
+          "name": "iMiscellaneous",
+          "type": "string",
+          "width": "100",
+          "SLabel": "Miscellaneous Amount",
+          "Option": "Optional",
+          "adaptiveCard": "Main",
+          "Update": "Yes"
+        },
+
+        {
+          "name": "iMilesAmt",
+          "type": "string",
+          "width": "100",
+          "SLabel": "Milage Amount",
+          "Option": "Optional",
+          "adaptiveCard": "Main",
+          "Update": "Yes"
         }
       ],
       "DisplayFields": [
         "ExpenseDate",
-        "ExpenseAmount",
         "ExpType",
         "ExpenseDetails",
         "iCurrency",
@@ -570,7 +680,6 @@
       },
       "CreateFields": [
         "ExpenseDate",
-        "ExpenseAmount",
         "ExpType",
         "ExpenseDetails",
         "iCurrency",
@@ -585,11 +694,17 @@
         "iParking",
         "iTravel",
         "iMeals",
-        "iHotel"
+        "iHotel",
+        "iFareAmt",
+        "iParkingAmt",
+        "iFoodAmt",
+        "iStayAmt",
+        "iCommAmt",
+        "iOther",
+        "iMiscellaneous"
       ],
       "ItemDetails": [
         { "name": "ExpenseDate" },
-        { "name": "ExpenseAmount" },
         { "name": "ExpType" },
         { "name": "ExpenseDetails" },
         { "name": "iCurrency" },
@@ -604,42 +719,91 @@
         { "name": "iParking" },
         { "name": "iTravel" },
         { "name": "iMeals" },
-        { "name": "iHotel" }
+        { "name": "iHotel" },
+        { "name": "iFareAmt" },
+        { "name": "iParkingAmt" },
+        { "name": "iFoodAmt" },
+        { "name": "iStayAmt" },
+        { "name": "iCommAmt" },
+        { "name": "iMiscellaneous" },
+        { "name": "iOther" },
+        { "name": "iMilesAmt" }
       ],
       "ControlDisplay": {
         "ControlField": "ExpType",
         "Fields": [
           [
             {
-              "ALL": [
-                "ItemNumber",
-                "ExpenseDate",
+              "ALL": ["ItemNumber", "ExpType", "ExpenseDate", "ExpenseDetails"]
+            },
+            {
+              "Mileage": [
+                "From",
+                "To",
+                "iMiles",
+                "MilesRate",
+                "iMilesAmt",
                 "iCurrency",
-                "ExpenseDetails",
-                "ExpenseAmount",
                 "Comment",
-                "ItemStatus1",
-                "Attachment",
-                "ExpType"
+                "ItemStatus1"
               ]
             },
             {
-              "Mileage": ["From", "To", "iMiles", "MilesRate"]
+              "Mobile/Telephone/Internet": [
+                "iMobile",
+                "iCommAmt",
+                "iCurrency",
+                "Comment",
+                "Attachment",
+                "ItemStatus1"
+              ]
             },
             {
-              "Mobile/Telephone/Internet": ["iMobile"]
+              "Parking/Toll/Congestion": [
+                "iParking",
+                "iParkingAmt",
+                "iCurrency",
+                "Comment",
+                "Attachment",
+                "ItemStatus1"
+              ]
             },
             {
-              "Parking/Toll/Congestion": ["iParking"]
+              "Air/Train/BusFare": [
+                "iTravel",
+                "iFareAmt",
+                "iCurrency",
+                "Comment",
+                "Attachment",
+                "ItemStatus1"
+              ]
             },
             {
-              "Air/Train/BusFare": ["iTravel"]
+              "Meals": [
+                "iMeals",
+                "iFoodAmt",
+                "iCurrency",
+                "Comment",
+                "Attachment",
+                "ItemStatus1"
+              ]
             },
             {
-              "Meals": ["iMeals"]
+              "Hotel": [
+                "iHotel",
+                "iStayAmt",
+                "iCurrency",
+                "Attachment",
+                "ItemStatus1"
+              ]
             },
             {
-              "Hotel": ["iHotel"]
+              "Miscellaneous": [
+                "iMiscellaneous",
+                "iCurrency",
+                "Attachment",
+                "ItemStatus1"
+              ]
             }
           ]
         ]
@@ -834,7 +998,6 @@
         { "name": "Type" },
         { "name": "buttonType" },
         { "name": "Transaction" },
-
         { "name": "ID" },
         { "name": "User" },
         { "name": "UserName" },
@@ -891,7 +1054,7 @@
     },
     {
       "name": "TotalAmount",
-      "type": "string",
+      "type": "Num,2",
       "width": "20",
       "Option": "Optional",
       "adaptiveCard": "None",
@@ -922,6 +1085,14 @@
       "SLabel": "Expense Start Date"
     },
     {
+      "name": "TravelDays",
+      "type": "Num,0",
+      "width": "10",
+      "Option": "Optional",
+      "adaptiveCard": "None",
+      "SLabel": "Travel Days"
+    },
+    {
       "name": "ExpenseEndDate",
       "type": "Date",
       "width": "10",
@@ -946,25 +1117,21 @@
       "SLabel": "Cost Centre"
     },
     {
-      "name": "carouselImage",
-      "type": "carouselImage",
-
-      "width": "200",
-      "Option": "Optional",
-      "adaptiveCard": "None",
-      "SLabel": "carouselImage"
+      "name": "TravelDetail",
+      "type": "string",
+      "width": "500",
+      "Option": "Mandatory",
+      "adaptiveCard": "Main",
+      "SLabel": "Travel Detail"
     },
     {
-      "name": "MultiAttachments",
-      "type": "attachment",
-
-      "width": "200",
-      "Option": "Optional",
-      "adaptiveCard": "None",
-      "SLabel": "MultiAttachments",
-      "LLabel": "MultiAttachments"
+      "name": "Justification",
+      "type": "string",
+      "width": "1000",
+      "Option": "Mandatory",
+      "adaptiveCard": "Main",
+      "SLabel": "Justification"
     },
-
     {
       "name": "Status",
       "type": "string",
@@ -973,6 +1140,42 @@
       "adaptiveCard": "Additional",
       "SLabel": "Status",
       "LLabel": "Status"
+    },
+    {
+      "name": "MaxStay",
+      "type": "string",
+      "width": "50",
+      "Option": "Mandatory",
+      "adaptiveCard": "Additional",
+      "SLabel": "MaxStay",
+      "LLabel": "MaxStay"
+    },
+    {
+      "name": "MaxTravel",
+      "type": "string",
+      "width": "50",
+      "Option": "Mandatory",
+      "adaptiveCard": "Additional",
+      "SLabel": "MaxTravel",
+      "LLabel": "MaxTravel"
+    },
+    {
+      "name": "MaxFood",
+      "type": "string",
+      "width": "50",
+      "Option": "Mandatory",
+      "adaptiveCard": "Additional",
+      "SLabel": "MaxFood",
+      "LLabel": "MaxFood"
+    },
+    {
+      "name": "MaxOther",
+      "type": "string",
+      "width": "50",
+      "Option": "Mandatory",
+      "adaptiveCard": "Additional",
+      "SLabel": "MaxOther",
+      "LLabel": "MaxOther"
     },
     {
       "name": "SearchString",
@@ -1009,6 +1212,15 @@
       "SLabel": "lowerNodes"
     },
     {
+      "name": "MultiAttachments",
+      "type": "attachment",
+      "width": "200",
+      "Option": "Optional",
+      "adaptiveCard": "None",
+      "SLabel": "MultiAttachments",
+      "LLabel": "MultiAttachments"
+    },
+    {
       "name": "myExpenses",
       "type": "Array",
       "width": "200",
@@ -1016,6 +1228,76 @@
       "adaptiveCard": "None",
       "SLabel": "myExpenses",
       "LLabel": "myExpenses"
+    },
+    {
+      "name": "TravelMode",
+      "type": "radiobutton",
+      "width": "50",
+      "Option": "Mandatory",
+      "adaptiveCard": "Main",
+      "SLabel": "Travelling mode"
+    },
+    {
+      "name": "FoodCost",
+      "type": "Num,2",
+      "width": "20",
+      "Option": "Optional",
+      "adaptiveCard": "Main",
+      "SLabel": "Food Cost",
+      "LLabel": "Food Cost"
+    },
+    {
+      "name": "TravelCost",
+      "type": "Num,2",
+      "width": "20",
+      "Option": "Optional",
+      "adaptiveCard": "Main",
+      "SLabel": "Travel Cost",
+      "LLabel": "Travel Cost"
+    },
+    {
+      "name": "StayCost",
+      "type": "Num,2",
+      "width": "20",
+      "Option": "Optional",
+      "adaptiveCard": "Main",
+      "SLabel": "Stay Cost",
+      "LLabel": "Stay Cost"
+    },
+    {
+      "name": "OtherCost",
+      "type": "Num,2",
+      "width": "20",
+      "Option": "Optional",
+      "adaptiveCard": "Main",
+      "SLabel": "Other Cost",
+      "LLabel": "Other Cost"
+    },
+    {
+      "name": "AdditionalInfo",
+      "type": "string",
+      "width": "500",
+      "Option": "Optional",
+      "adaptiveCard": "Additional",
+      "SLabel": "Additional Info",
+      "LLabel": "Additional Info"
+    },
+    {
+      "name": "StayDetails",
+      "type": "string",
+      "width": "500",
+      "Option": "Optional",
+      "adaptiveCard": "Additional",
+      "SLabel": "Stay Details",
+      "LLabel": "Stay Details"
+    },
+    {
+      "name": "carouselImage",
+      "type": "carouselImage",
+      "width": "200",
+      "Option": "Optional",
+      "adaptiveCard": "None",
+      "SLabel": "carouselImage"
     },
     {
       "name": "sValidation",
@@ -1073,22 +1355,196 @@
     "Document": {}
   },
   "CalculatedFields": {
-    "Item": [],
+    "Item": [
+      {
+        "CalculatedFormula": {
+          "name": "Multiplication",
+          "table": "myExpenses",
+          "function": "MUL",
+          "Target": "iMilesAmt",
+          "type": "Item"
+        },
+        "Fields": [
+          { "Source": "iMiles", "Type": { "type": "Item" } },
+          { "Source": "MilesRate", "Type": { "type": "Item" } }
+        ]
+      },
+      {
+        "CalculatedFormula": {
+          "name": "Addition",
+          "table": "myExpenses",
+          "function": "ADD",
+          "Target": "iTravelAmt",
+          "type": "Item"
+        },
+        "Fields": [
+          { "Source": "iFareAmt", "Type": { "type": "Item" } },
+          { "Source": "iParkingAmt", "Type": { "type": "Item" } }
+        ]
+      },
+      {
+        "CalculatedFormula": {
+          "name": "Addition",
+          "table": "myExpenses",
+          "function": "ADD",
+          "Target": "iTravelAmt",
+          "type": "Item"
+        },
+        "Fields": [
+          { "Source": "iTravelAmt", "Type": { "type": "Item" } },
+          { "Source": "iMilesAmt", "Type": { "type": "Item" } }
+        ]
+      },
+      {
+        "CalculatedFormula": {
+          "name": "Addition",
+          "table": "myExpenses",
+          "function": "ADD",
+          "Target": "iOther",
+          "type": "Item"
+        },
+        "Fields": [
+          { "Source": "iCommAmt", "Type": { "type": "Item" } },
+          { "Source": "iMiscellaneous", "Type": { "type": "Item" } }
+        ]
+      }
+    ],
     "HeaderItem": [
       {
         "CalculatedFormula": {
           "name": "ITEMSUM",
           "table": "myExpenses",
           "function": "ITEMSUM",
-          "Target": "TotalAmount",
+          "Target": "TravelCost",
           "type": "HeaderItem"
         },
-        "Fields": [
-          { "Source": "ExpenseAmount", "Type": { "type": "HeaderItem" } }
-        ]
+        "Fields": [{ "Source": "iTravelAmt", "Type": { "type": "HeaderItem" } }]
+      },
+      {
+        "CalculatedFormula": {
+          "name": "ITEMSUM",
+          "table": "myExpenses",
+          "function": "ITEMSUM",
+          "Target": "FoodCost",
+          "type": "HeaderItem"
+        },
+        "Fields": [{ "Source": "iFoodAmt", "Type": { "type": "HeaderItem" } }]
+      },
+      {
+        "CalculatedFormula": {
+          "name": "ITEMSUM",
+          "table": "myExpenses",
+          "function": "ITEMSUM",
+          "Target": "StayCost",
+          "type": "HeaderItem"
+        },
+        "Fields": [{ "Source": "iStayAmt", "Type": { "type": "HeaderItem" } }]
+      },
+      {
+        "CalculatedFormula": {
+          "name": "ITEMSUM",
+          "table": "myExpenses",
+          "function": "ITEMSUM",
+          "Target": "OtherCost",
+          "type": "HeaderItem"
+        },
+        "Fields": [{ "Source": "iOther", "Type": { "type": "HeaderItem" } }]
       }
     ],
-    "Header": []
+    "Header": [
+      {
+        "CalculatedFormula": {
+          "name": "WORKINGDAYS",
+          "function": "WORKINGDAYS",
+          "Target": "TravelDays",
+          "type": "Header"
+        },
+        "Fields": [
+          { "Source": "ExpenseEndDate", "Type": { "type": "Header" } },
+          { "Source": "ExpenseStDate", "Type": { "type": "Header" } }
+        ]
+      },
+      {
+        "CalculatedFormula": {
+          "name": "Addition",
+          "function": "ADD",
+          "Target": "TotalAmount",
+          "type": "Header"
+        },
+        "Fields": [
+          { "Source": "TravelCost", "Type": { "type": "Header" } },
+          { "Source": "StayCost", "Type": { "type": "Header" } }
+        ]
+      },
+      {
+        "CalculatedFormula": {
+          "name": "Addition",
+          "function": "ADD",
+          "Target": "TotalAmount",
+          "type": "Header"
+        },
+        "Fields": [
+          { "Source": "TotalAmount", "Type": { "type": "Header" } },
+          { "Source": "OtherCost", "Type": { "type": "Header" } }
+        ]
+      },
+      {
+        "CalculatedFormula": {
+          "name": "Addition",
+          "function": "ADD",
+          "Target": "TotalAmount",
+          "type": "Header"
+        },
+        "Fields": [
+          { "Source": "TotalAmount", "Type": { "type": "Header" } },
+          { "Source": "FoodCost", "Type": { "type": "Header" } }
+        ]
+      },
+      {
+        "CalculatedFormula": {
+          "name": "COMPARE",
+          "function": "COMPARE",
+          "Target": "MaxTravel",
+          "type": "Header",
+          "value": "100",
+          "subfunction": "GT"
+        },
+        "Fields": [{ "Source": "TravelCost", "Type": { "type": "Header" } }]
+      },
+      {
+        "CalculatedFormula": {
+          "name": "COMPARE",
+          "function": "COMPARE",
+          "Target": "MaxFood",
+          "type": "Header",
+          "value": "40",
+          "subfunction": "GT"
+        },
+        "Fields": [{ "Source": "FoodCost", "Type": { "type": "Header" } }]
+      },
+      {
+        "CalculatedFormula": {
+          "name": "COMPARE",
+          "function": "COMPARE",
+          "Target": "MaxOther",
+          "type": "Header",
+          "value": "40",
+          "subfunction": "GT"
+        },
+        "Fields": [{ "Source": "OtherCost", "Type": { "type": "Header" } }]
+      },
+      {
+        "CalculatedFormula": {
+          "name": "COMPARE",
+          "function": "COMPARE",
+          "Target": "MaxStay",
+          "type": "Header",
+          "value": "100",
+          "subfunction": "GT"
+        },
+        "Fields": [{ "Source": "StayCost", "Type": { "type": "Header" } }]
+      }
+    ]
   },
   "Create": "Yes",
   "Wizard": [
@@ -1117,7 +1573,9 @@
       "id": "Step3",
       "fields": [
         { "name": "EmployeeID", "Mode": "Display" },
-        { "name": "Name", "Mode": "Display" }
+        { "name": "Name", "Mode": "Display" },
+        { "name": "Status", "Mode": "Display" },
+        { "name": "EntryDate", "Mode": "Display" }
       ],
       "name": "Employee Details",
       "stepType": "FieldList",
@@ -1130,7 +1588,6 @@
       "stepType": "carouselImage",
       "intro": "Screenshots and Images : Here you can upload screenshots, images (jpg, png, etc..)"
     },
-
     {
       "id": "Step5",
       "fields": [{ "name": "MultiAttachments", "Mode": "Edit" }],
@@ -1144,17 +1601,6 @@
         "type": "NewUpload",
         "text": "docType,Header,Information"
       }
-    },
-
-    {
-      "id": "Step6",
-      "fields": [
-        { "name": "Status", "Mode": "Display" },
-        { "name": "EntryDate", "Mode": "Display" }
-      ],
-      "name": "Admin",
-      "stepType": "FieldList",
-      "intro": "Expense : Expense"
     }
   ]
 }

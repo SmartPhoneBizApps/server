@@ -21,9 +21,10 @@
       "header": [
         "Status",
         "TravelMode",
+        "ExpType",
         "CostCentre",
-        "ProjectCode",
         "Currency",
+        "ProjectCode",
         "EmployeeID",
         "TotalAmount"
       ]
@@ -40,8 +41,8 @@
   },
   "ListBOTFields": {
     "None": ["cardImage", "StatusState"],
-    "Title": ["ID"],
-    "SubTitle": ["Name", "TotalAmount", "Status"],
+    "Title": ["ID", "Name", "ProjectCode"],
+    "SubTitle": ["TotalAmount", "Status"],
     "Description": [
       "TravelDtFrom",
       "TravelDateTo",
@@ -51,10 +52,11 @@
   },
   "PossibleValues": [
     "Currency",
-    "ProjectCode",
     "CostCentre",
     "Status",
     "TravelMode",
+    "ItemStatus1",
+    "ProjectCode",
     "iHotel",
     "iMeals",
     "iTravel",
@@ -85,8 +87,9 @@
         "StayDetails",
         "OtherCost",
         "AdditionalInfo",
-        "CostCentre",
         "Currency",
+        "ProjectCode",
+        "CostCentre",
         "Status"
       ],
       "downloadTables": ["myExpenses"]
@@ -102,7 +105,6 @@
       "icon": "sap-icon://travel-request",
       "URL": "https://www.messenger.com/t/295020207695029"
     },
-
     { "type": "ADD", "name": "Add Record", "icon": "sap-icon://add" },
     {
       "type": "UPLOAD",
@@ -164,6 +166,27 @@
       "URL": "datarecords/",
       "Token": "Yes",
       "URLMethod": "PUT"
+    },
+    {
+      "type": "WORKFLOW",
+      "name": "Reply",
+      "icon": "sap-icon://decline",
+      "Dialog": [
+        {
+          "label": "Reply Comment",
+          "name": "ProgressComment",
+          "type": "string",
+          "option": "Optional"
+        }
+      ],
+      "transferFields": [
+        { "field": "ID", "value": "@recorddata" },
+        { "field": "Status", "value": "Reply" },
+        { "field": "ProgressComment", "value": "@UserInput" }
+      ],
+      "URL": "datarecords/",
+      "Token": "Yes",
+      "URLMethod": "PUT"
     }
   ],
   "Tabs": [
@@ -189,8 +212,7 @@
       "update": "Yes",
       "name": "Trip details",
       "type": "Field",
-      "fioriicon": "request",
-      "download": "Yes"
+      "fioriicon": "request"
     },
     {
       "value": "Tab2",
@@ -242,13 +264,14 @@
     "None": ["ID", "EmployeeID", "Name", "EntryDate"],
     "Tab1": [
       "TravelDtFrom",
-      "TravelDays",
       "TravelDateTo",
       "TravelDetail",
       "Justification",
       "TravelMode",
       "StayDetails",
       "AdditionalInfo",
+      "EntryDate",
+      "ProjectCode",
       "CostCentre",
       "ProgressComment"
     ],
@@ -887,7 +910,6 @@
           "adaptiveCard": "Main",
           "SLabel": "Transaction"
         },
-
         {
           "name": "ID",
           "type": "string",
@@ -1060,15 +1082,15 @@
       "type": "Num,2",
       "width": "20",
       "Option": "Optional",
-      "adaptiveCard": "Additional",
+      "adaptiveCard": "None",
       "SLabel": "Total Amount"
     },
     {
       "name": "Currency",
       "type": "string",
-      "width": "50",
-      "Option": "Mandatory",
-      "adaptiveCard": "Additional",
+      "width": "10",
+      "Option": "Optional",
+      "adaptiveCard": "None",
       "SLabel": "Currency"
     },
     {
@@ -1107,7 +1129,7 @@
       "name": "ProjectCode",
       "type": "string",
       "width": "50",
-      "Option": "Optional",
+      "Option": "Mandatory",
       "adaptiveCard": "Main",
       "SLabel": "Project Code"
     },
@@ -1118,14 +1140,6 @@
       "Option": "Optional",
       "adaptiveCard": "Additional",
       "SLabel": "Cost Centre"
-    },
-    {
-      "name": "Location",
-      "type": "string",
-      "width": "50",
-      "Option": "Optional",
-      "adaptiveCard": "None",
-      "SLabel": "Location"
     },
     {
       "name": "TravelDetail",
