@@ -86,6 +86,9 @@
         "StayCost",
         "StayDetails",
         "OtherCost",
+        "stayPolicyCheck",
+        "foodPolicyCheck",
+        "otherPolicyCheck",
         "AdditionalInfo",
         "Currency",
         "ProjectCode",
@@ -372,9 +375,12 @@
       "subtitle": "Expenses",
       "tableFormFields": [
         {
+          "GrpTitle": "Totals",
+          "Fields": ["TotalAmount", "TravelDays", "Currency"]
+        },
+        {
           "GrpTitle": "Cost Break-up",
           "Fields": [
-            "TotalAmount",
             "TravelCost",
             "StayCost",
             "FoodCost",
@@ -383,15 +389,20 @@
           ]
         },
         {
-          "GrpTitle": "Policy",
+          "GrpTitle": "Daily Policy Rate",
+          "Fields": ["stayPolicy", "foodPolicy", "otherPolicy", "Currency"]
+        },
+        {
+          "GrpTitle": "Policy Amounts (Daily Rate x Travel Days)",
+          "Fields": ["MaxStay", "MaxFood", "MaxOther", "Currency"]
+        },
+        {
+          "GrpTitle": "Policy Exceeded (true - Exceeded, false - Not exceeded)",
           "Fields": [
-            "TravelDays",
-            "stayPolicy",
-            "MaxStay",
-            "foodPolicy",
-            "MaxFood",
-            "otherPolicy",
-            "MaxOther"
+            "stayPolicyCheck",
+            "foodPolicyCheck",
+            "otherPolicyCheck",
+            "Currency"
           ]
         }
       ],
@@ -1613,20 +1624,9 @@
         "CalculatedFormula": {
           "name": "COMPARE",
           "function": "COMPARE",
-          "Target": "otherPolicyCheck",
+          "Target": "MaxFood",
           "type": "Header",
-          "value": "MaxOther",
-          "subfunction": "GT"
-        },
-        "Fields": [{ "Source": "OtherCost", "Type": { "type": "Header" } }]
-      },
-      {
-        "CalculatedFormula": {
-          "name": "COMPARE",
-          "function": "COMPARE",
-          "Target": "foodPolicyCheck",
-          "type": "Header",
-          "value": "MaxFood",
+          "value": "40",
           "subfunction": "GT"
         },
         "Fields": [{ "Source": "FoodCost", "Type": { "type": "Header" } }]
@@ -1635,9 +1635,20 @@
         "CalculatedFormula": {
           "name": "COMPARE",
           "function": "COMPARE",
-          "Target": "stayPolicyCheck",
+          "Target": "MaxOther",
           "type": "Header",
-          "value": "MaxStay",
+          "value": "40",
+          "subfunction": "GT"
+        },
+        "Fields": [{ "Source": "OtherCost", "Type": { "type": "Header" } }]
+      },
+      {
+        "CalculatedFormula": {
+          "name": "COMPARE",
+          "function": "COMPARE",
+          "Target": "MaxStay",
+          "type": "Header",
+          "value": "100",
           "subfunction": "GT"
         },
         "Fields": [{ "Source": "StayCost", "Type": { "type": "Header" } }]

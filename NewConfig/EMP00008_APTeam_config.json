@@ -89,6 +89,9 @@
         "StayCost",
         "StayDetails",
         "OtherCost",
+        "stayPolicyCheck",
+        "foodPolicyCheck",
+        "otherPolicyCheck",
         "AdditionalInfo",
         "Currency",
         "ProjectCode",
@@ -320,9 +323,12 @@
       "subtitle": "Expenses",
       "tableFormFields": [
         {
+          "GrpTitle": "Totals",
+          "Fields": ["TotalAmount", "TravelDays", "Currency"]
+        },
+        {
           "GrpTitle": "Cost Break-up",
           "Fields": [
-            "TotalAmount",
             "TravelCost",
             "StayCost",
             "FoodCost",
@@ -331,15 +337,20 @@
           ]
         },
         {
-          "GrpTitle": "Policy",
+          "GrpTitle": "Daily Policy Rate",
+          "Fields": ["stayPolicy", "foodPolicy", "otherPolicy", "Currency"]
+        },
+        {
+          "GrpTitle": "Policy Amounts (Daily Rate x Travel Days)",
+          "Fields": ["MaxStay", "MaxFood", "MaxOther", "Currency"]
+        },
+        {
+          "GrpTitle": "Policy Exceeded (true - Exceeded, false - Not exceeded)",
           "Fields": [
-            "TravelDays",
-            "stayPolicy",
-            "MaxStay",
-            "foodPolicy",
-            "MaxFood",
-            "otherPolicy",
-            "MaxOther"
+            "stayPolicyCheck",
+            "foodPolicyCheck",
+            "otherPolicyCheck",
+            "Currency"
           ]
         }
       ],
@@ -1187,6 +1198,33 @@
       "LLabel": "Miscellaneous policy @day"
     },
     {
+      "name": "stayPolicyCheck",
+      "type": "string",
+      "width": "50",
+      "Option": "Optional",
+      "adaptiveCard": "Additional",
+      "SLabel": "stayPolicyCheck",
+      "LLabel": "stayPolicyCheck"
+    },
+    {
+      "name": "foodPolicyCheck",
+      "type": "string",
+      "width": "50",
+      "Option": "Optional",
+      "adaptiveCard": "Additional",
+      "SLabel": "foodPolicyCheck",
+      "LLabel": "foodPolicyCheck"
+    },
+    {
+      "name": "otherPolicyCheck",
+      "type": "string",
+      "width": "50",
+      "Option": "Optional",
+      "adaptiveCard": "Additional",
+      "SLabel": "otherPolicyCheck",
+      "LLabel": "otherPolicyCheck"
+    },
+    {
       "name": "MaxTravel",
       "type": "Num,2",
       "width": "50",
@@ -1571,17 +1609,6 @@
           { "Source": "TotalAmount", "Type": { "type": "Header" } },
           { "Source": "FoodCost", "Type": { "type": "Header" } }
         ]
-      },
-      {
-        "CalculatedFormula": {
-          "name": "COMPARE",
-          "function": "COMPARE",
-          "Target": "MaxTravel",
-          "type": "Header",
-          "value": "100",
-          "subfunction": "GT"
-        },
-        "Fields": [{ "Source": "TravelCost", "Type": { "type": "Header" } }]
       },
       {
         "CalculatedFormula": {
