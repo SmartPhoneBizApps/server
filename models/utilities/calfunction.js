@@ -31,6 +31,17 @@ class calFun {
 
     return Math.ceil(elapsed);
   }
+  DAYS(arr) {
+    var date1 = arr[0];
+    var date2 = arr[1];
+    if (date2 >= date1) {
+      var Difference_In_Time = date2.getTime() - date1.getTime();
+      var Difference_In_Days = Difference_In_Time / (1000 * 3600 * 24) + 1;
+    } else {
+      var Difference_In_Days = 0;
+    }
+    return Difference_In_Days;
+  }
 
   fieldType(field, fieldDefArray) {
     //for item, need to pass item field definition array
@@ -240,6 +251,7 @@ class calFun {
   }
 
   GT(arr) {
+    console.log("GT-Divyesh", arr);
     if (arr[0] > arr[1]) {
       return true;
     }
@@ -382,11 +394,15 @@ class calFun {
                 var fun = selectedFieldArray[i]["subfunction"]; // get function name
 
                 if (getFieldType.toLowerCase() == "date") {
-                  fieldObj.push(new Date(selectedFieldArray[i]["value"]));
+                  fieldObj.push(new Date(data[selectedFieldArray[i]["value"]]));
                 } else if (getFieldType.toLowerCase() == "string") {
-                  fieldObj.push(selectedFieldArray[i]["value"]);
+                  fieldObj.push(data[selectedFieldArray[i]["value"]]);
                 } else {
-                  fieldObj.push(parseFloat(selectedFieldArray[i]["value"]));
+                  //         fieldObj.push(parseFloat(selectedFieldArray[i]["value"]));
+                  fieldObj.push(
+                    parseFloat(data[selectedFieldArray[i]["value"]])
+                  );
+                  //data[selectedFieldArray[i]["value"]]
                 }
               } else {
                 var fun = selectedFieldArray[i]["function"]; // get function name
@@ -552,7 +568,7 @@ class calFun {
     return outdata;
   }
   tablecalculation(outdata, config, tabname, fieldDef) {
-    console.log("Divyesh here");
+    console.log("Divyesh here", outdata);
     if (outdata[tabname] != undefined) {
       if (outdata[tabname].length > 0) {
         if (config["Item"].length > 0) {
@@ -659,9 +675,10 @@ class calFun {
           // loop config header
           var fieldObj = [];
           if (configItem["Fields"].length > 0) {
+            var getFieldType = "";
             configItem["Fields"].forEach((field) => {
               if (this.hasNull(field, 2)) {
-                var getFieldType = this.fieldType(field["Source"], fieldDef); // get field type
+                getFieldType = this.fieldType(field["Source"], fieldDef); // get field type
                 if (getFieldType.toLowerCase() == "date") {
                   fieldObj.push(new Date(outdata[field["Source"]])); // get calculated field value
                 } else {
@@ -670,6 +687,7 @@ class calFun {
                     outdata[field["Source"]] !== null &&
                     outdata[field["Source"]] !== ""
                   ) {
+                    console.log("FieldName", field["Source"]);
                     fieldObj.push(parseFloat(outdata[field["Source"]]));
                   } else {
                     fieldObj.push(0);
@@ -679,23 +697,60 @@ class calFun {
                 fieldObj.push(""); // get calculated field value
               }
             });
+
+            if (configItem["CalculatedFormula"]["function"] == "COMPARE") {
+              console.log("COMPARE");
+              if (getFieldType.toLowerCase() == "date") {
+                fieldObj.push(
+                  new Date(outdata[configItem["CalculatedFormula"]["value"]])
+                );
+              } else if (getFieldType.toLowerCase() == "string") {
+                fieldObj.push(
+                  outdata[configItem["CalculatedFormula"]["value"]]
+                );
+              } else {
+                fieldObj.push(
+                  parseFloat(outdata[configItem["CalculatedFormula"]["value"]])
+                );
+              }
+              console.log(fieldObj);
+            }
           } else {
             fieldObj.push("");
           }
-          var fun = configItem["CalculatedFormula"]["function"]; // get function name
+
+          if (configItem["CalculatedFormula"]["function"] == "COMPARE") {
+            var fun = configItem["CalculatedFormula"]["subfunction"]; // get function name
+          } else {
+            var fun = configItem["CalculatedFormula"]["function"]; // get function name
+          }
+
+          // var fun = configItem["CalculatedFormula"]["function"]; // get function name
           console.log("Function name -- " + fun);
           console.log(fieldObj);
           if (typeof this[fun] !== "undefined") {
             console.log(this[fun](fieldObj));
+            console.log(
+              "Divyesh Check",
+              configItem["CalculatedFormula"]["Target"]
+            );
+
             outdata[configItem["CalculatedFormula"]["Target"]] = this[fun](
               fieldObj
             ); // call function and assign value in header array
+
+            console.log(
+              "FinalData1",
+              configItem["CalculatedFormula"]["Target"],
+              outdata[configItem["CalculatedFormula"]["Target"]]
+            );
           } else {
             outdata[configItem["CalculatedFormula"]["Target"]] = "";
           }
         }
       });
     }
+    console.log("FinalData", outdata);
     return outdata;
   }
   headercalculation(outdata, config, fieldDef) {
@@ -761,7 +816,7 @@ class calFun {
             } else {
               var fun = configItem["CalculatedFormula"]["function"]; // get function name
             }
-            console.log("fun --->" + fun);
+            console.log("fun ====>" + fun);
 
             if (typeof this[fun] !== "undefined") {
               console.log("Function name --" + fun);

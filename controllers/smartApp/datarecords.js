@@ -224,6 +224,7 @@ exports.addDataRecords = asyncHandler(async (req, res, next) => {
     }
   }
   mydata = req.body;
+
   // Read Card Configuration for the Role (X1)
   if (req.headers.fieldnames == "X") {
     mydata = {};
