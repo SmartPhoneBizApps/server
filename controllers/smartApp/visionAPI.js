@@ -22,7 +22,7 @@ exports.visionAPI = asyncHandler(async (req, res, next) => {
   // const client = new vision.ImageAnnotatorClient();
 
   // Performs label detection on the image file..
-  fileName = "./resources/" + req.headers.filename;
+  fileName = "./public/uploadFiles/" + req.headers.filename;
   landmark = {};
   label = {};
   face = {};
