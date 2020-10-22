@@ -92,7 +92,8 @@
       "type": "GOOGLE-ADD",
       "name": "Google Search",
       "icon": "sap-icon://download-from-cloud",
-      "placeType": [
+      "keywordsTooltip": "Eg- Bank, Cafe",
+      "searchType": [
         "accounting",
         "airport",
         "amusement_park",
@@ -189,7 +190,21 @@
         "university",
         "veterinary_care",
         "zoo"
-      ]
+      ],
+      "fieldMapping": {
+        "formatted_address": "Address",
+        "types": "businessTypes",
+        "icon": "businessIcon",
+        "international_phone_number": "Phone",
+        "name": "CompanyName",
+        "rating": "googleRating",
+        "place_id": "ReferenceID",
+        "url": "GoogleProfile",
+        "website": "WebSiteURL",
+        "photos": "googlePhotos",
+        "reviews": "googleReviews",
+        "opening_hours": "opening_hours"
+      }
     },
     {
       "type": "UPLOAD",
@@ -1148,6 +1163,55 @@
       "adaptiveCard": "Additional",
       "SLabel": "Google Profile",
       "LLabel": "GoogleProfile"
+    },
+    {
+      "name": "googleReviews",
+      "SLabel": "googleReviews",
+      "type": "string",
+      "width": "1000",
+      "Option": "Optional",
+      "adaptiveCard": "Main"
+    },
+    {
+      "name": "googlePhotos",
+      "SLabel": "googlePhotos",
+      "type": "string",
+      "width": "100",
+      "Option": "Optional",
+      "adaptiveCard": "Main"
+    },
+    {
+      "name": "opening_hours",
+      "SLabel": "opening_hours",
+      "type": "string",
+      "width": "1000",
+      "Option": "Optional",
+      "adaptiveCard": "None"
+    },
+    {
+      "name": "googleRating",
+      "type": "string",
+      "SLabel": "googleRating",
+      "width": "50",
+      "Option": "Optional",
+      "adaptiveCard": "None"
+    },
+    {
+      "name": "businessIcon",
+      "type": "string",
+      "width": "200",
+      "Option": "Optional",
+      "adaptiveCard": "None",
+      "SLabel": "businessIcon",
+      "LLabel": "businessIcon"
+    },
+    {
+      "name": "businessTypes",
+      "type": "string",
+      "width": "200",
+      "Option": "Optional",
+      "adaptiveCard": "None",
+      "SLabel": "businessTypes"
     }
   ],
   "itemData": "No",
