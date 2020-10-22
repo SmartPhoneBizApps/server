@@ -239,6 +239,14 @@
       "download": "No"
     },
     {
+      "value": "Tab98",
+      "style": "SAP",
+      "update": "Yes",
+      "name": "OCR",
+      "fioriicon": "image-viewer",
+      "type": "Table"
+    },
+    {
       "value": "Tab4",
       "style": "SAP",
       "update": "Yes",
@@ -281,6 +289,7 @@
     ],
     "Tab2": ["myExpenses"],
     "Tab5": ["carouselImage"],
+    "Tab98": ["carouselImage_ocr"],
     "Tab4": ["MultiAttachments"]
   },
   "listCards": [
@@ -853,7 +862,6 @@
         "Document": {}
       }
     },
-    
     "carouselImage_ocr": {
       "title": "OCR Data",
       "subtitle": "OCR Data",
@@ -897,7 +905,7 @@
         "itemCheck": false,
         "itemAdd": false,
         "itemEdit": false,
-        "itemDelete": false
+        "itemDelete": true
       },
       "CreateFields": [
         "image",
