@@ -12,6 +12,7 @@
     "Partner": "@user",
     "UserSpecific": "Yes",
     "Update": "Yes",
+    "ocr_data": "carouselImage_ocr",
     "URL": "https://fierce-oasis-51455.herokuapp.com",
     "Source": { "SourceName": "mongoDB", "SourceFile": "NA" },
     "filterFields": {
@@ -254,7 +255,7 @@
       "fioriicon": "attachment",
       "type": "MultiAttachments",
       "download": "No",
-      "docType": [{ "text": "Receipt", "state": "Information" }]
+      "docType": [{ "text": "Receipt", "state": "Information", "ocr":"Yes" }]
     },
     {
       "value": "Tab99",
