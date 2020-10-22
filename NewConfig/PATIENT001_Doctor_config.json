@@ -190,11 +190,6 @@
       "URL": "https://www.messenger.com/t/295020207695029"
     },
     {
-      "type": "VIEW",
-      "name": "Change App View",
-      "icon": "sap-icon://chart-table-view"
-    },
-    {
       "type": "BOOKAPPOINT",
       "name": "Book Appointment",
       "icon": "sap-icon://upload",
@@ -659,8 +654,7 @@
       "fioriicon": "toaster-up",
       "type": "Table",
       "download": "Yes"
-    }
-,
+    },
     {
       "value": "Tab99",
       "style": "SAP",
@@ -817,788 +811,787 @@
     "Tab14": ["PatientStatusLog"]
   },
   "ControlDisplay": {},
-  "tableConfig": {    
-
-  "paymentDetails": {
-    "calculation": "Yes",
-    "title": "Item Details",
-    "ItemFieldDefinition": [
-      {
-        "name": "ItemNumber",
-        "type": "string",
-        "width": "10",
-        "SLabel": "Item Number",
-        "Option": "Optional",
-        "adaptiveCard": "Additional",
-        "Update": "No"
+  "tableConfig": {
+    "paymentDetails": {
+      "calculation": "Yes",
+      "title": "Item Details",
+      "ItemFieldDefinition": [
+        {
+          "name": "ItemNumber",
+          "type": "string",
+          "width": "10",
+          "SLabel": "Item Number",
+          "Option": "Optional",
+          "adaptiveCard": "Additional",
+          "Update": "No"
+        },
+        {
+          "name": "Amount",
+          "type": "Num,2",
+          "width": "20",
+          "SLabel": "Due",
+          "Option": "Optional",
+          "adaptiveCard": "Additional",
+          "Update": "Yes"
+        },
+        {
+          "name": "ItemStatus1",
+          "type": "string",
+          "width": "20",
+          "SLabel": "Status",
+          "Option": "Mandatory",
+          "adaptiveCard": "Main",
+          "Update": "Yes"
+        },
+        {
+          "name": "Description",
+          "type": "string",
+          "width": "200",
+          "SLabel": "Details",
+          "Option": "Mandatory",
+          "adaptiveCard": "Main",
+          "Update": "Yes"
+        },
+        {
+          "name": "DueDate",
+          "type": "Date",
+          "width": "10",
+          "SLabel": "Due Date",
+          "Option": "Optional",
+          "adaptiveCard": "Additional",
+          "Update": "Yes"
+        },
+        {
+          "name": "PaymentMethod",
+          "type": "string",
+          "width": "50",
+          "SLabel": "Method",
+          "Option": "Optional",
+          "adaptiveCard": "Additional",
+          "Update": "Yes"
+        },
+        {
+          "name": "PaidAmount",
+          "type": "Num,2",
+          "width": "50",
+          "SLabel": "Paid",
+          "Option": "Optional",
+          "adaptiveCard": "Additional",
+          "Update": "Yes"
+        },
+        {
+          "name": "Currency",
+          "type": "string",
+          "width": "10",
+          "SLabel": "Currency",
+          "Option": "Optional",
+          "adaptiveCard": "Additional",
+          "Update": "Yes"
+        },
+        {
+          "name": "AuthorizationCode",
+          "type": "string",
+          "width": "50",
+          "SLabel": "Authorization Code",
+          "Option": "Optional",
+          "adaptiveCard": "Additional",
+          "Update": "Yes"
+        },
+        {
+          "name": "PaidBy",
+          "type": "string",
+          "width": "50",
+          "SLabel": "Paid By",
+          "Option": "Optional",
+          "adaptiveCard": "Additional",
+          "Update": "Yes"
+        },
+        {
+          "name": "ItemBalance",
+          "type": "Num,2",
+          "width": "20",
+          "SLabel": "Item Balance",
+          "Option": "Optional",
+          "adaptiveCard": "Additional",
+          "Update": "No"
+        },
+        {
+          "name": "PaymentDate",
+          "type": "Date",
+          "width": "10",
+          "SLabel": "Payment Date",
+          "Option": "Optional",
+          "adaptiveCard": "Additional",
+          "Update": "Yes"
+        },
+        {
+          "name": "tType",
+          "type": "string",
+          "width": "10",
+          "SLabel": "Transaction Type",
+          "Option": "Mandatory",
+          "adaptiveCard": "Additional",
+          "Update": "No"
+        }
+      ],
+      "detailCharts": [],
+      "cards": [],
+      "DisplayFields": [
+        "Description",
+        "ItemStatus1",
+        "DueDate",
+        "Currency",
+        "Amount",
+        "PaidAmount",
+        "AuthorizationCode",
+        "PaymentMethod",
+        "PaidBy",
+        "tType"
+      ],
+      "ItemButtons": {
+        "itemDisplay": true,
+        "itemAdd": true,
+        "itemEdit": true,
+        "itemDelete": true
       },
-      {
-        "name": "Amount",
-        "type": "Num,2",
-        "width": "20",
-        "SLabel": "Due",
-        "Option": "Optional",
-        "adaptiveCard": "Additional",
-        "Update": "Yes"
-      },
-      {
-        "name": "ItemStatus1",
-        "type": "string",
-        "width": "20",
-        "SLabel": "Status",
-        "Option": "Mandatory",
-        "adaptiveCard": "Main",
-        "Update": "Yes"
-      },
-      {
-        "name": "Description",
-        "type": "string",
-        "width": "200",
-        "SLabel": "Details",
-        "Option": "Mandatory",
-        "adaptiveCard": "Main",
-        "Update": "Yes"
-      },
-      {
-        "name": "DueDate",
-        "type": "Date",
-        "width": "10",
-        "SLabel": "Due Date",
-        "Option": "Optional",
-        "adaptiveCard": "Additional",
-        "Update": "Yes"
-      },
-      {
-        "name": "PaymentMethod",
-        "type": "string",
-        "width": "50",
-        "SLabel": "Method",
-        "Option": "Optional",
-        "adaptiveCard": "Additional",
-        "Update": "Yes"
-      },
-      {
-        "name": "PaidAmount",
-        "type": "Num,2",
-        "width": "50",
-        "SLabel": "Paid",
-        "Option": "Optional",
-        "adaptiveCard": "Additional",
-        "Update": "Yes"
-      },
-      {
-        "name": "Currency",
-        "type": "string",
-        "width": "10",
-        "SLabel": "Currency",
-        "Option": "Optional",
-        "adaptiveCard": "Additional",
-        "Update": "Yes"
-      },
-      {
-        "name": "AuthorizationCode",
-        "type": "string",
-        "width": "50",
-        "SLabel": "Authorization Code",
-        "Option": "Optional",
-        "adaptiveCard": "Additional",
-        "Update": "Yes"
-      },
-      {
-        "name": "PaidBy",
-        "type": "string",
-        "width": "50",
-        "SLabel": "Paid By",
-        "Option": "Optional",
-        "adaptiveCard": "Additional",
-        "Update": "Yes"
-      },
-      {
-        "name": "ItemBalance",
-        "type": "Num,2",
-        "width": "20",
-        "SLabel": "Item Balance",
-        "Option": "Optional",
-        "adaptiveCard": "Additional",
-        "Update": "No"
-      },
-      {
-        "name": "PaymentDate",
-        "type": "Date",
-        "width": "10",
-        "SLabel": "Payment Date",
-        "Option": "Optional",
-        "adaptiveCard": "Additional",
-        "Update": "Yes"
-      },
-      {
-        "name": "tType",
-        "type": "string",
-        "width": "10",
-        "SLabel": "Transaction Type",
-        "Option": "Mandatory",
-        "adaptiveCard": "Additional",
-        "Update": "No"
+      "CreateFields": [
+        "Description",
+        "ItemStatus1",
+        "DueDate",
+        "Currency",
+        "Amount",
+        "PaidAmount",
+        "AuthorizationCode",
+        "PaymentMethod",
+        "PaidBy",
+        "tType"
+      ],
+      "ItemDetails": [
+        { "name": "Description" },
+        { "name": "Amount" },
+        { "name": "Currency" },
+        { "name": "ItemStatus1" },
+        { "name": "DueDate" },
+        { "name": "PaidAmount" },
+        { "name": "PaymentMethod" },
+        { "name": "AuthorizationCode" },
+        { "name": "PaidBy" },
+        { "name": "tType" }
+      ],
+      "ControlDisplay": {
+        "ControlField": "tType",
+        "Fields": [
+          [
+            {
+              "ALL": [
+                "ItemNumber",
+                "Description",
+                "Currency",
+                "ItemStatus1",
+                "tType"
+              ]
+            },
+            {
+              "DueAmount": ["Amount", "DueDate"]
+            },
+            {
+              "Payment": [
+                "PaidBy",
+                "PaidAmount",
+                "AuthorizationCode",
+                "PaymentMethod"
+              ]
+            }
+          ]
+        ]
       }
-    ],
-    "detailCharts": [],
-    "cards": [],
-    "DisplayFields": [
-      "Description",
-      "ItemStatus1",
-      "DueDate",
-      "Currency",
-      "Amount",
-      "PaidAmount",
-      "AuthorizationCode",
-      "PaymentMethod",
-      "PaidBy",
-      "tType"
-    ],
-    "ItemButtons": {
-      "itemDisplay": true,
-      "itemAdd": true,
-      "itemEdit": true,
-      "itemDelete": true
     },
-    "CreateFields": [
-      "Description",
-      "ItemStatus1",
-      "DueDate",
-      "Currency",
-      "Amount",
-      "PaidAmount",
-      "AuthorizationCode",
-      "PaymentMethod",
-      "PaidBy",
-      "tType"
-    ],
-    "ItemDetails": [
-      { "name": "Description" },
-      { "name": "Amount" },
-      { "name": "Currency" },
-      { "name": "ItemStatus1" },
-      { "name": "DueDate" },
-      { "name": "PaidAmount" },
-      { "name": "PaymentMethod" },
-      { "name": "AuthorizationCode" },
-      { "name": "PaidBy" },
-      { "name": "tType" }
-    ],
-    "ControlDisplay": {
-      "ControlField": "tType",
-      "Fields": [
-        [
+    "PatientStatusLog": {
+      "title": "Patient Status Log",
+      "ItemFieldDefinition": [
+        {
+          "name": "ItemNumber",
+          "type": "string",
+          "width": "10",
+          "SLabel": "Item Number",
+          "adaptiveCard": "None",
+          "Update": "No"
+        },
+        {
+          "name": "ItemStatus2",
+          "type": "string",
+          "width": "50",
+          "SLabel": "Item Status",
+          "adaptiveCard": "Additional",
+          "Update": "Yes"
+        },
+        {
+          "name": "PatientStatus",
+          "type": "string",
+          "width": "10",
+          "SLabel": "Patient Status",
+          "Option": "Optional"
+        },
+        {
+          "name": "StatusDate",
+          "type": "Date",
+          "width": "20",
+          "SLabel": "StatusDate",
+          "Option": "Optional"
+        }
+      ],
+      "DisplayFields": ["PatientStatus", "StatusDate", "ItemStatus2"],
+      "detailCharts": [],
+      "cards": [],
+
+      "ItemButtons": {
+        "itemDisplay": true,
+        "itemCheck": false,
+        "itemAdd": false,
+        "itemEdit": false,
+        "itemDelete": false
+      },
+      "CreateFields": ["ItemStatus2", "PatientStatus", "StatusDate"],
+      "ItemDetails": [
+        { "name": "ItemStatus2" },
+        { "name": "PatientStatus" },
+        { "name": "StatusDate" }
+      ]
+    },
+    "TreatmentPlan": {
+      "title": "Patient Treatment Plan",
+      "ItemFieldDefinition": [
+        {
+          "name": "ItemNumber",
+          "type": "string",
+          "width": "10",
+          "SLabel": "Item Number",
+          "adaptiveCard": "None",
+          "Update": "No"
+        },
+        {
+          "name": "ItemStatus3",
+          "type": "string",
+          "width": "50",
+          "SLabel": "Item Status",
+          "Option": "Mandatory",
+          "adaptiveCard": "Main",
+          "Update": "Yes"
+        },
+        {
+          "name": "EventID",
+          "type": "string",
+          "width": "10",
+          "SLabel": "Event ID",
+          "Option": "Optional"
+        },
+        {
+          "name": "Task",
+          "type": "string",
+          "width": "20",
+          "SLabel": "Task",
+          "Option": "Mandatory"
+        },
+        {
+          "name": "ExpectedDate",
+          "type": "Date",
+          "width": "10",
+          "SLabel": "Expected Date",
+          "Option": "Mandatory"
+        },
+        {
+          "name": "TPStatus",
+          "type": "string",
+          "width": "20",
+          "SLabel": "TP Status",
+          "Option": "Mandatory"
+        }
+      ],
+      "DisplayFields": [
+        "EventID",
+        "Task",
+        "ExpectedDate",
+        "TPStatus",
+        "ItemStatus3"
+      ],
+      "detailCharts": [],
+      "cards": [],
+
+      "ItemButtons": {
+        "itemDisplay": true,
+        "itemCheck": false,
+        "itemAdd": true,
+        "itemEdit": true,
+        "itemDelete": true
+      },
+      "CreateFields": [
+        "EventID",
+        "Task",
+        "ExpectedDate",
+        "TPStatus",
+        "ItemStatus3"
+      ],
+      "ItemDetails": [
+        { "name": "ItemStatus3" },
+        { "name": "EventID" },
+        { "name": "Task" },
+        { "name": "ExpectedDate" },
+        { "name": "TPStatus" }
+      ]
+    },
+    "ClinicalNotes": {
+      "title": "Patient Clinical Notes",
+      "ItemFieldDefinition": [
+        {
+          "name": "ItemNumber",
+          "type": "string",
+          "width": "10",
+          "SLabel": "Item Number",
+          "adaptiveCard": "None",
+          "Update": "No"
+        },
+        {
+          "name": "ItemStatus4",
+          "type": "string",
+          "width": "50",
+          "SLabel": "Item Status",
+          "Option": "Mandatory",
+          "adaptiveCard": "Main",
+          "Update": "Yes"
+        },
+        {
+          "name": "VisitReason",
+          "type": "string",
+          "width": "500",
+          "SLabel": "VisitReason",
+          "Option": "Mandatory"
+        },
+        {
+          "name": "VisitDate",
+          "type": "Date",
+          "width": "10",
+          "SLabel": "Visit Date",
+          "Option": "Mandatory"
+        },
+        {
+          "name": "ExaminationNotes",
+          "type": "string",
+          "width": "500",
+          "SLabel": "Examination Notes",
+          "Option": "Mandatory"
+        },
+        {
+          "name": "Examination",
+          "type": "string",
+          "width": "500",
+          "SLabel": "Examination",
+          "Option": "Mandatory"
+        },
+        {
+          "name": "Doctor",
+          "type": "string",
+          "width": "100",
+          "SLabel": "Doctor",
+          "Option": "Mandatory"
+        },
+        {
+          "name": "MedicalNotes",
+          "type": "string",
+          "width": "500",
+          "SLabel": "MedicalNotes",
+          "Option": "Optional"
+        },
+        {
+          "name": "MedicalNotesVoice",
+          "type": "voice",
+          "width": "500",
+          "SLabel": "MedicalNotesVoice",
+          "Option": "Optional"
+        }
+      ],
+      "DisplayFields": [
+        "VisitDate",
+        "VisitReason",
+        "ExaminationNotes",
+        "Examination",
+        "Doctor",
+        "MedicalNotesVoice",
+        "ItemStatus4"
+      ],
+      "detailCharts": [],
+      "cards": [],
+      "ItemButtons": {
+        "itemDisplay": true,
+        "itemCheck": false,
+        "itemAdd": true,
+        "itemEdit": true,
+        "itemDelete": true
+      },
+      "CreateFields": [
+        "VisitDate",
+        "VisitReason",
+        "ExaminationNotes",
+        "Examination",
+        "MedicalNotes",
+        "MedicalNotesVoice",
+        "Doctor",
+        "ItemStatus4"
+      ],
+      "ItemDetails": [
+        { "name": "ItemStatus4" },
+        { "name": "VisitDate" },
+        { "name": "VisitReason" },
+        { "name": "ExaminationNotes" },
+        { "name": "Examination" },
+        { "name": "MedicalNotes" },
+        { "name": "MedicalNotesVoice" },
+        { "name": "Doctor" }
+      ]
+    },
+    "AdminNotes": {
+      "title": "Admin Notes",
+      "ItemFieldDefinition": [
+        {
+          "name": "ItemNumber",
+          "type": "string",
+          "width": "10",
+          "SLabel": "Item Number",
+          "adaptiveCard": "None",
+          "Update": "No"
+        },
+        {
+          "name": "ItemStatus5",
+          "type": "string",
+          "width": "50",
+          "SLabel": "Item Status",
+          "Option": "Mandatory",
+          "adaptiveCard": "Main",
+          "Update": "Yes"
+        },
+        {
+          "name": "Date",
+          "type": "Date",
+          "width": "10",
+          "SLabel": "Date",
+          "Option": "Mandatory"
+        },
+        {
+          "name": "Notes",
+          "type": "string",
+          "width": "500",
+          "SLabel": "Notes",
+          "Option": "Mandatory"
+        },
+        {
+          "name": "Action",
+          "type": "string",
+          "width": "500",
+          "SLabel": "Action",
+          "Option": "Optional"
+        },
+
+        {
+          "name": "ACreatedBy",
+          "type": "string",
+          "width": "100",
+          "SLabel": "Created By",
+          "Option": "Optional"
+        }
+      ],
+      "DisplayFields": ["ItemStatus5", "Date", "Notes", "Action", "ACreatedBy"],
+      "detailCharts": [],
+      "cards": [],
+
+      "ItemButtons": {
+        "itemDisplay": true,
+        "itemCheck": false,
+        "itemAdd": true,
+        "itemEdit": true,
+        "itemDelete": true
+      },
+      "CreateFields": ["ItemStatus5", "Date", "Notes", "Action", "ACreatedBy"],
+      "ItemDetails": [
+        { "name": "ItemStatus5" },
+        { "name": "Date" },
+        { "name": "Notes" },
+        { "name": "Action" },
+        { "name": "ACreatedBy" }
+      ]
+    },
+    "Appointments": {
+      "title": "Patient Appointments",
+      "ItemFieldDefinition": [
+        {
+          "name": "ItemNumber",
+          "type": "string",
+          "width": "10",
+          "SLabel": "Item Number",
+          "adaptiveCard": "None",
+          "Update": "No"
+        },
+        {
+          "name": "ItemStatus6",
+          "type": "string",
+          "width": "50",
+          "SLabel": "Item Status",
+          "adaptiveCard": "Additional",
+          "Update": "Yes"
+        },
+        {
+          "name": "Date",
+          "type": "Date",
+          "width": "10",
+          "SLabel": "Date",
+          "Option": "Optional"
+        },
+        {
+          "name": "Slot",
+          "type": "string",
+          "width": "50",
+          "SLabel": "Slot",
+          "Option": "Optional"
+        },
+        {
+          "name": "Notes",
+          "type": "string",
+          "width": "500",
+          "SLabel": "Notes",
+          "Option": "Optional"
+        },
+        {
+          "name": "Doctor",
+          "type": "string",
+          "width": "100",
+          "SLabel": "Doctor",
+          "Option": "Optional"
+        },
+        {
+          "name": "Chair",
+          "type": "string",
+          "width": "100",
+          "SLabel": "Chair/Room",
+          "Option": "Optional"
+        },
+        {
+          "name": "AppStatus",
+          "type": "string",
+          "width": "100",
+          "SLabel": "Appointment Status",
+          "Option": "Optional"
+        },
+        {
+          "name": "Reason",
+          "type": "string",
+          "width": "100",
+          "SLabel": "Reason",
+          "Option": "Optional"
+        },
+        {
+          "name": "Reminder",
+          "type": "string",
+          "width": "100",
+          "SLabel": "Reminder",
+          "Option": "Optional"
+        }
+      ],
+      "DisplayFields": [
+        "Date",
+        "Slot",
+        "Doctor",
+        "AppStatus",
+        "Notes",
+        "ItemStatus6"
+      ],
+      "detailCharts": [],
+      "cards": [],
+
+      "ItemButtons": {
+        "itemDisplay": true,
+        "itemCheck": false,
+        "itemAdd": true,
+        "itemEdit": true,
+        "itemDelete": true
+      },
+      "CreateFields": ["ItemStatus6", "Date", "Notes", "Slot", "Doctor"],
+      "ItemDetails": [
+        { "name": "ItemStatus6" },
+        { "name": "Date" },
+        { "name": "Notes" },
+        { "name": "Slot" },
+        { "name": "Doctor" }
+      ]
+    },
+    "actionLog": {
+      "title": "Action Log",
+      "subtitle": "Action Log",
+      "ItemFieldDefinition": [
+        {
+          "name": "ItemNumber",
+          "type": "string",
+          "width": "10",
+          "Option": "Optional",
+          "adaptiveCard": "Additional",
+          "SLabel": "Item Number",
+          "Update": "No"
+        },
+        {
+          "name": "ItemActive",
+          "type": "string",
+          "width": "50",
+          "Option": "Optional",
+          "adaptiveCard": "Additional",
+          "SLabel": "Status",
+          "Update": "Yes"
+        },
+        {
+          "name": "Type",
+          "type": "string",
+          "width": "50",
+          "Option": "Optional",
+          "adaptiveCard": "Main",
+          "SLabel": "Type"
+        },
+        {
+          "name": "buttonType",
+          "type": "string",
+          "width": "100",
+          "Option": "Optional",
+          "adaptiveCard": "Main",
+          "SLabel": "buttonType"
+        },
+        {
+          "name": "Transaction",
+          "type": "string",
+          "width": "100",
+          "Option": "Optional",
+          "adaptiveCard": "Main",
+          "SLabel": "Transaction"
+        },
+
+        {
+          "name": "ID",
+          "type": "string",
+          "width": "20",
+          "Option": "Optional",
+          "adaptiveCard": "Additional",
+          "SLabel": "Identification"
+        },
+        {
+          "name": "User",
+          "type": "string",
+          "width": "200",
+          "Option": "Optional",
+          "adaptiveCard": "Additional",
+          "SLabel": "User"
+        },
+        {
+          "name": "UserName",
+          "type": "string",
+          "width": "100",
+          "Option": "Optional",
+          "adaptiveCard": "Additional",
+          "SLabel": "User Name"
+        },
+        {
+          "name": "Status",
+          "type": "string",
+          "width": "50",
+          "Option": "Optional",
+          "adaptiveCard": "Additional",
+          "SLabel": "Status"
+        },
+        {
+          "name": "Role",
+          "type": "string",
+          "width": "100",
+          "Option": "Optional",
+          "adaptiveCard": "Additional",
+          "SLabel": "Role"
+        },
+        {
+          "name": "TimeStamp",
+          "type": "Date",
+          "width": "20",
+          "Option": "Optional",
+          "adaptiveCard": "Additional",
+          "SLabel": "TimeStamp"
+        },
+        {
+          "name": "applicationId",
+          "type": "string",
+          "width": "100",
+          "Option": "Optional",
+          "adaptiveCard": "Additional",
+          "SLabel": "applicationId"
+        }
+      ],
+      "DisplayFields": [
+        "Type",
+        "buttonType",
+        "Transaction",
+        "ID",
+        "User",
+        "UserName",
+        "Status",
+        "Role",
+        "applicationId",
+        "ItemActive"
+      ],
+      "detailCharts": [],
+      "cards": [],
+      "ItemButtons": {
+        "itemDisplay": true,
+        "itemCheck": false,
+        "itemAdd": false,
+        "itemEdit": false,
+        "itemDelete": false,
+        "additionalButtons": [
           {
-            "ALL": [
-              "ItemNumber",
-              "Description",
-              "Currency",
-              "ItemStatus1",
-              "tType"
-            ]
-          },
-          {
-            "DueAmount": ["Amount", "DueDate"]
-          },
-          {
-            "Payment": [
-              "PaidBy",
-              "PaidAmount",
-              "AuthorizationCode",
-              "PaymentMethod"
+            "name": "Detail Log",
+            "type": "SUBITEM",
+            "subTable": "DetailLog",
+            "displayFields": [
+              {
+                "name": "Key",
+                "SLabel": "Key",
+                "type": "string"
+              },
+              {
+                "name": "Value",
+                "type": "string",
+                "SLabel": "Value"
+              }
             ]
           }
         ]
+      },
+      "CreateFields": [
+        "Type",
+        "buttonType",
+        "Transaction",
+        "ID",
+        "User",
+        "UserName",
+        "Status",
+        "Role",
+        "applicationId",
+        "ItemActive"
+      ],
+      "ItemDetails": [
+        { "name": "Type" },
+        { "name": "buttonType" },
+        { "name": "Transaction" },
+        { "name": "ID" },
+        { "name": "User" },
+        { "name": "UserName" },
+        { "name": "Status" },
+        { "name": "Role" },
+        { "name": "applicationId" },
+        { "name": "TimeStamp" },
+        { "name": "ItemActive" }
       ]
     }
   },
-  "PatientStatusLog": {
-    "title": "Patient Status Log",
-    "ItemFieldDefinition": [
-      {
-        "name": "ItemNumber",
-        "type": "string",
-        "width": "10",
-        "SLabel": "Item Number",
-        "adaptiveCard": "None",
-        "Update": "No"
-      },
-      {
-        "name": "ItemStatus2",
-        "type": "string",
-        "width": "50",
-        "SLabel": "Item Status",
-        "adaptiveCard": "Additional",
-        "Update": "Yes"
-      },
-      {
-        "name": "PatientStatus",
-        "type": "string",
-        "width": "10",
-        "SLabel": "Patient Status",
-        "Option": "Optional"
-      },
-      {
-        "name": "StatusDate",
-        "type": "Date",
-        "width": "20",
-        "SLabel": "StatusDate",
-        "Option": "Optional"
-      }
-    ],
-    "DisplayFields": ["PatientStatus", "StatusDate", "ItemStatus2"],
-    "detailCharts": [],
-    "cards": [],
-
-    "ItemButtons": {
-      "itemDisplay": true,
-      "itemCheck": false,
-      "itemAdd": false,
-      "itemEdit": false,
-      "itemDelete": false
-    },
-    "CreateFields": ["ItemStatus2", "PatientStatus", "StatusDate"],
-    "ItemDetails": [
-      { "name": "ItemStatus2" },
-      { "name": "PatientStatus" },
-      { "name": "StatusDate" }
-    ]
-  },
-  "TreatmentPlan": {
-    "title": "Patient Treatment Plan",
-    "ItemFieldDefinition": [
-      {
-        "name": "ItemNumber",
-        "type": "string",
-        "width": "10",
-        "SLabel": "Item Number",
-        "adaptiveCard": "None",
-        "Update": "No"
-      },
-      {
-        "name": "ItemStatus3",
-        "type": "string",
-        "width": "50",
-        "SLabel": "Item Status",
-        "Option": "Mandatory",
-        "adaptiveCard": "Main",
-        "Update": "Yes"
-      },
-      {
-        "name": "EventID",
-        "type": "string",
-        "width": "10",
-        "SLabel": "Event ID",
-        "Option": "Optional"
-      },
-      {
-        "name": "Task",
-        "type": "string",
-        "width": "20",
-        "SLabel": "Task",
-        "Option": "Mandatory"
-      },
-      {
-        "name": "ExpectedDate",
-        "type": "Date",
-        "width": "10",
-        "SLabel": "Expected Date",
-        "Option": "Mandatory"
-      },
-      {
-        "name": "TPStatus",
-        "type": "string",
-        "width": "20",
-        "SLabel": "TP Status",
-        "Option": "Mandatory"
-      }
-    ],
-    "DisplayFields": [
-      "EventID",
-      "Task",
-      "ExpectedDate",
-      "TPStatus",
-      "ItemStatus3"
-    ],
-    "detailCharts": [],
-    "cards": [],
-
-    "ItemButtons": {
-      "itemDisplay": true,
-      "itemCheck": false,
-      "itemAdd": true,
-      "itemEdit": true,
-      "itemDelete": true
-    },
-    "CreateFields": [
-      "EventID",
-      "Task",
-      "ExpectedDate",
-      "TPStatus",
-      "ItemStatus3"
-    ],
-    "ItemDetails": [
-      { "name": "ItemStatus3" },
-      { "name": "EventID" },
-      { "name": "Task" },
-      { "name": "ExpectedDate" },
-      { "name": "TPStatus" }
-    ]
-  },
-  "ClinicalNotes": {
-    "title": "Patient Clinical Notes",
-    "ItemFieldDefinition": [
-      {
-        "name": "ItemNumber",
-        "type": "string",
-        "width": "10",
-        "SLabel": "Item Number",
-        "adaptiveCard": "None",
-        "Update": "No"
-      },
-      {
-        "name": "ItemStatus4",
-        "type": "string",
-        "width": "50",
-        "SLabel": "Item Status",
-        "Option": "Mandatory",
-        "adaptiveCard": "Main",
-        "Update": "Yes"
-      },
-      {
-        "name": "VisitReason",
-        "type": "string",
-        "width": "500",
-        "SLabel": "VisitReason",
-        "Option": "Mandatory"
-      },
-      {
-        "name": "VisitDate",
-        "type": "Date",
-        "width": "10",
-        "SLabel": "Visit Date",
-        "Option": "Mandatory"
-      },
-      {
-        "name": "ExaminationNotes",
-        "type": "string",
-        "width": "500",
-        "SLabel": "Examination Notes",
-        "Option": "Mandatory"
-      },
-      {
-        "name": "Examination",
-        "type": "string",
-        "width": "500",
-        "SLabel": "Examination",
-        "Option": "Mandatory"
-      },
-      {
-        "name": "Doctor",
-        "type": "string",
-        "width": "100",
-        "SLabel": "Doctor",
-        "Option": "Mandatory"
-      },
-      {
-        "name": "MedicalNotes",
-        "type": "string",
-        "width": "500",
-        "SLabel": "MedicalNotes",
-        "Option": "Optional"
-      },
-      {
-        "name": "MedicalNotesVoice",
-        "type": "voice",
-        "width": "500",
-        "SLabel": "MedicalNotesVoice",
-        "Option": "Optional"
-      }
-    ],
-    "DisplayFields": [
-      "VisitDate",
-      "VisitReason",
-      "ExaminationNotes",
-      "Examination",
-      "Doctor",
-      "MedicalNotesVoice",
-      "ItemStatus4"
-    ],
-    "detailCharts": [],
-    "cards": [],
-    "ItemButtons": {
-      "itemDisplay": true,
-      "itemCheck": false,
-      "itemAdd": true,
-      "itemEdit": true,
-      "itemDelete": true
-    },
-    "CreateFields": [
-      "VisitDate",
-      "VisitReason",
-      "ExaminationNotes",
-      "Examination",
-      "MedicalNotes",
-      "MedicalNotesVoice",
-      "Doctor",
-      "ItemStatus4"
-    ],
-    "ItemDetails": [
-      { "name": "ItemStatus4" },
-      { "name": "VisitDate" },
-      { "name": "VisitReason" },
-      { "name": "ExaminationNotes" },
-      { "name": "Examination" },
-      { "name": "MedicalNotes" },
-      { "name": "MedicalNotesVoice" },
-      { "name": "Doctor" }
-    ]
-  },
-  "AdminNotes": {
-    "title": "Admin Notes",
-    "ItemFieldDefinition": [
-      {
-        "name": "ItemNumber",
-        "type": "string",
-        "width": "10",
-        "SLabel": "Item Number",
-        "adaptiveCard": "None",
-        "Update": "No"
-      },
-      {
-        "name": "ItemStatus5",
-        "type": "string",
-        "width": "50",
-        "SLabel": "Item Status",
-        "Option": "Mandatory",
-        "adaptiveCard": "Main",
-        "Update": "Yes"
-      },
-      {
-        "name": "Date",
-        "type": "Date",
-        "width": "10",
-        "SLabel": "Date",
-        "Option": "Mandatory"
-      },
-      {
-        "name": "Notes",
-        "type": "string",
-        "width": "500",
-        "SLabel": "Notes",
-        "Option": "Mandatory"
-      },
-      {
-        "name": "Action",
-        "type": "string",
-        "width": "500",
-        "SLabel": "Action",
-        "Option": "Optional"
-      },
-
-      {
-        "name": "ACreatedBy",
-        "type": "string",
-        "width": "100",
-        "SLabel": "Created By",
-        "Option": "Optional"
-      }
-    ],
-    "DisplayFields": ["ItemStatus5", "Date", "Notes", "Action", "ACreatedBy"],
-    "detailCharts": [],
-    "cards": [],
-
-    "ItemButtons": {
-      "itemDisplay": true,
-      "itemCheck": false,
-      "itemAdd": true,
-      "itemEdit": true,
-      "itemDelete": true
-    },
-    "CreateFields": ["ItemStatus5", "Date", "Notes", "Action", "ACreatedBy"],
-    "ItemDetails": [
-      { "name": "ItemStatus5" },
-      { "name": "Date" },
-      { "name": "Notes" },
-      { "name": "Action" },
-      { "name": "ACreatedBy" }
-    ]
-  },
-  "Appointments": {
-    "title": "Patient Appointments",
-    "ItemFieldDefinition": [
-      {
-        "name": "ItemNumber",
-        "type": "string",
-        "width": "10",
-        "SLabel": "Item Number",
-        "adaptiveCard": "None",
-        "Update": "No"
-      },
-      {
-        "name": "ItemStatus6",
-        "type": "string",
-        "width": "50",
-        "SLabel": "Item Status",
-        "adaptiveCard": "Additional",
-        "Update": "Yes"
-      },
-      {
-        "name": "Date",
-        "type": "Date",
-        "width": "10",
-        "SLabel": "Date",
-        "Option": "Optional"
-      },
-      {
-        "name": "Slot",
-        "type": "string",
-        "width": "50",
-        "SLabel": "Slot",
-        "Option": "Optional"
-      },
-      {
-        "name": "Notes",
-        "type": "string",
-        "width": "500",
-        "SLabel": "Notes",
-        "Option": "Optional"
-      },
-      {
-        "name": "Doctor",
-        "type": "string",
-        "width": "100",
-        "SLabel": "Doctor",
-        "Option": "Optional"
-      },
-      {
-        "name": "Chair",
-        "type": "string",
-        "width": "100",
-        "SLabel": "Chair/Room",
-        "Option": "Optional"
-      },
-      {
-        "name": "AppStatus",
-        "type": "string",
-        "width": "100",
-        "SLabel": "Appointment Status",
-        "Option": "Optional"
-      },
-      {
-        "name": "Reason",
-        "type": "string",
-        "width": "100",
-        "SLabel": "Reason",
-        "Option": "Optional"
-      },
-      {
-        "name": "Reminder",
-        "type": "string",
-        "width": "100",
-        "SLabel": "Reminder",
-        "Option": "Optional"
-      }
-    ],
-    "DisplayFields": [
-      "Date",
-      "Slot",
-      "Doctor",
-      "AppStatus",
-      "Notes",
-      "ItemStatus6"
-    ],
-    "detailCharts": [],
-    "cards": [],
-
-    "ItemButtons": {
-      "itemDisplay": true,
-      "itemCheck": false,
-      "itemAdd": true,
-      "itemEdit": true,
-      "itemDelete": true
-    },
-    "CreateFields": ["ItemStatus6", "Date", "Notes", "Slot", "Doctor"],
-    "ItemDetails": [
-      { "name": "ItemStatus6" },
-      { "name": "Date" },
-      { "name": "Notes" },
-      { "name": "Slot" },
-      { "name": "Doctor" }
-    ]
-  },
-  "actionLog": {
-    "title": "Action Log",
-    "subtitle": "Action Log",
-    "ItemFieldDefinition": [
-      {
-        "name": "ItemNumber",
-        "type": "string",
-        "width": "10",
-        "Option": "Optional",
-        "adaptiveCard": "Additional",
-        "SLabel": "Item Number",
-        "Update": "No"
-      },
-      {
-        "name": "ItemActive",
-        "type": "string",
-        "width": "50",
-        "Option": "Optional",
-        "adaptiveCard": "Additional",
-        "SLabel": "Status",
-        "Update": "Yes"
-      },
-      {
-        "name": "Type",
-        "type": "string",
-        "width": "50",
-        "Option": "Optional",
-        "adaptiveCard": "Main",
-        "SLabel": "Type"
-      },
-      {
-        "name": "buttonType",
-        "type": "string",
-        "width": "100",
-        "Option": "Optional",
-        "adaptiveCard": "Main",
-        "SLabel": "buttonType"
-      },
-      {
-        "name": "Transaction",
-        "type": "string",
-        "width": "100",
-        "Option": "Optional",
-        "adaptiveCard": "Main",
-        "SLabel": "Transaction"
-      },
-
-      {
-        "name": "ID",
-        "type": "string",
-        "width": "20",
-        "Option": "Optional",
-        "adaptiveCard": "Additional",
-        "SLabel": "Identification"
-      },
-      {
-        "name": "User",
-        "type": "string",
-        "width": "200",
-        "Option": "Optional",
-        "adaptiveCard": "Additional",
-        "SLabel": "User"
-      },
-      {
-        "name": "UserName",
-        "type": "string",
-        "width": "100",
-        "Option": "Optional",
-        "adaptiveCard": "Additional",
-        "SLabel": "User Name"
-      },
-      {
-        "name": "Status",
-        "type": "string",
-        "width": "50",
-        "Option": "Optional",
-        "adaptiveCard": "Additional",
-        "SLabel": "Status"
-      },
-      {
-        "name": "Role",
-        "type": "string",
-        "width": "100",
-        "Option": "Optional",
-        "adaptiveCard": "Additional",
-        "SLabel": "Role"
-      },
-      {
-        "name": "TimeStamp",
-        "type": "Date",
-        "width": "20",
-        "Option": "Optional",
-        "adaptiveCard": "Additional",
-        "SLabel": "TimeStamp"
-      },
-      {
-        "name": "applicationId",
-        "type": "string",
-        "width": "100",
-        "Option": "Optional",
-        "adaptiveCard": "Additional",
-        "SLabel": "applicationId"
-      }
-    ],
-    "DisplayFields": [
-      "Type",
-      "buttonType",
-      "Transaction",
-      "ID",
-      "User",
-      "UserName",
-      "Status",
-      "Role",
-      "applicationId",
-      "ItemActive"
-    ],
-    "detailCharts": [],
-    "cards": [],
-    "ItemButtons": {
-      "itemDisplay": true,
-      "itemCheck": false,
-      "itemAdd": false,
-      "itemEdit": false,
-      "itemDelete": false,
-      "additionalButtons": [
-        {
-          "name": "Detail Log",
-          "type": "SUBITEM",
-          "subTable": "DetailLog",
-          "displayFields": [
-            {
-              "name": "Key",
-              "SLabel": "Key",
-              "type": "string"
-            },
-            {
-              "name": "Value",
-              "type": "string",
-              "SLabel": "Value"
-            }
-          ]
-        }
-      ]
-    },
-    "CreateFields": [
-      "Type",
-      "buttonType",
-      "Transaction",
-      "ID",
-      "User",
-      "UserName",
-      "Status",
-      "Role",
-      "applicationId",
-      "ItemActive"
-    ],
-    "ItemDetails": [
-      { "name": "Type" },
-      { "name": "buttonType" },
-      { "name": "Transaction" },
-      { "name": "ID" },
-      { "name": "User" },
-      { "name": "UserName" },
-      { "name": "Status" },
-      { "name": "Role" },
-      { "name": "applicationId" },
-      { "name": "TimeStamp" },
-      { "name": "ItemActive" }
-    ]
-  }
-},
   "FieldDef": [
     {
       "name": "ID",
@@ -2620,7 +2613,6 @@
     "CreateFields": [],
     "ItemDetails": []
   },
-
 
   "CalculatedFields": {
     "Item": [

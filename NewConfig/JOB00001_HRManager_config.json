@@ -156,28 +156,6 @@
       "Token": "Yes",
       "URLMethod": "PUT",
       "hideRecord": "Yes"
-    },
-    {
-      "type": "WORKFLOW",
-      "name": "Open",
-      "icon": "sap-icon://accept",
-      "Dialog": [
-        {
-          "label": "Open Comment",
-          "name": "ProgressComment",
-          "type": "string",
-          "option": "Optional"
-        }
-      ],
-      "transferFields": [
-        { "field": "ID", "value": "@recorddata" },
-        { "field": "Status", "value": "Open" },
-        { "field": "ProgressComment", "value": "@UserInput" }
-      ],
-      "URL": "datarecords/",
-      "Token": "Yes",
-      "URLMethod": "PUT",
-      "hideRecord": "Yes"
     }
   ],
   "Tabs": [

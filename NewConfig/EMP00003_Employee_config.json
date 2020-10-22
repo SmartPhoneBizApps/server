@@ -6,7 +6,7 @@
   "Constants": {},
   "Controls": {
     "style": "SAP",
-    "calculation": "No",
+    "calculation": "Yes",
     "defaultGraph": "StackedBar",
     "USP": "UserProfile",
     "StatusColor": "Yes",
@@ -80,6 +80,7 @@
         "ReturnJourney",
         "ReturnDate",
         "ReturnTime",
+        "Fare",
         "AirFare",
         "TaxiFare",
         "TrainFare",
@@ -188,25 +189,9 @@
       "value": "Tab1",
       "style": "SAP",
       "update": "Yes",
-      "name": "Traveller",
+      "name": "Details",
       "fioriicon": "customer",
-      "type": "Field"
-    },
-    {
-      "value": "Tab2",
-      "style": "SAP",
-      "update": "Yes",
-      "name": "Flight",
-      "fioriicon": "flight",
-      "type": "Field"
-    },
-    {
-      "value": "Tab3",
-      "style": "SAP",
-      "update": "Yes",
-      "name": "Booking",
-      "fioriicon": "travel-expense",
-      "type": "Field"
+      "type": "FieldGroup"
     },
     {
       "value": "Tab4",
@@ -250,32 +235,45 @@
     "Tab99": ["actionLog"],
     "None": ["ID", "BookingMode"],
     "Tab1": [
-      "Name",
-      "EmployeeID",
-      "Email",
-      "ContactNo",
-      "CostCentre",
-      "Status"
-    ],
-    "Tab2": [
-      "From",
-      "To",
-      "StartDate",
-      "StartTime",
-      "ReturnJourney",
-      "ReturnDate",
-      "ReturnTime",
-      "AirFare",
-      "TaxiFare",
-      "TrainFare",
-      "Currency"
-    ],
-    "Tab3": [
-      "DietaryRequirement",
-      "FlightNo",
-      "FlightDuration",
-      "Airline",
-      "Class"
+      {
+        "GrpTitle": "Travellers",
+        "Fields": [
+          "Name",
+          "EmployeeID",
+          "Email",
+          "ContactNo",
+          "CostCentre",
+          "Status"
+        ]
+      },
+      {
+        "GrpTitle": "Travel Details",
+        "Fields": [
+          "From",
+          "To",
+          "StartDate",
+          "StartTime",
+          "ReturnJourney",
+          "ReturnDate",
+          "ReturnTime",
+          "Fare",
+          "AirFare",
+          "TaxiFare",
+          "TrainFare",
+          "Currency"
+        ]
+      },
+      {
+        "GrpTitle": "Other Details",
+        "Fields": [
+          "From",
+          "DietaryRequirement",
+          "FlightNo",
+          "FlightDuration",
+          "Airline",
+          "Class"
+        ]
+      }
     ],
     "Tab4": ["carouselImage"],
     "Tab5": ["MultiAttachments"]
@@ -368,6 +366,7 @@
             "ContactNo",
             "CostCentre",
             "Status",
+            "Fare",
             "From",
             "To",
             "StartDate",
@@ -618,7 +617,7 @@
       "width": "20",
       "Option": "Optional",
       "adaptiveCard": "Additional",
-      "SLabel": "ContactNo"
+      "SLabel": "Contact No"
     },
     {
       "name": "EmployeeID",
@@ -707,6 +706,14 @@
       "Option": "Optional",
       "adaptiveCard": "Additional",
       "SLabel": "Taxi Fare"
+    },
+    {
+      "name": "Fare",
+      "type": "Num,1",
+      "width": "10",
+      "Option": "Optional",
+      "adaptiveCard": "None",
+      "SLabel": "Fare"
     },
     {
       "name": "TrainFare",
@@ -877,7 +884,32 @@
   "CalculatedFields": {
     "Item": [],
     "HeaderItem": [],
-    "Header": []
+    "Header": [
+      {
+        "CalculatedFormula": {
+          "name": "Addition",
+          "function": "ADD",
+          "Target": "Fare",
+          "type": "Header"
+        },
+        "Fields": [
+          { "Source": "AirFare", "Type": { "type": "Header" } },
+          { "Source": "TrainFare", "Type": { "type": "Header" } }
+        ]
+      },
+      {
+        "CalculatedFormula": {
+          "name": "Addition",
+          "function": "ADD",
+          "Target": "Fare",
+          "type": "Header"
+        },
+        "Fields": [
+          { "Source": "Fare", "Type": { "type": "Header" } },
+          { "Source": "TaxiFare", "Type": { "type": "Header" } }
+        ]
+      }
+    ]
   },
   "Create": "Yes",
   "Wizard": [

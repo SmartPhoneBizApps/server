@@ -90,6 +90,10 @@
       "Please provide value with 2 decimal places in the field :TrainFare"
     ]
   },
+  "Fare": {
+    "type": "Number",
+    "maxlength": [10, "Fare can not be more than 10 characters"]
+  },
   "TaxiFare": {
     "type": "Number",
     "maxlength": [10, "TaxiFare can not be more than 10 characters"],
@@ -152,7 +156,7 @@
   "USP_Role": { "type": "String" },
   "USP_Image": { "type": "String" },
   "StatusState": { "type": "String" },
-    "carouselImage": [],
+  "carouselImage": [],
   "carouselImage_ocr": [],
   "ScreenShot": [],
   "MultiAttachments": {},
