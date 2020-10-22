@@ -117,14 +117,14 @@
     { "type": "ADD", "name": "Add Record", "icon": "sap-icon://add" },
     {
       "type": "UPLOAD",
-      "name": "Upload Courses",
+      "name": "Upload Record",
       "icon": "sap-icon://upload",
-      "Option": ["Header"],
+      "Option": ["Header", "Items"],
       "ItemOptions": [],
-      "URL": "uploadFile/questioner/{ID}",
+      "URL": "datarecords/",
       "URLMethodHDR": "POST",
-      "dataFields": "FieldName",
-      "Token": "Yes"
+      "URLMethodTable": "PUT",
+      "dataFields": "FieldName"
     }
   ],
   "DButtons": [
