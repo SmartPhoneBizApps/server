@@ -77,6 +77,11 @@ app.use("/api/v1/auth/checkbotpin", require("./routes/access/checkBotPin"));
 app.use("/api/v1/botoptions", require("./routes/smartApp/botOptions"));
 app.use("/api/v1/util/botgroups", require("./routes/utilities/botGroup"));
 app.use("/api/v1/util/botbuttons", require("./routes/utilities/botButtons"));
+app.use(
+  "/api/v1/util/googleplaceaddress",
+  require("./routes/utilities/googlePlaceAddress")
+);
+app.use("/api/v1/util/geturl", require("./routes/utilities/getURL"));
 
 //  ----------------------------------------------------------
 //  ----------  ***** ORGNIZATION SETUP DATA *****  ----------
