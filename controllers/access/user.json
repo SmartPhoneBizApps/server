@@ -39,10 +39,22 @@
     "ContractType"
   ],
   "RoleFields": {
-    "Role_Employee": ["EmployeeID", "Designation", "Approver", "CostCentre"],
+    "Role_Employee": [
+      "EmployeeID",
+      "Name",
+      "Designation",
+      "CostCentre",
+      "Address",
+      "PostCode",
+      "ContactNo",
+      "Department",
+      "HourlyRate",
+      "OvertimeRate"
+    ],
     "Role_EmployeeLearn": ["EmployeeID", "CostCentre"],
     "Role_HealthCareProfessional": [
       "VendorName",
+      "Currency",
       "HCPEmail",
       "VendorEmail",
       "StudyType",

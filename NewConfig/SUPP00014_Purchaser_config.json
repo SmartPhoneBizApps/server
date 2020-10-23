@@ -30,7 +30,7 @@
     "LFields": ["IntrestArea", "ID", "AnnualTurnover"]
   },
   "ListBOTFields": {
-    "None": ["cardImage", "StatusState"],
+    "None": ["cardImage", "StatusState", "googleRating"],
     "Title": ["CompanyName"],
     "SubTitle": ["Status", "CompanyType"],
     "Description": ["IntrestArea", "ID", "AnnualTurnover"]
@@ -194,7 +194,7 @@
       "fieldMapping": {
         "formatted_address": "Address",
         "types": "businessTypes",
-        "icon": "businessIcon",
+        "icon": "USP_Image",
         "international_phone_number": "Phone",
         "name": "CompanyName",
         "rating": "googleRating",
@@ -408,7 +408,7 @@
         {
           "name": "cAddress",
           "type": "string",
-          "width": "200",
+          "width": "500",
           "Option": "Optional",
           "adaptiveCard": "Main",
           "SLabel": "Address"
@@ -997,7 +997,7 @@
     {
       "name": "WebSiteURL",
       "SLabel": "WebSiteURL",
-      "type": "string",
+      "type": "hyperlink",
       "width": "50",
       "Option": "Optional",
       "adaptiveCard": "Main"
@@ -1022,7 +1022,7 @@
       "name": "Address",
       "SLabel": "Address",
       "type": "string",
-      "width": "50",
+      "width": "1000",
       "Option": "Optional",
       "adaptiveCard": "Main"
     },
@@ -1167,18 +1167,26 @@
     {
       "name": "googleReviews",
       "SLabel": "googleReviews",
-      "type": "string",
+      "type": "listArray",
       "width": "1000",
       "Option": "Optional",
       "adaptiveCard": "Main"
     },
     {
+      "name": "USP_Image",
+      "SLabel": "hyperlink",
+      "type": "string",
+      "width": "500",
+      "Option": "Optional",
+      "adaptiveCard": "None"
+    },
+    {
       "name": "googlePhotos",
       "SLabel": "googlePhotos",
-      "type": "string",
+      "type": "carouselImage",
       "width": "100",
       "Option": "Optional",
-      "adaptiveCard": "Main"
+      "adaptiveCard": "None"
     },
     {
       "name": "opening_hours",
@@ -1190,7 +1198,7 @@
     },
     {
       "name": "googleRating",
-      "type": "string",
+      "type": "rating,5",
       "SLabel": "googleRating",
       "width": "50",
       "Option": "Optional",
