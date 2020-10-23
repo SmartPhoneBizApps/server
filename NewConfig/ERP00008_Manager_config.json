@@ -210,10 +210,10 @@
       "value": "Tab4",
       "style": "SAP",
       "update": "Yes",
-      "name": "Attachment",
+      "name": "MultiAttachment",
       "fioriicon": "attachment",
       "type": "MultiAttachments",
-      "download": "No",
+      "download": "Yes",
       "docType": [
         { "text": "HeaderAttachment", "state": "Information" },
         { "text": "ItemAttachment", "state": "Success" }
@@ -256,8 +256,8 @@
       "Location",
       "Notes"
     ],
-    "Tab3": ["Image"],
-    "Tab4": ["Attachment"]
+    "Tab3": ["carouselImage"],
+    "Tab4": ["MultiAttachments"]
   },
   "listCards": [
     {
@@ -288,6 +288,8 @@
       }
     }
   ],
+  "detailCharts": [],
+  "cards": [],
   "ControlDisplay": {},
   "tableConfig": {
     "actionLog": {
@@ -492,32 +494,33 @@
       "name": "AssetType",
       "type": "string",
       "width": "50",
-      "Option": "Optional",
-      "adaptiveCard": "Additional",
+      "Option": "Mandatory",
+      "adaptiveCard": "Main",
       "SLabel": "Asset Type"
     },
     {
       "name": "SerialNo",
       "type": "barcode",
       "width": "50",
-      "Option": "Optional",
-      "adaptiveCard": "Additional",
-      "SLabel": "Serial Number"
+      "Option": "Mandatory",
+      "adaptiveCard": "Main",
+      "SLabel": "Serial Number",
+      "button": "Scan"
     },
     {
       "name": "Make",
       "type": "string",
       "width": "50",
-      "Option": "Optional",
-      "adaptiveCard": "Additional",
+      "Option": "Mandatory",
+      "adaptiveCard": "Main",
       "SLabel": "Make"
     },
     {
       "name": "Model",
       "type": "string",
       "width": "50",
-      "Option": "Optional",
-      "adaptiveCard": "Additional",
+      "Option": "Mandatory",
+      "adaptiveCard": "Main",
       "SLabel": "Model"
     },
     {
@@ -548,8 +551,8 @@
       "name": "Description",
       "type": "string",
       "width": "50",
-      "Option": "Optional",
-      "adaptiveCard": "Additional",
+      "Option": "Mandatory",
+      "adaptiveCard": "Main",
       "SLabel": "Description"
     },
     {
@@ -569,68 +572,22 @@
       "SLabel": "Longitude"
     },
     {
-      "name": "Image",
-      "type": "attachment",
+      "name": "carouselImage",
+      "type": "carouselImage",
       "width": "200",
       "Option": "Optional",
       "adaptiveCard": "None",
-      "SLabel": "Image"
+      "SLabel": "carouselImage"
     },
     {
-      "name": "Attachment",
+      "name": "MultiAttachments",
       "type": "attachment",
+
       "width": "200",
       "Option": "Optional",
       "adaptiveCard": "None",
-      "SLabel": "Attachment"
-    },
-    {
-      "name": "WarrantyEnd",
-      "type": "Date",
-      "width": "10",
-      "Option": "Optional",
-      "adaptiveCard": "Additional",
-      "SLabel": "Warranty End"
-    },
-    {
-      "name": "IssuedTo",
-      "type": "string",
-      "width": "50",
-      "Option": "Optional",
-      "adaptiveCard": "Additional",
-      "SLabel": "Issued To"
-    },
-    {
-      "name": "IssueDate",
-      "type": "Date",
-      "width": "10",
-      "Option": "Optional",
-      "adaptiveCard": "Additional",
-      "SLabel": "Issue Date"
-    },
-    {
-      "name": "EmpMobile",
-      "type": "string",
-      "width": "50",
-      "Option": "Optional",
-      "adaptiveCard": "Additional",
-      "SLabel": "Employee Mobile"
-    },
-    {
-      "name": "Email",
-      "type": "string",
-      "width": "50",
-      "Option": "Optional",
-      "adaptiveCard": "Additional",
-      "SLabel": "Contact Email"
-    },
-    {
-      "name": "Location",
-      "type": "geoLocation",
-      "width": "200",
-      "Option": "Optional",
-      "adaptiveCard": "Additional",
-      "SLabel": "Asset Location"
+      "SLabel": "MultiAttachments",
+      "LLabel": "MultiAttachments"
     },
     {
       "name": "ProgressComment",
@@ -656,6 +613,54 @@
       "Option": "Optional",
       "adaptiveCard": "None",
       "SLabel": "lowerNodes"
+    },
+    {
+      "name": "WarrantyEnd",
+      "type": "Date",
+      "width": "10",
+      "Option": "Mandatory",
+      "adaptiveCard": "Main",
+      "SLabel": "Warranty End"
+    },
+    {
+      "name": "IssuedTo",
+      "type": "string",
+      "width": "50",
+      "Option": "Optional",
+      "adaptiveCard": "Additional",
+      "SLabel": "Issued To"
+    },
+    {
+      "name": "IssueDate",
+      "type": "Date",
+      "width": "10",
+      "Option": "Optional",
+      "adaptiveCard": "Additional",
+      "SLabel": "Issue Date"
+    },
+    {
+      "name": "EmpMobile",
+      "type": "string",
+      "width": "50",
+      "Option": "Optional",
+      "adaptiveCard": "None",
+      "SLabel": "Employee Mobile"
+    },
+    {
+      "name": "Email",
+      "type": "string",
+      "width": "50",
+      "Option": "Optional",
+      "adaptiveCard": "None",
+      "SLabel": "Contact Email"
+    },
+    {
+      "name": "Location",
+      "type": "geoLocation",
+      "width": "200",
+      "Option": "Optional",
+      "adaptiveCard": "None",
+      "SLabel": "Asset Location"
     },
     {
       "name": "Notes",
@@ -702,62 +707,6 @@
     "HeaderItem": [],
     "Header": []
   },
-  "Create": "Yes",
-  "Wizard": [
-    {
-      "id": "Step1",
-      "fields": [
-        { "name": "AssetType", "Mode": "Edit" },
-        { "name": "SerialNo", "Mode": "Edit" },
-        { "name": "Make", "Mode": "Edit" },
-        { "name": "Model", "Mode": "Edit" },
-        { "name": "RAM", "Mode": "Edit" }
-      ],
-      "name": "Asset Details",
-      "stepType": "FieldList",
-      "intro": "IT Asset Tracking : Asset Details"
-    },
-    {
-      "id": "Step2",
-      "fields": [
-        { "name": "Processor", "Mode": "Edit" },
-        { "name": "LapFrequency", "Mode": "Edit" },
-        { "name": "Description", "Mode": "Edit" },
-        { "name": "WarrantyEnd", "Mode": "Edit" },
-        { "name": "IssuedTo", "Mode": "Edit" },
-        { "name": "IssueDate", "Mode": "Edit" }
-      ],
-      "name": "Asset Specification",
-      "stepType": "FieldList",
-      "intro": "IT Asset Tracking : Asset Specification"
-    },
-    {
-      "id": "Step3",
-      "fields": [{ "name": "carouselImage", "Mode": "Edit" }],
-      "name": "Images and Attachment",
-      "stepType": "carouselImage",
-      "intro": "IT Asset Tracking : Images and Attachment"
-    },
-    {
-      "id": "Step4",
-      "fields": [
-        { "name": "EmpMobile", "Mode": "Edit" },
-        { "name": "Email", "Mode": "Edit" },
-        { "name": "Location", "Mode": "Edit" }
-      ],
-      "name": "Employee Details",
-      "stepType": "FieldList",
-      "intro": "IT Asset Tracking : Employee Details"
-    },
-    {
-      "id": "Step5",
-      "fields": [
-        { "name": "Notes", "Mode": "Edit" },
-        { "name": "Status", "Mode": "Edit" }
-      ],
-      "name": "Admin and other details",
-      "stepType": "FieldList",
-      "intro": "IT Asset Tracking : Admin and other details"
-    }
-  ]
+  "Create": "No",
+  "Wizard": []
 }

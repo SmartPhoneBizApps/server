@@ -53,7 +53,6 @@
         "RequesterPosition",
         "RequesterUserID",
         "RequestedDate",
-        "Approver",
         "ApprovalDate",
         "ProgressComments",
         "RequestedRoles",
@@ -183,7 +182,7 @@
       "RequesterUserID",
       "RequestedDate"
     ],
-    "Tab3": ["Approver", "ApprovalDate", "ProgressComments"],
+    "Tab3": ["ApprovalDate", "ProgressComments"],
     "Tab4": ["RequestedRoles", "CopyUserID", "Systems", "Client"],
     "Tab5": ["Signature"]
   },
@@ -434,12 +433,6 @@
       "SLabel": "Details",
       "type": "string",
       "width": "200"
-    },
-    {
-      "name": "Approver",
-      "SLabel": "Approver",
-      "type": "string",
-      "width": "20"
     },
     { "name": "ApprovalDate", "type": "Date", "width": "10" },
     {

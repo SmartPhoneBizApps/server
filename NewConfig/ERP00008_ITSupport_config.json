@@ -231,10 +231,10 @@
       "value": "Tab4",
       "style": "SAP",
       "update": "Yes",
-      "name": "Attachment",
+      "name": "MultiAttachment",
       "fioriicon": "attachment",
       "type": "MultiAttachments",
-      "download": "No",
+      "download": "Yes",
       "docType": [
         { "text": "HeaderAttachment", "state": "Information" },
         { "text": "ItemAttachment", "state": "Success" }
@@ -277,8 +277,8 @@
       "Location",
       "Notes"
     ],
-    "Tab3": ["Image"],
-    "Tab4": ["Attachment"]
+    "Tab3": ["carouselImage"],
+    "Tab4": ["MultiAttachments"]
   },
   "listCards": [
     {
@@ -309,6 +309,8 @@
       }
     }
   ],
+  "detailCharts": [],
+  "cards": [],
   "ControlDisplay": {},
   "tableConfig": {
     "actionLog": {
@@ -513,32 +515,33 @@
       "name": "AssetType",
       "type": "string",
       "width": "50",
-      "Option": "Optional",
-      "adaptiveCard": "Additional",
+      "Option": "Mandatory",
+      "adaptiveCard": "Main",
       "SLabel": "Asset Type"
     },
     {
       "name": "SerialNo",
       "type": "barcode",
       "width": "50",
-      "Option": "Optional",
-      "adaptiveCard": "Additional",
-      "SLabel": "Serial Number"
+      "Option": "Mandatory",
+      "adaptiveCard": "Main",
+      "SLabel": "Serial Number",
+      "button": "Scan"
     },
     {
       "name": "Make",
       "type": "string",
       "width": "50",
-      "Option": "Optional",
-      "adaptiveCard": "Additional",
+      "Option": "Mandatory",
+      "adaptiveCard": "Main",
       "SLabel": "Make"
     },
     {
       "name": "Model",
       "type": "string",
       "width": "50",
-      "Option": "Optional",
-      "adaptiveCard": "Additional",
+      "Option": "Mandatory",
+      "adaptiveCard": "Main",
       "SLabel": "Model"
     },
     {
@@ -569,8 +572,8 @@
       "name": "Description",
       "type": "string",
       "width": "50",
-      "Option": "Optional",
-      "adaptiveCard": "Additional",
+      "Option": "Mandatory",
+      "adaptiveCard": "Main",
       "SLabel": "Description"
     },
     {
@@ -590,29 +593,54 @@
       "SLabel": "Longitude"
     },
     {
-      "name": "Image",
-      "type": "attachment",
-
+      "name": "carouselImage",
+      "type": "carouselImage",
       "width": "200",
       "Option": "Optional",
       "adaptiveCard": "None",
-      "SLabel": "Image"
+      "SLabel": "carouselImage"
     },
     {
-      "name": "Attachment",
+      "name": "MultiAttachments",
       "type": "attachment",
 
       "width": "200",
       "Option": "Optional",
       "adaptiveCard": "None",
-      "SLabel": "Attachment"
+      "SLabel": "MultiAttachments",
+      "LLabel": "MultiAttachments"
+    },
+    {
+      "name": "ProgressComment",
+      "type": "string",
+      "width": "1000",
+      "Option": "Optional",
+      "adaptiveCard": "None",
+      "SLabel": "ProgressComment",
+      "LLabel": "ProgressComment"
+    },
+    {
+      "name": "upperNodes",
+      "type": "string",
+      "width": "200",
+      "Option": "Optional",
+      "adaptiveCard": "None",
+      "SLabel": "upperNodes"
+    },
+    {
+      "name": "lowerNodes",
+      "type": "string",
+      "width": "200",
+      "Option": "Optional",
+      "adaptiveCard": "None",
+      "SLabel": "lowerNodes"
     },
     {
       "name": "WarrantyEnd",
       "type": "Date",
       "width": "10",
-      "Option": "Optional",
-      "adaptiveCard": "Additional",
+      "Option": "Mandatory",
+      "adaptiveCard": "Main",
       "SLabel": "Warranty End"
     },
     {
@@ -636,7 +664,7 @@
       "type": "string",
       "width": "50",
       "Option": "Optional",
-      "adaptiveCard": "Additional",
+      "adaptiveCard": "None",
       "SLabel": "Employee Mobile"
     },
     {
@@ -644,7 +672,7 @@
       "type": "string",
       "width": "50",
       "Option": "Optional",
-      "adaptiveCard": "Additional",
+      "adaptiveCard": "None",
       "SLabel": "Contact Email"
     },
     {
@@ -652,7 +680,7 @@
       "type": "geoLocation",
       "width": "200",
       "Option": "Optional",
-      "adaptiveCard": "Additional",
+      "adaptiveCard": "None",
       "SLabel": "Asset Location"
     },
     {
@@ -731,13 +759,27 @@
     },
     {
       "id": "Step3",
-      "fields": [{ "name": "carouselImage", "Mode": "Edit" }],
-      "name": "Images and Attachment",
-      "stepType": "carouselImage",
-      "intro": "IT Asset Tracking : Images and Attachment"
+      "fields": [{ "name": "MultiAttachments", "Mode": "Edit" }],
+      "name": "MultiAttachments",
+      "stepType": "Attachments",
+      "intro": "Documents and Files : Here you can upload documents and files (word, powerpoint, excel, pdf, text etc..)",
+      "attachmentAttribute": {
+        "applicationid": "{applicationid}",
+        "businessrole": "{businessrole}",
+        "mode": "File",
+        "type": "NewUpload",
+        "text": "docType,Header,Information"
+      }
     },
     {
       "id": "Step4",
+      "fields": [{ "name": "carouselImage", "Mode": "Edit" }],
+      "name": "Images and Attachment",
+      "stepType": "carouselImage",
+      "intro": "Screenshots and Images : Here you can upload screenshots, images (jpg, png, etc..)"
+    },
+    {
+      "id": "Step5",
       "fields": [
         { "name": "EmpMobile", "Mode": "Edit" },
         { "name": "Email", "Mode": "Edit" },
@@ -748,7 +790,7 @@
       "intro": "IT Asset Tracking : Employee Details"
     },
     {
-      "id": "Step5",
+      "id": "Step6",
       "fields": [
         { "name": "Notes", "Mode": "Edit" },
         { "name": "Status", "Mode": "Edit" }
