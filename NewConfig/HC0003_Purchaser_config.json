@@ -9,7 +9,7 @@
       "config": [
         {
           "Stage": "currentDoc",
-          "ApplicationID": "HC0002",
+          "ApplicationID": "HC0003",
           "Table": "Header",
           "id": "0",
           "label": "Events",
@@ -136,7 +136,8 @@
     "Status",
     "ItemActive",
     "ServiceType",
-    "Duration"
+    "Duration",
+    "Monetary"
   ],
   "MButtons": [
     {
@@ -586,7 +587,7 @@
           "SLabel": "Max Limit",
           "Option": "Mandatory",
           "adaptiveCard": "Main",
-          "Update": "Yes"
+          "Update": "No"
         },
         {
           "name": "ActualAmount",
@@ -594,8 +595,8 @@
           "width": "20",
           "SLabel": "Actual Amount",
           "Option": "Optional",
-          "adaptiveCard": "None",
-          "Update": "No"
+          "adaptiveCard": "Main",
+          "Update": "Yes"
         },
         {
           "name": "Notes",
@@ -625,6 +626,15 @@
           "Update": "Yes"
         },
         {
+          "name": "Monetary",
+          "type": "string",
+          "width": "50",
+          "SLabel": "Monetary",
+          "Option": "Mandatory",
+          "adaptiveCard": "Main",
+          "Update": "Yes"
+        },
+        {
           "name": "Attachment",
           "type": "singleAttachment",
           "width": "100",
@@ -639,6 +649,7 @@
         "ServiceAmount",
         "ServiceType",
         "iCurrency",
+        "Monetary",
         "ItemActive"
       ],
       "detailCharts": [
@@ -676,16 +687,29 @@
       "ItemButtons": {
         "itemDisplay": true,
         "itemCheck": true,
-        "itemAdd": true,
+        "itemAdd": false,
         "itemEdit": true,
-        "itemDelete": true,
-        "additionalButtons": []
+        "itemDelete": false,
+        "additionalButtons": [
+          {
+            "name": "Invoice Item",
+            "type": "INVOICE",
+            "URL": "datarecords/",
+            "tableName": "EventInvoice",
+            "Token": "Yes",
+            "URLMethod": "PUT",
+            "updateButton": "Add to Invoice",
+            "diffMapping": [{ "ActualAmount": "InvoiceAmount" }],
+            "popupData": "myHCPHCO"
+          }
+        ]
       },
       "CreateFields": [
         "ServiceType",
         "ServiceDetails",
         "ServiceAmount",
         "iCurrency",
+        "Monetary",
         "ItemActive",
         "Notes",
         "Attachment"
@@ -696,6 +720,7 @@
         { "name": "ServiceAmount" },
         { "name": "ActualAmount" },
         { "name": "iCurrency" },
+        { "name": "Monetary" },
         { "name": "Notes" },
         { "name": "ItemActive" },
         { "name": "Attachment" }

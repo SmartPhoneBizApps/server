@@ -1,0 +1,132 @@
+{
+  "ID": {
+    "type": "String",
+    "unique": true,
+    "required": [true, "Please add Mandatory field :ID"],
+    "maxlength": [20, "ID can not be more than 20 characters"]
+  },
+  "Status": {
+    "type": "String",
+    "required": [true, "Please add Mandatory field :Status"],
+    "maxlength": [50, "Status can not be more than 50 characters"]
+  },
+  "Partner": {
+    "type": "String",
+    "required": [true, "Please add Mandatory field :Partner"],
+    "maxlength": [200, "Partner can not be more than 200 characters"]
+  },
+
+  "DonationName": {
+    "type": "String",
+    "maxlength": [100, "DonationName can not be more than 100"]
+  },
+  "DonationID": {
+    "type": "String",
+    "maxlength": [50, "DonationID can not be more than 50"]
+  },
+  "DonationType": {
+    "type": "String",
+    "maxlength": [50, "DonationType can not be more than 50"]
+  },
+  "DonationStartDate": {
+    "type": "Date",
+    "maxlength": [10, "DonationStartDate can not be more than 10"]
+  },
+  "Time": {
+    "type": "String",
+    "maxlength": [50, "Time can not be more than 50"]
+  },
+  "Duration": {
+    "type": "String",
+    "maxlength": [20, "Duration can not be more than 20"]
+  },
+  "PharmaContact": {
+    "type": "String",
+    "maxlength": [50, "PharmaContact can not be more than 50"]
+  },
+  "PharmaContactEmail": {
+    "type": "String",
+    "maxlength": [50, "PharmaContactEmail can not be more than 50"]
+  },
+  "Address": {
+    "type": "String",
+    "maxlength": [200, "Address can not be more than 200"]
+  },
+  "Agenda": {},
+  "DonationLink": {
+    "type": "String",
+    "maxlength": [200, "DonationLink can not be more than 200"]
+  },
+  "Budget": {
+    "type": "String",
+    "maxlength": [20, "DonationLink can not be more than 20"]
+  },
+  "HCPEmail": {
+    "type": "String",
+    "maxlength": [50, "HCPEmail can not be more than 50"]
+  },
+  "VendorName": {
+    "type": "String",
+    "maxlength": [100, "VendorName can not be more than 100"]
+  },
+  "DonationEndDate": {
+    "type": "Date",
+    "maxlength": [10, "DonationEndDate can not be more than 10"]
+  },
+  "DonationValue": {
+    "type": "String",
+    "maxlength": [50, "DonationValue can not be more than 50"]
+  },
+  "InvoiceValue": {
+    "type": "String",
+    "maxlength": [50, "InvoiceValue can not be more than 50"]
+  },
+  "BalanceValue": {
+    "type": "String",
+    "maxlength": [50, "BalanceValue can not be more than 50"]
+  },
+  "ReferenceID": {
+    "type": "String",
+    "maxlength": [50, "ReferenceID can not be more than 50"]
+  },
+  "USP_Name": { "type": "String" },
+  "USP_Role": { "type": "String" },
+  "USP_Image": { "type": "String" },
+  "StatusState": { "type": "String" },
+  "Title": "",
+  "FirstName": "",
+  "LastName": "",
+  "Speciality": "",
+  "Email": "",
+  "PostCode": "",
+  "InstitutionName": "",
+  "Organiser": "",
+  "OrganiserName": "",
+  "OrganiserEmail": "",
+  "OrganiserTelephone": "",
+  "Overview": "",
+  "carouselImage": [],
+  "carouselImage_ocr": [],
+  "MultiAttachments": {},
+  "lowerNodes": [],
+  "upperNodes": [],
+  "TransLog": [],
+  "ProgressComment": [],
+  "actionLog": [],
+  "SearchString": {
+    "type": "String",
+    "maxlength": [500, "SearchString can not be more than 500 characters"]
+  },
+  "Services": {},
+  "myHCPHCO": {},
+  "DonationInvoice": {},
+  "Disclosure": {},
+  "buttons": {},
+  "charts": {},
+  "config": {},
+  "card": {},
+  "sValidation": "",
+  "processflow": {},
+  "OrganiserCompany": "",
+  "cardImage": ""
+}

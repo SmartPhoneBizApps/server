@@ -9,7 +9,7 @@
       "config": [
         {
           "Stage": "currentDoc",
-          "ApplicationID": "HC0002",
+          "ApplicationID": "HC0003",
           "Table": "Header",
           "id": "0",
           "label": "Events",
@@ -137,7 +137,8 @@
     "Status",
     "ItemActive",
     "ServiceType",
-    "Duration"
+    "Duration",
+    "Monetary"
   ],
   "MButtons": [
     {
@@ -517,6 +518,15 @@
           "Update": "Yes"
         },
         {
+          "name": "Monetary",
+          "type": "string",
+          "width": "50",
+          "SLabel": "Monetary",
+          "Option": "Mandatory",
+          "adaptiveCard": "Main",
+          "Update": "Yes"
+        },
+        {
           "name": "Attachment",
           "type": "singleAttachment",
           "width": "100",
@@ -531,6 +541,7 @@
         "ServiceAmount",
         "ServiceType",
         "iCurrency",
+        "Monetary",
         "ItemActive"
       ],
       "detailCharts": [
@@ -590,6 +601,7 @@
         "ServiceDetails",
         "ServiceAmount",
         "iCurrency",
+        "Monetary",
         "ItemActive",
         "Notes",
         "Attachment"
@@ -600,6 +612,7 @@
         { "name": "ServiceAmount" },
         { "name": "ActualAmount" },
         { "name": "iCurrency" },
+        { "name": "Monetary" },
         { "name": "Notes" },
         { "name": "ItemActive" },
         { "name": "Attachment" }
