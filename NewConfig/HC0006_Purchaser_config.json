@@ -113,7 +113,7 @@
   },
   "ListFields": {
     "IntroField": "DonationDate",
-    "TitleField": "DonationName",
+    "TitleField": "DonationReason",
     "sStatus": "DonationType",
     "fStatus": "Status",
     "numberField": "DonationValue",
@@ -123,7 +123,7 @@
   "ListBOTFields": {
     "None": ["cardImage", "StatusState"],
     "Title": ["ID"],
-    "SubTitle": ["DonationName", "DonationDate"],
+    "SubTitle": ["DonationReason", "DonationDate"],
     "Description": [
       "DonationType",
       "DonationValue",
@@ -145,8 +145,8 @@
       "icon": "sap-icon://download",
       "downloadFields": [
         "ID",
-        "DonationID",
-        "DonationName",
+        "DonationRef",
+        "DonationReason",
         "DonationType",
         "DonationDate",
         "Address",
@@ -415,20 +415,11 @@
       {
         "GrpTitle": "Donation Details",
         "Fields": [
-          "DonationID",
-          "DonationName",
+          "DonationRef",
+          "DonationReason",
           "DonationType",
           "DonationDate",
           "DonationLink"
-        ]
-      },
-      {
-        "GrpTitle": "Organiser Details",
-        "Fields": [
-          "OrganiserCompany",
-          "OrganiserName",
-          "OrganiserEmail",
-          "OrganiserTelephone"
         ]
       },
       {
@@ -568,7 +559,7 @@
           "SLabel": "Max Limit",
           "Option": "Mandatory",
           "adaptiveCard": "Main",
-          "Update": "No"
+          "Update": "Yes"
         },
         {
           "name": "ActualAmount",
@@ -1575,21 +1566,22 @@
       "SLabel": "ReferenceID"
     },
     {
-      "name": "DonationID",
+      "name": "DonationRef",
       "type": "string",
       "width": "100",
       "Option": "Optional",
       "adaptiveCard": "Additional",
-      "SLabel": "Donation Id"
+      "SLabel": "Reference Number"
     },
     {
-      "name": "DonationName",
+      "name": "DonationReason",
       "type": "string",
-      "width": "100",
+      "width": "1000",
       "Option": "Mandatory",
       "adaptiveCard": "Main",
-      "SLabel": "Donation Name"
+      "SLabel": "Donation Reason"
     },
+
     {
       "name": "DonationType",
       "type": "string",
@@ -1621,38 +1613,6 @@
       "Option": "Mandatory",
       "adaptiveCard": "Main",
       "SLabel": "Pharma Contact Email"
-    },
-    {
-      "name": "OrganiserCompany",
-      "type": "string",
-      "width": "500",
-      "Option": "Mandatory",
-      "adaptiveCard": "Main",
-      "SLabel": "OrganiserCompany"
-    },
-    {
-      "name": "OrganiserName",
-      "type": "string",
-      "width": "100",
-      "Option": "Mandatory",
-      "adaptiveCard": "Main",
-      "SLabel": "Organiser Name"
-    },
-    {
-      "name": "OrganiserEmail",
-      "type": "Email",
-      "width": "100",
-      "Option": "Mandatory",
-      "adaptiveCard": "Main",
-      "SLabel": "Organiser Email"
-    },
-    {
-      "name": "OrganiserTelephone",
-      "type": "string",
-      "width": "100",
-      "Option": "Mandatory",
-      "adaptiveCard": "Main",
-      "SLabel": "Organiser Telephone"
     },
     {
       "name": "Address",
@@ -1946,8 +1906,8 @@
       "id": "Step1",
       "fields": [
         { "name": "DonationType", "Mode": "Edit" },
-        { "name": "DonationID", "Mode": "Edit" },
-        { "name": "DonationName", "Mode": "Edit" },
+        { "name": "DonationRef", "Mode": "Edit" },
+        { "name": "DonationReason", "Mode": "Edit" },
         { "name": "DonationLink", "Mode": "Edit" }
       ],
       "name": "Donation Details",
@@ -1957,18 +1917,6 @@
     {
       "id": "Step2",
       "fields": [
-        { "name": "OrganiserCompany", "Mode": "Edit" },
-        { "name": "OrganiserName", "Mode": "Edit" },
-        { "name": "OrganiserEmail", "Mode": "Edit" },
-        { "name": "OrganiserTelephone", "Mode": "Edit" }
-      ],
-      "name": "Donation Organiser Details",
-      "stepType": "FieldList",
-      "intro": "Donation   : Organiser"
-    },
-    {
-      "id": "Step3",
-      "fields": [
         { "name": "DonationDate", "Mode": "Edit" },
         { "name": "Status", "Mode": "Edit" }
       ],
@@ -1977,7 +1925,7 @@
       "intro": "Donation   : Dates"
     },
     {
-      "id": "Step4",
+      "id": "Step3",
       "fields": [{ "name": "Services", "Mode": "Edit" }],
       "name": "Services",
       "stepType": "table",
@@ -1985,7 +1933,7 @@
       "text": "docType,ItemAttachment,Information"
     },
     {
-      "id": "Step5",
+      "id": "Step4",
       "fields": [
         { "name": "PharmaContact", "Mode": "Edit" },
         { "name": "PharmaContactEmail", "Mode": "Edit" }
@@ -1995,7 +1943,7 @@
       "intro": "Donation   : Pharma Contact"
     },
     {
-      "id": "Step6",
+      "id": "Step5",
       "fields": [{ "name": "MultiAttachments", "Mode": "Edit" }],
       "name": "MultiAttachments",
       "stepType": "Attachments",
