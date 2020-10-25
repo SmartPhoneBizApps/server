@@ -191,127 +191,14 @@
   ],
   "DButtons": [
     {
-      "type": "ADDTRAINING",
-      "name": "Add HCP/HCO",
-      "icon": "sap-icon://copy",
-      "Dialog": [
-        { "label": "FirstName", "name": "FirstName", "type": "string" },
-        { "label": "LastName", "name": "LastName", "type": "string" },
-        { "label": "Title", "name": "Title", "type": "string" },
-        { "label": "Speciality", "name": "Speciality", "type": "string" },
-        { "label": "Email", "name": "Email", "type": "string" },
-        { "label": "PostCode", "name": "PostCode", "type": "string" },
-        {
-          "label": "InstitutionName",
-          "name": "InstitutionName",
-          "type": "string"
-        }
-      ],
-      "listFields": [
-        "Title",
-        "FirstName",
-        "LastName",
-        "Speciality",
-        "Email",
-        "PostCode"
-      ],
-      "tableField": "myHCPHCO",
-      "transferFields": [
-        "ID",
-        "Title",
-        "FirstName",
-        "LastName",
-        "Speciality",
-        "Email",
-        "PostCode",
-        "InstitutionName",
-        "ContactPerson",
-        "BusinessUnits",
-        "Bank",
-        "Identification"
-      ],
-      "SearchURL": "listrecordsnew/Web/HC0001/Purchaser{filter}",
-      "URL": "util/addHCP/myHCPHCO/HC0001/HC0006/{ID}/{ReferenceID}/{role}",
-      "FieldMapping": {
-        "Title": "Title",
-        "FirstName": "FirstName",
-        "LastName": "LastName",
-        "Speciality": "Speciality",
-        "Email": "Email",
-        "PostCode": "PostCode",
-        "InstitutionName": "InstitutionName",
-        "HCPNumber": "ID",
-        "ContactPerson": "ContactPerson",
-        "BusinessUnits": "BusinessUnits",
-        "Bank": "Bank",
-        "Identification": "Identification"
-      },
-      "FixedValues": [{ "Status": "Active" }],
+      "type": "SELFASSIGN",
+      "name": "Submit Invoice",
+      "icon": "sap-icon://share-2",
+      "Dialog": "{label:'User',name:'user',type:'Email'}",
+      "DialogSearch": "{URL}/api/v1/samrtApp/findUser/{user}",
+      "URL": "util/createInvoice/APTeam/APTeam/HC0003/HC0005/{ReferenceID}/{user}",
       "Token": "Yes",
       "URLMethod": "POST"
-    },
-    {
-      "type": "WORKFLOW",
-      "name": "Completed",
-      "icon": "sap-icon://complete",
-      "Dialog": [
-        {
-          "label": "Completion Details",
-          "name": "ProgressComment",
-          "type": "string",
-          "option": "Optional"
-        }
-      ],
-      "transferFields": [
-        { "field": "ID", "value": "@recorddata" },
-        { "field": "Status", "value": "Completed" },
-        { "field": "ProgressComment", "value": "@UserInput" }
-      ],
-      "URL": "datarecords/",
-      "Token": "Yes",
-      "URLMethod": "PUT"
-    },
-    {
-      "type": "WORKFLOW",
-      "name": "Suspended",
-      "icon": "sap-icon://pause",
-      "Dialog": [
-        {
-          "label": "Suspend Details",
-          "name": "ProgressComment",
-          "type": "string",
-          "option": "Optional"
-        }
-      ],
-      "transferFields": [
-        { "field": "ID", "value": "@recorddata" },
-        { "field": "Status", "value": "Suspended" },
-        { "field": "ProgressComment", "value": "@UserInput" }
-      ],
-      "URL": "datarecords/",
-      "Token": "Yes",
-      "URLMethod": "PUT"
-    },
-    {
-      "type": "WORKFLOW",
-      "name": "Cancel",
-      "icon": "sap-icon://decline",
-      "Dialog": [
-        {
-          "label": "Cancellation Comment",
-          "name": "ProgressComment",
-          "type": "string",
-          "option": "Optional"
-        }
-      ],
-      "transferFields": [
-        { "field": "ID", "value": "@recorddata" },
-        { "field": "Status", "value": "Cancelled" },
-        { "field": "ProgressComment", "value": "@UserInput" }
-      ],
-      "URL": "datarecords/",
-      "Token": "Yes",
-      "URLMethod": "PUT"
     }
   ],
   "Tabs": [
@@ -559,7 +446,7 @@
           "SLabel": "Max Limit",
           "Option": "Mandatory",
           "adaptiveCard": "Main",
-          "Update": "Yes"
+          "Update": "No"
         },
         {
           "name": "ActualAmount",
@@ -568,7 +455,7 @@
           "SLabel": "Actual Amount",
           "Option": "Optional",
           "adaptiveCard": "Main",
-          "Update": "No"
+          "Update": "Yes"
         },
         {
           "name": "Notes",
