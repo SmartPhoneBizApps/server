@@ -299,7 +299,14 @@
       "type": "carouselImage",
       "download": "Yes"
     },
-
+    {
+      "value": "Tab11",
+      "style": "SAP",
+      "update": "Yes",
+      "name": "Google Reviews",
+      "fioriicon": "feedback",
+      "type": "Table"
+    },
     {
       "value": "Tab4",
       "style": "SAP",
@@ -344,7 +351,8 @@
     "Tab8": ["Bank"],
     "Tab9": ["Identification"],
     "Tab4": ["Phone", "Language", "DateOfRegistration"],
-    "Tab10": ["googlePhotos"]
+    "Tab10": ["googlePhotos"],
+    "Tab11": ["googleReviews"]
   },
   "ControlDisplay": {},
   "tableConfig": {
@@ -792,9 +800,9 @@
         },
         {
           "name": "author_url",
-          "type": "string",
-          "width": "50",
-          "Option": "Mandatory",
+          "type": "hyperlink",
+          "width": "200",
+          "Option": "Optional",
           "adaptiveCard": "Main",
           "SLabel": "author_url"
         },
@@ -802,15 +810,15 @@
           "name": "language",
           "type": "string",
           "width": "100",
-          "Option": "Mandatory",
+          "Option": "Optional",
           "adaptiveCard": "Main",
           "SLabel": "language"
         },
         {
           "name": "profile_photo_url",
-          "type": "Email",
+          "type": "image",
           "width": "100",
-          "Option": "Mandatory",
+          "Option": "Optional",
           "adaptiveCard": "Main",
           "SLabel": "profile_photo_url"
         },
