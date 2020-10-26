@@ -473,18 +473,59 @@
       "Letters": [
         {
           "type": "TPLAN",
-          "template": "tplan.html",
-          "name": "Treatment Plan"
+          "template": "template1.html",
+          "title": "Treatment Plan",
+          "tableName": "TreatmentPlan",
+          "name": "Treatment Plan",
+          "header": [
+            "ID",
+            "FirstName",
+            "PatientType",
+            "NHSNumber",
+            "Name",
+            "PatientStatus",
+            "NHSNumber",
+            "PatientGroup",
+            "Status"
+          ],
+          "table": ["TaskID", "Task", "ExpectedDate", "TPStatus", "ItemStatus3"]
         },
         {
           "type": "PAYMENTSCH",
-          "template": "paymentschedule.html",
-          "name": "Payment Schedule"
+          "template": "template1.html",
+          "title": "Payment Schedule",
+          "tableName": "TreatmentCost",
+          "name": "Payment Schedule",
+          "header": [
+            "ID",
+            "FirstName",
+            "PatientType",
+            "NHSNumber",
+            "Name",
+            "PatientStatus",
+            "NHSNumber",
+            "PatientGroup",
+            "Status"
+          ],
+          "table": ["Details", "Due", "Status", "TransactionType", "DueDate"]
         },
         {
           "type": "REFERAL",
           "template": "referal.html",
-          "name": "Referal Letter"
+          "title": "Referal Details",
+          "name": "Referal Letter",
+          "header": [
+            "ID",
+            "FirstName",
+            "PatientType",
+            "NHSNumber",
+            "Name",
+            "PatientStatus",
+            "NHSNumber",
+            "PatientGroup",
+            "Status"
+          ],
+          "table": []
         }
       ]
     },
