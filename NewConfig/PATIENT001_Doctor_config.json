@@ -471,16 +471,38 @@
       "name": "Generate Letter",
       "icon": "sap-icon://letter",
       "Letters": [
-        { "type": "TPLAN", "template": "tplan.html", "name": "Treatment Plan" },
+        {
+          "type": "TPLAN",
+          "template": "template1.html",
+          "title": "Treatment Plan",
+          "name": "Treatment Plan",
+          "notation": {
+            "title": "$",
+            "headerField": "@",
+            "tableField": "#"
+          }
+        },
         {
           "type": "PAYMENTSCH",
-          "template": "paymentschedule.html",
-          "name": "Payment Schedule"
+          "template": "template1.html",
+          "title": "Payment Schedule",
+          "name": "Payment Schedule",
+          "notation": {
+            "title": "$",
+            "headerField": "@",
+            "tableField": "#"
+          }
         },
         {
           "type": "REFERAL",
           "template": "referal.html",
-          "name": "Referal Letter"
+          "title": "Referal Details",
+          "name": "Referal Letter",
+          "notation": {
+            "title": "$",
+            "headerField": "@",
+            "tableField": "#"
+          }
         }
       ]
     },
@@ -1133,7 +1155,7 @@
       ],
       "ItemDetails": [
         { "name": "ItemStatus3" },
-        { "name": "TaskID" },
+        { "name": "TaskID " },
         { "name": "Task" },
         { "name": "ExpectedDate" },
         { "name": "TPStatus" }
