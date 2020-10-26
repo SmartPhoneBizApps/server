@@ -794,7 +794,7 @@
           "type": "string",
           "width": "50",
           "Option": "Optional",
-          "adaptiveCard": "None",
+          "adaptiveCard": "Main",
           "SLabel": "author_name",
           "Update": "Yes"
         },
@@ -803,7 +803,7 @@
           "type": "hyperlink",
           "width": "200",
           "Option": "Optional",
-          "adaptiveCard": "Main",
+          "adaptiveCard": "None",
           "SLabel": "author_url"
         },
         {
@@ -811,7 +811,7 @@
           "type": "string",
           "width": "100",
           "Option": "Optional",
-          "adaptiveCard": "Main",
+          "adaptiveCard": "None",
           "SLabel": "language"
         },
         {
@@ -819,12 +819,12 @@
           "type": "image",
           "width": "100",
           "Option": "Optional",
-          "adaptiveCard": "Main",
+          "adaptiveCard": "None",
           "SLabel": "profile_photo_url"
         },
         {
           "name": "rating",
-          "type": "string",
+          "type": "rating,5",
           "width": "10",
           "Option": "Optional",
           "adaptiveCard": "Main",
@@ -840,7 +840,7 @@
         },
         {
           "name": "time",
-          "type": "Date",
+          "type": "timestamp",
           "width": "20",
           "Option": "Optional",
           "adaptiveCard": "Main",
