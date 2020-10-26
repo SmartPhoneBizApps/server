@@ -27,7 +27,7 @@
     "TitleField": "CompanyName",
     "sStatus": "CompanyType",
     "fStatus": "Status",
-    "LFields": ["IntrestArea", "ID", "AnnualTurnover"]
+    "LFields": ["IntrestArea", "ID", "AnnualTurnover", "googleRating"]
   },
   "ListBOTFields": {
     "None": ["cardImage", "StatusState", "googleRating"],
@@ -315,7 +315,7 @@
     "Tab0": ["data"],
     "Tab20": ["charts"],
     "Tab99": ["actionLog"],
-    "None": ["ID", "CompanyName", "GoogleProfile"],
+    "None": ["ID", "CompanyName", "googleRating"],
     "Tab1": [
       "CompanyType",
       "WebSiteURL",
@@ -325,6 +325,7 @@
       "IntrestArea",
       "DetailsOfServices",
       "DetailsOfProducts",
+      "GoogleProfile",
       "Currency"
     ],
     "Tab2": ["YearEstablish", "Address", "PostCode"],
