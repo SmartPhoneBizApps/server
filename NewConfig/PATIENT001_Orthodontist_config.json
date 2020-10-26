@@ -1,7 +1,7 @@
 {
   "Title": {
-    "ApplicationTitle": "Health Evaluation Form",
-    "DetailTitle": "Evaluation Form"
+    "ApplicationTitle": "Patients",
+    "DetailTitle": "Patients"
   },
   "Constants": {},
   "Controls": {
@@ -471,7 +471,11 @@
       "name": "Generate Letter",
       "icon": "sap-icon://letter",
       "Letters": [
-        { "type": "TPLAN", "template": "tplan.html", "name": "Treatment Plan" },
+        {
+          "type": "TPLAN",
+          "template": "tplan.html",
+          "name": "Treatment Plan"
+        },
         {
           "type": "PAYMENTSCH",
           "template": "paymentschedule.html",
@@ -1079,10 +1083,10 @@
           "Update": "Yes"
         },
         {
-          "name": "EventID",
+          "name": "TaskID",
           "type": "string",
           "width": "10",
-          "SLabel": "Event ID",
+          "SLabel": "Task ID",
           "Option": "Optional"
         },
         {
@@ -1108,7 +1112,7 @@
         }
       ],
       "DisplayFields": [
-        "EventID",
+        "TaskID",
         "Task",
         "ExpectedDate",
         "TPStatus",
@@ -1125,7 +1129,7 @@
         "itemDelete": true
       },
       "CreateFields": [
-        "EventID",
+        "TaskID",
         "Task",
         "ExpectedDate",
         "TPStatus",
@@ -1133,7 +1137,7 @@
       ],
       "ItemDetails": [
         { "name": "ItemStatus3" },
-        { "name": "EventID" },
+        { "name": "TaskID" },
         { "name": "Task" },
         { "name": "ExpectedDate" },
         { "name": "TPStatus" }
