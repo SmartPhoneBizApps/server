@@ -72,7 +72,8 @@
         "ContactPerson",
         "BusinessUnits",
         "Bank",
-        "Identification"
+        "Identification",
+        "googleReviews"
       ]
     },
     {
@@ -767,6 +768,112 @@
         { "name": "ItemActive" }
       ]
     },
+    "googleReviews": {
+      "title": "google Reviews",
+      "subtitle": "google Reviews",
+      "ItemFieldDefinition": [
+        {
+          "name": "ItemNumber",
+          "type": "string",
+          "width": "10",
+          "Option": "Optional",
+          "adaptiveCard": "Additional",
+          "SLabel": "Item Number",
+          "Update": "No"
+        },
+        {
+          "name": "author_name",
+          "type": "string",
+          "width": "50",
+          "Option": "Optional",
+          "adaptiveCard": "None",
+          "SLabel": "author_name",
+          "Update": "Yes"
+        },
+        {
+          "name": "author_url",
+          "type": "string",
+          "width": "50",
+          "Option": "Mandatory",
+          "adaptiveCard": "Main",
+          "SLabel": "author_url"
+        },
+        {
+          "name": "language",
+          "type": "string",
+          "width": "100",
+          "Option": "Mandatory",
+          "adaptiveCard": "Main",
+          "SLabel": "language"
+        },
+        {
+          "name": "profile_photo_url",
+          "type": "Email",
+          "width": "100",
+          "Option": "Mandatory",
+          "adaptiveCard": "Main",
+          "SLabel": "profile_photo_url"
+        },
+        {
+          "name": "rating",
+          "type": "string",
+          "width": "10",
+          "Option": "Optional",
+          "adaptiveCard": "Main",
+          "SLabel": "rating"
+        },
+        {
+          "name": "text",
+          "type": "string",
+          "width": "200",
+          "Option": "Optional",
+          "adaptiveCard": "Main",
+          "SLabel": "Review Text"
+        },
+        {
+          "name": "time",
+          "type": "Date",
+          "width": "20",
+          "Option": "Optional",
+          "adaptiveCard": "Main",
+          "SLabel": "Date/Time"
+        }
+      ],
+      "DisplayFields": [
+        "profile_photo_url",
+        "author_name",
+        "rating",
+        "text",
+        "time"
+      ],
+      "detailCharts": [],
+      "cards": [],
+      "ItemButtons": {
+        "itemDisplay": true,
+        "itemCheck": false,
+        "itemAdd": false,
+        "itemEdit": false,
+        "itemDelete": false
+      },
+      "CreateFields": [
+        "profile_photo_url",
+        "author_name",
+        "author_url",
+        "language",
+        "rating",
+        "text",
+        "time"
+      ],
+      "ItemDetails": [
+        { "name": "profile_photo_url" },
+        { "name": "author_name" },
+        { "name": "author_url" },
+        { "name": "language" },
+        { "name": "rating" },
+        { "name": "text" },
+        { "name": "time" }
+      ]
+    },
     "actionLog": {
       "title": "Action Log",
       "subtitle": "Action Log",
@@ -1188,10 +1295,10 @@
     {
       "name": "googleReviews",
       "SLabel": "googleReviews",
-      "type": "listArray",
+      "type": "Array",
       "width": "1000",
       "Option": "Optional",
-      "adaptiveCard": "Main"
+      "adaptiveCard": "None"
     },
     {
       "name": "USP_Image",
