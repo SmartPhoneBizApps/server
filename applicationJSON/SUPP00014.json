@@ -7,11 +7,7 @@
   },
   "CompanyName": {
     "type": "String",
-    "maxlength": [50, "CompanyName can not be more than 50 characters"],
-    "match": [
-      "UK_COMPANYNAME_V1",
-      "Please provide valid company name in field :CompanyName"
-    ]
+    "maxlength": [50, "CompanyName can not be more than 50 characters"]
   },
   "CompanyType": {
     "type": "String",
@@ -113,11 +109,7 @@
   },
   "Phone": {
     "type": "String",
-    "maxlength": [100, "Phone can not be more than 100 characters"],
-    "match": [
-      "UK_PHONE_V1",
-      "Please provide valid UK Phone number in field :Phone"
-    ]
+    "maxlength": [100, "Phone can not be more than 100 characters"]
   },
   "Language": {
     "type": "String",
