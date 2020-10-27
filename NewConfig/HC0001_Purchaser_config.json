@@ -21,11 +21,14 @@
       "Status",
       "FirstName",
       "LastName",
+      "businessTypes",
       "Role",
       "Speciality",
       "InstitutionName",
       "ID",
-      "Email"
+      "Email",
+      "ContactNo",
+      "Address"
     ],
     "filterFields": {
       "header": [
@@ -1268,7 +1271,7 @@
       "name": "Title",
       "type": "string",
       "width": "50",
-      "Option": "Mandatory",
+      "Option": "Optional",
       "adaptiveCard": "Main",
       "SLabel": "Title",
       "LLabel": "Title"
@@ -1286,7 +1289,7 @@
       "name": "FirstName",
       "type": "string",
       "width": "50",
-      "Option": "Mandatory",
+      "Option": "Optional",
       "adaptiveCard": "Main",
       "SLabel": "First Name",
       "LLabel": "First Name"
@@ -1295,7 +1298,7 @@
       "name": "LastName",
       "type": "string",
       "width": "50",
-      "Option": "Mandatory",
+      "Option": "Optional",
       "adaptiveCard": "Main",
       "SLabel": "Last Name",
       "LLabel": "Last Name"
@@ -1442,7 +1445,7 @@
       "name": "Email",
       "type": "Email",
       "width": "50",
-      "Option": "Optional",
+      "Option": "Mandatory",
       "adaptiveCard": "Main",
       "SLabel": "Email Id",
       "LLabel": "Email Id"
@@ -1469,7 +1472,7 @@
       "name": "HCOType",
       "type": "string",
       "width": "20",
-      "Option": "Optional",
+      "Option": "Mandatory",
       "adaptiveCard": "Main",
       "SLabel": "HCO Type",
       "LLabel": "HCO Type"
@@ -1518,7 +1521,7 @@
       "name": "BankCountry",
       "type": "string",
       "width": "10",
-      "Option": "Mandatory",
+      "Option": "Optional",
       "adaptiveCard": "Main",
       "SLabel": "Bank Country"
     },
@@ -1526,7 +1529,7 @@
       "name": "AccountNumber",
       "type": "string",
       "width": "50",
-      "Option": "Mandatory",
+      "Option": "Optional",
       "adaptiveCard": "Main",
       "SLabel": "Account Number"
     },
@@ -1534,7 +1537,7 @@
       "name": "BankKey",
       "type": "Email",
       "width": "50",
-      "Option": "Mandatory",
+      "Option": "Optional",
       "adaptiveCard": "Main",
       "SLabel": "Bank Key"
     },
@@ -1575,7 +1578,7 @@
       "name": "idNumber",
       "type": "string",
       "width": "10",
-      "Option": "Mandatory",
+      "Option": "Optional",
       "adaptiveCard": "Main",
       "SLabel": "Identification"
     },
@@ -1583,7 +1586,7 @@
       "name": "validityDate",
       "type": "Date",
       "width": "10",
-      "Option": "Mandatory",
+      "Option": "Optional",
       "adaptiveCard": "Main",
       "SLabel": "Validity Date"
     },
@@ -1591,7 +1594,7 @@
       "name": "Comments",
       "type": "string",
       "width": "1000",
-      "Option": "Mandatory",
+      "Option": "Optional",
       "adaptiveCard": "Main",
       "SLabel": "Comments"
     },
@@ -1599,7 +1602,7 @@
       "name": "bID",
       "type": "string",
       "width": "50",
-      "Option": "Mandatory",
+      "Option": "Optional",
       "adaptiveCard": "Main",
       "SLabel": "BU ID"
     },
@@ -1607,7 +1610,7 @@
       "name": "bName",
       "type": "string",
       "width": "100",
-      "Option": "Mandatory",
+      "Option": "Optional",
       "adaptiveCard": "Main",
       "SLabel": "BU Name"
     },
@@ -1615,7 +1618,7 @@
       "name": "bEmail",
       "type": "Email",
       "width": "100",
-      "Option": "Mandatory",
+      "Option": "Optional",
       "adaptiveCard": "Main",
       "SLabel": "BU Email"
     },
@@ -1639,7 +1642,7 @@
       "name": "cTitle",
       "type": "string",
       "width": "50",
-      "Option": "Mandatory",
+      "Option": "Optional",
       "adaptiveCard": "Main",
       "SLabel": "Title"
     },
@@ -1647,7 +1650,7 @@
       "name": "cFirstName",
       "type": "string",
       "width": "100",
-      "Option": "Mandatory",
+      "Option": "Optional",
       "adaptiveCard": "Main",
       "SLabel": "FirstName"
     },
@@ -1655,7 +1658,7 @@
       "name": "cLastName",
       "type": "string",
       "width": "100",
-      "Option": "Mandatory",
+      "Option": "Optional",
       "adaptiveCard": "Main",
       "SLabel": "LastName"
     },
@@ -1671,7 +1674,7 @@
       "name": "cEmail",
       "type": "Email",
       "width": "100",
-      "Option": "Mandatory",
+      "Option": "Optional",
       "adaptiveCard": "Main",
       "SLabel": "Email"
     },
