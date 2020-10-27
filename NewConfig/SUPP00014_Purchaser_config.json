@@ -795,7 +795,7 @@
           "width": "50",
           "Option": "Optional",
           "adaptiveCard": "Main",
-          "SLabel": "author_name",
+          "SLabel": "Author",
           "Update": "Yes"
         },
         {
@@ -804,7 +804,7 @@
           "width": "200",
           "Option": "Optional",
           "adaptiveCard": "None",
-          "SLabel": "author_url"
+          "SLabel": "Author URL"
         },
         {
           "name": "language",
@@ -812,7 +812,7 @@
           "width": "100",
           "Option": "Optional",
           "adaptiveCard": "None",
-          "SLabel": "language"
+          "SLabel": "Language"
         },
         {
           "name": "profile_photo_url",
@@ -820,7 +820,7 @@
           "width": "100",
           "Option": "Optional",
           "adaptiveCard": "None",
-          "SLabel": "profile_photo_url"
+          "SLabel": "Profile Image"
         },
         {
           "name": "rating",
@@ -828,7 +828,7 @@
           "width": "10",
           "Option": "Optional",
           "adaptiveCard": "Main",
-          "SLabel": "rating"
+          "SLabel": "Rating"
         },
         {
           "name": "text",
@@ -1309,14 +1309,6 @@
       "adaptiveCard": "None"
     },
     {
-      "name": "USP_Image",
-      "SLabel": "hyperlink",
-      "type": "string",
-      "width": "500",
-      "Option": "Optional",
-      "adaptiveCard": "None"
-    },
-    {
       "name": "googlePhotos",
       "SLabel": "googlePhotos",
       "type": "carouselImage",
@@ -1325,18 +1317,27 @@
       "adaptiveCard": "None"
     },
     {
-      "name": "opening_hours",
-      "SLabel": "opening_hours",
-      "type": "string",
-      "width": "1000",
-      "Option": "Optional",
-      "adaptiveCard": "None"
-    },
-    {
       "name": "googleRating",
       "type": "rating,5",
       "SLabel": "googleRating",
       "width": "50",
+      "Option": "Optional",
+      "adaptiveCard": "None"
+    },
+    {
+      "name": "USP_Image",
+      "SLabel": "hyperlink",
+      "type": "string",
+      "width": "500",
+      "Option": "Optional",
+      "adaptiveCard": "None"
+    },
+
+    {
+      "name": "opening_hours",
+      "SLabel": "opening_hours",
+      "type": "string",
+      "width": "1000",
       "Option": "Optional",
       "adaptiveCard": "None"
     },
@@ -1433,28 +1434,28 @@
       "fields": [{ "name": "Identification", "Mode": "Edit" }],
       "name": "Identification",
       "stepType": "table",
-      "intro": "HCP/HCO : Identification"
+      "intro": "Supplier : Identification"
     },
     {
       "id": "Step6",
       "fields": [{ "name": "Bank", "Mode": "Edit" }],
       "name": "Bank",
       "stepType": "table",
-      "intro": "HCP/HCO : Bank"
+      "intro": "Supplier : Bank"
     },
     {
       "id": "Step7",
       "fields": [{ "name": "BusinessUnits", "Mode": "Edit" }],
       "name": "BusinessUnits",
       "stepType": "table",
-      "intro": "HCP/HCO : Business Units"
+      "intro": "Supplier : Business Units"
     },
     {
       "id": "Step8",
       "fields": [{ "name": "ContactPerson", "Mode": "Edit" }],
       "name": "ContactPerson",
       "stepType": "table",
-      "intro": "HCP/HCO : Contact Person"
+      "intro": "Supplier : Contact Person"
     }
   ]
 }

@@ -126,8 +126,7 @@
   },
   "GoogleProfile": {
     "type": "String",
-    "maxlength": [200, "GoogleProfile can not be more than 200 characters"],
-    "match": ["WEBSITE_V1", "Invalid web address in field :GoogleProfile"]
+    "maxlength": [1000, "GoogleProfile can not be more than 200 characters"]
   },
   "PastSupplier": {
     "type": "String",

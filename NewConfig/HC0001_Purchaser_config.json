@@ -28,7 +28,13 @@
       "Email"
     ],
     "filterFields": {
-      "header": ["Status", "Role", "Speciality", "InstitutionName"]
+      "header": [
+        "Status",
+        "Role",
+        "Speciality",
+        "InstitutionName",
+        "googleRating"
+      ]
     }
   },
   "ListFields": {
@@ -37,7 +43,7 @@
     "sStatus": "Status",
     "fStatus": "Title",
     "numberField": "",
-    "LFields": ["ID", "Email", "SearchString"],
+    "LFields": ["ID", "Email", "SearchString", "googleRating"],
     "numberUnitField": ""
   },
   "ListBOTFields": {
@@ -69,6 +75,7 @@
         "LastName",
         "FirstName",
         "FullName",
+        "GoogleProfile",
         "Role",
         "Speciality",
         "ContactNo",
@@ -82,7 +89,8 @@
         "Disclosure",
         "BusinessUnits",
         "Bank",
-        "Identification"
+        "Identification",
+        "googleReviews"
       ]
     },
     {
@@ -98,6 +106,124 @@
     },
 
     { "type": "ADD", "name": "Add Record", "icon": "sap-icon://add" },
+    {
+      "type": "GOOGLE-ADD",
+      "name": "Google Search",
+      "icon": "sap-icon://download-from-cloud",
+      "keywordsTooltip": "Eg- Bank, Cafe",
+      "searchType": [
+        "accounting",
+        "airport",
+        "amusement_park",
+        "aquarium",
+        "art_gallery",
+        "atm",
+        "bakery",
+        "bank",
+        "bar",
+        "beauty_salon",
+        "bicycle_store",
+        "book_store",
+        "bowling_alley",
+        "bus_station",
+        "cafe",
+        "campground",
+        "car_dealer",
+        "car_rental",
+        "car_repair",
+        "car_wash",
+        "casino",
+        "cemetery",
+        "church",
+        "city_hall",
+        "clothing_store",
+        "convenience_store",
+        "courthouse",
+        "dentist",
+        "department_store",
+        "doctor",
+        "drugstore",
+        "electrician",
+        "electronics_store",
+        "embassy",
+        "fire_station",
+        "florist",
+        "funeral_home",
+        "furniture_store",
+        "gas_station",
+        "gym",
+        "hair_care",
+        "hardware_store",
+        "hindu_temple",
+        "home_goods_store",
+        "hospital",
+        "insurance_agency",
+        "jewelry_store",
+        "laundry",
+        "lawyer",
+        "library",
+        "light_rail_station",
+        "liquor_store",
+        "local_government_office",
+        "locksmith",
+        "lodging",
+        "meal_delivery",
+        "meal_takeaway",
+        "mosque",
+        "movie_rental",
+        "movie_theater",
+        "moving_company",
+        "museum",
+        "night_club",
+        "painter",
+        "park",
+        "parking",
+        "pet_store",
+        "pharmacy",
+        "physiotherapist",
+        "plumber",
+        "police",
+        "post_office",
+        "primary_school",
+        "real_estate_agency",
+        "restaurant",
+        "roofing_contractor",
+        "rv_park",
+        "school",
+        "secondary_school",
+        "shoe_store",
+        "shopping_mall",
+        "spa",
+        "stadium",
+        "storage",
+        "store",
+        "subway_station",
+        "supermarket",
+        "synagogue",
+        "taxi_stand",
+        "tourist_attraction",
+        "train_station",
+        "transit_station",
+        "travel_agency",
+        "university",
+        "veterinary_care",
+        "zoo"
+      ],
+      "fieldMapping": {
+        "formatted_address": "Address",
+        "types": "businessTypes",
+        "icon": "USP_Image",
+        "international_phone_number": "Phone",
+        "name": "CompanyName",
+        "rating": "googleRating",
+        "place_id": "ReferenceID",
+        "url": "GoogleProfile",
+        "website": "WebSiteURL",
+        "photos": "googlePhotos",
+        "reviews": "googleReviews",
+        "opening_hours": "opening_hours"
+      }
+    },
     {
       "type": "UPLOAD",
       "name": "Upload Record",
@@ -225,6 +351,23 @@
       "fioriicon": "two-keys"
     },
     {
+      "value": "Tab10",
+      "style": "SAP",
+      "update": "Yes",
+      "name": "Google Images",
+      "fioriicon": "background",
+      "type": "carouselImage",
+      "download": "Yes"
+    },
+    {
+      "value": "Tab11",
+      "style": "SAP",
+      "update": "Yes",
+      "name": "Google Reviews",
+      "fioriicon": "feedback",
+      "type": "Table"
+    },
+    {
       "value": "Tab5",
       "style": "SAP",
       "update": "Yes",
@@ -281,7 +424,9 @@
     "Tab8": ["Bank"],
     "Tab9": ["Identification"],
     "Tab5": ["carouselImage"],
-    "Tab6": ["PostCode", "Address"]
+    "Tab6": ["PostCode", "Address"],
+    "Tab10": ["googlePhotos"],
+    "Tab11": ["googleReviews"]
   },
   "listCards": [
     {
@@ -333,7 +478,9 @@
             "Disclosure",
             "BusinessUnits",
             "Bank",
-            "Identification"
+            "Identification",
+            "googlePhotos",
+            "googleReviews"
           ]
         },
         {
@@ -899,6 +1046,112 @@
         { "name": "validityDate" },
         { "name": "Comments" },
         { "name": "ItemActive" }
+      ]
+    },
+    "googleReviews": {
+      "title": "google Reviews",
+      "subtitle": "google Reviews",
+      "ItemFieldDefinition": [
+        {
+          "name": "ItemNumber",
+          "type": "string",
+          "width": "10",
+          "Option": "Optional",
+          "adaptiveCard": "Additional",
+          "SLabel": "Item Number",
+          "Update": "No"
+        },
+        {
+          "name": "author_name",
+          "type": "string",
+          "width": "50",
+          "Option": "Optional",
+          "adaptiveCard": "Main",
+          "SLabel": "Author",
+          "Update": "Yes"
+        },
+        {
+          "name": "author_url",
+          "type": "hyperlink",
+          "width": "200",
+          "Option": "Optional",
+          "adaptiveCard": "None",
+          "SLabel": "Author URL"
+        },
+        {
+          "name": "language",
+          "type": "string",
+          "width": "100",
+          "Option": "Optional",
+          "adaptiveCard": "None",
+          "SLabel": "Language"
+        },
+        {
+          "name": "profile_photo_url",
+          "type": "image",
+          "width": "100",
+          "Option": "Optional",
+          "adaptiveCard": "None",
+          "SLabel": "Profile Image"
+        },
+        {
+          "name": "rating",
+          "type": "rating,5",
+          "width": "10",
+          "Option": "Optional",
+          "adaptiveCard": "Main",
+          "SLabel": "Rating"
+        },
+        {
+          "name": "text",
+          "type": "string",
+          "width": "200",
+          "Option": "Optional",
+          "adaptiveCard": "Main",
+          "SLabel": "Review Text"
+        },
+        {
+          "name": "time",
+          "type": "timestamp",
+          "width": "20",
+          "Option": "Optional",
+          "adaptiveCard": "Main",
+          "SLabel": "Date/Time"
+        }
+      ],
+      "DisplayFields": [
+        "profile_photo_url",
+        "author_name",
+        "rating",
+        "text",
+        "time"
+      ],
+      "detailCharts": [],
+      "cards": [],
+      "ItemButtons": {
+        "itemDisplay": true,
+        "itemCheck": false,
+        "itemAdd": false,
+        "itemEdit": false,
+        "itemDelete": false
+      },
+      "CreateFields": [
+        "profile_photo_url",
+        "author_name",
+        "author_url",
+        "language",
+        "rating",
+        "text",
+        "time"
+      ],
+      "ItemDetails": [
+        { "name": "profile_photo_url" },
+        { "name": "author_name" },
+        { "name": "author_url" },
+        { "name": "language" },
+        { "name": "rating" },
+        { "name": "text" },
+        { "name": "time" }
       ]
     },
     "actionLog": {
@@ -1533,6 +1786,31 @@
       "Option": "Optional",
       "adaptiveCard": "Additional",
       "SLabel": "InstitutionName"
+    },
+    {
+      "name": "GoogleProfile",
+      "type": "hyperlink",
+      "width": "200",
+      "Option": "Optional",
+      "adaptiveCard": "Additional",
+      "SLabel": "Google Profile",
+      "LLabel": "GoogleProfile"
+    },
+    {
+      "name": "googleReviews",
+      "SLabel": "googleReviews",
+      "type": "Array",
+      "width": "1000",
+      "Option": "Optional",
+      "adaptiveCard": "None"
+    },
+    {
+      "name": "googlePhotos",
+      "SLabel": "googlePhotos",
+      "type": "carouselImage",
+      "width": "100",
+      "Option": "Optional",
+      "adaptiveCard": "None"
     },
     {
       "name": "Attachment",
