@@ -15,6 +15,7 @@ exports.uploadFile = asyncHandler(async (req, res, next) => {
   let file = "";
 
   if (req.hasOwnProperty("files")) {
+    console.log("Divyesh - ", req.files);
     if (req.files.hasOwnProperty("file")) {
       console.log("File", req.files.file);
       file = req.files.file;
