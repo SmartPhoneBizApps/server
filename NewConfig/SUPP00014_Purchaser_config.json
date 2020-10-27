@@ -27,13 +27,13 @@
     "TitleField": "CompanyName",
     "sStatus": "CompanyType",
     "fStatus": "Status",
-    "LFields": ["IntrestArea", "ID", "AnnualTurnover", "googleRating"]
+    "LFields": ["Email", "ID", "AnnualTurnover", "googleRating"]
   },
   "ListBOTFields": {
     "None": ["cardImage", "StatusState", "googleRating"],
     "Title": ["CompanyName"],
     "SubTitle": ["Status", "CompanyType"],
-    "Description": ["IntrestArea", "ID", "AnnualTurnover"]
+    "Description": ["Email", "ID", "AnnualTurnover"]
   },
   "PossibleValues": [
     "CompanyType",
@@ -224,7 +224,29 @@
       }
     }
   ],
-  "DButtons": [],
+  "DButtons": [
+    {
+      "type": "WORKFLOW",
+      "name": "Cancel",
+      "icon": "sap-icon://decline",
+      "Dialog": [
+        {
+          "label": "Cancellation Comment",
+          "name": "ProgressComment",
+          "type": "string",
+          "option": "Optional"
+        }
+      ],
+      "transferFields": [
+        { "field": "ID", "value": "@recorddata" },
+        { "field": "Status", "value": "Cancelled" },
+        { "field": "ProgressComment", "value": "@UserInput" }
+      ],
+      "URL": "datarecords/",
+      "Token": "Yes",
+      "URLMethod": "PUT"
+    }
+  ],
   "Tabs": [
     {
       "value": "Tab0",
@@ -332,9 +354,10 @@
     "Tab0": ["data"],
     "Tab20": ["charts"],
     "Tab99": ["actionLog"],
-    "None": ["ID", "CompanyName", "googleRating"],
+    "None": ["ID", "CompanyName"],
     "Tab1": [
       "CompanyType",
+      "googleRating",
       "WebSiteURL",
       "AnnualTurnover",
       "GeographicalCoverage",
@@ -1123,6 +1146,14 @@
       "adaptiveCard": "None"
     },
     {
+      "name": "Email",
+      "SLabel": "Email",
+      "type": "string",
+      "width": "200",
+      "Option": "Mandatory",
+      "adaptiveCard": "Main"
+    },
+    {
       "name": "CompanyType",
       "SLabel": "CompanyType",
       "type": "string",
@@ -1406,6 +1437,7 @@
       "id": "Step3",
       "fields": [
         { "name": "Phone", "Mode": "Edit" },
+        { "name": "Email", "Mode": "Edit" },
         { "name": "WebSiteURL", "Mode": "Edit" },
         { "name": "Language", "Mode": "Edit" },
         { "name": "CompanyType", "Mode": "Edit" },

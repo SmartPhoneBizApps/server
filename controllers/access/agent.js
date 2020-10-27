@@ -1,9 +1,5 @@
-const ErrorResponse = require("../../utils/errorResponse");
 const asyncHandler = require("../../middleware/async");
 const Agent = require("../../models/access/Agent");
-const Role = require("../../models/appSetup/Role");
-const User = require("../../models/access/User");
-const sendEmail = require("../../utils/sendEmail");
 const { findOneAgent } = require("../../modules/config");
 // @desc      Get all agents
 // @route     GET /api/v1/auth/agents

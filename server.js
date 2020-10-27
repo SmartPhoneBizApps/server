@@ -155,6 +155,10 @@ app.use(
 );
 app.use("/api/v1/uploadFile/", require("./routes/utilities/fileuploadonly"));
 app.use(
+  "/api/v1/emailAttachment/",
+  require("./routes/utilities/emailAttachment")
+);
+app.use(
   "/api/v1/uploadHeaderItemFile/",
   require("./routes/smartApp/uploadHeaderItemFile")
 );

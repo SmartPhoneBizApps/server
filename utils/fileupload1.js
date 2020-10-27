@@ -8,7 +8,7 @@ const App = require("../models/appSetup/App");
 // @desc      Get all bootcamps
 // @route     GET /api/v1/bootcamps
 // @access    Public
-exports.uploadFile = asyncHandler(async (req, res, next) => {
+exports.uploadFile1 = asyncHandler(async (req, res, next) => {
   const header = req.files.header;
   const item = req.files.item;
   if (!req.files) {
