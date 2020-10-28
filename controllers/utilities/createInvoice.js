@@ -197,8 +197,7 @@ exports.createInvoice = asyncHandler(async (req, res, next) => {
 
   setTimeout(function () {
     // New Invoice document
-    console.log("New ID", result["body"]["data"]["ID"]);
-
+    console.log("Result of Invoice Create : ", result);
     // Set Process Flow for Source document..
     if (Out2["lowerNodes"] == undefined) {
       Out2["lowerNodes"] = [];

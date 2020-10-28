@@ -1177,11 +1177,12 @@ module.exports = {
       body: JSON.stringify(mydata),
     };
     console.log(processURL);
-    result = {};
-    result["success"] = false;
-    result["body"] = {};
-    result["error"] = {};
+
     request(options, (error, res, body) => {
+      result = {};
+      result["success"] = false;
+      result["body"] = {};
+      result["error"] = {};
       console.log("Divyesh", error);
       console.log("Divyesh", res.statusCode, app, method);
       var msg = "";
