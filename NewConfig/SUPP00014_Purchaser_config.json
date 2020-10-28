@@ -87,8 +87,6 @@
       "icon": "sap-icon://travel-request",
       "URL": "https://www.messenger.com/t/295020207695029"
     },
-
-    { "type": "ADD", "name": "Add Record", "icon": "sap-icon://add" },
     {
       "type": "GOOGLE-ADD",
       "name": "Google Search",
@@ -330,6 +328,14 @@
       "type": "Table"
     },
     {
+      "value": "Tab12",
+      "style": "SAP",
+      "update": "Yes",
+      "name": "Opening Hours",
+      "fioriicon": "time-account",
+      "type": "Field"
+    },
+    {
       "value": "Tab4",
       "style": "SAP",
       "update": "Yes",
@@ -375,7 +381,8 @@
     "Tab9": ["Identification"],
     "Tab4": ["Phone", "Language", "DateOfRegistration"],
     "Tab10": ["googlePhotos"],
-    "Tab11": ["googleReviews"]
+    "Tab11": ["googleReviews"],
+    "Tab12": ["opening_hours"]
   },
   "ControlDisplay": {},
   "tableConfig": {

@@ -111,7 +111,37 @@
     { "type": "ADD", "name": "Add Record", "icon": "sap-icon://add" },
     {
       "type": "GOOGLE-ADD",
-      "name": "Google Search",
+      "name": "Google HCP",
+      "icon": "sap-icon://download-from-cloud",
+      "keywordsTooltip": "Eg- Doctor, Hospital",
+      "searchType": [
+        "dentist",
+        "doctor",
+        "drugstore",
+        "hospital",
+        "pharmacy",
+        "physiotherapist",
+        "university",
+        "veterinary_care"
+      ],
+      "fieldMapping": {
+        "formatted_address": "Address",
+        "types": "businessTypes",
+        "icon": "USP_Image",
+        "international_phone_number": "ContactNo",
+        "name": "InstitutionName",
+        "rating": "googleRating",
+        "place_id": "ReferenceID",
+        "url": "GoogleProfile",
+        "website": "WebSiteURL",
+        "photos": "googlePhotos",
+        "reviews": "googleReviews",
+        "opening_hours": "opening_hours"
+      }
+    },
+    {
+      "type": "GOOGLE-ADD",
+      "name": "Google HCO",
       "icon": "sap-icon://download-from-cloud",
       "keywordsTooltip": "Eg- Doctor, Hospital",
       "searchType": [
@@ -283,6 +313,14 @@
       "type": "Table"
     },
     {
+      "value": "Tab12",
+      "style": "SAP",
+      "update": "Yes",
+      "name": "Opening Hours",
+      "fioriicon": "time-account",
+      "type": "Field"
+    },
+    {
       "value": "Tab5",
       "style": "SAP",
       "update": "Yes",
@@ -341,7 +379,8 @@
     "Tab5": ["carouselImage"],
     "Tab6": ["PostCode", "Address"],
     "Tab10": ["googlePhotos"],
-    "Tab11": ["googleReviews"]
+    "Tab11": ["googleReviews"],
+    "Tab12": ["opening_hours"]
   },
   "listCards": [
     {
