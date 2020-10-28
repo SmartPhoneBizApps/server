@@ -137,7 +137,7 @@ exports.createInvoice = asyncHandler(async (req, res, next) => {
 
   out1["upperNodes"] = [];
   uNode = {};
-  uNode["fromID"] = Appdata["ID"];
+  uNode["id"] = Appdata["ID"];
   uNode["fromApp"] = req.params.fromApp;
   uNode["lane"] = pflow_upper["fieldMap"]["lane"];
   uNode["title"] = pflow_upper["fieldMap"]["title"].replace(
@@ -149,6 +149,8 @@ exports.createInvoice = asyncHandler(async (req, res, next) => {
   uNode["stateText"] = pflow_upper["fieldMap"]["stateText"];
   uNode["focused"] = pflow_upper["fieldMap"]["focused"];
   uNode["highlighted"] = pflow_upper["fieldMap"]["highlighted"];
+  uNode["texts"] = ["Text1", "Text2"];
+
   uNode["children"] = [];
   out1["upperNodes"].push({ ...uNode });
   out1["lowerNodes"] = [];
@@ -220,7 +222,7 @@ exports.createInvoice = asyncHandler(async (req, res, next) => {
     Out2["selfNode"].push({ ...sNode });
     sNode = {};
     lNode = {};
-    lNode["toID"] = result["body"]["data"]["ID"];
+    lNode["id"] = result["body"]["data"]["ID"];
     lNode["toApp"] = req.params.toApp;
     lNode["lane"] = pflow_lower["fieldMap"]["lane"];
     lNode["title"] = pflow_lower["fieldMap"]["title"].replace(
@@ -232,6 +234,7 @@ exports.createInvoice = asyncHandler(async (req, res, next) => {
     lNode["stateText"] = pflow_lower["fieldMap"]["stateText"];
     lNode["focused"] = pflow_lower["fieldMap"]["focused"];
     lNode["highlighted"] = pflow_lower["fieldMap"]["highlighted"];
+    lNode["texts"] = ["Text1", "Text2"];
     Out2["lowerNodes"].push({ ...lNode });
     lNode = {};
 

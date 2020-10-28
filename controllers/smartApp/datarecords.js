@@ -396,7 +396,7 @@ exports.addDataRecords = asyncHandler(async (req, res, next) => {
     console.log("ProcessFlow", configFile["Controls"]["processflow"]);
     pflow_self = configFile["Controls"]["processflow"]["config"];
     sNode = {};
-    sNode["fromID"] = mydata["ID"];
+    sNode["id"] = mydata["ID"];
     sNode["fromApp"] = mydata["applicationId"];
     sNode["lane"] = pflow_self["fieldMap"]["lane"];
     sNode["title"] = pflow_self["fieldMap"]["title"].replace(
@@ -408,6 +408,7 @@ exports.addDataRecords = asyncHandler(async (req, res, next) => {
     sNode["stateText"] = pflow_self["fieldMap"]["stateText"];
     sNode["focused"] = pflow_self["fieldMap"]["focused"];
     sNode["highlighted"] = pflow_self["fieldMap"]["highlighted"];
+    sNode["texts"] = ["Text1", "Text2"];
     sNode["children"] = [];
     mydata["selfNode"].push({ ...sNode });
     sNode = {};
