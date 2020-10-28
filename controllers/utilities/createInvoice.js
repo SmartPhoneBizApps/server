@@ -256,7 +256,7 @@ exports.createInvoice = asyncHandler(async (req, res, next) => {
       subject: sub,
       message,
     });
-    if (result.success == false) {
+    if (result["success"] == false) {
       res.status(401).json({
         success: false,
         message: "Record creation failed",
