@@ -138,6 +138,7 @@ exports.createInvoice = asyncHandler(async (req, res, next) => {
   uNode["stateText"] = pflow_upper["fieldMap"]["stateText"];
   uNode["focused"] = pflow_upper["fieldMap"]["focused"];
   uNode["highlighted"] = pflow_upper["fieldMap"]["highlighted"];
+  uNode["children"] = [];
   out1["upperNodes"].push({ ...uNode });
   out1["lowerNodes"] = [];
   uNode = {};

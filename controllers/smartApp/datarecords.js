@@ -391,8 +391,9 @@ exports.addDataRecords = asyncHandler(async (req, res, next) => {
   }
   console.log("CREATE - Validation ends..");
   // Process Flow
-  mydata["selfNode"] = []
-  if(configFile["Controls"]["processflow"] != undefined){
+  mydata["selfNode"] = [];
+  if (configFile["Controls"]["processflow"] != undefined) {
+    console.log("ProcessFlow", configFile["Controls"]["processflow"]);
     pflow_self = configFile["Controls"]["processflow"]["config"];
     sNode = {};
     sNode["fromID"] = mydata["ID"];
@@ -407,11 +408,10 @@ exports.addDataRecords = asyncHandler(async (req, res, next) => {
     sNode["stateText"] = pflow_self["fieldMap"]["stateText"];
     sNode["focused"] = pflow_self["fieldMap"]["focused"];
     sNode["highlighted"] = pflow_self["fieldMap"]["highlighted"];
+    sNode["children"] = [];
     mydata["selfNode"].push({ ...sNode });
-    sNode = {}
+    sNode = {};
   }
-
-
 
   // X99 - Create Record [mongoDB].....
   let result = {};
