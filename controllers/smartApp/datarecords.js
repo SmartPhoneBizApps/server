@@ -462,6 +462,7 @@ exports.updateDataRecords = asyncHandler(async (req, res, next) => {
   let userInputs = { ...req.body };
   // 01 - Check if applicationid is provided
   if (!req.headers.applicationid) {
+    console.log("Please provide App ID(Header)", req.headers.applicationid);
     return next(new ErrorResponse(`Please provide App ID(Header)`, 400));
   }
 

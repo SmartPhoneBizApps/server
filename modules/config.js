@@ -1153,6 +1153,16 @@ module.exports = {
     mode,
     numberRange
   ) {
+    console.log(
+      "KeyData : ",
+      app,
+      role,
+      method,
+      buttonType,
+      buttonName,
+      mode,
+      numberRange
+    );
     result = {};
     var request = require("request");
     processURL = process.env.APPURL + "api/v1/datarecords/";
@@ -1190,7 +1200,6 @@ module.exports = {
         result["success"] = true;
         result["body"] = JSON.parse(body);
         result["error"] = {};
-        console.log("Hello Helo");
         console.log("Success", app, method, result["body"]["data"]["ID"]);
         return result;
       } else {
