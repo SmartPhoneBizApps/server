@@ -30,6 +30,8 @@ exports.createInvoice = asyncHandler(async (req, res, next) => {
   // Read Config File
   configData = getNewConfig(req.params.toApp, req.params.targetRole);
   configFrom = getNewConfig(req.params.fromApp, req.params.sourceRole);
+  pflow_upper = configFrom["Controls"]["processflow"]["config"];
+  pflow_lower = configData["Controls"]["processflow"]["config"];
 
   // Find User
   userX = await User.findOne({ email: req.params.user });
@@ -121,6 +123,23 @@ exports.createInvoice = asyncHandler(async (req, res, next) => {
     req.params.fromApp,
     req.params.toApp
   );
+  console.log(pflow_upper["fieldMap"]);
+  out1["upperNodes"] = [];
+  uNode = {};
+  uNode["fromID"] = Appdata["ID"];
+  uNode["fromApp"] = req.params.fromApp;
+  uNode["lane"] = pflow_upper["fieldMap"]["lane"];
+  uNode["title"] = pflow_upper["fieldMap"]["title"].replace(
+    "@ID",
+    Appdata["ID"]
+  );
+  uNode["titleAbbreviation"] = pflow_upper["fieldMap"]["titleAbbreviation"];
+  uNode["state"] = pflow_upper["fieldMap"]["state"];
+  uNode["stateText"] = pflow_upper["fieldMap"]["stateText"];
+  uNode["focused"] = pflow_upper["fieldMap"]["focused"];
+  uNode["highlighted"] = pflow_upper["fieldMap"]["highlighted"];
+  out1["upperNodes"].push({ ...uNode });
+  uNode = {};
 
   // Create the new copied document...
   result = await createDocumentAPI(
@@ -185,6 +204,16 @@ exports.createInvoice = asyncHandler(async (req, res, next) => {
     lNode = {};
     lNode["toID"] = result["body"]["data"]["ID"];
     lNode["toApp"] = req.params.toApp;
+    lNode["lane"] = pflow_lower["fieldMap"]["lane"];
+    lNode["title"] = pflow_lower["fieldMap"]["title"].replace(
+      "@ID",
+      result["body"]["data"]["ID"]
+    );
+    lNode["titleAbbreviation"] = pflow_lower["fieldMap"]["titleAbbreviation"];
+    lNode["state"] = pflow_lower["fieldMap"]["state"];
+    lNode["stateText"] = pflow_lower["fieldMap"]["stateText"];
+    lNode["focused"] = pflow_lower["fieldMap"]["focused"];
+    lNode["highlighted"] = pflow_lower["fieldMap"]["highlighted"];
     Out2["lowerNodes"].push({ ...lNode });
     lNode = {};
 

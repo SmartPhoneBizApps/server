@@ -773,9 +773,6 @@ module.exports = {
     toApp
   ) {
     out1 = {};
-    out1["upperNodes"] = [];
-    fromID = Appdata["ID"];
-    toID = "";
     for (let i = 0; i < configData.FieldDef.length; i++) {
       const el1 = configData.FieldDef[i];
       for (const key in Appdata) {
@@ -788,13 +785,6 @@ module.exports = {
           } else {
             out1[key] = element;
           }
-          if (el1.name == "upperNodes") {
-            uNode = {};
-            uNode["fromID"] = fromID;
-            uNode["fromApp"] = fromApp;
-            out1["upperNodes"].push({ ...uNode });
-            uNode = {};
-          }
         }
       }
     }
@@ -804,6 +794,7 @@ module.exports = {
     out1["actionLog"] = [];
     out1["ProgressComment"] = [];
     out1["TransLog"] = [];
+    out1["lowerNodes"] = [];
 
     out1["ReferenceID"] = paramID;
     out1["appId"] = appID;
@@ -877,7 +868,9 @@ module.exports = {
       "ProgressComment",
       "upperNodes",
       "lowerNodes",
+      "opening_hours",
     ];
+    console.log("buttonType", buttonType);
     if (buttonType != undefined) {
       newLog["buttonType"] = buttonType;
     } else {
@@ -1166,9 +1159,9 @@ module.exports = {
     processURL = process.env.APPURL + "api/v1/datarecords/";
     var options = {
       method: method,
-      url: processURL,
+      // url: processURL,
       //  url: "https://fierce-oasis-51455.herokuapp.com/api/v1/datarecords/",
-      //  url: "http://localhost:5000/api/v1/datarecords/",
+      url: "http://localhost:5000/api/v1/datarecords/",
       headers: {
         applicationid: app,
         businessRole: role,

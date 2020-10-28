@@ -6,27 +6,25 @@
     "calculation": "Yes",
     "processflow": {
       "active": "Yes",
-      "config": [
-        {
-          "Stage": "currentDoc",
-          "ApplicationID": "HC0004",
-          "Table": "Header",
-          "id": "0",
-          "label": "Contract",
-          "fieldMap": {
-            "id": "@counter",
-            "lane": 0,
-            "title": "Contract @ID",
-            "titleAbbreviation": "Joint Working",
-            "children": [],
-            "state": "Positive",
-            "stateText": "OK status",
-            "focused": true,
-            "highlighted": false,
-            "texts": "Collaboration between HCP and pharma organisations on trials is essential to the development of new medicines"
-          }
+      "config": {
+        "Stage": "currentDoc",
+        "ApplicationID": "HC0004",
+        "Table": "Header",
+        "id": "0",
+        "label": "Contract",
+        "fieldMap": {
+          "id": "@counter",
+          "lane": 0,
+          "title": "Contract @ID",
+          "titleAbbreviation": "Joint Working",
+          "children": [],
+          "state": "Positive",
+          "stateText": "OK status",
+          "focused": true,
+          "highlighted": false,
+          "texts": "Collaboration between HCP and pharma organisations on trials is essential to the development of new medicines"
         }
-      ],
+      },
       "lanes": [
         {
           "id": "0",
