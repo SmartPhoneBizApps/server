@@ -51,6 +51,12 @@ exports.createInvoice = asyncHandler(async (req, res, next) => {
       Appdata = await findOneAppData(req.params.ID, req.params.fromApp);
     }
 
+    sNode = {};
+    // Get current processNode
+    if (Appdata["selfNode"] != undefined) {
+      sNode = Appdata["selfNode"][0];
+    }
+
     if (!Appdata) {
       res.status(400).json({
         success: true,
@@ -163,6 +169,7 @@ exports.createInvoice = asyncHandler(async (req, res, next) => {
   );
   // Update Master document...
   Out2 = {};
+  Out2["selfNode"] = [];
   Out2["ID"] = req.params.ID;
   if (configFrom["Controls"].hasOwnProperty("Source")) {
     if (configFrom["Controls"]["Source"].hasOwnProperty("sourceTableUpdate")) {
@@ -206,6 +213,10 @@ exports.createInvoice = asyncHandler(async (req, res, next) => {
     if (Out2["lowerNodes"] == undefined) {
       Out2["lowerNodes"] = [];
     }
+
+    sNode["children"].push(result["body"]["data"]["ID"]);
+    Out2["selfNode"].push({ ...sNode });
+    sNode = {};
     lNode = {};
     lNode["toID"] = result["body"]["data"]["ID"];
     lNode["toApp"] = req.params.toApp;
@@ -236,7 +247,7 @@ exports.createInvoice = asyncHandler(async (req, res, next) => {
       "FieldUpdate",
       "External"
     );
-  }, 3000);
+  }, 5000);
 
   let message = "";
   message =
