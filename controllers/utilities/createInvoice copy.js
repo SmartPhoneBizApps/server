@@ -23,20 +23,30 @@ exports.createInvoice = asyncHandler(async (req, res, next) => {
   console.log("To Role", req.params.targetRole);
   console.log("User Email", req.params.user);
 
-  out1 = {};
-  Appdata = {};
-  let results1 = [];
-
   // Read Config File
   configData = getNewConfig(req.params.toApp, req.params.targetRole);
   configFrom = getNewConfig(req.params.fromApp, req.params.sourceRole);
 
-  // Find User
+  // Validate inputs..
   userX = await User.findOne({ email: req.params.user });
-  // Find App
+  if (!userX) {
+    res.status(400).json({
+      success: true,
+      message: "EmailID is not setup as user, document can't be assigned",
+    });
+  }
   appX = await App.findOne({ applicationID: req.params.fromApp });
+  if (!appX) {
+    res.status(400).json({
+      success: true,
+      message: "1st applicationID is incorrect",
+    });
+  }
 
-  // If Data Source is mongoDB
+  out1 = {};
+  Appdata = {};
+  let results1 = [];
+
   if (configFrom["Controls"]["Source"]["SourceName"] == "mongoDB") {
     // Search Document from Ref Number or ID
     if (configFrom["Controls"]["Source"]["documentKey"] == "ReferenceID") {
@@ -51,6 +61,7 @@ exports.createInvoice = asyncHandler(async (req, res, next) => {
         message: "Record not found",
       });
     }
+
     // Assign mapping values...
     for (let x = 0; x < Appdata.length; x++) {
       if (Appdata[x]["id"] == req.params.ID) {
@@ -64,7 +75,6 @@ exports.createInvoice = asyncHandler(async (req, res, next) => {
       }
     }
   }
-  // If Data Source is JSON
   if (configFrom["Controls"]["Source"]["SourceName"] == "jsonData") {
     let fn = "../.." + configFrom["Controls"]["Source"]["SourceFile"];
     results1 = require(fn);
@@ -87,7 +97,8 @@ exports.createInvoice = asyncHandler(async (req, res, next) => {
       }
     }
   }
-  // Assign Fixed values...(Both mongoDB / JSON)
+
+  // Assign Fixed values...
   x2 = configFrom["Controls"]["Source"]["FixedValues"];
   if (x2 != undefined) {
     for (let y = 0; y < x2.length; y++) {
@@ -98,7 +109,8 @@ exports.createInvoice = asyncHandler(async (req, res, next) => {
       }
     }
   }
-  // Assign MasterData values...(Both mongoDB / JSON)
+
+  // Assign MasterData values...
   if (configFrom["Controls"]["Source"].hasOwnProperty("MasterData")) {
     m1 = configFrom["Controls"]["Source"]["MasterData"];
     if (m1 != undefined) {
@@ -111,7 +123,6 @@ exports.createInvoice = asyncHandler(async (req, res, next) => {
     }
   }
 
-  // Create a copy of record
   out1 = getNewCopyRecord(
     configData,
     Appdata,
@@ -136,9 +147,15 @@ exports.createInvoice = asyncHandler(async (req, res, next) => {
     "Create",
     "External"
   );
+
+  setTimeout(function () {}, 1200);
+
+  console.log("AG-001", result);
+
   // Update Master document...
   Out2 = {};
   Out2["ID"] = req.params.ID;
+
   if (configFrom["Controls"].hasOwnProperty("Source")) {
     if (configFrom["Controls"]["Source"].hasOwnProperty("sourceTableUpdate")) {
       if (configFrom["Controls"]["Source"]["sourceTableUpdate"].length > 0) {
@@ -174,35 +191,29 @@ exports.createInvoice = asyncHandler(async (req, res, next) => {
     }
   }
 
-  setTimeout(function () {
-    // New Invoice document
-    console.log("New ID", result["body"]["data"]["ID"]);
+  if (Out2["lowerNodes"] == undefined) {
+    Out2["lowerNodes"] = [];
+  }
+  lNode = {};
+  lNode["toID"] = result["ID"];
+  lNode["toApp"] = req.params.toApp;
+  Out2["lowerNodes"].push({ ...lNode });
+  lNode = {};
 
-    // Set Process Flow for Source document..
-    if (Out2["lowerNodes"] == undefined) {
-      Out2["lowerNodes"] = [];
-    }
-    lNode = {};
-    lNode["toID"] = result["body"]["data"]["ID"];
-    lNode["toApp"] = req.params.toApp;
-    Out2["lowerNodes"].push({ ...lNode });
-    lNode = {};
-
-    // Update the existing Record ...
-    result2 = createDocumentAPI(
-      req.params.fromApp,
-      req.params.targetRole,
-      "Yes",
-      "Messenger",
-      Out2,
-      req.headers.authorization,
-      "PUT",
-      "UPDATE",
-      "Update with Reference",
-      "FieldUpdate",
-      "External"
-    );
-  }, 3000);
+  // Update the existing Record ...
+  result2 = await createDocumentAPI(
+    req.params.fromApp,
+    req.params.targetRole,
+    "Yes",
+    "Messenger",
+    Out2,
+    req.headers.authorization,
+    "PUT",
+    "UPDATE",
+    "Update with Reference",
+    "FieldUpdate",
+    "External"
+  );
 
   let message = "";
   message =

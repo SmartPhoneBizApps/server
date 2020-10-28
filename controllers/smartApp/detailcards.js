@@ -87,11 +87,12 @@ exports.getDetailCardsNew = async (req, res, next) => {
   let nod = {};
   let nods = [];
   let nodFields = [];
+
   if (appconfig["Controls"].hasOwnProperty("processflow")) {
     if (appconfig["Controls"]["processflow"]["active"] == "Yes") {
       console.log("04 -  Process Flow");
-      //let pf = "../../NewConfig/processflow.json";
-      //      pflow = require(pf);
+
+      // Populate Lanes...
       pflow["lanes"] = appconfig["Controls"]["processflow"]["lanes"];
       nodFields = appconfig["Controls"]["processflow"]["config"];
 

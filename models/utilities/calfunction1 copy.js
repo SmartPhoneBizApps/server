@@ -737,7 +737,7 @@ class calFun {
         }
       });
     }
-    console.log("FinalData", outdata);
+    //  console.log("FinalData", outdata);
     return outdata;
   }
   headercalculation(outdata, config, fieldDef) {

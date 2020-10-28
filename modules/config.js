@@ -801,6 +801,10 @@ module.exports = {
     if (configData.Controls.Partner == "@user") {
       out1["Partner"] = userX.email;
     }
+    out1["actionLog"] = [];
+    out1["ProgressComment"] = [];
+    out1["TransLog"] = [];
+
     out1["ReferenceID"] = paramID;
     out1["appId"] = appID;
     out1["user"] = userX.id;
@@ -1156,9 +1160,10 @@ module.exports = {
     mode,
     numberRange
   ) {
+    result = {};
+    console.log("Divyesh", app, method);
     var request = require("request");
     processURL = process.env.APPURL + "api/v1/datarecords/";
-    console.log("processURL", processURL);
     var options = {
       method: method,
       url: processURL,
@@ -1171,6 +1176,7 @@ module.exports = {
         mode: mode,
         buttonType: buttonType,
         calculation: calculation,
+        //  numberRange: "External",
         numberRange: numberRange,
         "Content-Type": "application/json",
         notification: notify,
@@ -1178,11 +1184,26 @@ module.exports = {
       },
       body: JSON.stringify(mydata),
     };
-    request(options, function (error, response) {
-      if (error) throw new Error(error);
+    request(options, (error, res, body) => {
+      console.log("Divyesh", error);
+      console.log("Divyesh", res.statusCode, app, method);
+      var msg = "";
+      if (res.statusCode == 200) {
+        result["success"] = true;
+        result["body"] = JSON.parse(body);
+        result["error"] = {};
+        console.log("Hello Helo");
+        console.log("Success", app, method, result["body"]["data"]["ID"]);
+        return result;
+      } else {
+        console.log("Error", error);
+        result["success"] = false;
+        result["body"] = {};
+        result["error"] = error;
+        console.log("Error", result);
+        return result;
+      }
     });
-    //   console.log(response)
-    return mydata;
   },
   gerCardData: function (app, q1) {
     let path = "../models/smartApp/" + app;

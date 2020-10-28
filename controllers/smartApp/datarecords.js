@@ -437,7 +437,6 @@ exports.addDataRecords = asyncHandler(async (req, res, next) => {
 // -----------------------------------------------------
 // -----------------------------------------------------
 exports.updateDataRecords = asyncHandler(async (req, res, next) => {
-  //  console.log(req.body);
   let userInputs = { ...req.body };
   // 01 - Check if applicationid is provided
   if (!req.headers.applicationid) {
@@ -649,6 +648,7 @@ exports.updateDataRecords = asyncHandler(async (req, res, next) => {
   if (!myData) {
     return next(new ErrorResponse(`Record with ${req.body.ID} Not found`, 400));
   }
+
   // X7 - Update T-Log
   myData.TransLog.unshift(req.body.TransLog);
   req.body.TransLog = myData.TransLog;
@@ -684,7 +684,12 @@ exports.updateDataRecords = asyncHandler(async (req, res, next) => {
       }
     }
   }
-
+  //Process Flow
+  if (req.body.lowerNodes != undefined) {
+    console.log(req.body.lowerNodes, myData.lowerNodes);
+    myData.lowerNodes.push(req.body.lowerNodes[0]);
+    req.body.lowerNodes = myData.lowerNodes;
+  }
   // X8 - Update Table Data
   let tblFields = tableFields(cardConfig.FieldDef);
   for (const kk in req.body) {
@@ -695,7 +700,7 @@ exports.updateDataRecords = asyncHandler(async (req, res, next) => {
       myData[kk] = tableValidate(req.body[kk], myData[kk]);
       req.body[kk] = myData[kk];
     } else {
-      console.log("NoTable", kk);
+      //     console.log("NoTable", kk);
       myData[kk] = req.body[kk];
     }
   }

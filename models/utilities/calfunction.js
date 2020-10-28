@@ -329,7 +329,7 @@ class calFun {
         if (config["Sequence"].hasOwnProperty(arrayData["fieldName"])) {
           var selectedFieldArray = config["Sequence"][arrayData["fieldName"]];
           // Condition code start - Added by Atul
-          console.log(selectedFieldArray[i]);
+          //  console.log(selectedFieldArray[i]);
           if (selectedFieldArray[i] != undefined) {
             if (selectedFieldArray[i].hasOwnProperty("condition")) {
               var condition = selectedFieldArray[i]["condition"];
@@ -568,7 +568,7 @@ class calFun {
     return outdata;
   }
   tablecalculation(outdata, config, tabname, fieldDef) {
-    console.log("Divyesh here", outdata);
+    //    console.log("Divyesh here", outdata);
     if (outdata[tabname] != undefined) {
       if (outdata[tabname].length > 0) {
         if (config["Item"].length > 0) {
@@ -713,7 +713,7 @@ class calFun {
                   parseFloat(outdata[configItem["CalculatedFormula"]["value"]])
                 );
               }
-              console.log(fieldObj);
+              //       console.log(fieldObj);
             }
           } else {
             fieldObj.push("");
@@ -727,7 +727,7 @@ class calFun {
 
           // var fun = configItem["CalculatedFormula"]["function"]; // get function name
           console.log("Function name -- " + fun);
-          console.log(fieldObj);
+          //   console.log(fieldObj);
           if (typeof this[fun] !== "undefined") {
             console.log(this[fun](fieldObj));
             console.log(
@@ -739,22 +739,22 @@ class calFun {
               fieldObj
             ); // call function and assign value in header array
 
-            console.log(
-              "FinalData1",
-              configItem["CalculatedFormula"]["Target"],
-              outdata[configItem["CalculatedFormula"]["Target"]]
-            );
+            // console.log(
+            //   "FinalData1",
+            //   configItem["CalculatedFormula"]["Target"],
+            //   outdata[configItem["CalculatedFormula"]["Target"]]
+            // );
           } else {
             outdata[configItem["CalculatedFormula"]["Target"]] = "";
           }
         }
       });
     }
-    console.log("FinalData", outdata);
+    // console.log("FinalData", outdata);
     return outdata;
   }
   headercalculation(outdata, config, fieldDef) {
-    console.log(config);
+    //  console.log(config);
     if (config.hasOwnProperty("Header")) {
       if (config["Header"].length > 0) {
         // Check Header calculation is exist or not
@@ -765,7 +765,7 @@ class calFun {
             if (configItem["Fields"].length > 0) {
               var getFieldType = "";
               configItem["Fields"].forEach((field) => {
-                console.log(configItem["Fields"], outdata[field["Source"]]);
+                //    console.log(configItem["Fields"], outdata[field["Source"]]);
                 if (this.hasNull(field, 2)) {
                   getFieldType = this.fieldType(field["Source"], fieldDef); // get field type
                   console.log("getFieldType --->" + getFieldType);
