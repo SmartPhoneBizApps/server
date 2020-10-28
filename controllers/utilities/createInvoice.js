@@ -139,6 +139,7 @@ exports.createInvoice = asyncHandler(async (req, res, next) => {
   uNode["focused"] = pflow_upper["fieldMap"]["focused"];
   uNode["highlighted"] = pflow_upper["fieldMap"]["highlighted"];
   out1["upperNodes"].push({ ...uNode });
+  out1["lowerNodes"] = [];
   uNode = {};
 
   // Create the new copied document...
