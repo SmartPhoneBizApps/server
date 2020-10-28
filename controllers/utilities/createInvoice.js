@@ -55,6 +55,7 @@ exports.createInvoice = asyncHandler(async (req, res, next) => {
     // Get current processNode
     if (Appdata["selfNode"] != undefined) {
       sNode = Appdata["selfNode"][0];
+      console.log("sNode", sNode);
     }
 
     if (!Appdata) {
@@ -215,6 +216,7 @@ exports.createInvoice = asyncHandler(async (req, res, next) => {
     }
 
     sNode["children"].push(result["body"]["data"]["ID"]);
+    console.log("sNode", sNode["children"]);
     Out2["selfNode"].push({ ...sNode });
     sNode = {};
     lNode = {};
