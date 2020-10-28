@@ -123,7 +123,7 @@ exports.createInvoice = asyncHandler(async (req, res, next) => {
     req.params.fromApp,
     req.params.toApp
   );
-  console.log(pflow_upper["fieldMap"]);
+
   out1["upperNodes"] = [];
   uNode = {};
   uNode["fromID"] = Appdata["ID"];

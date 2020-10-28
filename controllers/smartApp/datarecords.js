@@ -57,7 +57,7 @@ exports.addDataRecords = asyncHandler(async (req, res, next) => {
   req.body.userEmail = req.user.email;
 
   // Read New Config File
-  var cardConfig = getNewConfig(
+  var configFile = getNewConfig(
     req.headers.applicationid,
     req.headers.businessrole
   );
@@ -80,12 +80,12 @@ exports.addDataRecords = asyncHandler(async (req, res, next) => {
     ival_out.push(ival);
   }
   // Set Partner field
-  if (cardConfig.Controls.hasOwnProperty("Partner")) {
-    if (cardConfig.Controls.Partner == "@user") {
+  if (configFile.Controls.hasOwnProperty("Partner")) {
+    if (configFile.Controls.Partner == "@user") {
       req.body.Partner = req.user.email;
     }
     if (
-      cardConfig.Controls.Partner == "@VendorEmail" &&
+      configFile.Controls.Partner == "@VendorEmail" &&
       req.body.VendorEmail != undefined
     ) {
       req.body.Partner = req.body.VendorEmail;
@@ -209,8 +209,8 @@ exports.addDataRecords = asyncHandler(async (req, res, next) => {
   }
   // add initial values if user as not provided it..
   for (let a = 0; a < ival_out.length; a++) {
-    for (let b = 0; b < cardConfig["FieldDef"].length; b++) {
-      if (cardConfig["FieldDef"][b]["name"] == ival_out[a]["Field"]) {
+    for (let b = 0; b < configFile["FieldDef"].length; b++) {
+      if (configFile["FieldDef"][b]["name"] == ival_out[a]["Field"]) {
         if (!req.body.hasOwnProperty(ival_out[a]["Field"])) {
           //       } else {
           req.body[ival_out[a]["Field"]] = ival_out[a]["Value"];
@@ -241,7 +241,7 @@ exports.addDataRecords = asyncHandler(async (req, res, next) => {
     mydata.areaName = req.body.areaName;
     mydata.TransLog = req.body.TransLog;
     for (const key in req.body) {
-      cardConfig["FieldDef"].forEach((element1) => {
+      configFile["FieldDef"].forEach((element1) => {
         if (req.body.hasOwnProperty(key) & (element1["SLabel"] == key)) {
           mydata[element1["name"]] = req.body[key];
         }
@@ -250,7 +250,7 @@ exports.addDataRecords = asyncHandler(async (req, res, next) => {
   }
   req.body = mydata;
   // Find Exception fields
-  myFieldArray = collectExceptionFields(cardConfig.FieldDef);
+  myFieldArray = collectExceptionFields(configFile.FieldDef);
 
   for (const key in req.body) {
     if (req.body.hasOwnProperty(key)) {
@@ -272,7 +272,7 @@ exports.addDataRecords = asyncHandler(async (req, res, next) => {
   req.body = await generateID(
     req.headers.buttonname,
     req.body,
-    cardConfig.MButtons,
+    configFile.MButtons,
     numberRange,
     req
   );
@@ -302,11 +302,11 @@ exports.addDataRecords = asyncHandler(async (req, res, next) => {
     req.headers.buttontype,
     req.headers.buttonname,
     userInputs,
-    cardConfig.FieldDef
+    configFile.FieldDef
   );
 
   /// X99 - Update Calculations.....
-  let tblFields = tableFields(cardConfig.FieldDef);
+  let tblFields = tableFields(configFile.FieldDef);
   if (tblFields.length > 0) {
     for (let l = 0; l < tblFields.length; l++) {
       if (req.headers.calculation == "Yes") {
@@ -314,9 +314,9 @@ exports.addDataRecords = asyncHandler(async (req, res, next) => {
         console.log("CREATE - Table calculation starts..");
         outdata = Handler["tablecalculation"](
           req.body,
-          cardConfig["CalculatedFields"],
+          configFile["CalculatedFields"],
           tblFields[l],
-          cardConfig["FieldDef"]
+          configFile["FieldDef"]
         );
         console.log("CREATE - Table calculation completed..");
         req.body = outdata;
@@ -329,8 +329,8 @@ exports.addDataRecords = asyncHandler(async (req, res, next) => {
       console.log("CREATE - Header calculation starts..");
       mydata = Handler["headercalculation"](
         mydata,
-        cardConfig["CalculatedFields"],
-        cardConfig["FieldDef"]
+        configFile["CalculatedFields"],
+        configFile["FieldDef"]
       );
       console.log("CREATE - Header calculation completed..");
     }
@@ -341,20 +341,20 @@ exports.addDataRecords = asyncHandler(async (req, res, next) => {
   var mydata1 = mydata;
   for (const obj in mydata1) {
     var Handler = new calfunction();
-    var type = Handler["fieldType"](obj, cardConfig["FieldDef"]);
+    var type = Handler["fieldType"](obj, configFile["FieldDef"]);
     if (type == "Array") {
       if (mydata[obj] != undefined) {
         for (var ii = 0; ii < mydata[obj].length; ii++) {
           var passArray = {};
           //added by atul - Start
-          if (cardConfig["tableConfig"][obj] != undefined) {
-            if (cardConfig["tableConfig"][obj].hasOwnProperty("Validations")) {
+          if (configFile["tableConfig"][obj] != undefined) {
+            if (configFile["tableConfig"][obj].hasOwnProperty("Validations")) {
               passArray["fieldName"] = obj;
               passArray["data"] = mydata;
               passArray["config"] =
-                cardConfig["tableConfig"][obj]["Validations"];
-              passArray["FieldDef"] = cardConfig["FieldDef"].concat(
-                cardConfig["tableConfig"][obj]["ItemFieldDefinition"]
+                configFile["tableConfig"][obj]["Validations"];
+              passArray["FieldDef"] = configFile["FieldDef"].concat(
+                configFile["tableConfig"][obj]["ItemFieldDefinition"]
               );
               passArray["itemCnt"] = ii;
               var sValidation = Handler["validation"](passArray);
@@ -375,8 +375,8 @@ exports.addDataRecords = asyncHandler(async (req, res, next) => {
       var passArray = {};
       passArray["fieldName"] = obj;
       passArray["data"] = mydata;
-      passArray["config"] = cardConfig["Validations"];
-      passArray["FieldDef"] = cardConfig["FieldDef"];
+      passArray["config"] = configFile["Validations"];
+      passArray["FieldDef"] = configFile["FieldDef"];
       passArray["itemCnt"] = "";
       var sValidation = Handler["validation"](passArray);
       mydata = sValidation["data"];
@@ -391,7 +391,27 @@ exports.addDataRecords = asyncHandler(async (req, res, next) => {
   }
   console.log("CREATE - Validation ends..");
   // Process Flow
-  // mydata
+  mydata["selfNode"] = []
+  if(configFile["Controls"]["processflow"] != undefined){
+    pflow_self = configFile["Controls"]["processflow"]["config"];
+    sNode = {};
+    sNode["fromID"] = mydata["ID"];
+    sNode["fromApp"] = mydata["applicationId"];
+    sNode["lane"] = pflow_self["fieldMap"]["lane"];
+    sNode["title"] = pflow_self["fieldMap"]["title"].replace(
+      "@ID",
+      mydata["ID"]
+    );
+    sNode["titleAbbreviation"] = pflow_self["fieldMap"]["titleAbbreviation"];
+    sNode["state"] = pflow_self["fieldMap"]["state"];
+    sNode["stateText"] = pflow_self["fieldMap"]["stateText"];
+    sNode["focused"] = pflow_self["fieldMap"]["focused"];
+    sNode["highlighted"] = pflow_self["fieldMap"]["highlighted"];
+    mydata["selfNode"].push({ ...sNode });
+    sNode = {}
+  }
+
+
 
   // X99 - Create Record [mongoDB].....
   let result = {};
@@ -402,7 +422,7 @@ exports.addDataRecords = asyncHandler(async (req, res, next) => {
   var Notification;
   var msg =
     "SUCCESS: " +
-    cardConfig["Title"]["ApplicationTitle"] +
+    configFile["Title"]["ApplicationTitle"] +
     " is created with ID: " +
     result["ID"] +
     ", by User: " +
@@ -461,13 +481,13 @@ exports.updateDataRecords = asyncHandler(async (req, res, next) => {
   }
 
   // 03 - Read New Config File
-  var cardConfig = getNewConfig(
+  var configFile = getNewConfig(
     req.headers.applicationid,
     req.headers.businessrole
   );
 
   // 04 - Find Exception fields
-  myFieldArray = collectExceptionFields(cardConfig.FieldDef);
+  myFieldArray = collectExceptionFields(configFile.FieldDef);
 
   // 05 - Get and validate - Company Details
   const CompanyDetails = await Company.findById(req.user.company);
@@ -609,8 +629,8 @@ exports.updateDataRecords = asyncHandler(async (req, res, next) => {
 
     // X4 - Add initial values / user defaults in the body if user as not provided it..
     for (let a = 0; a < ival_out.length; a++) {
-      for (let b = 0; b < cardConfig["FieldDef"].length; b++) {
-        if (cardConfig["FieldDef"][b]["name"] == ival_out[a]["Field"]) {
+      for (let b = 0; b < configFile["FieldDef"].length; b++) {
+        if (configFile["FieldDef"][b]["name"] == ival_out[a]["Field"]) {
           if (!req.body.hasOwnProperty(ival_out[a]["Field"])) {
             //    } else {
             req.body[ival_out[a]["Field"]] = ival_out[a]["Value"];
@@ -661,7 +681,7 @@ exports.updateDataRecords = asyncHandler(async (req, res, next) => {
     req.headers.buttontype,
     req.headers.buttonname,
     userInputs,
-    cardConfig.FieldDef
+    configFile.FieldDef
   );
   req.body.actionLog = myData.actionLog;
 
@@ -693,7 +713,7 @@ exports.updateDataRecords = asyncHandler(async (req, res, next) => {
     req.body.lowerNodes = myData.lowerNodes;
   }
   // X8 - Update Table Data
-  let tblFields = tableFields(cardConfig.FieldDef);
+  let tblFields = tableFields(configFile.FieldDef);
   for (const kk in req.body) {
     let tableField = false;
     tableField = tblFields.includes(kk);
@@ -714,9 +734,9 @@ exports.updateDataRecords = asyncHandler(async (req, res, next) => {
         var Handler = new calfunction();
         outdata = Handler["tablecalculation"](
           myData,
-          cardConfig["CalculatedFields"],
+          configFile["CalculatedFields"],
           tblFields[l],
-          cardConfig["FieldDef"]
+          configFile["FieldDef"]
         );
         console.log("UPDATE - Table Calculation Ends..", tblFields[l]);
         req.body = outdata;
@@ -732,8 +752,8 @@ exports.updateDataRecords = asyncHandler(async (req, res, next) => {
       console.log("UPDATE - Header Calculation Starts..");
       outdata = Handler["headercalculation"](
         req.body,
-        cardConfig["CalculatedFields"],
-        cardConfig["FieldDef"]
+        configFile["CalculatedFields"],
+        configFile["FieldDef"]
       );
       console.log("UPDATE - Header Calculation Ends..");
       req.body = outdata;
@@ -745,18 +765,18 @@ exports.updateDataRecords = asyncHandler(async (req, res, next) => {
   var mydata1 = req.body;
   for (const obj in mydata1) {
     var Handler = new calfunction();
-    var type = Handler["fieldType"](obj, cardConfig["FieldDef"]);
+    var type = Handler["fieldType"](obj, configFile["FieldDef"]);
     if (type == "Array") {
       if (req.body[obj] != undefined) {
         for (var ii = 0; ii < req.body[obj].length; ii++) {
           var passArray = {};
           //added by atul - Start
-          if (cardConfig["tableConfig"][obj].hasOwnProperty("Validations")) {
+          if (configFile["tableConfig"][obj].hasOwnProperty("Validations")) {
             passArray["fieldName"] = obj;
             passArray["data"] = req.body;
-            passArray["config"] = cardConfig["tableConfig"][obj]["Validations"];
-            passArray["FieldDef"] = cardConfig["FieldDef"].concat(
-              cardConfig["tableConfig"][obj]["ItemFieldDefinition"]
+            passArray["config"] = configFile["tableConfig"][obj]["Validations"];
+            passArray["FieldDef"] = configFile["FieldDef"].concat(
+              configFile["tableConfig"][obj]["ItemFieldDefinition"]
             );
             passArray["itemCnt"] = ii;
             var sValidation = Handler["validation"](passArray);
@@ -776,8 +796,8 @@ exports.updateDataRecords = asyncHandler(async (req, res, next) => {
       var passArray = {};
       passArray["fieldName"] = obj;
       passArray["data"] = req.body;
-      passArray["config"] = cardConfig["Validations"];
-      passArray["FieldDef"] = cardConfig["FieldDef"];
+      passArray["config"] = configFile["Validations"];
+      passArray["FieldDef"] = configFile["FieldDef"];
       passArray["itemCnt"] = "";
       var sValidation = Handler["validation"](passArray);
       req.body = sValidation["data"];
@@ -803,7 +823,7 @@ exports.updateDataRecords = asyncHandler(async (req, res, next) => {
   var Notification;
   var msg =
     "SUCCESS: " +
-    cardConfig["Title"]["ApplicationTitle"] +
+    configFile["Title"]["ApplicationTitle"] +
     " is updated for ID: " +
     result["ID"] +
     ", by User: " +
