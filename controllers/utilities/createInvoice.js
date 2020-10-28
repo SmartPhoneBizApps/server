@@ -252,40 +252,23 @@ exports.createInvoice = asyncHandler(async (req, res, next) => {
 
   let sub = "";
   sub = "New Learning on " + Appdata.Group;
-
   try {
     await sendEmail({
       email: req.params.user,
       subject: sub,
       message,
     });
-    if (result["success"] == false) {
-      res.status(401).json({
-        success: false,
-        message: "Record creation failed",
-        result: result,
-      });
-    } else {
-      res.status(200).json({
-        success: true,
-        message: "Record assigned to the user & Email sent",
-        result: result,
-      });
-    }
+    res.status(200).json({
+      success: true,
+      message: "Email sent",
+      result: result,
+    });
   } catch (err) {
     console.log(err);
-    if (result.success == false) {
-      res.status(401).json({
-        success: false,
-        message: "Record creation failed",
-        result: result,
-      });
-    } else {
-      res.status(402).json({
-        success: false,
-        message: "Record assigned to the user but Email could not be sent",
-        result: result,
-      });
-    }
+    res.status(401).json({
+      success: false,
+      message: "Email Can't be sent",
+      result: result,
+    });
   }
 });
