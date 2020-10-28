@@ -23,6 +23,10 @@ exports.createInvoice = asyncHandler(async (req, res, next) => {
   console.log("To Role", req.params.targetRole);
   console.log("User Email", req.params.user);
 
+  fromApp = req.params.fromApp;
+  targetRole = req.params.targetRole;
+  authorization = req.headers.authorization;
+
   out1 = {};
   Appdata = {};
   let results1 = [];
@@ -220,12 +224,12 @@ exports.createInvoice = asyncHandler(async (req, res, next) => {
 
     // Update the existing Record ...
     result2 = createDocumentAPI(
-      req.params.fromApp,
-      req.params.targetRole,
+      fromApp,
+      targetRole,
       "Yes",
       "Messenger",
       Out2,
-      req.headers.authorization,
+      authorization,
       "PUT",
       "UPDATE",
       "Update with Reference",
