@@ -216,11 +216,6 @@ exports.createInvoice = asyncHandler(async (req, res, next) => {
     if (Out2["lowerNodes"] == undefined) {
       Out2["lowerNodes"] = [];
     }
-
-    sNode["children"].push(result["body"]["data"]["ID"]);
-    console.log("sNode", sNode["children"]);
-    Out2["selfNode"].push({ ...sNode });
-    sNode = {};
     lNode = {};
     lNode["id"] = result["body"]["data"]["ID"];
     lNode["toApp"] = req.params.toApp;
