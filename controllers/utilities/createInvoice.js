@@ -51,13 +51,6 @@ exports.createInvoice = asyncHandler(async (req, res, next) => {
       Appdata = await findOneAppData(req.params.ID, req.params.fromApp);
     }
 
-    // sNode = {};
-    // // Get current processNode
-    // if (Appdata["selfNode"] != undefined) {
-    //   sNode = Appdata["selfNode"][0];
-    //   console.log("sNode", sNode);
-    // }
-
     if (!Appdata) {
       res.status(400).json({
         success: true,
@@ -172,7 +165,6 @@ exports.createInvoice = asyncHandler(async (req, res, next) => {
   );
   // Update Master document...
   Out2 = {};
-  Out2["selfNode"] = [];
   Out2["ID"] = req.params.ID;
   if (configFrom["Controls"].hasOwnProperty("Source")) {
     if (configFrom["Controls"]["Source"].hasOwnProperty("sourceTableUpdate")) {
