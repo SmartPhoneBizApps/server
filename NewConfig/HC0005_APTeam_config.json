@@ -24,7 +24,8 @@
           "stateText": "OK status",
           "focused": false,
           "highlighted": false,
-          "texts": "Collaboration between HCP and pharma organisations on trials is essential to the development of new medicines"
+          "text1": "HCP/HCO Invoices",
+          "text2": "Clild Document"
         }
       },
       "lanes": [
@@ -53,6 +54,53 @@
           "position": 3
         }
       ],
+      "attributes": {
+        "pageId": "InvoiceID",
+        "header": "Invoices",
+        "icon": "./test-resources/sap/suite/ui/commons/demokit/sample/ProcessFlowImageContent/images/John_Li.png",
+        "title": "Type: @InvoiceType",
+        "description": "@ID",
+        "groups": [
+          {
+            "heading": "HCP Invoices",
+            "elements": [
+              {
+                "label": "Invoice Value",
+                "value": "@InvoiceValue",
+                "url": null,
+                "elementType": "text",
+                "emailSubject": null
+              },
+              {
+                "label": "Invoice Date",
+                "value": "@InvoiceDate",
+                "url": null,
+                "elementType": "date",
+                "emailSubject": null
+              }
+            ]
+          },
+          {
+            "heading": "Pharma Comapny",
+            "elements": [
+              {
+                "label": "PharmaContact",
+                "value": "@PharmaContact",
+                "url": null,
+                "elementType": "text",
+                "emailSubject": null
+              },
+              {
+                "label": "Pharma Contact Email",
+                "value": "@PharmaContactEmail",
+                "url": null,
+                "elementType": "email",
+                "emailSubject": null
+              }
+            ]
+          }
+        ]
+      },
       "node": {
         "fields": [
           "id",

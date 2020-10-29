@@ -22,7 +22,8 @@
           "stateText": "OK status",
           "focused": true,
           "highlighted": false,
-          "texts": "Collaboration between HCP and pharma organisations on trials is essential to the development of new medicines"
+          "text1": "Clinical Trials or Study",
+          "text2": "Reference Document"
         }
       },
 
@@ -52,6 +53,121 @@
           "position": 3
         }
       ],
+      "attributes": {
+        "pageId": "studyID",
+        "header": "Study and Trials",
+        "icon": "./test-resources/sap/suite/ui/commons/demokit/sample/ProcessFlowImageContent/images/John_Li.png",
+        "title": "Type: @StudyType",
+        "description": "@ID",
+        "groups": [
+          {
+            "heading": "Study and Trial",
+            "elements": [
+              {
+                "label": "Study ID",
+                "value": "@StudyID",
+                "url": null,
+                "elementType": "text",
+                "emailSubject": null
+              },
+              {
+                "label": "Phase",
+                "value": "@Phase",
+                "url": null,
+                "elementType": "text",
+                "emailSubject": null
+              },
+              {
+                "label": "StudyLink",
+                "value": "StudyLink",
+                "url": "@StudyLink",
+                "elementType": "link",
+                "emailSubject": null
+              },
+              {
+                "label": "Study Start Date",
+                "value": "@StudyStartDate",
+                "url": null,
+                "elementType": "date",
+                "emailSubject": null
+              }
+            ]
+          },
+          {
+            "heading": "HCP / HCO",
+            "elements": [
+              {
+                "label": "Institution Name",
+                "value": "@InstitutionName",
+                "url": null,
+                "elementType": "text",
+                "emailSubject": null
+              },
+              {
+                "label": "Title",
+                "value": "@Title",
+                "url": null,
+                "elementType": "text",
+                "emailSubject": null
+              },
+              {
+                "label": "FirstName",
+                "value": "@FirstName",
+                "url": null,
+                "elementType": "text",
+                "emailSubject": null
+              },
+              {
+                "label": "LastName",
+                "value": "@LastName",
+                "url": null,
+                "elementType": "text",
+                "emailSubject": null
+              },
+              {
+                "label": "Speciality",
+                "value": "@Speciality",
+                "url": null,
+                "elementType": "text",
+                "emailSubject": null
+              },
+              {
+                "label": "Email",
+                "value": "@Email",
+                "url": null,
+                "elementType": "email",
+                "emailSubject": null
+              },
+              {
+                "label": "Address",
+                "value": "@Address",
+                "url": null,
+                "elementType": "text",
+                "emailSubject": null
+              }
+            ]
+          },
+          {
+            "heading": "Pharma Comapny",
+            "elements": [
+              {
+                "label": "PharmaContact",
+                "value": "@PharmaContact",
+                "url": null,
+                "elementType": "text",
+                "emailSubject": null
+              },
+              {
+                "label": "Pharma Contact Email",
+                "value": "@PharmaContactEmail",
+                "url": null,
+                "elementType": "email",
+                "emailSubject": null
+              }
+            ]
+          }
+        ]
+      },
       "node": {
         "fields": [
           "id",

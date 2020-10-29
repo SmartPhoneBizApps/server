@@ -409,7 +409,9 @@ exports.addDataRecords = asyncHandler(async (req, res, next) => {
     sNode["stateText"] = pflow_self["fieldMap"]["stateText"];
     sNode["focused"] = pflow_self["fieldMap"]["focused"];
     sNode["highlighted"] = pflow_self["fieldMap"]["highlighted"];
-    sNode["texts"] = ["Text1", "Text2"];
+    sNode["texts"] = [];
+    sNode["texts"].push(pflow_self["fieldMap"]["text1"]);
+    sNode["texts"].push(pflow_self["fieldMap"]["text2"]);
     sNode["children"] = [];
     mydata["selfNode"].push({ ...sNode });
     sNode = {};

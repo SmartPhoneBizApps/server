@@ -22,7 +22,8 @@
           "stateText": "OK status",
           "focused": true,
           "highlighted": false,
-          "texts": "Collaboration between HCP and pharma organisations on trials is essential to the development of new medicines"
+          "text1": "Donations and Grants to HCOs",
+          "text2": "Reference Document"
         }
       },
       "lanes": [
@@ -51,6 +52,93 @@
           "position": 3
         }
       ],
+      "attributes": {
+        "pageId": "donationID",
+        "header": "Donation & Grants",
+        "icon": "./test-resources/sap/suite/ui/commons/demokit/sample/ProcessFlowImageContent/images/John_Li.png",
+        "title": "Type: @DonationType",
+        "description": "@ID",
+        "groups": [
+          {
+            "heading": "Donation and Grants",
+            "elements": [
+              {
+                "label": "Donation Ref",
+                "value": "@DonationRef",
+                "url": null,
+                "elementType": "text",
+                "emailSubject": null
+              },
+              {
+                "label": "Donation Type",
+                "value": "@DonationType",
+                "url": null,
+                "elementType": "text",
+                "emailSubject": null
+              },
+              {
+                "label": "DonationLink",
+                "value": "DonationLink",
+                "url": "@DonationLink",
+                "elementType": "link",
+                "emailSubject": null
+              },
+              {
+                "label": "Donation Date",
+                "value": "@DonationDate",
+                "url": null,
+                "elementType": "date",
+                "emailSubject": null
+              }
+            ]
+          },
+          {
+            "heading": "Company",
+            "elements": [
+              {
+                "label": "Institution Name",
+                "value": "@InstitutionName",
+                "url": null,
+                "elementType": "text",
+                "emailSubject": null
+              },
+              {
+                "label": "Email",
+                "value": "@Email",
+                "url": null,
+                "elementType": "email",
+                "emailSubject": null
+              },
+              {
+                "label": "Address",
+                "value": "@Address",
+                "url": null,
+                "elementType": "text",
+                "emailSubject": null
+              }
+            ]
+          },
+          {
+            "heading": "Pharma Comapny",
+            "elements": [
+              {
+                "label": "PharmaContact",
+                "value": "@PharmaContact",
+                "url": null,
+                "elementType": "text",
+                "emailSubject": null
+              },
+              {
+                "label": "Pharma Contact Email",
+                "value": "@PharmaContactEmail",
+                "url": null,
+                "elementType": "email",
+                "emailSubject": null
+              }
+            ]
+          }
+        ]
+      },
       "node": {
         "fields": [
           "id",

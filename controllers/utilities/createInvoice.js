@@ -142,8 +142,9 @@ exports.createInvoice = asyncHandler(async (req, res, next) => {
   uNode["stateText"] = pflow_upper["fieldMap"]["stateText"];
   uNode["focused"] = pflow_upper["fieldMap"]["focused"];
   uNode["highlighted"] = pflow_upper["fieldMap"]["highlighted"];
-  uNode["texts"] = ["Text1", "Text2"];
-
+  uNode["texts"] = [];
+  uNode["texts"].push(pflow_upper["fieldMap"]["text1"]);
+  uNode["texts"].push(pflow_upper["fieldMap"]["text2"]);
   uNode["children"] = [];
   out1["upperNodes"].push({ ...uNode });
   out1["lowerNodes"] = [];
@@ -221,7 +222,9 @@ exports.createInvoice = asyncHandler(async (req, res, next) => {
     lNode["stateText"] = pflow_lower["fieldMap"]["stateText"];
     lNode["focused"] = pflow_lower["fieldMap"]["focused"];
     lNode["highlighted"] = pflow_lower["fieldMap"]["highlighted"];
-    lNode["texts"] = ["Text1", "Text2"];
+    lNode["texts"] = [];
+    lNode["texts"].push(pflow_lower["fieldMap"]["text1"]);
+    lNode["texts"].push(pflow_lower["fieldMap"]["text2"]);
     Out2["lowerNodes"].push({ ...lNode });
     lNode = {};
 
