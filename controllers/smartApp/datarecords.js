@@ -412,6 +412,20 @@ exports.addDataRecords = asyncHandler(async (req, res, next) => {
     sNode["texts"] = [];
     sNode["texts"].push(pflow_self["fieldMap"]["text1"]);
     sNode["texts"].push(pflow_self["fieldMap"]["text2"]);
+
+    var qView = JSON.stringify(
+      configFile["Controls"]["processflow"]["attributes"]
+    );
+    for (let j = 0; j < configFile["FieldDef"].length; j++) {
+      repString = "@" + configFile["FieldDef"][j]["name"];
+      console.log(repString);
+      qView = qView.replace(
+        repString,
+        mydata[configFile["FieldDef"][j]["name"]]
+      );
+    }
+    sNode["quickView"] = JSON.parse(qView);
+
     sNode["children"] = [];
     mydata["selfNode"].push({ ...sNode });
     sNode = {};
