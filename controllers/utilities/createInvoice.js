@@ -145,6 +145,7 @@ exports.createInvoice = asyncHandler(async (req, res, next) => {
   uNode["texts"] = [];
   uNode["texts"].push(pflow_upper["fieldMap"]["text1"]);
   uNode["texts"].push(pflow_upper["fieldMap"]["text2"]);
+  uNode["quickView"] = pflow_upper["fieldMap"]["quickView"];
   uNode["children"] = [];
   out1["upperNodes"].push({ ...uNode });
   out1["lowerNodes"] = [];
@@ -225,6 +226,7 @@ exports.createInvoice = asyncHandler(async (req, res, next) => {
     lNode["texts"] = [];
     lNode["texts"].push(pflow_lower["fieldMap"]["text1"]);
     lNode["texts"].push(pflow_lower["fieldMap"]["text2"]);
+    lNode["quickView"] = pflow_lower["fieldMap"]["quickView"];
     Out2["lowerNodes"].push({ ...lNode });
     lNode = {};
 
