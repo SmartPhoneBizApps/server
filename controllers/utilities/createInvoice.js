@@ -51,12 +51,12 @@ exports.createInvoice = asyncHandler(async (req, res, next) => {
       Appdata = await findOneAppData(req.params.ID, req.params.fromApp);
     }
 
-    sNode = {};
-    // Get current processNode
-    if (Appdata["selfNode"] != undefined) {
-      sNode = Appdata["selfNode"][0];
-      console.log("sNode", sNode);
-    }
+    // sNode = {};
+    // // Get current processNode
+    // if (Appdata["selfNode"] != undefined) {
+    //   sNode = Appdata["selfNode"][0];
+    //   console.log("sNode", sNode);
+    // }
 
     if (!Appdata) {
       res.status(400).json({
