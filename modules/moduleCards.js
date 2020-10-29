@@ -826,7 +826,7 @@ module.exports = {
                   aCard["sap.card"]["content"]["actions"][m]["type"] ==
                   "Action.Submit"
                 ) {
-                  console.log("table", mode);
+                  console.log("table(FC - adaptiveNew)", mode);
                   aCard["sap.card"]["content"]["actions"][m]["table"] = mode;
                 }
               }
