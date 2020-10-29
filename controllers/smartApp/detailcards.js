@@ -99,6 +99,13 @@ exports.getDetailCardsNew = async (req, res, next) => {
         // Add Nodes..
         for (let k = 0; k < appData["upperNodes"].length; k++) {
           nod = appData["upperNodes"][k];
+          if (nod["children"] != undefined) {
+            nod["children"].push(appData["ID"]);
+          } else {
+            nod["children"] = [];
+            nod["children"].push(appData["ID"]);
+          }
+
           if (nod != undefined) {
             nod["quickView"] = {
               pageId: "employeePageId",
