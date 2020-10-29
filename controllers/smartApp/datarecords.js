@@ -393,6 +393,7 @@ exports.addDataRecords = asyncHandler(async (req, res, next) => {
   // Process Flow
   mydata["selfNode"] = [];
   if (configFile["Controls"]["processflow"] != undefined) {
+    console.log("NewCreate with Process Flow");
     console.log("ProcessFlow", configFile["Controls"]["processflow"]);
     pflow_self = configFile["Controls"]["processflow"]["config"];
     sNode = {};
