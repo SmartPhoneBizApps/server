@@ -130,7 +130,7 @@ exports.createInvoice = asyncHandler(async (req, res, next) => {
 
   out1["upperNodes"] = [];
   uNode = {};
-  uNode = Appdata["selfNode"];
+  uNode = Appdata["selfNode"][0];
   // uNode["texts"] = [];
   // uNode["id"] = Appdata["ID"];
   // uNode["fromApp"] = req.params.fromApp;
@@ -212,33 +212,35 @@ exports.createInvoice = asyncHandler(async (req, res, next) => {
       Out2["lowerNodes"] = [];
     }
     lNode = {};
-    lNode["id"] = result["body"]["data"]["ID"];
-    lNode["toApp"] = req.params.toApp;
-    lNode["lane"] = pflow_lower["fieldMap"]["lane"];
-    lNode["title"] = pflow_lower["fieldMap"]["title"].replace(
-      "@ID",
-      result["body"]["data"]["ID"]
-    );
-    lNode["titleAbbreviation"] = pflow_lower["fieldMap"]["titleAbbreviation"];
-    lNode["state"] = pflow_lower["fieldMap"]["state"];
-    lNode["stateText"] = pflow_lower["fieldMap"]["stateText"];
-    lNode["focused"] = pflow_lower["fieldMap"]["focused"];
-    lNode["highlighted"] = pflow_lower["fieldMap"]["highlighted"];
     lNode["texts"] = [];
-    lNode["texts"].push(pflow_lower["fieldMap"]["text1"]);
-    lNode["texts"].push(pflow_lower["fieldMap"]["text2"]);
+    lNode = result["body"]["data"]["selfNode"][0];
 
-    var qView = JSON.stringify(pflow_lower["attributes"]);
-    for (let j = 0; j < configFrom["FieldDef"].length; j++) {
-      repString = "@" + configFrom["FieldDef"][j]["name"];
-      console.log(repString);
-      qView = qView.replace(
-        repString,
-        Appdata[configFrom["FieldDef"][j]["name"]]
-      );
-    }
-    lNode["quickView"] = JSON.parse(qView);
-    console.log(lNode["quickView"]);
+    // lNode["id"] = result["body"]["data"]["ID"];
+    // lNode["toApp"] = req.params.toApp;
+    // lNode["lane"] = pflow_lower["fieldMap"]["lane"];
+    // lNode["title"] = pflow_lower["fieldMap"]["title"].replace(
+    //   "@ID",
+    //   result["body"]["data"]["ID"]
+    // );
+    // lNode["titleAbbreviation"] = pflow_lower["fieldMap"]["titleAbbreviation"];
+    // lNode["state"] = pflow_lower["fieldMap"]["state"];
+    // lNode["stateText"] = pflow_lower["fieldMap"]["stateText"];
+    // lNode["focused"] = pflow_lower["fieldMap"]["focused"];
+    // lNode["highlighted"] = pflow_lower["fieldMap"]["highlighted"];
+    // lNode["texts"].push(pflow_lower["fieldMap"]["text1"]);
+    // lNode["texts"].push(pflow_lower["fieldMap"]["text2"]);
+
+    // var qView = JSON.stringify(pflow_lower["attributes"]);
+    // for (let j = 0; j < configFrom["FieldDef"].length; j++) {
+    //   repString = "@" + configFrom["FieldDef"][j]["name"];
+    //   console.log(repString);
+    //   qView = qView.replace(
+    //     repString,
+    //     Appdata[configFrom["FieldDef"][j]["name"]]
+    //   );
+    // }
+    // lNode["quickView"] = JSON.parse(qView);
+    // console.log(lNode["quickView"]);
     Out2["lowerNodes"].push({ ...lNode });
     lNode = {};
 
