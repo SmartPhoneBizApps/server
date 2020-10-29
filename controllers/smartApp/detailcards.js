@@ -228,12 +228,16 @@ exports.getDetailCardsNew = async (req, res, next) => {
           }
           nod = {};
         }
+
         nod = appData["selfNode"][0];
-        nod["children"] = [];
-        for (let k = 0; k < appData["lowerNodes"].length; k++) {
+        if (nod != undefined) {
           nod["children"] = [];
-          nod["children"].push(appData["lowerNodes"]["id"]);
+          for (let k = 0; k < appData["lowerNodes"].length; k++) {
+            nod["children"] = [];
+            nod["children"].push(appData["lowerNodes"]["id"]);
+          }
         }
+
         if (nod != undefined) {
           nod["quickView"] = {
             pageId: "employeePageId",
