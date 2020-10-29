@@ -228,13 +228,14 @@ exports.getDetailCardsNew = async (req, res, next) => {
           }
           nod = {};
         }
+        nod = {};
 
         nod = appData["selfNode"][0];
+        console.log("nod", nod);
         if (nod != undefined) {
           nod["children"] = [];
           for (let k = 0; k < appData["lowerNodes"].length; k++) {
-            nod["children"] = [];
-            nod["children"].push(appData["lowerNodes"]["id"]);
+            nod["children"].push(appData["lowerNodes"][k]["id"]);
           }
         }
 
