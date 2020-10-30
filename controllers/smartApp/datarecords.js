@@ -959,22 +959,49 @@ exports.updateDataRecords = asyncHandler(async (req, res, next) => {
               }
             }
           }
-          chk["Type"] = X1[0];
-          chk["ItemStatus"] = X1[1];
-          chk["Number"] = X1[2];
-          chk["Message"] = X1[3];
-          chk["checkDate"] = new Date();
-          chk["checkStage"] = "Document Update";
-          chk["buttonType"] = req.headers.buttontype;
-          chk["buttonName"] = req.headers.buttonname;
-          req.body["checks"].push({ ...chk });
-          chk = {};
-          X1 = [];
           break;
-
+        case "COUNT":
+          if (req.body[fieldName] == undefined) {
+            if (appRec[fieldName] == undefined) {
+              appRec[fieldName] = [];
+            } else {
+              if (appRec[fieldName].length == fieldValue) {
+                X1 = configFile["Checks"]["Header"][k]["trueMessage"].split(
+                  "-"
+                );
+              } else {
+                X1 = configFile["Checks"]["Header"][k]["falseMessage"].split(
+                  "-"
+                );
+              }
+            }
+          } else {
+            if (req.body[fieldName].length == fieldValue) {
+              X1 = configFile["Checks"]["Header"][k]["trueMessage"].split("-");
+            } else {
+              X1 = configFile["Checks"]["Header"][k]["falseMessage"].split("-");
+            }
+          }
+          break;
         default:
+          X1 =
+            "SETUP-FAIL-999-There is a Setup issue for (" +
+            configFile["Checks"]["Header"][k]["Operator"] +
+            ")";
+          X1 = X1.split("-");
           break;
       }
+      chk["Type"] = X1[0];
+      chk["ItemStatus"] = X1[1];
+      chk["Number"] = X1[2];
+      chk["Message"] = X1[3];
+      chk["checkDate"] = new Date();
+      chk["checkStage"] = "Document Update";
+      chk["buttonType"] = req.headers.buttontype;
+      chk["buttonName"] = req.headers.buttonname;
+      req.body["checks"].push({ ...chk });
+      chk = {};
+      X1 = [];
     }
   }
 

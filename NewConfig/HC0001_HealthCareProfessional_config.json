@@ -45,7 +45,7 @@
     "SubTitle": ["Title", "Status"],
     "Description": ["Email"]
   },
-    "PossibleValues": [
+  "PossibleValues": [
     "ItemStatus",
     "ItemStatus99",
     "Status",
@@ -1224,7 +1224,7 @@
         "Number",
         "Message",
         "checkDate",
-        "checkStage",        
+        "checkStage",
         "ItemStatus"
       ],
       "detailCharts": [],
@@ -1935,29 +1935,29 @@
     "Header": [
       {
         "Field": "Bank",
-        "Operator": "EQ",
-        "Value": [],
+        "Operator": "COUNT",
+        "Value": 0,
         "trueMessage": "REQUIRED-FAIL-001-Please add Bank details",
         "falseMessage": "REQUIRED-SUCCESS-001-Bank are Maintained"
       },
       {
         "Field": "BusinessUnits",
-        "Operator": "EQ",
-        "Value": [],
+        "Operator": "COUNT",
+        "Value": 0,
         "trueMessage": "REQUIRED-FAIL-002-Please add BusinessUnits(Pharma Business Unit)",
         "falseMessage": "REQUIRED-SUCCESS-002-BusinessUnits are Maintained"
       },
       {
         "Field": "ContactPerson",
-        "Operator": "EQ",
-        "Value": [],
+        "Operator": "COUNT",
+        "Value": 0,
         "trueMessage": "REQUIRED-FAIL-003-Please add Contact Persons(HCP Contact Person)",
         "falseMessage": "REQUIRED-SUCCESS-003-Contact Persons are Maintained"
       },
       {
         "Field": "Identification",
-        "Operator": "EQ",
-        "Value": [],
+        "Operator": "COUNT",
+        "Value": 0,
         "trueMessage": "REQUIRED-FAIL-004-Please add Identification(ERP, DUNNS number etc)",
         "falseMessage": "REQUIRED-SUCCESS-004-Identification is Maintained"
       },
@@ -1984,8 +1984,8 @@
       },
       {
         "Field": "MultiAttachments",
-        "Operator": "EQ",
-        "Value": [],
+        "Operator": "COUNT",
+        "Value": 0,
         "trueMessage": "OPTIONAL-INFORMATION-008-No Attachments are added",
         "falseMessage": "OPTIONAL-INFORMATION-008-Document contains attachments"
       }
