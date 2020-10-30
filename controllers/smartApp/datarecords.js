@@ -434,7 +434,7 @@ exports.addDataRecords = asyncHandler(async (req, res, next) => {
   // Perform Document Checks..
   mydata["checks"] = [];
   chk = {};
-  if(configFile["Checks"] != undefined){
+  if (configFile["Checks"] != undefined) {
     for (let k = 0; k < configFile["Checks"]["Header"].length; k++) {
       fieldName = configFile["Checks"]["Header"][k]["Field"];
       fieldValue = configFile["Checks"]["Header"][k]["Value"];
@@ -469,13 +469,12 @@ exports.addDataRecords = asyncHandler(async (req, res, next) => {
           mydata["checks"].push({ ...chk });
           chk = {};
           break;
-  
+
         default:
           break;
       }
     }
   }
-
 
   // X99 - Create Record [mongoDB].....
   let result = {};
@@ -898,19 +897,51 @@ exports.updateDataRecords = asyncHandler(async (req, res, next) => {
         case "EQ":
           console.log(fieldName, req.body[fieldName]);
           if (fieldValue == [] || fieldValue == "") {
-            if (
-              appRec[fieldName] == fieldValue ||
-              appRec[fieldName] == undefined
-            ) {
-              X1 = configFile["Checks"]["Header"][k]["trueMessage"].split("-");
+            if (req.body[fieldName] == undefined) {
+              if (
+                appRec[fieldName] == fieldValue ||
+                appRec[fieldName] == undefined
+              ) {
+                X1 = configFile["Checks"]["Header"][k]["trueMessage"].split(
+                  "-"
+                );
+              } else {
+                X1 = configFile["Checks"]["Header"][k]["falseMessage"].split(
+                  "-"
+                );
+              }
             } else {
-              X1 = configFile["Checks"]["Header"][k]["falseMessage"].split("-");
+              if (req.body[fieldName] == fieldValue) {
+                X1 = configFile["Checks"]["Header"][k]["trueMessage"].split(
+                  "-"
+                );
+              } else {
+                X1 = configFile["Checks"]["Header"][k]["falseMessage"].split(
+                  "-"
+                );
+              }
             }
           } else {
-            if (appRec[fieldName] == fieldValue) {
-              X1 = configFile["Checks"]["Header"][k]["trueMessage"].split("-");
+            if (req.body[fieldName] == undefined) {
+              if (appRec[fieldName] == fieldValue) {
+                X1 = configFile["Checks"]["Header"][k]["trueMessage"].split(
+                  "-"
+                );
+              } else {
+                X1 = configFile["Checks"]["Header"][k]["falseMessage"].split(
+                  "-"
+                );
+              }
             } else {
-              X1 = configFile["Checks"]["Header"][k]["falseMessage"].split("-");
+              if (req.body[fieldName] == fieldValue) {
+                X1 = configFile["Checks"]["Header"][k]["trueMessage"].split(
+                  "-"
+                );
+              } else {
+                X1 = configFile["Checks"]["Header"][k]["falseMessage"].split(
+                  "-"
+                );
+              }
             }
           }
           chk["Type"] = X1[0];

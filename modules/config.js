@@ -856,6 +856,7 @@ module.exports = {
     excludeList = [
       "TransLog",
       "actionLog",
+      "checks",
       "ID",
       "appId",
       "applicationId",
@@ -868,7 +869,11 @@ module.exports = {
       "ProgressComment",
       "upperNodes",
       "lowerNodes",
+      "selfNodes",
       "opening_hours",
+      "carouselImage",
+      "carouselImage_ocr",
+      "MultiAttachments",
     ];
     console.log("buttonType", buttonType);
     if (buttonType != undefined) {
