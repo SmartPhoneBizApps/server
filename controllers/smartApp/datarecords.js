@@ -479,7 +479,7 @@ exports.addDataRecords = asyncHandler(async (req, res, next) => {
           break;
       }
       chk["Type"] = X1[0];
-      chk["Class"] = X1[1];
+      chk["ItemStatus"] = X1[1];
       chk["Number"] = X1[2];
       chk["Message"] = X1[3];
       chk["checkDate"] = new Date();
@@ -960,7 +960,7 @@ exports.updateDataRecords = asyncHandler(async (req, res, next) => {
             }
           }
           chk["Type"] = X1[0];
-          chk["Class"] = X1[1];
+          chk["ItemStatus"] = X1[1];
           chk["Number"] = X1[2];
           chk["Message"] = X1[3];
           chk["checkDate"] = new Date();
