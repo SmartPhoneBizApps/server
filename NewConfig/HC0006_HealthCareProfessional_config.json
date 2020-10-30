@@ -186,7 +186,9 @@
       "PharmaContactEmail"
     ]
   },
-  "PossibleValues": [
+    "PossibleValues": [
+    "ItemStatus",
+    "ItemActive",
     "DonationType",
     "Status",
     "ItemActive",
@@ -1341,7 +1343,7 @@
           "SLabel": "Type"
         },
         {
-          "name": "Class",
+          "name": "ItemStatus",
           "type": "string",
           "width": "100",
           "Option": "Optional",
@@ -1400,11 +1402,11 @@
       ],
       "DisplayFields": [
         "Type",
-        "Class",
         "Number",
         "Message",
         "checkDate",
-        "checkStage"
+        "checkStage",        
+        "ItemStatus"
       ],
       "detailCharts": [],
       "cards": [],
@@ -1417,7 +1419,7 @@
       },
       "CreateFields": [
         "Type",
-        "Class",
+        "ItemStatus",
         "Number",
         "Message",
         "checkDate",
@@ -1427,7 +1429,7 @@
       ],
       "ItemDetails": [
         { "name": "Type" },
-        { "name": "Class" },
+        { "name": "ItemStatus" },
         { "name": "Number" },
         { "name": "Message" },
         { "name": "checkDate" },

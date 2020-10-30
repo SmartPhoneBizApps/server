@@ -33,7 +33,9 @@
     "SubTitle": ["StudentName"],
     "Description": ["PhoneNumber", "BirthDate"]
   },
-  "PossibleValues": ["A4", "A5", "Status"],
+    "PossibleValues": [
+    "ItemStatus",
+    "ItemActive","A4", "A5", "Status"],
   "MButtons": [
     {
       "type": "DOWNLOAD",
@@ -167,7 +169,7 @@
           "SLabel": "Type"
         },
         {
-          "name": "Class",
+          "name": "ItemStatus",
           "type": "string",
           "width": "100",
           "Option": "Optional",
@@ -226,11 +228,11 @@
       ],
       "DisplayFields": [
         "Type",
-        "Class",
         "Number",
         "Message",
         "checkDate",
-        "checkStage"
+        "checkStage",        
+        "ItemStatus"
       ],
       "detailCharts": [],
       "cards": [],
@@ -243,7 +245,7 @@
       },
       "CreateFields": [
         "Type",
-        "Class",
+        "ItemStatus",
         "Number",
         "Message",
         "checkDate",
@@ -253,7 +255,7 @@
       ],
       "ItemDetails": [
         { "name": "Type" },
-        { "name": "Class" },
+        { "name": "ItemStatus" },
         { "name": "Number" },
         { "name": "Message" },
         { "name": "checkDate" },

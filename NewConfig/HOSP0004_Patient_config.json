@@ -34,7 +34,9 @@
     "SubTitle": ["Status"],
     "Description": ["ID", "Email"]
   },
-  "PossibleValues": [
+    "PossibleValues": [
+    "ItemStatus",
+    "ItemActive",
     "Gender",
     "A2",
     "A3",
@@ -320,7 +322,7 @@
           "SLabel": "Type"
         },
         {
-          "name": "Class",
+          "name": "ItemStatus",
           "type": "string",
           "width": "100",
           "Option": "Optional",
@@ -379,11 +381,11 @@
       ],
       "DisplayFields": [
         "Type",
-        "Class",
         "Number",
         "Message",
         "checkDate",
-        "checkStage"
+        "checkStage",        
+        "ItemStatus"
       ],
       "detailCharts": [],
       "cards": [],
@@ -396,7 +398,7 @@
       },
       "CreateFields": [
         "Type",
-        "Class",
+        "ItemStatus",
         "Number",
         "Message",
         "checkDate",
@@ -406,7 +408,7 @@
       ],
       "ItemDetails": [
         { "name": "Type" },
-        { "name": "Class" },
+        { "name": "ItemStatus" },
         { "name": "Number" },
         { "name": "Message" },
         { "name": "checkDate" },

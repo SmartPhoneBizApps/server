@@ -33,7 +33,9 @@
     "SubTitle": [],
     "Description": []
   },
-  "PossibleValues": ["A1", "Country", "A2", "A3", "A4", "A5", "Status"],
+    "PossibleValues": [
+    "ItemStatus",
+    "ItemActive","A1", "Country", "A2", "A3", "A4", "A5", "Status"],
   "MButtons": [],
   "DButtons": [],
   "Tabs": [
@@ -144,7 +146,7 @@
           "SLabel": "Type"
         },
         {
-          "name": "Class",
+          "name": "ItemStatus",
           "type": "string",
           "width": "100",
           "Option": "Optional",
@@ -203,11 +205,11 @@
       ],
       "DisplayFields": [
         "Type",
-        "Class",
         "Number",
         "Message",
         "checkDate",
-        "checkStage"
+        "checkStage",        
+        "ItemStatus"
       ],
       "detailCharts": [],
       "cards": [],
@@ -220,7 +222,7 @@
       },
       "CreateFields": [
         "Type",
-        "Class",
+        "ItemStatus",
         "Number",
         "Message",
         "checkDate",
@@ -230,7 +232,7 @@
       ],
       "ItemDetails": [
         { "name": "Type" },
-        { "name": "Class" },
+        { "name": "ItemStatus" },
         { "name": "Number" },
         { "name": "Message" },
         { "name": "checkDate" },

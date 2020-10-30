@@ -458,21 +458,36 @@ exports.addDataRecords = asyncHandler(async (req, res, next) => {
               X1 = configFile["Checks"]["Header"][k]["falseMessage"].split("-");
             }
           }
-          chk["Type"] = X1[0];
-          chk["Class"] = X1[1];
-          chk["Number"] = X1[2];
-          chk["Message"] = X1[3];
-          chk["checkDate"] = new Date();
-          chk["checkStage"] = "Create Record";
-          chk["buttonType"] = req.headers.buttontype;
-          chk["buttonName"] = req.headers.buttonname;
-          mydata["checks"].push({ ...chk });
-          chk = {};
           break;
+        case "COUNT":
+          if (mydata[fieldName] == undefined) {
+            mydata[fieldName] = [];
+          }
+          if (mydata[fieldName].length == fieldValue) {
+            X1 = configFile["Checks"]["Header"][k]["trueMessage"].split("-");
+          } else {
+            X1 = configFile["Checks"]["Header"][k]["falseMessage"].split("-");
+          }
 
+          break;
         default:
+          X1 =
+            "SETUP-FAIL-999-There is a Setup issue for (" +
+            configFile["Checks"]["Header"][k]["Operator"] +
+            ")";
+          X1 = X1.split("-");
           break;
       }
+      chk["Type"] = X1[0];
+      chk["Class"] = X1[1];
+      chk["Number"] = X1[2];
+      chk["Message"] = X1[3];
+      chk["checkDate"] = new Date();
+      chk["checkStage"] = "Create Record";
+      chk["buttonType"] = req.headers.buttontype;
+      chk["buttonName"] = req.headers.buttonname;
+      mydata["checks"].push({ ...chk });
+      chk = {};
     }
   }
 
