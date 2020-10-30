@@ -466,6 +466,14 @@
       "fioriicon": "contacts"
     },
     {
+      "value": "Tab98",
+      "style": "SAP",
+      "update": "Yes",
+      "name": "checks",
+      "type": "Table",
+      "fioriicon": "workflow-tasks"
+    },
+    {
       "value": "Tab99",
       "style": "SAP",
       "update": "Yes",
@@ -481,6 +489,7 @@
     "headerColorFields": ["Status"],
     "Tab0": ["data"],
     "Tab20": ["charts"],
+    "Tab98": ["checks"],
     "Tab99": ["actionLog"],
     "None": ["ID"],
     "Tab1": [
@@ -1608,6 +1617,134 @@
         { "name": "InstitutionName" }
       ]
     },
+    "checks": {
+      "title": "Document Checks",
+      "subtitle": "Document Checks",
+      "ItemFieldDefinition": [
+        {
+          "name": "ItemNumber",
+          "type": "string",
+          "width": "10",
+          "Option": "Optional",
+          "adaptiveCard": "None",
+          "SLabel": "Item Number",
+          "Update": "No"
+        },
+        {
+          "name": "Type",
+          "type": "string",
+          "width": "50",
+          "Option": "Optional",
+          "adaptiveCard": "None",
+          "SLabel": "Type"
+        },
+        {
+          "name": "Class",
+          "type": "string",
+          "width": "100",
+          "Option": "Optional",
+          "adaptiveCard": "None",
+          "SLabel": "Class"
+        },
+        {
+          "name": "Number",
+          "type": "string",
+          "width": "100",
+          "Option": "Optional",
+          "adaptiveCard": "None",
+          "SLabel": "Number"
+        },
+
+        {
+          "name": "Message",
+          "type": "string",
+          "width": "500",
+          "Option": "Optional",
+          "adaptiveCard": "None",
+          "SLabel": "Message"
+        },
+        {
+          "name": "Value",
+          "type": "string",
+          "width": "500",
+          "Option": "Optional",
+          "adaptiveCard": "None",
+          "SLabel": "Value"
+        },
+        {
+          "name": "checkDate",
+          "type": "Date",
+          "width": "100",
+          "Option": "Optional",
+          "adaptiveCard": "None",
+          "SLabel": "checkDate"
+        },
+        {
+          "name": "buttonType",
+          "type": "string",
+          "width": "100",
+          "Option": "Optional",
+          "adaptiveCard": "Main",
+          "SLabel": "buttonType"
+        },
+        {
+          "name": "buttonName",
+          "type": "string",
+          "width": "100",
+          "Option": "Optional",
+          "adaptiveCard": "Main",
+          "SLabel": "buttonType"
+        },
+        {
+          "name": "checkStage",
+          "type": "DateTime",
+          "width": "20",
+          "Option": "Optional",
+          "adaptiveCard": "Additional",
+          "SLabel": "checkStage"
+        }
+      ],
+      "DisplayFields": [
+        "Type",
+        "Class",
+        "Number",
+        "Message",
+        "Value",
+        "checkDate",
+        "checkStage"
+      ],
+      "detailCharts": [],
+      "cards": [],
+      "ItemButtons": {
+        "itemDisplay": true,
+        "itemCheck": false,
+        "itemAdd": false,
+        "itemEdit": false,
+        "itemDelete": false
+      },
+      "CreateFields": [
+        "Type",
+        "Class",
+        "Number",
+        "Message",
+        "Value",
+        "checkDate",
+        "checkStage",
+        "buttonType",
+        "buttonName"
+      ],
+      "ItemDetails": [
+        { "name": "Type" },
+        { "name": "Class" },
+        { "name": "Number" },
+        { "name": "Message" },
+        { "name": "Value" },
+        { "name": "checkDate" },
+        { "name": "checkStage" },
+        { "name": "buttonType" },
+        { "name": "buttonName" }
+      ]
+    },
     "actionLog": {
       "title": "Action Log",
       "subtitle": "Action Log",
@@ -1798,6 +1935,15 @@
       "adaptiveCard": "None",
       "SLabel": "actionLog",
       "LLabel": "actionLog"
+    },
+    {
+      "name": "checks",
+      "type": "Array",
+      "width": "200",
+      "Option": "Optional",
+      "adaptiveCard": "None",
+      "SLabel": "checks",
+      "LLabel": "checks"
     },
     {
       "name": "ReferenceID",
@@ -2082,6 +2228,51 @@
     },
     "CreateFields": [],
     "ItemDetails": []
+  },
+  "Checks": {
+    "Header": [
+      {
+        "Field": "Services",
+        "Operator": "EQ",
+        "Value": [],
+        "failMessage": "REQUIRED-FAIL-001-Please add Services",
+        "successMessage": "REQUIRED-SUCCESS-001-Services are Maintained"
+      },
+      {
+        "Field": "myHCPHCO",
+        "Operator": "EQ",
+        "Value": [],
+        "failMessage": "REQUIRED-FAIL-002-Please add HCP/HCOs",
+        "successMessage": "REQUIRED-SUCCESS-002-HCP/HCOs are Maintained"
+      },
+      {
+        "Field": "PharmaContactEmail",
+        "Operator": "EQ",
+        "Value": "",
+        "failMessage": "REQUIRED-FAIL-002-Pharma contact email missing",
+        "successMessage": "REQUIRED-SUCCESS-002-Pharma contact email maintained"
+      },
+      {
+        "Field": "PharmaContact",
+        "Operator": "EQ",
+        "Value": "",
+        "failMessage": "REQUIRED-FAIL-002-Pharma contact missing",
+        "successMessage": "REQUIRED-SUCCESS-002-Pharma contact maintained"
+      },
+      {
+        "Field": "Status",
+        "Operator": "EQ",
+        "Value": "Draft",
+        "successMessage": "INFORMATION-SUCCESS-002-Status of Document is Draft"
+      },
+      {
+        "Field": "MultiAttachments",
+        "Operator": "EQ",
+        "Value": "NOT-NULL",
+        "failMessage": "INFORMATION-FAIL-002-No Attachments are added",
+        "successMessage": "INFORMATION-SUCCESS-002-Document contains attachments"
+      }
+    ]
   },
   "CalculatedFields": {
     "Item": [],

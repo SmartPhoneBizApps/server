@@ -95,6 +95,14 @@
     }
 ,
     {
+      "value": "Tab98",
+      "style": "SAP",
+      "update": "Yes",
+      "name": "checks",
+      "type": "Table",
+      "fioriicon": "workflow-tasks"
+    },
+    {
       "value": "Tab99",
       "style": "SAP",
       "update": "Yes",
@@ -110,6 +118,7 @@
     "headerColorFields": ["Status"],
     "Tab0": ["data"],
     "Tab20": ["charts"],
+        "Tab98": ["checks"],
     "Tab99": ["actionLog"],
     "None": ["ID", "RequestFor", "Status"],
     "Tab1": [
@@ -219,6 +228,15 @@
       "adaptiveCard": "None",
       "SLabel": "actionLog",
       "LLabel": "actionLog"
+    },
+    {
+      "name": "checks",
+      "type": "Array",
+      "width": "200",
+      "Option": "Optional",
+      "adaptiveCard": "None",
+      "SLabel": "checks",
+      "LLabel": "checks"
     },
     {
       "name": "ReferenceID",
