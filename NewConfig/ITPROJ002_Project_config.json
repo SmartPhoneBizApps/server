@@ -34,9 +34,7 @@
     "SubTitle": [],
     "Description": []
   },
-    "PossibleValues": [
-    "ItemStatus",
-    "ItemActive",],
+  "PossibleValues": ["ItemStatus", "ItemActive", "Status"],
   "MButtons": [
     {
       "type": "DOWNLOAD",
@@ -175,7 +173,7 @@
     "headerColorFields": ["Status"],
     "Tab0": ["data"],
     "Tab20": ["charts"],
-        "Tab98": ["checks"],
+    "Tab98": ["checks"],
     "Tab99": ["actionLog"],
     "None": ["ID"],
     "Tab1": [
@@ -199,7 +197,7 @@
   },
   "ControlDisplay": {},
   "tableConfig": {
-        "checks": {
+    "checks": {
       "title": "Document Checks",
       "subtitle": "Document Checks",
       "ItemFieldDefinition": [
@@ -283,7 +281,7 @@
         "Number",
         "Message",
         "checkDate",
-        "checkStage",        
+        "checkStage",
         "ItemStatus"
       ],
       "detailCharts": [],
