@@ -360,7 +360,7 @@
     "headerColorFields": ["Status"],
     "Tab0": ["data"],
     "Tab20": ["charts"],
-        "Tab98": ["checks"],
+    "Tab98": ["checks"],
     "Tab99": ["actionLog"],
     "None": ["ID", "Status"],
     "Tab1": [
@@ -1118,7 +1118,7 @@
         { "name": "time" }
       ]
     },
-        "checks": {
+    "checks": {
       "title": "Document Checks",
       "subtitle": "Document Checks",
       "ItemFieldDefinition": [
@@ -1165,14 +1165,6 @@
           "SLabel": "Message"
         },
         {
-          "name": "Value",
-          "type": "string",
-          "width": "500",
-          "Option": "Optional",
-          "adaptiveCard": "None",
-          "SLabel": "Value"
-        },
-        {
           "name": "checkDate",
           "type": "Date",
           "width": "100",
@@ -1210,7 +1202,6 @@
         "Class",
         "Number",
         "Message",
-        "Value",
         "checkDate",
         "checkStage"
       ],
@@ -1228,7 +1219,6 @@
         "Class",
         "Number",
         "Message",
-        "Value",
         "checkDate",
         "checkStage",
         "buttonType",
@@ -1239,7 +1229,6 @@
         { "name": "Class" },
         { "name": "Number" },
         { "name": "Message" },
-        { "name": "Value" },
         { "name": "checkDate" },
         { "name": "checkStage" },
         { "name": "buttonType" },
@@ -1976,6 +1965,66 @@
     },
     "CreateFields": [],
     "ItemDetails": []
+  },
+  "Checks": {
+    "Header": [
+      {
+        "Field": "Bank",
+        "Operator": "EQ",
+        "Value": [],
+        "trueMessage": "REQUIRED-FAIL-001-Please add Bank details",
+        "falseMessage": "REQUIRED-SUCCESS-001-Bank are Maintained"
+      },
+      {
+        "Field": "BusinessUnits",
+        "Operator": "EQ",
+        "Value": [],
+        "trueMessage": "REQUIRED-FAIL-002-Please add BusinessUnits(Pharma Business Unit)",
+        "falseMessage": "REQUIRED-SUCCESS-002-BusinessUnits are Maintained"
+      },
+      {
+        "Field": "ContactPerson",
+        "Operator": "EQ",
+        "Value": [],
+        "trueMessage": "REQUIRED-FAIL-003-Please add Contact Persons(HCP Contact Person)",
+        "falseMessage": "REQUIRED-SUCCESS-003-Contact Persons are Maintained"
+      },
+      {
+        "Field": "Identification",
+        "Operator": "EQ",
+        "Value": [],
+        "trueMessage": "REQUIRED-FAIL-004-Please add Identification(ERP, DUNNS number etc)",
+        "falseMessage": "REQUIRED-SUCCESS-004-Identification is Maintained"
+      },
+      {
+        "Field": "InstitutionName",
+        "Operator": "EQ",
+        "Value": "",
+        "trueMessage": "REQUIRED-FAIL-005-Institution Name missing",
+        "falseMessage": "REQUIRED-SUCCESS-005-Institution Name is maintained"
+      },
+      {
+        "Field": "Email",
+        "Operator": "EQ",
+        "Value": "",
+        "trueMessage": "REQUIRED-FAIL-006-HCP/HCP Email missing",
+        "falseMessage": "REQUIRED-SUCCESS-006-HCP/HCP Email is maintained"
+      },
+      {
+        "Field": "Status",
+        "Operator": "EQ",
+        "Value": "Draft",
+        "trueMessage": "OPTIONAL-INFORMATION-007-Status of Document is Draft",
+        "falseMessage": "OPTIONAL-INFORMATION-007-Document is not in Draft state"
+      },
+      {
+        "Field": "MultiAttachments",
+        "Operator": "EQ",
+        "Value": [],
+        "trueMessage": "OPTIONAL-INFORMATION-008-No Attachments are added",
+        "falseMessage": "OPTIONAL-INFORMATION-008-Document contains attachments"
+      }
+    ]
   },
   "CalculatedFields": {
     "Item": [],
