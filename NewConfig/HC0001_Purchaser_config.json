@@ -113,37 +113,7 @@
     { "type": "ADD", "name": "Add Record", "icon": "sap-icon://add" },
     {
       "type": "GOOGLE-ADD",
-      "name": "Google HCP",
-      "icon": "sap-icon://download-from-cloud",
-      "keywordsTooltip": "Eg- Doctor, Hospital",
-      "searchType": [
-        "dentist",
-        "doctor",
-        "drugstore",
-        "hospital",
-        "pharmacy",
-        "physiotherapist",
-        "university",
-        "veterinary_care"
-      ],
-      "fieldMapping": {
-        "formatted_address": "Address",
-        "types": "businessTypes",
-        "icon": "USP_Image",
-        "international_phone_number": "ContactNo",
-        "name": "InstitutionName",
-        "rating": "googleRating",
-        "place_id": "ReferenceID",
-        "url": "GoogleProfile",
-        "website": "WebSiteURL",
-        "photos": "googlePhotos",
-        "reviews": "googleReviews",
-        "opening_hours": "opening_hours"
-      }
-    },
-    {
-      "type": "GOOGLE-ADD",
-      "name": "Google HCO",
+      "name": "Google HCP / HCO",
       "icon": "sap-icon://download-from-cloud",
       "keywordsTooltip": "Eg- Doctor, Hospital",
       "searchType": [
@@ -1657,7 +1627,7 @@
       "name": "HCOType",
       "type": "string",
       "width": "20",
-      "Option": "Mandatory",
+      "Option": "Optional",
       "adaptiveCard": "Main",
       "SLabel": "HCO Type",
       "LLabel": "HCO Type"

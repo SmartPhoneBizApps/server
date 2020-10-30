@@ -16,19 +16,28 @@
     "Update": "Yes",
     "URL": "https://fierce-oasis-51455.herokuapp.com",
     "Source": { "SourceName": "mongoDB", "SourceFile": "NA" },
-    "filterScreen": false,
+    "filterScreen": true,
     "filterScFields": [
       "Status",
       "FirstName",
       "LastName",
+      "businessTypes",
       "Role",
       "Speciality",
       "InstitutionName",
       "ID",
-      "Email"
+      "Email",
+      "ContactNo",
+      "Address"
     ],
     "filterFields": {
-      "header": ["Status", "Role", "Speciality", "InstitutionName"]
+      "header": [
+        "Status",
+        "Role",
+        "Speciality",
+        "InstitutionName",
+        "googleRating"
+      ]
     }
   },
   "ListFields": {
@@ -37,7 +46,7 @@
     "sStatus": "Status",
     "fStatus": "Title",
     "numberField": "",
-    "LFields": ["ID", "Email", "SearchString"],
+    "LFields": ["ID", "Email", "SearchString", "googleRating"],
     "numberUnitField": ""
   },
   "ListBOTFields": {
@@ -71,6 +80,7 @@
         "LastName",
         "FirstName",
         "FullName",
+        "GoogleProfile",
         "Role",
         "Speciality",
         "ContactNo",
@@ -84,7 +94,8 @@
         "Disclosure",
         "BusinessUnits",
         "Bank",
-        "Identification"
+        "Identification",
+        "googleReviews"
       ]
     },
     {
@@ -209,6 +220,31 @@
       "fioriicon": "two-keys"
     },
     {
+      "value": "Tab10",
+      "style": "SAP",
+      "update": "Yes",
+      "name": "Google Images",
+      "fioriicon": "background",
+      "type": "googleImage",
+      "download": "Yes"
+    },
+    {
+      "value": "Tab11",
+      "style": "SAP",
+      "update": "Yes",
+      "name": "Google Reviews",
+      "fioriicon": "feedback",
+      "type": "Table"
+    },
+    {
+      "value": "Tab12",
+      "style": "SAP",
+      "update": "Yes",
+      "name": "Opening Hours",
+      "fioriicon": "time-account",
+      "type": "Field"
+    },
+    {
       "value": "Tab5",
       "style": "SAP",
       "update": "Yes",
@@ -264,7 +300,7 @@
       },
       {
         "GrpTitle": "Speciality",
-        "Fields": ["Role", "Speciality"]
+        "Fields": ["Role", "Speciality", "googleRating"]
       }
     ],
     "Tab2": ["MultiAttachments"],
@@ -274,7 +310,10 @@
     "Tab8": ["Bank"],
     "Tab9": ["Identification"],
     "Tab5": ["carouselImage"],
-    "Tab6": ["PostCode", "Address"]
+    "Tab6": ["PostCode", "Address"],
+    "Tab10": ["googlePhotos"],
+    "Tab11": ["googleReviews"],
+    "Tab12": ["opening_hours"]
   },
   "listCards": [
     {
@@ -327,6 +366,8 @@
             "BusinessUnits",
             "Bank",
             "Identification",
+            "googlePhotos",
+            "googleReviews",
             "opening_hours"
           ]
         },
@@ -895,6 +936,112 @@
         { "name": "ItemStatus99" }
       ]
     },
+    "googleReviews": {
+      "title": "google Reviews",
+      "subtitle": "google Reviews",
+      "ItemFieldDefinition": [
+        {
+          "name": "ItemNumber",
+          "type": "string",
+          "width": "10",
+          "Option": "Optional",
+          "adaptiveCard": "Additional",
+          "SLabel": "Item Number",
+          "Update": "No"
+        },
+        {
+          "name": "author_name",
+          "type": "string",
+          "width": "50",
+          "Option": "Optional",
+          "adaptiveCard": "Main",
+          "SLabel": "Author",
+          "Update": "Yes"
+        },
+        {
+          "name": "author_url",
+          "type": "hyperlink",
+          "width": "200",
+          "Option": "Optional",
+          "adaptiveCard": "None",
+          "SLabel": "Author URL"
+        },
+        {
+          "name": "language",
+          "type": "string",
+          "width": "100",
+          "Option": "Optional",
+          "adaptiveCard": "None",
+          "SLabel": "Language"
+        },
+        {
+          "name": "profile_photo_url",
+          "type": "image",
+          "width": "100",
+          "Option": "Optional",
+          "adaptiveCard": "None",
+          "SLabel": "Profile Image"
+        },
+        {
+          "name": "rating",
+          "type": "rating,5",
+          "width": "10",
+          "Option": "Optional",
+          "adaptiveCard": "Main",
+          "SLabel": "Rating"
+        },
+        {
+          "name": "text",
+          "type": "string",
+          "width": "200",
+          "Option": "Optional",
+          "adaptiveCard": "Main",
+          "SLabel": "Review Text"
+        },
+        {
+          "name": "time",
+          "type": "timestamp",
+          "width": "20",
+          "Option": "Optional",
+          "adaptiveCard": "Main",
+          "SLabel": "Date/Time"
+        }
+      ],
+      "DisplayFields": [
+        "profile_photo_url",
+        "author_name",
+        "rating",
+        "text",
+        "time"
+      ],
+      "detailCharts": [],
+      "cards": [],
+      "ItemButtons": {
+        "itemDisplay": true,
+        "itemCheck": false,
+        "itemAdd": false,
+        "itemEdit": false,
+        "itemDelete": false
+      },
+      "CreateFields": [
+        "profile_photo_url",
+        "author_name",
+        "author_url",
+        "language",
+        "rating",
+        "text",
+        "time"
+      ],
+      "ItemDetails": [
+        { "name": "profile_photo_url" },
+        { "name": "author_name" },
+        { "name": "author_url" },
+        { "name": "language" },
+        { "name": "rating" },
+        { "name": "text" },
+        { "name": "time" }
+      ]
+    },
     "checks": {
       "title": "Document Checks",
       "subtitle": "Document Checks",
@@ -1223,7 +1370,7 @@
       "name": "Title",
       "type": "string",
       "width": "50",
-      "Option": "Mandatory",
+      "Option": "Optional",
       "adaptiveCard": "Main",
       "SLabel": "Title",
       "LLabel": "Title"
@@ -1241,7 +1388,7 @@
       "name": "FirstName",
       "type": "string",
       "width": "50",
-      "Option": "Mandatory",
+      "Option": "Optional",
       "adaptiveCard": "Main",
       "SLabel": "First Name",
       "LLabel": "First Name"
@@ -1250,7 +1397,7 @@
       "name": "LastName",
       "type": "string",
       "width": "50",
-      "Option": "Mandatory",
+      "Option": "Optional",
       "adaptiveCard": "Main",
       "SLabel": "Last Name",
       "LLabel": "Last Name"
@@ -1405,7 +1552,7 @@
       "name": "Email",
       "type": "Email",
       "width": "50",
-      "Option": "Optional",
+      "Option": "Mandatory",
       "adaptiveCard": "Main",
       "SLabel": "Email Id",
       "LLabel": "Email Id"
@@ -1481,7 +1628,7 @@
       "name": "BankCountry",
       "type": "string",
       "width": "10",
-      "Option": "Mandatory",
+      "Option": "Optional",
       "adaptiveCard": "Main",
       "SLabel": "Bank Country"
     },
@@ -1489,7 +1636,7 @@
       "name": "AccountNumber",
       "type": "string",
       "width": "50",
-      "Option": "Mandatory",
+      "Option": "Optional",
       "adaptiveCard": "Main",
       "SLabel": "Account Number"
     },
@@ -1497,7 +1644,7 @@
       "name": "BankKey",
       "type": "Email",
       "width": "50",
-      "Option": "Mandatory",
+      "Option": "Optional",
       "adaptiveCard": "Main",
       "SLabel": "Bank Key"
     },
@@ -1538,7 +1685,7 @@
       "name": "idNumber",
       "type": "string",
       "width": "10",
-      "Option": "Mandatory",
+      "Option": "Optional",
       "adaptiveCard": "Main",
       "SLabel": "Identification"
     },
@@ -1546,7 +1693,7 @@
       "name": "validityDate",
       "type": "Date",
       "width": "10",
-      "Option": "Mandatory",
+      "Option": "Optional",
       "adaptiveCard": "Main",
       "SLabel": "Validity Date"
     },
@@ -1554,7 +1701,7 @@
       "name": "Comments",
       "type": "string",
       "width": "1000",
-      "Option": "Mandatory",
+      "Option": "Optional",
       "adaptiveCard": "Main",
       "SLabel": "Comments"
     },
@@ -1562,7 +1709,7 @@
       "name": "bID",
       "type": "string",
       "width": "50",
-      "Option": "Mandatory",
+      "Option": "Optional",
       "adaptiveCard": "Main",
       "SLabel": "BU ID"
     },
@@ -1570,7 +1717,7 @@
       "name": "bName",
       "type": "string",
       "width": "100",
-      "Option": "Mandatory",
+      "Option": "Optional",
       "adaptiveCard": "Main",
       "SLabel": "BU Name"
     },
@@ -1578,7 +1725,7 @@
       "name": "bEmail",
       "type": "Email",
       "width": "100",
-      "Option": "Mandatory",
+      "Option": "Optional",
       "adaptiveCard": "Main",
       "SLabel": "BU Email"
     },
@@ -1602,7 +1749,7 @@
       "name": "cTitle",
       "type": "string",
       "width": "50",
-      "Option": "Mandatory",
+      "Option": "Optional",
       "adaptiveCard": "Main",
       "SLabel": "Title"
     },
@@ -1610,7 +1757,7 @@
       "name": "cFirstName",
       "type": "string",
       "width": "100",
-      "Option": "Mandatory",
+      "Option": "Optional",
       "adaptiveCard": "Main",
       "SLabel": "FirstName"
     },
@@ -1618,7 +1765,7 @@
       "name": "cLastName",
       "type": "string",
       "width": "100",
-      "Option": "Mandatory",
+      "Option": "Optional",
       "adaptiveCard": "Main",
       "SLabel": "LastName"
     },
@@ -1634,7 +1781,7 @@
       "name": "cEmail",
       "type": "Email",
       "width": "100",
-      "Option": "Mandatory",
+      "Option": "Optional",
       "adaptiveCard": "Main",
       "SLabel": "Email"
     },
@@ -1661,6 +1808,63 @@
       "Option": "Optional",
       "adaptiveCard": "Additional",
       "SLabel": "InstitutionName"
+    },
+    {
+      "name": "GoogleProfile",
+      "type": "hyperlink",
+      "width": "200",
+      "Option": "Optional",
+      "adaptiveCard": "Additional",
+      "SLabel": "Google Profile",
+      "LLabel": "GoogleProfile"
+    },
+    {
+      "name": "googleReviews",
+      "SLabel": "googleReviews",
+      "type": "Array",
+      "width": "1000",
+      "Option": "Optional",
+      "adaptiveCard": "None"
+    },
+    {
+      "name": "googlePhotos",
+      "SLabel": "googlePhotos",
+      "type": "carouselImage",
+      "width": "100",
+      "Option": "Optional",
+      "adaptiveCard": "None"
+    },
+    {
+      "name": "googleRating",
+      "type": "rating,5",
+      "SLabel": "googleRating",
+      "width": "50",
+      "Option": "Optional",
+      "adaptiveCard": "None"
+    },
+    {
+      "name": "businessTypes",
+      "type": "string",
+      "width": "200",
+      "Option": "Optional",
+      "adaptiveCard": "None",
+      "SLabel": "businessTypes"
+    },
+    {
+      "name": "WebSiteURL",
+      "SLabel": "WebSiteURL",
+      "type": "hyperlink",
+      "width": "50",
+      "Option": "Optional",
+      "adaptiveCard": "Main"
+    },
+    {
+      "name": "opening_hours",
+      "SLabel": "opening_hours",
+      "type": "string",
+      "width": "1000",
+      "Option": "Optional",
+      "adaptiveCard": "None"
     },
     {
       "name": "Attachment",
