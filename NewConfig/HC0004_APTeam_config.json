@@ -146,7 +146,7 @@
       "sourceTableUpdate": [
         {
           "ContractInvoice": [
-            { "ItemActive": "Completed" },
+            { "ItemStatus99": "Completed" },
             { "Parent": "@ChildID" }
           ]
         }
@@ -191,7 +191,7 @@
   },
     "PossibleValues": [
     "ItemStatus",
-    "ItemActive","ContractType", "Status", "ItemActive", "ServiceType"],
+    "ItemStatus99","ContractType", "Status", "ItemStatus99", "ServiceType"],
   "MButtons": [
     {
       "type": "DOWNLOAD",
@@ -524,7 +524,7 @@
           "Update": "No"
         },
         {
-          "name": "ItemActive",
+          "name": "ItemStatus99",
           "type": "string",
           "width": "50",
           "SLabel": "Item Status",
@@ -547,7 +547,7 @@
         "ServiceAmount",
         "ServiceType",
         "iCurrency",
-        "ItemActive"
+        "ItemStatus99"
       ],
       "detailCharts": [
         {
@@ -607,7 +607,7 @@
         "ServiceDetails",
         "ServiceAmount",
         "iCurrency",
-        "ItemActive",
+        "ItemStatus99",
         "Notes",
         "Attachment"
       ],
@@ -618,7 +618,7 @@
         { "name": "ActualAmount" },
         { "name": "iCurrency" },
         { "name": "Notes" },
-        { "name": "ItemActive" },
+        { "name": "ItemStatus99" },
         { "name": "Attachment" }
       ]
     },
@@ -636,7 +636,7 @@
           "Update": "No"
         },
         {
-          "name": "ItemActive",
+          "name": "ItemStatus99",
           "type": "string",
           "width": "50",
           "Option": "Optional",
@@ -707,7 +707,7 @@
         "LastName",
         "Email",
         "PostCode",
-        "ItemActive"
+        "ItemStatus99"
       ],
       "detailCharts": [
         {
@@ -791,7 +791,7 @@
                 "type": "string"
               },
               {
-                "name": "ItemActive",
+                "name": "ItemStatus99",
                 "type": "string",
                 "SLabel": "Status"
               },
@@ -838,7 +838,7 @@
                 "SLabel": "Item Number"
               },
               {
-                "name": "ItemActive",
+                "name": "ItemStatus99",
                 "type": "string",
                 "SLabel": "Status"
               },
@@ -895,7 +895,7 @@
                 "SLabel": "Item Number"
               },
               {
-                "name": "ItemActive",
+                "name": "ItemStatus99",
                 "type": "string",
                 "SLabel": "Status"
               },
@@ -937,7 +937,7 @@
                 "SLabel": "Item Number"
               },
               {
-                "name": "ItemActive",
+                "name": "ItemStatus99",
                 "type": "string",
                 "SLabel": "Status"
               },
@@ -973,7 +973,7 @@
         "Email",
         "PostCode",
         "InstitutionName",
-        "ItemActive"
+        "ItemStatus99"
       ],
       "ItemDetails": [
         { "name": "Title" },
@@ -983,12 +983,12 @@
         { "name": "Email" },
         { "name": "PostCode" },
         { "name": "InstitutionName" },
-        { "name": "ItemActive" }
+        { "name": "ItemStatus99" }
       ]
     },
     "ContractInvoice": {
       "calculation": "Yes",
-      "itemFilter": [{ "ItemActive": { "$ne": "Completed" } }],
+      "itemFilter": [{ "ItemStatus99": { "$ne": "Completed" } }],
       "title": "Contract Invoice",
       "subtitle": "HCP/HCO",
       "tableFormFields": [
@@ -1052,7 +1052,7 @@
           "Update": "No"
         },
         {
-          "name": "ItemActive",
+          "name": "ItemStatus99",
           "type": "string",
           "width": "50",
           "SLabel": "Item Status",
@@ -1124,7 +1124,7 @@
         "InvoiceAmount",
         "ServiceType",
         "iCurrency",
-        "ItemActive",
+        "ItemStatus99",
         "Title",
         "FirstName",
         "LastName",
@@ -1180,7 +1180,7 @@
                 "type": "string"
               },
               {
-                "name": "ItemActive",
+                "name": "ItemStatus99",
                 "type": "string",
                 "SLabel": "Status"
               },
@@ -1227,7 +1227,7 @@
                 "SLabel": "Item Number"
               },
               {
-                "name": "ItemActive",
+                "name": "ItemStatus99",
                 "type": "string",
                 "SLabel": "Status"
               },
@@ -1284,7 +1284,7 @@
                 "SLabel": "Item Number"
               },
               {
-                "name": "ItemActive",
+                "name": "ItemStatus99",
                 "type": "string",
                 "SLabel": "Status"
               },
@@ -1326,7 +1326,7 @@
                 "SLabel": "Item Number"
               },
               {
-                "name": "ItemActive",
+                "name": "ItemStatus99",
                 "type": "string",
                 "SLabel": "Status"
               },
@@ -1359,7 +1359,7 @@
         "ServiceDetails",
         "InvoiceAmount",
         "iCurrency",
-        "ItemActive",
+        "ItemStatus99",
         "Notes",
         "Attachment",
         "Title",
@@ -1374,7 +1374,7 @@
         { "name": "InvoiceAmount" },
         { "name": "iCurrency" },
         { "name": "Notes" },
-        { "name": "ItemActive" },
+        { "name": "ItemStatus99" },
         { "name": "Attachment" },
         { "name": "Title" },
         { "name": "FirstName" },
@@ -1516,7 +1516,7 @@
           "Update": "No"
         },
         {
-          "name": "ItemActive",
+          "name": "ItemStatus99",
           "type": "string",
           "width": "50",
           "Option": "Optional",
@@ -1616,7 +1616,7 @@
         "Status",
         "Role",
         "applicationId",
-        "ItemActive"
+        "ItemStatus99"
       ],
       "detailCharts": [],
       "cards": [],
@@ -1656,7 +1656,7 @@
         "Status",
         "Role",
         "applicationId",
-        "ItemActive"
+        "ItemStatus99"
       ],
       "ItemDetails": [
         { "name": "Type" },
@@ -1670,7 +1670,7 @@
         { "name": "Role" },
         { "name": "applicationId" },
         { "name": "TimeStamp" },
-        { "name": "ItemActive" }
+        { "name": "ItemStatus99" }
       ]
     }
   },

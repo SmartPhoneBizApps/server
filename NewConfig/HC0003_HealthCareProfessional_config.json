@@ -146,7 +146,7 @@
       ],
       "sourceTableUpdate": [
         {
-          "EventInvoice": [{ "ItemActive": "Completed" }]
+          "EventInvoice": [{ "ItemStatus99": "Completed" }]
         }
       ]
     },
@@ -182,10 +182,10 @@
   },
     "PossibleValues": [
     "ItemStatus",
-    "ItemActive",
+    "ItemStatus99",
     "EventType",
     "Status",
-    "ItemActive",
+    "ItemStatus99",
     "ServiceType",
     "Duration",
     "Monetary"
@@ -568,7 +568,7 @@
           "Update": "No"
         },
         {
-          "name": "ItemActive",
+          "name": "ItemStatus99",
           "type": "string",
           "width": "50",
           "SLabel": "Item Status",
@@ -601,7 +601,7 @@
         "ServiceType",
         "iCurrency",
         "Monetary",
-        "ItemActive"
+        "ItemStatus99"
       ],
       "detailCharts": [
         {
@@ -662,7 +662,7 @@
         "ServiceAmount",
         "iCurrency",
         "Monetary",
-        "ItemActive",
+        "ItemStatus99",
         "Notes",
         "Attachment"
       ],
@@ -674,7 +674,7 @@
         { "name": "iCurrency" },
         { "name": "Monetary" },
         { "name": "Notes" },
-        { "name": "ItemActive" },
+        { "name": "ItemStatus99" },
         { "name": "Attachment" }
       ]
     },
@@ -692,7 +692,7 @@
           "Update": "No"
         },
         {
-          "name": "ItemActive",
+          "name": "ItemStatus99",
           "type": "string",
           "width": "50",
           "Option": "Optional",
@@ -763,7 +763,7 @@
         "LastName",
         "Email",
         "PostCode",
-        "ItemActive"
+        "ItemStatus99"
       ],
       "detailCharts": [
         {
@@ -847,7 +847,7 @@
                 "type": "string"
               },
               {
-                "name": "ItemActive",
+                "name": "ItemStatus99",
                 "type": "string",
                 "SLabel": "Status"
               },
@@ -894,7 +894,7 @@
                 "SLabel": "Item Number"
               },
               {
-                "name": "ItemActive",
+                "name": "ItemStatus99",
                 "type": "string",
                 "SLabel": "Status"
               },
@@ -951,7 +951,7 @@
                 "SLabel": "Item Number"
               },
               {
-                "name": "ItemActive",
+                "name": "ItemStatus99",
                 "type": "string",
                 "SLabel": "Status"
               },
@@ -993,7 +993,7 @@
                 "SLabel": "Item Number"
               },
               {
-                "name": "ItemActive",
+                "name": "ItemStatus99",
                 "type": "string",
                 "SLabel": "Status"
               },
@@ -1029,7 +1029,7 @@
         "Email",
         "PostCode",
         "InstitutionName",
-        "ItemActive"
+        "ItemStatus99"
       ],
       "ItemDetails": [
         { "name": "Title" },
@@ -1039,12 +1039,12 @@
         { "name": "Email" },
         { "name": "PostCode" },
         { "name": "InstitutionName" },
-        { "name": "ItemActive" }
+        { "name": "ItemStatus99" }
       ]
     },
     "EventInvoice": {
       "calculation": "Yes",
-      "itemFilter": [{ "ItemActive": { "$ne": "Completed" } }],
+      "itemFilter": [{ "ItemStatus99": { "$ne": "Completed" } }],
       "title": "Event Invoice",
       "subtitle": "HCP/HCO",
       "tableFormFields": [
@@ -1108,7 +1108,7 @@
           "Update": "No"
         },
         {
-          "name": "ItemActive",
+          "name": "ItemStatus99",
           "type": "string",
           "width": "50",
           "SLabel": "Item Status",
@@ -1180,7 +1180,7 @@
         "InvoiceAmount",
         "ServiceType",
         "iCurrency",
-        "ItemActive",
+        "ItemStatus99",
         "Title",
         "FirstName",
         "LastName",
@@ -1236,7 +1236,7 @@
                 "type": "string"
               },
               {
-                "name": "ItemActive",
+                "name": "ItemStatus99",
                 "type": "string",
                 "SLabel": "Status"
               },
@@ -1283,7 +1283,7 @@
                 "SLabel": "Item Number"
               },
               {
-                "name": "ItemActive",
+                "name": "ItemStatus99",
                 "type": "string",
                 "SLabel": "Status"
               },
@@ -1340,7 +1340,7 @@
                 "SLabel": "Item Number"
               },
               {
-                "name": "ItemActive",
+                "name": "ItemStatus99",
                 "type": "string",
                 "SLabel": "Status"
               },
@@ -1382,7 +1382,7 @@
                 "SLabel": "Item Number"
               },
               {
-                "name": "ItemActive",
+                "name": "ItemStatus99",
                 "type": "string",
                 "SLabel": "Status"
               },
@@ -1415,7 +1415,7 @@
         "ServiceDetails",
         "InvoiceAmount",
         "iCurrency",
-        "ItemActive",
+        "ItemStatus99",
         "Notes",
         "Attachment",
         "Title",
@@ -1430,7 +1430,7 @@
         { "name": "InvoiceAmount" },
         { "name": "iCurrency" },
         { "name": "Notes" },
-        { "name": "ItemActive" },
+        { "name": "ItemStatus99" },
         { "name": "Attachment" },
         { "name": "Title" },
         { "name": "FirstName" },
@@ -1525,10 +1525,10 @@
           "Update": "Yes"
         },
         {
-          "name": "ItemActive",
+          "name": "ItemStatus99",
           "type": "string",
           "width": "50",
-          "SLabel": "ItemActive",
+          "SLabel": "ItemStatus99",
           "Option": "Optional",
           "adaptiveCard": "Additional",
           "Update": "Yes"
@@ -1543,7 +1543,7 @@
           "Update": "Yes"
         }
       ],
-      "DisplayFields": ["Topic", "Date", "StartTime", "ItemActive"],
+      "DisplayFields": ["Topic", "Date", "StartTime", "ItemStatus99"],
       "detailCharts": [],
       "cards": [],
       "ItemButtons": {
@@ -1561,7 +1561,7 @@
         "Date",
         "StartTime",
         "EndTime",
-        "ItemActive",
+        "ItemStatus99",
         "Attachment"
       ],
       "ItemDetails": [
@@ -1572,7 +1572,7 @@
         { "name": "Date" },
         { "name": "StartTime" },
         { "name": "EndTime" },
-        { "name": "ItemActive" },
+        { "name": "ItemStatus99" },
         { "name": "Attachment" }
       ]
     },
@@ -1707,7 +1707,7 @@
           "Update": "No"
         },
         {
-          "name": "ItemActive",
+          "name": "ItemStatus99",
           "type": "string",
           "width": "50",
           "Option": "Optional",
@@ -1807,7 +1807,7 @@
         "Status",
         "Role",
         "applicationId",
-        "ItemActive"
+        "ItemStatus99"
       ],
       "detailCharts": [],
       "cards": [],
@@ -1847,7 +1847,7 @@
         "Status",
         "Role",
         "applicationId",
-        "ItemActive"
+        "ItemStatus99"
       ],
       "ItemDetails": [
         { "name": "Type" },
@@ -1861,7 +1861,7 @@
         { "name": "Role" },
         { "name": "applicationId" },
         { "name": "TimeStamp" },
-        { "name": "ItemActive" }
+        { "name": "ItemStatus99" }
       ]
     }
   },
