@@ -370,7 +370,7 @@
     "headerColorFields": ["Status"],
     "Tab0": ["data"],
     "Tab20": ["charts"],
-        "Tab98": ["checks"],
+    "Tab98": ["checks"],
     "Tab99": ["actionLog"],
     "None": ["ID"],
     "Tab1": [
@@ -1574,7 +1574,7 @@
         { "name": "Attachment" }
       ]
     },
-        "checks": {
+    "checks": {
       "title": "Document Checks",
       "subtitle": "Document Checks",
       "ItemFieldDefinition": [
@@ -2286,6 +2286,52 @@
       ]
     },
     "Document": {}
+  },
+  "Checks": {
+    "Header": [
+      {
+        "Field": "Services",
+        "Operator": "EQ",
+        "Value": [],
+        "trueMessage": "REQUIRED-FAIL-001-Please add Services",
+        "falseMessage": "REQUIRED-SUCCESS-001-Services are Maintained"
+      },
+      {
+        "Field": "myHCPHCO",
+        "Operator": "EQ",
+        "Value": [],
+        "trueMessage": "REQUIRED-FAIL-002-Please add HCP/HCOs",
+        "falseMessage": "REQUIRED-SUCCESS-002-HCP/HCOs are Maintained"
+      },
+      {
+        "Field": "PharmaContactEmail",
+        "Operator": "EQ",
+        "Value": "",
+        "trueMessage": "REQUIRED-FAIL-003-Pharma contact email missing",
+        "falseMessage": "REQUIRED-SUCCESS-003-Pharma contact email maintained"
+      },
+      {
+        "Field": "PharmaContact",
+        "Operator": "EQ",
+        "Value": "",
+        "trueMessage": "REQUIRED-FAIL-004-Pharma contact missing",
+        "falseMessage": "REQUIRED-SUCCESS-004-Pharma contact maintained"
+      },
+      {
+        "Field": "Status",
+        "Operator": "EQ",
+        "Value": "Draft",
+        "trueMessage": "OPTIONAL-INFORMATION-005-Status of Document is Draft",
+        "falseMessage": "OPTIONAL-INFORMATION-005-Document is not in Draft state"
+      },
+      {
+        "Field": "MultiAttachments",
+        "Operator": "EQ",
+        "Value": [],
+        "trueMessage": "OPTIONAL-INFORMATION-006-No Attachments are added",
+        "falseMessage": "OPTIONAL-INFORMATION-006-Document contains attachments"
+      }
+    ]
   },
   "CalculatedFields": {
     "Item": [],

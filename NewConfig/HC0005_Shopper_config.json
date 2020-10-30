@@ -388,7 +388,7 @@
     "headerColorFields": ["Status"],
     "Tab0": ["data"],
     "Tab20": ["charts"],
-        "Tab98": ["checks"],
+    "Tab98": ["checks"],
     "Tab99": ["actionLog"],
     "None": ["ID", "InvoiceType"],
     "Tab1": [
@@ -1849,7 +1849,7 @@
         { "name": "InstitutionName" }
       ]
     },
-        "checks": {
+    "checks": {
       "title": "Document Checks",
       "subtitle": "Document Checks",
       "ItemFieldDefinition": [
@@ -2430,6 +2430,24 @@
       ]
     },
     "Document": {}
+  },
+  "Checks": {
+    "Header": [
+      {
+        "Field": "Status",
+        "Operator": "EQ",
+        "Value": "Draft",
+        "trueMessage": "OPTIONAL-INFORMATION-005-Status of Document is Draft",
+        "falseMessage": "OPTIONAL-INFORMATION-005-Document is not in Draft state"
+      },
+      {
+        "Field": "MultiAttachments",
+        "Operator": "EQ",
+        "Value": [],
+        "trueMessage": "OPTIONAL-INFORMATION-006-No Attachments are added",
+        "falseMessage": "OPTIONAL-INFORMATION-006-Document contains attachments"
+      }
+    ]
   },
   "CalculatedFields": {
     "Item": [],

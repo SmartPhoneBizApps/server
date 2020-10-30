@@ -431,6 +431,49 @@ exports.addDataRecords = asyncHandler(async (req, res, next) => {
     sNode = {};
   }
 
+  // Perform Document Checks..
+  mydata["checks"] = [];
+  chk = {};
+  for (let k = 0; k < configFile["Checks"]["Header"].length; k++) {
+    fieldName = configFile["Checks"]["Header"][k]["Field"];
+    fieldValue = configFile["Checks"]["Header"][k]["Value"];
+    x1 = [];
+    switch (configFile["Checks"]["Header"][k]["Operator"]) {
+      case "EQ":
+        console.log(fieldName, mydata[fieldName]);
+        if (fieldValue == [] || fieldValue == "") {
+          if (
+            mydata[fieldName] == fieldValue ||
+            mydata[fieldName] == undefined
+          ) {
+            X1 = configFile["Checks"]["Header"][k]["trueMessage"].split("-");
+          } else {
+            X1 = configFile["Checks"]["Header"][k]["falseMessage"].split("-");
+          }
+        } else {
+          if (mydata[fieldName] == fieldValue) {
+            X1 = configFile["Checks"]["Header"][k]["trueMessage"].split("-");
+          } else {
+            X1 = configFile["Checks"]["Header"][k]["falseMessage"].split("-");
+          }
+        }
+        chk["Type"] = X1[0];
+        chk["Class"] = X1[1];
+        chk["Number"] = X1[2];
+        chk["Message"] = X1[3];
+        chk["checkDate"] = new Date();
+        chk["checkStage"] = "Create Record";
+        chk["buttonType"] = req.headers.buttontype;
+        chk["buttonName"] = req.headers.buttonname;
+        mydata["checks"].push({ ...chk });
+        chk = {};
+        break;
+
+      default:
+        break;
+    }
+  }
+
   // X99 - Create Record [mongoDB].....
   let result = {};
   result = await createDocument(req.headers.applicationid, mydata);
@@ -835,6 +878,57 @@ exports.updateDataRecords = asyncHandler(async (req, res, next) => {
   if (req.body.ReferenceID == undefined || req.body.ReferenceID == "") {
     req.body.ReferenceID = req.body.ID;
   }
+
+  // Perform Document Checks..
+  req.body["checks"] = [];
+  console.log("Perform Document Checks..1");
+  chk = {};
+  X1 = [];
+  if (configFile["Checks"] != undefined) {
+    console.log("Perform Document Checks..2");
+    appRec = await findOneAppData(req.body.ID, req.headers.applicationid);
+    for (let k = 0; k < configFile["Checks"]["Header"].length; k++) {
+      fieldName = configFile["Checks"]["Header"][k]["Field"];
+      fieldValue = configFile["Checks"]["Header"][k]["Value"];
+      console.log("Checks..", fieldName, fieldValue);
+      switch (configFile["Checks"]["Header"][k]["Operator"]) {
+        case "EQ":
+          console.log(fieldName, req.body[fieldName]);
+          if (fieldValue == [] || fieldValue == "") {
+            if (
+              appRec[fieldName] == fieldValue ||
+              appRec[fieldName] == undefined
+            ) {
+              X1 = configFile["Checks"]["Header"][k]["trueMessage"].split("-");
+            } else {
+              X1 = configFile["Checks"]["Header"][k]["falseMessage"].split("-");
+            }
+          } else {
+            if (appRec[fieldName] == fieldValue) {
+              X1 = configFile["Checks"]["Header"][k]["trueMessage"].split("-");
+            } else {
+              X1 = configFile["Checks"]["Header"][k]["falseMessage"].split("-");
+            }
+          }
+          chk["Type"] = X1[0];
+          chk["Class"] = X1[1];
+          chk["Number"] = X1[2];
+          chk["Message"] = X1[3];
+          chk["checkDate"] = new Date();
+          chk["checkStage"] = "Document Update";
+          chk["buttonType"] = req.headers.buttontype;
+          chk["buttonName"] = req.headers.buttonname;
+          req.body["checks"].push({ ...chk });
+          chk = {};
+          X1 = [];
+          break;
+
+        default:
+          break;
+      }
+    }
+  }
+
   // X8 - Update Record ...
   result = await findOneUpdateData(req.body, req.headers.applicationid);
 
