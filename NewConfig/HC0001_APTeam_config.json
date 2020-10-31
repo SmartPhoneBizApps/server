@@ -41,19 +41,26 @@
     }
   },
   "ListFields": {
-    "IntroField": "FirstName",
-    "TitleField": "LastName",
+    "IntroField": "pType",
+    "TitleField": "InstitutionName",
     "sStatus": "Status",
-    "fStatus": "Title",
+    "fStatus": "googleRating",
     "numberField": "",
-    "LFields": ["ID", "Email", "SearchString", "googleRating"],
+    "LFields": [
+      "ID",
+      "Title",
+      "FirstName",
+      "LastName",
+      "Email",
+      "SearchString"
+    ],
     "numberUnitField": ""
   },
   "ListBOTFields": {
     "None": ["ID", "cardImage", "StatusState"],
-    "Title": ["FirstName", "LastName"],
-    "SubTitle": ["Title", "Status"],
-    "Description": ["Email"]
+    "Title": ["InstitutionName", "pType"],
+    "SubTitle": ["Status", "googleRating"],
+    "Description": ["Title", "FirstName", "LastName", "Email"]
   },
   "PossibleValues": [
     "ItemStatus",
