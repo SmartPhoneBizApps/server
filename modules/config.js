@@ -874,6 +874,8 @@ module.exports = {
       "carouselImage",
       "carouselImage_ocr",
       "MultiAttachments",
+      "googleReviews",
+      "googlePhotos",
     ];
     console.log("buttonType", buttonType);
     if (buttonType != undefined) {
@@ -890,7 +892,7 @@ module.exports = {
         newLog["Transaction"] = "DataUpdate";
       }
     }
-
+    otherFields = [];
     for (const key in userInputs) {
       if (!excludeList.includes(key)) {
         console.log("FieldList");
@@ -925,7 +927,18 @@ module.exports = {
             }
           }
         }
+      } else {
+        otherFields.push(key);
       }
+    }
+    if (otherFields.length > 0) {
+      detailL["Key"] = "Other Fields";
+      detailL["Value"] = "[ ";
+      otherFields.forEach((element) => {
+        detailL["Value"] = detailL["Value"] + element + " ";
+      });
+      detailL["Value"] = detailL["Value"] + "]";
+      detailLog.push({ ...detailL });
     }
     newLog["ID"] = req.body.ID;
     newLog["Type"] = type;

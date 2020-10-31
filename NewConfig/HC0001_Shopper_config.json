@@ -163,37 +163,9 @@
       "value": "Tab1",
       "style": "SAP",
       "update": "Yes",
-      "name": "Personnel Details",
+      "name": "HCP/HCO Details",
       "fioriicon": "developer-settings",
       "type": "FieldGroup"
-    },
-    {
-      "value": "Tab2",
-      "style": "SAP",
-      "update": "Yes",
-      "name": "Attachments",
-      "type": "MultiAttachments",
-      "fioriicon": "contacts",
-      "docType": [
-        { "text": "HeaderAttachment", "state": "Information" },
-        { "text": "ItemAttachment", "state": "Success" }
-      ]
-    },
-    {
-      "value": "Tab3",
-      "style": "SAP",
-      "update": "Yes",
-      "name": "ContactPerson",
-      "type": "Table",
-      "fioriicon": "business-card"
-    },
-    {
-      "value": "Tab4",
-      "style": "SAP",
-      "update": "Yes",
-      "name": "Disclosure",
-      "type": "Table",
-      "fioriicon": "donut-chart"
     },
     {
       "value": "Tab7",
@@ -218,6 +190,22 @@
       "name": "Identification",
       "type": "Table",
       "fioriicon": "two-keys"
+    },
+    {
+      "value": "Tab3",
+      "style": "SAP",
+      "update": "Yes",
+      "name": "ContactPerson",
+      "type": "Table",
+      "fioriicon": "business-card"
+    },
+    {
+      "value": "Tab4",
+      "style": "SAP",
+      "update": "Yes",
+      "name": "Disclosure",
+      "type": "Table",
+      "fioriicon": "donut-chart"
     },
     {
       "value": "Tab10",
@@ -245,20 +233,24 @@
       "type": "Field"
     },
     {
+      "value": "Tab2",
+      "style": "SAP",
+      "update": "Yes",
+      "name": "Attachments",
+      "type": "MultiAttachments",
+      "fioriicon": "contacts",
+      "docType": [
+        { "text": "HeaderAttachment", "state": "Information" },
+        { "text": "ItemAttachment", "state": "Success" }
+      ]
+    },
+    {
       "value": "Tab5",
       "style": "SAP",
       "update": "Yes",
       "name": "Images",
       "type": "carouselImage",
       "fioriicon": "picture"
-    },
-    {
-      "value": "Tab6",
-      "style": "SAP",
-      "update": "Yes",
-      "name": "Address",
-      "type": "Field",
-      "fioriicon": "address-book"
     },
     {
       "value": "Tab98",
@@ -295,22 +287,27 @@
           "FirstName",
           "LastName",
           "FullName",
-          "InstitutionName"
+          "InstitutionName",
+          "Email",
+          "ContactNo"
         ]
       },
       {
         "GrpTitle": "Speciality",
         "Fields": ["Role", "Speciality", "googleRating"]
+      },
+      {
+        "GrpTitle": "Address",
+        "Fields": ["PostCode", "Address"]
       }
     ],
-    "Tab2": ["MultiAttachments"],
     "Tab3": ["ContactPerson"],
     "Tab4": ["Disclosure"],
     "Tab7": ["BusinessUnits"],
     "Tab8": ["Bank"],
     "Tab9": ["Identification"],
+    "Tab2": ["MultiAttachments"],
     "Tab5": ["carouselImage"],
-    "Tab6": ["PostCode", "Address"],
     "Tab10": ["googlePhotos"],
     "Tab11": ["googleReviews"],
     "Tab12": ["opening_hours"]
@@ -368,7 +365,8 @@
             "Identification",
             "googlePhotos",
             "googleReviews",
-            "opening_hours"
+            "opening_hours",
+            "googleRating"
           ]
         },
         {
