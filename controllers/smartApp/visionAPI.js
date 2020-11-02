@@ -56,6 +56,7 @@ exports.visionAPI = asyncHandler(async (req, res, next) => {
     req.headers.imagetype == "Receipt"
   ) {
     const [text] = await client.textDetection(fileName);
+    //  console.log("Text :", text["description"], text["boundingPoly"]);
     if (text.textAnnotations.length > 0) {
       TR = 0;
       BL = 0;

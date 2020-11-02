@@ -73,7 +73,15 @@
       "URL": "https://www.messenger.com/t/295020207695029"
     },
 
-    { "type": "ADD", "name": "Add Record", "icon": "sap-icon://add" },
+    {
+      "type": "ADD",
+      "name": "Add Record",
+      "icon": "sap-icon://add",
+      "duplicateChecks": {
+        "performCheck": "Yes",
+        "checkField": "Email"
+      }
+    },
     {
       "type": "UPLOAD",
       "name": "Upload Record",

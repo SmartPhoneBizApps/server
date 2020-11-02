@@ -158,6 +158,7 @@ app.use(
   "/api/v1/emailAttachment/",
   require("./routes/utilities/emailAttachment")
 );
+app.use("/api/v1/scan-email/", require("./routes/utilities/scanEmail"));
 app.use(
   "/api/v1/uploadHeaderItemFile/",
   require("./routes/smartApp/uploadHeaderItemFile")

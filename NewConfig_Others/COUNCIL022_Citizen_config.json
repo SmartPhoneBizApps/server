@@ -3,7 +3,7 @@
     "ApplicationTitle": "Fault Reporting",
     "DetailTitle": "Fault Reporting"
   },
-  "Constants":{},
+  "Constants": {},
   "Controls": {
     "style": "SAP",
     "calculation": "No",
@@ -33,9 +33,13 @@
     "SubTitle": ["ID", "Status"],
     "Description": ["Name", "ReportType"]
   },
-    "PossibleValues": [
+  "PossibleValues": [
     "ItemStatus",
-    "ItemStatus99","Status", "Site", "ReportType"],
+    "ItemStatus99",
+    "Status",
+    "Site",
+    "ReportType"
+  ],
   "MButtons": [
     {
       "type": "DOWNLOAD",
@@ -55,7 +59,15 @@
       "URL": "https://www.messenger.com/t/295020207695029"
     },
 
-    { "type": "ADD", "name": "Add Record", "icon": "sap-icon://add" },
+    {
+      "type": "ADD",
+      "name": "Add Record",
+      "icon": "sap-icon://add",
+      "duplicateChecks": {
+        "performCheck": "Yes",
+        "checkField": "Email"
+      }
+    },
     { "type": "UPLOAD", "name": "Upload Record", "icon": "sap-icon://upload" }
   ],
   "DButtons": [
@@ -131,8 +143,7 @@
       "fioriicon": "comment",
       "type": "Chat",
       "download": "Yes"
-    }
-,
+    },
     {
       "value": "Tab98",
       "style": "SAP",
@@ -157,7 +168,7 @@
     "headerColorFields": ["Status"],
     "Tab0": ["data"],
     "Tab20": ["charts"],
-        "Tab98": ["checks"],
+    "Tab98": ["checks"],
     "Tab99": ["actionLog"],
     "None": ["ID", "ReportDate"],
     "Tab1": [
@@ -417,7 +428,7 @@
     "Item": [],
     "HeaderItem": [],
     "Header": []
-},
+  },
   "Create": "Yes",
   "Wizard": [
     {

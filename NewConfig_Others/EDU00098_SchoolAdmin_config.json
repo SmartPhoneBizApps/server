@@ -3,7 +3,7 @@
     "ApplicationTitle": "Change Application Title",
     "DetailTitle": "Change Application Title"
   },
-  "Constants":{},
+  "Constants": {},
   "Controls": {
     "style": "SAP",
     "calculation": "No",
@@ -33,9 +33,15 @@
     "SubTitle": ["StudentName", "DOB"],
     "Description": ["StudyYear"]
   },
-    "PossibleValues": [
+  "PossibleValues": [
     "ItemStatus",
-    "ItemStatus99","Status", "StudyYear", "Section", "Answer2", "Answer4"],
+    "ItemStatus99",
+    "Status",
+    "StudyYear",
+    "Section",
+    "Answer2",
+    "Answer4"
+  ],
   "MButtons": [
     {
       "type": "DOWNLOAD",
@@ -55,29 +61,37 @@
       "URL": "https://www.messenger.com/t/295020207695029"
     },
 
-    { "type": "ADD", "name": "Add Record", "icon": "sap-icon://add" },
+    {
+      "type": "ADD",
+      "name": "Add Record",
+      "icon": "sap-icon://add",
+      "duplicateChecks": {
+        "performCheck": "Yes",
+        "checkField": "Email"
+      }
+    },
     { "type": "UPLOAD", "name": "Upload Record", "icon": "sap-icon://upload" }
   ],
   "DButtons": [
     { "type": "ADD", "name": "Add Record", "icon": "sap-icon://add" }
   ],
   "Tabs": [
-{
-    "value": "Tab0",
-    "style": "SAP",
-    "update": "No",
-    "name": "Cards",
-    "type": "Cards",
-    "fioriicon": "responsive"
-  },
-  {
-    "value": "Tab20",
-    "style": "SAP",
-    "update": "No",
-    "name": "Charts",
-    "type": "Charts",
-    "fioriicon": "business-objects-experience"
-  },
+    {
+      "value": "Tab0",
+      "style": "SAP",
+      "update": "No",
+      "name": "Cards",
+      "type": "Cards",
+      "fioriicon": "responsive"
+    },
+    {
+      "value": "Tab20",
+      "style": "SAP",
+      "update": "No",
+      "name": "Charts",
+      "type": "Charts",
+      "fioriicon": "business-objects-experience"
+    },
     {
       "value": "Tab1",
       "style": "SAP",
@@ -95,8 +109,7 @@
       "fioriicon": "add-document",
       "type": "Field",
       "download": "Yes"
-    }
-,
+    },
     {
       "value": "Tab98",
       "style": "SAP",
@@ -120,7 +133,7 @@
     "headerImage": ["USP_Image"],
     "headerColorFields": ["Status"],
     "Tab0": ["data"],
-    "Tab20":["charts"],
+    "Tab20": ["charts"],
     "None": ["ID", "Status", "StudyYear", "Section"],
     "Tab1": [
       "StudentName",

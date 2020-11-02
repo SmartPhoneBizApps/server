@@ -67,7 +67,7 @@
     "SubTitle": ["Status", "RequestType"],
     "Description": ["ID", "DateOfRequest", "EmployeeID"]
   },
-    "PossibleValues": [
+  "PossibleValues": [
     "ItemStatus",
     "ItemStatus99",
     "Status",
@@ -134,7 +134,15 @@
       "icon": "sap-icon://travel-request",
       "URL": "https://www.messenger.com/t/295020207695029"
     },
-    { "type": "ADD", "name": "Add Record", "icon": "sap-icon://add" },
+    {
+      "type": "ADD",
+      "name": "Add Record",
+      "icon": "sap-icon://add",
+      "duplicateChecks": {
+        "performCheck": "Yes",
+        "checkField": "Email"
+      }
+    },
     {
       "type": "UPLOAD",
       "name": "Upload Record",
@@ -262,7 +270,7 @@
     "headerColorFields": ["Status"],
     "Tab0": ["data"],
     "Tab20": ["charts"],
-        "Tab98": ["checks"],
+    "Tab98": ["checks"],
     "Tab99": ["actionLog"],
     "None": ["ID", "RequestType", "Name"],
     "Tab1": [
@@ -443,7 +451,7 @@
     ]
   },
   "tableConfig": {
-        "checks": {
+    "checks": {
       "title": "Document Checks",
       "subtitle": "Document Checks",
       "ItemFieldDefinition": [
@@ -527,7 +535,7 @@
         "Number",
         "Message",
         "checkDate",
-        "checkStage",        
+        "checkStage",
         "ItemStatus"
       ],
       "detailCharts": [],

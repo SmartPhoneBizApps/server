@@ -32,9 +32,7 @@
     "SubTitle": ["YourName", "Subject"],
     "Description": ["Status", "ID", "Email"]
   },
-    "PossibleValues": [
-    "ItemStatus",
-    "ItemStatus99","Status", "Department"],
+  "PossibleValues": ["ItemStatus", "ItemStatus99", "Status", "Department"],
   "MButtons": [
     {
       "type": "DOWNLOAD",
@@ -65,7 +63,15 @@
       "URL": "https://www.messenger.com/t/295020207695029"
     },
 
-    { "type": "ADD", "name": "Add Record", "icon": "sap-icon://add" },
+    {
+      "type": "ADD",
+      "name": "Add Record",
+      "icon": "sap-icon://add",
+      "duplicateChecks": {
+        "performCheck": "Yes",
+        "checkField": "Email"
+      }
+    },
     {
       "type": "UPLOAD",
       "name": "Upload Record",
@@ -185,7 +191,7 @@
     "headerColorFields": ["Status"],
     "Tab0": ["data"],
     "Tab20": ["charts"],
-        "Tab98": ["checks"],
+    "Tab98": ["checks"],
     "Tab99": ["actionLog"],
     "None": ["ID"],
     "Tab1": ["YourName", "Email", "YourPhone", "Department", "YourBusiness"],
@@ -224,7 +230,7 @@
   ],
   "ControlDisplay": {},
   "tableConfig": {
-        "checks": {
+    "checks": {
       "title": "Document Checks",
       "subtitle": "Document Checks",
       "ItemFieldDefinition": [
@@ -308,7 +314,7 @@
         "Number",
         "Message",
         "checkDate",
-        "checkStage",        
+        "checkStage",
         "ItemStatus"
       ],
       "detailCharts": [],
