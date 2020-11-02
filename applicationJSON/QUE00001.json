@@ -1,0 +1,77 @@
+{
+  "ID": {
+    "type": "String",
+    "unique": true,
+    "required": [true, "Please add Mandatory field :ID"],
+    "maxlength": [20, "ID can not be more than 20 characters"]
+  },
+  "ToEmail": {
+    "type": "Email"
+  },
+  "FromEmail": {
+    "type": "Email"
+  },
+  "Email": {
+    "type": "Email"
+  },
+  "Method": {
+    "type": "String"
+  },
+  "Subject": {
+    "type": "String"
+  },
+  "AppID": {
+    "type": "String"
+  },
+  "Role": {
+    "type": "String"
+  },
+
+  "ScreenShot": [],
+  "Attachment": {
+    "type": "String"
+  },
+  "DateCreated": {
+    "type": "Date"
+  },
+  "Status": {
+    "type": "String",
+    "required": [true, "Please add Mandatory field :Status"],
+    "maxlength": [50, "Status can not be more than 50 characters"]
+  },
+  "Partner": {
+    "type": "String",
+    "required": [true, "Please add Mandatory field :Partner"],
+    "maxlength": [200, "Partner can not be more than 200 characters"]
+  },
+  "ReferenceID": {
+    "type": "String",
+    "maxlength": [50, "ReferenceID can not be more than 50"]
+  },
+  "USP_Name": { "type": "String" },
+  "USP_Role": { "type": "String" },
+  "USP_Image": { "type": "String" },
+  "StatusState": { "type": "String" },
+    "carouselImage": [],
+  "carouselImage_ocr": [],
+  "MultiAttachments": {},
+    "lowerNodes": [],
+  "selfNode": [],
+  "upperNodes": [],
+  "TransLog": [],
+  "ProgressComment": [],
+  "actionLog": [],
+  "checks":[],
+  "IssueType": "",
+  "SearchString": {
+    "type": "String",
+    "maxlength": [500, "ContactName can not be more than 500 characters"]
+  },
+
+  "buttons": {},
+  "charts": {},
+  "config": {},
+  "card": {},
+  "sValidation": "",
+  "cardImage": ""
+}

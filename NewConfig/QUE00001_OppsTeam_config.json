@@ -15,6 +15,7 @@
     "Partner": "@user",
     "UserSpecific": "No",
     "Update": "Yes",
+    "ocr_data": "carouselImage_ocr",
     "URL": "https://fierce-oasis-51455.herokuapp.com",
     "Source": { "SourceName": "mongoDB", "SourceFile": "NA" },
     "filterFields": {
@@ -36,7 +37,8 @@
     "sStatus": "Method",
     "fStatus": "Status",
     "numberField": "",
-    "LFields": ["ID", "AppID", "Role", "Subject", "folderName"]
+    "LFields": ["ID", "AppID", "Role", "Subject", "folderName"],
+    "listIcon":"Status"
   },
   "ListBOTFields": {
     "None": ["cardImage", "StatusState"],
@@ -173,6 +175,24 @@
       "fioriicon": "key"
     },
     {
+      "value": "Tab5",
+      "style": "SAP",
+      "update": "Yes",
+      "name": "Images",
+      "fioriicon": "camera",
+      "type": "carouselImage",
+      "ocr": "Yes",
+      "download": "No"
+    },
+    {
+      "value": "OCR01",
+      "style": "SAP",
+      "update": "Yes",
+      "name": "OCR",
+      "fioriicon": "image-viewer",
+      "type": "Table"
+    },
+    {
       "value": "Tab8",
       "style": "SAP",
       "update": "Yes",
@@ -211,6 +231,8 @@
     "Tab20": ["charts"],
     "Tab98": ["checks"],
     "Tab99": ["actionLog"],
+    "Tab5": ["carouselImage"],
+    "OCR01": ["carouselImage_ocr"],
     "None": ["ID", "Name", "EmployeeID", "ContactNo", "Email"],
     "Tab1": [
       "LeaveType",
@@ -227,6 +249,51 @@
   "cards": [],
   "ControlDisplay": {},
   "tableConfig": {
+    "carouselImage_ocr": {
+      "title": "OCR Data",
+      "subtitle": "OCR Data",
+      "ItemFieldDefinition": [
+        {
+          "name": "ItemNumber",
+          "type": "string",
+          "width": "10",
+          "Option": "Optional",
+          "adaptiveCard": "Additional",
+          "SLabel": "Item Number",
+          "Update": "No"
+        },
+        {
+          "name": "image",
+          "type": "string",
+          "width": "200",
+          "Option": "Optional",
+          "adaptiveCard": "Additional",
+          "SLabel": "image",
+          "Update": "Yes"
+        },
+
+        {
+          "name": "imageBody",
+          "type": "string",
+          "width": "5000",
+          "Option": "Optional",
+          "adaptiveCard": "Additional",
+          "SLabel": "imageBody"
+        }
+      ],
+      "DisplayFields": ["image", "imageBody"],
+      "detailCharts": [],
+      "cards": [],
+      "ItemButtons": {
+        "itemDisplay": true,
+        "itemCheck": false,
+        "itemAdd": false,
+        "itemEdit": false,
+        "itemDelete": true
+      },
+      "CreateFields": ["image", "imageBody"],
+      "ItemDetails": [{ "name": "image" }, { "name": "imageBody" }]
+    },
     "checks": {
       "title": "Document Checks",
       "subtitle": "Document Checks",
@@ -675,6 +742,22 @@
       "LLabel": "MultiAttachments"
     },
     {
+      "name": "carouselImage",
+      "type": "carouselImage",
+      "width": "200",
+      "Option": "Optional",
+      "adaptiveCard": "None",
+      "SLabel": "carouselImage"
+    },
+    {
+      "name": "carouselImage_ocr",
+      "type": "Array",
+      "width": "200",
+      "Option": "Optional",
+      "adaptiveCard": "None",
+      "SLabel": "OCR Data"
+    },
+    {
       "name": "sValidation",
       "type": "string",
       "width": "20",
@@ -712,36 +795,24 @@
     {
       "id": "Step1",
       "fields": [
-        { "name": "DECLARATION", "Mode": "Edit" },
-        { "name": "LeaveTo", "Mode": "Edit" },
-        { "name": "LeaveType", "Mode": "Edit" },
-        { "name": "LeaveReason", "Mode": "Edit" }
+        { "name": "ToEmail", "Mode": "Edit" },
+        { "name": "FromEmail", "Mode": "Edit" },
+        { "name": "Subject", "Mode": "Edit" },
+        { "name": "folderName", "Mode": "Edit" }
       ],
-      "name": "Leave Details",
+      "name": "Document Scanning",
       "stepType": "FieldList",
-      "intro": "Copy for the country of dispatch/export"
+      "intro": "Attachment Attributes"
     },
     {
       "id": "Step2",
-      "fields": [
-        { "name": "Name", "Mode": "Display" },
-        { "name": "ContactNo", "Mode": "Display" },
-        { "name": "EmployeeID", "Mode": "Display" },
-        { "name": "Email", "Mode": "Display" }
-      ],
-      "name": "Employee Details",
-      "stepType": "FieldList",
-      "intro": "Leave Request  : Employee Details"
+      "fields": [{ "name": "carouselImage", "Mode": "Edit" }],
+      "name": "Images and Attachment",
+      "stepType": "carouselImage",
+      "intro": "Screenshots and Images : Here you can upload screenshots, images (jpg, png, etc..)"
     },
     {
-      "id": "Step4",
-      "fields": [{ "name": "CostCentre", "Mode": "Display" }],
-      "name": "Cost Center",
-      "stepType": "FieldList",
-      "intro": "Leave Request  : Cost Center"
-    },
-    {
-      "id": "Step5",
+      "id": "Step3",
       "fields": [{ "name": "MultiAttachments", "Mode": "Edit" }],
       "name": "MultiAttachments",
       "stepType": "Attachments",
@@ -755,11 +826,16 @@
       }
     },
     {
-      "id": "Step6",
-      "fields": [{ "name": "Status", "Mode": "Display" }],
-      "name": "Admin",
+      "id": "Step4",
+      "fields": [
+        { "name": "AppID", "Mode": "Edit" },
+        { "name": "Role", "Mode": "Edit" },
+        { "name": "Email", "Mode": "Edit" },
+        { "name": "Status", "Mode": "Display" }
+      ],
+      "name": "Document Scanning",
       "stepType": "FieldList",
-      "intro": "Leave Request  : Admin"
+      "intro": "Attachment Attributes"
     }
   ]
 }

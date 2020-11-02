@@ -170,6 +170,8 @@
     "numberField": "StudyValue",
     "LFields": ["InvoiceValue", "ID", "PharmaContact", "PharmaContactEmail"],
     "numberUnitField": ""
+,
+    "listIcon":"Status"
   },
   "ListBOTFields": {
     "None": ["cardImage", "StatusState"],
@@ -189,6 +191,7 @@
     "StudyType",
     "Phase",
     "Status",
+    "ItemStatus99",
     "ServiceType"
   ],
   "MButtons": [
@@ -239,7 +242,7 @@
     {
       "type": "WORKFLOW",
       "name": "Query",
-      "icon": "sap-icon://BusinessSuiteInAppSymbols/icon-answered",
+      "icon": "sap-icon://sys-help",
       "Dialog": [
         {
           "label": "Query Details",
