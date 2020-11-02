@@ -204,14 +204,11 @@
       "value": "Tab8",
       "style": "SAP",
       "update": "Yes",
-      "name": "Attachment",
+      "name": "MultiAttachments",
       "fioriicon": "attachment",
       "type": "MultiAttachments",
       "download": "No",
-      "docType": [
-        { "text": "HeaderAttachment", "state": "Information" },
-        { "text": "ItemAttachment", "state": "Success" }
-      ]
+      "docType": [{ "text": "Receipt", "state": "Information", "ocr": "Yes" }]
     },
     {
       "value": "Tab98",
@@ -647,7 +644,7 @@
       "type": "string",
       "width": "200",
       "Option": "Optional",
-      "adaptiveCard": "Additional",
+      "adaptiveCard": "Main",
       "SLabel": "folderName"
     },
     {
@@ -671,7 +668,7 @@
       "type": "string",
       "width": "20",
       "Option": "Optional",
-      "adaptiveCard": "Additional",
+      "adaptiveCard": "Main",
       "SLabel": "Subject"
     },
     {
@@ -679,7 +676,7 @@
       "type": "string",
       "width": "50",
       "Option": "Optional",
-      "adaptiveCard": "Additional",
+      "adaptiveCard": "Main",
       "SLabel": "Method"
     },
     {
@@ -696,6 +693,7 @@
       "type": "string",
       "SLabel": "Status",
       "Option": "Mandatory",
+      "adaptiveCard": "Additional",
       "width": "50"
     },
     {
@@ -839,7 +837,7 @@
         { "name": "AppID", "Mode": "Edit" },
         { "name": "Role", "Mode": "Edit" },
         { "name": "Email", "Mode": "Edit" },
-        { "name": "Status", "Mode": "Display" }
+        { "name": "Status", "Mode": "Edit" }
       ],
       "name": "Document Scanning",
       "stepType": "FieldList",
