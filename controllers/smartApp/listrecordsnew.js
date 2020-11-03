@@ -217,15 +217,19 @@ exports.listrecordsnew = asyncHandler(async (req, res, next) => {
       if (mode == "") {
         mode = "Web";
       }
+      if (appconfig["Controls"]["USP"] == "UserProfile") {
+        results[i1].USP_Name = "Atul Gupta";
+        results[i1].USP_Role = businessrole;
+        results[i1].USP_Image =
+          "https://www.espncricinfo.com/inline/content/image/1183835.html?alt=1";
+      }
       // Mode is Web....
       if (mode == "Web" || mode == "web" || mode == "listcards") {
-        console.log(appconfig["ListFields"]["listIconSetup"]);
         if (appconfig["ListFields"]["listIconSetup"] != undefined) {
           if (
             appconfig["ListFields"]["listIconSetup"]["listIconRequired"] ==
             "Yes"
           ) {
-            console.log("AG02");
             if (
               appconfig["ListFields"]["listIconSetup"]["listIcons"][
                 results[i1][
@@ -240,6 +244,7 @@ exports.listrecordsnew = asyncHandler(async (req, res, next) => {
                     appconfig["ListFields"]["listIconSetup"]["listIconField"]
                   ]
                 ];
+              results[i1].USP_Image = results[i1].listicon;
               console.log(
                 appconfig["ListFields"]["listIconSetup"]["listIconField"],
                 appconfig["ListFields"]["listIconSetup"]["listIcons"][
@@ -250,12 +255,6 @@ exports.listrecordsnew = asyncHandler(async (req, res, next) => {
               );
             }
           }
-        }
-        if (appconfig["Controls"]["USP"] == "UserProfile") {
-          results[i1].USP_Name = "Atul Gupta";
-          results[i1].USP_Role = businessrole;
-          results[i1].USP_Image =
-            "https://www.espncricinfo.com/inline/content/image/1183835.html?alt=1";
         }
 
         if (appconfig["Controls"]["StatusColor"] == "Yes") {
