@@ -45,9 +45,17 @@
     "fStatus": "Status",
     "numberField": "AirFare",
     "LFields": ["ID", "Name", "EmployeeID", "Email"],
-    "numberUnitField": "Currency"
-,
-    "listIcon":"Status"
+    "numberUnitField": "Currency",
+    "listIconSetup": {
+      "listIconRequired": "Yes",
+      "listIconMethod": "ControlDisplay",
+      "listIconField": "BookingMode",
+      "listIcons": {
+        "Flight": "sap-icon://flight",
+        "Taxi": "sap-icon://taxi",
+        "Train/Bus": "sap-icon://passenger-train"
+      }
+    }
   },
   "ListBOTFields": {
     "None": ["cardImage", "StatusState"],

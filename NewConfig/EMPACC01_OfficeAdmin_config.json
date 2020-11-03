@@ -73,7 +73,19 @@
       "RAM",
       "Building"
     ],
-    "listIcon":"Status"
+    "listIconSetup": {
+      "listIconRequired": "Yes",
+      "listIconMethod": "ControlDisplay",
+      "listIconField": "BookingMode",
+      "listIcons": {
+        "Access Card": "sap-icon://touch",
+        "Application Login": "sap-icon://nutrition-activity",
+        "Hardware Upgrade": "sap-icon://print",
+        "Laptop Request": "sap-icon://laptop",
+        "Software Request": "sap-icon://database",
+        "User Account": "sap-icon://key-user-settings"
+      }
+    }
   },
   "ListBOTFields": {
     "None": ["cardImage", "StatusState"],
@@ -81,7 +93,7 @@
     "SubTitle": ["Status", "RequestType"],
     "Description": ["ID", "DateOfRequest", "EmployeeID"]
   },
-    "PossibleValues": [
+  "PossibleValues": [
     "ItemStatus",
     "ItemStatus99",
     "Status",
@@ -260,7 +272,7 @@
     "headerColorFields": ["Status"],
     "Tab0": ["data"],
     "Tab20": ["charts"],
-        "Tab98": ["checks"],
+    "Tab98": ["checks"],
     "Tab99": ["actionLog"],
     "None": ["ID", "RequestType", "Name"],
     "Tab1": [
@@ -441,7 +453,7 @@
     ]
   },
   "tableConfig": {
-        "checks": {
+    "checks": {
       "title": "Document Checks",
       "subtitle": "Document Checks",
       "ItemFieldDefinition": [
@@ -525,7 +537,7 @@
         "Number",
         "Message",
         "checkDate",
-        "checkStage",        
+        "checkStage",
         "ItemStatus"
       ],
       "detailCharts": [],

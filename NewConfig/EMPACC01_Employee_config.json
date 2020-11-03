@@ -60,7 +60,19 @@
       "RAM",
       "Building"
     ],
-    "listIcon":"Status"
+    "listIconSetup": {
+      "listIconRequired": "Yes",
+      "listIconMethod": "ControlDisplay",
+      "listIconField": "BookingMode",
+      "listIcons": {
+        "Access Card": "sap-icon://touch",
+        "Application Login": "sap-icon://nutrition-activity",
+        "Hardware Upgrade": "sap-icon://print",
+        "Laptop Request": "sap-icon://laptop",
+        "Software Request": "sap-icon://database",
+        "User Account": "sap-icon://key-user-settings"
+      }
+    }
   },
   "ListBOTFields": {
     "None": ["cardImage", "StatusState"],
