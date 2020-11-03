@@ -62,7 +62,17 @@
       "VisitorEmail",
       "Building"
     ],
-    "listIcon":"Status"
+    "listIconSetup": {
+      "listIconRequired": "Yes",
+      "listIconMethod": "ControlDisplay",
+      "listIconField": "BookingFor",
+      "listIcons": {
+        "CarPark": "sap-icon://filter-facets",
+        "HotDesk": "sap-icon://desktop-mobile",
+        "MeetingRoom": "sap-icon://meeting-room",
+        "Visitor": "sap-icon://visits"
+      }
+    }
   },
   "ListBOTFields": {
     "None": ["cardImage", "StatusState"],

@@ -75,7 +75,17 @@
       "Building",
       "HotDeskNo"
     ],
-    "listIcon":"Status"
+    "listIconSetup": {
+      "listIconRequired": "Yes",
+      "listIconMethod": "ControlDisplay",
+      "listIconField": "BookingFor",
+      "listIcons": {
+        "CarPark": "sap-icon://filter-facets",
+        "HotDesk": "sap-icon://desktop-mobile",
+        "MeetingRoom": "sap-icon://meeting-room",
+        "Visitor": "sap-icon://visits"
+      }
+    }
   },
   "ListBOTFields": {
     "None": ["cardImage", "StatusState"],
@@ -83,7 +93,7 @@
     "SubTitle": ["Status", "BookingFor"],
     "Description": ["ID", "Email"]
   },
-    "PossibleValues": [
+  "PossibleValues": [
     "ItemStatus",
     "ItemStatus99",
     "Status",
@@ -236,7 +246,7 @@
     "headerColorFields": ["Status"],
     "Tab0": ["data"],
     "Tab20": ["charts"],
-        "Tab98": ["checks"],
+    "Tab98": ["checks"],
     "Tab99": ["actionLog"],
     "None": ["ID", "BookingFor", "Name", "ContactNo", "Email"],
     "Tab1": [
@@ -333,7 +343,7 @@
     ]
   },
   "tableConfig": {
-        "checks": {
+    "checks": {
       "title": "Document Checks",
       "subtitle": "Document Checks",
       "ItemFieldDefinition": [
@@ -417,7 +427,7 @@
         "Number",
         "Message",
         "checkDate",
-        "checkStage",        
+        "checkStage",
         "ItemStatus"
       ],
       "detailCharts": [],

@@ -54,9 +54,16 @@
       "Email",
       "SearchString"
     ],
-    "numberUnitField": ""
-,
-    "listIcon":"Status"
+    "numberUnitField": "",
+    "listIconSetup": {
+      "listIconRequired": "Yes",
+      "listIconMethod": "ControlDisplay",
+      "listIconField": "pType",
+      "listIcons": {
+        "HCO": "sap-icon://building",
+        "HCP": "sap-icon://doctor"
+      }
+    }
   },
   "ListBOTFields": {
     "None": ["ID", "cardImage", "StatusState"],
