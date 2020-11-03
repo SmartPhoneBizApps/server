@@ -218,7 +218,39 @@ exports.listrecordsnew = asyncHandler(async (req, res, next) => {
         mode = "Web";
       }
       // Mode is Web....
-      if (mode == "Web" || mode == "web") {
+      if (mode == "Web" || mode == "web" || mode == "listcards") {
+        console.log(appconfig["ListFields"]["listIconSetup"]);
+        if (appconfig["ListFields"]["listIconSetup"] != undefined) {
+          if (
+            appconfig["ListFields"]["listIconSetup"]["listIconRequired"] ==
+            "Yes"
+          ) {
+            console.log("AG02");
+            if (
+              appconfig["ListFields"]["listIconSetup"]["listIcons"][
+                results[i1][
+                  appconfig["ListFields"]["listIconSetup"]["listIconField"]
+                ]
+              ] != undefined
+            ) {
+              console.log("AG03");
+              results[i1].listicon =
+                appconfig["ListFields"]["listIconSetup"]["listIcons"][
+                  results[i1][
+                    appconfig["ListFields"]["listIconSetup"]["listIconField"]
+                  ]
+                ];
+              console.log(
+                appconfig["ListFields"]["listIconSetup"]["listIconField"],
+                appconfig["ListFields"]["listIconSetup"]["listIcons"][
+                  results[i1][
+                    appconfig["ListFields"]["listIconSetup"]["listIconField"]
+                  ]
+                ]
+              );
+            }
+          }
+        }
         if (appconfig["Controls"]["USP"] == "UserProfile") {
           results[i1].USP_Name = "Atul Gupta";
           results[i1].USP_Role = businessrole;

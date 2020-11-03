@@ -38,7 +38,16 @@
     "fStatus": "Status",
     "numberField": "",
     "LFields": ["ID", "AppID", "Role", "Subject", "folderName"],
-    "listIcon":"Status"
+    "listIconSetup": {
+      "listIconRequired": "Yes",
+      "listIconMethod": "ControlDisplay",
+      "listIconField": "Method",
+      "listIcons": {
+        "Email": "sap-icon://arobase",
+        "Upload": "sap-icon://upload",
+        "Manual": "sap-icon://add"
+      }
+    }
   },
   "ListBOTFields": {
     "None": ["cardImage", "StatusState"],
@@ -75,8 +84,8 @@
       "type": "EMAILREAD",
       "name": "Email Scan",
       "icon": "sap-icon://email-read",
-      "parameters":{
-        "mailBox":"gst@smartphonebizapps.com"
+      "parameters": {
+        "mailBox": "gst@smartphonebizapps.com"
       }
     },
     {
@@ -252,7 +261,32 @@
   "listCards": [],
   "detailCharts": [],
   "cards": [],
-  "ControlDisplay": {},
+  "ControlDisplay": {
+    "ControlField": "Method",
+    "Fields": [
+      [
+        {
+          "ALL": [
+            "ID",
+            "Status",
+            "AppID",
+            "Role",
+            "Method",
+            "MultiAttachments",
+            "ProgressComment",
+            "actionLog",
+            "checks",
+            "ReferenceID",
+            "carouselImage",
+            "carouselImage_ocr"
+          ]
+        },
+        { "Email": ["FromEmail", "ToEmail", "Subject"] },
+        { "Upload": ["folderName"] },
+        { "Manual": ["Email"] }
+      ]
+    ]
+  },
   "tableConfig": {
     "carouselImage_ocr": {
       "title": "OCR Data",
