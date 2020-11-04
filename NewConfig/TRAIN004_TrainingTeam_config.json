@@ -53,7 +53,15 @@
     "sStatus": "External",
     "fStatus": "Status",
     "LFields": ["Group", "ReferenceID", "StartDate", "EndDate"],
-    "listIcon":"Status"
+    "listIconSetup": {
+      "listIconRequired": "Yes",
+      "listIconMethod": "ControlDisplay",
+      "listIconField": "External",
+      "listIcons": {
+        "Yes": "sap-icon://e-learning",
+        "No": "sap-icon://learning-assistant"
+      }
+    }
   },
   "ListBOTFields": {
     "None": ["cardImage", "StatusState"],

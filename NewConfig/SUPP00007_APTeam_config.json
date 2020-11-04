@@ -29,9 +29,12 @@
     "fStatus": "TransType",
     "numberField": "",
     "LFields": ["PONumber", "SuppInvoiceNumber", "VendorNumber"],
-    "numberUnitField": ""
-,
-    "listIcon":"Status"
+    "numberUnitField": "",
+    "listIconSetup": {
+      "listIconRequired": "Yes",
+      "listIconMethod": "Application",
+      "listIcons": "sap-icon://travel-request"
+    }
   },
   "ListBOTFields": {
     "None": ["cardImage", "StatusState"],

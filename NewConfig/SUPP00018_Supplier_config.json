@@ -33,9 +33,12 @@
       "InvoiceStatus",
       "PaymentStatus"
     ],
-    "numberUnitField": "Currency"
-,
-    "listIcon":"Status"
+    "numberUnitField": "Currency",
+    "listIconSetup": {
+      "listIconRequired": "Yes",
+      "listIconMethod": "Application",
+      "listIcons": "sap-icon://expense-report"
+    }
   },
   "ListBOTFields": {
     "None": ["cardImage", "StatusState"],
@@ -43,7 +46,7 @@
     "SubTitle": ["VendorName", "PODate"],
     "Description": ["TotalGrossVal", "Address", "PostCode", "CurrentStatus"]
   },
-    "PossibleValues": [
+  "PossibleValues": [
     "ItemStatus",
     "ItemStatus99",
     "Status",
@@ -290,7 +293,7 @@
     "headerColorFields": ["Status"],
     "Tab0": ["data"],
     "Tab20": ["charts"],
-        "Tab98": ["checks"],
+    "Tab98": ["checks"],
     "Tab99": ["actionLog"],
     "None": ["ID", "VendorName", "PONumber", "VendorNumber", "VendorEmail"],
     "Tab1": [
@@ -724,7 +727,7 @@
         { "name": "InvVATPer" }
       ]
     },
-        "checks": {
+    "checks": {
       "title": "Document Checks",
       "subtitle": "Document Checks",
       "ItemFieldDefinition": [
@@ -808,7 +811,7 @@
         "Number",
         "Message",
         "checkDate",
-        "checkStage",        
+        "checkStage",
         "ItemStatus"
       ],
       "detailCharts": [],

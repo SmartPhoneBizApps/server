@@ -28,7 +28,11 @@
     "sStatus": "CompanyType",
     "fStatus": "Status",
     "LFields": ["Email", "ID", "AnnualTurnover", "googleRating"],
-    "listIcon":"Status"
+    "listIconSetup": {
+      "listIconRequired": "Yes",
+      "listIconMethod": "Application",
+      "listIcons": "sap-icon://supplier"
+    }
   },
   "ListBOTFields": {
     "None": ["cardImage", "StatusState", "googleRating"],
@@ -36,7 +40,7 @@
     "SubTitle": ["Status", "CompanyType"],
     "Description": ["Email", "ID", "AnnualTurnover"]
   },
-    "PossibleValues": [
+  "PossibleValues": [
     "ItemStatus",
     "ItemStatus99",
     "CompanyType",
@@ -370,7 +374,7 @@
     "headerColorFields": ["Status"],
     "Tab0": ["data"],
     "Tab20": ["charts"],
-        "Tab98": ["checks"],
+    "Tab98": ["checks"],
     "Tab99": ["actionLog"],
     "None": ["ID", "CompanyName"],
     "Tab1": [
@@ -924,7 +928,7 @@
         { "name": "time" }
       ]
     },
-        "checks": {
+    "checks": {
       "title": "Document Checks",
       "subtitle": "Document Checks",
       "ItemFieldDefinition": [
@@ -1008,7 +1012,7 @@
         "Number",
         "Message",
         "checkDate",
-        "checkStage",        
+        "checkStage",
         "ItemStatus"
       ],
       "detailCharts": [],

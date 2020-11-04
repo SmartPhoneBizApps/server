@@ -16,7 +16,6 @@
     "Update": "Yes",
     "URL": "https://fierce-oasis-51455.herokuapp.com",
     "Source": { "SourceName": "mongoDB", "SourceFile": "NA" },
-
     "filterFields": {
       "header": ["Status"]
     }
@@ -30,7 +29,7 @@
     "listIconSetup": {
       "listIconRequired": "Yes",
       "listIconMethod": "ControlDisplay",
-      "listIconField": "BookingFor",
+      "listIconField": "Priority",
       "listIcons": {
         "P1-Critical": "sap-icon://alert",
         "P2-High": "sap-icon://incident",
@@ -51,7 +50,8 @@
     "Status",
     "Priority",
     "Agent",
-    "Area"
+    "Area",
+    "IncidentType"
   ],
   "MButtons": [
     {

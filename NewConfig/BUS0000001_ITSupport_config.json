@@ -50,7 +50,11 @@
     "sStatus": "Department",
     "fStatus": "Status",
     "LFields": ["ID", "EmployeeID", "Email", "Name"],
-    "listIcon":"Status"
+    "listIconSetup": {
+      "listIconRequired": "Yes",
+      "listIconMethod": "Application",
+      "listIcons": "sap-icon://incident"
+    }
   },
   "ListBOTFields": {
     "None": ["cardImage", "StatusState"],
@@ -58,9 +62,13 @@
     "SubTitle": ["Name", "Department"],
     "Description": ["DescribeProblem", "EmployeeID", "Email", "Status"]
   },
-    "PossibleValues": [
+  "PossibleValues": [
     "ItemStatus",
-    "ItemStatus99","Department", "Status", "IssueType"],
+    "ItemStatus99",
+    "Department",
+    "Status",
+    "IssueType"
+  ],
   "MButtons": [
     {
       "type": "DOWNLOAD",
@@ -245,7 +253,7 @@
     "headerColorFields": ["Status"],
     "Tab0": ["data"],
     "Tab20": ["charts"],
-        "Tab98": ["checks"],
+    "Tab98": ["checks"],
     "Tab99": ["actionLog"],
     "None": ["ID", "IssueType"],
     "Tab1": ["Name", "Email", "Department", "EmployeeID"],
@@ -285,7 +293,7 @@
   ],
   "ControlDisplay": {},
   "tableConfig": {
-        "checks": {
+    "checks": {
       "title": "Document Checks",
       "subtitle": "Document Checks",
       "ItemFieldDefinition": [
@@ -369,7 +377,7 @@
         "Number",
         "Message",
         "checkDate",
-        "checkStage",        
+        "checkStage",
         "ItemStatus"
       ],
       "detailCharts": [],

@@ -28,7 +28,11 @@
     "sStatus": "OverallRating",
     "fStatus": "Status",
     "LFields": ["SupplierID", "Customer", "Assesse"],
-    "listIcon":"Status"
+    "listIconSetup": {
+      "listIconRequired": "Yes",
+      "listIconMethod": "Application",
+      "listIcons": "sap-icon://supplier"
+    }
   },
   "ListBOTFields": {
     "None": ["cardImage", "StatusState"],

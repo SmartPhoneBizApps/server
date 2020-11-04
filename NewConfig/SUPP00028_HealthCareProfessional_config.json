@@ -28,9 +28,12 @@
     "fStatus": "InvoiceStatus",
     "numberField": "TotInvGrossVal",
     "LFields": ["ID", "InvoiceType", "InvoiceDate", "PaymentTerm"],
-    "numberUnitField": "Currency"
-,
-    "listIcon":"Status"
+    "numberUnitField": "Currency",
+    "listIconSetup": {
+      "listIconRequired": "Yes",
+      "listIconMethod": "Application",
+      "listIcons": "sap-icon://my-sales-order"
+    }
   },
   "ListBOTFields": {
     "None": ["cardImage", "StatusState"],

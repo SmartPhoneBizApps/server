@@ -27,7 +27,11 @@
     "sStatus": "Department",
     "fStatus": "Status",
     "LFields": ["ID", "EmployeeID", "Email", "Name"],
-    "listIcon":"Status"
+    "listIconSetup": {
+      "listIconRequired": "Yes",
+      "listIconMethod": "Application",
+      "listIcons": "sap-icon://incident"
+    }
   },
   "ListBOTFields": {
     "None": ["cardImage", "StatusState"],

@@ -28,9 +28,12 @@
     "fStatus": "Status",
     "numberField": "InvGrossVal",
     "LFields": ["InvoiceDate", "VendorName", "PaymentTerm", "InvoiceNo"],
-    "numberUnitField": "Currency"
-,
-    "listIcon":"Status"
+    "numberUnitField": "Currency",
+    "listIconSetup": {
+      "listIconRequired": "Yes",
+      "listIconMethod": "Application",
+      "listIcons": "sap-icon://expense-report"
+    }
   },
   "ListBOTFields": {
     "None": ["cardImage", "StatusState"],
@@ -38,7 +41,7 @@
     "SubTitle": ["InvGrossVal", "Status"],
     "Description": ["InvoiceDate", "VendorName", "PaymentTerm", "InvoiceNo"]
   },
-    "PossibleValues": [
+  "PossibleValues": [
     "ItemStatus",
     "ItemStatus99",
     "Category",
@@ -117,7 +120,7 @@
     "headerColorFields": ["Status"],
     "Tab0": ["data"],
     "Tab20": ["charts"],
-        "Tab98": ["checks"],
+    "Tab98": ["checks"],
     "Tab99": ["actionLog"],
     "None": ["ID", "VendorName", "PaymentTerm"],
     "Tab1": [
@@ -149,7 +152,7 @@
   },
   "ControlDisplay": {},
   "tableConfig": {
-        "checks": {
+    "checks": {
       "title": "Document Checks",
       "subtitle": "Document Checks",
       "ItemFieldDefinition": [
@@ -233,7 +236,7 @@
         "Number",
         "Message",
         "checkDate",
-        "checkStage",        
+        "checkStage",
         "ItemStatus"
       ],
       "detailCharts": [],

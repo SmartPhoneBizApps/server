@@ -26,9 +26,12 @@
     "fStatus": "Status",
     "numberField": "QuoteGrossValue",
     "LFields": ["ID", "QuoteDate"],
-    "numberUnitField": "Currency"
-,
-    "listIcon":"Status"
+    "numberUnitField": "Currency",
+    "listIconSetup": {
+      "listIconRequired": "Yes",
+      "listIconMethod": "Application",
+      "listIcons": "sap-icon://customer-and-contacts"
+    }
   },
   "ListBOTFields": {
     "None": ["cardImage", "StatusState"],

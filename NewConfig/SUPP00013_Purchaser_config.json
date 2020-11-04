@@ -28,9 +28,12 @@
     "fStatus": "Status",
     "numberField": "TargetValue",
     "LFields": ["StartDate", "EndDate", "ID", "PaymentTerm"],
-    "numberUnitField": "Currency"
-,
-    "listIcon":"Status"
+    "numberUnitField": "Currency",
+    "listIconSetup": {
+      "listIconRequired": "Yes",
+      "listIconMethod": "Application",
+      "listIcons": "sap-icon://decision"
+    }
   },
   "ListBOTFields": {
     "None": ["cardImage", "StatusState"],
