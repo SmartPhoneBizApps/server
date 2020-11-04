@@ -90,7 +90,8 @@
           {"Method":"Email"}
         ],
         "images":"carouselImage",
-        "text":"carouselImage_ocr"
+        "ocr":"carouselImage_ocr",
+        "text":"carouselImage_text"
       }
     },
     {
@@ -794,6 +795,14 @@
       "Option": "Optional",
       "adaptiveCard": "None",
       "SLabel": "carouselImage"
+    },
+    {
+      "name": "carouselImage_text",
+      "type": "Array",
+      "width": "1000",
+      "Option": "Optional",
+      "adaptiveCard": "None",
+      "SLabel": "OCR text"
     },
     {
       "name": "carouselImage_ocr",
