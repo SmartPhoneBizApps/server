@@ -405,14 +405,18 @@
     },
     {
       "name": "VendorName",
-      "type": "string",
+      "type": "externalSingleField",
       "width": "50",
       "Option": "Mandatory",
       "adaptiveCard": "Main",
       "SLabel": "Vendor Name",
       "valueSearch":{
-        "applicationID":"SUPP00014",
-        "mapField":"CompanyName"
+        "URL":"listrecordsnew/listcards/SUPP00014/Purchaser",
+        "method":"GET",
+        "token":"Yes",
+        "mapField":"CompanyName",
+        "buttonName":"Find Supplier",
+        "listField":["ID", "CompanyName", "CompanyType", "Address", "PostCode"]
       }
     },
     {
