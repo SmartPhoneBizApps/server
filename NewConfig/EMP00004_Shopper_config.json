@@ -47,7 +47,6 @@
   "PossibleValues": [
     "ItemStatus",
     "ItemStatus99",
-    "VendorName",
     "UoM",
     "Category",
     "Currency",
@@ -59,6 +58,9 @@
     "iVAT",
     "ItemStatus1"
   ],
+
+
+
   "MButtons": [
     {
       "type": "DOWNLOAD",
@@ -239,8 +241,9 @@
     "Tab20": ["charts"],
     "Tab98": ["checks"],
     "Tab99": ["actionLog"],
-    "None": ["ID", "VendorName", "SCDate"],
+    "None": ["ID",  "SCDate"],
     "Tab2": [
+      "VendorName",
       "DeliveryDt",
       "DelTo",
       "Address",
@@ -406,7 +409,11 @@
       "width": "50",
       "Option": "Mandatory",
       "adaptiveCard": "Main",
-      "SLabel": "Vendor Name"
+      "SLabel": "Vendor Name",
+      "valueSearch":{
+        "applicationID":"SUPP00014",
+        "mapField":"CompanyName"
+      }
     },
     {
       "name": "Plant",
