@@ -27,7 +27,17 @@
     "TitleField": "Area",
     "fStatus": "Status",
     "LFields": ["ID", "Problem"],
-    "listIcon":"Status"
+    "listIconSetup": {
+      "listIconRequired": "Yes",
+      "listIconMethod": "ControlDisplay",
+      "listIconField": "BookingFor",
+      "listIcons": {
+        "P1-Critical": "sap-icon://alert",
+        "P2-High": "sap-icon://incident",
+        "P3-Medium": "sap-icon://quality-issue",
+        "P4-Low": "sap-icon://bell"
+      }
+    }
   },
   "ListBOTFields": {
     "None": ["cardImage", "StatusState"],

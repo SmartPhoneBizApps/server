@@ -37,7 +37,11 @@
     "TitleField": "CalibDate",
     "fStatus": "Status",
     "LFields": ["ID", "Equipment"],
-    "listIcon":"Status"
+    "listIconSetup": {
+      "listIconRequired": "Yes",
+      "listIconMethod": "Application",
+      "listIcons": "sap-icon://lab"
+    }
   },
   "ListBOTFields": {
     "None": ["cardImage", "StatusState"],
@@ -45,9 +49,7 @@
     "SubTitle": ["Status", "CalibDate"],
     "Description": ["ID", "Equipment"]
   },
-    "PossibleValues": [
-    "ItemStatus",
-    "ItemStatus99","Result", "Status"],
+  "PossibleValues": ["ItemStatus", "ItemStatus99", "Result", "Status"],
   "MButtons": [],
   "DButtons": [
     {
@@ -194,7 +196,7 @@
     "headerColorFields": ["Status"],
     "Tab0": ["data"],
     "Tab20": ["charts"],
-        "Tab98": ["checks"],
+    "Tab98": ["checks"],
     "Tab99": ["actionLog"],
     "None": ["ID", "ReferenceNo", "InvoiceNo", "Equipment"],
     "Tab1": [
@@ -242,7 +244,7 @@
   ],
   "ControlDisplay": {},
   "tableConfig": {
-        "checks": {
+    "checks": {
       "title": "Document Checks",
       "subtitle": "Document Checks",
       "ItemFieldDefinition": [
@@ -326,7 +328,7 @@
         "Number",
         "Message",
         "checkDate",
-        "checkStage",        
+        "checkStage",
         "ItemStatus"
       ],
       "detailCharts": [],

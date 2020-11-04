@@ -27,7 +27,16 @@
     "TitleField": "Model",
     "fStatus": "Status",
     "LFields": ["ID", "Make"],
-    "listIcon":"Status"
+    "listIconSetup": {
+      "listIconRequired": "Yes",
+      "listIconMethod": "ControlDisplay",
+      "listIconField": "AssetType",
+      "listIcons": {
+        "Desktop": "sap-icon://desktop-mobile",
+        "Laptop": "sap-icon://laptop",
+        "Server": "sap-icon://it-host"
+      }
+    }
   },
   "ListBOTFields": {
     "None": ["cardImage", "StatusState"],

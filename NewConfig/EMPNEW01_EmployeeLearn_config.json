@@ -32,9 +32,12 @@
     "fStatus": "EmployeeID",
     "numberField": "",
     "LFields": ["ID", "Email", "DateOfJoining", "SearchString"],
-    "numberUnitField": ""
-,
-    "listIcon":"Status"
+    "numberUnitField": "",
+    "listIconSetup": {
+      "listIconRequired": "Yes",
+      "listIconMethod": "Application",
+      "listIcons": "sap-icon://employee-pane"
+    }
   },
   "ListBOTFields": {
     "None": ["cardImage", "StatusState"],
@@ -42,7 +45,7 @@
     "SubTitle": ["EmployeeID", "Status"],
     "Description": ["Email", "DateOfJoining"]
   },
-    "PossibleValues": [
+  "PossibleValues": [
     "ItemStatus",
     "ItemStatus99",
     "Status",
@@ -279,7 +282,7 @@
     "headerColorFields": ["Status"],
     "Tab0": ["data"],
     "Tab20": ["charts"],
-        "Tab98": ["checks"],
+    "Tab98": ["checks"],
     "Tab99": ["actionLog"],
     "None": ["LastName", "FirstName", "EmployeeID", "ID", "DOB"],
     "Tab1": [
@@ -1126,7 +1129,7 @@
         { "name": "ItemStatus7" }
       ]
     },
-        "checks": {
+    "checks": {
       "title": "Document Checks",
       "subtitle": "Document Checks",
       "ItemFieldDefinition": [
@@ -1210,7 +1213,7 @@
         "Number",
         "Message",
         "checkDate",
-        "checkStage",        
+        "checkStage",
         "ItemStatus"
       ],
       "detailCharts": [],

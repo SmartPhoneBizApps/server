@@ -169,9 +169,12 @@
     "fStatus": "Status",
     "numberField": "StudyValue",
     "LFields": ["InvoiceValue", "ID", "PharmaContact", "PharmaContactEmail"],
-    "numberUnitField": ""
-,
-    "listIcon":"Status"
+    "numberUnitField": "",
+    "listIconSetup": {
+      "listIconRequired": "Yes",
+      "listIconMethod": "Application",
+      "listIcons": "sap-icon://newspaper"
+    }
   },
   "ListBOTFields": {
     "None": ["cardImage", "StatusState"],

@@ -27,7 +27,11 @@
     "TitleField": "TotalStock",
     "fStatus": "Status",
     "LFields": ["ID"],
-    "listIcon":"Status"
+    "listIconSetup": {
+      "listIconRequired": "Yes",
+      "listIconMethod": "Application",
+      "listIcons": "sap-icon://product"
+    }
   },
   "ListBOTFields": {
     "None": ["cardImage", "StatusState"],

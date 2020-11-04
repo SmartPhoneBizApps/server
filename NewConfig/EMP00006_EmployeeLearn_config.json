@@ -37,7 +37,11 @@
     "sStatus": "Duration",
     "fStatus": "Status",
     "LFields": ["ID", "EmployeeID", "DateRequested", "Detail", "External"],
-    "listIcon":"Status"
+    "listIconSetup": {
+      "listIconRequired": "Yes",
+      "listIconMethod": "Application",
+      "listIcons": "sap-icon://learning-assistant"
+    }
   },
   "ListBOTFields": {
     "None": ["cardImage", "StatusState"],

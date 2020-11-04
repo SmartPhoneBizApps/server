@@ -47,7 +47,11 @@
     "sStatus": "Duration",
     "fStatus": "Status",
     "LFields": ["ID", "EmployeeID", "DateRequested", "Detail", "External"],
-    "listIcon":"Status"
+    "listIconSetup": {
+      "listIconRequired": "Yes",
+      "listIconMethod": "Application",
+      "listIcons": "sap-icon://learning-assistant"
+    }
   },
   "ListBOTFields": {
     "None": ["cardImage", "StatusState"],
@@ -55,7 +59,7 @@
     "SubTitle": ["Status", "Duration"],
     "Description": ["ID", "EmployeeID", "DateRequested", "Detail", "External"]
   },
-    "PossibleValues": [
+  "PossibleValues": [
     "ItemStatus",
     "ItemStatus99",
     "Status",
@@ -225,7 +229,7 @@
     "headerColorFields": ["Status"],
     "Tab0": ["data"],
     "Tab20": ["charts"],
-        "Tab98": ["checks"],
+    "Tab98": ["checks"],
     "Tab99": ["actionLog"],
     "None": ["ID", "DateRequested"],
     "Tab1": [
@@ -296,7 +300,7 @@
   "cards": [],
   "ControlDisplay": {},
   "tableConfig": {
-        "checks": {
+    "checks": {
       "title": "Document Checks",
       "subtitle": "Document Checks",
       "ItemFieldDefinition": [
@@ -380,7 +384,7 @@
         "Number",
         "Message",
         "checkDate",
-        "checkStage",        
+        "checkStage",
         "ItemStatus"
       ],
       "detailCharts": [],

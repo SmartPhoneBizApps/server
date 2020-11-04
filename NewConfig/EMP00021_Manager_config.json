@@ -34,9 +34,12 @@
     "fStatus": "Status",
     "numberField": "GrossAmount",
     "LFields": ["EmployeeID", "StartDate", "EndDate"],
-    "numberUnitField": ""
-,
-    "listIcon":"Status"
+    "numberUnitField": "",
+    "listIconSetup": {
+      "listIconRequired": "Yes",
+      "listIconMethod": "Application",
+      "listIcons": "sap-icon://learning-assistant"
+    }
   },
   "ListBOTFields": {
     "None": ["cardImage", "StatusState"],
@@ -44,9 +47,13 @@
     "SubTitle": ["StartDate", "EndDate"],
     "Description": ["TotalRegHours", "TotalOvertimeHours"]
   },
-    "PossibleValues": [
+  "PossibleValues": [
     "ItemStatus",
-    "ItemStatus99","Status", "ProjectCode", "ItemStatus1"],
+    "ItemStatus99",
+    "Status",
+    "ProjectCode",
+    "ItemStatus1"
+  ],
   "MButtons": [
     {
       "type": "DOWNLOAD",
@@ -215,7 +222,7 @@
     "headerColorFields": ["Status"],
     "Tab0": ["data"],
     "Tab20": ["charts"],
-        "Tab98": ["checks"],
+    "Tab98": ["checks"],
     "Tab99": ["actionLog"],
     "None": ["ID", "Name", "EmployeeID", "StartDate", "EndDate"],
     "Tab6": ["MultiAttachments"],
@@ -485,7 +492,7 @@
         "Document": {}
       }
     },
-        "checks": {
+    "checks": {
       "title": "Document Checks",
       "subtitle": "Document Checks",
       "ItemFieldDefinition": [
@@ -569,7 +576,7 @@
         "Number",
         "Message",
         "checkDate",
-        "checkStage",        
+        "checkStage",
         "ItemStatus"
       ],
       "detailCharts": [],

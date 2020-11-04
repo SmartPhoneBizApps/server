@@ -24,9 +24,12 @@
     "fStatus": "Status",
     "numberField": "GrossAmount",
     "LFields": ["EmployeeID", "StartDate", "EndDate"],
-    "numberUnitField": ""
-,
-    "listIcon":"Status"
+    "numberUnitField": "",
+    "listIconSetup": {
+      "listIconRequired": "Yes",
+      "listIconMethod": "Application",
+      "listIcons": "sap-icon://learning-assistant"
+    }
   },
   "ListBOTFields": {
     "None": ["cardImage", "StatusState"],

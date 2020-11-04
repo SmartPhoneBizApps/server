@@ -24,7 +24,17 @@
     "TitleField": "JobType",
     "fStatus": "Status",
     "LFields": ["ID", "Location", "Duration", "StartDate"],
-    "listIcon":"Status"
+    "listIconSetup": {
+      "listIconRequired": "Yes",
+      "listIconMethod": "ControlDisplay",
+      "listIconField": "JobType",
+      "listIcons": {
+        "Permanent": "sap-icon://project-definition-triangle-2",
+        "Fixed Term": "sap-icon://project-definition-triangle",
+        "Contract": "sap-icon://rhombus-milestone",
+        "Temporary": "sap-icon://status-completed"
+      }
+    }
   },
   "ListBOTFields": {
     "None": ["cardImage", "StatusState"],
@@ -32,9 +42,7 @@
     "SubTitle": ["Salary", "Rate", "Location"],
     "Description": ["ID", "Location", "Duration", "StartDate"]
   },
-    "PossibleValues": [
-    "ItemStatus",
-    "ItemStatus99","JobType", "Status"],
+  "PossibleValues": ["ItemStatus", "ItemStatus99", "JobType", "Status"],
   "MButtons": [
     {
       "type": "DOWNLOAD",
@@ -198,7 +206,7 @@
     "headerColorFields": ["Status"],
     "Tab0": ["data"],
     "Tab20": ["charts"],
-        "Tab98": ["checks"],
+    "Tab98": ["checks"],
     "Tab99": ["actionLog"],
     "None": ["ID", "Title", "Location", "JobType", "Salary", "Rate"],
     "Tab1": [
@@ -223,7 +231,7 @@
   },
   "ControlDisplay": {},
   "tableConfig": {
-        "checks": {
+    "checks": {
       "title": "Document Checks",
       "subtitle": "Document Checks",
       "ItemFieldDefinition": [
@@ -307,7 +315,7 @@
         "Number",
         "Message",
         "checkDate",
-        "checkStage",        
+        "checkStage",
         "ItemStatus"
       ],
       "detailCharts": [],

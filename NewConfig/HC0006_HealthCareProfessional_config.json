@@ -173,9 +173,12 @@
     "fStatus": "Status",
     "numberField": "DonationValue",
     "LFields": ["ID", "Address", "PharmaContact", "PharmaContactEmail"],
-    "numberUnitField": ""
-,
-    "listIcon":"Status"
+    "numberUnitField": "",
+    "listIconSetup": {
+      "listIconRequired": "Yes",
+      "listIconMethod": "Application",
+      "listIcons": "sap-icon://loan"
+    }
   },
   "ListBOTFields": {
     "None": ["cardImage", "StatusState"],

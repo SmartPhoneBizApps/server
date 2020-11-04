@@ -41,9 +41,12 @@
     "fStatus": "Status",
     "numberField": "",
     "LFields": ["DevManager", "Band", "Area"],
-    "numberUnitField": ""
-,
-    "listIcon":"Status"
+    "numberUnitField": "",
+    "listIconSetup": {
+      "listIconRequired": "Yes",
+      "listIconMethod": "Application",
+      "listIcons": "sap-icon://compare"
+    }
   },
   "ListBOTFields": {
     "None": ["cardImage", "StatusState"],
@@ -51,7 +54,7 @@
     "SubTitle": ["Status", "ReviewPeriod"],
     "Description": ["DevManager", "Band", "Area"]
   },
-    "PossibleValues": [
+  "PossibleValues": [
     "ItemStatus",
     "ItemStatus99",
     "Status",
@@ -279,7 +282,7 @@
     "headerColorFields": ["Status"],
     "Tab0": ["data"],
     "Tab20": ["charts"],
-        "Tab98": ["checks"],
+    "Tab98": ["checks"],
     "Tab99": ["actionLog"],
     "None": ["ID", "ReviewDate", "Email"],
     "Tab1": [
@@ -1099,7 +1102,7 @@
         { "name": "ProjFeedback" }
       ]
     },
-        "checks": {
+    "checks": {
       "title": "Document Checks",
       "subtitle": "Document Checks",
       "ItemFieldDefinition": [
@@ -1183,7 +1186,7 @@
         "Number",
         "Message",
         "checkDate",
-        "checkStage",        
+        "checkStage",
         "ItemStatus"
       ],
       "detailCharts": [],

@@ -24,7 +24,17 @@
     "TitleField": "JobType",
     "fStatus": "Status",
     "LFields": ["ID", "Location", "Duration", "StartDate"],
-    "listIcon":"Status"
+    "listIconSetup": {
+      "listIconRequired": "Yes",
+      "listIconMethod": "ControlDisplay",
+      "listIconField": "JobType",
+      "listIcons": {
+        "Permanent": "sap-icon://project-definition-triangle-2",
+        "Fixed Term": "sap-icon://project-definition-triangle",
+        "Contract": "sap-icon://rhombus-milestone",
+        "Temporary": "sap-icon://status-completed"
+      }
+    }
   },
   "ListBOTFields": {
     "None": ["cardImage", "StatusState"],

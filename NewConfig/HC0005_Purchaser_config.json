@@ -144,9 +144,20 @@
     "fStatus": "Status",
     "numberField": "InvoiceValue",
     "LFields": ["ID"],
-    "numberUnitField": ""
-,
-    "listIcon":"Status"
+    "numberUnitField": "",
+    "listIconSetup": {
+      "listIconRequired": "Yes",
+      "listIconMethod": "ControlDisplay",
+      "listIconField": "InvoiceType",
+      "listIcons": {
+        "ContractInvoice": "sap-icon://decision",
+        "EventInvoice": "sap-icon://manager",
+        "POInvoice": "sap-icon://monitor-payments",
+        "NonPOInvoice": "sap-icon://collections-insight",
+        "StudyInvoice": "sap-icon://newspaper",
+        "DonationInvoice": "sap-icon://loan"
+      }
+    }
   },
   "ListBOTFields": {
     "None": ["cardImage", "StatusState"],

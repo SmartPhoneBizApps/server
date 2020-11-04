@@ -31,9 +31,12 @@
     "fStatus": "EmployeeID",
     "numberField": "",
     "LFields": ["ID", "Email", "DateOfJoining", "SearchString"],
-    "numberUnitField": ""
-,
-    "listIcon":"Status"
+    "numberUnitField": "",
+    "listIconSetup": {
+      "listIconRequired": "Yes",
+      "listIconMethod": "Application",
+      "listIcons": "sap-icon://employee-pane"
+    }
   },
   "ListBOTFields": {
     "None": ["cardImage", "StatusState"],
