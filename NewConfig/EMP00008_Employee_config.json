@@ -41,9 +41,19 @@
       "TravelMode",
       "TravelDays"
     ],
-    "numberUnitField": "Currency"
-,
-    "listIcon":"Status"
+    "numberUnitField": "Currency",
+    "listIconSetup": {
+      "listIconRequired": "Yes",
+      "listIconMethod": "ControlDisplay",
+      "listIconField": "TravelMode",
+      "listIcons": {
+        "Flight": "sap-icon://flight",
+        "Taxi": "sap-icon://taxi",
+        "Train/Bus": "sap-icon://passenger-train",
+        "OwnCar": "sap-icon://car-rental",
+        "CompanyCar": "sap-icon://insurance-car"
+      }
+    }
   },
   "ListBOTFields": {
     "None": ["cardImage", "StatusState"],

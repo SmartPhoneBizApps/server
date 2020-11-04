@@ -227,8 +227,8 @@ exports.listrecordsnew = asyncHandler(async (req, res, next) => {
       if (mode == "Web" || mode == "web" || mode == "listcards") {
         if (appconfig["ListFields"]["listIconSetup"] != undefined) {
           if (
-            appconfig["ListFields"]["listIconSetup"]["listIconRequired"] ==
-            "Yes"
+            appconfig["ListFields"]["listIconSetup"]["listIconMethod"] ==
+            "ControlDisplay"
           ) {
             if (
               appconfig["ListFields"]["listIconSetup"]["listIcons"][
@@ -237,7 +237,6 @@ exports.listrecordsnew = asyncHandler(async (req, res, next) => {
                 ]
               ] != undefined
             ) {
-              console.log("AG03");
               results[i1].listicon =
                 appconfig["ListFields"]["listIconSetup"]["listIcons"][
                   results[i1][
@@ -245,14 +244,18 @@ exports.listrecordsnew = asyncHandler(async (req, res, next) => {
                   ]
                 ];
               results[i1].USP_Image = results[i1].listicon;
-              console.log(
-                appconfig["ListFields"]["listIconSetup"]["listIconField"],
-                appconfig["ListFields"]["listIconSetup"]["listIcons"][
-                  results[i1][
-                    appconfig["ListFields"]["listIconSetup"]["listIconField"]
-                  ]
-                ]
-              );
+            }
+          }
+          if (
+            appconfig["ListFields"]["listIconSetup"]["listIconMethod"] ==
+            "Application"
+          ) {
+            if (
+              appconfig["ListFields"]["listIconSetup"]["listIcons"] != undefined
+            ) {
+              results[i1].listicon =
+                appconfig["ListFields"]["listIconSetup"]["listIcons"];
+              results[i1].USP_Image = results[i1].listicon;
             }
           }
         }

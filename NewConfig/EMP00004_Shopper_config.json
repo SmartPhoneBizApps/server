@@ -34,9 +34,12 @@
     "fStatus": "Status",
     "numberField": "GrossValue",
     "LFields": ["SCDate", "DelTo", "PostCode", "Email", "DeliveryDt"],
-    "numberUnitField": "Currency"
-,
-    "listIcon":"Status"
+    "numberUnitField": "Currency",
+    "listIconSetup": {
+      "listIconRequired": "Yes",
+      "listIconMethod": "Application",
+      "listIcons": "sap-icon://cart-full"
+    }
   },
   "ListBOTFields": {
     "None": ["cardImage", "StatusState"],

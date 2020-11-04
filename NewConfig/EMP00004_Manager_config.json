@@ -44,9 +44,12 @@
     "fStatus": "Status",
     "numberField": "GrossValue",
     "LFields": ["SCDate", "DelTo", "PostCode", "Email", "DeliveryDt"],
-    "numberUnitField": "Currency"
-,
-    "listIcon":"Status"
+    "numberUnitField": "Currency",
+    "listIconSetup": {
+      "listIconRequired": "Yes",
+      "listIconMethod": "Application",
+      "listIcons": "sap-icon://cart-full"
+    }
   },
   "ListBOTFields": {
     "None": ["cardImage", "StatusState"],
@@ -54,7 +57,7 @@
     "SubTitle": ["GrossValue", "Status", "DeliveryDt"],
     "Description": ["ID", "SCDate", "DelTo", "PostCode", "Email"]
   },
-    "PossibleValues": [
+  "PossibleValues": [
     "ItemStatus",
     "ItemStatus99",
     "VendorName",
@@ -243,7 +246,7 @@
     "headerColorFields": ["Status"],
     "Tab0": ["data"],
     "Tab20": ["charts"],
-        "Tab98": ["checks"],
+    "Tab98": ["checks"],
     "Tab99": ["actionLog"],
     "None": ["ID", "VendorName", "SCDate"],
     "Tab2": [
@@ -848,7 +851,7 @@
         { "name": "Category" }
       ]
     },
-        "checks": {
+    "checks": {
       "title": "Document Checks",
       "subtitle": "Document Checks",
       "ItemFieldDefinition": [
@@ -932,7 +935,7 @@
         "Number",
         "Message",
         "checkDate",
-        "checkStage",        
+        "checkStage",
         "ItemStatus"
       ],
       "detailCharts": [],

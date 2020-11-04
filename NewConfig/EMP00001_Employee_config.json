@@ -28,7 +28,20 @@
     "fStatus": "Status",
     "numberField": "LeaveDays",
     "LFields": ["ID", "LeaveTo", "LeaveReason", "EmployeeID"],
-    "listIcon":"Status"
+    "listIconSetup": {
+      "listIconRequired": "Yes",
+      "listIconMethod": "ControlDisplay",
+      "listIconField": "LeaveType",
+      "listIcons": {
+        "Annual leave": "sap-icon://travel-itinerary",
+        "Compassionate leave": "sap-icon://repost",
+        "Emergency leave": "sap-icon://message-warning",
+        "Maternity leave": "sap-icon://family-care",
+        "Paternity leave": "sap-icon://family-protection",
+        "Sabbatical Leave": "sap-icon://study-leave",
+        "Sick/medical leave": "sap-icon://accidental-leave"
+      }
+    }
   },
   "ListBOTFields": {
     "None": ["cardImage", "StatusState"],
