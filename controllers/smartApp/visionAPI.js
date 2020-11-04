@@ -177,7 +177,7 @@ exports.visionAPI = asyncHandler(async (req, res, next) => {
   //-----------------------------------------
   //                   OCR
   //-----------------------------------------
-
+  textOut = ""
   res.status(200).json({
     success: true,
     label: label.labelAnnotations,
