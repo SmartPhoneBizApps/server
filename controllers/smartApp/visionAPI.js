@@ -9,6 +9,7 @@ const {
 } = require("../../modules/config2");
 exports.visionAPI = asyncHandler(async (req, res, next) => {
   mout = [];
+  textOut = {}
   let googleAPIFile = "./config/apikey.json";
   // var googleAPI = require(googleAPIFile);
 
@@ -56,13 +57,15 @@ exports.visionAPI = asyncHandler(async (req, res, next) => {
     req.headers.imagetype == "Receipt"
   ) {
     const [text] = await client.textDetection(fileName);
+    textOut = text.textAnnotations
+
+
     //  console.log("Text :", text["description"], text["boundingPoly"]);
     if (text.textAnnotations.length > 0) {
       TR = 0;
       BL = 0;
       BR = 0;
       textArray = [];
-
       // Get Description....
       myText = text.textAnnotations[0]["description"];
       textArray = myText.split("\n");
@@ -181,7 +184,7 @@ exports.visionAPI = asyncHandler(async (req, res, next) => {
     logo: logo.logoAnnotations,
     landmark: landmark.landmarkAnnotations,
     face: face.faceAnnotations,
-    text: text.textAnnotations,
+    text: textOut,
     // web: web.webAnnotations,
     ocr: mout,
   });
