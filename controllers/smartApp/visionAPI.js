@@ -98,17 +98,18 @@ exports.visionAPI = asyncHandler(async (req, res, next) => {
       col = 1;
       console.log(myRows);
       console.log("--------------------------");
-      vertices = [];
       for (let d = 0; d < text.textAnnotations.length; d++) {
         if (d != 0) {
           lst = text.textAnnotations[d];
-          vertices.push(lst["boundingPoly"]["vertices"][0]["x"]);
-          vertices.push(lst["boundingPoly"]["vertices"][0]["y"]);
-          vertices.push(lst["boundingPoly"]["vertices"][2]["x"]);
-          vertices.push(lst["boundingPoly"]["vertices"][2]["y"]);
-          nRow["vertices"] = vertices;
+          nRow["vertices"] =
+            lst["boundingPoly"]["vertices"][0]["x"] +
+            "-" +
+            lst["boundingPoly"]["vertices"][0]["y"] +
+            "-" +
+            lst["boundingPoly"]["vertices"][2]["x"] +
+            "-" +
+            lst["boundingPoly"]["vertices"][2]["y"];
           nRow["description"] = lst["description"];
-          vertices = [];
           for (let j = 0; j < myRows.length; j++) {
             if (lst["boundingPoly"]["vertices"][0]["y"] == myRows[j]["y"]) {
               nRow["row"] = myRows[j]["row"];
