@@ -400,23 +400,6 @@ exports.getDetailCardsNew = async (req, res, next) => {
     }
   }
 
-  if (appconfig["Controls"]["StatusColor"] == "Yes") {
-    if (colorConfig["Status"][appData["Status"]] == undefined) {
-      appData["StatusState"] = "None";
-    } else {
-      appData["StatusState"] = colorConfig["Status"][appData["Status"]];
-    }
-  }
-  appData.SearchString = "";
-  for (let l = 0; l < tabArr.length; l++) {
-    for (let x = 0; x < appData[tabArr[l]["table"]].length; x++) {
-      appData.SearchString =
-        appData.SearchString +
-        appData[tabArr[l]["table"]][x][tabArr[l]["field"]] +
-        " ";
-    }
-  }
-
   // 03 -  Tab details..
   console.log("05 -  Tab details..");
   cTab = {};
