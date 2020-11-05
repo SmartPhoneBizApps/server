@@ -98,10 +98,17 @@ exports.visionAPI = asyncHandler(async (req, res, next) => {
       col = 1;
       console.log(myRows);
       console.log("--------------------------");
+      vertices = [];
       for (let d = 0; d < text.textAnnotations.length; d++) {
         if (d != 0) {
           lst = text.textAnnotations[d];
+          vertices.push(lst["boundingPoly"]["vertices"][0]["x"]);
+          vertices.push(lst["boundingPoly"]["vertices"][0]["y"]);
+          vertices.push(lst["boundingPoly"]["vertices"][2]["x"]);
+          vertices.push(lst["boundingPoly"]["vertices"][2]["y"]);
+          nRow["vertices"] = vertices;
           nRow["description"] = lst["description"];
+          vertices = [];
           for (let j = 0; j < myRows.length; j++) {
             if (lst["boundingPoly"]["vertices"][0]["y"] == myRows[j]["y"]) {
               nRow["row"] = myRows[j]["row"];
@@ -123,26 +130,6 @@ exports.visionAPI = asyncHandler(async (req, res, next) => {
               nRow["x2"] = lst["boundingPoly"]["vertices"][1]["x"];
               nRow["w"] = nRow["x2"] - nRow["x1"];
               X2 = nRow["x2"];
-              console.log(
-                "description",
-                nRow["description"],
-                "row",
-                nRow["row"],
-                "col",
-                nRow["col"],
-                "diff",
-                nRow["diff"],
-                "X2",
-                X2,
-                "y",
-                nRow["y"],
-                "x1",
-                nRow["x1"],
-                "x2",
-                nRow["x2"],
-                "w",
-                nRow["w"]
-              );
             }
           }
           myRows2.push({ ...nRow });
@@ -152,7 +139,6 @@ exports.visionAPI = asyncHandler(async (req, res, next) => {
       counter = 0;
 
       Outdata = [];
-
       for (let j = 1; j < lineNumber + 1; j++) {
         mRow = {};
         mCol = {};
@@ -160,34 +146,58 @@ exports.visionAPI = asyncHandler(async (req, res, next) => {
 
         col = 0;
         for (let f = 0; f < myRows2.length; f++) {
-          console.log(
-            "V-",
-            myRows2[f]["description"],
-            "R-",
-            myRows2[f]["row"],
-            "C-",
-            myRows2[f]["col"]
-          );
           if (myRows2[f]["row"] == j) {
+            mCol["row"] = "R" + j;
+            mCol["vertices"] = myRows2[f]["vertices"];
             if (col != myRows2[f]["col"]) {
               col = col + 1;
-              mCol["text"] = "C" + col;
+              mCol["col"] = "C" + col;
               mCol["val"] = myRows2[f]["description"];
             } else {
               mCol["text"] = "C" + col;
               mCol["val"] = mCol["val"] + " " + myRows2[f]["description"];
             }
-            colTab.push({ ...mCol });
+            mCol["Proposal"] = "";
+            Outdata.push({ ...mCol });
             mCol = {};
           }
         }
-        mRow["nodes"] = colTab;
-        mRow["text"] = "R" + j;
-        colTab = [];
-
-        Outdata.push({ ...mRow });
-        mRow = {};
       }
+      // for (let j = 1; j < lineNumber + 1; j++) {
+      //   mRow = {};
+      //   mCol = {};
+      //   colTab = [];
+
+      //   col = 0;
+      //   for (let f = 0; f < myRows2.length; f++) {
+      //     console.log(
+      //       "V-",
+      //       myRows2[f]["description"],
+      //       "R-",
+      //       myRows2[f]["row"],
+      //       "C-",
+      //       myRows2[f]["col"]
+      //     );
+      //     if (myRows2[f]["row"] == j) {
+      //       if (col != myRows2[f]["col"]) {
+      //         col = col + 1;
+      //         mCol["text"] = "C" + col;
+      //         mCol["val"] = myRows2[f]["description"];
+      //       } else {
+      //         mCol["text"] = "C" + col;
+      //         mCol["val"] = mCol["val"] + " " + myRows2[f]["description"];
+      //       }
+      //       colTab.push({ ...mCol });
+      //       mCol = {};
+      //     }
+      //   }
+      //   mRow["nodes"] = colTab;
+      //   mRow["text"] = "R" + j;
+      //   colTab = [];
+
+      //   Outdata.push({ ...mRow });
+      //   mRow = {};
+      // }
 
       // for (let j = 1; j < lineNumber + 1; j++) {
       //   mString = [];
