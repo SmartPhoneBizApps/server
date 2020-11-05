@@ -62,8 +62,6 @@
     "ItemStatus1"
   ],
 
-
-
   "MButtons": [
     {
       "type": "DOWNLOAD",
@@ -244,7 +242,7 @@
     "Tab20": ["charts"],
     "Tab98": ["checks"],
     "Tab99": ["actionLog"],
-    "None": ["ID",  "SCDate"],
+    "None": ["ID", "SCDate"],
     "Tab2": [
       "VendorName",
       "DeliveryDt",
@@ -413,13 +411,19 @@
       "Option": "Mandatory",
       "adaptiveCard": "Main",
       "SLabel": "Vendor Name",
-      "valueSearch":{
-        "URL":"listrecordsnew/listcards/SUPP00014/Purchaser",
-        "method":"GET",
-        "token":"Yes",
-        "mapField":"CompanyName",
-        "buttonName":"Find Supplier",
-        "listField":["ID", "CompanyName", "CompanyType", "Address", "PostCode"]
+      "valueSearch": {
+        "URL": "listrecordsnew/listcards/SUPP00014/Purchaser",
+        "method": "GET",
+        "token": "Yes",
+        "mapField": "CompanyName",
+        "buttonName": "Find Supplier",
+        "listField": [
+          { "name": "ID", "SLabel": "Identification", "Type": "string" },
+          { "name": "CompanyName", "SLabel": "Company Name", "Type": "string" },
+          { "name": "CompanyType", "SLabel": "Company Type", "Type": "string" },
+          { "name": "Address", "SLabel": "Address", "Type": "string" },
+          { "name": "PostCode", "SLabel": "Post Code", "Type": "string" }
+        ]
       }
     },
     {
