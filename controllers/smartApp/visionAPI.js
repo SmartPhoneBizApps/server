@@ -154,12 +154,13 @@ exports.visionAPI = asyncHandler(async (req, res, next) => {
       Outdata = [];
 
       for (let j = 1; j < lineNumber + 1; j++) {
-        rowOut = {};
         mRow = {};
+        mCol = {};
+        colTab = [];
+
         col = 0;
         for (let f = 0; f < myRows2.length; f++) {
           console.log(
-            "Atul Gupta",
             "V-",
             myRows2[f]["description"],
             "R-",
@@ -170,38 +171,45 @@ exports.visionAPI = asyncHandler(async (req, res, next) => {
           if (myRows2[f]["row"] == j) {
             if (col != myRows2[f]["col"]) {
               col = col + 1;
-              mRow[col] = myRows2[f]["description"];
+              mCol["text"] = "C" + col;
+              mCol["val"] = myRows2[f]["description"];
             } else {
-              mRow[col] = mRow[col] + " " + myRows2[f]["description"];
+              mCol["text"] = "C" + col;
+              mCol["val"] = mCol["val"] + " " + myRows2[f]["description"];
             }
+            colTab.push({ ...mCol });
+            mCol = {};
           }
         }
+        mRow["nodes"] = colTab;
+        mRow["text"] = "R" + j;
+        colTab = [];
 
-        Outdata.push({ ...rowOut });
-        rowOut = {};
-      }
-
-      for (let j = 1; j < lineNumber + 1; j++) {
-        mString = [];
-        mRow = {};
-        col = 0;
-        // for (let f = 0; f < myRows2.length; f++) {
-        //   if (myRows2[f]["row"] == j) {
-        //     if (col != myRows2[f]["col"]) {
-        //       col = col + 1;
-        //       mRow[col] = myRows2[f]["description"];
-        //     } else {
-        //       mRow[col] = mRow[col] + " " + myRows2[f]["description"];
-        //     }
-        //     mRow["row"] = myRows2[f]["row"];
-        //     mString.push(myRows2[f]["description"]);
-        //   }
-        // }
-
-        mRow["description"] = mString;
-        mout.push({ ...mRow });
+        Outdata.push({ ...mRow });
         mRow = {};
       }
+
+      // for (let j = 1; j < lineNumber + 1; j++) {
+      //   mString = [];
+      //   mRow = {};
+      //   col = 0;
+      // for (let f = 0; f < myRows2.length; f++) {
+      //   if (myRows2[f]["row"] == j) {
+      //     if (col != myRows2[f]["col"]) {
+      //       col = col + 1;
+      //       mRow[col] = myRows2[f]["description"];
+      //     } else {
+      //       mRow[col] = mRow[col] + " " + myRows2[f]["description"];
+      //     }
+      //     mRow["row"] = myRows2[f]["row"];
+      //     mString.push(myRows2[f]["description"]);
+      //   }
+      // }
+
+      //   mRow["description"] = mString;
+      //   mout.push({ ...mRow });
+      //   mRow = {};
+      // }
     }
   }
   //-----------------------------------------
@@ -216,6 +224,6 @@ exports.visionAPI = asyncHandler(async (req, res, next) => {
     face: face.faceAnnotations,
     text: textOut,
     // web: web.webAnnotations,
-    ocr: mout,
+    ocr: Outdata,
   });
 });
