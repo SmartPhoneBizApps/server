@@ -146,6 +146,7 @@ exports.visionAPI = asyncHandler(async (req, res, next) => {
         colTab = [];
 
         col = 0;
+        Temp_c = "";
         for (let f = 0; f < myRows2.length; f++) {
           if (myRows2[f]["row"] == j) {
             mCol["row"] = "R" + j;
@@ -154,9 +155,12 @@ exports.visionAPI = asyncHandler(async (req, res, next) => {
               col = col + 1;
               mCol["col"] = "C" + col;
               mCol["val"] = myRows2[f]["description"];
+              Temp_c = myRows2[f]["description"];
             } else {
-              mCol["text"] = "C" + col;
-              mCol["val"] = mCol["val"] + " " + myRows2[f]["description"];
+              col = col + 1;
+              mCol["col"] = "C" + col;
+              mCol["val"] = Temp_c + " " + myRows2[f]["description"];
+              Temp_c = myRows2[f]["description"];
             }
             mCol["Proposal"] = "";
             Outdata.push({ ...mCol });
