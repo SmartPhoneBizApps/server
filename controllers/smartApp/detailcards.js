@@ -83,6 +83,8 @@ exports.getDetailCardsNew = async (req, res, next) => {
   } else {
     // Get list of records
   }
+
+  // PROCESS FLOW
   let pflow = {};
   let nod = {};
   let nods = [];
@@ -365,6 +367,53 @@ exports.getDetailCardsNew = async (req, res, next) => {
         nods = [];
         appData["processflow"] = pflow;
       }
+    }
+  }
+
+  // Icon and Images....
+  if (appconfig["ListFields"]["listIconSetup"] != undefined) {
+    if (
+      appconfig["ListFields"]["listIconSetup"]["listIconMethod"] ==
+      "ControlDisplay"
+    ) {
+      if (
+        appconfig["ListFields"]["listIconSetup"]["listIcons"][
+          appData[appconfig["ListFields"]["listIconSetup"]["listIconField"]]
+        ] != undefined
+      ) {
+        appData.listicon =
+          appconfig["ListFields"]["listIconSetup"]["listIcons"][
+            appData[appconfig["ListFields"]["listIconSetup"]["listIconField"]]
+          ];
+        appData.USP_Image = appData.listicon;
+      }
+    }
+    if (
+      appconfig["ListFields"]["listIconSetup"]["listIconMethod"] ==
+      "Application"
+    ) {
+      if (appconfig["ListFields"]["listIconSetup"]["listIcons"] != undefined) {
+        appData.listicon =
+          appconfig["ListFields"]["listIconSetup"]["listIcons"];
+        appData.USP_Image = appData.listicon;
+      }
+    }
+  }
+
+  if (appconfig["Controls"]["StatusColor"] == "Yes") {
+    if (colorConfig["Status"][appData["Status"]] == undefined) {
+      appData["StatusState"] = "None";
+    } else {
+      appData["StatusState"] = colorConfig["Status"][appData["Status"]];
+    }
+  }
+  appData.SearchString = "";
+  for (let l = 0; l < tabArr.length; l++) {
+    for (let x = 0; x < appData[tabArr[l]["table"]].length; x++) {
+      appData.SearchString =
+        appData.SearchString +
+        appData[tabArr[l]["table"]][x][tabArr[l]["field"]] +
+        " ";
     }
   }
 

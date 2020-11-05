@@ -22,6 +22,7 @@
     "Partner": "@user",
     "UserSpecific": "Yes",
     "Update": "Yes",
+    "ocr_data": "carouselImage_ocr",
     "URL": "https://fierce-oasis-51455.herokuapp.com",
     "Source": { "SourceName": "mongoDB", "SourceFile": "NA" },
     "filterFields": {
@@ -244,8 +245,16 @@
       "name": "Images",
       "fioriicon": "camera",
       "type": "carouselImage",
-      "ocr": "No",
+      "ocr": "Yes",
       "download": "No"
+    },
+    {
+      "value": "OCR01",
+      "style": "SAP",
+      "update": "Yes",
+      "name": "OCR",
+      "fioriicon": "image-viewer",
+      "type": "Table"
     },
     {
       "value": "Tab4",
@@ -255,7 +264,7 @@
       "fioriicon": "attachment",
       "type": "MultiAttachments",
       "download": "No",
-      "docType": [{ "text": "Receipt", "state": "Information" }]
+      "docType": [{ "text": "Receipt", "state": "Information", "ocr": "Yes" }]
     },
     {
       "value": "Tab98",
@@ -299,6 +308,7 @@
     ],
     "Tab2": ["myExpenses"],
     "Tab5": ["carouselImage"],
+    "OCR01": ["carouselImage_ocr"],
     "Tab4": ["MultiAttachments"]
   },
   "listCards": [
@@ -870,6 +880,50 @@
         },
         "Document": {}
       }
+    },
+    "carouselImage_ocr": {
+      "title": "OCR Data",
+      "subtitle": "OCR Data",
+      "ItemFieldDefinition": [
+        {
+          "name": "ItemNumber",
+          "type": "string",
+          "width": "10",
+          "Option": "Optional",
+          "adaptiveCard": "Additional",
+          "SLabel": "Item Number",
+          "Update": "No"
+        },
+        {
+          "name": "image",
+          "type": "string",
+          "width": "200",
+          "Option": "Optional",
+          "adaptiveCard": "Additional",
+          "SLabel": "image",
+          "Update": "Yes"
+        },
+        {
+          "name": "imageBody",
+          "type": "nodeobject",
+          "width": "5000",
+          "Option": "Optional",
+          "adaptiveCard": "Additional",
+          "SLabel": "imageBody"
+        }
+      ],
+      "DisplayFields": ["image", "imageBody"],
+      "detailCharts": [],
+      "cards": [],
+      "ItemButtons": {
+        "itemDisplay": true,
+        "itemCheck": false,
+        "itemAdd": false,
+        "itemEdit": false,
+        "itemDelete": true
+      },
+      "CreateFields": ["image", "imageBody"],
+      "ItemDetails": [{ "name": "image" }]
     },
     "checks": {
       "title": "Document Checks",
@@ -1518,6 +1572,14 @@
       "Option": "Optional",
       "adaptiveCard": "None",
       "SLabel": "carouselImage"
+    },
+    {
+      "name": "carouselImage_ocr",
+      "type": "Array",
+      "width": "200",
+      "Option": "Optional",
+      "adaptiveCard": "None",
+      "SLabel": "OCR Data"
     },
     {
       "name": "sValidation",
