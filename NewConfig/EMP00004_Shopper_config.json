@@ -245,6 +245,7 @@
     "None": ["ID", "SCDate"],
     "Tab2": [
       "VendorName",
+      "CompanyID",
       "DeliveryDt",
       "DelTo",
       "Address",
@@ -406,7 +407,7 @@
     },
     {
       "name": "VendorName",
-      "type": "externalSingleField",
+      "type": "externalField",
       "width": "50",
       "Option": "Mandatory",
       "adaptiveCard": "Main",
@@ -415,8 +416,11 @@
         "URL": "listrecordsnew/listcards/SUPP00014/Purchaser",
         "method": "GET",
         "token": "Yes",
-        "mapField": "CompanyName",
         "buttonName": "Find Supplier",
+        "mapField": [
+          { "source": "CompanyName", "target": "VendorName" },
+          { "source": "ID", "target": "CompanyID" }
+        ],
         "listField": [
           { "name": "ID", "SLabel": "Identification", "type": "string" },
           { "name": "CompanyName", "SLabel": "Company Name", "type": "string" },
@@ -426,6 +430,15 @@
         ]
       }
     },
+    {
+      "name": "CompanyID",
+      "type": "string",
+      "width": "20",
+      "Option": "Optional",
+      "adaptiveCard": "None",
+      "SLabel": "CompanyID"
+    },
+
     {
       "name": "Plant",
       "type": "string",
@@ -1263,7 +1276,10 @@
   "Wizard": [
     {
       "id": "Step1",
-      "fields": [{ "name": "VendorName", "Mode": "Edit" }],
+      "fields": [
+        { "name": "VendorName", "Mode": "Edit" },
+        { "name": "CompanyID", "Mode": "Edit" }
+      ],
       "name": "Vendor Details",
       "stepType": "FieldList",
       "intro": "Shopping Cart : Vendor Details"

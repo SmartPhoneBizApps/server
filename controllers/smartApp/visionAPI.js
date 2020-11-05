@@ -9,7 +9,7 @@ const {
 } = require("../../modules/config2");
 exports.visionAPI = asyncHandler(async (req, res, next) => {
   mout = [];
-  textOut = {}
+  textOut = {};
   let googleAPIFile = "./config/apikey.json";
   // var googleAPI = require(googleAPIFile);
 
@@ -57,8 +57,7 @@ exports.visionAPI = asyncHandler(async (req, res, next) => {
     req.headers.imagetype == "Receipt"
   ) {
     const [text] = await client.textDetection(fileName);
-    textOut = text.textAnnotations
-
+    textOut = text.textAnnotations;
 
     //  console.log("Text :", text["description"], text["boundingPoly"]);
     if (text.textAnnotations.length > 0) {
@@ -152,11 +151,22 @@ exports.visionAPI = asyncHandler(async (req, res, next) => {
       }
       counter = 0;
 
+      Outdata = [];
+
       for (let j = 1; j < lineNumber + 1; j++) {
-        mString = [];
+        rowOut = {};
         mRow = {};
         col = 0;
         for (let f = 0; f < myRows2.length; f++) {
+          console.log(
+            "Atul Gupta",
+            "V-",
+            myRows2[f]["description"],
+            "R-",
+            myRows2[f]["row"],
+            "C-",
+            myRows2[f]["col"]
+          );
           if (myRows2[f]["row"] == j) {
             if (col != myRows2[f]["col"]) {
               col = col + 1;
@@ -164,10 +174,30 @@ exports.visionAPI = asyncHandler(async (req, res, next) => {
             } else {
               mRow[col] = mRow[col] + " " + myRows2[f]["description"];
             }
-            mRow["row"] = myRows2[f]["row"];
-            mString.push(myRows2[f]["description"]);
           }
         }
+
+        Outdata.push({ ...rowOut });
+        rowOut = {};
+      }
+
+      for (let j = 1; j < lineNumber + 1; j++) {
+        mString = [];
+        mRow = {};
+        col = 0;
+        // for (let f = 0; f < myRows2.length; f++) {
+        //   if (myRows2[f]["row"] == j) {
+        //     if (col != myRows2[f]["col"]) {
+        //       col = col + 1;
+        //       mRow[col] = myRows2[f]["description"];
+        //     } else {
+        //       mRow[col] = mRow[col] + " " + myRows2[f]["description"];
+        //     }
+        //     mRow["row"] = myRows2[f]["row"];
+        //     mString.push(myRows2[f]["description"]);
+        //   }
+        // }
+
         mRow["description"] = mString;
         mout.push({ ...mRow });
         mRow = {};
@@ -177,7 +207,7 @@ exports.visionAPI = asyncHandler(async (req, res, next) => {
   //-----------------------------------------
   //                   OCR
   //-----------------------------------------
-  textOut = ""
+  textOut = "";
   res.status(200).json({
     success: true,
     label: label.labelAnnotations,
