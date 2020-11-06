@@ -151,17 +151,17 @@ exports.visionAPI = asyncHandler(async (req, res, next) => {
           if (myRows2[f]["row"] == j) {
             mCol["row"] = "R" + j;
             mCol["vertices"] = myRows2[f]["vertices"];
-            if (col != myRows2[f]["col"]) {
-              col = col + 1;
-              mCol["col"] = "C" + col;
-              mCol["val"] = myRows2[f]["description"];
-              Temp_c = myRows2[f]["description"];
-            } else {
-              col = col + 1;
-              mCol["col"] = "C" + col;
-              mCol["val"] = Temp_c + " " + myRows2[f]["description"];
-              Temp_c = myRows2[f]["description"];
-            }
+            //        if (col != myRows2[f]["col"]) {
+            col = col + 1;
+            mCol["col"] = "C" + col;
+            mCol["val"] = myRows2[f]["description"];
+            Temp_c = myRows2[f]["description"];
+            // } else {
+            //   col = col + 1;
+            //   mCol["col"] = "C" + col;
+            //   mCol["val"] = Temp_c + " " + myRows2[f]["description"];
+            //   Temp_c = myRows2[f]["description"];
+            // }
             mCol["Proposal"] = "";
             Outdata.push({ ...mCol });
             mCol = {};
