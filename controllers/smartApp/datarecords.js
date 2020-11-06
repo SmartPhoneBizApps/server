@@ -768,10 +768,13 @@ exports.updateDataRecords = asyncHandler(async (req, res, next) => {
   if (req.body["carouselImage_ocr"] != undefined) {
     i = 0;
     for (let p = 0; p < req.body["carouselImage_ocr"].length; p++) {
-      req.body["carouselImage_ocr"][p]["ItemNumber"] = i + 1;
+      i = i + 1;
+      req.body["carouselImage_ocr"][p]["ItemNumber"] = i;
     }
     for (let m = 0; m < myData["carouselImage_ocr"].length; m++) {
-      myData["carouselImage_ocr"][m]["ItemNumber"] = i + 1;
+      i = i + 1;
+      myData["carouselImage_ocr"][m]["ItemNumber"] = i;
+      // req.body["carouselImage_ocr"].unshift(myData["carouselImage_ocr"][m]);
       req.body["carouselImage_ocr"].push(myData["carouselImage_ocr"][m]);
     }
   }
