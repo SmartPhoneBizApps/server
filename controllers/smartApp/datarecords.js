@@ -223,6 +223,13 @@ exports.addDataRecords = asyncHandler(async (req, res, next) => {
       }
     }
   }
+  // Handle OCR data
+  if (req.body["carouselImage_ocr"] != undefined) {
+    i = 0;
+    for (let p = 0; p < req.body["carouselImage_ocr"].length; p++) {
+      req.body["carouselImage_ocr"][p]["ItemNumber"] = i + 1;
+    }
+  }
   mydata = req.body;
 
   // Read Card Configuration for the Role (X1)
@@ -749,6 +756,7 @@ exports.updateDataRecords = asyncHandler(async (req, res, next) => {
   if (!myData) {
     return next(new ErrorResponse(`Record with ${req.body.ID} Not found`, 400));
   }
+
   // Handle Carousel Image data (add to existing)
   if (req.body["carouselImage"] != undefined) {
     for (let m = 0; m < myData["carouselImage"].length; m++) {
@@ -758,7 +766,12 @@ exports.updateDataRecords = asyncHandler(async (req, res, next) => {
   }
   // Handle OCR data
   if (req.body["carouselImage_ocr"] != undefined) {
+    i = 0;
+    for (let p = 0; p < req.body["carouselImage_ocr"].length; p++) {
+      req.body["carouselImage_ocr"][p]["ItemNumber"] = i + 1;
+    }
     for (let m = 0; m < myData["carouselImage_ocr"].length; m++) {
+      myData["carouselImage_ocr"][m]["ItemNumber"] = i + 1;
       req.body["carouselImage_ocr"].push(myData["carouselImage_ocr"][m]);
     }
   }
