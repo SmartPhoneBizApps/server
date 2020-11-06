@@ -761,7 +761,7 @@ exports.updateDataRecords = asyncHandler(async (req, res, next) => {
   if (req.body["carouselImage"] != undefined) {
     for (let m = 0; m < myData["carouselImage"].length; m++) {
       console.log("File", myData["carouselImage"][m]);
-      req.body["carouselImage"].push(myData["carouselImage"][m]);
+      req.body["carouselImage"].unshift(myData["carouselImage"][m]);
     }
   }
   // Handle OCR data

@@ -1680,36 +1680,48 @@ module.exports = {
   },
   date1: function date1(array, field, order) {
     console.log("Inside Function");
-    if (order == "A" || order == "Ascending") {
-      console.log("Acending");
-      return array
-        .slice()
-        .sort((a, b) => new Date(a[field]) - new Date(b[field]));
+    if (array == undefined || field == "" || order == "") {
+      return new Array();
     } else {
-      console.log("Decending");
-      return array
-        .slice()
-        .sort((a, b) => new Date(b[field]) - new Date(a[field]));
+      if (order == "A" || order == "Ascending") {
+        console.log("Acending");
+        return array
+          .slice()
+          .sort((a, b) => new Date(a[field]) - new Date(b[field]));
+      } else {
+        console.log("Decending");
+        return array
+          .slice()
+          .sort((a, b) => new Date(b[field]) - new Date(a[field]));
+      }
     }
   },
   integer: function integer(array, field, order) {
     console.log("Inside Function");
-    if (order == "A" || order == "Ascending") {
-      console.log("Acending");
-      return array.slice().sort((a, b) => a[field] - b[field]);
+    if (array == undefined || field == "" || order == "") {
+      return new Array();
     } else {
-      console.log("Decending");
-      return array.slice().sort((a, b) => b[field] - a[field]);
+      if (order == "A" || order == "Ascending") {
+        console.log("Acending");
+        return array.slice().sort((a, b) => a[field] - b[field]);
+      } else {
+        console.log("Decending");
+        return array.slice().sort((a, b) => b[field] - a[field]);
+      }
     }
   },
   string: function string(array, field, order) {
     console.log("Inside Function");
-    if (order == "A" || order == "Ascending") {
-      console.log("Acending");
-      return array.sort((a, b) => a[field].localeCompare(b[field]));
+    if (array == undefined || field == "" || order == "") {
+      return new Array();
     } else {
-      console.log("Decending");
-      return array.sort((a, b) => b[field].localeCompare(a[field]));
+      if (order == "A" || order == "Ascending") {
+        console.log("Acending");
+        return array.sort((a, b) => a[field].localeCompare(b[field]));
+      } else {
+        console.log("Decending");
+        return array.sort((a, b) => b[field].localeCompare(a[field]));
+      }
     }
   },
   replaceDefaults: function (req, reqQuery, config1, ivalue) {
