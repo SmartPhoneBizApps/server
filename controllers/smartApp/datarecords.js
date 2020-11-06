@@ -751,23 +751,16 @@ exports.updateDataRecords = asyncHandler(async (req, res, next) => {
   }
   // Handle Carousel Image data (add to existing)
   if (req.body["carouselImage"] != undefined) {
-    for (let m = 0; m < req.body["carouselImage"].length; m++) {
-      myData["carouselImage"].push(req.body["carouselImage"][m]);
-      // if (myData["carouselImage"].length > 0) {
-      //   myData["carouselImage"].push(req.body["carouselImage"][m]);
-      //   console.log("Attachment added to existing");
-      // } else {
-      //   myData["carouselImage"].push(req.body["carouselImage"][m]);
-      // }
+    for (let m = 0; m < myData["carouselImage"].length; m++) {
+      console.log("File", myData["carouselImage"][m]);
+      req.body["carouselImage"].push(myData["carouselImage"][m]);
     }
-    req.body["carouselImage"] = myData["carouselImage"];
   }
   // Handle OCR data
   if (req.body["carouselImage_ocr"] != undefined) {
-    for (let m = 0; m < req.body["carouselImage_ocr"].length; m++) {
-      myData["carouselImage_ocr"].push(req.body["carouselImage_ocr"][m]);
+    for (let m = 0; m < myData["carouselImage_ocr"].length; m++) {
+      req.body["carouselImage_ocr"].push(myData["carouselImage_ocr"][m]);
     }
-    req.body["carouselImage_ocr"] = myData["carouselImage_ocr"];
   }
 
   // X7 - Update T-Log
