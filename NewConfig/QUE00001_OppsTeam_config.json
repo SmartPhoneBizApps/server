@@ -27,6 +27,7 @@
         "AppID",
         "Role",
         "Subject",
+        "timeStamp",
         "Method"
       ]
     }
@@ -37,7 +38,7 @@
     "sStatus": "Method",
     "fStatus": "Status",
     "numberField": "",
-    "LFields": ["ID", "AppID", "Role", "Subject", "folderName"],
+    "LFields": ["ID", "AppID", "Role", "Subject", "folderName", "timeStamp"],
     "listIconSetup": {
       "listIconRequired": "Yes",
       "listIconMethod": "ControlDisplay",
@@ -53,7 +54,7 @@
     "None": ["cardImage", "StatusState"],
     "Title": ["FromEmail"],
     "SubTitle": ["ToEmail", "Status", "Method"],
-    "Description": ["ID", "AppID", "Role", "Subject", "folderName"]
+    "Description": ["ID", "AppID", "Role", "Subject", "folderName", "timeStamp"]
   },
   "PossibleValues": ["Status", "ItemStatus", "ItemStatus99", "Method"],
   "MButtons": [
@@ -70,6 +71,8 @@
         "AppID",
         "Role",
         "Subject",
+        "timeStamp",
+        "emailBody",
         "Method",
         "MultiAttachments",
         "ProgressComment"
@@ -86,12 +89,10 @@
       "icon": "sap-icon://email-read",
       "parameters": {
         "mailBox": "gst@smartphonebizapps.com",
-        "defaultValues":[
-          {"Method":"Email"}
-        ],
-        "images":"carouselImage",
-        "ocr":"carouselImage_ocr",
-        "text":"carouselImage_text"
+        "defaultValues": [{ "Method": "Email" }],
+        "images": "carouselImage",
+        "ocr": "carouselImage_ocr",
+        "text": "carouselImage_text"
       }
     },
     {
@@ -253,14 +254,15 @@
     "Tab99": ["actionLog"],
     "Tab5": ["carouselImage"],
     "OCR01": ["carouselImage_ocr"],
-    "None": ["ID",   "AppID",
-      "Role" ,"Status"],
+    "None": ["ID", "AppID", "Role", "Status"],
     "Tab1": [
       "FromEmail",
       "ToEmail",
       "folderName",
       "Email",
       "Subject",
+      "emailBody",
+      "timeStamp",
       "Method"
     ],
     "Tab8": ["MultiAttachments"]
@@ -288,7 +290,9 @@
             "carouselImage_ocr"
           ]
         },
-        { "Email": ["FromEmail", "ToEmail", "Subject"] },
+        {
+          "Email": ["FromEmail", "ToEmail", "Subject", "timeStamp", "emailBody"]
+        },
         { "Upload": ["folderName"] },
         { "Manual": ["Email"] }
       ]
@@ -707,10 +711,27 @@
     {
       "name": "Subject",
       "type": "string",
-      "width": "20",
+      "width": "200",
       "Option": "Optional",
       "adaptiveCard": "Main",
       "SLabel": "Subject"
+    },
+    {
+      "name": "emailBody",
+      "type": "string",
+      "width": "1000",
+      "Option": "Optional",
+      "adaptiveCard": "Main",
+      "SLabel": "emailBody"
+    },
+
+    {
+      "name": "timeStamp",
+      "type": "string",
+      "width": "50",
+      "Option": "Optional",
+      "adaptiveCard": "Main",
+      "SLabel": "timeStamp"
     },
     {
       "name": "Method",
@@ -853,6 +874,8 @@
         { "name": "ToEmail", "Mode": "Edit" },
         { "name": "FromEmail", "Mode": "Edit" },
         { "name": "Subject", "Mode": "Edit" },
+        { "name": "emailBody", "Mode": "Edit" },
+        { "name": "timeStamp", "Mode": "Edit" },
         { "name": "folderName", "Mode": "Edit" }
       ],
       "name": "Document Scanning",
