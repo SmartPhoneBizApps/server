@@ -4,9 +4,11 @@ const Company = require("../../models/orgSetup/Company");
 const Branch = require("../../models/orgSetup/Branch");
 const Area = require("../../models/orgSetup/Area");
 const App = require("../../models/appSetup/App");
-const NumberRange = require("../../models/appSetup/NumberRange");
+// const NumberRange = require("../../models/appSetup/NumberRange");
 const { sendErrorMessage, notifiyMessanger } = require("../../modules/config2");
 const {
+  getPVConfig,
+  getPVQuery,
   getNewConfig,
   createDocument,
   getApplication,
@@ -33,12 +35,15 @@ exports.addDataRecords = asyncHandler(async (req, res, next) => {
   let userInputs = { ...req.body };
 
   // 02 - Number Range...
-  if (req.headers.numberRange != undefined) {
-    numberRange = req.headers.numberRange;
-  } else {
-    numberRange = "Internal";
-  }
 
+  numberRange =
+    req.headers.numberRange != undefined ? req.headers.numberRange : "Internal";
+  console.log("numberRange", numberRange);
+  // if (req.headers.numberRange != undefined) {
+  //   numberRange = req.headers.numberRange;
+  // } else {
+  //   numberRange = "Internal";
+  // }
   // Check MultiAttachments Tag
   req.body.MultiAttachments = checkMultiAttachments(req.body.MultiAttachments);
 
@@ -203,10 +208,43 @@ exports.addDataRecords = asyncHandler(async (req, res, next) => {
     req.body.area = AreaDetails.id;
   }
 
+  /// Possible values..
+  pvappconfig = getPVConfig(
+    req.headers.applicationid,
+    req.headers.businessrole
+  );
+  qPV = getPVQuery(
+    req.headers.applicationid,
+    req.headers.businessrole,
+    pvappconfig
+  );
+  let resPV = await qPV;
+
   // Update data values example @currentDate
   for (const key in req.body) {
     req.body[key] = getDateValues(req.body[key]);
+    // Possible values..
+    for (let j = 0; j < configFile["PossibleValues"].length; j++) {
+      if (configFile["PossibleValues"][j] == key) {
+        console.log("PossibleValues", key);
+        for (let p = 0; p < resPV.length; p++) {
+          if (
+            resPV[p]["PossibleValues"] == key &&
+            resPV[p]["Description"] == req.body[key]
+          ) {
+            console.log(
+              "PossibleValues",
+              key,
+              resPV[p]["Value"],
+              resPV[p]["Description"]
+            );
+            req.body[key] = resPV[p]["Value"];
+          }
+        }
+      }
+    }
   }
+
   // add initial values if user as not provided it..
   for (let a = 0; a < ival_out.length; a++) {
     for (let b = 0; b < configFile["FieldDef"].length; b++) {
@@ -603,6 +641,43 @@ exports.updateDataRecords = asyncHandler(async (req, res, next) => {
   req.body.userEmail = req.user.email;
   req.body.company = CompanyDetails.id;
   req.body.companyName = CompanyDetails.companyName;
+
+  /// Possible values..
+  pvappconfig = getPVConfig(
+    req.headers.applicationid,
+    req.headers.businessrole
+  );
+  qPV = getPVQuery(
+    req.headers.applicationid,
+    req.headers.businessrole,
+    pvappconfig
+  );
+  let resPV = await qPV;
+
+  // Update data values example @currentDate
+  for (const key in req.body) {
+    //    req.body[key] = getDateValues(req.body[key]);
+    // Possible values..
+    for (let j = 0; j < configFile["PossibleValues"].length; j++) {
+      if (configFile["PossibleValues"][j] == key) {
+        console.log("PossibleValues", key);
+        for (let p = 0; p < resPV.length; p++) {
+          if (
+            resPV[p]["PossibleValues"] == key &&
+            resPV[p]["Description"] == req.body[key]
+          ) {
+            console.log(
+              "PossibleValues",
+              key,
+              resPV[p]["Value"],
+              resPV[p]["Description"]
+            );
+            req.body[key] = resPV[p]["Value"];
+          }
+        }
+      }
+    }
+  }
 
   // 08 - Get Branch from Header
   if (req.headers.branchname) {
