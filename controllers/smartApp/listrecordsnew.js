@@ -161,6 +161,8 @@ exports.listrecordsnew = asyncHandler(async (req, res, next) => {
     let results = await query;
     tabObj = {};
     tabArr = [];
+
+    // Convert Possible Values from Value to Description
     for (let i = 0; i < results.length; i++) {
       for (const key in results[i]) {
         for (let j = 0; j < appconfig["PossibleValues"].length; j++) {

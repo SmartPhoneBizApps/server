@@ -84,6 +84,31 @@ exports.getDetailCardsNew = async (req, res, next) => {
     // Get list of records
   }
 
+  // Convert Possible Values from Value to Description
+
+  for (const key in appData) {
+    for (let j = 0; j < appconfig["PossibleValues"].length; j++) {
+      console.log("PVal", key);
+      if (appconfig["PossibleValues"][j] == key) {
+        console.log("PossibleValues", key);
+        for (let p = 0; p < resPV.length; p++) {
+          if (
+            resPV[p]["PossibleValues"] == key &&
+            resPV[p]["Value"] == appData[key]
+          ) {
+            console.log(
+              "PossibleValues",
+              key,
+              resPV[p]["Value"],
+              resPV[p]["Description"]
+            );
+            appData[key] = resPV[p]["Description"];
+          }
+        }
+      }
+    }
+  }
+
   // PROCESS FLOW
   let pflow = {};
   let nod = {};
@@ -108,61 +133,6 @@ exports.getDetailCardsNew = async (req, res, next) => {
             nod["children"].push(appData["ID"]);
           }
           if (nod != undefined) {
-            // nod["quickView"] = {
-            //   pageId: "employeePageId",
-            //   header: "Employee Info",
-            //   icon:
-            //     "./test-resources/sap/suite/ui/commons/demokit/sample/ProcessFlowImageContent/images/John_Li.png",
-            //   title: "John Li",
-            //   description: "Account Manager",
-            //   groups: [
-            //     {
-            //       heading: "Contact Details",
-            //       elements: [
-            //         {
-            //           label: "Mobile",
-            //           value: "+001 6101 34869-0",
-            //           url: null,
-            //           elementType: "mobile",
-            //           emailSubject: null,
-            //         },
-            //         {
-            //           label: "Phone",
-            //           value: "+001 6101 34869-1",
-            //           url: null,
-            //           elementType: "phone",
-            //           emailSubject: null,
-            //         },
-            //         {
-            //           label: "Email",
-            //           value: "john_li@example.com",
-            //           url: null,
-            //           elementType: "email",
-            //           emailSubject: "Subject",
-            //         },
-            //       ],
-            //     },
-            //     {
-            //       heading: "Company",
-            //       elements: [
-            //         {
-            //           label: "Name",
-            //           value: "Company A",
-            //           url: "http://sap.com",
-            //           elementType: "link",
-            //           emailSubject: null,
-            //         },
-            //         {
-            //           label: "Address",
-            //           value: "481 West Street, Anytown OH, 45066, USA",
-            //           url: null,
-            //           elementType: "text",
-            //           emailSubject: null,
-            //         },
-            //       ],
-            //     },
-            //   ],
-            // };
             nods.push({ ...nod });
           }
           nod = {};
@@ -171,61 +141,6 @@ exports.getDetailCardsNew = async (req, res, next) => {
         for (let k = 0; k < appData["lowerNodes"].length; k++) {
           nod = appData["lowerNodes"][k];
           if (nod != undefined) {
-            // nod["quickView"] = {
-            //   pageId: "employeePageId",
-            //   header: "Employee Info",
-            //   icon:
-            //     "./test-resources/sap/suite/ui/commons/demokit/sample/ProcessFlowImageContent/images/John_Li.png",
-            //   title: "John Li",
-            //   description: "Account Manager",
-            //   groups: [
-            //     {
-            //       heading: "Contact Details",
-            //       elements: [
-            //         {
-            //           label: "Mobile",
-            //           value: "+001 6101 34869-0",
-            //           url: null,
-            //           elementType: "mobile",
-            //           emailSubject: null,
-            //         },
-            //         {
-            //           label: "Phone",
-            //           value: "+001 6101 34869-1",
-            //           url: null,
-            //           elementType: "phone",
-            //           emailSubject: null,
-            //         },
-            //         {
-            //           label: "Email",
-            //           value: "john_li@example.com",
-            //           url: null,
-            //           elementType: "email",
-            //           emailSubject: "Subject",
-            //         },
-            //       ],
-            //     },
-            //     {
-            //       heading: "Company",
-            //       elements: [
-            //         {
-            //           label: "Name",
-            //           value: "Company A",
-            //           url: "http://sap.com",
-            //           elementType: "link",
-            //           emailSubject: null,
-            //         },
-            //         {
-            //           label: "Address",
-            //           value: "481 West Street, Anytown OH, 45066, USA",
-            //           url: null,
-            //           elementType: "text",
-            //           emailSubject: null,
-            //         },
-            //       ],
-            //     },
-            //   ],
-            // };
             nods.push({ ...nod });
           }
           nod = {};
@@ -240,129 +155,10 @@ exports.getDetailCardsNew = async (req, res, next) => {
             nod["children"].push(appData["lowerNodes"][k]["id"]);
           }
         }
-
         if (nod != undefined) {
-          //    nod["quickView"] = appconfig["Controls"]["processflow"]["attributes"];
-          // nod["quickView"] = {
-          //   pageId: "employeePageId",
-          //   header: "Employee Info",
-          //   icon:
-          //     "./test-resources/sap/suite/ui/commons/demokit/sample/ProcessFlowImageContent/images/John_Li.png",
-          //   title: "John Li",
-          //   description: "Account Manager",
-          //   groups: [
-          //     {
-          //       heading: "Contact Details",
-          //       elements: [
-          //         {
-          //           label: "Mobile",
-          //           value: "+001 6101 34869-0",
-          //           url: null,
-          //           elementType: "mobile",
-          //           emailSubject: null,
-          //         },
-          //         {
-          //           label: "Phone",
-          //           value: "+001 6101 34869-1",
-          //           url: null,
-          //           elementType: "phone",
-          //           emailSubject: null,
-          //         },
-          //         {
-          //           label: "Email",
-          //           value: "john_li@example.com",
-          //           url: null,
-          //           elementType: "email",
-          //           emailSubject: "Subject",
-          //         },
-          //       ],
-          //     },
-          //     {
-          //       heading: "Company",
-          //       elements: [
-          //         {
-          //           label: "Name",
-          //           value: "Company A",
-          //           url: "http://sap.com",
-          //           elementType: "link",
-          //           emailSubject: null,
-          //         },
-          //         {
-          //           label: "Address",
-          //           value: "481 West Street, Anytown OH, 45066, USA",
-          //           url: null,
-          //           elementType: "text",
-          //           emailSubject: null,
-          //         },
-          //       ],
-          //     },
-          //   ],
-          // };
           nods.push({ ...nod });
         }
         nod = {};
-        // for (let a = 0; a < nodFields.length; a++) {
-        //   nod = nodFields[a]["fieldMap"];
-        //   nod["id"] = a;
-        //   nod["title"] = nod["title"].replace("@ID", appData["ID"]);
-        //   nod["quickView"] = {
-        //     pageId: "employeePageId",
-        //     header: "Employee Info",
-        //     icon:
-        //       "./test-resources/sap/suite/ui/commons/demokit/sample/ProcessFlowImageContent/images/John_Li.png",
-        //     title: "John Li",
-        //     description: "Account Manager",
-        //     groups: [
-        //       {
-        //         heading: "Contact Details",
-        //         elements: [
-        //           {
-        //             label: "Mobile",
-        //             value: "+001 6101 34869-0",
-        //             url: null,
-        //             elementType: "mobile",
-        //             emailSubject: null,
-        //           },
-        //           {
-        //             label: "Phone",
-        //             value: "+001 6101 34869-1",
-        //             url: null,
-        //             elementType: "phone",
-        //             emailSubject: null,
-        //           },
-        //           {
-        //             label: "Email",
-        //             value: "john_li@example.com",
-        //             url: null,
-        //             elementType: "email",
-        //             emailSubject: "Subject",
-        //           },
-        //         ],
-        //       },
-        //       {
-        //         heading: "Company",
-        //         elements: [
-        //           {
-        //             label: "Name",
-        //             value: "Company A",
-        //             url: "http://sap.com",
-        //             elementType: "link",
-        //             emailSubject: null,
-        //           },
-        //           {
-        //             label: "Address",
-        //             value: "481 West Street, Anytown OH, 45066, USA",
-        //             url: null,
-        //             elementType: "text",
-        //             emailSubject: null,
-        //           },
-        //         ],
-        //       },
-        //     ],
-        //   };
-        //   nods.push({ ...nod });
-        //   nod = {};
-        // }
         pflow["nodes"] = nods;
         nods = [];
         appData["processflow"] = pflow;
