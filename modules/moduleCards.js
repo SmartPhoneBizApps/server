@@ -618,9 +618,11 @@ module.exports = {
     body2 = [];
     body1x = {};
     body2x = {};
+    let aCard = {};
 
     let cardConfigFile1 = "../cards/cardConfig/template_adaptiveForm.json";
-    let aCard = require(cardConfigFile1);
+    let bCard = require(cardConfigFile1);
+    aCard = { ...bCard };
     if (mode == "header") {
       // Header Adaptive Cards
       if (appconfig["ControlDisplay"]["ControlField"] != undefined) {
