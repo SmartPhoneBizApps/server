@@ -1,7 +1,7 @@
 {
   "Title": {
-    "ApplicationTitle": "Document Queue",
-    "DetailTitle": "Document Queue"
+    "ApplicationTitle": "Partners",
+    "DetailTitle": "Partners"
   },
   "Constants": {},
   "Controls": {
@@ -20,25 +20,41 @@
     "Source": { "SourceName": "mongoDB", "SourceFile": "NA" },
     "filterFields": {
       "header": [
-        "Status",
-        "FromEmail",
-        "ToEmail",
-        "folderName",
-        "AppID",
-        "Role",
-        "Subject",
-        "timeStamp",
-        "Method"
+        "TID",
+        "IDENTIFICATION_TYPE",
+        "NAME",
+        "STREET",
+        "ADDRESS_2_LINE",
+        "CITY",
+        "POSTCODE",
+        "CNTRY",
+        "COUNTRY_CODE",
+        "PARTY_TEL_NUMBER",
+        "EMAIL",
+        "PARTY_TYPE",
+        "PROVINCE",
+        "PROVINCE_CODE",
+        "EORI",
+        "Status"
       ]
     }
   },
   "ListFields": {
-    "IntroField": "ToEmail",
-    "TitleField": "FromEmail",
-    "sStatus": "Method",
+    "IntroField": "TID",
+    "TitleField": "PARTY_TYPE",
+    "sStatus": "POSTCODE",
     "fStatus": "Status",
     "numberField": "",
-    "LFields": ["ID", "AppID", "Role", "Subject", "folderName", "timeStamp"],
+    "LFields": [
+      "ID",
+      "NAME",
+      "IDENTIFICATION_TYPE",
+      "CITY",
+      "POSTCODE",
+      "COUNTRY_CODE",
+      "PARTY_TYPE",
+      "EORI"
+    ],
     "listIconSetup": {
       "listIconRequired": "Yes",
       "listIconMethod": "ControlDisplay",
@@ -52,11 +68,20 @@
   },
   "ListBOTFields": {
     "None": ["cardImage", "StatusState"],
-    "Title": ["FromEmail"],
-    "SubTitle": ["ToEmail", "Status", "Method"],
-    "Description": ["ID", "AppID", "Role", "Subject", "folderName", "timeStamp"]
+    "Title": ["TID"],
+    "SubTitle": ["Status", "PARTY_TYPE"],
+    "Description": [
+      "ID",
+      "NAME",
+      "IDENTIFICATION_TYPE",
+      "CITY",
+      "POSTCODE",
+      "COUNTRY_CODE",
+      "PARTY_TYPE",
+      "EORI"
+    ]
   },
-  "PossibleValues": ["Status", "ItemStatus", "ItemStatus99", "Method"],
+  "PossibleValues": ["Status", "ItemStatus", "ItemStatus99", "PARTY_TYPE"],
   "MButtons": [
     {
       "type": "DOWNLOAD",
@@ -65,15 +90,21 @@
       "downloadFields": [
         "ID",
         "Status",
-        "FromEmail",
-        "ToEmail",
-        "folderName",
-        "AppID",
-        "Role",
-        "Subject",
-        "timeStamp",
-        "emailBody",
-        "Method",
+        "TID",
+        "IDENTIFICATION_TYPE",
+        "NAME",
+        "STREET",
+        "ADDRESS_2_LINE",
+        "CITY",
+        "POSTCODE",
+        "CNTRY",
+        "COUNTRY_CODE",
+        "PARTY_TEL_NUMBER",
+        "EMAIL",
+        "PARTY_TYPE",
+        "PROVINCE",
+        "PROVINCE_CODE",
+        "EORI",
         "MultiAttachments",
         "ProgressComment"
       ]
@@ -82,18 +113,6 @@
       "type": "APPHELP",
       "name": "Get App Help",
       "icon": "sap-icon://sys-help-2"
-    },
-    {
-      "type": "EMAILREAD",
-      "name": "Email Scan",
-      "icon": "sap-icon://email-read",
-      "parameters": {
-        "mailBox": "gst@smartphonebizapps.com",
-        "defaultValues": [{ "Method": "Email" }],
-        "images": "carouselImage",
-        "ocr": "carouselImage_ocr",
-        "text": "carouselImage_text"
-      }
     },
     {
       "type": "OPENURL",
@@ -256,14 +275,23 @@
     "OCR01": ["carouselImage_ocr"],
     "None": ["ID", "AppID", "Role", "Status"],
     "Tab1": [
-      "FromEmail",
-      "ToEmail",
-      "folderName",
-      "Email",
-      "Subject",
-      "emailBody",
-      "timeStamp",
-      "Method"
+      "TID",
+      "IDENTIFICATION_TYPE",
+      "NAME",
+      "STREET",
+      "ADDRESS_2_LINE",
+      "CITY",
+      "POSTCODE",
+      "CNTRY",
+      "COUNTRY_CODE",
+      "PARTY_TEL_NUMBER",
+      "EMAIL",
+      "PARTY_TYPE",
+      "PROVINCE",
+      "PROVINCE_CODE",
+      "EORI",
+      "MultiAttachments",
+      "ProgressComment"
     ],
     "Tab8": ["MultiAttachments"]
   },
@@ -271,30 +299,38 @@
   "detailCharts": [],
   "cards": [],
   "ControlDisplay": {
-    "ControlField": "Method",
+    "ControlField": "PARTY_TYPE",
     "Fields": [
       [
         {
           "ALL": [
             "ID",
             "Status",
-            "AppID",
-            "Role",
-            "Method",
+            "TID",
+            "IDENTIFICATION_TYPE",
+            "NAME",
+            "STREET",
+            "ADDRESS_2_LINE",
+            "CITY",
+            "POSTCODE",
+            "CNTRY",
+            "COUNTRY_CODE",
+            "PARTY_TEL_NUMBER",
+            "EMAIL",
+            "PARTY_TYPE",
+            "PROVINCE",
+            "PROVINCE_CODE",
+
             "MultiAttachments",
-            "ProgressComment",
-            "actionLog",
-            "checks",
-            "ReferenceID",
-            "carouselImage",
-            "carouselImage_ocr"
+            "ProgressComment"
           ]
         },
-        {
-          "Email": ["FromEmail", "ToEmail", "Subject", "timeStamp", "emailBody"]
-        },
-        { "Upload": ["folderName"] },
-        { "Manual": ["Email"] }
+        { "Consignor": ["EORI"] },
+        { "Consignee": ["EORI"] },
+        { "Declarant": ["EORI"] },
+        { "SupervisingOffice": ["EORI"] },
+        { "GovernmentContractor": ["EORI"] },
+        { "Customer": ["EORI"] }
       ]
     ]
   },
@@ -636,211 +672,211 @@
     {
       "name": "ID",
       "type": "string",
-      "width": "20",
+      "width": "50",
       "Option": "Mandatory",
-      "adaptiveCard": "None",
+      "adaptiveCard": "Additional",
       "SLabel": "Identification",
-      "Update": "No"
+      "Update": "Yes",
+      "mapping": "",
+      "Other": ""
     },
-    {
-      "name": "actionLog",
-      "type": "Array",
-      "width": "200",
-      "Option": "Optional",
-      "adaptiveCard": "None",
-      "SLabel": "actionLog",
-      "LLabel": "actionLog"
-    },
-    {
-      "name": "checks",
-      "type": "Array",
-      "width": "200",
-      "Option": "Optional",
-      "adaptiveCard": "None",
-      "SLabel": "checks",
-      "LLabel": "checks"
-    },
-    {
-      "name": "ReferenceID",
-      "type": "string",
-      "width": "20",
-      "Option": "Optional",
-      "adaptiveCard": "None",
-      "SLabel": "ReferenceID"
-    },
-    {
-      "name": "FromEmail",
-      "type": "Email",
-      "width": "200",
-      "Option": "Optional",
-      "adaptiveCard": "Main",
-      "SLabel": "FromEmail"
-    },
-    {
-      "name": "ToEmail",
-      "type": "Email",
-      "width": "200",
-      "Option": "Optional",
-      "adaptiveCard": "Main",
-      "SLabel": "ToEmail"
-    },
-    {
-      "name": "folderName",
-      "type": "string",
-      "width": "100",
-      "Option": "Optional",
-      "adaptiveCard": "Main",
-      "SLabel": "folderName"
-    },
-    {
-      "name": "AppID",
-      "type": "string",
-      "width": "20",
-      "Option": "Optional",
-      "adaptiveCard": "Additional",
-      "SLabel": "AppID"
-    },
-    {
-      "name": "Role",
-      "type": "string",
-      "width": "20",
-      "Option": "Optional",
-      "adaptiveCard": "Additional",
-      "SLabel": "Role"
-    },
-    {
-      "name": "Subject",
-      "type": "string",
-      "width": "200",
-      "Option": "Optional",
-      "adaptiveCard": "Main",
-      "SLabel": "Subject"
-    },
-    {
-      "name": "emailBody",
-      "type": "string",
-      "width": "1000",
-      "Option": "Optional",
-      "adaptiveCard": "Main",
-      "SLabel": "emailBody"
-    },
-
-    {
-      "name": "timeStamp",
-      "type": "string",
-      "width": "50",
-      "Option": "Optional",
-      "adaptiveCard": "Main",
-      "SLabel": "timeStamp"
-    },
-    {
-      "name": "Method",
-      "type": "string",
-      "width": "50",
-      "Option": "Optional",
-      "adaptiveCard": "Main",
-      "SLabel": "Method"
-    },
-    {
-      "name": "Email",
-      "type": "string",
-      "width": "50",
-      "Option": "Mandatory",
-      "adaptiveCard": "Main",
-      "SLabel": "Email ID"
-    },
-
     {
       "name": "Status",
       "type": "string",
-      "SLabel": "Status",
+      "width": "50",
       "Option": "Mandatory",
       "adaptiveCard": "Additional",
-      "width": "50"
+      "SLabel": "Status",
+      "Update": "Yes",
+      "mapping": "",
+      "Other": ""
     },
     {
-      "name": "SearchString",
+      "name": "TID",
+      "type": "string",
+      "width": "50",
+      "Option": "Optional",
+      "adaptiveCard": "Additional",
+      "SLabel": "Partner ID",
+      "Update": "Yes",
+      "mapping": "CNSGE-TID",
+      "Other": "IDENTIFICATION_NUMBER"
+    },
+    {
+      "name": "IDENTIFICATION_TYPE",
+      "type": "string",
+      "width": "100",
+      "Option": "Optional",
+      "adaptiveCard": "Additional",
+      "SLabel": "Partner Type",
+      "Update": "Yes",
+      "mapping": "",
+      "Other": "IDENTIFICATION_TYPE (ENUM)"
+    },
+    {
+      "name": "NAME",
       "type": "string",
       "width": "200",
       "Option": "Optional",
-      "adaptiveCard": "None",
-      "SLabel": "Search String",
-      "LLabel": "Search String"
+      "adaptiveCard": "Additional",
+      "SLabel": "Partner Name",
+      "Update": "Yes",
+      "mapping": "CNSGE-NAME",
+      "Other": "PARTY_NAME"
     },
     {
-      "name": "ProgressComment",
-      "type": "string",
-      "width": "1000",
-      "Option": "Optional",
-      "adaptiveCard": "None",
-      "SLabel": "ProgressComment",
-      "LLabel": "ProgressComment"
-    },
-    {
-      "name": "upperNodes",
+      "name": "STREET",
       "type": "string",
       "width": "200",
       "Option": "Optional",
-      "adaptiveCard": "None",
-      "SLabel": "upperNodes"
+      "adaptiveCard": "Additional",
+      "SLabel": "Street",
+      "Update": "Yes",
+      "mapping": "CNSGE-STREET",
+      "Other": "ADDRESS_1_LINE"
     },
     {
-      "name": "lowerNodes",
+      "name": "ADDRESS_2_LINE",
       "type": "string",
       "width": "200",
       "Option": "Optional",
-      "adaptiveCard": "None",
-      "SLabel": "lowerNodes"
+      "adaptiveCard": "Additional",
+      "SLabel": "Street2",
+      "Update": "Yes",
+      "mapping": "",
+      "Other": "ADDRESS_2_LINE"
     },
     {
-      "name": "selfNode",
+      "name": "CITY",
       "type": "string",
-      "width": "200",
+      "width": "100",
       "Option": "Optional",
-      "adaptiveCard": "None",
-      "SLabel": "selfNode"
+      "adaptiveCard": "Additional",
+      "SLabel": "City",
+      "Update": "Yes",
+      "mapping": "CNSGE-CITY",
+      "Other": "CITY_NAME"
+    },
+    {
+      "name": "POSTCODE",
+      "type": "string",
+      "width": "50",
+      "Option": "Optional",
+      "adaptiveCard": "Additional",
+      "SLabel": "Postal Code",
+      "Update": "Yes",
+      "mapping": "CNSGE-POSTCODE",
+      "Other": "PARTY_POSTAL_CODE"
+    },
+    {
+      "name": "CNTRY",
+      "type": "string",
+      "width": "50",
+      "Option": "Optional",
+      "adaptiveCard": "Additional",
+      "SLabel": "Country",
+      "Update": "Yes",
+      "mapping": "CNSGE-CNTRY",
+      "Other": "COUNTRY"
+    },
+    {
+      "name": "COUNTRY_CODE",
+      "type": "string",
+      "width": "5",
+      "Option": "Optional",
+      "adaptiveCard": "Additional",
+      "SLabel": "Country Code",
+      "Update": "Yes",
+      "mapping": "",
+      "Other": "COUNTRY_CODE"
+    },
+    {
+      "name": "PARTY_TEL_NUMBER",
+      "type": "Num,0",
+      "width": "20",
+      "Option": "Optional",
+      "adaptiveCard": "Additional",
+      "SLabel": "Phone Number",
+      "Update": "Yes",
+      "mapping": "",
+      "Other": "PARTY_TEL_NUMBER"
+    },
+    {
+      "name": "EMAIL",
+      "type": "string",
+      "width": "100",
+      "Option": "Optional",
+      "adaptiveCard": "Additional",
+      "SLabel": "Email",
+      "Update": "Yes",
+      "mapping": "",
+      "Other": "EMAIL"
+    },
+    {
+      "name": "PARTY_TYPE",
+      "type": "string",
+      "width": "100",
+      "Option": "Optional",
+      "adaptiveCard": "Additional",
+      "SLabel": "Partner Type",
+      "Update": "Yes",
+      "mapping": "",
+      "Other": "PARTY_TYPE (ENUM)"
+    },
+    {
+      "name": "PROVINCE",
+      "type": "string",
+      "width": "100",
+      "Option": "Optional",
+      "adaptiveCard": "Additional",
+      "SLabel": "County",
+      "Update": "Yes",
+      "mapping": "",
+      "Other": "PROVINCE"
+    },
+    {
+      "name": "PROVINCE_CODE",
+      "type": "string",
+      "width": "5",
+      "Option": "Optional",
+      "adaptiveCard": "Additional",
+      "SLabel": "County Code",
+      "Update": "Yes",
+      "mapping": "",
+      "Other": "PROVINCE_CODE"
+    },
+    {
+      "name": "EORI",
+      "type": "string",
+      "width": "100",
+      "Option": "Optional",
+      "adaptiveCard": "Additional",
+      "SLabel": "EORI",
+      "Update": "Yes",
+      "mapping": "RCNSGE-EORI",
+      "Other": "EORI"
     },
     {
       "name": "MultiAttachments",
       "type": "attachment",
       "width": "200",
       "Option": "Optional",
-      "adaptiveCard": "None",
+      "adaptiveCard": "Additional",
       "SLabel": "MultiAttachments",
-      "LLabel": "MultiAttachments"
+      "Update": "Yes",
+      "mapping": "",
+      "Other": ""
     },
     {
-      "name": "carouselImage",
-      "type": "carouselImage",
-      "width": "200",
-      "Option": "Optional",
-      "adaptiveCard": "None",
-      "SLabel": "carouselImage"
-    },
-    {
-      "name": "carouselImage_text",
-      "type": "Array",
+      "name": "ProgressComment",
+      "type": "string",
       "width": "1000",
       "Option": "Optional",
-      "adaptiveCard": "None",
-      "SLabel": "OCR text"
-    },
-    {
-      "name": "carouselImage_ocr",
-      "type": "Array",
-      "width": "200",
-      "Option": "Optional",
-      "adaptiveCard": "None",
-      "SLabel": "OCR Data"
-    },
-    {
-      "name": "sValidation",
-      "type": "string",
-      "width": "20",
-      "Option": "Optional",
-      "adaptiveCard": "None",
-      "SLabel": "Validation",
-      "LLabel": "Validation"
+      "adaptiveCard": "Additional",
+      "SLabel": "Progress Comment",
+      "Update": "Yes",
+      "mapping": "",
+      "Other": ""
     }
   ],
   "itemData": "No",
@@ -871,12 +907,10 @@
     {
       "id": "Step1",
       "fields": [
-        { "name": "ToEmail", "Mode": "Edit" },
-        { "name": "FromEmail", "Mode": "Edit" },
-        { "name": "Subject", "Mode": "Edit" },
-        { "name": "emailBody", "Mode": "Edit" },
-        { "name": "timeStamp", "Mode": "Edit" },
-        { "name": "folderName", "Mode": "Edit" }
+        { "name": "PARTY_TYPE", "Mode": "Edit" },
+        { "name": "TID", "Mode": "Edit" },
+        { "name": "IDENTIFICATION_TYPE", "Mode": "Edit" },
+        { "name": "NAME", "Mode": "Edit" }
       ],
       "name": "Document Scanning",
       "stepType": "FieldList",
@@ -884,13 +918,39 @@
     },
     {
       "id": "Step2",
-      "fields": [{ "name": "carouselImage", "Mode": "Edit" }],
+      "fields": [
+        { "name": "STREET", "Mode": "Edit" },
+        { "name": "ADDRESS_2_LINE", "Mode": "Edit" },
+        { "name": "CITY", "Mode": "Edit" },
+        { "name": "POSTCODE", "Mode": "Edit" },
+        { "name": "CNTRY", "Mode": "Edit" },
+        { "name": "COUNTRY_CODE", "Mode": "Edit" },
+        { "name": "PROVINCE", "Mode": "Edit" },
+        { "name": "PROVINCE_CODE", "Mode": "Edit" }
+      ],
       "name": "Images and Attachment",
       "stepType": "carouselImage",
       "intro": "Screenshots and Images : Here you can upload screenshots, images (jpg, png, etc..)"
     },
     {
       "id": "Step3",
+      "fields": [
+        { "name": "PARTY_TEL_NUMBER", "Mode": "Edit" },
+        { "name": "EMAIL", "Mode": "Edit" }
+      ],
+      "name": "Images and Attachment",
+      "stepType": "carouselImage",
+      "intro": "Screenshots and Images : Here you can upload screenshots, images (jpg, png, etc..)"
+    },
+    {
+      "id": "Step3",
+      "fields": [{ "name": "carouselImage", "Mode": "Edit" }],
+      "name": "Images and Attachment",
+      "stepType": "carouselImage",
+      "intro": "Screenshots and Images : Here you can upload screenshots, images (jpg, png, etc..)"
+    },
+    {
+      "id": "Step5",
       "fields": [{ "name": "MultiAttachments", "Mode": "Edit" }],
       "name": "MultiAttachments",
       "stepType": "Attachments",
@@ -904,11 +964,9 @@
       }
     },
     {
-      "id": "Step4",
+      "id": "Step6",
       "fields": [
-        { "name": "AppID", "Mode": "Edit" },
-        { "name": "Role", "Mode": "Edit" },
-        { "name": "Email", "Mode": "Edit" },
+        { "name": "EORI", "Mode": "Edit" },
         { "name": "Status", "Mode": "Edit" }
       ],
       "name": "Document Scanning",
