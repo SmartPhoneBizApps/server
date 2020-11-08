@@ -442,6 +442,7 @@ exports.listrecordsnew = asyncHandler(async (req, res, next) => {
               );
               aCard = JSON.parse(cardData);
               outStru["ADD01_" + arr1[y]] = { ...aCard };
+              aCard = {};
             }
           }
         }
@@ -486,6 +487,7 @@ exports.listrecordsnew = asyncHandler(async (req, res, next) => {
             );
             aCard = JSON.parse(cardData);
             outStru["ADD01"] = { ...aCard };
+            aCard = {};
           }
         }
       }
@@ -524,6 +526,7 @@ exports.listrecordsnew = asyncHandler(async (req, res, next) => {
           );
           aCard = JSON.parse(cardData);
           outStru["ANAX" + x] = { ...aCard };
+          aCard = {};
         }
       }
       res.status(200).json({
