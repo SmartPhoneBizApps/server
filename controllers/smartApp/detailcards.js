@@ -88,20 +88,12 @@ exports.getDetailCardsNew = async (req, res, next) => {
 
   for (const key in appData) {
     for (let j = 0; j < appconfig["PossibleValues"].length; j++) {
-      console.log("PVal", key);
       if (appconfig["PossibleValues"][j] == key) {
-        console.log("PossibleValues", key);
         for (let p = 0; p < resPV.length; p++) {
           if (
             resPV[p]["PossibleValues"] == key &&
             resPV[p]["Value"] == appData[key]
           ) {
-            console.log(
-              "PossibleValues",
-              key,
-              resPV[p]["Value"],
-              resPV[p]["Description"]
-            );
             appData[key] = resPV[p]["Description"];
           }
         }
@@ -148,7 +140,6 @@ exports.getDetailCardsNew = async (req, res, next) => {
         nod = {};
 
         nod = appData["selfNode"][0];
-        console.log("nod", nod);
         if (nod != undefined) {
           nod["children"] = [];
           for (let k = 0; k < appData["lowerNodes"].length; k++) {

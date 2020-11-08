@@ -166,20 +166,12 @@ exports.listrecordsnew = asyncHandler(async (req, res, next) => {
     for (let i = 0; i < results.length; i++) {
       for (const key in results[i]) {
         for (let j = 0; j < appconfig["PossibleValues"].length; j++) {
-          console.log("PVal", key);
           if (appconfig["PossibleValues"][j] == key) {
-            console.log("PossibleValues", key);
             for (let p = 0; p < resPV.length; p++) {
               if (
                 resPV[p]["PossibleValues"] == key &&
                 resPV[p]["Value"] == results[i][key]
               ) {
-                console.log(
-                  "PossibleValues",
-                  key,
-                  resPV[p]["Value"],
-                  resPV[p]["Description"]
-                );
                 results[i][key] = resPV[p]["Description"];
               }
             }
@@ -390,6 +382,7 @@ exports.listrecordsnew = asyncHandler(async (req, res, next) => {
       // 01 - CARD ADAPTIVE CARDS (LIST SCREEN)
       // Collect control display values
       ControlField = "header";
+
       if (appconfig["ControlDisplay"]["ControlField"] != undefined) {
         // Check Controlled Display..
         ControlField = appconfig["ControlDisplay"]["ControlField"];
@@ -398,9 +391,9 @@ exports.listrecordsnew = asyncHandler(async (req, res, next) => {
         for (let a = 0; a < resPV.length; a++) {
           if (resPV[a]["PossibleValues"] == ControlField) {
             arr1.push(resPV[a]["Value"]);
-            //       set1.add(resPV[a]["Value"]);
           }
         }
+
         for (let w = 0; w < appconfig["MButtons"].length; w++) {
           for (let y = 0; y < arr1.length; y++) {
             if (appconfig["MButtons"][w]["type"] == "ADD") {
@@ -415,7 +408,11 @@ exports.listrecordsnew = asyncHandler(async (req, res, next) => {
                 arr1[y],
                 ControlField
               );
-              var cardData = JSON.stringify(aCard);
+              // console.log(
+              //   "ControlField1",
+              //   aCard["sap.card"]["content"]["body"]
+              // );
+              var cardData = JSON.stringify({ ...aCard });
               cardData = cardReplace(
                 {},
                 cardData,

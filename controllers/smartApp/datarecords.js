@@ -226,18 +226,11 @@ exports.addDataRecords = asyncHandler(async (req, res, next) => {
     // Possible values..
     for (let j = 0; j < configFile["PossibleValues"].length; j++) {
       if (configFile["PossibleValues"][j] == key) {
-        console.log("PossibleValues", key);
         for (let p = 0; p < resPV.length; p++) {
           if (
             resPV[p]["PossibleValues"] == key &&
             resPV[p]["Description"] == req.body[key]
           ) {
-            console.log(
-              "PossibleValues",
-              key,
-              resPV[p]["Value"],
-              resPV[p]["Description"]
-            );
             req.body[key] = resPV[p]["Value"];
           }
         }

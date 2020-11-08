@@ -619,7 +619,6 @@ module.exports = {
     body1x = {};
     body2x = {};
     let aCard = {};
-
     let cardConfigFile1 = "../cards/cardConfig/template_adaptiveForm.json";
     let bCard = require(cardConfigFile1);
     aCard = { ...bCard };
@@ -640,7 +639,6 @@ module.exports = {
                 const rkg = appconfig["Wizard"][l];
                 rkg["fields"].forEach((e1) => {
                   if (ex == e1["name"]) {
-                    console.log("EX:", ex, e1["name"]);
                     for (let a = 0; a < appconfig["FieldDef"].length; a++) {
                       if (appconfig["FieldDef"][a]["name"] == e1["name"]) {
                         body2x = body2xAdaptiveCard(
@@ -697,18 +695,18 @@ module.exports = {
                         if (
                           appconfig["FieldDef"][a]["adaptiveCard"] == "Main"
                         ) {
-                          body.push(body2x);
+                          body.push({ ...body2x });
                           body2x = {};
-                          body.push(body1x);
+                          body.push({ ...body1x });
                           body1x = {};
                         }
                         if (
                           appconfig["FieldDef"][a]["adaptiveCard"] ==
                           "Additional"
                         ) {
-                          body2.push(body2x);
+                          body2.push({ ...body2x });
                           body2x = {};
-                          body2.push(body1x);
+                          body2.push({ ...body1x });
                           body1x = {};
                         }
                       }
@@ -726,15 +724,17 @@ module.exports = {
           s < appconfig["ControlDisplay"]["Fields"][0].length;
           s++
         ) {
+          console.log("Check0", cVal);
           if (
             appconfig["ControlDisplay"]["Fields"][0][s].hasOwnProperty(cVal)
           ) {
             appconfig["ControlDisplay"]["Fields"][0][s][cVal].forEach((ex) => {
               for (let l = 0; l < appconfig["Wizard"].length; l++) {
                 const rkg = appconfig["Wizard"][l];
+                console.log("Check1", rkg);
                 rkg["fields"].forEach((e1) => {
+                  console.log("Check2", e1["name"], e1);
                   if (ex == e1["name"]) {
-                    console.log("EX:", ex, e1["name"]);
                     for (let a = 0; a < appconfig["FieldDef"].length; a++) {
                       if (appconfig["FieldDef"][a]["name"] == e1["name"]) {
                         body2x = body2xAdaptiveCard(
@@ -791,18 +791,18 @@ module.exports = {
                         if (
                           appconfig["FieldDef"][a]["adaptiveCard"] == "Main"
                         ) {
-                          body.push(body2x);
+                          body.push({ ...body2x });
                           body2x = {};
-                          body.push(body1x);
+                          body.push({ ...body1x });
                           body1x = {};
                         }
                         if (
                           appconfig["FieldDef"][a]["adaptiveCard"] ==
                           "Additional"
                         ) {
-                          body2.push(body2x);
+                          body2.push({ ...body2x });
                           body2x = {};
-                          body2.push(body1x);
+                          body2.push({ ...body1x });
                           body1x = {};
                         }
                       }
@@ -810,6 +810,7 @@ module.exports = {
                   }
                 });
               }
+              console.log("Body", body);
               aCard["sap.card"]["content"]["body"] = body;
               for (
                 let m = 0;
@@ -835,7 +836,6 @@ module.exports = {
             });
           }
         }
-        console.log("X4");
       } else {
         // Control Display = OFF
         for (let l = 0; l < appconfig["Wizard"].length; l++) {
@@ -855,143 +855,6 @@ module.exports = {
                   body1x,
                   e1["name"]
                 );
-
-                // switch (appconfig["FieldDef"][a]["type"]) {
-                //   case "string":
-                //     // Text >> Input.Text
-                //     //"style": "text",
-                //     body2x["size"] = "medium";
-                //     body2x["isSubtle"] = true;
-                //     body2x["type"] = "TextBlock";
-                //     body2x["text"] = e1["name"];
-
-                //     body1x["style"] = "text";
-                //     body1x["type"] = "Input.Text";
-                //     body1x["id"] = e1["name"];
-                //     body1x["placeholder"] = e1["name"];
-                //     //"isMultiline"
-                //     if (appconfig["FieldDef"][a]["width"] > 100) {
-                //       body1x["isMultiline"] = true;
-                //     } else {
-                //       body1x["isMultiline"] = false;
-                //     }
-                //     break;
-                //   case "Date":
-                //     // Date >> Input.Date
-                //     body2x["size"] = "medium";
-                //     body2x["isSubtle"] = true;
-                //     body2x["type"] = "TextBlock";
-                //     body2x["text"] = e1["name"];
-
-                //     body1x["type"] = "Input.Date";
-                //     body1x["id"] = e1["name"];
-                //     body1x["placeholder"] = e1["name"];
-                //     //           body1x["value"] = "@currentDate";
-
-                //     break;
-
-                //   case "hyperlink":
-                //     //"style": "url",
-                //     // Text >> Input.Text
-                //     body2x["size"] = "medium";
-                //     body2x["isSubtle"] = true;
-                //     body2x["type"] = "TextBlock";
-                //     body2x["text"] = e1["name"];
-
-                //     body1x["style"] = "url";
-                //     body1x["type"] = "Input.Text";
-                //     body1x["id"] = e1["name"];
-                //     body1x["placeholder"] = "Website Url";
-
-                //     break;
-
-                //   case "Email":
-                //     //"style": "email",
-                //     // Text >> Input.Text
-                //     body2x["size"] = "medium";
-                //     body2x["isSubtle"] = true;
-                //     body2x["type"] = "TextBlock";
-                //     body2x["text"] = e1["name"];
-
-                //     body1x["style"] = "email";
-                //     body1x["type"] = "Input.Text";
-                //     body1x["id"] = e1["name"];
-                //     body1x["placeholder"] = "youremail@example.com";
-
-                //     break;
-                //   case "Time":
-                //     // Time >> Input.Time
-                //     body2x["size"] = "medium";
-                //     body2x["isSubtle"] = true;
-                //     body2x["type"] = "TextBlock";
-                //     body2x["text"] = e1["name"];
-
-                //     body1x["type"] = "Input.Time";
-                //     body1x["id"] = e1["name"];
-                //     body1x["placeholder"] = e1["name"];
-                //     break;
-                //   case "Num,0":
-                //     // Number >> Input.Number
-                //     body2x["size"] = "medium";
-                //     body2x["isSubtle"] = true;
-                //     body2x["type"] = "TextBlock";
-                //     body2x["text"] = e1["name"];
-
-                //     body1x["type"] = "Input.Number";
-                //     body1x["id"] = e1["name"];
-                //     body1x["placeholder"] = e1["name"];
-                //     break;
-                //   case "Num,1":
-                //     // Number >> Input.Number
-                //     body2x["size"] = "medium";
-                //     body2x["isSubtle"] = true;
-                //     body2x["type"] = "TextBlock";
-                //     body2x["text"] = e1["name"];
-
-                //     body1x["type"] = "Input.Number";
-                //     body1x["id"] = e1["name"];
-                //     body1x["placeholder"] = e1["name"];
-                //     break;
-                //   case "Num,2":
-                //     // Number >> Input.Number
-                //     body2x["size"] = "medium";
-                //     body2x["isSubtle"] = true;
-                //     body2x["type"] = "TextBlock";
-                //     body2x["text"] = e1["name"];
-
-                //     body1x["type"] = "Input.Number";
-                //     body1x["id"] = e1["name"];
-                //     body1x["placeholder"] = e1["name"];
-                //     break;
-                //   case "Num,3":
-                //     // Number >> Input.Number
-                //     body2x["size"] = "medium";
-                //     body2x["isSubtle"] = true;
-                //     body2x["type"] = "TextBlock";
-                //     body2x["text"] = e1["name"];
-
-                //     body1x["type"] = "Input.Number";
-                //     body1x["id"] = e1["name"];
-                //     body1x["placeholder"] = e1["name"];
-                //     break;
-                //   default:
-                //     body2x["size"] = "medium";
-                //     body2x["isSubtle"] = true;
-                //     body2x["type"] = "TextBlock";
-                //     body2x["text"] = e1["name"];
-
-                //     body1x["style"] = "text";
-                //     body1x["type"] = "Input.Text";
-                //     body1x["id"] = e1["name"];
-                //     body1x["placeholder"] = e1["name"];
-                //     //"isMultiline"
-                //     if (appconfig["FieldDef"]["width"] > 100) {
-                //       body1x["isMultiline"] = true;
-                //     } else {
-                //       body1x["isMultiline"] = false;
-                //     }
-                //     break;
-                // }
               }
             }
             // Possible Values..
@@ -1021,92 +884,24 @@ module.exports = {
                 );
               }
             }
-
             // Control Display...
             if (ControlField == e1["name"]) {
               // Control Display = ON
               body2x = body2xIValue(body2x, e1["name"]);
               body1x = cdbody1xIValue(body1x, e1["name"], cVal);
             }
-            // for (let d = 0; d < ival_out.length; d++) {
-            //   if (ival_out[d]["Field"] == e1["name"]) {
-            //     body2x["size"] = "medium";
-            //     body2x["isSubtle"] = true;
-            //     body2x["type"] = "TextBlock";
-            //     body2x["text"] = e1["name"];
-
-            //     body1x["id"] = e1["name"];
-            //     body1x["value"] = ival_out[d]["Value"];
-            //     for (let a = 0; a < appconfig["FieldDef"].length; a++) {
-            //       if (appconfig["FieldDef"][a]["name"] == e1["name"]) {
-            //         switch (appconfig["FieldDef"][a]["type"]) {
-            //           case "string":
-            //             body1x["type"] = "Input.Text";
-            //             body1x["style"] = "text";
-            //             break;
-            //           case "Date":
-            //             //  Input.Date
-            //             body1x["type"] = "Input.Date";
-            //             body1x["style"] = "";
-            //             break;
-            //           case "hyperlink":
-            //             // Input.Text
-            //             body1x["type"] = "Input.Text";
-            //             body1x["style"] = "url";
-            //             break;
-            //           case "Email":
-            //             //"style": "email",
-            //             // Text >> Input.Text
-            //             body1x["type"] = "Input.Text";
-            //             body1x["style"] = "email";
-            //             break;
-
-            //           case "Time":
-            //             // Time >> Input.Time
-            //             body1x["type"] = "Input.Time";
-            //             body1x["style"] = "";
-            //             break;
-            //           case "Num,0":
-            //             // Number >> Input.Number
-            //             body1x["type"] = "Input.Number";
-            //             body1x["style"] = "";
-            //             break;
-            //           case "Num,1":
-            //             // Number >> Input.Number
-            //             body1x["type"] = "Input.Number";
-            //             body1x["style"] = "";
-            //             break;
-            //           case "Num,2":
-            //             // Number >> Input.Number
-            //             body1x["type"] = "Input.Number";
-            //             body1x["style"] = "";
-            //             break;
-            //           case "Num,3":
-            //             // Number >> Input.Number
-            //             body1x["type"] = "Input.Number";
-            //             body1x["style"] = "";
-            //             break;
-            //           default:
-            //             body1x["type"] = "Input.Text";
-            //             body1x["style"] = "text";
-            //             break;
-            //         }
-            //       }
-            //     }
-            //   }
-            // }
             for (let a = 0; a < appconfig["FieldDef"].length; a++) {
               if (appconfig["FieldDef"][a]["name"] == e1["name"]) {
                 if (appconfig["FieldDef"][a]["adaptiveCard"] == "Main") {
-                  body.push(body2x);
+                  body.push({ ...body2x });
                   body2x = {};
-                  body.push(body1x);
+                  body.push({ ...body1x });
                   body1x = {};
                 }
                 if (appconfig["FieldDef"][a]["adaptiveCard"] == "Additional") {
-                  body2.push(body2x);
+                  body2.push({ ...body2x });
                   body2x = {};
-                  body2.push(body1x);
+                  body2.push({ ...body1x });
                   body1x = {};
                 }
               }
@@ -1134,7 +929,6 @@ module.exports = {
           }
         }
       }
-      console.log("X5");
     } else {
       appconfig["CreateFields"].forEach((e1) => {
         for (let a = 0; a < appconfig["ItemFieldDefinition"].length; a++) {
@@ -1295,18 +1089,18 @@ module.exports = {
         for (let a = 0; a < appconfig["ItemFieldDefinition"].length; a++) {
           if (appconfig["ItemFieldDefinition"][a]["name"] == e1) {
             if (appconfig["ItemFieldDefinition"][a]["adaptiveCard"] == "Main") {
-              body.push(body2x);
+              body.push({ ...body2x });
               body2x = {};
-              body.push(body1x);
+              body.push({ ...body1x });
               body1x = {};
             }
             if (
               appconfig["ItemFieldDefinition"][a]["adaptiveCard"] ==
               "Additional"
             ) {
-              body2.push(body2x);
+              body2.push({ ...body2x });
               body2x = {};
-              body2.push(body1x);
+              body2.push({ ...body1x });
               body1x = {};
             }
           }
@@ -1328,7 +1122,7 @@ module.exports = {
         }
       }
     }
-    console.log("CARD:", aCard);
+
     return aCard;
   },
   analyticalNew: async function (appconfig, outData, style) {
@@ -1566,7 +1360,6 @@ module.exports = {
         myResultx = {};
       }
     }
-    console.log("New Card Data", myResult);
     return myResult;
   },
   countAnalyticalCard: async function (myCard, outData, mode, FieldDef) {
@@ -1690,7 +1483,6 @@ module.exports = {
   numericHeader: async function (myCard, list, mode) {
     hdr = {};
     hdr["number"] = 0;
-    console.log(myCard["cardsubType"]);
     for (let m = 0; m < list.length; m++) {
       hdr["number"] = hdr["number"] + list[m]["Value1"];
     }
@@ -1715,8 +1507,6 @@ module.exports = {
     //Set unit..
     hdr["unit"] = myCard["numericHeader"]["unit"];
     hdr["target"]["unit"] = myCard["numericHeader"]["unit"];
-    console.log(hdr["target"]);
-    console.log(hdr["deviation"]);
     return hdr;
   },
   buildAnalyticalCard: async function (myCard, list, numheader, style, kl) {

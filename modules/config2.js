@@ -86,7 +86,6 @@ module.exports = {
     const Model = require(path);
     SM1 = Model.findOne({ email: a, SocialMediaType: e, agent: botName });
     SM = await SM1;
-    console.log(SM);
 
     // Generate Notification URL...
     URL =
@@ -100,7 +99,6 @@ module.exports = {
       d +
       "&token=" +
       f;
-    console.log(URL);
     // Method POST...
     var options = {
       method: "POST",
@@ -165,6 +163,7 @@ module.exports = {
   readData: function (app, req, config1) {
     fl1 = {};
     fl2 = [];
+    let lf = {};
     let app2;
     let model2;
     // Get Table Schema
@@ -179,8 +178,7 @@ module.exports = {
     }
     // Get BOT List Fields
     if (req.headers.mode == "BOTList") {
-      let lf = getBotListFields(config1);
-      console.log(lf);
+      lf = getBotListFields(config1);
     }
     /////////////////////////////////////////////////////////////////////////////////////////////////
     // Executing query
@@ -245,9 +243,11 @@ module.exports = {
   },
   nConfig: function (app, req, config1) {
     let config = {};
+    let lf = {};
+
     // Get BOT List Fields
     if (req.headers.mode == "BOTList") {
-      let lf = getBotListFields(config1);
+      lf = getBotListFields(config1);
     }
     // check the Mode
     switch (req.headers.mode) {
@@ -301,7 +301,6 @@ module.exports = {
 
     // Build Buttons...
 
-    console.log(action_var, "RecordID", oData["ID"]);
     b_display = buildButtons(
       "web_url",
       "Display",
@@ -343,12 +342,6 @@ module.exports = {
           currentScore = results[k]["Score"];
         }
       }
-      console.log(
-        "CurrentStatus = ",
-        currentStatus,
-        "CurrentScore = ",
-        currentScore
-      );
 
       // Add display button (for all Roles and Status Display button will be there)
       btn1.push(b_display);
@@ -367,20 +360,6 @@ module.exports = {
                   element.Role == role1
                 ) {
                   if (element.Value != currentStatus) {
-                    console.log(
-                      currentStatus,
-                      "-",
-                      currentScore,
-                      ">",
-                      element.Value,
-                      "-",
-                      element.Score,
-                      ">",
-                      k,
-                      "-",
-                      element.Role,
-                      "> Button Created"
-                    );
                     btnx["type"] = "postBack";
                     btnx["title"] = agbtn["name"];
                     // btnx["payload"] =
@@ -395,21 +374,6 @@ module.exports = {
                       oData["ID"];
                     btn1.push({ ...btnx });
                     btnx = {};
-                  } else {
-                    console.log(
-                      currentStatus,
-                      "-",
-                      currentScore,
-                      ">",
-                      element.Value,
-                      "-",
-                      element.Score,
-                      ">",
-                      k,
-                      "-",
-                      element.Role,
-                      "> Button Not Created"
-                    );
                   }
                 }
               });
