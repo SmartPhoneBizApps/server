@@ -171,6 +171,11 @@
       "URL": "datarecords/",
       "Token": "Yes",
       "URLMethod": "PUT"
+    },
+    {
+      "type": "IMAGEFORM",
+      "name": "Form with Image",
+      "icon": "sap-icon://image-viewer"
     }
   ],
   "Tabs": [
@@ -900,7 +905,8 @@
         "businessrole": "{businessrole}",
         "mode": "File",
         "type": "NewUpload",
-        "text": "docType,HeaderAttachment,Information"
+        "text": "docType,HeaderAttachment,Information",
+        "ocr": "Yes"
       }
     },
     {
