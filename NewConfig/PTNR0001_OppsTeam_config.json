@@ -687,6 +687,32 @@
       "Other": ""
     },
     {
+      "name": "actionLog",
+      "type": "Array",
+      "width": "200",
+      "Option": "Optional",
+      "adaptiveCard": "None",
+      "SLabel": "actionLog",
+      "LLabel": "actionLog"
+    },
+    {
+      "name": "checks",
+      "type": "Array",
+      "width": "200",
+      "Option": "Optional",
+      "adaptiveCard": "None",
+      "SLabel": "checks",
+      "LLabel": "checks"
+    },
+    {
+      "name": "ReferenceID",
+      "type": "string",
+      "width": "20",
+      "Option": "Optional",
+      "adaptiveCard": "None",
+      "SLabel": "ReferenceID"
+    },
+    {
       "name": "Status",
       "type": "string",
       "width": "50",
@@ -714,7 +740,7 @@
       "width": "100",
       "Option": "Optional",
       "adaptiveCard": "Additional",
-      "SLabel": "Partner Type",
+      "SLabel": "Identification Type",
       "Update": "Yes",
       "mapping": "",
       "Other": "IDENTIFICATION_TYPE (ENUM)"
@@ -863,6 +889,48 @@
       "Other": "EORI"
     },
     {
+      "name": "SearchString",
+      "type": "string",
+      "width": "200",
+      "Option": "Optional",
+      "adaptiveCard": "None",
+      "SLabel": "Search String",
+      "LLabel": "Search String"
+    },
+    {
+      "name": "ProgressComment",
+      "type": "string",
+      "width": "1000",
+      "Option": "Optional",
+      "adaptiveCard": "None",
+      "SLabel": "ProgressComment",
+      "LLabel": "ProgressComment"
+    },
+    {
+      "name": "upperNodes",
+      "type": "string",
+      "width": "200",
+      "Option": "Optional",
+      "adaptiveCard": "None",
+      "SLabel": "upperNodes"
+    },
+    {
+      "name": "lowerNodes",
+      "type": "string",
+      "width": "200",
+      "Option": "Optional",
+      "adaptiveCard": "None",
+      "SLabel": "lowerNodes"
+    },
+    {
+      "name": "selfNode",
+      "type": "string",
+      "width": "200",
+      "Option": "Optional",
+      "adaptiveCard": "None",
+      "SLabel": "selfNode"
+    },
+    {
       "name": "MultiAttachments",
       "type": "attachment",
       "width": "200",
@@ -873,17 +941,7 @@
       "mapping": "",
       "Other": ""
     },
-    {
-      "name": "ProgressComment",
-      "type": "string",
-      "width": "1000",
-      "Option": "Optional",
-      "adaptiveCard": "Additional",
-      "SLabel": "Progress Comment",
-      "Update": "Yes",
-      "mapping": "",
-      "Other": ""
-    },
+
     {
       "name": "carouselImage",
       "type": "carouselImage",
@@ -907,6 +965,15 @@
       "Option": "Optional",
       "adaptiveCard": "None",
       "SLabel": "OCR Data"
+    },
+    {
+      "name": "sValidation",
+      "type": "string",
+      "width": "20",
+      "Option": "Optional",
+      "adaptiveCard": "None",
+      "SLabel": "Validation",
+      "LLabel": "Validation"
     }
   ],
   "itemData": "No",
