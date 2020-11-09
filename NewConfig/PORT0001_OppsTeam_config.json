@@ -636,211 +636,233 @@
     {
       "name": "ID",
       "type": "string",
-      "width": "20",
+      "width": "50",
       "Option": "Mandatory",
-      "adaptiveCard": "None",
+      "adaptiveCard": "Additional",
       "SLabel": "Identification",
-      "Update": "No"
+      "Update": "Yes",
+      "mapping": "",
+      "Other": ""
     },
     {
-      "name": "actionLog",
-      "type": "Array",
-      "width": "200",
-      "Option": "Optional",
-      "adaptiveCard": "None",
-      "SLabel": "actionLog",
-      "LLabel": "actionLog"
-    },
-    {
-      "name": "checks",
-      "type": "Array",
-      "width": "200",
-      "Option": "Optional",
-      "adaptiveCard": "None",
-      "SLabel": "checks",
-      "LLabel": "checks"
-    },
-    {
-      "name": "ReferenceID",
+      "name": "Status",
       "type": "string",
-      "width": "20",
-      "Option": "Optional",
-      "adaptiveCard": "None",
-      "SLabel": "ReferenceID"
+      "width": "50",
+      "Option": "Mandatory",
+      "adaptiveCard": "Additional",
+      "SLabel": "Status",
+      "Update": "Yes",
+      "mapping": "",
+      "Other": ""
     },
     {
-      "name": "FromEmail",
-      "type": "Email",
-      "width": "200",
-      "Option": "Optional",
-      "adaptiveCard": "Main",
-      "SLabel": "FromEmail"
-    },
-    {
-      "name": "ToEmail",
-      "type": "Email",
-      "width": "200",
-      "Option": "Optional",
-      "adaptiveCard": "Main",
-      "SLabel": "ToEmail"
-    },
-    {
-      "name": "folderName",
+      "name": "GROUP",
       "type": "string",
       "width": "100",
       "Option": "Optional",
       "adaptiveCard": "Main",
-      "SLabel": "folderName"
+      "SLabel": "Gorup",
+      "Update": "Yes",
+      "mapping": "",
+      "Other": ""
     },
     {
-      "name": "AppID",
+      "name": "PORT_NAME",
       "type": "string",
-      "width": "20",
-      "Option": "Optional",
-      "adaptiveCard": "Additional",
-      "SLabel": "AppID"
-    },
-    {
-      "name": "Role",
-      "type": "string",
-      "width": "20",
-      "Option": "Optional",
-      "adaptiveCard": "Additional",
-      "SLabel": "Role"
-    },
-    {
-      "name": "Subject",
-      "type": "string",
-      "width": "200",
+      "width": "100",
       "Option": "Optional",
       "adaptiveCard": "Main",
-      "SLabel": "Subject"
+      "SLabel": "Port Name",
+      "Update": "Yes",
+      "mapping": "",
+      "Other": ""
     },
     {
-      "name": "emailBody",
+      "name": "PORT_CODE",
       "type": "string",
-      "width": "1000",
+      "width": "100",
       "Option": "Optional",
       "adaptiveCard": "Main",
-      "SLabel": "emailBody"
+      "SLabel": "Port Code",
+      "Update": "Yes",
+      "mapping": "",
+      "Other": ""
     },
-
     {
-      "name": "timeStamp",
+      "name": "PORT_CITY",
       "type": "string",
-      "width": "50",
+      "width": "100",
       "Option": "Optional",
       "adaptiveCard": "Main",
-      "SLabel": "timeStamp"
+      "SLabel": "Port City",
+      "Update": "Yes",
+      "mapping": "",
+      "Other": ""
     },
     {
-      "name": "Method",
+      "name": "PORT_COUNTRY",
       "type": "string",
-      "width": "50",
+      "width": "100",
       "Option": "Optional",
       "adaptiveCard": "Main",
-      "SLabel": "Method"
+      "SLabel": "Port Country",
+      "Update": "Yes",
+      "mapping": "",
+      "Other": ""
     },
     {
-      "name": "Email",
+      "name": "GEO_LOCATION",
       "type": "string",
-      "width": "50",
-      "Option": "Mandatory",
+      "width": "100",
+      "Option": "Optional",
       "adaptiveCard": "Main",
-      "SLabel": "Email ID"
-    },
-
-    {
-      "name": "Status",
-      "type": "string",
-      "SLabel": "Status",
-      "Option": "Mandatory",
-      "adaptiveCard": "Additional",
-      "width": "50"
-    },
-    {
-      "name": "SearchString",
-      "type": "string",
-      "width": "200",
-      "Option": "Optional",
-      "adaptiveCard": "None",
-      "SLabel": "Search String",
-      "LLabel": "Search String"
-    },
-    {
-      "name": "ProgressComment",
-      "type": "string",
-      "width": "1000",
-      "Option": "Optional",
-      "adaptiveCard": "None",
-      "SLabel": "ProgressComment",
-      "LLabel": "ProgressComment"
-    },
-    {
-      "name": "upperNodes",
-      "type": "string",
-      "width": "200",
-      "Option": "Optional",
-      "adaptiveCard": "None",
-      "SLabel": "upperNodes"
-    },
-    {
-      "name": "lowerNodes",
-      "type": "string",
-      "width": "200",
-      "Option": "Optional",
-      "adaptiveCard": "None",
-      "SLabel": "lowerNodes"
-    },
-    {
-      "name": "selfNode",
-      "type": "string",
-      "width": "200",
-      "Option": "Optional",
-      "adaptiveCard": "None",
-      "SLabel": "selfNode"
+      "SLabel": "GEO Location",
+      "Update": "Yes",
+      "mapping": "",
+      "Other": ""
     },
     {
       "name": "MultiAttachments",
       "type": "attachment",
       "width": "200",
       "Option": "Optional",
-      "adaptiveCard": "None",
+      "adaptiveCard": "Additional",
       "SLabel": "MultiAttachments",
-      "LLabel": "MultiAttachments"
+      "Update": "Yes",
+      "mapping": "",
+      "Other": ""
+    },
+    {
+      "name": "ProgressComment",
+      "type": "string",
+      "width": "1000",
+      "Option": "Optional",
+      "adaptiveCard": "Additional",
+      "SLabel": "Progress Comment",
+      "Update": "Yes",
+      "mapping": "",
+      "Other": ""
     },
     {
       "name": "carouselImage",
       "type": "carouselImage",
       "width": "200",
       "Option": "Optional",
-      "adaptiveCard": "None",
-      "SLabel": "carouselImage"
-    },
-    {
-      "name": "carouselImage_text",
-      "type": "Array",
-      "width": "1000",
-      "Option": "Optional",
-      "adaptiveCard": "None",
-      "SLabel": "OCR text"
+      "adaptiveCard": "Additional",
+      "SLabel": "Images",
+      "Update": "Yes",
+      "mapping": "",
+      "Other": ""
     },
     {
       "name": "carouselImage_ocr",
       "type": "Array",
       "width": "200",
       "Option": "Optional",
-      "adaptiveCard": "None",
-      "SLabel": "OCR Data"
+      "adaptiveCard": "Additional",
+      "SLabel": "OCR",
+      "Update": "Yes",
+      "mapping": "",
+      "Other": ""
+    },
+    {
+      "name": "actionLog",
+      "type": "Array",
+      "width": "200",
+      "Option": "Optional",
+      "adaptiveCard": "Additional",
+      "SLabel": "Action Log",
+      "Update": "Yes",
+      "mapping": "",
+      "Other": ""
+    },
+    {
+      "name": "checks",
+      "type": "Array",
+      "width": "200",
+      "Option": "Optional",
+      "adaptiveCard": "Additional",
+      "SLabel": "Document Checks",
+      "Update": "Yes",
+      "mapping": "",
+      "Other": ""
+    },
+    {
+      "name": "ReferenceID",
+      "type": "string",
+      "width": "50",
+      "Option": "Optional",
+      "adaptiveCard": "Additional",
+      "SLabel": "Reference ID",
+      "Update": "Yes",
+      "mapping": "",
+      "Other": ""
     },
     {
       "name": "sValidation",
       "type": "string",
       "width": "20",
       "Option": "Optional",
-      "adaptiveCard": "None",
-      "SLabel": "Validation",
-      "LLabel": "Validation"
+      "adaptiveCard": "Additional",
+      "SLabel": "Validations",
+      "Update": "Yes",
+      "mapping": "",
+      "Other": ""
+    },
+    {
+      "name": "selfNode",
+      "type": "string",
+      "width": "200",
+      "Option": "Optional",
+      "adaptiveCard": "Additional",
+      "SLabel": "Self Node",
+      "Update": "Yes",
+      "mapping": "",
+      "Other": ""
+    },
+    {
+      "name": "lowerNodes",
+      "type": "string",
+      "width": "200",
+      "Option": "Optional",
+      "adaptiveCard": "Additional",
+      "SLabel": "Lower Node",
+      "Update": "Yes",
+      "mapping": "",
+      "Other": ""
+    },
+    {
+      "name": "upperNodes",
+      "type": "string",
+      "width": "200",
+      "Option": "Optional",
+      "adaptiveCard": "Additional",
+      "SLabel": "Upper Node",
+      "Update": "Yes",
+      "mapping": "",
+      "Other": ""
+    },
+    {
+      "name": "SearchString",
+      "type": "string",
+      "width": "200",
+      "Option": "Optional",
+      "adaptiveCard": "Additional",
+      "SLabel": "Search String",
+      "Update": "Yes",
+      "mapping": "",
+      "Other": ""
+    },
+    {
+      "name": "TransLog",
+      "type": "string",
+      "width": "200",
+      "Option": "Optional",
+      "adaptiveCard": "Additional",
+      "SLabel": "Transaction Log",
+      "Update": "Yes",
+      "mapping": "",
+      "Other": ""
     }
   ],
   "itemData": "No",
