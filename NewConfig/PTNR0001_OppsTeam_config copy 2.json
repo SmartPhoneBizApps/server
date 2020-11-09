@@ -1,0 +1,46 @@
+{
+  "Title": {
+    "ApplicationTitle": "Partners",
+    "DetailTitle": "Partners"
+  },
+  "Constants": {},
+  "Controls": {
+    "style": "SAP",
+    "calculation": "No",
+    "defaultGraph": "StackedBar",
+    "USP": "UserProfile",
+    "StatusColor": "Yes",
+    "SearchString": { "Search": false },
+    "Filters": [],
+    "Partner": "@user",
+    "UserSpecific": "No",
+    "Update": "Yes",
+    "ocr_data": "carouselImage_ocr",
+    "URL": "https://fierce-oasis-51455.herokuapp.com",
+    "Source": { "SourceName": "mongoDB", "SourceFile": "NA" },
+    "filterFields": {
+      "header": ["$HeaderFilters"]
+    }
+  },
+  "ListFields": {
+    "IntroField": "$IntroField",
+    "TitleField": "$TitleField",
+    "sStatus": "$sStatus",
+    "fStatus": "$fStatus",
+    "numberField": "",
+    "LFields": ["$LFields"],
+    "listIconSetup": {
+      "listIconRequired": "Yes",
+      "listIconMethod": "$listIconMethod",
+      "listIconField": "$listIconField",
+      "listIcons": "$listIcons"
+    }
+  },
+  "ListBOTFields": {
+    "None": ["$None"],
+    "Title": ["$Title"],
+    "SubTitle": ["$SubTitle"],
+    "Description": ["$Description"]
+  },
+  "PossibleValues": ["$PossibleValues"]
+}

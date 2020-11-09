@@ -1,80 +1,42 @@
 {
-  "ID": {
-    "type": "String",
-    "unique": true,
-    "required": [true, "Please add Mandatory field :ID"],
-    "maxlength": [20, "ID can not be more than 20 characters"]
-  },
-  "ToEmail": {
-    "type": "String"
-  },
-  "FromEmail": {
-    "type": "String"
-  },
-  "Email": {
-    "type": "String"
-  },
-  "Method": {
-    "type": "String"
-  },
-  "Subject": {
-    "type": "String"
-  },
-  "AppID": {
-    "type": "String"
-  },
-  "Role": {
-    "type": "String"
-  },
-
-  "ScreenShot": [],
-  "Attachment": {
-    "type": "String"
-  },
-  "DateCreated": {
-    "type": "Date"
-  },
-  "Status": {
-    "type": "String",
-    "required": [true, "Please add Mandatory field :Status"],
-    "maxlength": [50, "Status can not be more than 50 characters"]
-  },
-  "Partner": {
-    "type": "String",
-    "required": [true, "Please add Mandatory field :Partner"],
-    "maxlength": [200, "Partner can not be more than 200 characters"]
-  },
-  "ReferenceID": {
-    "type": "String",
-    "maxlength": [50, "ReferenceID can not be more than 50"]
-  },
-  "USP_Name": { "type": "String" },
-  "USP_Role": { "type": "String" },
-  "USP_Image": { "type": "String" },
-  "StatusState": { "type": "String" },
+  "ID": "",
+  "Status": "",
+  "TID": "",
+  "IDENTIFICATION_TYPE": "",
+  "NAME": "",
+  "STREET": "",
+  "ADDRESS_2_LINE": "",
+  "CITY": "",
+  "POSTCODE": "",
+  "CNTRY": "",
+  "COUNTRY_CODE": "",
+  "PARTY_TEL_NUMBER": "",
+  "EMAIL": "",
+  "PARTY_TYPE": "",
+  "PROVINCE": "",
+  "PROVINCE_CODE": "",
+  "EORI": "",
+  "MultiAttachments": {},
+  "ProgressComment": [],
   "carouselImage": [],
   "carouselImage_ocr": [],
-  "carouselImage_text": "",
-  "MultiAttachments": {},
-  "lowerNodes": [],
-  "selfNode": [],
-  "upperNodes": [],
-  "TransLog": [],
-  "listicon": "",
-  "ProgressComment": [],
   "actionLog": [],
   "checks": [],
-  "IssueType": "",
-  "SearchString": {
-    "type": "String",
-    "maxlength": [500, "ContactName can not be more than 500 characters"]
-  },
-  "timeStamp": "",
-  "emailBody": "",
+  "ReferenceID": "",
+  "sValidation": "",
+  "selfNode": [],
+  "lowerNodes": [],
+  "upperNodes": [],
+  "SearchString": "",
+  "TransLog": [],
+  "listicon": "",
+  "USP_Name": "",
+  "USP_Role": "",
+  "USP_Image": "",
+  "StatusState": "",
   "buttons": {},
   "charts": {},
   "config": {},
   "card": {},
-  "sValidation": "",
   "cardImage": ""
 }

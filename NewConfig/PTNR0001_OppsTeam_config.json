@@ -1466,7 +1466,7 @@
     {
       "name": "ReferenceID",
       "type": "string",
-      "width": "20",
+      "width": "50",
       "Option": "Optional",
       "adaptiveCard": "None",
       "SLabel": "ReferenceID"
@@ -1481,6 +1481,84 @@
       "Update": "Yes",
       "mapping": "",
       "Other": ""
+    },
+    {
+      "name": "SearchString",
+      "type": "string",
+      "width": "200",
+      "Option": "Optional",
+      "adaptiveCard": "None",
+      "SLabel": "Search String",
+      "LLabel": "Search String"
+    },
+    {
+      "name": "ProgressComment",
+      "type": "string",
+      "width": "1000",
+      "Option": "Optional",
+      "adaptiveCard": "None",
+      "SLabel": "ProgressComment",
+      "LLabel": "ProgressComment"
+    },
+    {
+      "name": "upperNodes",
+      "type": "string",
+      "width": "200",
+      "Option": "Optional",
+      "adaptiveCard": "None",
+      "SLabel": "upperNodes"
+    },
+    {
+      "name": "lowerNodes",
+      "type": "string",
+      "width": "200",
+      "Option": "Optional",
+      "adaptiveCard": "None",
+      "SLabel": "lowerNodes"
+    },
+    {
+      "name": "selfNode",
+      "type": "string",
+      "width": "200",
+      "Option": "Optional",
+      "adaptiveCard": "None",
+      "SLabel": "selfNode"
+    },
+    {
+      "name": "MultiAttachments",
+      "type": "attachment",
+      "width": "200",
+      "Option": "Optional",
+      "adaptiveCard": "Additional",
+      "SLabel": "MultiAttachments",
+      "Update": "Yes",
+      "mapping": "",
+      "Other": ""
+    },
+    {
+      "name": "carouselImage",
+      "type": "carouselImage",
+      "width": "200",
+      "Option": "Optional",
+      "adaptiveCard": "None",
+      "SLabel": "carouselImage"
+    },
+    {
+      "name": "carouselImage_ocr",
+      "type": "Array",
+      "width": "200",
+      "Option": "Optional",
+      "adaptiveCard": "None",
+      "SLabel": "OCR Data"
+    },
+    {
+      "name": "sValidation",
+      "type": "string",
+      "width": "20",
+      "Option": "Optional",
+      "adaptiveCard": "None",
+      "SLabel": "Validation",
+      "LLabel": "Validation"
     },
     {
       "name": "TID",
@@ -1647,93 +1725,7 @@
       "mapping": "RCNSGE-EORI",
       "Other": "EORI"
     },
-    {
-      "name": "SearchString",
-      "type": "string",
-      "width": "200",
-      "Option": "Optional",
-      "adaptiveCard": "None",
-      "SLabel": "Search String",
-      "LLabel": "Search String"
-    },
-    {
-      "name": "ProgressComment",
-      "type": "string",
-      "width": "1000",
-      "Option": "Optional",
-      "adaptiveCard": "None",
-      "SLabel": "ProgressComment",
-      "LLabel": "ProgressComment"
-    },
-    {
-      "name": "upperNodes",
-      "type": "string",
-      "width": "200",
-      "Option": "Optional",
-      "adaptiveCard": "None",
-      "SLabel": "upperNodes"
-    },
-    {
-      "name": "lowerNodes",
-      "type": "string",
-      "width": "200",
-      "Option": "Optional",
-      "adaptiveCard": "None",
-      "SLabel": "lowerNodes"
-    },
-    {
-      "name": "selfNode",
-      "type": "string",
-      "width": "200",
-      "Option": "Optional",
-      "adaptiveCard": "None",
-      "SLabel": "selfNode"
-    },
-    {
-      "name": "MultiAttachments",
-      "type": "attachment",
-      "width": "200",
-      "Option": "Optional",
-      "adaptiveCard": "Additional",
-      "SLabel": "MultiAttachments",
-      "Update": "Yes",
-      "mapping": "",
-      "Other": ""
-    },
 
-    {
-      "name": "carouselImage",
-      "type": "carouselImage",
-      "width": "200",
-      "Option": "Optional",
-      "adaptiveCard": "None",
-      "SLabel": "carouselImage"
-    },
-    {
-      "name": "carouselImage_text",
-      "type": "Array",
-      "width": "1000",
-      "Option": "Optional",
-      "adaptiveCard": "None",
-      "SLabel": "OCR text"
-    },
-    {
-      "name": "carouselImage_ocr",
-      "type": "Array",
-      "width": "200",
-      "Option": "Optional",
-      "adaptiveCard": "None",
-      "SLabel": "OCR Data"
-    },
-    {
-      "name": "sValidation",
-      "type": "string",
-      "width": "20",
-      "Option": "Optional",
-      "adaptiveCard": "None",
-      "SLabel": "Validation",
-      "LLabel": "Validation"
-    },
     {
       "name": "NumberOfEmployees",
       "type": "string",
