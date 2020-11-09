@@ -60,9 +60,12 @@
       "listIconMethod": "ControlDisplay",
       "listIconField": "Method",
       "listIcons": {
-        "Email": "sap-icon://email",
-        "Upload": "sap-icon://toaster-up",
-        "Manual": "sap-icon://create-form"
+        "Consignor": "sap-icon://factory",
+        "Consignee": "sap-icon://customer-and-supplier",
+        "Declarant": "sap-icon://decision",
+        "SupervisingOffice": "sap-icon://manager",
+        "GovernmentContractor": "sap-icon://official-service",
+        "Customer": "sap-icon://crm-sales"
       }
     }
   },
@@ -214,7 +217,7 @@
       "style": "SAP",
       "update": "Yes",
       "name": "Key Details",
-      "type": "Field",
+      "type": "FieldGroup",
       "fioriicon": "key"
     },
     {
@@ -275,23 +278,27 @@
     "OCR01": ["carouselImage_ocr"],
     "None": ["ID", "AppID", "Role", "Status"],
     "Tab1": [
-      "TID",
-      "IDENTIFICATION_TYPE",
-      "NAME",
-      "STREET",
-      "ADDRESS_2_LINE",
-      "CITY",
-      "POSTCODE",
-      "CNTRY",
-      "COUNTRY_CODE",
-      "PARTY_TEL_NUMBER",
-      "EMAIL",
-      "PARTY_TYPE",
-      "PROVINCE",
-      "PROVINCE_CODE",
-      "EORI",
-      "MultiAttachments",
-      "ProgressComment"
+      {
+        "GrpTitle": "Key Details",
+        "Fields": ["TID", "IDENTIFICATION_TYPE", "NAME", "EORI", "PARTY_TYPE"]
+      },
+      {
+        "GrpTitle": "Address Details",
+        "Fields": [
+          "STREET",
+          "ADDRESS_2_LINE",
+          "CITY",
+          "POSTCODE",
+          "CNTRY",
+          "COUNTRY_CODE",
+          "PROVINCE",
+          "PROVINCE_CODE"
+        ]
+      },
+      {
+        "GrpTitle": "Contacts",
+        "Fields": ["PARTY_TEL_NUMBER", "EMAIL"]
+      }
     ],
     "Tab8": ["MultiAttachments"]
   },
@@ -320,7 +327,6 @@
             "PARTY_TYPE",
             "PROVINCE",
             "PROVINCE_CODE",
-
             "MultiAttachments",
             "ProgressComment"
           ]
