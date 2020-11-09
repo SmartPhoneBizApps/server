@@ -89,7 +89,19 @@
       "icon": "sap-icon://email-read",
       "parameters": {
         "mailBox": "gst@smartphonebizapps.com",
-        "defaultValues": [{ "Method": "Email" }],
+        "defaultValues": [{ "Method": "Email" }, { "Status": "OCRDone" }],
+        "images": "carouselImage",
+        "ocr": "carouselImage_ocr",
+        "text": "carouselImage_text"
+      }
+    },
+    {
+      "type": "OCRATTACH",
+      "name": "OCR Attachments",
+      "icon": "sap-icon://attachment-e-pub",
+      "parameters": {
+        "filters": [{ "Method": "Upload" }],
+        "defaultValues": [{ "Status": "OCRDone" }],
         "images": "carouselImage",
         "ocr": "carouselImage_ocr",
         "text": "carouselImage_text"
