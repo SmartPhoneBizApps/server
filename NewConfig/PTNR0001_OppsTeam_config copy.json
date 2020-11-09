@@ -1,0 +1,1080 @@
+{
+  "Title": {
+    "ApplicationTitle": "Partners",
+    "DetailTitle": "Partners"
+  },
+  "Constants": {},
+  "Controls": {
+    "style": "SAP",
+    "calculation": "No",
+    "defaultGraph": "StackedBar",
+    "USP": "UserProfile",
+    "StatusColor": "Yes",
+    "SearchString": { "Search": false },
+    "Filters": [],
+    "Partner": "@user",
+    "UserSpecific": "No",
+    "Update": "Yes",
+    "ocr_data": "carouselImage_ocr",
+    "URL": "https://fierce-oasis-51455.herokuapp.com",
+    "Source": { "SourceName": "mongoDB", "SourceFile": "NA" },
+    "filterFields": {
+      "header": [
+        "TID",
+        "IDENTIFICATION_TYPE",
+        "NAME",
+        "STREET",
+        "ADDRESS_2_LINE",
+        "CITY",
+        "POSTCODE",
+        "CNTRY",
+        "COUNTRY_CODE",
+        "PARTY_TEL_NUMBER",
+        "EMAIL",
+        "PARTY_TYPE",
+        "PROVINCE",
+        "PROVINCE_CODE",
+        "EORI",
+        "Status"
+      ]
+    }
+  },
+  "ListFields": {
+    "IntroField": "TID",
+    "TitleField": "PARTY_TYPE",
+    "sStatus": "POSTCODE",
+    "fStatus": "Status",
+    "numberField": "",
+    "LFields": [
+      "ID",
+      "NAME",
+      "IDENTIFICATION_TYPE",
+      "CITY",
+      "POSTCODE",
+      "COUNTRY_CODE",
+      "PARTY_TYPE",
+      "EORI"
+    ],
+    "listIconSetup": {
+      "listIconRequired": "Yes",
+      "listIconMethod": "ControlDisplay",
+      "listIconField": "PARTY_TYPE",
+      "listIcons": {
+        "Consignor": "sap-icon://factory",
+        "Consignee": "sap-icon://customer-and-supplier",
+        "Declarant": "sap-icon://decision",
+        "SupervisingOffice": "sap-icon://manager",
+        "GovernmentContractor": "sap-icon://official-service",
+        "Customer": "sap-icon://crm-sales"
+      }
+    }
+  },
+  "ListBOTFields": {
+    "None": ["cardImage", "StatusState"],
+    "Title": ["TID"],
+    "SubTitle": ["Status", "PARTY_TYPE"],
+    "Description": [
+      "ID",
+      "NAME",
+      "IDENTIFICATION_TYPE",
+      "CITY",
+      "POSTCODE",
+      "COUNTRY_CODE",
+      "PARTY_TYPE",
+      "EORI"
+    ]
+  },
+  "PossibleValues": ["Status", "ItemStatus", "ItemStatus99", "PARTY_TYPE"],
+  "MButtons": [
+    {
+      "type": "DOWNLOAD",
+      "name": "Download File",
+      "icon": "sap-icon://download",
+      "downloadFields": [
+        "ID",
+        "Status",
+        "TID",
+        "IDENTIFICATION_TYPE",
+        "NAME",
+        "STREET",
+        "ADDRESS_2_LINE",
+        "CITY",
+        "POSTCODE",
+        "CNTRY",
+        "COUNTRY_CODE",
+        "PARTY_TEL_NUMBER",
+        "EMAIL",
+        "PARTY_TYPE",
+        "PROVINCE",
+        "PROVINCE_CODE",
+        "EORI",
+        "MultiAttachments",
+        "ProgressComment"
+      ],
+      "downloadTables": [
+        "ContactPerson",
+        "BusinessUnits",
+        "Bank",
+        "Identification",
+        "googleReviews"
+      ]
+    },
+    {
+      "type": "APPHELP",
+      "name": "Get App Help",
+      "icon": "sap-icon://sys-help-2"
+    },
+    {
+      "type": "OPENURL",
+      "name": "Launch BOT",
+      "icon": "sap-icon://travel-request",
+      "URL": "https://www.messenger.com/t/295020207695029"
+    },
+    {
+      "type": "ADD",
+      "name": "Add Record",
+      "icon": "sap-icon://add",
+      "duplicateChecks": {
+        "performCheck": "Yes",
+        "checkField": "Email"
+      }
+    },
+    {
+      "type": "UPLOAD",
+      "name": "Upload Record",
+      "icon": "sap-icon://upload",
+      "Option": ["Header"],
+      "ItemOptions": [],
+      "URL": "datarecords/",
+      "URLMethodHDR": "POST",
+      "URLMethodTable": "PUT",
+      "dataFields": "FieldName",
+      "key": {
+        "ID": "External",
+        "generateID": [],
+        "seperator": "-"
+      }
+    }
+  ],
+  "DButtons": [
+    {
+      "type": "WORKFLOW",
+      "name": "Submit",
+      "icon": "sap-icon://add-document",
+      "Dialog": [
+        {
+          "label": "Submit Comment",
+          "name": "ProgressComment",
+          "type": "string",
+          "option": "Optional"
+        }
+      ],
+      "transferFields": [
+        { "field": "ID", "value": "@recorddata" },
+        { "field": "Status", "value": "Submitted" },
+        { "field": "ProgressComment", "value": "@UserInput" }
+      ],
+      "URL": "datarecords/",
+      "Token": "Yes",
+      "URLMethod": "PUT",
+      "Condition": { "Field": "Status", "value": "Saved" }
+    },
+    {
+      "type": "WORKFLOW",
+      "name": "Cancel",
+      "icon": "sap-icon://decline",
+      "Dialog": [
+        {
+          "label": "Cancellation Comment",
+          "name": "ProgressComment",
+          "type": "string",
+          "option": "Optional"
+        }
+      ],
+      "transferFields": [
+        { "field": "ID", "value": "@recorddata" },
+        { "field": "Status", "value": "Cancelled" },
+        { "field": "ProgressComment", "value": "@UserInput" }
+      ],
+      "URL": "datarecords/",
+      "Token": "Yes",
+      "URLMethod": "PUT"
+    }
+  ],
+  "Tabs": [
+    {
+      "value": "Tab0",
+      "style": "SAP",
+      "update": "No",
+      "name": "Cards",
+      "type": "Cards",
+      "fioriicon": "responsive"
+    },
+    {
+      "value": "Tab20",
+      "style": "SAP",
+      "update": "No",
+      "name": "Charts",
+      "type": "Charts",
+      "fioriicon": "business-objects-experience"
+    },
+    {
+      "value": "Tab1",
+      "style": "SAP",
+      "update": "Yes",
+      "name": "Key Details",
+      "type": "FieldGroup",
+      "fioriicon": "key"
+    },
+    {
+      "value": "Tab5",
+      "style": "SAP",
+      "update": "Yes",
+      "name": "Images",
+      "fioriicon": "camera",
+      "type": "carouselImage",
+      "ocr": "Yes",
+      "download": "No"
+    },
+    {
+      "value": "OCR01",
+      "style": "SAP",
+      "update": "Yes",
+      "name": "OCR",
+      "fioriicon": "image-viewer",
+      "type": "Table"
+    },
+    {
+      "value": "Tab8",
+      "style": "SAP",
+      "update": "Yes",
+      "name": "MultiAttachments",
+      "fioriicon": "attachment",
+      "type": "MultiAttachments",
+      "download": "No",
+      "docType": [{ "text": "Receipt", "state": "Information", "ocr": "Yes" }]
+    },
+    {
+      "value": "Tab98",
+      "style": "SAP",
+      "update": "Yes",
+      "name": "checks",
+      "type": "Table",
+      "fioriicon": "workflow-tasks"
+    },
+    {
+      "value": "Tab99",
+      "style": "SAP",
+      "update": "Yes",
+      "name": "actionLog",
+      "type": "Table",
+      "fioriicon": "workflow-tasks"
+    }
+  ],
+  "DetailFields": {
+    "headerTitle": ["USP_Name"],
+    "headerRole": ["USP_Role"],
+    "headerImage": ["USP_Image"],
+    "headerColorFields": ["Status"],
+    "Tab0": ["data"],
+    "Tab20": ["charts"],
+    "Tab98": ["checks"],
+    "Tab99": ["actionLog"],
+    "Tab5": ["carouselImage"],
+    "OCR01": ["carouselImage_ocr"],
+    "None": ["ID", "AppID", "Role", "Status"],
+    "Tab1": [
+      {
+        "GrpTitle": "Key Details",
+        "Fields": ["TID", "IDENTIFICATION_TYPE", "NAME", "EORI", "PARTY_TYPE"]
+      },
+      {
+        "GrpTitle": "Address Details",
+        "Fields": [
+          "STREET",
+          "ADDRESS_2_LINE",
+          "CITY",
+          "POSTCODE",
+          "CNTRY",
+          "COUNTRY_CODE",
+          "PROVINCE",
+          "PROVINCE_CODE"
+        ]
+      },
+      {
+        "GrpTitle": "Contacts",
+        "Fields": ["PARTY_TEL_NUMBER", "EMAIL"]
+      }
+    ],
+    "Tab8": ["MultiAttachments"]
+  },
+  "listCards": [],
+  "detailCharts": [],
+  "cards": [],
+  "ControlDisplay": {
+    "ControlField": "PARTY_TYPE",
+    "Fields": [
+      [
+        {
+          "ALL": [
+            "ID",
+            "Status",
+            "TID",
+            "IDENTIFICATION_TYPE",
+            "NAME",
+            "STREET",
+            "ADDRESS_2_LINE",
+            "CITY",
+            "POSTCODE",
+            "CNTRY",
+            "COUNTRY_CODE",
+            "PARTY_TEL_NUMBER",
+            "EMAIL",
+            "PARTY_TYPE",
+            "PROVINCE",
+            "PROVINCE_CODE",
+            "MultiAttachments",
+            "ProgressComment"
+          ]
+        },
+        { "Consignor": ["EORI"] },
+        { "Consignee": ["EORI"] },
+        { "Declarant": ["EORI"] },
+        { "SupervisingOffice": ["EORI"] },
+        { "GovernmentContractor": ["EORI"] },
+        { "Customer": ["EORI"] }
+      ]
+    ]
+  },
+  "tableConfig": {
+    "carouselImage_ocr": {
+      "title": "OCR Data",
+      "subtitle": "OCR Data",
+      "ItemFieldDefinition": [
+        {
+          "name": "ItemNumber",
+          "type": "string",
+          "width": "10",
+          "Option": "Optional",
+          "adaptiveCard": "Additional",
+          "SLabel": "Item Number",
+          "Update": "No"
+        },
+        {
+          "name": "image",
+          "type": "string",
+          "width": "200",
+          "Option": "Optional",
+          "adaptiveCard": "Additional",
+          "SLabel": "image",
+          "Update": "Yes"
+        },
+
+        {
+          "name": "imageBody",
+          "type": "string",
+          "width": "5000",
+          "Option": "Optional",
+          "adaptiveCard": "Additional",
+          "SLabel": "imageBody"
+        }
+      ],
+      "DisplayFields": ["image", "imageBody"],
+      "detailCharts": [],
+      "cards": [],
+      "ItemButtons": {
+        "itemDisplay": true,
+        "itemCheck": false,
+        "itemAdd": false,
+        "itemEdit": false,
+        "itemDelete": true
+      },
+      "CreateFields": ["image", "imageBody"],
+      "ItemDetails": [{ "name": "image" }, { "name": "imageBody" }]
+    },
+    "checks": {
+      "title": "Document Checks",
+      "subtitle": "Document Checks",
+      "ItemFieldDefinition": [
+        {
+          "name": "ItemNumber",
+          "type": "string",
+          "width": "10",
+          "Option": "Optional",
+          "adaptiveCard": "None",
+          "SLabel": "Item Number",
+          "Update": "No"
+        },
+        {
+          "name": "Type",
+          "type": "string",
+          "width": "50",
+          "Option": "Optional",
+          "adaptiveCard": "None",
+          "SLabel": "Type"
+        },
+        {
+          "name": "ItemStatus",
+          "type": "string",
+          "width": "100",
+          "Option": "Optional",
+          "adaptiveCard": "None",
+          "SLabel": "Class"
+        },
+        {
+          "name": "Number",
+          "type": "string",
+          "width": "100",
+          "Option": "Optional",
+          "adaptiveCard": "None",
+          "SLabel": "Number"
+        },
+
+        {
+          "name": "Message",
+          "type": "string",
+          "width": "500",
+          "Option": "Optional",
+          "adaptiveCard": "None",
+          "SLabel": "Message"
+        },
+        {
+          "name": "checkDate",
+          "type": "Date",
+          "width": "100",
+          "Option": "Optional",
+          "adaptiveCard": "None",
+          "SLabel": "checkDate"
+        },
+        {
+          "name": "buttonType",
+          "type": "string",
+          "width": "100",
+          "Option": "Optional",
+          "adaptiveCard": "Main",
+          "SLabel": "buttonType"
+        },
+        {
+          "name": "buttonName",
+          "type": "string",
+          "width": "100",
+          "Option": "Optional",
+          "adaptiveCard": "Main",
+          "SLabel": "buttonType"
+        },
+        {
+          "name": "checkStage",
+          "type": "DateTime",
+          "width": "20",
+          "Option": "Optional",
+          "adaptiveCard": "Additional",
+          "SLabel": "checkStage"
+        }
+      ],
+      "DisplayFields": [
+        "Type",
+        "Number",
+        "Message",
+        "checkDate",
+        "checkStage",
+        "ItemStatus"
+      ],
+      "detailCharts": [],
+      "cards": [],
+      "ItemButtons": {
+        "itemDisplay": true,
+        "itemCheck": false,
+        "itemAdd": false,
+        "itemEdit": false,
+        "itemDelete": false
+      },
+      "CreateFields": [
+        "Type",
+        "ItemStatus",
+        "Number",
+        "Message",
+        "checkDate",
+        "checkStage",
+        "buttonType",
+        "buttonName"
+      ],
+      "ItemDetails": [
+        { "name": "Type" },
+        { "name": "ItemStatus" },
+        { "name": "Number" },
+        { "name": "Message" },
+        { "name": "checkDate" },
+        { "name": "checkStage" },
+        { "name": "buttonType" },
+        { "name": "buttonName" }
+      ]
+    },
+    "actionLog": {
+      "title": "Action Log",
+      "subtitle": "Action Log",
+      "ItemFieldDefinition": [
+        {
+          "name": "ItemNumber",
+          "type": "string",
+          "width": "10",
+          "Option": "Optional",
+          "adaptiveCard": "Additional",
+          "SLabel": "Item Number",
+          "Update": "No"
+        },
+        {
+          "name": "ItemStatus99",
+          "type": "string",
+          "width": "50",
+          "Option": "Optional",
+          "adaptiveCard": "Additional",
+          "SLabel": "Status",
+          "Update": "Yes"
+        },
+        {
+          "name": "Type",
+          "type": "string",
+          "width": "50",
+          "Option": "Optional",
+          "adaptiveCard": "Main",
+          "SLabel": "Type"
+        },
+        {
+          "name": "buttonType",
+          "type": "string",
+          "width": "100",
+          "Option": "Optional",
+          "adaptiveCard": "Main",
+          "SLabel": "buttonType"
+        },
+        {
+          "name": "Transaction",
+          "type": "string",
+          "width": "100",
+          "Option": "Optional",
+          "adaptiveCard": "Main",
+          "SLabel": "Transaction"
+        },
+
+        {
+          "name": "ID",
+          "type": "string",
+          "width": "20",
+          "Option": "Optional",
+          "adaptiveCard": "Additional",
+          "SLabel": "Identification"
+        },
+        {
+          "name": "User",
+          "type": "string",
+          "width": "200",
+          "Option": "Optional",
+          "adaptiveCard": "Additional",
+          "SLabel": "User"
+        },
+        {
+          "name": "UserName",
+          "type": "string",
+          "width": "100",
+          "Option": "Optional",
+          "adaptiveCard": "Additional",
+          "SLabel": "User Name"
+        },
+        {
+          "name": "Status",
+          "type": "string",
+          "width": "50",
+          "Option": "Optional",
+          "adaptiveCard": "Additional",
+          "SLabel": "Status"
+        },
+        {
+          "name": "Role",
+          "type": "string",
+          "width": "100",
+          "Option": "Optional",
+          "adaptiveCard": "Additional",
+          "SLabel": "Role"
+        },
+        {
+          "name": "TimeStamp",
+          "type": "DateTime",
+          "width": "20",
+          "Option": "Optional",
+          "adaptiveCard": "Additional",
+          "SLabel": "TimeStamp"
+        },
+        {
+          "name": "applicationId",
+          "type": "string",
+          "width": "100",
+          "Option": "Optional",
+          "adaptiveCard": "Additional",
+          "SLabel": "applicationId"
+        }
+      ],
+      "DisplayFields": [
+        "Type",
+        "buttonType",
+        "Transaction",
+        "ID",
+        "User",
+        "UserName",
+        "Status",
+        "Role",
+        "applicationId",
+        "ItemStatus99"
+      ],
+      "detailCharts": [],
+      "cards": [],
+      "ItemButtons": {
+        "itemDisplay": true,
+        "itemCheck": false,
+        "itemAdd": false,
+        "itemEdit": false,
+        "itemDelete": false,
+        "additionalButtons": [
+          {
+            "name": "Detail Log",
+            "type": "SUBITEM",
+            "subTable": "DetailLog",
+            "displayFields": [
+              {
+                "name": "Key",
+                "SLabel": "Key",
+                "type": "string"
+              },
+              {
+                "name": "Value",
+                "type": "string",
+                "SLabel": "Value"
+              }
+            ]
+          }
+        ]
+      },
+      "CreateFields": [
+        "Type",
+        "buttonType",
+        "Transaction",
+        "ID",
+        "User",
+        "UserName",
+        "Status",
+        "Role",
+        "applicationId",
+        "ItemStatus99"
+      ],
+      "ItemDetails": [
+        { "name": "Type" },
+        { "name": "buttonType" },
+        { "name": "Transaction" },
+        { "name": "ID" },
+        { "name": "User" },
+        { "name": "UserName" },
+        { "name": "Status" },
+        { "name": "Role" },
+        { "name": "applicationId" },
+        { "name": "TimeStamp" },
+        { "name": "ItemStatus99" }
+      ]
+    }
+  },
+  "FieldDef": [
+    {
+      "name": "ID",
+      "type": "string",
+      "width": "50",
+      "Option": "Mandatory",
+      "adaptiveCard": "Additional",
+      "SLabel": "Identification",
+      "Update": "Yes",
+      "mapping": "",
+      "Other": ""
+    },
+    {
+      "name": "actionLog",
+      "type": "Array",
+      "width": "200",
+      "Option": "Optional",
+      "adaptiveCard": "None",
+      "SLabel": "actionLog",
+      "LLabel": "actionLog"
+    },
+    {
+      "name": "checks",
+      "type": "Array",
+      "width": "200",
+      "Option": "Optional",
+      "adaptiveCard": "None",
+      "SLabel": "checks",
+      "LLabel": "checks"
+    },
+    {
+      "name": "ReferenceID",
+      "type": "string",
+      "width": "20",
+      "Option": "Optional",
+      "adaptiveCard": "None",
+      "SLabel": "ReferenceID"
+    },
+    {
+      "name": "Status",
+      "type": "string",
+      "width": "50",
+      "Option": "Mandatory",
+      "adaptiveCard": "Additional",
+      "SLabel": "Status",
+      "Update": "Yes",
+      "mapping": "",
+      "Other": ""
+    },
+    {
+      "name": "TID",
+      "type": "string",
+      "width": "50",
+      "Option": "Optional",
+      "adaptiveCard": "Additional",
+      "SLabel": "Partner ID",
+      "Update": "Yes",
+      "mapping": "CNSGE-TID",
+      "Other": "IDENTIFICATION_NUMBER"
+    },
+    {
+      "name": "IDENTIFICATION_TYPE",
+      "type": "string",
+      "width": "100",
+      "Option": "Optional",
+      "adaptiveCard": "Additional",
+      "SLabel": "Identification Type",
+      "Update": "Yes",
+      "mapping": "",
+      "Other": "IDENTIFICATION_TYPE (ENUM)"
+    },
+    {
+      "name": "NAME",
+      "type": "string",
+      "width": "200",
+      "Option": "Optional",
+      "adaptiveCard": "Main",
+      "SLabel": "Partner Name",
+      "Update": "Yes",
+      "mapping": "CNSGE-NAME",
+      "Other": "PARTY_NAME"
+    },
+    {
+      "name": "STREET",
+      "type": "string",
+      "width": "200",
+      "Option": "Optional",
+      "adaptiveCard": "Main",
+      "SLabel": "Street",
+      "Update": "Yes",
+      "mapping": "CNSGE-STREET",
+      "Other": "ADDRESS_1_LINE"
+    },
+    {
+      "name": "ADDRESS_2_LINE",
+      "type": "string",
+      "width": "200",
+      "Option": "Optional",
+      "adaptiveCard": "Additional",
+      "SLabel": "Street2",
+      "Update": "Yes",
+      "mapping": "",
+      "Other": "ADDRESS_2_LINE"
+    },
+    {
+      "name": "CITY",
+      "type": "string",
+      "width": "100",
+      "Option": "Optional",
+      "adaptiveCard": "Main",
+      "SLabel": "City",
+      "Update": "Yes",
+      "mapping": "CNSGE-CITY",
+      "Other": "CITY_NAME"
+    },
+    {
+      "name": "POSTCODE",
+      "type": "string",
+      "width": "50",
+      "Option": "Optional",
+      "adaptiveCard": "Main",
+      "SLabel": "Postal Code",
+      "Update": "Yes",
+      "mapping": "CNSGE-POSTCODE",
+      "Other": "PARTY_POSTAL_CODE"
+    },
+    {
+      "name": "CNTRY",
+      "type": "string",
+      "width": "50",
+      "Option": "Optional",
+      "adaptiveCard": "Main",
+      "SLabel": "Country",
+      "Update": "Yes",
+      "mapping": "CNSGE-CNTRY",
+      "Other": "COUNTRY"
+    },
+    {
+      "name": "COUNTRY_CODE",
+      "type": "string",
+      "width": "5",
+      "Option": "Optional",
+      "adaptiveCard": "Main",
+      "SLabel": "Country Code",
+      "Update": "Yes",
+      "mapping": "",
+      "Other": "COUNTRY_CODE"
+    },
+    {
+      "name": "PARTY_TEL_NUMBER",
+      "type": "Num,0",
+      "width": "20",
+      "Option": "Optional",
+      "adaptiveCard": "Main",
+      "SLabel": "Phone Number",
+      "Update": "Yes",
+      "mapping": "",
+      "Other": "PARTY_TEL_NUMBER"
+    },
+    {
+      "name": "EMAIL",
+      "type": "string",
+      "width": "100",
+      "Option": "Optional",
+      "adaptiveCard": "Main",
+      "SLabel": "Email",
+      "Update": "Yes",
+      "mapping": "",
+      "Other": "EMAIL"
+    },
+    {
+      "name": "PARTY_TYPE",
+      "type": "string",
+      "width": "100",
+      "Option": "Mandatory",
+      "adaptiveCard": "Additional",
+      "SLabel": "Partner Type",
+      "Update": "Yes",
+      "mapping": "",
+      "Other": "PARTY_TYPE (ENUM)"
+    },
+    {
+      "name": "PROVINCE",
+      "type": "string",
+      "width": "100",
+      "Option": "Optional",
+      "adaptiveCard": "Additional",
+      "SLabel": "County",
+      "Update": "Yes",
+      "mapping": "",
+      "Other": "PROVINCE"
+    },
+    {
+      "name": "PROVINCE_CODE",
+      "type": "string",
+      "width": "5",
+      "Option": "Optional",
+      "adaptiveCard": "Additional",
+      "SLabel": "County Code",
+      "Update": "Yes",
+      "mapping": "",
+      "Other": "PROVINCE_CODE"
+    },
+    {
+      "name": "EORI",
+      "type": "string",
+      "width": "100",
+      "Option": "Optional",
+      "adaptiveCard": "Additional",
+      "SLabel": "EORI",
+      "Update": "Yes",
+      "mapping": "RCNSGE-EORI",
+      "Other": "EORI"
+    },
+    {
+      "name": "SearchString",
+      "type": "string",
+      "width": "200",
+      "Option": "Optional",
+      "adaptiveCard": "None",
+      "SLabel": "Search String",
+      "LLabel": "Search String"
+    },
+    {
+      "name": "ProgressComment",
+      "type": "string",
+      "width": "1000",
+      "Option": "Optional",
+      "adaptiveCard": "None",
+      "SLabel": "ProgressComment",
+      "LLabel": "ProgressComment"
+    },
+    {
+      "name": "upperNodes",
+      "type": "string",
+      "width": "200",
+      "Option": "Optional",
+      "adaptiveCard": "None",
+      "SLabel": "upperNodes"
+    },
+    {
+      "name": "lowerNodes",
+      "type": "string",
+      "width": "200",
+      "Option": "Optional",
+      "adaptiveCard": "None",
+      "SLabel": "lowerNodes"
+    },
+    {
+      "name": "selfNode",
+      "type": "string",
+      "width": "200",
+      "Option": "Optional",
+      "adaptiveCard": "None",
+      "SLabel": "selfNode"
+    },
+    {
+      "name": "MultiAttachments",
+      "type": "attachment",
+      "width": "200",
+      "Option": "Optional",
+      "adaptiveCard": "Additional",
+      "SLabel": "MultiAttachments",
+      "Update": "Yes",
+      "mapping": "",
+      "Other": ""
+    },
+
+    {
+      "name": "carouselImage",
+      "type": "carouselImage",
+      "width": "200",
+      "Option": "Optional",
+      "adaptiveCard": "None",
+      "SLabel": "carouselImage"
+    },
+    {
+      "name": "carouselImage_text",
+      "type": "Array",
+      "width": "1000",
+      "Option": "Optional",
+      "adaptiveCard": "None",
+      "SLabel": "OCR text"
+    },
+    {
+      "name": "carouselImage_ocr",
+      "type": "Array",
+      "width": "200",
+      "Option": "Optional",
+      "adaptiveCard": "None",
+      "SLabel": "OCR Data"
+    },
+    {
+      "name": "sValidation",
+      "type": "string",
+      "width": "20",
+      "Option": "Optional",
+      "adaptiveCard": "None",
+      "SLabel": "Validation",
+      "LLabel": "Validation"
+    }
+  ],
+  "itemData": "No",
+  "itemConfig": {
+    "ItemFieldDefinition": [],
+    "DisplayFields": [],
+    "ItemButtons": {
+      "itemDisplay": false,
+      "itemAdd": false,
+      "itemEdit": false,
+      "itemDelete": false
+    },
+    "CreateFields": [],
+    "ItemDetails": []
+  },
+  "Validations": {
+    "Field": {},
+    "Sequence": {},
+    "Document": {}
+  },
+  "CalculatedFields": {
+    "Item": [],
+    "HeaderItem": [],
+    "Header": []
+  },
+  "Create": "Yes",
+  "Wizard": [
+    {
+      "id": "Step1",
+      "fields": [
+        { "name": "PARTY_TYPE", "Mode": "Edit" },
+        { "name": "TID", "Mode": "Edit" },
+        { "name": "IDENTIFICATION_TYPE", "Mode": "Edit" },
+        { "name": "NAME", "Mode": "Edit" }
+      ],
+      "name": "Document Scanning",
+      "stepType": "FieldList",
+      "intro": "Attachment Attributes"
+    },
+    {
+      "id": "Step2",
+      "fields": [
+        { "name": "STREET", "Mode": "Edit" },
+        { "name": "ADDRESS_2_LINE", "Mode": "Edit" },
+        { "name": "CITY", "Mode": "Edit" },
+        { "name": "POSTCODE", "Mode": "Edit" },
+        { "name": "CNTRY", "Mode": "Edit" },
+        { "name": "COUNTRY_CODE", "Mode": "Edit" },
+        { "name": "PROVINCE", "Mode": "Edit" },
+        { "name": "PROVINCE_CODE", "Mode": "Edit" }
+      ],
+      "name": "Images and Attachment",
+      "stepType": "carouselImage",
+      "intro": "Screenshots and Images : Here you can upload screenshots, images (jpg, png, etc..)"
+    },
+    {
+      "id": "Step3",
+      "fields": [
+        { "name": "PARTY_TEL_NUMBER", "Mode": "Edit" },
+        { "name": "EMAIL", "Mode": "Edit" }
+      ],
+      "name": "Images and Attachment",
+      "stepType": "carouselImage",
+      "intro": "Screenshots and Images : Here you can upload screenshots, images (jpg, png, etc..)"
+    },
+    {
+      "id": "Step3",
+      "fields": [{ "name": "carouselImage", "Mode": "Edit" }],
+      "name": "Images and Attachment",
+      "stepType": "carouselImage",
+      "intro": "Screenshots and Images : Here you can upload screenshots, images (jpg, png, etc..)"
+    },
+    {
+      "id": "Step5",
+      "fields": [{ "name": "MultiAttachments", "Mode": "Edit" }],
+      "name": "MultiAttachments",
+      "stepType": "Attachments",
+      "intro": "Documents and Files : Here you can upload documents, email attachments and files (Word, Powerpoint, Excel, PDF, Text etc..)",
+      "attachmentAttribute": {
+        "applicationid": "{applicationid}",
+        "businessrole": "{businessrole}",
+        "mode": "File",
+        "type": "NewUpload",
+        "text": "docType,HeaderAttachment,Information"
+      }
+    },
+    {
+      "id": "Step6",
+      "fields": [
+        { "name": "EORI", "Mode": "Edit" },
+        { "name": "Status", "Mode": "Edit" }
+      ],
+      "name": "Document Scanning",
+      "stepType": "FieldList",
+      "intro": "Attachment Attributes"
+    }
+  ]
+}

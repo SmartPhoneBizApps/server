@@ -7,6 +7,7 @@
   "Controls": {
     "style": "SAP",
     "calculation": "No",
+    "defaultGraph": "StackedBar",
     "USP": "UserProfile",
     "StatusColor": "Yes",
     "SearchString": { "Search": false },
@@ -14,11 +15,20 @@
     "Partner": "@user",
     "UserSpecific": "Yes",
     "Update": "Yes",
+    "ocr_data": "carouselImage_ocr",
     "URL": "https://fierce-oasis-51455.herokuapp.com",
     "Source": { "SourceName": "mongoDB", "SourceFile": "NA" },
-
     "filterFields": {
-      "header": ["Status"]
+      "header": [
+        "Status",
+        "CompanyType",
+        "CompanyName",
+        "PostCode",
+        "Email",
+        "ID",
+        "AnnualTurnover",
+        "googleRating"
+      ]
     }
   },
 
@@ -210,6 +220,15 @@
         "photos": "googlePhotos",
         "reviews": "googleReviews",
         "opening_hours": "opening_hours"
+      }
+    },
+    {
+      "type": "ADD",
+      "name": "Add Record",
+      "icon": "sap-icon://add",
+      "duplicateChecks": {
+        "performCheck": "Yes",
+        "checkField": "Email"
       }
     },
     {
@@ -1560,6 +1579,11 @@
     "CreateFields": [],
     "ItemDetails": []
   },
+  "Validations": {
+    "Field": {},
+    "Sequence": {},
+    "Document": {}
+  },
   "CalculatedFields": {
     "Item": [],
     "HeaderItem": [],
@@ -1617,7 +1641,6 @@
       "stepType": "FieldList",
       "intro": "Supplier Registration : Products and Services"
     },
-
     {
       "id": "Step5",
       "fields": [{ "name": "Identification", "Mode": "Edit" }],

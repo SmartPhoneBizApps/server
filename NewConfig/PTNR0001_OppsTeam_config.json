@@ -109,7 +109,30 @@
         "PROVINCE_CODE",
         "EORI",
         "MultiAttachments",
-        "ProgressComment"
+        "ProgressComment",
+        "CompanyName",
+        "GoogleProfile",
+        "CompanyType",
+        "WebSiteURL",
+        "AnnualTurnover",
+        "GeographicalCoverage",
+        "PastSupplier",
+        "IntrestArea",
+        "DetailsOfServices",
+        "DetailsOfProducts",
+        "YearEstablish",
+        "Address",
+        "PostCode",
+        "Phone",
+        "Language",
+        "DateOfRegistration"
+      ],
+      "downloadTables": [
+        "ContactPerson",
+        "BusinessUnits",
+        "Bank",
+        "Identification",
+        "googleReviews"
       ]
     },
     {
@@ -123,7 +146,124 @@
       "icon": "sap-icon://travel-request",
       "URL": "https://www.messenger.com/t/295020207695029"
     },
-
+    {
+      "type": "GOOGLE-ADD",
+      "name": "Google Search",
+      "icon": "sap-icon://download-from-cloud",
+      "keywordsTooltip": "Eg- Bank, Cafe",
+      "searchType": [
+        "accounting",
+        "airport",
+        "amusement_park",
+        "aquarium",
+        "art_gallery",
+        "atm",
+        "bakery",
+        "bank",
+        "bar",
+        "beauty_salon",
+        "bicycle_store",
+        "book_store",
+        "bowling_alley",
+        "bus_station",
+        "cafe",
+        "campground",
+        "car_dealer",
+        "car_rental",
+        "car_repair",
+        "car_wash",
+        "casino",
+        "cemetery",
+        "church",
+        "city_hall",
+        "clothing_store",
+        "convenience_store",
+        "courthouse",
+        "dentist",
+        "department_store",
+        "doctor",
+        "drugstore",
+        "electrician",
+        "electronics_store",
+        "embassy",
+        "fire_station",
+        "florist",
+        "funeral_home",
+        "furniture_store",
+        "gas_station",
+        "gym",
+        "hair_care",
+        "hardware_store",
+        "hindu_temple",
+        "home_goods_store",
+        "hospital",
+        "insurance_agency",
+        "jewelry_store",
+        "laundry",
+        "lawyer",
+        "library",
+        "light_rail_station",
+        "liquor_store",
+        "local_government_office",
+        "locksmith",
+        "lodging",
+        "meal_delivery",
+        "meal_takeaway",
+        "mosque",
+        "movie_rental",
+        "movie_theater",
+        "moving_company",
+        "museum",
+        "night_club",
+        "painter",
+        "park",
+        "parking",
+        "pet_store",
+        "pharmacy",
+        "physiotherapist",
+        "plumber",
+        "police",
+        "post_office",
+        "primary_school",
+        "real_estate_agency",
+        "restaurant",
+        "roofing_contractor",
+        "rv_park",
+        "school",
+        "secondary_school",
+        "shoe_store",
+        "shopping_mall",
+        "spa",
+        "stadium",
+        "storage",
+        "store",
+        "subway_station",
+        "supermarket",
+        "synagogue",
+        "taxi_stand",
+        "tourist_attraction",
+        "train_station",
+        "transit_station",
+        "travel_agency",
+        "university",
+        "veterinary_care",
+        "zoo"
+      ],
+      "fieldMapping": {
+        "formatted_address": "Address",
+        "types": "businessTypes",
+        "icon": "USP_Image",
+        "international_phone_number": "Phone",
+        "name": "CompanyName",
+        "rating": "googleRating",
+        "place_id": "ReferenceID",
+        "url": "GoogleProfile",
+        "website": "WebSiteURL",
+        "photos": "googlePhotos",
+        "reviews": "googleReviews",
+        "opening_hours": "opening_hours"
+      }
+    },
     {
       "type": "ADD",
       "name": "Add Record",
@@ -218,7 +358,64 @@
       "update": "Yes",
       "name": "Key Details",
       "type": "FieldGroup",
-      "fioriicon": "key"
+      "fioriicon": "factory"
+    },
+    {
+      "value": "Tab2",
+      "style": "SAP",
+      "update": "Yes",
+      "name": "Address",
+      "type": "Field",
+      "fioriicon": "addresses"
+    },
+    {
+      "value": "Tab3",
+      "style": "SAP",
+      "update": "Yes",
+      "name": "ContactPerson",
+      "type": "Table",
+      "fioriicon": "business-card"
+    },
+    {
+      "value": "Tab7",
+      "style": "SAP",
+      "update": "Yes",
+      "name": "BusinessUnits",
+      "type": "Table",
+      "fioriicon": "building"
+    },
+    {
+      "value": "Tab6",
+      "style": "SAP",
+      "update": "Yes",
+      "name": "Bank",
+      "type": "Table",
+      "fioriicon": "loan"
+    },
+    {
+      "value": "Tab9",
+      "style": "SAP",
+      "update": "Yes",
+      "name": "Identification",
+      "type": "Table",
+      "fioriicon": "two-keys"
+    },
+    {
+      "value": "Tab10",
+      "style": "SAP",
+      "update": "Yes",
+      "name": "Google Images",
+      "fioriicon": "background",
+      "type": "googleImage",
+      "download": "Yes"
+    },
+    {
+      "value": "Tab11",
+      "style": "SAP",
+      "update": "Yes",
+      "name": "Google Reviews",
+      "fioriicon": "feedback",
+      "type": "Table"
     },
     {
       "value": "Tab5",
@@ -238,6 +435,7 @@
       "fioriicon": "image-viewer",
       "type": "Table"
     },
+
     {
       "value": "Tab8",
       "style": "SAP",
@@ -274,9 +472,9 @@
     "Tab20": ["charts"],
     "Tab98": ["checks"],
     "Tab99": ["actionLog"],
+    "None": ["ID", "Status"],
     "Tab5": ["carouselImage"],
     "OCR01": ["carouselImage_ocr"],
-    "None": ["ID", "AppID", "Role", "Status"],
     "Tab1": [
       {
         "GrpTitle": "Key Details",
@@ -298,8 +496,32 @@
       {
         "GrpTitle": "Contacts",
         "Fields": ["PARTY_TEL_NUMBER", "EMAIL"]
+      },
+      {
+        "GrpTitle": "Other Details",
+        "Fields": [
+          "CompanyType",
+          "googleRating",
+          "WebSiteURL",
+          "AnnualTurnover",
+          "GeographicalCoverage",
+          "PastSupplier",
+          "IntrestArea",
+          "DetailsOfServices",
+          "DetailsOfProducts",
+          "GoogleProfile",
+          "Currency"
+        ]
       }
     ],
+    "Tab2": ["YearEstablish", "Address", "PostCode"],
+    "Tab3": ["ContactPerson"],
+    "Tab7": ["BusinessUnits"],
+    "Tab6": ["Bank"],
+    "Tab9": ["Identification"],
+    "Tab4": ["Phone", "Language", "DateOfRegistration"],
+    "Tab10": ["googlePhotos"],
+    "Tab11": ["googleReviews"],
     "Tab8": ["MultiAttachments"]
   },
   "listCards": [],
@@ -328,7 +550,18 @@
             "PROVINCE",
             "PROVINCE_CODE",
             "MultiAttachments",
-            "ProgressComment"
+            "ProgressComment",
+            "CompanyType",
+            "googleRating",
+            "WebSiteURL",
+            "AnnualTurnover",
+            "GeographicalCoverage",
+            "PastSupplier",
+            "IntrestArea",
+            "DetailsOfServices",
+            "DetailsOfProducts",
+            "GoogleProfile",
+            "Currency"
           ]
         },
         { "Consignor": ["EORI"] },
@@ -341,6 +574,532 @@
     ]
   },
   "tableConfig": {
+    "ContactPerson": {
+      "title": "Contact Person",
+      "subtitle": "Contact Person",
+      "ItemFieldDefinition": [
+        {
+          "name": "ItemNumber",
+          "type": "string",
+          "width": "10",
+          "Option": "Optional",
+          "adaptiveCard": "Additional",
+          "SLabel": "Item Number",
+          "Update": "No"
+        },
+        {
+          "name": "ItemStatus99",
+          "type": "string",
+          "width": "50",
+          "Option": "Optional",
+          "adaptiveCard": "Additional",
+          "SLabel": "Status",
+          "Update": "Yes"
+        },
+        {
+          "name": "cTitle",
+          "type": "string",
+          "width": "50",
+          "Option": "Mandatory",
+          "adaptiveCard": "Main",
+          "SLabel": "Title"
+        },
+        {
+          "name": "cFirstName",
+          "type": "string",
+          "width": "100",
+          "Option": "Mandatory",
+          "adaptiveCard": "Main",
+          "SLabel": "FirstName"
+        },
+        {
+          "name": "cLastName",
+          "type": "string",
+          "width": "100",
+          "Option": "Mandatory",
+          "adaptiveCard": "Main",
+          "SLabel": "LastName"
+        },
+        {
+          "name": "cSpeciality",
+          "type": "string",
+          "width": "100",
+          "Option": "Optional",
+          "adaptiveCard": "Main",
+          "SLabel": "Speciality"
+        },
+        {
+          "name": "cEmail",
+          "type": "Email",
+          "width": "100",
+          "Option": "Mandatory",
+          "adaptiveCard": "Main",
+          "SLabel": "Email"
+        },
+        {
+          "name": "cPostCode",
+          "type": "string",
+          "width": "20",
+          "Option": "Optional",
+          "adaptiveCard": "Main",
+          "SLabel": "PostCode"
+        },
+        {
+          "name": "cAddress",
+          "type": "string",
+          "width": "500",
+          "Option": "Optional",
+          "adaptiveCard": "Main",
+          "SLabel": "Address"
+        },
+        {
+          "name": "cInstitutionName",
+          "type": "string",
+          "width": "500",
+          "Option": "Optional",
+          "adaptiveCard": "Main",
+          "SLabel": "InstitutionName"
+        }
+      ],
+      "DisplayFields": [
+        "cTitle",
+        "cFirstName",
+        "cLastName",
+        "cEmail",
+        "cPostCode",
+        "cAddress",
+        "ItemStatus99"
+      ],
+      "detailCharts": [],
+      "cards": [],
+      "ItemButtons": {
+        "itemDisplay": true,
+        "itemCheck": false,
+        "itemAdd": true,
+        "itemEdit": true,
+        "itemDelete": false
+      },
+      "CreateFields": [
+        "cTitle",
+        "cFirstName",
+        "cLastName",
+        "cSpeciality",
+        "cEmail",
+        "cPostCode",
+        "cAddress",
+        "cInstitutionName",
+        "ItemStatus99"
+      ],
+      "ItemDetails": [
+        { "name": "cTitle" },
+        { "name": "cFirstName" },
+        { "name": "cLastName" },
+        { "name": "cSpeciality" },
+        { "name": "cEmail" },
+        { "name": "cPostCode" },
+        { "name": "cAddress" },
+        { "name": "cInstitutionName" },
+        { "name": "ItemStatus99" }
+      ]
+    },
+    "BusinessUnits": {
+      "title": "Business Units",
+      "subtitle": "Business Units",
+      "ItemFieldDefinition": [
+        {
+          "name": "ItemNumber",
+          "type": "string",
+          "width": "10",
+          "Option": "Optional",
+          "adaptiveCard": "Additional",
+          "SLabel": "Item Number",
+          "Update": "No"
+        },
+        {
+          "name": "ItemStatus99",
+          "type": "string",
+          "width": "50",
+          "Option": "Optional",
+          "adaptiveCard": "Additional",
+          "SLabel": "Status",
+          "Update": "Yes"
+        },
+        {
+          "name": "bID",
+          "type": "string",
+          "width": "50",
+          "Option": "Mandatory",
+          "adaptiveCard": "Main",
+          "SLabel": "BU ID"
+        },
+        {
+          "name": "bName",
+          "type": "string",
+          "width": "100",
+          "Option": "Mandatory",
+          "adaptiveCard": "Main",
+          "SLabel": "BU Name"
+        },
+        {
+          "name": "bEmail",
+          "type": "Email",
+          "width": "100",
+          "Option": "Mandatory",
+          "adaptiveCard": "Main",
+          "SLabel": "BU Email"
+        },
+        {
+          "name": "bPostCode",
+          "type": "string",
+          "width": "10",
+          "Option": "Optional",
+          "adaptiveCard": "Main",
+          "SLabel": "BU PostCode"
+        },
+        {
+          "name": "bAddress",
+          "type": "string",
+          "width": "200",
+          "Option": "Optional",
+          "adaptiveCard": "Main",
+          "SLabel": "BU Address"
+        }
+      ],
+      "DisplayFields": [
+        "bID",
+        "bName",
+        "bEmail",
+        "bPostCode",
+        "bAddress",
+        "ItemStatus99"
+      ],
+      "detailCharts": [],
+      "cards": [],
+      "ItemButtons": {
+        "itemDisplay": true,
+        "itemCheck": false,
+        "itemAdd": true,
+        "itemEdit": true,
+        "itemDelete": false
+      },
+      "CreateFields": [
+        "bID",
+        "bName",
+        "bEmail",
+        "bPostCode",
+        "bAddress",
+        "ItemStatus99"
+      ],
+      "ItemDetails": [
+        { "name": "bID" },
+        { "name": "bName" },
+        { "name": "bEmail" },
+        { "name": "bPostCode" },
+        { "name": "bAddress" },
+        { "name": "ItemStatus99" }
+      ]
+    },
+    "Bank": {
+      "title": "Bank Details",
+      "subtitle": "Please add bank statements",
+      "ItemFieldDefinition": [
+        {
+          "name": "ItemNumber",
+          "type": "string",
+          "width": "10",
+          "Option": "Optional",
+          "adaptiveCard": "Additional",
+          "SLabel": "Item Number",
+          "Update": "No"
+        },
+        {
+          "name": "ItemStatus99",
+          "type": "string",
+          "width": "50",
+          "Option": "Optional",
+          "adaptiveCard": "Additional",
+          "SLabel": "Status",
+          "Update": "Yes"
+        },
+        {
+          "name": "BankCountry",
+          "type": "string",
+          "width": "10",
+          "Option": "Mandatory",
+          "adaptiveCard": "Main",
+          "SLabel": "Bank Country"
+        },
+        {
+          "name": "AccountNumber",
+          "type": "string",
+          "width": "50",
+          "Option": "Mandatory",
+          "adaptiveCard": "Main",
+          "SLabel": "Account Number"
+        },
+        {
+          "name": "BankKey",
+          "type": "string",
+          "width": "50",
+          "Option": "Mandatory",
+          "adaptiveCard": "Main",
+          "SLabel": "Bank Key"
+        },
+        {
+          "name": "SwiftKey",
+          "type": "string",
+          "width": "50",
+          "Option": "Optional",
+          "adaptiveCard": "Additional",
+          "SLabel": "Swift Key"
+        },
+        {
+          "name": "BankName",
+          "type": "string",
+          "width": "100",
+          "Option": "Optional",
+          "adaptiveCard": "Main",
+          "SLabel": "Bank Name"
+        },
+        {
+          "name": "IBAN",
+          "type": "string",
+          "width": "100",
+          "Option": "Optional",
+          "adaptiveCard": "Main",
+          "SLabel": "IBAN"
+        }
+      ],
+      "DisplayFields": [
+        "IBAN",
+        "BankCountry",
+        "AccountNumber",
+        "BankKey",
+        "SwiftKey",
+        "BankName",
+        "ItemStatus99"
+      ],
+      "detailCharts": [],
+      "cards": [],
+      "ItemButtons": {
+        "itemDisplay": true,
+        "itemCheck": false,
+        "itemAdd": true,
+        "itemEdit": true,
+        "itemDelete": false
+      },
+      "CreateFields": [
+        "BankCountry",
+        "AccountNumber",
+        "BankKey",
+        "SwiftKey",
+        "IBAN",
+        "BankName",
+        "ItemStatus99"
+      ],
+      "ItemDetails": [
+        { "name": "BankCountry" },
+        { "name": "AccountNumber" },
+        { "name": "BankKey" },
+        { "name": "SwiftKey" },
+        { "name": "IBAN" },
+        { "name": "BankName" },
+        { "name": "ItemStatus99" }
+      ]
+    },
+    "Identification": {
+      "title": "Identification",
+      "subtitle": "Identification",
+      "ItemFieldDefinition": [
+        {
+          "name": "ItemNumber",
+          "type": "string",
+          "width": "10",
+          "Option": "Optional",
+          "adaptiveCard": "Additional",
+          "SLabel": "Item Number",
+          "Update": "No"
+        },
+        {
+          "name": "ItemStatus99",
+          "type": "string",
+          "width": "50",
+          "Option": "Optional",
+          "adaptiveCard": "Additional",
+          "SLabel": "Status",
+          "Update": "Yes"
+        },
+        {
+          "name": "idType",
+          "type": "string",
+          "width": "50",
+          "Option": "Optional",
+          "adaptiveCard": "Main",
+          "SLabel": "ID Type",
+          "Update": "Yes"
+        },
+        {
+          "name": "idNumber",
+          "type": "string",
+          "width": "10",
+          "Option": "Mandatory",
+          "adaptiveCard": "Main",
+          "SLabel": "Identification"
+        },
+        {
+          "name": "validityDate",
+          "type": "Date",
+          "width": "10",
+          "Option": "Mandatory",
+          "adaptiveCard": "Main",
+          "SLabel": "Validity Date"
+        },
+        {
+          "name": "Comments",
+          "type": "string",
+          "width": "1000",
+          "Option": "Mandatory",
+          "adaptiveCard": "Main",
+          "SLabel": "Comments"
+        }
+      ],
+      "DisplayFields": [
+        "idType",
+        "idNumber",
+        "validityDate",
+        "Comments",
+        "ItemStatus99"
+      ],
+      "detailCharts": [],
+      "cards": [],
+      "ItemButtons": {
+        "itemDisplay": true,
+        "itemCheck": false,
+        "itemAdd": true,
+        "itemEdit": true,
+        "itemDelete": false
+      },
+      "CreateFields": [
+        "idType",
+        "idNumber",
+        "validityDate",
+        "Comments",
+        "ItemStatus99"
+      ],
+      "ItemDetails": [
+        { "name": "idType" },
+        { "name": "idNumber" },
+        { "name": "validityDate" },
+        { "name": "Comments" },
+        { "name": "ItemStatus99" }
+      ]
+    },
+    "googleReviews": {
+      "title": "google Reviews",
+      "subtitle": "google Reviews",
+      "ItemFieldDefinition": [
+        {
+          "name": "ItemNumber",
+          "type": "string",
+          "width": "10",
+          "Option": "Optional",
+          "adaptiveCard": "Additional",
+          "SLabel": "Item Number",
+          "Update": "No"
+        },
+        {
+          "name": "author_name",
+          "type": "string",
+          "width": "50",
+          "Option": "Optional",
+          "adaptiveCard": "Main",
+          "SLabel": "Author",
+          "Update": "Yes"
+        },
+        {
+          "name": "author_url",
+          "type": "hyperlink",
+          "width": "200",
+          "Option": "Optional",
+          "adaptiveCard": "None",
+          "SLabel": "Author URL"
+        },
+        {
+          "name": "language",
+          "type": "string",
+          "width": "100",
+          "Option": "Optional",
+          "adaptiveCard": "None",
+          "SLabel": "Language"
+        },
+        {
+          "name": "profile_photo_url",
+          "type": "image",
+          "width": "100",
+          "Option": "Optional",
+          "adaptiveCard": "None",
+          "SLabel": "Profile Image"
+        },
+        {
+          "name": "rating",
+          "type": "rating,5",
+          "width": "10",
+          "Option": "Optional",
+          "adaptiveCard": "Main",
+          "SLabel": "Rating"
+        },
+        {
+          "name": "text",
+          "type": "string",
+          "width": "200",
+          "Option": "Optional",
+          "adaptiveCard": "Main",
+          "SLabel": "Review Text"
+        },
+        {
+          "name": "time",
+          "type": "timestamp",
+          "width": "20",
+          "Option": "Optional",
+          "adaptiveCard": "Main",
+          "SLabel": "Date/Time"
+        }
+      ],
+      "DisplayFields": [
+        "profile_photo_url",
+        "author_name",
+        "rating",
+        "text",
+        "time"
+      ],
+      "detailCharts": [],
+      "cards": [],
+      "ItemButtons": {
+        "itemDisplay": true,
+        "itemCheck": false,
+        "itemAdd": false,
+        "itemEdit": false,
+        "itemDelete": false
+      },
+      "CreateFields": [
+        "profile_photo_url",
+        "author_name",
+        "author_url",
+        "language",
+        "rating",
+        "text",
+        "time"
+      ],
+      "ItemDetails": [
+        { "name": "profile_photo_url" },
+        { "name": "author_name" },
+        { "name": "author_url" },
+        { "name": "language" },
+        { "name": "rating" },
+        { "name": "text" },
+        { "name": "time" }
+      ]
+    },
     "carouselImage_ocr": {
       "title": "OCR Data",
       "subtitle": "OCR Data",
@@ -974,6 +1733,241 @@
       "adaptiveCard": "None",
       "SLabel": "Validation",
       "LLabel": "Validation"
+    },
+    {
+      "name": "NumberOfEmployees",
+      "type": "string",
+      "width": "50",
+      "Option": "Optional",
+      "adaptiveCard": "Additional",
+      "SLabel": "NumberOfEmployees"
+    },
+    {
+      "name": "GoogleProfile",
+      "type": "hyperlink",
+      "width": "200",
+      "Option": "Optional",
+      "adaptiveCard": "Additional",
+      "SLabel": "Google Profile",
+      "LLabel": "GoogleProfile"
+    },
+    {
+      "name": "googleReviews",
+      "SLabel": "googleReviews",
+      "type": "Array",
+      "width": "1000",
+      "Option": "Optional",
+      "adaptiveCard": "None"
+    },
+    {
+      "name": "googlePhotos",
+      "SLabel": "googlePhotos",
+      "type": "carouselImage",
+      "width": "100",
+      "Option": "Optional",
+      "adaptiveCard": "None"
+    },
+    {
+      "name": "googleRating",
+      "type": "rating,5",
+      "SLabel": "googleRating",
+      "width": "50",
+      "Option": "Optional",
+      "adaptiveCard": "None"
+    },
+    {
+      "name": "USP_Image",
+      "SLabel": "hyperlink",
+      "type": "string",
+      "width": "500",
+      "Option": "Optional",
+      "adaptiveCard": "None"
+    },
+
+    {
+      "name": "opening_hours",
+      "SLabel": "opening_hours",
+      "type": "string",
+      "width": "1000",
+      "Option": "Optional",
+      "adaptiveCard": "None"
+    },
+    {
+      "name": "businessIcon",
+      "type": "string",
+      "width": "200",
+      "Option": "Optional",
+      "adaptiveCard": "None",
+      "SLabel": "businessIcon",
+      "LLabel": "businessIcon"
+    },
+    {
+      "name": "businessTypes",
+      "type": "string",
+      "width": "200",
+      "Option": "Optional",
+      "adaptiveCard": "None",
+      "SLabel": "businessTypes"
+    },
+    {
+      "name": "ContactPerson",
+      "type": "Array",
+      "width": "200",
+      "Option": "Optional",
+      "adaptiveCard": "None",
+      "SLabel": "ContactPerson"
+    },
+    {
+      "name": "BusinessUnits",
+      "type": "Array",
+      "width": "200",
+      "Option": "Optional",
+      "adaptiveCard": "None",
+      "SLabel": "BusinessUnits"
+    },
+    {
+      "name": "Bank",
+      "type": "Array",
+      "width": "200",
+      "Option": "Optional",
+      "adaptiveCard": "None",
+      "SLabel": "Bank"
+    },
+    {
+      "name": "Identification",
+      "type": "Array",
+      "width": "200",
+      "Option": "Optional",
+      "adaptiveCard": "None",
+      "SLabel": "Identification"
+    },
+    {
+      "name": "GeographicalCoverage",
+      "SLabel": "GeographicalCoverage",
+      "type": "string",
+      "width": "100",
+      "Option": "Optional",
+      "adaptiveCard": "Main"
+    },
+    {
+      "name": "PastSupplier",
+      "SLabel": "PastSupplier",
+      "type": "string",
+      "width": "100",
+      "Option": "Optional",
+      "adaptiveCard": "Main"
+    },
+    {
+      "name": "IntrestArea",
+      "SLabel": "IntrestArea",
+      "type": "string",
+      "width": "500",
+      "Option": "Optional",
+      "adaptiveCard": "Main"
+    },
+    {
+      "name": "DetailsOfServices",
+      "SLabel": "DetailsOfServices",
+      "type": "string",
+      "width": "500",
+      "Option": "Optional",
+      "adaptiveCard": "Main"
+    },
+    {
+      "name": "DetailsOfProducts",
+      "SLabel": "DetailsOfProducts",
+      "type": "string",
+      "width": "500",
+      "Option": "Optional",
+      "adaptiveCard": "Main"
+    },
+    {
+      "name": "Phone",
+      "SLabel": "Phone",
+      "type": "string",
+      "width": "100",
+      "Option": "Optional",
+      "adaptiveCard": "Main"
+    },
+    {
+      "name": "Language",
+      "SLabel": "Language",
+      "type": "string",
+      "width": "100",
+      "Option": "Optional",
+      "adaptiveCard": "Main"
+    },
+    {
+      "name": "DateOfRegistration",
+      "SLabel": "DateOfRegistration",
+      "type": "Date",
+      "width": "10",
+      "Option": "Optional",
+      "adaptiveCard": "Main"
+    },
+    {
+      "name": "CompanyName",
+      "SLabel": "CompanyName",
+      "type": "string",
+      "width": "50",
+      "Option": "Optional",
+      "adaptiveCard": "None"
+    },
+    {
+      "name": "Email",
+      "SLabel": "Email",
+      "type": "string",
+      "width": "200",
+      "Option": "Mandatory",
+      "adaptiveCard": "Main"
+    },
+    {
+      "name": "CompanyType",
+      "SLabel": "CompanyType",
+      "type": "string",
+      "width": "50",
+      "Option": "Optional",
+      "adaptiveCard": "Main"
+    },
+    {
+      "name": "WebSiteURL",
+      "SLabel": "WebSiteURL",
+      "type": "hyperlink",
+      "width": "50",
+      "Option": "Optional",
+      "adaptiveCard": "Main"
+    },
+    {
+      "name": "AnnualTurnover",
+      "SLabel": "AnnualTurnover",
+      "type": "string",
+      "width": "50",
+      "Option": "Optional",
+      "adaptiveCard": "Main"
+    },
+    {
+      "name": "YearEstablish",
+      "SLabel": "YearEstablish",
+      "type": "string",
+      "width": "100",
+      "Option": "Optional",
+      "adaptiveCard": "Main"
+    },
+    {
+      "name": "Address",
+      "SLabel": "Address",
+      "type": "string",
+      "width": "1000",
+      "Option": "Optional",
+      "adaptiveCard": "Main"
+    },
+    {
+      "name": "PostCode",
+      "SLabel": "PostCode",
+      "type": "string",
+      "width": "50",
+      "Option": "Optional",
+      "adaptiveCard": "Main"
     }
   ],
   "itemData": "No",
@@ -1007,7 +2001,12 @@
         { "name": "PARTY_TYPE", "Mode": "Edit" },
         { "name": "TID", "Mode": "Edit" },
         { "name": "IDENTIFICATION_TYPE", "Mode": "Edit" },
-        { "name": "NAME", "Mode": "Edit" }
+        { "name": "NAME", "Mode": "Edit" },
+        { "name": "CompanyName", "Mode": "Edit" },
+        { "name": "GoogleProfile", "Mode": "Edit" },
+        { "name": "DateOfRegistration", "Mode": "Edit" },
+        { "name": "YearEstablish", "Mode": "Edit" },
+        { "name": "AnnualTurnover", "Mode": "Edit" }
       ],
       "name": "Document Scanning",
       "stepType": "FieldList",
@@ -1023,7 +2022,9 @@
         { "name": "CNTRY", "Mode": "Edit" },
         { "name": "COUNTRY_CODE", "Mode": "Edit" },
         { "name": "PROVINCE", "Mode": "Edit" },
-        { "name": "PROVINCE_CODE", "Mode": "Edit" }
+        { "name": "PROVINCE_CODE", "Mode": "Edit" },
+        { "name": "Address", "Mode": "Edit" },
+        { "name": "PostCode", "Mode": "Edit" }
       ],
       "name": "Images and Attachment",
       "stepType": "carouselImage",
@@ -1033,21 +2034,40 @@
       "id": "Step3",
       "fields": [
         { "name": "PARTY_TEL_NUMBER", "Mode": "Edit" },
-        { "name": "EMAIL", "Mode": "Edit" }
+        { "name": "EMAIL", "Mode": "Edit" },
+        { "name": "Phone", "Mode": "Edit" },
+        { "name": "Email", "Mode": "Edit" },
+        { "name": "WebSiteURL", "Mode": "Edit" },
+        { "name": "Language", "Mode": "Edit" },
+        { "name": "CompanyType", "Mode": "Edit" },
+        { "name": "PastSupplier", "Mode": "Edit" }
       ],
       "name": "Images and Attachment",
       "stepType": "carouselImage",
       "intro": "Screenshots and Images : Here you can upload screenshots, images (jpg, png, etc..)"
     },
     {
-      "id": "Step3",
+      "id": "Step4",
+      "fields": [
+        { "name": "DetailsOfProducts", "Mode": "Edit" },
+        { "name": "DetailsOfServices", "Mode": "Edit" },
+        { "name": "IntrestArea", "Mode": "Edit" },
+        { "name": "GeographicalCoverage", "Mode": "Edit" },
+        { "name": "Status", "Mode": "Edit" }
+      ],
+      "name": "Products and Services",
+      "stepType": "FieldList",
+      "intro": "Supplier Registration : Products and Services"
+    },
+    {
+      "id": "Step5",
       "fields": [{ "name": "carouselImage", "Mode": "Edit" }],
       "name": "Images and Attachment",
       "stepType": "carouselImage",
       "intro": "Screenshots and Images : Here you can upload screenshots, images (jpg, png, etc..)"
     },
     {
-      "id": "Step5",
+      "id": "Step6",
       "fields": [{ "name": "MultiAttachments", "Mode": "Edit" }],
       "name": "MultiAttachments",
       "stepType": "Attachments",
@@ -1061,7 +2081,7 @@
       }
     },
     {
-      "id": "Step6",
+      "id": "Step7",
       "fields": [
         { "name": "EORI", "Mode": "Edit" },
         { "name": "Status", "Mode": "Edit" }

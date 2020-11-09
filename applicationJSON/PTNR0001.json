@@ -58,5 +58,148 @@
   "PARTY_TYPE": "",
   "PROVINCE": "",
   "PROVINCE_CODE": "",
-  "EORI": ""
+  "EORI": "",
+  "CompanyName": {
+    "type": "String",
+    "maxlength": [50, "CompanyName can not be more than 50 characters"]
+  },
+  "CompanyType": {
+    "type": "String",
+    "maxlength": [50, "CompanyType can not be more than 50 characters"]
+  },
+  "CompanyRegistrationNumber": {
+    "type": "String",
+    "maxlength": [
+      50,
+      "CompanyRegistrationNumber can not be more than 50 characters"
+    ],
+    "match": [
+      "UK_COMPANY_REG_V1",
+      "Please provide valid company Registration Number in field : CompanyRegistrationNumber"
+    ]
+  },
+  "WebSiteURL": {
+    "type": "String",
+    "maxlength": [200, "WebSiteURL can not be more than 200 characters"]
+  },
+  "VATRegistration": {
+    "type": "String",
+    "maxlength": [50, "VATRegistration can not be more than 50 characters"],
+    "match": [
+      "UK_VATREGNO_V1",
+      "Please provide valid VAT Registration number in field : VATRegistration"
+    ]
+  },
+  "DUNSNumber": {
+    "type": "String",
+    "maxlength": [50, "DUNSNumber can not be more than 50 characters"],
+    "match": ["DUNS_NUM_V1", "Invalid DUNS Number for Field :DUNSNumber"]
+  },
+  "AnnualTurnover": {
+    "type": "String",
+    "maxlength": [50, "AnnualTurnover can not be more than 50 characters"]
+  },
+  "YearEstablish": {
+    "type": "String",
+    "maxlength": [100, "YearEstablish can not be more than 100 characters"],
+    "match": ["YEAR_V1", "Please provide 4 digit year in field :YearEstablish"]
+  },
+  "HouseNo": {
+    "type": "String",
+    "maxlength": [50, "HouseNo can not be more than 50 characters"]
+  },
+  "Street": {
+    "type": "String",
+    "maxlength": [50, "Street can not be more than 50 characters"]
+  },
+  "City": {
+    "type": "String",
+    "maxlength": [50, "City can not be more than 50 characters"]
+  },
+  "POBox": {
+    "type": "String",
+    "maxlength": [50, "POBox can not be more than 50 characters"]
+  },
+  "PostCode": {
+    "type": "String",
+    "maxlength": [50, "PostCode can not be more than 50 characters"],
+    "match": [
+      "UK_POSTCODE_V1",
+      "Please provide valid UK Post Code in field :PostCode"
+    ]
+  },
+
+  "Country": {
+    "type": "String",
+    "maxlength": [50, "Country can not be more than 50 characters"]
+  },
+  "GeographicalCoverage": {
+    "type": "String",
+    "maxlength": [
+      100,
+      "GeographicalCoverage can not be more than 100 characters"
+    ]
+  },
+  "IntrestArea": {
+    "type": "String",
+    "maxlength": [100, "IntrestArea can not be more than 100 characters"]
+  },
+  "DetailsOfServices": {
+    "type": "String",
+    "maxlength": [100, "DetailsOfServices can not be more than 100 characters"]
+  },
+  "DetailsOfProducts": {
+    "type": "String",
+    "maxlength": [100, "DetailsOfProducts can not be more than 100 characters"]
+  },
+  "JobTitle": {
+    "type": "String",
+    "maxlength": [100, "JobTitle can not be more than 100 characters"]
+  },
+  "Email": {
+    "type": "String",
+    "maxlength": [200, "Email can not be more than 200 characters"]
+  },
+  "Phone": {
+    "type": "String",
+    "maxlength": [100, "Phone can not be more than 100 characters"]
+  },
+  "Language": {
+    "type": "String",
+    "maxlength": [100, "Language can not be more than 100 characters"]
+  },
+  "GoogleProfile": {
+    "type": "String"
+  },
+  "Address": "",
+  "PastSupplier": {
+    "type": "String",
+    "maxlength": [20, "PastSupplier can not be more than 20 characters"]
+  },
+  "DateOfRegistration": {
+    "type": "Date",
+    "maxlength": [10, "DateOfRegistration can not be more than 10 characters"],
+    "match": [
+      "DATE_V1",
+      "Please provide date in YYYY-MM-DD format for field :DateOfRegistration"
+    ]
+  },
+  "NumberOfEmployees": {
+    "type": "Number",
+    "maxlength": [50, "NumberOfEmployees can not be more than 50 characters"],
+    "match": [
+      "NUM_INT_MAX_10D_V1",
+      "Please provide an Integer value for field :NumberOfEmployees"
+    ]
+  },
+  "googleReviews": [],
+  "googlePhotos": [],
+  "opening_hours": "",
+  "googleRating": "",
+  "businessIcon": "",
+  "businessTypes": [],
+  "ContactPerson": {},
+  "BusinessUnits": {},
+  "Bank": {},
+  "Identification": {}
 }
