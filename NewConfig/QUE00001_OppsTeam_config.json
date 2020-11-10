@@ -360,14 +360,14 @@
 
         {
           "name": "imageBody",
-          "type": "string",
+          "type": "nodeobject",
           "width": "5000",
           "Option": "Optional",
           "adaptiveCard": "Additional",
           "SLabel": "imageBody"
         }
       ],
-      "DisplayFields": ["image", "imageBody"],
+      "DisplayFields": ["image"],
       "detailCharts": [],
       "cards": [],
       "ItemButtons": {
@@ -378,7 +378,13 @@
         "itemDelete": true
       },
       "CreateFields": ["image", "imageBody"],
-      "ItemDetails": [{ "name": "image" }, { "name": "imageBody" }]
+      "ItemDetails": [
+        { "name": "image" },
+        {
+          "name": "imageBody",
+          "attributes": ["row", "vertices", "col", "val", "Proposal"]
+        }
+      ]
     },
     "checks": {
       "title": "Document Checks",
