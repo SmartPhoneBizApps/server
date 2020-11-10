@@ -22,17 +22,14 @@ exports.ocrScanning = asyncHandler(async (req, res, next) => {
       },
       body: body,
     },
-
     function (error0, response0, body0) {
       console.log(body0);
-
       res.status(201).json({
         success: true,
         data: body0,
       });
     }
   );
-
   res.status(200).json({
     success: true,
     message:
