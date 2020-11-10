@@ -100,11 +100,12 @@
       "name": "OCR Attachments",
       "icon": "sap-icon://attachment-e-pub",
       "parameters": {
-        "filters": [{ "Method": "Upload" }],
+        "filters": [{ "Status": ["Uploaded", "Manual"] }],
         "defaultValues": [{ "Status": "OCRDone" }],
         "images": "carouselImage",
         "ocr": "carouselImage_ocr",
-        "text": "carouselImage_text"
+        "text": "carouselImage_text",
+        "sourceFields": ["carouselImage", "MultiAttachments"]
       }
     },
     {
@@ -192,6 +193,18 @@
       "type": "IMAGEFORM",
       "name": "Form with Image",
       "icon": "sap-icon://image-viewer"
+    },
+    {
+      "type": "OCRATTACH",
+      "name": "OCR Attachments",
+      "icon": "sap-icon://attachment-e-pub",
+      "parameters": {
+        "filters": [{ "Status": ["Uploaded", "Manual"] }],
+        "defaultValues": [{ "Status": "OCRDone" }],
+        "images": "carouselImage",
+        "ocr": "carouselImage_ocr",
+        "text": "carouselImage_text"
+      }
     }
   ],
   "Tabs": [
