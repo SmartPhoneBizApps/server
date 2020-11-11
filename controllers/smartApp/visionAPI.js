@@ -30,20 +30,20 @@ exports.visionAPI = asyncHandler(async (req, res, next) => {
   logo = {};
   text = {};
 
-  if (req.headers.imagetype == "Place") {
-    [landmark] = await client.landmarkDetection(fileName);
-    [label] = await client.labelDetection(fileName);
-  }
-  //People
-  if (req.headers.imagetype == "People") {
-    [face] = await client.faceDetection(fileName);
-    [label] = await client.labelDetection(fileName);
-  }
-  //logo
-  if (req.headers.imagetype == "Logo") {
-    [logo] = await client.logoDetection(fileName);
-    [label] = await client.labelDetection(fileName);
-  }
+  // if (req.headers.imagetype == "Place") {
+  //   [landmark] = await client.landmarkDetection(fileName);
+  //   [label] = await client.labelDetection(fileName);
+  // }
+  // //People
+  // if (req.headers.imagetype == "People") {
+  //   [face] = await client.faceDetection(fileName);
+  //   [label] = await client.labelDetection(fileName);
+  // }
+  // //logo
+  // if (req.headers.imagetype == "Logo") {
+  //   [logo] = await client.logoDetection(fileName);
+  //   [label] = await client.labelDetection(fileName);
+  // }
   //Invoice
   //Bill
   //PurchaseOrder
@@ -54,12 +54,13 @@ exports.visionAPI = asyncHandler(async (req, res, next) => {
     req.headers.imagetype == "Bill" ||
     req.headers.imagetype == "PurchaseOrder" ||
     req.headers.imagetype == "PO" ||
-    req.headers.imagetype == "Receipt"
+    req.headers.imagetype == "Receipt" ||
+    req.headers.imagetype == "BillOfLading" ||
+    req.headers.imagetype == "ImportClearance"
   ) {
     const [text] = await client.textDetection(fileName);
     textOut = text.textAnnotations;
 
-    //  console.log("Text :", text["description"], text["boundingPoly"]);
     if (text.textAnnotations.length > 0) {
       TR = 0;
       BL = 0;
@@ -183,26 +184,56 @@ exports.visionAPI = asyncHandler(async (req, res, next) => {
       for (let p = 0; p < Outdata.length; p++) {
         if (Outdata[p]["row"] == aRows[a]["row"]) {
           aOuts.push({ ...Outdata[p] });
-          //          Outdata = {}
         }
       }
     }
+  }
+  if (req.headers.mode == undefined) {
+    res.status(200).json({
+      success: true,
+      ocr: aOuts,
+    });
+  }
+  if (req.headers.mode == "Rows") {
+    res.status(200).json({
+      success: true,
+      ocr: aOuts,
+    });
+  }
+  if (req.headers.mode == "Para") {
+    res.status(200).json({
+      success: true,
+      ocr: aOuts,
+    });
+  }
+  if (req.headers.mode == "Coloums") {
+    res.status(200).json({
+      success: true,
+      ocr: Outdata,
+    });
+  }
+  if (req.headers.mode == "All") {
+    res.status(200).json({
+      success: true,
+      ocr: Outdata,
+      ocr2: aOuts,
+    });
   }
   //-----------------------------------------
   //                   OCR
   //-----------------------------------------
   // textOut = "";
-  res.status(200).json({
-    success: true,
-    //ocr: aOuts,
-    ocr: Outdata,
-    rows: aRows,
-    label: label.labelAnnotations,
-    logo: logo.logoAnnotations,
-    landmark: landmark.landmarkAnnotations,
-    face: face.faceAnnotations,
-    //text: textOut,
-    //web: web.webAnnotations,
-    //ocr2: aOuts,
-  });
+  // res.status(200).json({
+  //   success: true,
+  //   //ocr: aOuts,
+  //   ocr: Outdata,
+  //   rows: aRows,
+  //   label: label.labelAnnotations,
+  //   logo: logo.logoAnnotations,
+  //   landmark: landmark.landmarkAnnotations,
+  //   face: face.faceAnnotations,
+  //   //text: textOut,
+  //   //web: web.webAnnotations,
+  //   //ocr2: aOuts,
+  // });
 });
