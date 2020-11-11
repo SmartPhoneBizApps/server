@@ -61,8 +61,8 @@ app.use(cors());
 // Set static folder
 app.use(express.static(path.join(__dirname, "public")));
 
-app.use(express.json({ limit: "25mb" }));
-app.use(express.urlencoded({ limit: "25mb" }));
+app.use(bodyParser.json({ limit: "50mb", extended: true }));
+app.use(bodyParser.urlencoded({ limit: "50mb", extended: true }));
 
 //  -------------------------------------------------
 //  ----------  ***** BUSINESS USERS *****  ---------
