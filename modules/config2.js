@@ -224,7 +224,7 @@ module.exports = {
     }
     if (req.params.mode == "listcards") {
       fieldSet = collectListFields(config1["ListFields"]);
-      console.log("Web Field List", fieldSet);
+      //  console.log("Web Field List", fieldSet);
       fSet = fieldSet.join(" ");
       query = query.select(fSet);
     }
