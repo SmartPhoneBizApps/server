@@ -167,12 +167,10 @@ exports.visionAPI = asyncHandler(async (req, res, next) => {
             mCol = {};
           }
         }
-
-        var n = oRows["val"].toLowerCase().search("shop name");
-
-        if (n) {
-          oRows["Proposal"] = "Atul";
-        }
+        // var n = oRows["val"].toLowerCase().search("shop name");
+        // if (n) {
+        //   oRows["Proposal"] = "Atul";
+        // }
         aRows.push({ ...oRows });
         oRows = {};
       }
@@ -196,8 +194,8 @@ exports.visionAPI = asyncHandler(async (req, res, next) => {
   // textOut = "";
   res.status(200).json({
     success: true,
-    ocr: aOuts,
-    //  ocr2: Outdata,
+    //ocr: aOuts,
+    ocr2: Outdata,
     label: label.labelAnnotations,
     logo: logo.logoAnnotations,
     landmark: landmark.landmarkAnnotations,
