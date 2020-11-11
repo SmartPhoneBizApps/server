@@ -25,6 +25,11 @@ const app = express();
 
 // Body parser
 app.use(express.json());
+app.use(express.limit(10000000));
+//app.use(express.json({ limit: "50mb", extended: true }));
+//app.use(express.urlencoded({ limit: "50mb", extended: true }));
+//app.use(bodyParser.json({ limit: "50mb", extended: true }));
+//app.use(bodyParser.urlencoded({ limit: "50mb", extended: true }));
 
 // Cookie parser
 app.use(cookieParser());
@@ -61,9 +66,6 @@ app.use(cors());
 
 // Set static folder
 app.use(express.static(path.join(__dirname, "public")));
-
-app.use(bodyParser.json({ limit: "50mb", extended: true }));
-app.use(bodyParser.urlencoded({ limit: "50mb", extended: true }));
 
 //  -------------------------------------------------
 //  ----------  ***** BUSINESS USERS *****  ---------
