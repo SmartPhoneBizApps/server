@@ -197,13 +197,13 @@ exports.visionAPI = asyncHandler(async (req, res, next) => {
   if (req.headers.mode == "Rows") {
     res.status(200).json({
       success: true,
-      ocr: aOuts,
+      ocr: aRows,
     });
   }
   if (req.headers.mode == "Para") {
     res.status(200).json({
       success: true,
-      ocr: aOuts,
+      ocr: aRows,
     });
   }
   if (req.headers.mode == "Coloums") {
@@ -215,7 +215,6 @@ exports.visionAPI = asyncHandler(async (req, res, next) => {
   if (req.headers.mode == "All") {
     res.status(200).json({
       success: true,
-      ocr: Outdata,
       ocr2: aOuts,
     });
   }
