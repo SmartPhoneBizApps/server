@@ -195,7 +195,8 @@ exports.visionAPI = asyncHandler(async (req, res, next) => {
   res.status(200).json({
     success: true,
     //ocr: aOuts,
-    ocr2: Outdata,
+    ocr: Outdata,
+    rows: aRows,
     label: label.labelAnnotations,
     logo: logo.logoAnnotations,
     landmark: landmark.landmarkAnnotations,
