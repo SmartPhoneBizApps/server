@@ -90,7 +90,8 @@ exports.visionAPI = asyncHandler(async (req, res, next) => {
         Row["y"] = val;
         myRows.push({ ...Row });
       });
-
+      oRows = {};
+      aRows = [];
       nRow = {};
       myRows2 = [];
       X2 = 0;
@@ -114,7 +115,6 @@ exports.visionAPI = asyncHandler(async (req, res, next) => {
             if (lst["boundingPoly"]["vertices"][0]["y"] == myRows[j]["y"]) {
               nRow["row"] = myRows[j]["row"];
               nRow["y"] = myRows[j]["y"];
-
               if (nRow["row"] != R1) {
                 nRow["diff"] = 0;
                 col = 1;
@@ -138,107 +138,72 @@ exports.visionAPI = asyncHandler(async (req, res, next) => {
         }
       }
       counter = 0;
-
       Outdata = [];
+      oOut = {};
+      aOuts = [];
       for (let j = 1; j < lineNumber + 1; j++) {
         mRow = {};
         mCol = {};
         colTab = [];
-
         col = 0;
         Temp_c = "";
+        oRows["row"] = "R" + j;
+        oRows["vertices"] = "";
+        oRows["col"] = "ROW";
+        oRows["val"] = "";
+        oRows["Proposal"] = "";
+
         for (let f = 0; f < myRows2.length; f++) {
           if (myRows2[f]["row"] == j) {
+            oRows["val"] = oRows["val"] + " " + myRows2[f]["description"];
             mCol["row"] = "R" + j;
             mCol["vertices"] = myRows2[f]["vertices"];
-            //        if (col != myRows2[f]["col"]) {
             col = col + 1;
             mCol["col"] = "C" + col;
             mCol["val"] = myRows2[f]["description"];
             Temp_c = myRows2[f]["description"];
-            // } else {
-            //   col = col + 1;
-            //   mCol["col"] = "C" + col;
-            //   mCol["val"] = Temp_c + " " + myRows2[f]["description"];
-            //   Temp_c = myRows2[f]["description"];
-            // }
             mCol["Proposal"] = "";
             Outdata.push({ ...mCol });
             mCol = {};
           }
         }
+
+        var n = oRows["val"].toLowerCase().search("shop name");
+
+        if (n) {
+          oRows["Proposal"] = "Atul";
+        }
+        aRows.push({ ...oRows });
+        oRows = {};
       }
-      // for (let j = 1; j < lineNumber + 1; j++) {
-      //   mRow = {};
-      //   mCol = {};
-      //   colTab = [];
+    }
+  }
 
-      //   col = 0;
-      //   for (let f = 0; f < myRows2.length; f++) {
-      //     console.log(
-      //       "V-",
-      //       myRows2[f]["description"],
-      //       "R-",
-      //       myRows2[f]["row"],
-      //       "C-",
-      //       myRows2[f]["col"]
-      //     );
-      //     if (myRows2[f]["row"] == j) {
-      //       if (col != myRows2[f]["col"]) {
-      //         col = col + 1;
-      //         mCol["text"] = "C" + col;
-      //         mCol["val"] = myRows2[f]["description"];
-      //       } else {
-      //         mCol["text"] = "C" + col;
-      //         mCol["val"] = mCol["val"] + " " + myRows2[f]["description"];
-      //       }
-      //       colTab.push({ ...mCol });
-      //       mCol = {};
-      //     }
-      //   }
-      //   mRow["nodes"] = colTab;
-      //   mRow["text"] = "R" + j;
-      //   colTab = [];
-
-      //   Outdata.push({ ...mRow });
-      //   mRow = {};
-      // }
-
-      // for (let j = 1; j < lineNumber + 1; j++) {
-      //   mString = [];
-      //   mRow = {};
-      //   col = 0;
-      // for (let f = 0; f < myRows2.length; f++) {
-      //   if (myRows2[f]["row"] == j) {
-      //     if (col != myRows2[f]["col"]) {
-      //       col = col + 1;
-      //       mRow[col] = myRows2[f]["description"];
-      //     } else {
-      //       mRow[col] = mRow[col] + " " + myRows2[f]["description"];
-      //     }
-      //     mRow["row"] = myRows2[f]["row"];
-      //     mString.push(myRows2[f]["description"]);
-      //   }
-      // }
-
-      //   mRow["description"] = mString;
-      //   mout.push({ ...mRow });
-      //   mRow = {};
-      // }
+  for (let j = 1; j < lineNumber + 1; j++) {
+    for (let a = 0; a < aRows.length; a++) {
+      aOuts.push({ ...aRows[a] });
+      for (let p = 0; p < Outdata.length; p++) {
+        if (Outdata[p]["row"] == aRows[a]["row"]) {
+          aOuts.push({ ...Outdata[p] });
+          //          Outdata = {}
+        }
+      }
     }
   }
   //-----------------------------------------
   //                   OCR
   //-----------------------------------------
-  textOut = "";
+  // textOut = "";
   res.status(200).json({
     success: true,
+    ocr: aOuts,
+    //  ocr2: Outdata,
     label: label.labelAnnotations,
     logo: logo.logoAnnotations,
     landmark: landmark.landmarkAnnotations,
     face: face.faceAnnotations,
-    text: textOut,
-    // web: web.webAnnotations,
-    ocr: Outdata,
+    //text: textOut,
+    //web: web.webAnnotations,
+    //ocr2: aOuts,
   });
 });
