@@ -918,7 +918,7 @@ exports.updateDataRecords = asyncHandler(async (req, res, next) => {
         req.body = outdata;
         myData = outdata;
       } else {
-        console.log("UPDATE - Calculation not reqiuired..");
+        //   console.log("UPDATE - Calculation not reqiuired..");
       }
     }
   } else {
