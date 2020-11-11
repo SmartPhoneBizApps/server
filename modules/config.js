@@ -1150,7 +1150,8 @@ module.exports = {
       new: true,
       runValidators: true,
     });
-    clg("Data is updated");
+    console.log("Data is updated");
+
     return result;
   },
   createDocument: function (app, mydata) {
