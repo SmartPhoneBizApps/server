@@ -724,16 +724,16 @@ module.exports = {
           s < appconfig["ControlDisplay"]["Fields"][0].length;
           s++
         ) {
-          console.log("Check0", cVal);
+          //   console.log("Check0", cVal);
           if (
             appconfig["ControlDisplay"]["Fields"][0][s].hasOwnProperty(cVal)
           ) {
             appconfig["ControlDisplay"]["Fields"][0][s][cVal].forEach((ex) => {
               for (let l = 0; l < appconfig["Wizard"].length; l++) {
                 const rkg = appconfig["Wizard"][l];
-                console.log("Check1", rkg);
+                // console.log("Check1", rkg);
                 rkg["fields"].forEach((e1) => {
-                  console.log("Check2", e1["name"], e1);
+                  //    console.log("Check2", e1["name"], e1);
                   if (ex == e1["name"]) {
                     for (let a = 0; a < appconfig["FieldDef"].length; a++) {
                       if (appconfig["FieldDef"][a]["name"] == e1["name"]) {
@@ -810,7 +810,7 @@ module.exports = {
                   }
                 });
               }
-              console.log("Body", body);
+              //    console.log("Body", body);
               aCard["sap.card"]["content"]["body"] = body;
               for (
                 let m = 0;
@@ -829,7 +829,7 @@ module.exports = {
                   aCard["sap.card"]["content"]["actions"][m]["type"] ==
                   "Action.Submit"
                 ) {
-                  console.log("table(FC - adaptiveNew)", mode);
+                  //        console.log("table(FC - adaptiveNew)", mode);
                   aCard["sap.card"]["content"]["actions"][m]["table"] = mode;
                 }
               }
@@ -924,7 +924,7 @@ module.exports = {
             aCard["sap.card"]["content"]["actions"][m]["type"] ==
             "Action.Submit"
           ) {
-            console.log("table", mode);
+            //      console.log("table", mode);
             aCard["sap.card"]["content"]["actions"][m]["table"] = mode;
           }
         }
@@ -1117,7 +1117,7 @@ module.exports = {
         if (
           aCard["sap.card"]["content"]["actions"][m]["type"] == "Action.Submit"
         ) {
-          console.log("table", mode);
+          //    console.log("table", mode);
           aCard["sap.card"]["content"]["actions"][m]["table"] = mode;
         }
       }

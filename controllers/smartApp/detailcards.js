@@ -31,13 +31,13 @@ const {
 // @access    Public
 exports.getDetailCardsNew = async (req, res, next) => {
   // 01 -  Possible values..
-  console.log("01 -  Possible values..");
+  // console.log("01 -  Possible values..");
   pvappconfig = getPVConfig(req.params.app, req.params.role);
   qPV = getPVQuery(req.params.app, req.params.role, pvappconfig);
   let resPV = await qPV;
 
   // 02 -  Initial values..
-  console.log("02 -  Initial values..");
+  // console.log("02 -  Initial values..");
   var ivalue = getInitialValues(req.params.app, req.params.role, req.user);
   let ival_out = [];
   let ival = {};
@@ -52,7 +52,7 @@ exports.getDetailCardsNew = async (req, res, next) => {
   iStatus = 0;
   iMessage = "";
   let appData = [];
-  console.log("03 -  Few Validations..");
+  // console.log("03 -  Few Validations..");
   if (
     req.params.app !== undefined &&
     req.params.app !== "" &&
@@ -109,7 +109,7 @@ exports.getDetailCardsNew = async (req, res, next) => {
   if (appconfig["Controls"]["processflow"] != undefined) {
     if (appconfig["Controls"].hasOwnProperty("processflow")) {
       if (appconfig["Controls"]["processflow"]["active"] == "Yes") {
-        console.log("04 -  Process Flow");
+        //    console.log("04 -  Process Flow");
 
         // Populate Lanes...
         pflow["lanes"] = appconfig["Controls"]["processflow"]["lanes"];
@@ -188,7 +188,7 @@ exports.getDetailCardsNew = async (req, res, next) => {
   }
 
   // 03 -  Tab details..
-  console.log("05 -  Tab details..");
+  //  console.log("05 -  Tab details..");
   cTab = {};
   iTab = [];
   for (let n = 0; n < appconfig["Tabs"].length; n++) {
@@ -214,13 +214,13 @@ exports.getDetailCardsNew = async (req, res, next) => {
           let cardTemplate = {};
           // Find the Chart Config File
           if (appconfig["Controls"]["style"] == "SAP") {
-            console.log("06 -  Header SAP Card..", myCard[k]["cardsubType"]);
+            //   console.log("06 -  Header SAP Card..", myCard[k]["cardsubType"]);
             cardTemplate =
               "../../cards/cardConfig/template_sap_" +
               myCard[k]["cardsubType"] +
               ".json";
           } else {
-            console.log("06 -  Header Google Card..", myCard[k]["cardsubType"]);
+            //   console.log("06 -  Header Google Card..", myCard[k]["cardsubType"]);
             cardTemplate =
               "../../cards/cardConfig/template_google_" +
               myCard[k]["cardsubType"] +
@@ -299,7 +299,7 @@ exports.getDetailCardsNew = async (req, res, next) => {
         appconfig["DetailFields"][i][kc1].forEach((element) => {
           if (element == key) {
             tab = kc1;
-            console.log("07 -  Table / Tab : ", key, tab);
+            //     console.log("07 -  Table / Tab : ", key, tab);
           }
         });
       }
@@ -308,7 +308,7 @@ exports.getDetailCardsNew = async (req, res, next) => {
     // Add Adaptive Card..
     if (appconfig["tableConfig"][key]["ItemButtons"]["itemAdd"] == true) {
       aCard = {};
-      console.log("08 -  Table Adaptive Card : ", key, tab);
+      //  console.log("08 -  Table Adaptive Card : ", key, tab);
       aCard = await adaptiveNew(
         appconfig["tableConfig"][key],
         resPV,
@@ -337,7 +337,7 @@ exports.getDetailCardsNew = async (req, res, next) => {
       }
     }
 
-    console.log("09 -  Again table and tab found : ", appData[key]);
+    // console.log("09 -  Again table and tab found : ", appData[key]);
     // Step T2 - Find the tab ID Tab1, Tab2 etc from field name
     let tabx = "";
     for (const k1 in appconfig["DetailFields"]) {
@@ -347,7 +347,7 @@ exports.getDetailCardsNew = async (req, res, next) => {
         }
       });
     }
-    console.log("10 -  detailCharts : ", appconfig["tableConfig"][key]);
+    //    console.log("10 -  detailCharts : ", appconfig["tableConfig"][key]);
     // Table cards....
 
     if (appconfig["tableConfig"][key]["detailCharts"] != undefined) {
@@ -357,7 +357,7 @@ exports.getDetailCardsNew = async (req, res, next) => {
           x < appconfig["tableConfig"][key]["detailCharts"].length;
           x++
         ) {
-          console.log("11A -  detailCharts : ", key);
+          // console.log("11A -  detailCharts : ", key);
           var myCard = appconfig["tableConfig"][key]["detailCharts"][x];
           aCard = {};
           dt = new Date(0, 0, 0, 12, 0, 0);

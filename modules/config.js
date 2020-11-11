@@ -1785,7 +1785,7 @@ module.exports = {
     return queryStr;
   },
   replaceConfig: function (appconfig, user) {
-    console.log("User Email:", user.email);
+    // console.log("User Email:", user.email);
     let con01 = JSON.stringify(appconfig);
     con01 = con01.replace("@user", user.email);
     con01 = con01.replace("@user", user.email);
