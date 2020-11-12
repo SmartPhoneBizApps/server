@@ -267,7 +267,7 @@ exports.addDataRecords = asyncHandler(async (req, res, next) => {
       myDataFile = JSON.stringify(req.body["carouselImage_ocr"]["imageBody"]);
       rnt1 = await writeFile(fileFilePath, myDataFile);
       console.log(rnt1);
-
+      req.body["carouselImage_ocr"]["imageBody"] = [];
       req.body["carouselImage_ocr"][p]["FileName"] = fileFilePath;
       req.body["carouselImage_ocr"][p]["ItemNumber"] = i + 1;
     }
@@ -857,6 +857,7 @@ exports.updateDataRecords = asyncHandler(async (req, res, next) => {
       myDataFile = JSON.stringify(req.body["carouselImage_ocr"]["imageBody"]);
       rnt1 = await writeFile(fileFilePath, myDataFile);
       console.log(rnt1);
+      req.body["carouselImage_ocr"]["imageBody"] = [];
       req.body["carouselImage_ocr"][p]["FileName"] = fileFilePath;
     }
   }

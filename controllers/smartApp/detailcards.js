@@ -100,7 +100,6 @@ exports.getDetailCardsNew = async (req, res, next) => {
       }
     }
   }
-
   // PROCESS FLOW
   let pflow = {};
   let nod = {};
@@ -187,6 +186,11 @@ exports.getDetailCardsNew = async (req, res, next) => {
     }
   }
 
+  // Get OCR data...
+  if (appData["carouselImage_ocr"] != undefined) {
+    const ocrDataFile = appData["carouselImage_ocr"]["FileName"];
+    appData["carouselImage_ocr"]["imageBody"] = require(ocrDataFile);
+  }
   // 03 -  Tab details..
   //  console.log("05 -  Tab details..");
   cTab = {};
