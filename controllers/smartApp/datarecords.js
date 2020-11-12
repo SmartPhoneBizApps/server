@@ -265,7 +265,8 @@ exports.addDataRecords = asyncHandler(async (req, res, next) => {
       // write the OCR file on the server
       fileFilePath = createFileName("OCR", "JSON", "./public/ocrData/");
       myDataFile = JSON.stringify(req.body["carouselImage_ocr"]["imageBody"]);
-      result = await writeFile(fileFilePath, myDataFile);
+      rnt1 = await writeFile(fileFilePath, myDataFile);
+      console.log(rnt1);
 
       req.body["carouselImage_ocr"][p]["FileName"] = fileFilePath;
       req.body["carouselImage_ocr"][p]["ItemNumber"] = i + 1;
@@ -854,7 +855,8 @@ exports.updateDataRecords = asyncHandler(async (req, res, next) => {
       // write the OCR file on the server
       fileFilePath = createFileName("OCR", "JSON", "./public/ocrData/");
       myDataFile = JSON.stringify(req.body["carouselImage_ocr"]["imageBody"]);
-      result = await writeFile(fileFilePath, myDataFile);
+      rnt1 = await writeFile(fileFilePath, myDataFile);
+      console.log(rnt1);
       req.body["carouselImage_ocr"][p]["FileName"] = fileFilePath;
     }
   }
