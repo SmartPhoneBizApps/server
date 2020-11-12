@@ -1154,6 +1154,56 @@ module.exports = {
 
     return result;
   },
+
+  createFileName: function (prefix, type, path) {
+    counter = Math.floor(10 + Math.random() * 90);
+    var d1 = new Date();
+    var d = d1.toString();
+    an1 = d.split(" ")[4];
+    an2 = an1.split(":");
+
+    if (type == "JSON") {
+      fileName =
+        prefix +
+        d.split(" ")[1] +
+        d.split(" ")[2] +
+        d.split(" ")[3] +
+        "_" +
+        an2[0] +
+        an2[1] +
+        an2[2] +
+        "_" +
+        counter +
+        ".json";
+    }
+
+    if (type == "TXT") {
+      fileName =
+        prefix +
+        d.split(" ")[1] +
+        d.split(" ")[2] +
+        d.split(" ")[3] +
+        "_" +
+        an2[0] +
+        an2[1] +
+        an2[2] +
+        "_" +
+        counter +
+        ".txt";
+    }
+
+    const fileFilePath = path + fileName;
+    console.log("fileName:", fileFilePath);
+
+    return fileFilePath;
+  },
+  writeFile: function (fileFilePath, myDataFile) {
+    fs.appendFile(fileFilePath, myDataFile, function (err) {
+      if (err) throw err;
+      console.log("File created!");
+    });
+    return fileFilePath;
+  },
   createDocument: function (app, mydata) {
     let path = "../models/smartApp/" + app;
     const Model = require(path);

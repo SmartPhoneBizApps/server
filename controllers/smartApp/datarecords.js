@@ -4,10 +4,13 @@ const Company = require("../../models/orgSetup/Company");
 const Branch = require("../../models/orgSetup/Branch");
 const Area = require("../../models/orgSetup/Area");
 const App = require("../../models/appSetup/App");
+var fs = require("fs");
 // const NumberRange = require("../../models/appSetup/NumberRange");
 const { sendErrorMessage, notifiyMessanger } = require("../../modules/config2");
 const {
   getPVConfig,
+  writeFile,
+  createFileName,
   getPVQuery,
   getNewConfig,
   createDocument,
@@ -255,9 +258,16 @@ exports.addDataRecords = asyncHandler(async (req, res, next) => {
     }
   }
   // Handle OCR data
+  //create OCR JSON File on server
   if (req.body["carouselImage_ocr"] != undefined) {
     i = 0;
     for (let p = 0; p < req.body["carouselImage_ocr"].length; p++) {
+      // write the OCR file on the server
+      fileFilePath = createFileName("OCR", "JSON", "./public/ocrData/");
+      myDataFile = JSON.stringify(req.body["carouselImage_ocr"]["imageBody"]);
+      result = await writeFile(fileFilePath, myDataFile);
+
+      req.body["carouselImage_ocr"][p]["FileName"] = fileFilePath;
       req.body["carouselImage_ocr"][p]["ItemNumber"] = i + 1;
     }
   }
@@ -826,24 +836,45 @@ exports.updateDataRecords = asyncHandler(async (req, res, next) => {
   }
 
   // Handle Carousel Image data (add to existing)
-  if (req.body["carouselImage"] != undefined) {
+  if (
+    req.body["carouselImage"] != undefined &&
+    req.headers.buttonType == "EmailScan"
+  ) {
     for (let m = 0; m < myData["carouselImage"].length; m++) {
       console.log("File", myData["carouselImage"][m]);
       req.body["carouselImage"].unshift(myData["carouselImage"][m]);
     }
   }
-  // Handle OCR data
+
+  // Add logic for button (only - Email Attachments)
+  // Handle OCR data (for Email Scan)
+
   if (req.body["carouselImage_ocr"] != undefined) {
-    i = 0;
     for (let p = 0; p < req.body["carouselImage_ocr"].length; p++) {
-      i = i + 1;
-      req.body["carouselImage_ocr"][p]["ItemNumber"] = i;
+      // write the OCR file on the server
+      fileFilePath = createFileName("OCR", "JSON", "./public/ocrData/");
+      myDataFile = JSON.stringify(req.body["carouselImage_ocr"]["imageBody"]);
+      result = await writeFile(fileFilePath, myDataFile);
+      req.body["carouselImage_ocr"][p]["FileName"] = fileFilePath;
     }
-    for (let m = 0; m < myData["carouselImage_ocr"].length; m++) {
-      i = i + 1;
-      myData["carouselImage_ocr"][m]["ItemNumber"] = i;
-      // req.body["carouselImage_ocr"].unshift(myData["carouselImage_ocr"][m]);
-      req.body["carouselImage_ocr"].push(myData["carouselImage_ocr"][m]);
+  }
+
+  if (req.headers.buttonType != undefined) {
+    if (
+      req.body["carouselImage_ocr"] != undefined &&
+      req.headers.buttonType == "EmailScan"
+    ) {
+      i = 0;
+      for (let p = 0; p < req.body["carouselImage_ocr"].length; p++) {
+        i = i + 1;
+        req.body["carouselImage_ocr"][p]["ItemNumber"] = i;
+      }
+      for (let m = 0; m < myData["carouselImage_ocr"].length; m++) {
+        i = i + 1;
+        myData["carouselImage_ocr"][m]["ItemNumber"] = i;
+        // req.body["carouselImage_ocr"].unshift(myData["carouselImage_ocr"][m]);
+        req.body["carouselImage_ocr"].push(myData["carouselImage_ocr"][m]);
+      }
     }
   }
 

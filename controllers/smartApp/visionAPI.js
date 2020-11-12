@@ -152,7 +152,7 @@ exports.visionAPI = asyncHandler(async (req, res, next) => {
         oRows["vertices"] = "";
         oRows["col"] = "ROW";
         oRows["val"] = "";
-        oRows["Proposal"] = "";
+        oRows["Proposal"] = "NotClassified";
 
         for (let f = 0; f < myRows2.length; f++) {
           if (myRows2[f]["row"] == j) {
@@ -163,7 +163,7 @@ exports.visionAPI = asyncHandler(async (req, res, next) => {
             mCol["col"] = "C" + col;
             mCol["val"] = myRows2[f]["description"];
             Temp_c = myRows2[f]["description"];
-            mCol["Proposal"] = "";
+            mCol["Proposal"] = "NotClassified";
             Outdata.push({ ...mCol });
             mCol = {};
           }
